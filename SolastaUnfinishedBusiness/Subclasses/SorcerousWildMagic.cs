@@ -66,6 +66,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Condition{Name}TidesOfChaosAmount")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFixedAmount(1)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionTidesOfChaos = ConditionDefinitionBuilder
@@ -111,7 +112,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
                 .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 4, DieType.D10))
                 .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                 .Build())
@@ -1144,9 +1145,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
+            var powerFireball = WildSurgePowers[1];
+
             attacker.UsedSpecialFeatures.TryAdd(FeatureSpellBombardment.Name, 0);
             attacker.UsedSpecialFeatures[FeatureSpellBombardment.Name] =
-                1; //activeEffect is RulesetEffectSpell ? 1 : 0;
+                activeEffect is RulesetEffectSpell || activeEffect.SourceDefinition == powerFireball ? 1 : 0;
 
             yield break;
         }
