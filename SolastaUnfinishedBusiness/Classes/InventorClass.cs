@@ -895,30 +895,7 @@ internal static class InventorClass
     private sealed class CustomBehaviorInitiatedSoulOfArtifice(FeatureDefinitionPower powerSoulOfArtifice)
         : IRollSavingThrowInitiated, IOnReducedToZeroHpByEnemy
     {
-        public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
-            ref int saveBonus,
-            ref string abilityScoreName,
-            BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
-            List<TrendInfo> advantageTrends,
-            ref int rollModifier,
-            ref int saveDC,
-            ref bool hasHitVisual,
-            RollOutcome outcome,
-            int outcomeDelta,
-            List<EffectForm> effectForms)
-        {
-            var attunedItems = caster.Items.Count(x => x.AttunedToCharacter == x.Name);
-
-            rollModifier += attunedItems;
-            modifierTrends.Add(
-                new TrendInfo(attunedItems, FeatureSourceType.CharacterFeature,
-                    powerSoulOfArtifice.Name, powerSoulOfArtifice));
-        }
-        
-                public IEnumerator HandleReducedToZeroHpByEnemy(
+        public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
@@ -964,7 +941,7 @@ internal static class InventorClass
                 yield break;
             }
 
-            var hitPoints = rulesetCharacter.GetClassLevel(InventorClass.Class);
+            var hitPoints = rulesetCharacter.GetClassLevel(Class);
 
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
@@ -973,6 +950,29 @@ internal static class InventorClass
                 EffectHelpers.EffectType.Caster);
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
+        }
+
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            var attunedItems = caster.Items.Count(x => x.AttunedToCharacter == x.Name);
+
+            rollModifier += attunedItems;
+            modifierTrends.Add(
+                new TrendInfo(attunedItems, FeatureSourceType.CharacterFeature,
+                    powerSoulOfArtifice.Name, powerSoulOfArtifice));
         }
     }
 

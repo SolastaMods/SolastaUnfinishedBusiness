@@ -1,6 +1,9 @@
-﻿namespace SolastaUnfinishedBusiness.Interfaces;
+﻿using JetBrains.Annotations;
+
+namespace SolastaUnfinishedBusiness.Interfaces;
 
 public interface IAllowRerollDice
 {
-    public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm);
+    public bool IsValid(
+        [UsedImplicitly] RulesetActor rulesetActor, DamageForm damageForm);
 }

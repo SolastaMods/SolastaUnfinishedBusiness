@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -310,14 +312,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     {
         var dieType = damageForm.DieType;
         var maxDie = DiceMaxValue[(int)dieType];
-        var levels = rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name);
         var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-        if (levels < 18 ||
-            !rolledValues.Contains(maxDie) ||
-            character == null ||
-            !character.UsedSpecialFeatures.TryGetValue(FeatureSpellBombardment.Name, out var value) ||
-            value == 0)
+        if (!rolledValues.Contains(maxDie) ||
+            !character.UsedSpecialFeatures.ContainsKey(FeatureSpellBombardment.Name))
         {
             return;
         }
@@ -343,14 +341,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             yield break;
         }
 
-        var selectedRoll = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+        var selectedRoll = 0;
 
-        if (Gui.Battle == null)
+        while ((Gui.Battle == null && selectedRoll <= 1) ||
+               (Gui.Battle != null && selectedRoll < 1))
         {
-            while (selectedRoll == 1)
-            {
-                selectedRoll = RollDie(DieType.D20, AdvantageType.None, out _, out _);
-            }
+            selectedRoll = RollDie(DieType.D20, AdvantageType.None, out _, out _);
         }
 
         var selectedPower = WildSurgePowers[selectedRoll - 1];
@@ -374,20 +370,21 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             yield break;
         }
 
-        var wildSurgeDie1 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
-        var wildSurgeDie2 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+        var wildSurgeDie1 = 0;
 
-        if (Gui.Battle == null)
+        while ((Gui.Battle == null && wildSurgeDie1 <= 1) ||
+               (Gui.Battle != null && wildSurgeDie1 < 1))
         {
-            while (wildSurgeDie1 == 1)
-            {
-                wildSurgeDie1 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
-            }
+            wildSurgeDie1 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+        }
 
-            while (wildSurgeDie2 == 1 || wildSurgeDie2 == wildSurgeDie1)
-            {
-                wildSurgeDie2 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
-            }
+        var wildSurgeDie2 = 0;
+
+        while ((Gui.Battle == null && wildSurgeDie2 <= 1) ||
+               (Gui.Battle != null && wildSurgeDie2 < 1) ||
+               wildSurgeDie2 == wildSurgeDie1)
+        {
+            wildSurgeDie2 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
         }
 
         if (wildSurgeDie1 > wildSurgeDie2)
@@ -399,7 +396,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         rulesetAttacker.ShowDieRoll(DieType.D20, wildSurgeDie1, title: FeatureWildMagicSurge.GuiPresentation.Title);
         rulesetAttacker.ShowDieRoll(DieType.D20, wildSurgeDie2, title: FeatureWildMagicSurge.GuiPresentation.Title);
-
         rulesetAttacker.LogCharacterActivatesAbility(
             PowerControlledChaos.FormatTitle(),
             "Feedback/&ControlledChaosDieRoll",
@@ -457,8 +453,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             selectedRoll = choice;
         }
 
-        ApplyWildSurge(attacker, selectedRoll, PowerControlledChaos, selectedPower,
-            "Feedback/&ControlledChaosDieChoice");
+        ApplyWildSurge(
+            attacker, selectedRoll, PowerControlledChaos, selectedPower, "Feedback/&ControlledChaosDieChoice");
     }
 
     //
@@ -474,7 +470,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             if (action is not CharacterActionCastSpell actionCastSell ||
                 actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 ||
-                !attacker.OncePerTurnIsValid("CastedFireball") ||
                 rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name))
             {
                 yield break;
@@ -1137,19 +1132,37 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     // Spell Bombardment
     //
 
-    private sealed class CustomBehaviorSpellBombardment : IMagicEffectInitiatedByMe
+    private sealed class CustomBehaviorSpellBombardment : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            attacker.UsedSpecialFeatures.Remove(FeatureSpellBombardment.Name);
+
+            yield break;
+        }
+
         public IEnumerator OnMagicEffectInitiatedByMe(
             CharacterActionMagicEffect action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            attacker.UsedSpecialFeatures.TryAdd(FeatureSpellBombardment.Name, 0);
-            attacker.UsedSpecialFeatures[FeatureSpellBombardment.Name] =
-                activeEffect is RulesetEffectSpell || activeEffect.SourceDefinition == PowerFireball ? 1 : 0;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var levels = rulesetAttacker.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name);
 
-            yield break;
+            attacker.UsedSpecialFeatures.Remove(FeatureSpellBombardment.Name);
+
+            if (levels < 18 ||
+                (activeEffect is not RulesetEffectSpell &&
+                 activeEffect.SourceDefinition != PowerFireball))
+            {
+                yield break;
+            }
+
+            attacker.UsedSpecialFeatures.Add(FeatureSpellBombardment.Name, 0);
         }
     }
 
@@ -1170,9 +1183,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
 #endif
 
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var rulesetCaster = caster.RulesetCharacter;
 
         rulesetCaster.LogCharacterActivatesPower(
@@ -1198,17 +1208,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you cast Fireball centered on self
             case 2:
-                var usablePowerFireball = PowerProvider.Get(PowerFireball, rulesetCaster);
-                var actionParamsFireball = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-                {
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetCaster, usablePowerFireball, false),
-                    UsablePower = usablePowerFireball,
-                    Positions = { caster.LocationPosition }
-                };
-
-                actionService.ExecuteAction(actionParamsFireball, null, true);
+                ExecutePowerNoCostOnCasterLocation(caster, PowerFireball);
                 break;
 
             // you regain 2D10 hit points
@@ -1286,17 +1286,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you cast grease centered on self
             case 12:
-                var usablePowerGrease = PowerProvider.Get(PowerGrease, rulesetCaster);
-                var actionParamsGrease = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-                {
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetCaster, usablePowerGrease, false),
-                    UsablePower = usablePowerGrease,
-                    Positions = { caster.LocationPosition }
-                };
-
-                actionService.ExecuteAction(actionParamsGrease, null, true);
+                ExecutePowerNoCostOnCasterLocation(caster, PowerGrease);
                 break;
 
             // you cast mirror image on self
@@ -1309,6 +1299,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // each creature within 30 feet of you (other than you) takes 1d10 necrotic damage. You regain hit points equal to the sum of the necrotic damage dealt
             case 14:
+                var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                var implementationManager =
+                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
                 var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
                 var contenders =
                     Gui.Battle?.AllContenders ??
@@ -1382,6 +1375,28 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void ExecutePowerNoCostOnCasterLocation(GameLocationCharacter caster, FeatureDefinitionPower power)
+    {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+        var rulesetCaster = caster.RulesetCharacter;
+
+        var usablePower = PowerProvider.Get(power, rulesetCaster);
+        var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
+        {
+            ActionModifiers = { new ActionModifier() },
+            RulesetEffect = implementationManager
+                .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
+            UsablePower = usablePower,
+            Positions = { caster.LocationPosition }
+        };
+
+        actionService.ExecuteAction(actionParams, null, true);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static void InflictConditionOnRandomCreatureWithinRange(
         GameLocationCharacter caster,
         string conditionName,
@@ -1400,7 +1415,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .Where(x => x.IsWithinRange(caster, range) && x != caster)
             .ToList();
 
-        var random = new Random();
+        var random = new PcgRandom((ulong)DateTime.Now.Ticks);
         var index = random.Next(targets.Count);
         var target = targets.ElementAt(index);
         var rulesetTarget = target.RulesetCharacter;
@@ -1421,6 +1436,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             0);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static void InflictConditionOnCreaturesWithinRange(
         GameLocationCharacter caster,
         string conditionName,

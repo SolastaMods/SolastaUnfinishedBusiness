@@ -225,14 +225,7 @@ internal static class OtherFeats
         // chilled and frozen immunities are handled by srd house rules now
         return FeatDefinitionBuilder
             .Create("FeatFrostAdaptation")
-            .SetFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierFeatFrostAdaptation")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(AttributeModifierOperation.Additive,
-                        AttributeDefinitions.Constitution, 1)
-                    .AddToDB(),
-                DamageAffinityColdResistance)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, DamageAffinityColdResistance)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
