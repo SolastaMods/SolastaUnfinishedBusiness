@@ -1145,11 +1145,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            var powerFireball = WildSurgePowers[1];
-
             attacker.UsedSpecialFeatures.TryAdd(FeatureSpellBombardment.Name, 0);
             attacker.UsedSpecialFeatures[FeatureSpellBombardment.Name] =
-                activeEffect is RulesetEffectSpell || activeEffect.SourceDefinition == powerFireball ? 1 : 0;
+                activeEffect is RulesetEffectSpell || activeEffect.SourceDefinition == PowerFireball ? 1 : 0;
 
             yield break;
         }
@@ -1572,8 +1570,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         {
             attacker.UsedSpecialFeatures.Remove(Tag);
 
-            if (activeEffect is not RulesetEffectSpell ||
-                activeEffect.EffectDescription.FindFirstDamageForm() == null)
+            if ((activeEffect is not RulesetEffectSpell ||
+                 activeEffect.EffectDescription.FindFirstDamageForm() == null) &&
+                activeEffect.SourceDefinition != PowerFireball)
             {
                 yield break;
             }

@@ -3,18 +3,14 @@
 - added Artificer soul of artifice at 20th
 - added Invulnerability and Psychic Scream spells at 9th
 - added Sorcerous Wild Magic subclass [github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/Wild-Magic-Surge]
-- fixed 'Enable Monk Improved Unarmored Movement' always set regardless of UI choice
 - fixed Circle of the Life verdancy condition applying to self only
-- fixed Defensive Duelist feat reacting on critical hits
 - fixed game soft lock when adding, removing, or stacking effect proxies
-- fixed Halberd, Hand Crossbow, Long Mace, and Pike custom DM items to correctly scale on UI
-- fixed Halberd, Hand Crossbow, Long Mace, and Pike recipes not using primed items
-- fixed Oath of Altruism spiritual shielding reacting on critical hits
+- fixed Halberd, Hand Crossbow, Long Mace, and Pike to correctly scale if custom, and recipes to use primed items
+- fixed Monk Improved Unarmored Movement always set regardless of UI choice
+- fixed Oath of Altruism spiritual shielding, and Defensive Duelist feat reacting on critical hits
 - fixed Psionic Blast, and Synaptic Static spells behaviors and SFX
 - fixed Roguish Raven deadly focus not adding advantage on attack re-attempt
 - fixed Roguish Shadowcaster shadow form missing resistance to force damage
-- fixed Second Chance feat, Gloom Stalker shadowy dodge, and Arcane Archer guided shot combat log
-- fixed Shield Master feat reacting on failed physical attacks enforcing a DEX save
 - fixed Warlock pact chain powers recharge rate to long rest [VANILLA]
 
 1.5.97.23:
