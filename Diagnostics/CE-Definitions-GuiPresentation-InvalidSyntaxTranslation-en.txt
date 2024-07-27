@@ -157,7 +157,6 @@ ConditionElementalistNormalIce	Description='Deal additional Cold damage equal to
 ConditionFeatSlayTheEnemies1	Description='You have a bonus to attack and damage rolls equal to 1. If your target is a favored enemy, you have advantage instead of attack roll bonus.'.
 ConditionFeatSlayTheEnemies2	Description='You have a bonus to attack and damage rolls equal to 2. If your target is a favored enemy, you have advantage instead of attack roll bonus.'.
 ConditionFeatSlayTheEnemies3	Description='You have a bonus to attack and damage rolls equal to 3. If your target is a favored enemy, you have advantage instead of attack roll bonus.'.
-ConditionPatronEldritchSurgeBlastOverload	Description='ConditionRaging'.
 ConditionResonatingStrike	Description='-'.
 ConditionShelterFromEnergyDamageAcid	Title='Acid Damage Resistance'.
 ConditionShelterFromEnergyDamageCold	Title='Cold Damage Resistance'.

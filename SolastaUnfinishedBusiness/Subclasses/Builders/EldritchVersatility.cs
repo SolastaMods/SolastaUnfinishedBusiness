@@ -95,7 +95,7 @@ internal static class EldritchVersatilityBuilders
 
     private static readonly ConditionDefinition ConditionEldritchSurgeBlastOverload = ConditionDefinitionBuilder
         .Create($"Condition{PatronEldritchSurge.Name}BlastOverload")
-        .SetGuiPresentation(Category.Condition, ConditionRaging)
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
         .SetFeatures(
             FeatureDefinitionAdditionalActionBuilder
                 .Create($"AdditionalAction{PatronEldritchSurge.Name}BlastOverload")
