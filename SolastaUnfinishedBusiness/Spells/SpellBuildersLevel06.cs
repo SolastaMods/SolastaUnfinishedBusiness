@@ -185,21 +185,21 @@ internal static partial class SpellBuilders
 
     #region Shelter From Energy
 
-    private static readonly List<(string, IMagicEffect, AssetReference)> ShelterDamageTypes =
+    private static readonly List<(FeatureDefinitionDamageAffinity, IMagicEffect, AssetReference)> ShelterDamageTypes =
     [
-        (DamageTypeAcid, AcidArrow,
+        (FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance, AcidArrow,
             PowerDragonbornBreathWeaponBlack.EffectDescription.EffectParticleParameters.impactParticleReference),
-        (DamageTypeCold, SleetStorm,
+        (FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance, SleetStorm,
             PowerBulette_Snow_Leap.EffectDescription.EffectParticleParameters.impactParticleReference),
-        (DamageTypeFire, HeatMetal,
+        (FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance, HeatMetal,
             FireStorm.EffectDescription.EffectParticleParameters.impactParticleReference),
-        (DamageTypeLightning, LightningBolt,
+        (FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance, LightningBolt,
             Thunderstorm.EffectDescription.EffectParticleParameters.impactParticleReference),
-        (DamageTypeNecrotic, FingerOfDeath,
+        (FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance, FingerOfDeath,
             PowerPatronFiendDarkOnesOwnLuck.EffectDescription.EffectParticleParameters.effectParticleReference),
-        (DamageTypeRadiant, GuardianOfFaith,
+        (FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance, GuardianOfFaith,
             PowerOathOfJugementPurgeCorruption.EffectDescription.EffectParticleParameters.effectParticleReference),
-        (DamageTypeThunder, Thunderwave,
+        (FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance, Thunderwave,
             Thunderwave.EffectDescription.EffectParticleParameters.impactParticleReference)
     ];
 
@@ -209,8 +209,9 @@ internal static partial class SpellBuilders
 
         var subSpells = new List<SpellDefinition>();
 
-        foreach (var (damageType, casterEffect, impactEffect) in ShelterDamageTypes)
+        foreach (var (damageAffinity, casterEffect, impactEffect) in ShelterDamageTypes)
         {
+            var damageType = damageAffinity.Name.Replace("Affinity", string.Empty).Replace("Resistance", string.Empty);
             var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
             var description = Gui.Format($"Feedback/&{NAME}Description", title);
 
@@ -237,13 +238,7 @@ internal static partial class SpellBuilders
                                 Gui.NoLocalization,
                                 ConditionAuraOfProtection)
                             .SetPossessive()
-                            .SetFeatures(
-                                FeatureDefinitionDamageAffinityBuilder
-                                    .Create($"DamageAffinity{NAME}{damageType}")
-                                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
-                                    .SetDamageType(damageType)
-                                    .SetDamageAffinityType(DamageAffinityType.Resistance)
-                                    .AddToDB())
+                            .SetFeatures(damageAffinity)
                             .AddToDB()))
                         .SetCasterEffectParameters(casterEffect)
                         .SetImpactEffectParameters(impactEffect)
