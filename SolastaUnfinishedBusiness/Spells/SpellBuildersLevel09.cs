@@ -84,7 +84,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, GlobeOfInvulnerability)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Invulnerability, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
