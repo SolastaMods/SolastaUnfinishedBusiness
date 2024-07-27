@@ -8,6 +8,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityTidesOfChaosRecharge:f16f73a8-02e4-56a1-8cb7-2d5a1723d8ff",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSorcerousWildMagicTidesOfChaos:29ddc002-275b-5b82-bde7-d5f7315e0856",
       "level": 1
     },

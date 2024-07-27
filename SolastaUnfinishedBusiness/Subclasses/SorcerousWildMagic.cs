@@ -32,6 +32,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 {
     private const string Name = "SorcerousWildMagic";
     private const ActionDefinitions.Id TidesOfChaosToggle = (ActionDefinitions.Id)ExtraActionId.TidesOfChaosToggle;
+    private const ActionDefinitions.Id TidesOfChaosRecharge = (ActionDefinitions.Id)ExtraActionId.TidesOfChaosRecharge;
 
     //
     // subclass features
@@ -46,9 +47,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private static readonly FeatureDefinitionPower PowerTidesOfChaos = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}TidesOfChaos")
         .SetGuiPresentation(Category.Feature)
-        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 0)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
         .DelegatedToAction()
-        .AddCustomSubFeatures(new CustomBehaviorTidesOfChaos(), HasModifiedUses.Marker, ModifyPowerVisibility.Hidden)
+        .AddCustomSubFeatures(new CustomBehaviorTidesOfChaos(), ModifyPowerVisibility.Hidden)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerControlledChaos = FeatureDefinitionPowerBuilder
@@ -62,13 +63,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Feature{Name}SpellBombardment")
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(new CustomBehaviorSpellBombardment())
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionTidesOfChaosAmount = ConditionDefinitionBuilder
-        .Create($"Condition{Name}TidesOfChaosAmount")
-        .SetGuiPresentationNoContent(true)
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetFixedAmount(1)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionTidesOfChaos = ConditionDefinitionBuilder
@@ -246,6 +240,23 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerTidesOfChaos)))
             .AddToDB();
 
+        _ = ActionDefinitionBuilder
+            .Create("TidesOfChaosRecharge")
+            .SetGuiPresentation(Category.Action, ReapplyEffect)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.TidesOfChaosRecharge)
+            .SetActionType(ActionDefinitions.ActionType.NoCost)
+            .SetFormType(ActionDefinitions.ActionFormType.Large)
+            .AddToDB();
+
+        var actionAffinityTidesOfChaosRecharge = FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityTidesOfChaosRecharge")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions(TidesOfChaosRecharge)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasNotAvailablePowerUsage(PowerTidesOfChaos)))
+            .AddToDB();
+
         // LEVEL 06
 
         // Bend Luck
@@ -286,7 +297,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.SorcererWildMagic, 256))
             .AddFeaturesAtLevel(1,
-                FeatureWildMagicSurge, PowerTidesOfChaos, actionAffinityTidesOfChaosToggle)
+                FeatureWildMagicSurge,
+                PowerTidesOfChaos,
+                actionAffinityTidesOfChaosToggle,
+                actionAffinityTidesOfChaosRecharge)
             .AddFeaturesAtLevel(6, powerBendLuck)
             .AddFeaturesAtLevel(14, PowerControlledChaos)
             .AddFeaturesAtLevel(18, FeatureSpellBombardment)
@@ -304,26 +318,27 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
-    // Spell Bombardment 
+    // Tides of Chaos
     //
 
-    internal static void HandleSpellBombardment(
-        RulesetCharacter rulesetCharacter, DamageForm damageForm, List<int> rolledValues, ref int damage)
+    internal static void RechargeTidesOfChaos(RulesetCharacter rulesetCharacter)
     {
-        var dieType = damageForm.DieType;
-        var maxDie = DiceMaxValue[(int)dieType];
-        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+        var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetCharacter);
 
-        if (!rolledValues.Contains(maxDie) ||
-            !character.UsedSpecialFeatures.ContainsKey(FeatureSpellBombardment.Name))
-        {
-            return;
-        }
-
-        rulesetCharacter.LogCharacterUsedFeature(FeatureSpellBombardment);
-
-        rolledValues.Add(maxDie);
-        damage += maxDie;
+        usablePower.RepayUse();
+        rulesetCharacter.InflictCondition(
+            ConditionTidesOfChaos.Name,
+            DurationType.Permanent,
+            1,
+            TurnOccurenceType.EndOfTurn,
+            AttributeDefinitions.TagEffect,
+            rulesetCharacter.guid,
+            rulesetCharacter.CurrentFaction.Name,
+            1,
+            ConditionTidesOfChaos.Name,
+            0,
+            0,
+            0);
     }
 
     //
@@ -458,65 +473,26 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     }
 
     //
-    // Tides of Chaos
+    // Spell Bombardment 
     //
 
-    internal static void InitTidesOfChaos()
+    internal static void HandleSpellBombardment(
+        RulesetCharacter rulesetCharacter, DamageForm damageForm, List<int> rolledValues, ref int damage)
     {
-        foreach (var rulesetCharacter in ServiceRepository
-                     .GetService<IGameLocationCharacterService>()
-                     .PartyCharacters
-                     .Select(x => x.RulesetCharacter))
-        {
-            if (rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name) > 0 &&
-                !rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionTidesOfChaosAmount.Name))
-            {
-                InflictTidesOfChaosConditionTab(rulesetCharacter);
-            }
-        }
-    }
+        var dieType = damageForm.DieType;
+        var maxDie = DiceMaxValue[(int)dieType];
+        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-    private static int InflictTidesOfChaosConditionTab(RulesetCharacter character)
-    {
-        if (character.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, ConditionTidesOfChaosAmount.Name, out var activeCondition))
+        if (!rolledValues.Contains(maxDie) ||
+            !character.UsedSpecialFeatures.ContainsKey(FeatureSpellBombardment.Name))
         {
-            return activeCondition.amount;
+            return;
         }
 
-        var roll = RollDie(DieType.D3, AdvantageType.None, out _, out _);
+        rulesetCharacter.LogCharacterUsedFeature(FeatureSpellBombardment);
 
-        character.LogCharacterActivatesAbility(
-            PowerTidesOfChaos.FormatTitle(),
-            "Feedback/&TidesOfChaosRegainUsage",
-            tooltipContent: PowerTidesOfChaos.Name,
-            tooltipClass: "PowerDefinition",
-            extra:
-            [
-                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D3)),
-                (ConsoleStyleDuplet.ParameterType.Base, roll.ToString())
-            ]);
-
-        character.InflictCondition(
-            ConditionTidesOfChaosAmount.Name,
-            DurationType.UntilLongRest,
-            1,
-            TurnOccurenceType.EndOfTurn,
-            AttributeDefinitions.TagEffect,
-            character.guid,
-            character.CurrentFaction.Name,
-            1,
-            ConditionTidesOfChaosAmount.Name,
-            roll,
-            0,
-            0);
-
-        var usablePower = PowerProvider.Get(PowerTidesOfChaos, character);
-
-        usablePower.remainingUses = roll;
-
-        return roll;
+        rolledValues.Add(maxDie);
+        damage += maxDie;
     }
 
     //
@@ -583,16 +559,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorTidesOfChaos
-        : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow, IModifyPowerPoolAmount
+    private sealed class CustomBehaviorTidesOfChaos : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
-        public FeatureDefinitionPower PowerPool => PowerTidesOfChaos;
-
-        public int PoolChangeAmount(RulesetCharacter character)
-        {
-            return !Gui.GameLocation ? 0 : InflictTidesOfChaosConditionTab(character);
-        }
-
         public int HandlerPriority => -9; // ensure it triggers after bend of luck
 
         public IEnumerator OnTryAlterOutcomeAttack(
@@ -694,8 +662,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;
-
-            InflictConditionOnCreaturesWithinRange(attacker, ConditionTidesOfChaos.Name, DurationType.UntilLongRest);
         }
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
@@ -777,8 +743,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             action.SaveOutcome = saveOutcome;
             action.SaveOutcomeDelta = saveOutcomeDelta;
-
-            InflictConditionOnCreaturesWithinRange(attacker, ConditionTidesOfChaos.Name, DurationType.UntilLongRest);
         }
     }
 

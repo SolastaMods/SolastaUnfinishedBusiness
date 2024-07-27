@@ -1,3 +1,5 @@
+Action/&TidesOfChaosRechargeDescription=Recarga Mareas del Caos forzando una tirada directa en la tabla de aumento salvaje la próxima vez que lances un hechizo nivelado.
+Action/&TidesOfChaosRechargeTitle=Recarga las mareas del caos
 Action/&TidesOfChaosToggleDescription=Activar/desactivar Tides Of Chaos en tiradas de ataque
 Action/&TidesOfChaosToggleTitle=Mareas del Caos
 Condition/&ConditionSorcerousWildMagicChaosDescription=Un efecto aleatorio de oleada de magia salvaje se activa al comienzo de tu turno.
@@ -55,7 +57,7 @@ Feature/&PowerSorcerousWildMagicD19Description=Hasta tres criaturas que elijas d
 Feature/&PowerSorcerousWildMagicD19Title=Rayo
 Feature/&PowerSorcerousWildMagicD20Description=Recuperas todos los puntos de hechicería gastados.
 Feature/&PowerSorcerousWildMagicD20Title=Recargar brujería
-Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Siempre que falles una tirada de ataque o una tirada de salvación, puedes manipular las fuerzas del azar y el caos para repetir la tirada con ventaja. Cuando lo hagas, tirarás automáticamente en la tabla de Oleada de magia salvaje la próxima vez que lances un hechizo nivelado. Puedes usar esta característica 1D3 veces por descanso prolongado.
+Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Puedes manipular las fuerzas del azar y el caos en tiradas de ataque o tiradas de salvación. Si fallas, vuelves a tirar una segunda vez y la ventaja reemplaza el primer intento. Una vez que lo hagas, debes terminar un descanso prolongado antes de poder usar esta característica nuevamente. También puedes usar una acción gratuita para recargar tus Mareas del Caos, pero si así lo eliges, tiras inmediatamente en la tabla de Oleada de Magia Salvaje la próxima vez que lances un hechizo nivelado.
 Feature/&PowerSorcerousWildMagicTidesOfChaosTitle=Mareas del Caos
 Feedback/&BendLuckAttackToHitRoll={0} usó {1} y lanza un {2} para agregar {3} a la tirada de ataque
 Feedback/&BendLuckCheckToHitRoll={0} usó {1} y lanza un {2} para agregar {3} a la tirada de verificación

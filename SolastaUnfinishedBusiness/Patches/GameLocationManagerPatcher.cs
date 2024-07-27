@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.RecipeDefinitions;
 
@@ -89,9 +88,6 @@ public static class GameLocationManagerPatcher
         [UsedImplicitly]
         public static void Postfix(GameLocationManager __instance)
         {
-            //PATCH: ensure Sorcerous Wild Magic will have Tides of Chaos pool initiated correctly
-            SorcerousWildMagic.InitTidesOfChaos();
-
             //BUGFIX: enforce learn same recipes as official campaigns get on a Load
             var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
 

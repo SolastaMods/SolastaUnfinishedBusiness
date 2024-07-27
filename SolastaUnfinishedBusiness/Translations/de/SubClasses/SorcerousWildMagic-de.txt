@@ -1,3 +1,5 @@
+Action/&TidesOfChaosRechargeDescription=Recharge Tides of Chaos erzwingt einen direkten Wurf auf der Wild Surge-Tabelle, wenn du das nächste Mal einen Level-Zauber wirkst
+Action/&TidesOfChaosRechargeTitle=Gezeiten des Chaos aufladen
 Action/&TidesOfChaosToggleDescription=Aktiviere/deaktiviere Tides Of Chaos bei Angriffswürfen
 Action/&TidesOfChaosToggleTitle=Gezeiten des Chaos
 Condition/&ConditionSorcerousWildMagicChaosDescription=Ein zufälliger Effekt wilder Magie wird zu Beginn deines Zuges ausgelöst.
@@ -55,7 +57,7 @@ Feature/&PowerSorcerousWildMagicD19Description=Bis zu drei Kreaturen deiner Wahl
 Feature/&PowerSorcerousWildMagicD19Title=Blitzschlag
 Feature/&PowerSorcerousWildMagicD20Description=Du erhältst alle verbrauchten Zauberpunkte zurück.
 Feature/&PowerSorcerousWildMagicD20Title=Zauberei auffüllen
-Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Wenn dir ein Angriffswurf oder Rettungswurf misslingt, kannst du die Kräfte des Zufalls und Chaos manipulieren, um den Wurf mit Vorteil zu wiederholen. Wenn du das tust, würfelst du automatisch auf der Wild Magic Surge-Tabelle, wenn du das nächste Mal einen Zauberspruch mit Level wirkst. Du kannst diese Funktion 1W3 Mal pro langer Pause nutzen.
+Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Sie können die Kräfte des Zufalls und des Chaos bei Angriffswürfen oder Rettungswürfen manipulieren. Bei einem Fehlschlag würfeln Sie ein zweites Mal, wobei der Vorteil den ersten Versuch ersetzt. Sobald Sie dies tun, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut nutzen können. Sie können Ihre Tides of Chaos auch mit einer freien Aktion aufladen, aber wenn Sie dies wünschen, würfeln Sie sofort auf der Wild Magic Surge-Tabelle, wenn Sie das nächste Mal einen Zauberspruch mit Levelstufe wirken.
 Feature/&PowerSorcerousWildMagicTidesOfChaosTitle=Gezeiten des Chaos
 Feedback/&BendLuckAttackToHitRoll={0} hat {1} verwendet und würfelt eine {2}, um {3} zum Angriffswurf hinzuzufügen
 Feedback/&BendLuckCheckToHitRoll={0} hat {1} verwendet und würfelt eine {2}, um {3} zum Kontrollwurf hinzuzufügen.

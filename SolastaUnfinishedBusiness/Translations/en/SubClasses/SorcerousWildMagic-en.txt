@@ -1,3 +1,5 @@
+Action/&TidesOfChaosRechargeDescription=Recharge Tides of Chaos forcing a direct roll on the wild surge table next time you cast a levelled spell
+Action/&TidesOfChaosRechargeTitle=Recharge Tides of Chaos
 Action/&TidesOfChaosToggleDescription=Activate/deactivate Tides Of Chaos on attack rolls
 Action/&TidesOfChaosToggleTitle=Tides of Chaos
 Condition/&ConditionSorcerousWildMagicChaosDescription=A random wild magic surge effect triggers at the start of your turn
@@ -55,7 +57,7 @@ Feature/&PowerSorcerousWildMagicD19Description=Up to three creatures you choose 
 Feature/&PowerSorcerousWildMagicD19Title=Lightning Strike
 Feature/&PowerSorcerousWildMagicD20Description=You regain all expended sorcery points.
 Feature/&PowerSorcerousWildMagicD20Title=Refill Sorcery
-Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Whenever you fail an attack roll or a saving throw, you can manipulate the forces of chance and chaos to reroll it with advantage. Whenever you do so, you automatically roll on the Wild Magic Surge table the next time you cast a levelled spell. You can use this feature 1D3 times per long rest.
+Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=You can manipulate the forces of chance and chaos on attack rolls or saving throws. On a failure, you reroll a second time with advantage replacing the first attempt. Once you do so, you must finish a long rest before you can use this feature again. You can also use a free action to recharge your Tides of Chaos, but if you choose so, you immediately roll on the Wild Magic Surge table the next time you cast a levelled spell.
 Feature/&PowerSorcerousWildMagicTidesOfChaosTitle=Tides of Chaos
 Feedback/&BendLuckAttackToHitRoll={0} used {1} and rolls a {2} to add {3} to the attack roll
 Feedback/&BendLuckCheckToHitRoll={0} used {1} and rolls a {2} to add {3} to the check roll

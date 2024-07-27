@@ -145,6 +145,11 @@ internal static class ValidatorsCharacter
         return character => character.GetRemainingPowerUses(power) > 0;
     }
 
+    internal static IsCharacterValidHandler HasNotAvailablePowerUsage(FeatureDefinitionPower power)
+    {
+        return character => character.GetRemainingPowerUses(power) == 0;
+    }
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {

@@ -31,6 +31,7 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition CastBonus { get; } = GetDefinition<ActionDefinition>("CastBonus");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
+        internal static ActionDefinition ReapplyEffect { get; } = GetDefinition<ActionDefinition>("ReapplyEffect");
         internal static ActionDefinition SpiritRage { get; } = GetDefinition<ActionDefinition>("SpiritRage");
 
         internal static ActionDefinition GrantBardicInspiration { get; } =

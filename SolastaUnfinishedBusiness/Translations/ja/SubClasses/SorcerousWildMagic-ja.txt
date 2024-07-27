@@ -1,3 +1,5 @@
+Action/&TidesOfChaosRechargeDescription=次回レベル呪文を唱えるときに、ワイルドサージテーブルで直接ロールを強制する混沌の潮流を再充電します。
+Action/&TidesOfChaosRechargeTitle=混沌の波を再充電
 Action/&TidesOfChaosToggleDescription=攻撃ロールでTides Of Chaosを有効化/無効化する
 Action/&TidesOfChaosToggleTitle=混沌の潮流
 Condition/&ConditionSorcerousWildMagicChaosDescription=ターン開始時にランダムなワイルドマジックサージ効果が発動する
@@ -55,7 +57,7 @@ Feature/&PowerSorcerousWildMagicD19Description=あなたのターンが終了す
 Feature/&PowerSorcerousWildMagicD19Title=落雷
 Feature/&PowerSorcerousWildMagicD20Description=消費した魔術ポイントをすべて回復します。
 Feature/&PowerSorcerousWildMagicD20Title=補充魔法
-Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=攻撃ロールまたはセーヴィング スローに失敗したときはいつでも、偶然と混沌の力を操作して有利に再ロールすることができます。これを行うと、次にレベル スペルをキャストするときに、自動的にワイルド マジック サージ テーブルをロールします。この機能は、長い休憩ごとに 1D3 回使用できます。
+Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=攻撃ロールやセーヴィング スローで、偶然と混沌の力を操作できます。失敗した場合、最初の試みを有利に置き換えて 2 回目のロールをします。これを行うと、この機能を再度使用するには、長い休憩を完了する必要があります。また、フリー アクションを使用して混沌の潮流を再充電することもできますが、その場合は、次にレベル スペルをキャストするときに、すぐにワイルド マジック サージ テーブルをロールします。
 Feature/&PowerSorcerousWildMagicTidesOfChaosTitle=混沌の潮流
 Feedback/&BendLuckAttackToHitRoll={0}は{1}を使用し、{2}をロールして攻撃ロールに{3}を追加しました
 Feedback/&BendLuckCheckToHitRoll={0}は{1}を使用し、{2}をロールしてチェックロールに{3}を追加します

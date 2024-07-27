@@ -6043,7 +6043,7 @@ Your innate magic comes from the wild forces of chaos that underlie the order of
 
 * Tides of Chaos
 
-Whenever you fail an attack roll or a saving throw, you can manipulate the forces of chance and chaos to reroll it with advantage. Whenever you do so, you automatically roll on the Wild Magic Surge table the next time you cast a levelled spell. You can use this feature 1D3 times per long rest.
+You can manipulate the forces of chance and chaos on attack rolls or saving throws. On a failure, you reroll a second time with advantage replacing the first attempt. Once you do so, you must finish a long rest before you can use this feature again. You can also use a free action to recharge your Tides of Chaos, but if you choose so, you immediately roll on the Wild Magic Surge table the next time you cast a levelled spell.
 
 * Wild Magic Surge
 

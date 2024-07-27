@@ -1,3 +1,5 @@
+Action/&TidesOfChaosRechargeDescription=Перезарядка Потоков Хаоса, заставляющая делать прямой бросок по таблице дикой волны в следующий раз, когда вы разыгрываете уровневое заклинание.
+Action/&TidesOfChaosRechargeTitle=Перезарядка Приливов Хаоса
 Action/&TidesOfChaosToggleDescription=Активировать/деактивировать Поток хаоса на броски атаки
 Action/&TidesOfChaosToggleTitle=Поток Хаоса
 Condition/&ConditionSorcerousWildMagicChaosDescription=В начале вашего хода срабатывает случайный эффект Волны дикой магии
@@ -55,7 +57,7 @@ Feature/&PowerSorcerousWildMagicD19Description=До трёх существ на
 Feature/&PowerSorcerousWildMagicD19Title=Удар молнии
 Feature/&PowerSorcerousWildMagicD20Description=Вы восстанавливаете все потраченные единицы чародейства.
 Feature/&PowerSorcerousWildMagicD20Title=Пополнение чародейства
-Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Всякий раз, когда вы проваливаете атаку или спасбросок, вы можете манипулировать силами случайности и хаоса, чтобы перебросить его с преимуществом. Всякий раз, когда вы это делаете, вы автоматически делаете бросок по таблице Wild Magic Surge в следующий раз, когда вы произносите уровневое заклинание. Вы можете использовать эту функцию 1D3 раза за длительный отдых.
+Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Вы можете манипулировать силами случайности и хаоса в бросках атаки или спасбросках. При провале вы перебрасываете кубик во второй раз с преимуществом, заменяющим первую попытку. После этого вы должны закончить длительный отдых, прежде чем сможете снова использовать эту функцию. Вы также можете использовать свободное действие, чтобы перезарядить свои Потоки Хаоса, но если вы выберете это, вы немедленно бросите кубик по таблице Wild Magic Surge в следующий раз, когда будете произносить уровневое заклинание.
 Feature/&PowerSorcerousWildMagicTidesOfChaosTitle=Поток Хаоса
 Feedback/&BendLuckAttackToHitRoll={0} использовал {1} и бросает {2}, чтобы добавить {3} к броску атаки
 Feedback/&BendLuckCheckToHitRoll={0} использовал {1} и бросает {2}, чтобы добавить {3} к броску проверки

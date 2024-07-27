@@ -1,3 +1,5 @@
+Action/&TidesOfChaosRechargeDescription=Ricarica Tides of Chaos costringendoti a un tiro diretto sulla tabella dell'ondata selvaggia la prossima volta che lanci un incantesimo livellato
+Action/&TidesOfChaosRechargeTitle=Ricarica Maree del Caos
 Action/&TidesOfChaosToggleDescription=Attiva/disattiva Maree di Caos sui tiri per colpire
 Action/&TidesOfChaosToggleTitle=Maree del caos
 Condition/&ConditionSorcerousWildMagicChaosDescription=Un effetto casuale di ondata di magia selvaggia si attiva all'inizio del tuo turno
@@ -55,7 +57,7 @@ Feature/&PowerSorcerousWildMagicD19Description=Fino a tre creature scelte da te 
 Feature/&PowerSorcerousWildMagicD19Title=Fulmine
 Feature/&PowerSorcerousWildMagicD20Description=Recuperi tutti i punti stregoneria spesi.
 Feature/&PowerSorcerousWildMagicD20Title=Ricarica Stregoneria
-Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Ogni volta che fallisci un tiro per colpire o un tiro salvezza, puoi manipolare le forze del caso e del caos per rilanciarlo con vantaggio. Ogni volta che lo fai, tiri automaticamente sulla tabella Wild Magic Surge la prossima volta che lanci un incantesimo livellato. Puoi usare questa caratteristica 1D3 volte per riposo lungo.
+Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Puoi manipolare le forze del caso e del caos con tiri per colpire o tiri salvezza. In caso di fallimento, ritiri una seconda volta con vantaggio che sostituisce il primo tentativo. Una volta fatto, devi terminare un lungo riposo prima di poter usare di nuovo questa caratteristica. Puoi anche usare un'azione gratuita per ricaricare le tue Maree del Caos, ma se lo scegli, tiri immediatamente sulla tabella Wild Magic Surge la prossima volta che lanci un incantesimo livellato.
 Feature/&PowerSorcerousWildMagicTidesOfChaosTitle=Maree del caos
 Feedback/&BendLuckAttackToHitRoll={0} usa {1} e lancia un {2} per aggiungere {3} al tiro per colpire
 Feedback/&BendLuckCheckToHitRoll={0} usa {1} e lancia un {2} per aggiungere {3} al tiro di verifica

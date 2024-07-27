@@ -1,3 +1,5 @@
+Action/&TidesOfChaosRechargeDescription=Rechargez Tides of Chaos en forçant un jet direct sur la table des surtensions sauvages la prochaine fois que vous lancerez un sort de niveau.
+Action/&TidesOfChaosRechargeTitle=Rechargez les marées du chaos
 Action/&TidesOfChaosToggleDescription=Activer/désactiver Tides Of Chaos aux jets d'attaque
 Action/&TidesOfChaosToggleTitle=Marées du chaos
 Condition/&ConditionSorcerousWildMagicChaosDescription=Un effet de montée de magie sauvage aléatoire se déclenche au début de votre tour.
@@ -55,7 +57,7 @@ Feature/&PowerSorcerousWildMagicD19Description=Jusqu'à trois créatures que vou
 Feature/&PowerSorcerousWildMagicD19Title=Coup de foudre
 Feature/&PowerSorcerousWildMagicD20Description=Vous récupérez tous les points de sorcellerie dépensés.
 Feature/&PowerSorcerousWildMagicD20Title=Recharge de sorcellerie
-Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Chaque fois que vous ratez un jet d'attaque ou un jet de sauvegarde, vous pouvez manipuler les forces du hasard et du chaos pour le relancer avec avantage. Chaque fois que vous faites cela, vous lancez automatiquement un sort de niveau 1D3 sur la table de Déferlement de Magie Sauvage.
+Feature/&PowerSorcerousWildMagicTidesOfChaosDescription=Vous pouvez manipuler les forces du hasard et du chaos lors de vos jets d'attaque ou de sauvegarde. En cas d'échec, vous relancez une seconde fois, l'avantage remplaçant la première tentative. Une fois que vous avez fait cela, vous devez terminer un repos long avant de pouvoir utiliser à nouveau cette capacité. Vous pouvez également utiliser une action gratuite pour recharger vos Marées du Chaos, mais si vous le choisissez, vous lancez immédiatement un sort de niveau sur la table de Déferlement de Magie Sauvage la prochaine fois que vous lancez un sort de niveau.
 Feature/&PowerSorcerousWildMagicTidesOfChaosTitle=Marées du chaos
 Feedback/&BendLuckAttackToHitRoll={0} a utilisé {1} et lance un {2} pour ajouter {3} au jet d'attaque
 Feedback/&BendLuckCheckToHitRoll={0} a utilisé {1} et lance un {2} pour ajouter {3} au jet de contrôle
