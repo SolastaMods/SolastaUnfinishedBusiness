@@ -426,7 +426,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureInventorSoulOfArtifice:63aef3aa-22f5-5a05-9b31-4c4e608215dd",
+      "featureDefinition": "Definition:PowerInventorSoulOfArtifice:389df423-90a6-5f76-892f-10155f712c89",
       "level": 20
     }
   ],

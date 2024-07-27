@@ -110,13 +110,15 @@ internal static class InventorClass
 
         #endregion
 
-        var featureInventorSoulOfArtifice = FeatureDefinitionBuilder
-            .Create("FeatureInventorSoulOfArtifice")
+        var powerInventorSoulOfArtifice = FeatureDefinitionPowerBuilder
+            .Create("PowerInventorSoulOfArtifice")
             .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        featureInventorSoulOfArtifice.AddCustomSubFeatures(
-            new RollSavingThrowInitiatedSoulOfArtifice(featureInventorSoulOfArtifice));
+        powerInventorSoulOfArtifice.AddCustomSubFeatures(
+            new CustomBehaviorInitiatedSoulOfArtifice(powerInventorSoulOfArtifice));
 
         #region Priorities
 
@@ -385,7 +387,7 @@ internal static class InventorClass
             #region Level 20
 
             .AddFeaturesAtLevel(20,
-                featureInventorSoulOfArtifice);
+                powerInventorSoulOfArtifice);
 
         #endregion
 
@@ -890,8 +892,8 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    private sealed class RollSavingThrowInitiatedSoulOfArtifice(FeatureDefinition featureSoulOfArtifice)
-        : IRollSavingThrowInitiated
+    private sealed class CustomBehaviorInitiatedSoulOfArtifice(FeatureDefinitionPower powerSoulOfArtifice)
+        : IRollSavingThrowInitiated, IOnReducedToZeroHpByEnemy
     {
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
@@ -913,7 +915,64 @@ internal static class InventorClass
             rollModifier += attunedItems;
             modifierTrends.Add(
                 new TrendInfo(attunedItems, FeatureSourceType.CharacterFeature,
-                    featureSoulOfArtifice.Name, featureSoulOfArtifice));
+                    powerSoulOfArtifice.Name, powerSoulOfArtifice));
+        }
+        
+                public IEnumerator HandleReducedToZeroHpByEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
+                {
+                    IsBattleInProgress: true
+                } battleManager)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = defender.RulesetCharacter;
+
+            if (rulesetCharacter.GetRemainingPowerUses(powerSoulOfArtifice) == 0)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerSoulOfArtifice, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+            {
+                StringParameter = "SoulOfArtifice",
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var hitPoints = rulesetCharacter.GetClassLevel(InventorClass.Class);
+
+            rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
+
+            EffectHelpers.StartVisualEffect(
+                defender, defender, FeatureDefinitionPowers.PowerDefilerMistyFormEscape,
+                EffectHelpers.EffectType.Caster);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 

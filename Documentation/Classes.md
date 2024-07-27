@@ -170,7 +170,9 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Soul of Artifice
 
-You develop a mystical connection to your magic items, which you can draw on for protection: You gain a +1 bonus to all saving throws per magic item you are currently attuned to.
+You develop a mystical connection to your magic items, which you can draw on for protection:
+• You gain a +1 bonus to all saving throws per magic item you are currently attuned to.
+• Whenever you are reduced to 0 hit points, you regain a number of hit points equal to your artificer level, and stand up. You can use this feature once per long rest.
 
 
 
