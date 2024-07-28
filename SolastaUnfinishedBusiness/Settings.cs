@@ -293,6 +293,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowClubsToBeThrown { get; set; }
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
+    public int WildSurgeDieRollThreshold { get; set; } = 2;
     public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }
     public bool AccountForAllDiceOnFollowUpStrike { get; set; }
@@ -498,7 +499,6 @@ public class Settings : UnityModManager.ModSettings
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
 
 #if DEBUG
-    public int WildSurgeDieRollThreshold { get; set; } = 2;
     public int WildSurgeEffectDie { get; set; }
 #endif
 

@@ -151,8 +151,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
         .SetPossessive()
         .SetConditionType(ConditionType.Neutral)
-        .AddCustomSubFeatures(new CharacterTurnStartListenerChaos(PowerWildMagicSurge))
-        .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionDamageResistance = ConditionDefinitionBuilder
@@ -314,6 +312,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         // Main
 
+        SwitchWildSurgeChanceDieThreshold();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.SorcererWildMagic, 256))
@@ -334,6 +334,13 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    internal static void SwitchWildSurgeChanceDieThreshold()
+    {
+        PowerWildMagicSurge.GuiPresentation.description = Gui.Format(
+            "Feature/&PowerSorcerousWildMagicWildMagicSurgeDescription",
+            Main.Settings.WildSurgeDieRollThreshold.ToString());
+    }
+
     //
     // Tides of Chaos
     //
@@ -342,6 +349,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     {
         var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
         var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetCharacter);
+        var hasChaos = rulesetCharacter.HasConditionOfCategoryAndType(
+            AttributeDefinitions.TagEffect, ConditionChaos.Name);
 
         rulesetCharacter.LogCharacterActivatesAbility(
             PowerTidesOfChaos.GuiPresentation.Title,
@@ -363,7 +372,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             0,
             0);
 
-        yield return HandleWildSurge(character);
+        yield return HandleWildSurge(character, hasChaos);
 
         usablePower.RepayUse();
     }
@@ -372,37 +381,37 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     // Wild Surge
     //
 
-    private static IEnumerator HandleWildSurge(GameLocationCharacter attacker)
+    private static IEnumerator HandleWildSurge(GameLocationCharacter attacker, bool avoidOnes = false)
     {
         var rulesetAttacker = attacker.RulesetCharacter;
         var levels = rulesetAttacker.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name);
 
         if (levels >= 14)
         {
-            yield return HandleControlledChaos(attacker);
+            yield return HandleControlledChaos(attacker, avoidOnes);
             yield break;
         }
 
-        var selectedRoll = 0;
+        var wildSurgeDie1 = 0;
+        var threshold = avoidOnes ? 2 : 1;
 
-        while ((Gui.Battle == null && selectedRoll <= 1) ||
-               (Gui.Battle != null && selectedRoll < 1))
+        while (wildSurgeDie1 < threshold)
         {
-            selectedRoll = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+            wildSurgeDie1 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
         }
 
-        var selectedPower = WildSurgePowers[selectedRoll - 1];
+        var selectedPower = WildSurgePowers[wildSurgeDie1 - 1];
 
-        rulesetAttacker.ShowDieRoll(DieType.D20, selectedRoll, title: PowerWildMagicSurge.GuiPresentation.Title);
+        rulesetAttacker.ShowDieRoll(DieType.D20, wildSurgeDie1, title: PowerWildMagicSurge.GuiPresentation.Title);
 
-        ApplyWildSurge(attacker, selectedRoll, PowerWildMagicSurge, selectedPower, "Feedback/&WidSurgeDieRoll");
+        ApplyWildSurge(attacker, wildSurgeDie1, PowerWildMagicSurge, selectedPower, "Feedback/&WidSurgeDieRoll");
     }
 
     //
     // Controlled Chaos
     //
 
-    private static IEnumerator HandleControlledChaos(GameLocationCharacter attacker)
+    private static IEnumerator HandleControlledChaos(GameLocationCharacter attacker, bool avoidOnes = false)
     {
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -413,18 +422,16 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
 
         var wildSurgeDie1 = 0;
+        var threshold = avoidOnes ? 2 : 1;
 
-        while ((Gui.Battle == null && wildSurgeDie1 <= 1) ||
-               (Gui.Battle != null && wildSurgeDie1 < 1))
+        while (wildSurgeDie1 < threshold)
         {
             wildSurgeDie1 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
         }
 
         var wildSurgeDie2 = 0;
 
-        while ((Gui.Battle == null && wildSurgeDie2 <= 1) ||
-               (Gui.Battle != null && wildSurgeDie2 < 1) ||
-               wildSurgeDie2 == wildSurgeDie1)
+        while (wildSurgeDie2 < threshold || wildSurgeDie2 == wildSurgeDie1)
         {
             wildSurgeDie2 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
         }
@@ -534,42 +541,42 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             CharacterActionMagicEffect action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var hasUsedWildMarkThisTurn = rulesetAttacker.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionWildSurgeMark.Name);
+            var hasChaos = rulesetAttacker.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionChaos.Name);
 
-            if (action is not CharacterActionCastSpell actionCastSell ||
-                !rulesetAttacker.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionWildSurgeMark.Name) ||
-                actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 ||
-                actionCastSell.ActiveSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer ||
-                rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name))
+            if (hasUsedWildMarkThisTurn ||
+                action is not CharacterActionCastSpell actionCastSell ||
+                (actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 && !hasChaos) ||
+                actionCastSell.ActiveSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer)
             {
                 yield break;
             }
 
-            var chanceDie = RollDie(DieType.D20, AdvantageType.None, out _, out _);
-
-#if DEBUG
-            var shouldRollWildSurge = chanceDie <= Main.Settings.WildSurgeDieRollThreshold;
-#else
-            var shouldRollWildSurge = chanceDie <= 2;
-#endif
-
-            rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: PowerWildMagicSurge.GuiPresentation.Title);
-            rulesetAttacker.LogCharacterActivatesAbility(
-                PowerWildMagicSurge.GuiPresentation.Title,
-                "Feedback/&WidSurgeChanceDieRoll",
-                tooltipContent: PowerWildMagicSurge.Name,
-                tooltipClass: "PowerDefinition",
-                extra:
-                [
-                    (shouldRollWildSurge
-                            ? ConsoleStyleDuplet.ParameterType.Negative
-                            : ConsoleStyleDuplet.ParameterType.Positive,
-                        chanceDie.ToString())
-                ]);
-
-            if (!shouldRollWildSurge)
+            if (!hasChaos)
             {
-                yield break;
+                var chanceDie = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+                var shouldRollWildSurge = chanceDie <= Main.Settings.WildSurgeDieRollThreshold;
+
+                rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: PowerWildMagicSurge.GuiPresentation.Title);
+                rulesetAttacker.LogCharacterActivatesAbility(
+                    PowerWildMagicSurge.GuiPresentation.Title,
+                    "Feedback/&WidSurgeChanceDieRoll",
+                    tooltipContent: PowerWildMagicSurge.Name,
+                    tooltipClass: "PowerDefinition",
+                    extra:
+                    [
+                        (shouldRollWildSurge
+                                ? ConsoleStyleDuplet.ParameterType.Negative
+                                : ConsoleStyleDuplet.ParameterType.Positive,
+                            chanceDie.ToString())
+                    ]);
+
+                if (!shouldRollWildSurge)
+                {
+                    yield break;
+                }
             }
 
             rulesetAttacker.InflictCondition(
@@ -586,7 +593,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 0,
                 0);
 
-            yield return HandleWildSurge(attacker);
+            yield return HandleWildSurge(attacker, hasChaos);
         }
     }
 
@@ -1179,8 +1186,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         string feedback)
     {
 #if DEBUG
-        if (Main.Settings.WildSurgeEffectDie > 0 &&
-            !caster.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name))
+        if (Main.Settings.WildSurgeEffectDie > 0)
         {
             roll = Main.Settings.WildSurgeEffectDie;
         }
@@ -1500,31 +1506,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-    }
-
-    //
-    // Chaos
-    //
-
-    private sealed class CharacterTurnStartListenerChaos(FeatureDefinition featureWildSurge)
-        : ICharacterTurnStartListener
-    {
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var wildSurgeDie = 1;
-
-            while (wildSurgeDie == 1)
-            {
-                wildSurgeDie = RollDie(DieType.D20, AdvantageType.None, out _, out _);
-            }
-
-            var powerChaos = WildSurgePowers[0];
-            var selectedPower = WildSurgePowers[wildSurgeDie - 1];
-
-            rulesetCharacter.ShowDieRoll(DieType.D20, wildSurgeDie, title: featureWildSurge.GuiPresentation.Title);
-            ApplyWildSurge(locationCharacter, wildSurgeDie, powerChaos, selectedPower, "Feedback/&WidSurgeDieRoll");
         }
     }
 

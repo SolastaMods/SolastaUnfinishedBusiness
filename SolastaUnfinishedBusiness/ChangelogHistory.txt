@@ -1,8 +1,9 @@
 1.5.97.24:
 
 - added Artificer soul of artifice at 20th
+- added General > Rules > 'Set Sorcerer Wild Magic chance die threshold' setting
 - added Invulnerability and Psychic Scream spells at 9th
-- added Sorcerous Wild Magic subclass [github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/Wild-Magic-Surge]
+- added Sorcerer Wild Magic subclass [github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/Wild-Magic-Surge]
 - fixed Circle of the Life verdancy condition applying to caster only
 - fixed Druid wildshape not adding PB on mental saves when Druid is proficient [VANILLA]
 - fixed Fell Handed feat weapon type validator logic
