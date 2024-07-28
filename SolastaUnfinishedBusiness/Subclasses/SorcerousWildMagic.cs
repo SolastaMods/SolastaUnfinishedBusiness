@@ -539,7 +539,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
     private sealed class CustomBehaviorTidesOfChaos : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
-        public int HandlerPriority => -5; // ensure it triggers after bend of luck
+        public int HandlerPriority => -5; // ensure it triggers after bend luck
         
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
@@ -1117,7 +1117,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private static void ApplyWildSurge(
         GameLocationCharacter caster,
         int roll,
-        FeatureDefinition feature,
+        FeatureDefinitionPower sourcePower,
         FeatureDefinitionPower selectedPower,
         string feedback)
     {
@@ -1132,9 +1132,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         var rulesetCaster = caster.RulesetCharacter;
 
         rulesetCaster.LogCharacterActivatesPower(
-            feature.FormatTitle(),
+            sourcePower.FormatTitle(),
             feedback,
-            tooltipContent: feature.Name,
+            tooltipContent: sourcePower.Name,
             tooltipClass: "PowerDefinition",
             extra:
             [
@@ -1328,7 +1328,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var rulesetCaster = caster.RulesetCharacter;
-
         var usablePower = PowerProvider.Get(power, rulesetCaster);
         var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
         {
