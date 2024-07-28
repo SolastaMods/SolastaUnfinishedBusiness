@@ -336,3 +336,4 @@ ModUi/&UseOfficialObscurementRules=使用官方<color=#D89555>照明、遮蔽和
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[能感知到防御者但无法感知到攻击者的防御者会获得 ADV，无法感知到攻击者但可以感知到防御者会获得 DIS\n 被严重遮挡的区域会造成致盲状态，对生物的攻击掷骰获得 ADV，而生物的攻击掷骰获得 DIS\n 如果攻击者没有视力，则无法施放针对个人的所有远距离法术，除了那些明确未说明需要视力的法术]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型体型种族规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&WildSurgeDieRollThreshold=<color=white>设置巫师狂野魔法狂野涌动几率骰子阈值：{99><i><color=#F0DAA0>[当几率骰子掷出小于或等于阈值时，狂野涌动触发]</color></i>

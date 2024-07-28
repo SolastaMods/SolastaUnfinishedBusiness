@@ -336,3 +336,4 @@ ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시�
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[인지할 수 없는 방어자를 감지한 공격자는 ADV를 얻고, 감지할 수 있는 방어자를 감지하지 못한 공격자는 DIS를 얻습니다.\n 심하게 가려진 영역은 실명 상태를 유발합니다. 생물에는 ADV가 있고 생물의 공격 굴림에는 DIS가 있습니다.\n 개인을 대상으로 하는 모든 거리 주문은 공격자가 시력이 없으면 시전할 수 없습니다. 단, 시력이 필요하다고 명확하게 명시하지 않은 주문은 제외합니다.]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족</color> 규칙을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>시각적:</color> <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
+ModUi/&WildSurgeDieRollThreshold=<color=white>마법사 야생 마법 야생 급증 확률 주사위 임계값 설정:\n<i><color=#F0DAA0>[야생 급증은 확률 주사위 굴림이 임계값보다 작거나 같을 때 발동]</color></i>
