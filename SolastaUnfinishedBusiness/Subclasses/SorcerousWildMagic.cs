@@ -23,6 +23,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -68,6 +69,20 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .AddCustomSubFeatures(new CustomBehaviorSpellBombardment())
         .AddToDB();
 
+    private static readonly ConditionDefinition ConditionTidesOfChaosRechargeMark = ConditionDefinitionBuilder
+        .Create($"Condition{Name}TidesOfChaosRechargeMark")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionWildSurgeMark = ConditionDefinitionBuilder
+        .Create($"Condition{Name}WildSurgeMark")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+        .AddToDB();
+
     //
     // Wild Surge Powers
     //
@@ -94,8 +109,22 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(Grease)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
                 .Build())
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerLightningStrike = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}LightningStrike")
+        .SetGuiPresentation("PowerSorcerousWildMagicD19", Category.Feature, LightningBolt)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
+                .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 4, DieType.D10))
+                .SetParticleEffectParameters(LightningBolt)
+                .Build())
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerNecroticDamage = FeatureDefinitionPowerBuilder
@@ -133,19 +162,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .AddCustomSubFeatures(new PowerOrSpellInitiatedByMeTeleport())
         .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerLightningStrike = FeatureDefinitionPowerBuilder
-        .Create($"Power{Name}LightningStrike")
-        .SetGuiPresentation("PowerSorcerousWildMagicD19", Category.Feature, LightningBolt)
-        .SetUsesFixed(ActivationTime.NoCost)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
-                .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 4, DieType.D10))
-                .SetParticleEffectParameters(LightningBolt)
-                .Build())
-        .AddToDB();
-
     private static readonly ConditionDefinition ConditionChaos = ConditionDefinitionBuilder
         .Create($"Condition{Name}Chaos")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
@@ -175,6 +191,14 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetConditionParticleReference(ConjureCelestialCouatl)
         .AddToDB();
 
+    private static readonly ConditionDefinition ConditionLightningStrike = ConditionDefinitionBuilder
+        .Create($"Condition{Name}LightningStrike")
+        .SetGuiPresentation("PowerSorcerousWildMagicD19", Category.Feature, ConditionGuided)
+        .SetPossessive()
+        .SetFeatures(PowerLightningStrike)
+        .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+        .AddToDB();
+
     private static readonly ConditionDefinition ConditionPiercingVulnerability = ConditionDefinitionBuilder
         .Create($"Condition{Name}PiercingVulnerability")
         .SetGuiPresentation("PowerSorcerousWildMagicD17", Category.Feature, ConditionTargetedByGuidingBolt)
@@ -189,28 +213,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetGuiPresentation("PowerSorcerousWildMagicD10", Category.Feature, ConditionAuraOfCourage)
         .SetPossessive()
         .AddCustomSubFeatures(new CustomBehaviorMaxDamageRolls())
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionLightningStrike = ConditionDefinitionBuilder
-        .Create($"Condition{Name}LightningStrike")
-        .SetGuiPresentation("PowerSorcerousWildMagicD19", Category.Feature, ConditionGuided)
-        .SetPossessive()
-        .SetFeatures(PowerLightningStrike)
-        .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionWildSurgeMark = ConditionDefinitionBuilder
-        .Create($"Condition{Name}WildSurgeMark")
-        .SetGuiPresentationNoContent(true)
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionTidesOfChaosRechargeMark = ConditionDefinitionBuilder
-        .Create($"Condition{Name}TidesOfChaosRechargeMark")
-        .SetGuiPresentationNoContent(true)
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
 
     public SorcerousWildMagic()
@@ -240,8 +242,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .AddToDB();
 
         var actionAffinityTidesOfChaosToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
-                "ActionAffinityTidesOfChaosToggle")
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityTidesOfChaosToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(TidesOfChaosToggle)
             .AddCustomSubFeatures(
@@ -258,7 +259,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .AddToDB();
 
         var actionAffinityTidesOfChaosRecharge = FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinityTidesOfChaosRecharge")
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityTidesOfChaosRecharge")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(TidesOfChaosRecharge)
             .AddCustomSubFeatures(
@@ -293,7 +294,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         // Controlled Chaos
 
-        // these powers should not be added to progression
+        // these powers should not be added to progression as they get added dynamically
+        // before reaction modal and get removed right after
         for (var i = 1; i <= 20; i++)
         {
             WildSurgePowers.Add(
@@ -334,13 +336,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static void SwitchWildSurgeChanceDieThreshold()
-    {
-        PowerWildMagicSurge.GuiPresentation.description = Gui.Format(
-            "Feature/&PowerSorcerousWildMagicWildMagicSurgeDescription",
-            Main.Settings.WildSurgeDieRollThreshold.ToString());
-    }
-
     //
     // Tides of Chaos
     //
@@ -380,6 +375,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     //
     // Wild Surge
     //
+
+    internal static void SwitchWildSurgeChanceDieThreshold()
+    {
+        PowerWildMagicSurge.GuiPresentation.description = $"{PowerWildMagicSurge.Name}Description"
+            .Formatted(Category.Feature, Main.Settings.WildSurgeDieRollThreshold.ToString());
+    }
 
     private static IEnumerator HandleWildSurge(GameLocationCharacter attacker, bool avoidOnes = false)
     {
@@ -1166,7 +1167,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             attacker.UsedSpecialFeatures.Remove(FeatureSpellBombardment.Name);
 
             if (levels < 18 ||
-                (activeEffect is not RulesetEffectSpell &&
+                activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
+                (rulesetEffectSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer &&
                  activeEffect.SourceDefinition != PowerFireball))
             {
                 yield break;
@@ -1294,7 +1296,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you cast grease centered on self
             case 12:
-                ExecutePowerNoCostOnCasterLocation(caster, PowerGrease);
+                ExecutePowerNoCostOnCasterLocation(caster, PowerGrease, 1);
                 break;
 
             // you cast mirror image
@@ -1386,20 +1388,35 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static void ExecutePowerNoCostOnCasterLocation(GameLocationCharacter caster, FeatureDefinitionPower power)
+    private static void ExecutePowerNoCostOnCasterLocation(
+        GameLocationCharacter caster, FeatureDefinitionPower power, int range = 0)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var rulesetCaster = caster.RulesetCharacter;
         var usablePower = PowerProvider.Get(power, rulesetCaster);
+        var actionModifiers = new List<ActionModifier>();
+        var targets = new List<GameLocationCharacter>();
+
+        if (range > 0)
+        {
+            EnumerateTargetsWithinRange(caster, range, targets);
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+        }
+
         var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
         {
-            ActionModifiers = { new ActionModifier() },
+            ActionModifiers = actionModifiers,
             RulesetEffect = implementationManager
                 .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
             UsablePower = usablePower,
-            Positions = { caster.LocationPosition }
+            Positions = { caster.LocationPosition },
+            targetCharacters = targets
         };
 
         actionService.ExecuteAction(actionParams, null, true);
@@ -1416,13 +1433,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         int range)
     {
         var rulesetCaster = caster.RulesetCharacter;
-        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-        var contenders =
-            Gui.Battle?.AllContenders ??
-            locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-        var targets = contenders
-            .Where(x => x.IsWithinRange(caster, range) && x != caster)
-            .ToList();
+        var targets = new List<GameLocationCharacter>();
+
+        EnumerateTargetsWithinRange(caster, range, targets, false);
 
         var random = new PcgRandom((ulong)DateTime.Now.Ticks);
         var index = random.Next(targets.Count);
@@ -1476,13 +1489,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             return;
         }
 
-        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-        var contenders =
-            Gui.Battle?.AllContenders ??
-            locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-        var targets = contenders
-            .Where(x => x.IsWithinRange(caster, range))
-            .ToList();
+        var targets = new List<GameLocationCharacter>();
+
+        EnumerateTargetsWithinRange(caster, range, targets);
 
         foreach (var target in targets)
         {
@@ -1507,6 +1516,18 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 0,
                 0);
         }
+    }
+
+    private static void EnumerateTargetsWithinRange(
+        GameLocationCharacter caster, int range, List<GameLocationCharacter> targets, bool includeCaster = true)
+    {
+        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var contenders =
+            Gui.Battle?.AllContenders ??
+            locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
+
+        targets.SetRange(contenders.Where(x =>
+            x.IsWithinRange(caster, range) && (includeCaster || x != caster)));
     }
 
     //
@@ -1552,8 +1573,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     // Max Damage Rolls
     //
 
-    private sealed class CustomBehaviorMaxDamageRolls : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe,
-        IForceMaxDamageTypeDependent
+    private sealed class CustomBehaviorMaxDamageRolls
+        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IForceMaxDamageTypeDependent
     {
         private const string Tag = "WildSurgeMaxDamageRolls";
 
@@ -1589,9 +1610,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         {
             attacker.UsedSpecialFeatures.Remove(Tag);
 
-            if ((activeEffect is not RulesetEffectSpell ||
-                 activeEffect.EffectDescription.FindFirstDamageForm() == null) &&
-                activeEffect.SourceDefinition != PowerFireball)
+            if (activeEffect is not RulesetEffectSpell ||
+                activeEffect.EffectDescription.FindFirstDamageForm() == null)
             {
                 yield break;
             }
