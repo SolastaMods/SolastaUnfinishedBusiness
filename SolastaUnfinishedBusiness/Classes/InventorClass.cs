@@ -114,6 +114,7 @@ internal static class InventorClass
             .Create("PowerInventorSoulOfArtifice")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetShowCasting(false)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
@@ -946,7 +947,7 @@ internal static class InventorClass
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
             EffectHelpers.StartVisualEffect(
-                defender, defender, FeatureDefinitionPowers.PowerDefilerMistyFormEscape,
+                defender, defender, FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift,
                 EffectHelpers.EffectType.Caster);
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
@@ -967,7 +968,7 @@ internal static class InventorClass
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            var attunedItems = caster.Items.Count(x => x.AttunedToCharacter == x.Name);
+            var attunedItems = caster.Items?.Count(x => x.AttunedToCharacter == x.Name) ?? 0;
 
             rollModifier += attunedItems;
             modifierTrends.Add(

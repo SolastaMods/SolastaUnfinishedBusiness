@@ -463,6 +463,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionGuided { get; } =
             GetDefinition<ConditionDefinition>("ConditionGuided");
 
+        internal static ConditionDefinition ConditionAuraOfCourage { get; } =
+            GetDefinition<ConditionDefinition>("ConditionAuraOfCourage");
+
         internal static ConditionDefinition ConditionHasted { get; } =
             GetDefinition<ConditionDefinition>("ConditionHasted");
 
@@ -1811,6 +1814,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
+
+        internal static FeatureDefinitionPower PowerPatronFiendDarkOnesBlessing { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronFiendDarkOnesBlessing");
 
         internal static FeatureDefinitionPower PowerDomainBattleHeraldOfBattle { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleHeraldOfBattle");
