@@ -38,18 +38,19 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     // subclass features
     //
 
-    private static readonly FeatureDefinition FeatureWildMagicSurge = FeatureDefinitionPowerBuilder
-        .Create($"Feature{Name}WildMagicSurge")
-        .SetGuiPresentation(Category.Feature)
-        .AddCustomSubFeatures(new CustomBehaviorWildMagicSurge(), ModifyPowerVisibility.Hidden)
-        .AddToDB();
-
     private static readonly FeatureDefinitionPower PowerTidesOfChaos = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}TidesOfChaos")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
         .DelegatedToAction()
         .AddCustomSubFeatures(new CustomBehaviorTidesOfChaos(), ModifyPowerVisibility.Hidden)
+        .AddToDB();
+
+    // used power for a better combat log tooltip
+    private static readonly FeatureDefinitionPower PowerWildMagicSurge = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}WildMagicSurge")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new CustomBehaviorWildMagicSurge(), ModifyPowerVisibility.Hidden)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerControlledChaos = FeatureDefinitionPowerBuilder
@@ -95,19 +96,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerLightningStrike = FeatureDefinitionPowerBuilder
-        .Create($"Power{Name}LightningStrike")
-        .SetGuiPresentation("PowerSorcerousWildMagicD19", Category.Feature, LightningBolt)
-        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
-                .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 4, DieType.D10))
-                .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
-                .Build())
-        .AddToDB();
-
     private static readonly FeatureDefinitionPower PowerNecroticDamage = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}NecroticDamage")
         .SetGuiPresentation($"Power{Name}D14", Category.Feature)
@@ -124,10 +112,23 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerLightningStrike = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}LightningStrike")
+        .SetGuiPresentation("PowerSorcerousWildMagicD19", Category.Feature, LightningBolt)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
+                .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 4, DieType.D10))
+                .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
+                .Build())
+        .AddToDB();
+
     private static readonly FeatureDefinitionPower PowerTeleport = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}Teleport")
         .SetGuiPresentation("PowerSorcerousWildMagicD05", Category.Feature, MistyStep)
-        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
+        .SetUsesFixed(ActivationTime.NoCost)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
@@ -147,7 +148,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
         .SetPossessive()
         .SetConditionType(ConditionType.Neutral)
-        .AddCustomSubFeatures(new CharacterTurnStartListenerChaos(FeatureWildMagicSurge))
+        .AddCustomSubFeatures(new CharacterTurnStartListenerChaos(PowerWildMagicSurge))
         .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
         .AddToDB();
 
@@ -181,6 +182,13 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetConditionParticleReference(ConditionDefinitions.Condition_MummyLord_ChannelNegativeEnergy)
         .AddToDB();
 
+    private static readonly ConditionDefinition ConditionMaxDamageRolls = ConditionDefinitionBuilder
+        .Create($"Condition{Name}MaxDamageRolls")
+        .SetGuiPresentation("PowerSorcerousWildMagicD10", Category.Feature, ConditionDefinitions.ConditionGuided)
+        .SetPossessive()
+        .AddCustomSubFeatures(new CustomBehaviorMaxDamageRolls())
+        .AddToDB();
+
     private static readonly ConditionDefinition ConditionTeleport = ConditionDefinitionBuilder
         .Create($"Condition{Name}Teleport")
         .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionConjuredCreature)
@@ -197,23 +205,19 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
         .AddToDB();
 
-    private static readonly ConditionDefinition ConditionMaxDamageRolls = ConditionDefinitionBuilder
-        .Create($"Condition{Name}MaxDamageRolls")
-        .SetGuiPresentation("PowerSorcerousWildMagicD10", Category.Feature, ConditionDefinitions.ConditionGuided)
-        .SetPossessive()
-        .AddCustomSubFeatures(new CustomBehaviorMaxDamageRolls())
-        .AddToDB();
-
     public SorcerousWildMagic()
     {
         // LEVEL 01
 
         // Wild Magic Surge
 
-        PowerLightningStrike.AddCustomSubFeatures(new PowerOrSpellFinishedByMe(ConditionLightningStrike));
-        PowerTeleport.AddCustomSubFeatures(new PowerOrSpellFinishedByMe(ConditionTeleport));
         PowerNecroticDamage.EffectDescription.EffectForms[0].DamageForm.healFromInflictedDamage =
             HealFromInflictedDamage.Full;
+
+        PowerLightningStrike.AddCustomSubFeatures(new PowerOrSpellFinishedByMe(ConditionLightningStrike));
+        PowerTeleport.AddCustomSubFeatures(new PowerOrSpellFinishedByMe(ConditionTeleport));
+
+        ConditionDamageResistance.GuiPresentation.description = Gui.NoLocalization;
 
         // Tides of Chaos
 
@@ -251,6 +255,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasNotAvailablePowerUsage(PowerTidesOfChaos)))
             .AddToDB();
 
+        var featureSetTidesOfChaos = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}TidesOfChaos")
+            .SetGuiPresentation(PowerTidesOfChaos.GuiPresentation)
+            .AddFeatureSet(actionAffinityTidesOfChaosRecharge, actionAffinityTidesOfChaosToggle, PowerTidesOfChaos)
+            .AddToDB();
+        
         // LEVEL 06
 
         // Bend Luck
@@ -290,11 +300,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.SorcererWildMagic, 256))
-            .AddFeaturesAtLevel(1,
-                FeatureWildMagicSurge,
-                PowerTidesOfChaos,
-                actionAffinityTidesOfChaosToggle,
-                actionAffinityTidesOfChaosRecharge)
+            .AddFeaturesAtLevel(1, PowerWildMagicSurge, featureSetTidesOfChaos)
             .AddFeaturesAtLevel(6, powerBendLuck)
             .AddFeaturesAtLevel(14, PowerControlledChaos)
             .AddFeaturesAtLevel(18, FeatureSpellBombardment)
@@ -355,9 +361,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         var selectedPower = WildSurgePowers[selectedRoll - 1];
 
-        rulesetAttacker.ShowDieRoll(DieType.D20, selectedRoll, title: FeatureWildMagicSurge.GuiPresentation.Title);
+        rulesetAttacker.ShowDieRoll(DieType.D20, selectedRoll, title: PowerWildMagicSurge.GuiPresentation.Title);
 
-        ApplyWildSurge(attacker, selectedRoll, FeatureWildMagicSurge, selectedPower, "Feedback/&WidSurgeDieRoll");
+        ApplyWildSurge(attacker, selectedRoll, PowerWildMagicSurge, selectedPower, "Feedback/&WidSurgeDieRoll");
     }
 
     //
@@ -398,8 +404,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         var rulesetAttacker = attacker.RulesetCharacter;
 
-        rulesetAttacker.ShowDieRoll(DieType.D20, wildSurgeDie1, title: FeatureWildMagicSurge.GuiPresentation.Title);
-        rulesetAttacker.ShowDieRoll(DieType.D20, wildSurgeDie2, title: FeatureWildMagicSurge.GuiPresentation.Title);
+        rulesetAttacker.ShowDieRoll(DieType.D20, wildSurgeDie1, title: PowerWildMagicSurge.GuiPresentation.Title);
+        rulesetAttacker.ShowDieRoll(DieType.D20, wildSurgeDie2, title: PowerWildMagicSurge.GuiPresentation.Title);
         rulesetAttacker.LogCharacterActivatesAbility(
             PowerControlledChaos.FormatTitle(),
             "Feedback/&ControlledChaosDieRoll",
@@ -510,11 +516,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var shouldRollWildSurge = chanceDie <= 2;
 #endif
 
-            rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: FeatureWildMagicSurge.GuiPresentation.Title);
+            rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: PowerWildMagicSurge.GuiPresentation.Title);
             rulesetAttacker.LogCharacterActivatesAbility(
-                FeatureWildMagicSurge.GuiPresentation.Title,
+                PowerWildMagicSurge.GuiPresentation.Title,
                 "Feedback/&WidSurgeChanceDieRoll",
-                tooltipContent: FeatureWildMagicSurge.Name,
+                tooltipContent: PowerWildMagicSurge.Name,
                 tooltipClass: "PowerDefinition",
                 extra:
                 [
@@ -523,7 +529,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                             : ConsoleStyleDuplet.ParameterType.Positive,
                         chanceDie.ToString())
                 ]);
-
 
             if (shouldRollWildSurge)
             {
@@ -534,10 +539,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
     private sealed class CustomBehaviorTidesOfChaos : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
-        public int HandlerPriority => -9; // ensure it triggers after bend of luck
-
+        public int HandlerPriority => -5; // ensure it triggers after bend of luck
+        
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -546,34 +551,20 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager)
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetHelper);
 
-            if (action.AttackRollOutcome is not RollOutcome.Failure ||
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
-                !helper.OncePerTurnIsValid(PowerTidesOfChaos.Name) ||
                 !rulesetHelper.IsToggleEnabled(TidesOfChaosToggle) ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            helper.UsedSpecialFeatures.TryAdd(PowerTidesOfChaos.Name, 0);
-            usablePower.Consume();
-
-            var advantageTrends =
-                new List<TrendInfo>
-                {
-                    new(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)
-                };
-
+            List<TrendInfo> advantageTrends =
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
+            
             actionModifier.AttackAdvantageTrends.SetRange(advantageTrends);
 
             RollOutcome outcome;
@@ -624,6 +615,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             var sign = toHitBonus > 0 ? "+" : string.Empty;
 
+            usablePower.Consume();
             rulesetHelper.LogCharacterUsedFeature(
                 PowerTidesOfChaos,
                 "Feedback/&TriggerRerollLine",
@@ -651,9 +643,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetHelper);
 
             if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
+                action.SaveOutcome is not RollOutcome.Failure ||
                 helper != defender ||
-                !helper.OncePerTurnIsValid(PowerTidesOfChaos.Name) ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
@@ -667,12 +658,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             {
                 StringParameter = "TidesOfChaos",
                 StringParameter2 = "SpendPowerTidesOfChaosDescription"
-                    .Formatted(Category.Reaction, defender.Name, attacker.Name, action.FormatTitle()),
+                    .Formatted(Category.Reaction, attacker.Name, action.FormatTitle()),
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
-
             var count = actionService.PendingReactionRequestGroups.Count;
 
             actionService.ReactToSpendPower(reactionParams);
@@ -684,21 +674,16 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            helper.UsedSpecialFeatures.TryAdd(PowerTidesOfChaos.Name, 0);
             usablePower.Consume();
-
             rulesetHelper.LogCharacterActivatesAbility(
                 PowerTidesOfChaos.GuiPresentation.Title,
-                "Feedback/&TidesOfChaosSavingDieRoll",
+                "Feedback/&TidesOfChaosAdvantageSavingThrow",
                 tooltipContent: PowerTidesOfChaos.Name,
                 tooltipClass: "PowerDefinition");
 
-            var advantageTrends =
-                new List<TrendInfo>
-                {
-                    new(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)
-                };
-
+            List<TrendInfo> advantageTrends =
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
+            
             actionModifier.SavingThrowAdvantageTrends.SetRange(advantageTrends);
 
             action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
@@ -713,7 +698,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     defender.RulesetActor,
                     actionModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual,
                     out saveOutcome, out saveOutcomeDelta);
-
             action.SaveOutcome = saveOutcome;
             action.SaveOutcomeDelta = saveOutcomeDelta;
         }

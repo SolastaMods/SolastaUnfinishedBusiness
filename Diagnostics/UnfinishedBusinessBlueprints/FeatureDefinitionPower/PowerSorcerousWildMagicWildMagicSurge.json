@@ -175,8 +175,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSorcerousWildMagicWildMagicSurgeTitle",
-    "description": "Feature/&FeatureSorcerousWildMagicWildMagicSurgeDescription",
+    "title": "Feature/&PowerSorcerousWildMagicWildMagicSurgeTitle",
+    "description": "Feature/&PowerSorcerousWildMagicWildMagicSurgeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -196,7 +196,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f06ae284-6502-50d7-b8d5-ac096428248d",
+  "guid": "239281bf-9c44-5707-ad02-46324993cc6f",
   "contentPack": 9999,
-  "name": "FeatureSorcerousWildMagicWildMagicSurge"
+  "name": "PowerSorcerousWildMagicWildMagicSurge"
 }
