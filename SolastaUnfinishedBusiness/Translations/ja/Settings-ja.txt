@@ -280,7 +280,6 @@ ModUi/&SelectTabletop=テーブルトップを選択してください
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>通常の視力</color>範囲を変更<i><color=#F0DAA0>[戦闘時のみ]</color></i>
 ModUi/&Services=サービス
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>ドワーフ族のベルト</color> <color=white>ひげが出現するチャンス</color>
-ModUi/&SetElevationCameraMaxHeightBy=<color=white>仰角カメラの最大高度を</color>増加
 ModUi/&SettingsExport=輸出
 ModUi/&SettingsHelp=• ホストとして、現在の構成をエクスポートし、エクスポート フォルダを開いてピアと簡単に共有できます。\n• ゲストとして、エクスポート フォルダを開いて、ホストから共有ファイルを貼り付け、<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&SettingsLoad=• エクスポートした設定をロードする

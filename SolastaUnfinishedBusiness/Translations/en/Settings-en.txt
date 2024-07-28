@@ -280,7 +280,6 @@ ModUi/&SelectTabletop=Select Tabletop
 ModUi/&SenseNormalVisionRangeMultiplier=Modify <color=#D89555>Normal Vision</color> range <i><color=#F0DAA0>[only in battles]</color></i>
 ModUi/&Services=Services
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
-ModUi/&SetElevationCameraMaxHeightBy=<color=white>Increase elevation camera max height by</color>
 ModUi/&SettingsExport=Export
 ModUi/&SettingsHelp=• As a host you can export your current configuration, open the exports folder and easily share with your peers\n• As a guest you can open the exports folder, paste the shared file from the host and load it over <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&SettingsLoad=• Load an exported setting

@@ -414,7 +414,6 @@ public class Settings : UnityModManager.ModSettings
 
     // Camera
     public bool EnableElevationCameraToStayAtPosition { get; set; }
-    public int SetElevationCameraMaxHeightBy { get; set; }
 
     // Formation
     public int FormationGridSelectedSet { get; set; } = -1;

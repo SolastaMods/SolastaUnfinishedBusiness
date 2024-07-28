@@ -380,13 +380,6 @@ internal static class GameUiDisplay
             Main.Settings.EnableElevationCameraToStayAtPosition = toggle;
         }
 
-        intValue = Main.Settings.SetElevationCameraMaxHeightBy;
-        if (UI.Slider(Gui.Localize("ModUi/&SetElevationCameraMaxHeightBy"), ref intValue, 0, 24,
-                4, "cells", UI.AutoWidth()))
-        {
-            Main.Settings.SetElevationCameraMaxHeightBy = intValue;
-        }
-
         #endregion
 
         #region Formation

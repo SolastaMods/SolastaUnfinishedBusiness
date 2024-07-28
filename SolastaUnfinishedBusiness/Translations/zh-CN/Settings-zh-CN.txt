@@ -280,7 +280,6 @@ ModUi/&SelectTabletop=选择桌面
 ModUi/&SenseNormalVisionRangeMultiplier=修改<color=#D89555>正常视力</color>范围<i><color=#F0DAA0>[仅在战斗中]</color></i>
 ModUi/&Services=服务
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>矮人腰带</color><color=white>胡须出现几率</color>
-ModUi/&SetElevationCameraMaxHeightBy=<color=white>将相机最大高度增加</color>
 ModUi/&SettingsExport=导出
 ModUi/&SettingsHelp=•作为主机，你可以导出当前配置，打开导出文件夹并轻松与你的联机者共享\n•作为客机，你可以打开导出文件夹，从主机粘贴分享的设置文件并覆盖设置。<b><i><color=#C04040E0>[需要重启生效]</color></i></b>
 ModUi/&SettingsLoad=•加载导出的设置
