@@ -234,7 +234,7 @@ public class PatronMountain : AbstractSubclass
         public int HandlerPriority => 20;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -243,13 +243,6 @@ public class PatronMountain : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager)
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
             var levels = rulesetHelper.GetClassLevel(CharacterClassDefinitions.Warlock);
             var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;

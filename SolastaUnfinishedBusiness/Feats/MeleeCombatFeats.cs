@@ -759,7 +759,7 @@ internal static class MeleeCombatFeats
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -768,13 +768,6 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager)
-            {
-                yield break;
-            }
-
             if (action.AttackRollOutcome is not RollOutcome.Success ||
                 helper != defender ||
                 !helper.CanReact() ||

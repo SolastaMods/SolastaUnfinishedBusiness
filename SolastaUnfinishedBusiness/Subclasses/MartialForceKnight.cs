@@ -734,7 +734,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -743,13 +743,6 @@ public sealed class MartialForceKnight : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager)
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||

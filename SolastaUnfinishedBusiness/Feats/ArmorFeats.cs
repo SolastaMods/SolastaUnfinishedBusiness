@@ -255,8 +255,7 @@ internal static class ArmorFeats
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            if (!battleManager ||
-                helper != defender ||
+            if (helper != defender ||
                 rulesetEffect == null ||
                 action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {

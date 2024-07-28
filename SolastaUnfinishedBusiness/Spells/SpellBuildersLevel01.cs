@@ -1558,7 +1558,7 @@ internal static partial class SpellBuilders
         public int HandlerPriority => 10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1567,11 +1567,7 @@ internal static partial class SpellBuilders
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager ||
-                helper != defender ||
+            if (helper != defender ||
                 !helper.CanReact() ||
                 !helper.RulesetCharacter.AreSpellComponentsValid(spellDefinition))
             {

@@ -553,7 +553,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         public int HandlerPriority => 40;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -562,11 +562,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager ||
-                helper != defender)
+            if (helper != defender)
             {
                 yield break;
             }
