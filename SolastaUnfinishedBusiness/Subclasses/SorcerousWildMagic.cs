@@ -251,7 +251,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .SetAuthorizedActions(TidesOfChaosRecharge)
             .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(
-                    c => !c.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name),
+                    c => !c.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name) &&
+                         GameLocationCharacter.GetFromActor(c)?.OncePerTurnIsValid(PowerTidesOfChaos.Name) == true,
                     ValidatorsCharacter.HasNotAvailablePowerUsage(PowerTidesOfChaos)))
             .AddToDB();
 
@@ -329,9 +330,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             tooltipContent: PowerTidesOfChaos.Name,
             tooltipClass: "PowerDefinition");
 
-        yield return HandleWildSurge(GameLocationCharacter.GetFromActor(rulesetCharacter));
-
+        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
         var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetCharacter);
+
+        character.UsedSpecialFeatures.TryAdd(PowerTidesOfChaos.Name, 0);
+
+        yield return HandleWildSurge(character);
 
         usablePower.RepayUse();
     }
@@ -502,6 +506,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (action is not CharacterActionCastSpell actionCastSell ||
+                !attacker.OncePerTurnIsValid(PowerWildMagicSurge.Name) ||
                 actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 ||
                 actionCastSell.ActiveSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer ||
                 rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name))
@@ -531,10 +536,14 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         chanceDie.ToString())
                 ]);
 
-            if (shouldRollWildSurge)
+            if (!shouldRollWildSurge)
             {
-                yield return HandleWildSurge(attacker);
+                yield break;
             }
+
+            attacker.UsedSpecialFeatures.TryAdd(PowerWildMagicSurge.Name, 0);
+
+            yield return HandleWildSurge(attacker);
         }
     }
 
@@ -1149,7 +1158,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         switch (roll)
         {
-            // trigger a random Wild Surge effect (except this one) at the start of each of your turns for the next minute
+            // trigger a random Wild Surge effect (except this one) at the start of each of your turns for one minute
             case 1:
                 EffectHelpers.StartVisualEffect(
                     caster, caster, PowerSessrothTeleport, EffectHelpers.EffectType.Caster);
@@ -1177,12 +1186,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 4);
                 break;
 
-            // You can teleport up to 60 feet to an unoccupied space of your choice that you can see as a free action before your turn ends
+            // you teleport up to 60 feet to an unoccupied space of your choice that you can see
             case 5:
                 EffectHelpers.StartVisualEffect(
                     caster, caster, PowerPactChainQuasit, EffectHelpers.EffectType.Caster);
                 ExecutePowerNoCostOnCasterLocation(caster, PowerTeleport);
-                //InflictConditionOnCreaturesWithinRange(caster, ConditionTeleport.Name, DurationType.Round, 0);
                 break;
 
             // you become frightened until the end of your next turn
@@ -1200,15 +1208,14 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     caster, ConditionDefinitions.ConditionInvisible.Name, DurationType.Minute);
                 break;
 
-            // a random creature within 60 feet of you becomes poisoned for 1 hour
+            // a random creature within 60 feet of you (other than you) becomes poisoned for 1 hour
             case 8:
-                //
                 InflictConditionOnRandomCreatureWithinRange(
                     caster, RuleDefinitions.ConditionPoisoned, DurationType.Hour, 1, TurnOccurenceType.EndOfTurn,
                     PowerDomainOblivionMarkOfFate, 12);
                 break;
 
-            // you regain your lowest-level expended spell slot
+            // you gain a [class level / 4 (rounded up)] level spell slot
             case 9:
                 var levels = caster.RulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name);
                 var slotLevel = (levels + 3) / 4;
@@ -1228,7 +1235,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 InflictConditionOnCreaturesWithinRange(caster, ConditionMaxDamageRolls.Name, DurationType.Minute);
                 break;
 
-            // A random creature within 60 feet of you can fly for a minute
+            // A random creature within 60 feet of you (other than you) can fly for one minute.
             case 11:
                 InflictConditionOnRandomCreatureWithinRange(
                     caster, RuleDefinitions.ConditionFlying,
@@ -1240,7 +1247,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 ExecutePowerNoCostOnCasterLocation(caster, PowerGrease);
                 break;
 
-            // you cast mirror image on self
+            // you cast mirror image
             case 13:
                 EffectHelpers.StartVisualEffect(
                     caster, caster, SpellsContext.MirrorImage, EffectHelpers.EffectType.Caster);
@@ -1248,7 +1255,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     caster, SpellBuilders.ConditionMirrorImageMark.Name, DurationType.Minute);
                 break;
 
-            // each creature within 30 feet of you (other than you) takes 1d10 necrotic damage. You regain hit points equal to the sum of the necrotic damage dealt
+            // each creature within 30 feet of you (other than you) takes 1d10 necrotic damage. You regain hit points equal to every necrotic damage amount dealt
             case 14:
                 var actionService = ServiceRepository.GetService<IGameLocationActionService>();
                 var implementationManager =
@@ -1281,11 +1288,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 actionService.ExecuteAction(actionParamsNecroticDamage, null, true);
                 break;
 
-            // you cast invisibility on self and each creature within 30 ft
+            // each creature within 30 feet of you (other than you) becomes invisible for one minute
             case 15:
                 InflictConditionOnCreaturesWithinRange(
                     caster, ConditionDefinitions.ConditionInvisible.Name,
-                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6, PowerSorcererHauntedSoulSoulDrain);
+                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6, PowerSorcererHauntedSoulSoulDrain, false);
                 break;
 
             // you can take one additional action immediately
@@ -1296,14 +1303,14 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     caster, ConditionDefinitions.ConditionSurged.Name, DurationType.Round, 0);
                 break;
 
-            // each creature within 30 feet of you (including you) gain vulnerability to piercing damage for the next minute
+            // each creature within 30 feet of you (including you) gain vulnerability to piercing damage for one minute
             case 17:
                 InflictConditionOnCreaturesWithinRange(
                     caster, ConditionPiercingVulnerability.Name,
                     DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6, PowerIncubus_Drain);
                 break;
 
-            // you gain resistance to all damage for the next minute
+            // you gain resistance to all damage for one minute
             case 18:
                 EffectHelpers.StartVisualEffect(
                     caster, caster, PowerOathOfTirmarGoldenSpeech, EffectHelpers.EffectType.Caster);
@@ -1394,7 +1401,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         int durationParameter = 1,
         TurnOccurenceType turnOccurenceType = TurnOccurenceType.EndOfTurn,
         int range = 0,
-        IMagicEffect magicEffect = null)
+        IMagicEffect magicEffect = null,
+        bool includeCaster = true)
     {
         var rulesetCaster = caster.RulesetCharacter;
 
@@ -1422,7 +1430,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             Gui.Battle?.AllContenders ??
             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
         var targets = contenders
-            .Where(x => x.IsWithinRange(caster, range))
+            .Where(x =>
+                x.IsWithinRange(caster, range) &&
+                (includeCaster || x != caster))
             .ToList();
 
         foreach (var target in targets)
