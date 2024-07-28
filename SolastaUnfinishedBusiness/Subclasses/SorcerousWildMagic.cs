@@ -142,7 +142,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 .Create()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
                 .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 4, DieType.D10))
-                .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
+                .SetParticleEffectParameters(LightningBolt)
                 .Build())
         .AddToDB();
 
@@ -188,7 +188,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
     private static readonly ConditionDefinition ConditionMaxDamageRolls = ConditionDefinitionBuilder
         .Create($"Condition{Name}MaxDamageRolls")
-        .SetGuiPresentation("PowerSorcerousWildMagicD10", Category.Feature, ConditionGuided)
+        .SetGuiPresentation("PowerSorcerousWildMagicD10", Category.Feature, ConditionAuraOfCourage)
         .SetPossessive()
         .AddCustomSubFeatures(new CustomBehaviorMaxDamageRolls())
         .AddToDB();
@@ -199,6 +199,20 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetPossessive()
         .SetFeatures(PowerLightningStrike)
         .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionWildSurgeMark = ConditionDefinitionBuilder
+        .Create($"Condition{Name}WildSurgeMark")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionTidesOfChaosRechargeMark = ConditionDefinitionBuilder
+        .Create($"Condition{Name}TidesOfChaosRechargeMark")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
 
     public SorcerousWildMagic()
@@ -251,8 +265,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .SetAuthorizedActions(TidesOfChaosRecharge)
             .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(
-                    c => !c.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name) &&
-                         GameLocationCharacter.GetFromActor(c)?.OncePerTurnIsValid(PowerTidesOfChaos.Name) == true,
+                    c =>
+                        !c.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name) &&
+                        !c.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                            ConditionTidesOfChaosRechargeMark.Name),
                     ValidatorsCharacter.HasNotAvailablePowerUsage(PowerTidesOfChaos)))
             .AddToDB();
 
@@ -324,16 +340,28 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
     internal static IEnumerator HandleRechargeTidesOfChaos(RulesetCharacter rulesetCharacter)
     {
+        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+        var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetCharacter);
+
         rulesetCharacter.LogCharacterActivatesAbility(
             PowerTidesOfChaos.GuiPresentation.Title,
             "Feedback/&TidesOfChaosForcedSurge",
             tooltipContent: PowerTidesOfChaos.Name,
             tooltipClass: "PowerDefinition");
 
-        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
-        var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetCharacter);
-
-        character.UsedSpecialFeatures.TryAdd(PowerTidesOfChaos.Name, 0);
+        rulesetCharacter.InflictCondition(
+            ConditionTidesOfChaosRechargeMark.Name,
+            DurationType.Round,
+            0,
+            TurnOccurenceType.EndOfTurn,
+            AttributeDefinitions.TagEffect,
+            rulesetCharacter.guid,
+            rulesetCharacter.CurrentFaction.Name,
+            1,
+            ConditionTidesOfChaosRechargeMark.Name,
+            0,
+            0,
+            0);
 
         yield return HandleWildSurge(character);
 
@@ -483,11 +511,13 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
         if (!rolledValues.Contains(maxDie) ||
-            !character.UsedSpecialFeatures.ContainsKey(FeatureSpellBombardment.Name))
+            !character.UsedSpecialFeatures.TryGetValue(FeatureSpellBombardment.Name, out var value) ||
+            value > 0)
         {
             return;
         }
 
+        character.UsedSpecialFeatures[FeatureSpellBombardment.Name] = 1;
         rulesetCharacter.LogCharacterUsedFeature(FeatureSpellBombardment);
 
         rolledValues.Add(maxDie);
@@ -506,7 +536,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (action is not CharacterActionCastSpell actionCastSell ||
-                !attacker.OncePerTurnIsValid(PowerWildMagicSurge.Name) ||
+                !rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionWildSurgeMark.Name) ||
                 actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 ||
                 actionCastSell.ActiveSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer ||
                 rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name))
@@ -541,7 +572,19 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(PowerWildMagicSurge.Name, 0);
+            rulesetAttacker.InflictCondition(
+                ConditionWildSurgeMark.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionWildSurgeMark.Name,
+                0,
+                0,
+                0);
 
             yield return HandleWildSurge(attacker);
         }
@@ -735,7 +778,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBendLuck, rulesetHelper);
 
-            if (!helper.CanReact() ||
+            if (helper == attacker ||
+                !helper.CanReact() ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 Math.Abs(action.AttackSuccessDelta) > 4)
             {
@@ -784,7 +828,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            EffectHelpers.StartVisualEffect(helper, helper,
+            EffectHelpers.StartVisualEffect(helper, attacker,
                 PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
 
             var dieRoll = rulesetHelper.RollDie(DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
@@ -851,7 +895,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBendLuck, rulesetHelper);
 
-            if (!helper.CanReact() ||
+            if (helper == defender ||
+                !helper.CanReact() ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 Math.Abs(abilityCheckData.AbilityCheckSuccessDelta) > 4)
             {
@@ -902,7 +947,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            EffectHelpers.StartVisualEffect(helper, helper,
+            EffectHelpers.StartVisualEffect(helper, defender,
                 PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
 
             var dieRoll = rulesetHelper.RollDie(DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
@@ -976,7 +1021,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBendLuck, rulesetHelper);
 
-            if (!helper.CanReact() ||
+            if (helper == defender ||
+                !helper.CanReact() ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 Math.Abs(action.SaveOutcomeDelta) > 4)
             {
@@ -1010,8 +1056,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = stringParameter,
-                    StringParameter2 = "UseLuckySavingDescription".Formatted(
-                        Category.Reaction, defender.Name, attacker.Name, helper.Name),
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
@@ -1029,7 +1073,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            EffectHelpers.StartVisualEffect(helper, helper,
+            EffectHelpers.StartVisualEffect(helper, defender,
                 PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
 
             var dieRoll = rulesetHelper.RollDie(DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
@@ -1222,7 +1266,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
                 EffectHelpers.StartVisualEffect(
                     caster, caster, PowerMagebaneSpellCrusher, EffectHelpers.EffectType.Effect);
-                rulesetCaster.LogCharacterActivatesAbility(string.Empty, "Feedback/&SpellSlotsRecoveredLine",
+                rulesetCaster.LogCharacterActivatesAbility(string.Empty, "Feedback/&RecoverSpellSlotOfLevel",
                     extra: [(ConsoleStyleDuplet.ParameterType.Positive, slotLevel.ToString())]);
                 InflictConditionOnCreaturesWithinRange(
                     caster, $"ConditionAdditionalSpellSlot{slotLevel}", DurationType.UntilLongRest);
@@ -1231,7 +1275,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             // maximize the damage of the next damaging spell you cast within the next minute
             case 10:
                 EffectHelpers.StartVisualEffect(
-                    caster, caster, PowerDomainBattleDecisiveStrike, EffectHelpers.EffectType.Caster);
+                    caster, caster, PowerPatronFiendDarkOnesBlessing, EffectHelpers.EffectType.Effect);
                 InflictConditionOnCreaturesWithinRange(caster, ConditionMaxDamageRolls.Name, DurationType.Minute);
                 break;
 
@@ -1292,7 +1336,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             case 15:
                 InflictConditionOnCreaturesWithinRange(
                     caster, ConditionDefinitions.ConditionInvisible.Name,
-                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6, PowerSorcererHauntedSoulSoulDrain, false);
+                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6, PowerSorcererHauntedSoulSoulDrain);
                 break;
 
             // you can take one additional action immediately
@@ -1319,6 +1363,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // up to three creatures you choose within 30 feet of you take 4d10 lightning damage as a free action before your turn ends
             case 19:
+                EffectHelpers.StartVisualEffect(
+                    caster, caster, PowerDomainElementalLightningBlade, EffectHelpers.EffectType.Effect);
                 InflictConditionOnCreaturesWithinRange(caster, ConditionLightningStrike.Name, DurationType.Round, 0);
                 break;
 
@@ -1401,8 +1447,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         int durationParameter = 1,
         TurnOccurenceType turnOccurenceType = TurnOccurenceType.EndOfTurn,
         int range = 0,
-        IMagicEffect magicEffect = null,
-        bool includeCaster = true)
+        IMagicEffect magicEffect = null)
     {
         var rulesetCaster = caster.RulesetCharacter;
 
@@ -1430,9 +1475,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             Gui.Battle?.AllContenders ??
             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
         var targets = contenders
-            .Where(x =>
-                x.IsWithinRange(caster, range) &&
-                (includeCaster || x != caster))
+            .Where(x => x.IsWithinRange(caster, range))
             .ToList();
 
         foreach (var target in targets)
