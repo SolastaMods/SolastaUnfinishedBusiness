@@ -6043,11 +6043,11 @@ Your innate magic comes from the wild forces of chaos that underlie the order of
 
 * Tides of Chaos
 
-You can manipulate the forces of chance and chaos to reroll a failed attack roll or saving throw with advantage. Once you do so, you must finish a long rest before you can use this feature again. You can also use a free action to recharge your Tides of Chaos but you immediately roll on the Wild Magic Surge table before the recharge happens.
+You can manipulate the forces of chance and chaos to reroll with advantage a failed attack roll or saving throw. You can use this feature once per long rest. You can also, once during your turn as a free action, roll on the Wild Magic Surge table and regain one use of it.
 
 * Wild Magic Surge
 
-Your spellcasting can unleash surges of untamed magic. Once per turn, you roll a d20 immediately after you cast a sorcerer spell of 1st level or higher. If you roll a 1 or a 2, roll on the Wild Magic Surge table if you haven't rolled before during your turn to create a magical effect. If that effect is a spell, it is too wild to be affected by your Metamagic. The spell lasts for its full duration.
+Your spellcasting can unleash surges of untamed magic. Once per turn, you roll a d20 immediately after you cast a sorcerer spell of 1st level or higher. If you roll a 1 or a 2, roll on the Wild Magic Surge table. If that effect is a spell, it is too wild to be affected by your Metamagic, and it doesn't require concentration.
 
 
 ### Level 6
