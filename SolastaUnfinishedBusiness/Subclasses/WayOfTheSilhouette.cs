@@ -167,14 +167,12 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetCharacter, null, Darkness, 2, false);
+                .InstantiateEffectSpell(rulesetCharacter, null, Darkness, 0, false);
 
             var actionParams = action.ActionParams.Clone();
 
             actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
             actionParams.RulesetEffect = effectSpell;
-
-            rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
             actionService.ExecuteAction(actionParams, null, true);
 
             yield break;

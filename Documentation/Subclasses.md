@@ -167,9 +167,9 @@ When you hit an enemy with your attack you can channel magical energy through th
 
 * Improved Defender
 
-Your Arcane Jolt and steel defender become more powerful:
-• The extra damage and the healing of your Arcane Jolt both increase to 4d6.
-• Your steel defender gains a +2 bonus to Armor Class.
+Your Force Jolt and Steel Defender become more powerful:
+• The extra damage of your Force Jolt increase to 4d6.
+• Your Steel Defender gains a +2 bonus to Armor Class.
 
 
 
@@ -6047,7 +6047,7 @@ You can manipulate the forces of chance and chaos to reroll with advantage a fai
 
 * Wild Magic Surge
 
-Your spellcasting can unleash surges of untamed magic. Once per turn, you roll a d20 immediately after you cast a sorcerer spell of 1st level or higher. If you roll a 1 or a 2, roll on the Wild Magic Surge table. If that effect is a spell, it is too wild to be affected by your Metamagic, and it doesn't require concentration.
+Your spellcasting can unleash surges of untamed magic. Once per turn, you roll a d20 immediately after you cast a sorcerer spell of 1st level or higher. If you roll less or equal 2, roll on the Wild Magic Surge table. If that effect is a spell, it is too wild to be affected by your Metamagic, and it doesn't require concentration.
 
 
 ### Level 6

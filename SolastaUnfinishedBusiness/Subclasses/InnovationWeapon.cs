@@ -1,4 +1,3 @@
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -194,8 +193,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetUniqueInstance()
             .AddCustomSubFeatures(
                 RestrictEffectToNotTerminateWhileUnconscious.Marker,
-                SkipEffectRemovalOnLocationChange.Always,
-                ValidatorsValidatePowerUse.NotInCombat)
+                SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
     }
 

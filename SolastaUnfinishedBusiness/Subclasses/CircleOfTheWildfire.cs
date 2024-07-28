@@ -358,7 +358,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(PowerDruidWildShape)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSummonSpirit(powerSummonSpiritDamage))
+            .AddCustomSubFeatures(
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
+                new PowerOrSpellFinishedByMeSummonSpirit(powerSummonSpiritDamage))
             .AddToDB();
 
         var featureSetSummonSpirit = FeatureDefinitionFeatureSetBuilder
