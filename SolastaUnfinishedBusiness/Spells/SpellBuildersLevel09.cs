@@ -67,7 +67,7 @@ internal static partial class SpellBuilders
 
         var conditionInvulnerability = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionBlessed)
+            .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionShielded)
             .SetFeatures(
                 DatabaseRepository.GetDatabase<DamageDefinition>()
                     .Select(damageType =>
@@ -77,7 +77,7 @@ internal static partial class SpellBuilders
                             .SetDamageAffinityType(DamageAffinityType.Immunity)
                             .AddToDB())
                     .ToList())
-            .CopyParticleReferences(ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime)
+            .CopyParticleReferences(DispelEvilAndGood)
             .AddToDB();
 
         conditionInvulnerability.GuiPresentation.description = Gui.NoLocalization;
@@ -101,6 +101,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionInvulnerability))
                     .SetParticleEffectParameters(DispelMagic)
+                    .SetCasterEffectParameters(HolyAura)
                     .Build())
             .AddToDB();
     }
