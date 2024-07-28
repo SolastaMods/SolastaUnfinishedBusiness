@@ -95,6 +95,33 @@
         },
         "hasFilterId": false,
         "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionSorcerousWildMagicLightningStrike",
+          "conditionDefinition": "Definition:ConditionSorcerousWildMagicLightningStrike:260d84ed-87e9-5dec-bf3f-7a6c6b242d07",
+          "operation": "Remove",
+          "conditionsList": [],
+          "applyToSelf": true,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
     "specialFormsDescription": "",

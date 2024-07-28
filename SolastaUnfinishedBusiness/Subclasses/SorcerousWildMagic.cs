@@ -18,9 +18,11 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -112,19 +114,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerLightningStrike = FeatureDefinitionPowerBuilder
-        .Create($"Power{Name}LightningStrike")
-        .SetGuiPresentation("PowerSorcerousWildMagicD19", Category.Feature, LightningBolt)
-        .SetUsesFixed(ActivationTime.NoCost)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
-                .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 4, DieType.D10))
-                .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
-                .Build())
-        .AddToDB();
-
     private static readonly FeatureDefinitionPower PowerTeleport = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}Teleport")
         .SetGuiPresentation("PowerSorcerousWildMagicD05", Category.Feature, MistyStep)
@@ -141,6 +130,20 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 .SetParticleEffectParameters(MistyStep)
                 .SetCasterEffectParameters(PowerPactChainQuasit)
                 .Build())
+        .AddCustomSubFeatures(new PowerOrSpellInitiatedByMeTeleport())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerLightningStrike = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}LightningStrike")
+        .SetGuiPresentation("PowerSorcerousWildMagicD19", Category.Feature, LightningBolt)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
+                .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 4, DieType.D10))
+                .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
+                .Build())
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionChaos = ConditionDefinitionBuilder
@@ -154,7 +157,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
     private static readonly ConditionDefinition ConditionDamageResistance = ConditionDefinitionBuilder
         .Create($"Condition{Name}DamageResistance")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
+        .SetGuiPresentation("PowerSorcerousWildMagicD18", Category.Feature,
+            ConditionDefinitions.ConditionMagicallyArmored)
         .SetPossessive()
         .SetFeatures(
             DamageAffinityAcidResistance,
@@ -175,31 +179,23 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
     private static readonly ConditionDefinition ConditionPiercingVulnerability = ConditionDefinitionBuilder
         .Create($"Condition{Name}PiercingVulnerability")
-        .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionTargetedByGuidingBolt)
+        .SetGuiPresentation("PowerSorcerousWildMagicD17", Category.Feature, ConditionTargetedByGuidingBolt)
         .SetPossessive()
         .SetConditionType(ConditionType.Detrimental)
         .SetFeatures(DamageAffinityPiercingVulnerability)
-        .SetConditionParticleReference(ConditionDefinitions.Condition_MummyLord_ChannelNegativeEnergy)
+        .SetConditionParticleReference(Condition_MummyLord_ChannelNegativeEnergy)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionMaxDamageRolls = ConditionDefinitionBuilder
         .Create($"Condition{Name}MaxDamageRolls")
-        .SetGuiPresentation("PowerSorcerousWildMagicD10", Category.Feature, ConditionDefinitions.ConditionGuided)
+        .SetGuiPresentation("PowerSorcerousWildMagicD10", Category.Feature, ConditionGuided)
         .SetPossessive()
         .AddCustomSubFeatures(new CustomBehaviorMaxDamageRolls())
         .AddToDB();
 
-    private static readonly ConditionDefinition ConditionTeleport = ConditionDefinitionBuilder
-        .Create($"Condition{Name}Teleport")
-        .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionConjuredCreature)
-        .SetPossessive()
-        .SetFeatures(PowerTeleport)
-        .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
-        .AddToDB();
-
     private static readonly ConditionDefinition ConditionLightningStrike = ConditionDefinitionBuilder
         .Create($"Condition{Name}LightningStrike")
-        .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionGuided)
+        .SetGuiPresentation("PowerSorcerousWildMagicD19", Category.Feature, ConditionGuided)
         .SetPossessive()
         .SetFeatures(PowerLightningStrike)
         .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
@@ -211,13 +207,15 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         // Wild Magic Surge
 
-        PowerNecroticDamage.EffectDescription.EffectForms[0].DamageForm.healFromInflictedDamage =
-            HealFromInflictedDamage.Full;
-
-        PowerLightningStrike.AddCustomSubFeatures(new PowerOrSpellFinishedByMe(ConditionLightningStrike));
-        PowerTeleport.AddCustomSubFeatures(new PowerOrSpellFinishedByMe(ConditionTeleport));
-
         ConditionDamageResistance.GuiPresentation.description = Gui.NoLocalization;
+        ConditionPiercingVulnerability.GuiPresentation.description = Gui.NoLocalization;
+        ConditionLightningStrike.GuiPresentation.description = Gui.NoLocalization;
+
+        PowerLightningStrike.EffectDescription.EffectForms.Add(
+            EffectFormBuilder.ConditionForm(ConditionLightningStrike, ConditionForm.ConditionOperation.Remove, true));
+
+        PowerNecroticDamage
+            .EffectDescription.EffectForms[0].DamageForm.healFromInflictedDamage = HealFromInflictedDamage.Full;
 
         // Tides of Chaos
 
@@ -252,7 +250,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(TidesOfChaosRecharge)
             .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasNotAvailablePowerUsage(PowerTidesOfChaos)))
+                new ValidateDefinitionApplication(
+                    c => !c.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name),
+                    ValidatorsCharacter.HasNotAvailablePowerUsage(PowerTidesOfChaos)))
             .AddToDB();
 
         var featureSetTidesOfChaos = FeatureDefinitionFeatureSetBuilder
@@ -260,7 +260,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .SetGuiPresentation(PowerTidesOfChaos.GuiPresentation)
             .AddFeatureSet(actionAffinityTidesOfChaosRecharge, actionAffinityTidesOfChaosToggle, PowerTidesOfChaos)
             .AddToDB();
-        
+
         // LEVEL 06
 
         // Bend Luck
@@ -503,6 +503,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             if (action is not CharacterActionCastSpell actionCastSell ||
                 actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 ||
+                actionCastSell.ActiveSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer ||
                 rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name))
             {
                 yield break;
@@ -540,7 +541,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private sealed class CustomBehaviorTidesOfChaos : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
         public int HandlerPriority => -5; // ensure it triggers after bend luck
-        
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -564,7 +565,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             List<TrendInfo> advantageTrends =
                 [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
-            
+
             actionModifier.AttackAdvantageTrends.SetRange(advantageTrends);
 
             RollOutcome outcome;
@@ -683,7 +684,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             List<TrendInfo> advantageTrends =
                 [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
-            
+
             actionModifier.SavingThrowAdvantageTrends.SetRange(advantageTrends);
 
             action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
@@ -725,7 +726,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBendLuck, rulesetHelper);
 
-            if (rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
+            if (!helper.CanReact() ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 Math.Abs(action.AttackSuccessDelta) > 4)
             {
                 yield break;
@@ -840,7 +842,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBendLuck, rulesetHelper);
 
-            if (rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
+            if (!helper.CanReact() ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 Math.Abs(abilityCheckData.AbilityCheckSuccessDelta) > 4)
             {
                 yield break;
@@ -964,7 +967,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBendLuck, rulesetHelper);
 
-            if (rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
+            if (!helper.CanReact() ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 Math.Abs(action.SaveOutcomeDelta) > 4)
             {
                 yield break;
@@ -1169,7 +1173,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             // each creature within 20 feet of you (including you) catches on fire
             case 4:
                 InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionDefinitions.ConditionOnFire1D4.Name,
+                    caster, ConditionOnFire1D4.Name,
                     DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 4);
                 break;
 
@@ -1177,14 +1181,15 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             case 5:
                 EffectHelpers.StartVisualEffect(
                     caster, caster, PowerPactChainQuasit, EffectHelpers.EffectType.Caster);
-                InflictConditionOnCreaturesWithinRange(caster, ConditionTeleport.Name, DurationType.Round, 0);
+                ExecutePowerNoCostOnCasterLocation(caster, PowerTeleport);
+                //InflictConditionOnCreaturesWithinRange(caster, ConditionTeleport.Name, DurationType.Round, 0);
                 break;
 
             // you become frightened until the end of your next turn
             case 6:
                 EffectHelpers.StartVisualEffect(
                     caster, caster, PowerSorcererHauntedSoulSpiritVisage, EffectHelpers.EffectType.Caster);
-                InflictConditionOnCreaturesWithinRange(caster, ConditionFrightened, DurationType.Round);
+                InflictConditionOnCreaturesWithinRange(caster, RuleDefinitions.ConditionFrightened, DurationType.Round);
                 break;
 
             // you cast invisibility on self
@@ -1199,7 +1204,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             case 8:
                 //
                 InflictConditionOnRandomCreatureWithinRange(
-                    caster, ConditionPoisoned, DurationType.Hour, 1, TurnOccurenceType.EndOfTurn,
+                    caster, RuleDefinitions.ConditionPoisoned, DurationType.Hour, 1, TurnOccurenceType.EndOfTurn,
                     PowerDomainOblivionMarkOfFate, 12);
                 break;
 
@@ -1226,7 +1231,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             // A random creature within 60 feet of you can fly for a minute
             case 11:
                 InflictConditionOnRandomCreatureWithinRange(
-                    caster, ConditionFlying,
+                    caster, RuleDefinitions.ConditionFlying,
                     DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, PowerSorcererManaPainterDrain, 12);
                 break;
 
@@ -1471,22 +1476,41 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     }
 
     //
-    // Lightning Strike and Teleport
+    // Teleport
     //
 
-    private sealed class PowerOrSpellFinishedByMe(ConditionDefinition condition) : IPowerOrSpellFinishedByMe
+    private sealed class PowerOrSpellInitiatedByMeTeleport : IPowerOrSpellInitiatedByMe
     {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var cursorService = ServiceRepository.GetService<ICursorService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerTeleport, rulesetCharacter);
+            var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost)
             {
-                rulesetCharacter.RemoveCondition(activeCondition);
+                RulesetEffect =
+                    implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, true)
+            };
+
+            GameUiContext.ResetCamera();
+            cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
+
+            var position = int3.zero;
+
+            while (cursorService.CurrentCursor is CursorLocationSelectPosition cursorLocationSelectPosition)
+            {
+                position = cursorLocationSelectPosition.hasValidPosition
+                    ? cursorLocationSelectPosition.HoveredLocation
+                    : character.LocationPosition;
+
+                yield return null;
             }
 
-            yield break;
+            action.ActionParams.positions.SetRange(position);
         }
     }
 
