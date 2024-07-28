@@ -10,9 +10,9 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
-using UnityEngine.Playables;
 using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -812,7 +812,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
                         if (reactingOutOfTurn)
                         {
-                            ResetCamera();
+                            GameUiContext.ResetCamera();
                             PreventEnemyAction(attacker, rulesetCharacter);
                         }
 
@@ -902,7 +902,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     yield break;
                 }
 
-                ResetCamera();
+                GameUiContext.ResetCamera();
                 PreventEnemyAction(attacker, rulesetCharacter);
 
                 cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
@@ -1001,30 +1001,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             }
 
             yield return null;
-        }
-
-        private static void ResetCamera()
-        {
-            var viewLocationContextualManager =
-                ServiceRepository.GetService<IViewLocationContextualService>() as ViewLocationContextualManager;
-
-            if (!viewLocationContextualManager)
-            {
-                return;
-            }
-
-            if (viewLocationContextualManager.rangeAttackDirector.state == PlayState.Playing)
-            {
-                viewLocationContextualManager.rangeAttackDirector.Stop();
-                viewLocationContextualManager.ContextualSequenceEnd?.Invoke();
-            }
-
-            // ReSharper disable once InvertIf
-            if (viewLocationContextualManager.meleeAttackDirector.state == PlayState.Playing)
-            {
-                viewLocationContextualManager.meleeAttackDirector.Stop();
-                viewLocationContextualManager.ContextualSequenceEnd?.Invoke();
-            }
         }
 
         private void RemoveExistingWildSurgeCondition(RulesetCharacter character)

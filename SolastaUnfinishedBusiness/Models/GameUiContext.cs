@@ -11,6 +11,7 @@ using TA;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.GadgetBlueprints;
@@ -134,6 +135,30 @@ internal static class GameUiContext
 
     private static readonly List<RectTransform> SpellLineTables = [];
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
+
+    internal static void ResetCamera()
+    {
+        var viewLocationContextualManager =
+            ServiceRepository.GetService<IViewLocationContextualService>() as ViewLocationContextualManager;
+
+        if (!viewLocationContextualManager)
+        {
+            return;
+        }
+
+        if (viewLocationContextualManager.rangeAttackDirector.state == PlayState.Playing)
+        {
+            viewLocationContextualManager.rangeAttackDirector.Stop();
+            viewLocationContextualManager.ContextualSequenceEnd?.Invoke();
+        }
+
+        // ReSharper disable once InvertIf
+        if (viewLocationContextualManager.meleeAttackDirector.state == PlayState.Playing)
+        {
+            viewLocationContextualManager.meleeAttackDirector.Stop();
+            viewLocationContextualManager.ContextualSequenceEnd?.Invoke();
+        }
+    }
 
     internal static void UpdateMovementGrid()
     {
