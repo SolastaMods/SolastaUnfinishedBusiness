@@ -241,16 +241,16 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .SetFeatures(
                 DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
+                DamageAffinityBludgeoningResistanceTrue,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
                 DamageAffinityForceDamageResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
+                DamageAffinityPiercingResistanceTrue,
                 DamageAffinityPoisonResistance,
                 DamageAffinityRadiantResistance,
-                DamageAffinitySlashingResistance,
+                DamageAffinitySlashingResistanceTrue,
                 DamageAffinityThunderResistance)
             .AddToDB();
 

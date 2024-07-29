@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -232,30 +233,26 @@ public sealed class OathOfDread : AbstractSubclass
             .SetAttackModeOnly()
             .AddToDB();
 
-        var featureSetAspectOfDread = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}AspectOfDreadDamageResistance")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
         var conditionAspectOfDread = ConditionDefinitionBuilder
             .Create(ConditionAspectOfDreadName)
             .SetGuiPresentation(Category.Condition, ConditionPactChainImp)
             .SetPossessive()
-            .AddFeatures(additionalDamageAspectOfDread, featureSetAspectOfDread)
+            .AddFeatures(
+                additionalDamageAspectOfDread,
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistanceTrue,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistanceTrue,
+                DamageAffinityPoisonResistance,
+                DamageAffinityPsychicResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistanceTrue,
+                DamageAffinityThunderResistance)
             .AddToDB();
-
-        foreach (var damage in DatabaseRepository.GetDatabase<DamageDefinition>())
-        {
-            var title = Gui.Localize($"Rules/&{damage.Name}Title");
-            var damageAffinityAspectOfDread = FeatureDefinitionDamageAffinityBuilder
-                .Create($"DamageAffinity{Name}AspectOfDread{damage.Name}")
-                .SetGuiPresentation(title, Gui.Format("Feature/&DamageResistanceFormat", title))
-                .SetDamageType(damage.Name)
-                .SetDamageAffinityType(DamageAffinityType.Resistance)
-                .AddToDB();
-
-            featureSetAspectOfDread.FeatureSet.Add(damageAffinityAspectOfDread);
-        }
 
         var powerAspectOfDread = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AspectOfDread")

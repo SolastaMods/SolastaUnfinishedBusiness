@@ -37,6 +37,11 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
+        FeatureDefinitionPowers.PowerPactChainImp.rechargeRate = RechargeRate.LongRest;
+        FeatureDefinitionPowers.PowerPactChainPseudodragon.rechargeRate = RechargeRate.LongRest;
+        FeatureDefinitionPowers.PowerPactChainQuasit.rechargeRate = RechargeRate.LongRest;
+        FeatureDefinitionPowers.PowerPactChainSprite.rechargeRate = RechargeRate.LongRest;
+
         AddAdditionalActionTitles();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
@@ -55,6 +60,7 @@ internal static class FixesContext
         FixMartialArtsProgression();
         FixMountaineerBonusShoveRestrictions();
         FixMummyDreadfulGlareSavingAttribute();
+        FixPactChainRechargeRate();
         FixPowerDragonbornBreathWeaponDiceProgression();
         FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
         FixRestPowerVisibility();
@@ -71,6 +77,14 @@ internal static class FixesContext
 
         // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void FixPactChainRechargeRate()
+    {
+        FeatureDefinitionPowers.PowerPactChainImp.rechargeRate = RechargeRate.LongRest;
+        FeatureDefinitionPowers.PowerPactChainPseudodragon.rechargeRate = RechargeRate.LongRest;
+        FeatureDefinitionPowers.PowerPactChainQuasit.rechargeRate = RechargeRate.LongRest;
+        FeatureDefinitionPowers.PowerPactChainSprite.rechargeRate = RechargeRate.LongRest;
     }
 
     private static void InitMagicAffinitiesAndCastSpells()

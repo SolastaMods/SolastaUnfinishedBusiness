@@ -16,7 +16,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -29,6 +28,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -64,16 +64,16 @@ internal static class Level20Context
                                     DatabaseHelper.ConditionDefinitions.ConditionShielded)
                                 .AddFeatures(
                                     DamageAffinityAcidResistance,
-                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityBludgeoningResistanceTrue,
                                     DamageAffinityColdResistance,
                                     DamageAffinityFireResistance,
                                     DamageAffinityLightningResistance,
                                     DamageAffinityNecroticResistance,
-                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPiercingResistanceTrue,
                                     DamageAffinityPoisonResistance,
                                     DamageAffinityPsychicResistance,
                                     DamageAffinityRadiantResistance,
-                                    DamageAffinitySlashingResistance,
+                                    DamageAffinitySlashingResistanceTrue,
                                     DamageAffinityThunderResistance)
                                 .SetPossessive()
                                 .AddToDB(),
@@ -261,6 +261,30 @@ internal static class Level20Context
 
     private static void DruidLoad()
     {
+        //BUGFIX: add PB to wildshape saving checks whenever summoner is proficient
+        var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
+            .Create("SummoningAffinityDruidWildshape")
+            .SetGuiPresentationNoContent(true)
+            .SetRequiredMonsterTag(TagsDefinitions.CreatureTagWildShape)
+            .SetAddedConditions(
+                ConditionDefinitionBuilder
+                    .Create("ConditionSummoningAffinityDruidWildshape")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetFeatures(
+                        FeatureDefinitionSavingThrowAffinityBuilder
+                            .Create("SavingThrowAffinityDruidWildshape")
+                            .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+                            .AddCustomSubFeatures(
+                                new AddPBToSummonCheckOnlyIfSummonerIsProficient(),
+                                new AddPBToSummonCheck(1,
+                                    AttributeDefinitions.Intelligence,
+                                    AttributeDefinitions.Wisdom,
+                                    AttributeDefinitions.Charisma))
+                            .AddToDB())
+                    .AddToDB())
+            .AddToDB();
+
         // only a placeholder to display the feature name as this is solved on CanCastSpells patch
         var featureDruidBeastSpells = FeatureDefinitionBuilder
             .Create("FeatureDruidBeastSpells")
@@ -277,7 +301,10 @@ internal static class Level20Context
 
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(featureDruidBeastSpells, 18), new(FeatureSetAbilityScoreChoice, 19), new(magicAffinityArchDruid, 20)
+            new(summoningAffinity, 2),
+            new(featureDruidBeastSpells, 18),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(magicAffinityArchDruid, 20)
         });
 
         EnumerateSlotsPerLevel(

@@ -95,6 +95,8 @@ public static class GameLocationCharacterManagerPatcher
             }
             else
             {
+                RulesetEffect entity = null;
+
                 foreach (var allProxyCharacter in __instance.allProxyCharacters)
                 {
                     if (allProxyCharacter.RulesetCharacter is not RulesetCharacterEffectProxy
@@ -111,11 +113,13 @@ public static class GameLocationCharacterManagerPatcher
                         continue;
                     }
 
-                    if (RulesetEntity.TryGetEntity(rulesetCharacterEffectProxy.EffectGuid, out RulesetEffect entity))
+                    if (RulesetEntity.TryGetEntity(rulesetCharacterEffectProxy.EffectGuid, out entity))
                     {
-                        entity.Terminate(true);
+                        break;
                     }
                 }
+
+                entity?.Terminate(true);
 
                 var characterEffectProxy = new RulesetCharacterEffectProxy(
                     effectProxyDefinition,

@@ -259,7 +259,6 @@ public static class RulesetImplementationManagerPatcher
                     damageForm, addDice, false, additionalDamage, damageRollReduction, damageMultiplier,
                     maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
 
-
                 //PATCH: supports Sorcerous Wild Magic spell bombardment
                 SorcerousWildMagic.HandleSpellBombardment(rulesetCharacter, damageForm, rolledValues, ref damage);
 
@@ -278,8 +277,7 @@ public static class RulesetImplementationManagerPatcher
                 _ => 0
             };
 
-            //TODO: make this an interface in case other features need it
-            //PATCH: supports Umbral Stalker level 17th
+            //PATCH: supports Umbral Stalker shadow dance
             if (rulesetActor.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, RoguishUmbralStalker.ConditionShadowDanceAdditionalDice.Name))
             {

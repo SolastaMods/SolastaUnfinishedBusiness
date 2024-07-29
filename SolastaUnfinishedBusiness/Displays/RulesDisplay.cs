@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -446,6 +447,16 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        var intValue = Main.Settings.WildSurgeDieRollThreshold;
+        if (UI.Slider(Gui.Localize("ModUi/&WildSurgeDieRollThreshold"), ref intValue, 1, 20,
+                2, string.Empty, UI.AutoWidth()))
+        {
+            Main.Settings.WildSurgeDieRollThreshold = intValue;
+            SorcerousWildMagic.SwitchWildSurgeChanceDieThreshold();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
         {
@@ -528,7 +539,7 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        var intValue = Main.Settings.SenseNormalVisionRangeMultiplier;
+        intValue = Main.Settings.SenseNormalVisionRangeMultiplier;
 
         using (UI.HorizontalScope())
         {

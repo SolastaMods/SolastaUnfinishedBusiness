@@ -24,6 +24,7 @@ Feature/&PowerInnovationVitriolistRefundMixtureDescription=Dépensez un emplacem
 Feature/&PowerInnovationVitriolistRefundMixtureTitle=Mélange de remboursement
 Feature/&PowerInnovationVitriolistViscosityDescription=Lancez un mélange sur une cible que vous pouvez voir dans un rayon de 9 mètres et effectuez une attaque de sort à distance. En cas de coup, la créature subit 2d8 dégâts d'acide. La créature est également gênée jusqu'à la fin de son prochain tour. Ces dégâts augmentent à 3d8 au niveau 7, 4d8 au niveau 14 et 5d8 au niveau 18.
 Feature/&PowerInnovationVitriolistViscosityTitle=Mélange de viscosité
+Feedback/&AdditionalDamageInfusionFormat=Infusion vitriolique !
 Feedback/&AdditionalDamageInfusionLine=L'infusion de vitrioliste inflige des dégâts d'acide supplémentaires !
 Reaction/&SpendSpellSlotRefundMixtureDescription=Convertissez un emplacement de sort en utilisations de votre fonction Mélange vitriolique.
 Reaction/&SpendSpellSlotRefundMixtureReactDescription=Convertissez un emplacement de sort.

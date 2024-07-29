@@ -225,14 +225,7 @@ internal static class OtherFeats
         // chilled and frozen immunities are handled by srd house rules now
         return FeatDefinitionBuilder
             .Create("FeatFrostAdaptation")
-            .SetFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierFeatFrostAdaptation")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(AttributeModifierOperation.Additive,
-                        AttributeDefinitions.Constitution, 1)
-                    .AddToDB(),
-                DamageAffinityColdResistance)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, DamageAffinityColdResistance)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
@@ -1035,17 +1028,17 @@ internal static class OtherFeats
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetFeatures(
                                     DamageAffinityAcidResistance,
-                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityBludgeoningResistanceTrue,
                                     DamageAffinityColdResistance,
                                     DamageAffinityFireResistance,
                                     DamageAffinityForceDamageResistance,
                                     DamageAffinityLightningResistance,
                                     DamageAffinityNecroticResistance,
-                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPiercingResistanceTrue,
                                     DamageAffinityPoisonResistance,
                                     DamageAffinityPsychicResistance,
                                     DamageAffinityRadiantResistance,
-                                    DamageAffinitySlashingResistance,
+                                    DamageAffinitySlashingResistanceTrue,
                                     DamageAffinityThunderResistance)
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
                                 .AddToDB()))
@@ -1485,11 +1478,14 @@ internal static class OtherFeats
 
         var damageTypes = new[]
         {
-            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
+            (DamageTypeAcid, DamageAffinityAcidResistance), (DamageTypeCold, DamageAffinityColdResistance),
+            (DamageTypeFire, DamageAffinityFireResistance),
+            (DamageTypeLightning, DamageAffinityLightningResistance),
+            (DamageTypePoison, DamageAffinityPoisonResistance), (DamageTypeThunder, DamageAffinityThunderResistance)
         };
 
         // ReSharper disable once LoopCanBeConvertedToQuery
-        foreach (var damageType in damageTypes)
+        foreach (var (damageType, featureResistance) in damageTypes)
         {
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
             var guiPresentation = new GuiPresentationBuilder(
@@ -1508,12 +1504,7 @@ internal static class OtherFeats
                             "Feature/&DieRollModifierFeatElementalMasterReroll")
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
                         .AddToDB(),
-                    FeatureDefinitionDamageAffinityBuilder
-                        .Create($"DamageAffinity{NAME}{damageType}")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetDamageAffinityType(DamageAffinityType.Resistance)
-                        .SetDamageType(damageType)
-                        .AddToDB())
+                    featureResistance)
                 .SetMustCastSpellsPrerequisite()
                 .SetFeatFamily("ElementalMaster")
                 .SetKnownFeatsPrerequisite($"FeatElementalAdept{damageType}")
@@ -1730,7 +1721,7 @@ internal static class OtherFeats
         public int HandlerPriority => 10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1739,11 +1730,7 @@ internal static class OtherFeats
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager ||
-                helper != defender)
+            if (helper != defender)
             {
                 yield break;
             }

@@ -286,6 +286,8 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 
 internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
 {
+    internal const string PolearmFollowUpAttack = "PolearmFollowUpAttack";
+
     private readonly WeaponTypeDefinition _weaponTypeDefinition;
 
     internal AddPolearmFollowUpAttack(WeaponTypeDefinition weaponTypeDefinition) : base(
@@ -347,12 +349,14 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
             effectDamageForms[0].DamageForm.DieType = DieType.D4;
             effectDamageForms[0].DamageForm.DiceNumber = 1;
             effectDamageForms[0].DamageForm.versatile = false;
+            effectDamageForms[0].DamageForm.versatileDieType = DieType.D4;
+            effectDamageForms[0].DamageForm.BonusDamage = 0;
         }
 
         attackMode.Reach = true;
         attackMode.Ranged = false;
         attackMode.Thrown = false;
-        attackMode.AttackTags.Add("Polearm"); // required to correctly interact with Spear Mastery dice upgrade
+        attackMode.AttackTags.Add(PolearmFollowUpAttack);
         attackMode.EffectDescription.EffectForms.SetRange(effectDamageForms);
         attackModes.Add(attackMode);
     }

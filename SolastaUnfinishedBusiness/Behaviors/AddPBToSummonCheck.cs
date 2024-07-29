@@ -5,6 +5,8 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
 
+public class AddPBToSummonCheckOnlyIfSummonerIsProficient;
+
 public class AddPBToSummonCheck(int multiplier, params string[] abilities)
 {
     private int Modifier(string ability)
@@ -39,6 +41,14 @@ public class AddPBToSummonCheck(int multiplier, params string[] abilities)
         var summoner = EffectHelpers.GetSummoner(monster);
 
         if (summoner == null)
+        {
+            return;
+        }
+
+        if (summoner.HasSubFeatureOfType<AddPBToSummonCheckOnlyIfSummonerIsProficient>() &&
+            !summoner.GetFeaturesByType<FeatureDefinitionProficiency>().Any(x =>
+                x.ProficiencyType == RuleDefinitions.ProficiencyType.SavingThrow &&
+                x.Proficiencies.Contains(proficiency)))
         {
             return;
         }

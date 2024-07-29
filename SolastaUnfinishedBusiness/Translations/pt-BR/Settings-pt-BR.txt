@@ -280,7 +280,6 @@ ModUi/&SelectTabletop=Selecione Mesa
 ModUi/&SenseNormalVisionRangeMultiplier=Modifique o alcance da <color=#D89555>Visão Normal</color> <i><color=#F0DAA0>[apenas em batalhas]</color></i>
 ModUi/&Services=Serviços
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinto da Raça Anã</color> <color=white>chance de aparecimento de barba</color>
-ModUi/&SetElevationCameraMaxHeightBy=<color=white>Aumentar a altura máxima da câmera de elevação em</color>
 ModUi/&SettingsExport=Exportar
 ModUi/&SettingsHelp=• Como host, você pode exportar sua configuração atual, abrir a pasta de exportações e compartilhar facilmente com seus colegas\n• Como convidado, você pode abrir a pasta de exportações, colar o arquivo compartilhado do host e carregá-lo em <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&SettingsLoad=• Carregar uma configuração exportada
@@ -337,3 +336,4 @@ ModUi/&UseOfficialObscurementRules=Use regras oficiais de combate de <color=#D89
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[o atacante que percebe o defensor que não consegue perceber recebe ADV, e o atacante que não percebe o defensor que consegue perceber recebe DIS\n áreas fortemente obscurecidas infligem condição cega, onde jogadas de ataque contra o a criatura tem ADV e as jogadas de ataque da criatura têm DIS\n todos os feitiços de distância direcionados a indivíduos não podem ser lançados se o atacante não tiver visão, exceto aqueles que claramente não declaram que a visão é necessária]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use as regras oficiais das <color=#D89555>raças pequenas</color> ao empunhar armas pesadas <i><color=#F0DAA0>[seus ataques têm desvantagem]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&WildSurgeDieRollThreshold=<color=white>Definir limite de dado de chance de <color=#D89555>Magia Selvagem do Feiticeiro</color>:</color>\n<i><color=#F0DAA0>[onda selvagem é acionada se a rolagem for menor ou igual ao limite]</color></i>

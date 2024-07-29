@@ -79,13 +79,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetPossessive()
             .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
             .SetParentCondition(conditionBarkWard)
-            .SetFeatures(
-                FeatureDefinitionDamageAffinityBuilder
-                    .Create($"DamageAffinity{Name}ImprovedBarkWard")
-                    .SetGuiPresentationNoContent(true)
-                    .SetDamageAffinityType(DamageAffinityType.Immunity)
-                    .SetDamageType(DamageTypePoison)
-                    .AddToDB())
+            .SetFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity)
             .AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard))
             .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();

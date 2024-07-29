@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -51,6 +53,55 @@ internal static partial class SpellBuilders
                                     SavingThrowAffinityShelteringBreeze)
                                 .AddToDB()))
                     .SetParticleEffectParameters(DispelMagic)
+                    .Build())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Invulnerability
+
+    internal static SpellDefinition BuildInvulnerability()
+    {
+        const string NAME = "Invulnerability";
+
+        var conditionInvulnerability = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionShielded)
+            .SetFeatures(
+                DatabaseRepository.GetDatabase<DamageDefinition>()
+                    .Select(damageType =>
+                        FeatureDefinitionDamageAffinityBuilder.Create($"DamageAffinity{NAME}{damageType.Name}")
+                            .SetGuiPresentationNoContent(true)
+                            .SetDamageType(damageType.Name)
+                            .SetDamageAffinityType(DamageAffinityType.Immunity)
+                            .AddToDB())
+                    .ToList())
+            .CopyParticleReferences(DispelEvilAndGood)
+            .AddToDB();
+
+        conditionInvulnerability.GuiPresentation.description = Gui.NoLocalization;
+
+        return SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Invulnerability, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(9)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, true)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionInvulnerability))
+                    .SetParticleEffectParameters(DispelMagic)
+                    .SetCasterEffectParameters(HolyAura)
                     .Build())
             .AddToDB();
     }
@@ -300,6 +351,48 @@ internal static partial class SpellBuilders
                         PhantasmalKiller.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .SetRequiresConcentration(true)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Psychic Scream
+
+    internal static SpellDefinition BuildPsychicScream()
+    {
+        const string NAME = "PsychicScream";
+
+        return SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsychicScream, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(9)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.IndividualsUnique, 10)
+                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(ConditionDefinitions.ConditionStunned,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 14, DieType.D6)
+                            .Build())
+                    .SetParticleEffectParameters(PowerWordStun)
+                    .Build())
             .AddToDB();
     }
 

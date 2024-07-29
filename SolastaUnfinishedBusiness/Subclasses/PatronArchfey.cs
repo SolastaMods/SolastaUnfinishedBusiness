@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using UnityEngine.Playables;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -404,33 +403,9 @@ public class PatronArchfey : AbstractSubclass
             yield return SelectPositionAndExecutePower(defender);
         }
 
-        private static void ResetCamera()
-        {
-            var viewLocationContextualManager =
-                ServiceRepository.GetService<IViewLocationContextualService>() as ViewLocationContextualManager;
-
-            if (!viewLocationContextualManager)
-            {
-                return;
-            }
-
-            if (viewLocationContextualManager.rangeAttackDirector.state == PlayState.Playing)
-            {
-                viewLocationContextualManager.rangeAttackDirector.Stop();
-                viewLocationContextualManager.ContextualSequenceEnd?.Invoke();
-            }
-
-            // ReSharper disable once InvertIf
-            if (viewLocationContextualManager.meleeAttackDirector.state == PlayState.Playing)
-            {
-                viewLocationContextualManager.meleeAttackDirector.Stop();
-                viewLocationContextualManager.ContextualSequenceEnd?.Invoke();
-            }
-        }
-
         private IEnumerator SelectPositionAndExecutePower(GameLocationCharacter defender)
         {
-            ResetCamera();
+            GameUiContext.ResetCamera();
 
             var rulesetDefender = defender.RulesetCharacter;
             var cursorManager = ServiceRepository.GetService<ICursorService>() as CursorManager;

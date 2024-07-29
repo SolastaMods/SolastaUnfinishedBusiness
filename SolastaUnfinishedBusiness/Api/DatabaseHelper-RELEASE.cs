@@ -31,6 +31,7 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition CastBonus { get; } = GetDefinition<ActionDefinition>("CastBonus");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
+        internal static ActionDefinition ReapplyEffect { get; } = GetDefinition<ActionDefinition>("ReapplyEffect");
         internal static ActionDefinition SpiritRage { get; } = GetDefinition<ActionDefinition>("SpiritRage");
 
         internal static ActionDefinition GrantBardicInspiration { get; } =
@@ -291,6 +292,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionSurged { get; } =
+            GetDefinition<ConditionDefinition>("ConditionSurged");
+
         internal static ConditionDefinition ConditionFeebleMinded { get; } =
             GetDefinition<ConditionDefinition>("ConditionFeebleMinded");
 
@@ -458,6 +462,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionGuided { get; } =
             GetDefinition<ConditionDefinition>("ConditionGuided");
+
+        internal static ConditionDefinition ConditionAuraOfCourage { get; } =
+            GetDefinition<ConditionDefinition>("ConditionAuraOfCourage");
 
         internal static ConditionDefinition ConditionHasted { get; } =
             GetDefinition<ConditionDefinition>("ConditionHasted");
@@ -1397,8 +1404,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningImmunity");
 
-        internal static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningResistance { get; } =
-            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningResistance");
+        internal static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningResistanceTrue { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningResistanceTrue");
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityColdImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityColdImmunity");
@@ -1433,8 +1440,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinityNecroticResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityNecroticResistance");
 
-        internal static FeatureDefinitionDamageAffinity DamageAffinityPiercingResistance { get; } =
-            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPiercingResistance");
+        internal static FeatureDefinitionDamageAffinity DamageAffinityPiercingResistanceTrue { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPiercingResistanceTrue");
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityPoisonImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPoisonImmunity");
@@ -1454,14 +1461,17 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinityRadiantResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityRadiantResistance");
 
-        internal static FeatureDefinitionDamageAffinity DamageAffinitySlashingResistance { get; } =
-            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinitySlashingResistance");
+        internal static FeatureDefinitionDamageAffinity DamageAffinitySlashingResistanceTrue { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinitySlashingResistanceTrue");
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityThunderImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityThunderImmunity");
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityThunderResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityThunderResistance");
+
+        internal static FeatureDefinitionDamageAffinity DamageAffinityPiercingVulnerability { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPiercingVulnerability");
     }
 
     internal static class FeatureDefinitionEquipmentAffinitys
@@ -1709,6 +1719,15 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerSorcererHauntedSoulSoulDrain { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSoulDrain");
+
+        internal static FeatureDefinitionPower PowerIncubus_Drain { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerIncubus_Drain");
+
+        internal static FeatureDefinitionPower PowerSessrothTeleport { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSessrothTeleport");
+
         internal static FeatureDefinitionPower PowerSymbolOfHopelessness { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSymbolOfHopelessness");
 
@@ -1793,8 +1812,14 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
 
+        internal static FeatureDefinitionPower PowerPhaseMarilithTeleport { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPhaseMarilithTeleport");
+
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
+
+        internal static FeatureDefinitionPower PowerPatronFiendDarkOnesBlessing { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronFiendDarkOnesBlessing");
 
         internal static FeatureDefinitionPower PowerDomainBattleHeraldOfBattle { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleHeraldOfBattle");
@@ -3631,6 +3656,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition ConjureMinorElementals { get; } =
             GetDefinition<SpellDefinition>("ConjureMinorElementals");
+
+        internal static SpellDefinition ConjureCelestialCouatl { get; } =
+            GetDefinition<SpellDefinition>("ConjureCelestialCouatl");
 
         internal static SpellDefinition Contagion { get; } = GetDefinition<SpellDefinition>("Contagion");
         internal static SpellDefinition Counterspell { get; } = GetDefinition<SpellDefinition>("Counterspell");

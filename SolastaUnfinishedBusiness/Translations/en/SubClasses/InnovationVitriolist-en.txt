@@ -24,6 +24,7 @@ Feature/&PowerInnovationVitriolistRefundMixtureDescription=Expend one spell slot
 Feature/&PowerInnovationVitriolistRefundMixtureTitle=Refund Mixture
 Feature/&PowerInnovationVitriolistViscosityDescription=Throw a mixture at a target you can see within 30 ft and make a range spell attack, on a hit the creature takes 2d8 acid damage. The creature is also hindered until the end of their next turn. This damage increases to 3d8 at 7th, 4d8 at 14th, and 5d8 at 18th level.
 Feature/&PowerInnovationVitriolistViscosityTitle=Mixture of Viscosity
+Feedback/&AdditionalDamageInfusionFormat=Vitriolist Infusion!
 Feedback/&AdditionalDamageInfusionLine=Vitriolist Infusion deals extra acid damage!
 Reaction/&SpendSpellSlotRefundMixtureDescription=Convert a spell slot into uses of your Vitriolic Mixture feature.
 Reaction/&SpendSpellSlotRefundMixtureReactDescription=Convert a spell slot.

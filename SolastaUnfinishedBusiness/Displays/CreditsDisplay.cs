@@ -34,7 +34,7 @@ internal static class CreditsDisplay
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, Sorcerous Wild Magic, " +
             "Way of Discordance, Way of Shadow, Way of Storm Soul, Way of Weal and Woe, Way of Zen Archery, " +
             "Wizard Bladesinger, Wizard Deadmaster, Wizard War Magic, " +
-            "Lighting and Obscurement, Variant Spell Rules, Level 20, Multiclass"),
+            "Level 20, Lighting and Obscurement, Multiclass, Variant Spell Rules"),
 
         ("HiddenHax",
             "quality assurance, SFX, sprites, homebrew design [" +
@@ -122,6 +122,16 @@ internal static class CreditsDisplay
 
     internal static void DisplayCredits()
     {
+#if DEBUG
+        UI.Label();
+
+        var intValue = Main.Settings.WildSurgeEffectDie;
+        if (UI.Slider("Wild Surge force effect die:", ref intValue, 0, 20, 0, string.Empty, UI.AutoWidth()))
+        {
+            Main.Settings.WildSurgeEffectDie = intValue;
+        }
+#endif
+
         UI.Label();
 
         if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)

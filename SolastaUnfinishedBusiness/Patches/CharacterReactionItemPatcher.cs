@@ -67,6 +67,48 @@ public static class CharacterReactionItemPatcher
             {
                 SetupResource(__instance, attack.Resource);
             }
+
+            //BUGFIX: vanilla is collecting KI Points instead of Sorcery Points
+            var reactionParams = __instance.reactionRequest.ReactionParams;
+            var usablePower = (reactionParams?.RulesetEffect is RulesetEffectPower rulesetEffectPower
+                                  ? rulesetEffectPower.UsablePower
+                                  : null)
+                              ?? reactionParams?.UsablePower;
+            var powerDefinition = usablePower?.PowerDefinition;
+
+            if (!powerDefinition)
+            {
+                return;
+            }
+
+            if (powerDefinition.CostPerUse <= 0 ||
+                powerDefinition.RechargeRate != RuleDefinitions.RechargeRate.SorceryPoints)
+            {
+                return;
+            }
+
+            __instance.remainingResourceValue.Text =
+                __instance.guiCharacter.RulesetCharacter.RemainingSorceryPoints.ToString();
+
+            var screen = Gui.GuiService.GetScreen<ReactionModal>();
+
+            if (!screen)
+            {
+                return;
+            }
+
+            var spriteByResourceCost = screen.GetReferenceSpriteByResourceCost(
+                RuleDefinitions.RechargeRate.SorceryPoints);
+
+            if (spriteByResourceCost == null)
+            {
+                return;
+            }
+
+            __instance.resourceCostSprite = Gui.LoadAssetSync<Sprite>(spriteByResourceCost);
+            __instance.resourceCostImage.sprite = __instance.resourceCostSprite;
+            __instance.remainingResourceImage.sprite = __instance.resourceCostSprite;
+            //END BUGFIX
         }
 
         //BUGFIX: game currently gets the first spell repertoire to present slots on screen

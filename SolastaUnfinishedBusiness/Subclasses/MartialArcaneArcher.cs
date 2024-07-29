@@ -765,20 +765,21 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 yield break;
             }
 
+            var toHitBonus = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
                 ? "Feedback/&RollAttackCriticalFailureTitle"
                 : "Feedback/&RollAttackFailureTitle";
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var sign = toHitBonus > 0 ? "+" : string.Empty;
 
             rulesetAttacker.LogCharacterUsedFeature(featureDefinition,
                 "Feedback/&TriggerRerollLine",
                 false,
-                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}{sign}{toHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
-            // testMode true avoids the roll to display on combat log as the original one will get there with altered results
             var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 defender.RulesetActor,

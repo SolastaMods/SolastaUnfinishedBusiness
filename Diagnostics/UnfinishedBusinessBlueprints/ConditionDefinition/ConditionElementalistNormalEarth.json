@@ -5,7 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:AdditionalDamageElementalistEarth:cee3c86e-6d6f-53f0-a78b-9f11f6236230",
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7"
+    "Definition:DamageAffinityBludgeoningResistanceTrue:e6dc6cc673a626b4896753ede87b1270"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

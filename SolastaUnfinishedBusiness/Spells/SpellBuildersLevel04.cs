@@ -315,6 +315,68 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Psionic Blast
+
+    internal static SpellDefinition BuildPsionicBlast()
+    {
+        const string NAME = "PsionicBlast";
+
+        var conditionDazed = ConditionDefinitionBuilder
+            .Create(ConditionDazzled, $"Condition{NAME}")
+            .SetOrUpdateGuiPresentation(NAME, Category.Spell)
+            .SetPossessive()
+            .SetParentCondition(ConditionDazzled)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create($"MovementAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedMultiplicativeModifier(0.5f)
+                    .AddToDB())
+            .AddToDB();
+
+        conditionDazed.GuiPresentation.description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsionicBlast, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionDazed, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(Fear)
+                    .SetCasterEffectParameters(ViciousMockery)
+                    .SetImpactEffectParameters(PowerMagebaneWarcry)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Sickening Radiance
 
     internal static SpellDefinition BuildSickeningRadiance()
@@ -1570,67 +1632,6 @@ internal static partial class SpellBuilders
             outcome = RollOutcome.Failure;
             outcomeDelta = -1;
         }
-    }
-
-    #endregion
-
-    #region Psionic Blast
-
-    private const string PsionicBlastName = "PsionicBlast";
-
-    private static readonly ConditionDefinition ConditionMuddled = ConditionDefinitionBuilder
-        .Create(ConditionDazzled, $"Condition{PsionicBlastName}")
-        .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDazzled)
-        .SetPossessive()
-        .SetConditionType(ConditionType.Detrimental)
-        .SetParentCondition(ConditionDazzled)
-        .SetFeatures(
-            FeatureDefinitionMovementAffinityBuilder
-                .Create($"MovementAffinity{PsionicBlastName}")
-                .SetGuiPresentationNoContent(true)
-                .SetBaseSpeedMultiplicativeModifier(0.5f)
-                .AddToDB())
-        .AddToDB();
-
-    internal static SpellDefinition BuildPsionicBlast()
-    {
-        var spell = SpellDefinitionBuilder
-            .Create(PsionicBlastName)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(PsionicBlastName, Resources.PsionicBlast, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(4)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(false)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .ExcludeCaster()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetParticleEffectParameters(Fear)
-                    .SetCasterEffectParameters(ViciousMockery)
-                    .SetImpactEffectParameters(PowerMagebaneWarcry)
-                    .Build())
-            .AddToDB();
-
-        return spell;
     }
 
     #endregion

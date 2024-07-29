@@ -10,7 +10,7 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:CELongMace:fb3f2c7a-365c-5277-ad30-44bd293fd8b9"
+      "itemDefinition": "Definition:CELongMacePrimed:d882a0ee-190e-5a7f-a48d-0696e94f9926"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",

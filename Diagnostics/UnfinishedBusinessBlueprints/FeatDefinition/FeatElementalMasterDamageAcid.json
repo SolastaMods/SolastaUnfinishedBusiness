@@ -14,7 +14,7 @@
     "FeatElementalAdeptDamageAcid"
   ],
   "features": [
-    "Definition:DamageAffinityFeatElementalMasterDamageAcid:a7ddf36f-5a6c-55ee-af36-6e54adf74ec2",
+    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
     "Definition:DieRollModifierDamageTypeDependentFeatElementalMasterDamageAcid:4ecf4dab-6dc5-5d04-a2ed-913c763e899a"
   ],
   "guiPresentation": {

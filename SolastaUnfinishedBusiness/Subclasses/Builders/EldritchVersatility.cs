@@ -95,7 +95,7 @@ internal static class EldritchVersatilityBuilders
 
     private static readonly ConditionDefinition ConditionEldritchSurgeBlastOverload = ConditionDefinitionBuilder
         .Create($"Condition{PatronEldritchSurge.Name}BlastOverload")
-        .SetGuiPresentation(Category.Condition, ConditionRaging)
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
         .SetFeatures(
             FeatureDefinitionAdditionalActionBuilder
                 .Create($"AdditionalAction{PatronEldritchSurge.Name}BlastOverload")
@@ -1014,7 +1014,7 @@ internal static class EldritchVersatilityBuilders
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1023,13 +1023,6 @@ internal static class EldritchVersatilityBuilders
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager)
-            {
-                yield break;
-            }
-
             var helperCharacter = helper.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
 

@@ -23,5 +23,5 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescriptio
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=Florescer
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=Florescer
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=Florescer
-Subclass/&CollegeOfAudacityDescription=Os bardos do Colégio das Espadas divertem-se com feitos ousados ​​de habilidade com armas. Eles realizam acrobacias como engolir espadas, arremessar facas e fazer malabarismos e simular combates. Embora usem suas armas para entreter, eles também são guerreiros altamente treinados e habilidosos.
+Subclass/&CollegeOfAudacityDescription=Os bardos do Colégio das Espadas divertem-se com feitos ousados de habilidade com armas. Eles realizam acrobacias como engolir espadas, arremessar facas e fazer malabarismos e simular combates. Embora usem suas armas para entreter, eles também são guerreiros altamente treinados e habilidosos.
 Subclass/&CollegeOfAudacityTitle=Colégio de Espadas

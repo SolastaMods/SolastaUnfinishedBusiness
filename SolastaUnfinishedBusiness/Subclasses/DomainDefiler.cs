@@ -137,13 +137,10 @@ public sealed class DomainDefiler : AbstractSubclass
 
         // LEVEL 14
 
-        // Divine Immunity
-
+        // kept for backward compatibility
         _ = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}DivineImmunity")
-            .SetGuiPresentation(Category.Feature)
-            .SetDamageAffinityType(DamageAffinityType.Immunity)
-            .SetDamageType(DamageTypeNecrotic)
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
 
         // LEVEL 17

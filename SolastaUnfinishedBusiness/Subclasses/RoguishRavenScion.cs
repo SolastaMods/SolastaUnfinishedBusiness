@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -301,6 +302,8 @@ public sealed class RoguishRavenScion : AbstractSubclass
                     new(1, FeatureSourceType.CharacterFeature, powerDeadlyFocus.Name, powerDeadlyFocus)
                 };
 
+            attackModifier.AttackAdvantageTrends.SetRange(advantageTrends);
+
             // testMode true avoids the roll to display on combat log as the original one will get there with altered results
             var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
@@ -308,7 +311,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,
-                advantageTrends,
+                attackModifier.AttackAdvantageTrends,
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,

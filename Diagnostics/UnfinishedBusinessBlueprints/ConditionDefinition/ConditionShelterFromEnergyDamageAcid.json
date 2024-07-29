@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityShelterFromEnergyDamageAcid:1e2dfdba-7c92-5d1d-b605-ac908df5273e"
+    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

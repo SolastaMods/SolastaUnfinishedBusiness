@@ -186,14 +186,14 @@ internal static class MeleeCombatFeats
         const string NAME = "FeatSpearMastery";
         const string REACH_CONDITION = $"Condition{NAME}Reach";
 
-        var validWeapon = ValidatorsWeapon.IsOfWeaponTypeWithoutAttackTag("Polearm", SpearType);
+        var isSpear = ValidatorsWeapon.IsOfWeaponType(SpearType);
 
         var conditionFeatSpearMasteryReach = ConditionDefinitionBuilder
             .Create(REACH_CONDITION)
             .SetGuiPresentation($"Power{NAME}Reach", Category.Feature, ConditionDefinitions.ConditionGuided)
             .SetPossessive()
             .AddCustomSubFeatures(
-                new IncreaseWeaponReach(1, validWeapon, ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
+                new IncreaseWeaponReach(1, isSpear, ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
             .AddToDB();
 
         var powerFeatSpearMasteryReach = FeatureDefinitionPowerBuilder
@@ -226,7 +226,7 @@ internal static class MeleeCombatFeats
                     .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                     .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty(
                         (_, _, character, _, ranged, mode, _) =>
-                            (OperationType.Set, !ranged && validWeapon(mode, null, character))))
+                            (OperationType.Set, !ranged && isSpear(mode, null, character))))
                     .SetIgnoreCriticalDoubleDice(true)
                     .AddToDB())
             .AddToDB();
@@ -239,7 +239,7 @@ internal static class MeleeCombatFeats
             {
                 AllowRange = false,
                 AccountAoOImmunity = true,
-                WeaponValidator = validWeapon,
+                WeaponValidator = isSpear,
                 BeforeReaction = AddCondition,
                 AfterReaction = RemoveCondition
             })
@@ -273,8 +273,8 @@ internal static class MeleeCombatFeats
                     .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                     .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, ranged, mode, _) =>
-                            (OperationType.Set, !ranged && validWeapon(mode, null, character))),
-                        new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D8, DieType.D10), validWeapon))
+                            (OperationType.Set, !ranged && isSpear(mode, null, character))),
+                        new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D8, DieType.D10), isSpear))
                     .AddToDB())
             .AddToDB();
 
@@ -759,7 +759,7 @@ internal static class MeleeCombatFeats
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -768,14 +768,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager)
-            {
-                yield break;
-            }
-
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+            if (action.AttackRollOutcome is not RollOutcome.Success ||
                 helper != defender ||
                 !helper.CanReact() ||
                 (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
@@ -1226,8 +1219,13 @@ internal static class MeleeCombatFeats
 
     private static bool ValidateCleavingAttack(RulesetAttackMode attackMode, bool validateHeavy = false)
     {
+        if (attackMode?.SourceObject is not RulesetItem rulesetItem)
+        {
+            return false;
+        }
+
         // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
-        return ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
+        return ValidatorsWeapon.IsMelee(rulesetItem) &&
                (!validateHeavy ||
                 ValidatorsWeapon.HasAnyWeaponTag(
                     attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagHeavy));
@@ -1527,7 +1525,7 @@ internal static class MeleeCombatFeats
             int damageAmount)
         {
             if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+                !weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 yield break;
             }
@@ -1770,8 +1768,13 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
+            if (attackMode?.SourceObject is not RulesetItem rulesetItem)
+            {
+                return;
+            }
+
             // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
-            if (!ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
+            if (!ValidatorsWeapon.IsMelee(rulesetItem) &&
                 !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;

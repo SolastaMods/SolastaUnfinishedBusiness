@@ -91,9 +91,9 @@
   "bestiaryLootOptions": [],
   "features": [
     "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
-    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:DamageAffinityBludgeoningResistanceTrue:e6dc6cc673a626b4896753ede87b1270",
+    "Definition:DamageAffinityPiercingResistanceTrue:ac80e992b7d65eb46bd2ee3b7e004ab6",
+    "Definition:DamageAffinitySlashingResistanceTrue:d6683e1311037ac439ad7fe52516facd",
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394",
     "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005",

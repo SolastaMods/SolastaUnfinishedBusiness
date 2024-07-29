@@ -423,6 +423,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
       "level": 20
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerInventorSoulOfArtifice:389df423-90a6-5f76-892f-10155f712c89",
+      "level": 20
     }
   ],
   "personalityFlagOccurences": [

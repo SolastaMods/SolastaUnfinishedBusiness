@@ -41,7 +41,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cylinder, 10, 10)
+                    .SetTargetingData(Side.All, RangeType.Distance, 20, TargetType.Cylinder, 10, 10)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -53,19 +53,19 @@ internal static partial class SpellBuilders
                                     .SetOrUpdateGuiPresentation(Category.Condition)
                                     .SetConditionType(ConditionType.Neutral)
                                     .SetParentCondition(ConditionDefinitions.ConditionFlying)
-                                    .SetFeatures()
+                                    .SetFeatures(
+                                        FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained,
+                                        FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained)
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(
-                                MotionForm.MotionType.Levitate,
-                                10)
+                            .SetMotionForm(MotionForm.MotionType.Levitate, 10)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
-                    .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter)
                     .Build())
             .AddToDB();
     }
@@ -181,17 +181,17 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetFeatures(
                 DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
+                DamageAffinityBludgeoningResistanceTrue,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
                 DamageAffinityForceDamageResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
+                DamageAffinityPiercingResistanceTrue,
                 DamageAffinityPoisonResistance,
                 DamageAffinityPsychicResistance,
                 DamageAffinityRadiantResistance,
-                DamageAffinitySlashingResistance,
+                DamageAffinitySlashingResistanceTrue,
                 DamageAffinityThunderResistance)
             .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddToDB();

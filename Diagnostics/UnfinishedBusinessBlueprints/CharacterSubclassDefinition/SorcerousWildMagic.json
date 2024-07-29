@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSorcerousWildMagicTidesOfChaos:29ddc002-275b-5b82-bde7-d5f7315e0856",
+      "featureDefinition": "Definition:FeatureSetSorcerousWildMagicTidesOfChaos:f4178399-4d0f-57bc-8ecc-3fa02516fd6e",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSorcerousWildMagicWildMagicSurge:f06ae284-6502-50d7-b8d5-ac096428248d",
+      "featureDefinition": "Definition:PowerSorcerousWildMagicWildMagicSurge:239281bf-9c44-5707-ad02-46324993cc6f",
       "level": 1
     },
     {

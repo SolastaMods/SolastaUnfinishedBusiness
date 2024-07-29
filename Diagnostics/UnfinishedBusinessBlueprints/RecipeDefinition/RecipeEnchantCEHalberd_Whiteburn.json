@@ -10,7 +10,7 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:CEHalberd:03d12c7d-c1f2-5678-a505-2681f2708283"
+      "itemDefinition": "Definition:CEHalberdPrimed:427fd7f7-e936-570e-9b69-7cf96e9cf5b9"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",

@@ -24,6 +24,7 @@ Feature/&PowerInnovationVitriolistRefundMixtureDescription=消耗一个法术位
 Feature/&PowerInnovationVitriolistRefundMixtureTitle=回收合剂
 Feature/&PowerInnovationVitriolistViscosityDescription=向 30 尺内你能看到的目标投掷合剂，并进行范围法术攻击，击中时该生物会受到 2d8 强酸伤害。该生物也会受到阻碍，直到下一个回合结束。该伤害在 7 级时增加到 3d8，在 14 级时增加到 4d8，在 18 级时增加到 5d8。
 Feature/&PowerInnovationVitriolistViscosityTitle=粘性合剂
+Feedback/&AdditionalDamageInfusionFormat=硫酸注入！
 Feedback/&AdditionalDamageInfusionLine=毒液注入会造成额外的酸性伤害！
 Reaction/&SpendSpellSlotRefundMixtureDescription=将法术位转换为硫酸合剂功能的用途。
 Reaction/&SpendSpellSlotRefundMixtureReactDescription=转换法术位。

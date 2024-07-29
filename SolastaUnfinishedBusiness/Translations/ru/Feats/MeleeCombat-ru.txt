@@ -78,6 +78,7 @@ Feedback/&AdditionalDamageCrusherFormat=Крушитель!
 Feedback/&AdditionalDamageCrusherLine={0} сокрушает {1}
 Feedback/&AdditionalDamagePiercerFormat=Пронзатель!
 Feedback/&AdditionalDamagePiercerLine={0} критически пронзает {1}
+Feedback/&AdditionalDamageSpearMasteryFormat=Мастер владения копьём!
 Feedback/&AdditionalDamageSpearMasteryLine={0} подготовил копьё и наносит дополнительные {2} урона {1}!
 Reaction/&ReactionAttackOldTacticsDescription={0} встаёт. {1} может использовать реакцию, чтобы совершить рукопашную атаку по этой цели.
 Reaction/&ReactionAttackOldTacticsReactDescription=Используйте реакцию для атаки.

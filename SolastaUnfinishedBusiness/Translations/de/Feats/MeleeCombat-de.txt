@@ -78,6 +78,7 @@ Feedback/&AdditionalDamageCrusherFormat=Brecher!
 Feedback/&AdditionalDamageCrusherLine={0} zerquetscht {1}
 Feedback/&AdditionalDamagePiercerFormat=Piercer!
 Feedback/&AdditionalDamagePiercerLine={0} durchbohrt {1} kritisch
+Feedback/&AdditionalDamageSpearMasteryFormat=Speermeisterschaft!
 Feedback/&AdditionalDamageSpearMasteryLine={0} hat den Speer bereitgehalten und fügt {1} zusätzlichen {2} Schaden zu!
 Reaction/&ReactionAttackOldTacticsDescription={0} stand auf. {1} kann eine Reaktion nutzen, um einen Angriff mit einer Nahkampfwaffe durchzuführen.
 Reaction/&ReactionAttackOldTacticsReactDescription=Nutzen Sie Ihre Reaktion zum Angriff.

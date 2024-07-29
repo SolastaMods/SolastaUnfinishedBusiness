@@ -1,4 +1,3 @@
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -153,9 +152,7 @@ public sealed class InnovationWeapon : AbstractSubclass
 
     private static bool HasInjuredDefender(RulesetCharacter character)
     {
-        var blade = GetBladeDefender(character);
-
-        return blade is { IsMissingHitPoints: true };
+        return GetBladeDefender(character) is { IsMissingHitPoints: true };
     }
 
     private static string GetRestPowerTitle(RulesetCharacter character)
@@ -196,8 +193,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetUniqueInstance()
             .AddCustomSubFeatures(
                 RestrictEffectToNotTerminateWhileUnconscious.Marker,
-                SkipEffectRemovalOnLocationChange.Always,
-                ValidatorsValidatePowerUse.NotInCombat)
+                SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
     }
 
@@ -458,10 +454,9 @@ public sealed class InnovationWeapon : AbstractSubclass
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(new ShowInCombatWhenHasBlade())
             .AddToDB();
 
-        power.AddCustomSubFeatures(new ApplyBeforeTurnEnd(condition, power));
+        power.AddCustomSubFeatures(new ShowInCombatWhenHasBlade(), new ApplyBeforeTurnEnd(condition, power));
 
         return power;
     }
@@ -495,8 +490,7 @@ public sealed class InnovationWeapon : AbstractSubclass
     }
 
     private static FeatureDefinitionFeatureSet BuildImprovedDefenderFeatureSet(
-        FeatureDefinitionPower steelDefenderPower,
-        MonsterDefinition steelDefenderMonster)
+        FeatureDefinitionPower steelDefenderPower, MonsterDefinition steelDefenderMonster)
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInnovationWeaponImprovedDefender")
@@ -548,10 +542,8 @@ public sealed class InnovationWeapon : AbstractSubclass
         }
     }
 
-    private class ApplyBeforeTurnEnd(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition condition,
-        FeatureDefinitionPower power) : ICharacterBeforeTurnEndListener
+    private class ApplyBeforeTurnEnd(ConditionDefinition condition, FeatureDefinitionPower power)
+        : ICharacterBeforeTurnEndListener
     {
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
@@ -585,19 +577,15 @@ public sealed class InnovationWeapon : AbstractSubclass
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            return Gui.Battle != null
-                   && character.powersUsedByMe.Any(p =>
-                       p.sourceDefinition.Name is SummonSteelDefenderPower or SummonAdvancedSteelDefenderPower);
+            return Gui.Battle != null && GetBladeDefender(character) != null;
         }
     }
 
     private class TargetDefendingBlade : IRetargetCustomRestPower
     {
-        public GameLocationCharacter GetTarget(RulesetCharacter user)
+        public GameLocationCharacter GetTarget(RulesetCharacter character)
         {
-            var blade = GetBladeDefender(user);
-
-            return blade == null ? null : GameLocationCharacter.GetFromActor(blade);
+            return GameLocationCharacter.GetFromActor(GetBladeDefender(character));
         }
     }
 }

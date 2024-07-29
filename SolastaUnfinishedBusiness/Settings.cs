@@ -293,6 +293,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowClubsToBeThrown { get; set; }
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
+    public int WildSurgeDieRollThreshold { get; set; } = 2;
     public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }
     public bool AccountForAllDiceOnFollowUpStrike { get; set; }
@@ -414,7 +415,6 @@ public class Settings : UnityModManager.ModSettings
 
     // Camera
     public bool EnableElevationCameraToStayAtPosition { get; set; }
-    public int SetElevationCameraMaxHeightBy { get; set; }
 
     // Formation
     public int FormationGridSelectedSet { get; set; } = -1;
@@ -497,6 +497,11 @@ public class Settings : UnityModManager.ModSettings
 
     // Debug
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+
+#if DEBUG
+    public int WildSurgeEffectDie { get; set; }
+#endif
+
 #if DEBUG
     public bool DebugLogDefinitionCreation { get; set; }
     public bool DebugLogFieldInitialization { get; set; }

@@ -167,14 +167,12 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetCharacter, null, Darkness, 2, false);
+                .InstantiateEffectSpell(rulesetCharacter, null, Darkness, 0, false);
 
             var actionParams = action.ActionParams.Clone();
 
             actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
             actionParams.RulesetEffect = effectSpell;
-
-            rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
             actionService.ExecuteAction(actionParams, null, true);
 
             yield break;
@@ -274,7 +272,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
         public int HandlerPriority => -50;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -283,14 +281,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||

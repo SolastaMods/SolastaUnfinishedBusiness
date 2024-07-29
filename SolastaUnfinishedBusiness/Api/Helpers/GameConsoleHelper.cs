@@ -57,6 +57,37 @@ internal static class GameConsoleHelper
         console.AddEntry(entry);
     }
 
+    internal static void LogCharacterActivatesPower(
+        [NotNull] this RulesetCharacter character,
+        string abilityName,
+        string text = DefaultUseText,
+        bool indent = false,
+        string tooltipContent = null,
+        string tooltipClass = null,
+        params (ConsoleStyleDuplet.ParameterType type, string value, string tooltipContent, string tooltipClass)[]
+            extra)
+    {
+        var console = Gui.Game.GameConsole;
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
+
+        console.AddCharacterEntry(character, entry);
+        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName,
+            tooltipContent: tooltipContent, tooltipClass: tooltipClass);
+        foreach (var (type, value, tooltipContent1, tooltipClass1) in extra)
+        {
+            if (!string.IsNullOrEmpty(tooltipContent1))
+            {
+                entry.AddParameter(type, value, tooltipContent: tooltipContent1, tooltipClass: tooltipClass1);
+            }
+            else
+            {
+                entry.AddParameter(type, value);
+            }
+        }
+
+        console.AddEntry(entry);
+    }
+
     internal static void LogCharacterAffectedByCondition(
         [NotNull] this RulesetCharacter character,
         [NotNull] ConditionDefinition condition)

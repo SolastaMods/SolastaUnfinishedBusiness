@@ -157,6 +157,11 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="Invulnerability" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/Invulnerability.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="ShelterFromEnergy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ShelterFromEnergy.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -164,6 +169,11 @@
   </data>
   <data name="AshardalonStride" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AshardalonStride.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PsychicScream" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/PsychicScream.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -299,11 +309,6 @@
   </data>
   <data name="PowerMenacing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerMenacing.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
-  </data>
-  <data name="PowerTidesOfChaos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Powers/PowerTidesOfChaos.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>

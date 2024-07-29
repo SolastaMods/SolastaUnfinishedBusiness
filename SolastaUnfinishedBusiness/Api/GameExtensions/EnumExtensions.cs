@@ -73,6 +73,7 @@ internal enum ExtraActionId
     WildSurgeSummonFree,
     WildSurgeTeleport,
     WildSurgeTeleportFree,
+    TidesOfChaosRecharge,
     PrioritizeAction = 10000
 }
 

@@ -27,7 +27,6 @@ public static class GameLocationManagerPatcher
         [UsedImplicitly]
         public static void Prefix(
             GameLocationManager __instance,
-            string locationDefinitionName,
             string userLocationName,
             string userCampaignName)
         {

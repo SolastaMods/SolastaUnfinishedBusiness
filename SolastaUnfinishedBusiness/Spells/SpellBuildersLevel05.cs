@@ -113,6 +113,35 @@ internal static partial class SpellBuilders
     {
         const string NAME = "SynapticStatic";
 
+        var conditionMuddled = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDazzled)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+                    .SetMyAttackModifierSign(AttackModifierSign.Substract)
+                    .SetMyAttackModifierDieType(DieType.D6)
+                    .AddToDB(),
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create($"AbilityCheckAffinity{NAME}")
+                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+                    .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.None, DieType.D6, 1,
+                        AbilityCheckGroupOperation.SubstractDie,
+                        [
+                            (AttributeDefinitions.Strength, string.Empty),
+                            (AttributeDefinitions.Dexterity, string.Empty),
+                            (AttributeDefinitions.Constitution, string.Empty),
+                            (AttributeDefinitions.Intelligence, string.Empty),
+                            (AttributeDefinitions.Wisdom, string.Empty),
+                            (AttributeDefinitions.Charisma, string.Empty)
+                        ])
+                    .AddToDB())
+            .SetConditionParticleReference(ConditionFeebleMinded)
+            .AddToDB();
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SynapticStatic, 128))
@@ -130,7 +159,6 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
                     .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -140,7 +168,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                            .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionMuddled, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(Feeblemind)
                     .SetImpactEffectParameters(PowerSorakDreadLaughter)

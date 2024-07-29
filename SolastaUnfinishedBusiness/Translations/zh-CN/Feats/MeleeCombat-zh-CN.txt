@@ -78,6 +78,7 @@ Feedback/&AdditionalDamageCrusherFormat=粉碎者！
 Feedback/&AdditionalDamageCrusherLine={0} 粉碎了 {1}
 Feedback/&AdditionalDamagePiercerFormat=穿刺者！
 Feedback/&AdditionalDamagePiercerLine={0} 重击贯穿 {1}
+Feedback/&AdditionalDamageSpearMasteryFormat=长矛精通！
 Feedback/&AdditionalDamageSpearMasteryLine={0} 已准备好长矛并对 {1} 造成额外的 {2} 伤害！
 Reaction/&ReactionAttackOldTacticsDescription={0} 站了起来。{1} 可以使用反应来对其进行近战武器攻击。
 Reaction/&ReactionAttackOldTacticsReactDescription=利用你的反应来攻击。

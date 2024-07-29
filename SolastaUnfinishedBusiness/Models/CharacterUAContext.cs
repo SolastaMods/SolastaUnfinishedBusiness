@@ -707,16 +707,16 @@ internal static partial class CharacterContext
                                 .SetPossessive()
                                 .AddFeatures(
                                     DamageAffinityAcidResistance,
-                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityBludgeoningResistanceTrue,
                                     DamageAffinityColdResistance,
                                     DamageAffinityFireResistance,
                                     DamageAffinityLightningResistance,
                                     DamageAffinityNecroticResistance,
-                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPiercingResistanceTrue,
                                     DamageAffinityPoisonResistance,
                                     DamageAffinityPsychicResistance,
                                     DamageAffinityRadiantResistance,
-                                    DamageAffinitySlashingResistance,
+                                    DamageAffinitySlashingResistanceTrue,
                                     DamageAffinityThunderResistance)
                                 .SetConditionParticleReference(ConditionDefinitions.ConditionHolyAura)
                                 .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
@@ -892,7 +892,7 @@ internal static partial class CharacterContext
                 "Feature/&MonkUnarmoredMovementImprovedDescription";
             MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.title =
                 "Feature/&MonkUnarmoredMovementImprovedTitle";
-            MovementAffinityMonkUnarmoredMovementImproved.canMoveOnWalls = true;
+            MovementAffinityMonkUnarmoredMovementImproved.canMoveOnWalls = false;
         }
     }
 

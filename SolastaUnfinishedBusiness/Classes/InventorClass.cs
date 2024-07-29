@@ -110,6 +110,17 @@ internal static class InventorClass
 
         #endregion
 
+        var powerInventorSoulOfArtifice = FeatureDefinitionPowerBuilder
+            .Create("PowerInventorSoulOfArtifice")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        powerInventorSoulOfArtifice.AddCustomSubFeatures(
+            new CustomBehaviorInitiatedSoulOfArtifice(powerInventorSoulOfArtifice));
+
         #region Priorities
 
         builder
@@ -370,7 +381,14 @@ internal static class InventorClass
 
             .AddFeaturesAtLevel(19,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
-            );
+            )
+
+            #endregion
+
+            #region Level 20
+
+            .AddFeaturesAtLevel(20,
+                powerInventorSoulOfArtifice);
 
         #endregion
 
@@ -875,6 +893,90 @@ internal static class InventorClass
             .AddToDB();
     }
 
+    private sealed class CustomBehaviorInitiatedSoulOfArtifice(FeatureDefinitionPower powerSoulOfArtifice)
+        : IRollSavingThrowInitiated, IOnReducedToZeroHpByEnemy
+    {
+        public IEnumerator HandleReducedToZeroHpByEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
+                {
+                    IsBattleInProgress: true
+                } battleManager)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = defender.RulesetCharacter;
+
+            if (rulesetCharacter.GetRemainingPowerUses(powerSoulOfArtifice) == 0)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerSoulOfArtifice, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+            {
+                StringParameter = "SoulOfArtifice",
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var hitPoints = rulesetCharacter.GetClassLevel(Class);
+
+            rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
+
+            EffectHelpers.StartVisualEffect(
+                defender, defender, FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift,
+                EffectHelpers.EffectType.Caster);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
+        }
+
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            var attunedItems = defender.CharacterInventory?.items?.Count(x => x.AttunedToCharacter == defender.Name) ?? 0;
+
+            rollModifier += attunedItems;
+            modifierTrends.Add(
+                new TrendInfo(attunedItems, FeatureSourceType.CharacterFeature,
+                    powerSoulOfArtifice.Name, powerSoulOfArtifice));
+        }
+    }
+
     private class HasActiveInfusions : IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
@@ -1004,7 +1106,6 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             yield break;
         }
 
-
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
@@ -1028,8 +1129,6 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         {
             yield break;
         }
-
-        rulesetHelper.UsePower(usablePower);
 
         action.SaveOutcomeDelta += bonus;
 

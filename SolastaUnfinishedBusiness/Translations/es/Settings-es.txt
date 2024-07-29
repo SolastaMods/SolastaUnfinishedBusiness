@@ -280,7 +280,6 @@ ModUi/&SelectTabletop=Seleccionar tablero
 ModUi/&SenseNormalVisionRangeMultiplier=Modificar el rango de <color=#D89555>Visión normal</color> <i><color=#F0DAA0>[solo en batallas]</color></i>
 ModUi/&Services=Servicios
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de los enanos</color> <color=white>Probabilidades de aparición de barba</color>
-ModUi/&SetElevationCameraMaxHeightBy=<color=white>Aumentar la altura máxima de la cámara de elevación en</color>
 ModUi/&SettingsExport=Exportar
 ModUi/&SettingsHelp=• Como anfitrión, puedes exportar tu configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con tus compañeros.\n• Como invitado, puedes abrir la carpeta de exportaciones, pegar el archivo compartido desde el anfitrión y cargarlo <b><. i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&SettingsLoad=• Cargar una configuración exportada
@@ -337,3 +336,4 @@ ModUi/&UseOfficialObscurementRules=Utilice las reglas oficiales de combate de <c
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[el atacante que percibe al defensor que no puede percibirlo obtiene ADV, y el atacante que no percibe al defensor que puede percibirlo obtiene DIS\n las áreas muy oscurecidas infligen una condición de ceguera, donde el ataque rueda contra el La criatura tiene ADV y las tiradas de ataque de la criatura tienen DIS\n todos los hechizos de distancia dirigidos a individuos no se pueden lanzar si el atacante no tiene vista, excepto aquellos que claramente no indican que se requiere vista]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Usa las reglas oficiales de <color=#D89555>razas pequeñas</color> cuando empuñas armas pesadas <i><color=#F0DAA0>[tus ataques tienen desventaja]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Imágenes visuales:</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&WildSurgeDieRollThreshold=<color=white>Establecer umbral de dados de probabilidad de <color=#D89555>Magia salvaje de hechicero</color>:</color><99}<i><color=#F0DAA0>[la oleada salvaje se activa si los resultados son menores o iguales al umbral]</color></i>

@@ -61,9 +61,9 @@ internal static class Level20SubclassesContext
             .Create("FeatureSetDomainBattleParagonOfBattle")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinitySlashingResistance,
+                DamageAffinityBludgeoningResistanceTrue,
+                DamageAffinityPiercingResistanceTrue,
+                DamageAffinitySlashingResistanceTrue,
                 powerDomainBattleImprovedHeraldOfBattle)
             .AddToDB();
 
@@ -887,9 +887,9 @@ internal static class Level20SubclassesContext
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -1)
                     .AddToDB(),
                 AttributeModifierThirdExtraAttack,
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinitySlashingResistance)
+                DamageAffinityBludgeoningResistanceTrue,
+                DamageAffinityPiercingResistanceTrue,
+                DamageAffinitySlashingResistanceTrue)
             .CopyParticleReferences(ConditionDefinitions.ConditionShine)
             .AddToDB();
 
@@ -1124,31 +1124,17 @@ internal static class Level20SubclassesContext
                 FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement,
                 FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging,
                 DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistanceTrue,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistanceTrue,
                 DamageAffinityPoisonResistance,
                 DamageAffinityPsychicResistance,
-                DamageAffinityThunderResistance,
-                FeatureDefinitionDamageAffinityBuilder
-                    .Create("DamageAffinityRoguishShadowcasterShadowFormResistanceBludgeoning")
-                    .SetGuiPresentationNoContent(true)
-                    .SetDamageType(DamageTypeBludgeoning)
-                    .SetDamageAffinityType(DamageAffinityType.Resistance)
-                    .AddToDB(),
-                FeatureDefinitionDamageAffinityBuilder
-                    .Create("DamageAffinityRoguishShadowcasterShadowFormResistancePiercing")
-                    .SetGuiPresentationNoContent(true)
-                    .SetDamageType(DamageTypePiercing)
-                    .SetDamageAffinityType(DamageAffinityType.Resistance)
-                    .AddToDB(),
-                FeatureDefinitionDamageAffinityBuilder
-                    .Create("DamageAffinityRoguishShadowcasterShadowFormResistanceSlashing")
-                    .SetGuiPresentationNoContent(true)
-                    .SetDamageType(DamageTypeSlashing)
-                    .SetDamageAffinityType(DamageAffinityType.Resistance)
-                    .AddToDB())
+                DamageAffinitySlashingResistanceTrue,
+                DamageAffinityThunderResistance)
             .AddToDB();
 
         var powerRoguishShadowcasterShadowForm = FeatureDefinitionPowerBuilder

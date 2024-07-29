@@ -115,10 +115,15 @@ internal static class EffectHelpers
 
     internal static RulesetCharacter GetSummoner(RulesetCharacter summon)
     {
-        return summon.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
-            RuleDefinitions.ConditionConjuredCreature, out var activeCondition)
-            ? GetCharacterByGuid(activeCondition.SourceGuid)
-            : null;
+        return summon.TryGetConditionOfCategoryAndType(
+            AttributeDefinitions.TagConjure, RuleDefinitions.ConditionConjuredCreature,
+            out var activeConditionConjuredCreature)
+            ? GetCharacterByGuid(activeConditionConjuredCreature.SourceGuid)
+            : summon.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagConjure, RuleDefinitions.ConditionWildShapeSubstituteForm,
+                out var activeConditionWildShapeSubstituteForm)
+                ? GetCharacterByGuid(activeConditionWildShapeSubstituteForm.SourceGuid)
+                : null;
     }
 
     internal static RulesetCharacter GetCharacterByGuid(ulong guid)

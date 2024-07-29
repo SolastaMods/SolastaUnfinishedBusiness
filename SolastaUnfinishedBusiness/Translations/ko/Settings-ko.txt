@@ -280,7 +280,6 @@ ModUi/&SelectTabletop=탁상 선택
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>일반 시야</color> 범위 수정 <i><color=#F0DAA0>[전투에서만]</color></i>
 ModUi/&Services=서비스
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>드워프족의 허리띠</color> <color=white>수염 출현 확률</color>
-ModUi/&SetElevationCameraMaxHeightBy=<color=white>고도 카메라 최대 높이 증가</color>
 ModUi/&SettingsExport=내보내다
 ModUi/&SettingsHelp=• 호스트는 현재 구성을 내보내고 내보내기 폴더를 열고 동료와 쉽게 공유할 수 있습니다.\n• 게스트는 내보내기 폴더를 열고 호스트에서 공유 파일을 붙여넣고 <b><b>에서 로드할 수 있습니다. i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&SettingsLoad=• 내보낸 설정 로드
@@ -337,3 +336,4 @@ ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시�
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[인지할 수 없는 방어자를 감지한 공격자는 ADV를 얻고, 감지할 수 있는 방어자를 감지하지 못한 공격자는 DIS를 얻습니다.\n 심하게 가려진 영역은 실명 상태를 유발합니다. 생물에는 ADV가 있고 생물의 공격 굴림에는 DIS가 있습니다.\n 개인을 대상으로 하는 모든 거리 주문은 공격자가 시력이 없으면 시전할 수 없습니다. 단, 시력이 필요하다고 명확하게 명시하지 않은 주문은 제외합니다.]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족</color> 규칙을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>시각적:</color> <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
+ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>마법사 야생 마법</color> 확률 주사위 임계값 설정:</color>\n<i><color=#F0DAA0>[임계값 이하로 굴리면 야생 급증이 발동]</color></i>

@@ -344,9 +344,9 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .SetSkillScores((SkillDefinitions.Perception, 6), (SkillDefinitions.Athletics, 9))
             .SetAttackIterations((2, attackGreataxe), (1, attackChargedGore), (1, attackGore))
             .AddFeatures(
-                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
+                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceTrue,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceTrue,
+                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceTrue)
             .AddToDB();
 
         return shape;
