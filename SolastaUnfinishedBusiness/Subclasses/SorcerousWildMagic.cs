@@ -855,6 +855,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = stringParameter,
+                    StringParameter2 = $"Use{stringParameter}Description".Formatted(Category.Reaction, attacker.Name),
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
@@ -974,6 +975,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = stringParameter,
+                    StringParameter2 = $"Use{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
@@ -1100,6 +1102,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = stringParameter,
+                    StringParameter2 = $"Use{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
