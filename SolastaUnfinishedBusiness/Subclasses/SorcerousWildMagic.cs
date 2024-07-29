@@ -96,7 +96,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             EffectDescriptionBuilder
                 .Create(Fireball)
                 .Build())
-        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+        .AddCustomSubFeatures(TidesOfChaosRepayTides.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerGrease = FeatureDefinitionPowerBuilder
@@ -109,7 +109,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 .Create(Grease)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
                 .Build())
-        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+        .AddCustomSubFeatures(TidesOfChaosRepayTides.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerLightningStrike = FeatureDefinitionPowerBuilder
@@ -137,7 +137,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeNecrotic, 1, DieType.D10))
                 .SetParticleEffectParameters(PowerWightLordRetaliate)
                 .Build())
-        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorWildHealing())
+        .AddCustomSubFeatures( /*new CustomBehaviorWildHealing(),*/ TidesOfChaosRepayTides.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerTeleport = FeatureDefinitionPowerBuilder
@@ -156,7 +156,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         .Build())
                 .SetParticleEffectParameters(MistyStep)
                 .Build())
-        .AddCustomSubFeatures(new PowerOrSpellInitiatedByMeTeleport())
+        .AddCustomSubFeatures(new PowerOrSpellInitiatedByMeTeleport(), TidesOfChaosRepayTides.Marker)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionChaos = ConditionDefinitionBuilder
@@ -324,7 +324,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     internal static IEnumerator HandleRechargeTidesOfChaos(RulesetCharacter rulesetCharacter)
     {
         var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
-        var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetCharacter);
         var hasChaos = rulesetCharacter.HasConditionOfCategoryAndType(
             AttributeDefinitions.TagEffect, ConditionChaos.Name);
 
@@ -349,8 +348,21 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             0);
 
         yield return HandleWildSurge(character, hasChaos);
+    }
+
+    private static void RepayTidesOfChaosIfRequired(RulesetCharacter rulesetCharacter)
+    {
+        if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionTidesOfChaosRechargeMark.Name, out var activeCondition) ||
+            activeCondition.Amount != 0)
+        {
+            return;
+        }
+
+        var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetCharacter);
 
         usablePower.RepayUse();
+        activeCondition.Amount = 1;
     }
 
     //
@@ -511,6 +523,26 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         rolledValues.Add(maxDie);
         damage += maxDie;
+    }
+
+
+    //
+    // Tides of Chaos
+    //
+
+    private sealed class TidesOfChaosRepayTides : IPowerOrSpellFinishedByMe
+    {
+        internal static readonly TidesOfChaosRepayTides Marker = new();
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
+
+            RepayTidesOfChaosIfRequired(rulesetCharacter);
+
+            yield break;
+        }
     }
 
     //
@@ -1171,8 +1203,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             attacker.UsedSpecialFeatures.Remove(FeatureSpellBombardment.Name);
 
             if (levels < 18 ||
-                activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                (rulesetEffectSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer &&
+                ((activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
+                  rulesetEffectSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer) &&
                  activeEffect.SourceDefinition != PowerFireball))
             {
                 yield break;
@@ -1360,6 +1392,18 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 rulesetCaster.UsedSorceryPoints = 0;
                 rulesetCaster.SorceryPointsAltered?.Invoke(rulesetCaster, rulesetCaster.RemainingSorceryPoints);
                 break;
+        }
+
+        //
+        // repay Tides of Chaos if required but only for effects that don't execute power
+        // effects that execute power repay tides after the effect finishes as these are queued
+        //
+
+        List<int> wildPowers = [2, 5, 12, 14];
+
+        if (!wildPowers.Contains(roll))
+        {
+            RepayTidesOfChaosIfRequired(rulesetCaster);
         }
     }
 
@@ -1600,6 +1644,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
     }
 
+#if false
     //
     // Wild Healing
     //
@@ -1644,6 +1689,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             character?.UsedSpecialFeatures.Add(PowerWildHealing.Name, 0);
         }
     }
+#endif
 
     #endregion
 }
