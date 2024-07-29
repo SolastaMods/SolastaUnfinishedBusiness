@@ -91,10 +91,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Power{Name}Fireball")
         .SetGuiPresentation($"Power{Name}D02", Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost)
-        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(Fireball)
+                .UseQuickAnimations()
                 .Build())
         .AddCustomSubFeatures(TidesOfChaosRepayTides.Marker)
         .AddToDB();
@@ -103,11 +103,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Power{Name}Grease")
         .SetGuiPresentation($"Power{Name}D12", Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost)
-        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(Grease)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
+                .UseQuickAnimations()
                 .Build())
         .AddCustomSubFeatures(TidesOfChaosRepayTides.Marker)
         .AddToDB();
@@ -223,7 +222,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         ConditionLightningStrike.GuiPresentation.description = Gui.NoLocalization;
 
         PowerLightningStrike.EffectDescription.EffectForms.Add(
-            EffectFormBuilder.ConditionForm(ConditionLightningStrike, ConditionForm.ConditionOperation.Remove, true));
+            EffectFormBuilder.ConditionForm(ConditionLightningStrike, ConditionForm.ConditionOperation.Remove, true, true));
 
         PowerWildHealing
             .EffectDescription.EffectForms[0].DamageForm.healFromInflictedDamage = HealFromInflictedDamage.Full;

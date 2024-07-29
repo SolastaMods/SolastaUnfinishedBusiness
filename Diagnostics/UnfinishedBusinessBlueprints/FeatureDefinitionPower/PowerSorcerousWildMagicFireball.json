@@ -115,7 +115,7 @@
       "alteredDuration": "None"
     },
     "speedType": "CellsPerSeconds",
-    "speedParameter": 11.0,
+    "speedParameter": -1.0,
     "offsetImpactTimeBasedOnDistance": true,
     "offsetImpactTimeBasedOnDistanceFactor": 0.05,
     "offsetImpactTimePerTarget": 0.0,
@@ -135,7 +135,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "a527dee34e46e7a4c8c68a9d244b3855",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -329,7 +329,7 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": false,
+  "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
