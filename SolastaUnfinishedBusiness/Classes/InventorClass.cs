@@ -1106,7 +1106,6 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             yield break;
         }
 
-
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
@@ -1130,8 +1129,6 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         {
             yield break;
         }
-
-        rulesetHelper.UsePower(usablePower);
 
         action.SaveOutcomeDelta += bonus;
 
