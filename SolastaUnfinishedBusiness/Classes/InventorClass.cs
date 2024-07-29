@@ -968,7 +968,7 @@ internal static class InventorClass
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            var attunedItems = caster.Items?.Count(x => x.AttunedToCharacter == x.Name) ?? 0;
+            var attunedItems = defender.CharacterInventory?.items?.Count(x => x.AttunedToCharacter == defender.Name) ?? 0;
 
             rollModifier += attunedItems;
             modifierTrends.Add(
