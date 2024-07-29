@@ -514,6 +514,7 @@
     <AllowClubsToBeThrown>true</AllowClubsToBeThrown>
     <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
     <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
+    <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
     <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <AccountForAllDiceOnFollowUpStrike>true</AccountForAllDiceOnFollowUpStrike>
@@ -1754,7 +1755,6 @@
     <HighContrastTargetingAoeSelectedColor>0</HighContrastTargetingAoeSelectedColor>
     <HighContrastTargetingSingleSelectedColor>0</HighContrastTargetingSingleSelectedColor>
     <EnableElevationCameraToStayAtPosition>true</EnableElevationCameraToStayAtPosition>
-    <SetElevationCameraMaxHeightBy>12</SetElevationCameraMaxHeightBy>
     <FormationGridSelectedSet>0</FormationGridSelectedSet>
     <FormationGridSets>
         <ArrayOfArrayOfInt>

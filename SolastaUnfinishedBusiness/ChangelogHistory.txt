@@ -1,9 +1,11 @@
 1.5.97.24:
 
+CALL FOR PATRONS: UB is running low on cash flow. If you can, please use donation links at github.com/SolastaMods/SolastaUnfinishedBusiness
+
 - added Artificer soul of artifice at 20th
 - added General > Rules > 'Set Sorcerer Wild Magic chance die threshold' setting
 - added Invulnerability and Psychic Scream spells at 9th
-- added Sorcerer Wild Magic subclass [github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/Wild-Magic-Surge]
+- added Sorcerer Wild Magic subclass [d20 table: github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/Wild-Magic-Surge]
 - fixed Circle of the Life verdancy condition applying to caster only
 - fixed Druid wildshape not adding PB on mental saves when Druid is proficient [VANILLA]
 - fixed Fell Handed feat weapon type validator logic
@@ -14,6 +16,12 @@
 - fixed Psionic Blast, and Synaptic Static spells behaviors and SFX
 - fixed Roguish Raven deadly focus not adding advantage on attack re-attempt
 - fixed Warlock pact chain powers recharge rate to long rest [VANILLA]
+- removed Interface > Game UI > 'Increase elevation camera max height by' setting as causing a game soft lock
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
 
 1.5.97.23:
 
@@ -33,11 +41,6 @@
 - fixed Roguish Opportunist seize the chance triggering behavior
 - fixed Shapechange spell interaction with shared metamagic
 - fixed Shared metamagic to enforce ally side when used
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
 
 1.5.97.20:
 

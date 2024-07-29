@@ -417,6 +417,7 @@
     <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
     <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
     <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
+    <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
     <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <AccountForAllDiceOnFollowUpStrike>false</AccountForAllDiceOnFollowUpStrike>
@@ -875,9 +876,7 @@
     <EnableDistanceOnTooltip>false</EnableDistanceOnTooltip>
     <HighContrastTargetingAoeSelectedColor>0</HighContrastTargetingAoeSelectedColor>
     <HighContrastTargetingSingleSelectedColor>0</HighContrastTargetingSingleSelectedColor>
-    <DisableAllCameraBounds>false</DisableAllCameraBounds>
     <EnableElevationCameraToStayAtPosition>false</EnableElevationCameraToStayAtPosition>
-    <SetElevationCameraMaxHeightBy>0</SetElevationCameraMaxHeightBy>
     <FormationGridSelectedSet>0</FormationGridSelectedSet>
     <FormationGridSets>
         <ArrayOfArrayOfInt>
@@ -1098,7 +1097,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
