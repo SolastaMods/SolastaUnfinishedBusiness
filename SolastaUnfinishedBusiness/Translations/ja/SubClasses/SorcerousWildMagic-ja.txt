@@ -101,5 +101,5 @@ Reaction/&UseBendLuckSavingDescription=味方がセービング ロールに失�
 Reaction/&UseBendLuckSavingReactDescription=D4 をロールして、その結果をセービング ロールに追加します。
 Reaction/&UseBendLuckSavingReactTitle=ベンドラック
 Reaction/&UseBendLuckSavingTitle=ベンドラック
-Subclass/&SorcerousWildMagicDescription=あなたの生来の魔法は、創造の秩序の根底にある混沌の荒々しい力から生まれます。あなたは、おそらくリンボ、元素界、または神秘的な彼方の領域につながる次元のポータルを通じて、何らかの形の生の魔法にさらされた可能性があります。強力な妖精の生き物に祝福されたか、悪魔にマークされたのかもしれません。または、あなたの魔法は、明らかな原因や理由のない、生まれつきの偶然かもしれません。しかし、この混沌とし​​た魔法は、あなたの中で渦巻き、出口を待っています。
+Subclass/&SorcerousWildMagicDescription=あなたの生来の魔法は、創造の秩序の根底にある混沌の荒々しい力から生まれます。あなたは、おそらくリンボ、元素界、または神秘的な彼方の領域につながる次元のポータルを通じて、何らかの形の生の魔法にさらされた可能性があります。強力な妖精の生き物に祝福されたか、悪魔にマークされたのかもしれません。または、あなたの魔法は、明らかな原因や理由のない、生まれつきの偶然かもしれません。しかし、この混沌とした魔法は、あなたの中で渦巻き、出口を待っています。
 Subclass/&SorcerousWildMagicTitle=ワイルドマジック
