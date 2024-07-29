@@ -34,7 +34,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class SorcerousWildMagic : AbstractSubclass
 {
     private const string Name = "SorcerousWildMagic";
-    private const ActionDefinitions.Id TidesOfChaosToggle = (ActionDefinitions.Id)ExtraActionId.TidesOfChaosToggle;
     private const ActionDefinitions.Id TidesOfChaosRecharge = (ActionDefinitions.Id)ExtraActionId.TidesOfChaosRecharge;
 
     //
@@ -45,7 +44,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Power{Name}TidesOfChaos")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
-        .DelegatedToAction()
         .AddCustomSubFeatures(new CustomBehaviorTidesOfChaos(), ModifyPowerVisibility.Hidden)
         .AddToDB();
 
@@ -234,22 +232,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         // Tides of Chaos
 
         _ = ActionDefinitionBuilder
-            .Create(MetamagicToggle, "TidesOfChaosToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.TidesOfChaosToggle)
-            .SetActivatedPower(PowerTidesOfChaos, usePowerTooltip: false)
-            .AddToDB();
-
-        var actionAffinityTidesOfChaosToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityTidesOfChaosToggle")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions(TidesOfChaosToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerTidesOfChaos)))
-            .AddToDB();
-
-        _ = ActionDefinitionBuilder
             .Create("TidesOfChaosRecharge")
             .SetGuiPresentation(Category.Action, ReapplyEffect)
             .RequiresAuthorization()
@@ -274,7 +256,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         var featureSetTidesOfChaos = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}TidesOfChaos")
             .SetGuiPresentation(PowerTidesOfChaos.GuiPresentation)
-            .AddFeatureSet(actionAffinityTidesOfChaosRecharge, actionAffinityTidesOfChaosToggle, PowerTidesOfChaos)
+            .AddFeatureSet(actionAffinityTidesOfChaosRecharge, PowerTidesOfChaos)
             .AddToDB();
 
         // LEVEL 06
@@ -617,8 +599,31 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
-                !rulesetHelper.IsToggleEnabled(TidesOfChaosToggle) ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter = "TidesOfChaosAttack",
+                StringParameter2 = "SpendPowerTidesOfChaosAttackDescription"
+                    .Formatted(Category.Reaction, defender.Name, action.FormatTitle()),
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                UsablePower = usablePower
+            };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
@@ -674,6 +679,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
+            action.AttackRollOutcome = outcome;
+            action.AttackSuccessDelta = successDelta;
+            action.AttackRoll = roll;
+
             var sign = toHitBonus > 0 ? "+" : string.Empty;
 
             usablePower.Consume();
@@ -684,10 +693,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll,
                     Gui.Format("Feedback/&RollAttackFailureTitle", $"{attackRoll + toHitBonus}")));
-
-            action.AttackRollOutcome = outcome;
-            action.AttackSuccessDelta = successDelta;
-            action.AttackRoll = roll;
         }
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
@@ -717,8 +722,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                StringParameter = "TidesOfChaos",
-                StringParameter2 = "SpendPowerTidesOfChaosDescription"
+                StringParameter = "TidesOfChaosSave",
+                StringParameter2 = "SpendPowerTidesOfChaosSaveDescription"
                     .Formatted(Category.Reaction, attacker.Name, action.FormatTitle()),
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
@@ -734,13 +739,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             {
                 yield break;
             }
-
-            usablePower.Consume();
-            rulesetHelper.LogCharacterActivatesAbility(
-                PowerTidesOfChaos.GuiPresentation.Title,
-                "Feedback/&TidesOfChaosAdvantageSavingThrow",
-                tooltipContent: PowerTidesOfChaos.Name,
-                tooltipClass: "PowerDefinition");
 
             List<TrendInfo> advantageTrends =
                 [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
@@ -761,6 +759,13 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     out saveOutcome, out saveOutcomeDelta);
             action.SaveOutcome = saveOutcome;
             action.SaveOutcomeDelta = saveOutcomeDelta;
+
+            usablePower.Consume();
+            rulesetHelper.LogCharacterActivatesAbility(
+                PowerTidesOfChaos.GuiPresentation.Title,
+                "Feedback/&TidesOfChaosAdvantageSavingThrow",
+                tooltipContent: PowerTidesOfChaos.Name,
+                tooltipClass: "PowerDefinition");
         }
     }
 
@@ -1224,11 +1229,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you regain 2D10 hit points
             case 3:
-                var healing = rulesetCaster.RollDiceAndSum(DieType.D10, RollContext.HealValueRoll, 2, [], false);
-
                 EffectHelpers.StartVisualEffect(
                     caster, caster, CureWounds, EffectHelpers.EffectType.Effect);
-                rulesetCaster.ReceiveHealing(healing, true, rulesetCaster.Guid);
+                rulesetCaster.ReceiveHealing(
+                    rulesetCaster.RollDiceAndSum(DieType.D10, RollContext.HealValueRoll, 2, [], false),
+                    true, rulesetCaster.Guid);
                 break;
 
             // each creature within 20 feet of you (including you) catches on fire
@@ -1309,35 +1314,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // each creature within 30 feet of you (other than you) takes 1d10 necrotic damage. You regain hit points equal to every necrotic damage amount dealt
             case 14:
-                var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-                var implementationManager =
-                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-                var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-                var contenders =
-                    Gui.Battle?.AllContenders ??
-                    locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-                var targets = contenders
-                    .Where(x => x.IsWithinRange(caster, 6) && x != caster)
-                    .ToList();
-
-                var actionModifiers = new List<ActionModifier>();
-
-                for (var i = 0; i < targets.Count; i++)
-                {
-                    actionModifiers.Add(new ActionModifier());
-                }
-
-                var usablePowerNecroticDamage = PowerProvider.Get(PowerNecroticDamage, rulesetCaster);
-                var actionParamsNecroticDamage = new CharacterActionParams(caster, ActionDefinitions.Id.SpendPower)
-                {
-                    ActionModifiers = actionModifiers,
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetCaster, usablePowerNecroticDamage, false),
-                    UsablePower = usablePowerNecroticDamage,
-                    targetCharacters = targets
-                };
-
-                actionService.ExecuteAction(actionParamsNecroticDamage, null, true);
+                ExecutePowerNoCostOnCasterLocation(caster, PowerNecroticDamage, 6, false);
                 break;
 
             // each creature within 30 feet of you (other than you) becomes invisible for one minute
@@ -1389,7 +1366,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static void ExecutePowerNoCostOnCasterLocation(
-        GameLocationCharacter caster, FeatureDefinitionPower power, int range = 0)
+        GameLocationCharacter caster, FeatureDefinitionPower power, int range = 0, bool includeCaster = true)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var implementationManager =
@@ -1401,7 +1378,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         if (range > 0)
         {
-            EnumerateTargetsWithinRange(caster, range, targets);
+            EnumerateTargetsWithinRange(caster, range, targets, includeCaster);
 
             for (var i = 0; i < targets.Count; i++)
             {

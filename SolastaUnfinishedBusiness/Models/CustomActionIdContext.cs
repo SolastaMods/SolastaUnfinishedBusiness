@@ -42,7 +42,6 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.PowerSurgeToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
-        (Id)ExtraActionId.TidesOfChaosToggle,
         (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
         (Id)ExtraActionId.SupremeWillToggle

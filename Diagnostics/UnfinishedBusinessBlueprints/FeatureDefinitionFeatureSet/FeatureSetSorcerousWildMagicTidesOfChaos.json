@@ -2,7 +2,6 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:ActionAffinityTidesOfChaosRecharge:f16f73a8-02e4-56a1-8cb7-2d5a1723d8ff",
-    "Definition:ActionAffinityTidesOfChaosToggle:efed4eec-13cc-5dac-b8c9-5ca677dba360",
     "Definition:PowerSorcerousWildMagicTidesOfChaos:29ddc002-275b-5b82-bde7-d5f7315e0856"
   ],
   "mode": "Union",
