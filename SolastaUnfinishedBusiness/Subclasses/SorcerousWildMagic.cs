@@ -1550,7 +1550,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
 
         targets.SetRange(contenders.Where(x =>
-            x.IsWithinRange(caster, range) && (includeCaster || x != caster)));
+            x.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} &&
+            x.IsWithinRange(caster, range) &&
+            (includeCaster || x != caster)));
     }
 
     //
