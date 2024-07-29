@@ -125,8 +125,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 .Build())
         .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerNecroticDamage = FeatureDefinitionPowerBuilder
-        .Create($"Power{Name}NecroticDamage")
+    private static readonly FeatureDefinitionPower PowerWildHealing = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}WildHealing")
         .SetGuiPresentation($"Power{Name}D14", Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost)
         .SetShowCasting(false)
@@ -135,16 +135,16 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                 .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeNecrotic, 1, DieType.D10))
-                .SetEffectEffectParameters(PowerWightLordRetaliate)
-                .SetCasterEffectParameters(Heal.EffectDescription.EffectParticleParameters.effectParticleReference)
+                .SetParticleEffectParameters(PowerWightLordRetaliate)
                 .Build())
-        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorWildHealing())
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerTeleport = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}Teleport")
         .SetGuiPresentation("PowerSorcerousWildMagicD05", Category.Feature, MistyStep)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
@@ -155,7 +155,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                         .Build())
                 .SetParticleEffectParameters(MistyStep)
-                .SetCasterEffectParameters(PowerPactChainQuasit)
                 .Build())
         .AddCustomSubFeatures(new PowerOrSpellInitiatedByMeTeleport())
         .AddToDB();
@@ -226,7 +225,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         PowerLightningStrike.EffectDescription.EffectForms.Add(
             EffectFormBuilder.ConditionForm(ConditionLightningStrike, ConditionForm.ConditionOperation.Remove, true));
 
-        PowerNecroticDamage
+        PowerWildHealing
             .EffectDescription.EffectForms[0].DamageForm.healFromInflictedDamage = HealFromInflictedDamage.Full;
 
         // Tides of Chaos
@@ -1280,7 +1279,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 EffectHelpers.StartVisualEffect(
                     caster, caster, PowerMagebaneSpellCrusher, EffectHelpers.EffectType.Effect);
                 rulesetCaster.LogCharacterActivatesAbility(string.Empty, "Feedback/&RecoverSpellSlotOfLevel",
-                    extra: [(ConsoleStyleDuplet.ParameterType.Positive, slotLevel.ToString())]);
+                    extra: [(ConsoleStyleDuplet.ParameterType.Base, slotLevel.ToString())]);
                 InflictConditionOnCreaturesWithinRange(
                     caster, $"ConditionAdditionalSpellSlot{slotLevel}", DurationType.UntilLongRest);
                 break;
@@ -1314,14 +1313,14 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // each creature within 30 feet of you (other than you) takes 1d10 necrotic damage. You regain hit points equal to every necrotic damage amount dealt
             case 14:
-                ExecutePowerNoCostOnCasterLocation(caster, PowerNecroticDamage, 6, false);
+                ExecutePowerNoCostOnCasterLocation(caster, PowerWildHealing, 6, false);
                 break;
 
             // each creature within 30 feet of you (other than you) becomes invisible for one minute
             case 15:
                 InflictConditionOnCreaturesWithinRange(
                     caster, ConditionDefinitions.ConditionInvisible.Name,
-                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6, PowerSorcererHauntedSoulSoulDrain);
+                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6, PowerPhaseMarilithTeleport);
                 break;
 
             // you can take one additional action immediately
@@ -1508,45 +1507,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     }
 
     //
-    // Teleport
-    //
-
-    private sealed class PowerOrSpellInitiatedByMeTeleport : IPowerOrSpellInitiatedByMe
-    {
-        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var cursorService = ServiceRepository.GetService<ICursorService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var character = action.ActingCharacter;
-            var rulesetCharacter = character.RulesetCharacter;
-            var usablePower = PowerProvider.Get(PowerTeleport, rulesetCharacter);
-            var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost)
-            {
-                RulesetEffect =
-                    implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, true)
-            };
-
-            GameUiContext.ResetCamera();
-            cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
-
-            var position = int3.zero;
-
-            while (cursorService.CurrentCursor is CursorLocationSelectPosition cursorLocationSelectPosition)
-            {
-                position = cursorLocationSelectPosition.hasValidPosition
-                    ? cursorLocationSelectPosition.HoveredLocation
-                    : character.LocationPosition;
-
-                yield return null;
-            }
-
-            action.ActionParams.positions.SetRange(position);
-        }
-    }
-
-    //
     // Max Damage Rolls
     //
 
@@ -1598,6 +1558,90 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             rulesetAttacker.LogCharacterUsedPower(powerMaxDamageRolls);
             attacker.UsedSpecialFeatures.Add(Tag, 0);
+        }
+    }
+
+    //
+    // Teleport
+    //
+
+    private sealed class PowerOrSpellInitiatedByMeTeleport : IPowerOrSpellInitiatedByMe
+    {
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var cursorService = ServiceRepository.GetService<ICursorService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerTeleport, rulesetCharacter);
+            var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost)
+            {
+                RulesetEffect =
+                    implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, true)
+            };
+
+            GameUiContext.ResetCamera();
+            cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
+
+            var position = int3.zero;
+
+            while (cursorService.CurrentCursor is CursorLocationSelectPosition cursorLocationSelectPosition)
+            {
+                position = cursorLocationSelectPosition.hasValidPosition
+                    ? cursorLocationSelectPosition.HoveredLocation
+                    : character.LocationPosition;
+
+                yield return null;
+            }
+
+            action.ActionParams.positions.SetRange(position);
+        }
+    }
+
+    //
+    // Wild Healing
+    //
+
+    private sealed class CustomBehaviorWildHealing : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
+
+            if (character.UsedSpecialFeatures.Remove(PowerWildHealing.Name))
+            {
+                EffectHelpers.StartVisualEffect(character, character, Heal, EffectHelpers.EffectType.Effect);
+            }
+
+            rulesetCharacter.HealingReceived -= HealingReceived;
+
+            yield break;
+        }
+
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
+
+            character.UsedSpecialFeatures.Remove(PowerWildHealing.Name);
+            rulesetCharacter.HealingReceived += HealingReceived;
+
+            yield break;
+        }
+
+        private static void HealingReceived(
+            RulesetCharacter rulesetCharacter,
+            int healing,
+            ulong sourceGuid,
+            HealingCap healingCaps,
+            IHealingModificationProvider healingModificationProvider)
+        {
+            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+            character?.UsedSpecialFeatures.Add(PowerWildHealing.Name, 0);
         }
     }
 

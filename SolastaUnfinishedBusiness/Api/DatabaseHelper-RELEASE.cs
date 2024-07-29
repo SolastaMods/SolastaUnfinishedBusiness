@@ -1812,6 +1812,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
 
+        internal static FeatureDefinitionPower PowerPhaseMarilithTeleport { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPhaseMarilithTeleport");
+
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
 

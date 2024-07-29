@@ -123,12 +123,22 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "eea257e3f7b03f944947d7272e804368",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "casterSelfParticleReference": null,
-      "casterQuickSpellParticleReference": null,
+      "casterSelfParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "casterQuickSpellParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -161,7 +171,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "5a9933a2c5cf40a4f9d2cc6906a0b9f6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -347,7 +357,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "87f381e8-179a-5370-8235-d7eb0e34a0d7",
+  "guid": "108e5d8f-da40-5f9b-af78-9588685e9e0b",
   "contentPack": 9999,
-  "name": "PowerSorcerousWildMagicNecroticDamage"
+  "name": "PowerSorcerousWildMagicWildHealing"
 }
