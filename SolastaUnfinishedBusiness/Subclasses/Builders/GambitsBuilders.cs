@@ -1567,11 +1567,6 @@ internal static class GambitsBuilders
 
             yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
             dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
             caster.ShowDieRoll(dieType, dieRoll, title: good.GuiPresentation.Title);
 
