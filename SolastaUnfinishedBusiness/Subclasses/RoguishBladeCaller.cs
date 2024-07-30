@@ -167,7 +167,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name).SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite(Name, Resources.OathOfDemonHunter, 256))
+                Sprites.GetSprite(Name, Resources.RoguishBladeCaller, 256))
             .AddFeaturesAtLevel(3, featureBladeBond, featureSetBladeMark)
             .AddFeaturesAtLevel(9, featureSetHailOfBlades)
             .AddFeaturesAtLevel(13, featureBladeSurge)
