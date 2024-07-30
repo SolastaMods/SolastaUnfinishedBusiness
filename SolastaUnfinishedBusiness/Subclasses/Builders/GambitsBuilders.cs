@@ -1495,6 +1495,9 @@ internal static class GambitsBuilders
             // consume one tactical move
             actingCharacter.UsedTacticalMoves++;
 
+            var dieType = GetGambitDieSize(caster);
+            int dieRoll;
+
             if (caster.IsOppositeSide(target.Side))
             {
                 target.InflictCondition(
@@ -1511,6 +1514,9 @@ internal static class GambitsBuilders
                     0,
                     0);
 
+                dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+                caster.ShowDieRoll(dieType, dieRoll, title: good.GuiPresentation.Title);
+
                 caster.InflictCondition(
                     self.Name,
                     DurationType.Round,
@@ -1521,7 +1527,7 @@ internal static class GambitsBuilders
                     target.CurrentFaction.Name,
                     1,
                     self.Name,
-                    0,
+                    dieRoll,
                     0,
                     0);
 
@@ -1553,9 +1559,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            var dieType = GetGambitDieSize(caster);
-            var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
+            dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
             caster.ShowDieRoll(dieType, dieRoll, title: good.GuiPresentation.Title);
 
             var finalTarget = !reactionParams.ReactionValidated ? caster : target;
