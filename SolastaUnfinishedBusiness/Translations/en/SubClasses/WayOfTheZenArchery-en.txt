@@ -1,5 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=While you are wielding a bow, you can use your bonus action to make an attack roll with the weapon.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Zen Shot
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Whenever you use your Flurry of Blows, you can replace one unarmed attack with a bow attack.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Flurry of Arrows
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage, and you can now use your Stunning Strike feature with bow attacks.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Ki-Empowered Arrows
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=You gain half your proficiency bonus (rounded down) as bonus to all attack and damage rolls with bows.

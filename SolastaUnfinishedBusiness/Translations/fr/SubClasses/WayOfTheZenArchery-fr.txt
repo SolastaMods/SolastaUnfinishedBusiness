@@ -1,5 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Pendant que vous maniez un arc, vous pouvez utiliser votre action bonus pour effectuer un jet d'attaque avec l'arme.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Tir Zen
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Chaque fois que vous utilisez votre Rafale de coups, vous pouvez remplacer une attaque à mains nues par une attaque à l'arc.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rafale de flèches
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Vos attaques à l'arc sont considérées comme magiques dans le but de vaincre la résistance et l'immunité aux attaques et aux dégâts non magiques, et vous pouvez désormais utiliser votre fonction Superbe Frappe avec les attaques à l'arc.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flèches alimentées par Ki
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Vous gagnez la moitié de votre bonus de maîtrise (arrondi à l'inférieur) en bonus à tous les jets d'attaque et de dégâts avec des arcs.

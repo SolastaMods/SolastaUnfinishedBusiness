@@ -1,5 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Mentre impugni un arco, puoi usare la tua azione bonus per effettuare un tiro per colpire con l'arma.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Colpo Zen
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Ogni volta che usi la tua Raffica di Colpi, puoi sostituire un attacco senz'armi con un attacco con l'arco.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Raffica di frecce
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=I tuoi attacchi con l'arco contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici, e ora puoi utilizzare la tua funzione Colpo stordente con gli attacchi con l'arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Frecce potenziate dal Ki
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Ottieni metà del tuo bonus di competenza (arrotondato per difetto) come bonus a tutti i tiri per colpire e per i danni con gli archi.

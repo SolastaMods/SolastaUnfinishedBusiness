@@ -1,5 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=활을 휘두르는 동안 보너스 액션을 사용하여 무기로 공격 굴림을 할 수 있습니다.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=젠 샷
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Flurry of Blows 기능을 사용할 때마다 비무장 공격을 활 공격으로 대체할 수 있습니다.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=화살의 질풍
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=활 공격은 비마법 공격 및 손상에 대한 저항과 면역을 극복하기 위해 마법 공격으로 간주되며, 이제 활 공격과 함께 Stunning Strike 기능을 사용할 수 있습니다.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=기 강화 화살
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=당신은 활을 사용한 모든 공격 및 피해 굴림에 대한 보너스로 숙련도 보너스의 절반(반내림)을 얻습니다.

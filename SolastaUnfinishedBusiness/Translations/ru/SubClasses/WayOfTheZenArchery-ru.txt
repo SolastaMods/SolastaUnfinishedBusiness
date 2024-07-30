@@ -1,5 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Пока вы держите лук, вы можете бонусным действием совершить бросок атаки этим оружием.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Дзен-снимок
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Каждый раз, когда вы используете способность Шквал ударов, вы можете заменить одну безоружную атаку на выстрел из лука.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Шквал стрел
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Ваши выстрелы из лука считаются магическими при определении преодоления сопротивления и иммунитета к немагическим атакам и урону, также теперь вы можете использовать умение Ошеломляющий удар, стреляя из лука.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Энергетические стрелы
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Вы получаете бонус ко всем броскам атаки и урона при использовании лука, равный половине вашего бонуса мастерства (с округлением вниз).
