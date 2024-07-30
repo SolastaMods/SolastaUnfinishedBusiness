@@ -176,7 +176,6 @@ Feedback/&AdditionalDamageBrutalStrikeLine=Brutal Strike deals extra +{2} damage
 Feedback/&AdditionalDamageSunderingBlowFormat=Sundering Blow
 Feedback/&AdditionalDamageSunderingBlowLine=Sundering Blow deals extra +{2} damage!
 Feedback/&ChangeGloombladeDieType={1} changes the gloomblade die type from {2} to {3}
-Feedback/&ChangeSneakDiceDamageType={1} changes the sneak dice damage to {2}
 Feedback/&ChangeSneakDiceDieType={1} changes the sneak die type from {2} to {3}
 Feedback/&ChangeSneakDiceNumber={1} changes the sneak dice number from {2} to {3}
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} rolls to maintain {1} {2} versus DC {3}, rolls {4} = {5}

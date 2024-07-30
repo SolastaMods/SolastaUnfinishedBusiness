@@ -176,7 +176,6 @@ Feedback/&AdditionalDamageBrutalStrikeLine=잔인한 일격이 추가로 +{2} �
 Feedback/&AdditionalDamageSunderingBlowFormat=가르는 일격
 Feedback/&AdditionalDamageSunderingBlowLine=Sundering Blow는 추가 +{2} 피해를 입힙니다!
 Feedback/&ChangeGloombladeDieType={1}은 Gloomblade 다이 유형을 {2}에서 {3}으로 변경합니다.
-Feedback/&ChangeSneakDiceDamageType={1}은 몰래 주사위 피해를 {2}로 변경합니다.
 Feedback/&ChangeSneakDiceDieType={1}은 몰래 주사위 유형을 {2}에서 {3}으로 변경합니다.
 Feedback/&ChangeSneakDiceNumber={1}은 몰래 주사위 번호를 {2}에서 {3}으로 변경합니다.
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} 굴림은 {1} {2} 대 DC {3}를 유지하고, 굴림 {4} = {5}

@@ -176,7 +176,6 @@ Feedback/&AdditionalDamageBrutalStrikeLine=Жестокий удар нанос�
 Feedback/&AdditionalDamageSunderingBlowFormat=Раскалывающий удар
 Feedback/&AdditionalDamageSunderingBlowLine=Раскалывающий наносит дополнительно +{2} урона!
 Feedback/&ChangeGloombladeDieType={1} меняет тип кости сумрачного клинка с {2} на {3}
-Feedback/&ChangeSneakDiceDamageType={1} изменяет урон костей скрытой атаки на {2}
 Feedback/&ChangeSneakDiceDieType={1} изменяет тип кости скрытой атаки с {2} на {3}
 Feedback/&ChangeSneakDiceNumber={1} изменяет число на кости скрытой атаки с {2} на {3}.
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} бросает для поддержания {1} {2} против Сл {3}, выкидывает {4} = {5}

@@ -176,7 +176,6 @@ Feedback/&AdditionalDamageBrutalStrikeLine=Brutal Strike infligge +{2} danni ext
 Feedback/&AdditionalDamageSunderingBlowFormat=Colpo di separazione
 Feedback/&AdditionalDamageSunderingBlowLine=Il Colpo Sundering infligge +{2} danni extra!
 Feedback/&ChangeGloombladeDieType={1} cambia il tipo di dado della lama oscura da {2} a {3}
-Feedback/&ChangeSneakDiceDamageType={1} cambia il danno dei dadi furtivi in {2}
 Feedback/&ChangeSneakDiceDieType={1} cambia il tipo di dado nascosto da {2} a {3}
 Feedback/&ChangeSneakDiceNumber={1} cambia il numero dei dadi furtivi da {2} a {3}
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} tira per mantenere {1} {2} contro CD {3}, tira {4} = {5}

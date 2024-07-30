@@ -176,7 +176,6 @@ Feedback/&AdditionalDamageBrutalStrikeLine=凶蛮打击造成额外 +{2} 伤害�
 Feedback/&AdditionalDamageSunderingBlowFormat=粉碎殴击
 Feedback/&AdditionalDamageSunderingBlowLine=粉碎殴击造成额外 +{2} 伤害！
 Feedback/&ChangeGloombladeDieType={1} 将 gloomblade 模具类型从 {2} 更改为 {3}
-Feedback/&ChangeSneakDiceDamageType={1} 将偷袭骰伤害更改为 {2}
 Feedback/&ChangeSneakDiceDieType={1} 将偷袭骰类型从 {2} 更改为 {3}
 Feedback/&ChangeSneakDiceNumber={1} 将偷袭骰值从 {2} 更改为 {3}
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} 掷骰以维持 {1} {2} 对抗 DC {3}，掷骰 {4} = {5}

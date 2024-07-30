@@ -176,7 +176,6 @@ Feedback/&AdditionalDamageBrutalStrikeLine=残忍な一撃は追加の +{2} ダ�
 Feedback/&AdditionalDamageSunderingBlowFormat=サンダーブロウ
 Feedback/&AdditionalDamageSunderingBlowLine=サンダーブロウは追加の +{2} ダメージを与える！
 Feedback/&ChangeGloombladeDieType={1} はグルームブレードのダイスの種類を {2} から {3} に変更します
-Feedback/&ChangeSneakDiceDamageType={1}はスニークダイスのダメージを{2}に変更します
 Feedback/&ChangeSneakDiceDieType={1} はスニークダイスの種類を {2} から {3} に変更します
 Feedback/&ChangeSneakDiceNumber={1} はスニーク ダイス番号を {2} から {3} に変更します
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} ロールで {1} を維持 {2} 対難易度 {3}、ロール {4} = {5}

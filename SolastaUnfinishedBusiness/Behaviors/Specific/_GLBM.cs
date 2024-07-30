@@ -1154,8 +1154,7 @@ internal static class GLBM
                         validTrigger =
                             isVanillaSneakAttack ||
                             RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType) ||
-                            RoguishUmbralStalker.SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender,
-                                advantageType);
+                            RoguishUmbralStalker.SourceOrTargetAreNotBright(attacker, defender, advantageType);
                         break;
                     }
 
@@ -1184,10 +1183,10 @@ internal static class GLBM
                     }
 
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
-                        ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBrightAndWithin5Ft:
+                        ExtraAdditionalDamageTriggerCondition.SourceOrTargetAreNotBright:
                     {
                         validTrigger = RoguishUmbralStalker
-                            .SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender, advantageType);
+                            .SourceOrTargetAreNotBright(attacker, defender, advantageType);
                         break;
                     }
                     /*

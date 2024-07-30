@@ -6,7 +6,7 @@
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AlwaysActive",
-  "requiredProperty": "MeleeWeapon",
+  "requiredProperty": "FinesseOrRangeWeapon",
   "attackModeOnly": false,
   "attackOnly": false,
   "requiredTargetCondition": null,

@@ -867,23 +867,11 @@ internal static class FixesContext
                 }
             }
 
-            // handle umbral stalker gloomblade feature
             // ReSharper disable once InvertIf
+            // handle umbral stalker gloomblade feature
             if (rulesetAttacker.GetSubclassLevel(Rogue, RoguishUmbralStalker.Name) > 0 &&
-                ValidatorsWeapon.IsMelee(attackMode) &&
                 rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle))
             {
-                var title = Gui.Format("Feature/&ActionAffinityGloomBladeToggleTitle");
-                var description = Gui.Format("Feature/&ActionAffinityGloomBladeToggleDescription");
-
-                rulesetAttacker.LogCharacterActivatesAbility(
-                    title, "Feedback/&ChangeSneakDiceDamageType",
-                    tooltipContent: description, indent: true,
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.Localize("Tooltip/&TagDamageNecroticTitle"))
-                    ]);
-
                 damageForm.DamageType = DamageTypeNecrotic;
             }
         }

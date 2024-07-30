@@ -1544,8 +1544,8 @@ internal static partial class CharacterContext
                     .IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker) ||
                 // it's a Duelist and target is dueling with him
                 RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType) ||
-                // it's an Umbral Stalker and source and target are in dim light or darkness
-                RoguishUmbralStalker.SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender, advantageType)
+                // it's an Umbral Stalker and source or target are in dim light or darkness
+                RoguishUmbralStalker.SourceOrTargetAreNotBright(attacker, defender, advantageType)
         };
     }
 

@@ -5429,7 +5429,45 @@ Starting at 17th level, you can use your bonus action to magically transform you
 
 
 
-## 10. Slayer [UB]
+## 10. Shadowdancer [UB]
+
+Most beings who come in contact with the shadow realm become consumed by its fell energies, but those who are able to protect themselves and withstand these energies can gain various supernatural traits and abilities. Shadowdancers are individuals who became artists of shadow manipulation, able to utilize even the faintest shadow to strike with obfuscation and escape without a trace. Such unique skillset makes them perfect candidates to work as agents, informants, spies or assassins.
+
+
+### Level 3
+
+* One with Shadows
+
+You become accustomed to darkness and make it your deadly playground. You gain darkvision of 60 feet. You don't need advantage on the attack roll to use your Sneak Attack if either you or your target are in dim light or darkness. All the other rules for Sneak Attack still apply to you.
+
+* Shadowstrike
+
+You infuse your attacks with the essence of darkness itself. Whenever you sneak attack a creature with a weapon attack, you roll an additional d6, reroll any 1s and 2s on damage dice of that attack and must take the second result, and can choose to convert the base weapon and sneak attack damage you deal into necrotic damage.
+
+
+### Level 9
+
+* Shadow Stride
+
+Once per turn as a free action, you can substitute any amount of your movement for a teleportation of the equivalent distance. When teleporting in this way, both your starting and final location must be in dim light or darkness.
+
+
+### Level 13
+
+* Umbral Constitution
+
+You gain resistance to cold and necrotic damage. In addition, whenever you are reduced to 0 hit points, you regain a number of hit points equal to twice your rogue level and stand up. You can use this feature once per long rest.
+
+
+### Level 17
+
+* Shadow Dance
+
+You can use your bonus action to empower yourself with a swirling nimbus of shadow energy for one minute. While this shadow energy persists, you are obscured by magical darkness which you can see through, and whenever you deal sneak attack damage and roll the maximum number on one of your dice attack, you reroll that die and add it to the damage. You can use this feature once per long rest.
+
+
+
+## 11. Slayer [UB]
 
 Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 
@@ -5463,7 +5501,7 @@ Starting at 17th level, you become a master of instant death. When you attack an
 
 
 
-## 11. Thief [SOL]
+## 12. Thief [SOL]
 
 Thieves have honed their skills in the larcenous arts. In addition to improving their agility and stealth, they learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items they normally couldn't employ.
 
@@ -5498,44 +5536,6 @@ By level 13, you have learned enough about the workings of magic that you can im
 * Thief's Reflexes
 
 Starting at 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised.
-
-
-
-## 12. Umbral Stalker [UB]
-
-Rumors say there are things far darker than any shadow prowling the darkest corners of Solasta. Stories forewarning about entities wielding supernatural powers to manipulate darkness, ambushing the unfortunate and disappearing seemingly at will. Whether the stories are true or not, many look twice over their shoulders when traversing a dark alley in the dead of night.
-
-
-### Level 3
-
-* Deadly Shadows
-
-You become accustomed to darkness and make it your deadly playground. You gain darkvision of 60 feet. You don't need advantage on the attack roll to use your sneak attack if both you and the target creature are in dim light or darkness, you are within 5 feet of the creature, and you don't have disadvantage on the attack roll. All the other rules for sneak attack still apply to you.
-
-* Gloomblade
-
-You infuse your attacks with the essence of darkness itself. Whenever you sneak attack a creature with a melee weapon attack, you deal an additional 1d6 necrotic damage and reroll any 1s and 2s on damage dice of that attack and must take the second result. In addition, you can choose to roll your sneak attack damage dice as necrotic damage at will.
-
-
-### Level 9
-
-* Shadow Stride
-
-Once per turn as a free action, you can substitute any amount of your movement for a teleportation of the equivalent distance. When teleporting in this way, both your starting and final location must be in dim light or darkness.
-
-
-### Level 13
-
-* Umbral Soul
-
-You gain resistance to cold and necrotic damage. In addition, whenever you are reduced to 0 hit points, you regain a number of hit points equal to your rogue level, and stand up. You can use this feature once per long rest.
-
-
-### Level 17
-
-* Shadow Dance
-
-You can use your bonus action to empower yourself with a swirling nimbus of shadow energy for one minute. While this shadow energy persists, you are obscured by magical darkness which you can see through, and whenever you deal sneak attack damage and roll the maximum number on one of your dice attack, you reroll that die and add it to the damage. You can use this feature once per long rest.
 
 
 

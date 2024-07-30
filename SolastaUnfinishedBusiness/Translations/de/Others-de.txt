@@ -176,7 +176,6 @@ Feedback/&AdditionalDamageBrutalStrikeLine=Brutaler Schlag verursacht zusätzlic
 Feedback/&AdditionalDamageSunderingBlowFormat=Trennender Schlag
 Feedback/&AdditionalDamageSunderingBlowLine=„Sundering Blow“ verursacht zusätzlichen Schaden von +{2}!
 Feedback/&ChangeGloombladeDieType={1} ändert den Gloomblade-Würfeltyp von {2} zu {3}
-Feedback/&ChangeSneakDiceDamageType={1} ändert den Sneak-Dice-Schaden zu {2}
 Feedback/&ChangeSneakDiceDieType={1} ändert den Sneak-Würfeltyp von {2} zu {3}
 Feedback/&ChangeSneakDiceNumber={1} ändert die Anzahl der Sneak Dice von {2} auf {3}
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} würfelt, um {1} {2} gegen DC {3} aufrechtzuerhalten, würfelt {4} = {5}

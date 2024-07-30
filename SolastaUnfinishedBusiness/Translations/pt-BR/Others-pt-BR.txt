@@ -176,7 +176,6 @@ Feedback/&AdditionalDamageBrutalStrikeLine=Golpe Brutal causa +{2} de dano extra
 Feedback/&AdditionalDamageSunderingBlowFormat=Golpe Separador
 Feedback/&AdditionalDamageSunderingBlowLine=Golpe Sundering causa +{2} de dano extra!
 Feedback/&ChangeGloombladeDieType={1} muda o tipo de dado da lâmina gloombiana de {2} para {3}
-Feedback/&ChangeSneakDiceDamageType={1} altera o dano dos dados furtivos para {2}
 Feedback/&ChangeSneakDiceDieType={1} altera o tipo do dado furtivo de {2} para {3}
 Feedback/&ChangeSneakDiceNumber={1} altera o número do dado furtivo de {2} para {3}
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} jogadas para manter {1} {2} versus CD {3}, jogadas {4} = {5}
