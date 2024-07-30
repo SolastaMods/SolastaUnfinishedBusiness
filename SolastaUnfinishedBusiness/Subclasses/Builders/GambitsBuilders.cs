@@ -1527,6 +1527,19 @@ internal static class GambitsBuilders
                     target.CurrentFaction.Name,
                     1,
                     self.Name,
+                    0,
+                    0,
+                    0);
+                caster.InflictCondition(
+                    good.Name,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    caster.Guid,
+                    caster.CurrentFaction.Name,
+                    1,
+                    good.Name,
                     dieRoll,
                     0,
                     0);
