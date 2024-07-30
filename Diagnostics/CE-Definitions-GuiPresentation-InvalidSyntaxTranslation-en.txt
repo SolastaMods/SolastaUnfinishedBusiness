@@ -853,7 +853,7 @@ FeatGroupPrecisionFocused	Description='Increase one of your mental attributes by
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.'.
 FeatGroupPrimalRage	Description='Increase your Strength or Constitution by 1, to a maximum of 20. You gain one additional Rage usage between rests.'.
 FeatGroupRaceBound	Description='Bountiful Luck, Dark-Elf Magic, Dragon Fear, Dragon Hide, Dragon Wings, Dwarven Fortitude, Elven Accuracy, Fade Away, Flames of Phlegethos, Grudge Bearer, Infernal Constitution, Orcish Aggression, Orcish Fury, Revenant Blade, Second Chance, Squat Nimbleness, Wood-Elf Magic'.
-FeatGroupRangedCombat	Description='Bow Mastery, Crossbow Expert, Crossbow Mastery, Discretion of the Coedymwarth, Piercer, Sharpshooter, Take Aim, Uncanny Accuracy, Wise Archery'.
+FeatGroupRangedCombat	Description='Crossbow Expert, Discretion of the Coedymwarth, Piercer, Ranged Mastery, Sharpshooter, Take Aim, Uncanny Accuracy, Wise Archery'.
 FeatGroupRetinueTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the bless, heroism and enhance ability spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupRevenantGreatSword	Description='You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
