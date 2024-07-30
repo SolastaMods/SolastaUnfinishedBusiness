@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureWayOfZenArcheryFlurryOfArrows:aa397331-7988-5d0d-bfca-a75061378755",
+      "featureDefinition": "Definition:ProficiencyWayOfZenArcheryOneWithTheBow:523a5d40-1c1f-517a-b44b-028d1e31f7a9",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWayOfZenArcheryOneWithTheBow:523a5d40-1c1f-517a-b44b-028d1e31f7a9",
+      "featureDefinition": "Definition:FeatureWayOfZenArcheryFlurryOfArrows:aa397331-7988-5d0d-bfca-a75061378755",
       "level": 3
     },
     {

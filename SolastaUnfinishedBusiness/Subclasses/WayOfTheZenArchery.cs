@@ -41,20 +41,13 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 .AddCustomSubFeatures(new CustomLevelUpLogicOneWithTheBow())
                 .AddToDB();
 
-        // Flurry of Arrows
-
-        var conditionFlurryOfArrows = ConditionDefinitionBuilder
-            .Create($"Condition{Name}FlurryOfArrows")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus,
-                ValidatorsCharacter.HasBowWithoutArmor))
-            .AddToDB();
+        // Zen Shot (ex Flurry of Arrows)
 
         var featureFlurryOfArrows = FeatureDefinitionBuilder
             .Create($"Feature{Name}FlurryOfArrows")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new ActionFinishedByMeFlurryOfArrows(conditionFlurryOfArrows))
+            .AddCustomSubFeatures(
+                new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasBowWithoutArmor))
             .AddToDB();
 
         //
@@ -170,45 +163,11 @@ public sealed class WayOfZenArchery : AbstractSubclass
     }
 
     //
-    // Flurry of Arrows
-    //
-
-    private sealed class ActionFinishedByMeFlurryOfArrows(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition condition) : IActionFinishedByMe
-    {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (action is not CharacterActionFlurryOfBlows)
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-
-            rulesetCharacter.InflictCondition(
-                condition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                condition.Name,
-                0,
-                0,
-                0);
-        }
-    }
-
-    //
     // Unerring Precision
     //
 
-    private sealed class ModifyWeaponAttackModeUnerringPrecision(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureUnerringPrecision) : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeUnerringPrecision(FeatureDefinition featureUnerringPrecision)
+        : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {

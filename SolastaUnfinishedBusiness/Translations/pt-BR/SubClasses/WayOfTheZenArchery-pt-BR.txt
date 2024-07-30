@@ -1,5 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Sempre que você usa sua Rajada de Golpes, você pode substituir um ataque desarmado por um ataque com arco.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rajada de Flechas
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Enquanto estiver empunhando um arco, você pode usar sua ação bônus para fazer uma jogada de ataque com a arma.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Tiro Zen
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Seus ataques com arco contam como mágicos com o propósito de superar a resistência e imunidade a ataques e danos não mágicos, e agora você pode usar seu recurso Stunning Strike com ataques com arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flechas com poder de Ki
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Você ganha metade do seu bônus de proficiência (arredondado para baixo) como bônus em todas as jogadas de ataque e dano com arcos.

@@ -1,5 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Siempre que uses tu Ráfaga de golpes, puedes reemplazar un ataque desarmado con un ataque con arco.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Ráfaga de flechas
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Mientras estés empuñando un arco, puedes usar tu acción adicional para realizar una tirada de ataque con el arma.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Disparo zen
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Tus ataques con arco cuentan como mágicos con el fin de superar la resistencia y la inmunidad a ataques y daños no mágicos, y ahora puedes usar tu función Golpe aturdidor con ataques con arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flechas potenciadas por Ki
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Obtienes la mitad de tu bonificación de competencia (redondeada hacia abajo) como bonificación a todas las tiradas de ataque y daño con arcos.
