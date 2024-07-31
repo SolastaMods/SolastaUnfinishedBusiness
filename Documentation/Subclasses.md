@@ -3824,7 +3824,7 @@ A weapon is an extension of oneself, and a plain rendition of the one that wield
 
 * Flurry of Arrows
 
-Whenever you use your Flurry of Blows, you can replace one unarmed attack with a bow attack.
+You can spend 1 Ki point with your Flurry of Blows to make two bow or unarmed attacks as a bonus action.
 
 * One with the Bow
 
@@ -5440,7 +5440,7 @@ Most beings who come in contact with the shadow realm become consumed by its fel
 
 You become accustomed to darkness and make it your deadly playground. You gain darkvision of 60 feet. You don't need advantage on the attack roll to use your Sneak Attack if either you or your target are in dim light or darkness. All the other rules for Sneak Attack still apply to you.
 
-* Shadowstrike
+* Shadow Strike
 
 You infuse your attacks with the essence of darkness itself. Whenever you sneak attack a creature with a weapon attack, you roll an additional d6, reroll any 1s and 2s on damage dice of that attack and must take the second result, and can choose to convert the base weapon and sneak attack damage you deal into necrotic damage.
 
