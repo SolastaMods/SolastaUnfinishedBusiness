@@ -5,6 +5,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -14,6 +15,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -862,19 +864,10 @@ internal static partial class CharacterContext
 
     internal static void SwitchMonkDoNotRequireAttackActionForFlurry()
     {
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry)
-        {
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
-                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
-            WayOfZenArchery.FeatureFlurryOfArrows.GuiPresentation.description =
-                "Feature/&FeatureWayOfZenArcheryFlurryOfArrowsAlternateDescription";
-        }
-        else
-        {
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.description = "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
-            WayOfZenArchery.FeatureFlurryOfArrows.GuiPresentation.description =
-                "Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription";
-        }
+        FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
+            Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry
+                ? "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription"
+                : "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
     }
 
     internal static void SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall()
@@ -1332,30 +1325,6 @@ internal static partial class CharacterContext
 
         // Withdraw
 
-        _ = ActionDefinitionBuilder
-            .Create(StepBack, "Withdraw")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .SetActionId(ExtraActionId.Withdraw)
-            .SetActionType(ActionDefinitions.ActionType.NoCost)
-            .SetAddedConditionName(string.Empty)
-            .SetMaxCells(3)
-            .RequiresAuthorization()
-            .AddToDB();
-
-        var actionAffinityWithdraw = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityWithdraw")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.Withdraw)
-            .AddToDB();
-
-        var conditionWithdraw = ConditionDefinitionBuilder
-            .Create($"Condition{Cunning}Withdraw")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
-            .SetPossessive()
-            .SetSilent(Silent.WhenRemoved)
-            .AddFeatures(actionAffinityWithdraw)
-            .AddToDB();
-
         var powerWithdraw = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Cunning}Withdraw")
             .SetGuiPresentation(Category.Feature)
@@ -1365,12 +1334,14 @@ internal static partial class CharacterContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWithdraw))
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
+        powerWithdraw.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            PowerUsesSneakDiceTooltipModifier.Instance,
+            new CustomBehaviorWithdraw(powerWithdraw));
         //
         // DEVIOUS STRIKES - LEVEL 14
         //
@@ -1711,6 +1682,123 @@ internal static partial class CharacterContext
                 0,
                 0,
                 0);
+        }
+    }
+
+    private sealed class CustomBehaviorWithdraw(FeatureDefinitionPower powerWithdraw) :
+        IFilterTargetingPosition, IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe,
+        IIgnoreInvisibilityInterruptionCheck
+    {
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+            var halfMaxTacticalMoves = (actingCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
+            var boxInt = new BoxInt(actingCharacter.LocationPosition, int3.zero, int3.zero);
+
+            boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves);
+
+            foreach (var position in boxInt.EnumerateAllPositionsWithin())
+            {
+                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                    !positioningService.CanPlaceCharacter(
+                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                    !positioningService.CanCharacterStayAtPosition_Floor(
+                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
+                {
+                    continue;
+                }
+
+                cursorLocationSelectPosition.validPositionsCache.Add(position);
+
+                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
+                }
+            }
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
+
+            var actingCharacter = action.ActingCharacter;
+            var targetCharacter = action.ActionParams.TargetCharacters[0];
+            var targetRulesetCharacter = targetCharacter.RulesetCharacter;
+            var targetPosition = action.ActionParams.Positions[0];
+            var distance = int3.Distance(actingCharacter.LocationPosition, targetPosition);
+            var actionParams =
+                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
+                {
+                    Positions = { targetPosition }
+                };
+            
+            targetCharacter.UsedTacticalMoves-= (int)distance;
+
+            if (targetCharacter.UsedTacticalMoves < 0)
+            {
+                targetCharacter.UsedTacticalMoves = 0;
+            }
+
+            targetRulesetCharacter.InflictCondition(
+                ConditionDisengaging,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                // all disengaging in game is set under TagCombat (why?)
+                AttributeDefinitions.TagCombat,
+                targetRulesetCharacter.Guid,
+                targetRulesetCharacter.CurrentFaction.Name,
+                1,
+                ConditionDisengaging,
+                0,
+                0,
+                0);
+
+            EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
+                PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+
+            yield break;
+        }
+
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var cursorService = ServiceRepository.GetService<ICursorService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerWithdraw, rulesetCharacter);
+            var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost)
+            {
+                RulesetEffect =
+                    implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, true)
+            };
+
+            GameUiContext.ResetCamera();
+            cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
+
+            var position = int3.zero;
+
+            while (cursorService.CurrentCursor is CursorLocationSelectPosition cursorLocationSelectPosition)
+            {
+                position = cursorLocationSelectPosition.hasValidPosition
+                    ? cursorLocationSelectPosition.HoveredLocation
+                    : character.LocationPosition;
+
+                yield return null;
+            }
+
+            action.ActionParams.positions.SetRange(position);
         }
     }
 

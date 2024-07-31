@@ -49,18 +49,6 @@ internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, Act
         return this;
     }
 
-    internal ActionDefinitionBuilder SetMaxCells(int maxCells)
-    {
-        Definition.maxCells = maxCells;
-        return this;
-    }
-
-    internal ActionDefinitionBuilder SetAddedConditionName(string name)
-    {
-        Definition.addedConditionName = name;
-        return this;
-    }
-
     public ActionDefinitionBuilder OverrideClassName(string name)
     {
         Definition.classNameOverride = name;

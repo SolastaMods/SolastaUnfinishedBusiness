@@ -52,7 +52,6 @@ internal enum ExtraActionId
     TempestFury,
     UseHeroicInspiration,
     WildlingFeralAgility,
-    Withdraw,
     ForcePoweredStrikeToggle,
     BrutalStrikeToggle,
     OrcishFuryToggle,
