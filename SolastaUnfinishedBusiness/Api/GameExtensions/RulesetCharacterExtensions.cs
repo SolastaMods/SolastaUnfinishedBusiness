@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -481,20 +480,6 @@ internal static class RulesetCharacterExtensions
         var toggleName = actionId.ToString();
 
         rulesetCharacter.ToggledPowersOn.Add(toggleName);
-    }
-
-    internal static IEnumerator FlipToggle(this RulesetCharacter rulesetCharacter, ExtraActionId action)
-    {
-        if (rulesetCharacter.IsToggleEnabled((Id)action))
-        {
-            rulesetCharacter.DisableToggle((Id)action);
-        }
-        else
-        {
-            rulesetCharacter.EnableToggle((Id)action);
-        }
-
-        yield break;
     }
 
     internal static RulesetAttackMode TryRefreshAttackMode(

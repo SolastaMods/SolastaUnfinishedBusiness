@@ -156,6 +156,7 @@ public sealed class DomainTempest : AbstractSubclass
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.DestructiveWrathToggle)
             .SetActivatedPower(powerDestructiveWrath)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var actionAffinityDestructiveWrathToggle = FeatureDefinitionActionAffinityBuilder

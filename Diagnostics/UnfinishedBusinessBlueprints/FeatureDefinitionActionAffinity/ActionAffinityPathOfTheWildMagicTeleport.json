@@ -12,7 +12,7 @@
   "maxAttacksNumber": -1,
   "forbiddenActions": [],
   "authorizedActions": [
-    9067
+    9066
   ],
   "restrictedActions": [],
   "actionExecutionModifiers": [],

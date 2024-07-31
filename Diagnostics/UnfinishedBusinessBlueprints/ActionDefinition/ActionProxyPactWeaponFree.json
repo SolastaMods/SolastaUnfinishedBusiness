@@ -1,6 +1,6 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9057,
+  "id": 9050,
   "actionType": "NoCost",
   "actionScope": "Battle",
   "pairedActionId": "NoAction",

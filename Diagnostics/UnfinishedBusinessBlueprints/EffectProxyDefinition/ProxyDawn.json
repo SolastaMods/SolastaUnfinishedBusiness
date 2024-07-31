@@ -7,7 +7,7 @@
   "canTriggerPower": false,
   "autoTerminateOnTriggerPower": false,
   "incrementalDamageDice": 0,
-  "actionId": 9060,
+  "actionId": 9047,
   "freeActionId": "NoAction",
   "attackMethod": "CasterSpellAbility",
   "firstAttackIsFree": false,

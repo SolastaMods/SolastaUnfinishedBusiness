@@ -5,7 +5,7 @@
   "actionScope": "All",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
-  "classNameOverride": "",
+  "classNameOverride": "Toggle",
   "requiresAuthorization": true,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",

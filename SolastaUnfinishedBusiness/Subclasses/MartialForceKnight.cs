@@ -52,6 +52,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ForcePoweredStrikeToggle)
+            .OverrideClassName("Toggle")
             .AddCustomSubFeatures(new ActionItemDiceBoxForcePoweredStrike())
             .AddToDB();
 

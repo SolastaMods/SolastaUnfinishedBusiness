@@ -1610,6 +1610,7 @@ internal static class RaceFeats
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.OrcishFuryToggle)
             .SetActivatedPower(power)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder

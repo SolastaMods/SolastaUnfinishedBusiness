@@ -205,6 +205,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.AmazingDisplayToggle)
             .SetActivatedPower(powerAmazingDisplay)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var actionAffinityAmazingDisplayToggle = FeatureDefinitionActionAffinityBuilder

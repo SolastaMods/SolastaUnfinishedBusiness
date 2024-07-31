@@ -109,6 +109,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ArcaneArcherToggle)
             .SetActivatedPower(PowerArcaneShot)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var powerArcaneShotAdditionalUse2 = FeatureDefinitionPowerUseModifierBuilder

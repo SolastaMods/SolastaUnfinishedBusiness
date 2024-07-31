@@ -80,6 +80,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.PowerSurgeToggle)
             .SetActivatedPower(powerSurge)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         powerSurge.AddCustomSubFeatures(new CustomBehaviorPowerSurge(powerSurge, conditionSurgeMark));

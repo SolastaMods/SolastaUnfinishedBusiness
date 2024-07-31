@@ -734,6 +734,7 @@ internal static class RaceImpBuilder
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ImpishWrathToggle)
             .SetActivatedPower(powerImpForestImpishWrath)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder

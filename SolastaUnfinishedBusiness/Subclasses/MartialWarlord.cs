@@ -242,6 +242,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CoordinatedAssaultToggle)
             .SetActivatedPower(powerCoordinatedAssault)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var actionAffinityCoordinatedAssaultToggle = FeatureDefinitionActionAffinityBuilder

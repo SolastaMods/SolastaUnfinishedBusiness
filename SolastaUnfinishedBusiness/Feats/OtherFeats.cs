@@ -843,6 +843,7 @@ internal static class OtherFeats
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.BalefulScionToggle)
             .SetActivatedPower(powerBalefulScion)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var actionAffinityBalefulScion = FeatureDefinitionActionAffinityBuilder
