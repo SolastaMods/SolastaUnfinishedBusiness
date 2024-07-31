@@ -25,7 +25,6 @@ Action/&FlightSuspendTitle=地面
 Action/&ForcePoweredStrikeToggleDescription=激活/停用原力打击
 Action/&ForcePoweredStrikeToggleTitle=原力打击
 Action/&GloomBladeToggleDescription=激活/停用暗影打击坏死伤害
-Action/&GloomBladeToggleTitle=暗影打击
 Action/&HailOfBladesToggleDescription=激活/停用剑刃如风
 Action/&HailOfBladesToggleTitle=剑刃如风
 Action/&InventorInfusionDescription=注法物品或复制造物

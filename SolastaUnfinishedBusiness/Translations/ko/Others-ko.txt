@@ -25,7 +25,6 @@ Action/&FlightSuspendTitle=땅
 Action/&ForcePoweredStrikeToggleDescription=Force Powered Strike 활성화/비활성화
 Action/&ForcePoweredStrikeToggleTitle=포스 파워 스트라이크
 Action/&GloomBladeToggleDescription=Shadowstrike 괴사 피해 활성화/비활성화
-Action/&GloomBladeToggleTitle=섀도우스트라이크
 Action/&HailOfBladesToggleDescription=Hail of Blades 활성화/비활성화
 Action/&HailOfBladesToggleTitle=칼날의 우박
 Action/&InventorInfusionDescription=아이템 주입 또는 복제본 생성

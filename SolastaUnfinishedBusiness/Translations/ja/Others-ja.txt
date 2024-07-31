@@ -25,7 +25,6 @@ Action/&FlightSuspendTitle=土地
 Action/&ForcePoweredStrikeToggleDescription=フォースパワードストライクの有効化/無効化
 Action/&ForcePoweredStrikeToggleTitle=フォースパワードストライク
 Action/&GloomBladeToggleDescription=シャドウストライクの壊死ダメージを有効化/無効化
-Action/&GloomBladeToggleTitle=シャドウストライク
 Action/&HailOfBladesToggleDescription=刃の雹を有効化/無効化する
 Action/&HailOfBladesToggleTitle=刃の雹
 Action/&InventorInfusionDescription=アイテムを注入するかレプリカを作成する

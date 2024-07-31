@@ -25,7 +25,6 @@ Action/&FlightSuspendTitle=Land
 Action/&ForcePoweredStrikeToggleDescription=Force Powered Strike aktivieren/deaktivieren
 Action/&ForcePoweredStrikeToggleTitle=Kraftangetriebener Schlag
 Action/&GloomBladeToggleDescription=Nekrotischen Schaden durch Schattenschlag aktivieren/deaktivieren
-Action/&GloomBladeToggleTitle=Schattenschlag
 Action/&HailOfBladesToggleDescription=Klingenhagel aktivieren/deaktivieren
 Action/&HailOfBladesToggleTitle=Hagel der Klingen
 Action/&InventorInfusionDescription=Gegenstand infundieren oder Replik erstellen

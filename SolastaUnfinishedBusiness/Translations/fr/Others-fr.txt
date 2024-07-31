@@ -25,7 +25,6 @@ Action/&FlightSuspendTitle=Atterrir
 Action/&ForcePoweredStrikeToggleDescription=Activer/désactiver Force Powered Strike
 Action/&ForcePoweredStrikeToggleTitle=Frappe alimentée par la force
 Action/&GloomBladeToggleDescription=Activer/désactiver les dégâts nécrotiques de Shadowstrike
-Action/&GloomBladeToggleTitle=Frappe de l'ombre
 Action/&HailOfBladesToggleDescription=Activer/désactiver Grêle de lames
 Action/&HailOfBladesToggleTitle=Grêle de lames
 Action/&InventorInfusionDescription=Infuser un objet ou créer une réplique
