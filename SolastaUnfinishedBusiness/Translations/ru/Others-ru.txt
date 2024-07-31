@@ -25,6 +25,7 @@ Action/&FlightSuspendTitle=Приземлиться
 Action/&ForcePoweredStrikeToggleDescription=Активировать/деактивировать Исполненный силы удар
 Action/&ForcePoweredStrikeToggleTitle=Исполненный силы удар
 Action/&GloomBladeToggleDescription=Активировать/деактивировать некротический урон от Shadowstrike
+Action/&GloomBladeToggleTitle=Удар Тени
 Action/&HailOfBladesToggleDescription=Активировать/деактивировать Град клинков
 Action/&HailOfBladesToggleTitle=Град клинков
 Action/&InventorInfusionDescription=Инфузируйте предмет или создайте копию

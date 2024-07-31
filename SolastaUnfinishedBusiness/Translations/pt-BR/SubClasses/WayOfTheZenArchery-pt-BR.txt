@@ -1,4 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Você pode gastar 1 ponto de Ki com sua Rajada de Golpes para fazer dois ataques com arco ou desarmados como uma ação bônus.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Você pode gastar 1 ponto de Ki com sua Rajada de Golpes para fazer um ataque de arco como uma ação bônus.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rajada de Flechas
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Seus ataques com arco contam como mágicos com o propósito de superar a resistência e imunidade a ataques e danos não mágicos, e agora você pode usar seu recurso Stunning Strike com ataques com arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flechas com poder de Ki

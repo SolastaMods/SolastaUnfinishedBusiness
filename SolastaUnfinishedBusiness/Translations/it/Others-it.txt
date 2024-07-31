@@ -25,6 +25,7 @@ Action/&FlightSuspendTitle=Terra
 Action/&ForcePoweredStrikeToggleDescription=Attiva/disattiva il Colpo potenziato dalla Forza
 Action/&ForcePoweredStrikeToggleTitle=Colpo potenziato dalla forza
 Action/&GloomBladeToggleDescription=Attiva/disattiva il danno necrotico di Shadowstrike
+Action/&GloomBladeToggleTitle=Colpo d'ombra
 Action/&HailOfBladesToggleDescription=Attiva/disattiva Pioggia di Lame
 Action/&HailOfBladesToggleTitle=Grandine di Lame
 Action/&InventorInfusionDescription=Infondi l'oggetto o crea una replica

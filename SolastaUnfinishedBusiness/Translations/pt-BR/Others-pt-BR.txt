@@ -25,6 +25,7 @@ Action/&FlightSuspendTitle=Terra
 Action/&ForcePoweredStrikeToggleDescription=Ativar/desativar Ataque Forçado
 Action/&ForcePoweredStrikeToggleTitle=Ataque movido pela força
 Action/&GloomBladeToggleDescription=Ativar/desativar dano necrótico Shadowstrike
+Action/&GloomBladeToggleTitle=Ataque das Sombras
 Action/&HailOfBladesToggleDescription=Ativar/desativar Hail of Blades
 Action/&HailOfBladesToggleTitle=Chuva de lâminas
 Action/&InventorInfusionDescription=Infundir item ou criar réplica

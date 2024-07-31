@@ -1,4 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=You can spend 1 Ki point with your Flurry of Blows to make two bow or unarmed attacks as a bonus action.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=You can spend 1 Ki point with your Flurry of Blows to make one bow attack as a bonus action.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Flurry of Arrows
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage, and you can now use your Stunning Strike feature with bow attacks.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Ki-Empowered Arrows
