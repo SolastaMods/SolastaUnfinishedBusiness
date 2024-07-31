@@ -866,13 +866,14 @@ internal static partial class CharacterContext
         {
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
                 "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.title =
-                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsTitle";
+            WayOfZenArchery.FeatureFlurryOfArrows.GuiPresentation.description =
+                "Feature/&FeatureWayOfZenArcheryFlurryOfArrowsAlternateDescription";
         }
         else
         {
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description = "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.title = "Feature/&FeatureSetMonkFlurryOfBlowsTitle";
+            WayOfZenArchery.FeatureFlurryOfArrows.GuiPresentation.description =
+                "Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription";
         }
     }
 

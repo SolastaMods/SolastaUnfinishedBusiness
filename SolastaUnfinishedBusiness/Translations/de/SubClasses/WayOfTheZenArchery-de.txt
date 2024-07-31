@@ -1,4 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Wann immer Sie Ihren Schlaghagel einsetzen, können Sie einen unbewaffneten Angriff durch einen Bogenangriff ersetzen.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsAlternateDescription=Sie können 1 Ki-Punkt ausgeben, um als Bonusaktion zwei Bogenangriffe auszuführen, wenn Sie ungepanzert sind und einen Bogen führen.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Sobald in Ihrem Zug die Angriffsaktion verwendet wird, können Sie 1 Ki-Punkt ausgeben, um als Bonusaktion zwei Bogenangriffe auszuführen, wenn Sie ungepanzert sind und einen Bogen führen.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Pfeilhagel
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Ihre Bogenangriffe gelten als magisch, wenn es darum geht, Widerstand und Immunität gegenüber nicht-magischen Angriffen und Schaden zu überwinden. Sie können jetzt auch die Funktion „Atemberaubender Schlag“ bei Bogenangriffen nutzen.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Ki-verstärkte Pfeile

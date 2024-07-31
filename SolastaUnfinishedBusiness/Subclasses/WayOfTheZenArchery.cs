@@ -25,6 +25,17 @@ public sealed class WayOfZenArchery : AbstractSubclass
     internal const string HailOfArrowsAttacksTab = "HailOfArrowsAttacksTab";
     internal const int StunningStrikeWithBowAllowedLevel = 6;
 
+    internal static readonly FeatureDefinition FeatureFlurryOfArrows = FeatureDefinitionBuilder
+        .Create($"Feature{Name}FlurryOfArrows")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(
+            new AddExtraMainHandAttack(
+                ActionDefinitions.ActionType.Bonus,
+                2,
+                ValidatorsCharacter.HasBowWithoutArmor,
+                ValidatorsCharacter.HasAnyOfConditions(ConditionFlurryOfBlows)))
+        .AddToDB();
+
     public WayOfZenArchery()
     {
         //
@@ -42,20 +53,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 .AddToDB();
 
         // Flurry of Arrows
-
-        var conditionFlurryOfArrows = ConditionDefinitionBuilder
-            .Create($"Condition{Name}FlurryOfArrows")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus,
-                ValidatorsCharacter.HasBowWithoutArmor))
-            .AddToDB();
-
-        var featureFlurryOfArrows = FeatureDefinitionBuilder
-            .Create($"Feature{Name}FlurryOfArrows")
-            .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new ActionFinishedByMeFlurryOfArrows(conditionFlurryOfArrows))
-            .AddToDB();
 
         //
         // LEVEL 06
@@ -122,14 +119,12 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
         actionHailOfArrows.particlePrefab = new AssetReference();
 
-        //
-        // PROGRESSION
-        //
+        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheZenArchery, 256))
-            .AddFeaturesAtLevel(3, proficiencyOneWithTheBow, featureFlurryOfArrows)
+            .AddFeaturesAtLevel(3, proficiencyOneWithTheBow, FeatureFlurryOfArrows)
             .AddFeaturesAtLevel(6, featureKiEmpoweredArrows)
             .AddFeaturesAtLevel(11, featureUnerringPrecision)
             .AddFeaturesAtLevel(17, actionAffinityHailOfArrows, powerHailOfArrows)
@@ -166,39 +161,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
         public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
             // empty
-        }
-    }
-
-    //
-    // Flurry of Arrows
-    //
-
-    private sealed class ActionFinishedByMeFlurryOfArrows(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition condition) : IActionFinishedByMe
-    {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (action is not CharacterActionFlurryOfBlows)
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-
-            rulesetCharacter.InflictCondition(
-                condition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                condition.Name,
-                0,
-                0,
-                0);
         }
     }
 

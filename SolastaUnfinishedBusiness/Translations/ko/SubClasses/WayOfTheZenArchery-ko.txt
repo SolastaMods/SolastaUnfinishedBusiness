@@ -1,4 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Flurry of Blows 기능을 사용할 때마다 비무장 공격을 활 공격으로 대체할 수 있습니다.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsAlternateDescription=갑옷을 입지 않고 활을 휘두르는 경우 1 Ki 포인트를 사용하여 두 번의 활 공격을 보너스 액션으로 할 수 있습니다.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=당신의 턴에 공격 액션을 사용한 후, 갑옷을 입지 않고 활을 사용할 경우 보너스 액션으로 기 포인트 1개를 소모하여 활 공격을 두 번 할 수 있습니다.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=화살의 질풍
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=활 공격은 비마법 공격 및 손상에 대한 저항과 면역을 극복하기 위해 마법 공격으로 간주되며, 이제 활 공격과 함께 Stunning Strike 기능을 사용할 수 있습니다.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=기 강화 화살

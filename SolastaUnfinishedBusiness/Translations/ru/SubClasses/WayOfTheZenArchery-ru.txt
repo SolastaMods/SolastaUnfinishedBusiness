@@ -1,4 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Каждый раз, когда вы используете способность Шквал ударов, вы можете заменить одну безоружную атаку на выстрел из лука.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsAlternateDescription=Вы можете потратить 1 очко Ки, чтобы совершить две атаки из лука в качестве бонусного действия, если вы не вооружены доспехами и владеете луком.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=После того, как вы используете действие «Атака» в свой ход, вы можете потратить 1 очко Ки, чтобы совершить две атаки из лука в качестве бонусного действия, если вы не бронированы и вооружены луком.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Шквал стрел
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Ваши выстрелы из лука считаются магическими при определении преодоления сопротивления и иммунитета к немагическим атакам и урону, также теперь вы можете использовать умение Ошеломляющий удар, стреляя из лука.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Энергетические стрелы

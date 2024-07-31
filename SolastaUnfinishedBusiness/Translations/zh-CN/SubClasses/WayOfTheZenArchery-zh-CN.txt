@@ -1,4 +1,5 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=每当你使用疾风连击特性时，你都可以用弓箭攻击代替徒手攻击。
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsAlternateDescription=如果您未穿盔甲并手持弓箭，您可以花费 1 点气值来进行两次弓箭攻击作为奖励行动。
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=一旦您的回合使用了攻击行动，您可以花费 1 点气值来进行两次弓箭攻击（如果没有装甲并且手持弓箭），作为奖励行动。
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=弓箭连击
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=为了克服对非魔法攻击和伤害的抗性和免疫，你的弓攻击被视为魔法，并且你现在可以在弓箭攻击中使用你的震慑拳特性。
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=气赋能箭

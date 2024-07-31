@@ -86,7 +86,6 @@ Feature/&FeatureMonkBodyAndMindTitle=身心合一
 Feature/&FeatureMonkHeightenedMetabolismDescription=你的训练已将你的身与心推至全新境界。你的疾风连击、坚强防御和飞檐走壁将获得以下好处：\n• 疾风连击：使用疾风连击时，你可以进行三次徒手攻击，而不是两次。\n• 坚强防御：使用坚强防御时，你将获得临时生命值，数量等于你掷出的两枚武艺骰。\n• 飞檐走壁：使用任一飞檐走壁特性（撤离或疾走）时，你还会获得其他效果的好处。
 Feature/&FeatureMonkHeightenedMetabolismTitle=出神入化
 Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription=你可以消耗 1 点气，以一个附赠动作进行两次徒手打击。
-Feature/&FeatureSetAlternateMonkFlurryOfBlowsTitle=疾风连击
 Feature/&FeatureSetBarbarianBrutalStrikeDescription=当你使用鲁莽攻击时，你在回合结束前进行的一次基于力量的攻击检定会造成与武器或徒手打击所造成的相同类型的额外 1d10 伤害，并且如果击中，你还可以选择以下效果之一:\n• 强力打击。目标被直接推离你 15 尺。\n• 腿筋打击。目标的速度降低 15 尺，直到你的下一回合开始。
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Description=你已经磨练出了猛烈攻击的新方法。现在，你的凶蛮打击选项中包含以下效果：\n• 惊人打击。目标在下一次豁免检定中处于劣势，并且在你的下回合开始之前无法进行借机攻击。\n• 粉碎一击。你的打击会在该生物的防御中为盟友留下一个缺口，直到你的下一个回合开始。除你之外的生物对目标进行的下一次攻击检定获得 1d10 的攻击和伤害检定加值。
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Title=精通凶蛮打击

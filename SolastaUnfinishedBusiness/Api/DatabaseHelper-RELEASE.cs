@@ -1719,9 +1719,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
-        internal static FeatureDefinitionPower PowerSorcererHauntedSoulSoulDrain { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSoulDrain");
-
         internal static FeatureDefinitionPower PowerIncubus_Drain { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerIncubus_Drain");
 
