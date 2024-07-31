@@ -1335,12 +1335,12 @@ internal static partial class CharacterContext
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .Build())
+            .AddCustomSubFeatures(
+                ModifyPowerVisibility.Hidden,
+                PowerUsesSneakDiceTooltipModifier.Instance,
+                new CustomBehaviorWithdraw())
             .AddToDB();
 
-        powerWithdraw.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            PowerUsesSneakDiceTooltipModifier.Instance,
-            new CustomBehaviorWithdraw(powerWithdraw));
         //
         // DEVIOUS STRIKES - LEVEL 14
         //
@@ -1465,7 +1465,7 @@ internal static partial class CharacterContext
 
         powerPool.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new CustomBehaviorCunningStrike(powerPool, powerKnockOut, powerKnockOutApply));
+            new CustomBehaviorCunningStrike(powerPool, powerKnockOut, powerKnockOutApply, powerWithdraw));
 
         PowerBundle.RegisterPowerBundle(powerPool, true,
             powerDisarm, powerPoison, powerTrip, powerWithdraw, powerDaze, powerKnockOut, powerObscure);
@@ -1523,7 +1523,8 @@ internal static partial class CharacterContext
     private sealed class CustomBehaviorCunningStrike(
         FeatureDefinitionPower powerRogueCunningStrike,
         FeatureDefinitionPower powerKnockOut,
-        FeatureDefinitionPower powerKnockOutApply)
+        FeatureDefinitionPower powerKnockOutApply,
+        FeatureDefinitionPower powerWithdraw)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private FeatureDefinitionPower _selectedPower;
@@ -1620,13 +1621,59 @@ internal static partial class CharacterContext
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (_selectedPower != powerKnockOut)
+            if (_selectedPower == powerKnockOut)
             {
-                yield break;
+                yield return HandleKnockOut(attacker, defender);
+            }
+            else if (_selectedPower == powerWithdraw)
+            {
+                yield return HandleWithdraw(action, attacker);
             }
 
             _selectedPower = null;
+        }
 
+        private IEnumerator HandleWithdraw(CharacterAction action, GameLocationCharacter attacker)
+        {
+            yield return GameUiContext.SelectPosition(action, powerWithdraw);
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var targetPosition = action.ActionParams.Positions[0];
+            var distance = int3.Distance(attacker.LocationPosition, targetPosition);
+            var actionParams =
+                new CharacterActionParams(attacker, ActionDefinitions.Id.TacticalMove)
+                {
+                    Positions = { targetPosition }
+                };
+
+            attacker.UsedTacticalMoves -= (int)distance;
+
+            if (attacker.UsedTacticalMoves < 0)
+            {
+                attacker.UsedTacticalMoves = 0;
+            }
+
+            rulesetAttacker.InflictCondition(
+                ConditionDisengaging,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                // all disengaging in game is set under TagCombat (why?)
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionDisengaging,
+                0,
+                0,
+                0);
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+
+        private IEnumerator HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)
+        {
             var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
@@ -1649,7 +1696,6 @@ internal static partial class CharacterContext
                 TargetCharacters = { defender }
             };
 
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
         }
@@ -1684,9 +1730,7 @@ internal static partial class CharacterContext
         }
     }
 
-    private sealed class CustomBehaviorWithdraw(FeatureDefinitionPower powerWithdraw) :
-        IFilterTargetingPosition, IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe,
-        IIgnoreInvisibilityInterruptionCheck
+    private sealed class CustomBehaviorWithdraw : IFilterTargetingPosition, IIgnoreInvisibilityInterruptionCheck
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
@@ -1720,57 +1764,6 @@ internal static partial class CharacterContext
                     yield return null;
                 }
             }
-        }
-
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
-
-            var actingCharacter = action.ActingCharacter;
-            var targetCharacter = action.ActionParams.TargetCharacters[0];
-            var targetRulesetCharacter = targetCharacter.RulesetCharacter;
-            var targetPosition = action.ActionParams.Positions[0];
-            var distance = int3.Distance(actingCharacter.LocationPosition, targetPosition);
-            var actionParams =
-                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
-                {
-                    Positions = { targetPosition }
-                };
-
-            targetCharacter.UsedTacticalMoves -= (int)distance;
-
-            if (targetCharacter.UsedTacticalMoves < 0)
-            {
-                targetCharacter.UsedTacticalMoves = 0;
-            }
-
-            targetRulesetCharacter.InflictCondition(
-                ConditionDisengaging,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                // all disengaging in game is set under TagCombat (why?)
-                AttributeDefinitions.TagCombat,
-                targetRulesetCharacter.Guid,
-                targetRulesetCharacter.CurrentFaction.Name,
-                1,
-                ConditionDisengaging,
-                0,
-                0,
-                0);
-
-            EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
-                PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
-
-            yield break;
-        }
-
-        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            yield return GameUiContext.SelectPosition(action, powerWithdraw);
         }
     }
 
