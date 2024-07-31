@@ -16,7 +16,7 @@ Feature/&PowerRoguishArcaneScoundrelEssenceTheftDescription=한 생물에게서 
 Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=정수 파열
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=아르카나 스킬에 능숙해집니다.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=비전 친화력
-Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={0}님이 주문을 걸고 있습니다! 주문 슬롯을 사용하지 않고도 주문에 대응하여 대응할 수 있습니다.
+Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={1}={0}님이 주문을 걸고 있습니다! 주문 슬롯을 사용하지 않고도 주문에 대응하여 대응할 수 있습니다.
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactDescription=반격 주문을 시전하고 적의 주문에 반격하십시오.
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactTitle=카운터
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=적대적인 주문 시전

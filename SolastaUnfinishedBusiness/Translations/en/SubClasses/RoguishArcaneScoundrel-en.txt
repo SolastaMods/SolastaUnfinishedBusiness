@@ -16,7 +16,7 @@ Feature/&PowerRoguishArcaneScoundrelEssenceTheftDescription=You can steal essenc
 Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=Essence Rupture
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=You gain proficiency in the Arcana skill.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Arcane Affinity
-Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={0} is casting a spell! You can react to counter the spell without spending a spell slot.
+Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={1}={0} is casting a spell! You can react to counter the spell without spending a spell slot.
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactDescription=Cast counterspell and counter the enemy spell.
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactTitle=Counter
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Hostile Spell Casting
