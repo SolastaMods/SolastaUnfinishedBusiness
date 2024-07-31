@@ -178,11 +178,14 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
 
 internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
 {
+    private readonly int _attacksNumber;
+
     internal AddExtraMainHandAttack(
         ActionDefinitions.ActionType actionType,
+        int attacksNumber = 1,
         params IsCharacterValidHandler[] validators) : base(actionType, validators)
     {
-        // Empty
+        _attacksNumber = attacksNumber;
     }
 
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
@@ -218,7 +221,12 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
             mainHandItem
         );
 
-        return [attackMode];
+        var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+        attackModeCopy.Copy(attackMode);
+        attackModeCopy.attacksNumber = _attacksNumber;
+
+        return [attackModeCopy];
     }
 }
 
