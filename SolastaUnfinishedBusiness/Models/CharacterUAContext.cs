@@ -5,7 +5,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -1737,8 +1736,8 @@ internal static partial class CharacterContext
                 {
                     Positions = { targetPosition }
                 };
-            
-            targetCharacter.UsedTacticalMoves-= (int)distance;
+
+            targetCharacter.UsedTacticalMoves -= (int)distance;
 
             if (targetCharacter.UsedTacticalMoves < 0)
             {
@@ -1771,34 +1770,7 @@ internal static partial class CharacterContext
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var cursorService = ServiceRepository.GetService<ICursorService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var character = action.ActingCharacter;
-            var rulesetCharacter = character.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerWithdraw, rulesetCharacter);
-            var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost)
-            {
-                RulesetEffect =
-                    implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, true)
-            };
-
-            GameUiContext.ResetCamera();
-            cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
-
-            var position = int3.zero;
-
-            while (cursorService.CurrentCursor is CursorLocationSelectPosition cursorLocationSelectPosition)
-            {
-                position = cursorLocationSelectPosition.hasValidPosition
-                    ? cursorLocationSelectPosition.HoveredLocation
-                    : character.LocationPosition;
-
-                yield return null;
-            }
-
-            action.ActionParams.positions.SetRange(position);
+            yield return GameUiContext.SelectPosition(action, powerWithdraw);
         }
     }
 
