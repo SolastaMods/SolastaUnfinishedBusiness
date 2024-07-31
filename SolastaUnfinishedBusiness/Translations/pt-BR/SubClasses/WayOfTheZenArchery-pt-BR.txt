@@ -1,5 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsAlternateDescription=Você pode gastar 1 ponto de Ki para fazer dois ataques de arco como uma ação bônus se estiver sem armadura e empunhando um arco.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Depois que a ação de Ataque for usada no seu turno, você pode gastar 1 ponto de Ki para fazer dois ataques de arco como uma ação bônus se estiver sem armadura e empunhando um arco.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=você pode gastar 1 ponto de Ki com sua Rajada de Golpes para fazer dois ataques com arco ou desarmados como uma ação bônus.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rajada de Flechas
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Seus ataques com arco contam como mágicos com o propósito de superar a resistência e imunidade a ataques e danos não mágicos, e agora você pode usar seu recurso Stunning Strike com ataques com arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flechas com poder de Ki

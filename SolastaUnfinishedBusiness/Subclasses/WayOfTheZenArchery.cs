@@ -25,17 +25,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
     internal const string HailOfArrowsAttacksTab = "HailOfArrowsAttacksTab";
     internal const int StunningStrikeWithBowAllowedLevel = 6;
 
-    internal static readonly FeatureDefinition FeatureFlurryOfArrows = FeatureDefinitionBuilder
-        .Create($"Feature{Name}FlurryOfArrows")
-        .SetGuiPresentation(Category.Feature)
-        .AddCustomSubFeatures(
-            new AddExtraMainHandAttack(
-                ActionDefinitions.ActionType.Bonus,
-                2,
-                ValidatorsCharacter.HasBowWithoutArmor,
-                ValidatorsCharacter.HasAnyOfConditions(ConditionFlurryOfBlows)))
-        .AddToDB();
-
     public WayOfZenArchery()
     {
         //
@@ -53,6 +42,17 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 .AddToDB();
 
         // Flurry of Arrows
+
+        var featureFlurryOfArrows = FeatureDefinitionBuilder
+            .Create($"Feature{Name}FlurryOfArrows")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(
+                new AddExtraMainHandAttack(
+                    ActionDefinitions.ActionType.Bonus,
+                    2,
+                    ValidatorsCharacter.HasBowWithoutArmor,
+                    ValidatorsCharacter.HasAnyOfConditions(ConditionFlurryOfBlows)))
+            .AddToDB();
 
         //
         // LEVEL 06
@@ -124,7 +124,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheZenArchery, 256))
-            .AddFeaturesAtLevel(3, proficiencyOneWithTheBow, FeatureFlurryOfArrows)
+            .AddFeaturesAtLevel(3, proficiencyOneWithTheBow, featureFlurryOfArrows)
             .AddFeaturesAtLevel(6, featureKiEmpoweredArrows)
             .AddFeaturesAtLevel(11, featureUnerringPrecision)
             .AddFeaturesAtLevel(17, actionAffinityHailOfArrows, powerHailOfArrows)

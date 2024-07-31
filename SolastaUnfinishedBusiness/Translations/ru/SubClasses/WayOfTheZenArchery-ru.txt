@@ -1,5 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsAlternateDescription=Вы можете потратить 1 очко Ки, чтобы совершить две атаки из лука в качестве бонусного действия, если вы не вооружены доспехами и владеете луком.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=После того, как вы используете действие «Атака» в свой ход, вы можете потратить 1 очко Ки, чтобы совершить две атаки из лука в качестве бонусного действия, если вы не бронированы и вооружены луком.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Вы можете потратить 1 очко Ки с помощью Шквала ударов, чтобы совершить две атаки из лука или безоружного оружия в качестве бонусного действия.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Шквал стрел
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Ваши выстрелы из лука считаются магическими при определении преодоления сопротивления и иммунитета к немагическим атакам и урону, также теперь вы можете использовать умение Ошеломляющий удар, стреляя из лука.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Энергетические стрелы

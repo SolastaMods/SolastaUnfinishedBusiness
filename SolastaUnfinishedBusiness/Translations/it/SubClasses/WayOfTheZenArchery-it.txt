@@ -1,5 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsAlternateDescription=Puoi spendere 1 punto Ki per effettuare due attacchi con l'arco come azione bonus se non hai l'armatura e impugni un arco.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Una volta utilizzata l'azione Attacco nel tuo turno, puoi spendere 1 punto Ki per effettuare due attacchi con l'arco come azione bonus se non indossi un'armatura e impugni un arco.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=puoi spendere 1 punto Ki con la tua Raffica di Colpi per effettuare due attacchi con l'arco o senz'armi come azione bonus.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Raffica di frecce
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=I tuoi attacchi con l'arco contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici, e ora puoi utilizzare la tua funzione Colpo stordente con gli attacchi con l'arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Frecce potenziate dal Ki
