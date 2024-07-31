@@ -1,7 +1,7 @@
 Condition/&ConditionRoguishUmbralStalkerShadowDanceDescription=당신은 꿰뚫어 볼 수 있는 마법의 어둠에 가려져 있으며, 몰래 공격 피해를 입히고 주사위 공격 중 하나에 최대 수치를 굴릴 때마다 해당 주사위를 다시 굴려 피해에 추가합니다.
 Condition/&ConditionRoguishUmbralStalkerShadowDanceTitle=그림자 춤
 Feature/&ActionAffinityGloomBladeToggleDescription=당신은 어둠 그 자체의 정수로 공격을 주입합니다. 무기 공격으로 생물을 몰래 공격할 때마다 추가로 d6을 굴리고, 그 공격의 피해 주사위에서 1과 2를 다시 굴리고 두 번째 결과를 취해야 하며, 기본 무기와 몰래 공격으로 입힌 피해를 괴사 피해로 변환할 수 있습니다.
-Feature/&ActionAffinityGloomBladeToggleTitle=섀도우스트라이크
+Feature/&ActionAffinityGloomBladeToggleTitle=섀도우 스트라이크
 Feature/&FeatureSetRoguishUmbralStalkerDeadlyShadowsDescription=당신은 어둠에 익숙해지고 그것을 당신의 치명적인 놀이터로 만듭니다. 당신은 60피트의 암흑 시야를 얻습니다. 당신이나 당신의 대상이 희미한 빛이나 어둠 속에 있다면, 몰래 공격을 사용하기 위해 공격 굴림에서 이점이 필요하지 않습니다. 몰래 공격에 대한 다른 모든 규칙은 여전히 ​​당신에게 적용됩니다.
 Feature/&FeatureSetRoguishUmbralStalkerDeadlyShadowsTitle=그림자와 하나
 Feature/&FeatureSetRoguishUmbralStalkerUmbralSoulDescription=당신은 추위와 괴사 피해에 대한 저항력을 얻습니다. 게다가, 당신의 체력이 0으로 감소할 때마다, 당신은 당신의 도적 레벨의 두 배에 해당하는 체력을 회복하고 일어섭니다. 당신은 긴 휴식당 한 번 이 기능을 사용할 수 있습니다.

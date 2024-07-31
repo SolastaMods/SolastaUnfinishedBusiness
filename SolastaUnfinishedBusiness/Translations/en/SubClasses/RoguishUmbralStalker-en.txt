@@ -1,7 +1,7 @@
 Condition/&ConditionRoguishUmbralStalkerShadowDanceDescription=You are obscured by magical darkness which you can see through, and whenever you deal sneak attack damage and roll the maximum number on one of your dice attack, you reroll that die and add it to the damage.
 Condition/&ConditionRoguishUmbralStalkerShadowDanceTitle=Shadow Dance
 Feature/&ActionAffinityGloomBladeToggleDescription=You infuse your attacks with the essence of darkness itself. Whenever you sneak attack a creature with a weapon attack, you roll an additional d6, reroll any 1s and 2s on damage dice of that attack and must take the second result, and can choose to convert the base weapon and sneak attack damage you deal into necrotic damage.
-Feature/&ActionAffinityGloomBladeToggleTitle=Shadowstrike
+Feature/&ActionAffinityGloomBladeToggleTitle=Shadow Strike
 Feature/&FeatureSetRoguishUmbralStalkerDeadlyShadowsDescription=You become accustomed to darkness and make it your deadly playground. You gain darkvision of 60 feet. You don't need advantage on the attack roll to use your Sneak Attack if either you or your target are in dim light or darkness. All the other rules for Sneak Attack still apply to you.
 Feature/&FeatureSetRoguishUmbralStalkerDeadlyShadowsTitle=One with Shadows
 Feature/&FeatureSetRoguishUmbralStalkerUmbralSoulDescription=You gain resistance to cold and necrotic damage. In addition, whenever you are reduced to 0 hit points, you regain a number of hit points equal to twice your rogue level and stand up. You can use this feature once per long rest.
