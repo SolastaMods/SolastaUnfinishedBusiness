@@ -718,7 +718,8 @@ internal static class Level20SubclassesContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.QuiveringPalmToggle)
-            .SetActivatedPower(powerTraditionOpenHandQuiveringPalm, usePowerTooltip: false)
+            .SetActivatedPower(
+                powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower, false)
             .OverrideClassName("Toggle")
             .AddToDB();
 

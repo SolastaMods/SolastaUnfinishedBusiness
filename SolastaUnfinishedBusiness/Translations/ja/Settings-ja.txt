@@ -162,6 +162,7 @@ ModUi/&EnableRogueStrSaving=<color=#D89555>ローグ</color>が<b>狡猾/邪悪�
 ModUi/&EnableSaveByLocation=キャンペーン/地域ごとの保存を有効にする
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>ウィザード</color>の特徴的な呪文を<i><color=#F0DAA0>[レベル20で1回ではなく]長い休憩ごとに準備できるようにする</color></i>
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>ソーサラー</color>の<b>魔法の導き</b>を有効にする
+ModUi/&EnableSorcererQuickenedAction=<color=#D89555>ソーサラー</color>の<b>クイックアクション</b>を有効にすると、最後にレベルアップしたメインをキャストできるようになります。
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセットのソートを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローは、ランダム性を高めるためにウェイトに D20 ロールを追加します<color=#F0DAA0>[ウェイトの選択 = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>

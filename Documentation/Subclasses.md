@@ -3824,7 +3824,7 @@ A weapon is an extension of oneself, and a plain rendition of the one that wield
 
 * Flurry of Arrows
 
-You can spend 1 Ki point with your Flurry of Blows to make two bow or unarmed attacks as a bonus action.
+You can replace one of your bonus unarmed strikes with a bow attack.
 
 * One with the Bow
 

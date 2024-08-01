@@ -70,6 +70,7 @@ internal enum ExtraActionId
     WildSurgeSummonFree,
     WildSurgeTeleport,
     WildSurgeTeleportFree,
+    Quickened,
     PrioritizeAction = 10000
 }
 

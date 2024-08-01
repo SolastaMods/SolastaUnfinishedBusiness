@@ -1,13 +1,14 @@
 1.5.97.25:
 
-CALL FOR PATRONS: UB is running low on cash flow. If you can, please use donation links at github.com/SolastaMods/SolastaUnfinishedBusiness
+PATRONS: UB is running low on cash flow. If you can, please donate at github.com/SolastaMods/SolastaUnfinishedBusiness
 
+- added Gameplay > Rules > 'Enable Sorcerer quicken action to allow cast leveled main in the end'
 - fixed Bait and Switch maneuver not adding AC to self when switching an ally
 - fixed Roguish Arcane Scoundrel backslash counter spell reaction modal description
 - improved Rogue cunning strike withdraw behavior to work immediately after the attack
 - improved Roguish Umbral Stalker, now Roguish Shadowdancer, to also allow ranged builds
 - improved Way of Zen Archery flurry of arrows to replace one of your bonus unarmed strikes with a bow attack
-- merged Bow Mastery and Crossbow Mastery feats into Ranged Mastery one
+- merged Bow Mastery and Crossbow Mastery feats into Ranged Mastery
 
 KNOWN ISSUES:
 

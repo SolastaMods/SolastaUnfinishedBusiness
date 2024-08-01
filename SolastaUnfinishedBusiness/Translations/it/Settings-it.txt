@@ -162,6 +162,7 @@ ModUi/&EnableRogueStrSaving=Abilita <color=#D89555>Ladro</color> per usare i mod
 ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
 ModUi/&EnableSignatureSpellsRelearn=Abilita gli incantesimi distintivi <color=#D89555>Mago</color> da preparare ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Stregone</color> <b>guida magica</b> al livello 5
+ModUi/&EnableSorcererQuickenedAction=Abilita l'azione rapida <color=#D89555>Stregone</color> <b>per consentire il lancio di un livello principale alla fine
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Visualizza le statistiche nel tooltip dell'eroe <i><color=#F0DAA0>[es.: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità <color=#F0DAA0>[peso scelta = voti * modificatore di carisma dell'eroe + tiro di D20]</color></i>
