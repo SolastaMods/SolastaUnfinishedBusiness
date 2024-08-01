@@ -1391,8 +1391,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 EffectHelpers.StartVisualEffect(
                     caster, caster, Resurrection, EffectHelpers.EffectType.Effect);
                 rulesetCaster.LogCharacterActivatesAbility(string.Empty, "Screen/&SorceryPointsRecoveredDescription");
-                rulesetCaster.UsedSorceryPoints = 0;
-                rulesetCaster.SorceryPointsAltered?.Invoke(rulesetCaster, rulesetCaster.RemainingSorceryPoints);
+                rulesetCaster.SpendSorceryPoints(-rulesetCaster.UsedSorceryPoints);
                 break;
         }
 
@@ -1613,7 +1612,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     // Teleport
     //
 
-    private sealed class PowerOrSpellInitiatedByMeTeleport 
+    private sealed class PowerOrSpellInitiatedByMeTeleport
         : IPowerOrSpellInitiatedByMe, IIgnoreInvisibilityInterruptionCheck
     {
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)

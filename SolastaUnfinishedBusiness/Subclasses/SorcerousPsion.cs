@@ -330,7 +330,6 @@ public sealed class SorcerousPsion : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             rulesetAttacker.SpendSorceryPoints(1);
-            rulesetAttacker.SorceryPointsAltered?.Invoke(rulesetAttacker, rulesetAttacker.RemainingSorceryPoints);
         }
     }
 
@@ -434,7 +433,6 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             rulesetCharacter.UsePower(usablePower);
             rulesetCharacter.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
-            rulesetCharacter.SorceryPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingSorceryPoints);
         }
 
         public bool RequiresConcentration(RulesetCharacter rulesetCharacter, RulesetEffectSpell rulesetEffectSpell)
