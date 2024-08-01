@@ -263,7 +263,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionBlindedByPetalStormTitle",
+    "title": "Blinded by Petal Storm",
     "description": "Rules/&ConditionBlindedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

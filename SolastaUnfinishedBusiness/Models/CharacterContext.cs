@@ -62,10 +62,9 @@ internal static partial class CharacterContext
                 new ValidateDefinitionApplication(
                     c =>
                         c.RemainingSorceryPoints > 1 &&
-                        c.GetOriginalHero()?.TrainedMetamagicOptions.Contains(MetamagicQuickenedSpell) == true,
-                    ValidatorsCharacter.HasUnavailableMainAction,
-                    ValidatorsCharacter.HasNotCastMainSpell,
-                    ValidatorsCharacter.HasAvailableBonusAction))
+                        c.GetOriginalHero()?.TrainedMetamagicOptions.Contains(MetamagicQuickenedSpell) == true),
+                ValidatorsCharacter.HasNotCastMainSpell,
+                ValidatorsCharacter.HasAvailableBonusAction)
             .AddToDB();
 
     internal static readonly ConditionDefinition ConditionIndomitableSaving = ConditionDefinitionBuilder
@@ -369,6 +368,7 @@ internal static partial class CharacterContext
             .SetActionType(ActionType.NoCost)
             .SetActionId(ExtraActionId.Quickened)
             .SetFormType(ActionFormType.Large)
+            .SetActionScope(ActionScope.Battle)
             .AddToDB();
 
         _ = ConditionDefinitionBuilder

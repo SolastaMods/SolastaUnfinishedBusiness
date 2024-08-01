@@ -263,7 +263,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionBlindedByFogCloudTitle",
+    "title": "Blinded by Fog Cloud",
     "description": "Rules/&ConditionBlindedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

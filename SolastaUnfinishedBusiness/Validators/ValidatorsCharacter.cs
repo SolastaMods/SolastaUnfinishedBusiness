@@ -64,18 +64,6 @@ internal static class ValidatorsCharacter
         return locationCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Bonus] > 0;
     };
 
-    internal static readonly IsCharacterValidHandler HasUnavailableMainAction = character =>
-    {
-        var locationCharacter = GameLocationCharacter.GetFromActor(character);
-
-        if (locationCharacter == null)
-        {
-            return false;
-        }
-
-        return locationCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Main] > 0;
-    };
-
     internal static readonly IsCharacterValidHandler HasNotCastMainSpell = character =>
     {
         var locationCharacter = GameLocationCharacter.GetFromActor(character);

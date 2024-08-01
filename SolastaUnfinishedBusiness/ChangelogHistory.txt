@@ -2,7 +2,7 @@
 
 PATRONS: UB is running low on cash flow. If you can, please donate at github.com/SolastaMods/SolastaUnfinishedBusiness
 
-- added Gameplay > Character > 'Enable Sorcerer quicken action to allow cast leveled main in the end'
+- added Gameplay > Character > 'Enable Sorcerer quickened action to allow cast leveled main in the end'
 - fixed Bait and Switch maneuver not adding AC to self when switching an ally
 - fixed Roguish Arcane Scoundrel backslash counter spell reaction modal description
 - improved Rogue cunning strike withdraw behavior to work immediately after the attack
