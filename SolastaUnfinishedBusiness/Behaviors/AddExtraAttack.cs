@@ -182,7 +182,6 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         ActionDefinitions.ActionType actionType,
         params IsCharacterValidHandler[] validators) : base(actionType, validators)
     {
-
     }
 
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)

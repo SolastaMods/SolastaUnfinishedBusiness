@@ -16,6 +16,7 @@ using static RuleDefinitions;
 using static AttributeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
@@ -145,17 +146,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .Create($"Condition{Name}AmazingDisplay")
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDazzled)
             .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create($"ActionAffinity{Name}AmazingDisplay")
-                    .SetGuiPresentation(AmazingDisplayName, Category.Feature, Gui.NoLocalization)
-                    .SetAllowedActionTypes(reaction: false)
-                    .AddToDB(),
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create($"MovementAffinity{Name}AmazingDisplay")
-                    .SetGuiPresentation(AmazingDisplayName, Category.Feature, Gui.NoLocalization)
-                    .SetBaseSpeedMultiplicativeModifier(0)
-                    .AddToDB())
+            .SetFeatures(ActionAffinityConditionRestrained, MovementAffinityConditionRestrained)
             .SetConditionParticleReference(ConditionDefinitions.ConditionDistracted)
             .AddToDB();
 

@@ -17,7 +17,7 @@ public static class CameraModeManualPatcher
         public static void Prefix(CameraModeManual __instance)
         {
             // don't mess up with camera while location is building
-            if (Gui.GameLocation?.Ready == true)
+            if (Gui.Battle != null)
             {
                 __instance.parameters.hasElevationCorrection = !Main.Settings.EnableElevationCameraToStayAtPosition;
             }

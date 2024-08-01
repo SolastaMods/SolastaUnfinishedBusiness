@@ -3100,8 +3100,11 @@ internal static class OtherFeats
                 yield break;
             }
 
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetActor;
+
+            actionService.StopCharacterActions(defender, CharacterAction.InterruptionType.Abort);
 
             rulesetDefender.InflictCondition(
                 conditionSentinelStopMovement.Name,

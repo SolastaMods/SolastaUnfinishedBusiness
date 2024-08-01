@@ -25,28 +25,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
     internal const string HailOfArrowsAttacksTab = "HailOfArrowsAttacksTab";
     internal const int StunningStrikeWithBowAllowedLevel = 6;
 
-    // set attacks number to 2 to allow a mix of unarmed / bow attacks otherwise game engine will consume bonus action
-    // once at least one bonus attack is used this check fails and everything gets back to normal
-    // the patch on CharacterACtionItemForm.Refresh finishes the trick by hiding the number of attacks image
-    private sealed class ModifyWeaponAttackModeFlurryOfArrows : IModifyWeaponAttackMode
-    {
-        public void ModifyAttackMode(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
-        {
-            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
-            
-            if (character is { UsedBonusAttacks: 0 } &&
-                attackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
-                rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionFlurryOfBlows) &&
-                ValidatorsWeapon.IsOfWeaponType(
-                    WeaponTypeDefinitions.LongbowType,
-                    WeaponTypeDefinitions.ShortbowType)(attackMode, null, null))
-            {
-                attackMode.AttacksNumber = 2;
-            }
-        }
-    }
-
     public WayOfZenArchery()
     {
         //
@@ -162,7 +140,29 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-    
+
+    // set attacks number to 2 to allow a mix of unarmed / bow attacks otherwise game engine will consume bonus action
+    // once at least one bonus attack is used this check fails and everything gets back to normal
+    // the patch on CharacterACtionItemForm.Refresh finishes the trick by hiding the number of attacks image
+    private sealed class ModifyWeaponAttackModeFlurryOfArrows : IModifyWeaponAttackMode
+    {
+        public void ModifyAttackMode(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
+        {
+            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+            if (character is { UsedBonusAttacks: 0 } &&
+                attackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
+                rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionFlurryOfBlows) &&
+                ValidatorsWeapon.IsOfWeaponType(
+                    WeaponTypeDefinitions.LongbowType,
+                    WeaponTypeDefinitions.ShortbowType)(attackMode, null, null))
+            {
+                attackMode.AttacksNumber = 2;
+            }
+        }
+    }
+
 
     //
     // One with the Bow
