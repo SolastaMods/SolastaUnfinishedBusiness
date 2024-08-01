@@ -613,6 +613,7 @@ internal static class LightingAndObscurementContext
 
     #region conditions
 
+    private const string BlindTitle = "Condition/&ConditionBlindedByTitle";
     private const string BlindDescription = "Rules/&ConditionBlindedDescription";
     private const string BlindExtendedDescription = "Condition/&ConditionBlindedExtendedDescription";
 
@@ -629,49 +630,49 @@ internal static class LightingAndObscurementContext
 
     internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByDarkness")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetGuiPresentation(Gui.Format(BlindTitle, Darkness.FormatTitle()), BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByCloudKill = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByCloudKill")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetGuiPresentation(Gui.Format(BlindTitle, Darkness.FormatTitle()), BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByFogCloud = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByFogCloud")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetGuiPresentation(Gui.Format(BlindTitle, Darkness.FormatTitle()), BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByIncendiaryCloud = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByIncendiaryCloud")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetGuiPresentation(Gui.Format(BlindTitle, Darkness.FormatTitle()), BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByPetalStorm = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByPetalStorm")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetGuiPresentation(Gui.Format(BlindTitle, Darkness.FormatTitle()), BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedBySleetStorm = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedBySleetStorm")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetGuiPresentation(Gui.Format(BlindTitle, Darkness.FormatTitle()), BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByStinkingCloud = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetGuiPresentation(Gui.Format(BlindTitle, Darkness.FormatTitle()), BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures(ConditionPoisoned.Features)
         .AddFeatures(ActionAffinityConditionRetchingReeling)

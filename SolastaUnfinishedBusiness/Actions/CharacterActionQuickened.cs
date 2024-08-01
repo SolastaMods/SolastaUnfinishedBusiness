@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 //This should have default namespace so that it can be properly created by `CharacterActionPatcher`
 // ReSharper disable once CheckNamespace
@@ -36,5 +37,7 @@ public class CharacterActionQuickened(CharacterActionParams actionParams) : Char
             0,
             0,
             0);
+        hero.LogCharacterActivatesAbility(
+            MetamagicQuickenedSpell.FormatTitle(), "Feedback/&MetamagicActivatedShortLine");
     }
 }

@@ -349,6 +349,7 @@
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
     <EnableRogueStrSaving>false</EnableRogueStrSaving>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
+    <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <OfferAdditionalLoreFriendlyNames>false</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>false</UnlockAllNpcFaces>
     <AllowUnmarkedSorcerers>false</AllowUnmarkedSorcerers>
