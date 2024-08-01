@@ -1,4 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Sie können mit Ihrem Schlaghagel 1 Ki-Punkt ausgeben, um als Bonusaktion einen Bogenangriff auszuführen.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Sie können einen Ihrer zusätzlichen waffenlosen Schläge durch einen Bogenangriff ersetzen.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Pfeilhagel
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Ihre Bogenangriffe gelten als magisch, wenn es darum geht, Widerstand und Immunität gegenüber nicht-magischen Angriffen und Schaden zu überwinden. Sie können jetzt auch die Funktion „Atemberaubender Schlag“ bei Bogenangriffen nutzen.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Ki-verstärkte Pfeile

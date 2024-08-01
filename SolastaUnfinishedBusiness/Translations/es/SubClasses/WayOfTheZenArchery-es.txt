@@ -1,4 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Puedes gastar 1 punto de Ki con tu Ráfaga de golpes para realizar un ataque con arco como acción adicional.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Puedes reemplazar uno de tus ataques adicionales sin armas con un ataque con arco.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Ráfaga de flechas
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Tus ataques con arco cuentan como mágicos con el fin de superar la resistencia y la inmunidad a ataques y daños no mágicos, y ahora puedes usar tu función Golpe aturdidor con ataques con arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flechas potenciadas por Ki

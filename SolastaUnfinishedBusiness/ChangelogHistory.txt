@@ -1,6 +1,20 @@
-1.5.97.24:
+1.5.97.25:
 
 CALL FOR PATRONS: UB is running low on cash flow. If you can, please use donation links at github.com/SolastaMods/SolastaUnfinishedBusiness
+
+- fixed Bait and Switch maneuver not adding AC to self when switching an ally
+- fixed Roguish Arcane Scoundrel backslash counter spell reaction modal description
+- improved Rogue cunning strike withdraw behavior to work immediately after the attack
+- improved Roguish Umbral Stalker, now Roguish Shadowdancer, to also allow ranged builds
+- improved Way of Zen Archery flurry of arrows to replace one of your bonus unarmed strikes with a bow attack
+- merged Bow Mastery and Crossbow Mastery feats into Ranged Mastery one
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
+
+1.5.97.24:
 
 - added Artificer soul of artifice at 20th
 - added General > Rules > 'Set Sorcerer Wild Magic chance die threshold' setting
@@ -17,11 +31,6 @@ CALL FOR PATRONS: UB is running low on cash flow. If you can, please use donatio
 - fixed Roguish Raven deadly focus not adding advantage on attack re-attempt
 - fixed Warlock pact chain powers recharge rate to long rest [VANILLA]
 - removed Interface > Game UI > 'Increase elevation camera max height by' setting as causing a game soft lock
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
 
 1.5.97.23:
 

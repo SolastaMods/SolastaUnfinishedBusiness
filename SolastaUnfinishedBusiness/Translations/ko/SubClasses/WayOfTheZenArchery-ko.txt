@@ -1,4 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=폭풍의 일격에 기 포인트 1개를 사용하여 보너스 행동으로 활 공격 한 번을 할 수 있습니다.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=보너스 비무장 공격 중 하나를 활 공격으로 대체할 수 있습니다.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=화살의 질풍
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=활 공격은 비마법 공격 및 손상에 대한 저항과 면역을 극복하기 위해 마법 공격으로 간주되며, 이제 활 공격과 함께 Stunning Strike 기능을 사용할 수 있습니다.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=기 강화 화살
