@@ -639,7 +639,7 @@ internal static partial class SpellBuilders
             target.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
                 advantageTrends, conModifier, 15, false, out var savingOutcome, out _);
 
-            if (savingOutcome is RollOutcome.Success)
+            if (savingOutcome == RollOutcome.Success)
             {
                 return;
             }

@@ -2056,7 +2056,7 @@ internal static partial class SpellBuilders
                 0, AttributeDefinitions.Wisdom, null, modifierTrend, advantageTrends, attackerWisModifier, casterSaveDC,
                 false, out var savingOutcome, out _);
 
-            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (savingOutcome == RollOutcome.Success)
             {
                 yield break;
             }
