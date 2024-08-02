@@ -4,6 +4,7 @@ PATRONS: UB is running low on cash flow. If you can, please donate at github.com
 
 - added Gameplay > Character > 'Enable Sorcerer quickened action to allow cast leveled main in the end'
 - fixed Bait and Switch maneuver not adding AC to self when switching an ally
+- fixed Circle of Power saving throw to only be against spells
 - fixed Roguish Arcane Scoundrel backslash counter spell reaction modal description
 - improved Rogue cunning strike withdraw behavior to work immediately after the attack
 - improved Roguish Umbral Stalker, now Roguish Shadowdancer, to also allow ranged builds
