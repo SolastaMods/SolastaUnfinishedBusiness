@@ -42,7 +42,6 @@ ModUi/&Bestiary=Bestiaire
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Accorder une malédiction</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort L5+.
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condition <color=#D89555>Aveuglé</color> ne permet pas l'attaque d'opportunité.
 ModUi/&Blueprints=Plans
-ModUi/&Camera=<color=#F0DAA0>Caméra :</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campagnes :</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagnes et emplacements :</color>
 ModUi/&Category=Catégorie
@@ -119,7 +118,7 @@ ModUi/&EnableCheatMenu=Activer le menu des astuces
 ModUi/&EnableCustomPortraits=Activer les portraits personnalisés
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personnel</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>. </b></i>, nommé d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utiliser PNG images, d'une taille de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclut des salles plates, des donjons de 150 x 150 et 200 x 200 et un mélange sans fioritures des ressources de tous les environnements]</color></i>
-ModUi/&EnableElevationCameraToStayAtPosition=Permettre à la caméra d'élévation de rester en position après sa désactivation
+ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Activez la caméra d'élévation pendant la bataille pour rester en position après avoir été désactivée et tripler sa portée</i>
 ModUi/&EnableEpicPointsAndArray=Activez un système et un tableau d'achat épiques de 35 points <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Activer l'affichage du panneau de compétences étendues <i><color=#F0DAA0>[Tirs arcaniques, infusions, manœuvres et polyvalences]</color></i>\n<b><i><color=#C04040E0>[performance frappé sur l'inspection du caractère. utilisez à vos propres risques]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des <color=#D89555>exploits</color> aux niveaux 2, 10 et 18

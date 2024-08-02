@@ -42,7 +42,6 @@ ModUi/&Bestiary=怪物池
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>降咒</color>使用5环以上法术位施放时不需要专注
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=被<color=#D89555>致盲</color>时不允许借机攻击
 ModUi/&Blueprints=蓝图
-ModUi/&Camera=<color=#F0DAA0>相机：</color>
 ModUi/&Campaigns=<color=#F0DAA0>战役：</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>战役和地点：</color>
 ModUi/&Category=职业
@@ -119,7 +118,7 @@ ModUi/&EnableCheatMenu=启用作弊菜单
 ModUi/&EnableCustomPortraits=启用自定义肖像
 ModUi/&EnableCustomPortraitsHelp=。将你的自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i>，以英雄名字<i><color=#F0DAA0>[即：Anton、Celia、Nialla 等]</color></i>\n 命名。使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 以获得最佳效果]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150 和 200x200 的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
-ModUi/&EnableElevationCameraToStayAtPosition=启用高程相机在禁用后停留在原位置
+ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 战斗中启用仰角相机，禁用后可保持在原位，且范围增加三倍</i>
 ModUi/&EnableEpicPointsAndArray=启用史诗级 35 点购点和默认骰<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练面板显示<i><color=#F0DAA0>[奥术射击、注法、战技和多种功能]</color></i>\n<b><i><color=#C04040E0>[角色性能提升检查。使用风险自负]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在等级 2、10 和 18 级启用专长选择

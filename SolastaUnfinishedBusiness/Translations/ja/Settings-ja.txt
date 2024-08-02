@@ -42,7 +42,6 @@ ModUi/&Bestiary=獣寓話
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>授与の呪い</color>は、L5以上の呪文スロットでキャストする場合は集中力を必要としません
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>状態では機会攻撃は許可されません
 ModUi/&Blueprints=青写真
-ModUi/&Camera=<color=#F0DAA0>カメラ:</color>
 ModUi/&Campaigns=<color=#F0DAA0>キャンペーン:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>キャンペーンと場所:</color>
 ModUi/&Category=カテゴリー
@@ -119,7 +118,7 @@ ModUi/&EnableCheatMenu=チートメニューを有効にする
 ModUi/&EnableCustomPortraits=カスタムポートレートを有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタム ポートレートをサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color> に配置します。 </b></i>、主人公の名前にちなんで名付けられました <i><color=#F0DAA0>[例: アントン、セリア、ニアラなど]</color></i>\n• PNG を使用します画像、サイズ 256 x 384 ピクセル、透明レイヤーあり <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にする\n<i><color=#F0DAA0>[フラット ルーム、150x150 および 200x200 のダンジョン サイズ、あらゆる環境のアセットを簡単に混合する機能が含まれます]</color></i>
-ModUi/&EnableElevationCameraToStayAtPosition=無効にした後も高度カメラの位置を維持する
+ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 戦闘中に高度カメラを有効にすると、無効になった後もその位置に留まり、範囲が 3 倍になります</i>
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 を有効にする>[再起動が必要]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネル表示を有効にする <i><color=#F0DAA0>[秘術ショット、注入、マニューバー、多用途性]</color></i>\n<b><i><color=#C04040E0>[パフォーマンス]文字検査でヒットしました。ご自身の責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル 2、10、18 で<color=#D89555>特技</color>の選択を有効にします

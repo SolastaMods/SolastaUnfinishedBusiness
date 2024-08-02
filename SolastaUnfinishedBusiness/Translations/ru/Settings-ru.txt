@@ -42,7 +42,6 @@ ModUi/&Bestiary=Бестиарий
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Проклятие</color> не требует концентрации, когда наложено с помощью ячейки заклинания 5-го уровня и выше
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Состояние <color=#D89555>Ослеплённый</color> не позволяет совершать атаку по возможности
 ModUi/&Blueprints=Чертежи
-ModUi/&Camera=<color=#F0DAA0>Камера:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Кампании:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Кампании и локации:</color>
 ModUi/&Category=Категория
@@ -119,7 +118,7 @@ ModUi/&EnableCheatMenu=Включить меню читов
 ModUi/&EnableCustomPortraits=Включить пользовательские портреты
 ModUi/&EnableCustomPortraitsHelp=• Поместите свои пользовательские портреты в подпапки <i><b><color=#F0DAA0>Personal</color></b></i> или <i><b><color=#F0DAA0>PreGen</color></b></i> с именами, соответствующими именам героев <i><color=#F0DAA0>[т.е.: Антон, Селия, Ниалла и т. д.]</color></i>\n• Используйте изображения размером 256 x 384 пикселей с прозрачным фоном <i><color=#F0DAA0>[для достижения наилучших результатов используйте GIMP]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Включить Создатель Подземелий ПРО\n<i><color=#F0DAA0>[включает простые комнаты, размеры подземелий 150x150 и 200x200, а также смешивание ассетов из разных наборов окружений без танцев с бубном]</color></i>
-ModUi/&EnableElevationCameraToStayAtPosition=Включить сохранение позиции уровня камеры после отключения
+ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Включить камеру вертикального обзора во время боя, чтобы она оставалась на месте после отключения и утроила ее дальность действия</i>
 ModUi/&EnableEpicPointsAndArray=Включить эпические варианты поинт-бай системы (35 очков) и массива характеристик <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Включить отображение панели расширенных владений <i><color=#F0DAA0>[Магические выстрелы, Инфузии, Приёмы и Универсалии]</color></i>\n<b><i><color=#C04040E0>[снижает производительность при просмотре персонажа, используйте на свой страх и риск]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Включить возможность выбора <color=#D89555>черты</color> на уровнях 2, 10 и 18

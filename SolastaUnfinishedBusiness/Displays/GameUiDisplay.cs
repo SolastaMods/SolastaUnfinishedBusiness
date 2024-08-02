@@ -296,6 +296,12 @@ internal static class GameUiDisplay
                 Main.Settings.DontFollowMargin = intValue;
             }
 
+            toggle = Main.Settings.EnableElevationCameraToStayAtPosition;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableElevationCameraToStayAtPosition"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableElevationCameraToStayAtPosition = toggle;
+            }
+
             toggle = Main.Settings.NeverMoveCameraOnEnemyTurn;
             if (UI.Toggle(Gui.Localize("ModUi/&NeverMoveCameraOnEnemyTurn"), ref toggle, UI.AutoWidth()))
             {
@@ -364,20 +370,6 @@ internal static class GameUiDisplay
         {
             Main.Settings.OutlineGridWidthSpeed = intValue;
             GameUiContext.UpdateMovementGrid();
-        }
-
-        #endregion
-
-        #region Camera
-
-        UI.Label();
-        UI.Label(Gui.Localize("ModUi/&Camera"));
-        UI.Label();
-
-        toggle = Main.Settings.EnableElevationCameraToStayAtPosition;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableElevationCameraToStayAtPosition"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableElevationCameraToStayAtPosition = toggle;
         }
 
         #endregion

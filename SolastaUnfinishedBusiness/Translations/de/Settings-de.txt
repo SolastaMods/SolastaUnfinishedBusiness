@@ -42,7 +42,6 @@ ModUi/&Bestiary=Bestiarium
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Fluch verleihen</color> erfordert keine Konzentration, wenn es mit einem L5+-Zauberslot gewirkt wird
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Der Zustand <color=#D89555>Blind</color> erlaubt keinen Gelegenheitsangriff
 ModUi/&Blueprints=Blaupausen
-ModUi/&Camera=<color=#F0DAA0>Kamera:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Kampagnen:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Kampagnen und Standorte:</color>
 ModUi/&Category=Kategorie
@@ -119,7 +118,7 @@ ModUi/&EnableCheatMenu=Aktivieren Sie das Cheats-Menü
 ModUi/&EnableCustomPortraits=Aktivieren Sie benutzerdefinierte Porträts
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color> </b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[d. h.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG Bilder, 256 x 384 Pixel groß, mit einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und ohne Schnickschnack, bei dem Assets aus allen Umgebungen gemischt werden]</color></i>
-ModUi/&EnableElevationCameraToStayAtPosition=Höhenkamera so aktivieren, dass sie nach der Deaktivierung an ihrer Position bleibt
+ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Aktivieren Sie die Höhenkamera während des Gefechts, damit sie nach der Deaktivierung an ihrer Position bleibt und ihre Reichweite verdreifacht.</i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Aktivieren Sie die Anzeige der erweiterten Kompetenzen <i><color=#F0DAA0>[Arkane Schüsse, Infusionen, Manöver und Vielseitigkeiten]</color></i>\n<b><i><color=#C04040E0>[Leistung Treffer bei der Charakterinspektion. Nutzung auf eigene Gefahr]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Auswahl von <color=#D89555>Talenten</color> auf den Stufen 2, 10 und 18
