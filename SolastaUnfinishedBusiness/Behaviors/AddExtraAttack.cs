@@ -196,9 +196,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
         var strikeDefinition = mainHandItem?.ItemDefinition;
 
-#pragma warning disable IDE0270
         if (!strikeDefinition)
-#pragma warning restore IDE0270
         {
             strikeDefinition = hero.UnarmedStrikeDefinition;
         }
@@ -343,13 +341,16 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
 
         if (effectDamageForms.Count != 0)
         {
+            var value = hero.TryGetAttributeValue(attackMode.AbilityScore);
+            var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(value);
+
             effectDamageForms[0] = EffectForm.GetCopy(effectDamageForms[0]);
             effectDamageForms[0].DamageForm.DamageType = DamageTypeBludgeoning;
             effectDamageForms[0].DamageForm.DieType = DieType.D4;
             effectDamageForms[0].DamageForm.DiceNumber = 1;
             effectDamageForms[0].DamageForm.versatile = false;
             effectDamageForms[0].DamageForm.versatileDieType = DieType.D4;
-            effectDamageForms[0].DamageForm.BonusDamage = 0;
+            effectDamageForms[0].DamageForm.BonusDamage = modifier;
         }
 
         attackMode.Reach = true;
