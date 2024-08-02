@@ -11,7 +11,16 @@
       "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
-      "restrictedSchools": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
       "restrictedSpells": [],
       "restrictedPowers": [],
       "savingThrowContext": "None"
@@ -24,7 +33,16 @@
       "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
-      "restrictedSchools": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
       "restrictedSpells": [],
       "restrictedPowers": [],
       "savingThrowContext": "None"
@@ -37,7 +55,16 @@
       "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
-      "restrictedSchools": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
       "restrictedSpells": [],
       "restrictedPowers": [],
       "savingThrowContext": "None"
@@ -50,7 +77,16 @@
       "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
-      "restrictedSchools": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
       "restrictedSpells": [],
       "restrictedPowers": [],
       "savingThrowContext": "None"
@@ -63,7 +99,16 @@
       "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
-      "restrictedSchools": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
       "restrictedSpells": [],
       "restrictedPowers": [],
       "savingThrowContext": "None"
@@ -76,7 +121,16 @@
       "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
-      "restrictedSchools": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
       "restrictedSpells": [],
       "restrictedPowers": [],
       "savingThrowContext": "None"

@@ -31,16 +31,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
         // LEVEL 03
         //
 
-        // Way of The Bow
-
-        var proficiencyOneWithTheBow =
-            FeatureDefinitionProficiencyBuilder
-                .Create($"Proficiency{Name}OneWithTheBow")
-                .SetGuiPresentation(Category.Feature)
-                .SetProficiencies(ProficiencyType.Tool, ToolDefinitions.ArtisanToolType)
-                .AddCustomSubFeatures(new CustomLevelUpLogicOneWithTheBow())
-                .AddToDB();
-
         // Flurry of Arrows
 
         var featureFlurryOfArrows = FeatureDefinitionBuilder
@@ -53,6 +43,26 @@ public sealed class WayOfZenArchery : AbstractSubclass
                     ValidatorsCharacter.HasBowWithoutArmor,
                     ValidatorsCharacter.HasAnyOfConditions(ConditionMonkMartialArtsUnarmedStrikeBonus)))
             .AddToDB();
+
+        // One with the Bow
+
+        var proficiencyOneWithTheBow =
+            FeatureDefinitionProficiencyBuilder
+                .Create($"Proficiency{Name}OneWithTheBow")
+                .SetGuiPresentation(Category.Feature)
+                .SetProficiencies(ProficiencyType.Tool, ToolDefinitions.ArtisanToolType)
+                .AddCustomSubFeatures(new CustomLevelUpLogicOneWithTheBow())
+                .AddToDB();
+
+        // Zen Shot
+
+        var powerZenShot = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ZenShot")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
+            .AddToDB();
+
+        powerZenShot.AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyZenShot(powerZenShot));
 
         //
         // LEVEL 06
@@ -124,7 +134,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheZenArchery, 256))
-            .AddFeaturesAtLevel(3, proficiencyOneWithTheBow, featureFlurryOfArrows)
+            .AddFeaturesAtLevel(3, proficiencyOneWithTheBow, featureFlurryOfArrows, powerZenShot)
             .AddFeaturesAtLevel(6, featureKiEmpoweredArrows)
             .AddFeaturesAtLevel(11, featureUnerringPrecision)
             .AddFeaturesAtLevel(17, actionAffinityHailOfArrows, powerHailOfArrows)
@@ -141,9 +151,13 @@ public sealed class WayOfZenArchery : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    //
+    // Flurry of Arrows
+    //
+
     // set attacks number to 2 to allow a mix of unarmed / bow attacks otherwise game engine will consume bonus action
     // once at least one bonus attack is used this check fails and everything gets back to normal
-    // the patch on CharacterACtionItemForm.Refresh finishes the trick by hiding the number of attacks image
+    // the patch on CharacterActionItemForm.Refresh finishes the trick by hiding the number of attacks image
     private sealed class ModifyWeaponAttackModeFlurryOfArrows : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
@@ -162,7 +176,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
             }
         }
     }
-
 
     //
     // One with the Bow
@@ -184,6 +197,70 @@ public sealed class WayOfZenArchery : AbstractSubclass
         public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
             // empty
+        }
+    }
+
+    //
+    // Zen Shot
+    //
+
+    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyZenShot(FeatureDefinitionPower powerZenShot)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!ValidatorsCharacter.HasBowWithoutArmor(attacker.RulesetCharacter) ||
+                !attacker.IsMyTurn() ||
+                attacker.UsedSpecialFeatures.ContainsKey("ZenShot"))
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerZenShot, rulesetAttacker);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "ZenShot",
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower
+            };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            attacker.UsedSpecialFeatures.TryAdd("ZenShot", 0);
+            
+            var firstDamageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+            var index = actualEffectForms.IndexOf(firstDamageForm);
+            var dieType = rulesetAttacker.GetMonkDieType();
+            var wisdom = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+            var effectDamageForm = EffectFormBuilder.DamageForm(
+                firstDamageForm!.DamageForm.DamageType, 1, dieType, wisMod);
+
+            actualEffectForms.Insert(index + 1, effectDamageForm);
         }
     }
 

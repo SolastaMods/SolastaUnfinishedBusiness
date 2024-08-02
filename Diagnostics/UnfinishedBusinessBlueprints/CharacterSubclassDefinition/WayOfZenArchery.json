@@ -13,6 +13,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfZenArcheryZenShot:382fe60d-e23a-5974-a564-ac8eb0db7b6a",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureWayOfZenArcheryKiEmpoweredArrows:37998ef5-a3d4-5e28-ae5d-0a31bdfe6115",
       "level": 6
     },
