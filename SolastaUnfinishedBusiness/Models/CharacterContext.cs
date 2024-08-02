@@ -58,13 +58,7 @@ internal static partial class CharacterContext
             .SetGuiPresentationNoContent(true)
             .SetAllowedActionTypes()
             .SetAuthorizedActions((Id)ExtraActionId.Quickened)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(
-                    c =>
-                        c.RemainingSorceryPoints > 1 &&
-                        c.GetOriginalHero()?.TrainedMetamagicOptions.Contains(MetamagicQuickenedSpell) == true),
-                ValidatorsCharacter.HasNotCastMainSpell,
-                ValidatorsCharacter.HasAvailableBonusAction)
+            .AddCustomSubFeatures(new ValidateDefinitionApplication(CanUseActionQuickened))
             .AddToDB();
 
     internal static readonly ConditionDefinition ConditionIndomitableSaving = ConditionDefinitionBuilder
@@ -206,6 +200,17 @@ internal static partial class CharacterContext
 
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
+
+    private static bool CanUseActionQuickened(RulesetCharacter rulesetCharacter)
+    {
+        var glc = GameLocationCharacter.GetFromActor(rulesetCharacter);
+        var hero = rulesetCharacter.GetOriginalHero();
+
+        return glc is { UsedMainSpell: false } &&
+               glc.GetActionTypeStatus(ActionType.Bonus) == ActionStatus.Available &&
+               hero is { RemainingSorceryPoints: > 1 } &&
+               hero.TrainedMetamagicOptions.Contains(MetamagicQuickenedSpell);
+    }
 
     internal static void LateLoad()
     {
@@ -382,7 +387,6 @@ internal static partial class CharacterContext
                     .SetActionType(ActionType.Main)
                     .SetRestrictedActions(Id.CastMain)
                     .AddToDB())
-            .SetSpecialInterruptions(ConditionInterruption.CastSpellExecuted)
             .AddToDB();
     }
 

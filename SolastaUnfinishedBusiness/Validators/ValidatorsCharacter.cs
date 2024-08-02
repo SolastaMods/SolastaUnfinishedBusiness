@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Validators;
@@ -18,62 +19,31 @@ internal static class ValidatorsCharacter
     {
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
 
-        if (locationCharacter == null)
-        {
-            return false;
-        }
-
-        return locationCharacter.RemainingTacticalMoves > 0;
+        return locationCharacter is { RemainingTacticalMoves: > 0 };
     };
 
     internal static readonly IsCharacterValidHandler HasAvailableBonusDash = character =>
     {
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
 
-        if (locationCharacter == null)
-        {
-            return false;
-        }
-
-        return locationCharacter
-                   .GetActionStatus(ActionDefinitions.Id.DashBonus, ActionDefinitions.ActionScope.Battle) ==
-               ActionDefinitions.ActionStatus.Available;
+        return locationCharacter != null &&
+               locationCharacter.GetActionStatus(Id.DashBonus, ActionScope.Battle) == ActionStatus.Available;
     };
 
     internal static readonly IsCharacterValidHandler HasAvailableBonusAction = character =>
     {
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
 
-        if (locationCharacter == null)
-        {
-            return false;
-        }
-
-        return locationCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Bonus] == 0;
+        return locationCharacter != null &&
+               locationCharacter.GetActionTypeStatus(ActionType.Bonus) == ActionStatus.Available;
     };
 
     internal static readonly IsCharacterValidHandler HasUnavailableBonusAction = character =>
     {
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
 
-        if (locationCharacter == null)
-        {
-            return false;
-        }
-
-        return locationCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Bonus] > 0;
-    };
-
-    internal static readonly IsCharacterValidHandler HasNotCastMainSpell = character =>
-    {
-        var locationCharacter = GameLocationCharacter.GetFromActor(character);
-
-        if (locationCharacter == null)
-        {
-            return false;
-        }
-
-        return !locationCharacter.UsedMainSpell;
+        return locationCharacter != null &&
+               locationCharacter.GetActionTypeStatus(ActionType.Bonus) == ActionStatus.Unavailable;
     };
 
     internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
