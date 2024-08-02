@@ -222,9 +222,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!ValidatorsCharacter.HasBowWithoutArmor(attacker.RulesetCharacter) ||
-                !attacker.IsMyTurn() ||
-                rulesetAttacker.RemainingKiPoints == 0 ||
-                attacker.UsedSpecialFeatures.ContainsKey("ZenShot"))
+                !attacker.OnceInMyTurnIsValid("ZenShot") ||
+                rulesetAttacker.RemainingKiPoints == 0)
             {
                 yield break;
             }
@@ -253,7 +252,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
             }
 
             attacker.UsedSpecialFeatures.TryAdd("ZenShot", 0);
-            
+
             var firstDamageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
             var index = actualEffectForms.IndexOf(firstDamageForm);
             var dieType = rulesetAttacker.GetMonkDieType();
