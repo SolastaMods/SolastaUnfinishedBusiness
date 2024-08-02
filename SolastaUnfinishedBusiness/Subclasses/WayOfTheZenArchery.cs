@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -24,6 +25,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
     internal const string HailOfArrowsAttack = "HailOfArrowsAttack";
     internal const string HailOfArrowsAttacksTab = "HailOfArrowsAttacksTab";
     internal const int StunningStrikeWithBowAllowedLevel = 6;
+    private const ActionDefinitions.Id ZenShotToggle = (ActionDefinitions.Id)ExtraActionId.ZenShotToggle;
 
     public WayOfZenArchery()
     {
@@ -60,6 +62,24 @@ public sealed class WayOfZenArchery : AbstractSubclass
             .Create($"Power{Name}ZenShot")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
+            .AddToDB();
+
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "ZenShotToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.ZenShotToggle)
+            .SetActivatedPower(powerZenShot)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        var actionAffinityZenShotToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityZenShotToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions(ZenShotToggle)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerZenShot)))
             .AddToDB();
 
         powerZenShot.AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyZenShot(powerZenShot));
@@ -134,7 +154,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheZenArchery, 256))
-            .AddFeaturesAtLevel(3, proficiencyOneWithTheBow, featureFlurryOfArrows, powerZenShot)
+            .AddFeaturesAtLevel(3,
+                proficiencyOneWithTheBow, featureFlurryOfArrows, actionAffinityZenShotToggle, powerZenShot)
             .AddFeaturesAtLevel(6, featureKiEmpoweredArrows)
             .AddFeaturesAtLevel(11, featureUnerringPrecision)
             .AddFeaturesAtLevel(17, actionAffinityHailOfArrows, powerHailOfArrows)
@@ -223,36 +244,16 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
             if (!ValidatorsCharacter.HasBowWithoutArmor(attacker.RulesetCharacter) ||
                 !attacker.OnceInMyTurnIsValid("ZenShot") ||
+                !rulesetAttacker.IsToggleEnabled(ZenShotToggle) ||
                 rulesetAttacker.RemainingKiPoints == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            attacker.UsedSpecialFeatures.TryAdd("ZenShot", 0);
+            rulesetAttacker.LogCharacterUsedPower(powerZenShot);
 
             var usablePower = PowerProvider.Get(powerZenShot, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-            {
-                StringParameter = "ZenShot",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToSpendPower(reactionParams);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.TryAdd("ZenShot", 0);
-
             var firstDamageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
             var index = actualEffectForms.IndexOf(firstDamageForm);
             var dieType = rulesetAttacker.GetMonkDieType();
@@ -262,6 +263,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 firstDamageForm!.DamageForm.DamageType, 1, dieType, wisMod);
 
             actualEffectForms.Insert(index + 1, effectDamageForm);
+            usablePower.Consume();
         }
     }
 

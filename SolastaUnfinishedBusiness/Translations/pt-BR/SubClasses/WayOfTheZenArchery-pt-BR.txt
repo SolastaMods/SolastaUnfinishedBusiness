@@ -1,3 +1,5 @@
+Action/&ActionZenShotToggleDescription=Ativar/desativar Zen Shot
+Action/&ActionZenShotToggleTitle=Tiro Zen
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Você pode substituir um dos seus ataques desarmados bônus por um ataque de arco.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rajada de Flechas
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Seus ataques com arco contam como mágicos com o propósito de superar a resistência e imunidade a ataques e danos não mágicos, e agora você pode usar seu recurso Stunning Strike com ataques com arco.
@@ -10,9 +12,5 @@ Feature/&PowerWayOfZenArcheryZenShotDescription=Quando você atinge uma criatura
 Feature/&PowerWayOfZenArcheryZenShotTitle=Tiro Zen
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=Você se torna proficiente com arco curto e arco longo. Essas armas agora contam como armas de monge para você. Você também ganha proficiência com ferramentas de forja.
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=Um com o arco
-Reaction/&SpendPowerZenShotDescription=Você pode gastar 1 ki para causar dano extra igual ao seu dado de artes marciais + modificador de Sabedoria.
-Reaction/&SpendPowerZenShotReactDescription=Gaste 1 ki para causar dano extra igual ao seu dado de artes marciais + modificador de Sabedoria.
-Reaction/&SpendPowerZenShotReactTitle=Tiro Zen
-Reaction/&SpendPowerZenShotTitle=Tiro Zen
 Subclass/&WayOfZenArcheryDescription=Uma arma é uma extensão de si mesmo e uma representação clara daquele que a empunha. Os monges do Caminho do Tiro com Arco Zen sabem disso muito bem. A beleza e a precisão das artes marciais deram a estes monges as ferramentas para dominarem a sua arma preferida – o arco. Eles o manejam com habilidade incomparável e demonstram seu domínio do arco e flecha a cada puxão da corda.
 Subclass/&WayOfZenArcheryTitle=Caminho do Tiro com Arco Zen

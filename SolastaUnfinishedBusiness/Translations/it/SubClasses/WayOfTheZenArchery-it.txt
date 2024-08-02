@@ -1,3 +1,5 @@
+Action/&ActionZenShotToggleDescription=Attiva/disattiva Zen Shot
+Action/&ActionZenShotToggleTitle=Colpo Zen
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Puoi sostituire uno dei tuoi colpi senz'armi bonus con un attacco con l'arco.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Raffica di frecce
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=I tuoi attacchi con l'arco contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici, e ora puoi utilizzare la tua funzione Colpo stordente con gli attacchi con l'arco.
@@ -10,9 +12,5 @@ Feature/&PowerWayOfZenArcheryZenShotDescription=Quando colpisci una creatura con
 Feature/&PowerWayOfZenArcheryZenShotTitle=Colpo Zen
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=Diventi abile nell'arco corto e nell'arco lungo. Queste armi ora contano come armi da monaco per te. Acquisisci anche competenza con gli strumenti da forgiatore.
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=Uno con l'Arco
-Reaction/&SpendPowerZenShotDescription=Puoi spendere 1 ki per infliggere danni extra pari al tuo dado di arti marziali + modificatore di Saggezza.
-Reaction/&SpendPowerZenShotReactDescription=Spendi 1 ki per infliggere danni extra pari al tuo dado di arti marziali + modificatore di Saggezza.
-Reaction/&SpendPowerZenShotReactTitle=Colpo Zen
-Reaction/&SpendPowerZenShotTitle=Colpo Zen
 Subclass/&WayOfZenArcheryDescription=Un'arma è un'estensione di se stessi e una semplice interpretazione di colui che la brandisce. Lo sanno bene i monaci della Via del Tiro con l'Arco Zen. La bellezza e la precisione delle arti marziali hanno dato a questi monaci gli strumenti per padroneggiare la loro arma preferita: l'arco. Lo maneggiano con impareggiabile abilità e dimostrano la loro maestria nel tiro con l'arco ad ogni tiro della corda.
 Subclass/&WayOfZenArcheryTitle=Via del tiro con l'arco Zen

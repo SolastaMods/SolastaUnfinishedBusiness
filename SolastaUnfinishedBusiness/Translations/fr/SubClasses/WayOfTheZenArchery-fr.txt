@@ -1,3 +1,5 @@
+Action/&ActionZenShotToggleDescription=Activer/désactiver Zen Shot
+Action/&ActionZenShotToggleTitle=Tir Zen
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Vous pouvez remplacer l’une de vos frappes à mains nues bonus par une attaque à l’arc.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rafale de flèches
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Vos attaques à l'arc sont considérées comme magiques dans le but de vaincre la résistance et l'immunité aux attaques et aux dégâts non magiques, et vous pouvez désormais utiliser votre fonction Superbe Frappe avec les attaques à l'arc.
@@ -10,9 +12,5 @@ Feature/&PowerWayOfZenArcheryZenShotDescription=Lorsque vous frappez une créatu
 Feature/&PowerWayOfZenArcheryZenShotTitle=Tir Zen
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=Vous maîtrisez l'arc court et l'arc long. Ces armes comptent désormais comme des armes de moine pour vous. Vous acquérez également des compétences avec les outils de forge.
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=Un avec l'arc
-Reaction/&SpendPowerZenShotDescription=Vous pouvez dépenser 1 ki pour infliger des dégâts supplémentaires égaux à votre dé d'arts martiaux + modificateur de Sagesse.
-Reaction/&SpendPowerZenShotReactDescription=Dépensez 1 ki pour infliger des dégâts supplémentaires égaux à votre dé d'arts martiaux + modificateur de Sagesse.
-Reaction/&SpendPowerZenShotReactTitle=Tir Zen
-Reaction/&SpendPowerZenShotTitle=Tir Zen
 Subclass/&WayOfZenArcheryDescription=Une arme est une extension de soi et une interprétation simple de celui qui la manie. Les moines de la Voie du Tir à l'Arc Zen le savent bien. La beauté et la précision des arts martiaux ont donné à ces moines les outils nécessaires pour maîtriser leur arme de prédilection : l'arc. Ils le manient avec une habileté sans égal et affichent leur maîtrise du tir à l'arc à chaque tirage de corde.
 Subclass/&WayOfZenArcheryTitle=Voie du Tir à l'Arc Zen

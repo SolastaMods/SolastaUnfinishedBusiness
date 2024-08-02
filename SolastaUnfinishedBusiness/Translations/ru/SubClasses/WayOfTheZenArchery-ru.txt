@@ -1,3 +1,5 @@
+Action/&ActionZenShotToggleDescription=Активировать/деактивировать Zen Shot
+Action/&ActionZenShotToggleTitle=Дзен-снимок
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Вы можете заменить один из бонусных безоружных ударов атакой из лука.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Шквал стрел
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Ваши выстрелы из лука считаются магическими при определении преодоления сопротивления и иммунитета к немагическим атакам и урону, также теперь вы можете использовать умение Ошеломляющий удар, стреляя из лука.
@@ -10,9 +12,5 @@ Feature/&PowerWayOfZenArcheryZenShotDescription=Когда вы поражает
 Feature/&PowerWayOfZenArcheryZenShotTitle=Дзен-снимок
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=Вы получаете владение короткими и длинными луками. Теперь это оружие считается оружием монаха. Вы также получаете владение инструментами кузнеца.
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=Единство с луком
-Reaction/&SpendPowerZenShotDescription=Вы можете потратить 1 ки, чтобы нанести дополнительный урон, равный вашему кубику боевых искусств + модификатору Мудрости.
-Reaction/&SpendPowerZenShotReactDescription=Потратьте 1 ки, чтобы нанести дополнительный урон, равный вашему кубику боевых искусств + модификатору Мудрости.
-Reaction/&SpendPowerZenShotReactTitle=Дзен-снимок
-Reaction/&SpendPowerZenShotTitle=Дзен-снимок
 Subclass/&WayOfZenArcheryDescription=Оружие - это продолжение того, кто им владеет, и полное его воплощение. Монахи Пути дзен-cтрельбы из лука хорошо знают это. Красота и точность боевых искусств позволили этим монахам овладеть их излюбленным оружием - луком. Они прекрасно управляются с ним и при каждом натяжении тетивы демонстрируют своё мастерство.
 Subclass/&WayOfZenArcheryTitle=Путь дзен-стрельбы из лука

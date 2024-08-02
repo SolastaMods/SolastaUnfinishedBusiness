@@ -1,3 +1,5 @@
+Action/&ActionZenShotToggleDescription=Zen Shotを有効化/無効化
+Action/&ActionZenShotToggleTitle=禅ショット
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=ボーナスの素手攻撃の 1 つを弓攻撃に置き換えることができます。
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=矢の嵐
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=あなたの弓攻撃は、魔法以外の攻撃やダメージに対する抵抗と免疫を克服する目的で魔法としてカウントされ、弓攻撃でスタニングストライク機能を使用できるようになりました。
@@ -10,9 +12,5 @@ Feature/&PowerWayOfZenArcheryZenShotDescription=自分のターン中に弓攻�
 Feature/&PowerWayOfZenArcheryZenShotTitle=禅ショット
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=ショートボウとロングボウに習熟します。これらの武器はモンク武器としてカウントされます。鍛冶道具の熟練度も上がります。
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=弓を持つ者
-Reaction/&SpendPowerZenShotDescription=1 気を消費して、武術ダイス + 知恵修正値に等しい追加ダメージを与えることができます。
-Reaction/&SpendPowerZenShotReactDescription=1 気を消費して、武術ダイス + 知恵修正値に等しい追加ダメージを与えます。
-Reaction/&SpendPowerZenShotReactTitle=禅ショット
-Reaction/&SpendPowerZenShotTitle=禅ショット
 Subclass/&WayOfZenArcheryDescription=武器は自分自身の延長であり、それを使用する人の単純な表現です。禅弓道の僧侶はこのことをよく知っています。武道の美しさと正確さは、これらの僧侶に彼らの選択した武器である弓を使いこなすためのツールを与えました。彼らは比類のないスキルでそれを扱い、弦を引くたびにアーチェリーの熟練を示します。
 Subclass/&WayOfZenArcheryTitle=禅弓道
