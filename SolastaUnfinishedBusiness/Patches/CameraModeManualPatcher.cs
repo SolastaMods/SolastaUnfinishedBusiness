@@ -16,10 +16,10 @@ public static class CameraModeManualPatcher
         [UsedImplicitly]
         public static void Prefix(CameraModeManual __instance)
         {
-            // don't mess up with camera while location is building
-            if (Gui.Battle != null)
+            // don't mess up with camera off battle
+            if (Gui.Battle != null && Main.Settings.EnableElevationCameraToStayAtPosition)
             {
-                __instance.parameters.hasElevationCorrection = !Main.Settings.EnableElevationCameraToStayAtPosition;
+                __instance.parameters.hasElevationCorrection = false;
             }
         }
     }

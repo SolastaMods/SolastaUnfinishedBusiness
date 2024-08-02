@@ -3830,6 +3830,10 @@ You can replace one of your bonus unarmed strikes with a bow attack.
 
 You become proficient with shortbow and longbow. These weapons now count as monk weapons for you. You also gain proficiency with smithing tools.
 
+* Zen Shot
+
+When you hit a creature with a bow attack during your turn, you can expend 1 ki to deal extra damage equal to your martial arts die + Wisdom modifier.
+
 
 ### Level 6
 

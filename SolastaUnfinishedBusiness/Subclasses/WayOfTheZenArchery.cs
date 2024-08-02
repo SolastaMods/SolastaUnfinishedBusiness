@@ -219,8 +219,11 @@ public sealed class WayOfZenArchery : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
             if (!ValidatorsCharacter.HasBowWithoutArmor(attacker.RulesetCharacter) ||
                 !attacker.IsMyTurn() ||
+                rulesetAttacker.RemainingKiPoints == 0 ||
                 attacker.UsedSpecialFeatures.ContainsKey("ZenShot"))
             {
                 yield break;
@@ -230,7 +233,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerZenShot, rulesetAttacker);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
