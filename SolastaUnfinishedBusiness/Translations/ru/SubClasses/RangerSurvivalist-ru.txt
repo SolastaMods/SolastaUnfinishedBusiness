@@ -1,6 +1,6 @@
 Condition/&ConditionRangerSurvivalistDisablingStrikeDescription=-2 к скорости передвижения.
 Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Калечащий удар
-Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 к классу доспеха и скорости передвижения.
+Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 к КД и скорости передвижения.
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle=Улучшенный калечащий удар
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=В первый раз, когда вы поражаете существо атакой оружием в каждый ваш ход, оно должно пройти спасбросок Ловкости против вашей Сл заклинания Следопыта или стать замедленным на одну минуту. Существо может повторить спасбросок в конце каждого своего хода, при успехе эффект прекращается.
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeTitle=Калечащий удар
