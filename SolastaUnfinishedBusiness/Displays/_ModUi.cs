@@ -281,7 +281,6 @@ internal static class ModUi
         "WitchBolt",
         "WitherAndBloom",
         "WizardBladeDancer",
-        "WizardDeadMaster",
         "WizardGraviturgist",
         "WizardWarMagic",
         "WrathfulSmite"

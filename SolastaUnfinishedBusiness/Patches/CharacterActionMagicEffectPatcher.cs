@@ -1019,7 +1019,6 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             var actingCharacter = __instance.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetActor;
             var rulesetTarget = target.RulesetActor;
             var effectDescription = rulesetEffect.EffectDescription;
 

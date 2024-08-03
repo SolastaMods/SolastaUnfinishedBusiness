@@ -12,9 +12,6 @@ internal interface IValidateAdditionalActionAttack
 
 internal class ValidateAdditionalActionAttack : IValidateAdditionalActionAttack
 {
-    internal static readonly IValidateAdditionalActionAttack MeleeOnly =
-        new ValidateAdditionalActionAttack(ValidatorsWeapon.IsMelee);
-
     internal static readonly IValidateAdditionalActionAttack TwoHandedRanged =
         new ValidateAdditionalActionAttack(ValidatorsWeapon.IsTwoHandedRanged);
 
