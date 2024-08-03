@@ -20,6 +20,7 @@ using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -37,11 +38,6 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
-        FeatureDefinitionPowers.PowerPactChainImp.rechargeRate = RechargeRate.LongRest;
-        FeatureDefinitionPowers.PowerPactChainPseudodragon.rechargeRate = RechargeRate.LongRest;
-        FeatureDefinitionPowers.PowerPactChainQuasit.rechargeRate = RechargeRate.LongRest;
-        FeatureDefinitionPowers.PowerPactChainSprite.rechargeRate = RechargeRate.LongRest;
-
         AddAdditionalActionTitles();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
@@ -60,7 +56,6 @@ internal static class FixesContext
         FixMartialArtsProgression();
         FixMountaineerBonusShoveRestrictions();
         FixMummyDreadfulGlareSavingAttribute();
-        FixPactChainRechargeRate();
         FixPowerDragonbornBreathWeaponDiceProgression();
         FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
         FixRestPowerVisibility();
@@ -77,14 +72,6 @@ internal static class FixesContext
 
         // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
-    }
-
-    private static void FixPactChainRechargeRate()
-    {
-        FeatureDefinitionPowers.PowerPactChainImp.rechargeRate = RechargeRate.LongRest;
-        FeatureDefinitionPowers.PowerPactChainPseudodragon.rechargeRate = RechargeRate.LongRest;
-        FeatureDefinitionPowers.PowerPactChainQuasit.rechargeRate = RechargeRate.LongRest;
-        FeatureDefinitionPowers.PowerPactChainSprite.rechargeRate = RechargeRate.LongRest;
     }
 
     private static void InitMagicAffinitiesAndCastSpells()
@@ -255,16 +242,16 @@ internal static class FixesContext
 
     private static void FixDragonBreathPowerSavingAttribute()
     {
-        FeatureDefinitionPowers.PowerDragonBreath_Acid.EffectDescription.savingThrowAbility =
+        PowerDragonBreath_Acid.EffectDescription.savingThrowAbility =
             AttributeDefinitions.Dexterity;
 
-        FeatureDefinitionPowers.PowerDragonBreath_Acid_Spectral_DLC3.EffectDescription.savingThrowAbility =
+        PowerDragonBreath_Acid_Spectral_DLC3.EffectDescription.savingThrowAbility =
             AttributeDefinitions.Dexterity;
 
-        FeatureDefinitionPowers.PowerDragonBreath_Fire.EffectDescription.savingThrowAbility =
+        PowerDragonBreath_Fire.EffectDescription.savingThrowAbility =
             AttributeDefinitions.Dexterity;
 
-        FeatureDefinitionPowers.PowerDragonBreath_YoungGreen_Poison.EffectDescription.savingThrowAbility =
+        PowerDragonBreath_YoungGreen_Poison.EffectDescription.savingThrowAbility =
             AttributeDefinitions.Constitution;
     }
 
@@ -289,10 +276,10 @@ internal static class FixesContext
 
     private static void FixMummyDreadfulGlareSavingAttribute()
     {
-        FeatureDefinitionPowers.Power_Mummy_DreadfulGlare.EffectDescription.savingThrowAbility =
+        Power_Mummy_DreadfulGlare.EffectDescription.savingThrowAbility =
             AttributeDefinitions.Wisdom;
 
-        FeatureDefinitionPowers.Power_MummyLord_DreadfulGlare.EffectDescription.savingThrowAbility =
+        Power_MummyLord_DreadfulGlare.EffectDescription.savingThrowAbility =
             AttributeDefinitions.Wisdom;
     }
 
@@ -421,12 +408,12 @@ internal static class FixesContext
         WindWall.EffectDescription.targetFilteringMethod = TargetFilteringMethod.AllCharacterAndGadgets;
 
         // not exactly spells but these are all Darkness variations for enemies
-        FeatureDefinitionPowers.PowerDefilerDarkness.EffectDescription.targetFilteringMethod =
+        PowerDefilerDarkness.EffectDescription.targetFilteringMethod =
             TargetFilteringMethod.AllCharacterAndGadgets;
-        FeatureDefinitionPowers.PowerSorakWordOfDarkness.EffectDescription.targetFilteringMethod =
+        PowerSorakWordOfDarkness.EffectDescription.targetFilteringMethod =
             TargetFilteringMethod.AllCharacterAndGadgets;
         // well :-)
-        FeatureDefinitionPowers.PowerDomainSunIndomitableLight.EffectDescription.targetFilteringMethod =
+        PowerDomainSunIndomitableLight.EffectDescription.targetFilteringMethod =
             TargetFilteringMethod.AllCharacterAndGadgets;
 
         // fix Resurrection
@@ -573,10 +560,10 @@ internal static class FixesContext
 
     private static void FixRestPowerVisibility()
     {
-        FeatureDefinitionPowers.PowerCircleLandNaturalRecovery.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
-        FeatureDefinitionPowers.PowerMarksmanRecycler.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
-        FeatureDefinitionPowers.PowerSorcererManaPainterTap.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
-        FeatureDefinitionPowers.PowerWizardArcaneRecovery.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        PowerCircleLandNaturalRecovery.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        PowerMarksmanRecycler.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        PowerSorcererManaPainterTap.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        PowerWizardArcaneRecovery.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
     }
 
     private static void FixSmitesAndStrikesDiceProgression()
@@ -592,8 +579,8 @@ internal static class FixesContext
     {
         //BEHAVIOR: Makes `Stunning Strike` context check if any monk weapon instead on OnAttackMeleeHitAuto
         //Required for it to work with monk weapon specialization and/or way of distant hand
-        FeatureDefinitionPowers.PowerMonkStunningStrike.activationTime = ActivationTime.NoCost;
-        FeatureDefinitionPowers.PowerMonkStunningStrike.AddCustomSubFeatures(
+        PowerMonkStunningStrike.activationTime = ActivationTime.NoCost;
+        PowerMonkStunningStrike.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
             new PhysicalAttackFinishedByMeStunningStrike());
     }
@@ -700,7 +687,7 @@ internal static class FixesContext
 
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerUses(FeatureDefinitionPowers.PowerMonkStunningStrike) == 0)
+            if (rulesetAttacker.GetRemainingPowerUses(PowerMonkStunningStrike) == 0)
             {
                 yield break;
             }
@@ -744,7 +731,7 @@ internal static class FixesContext
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
+            var usablePower = PowerProvider.Get(PowerMonkStunningStrike, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManager
@@ -764,7 +751,7 @@ internal static class FixesContext
                 action.SaveOutcome == RollOutcome.Failure)
             {
                 action.ActingCharacter.RulesetCharacter.ToggledPowersOn.Remove(
-                    FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
+                    PowerMonkStunningStrike.AutoActivationPowerTag);
             }
 
             yield break;
