@@ -1,5 +1,3 @@
-Action/&ImpishWrathToggleDescription=Impish Wrath aktivieren/deaktivieren
-Action/&ImpishWrathToggleTitle=Schelmischer Zorn
 Condition/&ConditionImpAssistedAllyDescription=Beim ersten Angriffswurf gegen ein unterstütztes Ziel haben Sie einen Vorteil.
 Condition/&ConditionImpAssistedAllyTitle=Unterstützt
 Condition/&ConditionImpAssistedEnemyDescription=Der unterstützte Verbündete hat einen Vorteil bei Angriffswürfen gegen diese Einheit.

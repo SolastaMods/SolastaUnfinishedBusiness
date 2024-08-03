@@ -1,5 +1,3 @@
-Action/&BalefulScionToggleDescription=Activer/désactiver Baleful Scion
-Action/&BalefulScionToggleTitle=Scion funeste
 Condition/&ConditionFeatMobileAfterDashDescription=Accorde l'immunité aux restrictions de mouvement ainsi que la retenue.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberté
 Feat/&FeatAcrobatDescription=Vous devenez plus agile et bénéficiez des avantages suivants :\n• Augmentez votre dextérité de 1, jusqu'à un maximum de 20.\n• Vous maîtrisez les compétences ou l'expertise acrobatiques si vous les maîtrisez déjà.\n• En tant que action bonus, vous pouvez effectuer un test de Dextérité (Acrobaties) DD 15. Si vous réussissez, les terrains difficiles ne vous coûtent pas de mouvement supplémentaire jusqu'à la fin du tour en cours.

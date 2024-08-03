@@ -1,5 +1,3 @@
-Action/&PowerSurgeToggleDescription=Power Surge aktivieren/deaktivieren
-Action/&PowerSurgeToggleTitle=Überspannung
 Condition/&ConditionWarMagicArcaneDeflectionDescription=Du kannst keine anderen Zauber als Cantrips wirken.
 Condition/&ConditionWarMagicArcaneDeflectionTitle=Arkane Ablenkung
 Feature/&AttributeModifierWarMagicTacticalWitDescription=Ihre ausgeprägte Fähigkeit, taktische Situationen einzuschätzen, ermöglicht es Ihnen, im Kampf schnell zu handeln. Sie können sich selbst einen Bonus auf Ihre Initiativewürfe geben, der Ihrem Intelligenzmodifikator entspricht.

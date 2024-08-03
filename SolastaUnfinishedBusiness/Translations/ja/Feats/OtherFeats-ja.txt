@@ -1,5 +1,3 @@
-Action/&BalefulScionToggleDescription=悪意のある末裔をアクティブ化/非アクティブ化する
-Action/&BalefulScionToggleTitle=悪意のある末裔
 Condition/&ConditionFeatMobileAfterDashDescription=拘束されるだけでなく、移動制限に対する免疫も付与されます。
 Condition/&ConditionFeatMobileAfterDashTitle=自由
 Feat/&FeatAcrobatDescription=より機敏になり、次のようなメリットが得られます。\n• 器用さが 1 増加し、最大 20 になります。\n• すでに熟練している場合は、アクロバット スキルまたは専門知識に習熟します。\n•ボーナス アクションでは、難易度 15 の器用さ (軽業) チェックを行うことができます。成功すると、現在のターンが終了するまで、難しい地形でも追加の移動コストがかかりません。

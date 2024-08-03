@@ -1,5 +1,3 @@
-Action/&BalefulScionToggleDescription=Attiva/disattiva Discendente Malefico
-Action/&BalefulScionToggleTitle=Scion Malefico
 Condition/&ConditionFeatMobileAfterDashDescription=Garantisce l'immunità alle restrizioni di movimento oltre ad essere trattenuto.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertà
 Feat/&FeatAcrobatDescription=Diventi più agile, ottenendo i seguenti vantaggi:\n• Aumenta la tua Destrezza di 1, fino a un massimo di 20.\n• Ottieni competenza con abilità o esperienza acrobatica se sei già competente.\n• Come a azione bonus, puoi effettuare una prova di Destrezza (Acrobazia) con CD 15. Se ci riesci, il terreno difficile non ti costa movimento extra fino alla fine del turno corrente.

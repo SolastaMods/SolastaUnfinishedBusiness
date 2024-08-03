@@ -1,5 +1,3 @@
-Action/&PowerSurgeToggleDescription=Activer/désactiver la surtension
-Action/&PowerSurgeToggleTitle=Surtension
 Condition/&ConditionWarMagicArcaneDeflectionDescription=Vous ne pouvez pas lancer de sorts autres que les sorts mineurs.
 Condition/&ConditionWarMagicArcaneDeflectionTitle=Déviation des Arcanes
 Feature/&AttributeModifierWarMagicTacticalWitDescription=Votre grande capacité à évaluer les situations tactiques vous permet d'agir rapidement au combat. Vous pouvez vous accorder un bonus à vos jets d'initiative égal à votre modificateur d'Intelligence.

@@ -1,5 +1,3 @@
-Action/&ZenShotToggleDescription=Activer/désactiver Zen Shot
-Action/&ZenShotToggleTitle=Tir Zen
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Vous pouvez remplacer l’une de vos frappes à mains nues bonus par une attaque à l’arc.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rafale de flèches
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Vos attaques à l'arc sont considérées comme magiques dans le but de vaincre la résistance et l'immunité aux attaques et aux dégâts non magiques, et vous pouvez désormais utiliser votre fonction Superbe Frappe avec les attaques à l'arc.

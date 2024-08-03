@@ -1,5 +1,3 @@
-Action/&AmazingDisplayToggleDescription=Активировать/деактивировать Удивительное зрелище
-Action/&AmazingDisplayToggleTitle=Удивительное зрелище
 Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Впечатлён
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Когда вы совершаете проверку Харизмы (Выступление) или Ловкости (Акробатика), вы можете считать бросок d20 с результатом "9" или ниже как "10".
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Грация

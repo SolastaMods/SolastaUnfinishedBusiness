@@ -1,5 +1,3 @@
-Action/&ZenShotToggleDescription=Ativar/desativar Zen Shot
-Action/&ZenShotToggleTitle=Tiro Zen
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Você pode substituir um dos seus ataques desarmados bônus por um ataque de arco.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rajada de Flechas
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Seus ataques com arco contam como mágicos com o propósito de superar a resistência e imunidade a ataques e danos não mágicos, e agora você pode usar seu recurso Stunning Strike com ataques com arco.

@@ -1,5 +1,3 @@
-Action/&ZenShotToggleDescription=激活/停用 Zen Shot
-Action/&ZenShotToggleTitle=禅意射击
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=你可以用弓箭攻击代替一次徒手攻击奖励。
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=弓箭连击
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=为了克服对非魔法攻击和伤害的抗性和免疫，你的弓攻击被视为魔法，并且你现在可以在弓箭攻击中使用你的震慑拳特性。

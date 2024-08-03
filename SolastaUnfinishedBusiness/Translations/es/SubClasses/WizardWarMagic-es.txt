@@ -1,5 +1,3 @@
-Action/&PowerSurgeToggleDescription=Activar/desactivar sobretensión
-Action/&PowerSurgeToggleTitle=Sobrecarga de energía
 Condition/&ConditionWarMagicArcaneDeflectionDescription=No puedes lanzar hechizos que no sean trucos.
 Condition/&ConditionWarMagicArcaneDeflectionTitle=Desviación arcana
 Feature/&AttributeModifierWarMagicTacticalWitDescription=Tu gran capacidad para evaluar situaciones tácticas te permite actuar rápidamente en la batalla. Puedes darte una bonificación a tus tiradas de iniciativa igual a tu modificador de Inteligencia.

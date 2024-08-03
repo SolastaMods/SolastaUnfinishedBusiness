@@ -1,5 +1,3 @@
-Action/&AmazingDisplayToggleDescription=Attiva/disattiva Visualizzazione straordinaria
-Action/&AmazingDisplayToggleTitle=Visualizzazione straordinaria
 Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Stupito
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Quando effettui una prova di Carisma (Prestazione) o Destrezza (Acrobazia), puoi considerare un tiro d20 pari a 9 o inferiore come un 10.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Adornare

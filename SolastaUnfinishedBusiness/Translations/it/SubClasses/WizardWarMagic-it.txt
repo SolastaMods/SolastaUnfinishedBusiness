@@ -1,5 +1,3 @@
-Action/&PowerSurgeToggleDescription=Attiva/disattiva Sbalzo di potenza
-Action/&PowerSurgeToggleTitle=Fonte d'energia
 Condition/&ConditionWarMagicArcaneDeflectionDescription=Non puoi lanciare incantesimi diversi dai trucchetti.
 Condition/&ConditionWarMagicArcaneDeflectionTitle=Deviazione Arcana
 Feature/&AttributeModifierWarMagicTacticalWitDescription=La tua acuta capacità di valutare le situazioni tattiche ti consente di agire rapidamente in battaglia. Puoi concederti un bonus ai tiri di iniziativa pari al tuo modificatore di Intelligenza.

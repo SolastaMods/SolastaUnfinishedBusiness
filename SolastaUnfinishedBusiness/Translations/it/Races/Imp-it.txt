@@ -1,5 +1,3 @@
-Action/&ImpishWrathToggleDescription=Attiva/disattiva Ira Impish
-Action/&ImpishWrathToggleTitle=Ira maligna
 Condition/&ConditionImpAssistedAllyDescription=Hai vantaggio sul primo tiro per colpire effettuato su un bersaglio assistito.
 Condition/&ConditionImpAssistedAllyTitle=Assistito
 Condition/&ConditionImpAssistedEnemyDescription=L'alleato assistito ha vantaggio ai tiri per colpire contro questa unità.

@@ -1,5 +1,3 @@
-Action/&BalefulScionToggleDescription=Activar/desactivar Scion Siniestro
-Action/&BalefulScionToggleTitle=Vástago siniestro
 Condition/&ConditionFeatMobileAfterDashDescription=Otorga inmunidad a las restricciones de movimiento, además de ser restringido.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertad
 Feat/&FeatAcrobatDescription=Te vuelves más ágil y obtienes los siguientes beneficios:\n• Aumenta tu destreza en 1, hasta un máximo de 20.\n• Obtienes competencia con la habilidad acrobática o experiencia si ya eres competente.\n• Como Como acción adicional, puedes realizar una prueba de Destreza (Acrobacia) CD 15. Si tienes éxito, el terreno difícil no te costará movimiento extra hasta el final del turno actual.

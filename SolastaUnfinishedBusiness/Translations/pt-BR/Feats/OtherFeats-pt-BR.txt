@@ -1,5 +1,3 @@
-Action/&BalefulScionToggleDescription=Ativar/desativar Baleful Scion
-Action/&BalefulScionToggleTitle=Descendente Sinistro
 Condition/&ConditionFeatMobileAfterDashDescription=Concede imunidade a restrições de movimento, além de ser contido.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberdade
 Feat/&FeatAcrobatDescription=Você se torna mais ágil, ganhando os seguintes benefícios:\n• Aumenta sua Destreza em 1, até um máximo de 20.\n• Você ganha proficiência com perícia ou perícia Acrobática se já for proficiente.\n• Como um ação bônus, você pode fazer um teste de Destreza (Acrobacia) CD 15. Se você tiver sucesso, terreno difícil não custará movimento extra até o final do turno atual.

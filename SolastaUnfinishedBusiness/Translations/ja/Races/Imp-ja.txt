@@ -1,5 +1,3 @@
-Action/&ImpishWrathToggleDescription=Impish Wrathの有効化/無効化
-Action/&ImpishWrathToggleTitle=インピッシュの怒り
 Condition/&ConditionImpAssistedAllyDescription=あなたは、支援されたターゲットに対して行われた最初の攻撃ロールで有利になります。
 Condition/&ConditionImpAssistedAllyTitle=補助あり
 Condition/&ConditionImpAssistedEnemyDescription=支援を受けた味方は、このユニットに対する攻撃ロールで有利になります。

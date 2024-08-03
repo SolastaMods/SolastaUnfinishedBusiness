@@ -1,5 +1,3 @@
-Action/&BalefulScionToggleDescription=„Baleful Scion“ aktivieren/deaktivieren
-Action/&BalefulScionToggleTitle=Unheilvoller Spross
 Condition/&ConditionFeatMobileAfterDashDescription=Gewährt Immunität gegenüber Bewegungseinschränkungen und Zurückhaltung.
 Condition/&ConditionFeatMobileAfterDashTitle=Freiheit
 Feat/&FeatAcrobatDescription=Sie werden flinker und erhalten die folgenden Vorteile:\n• Erhöhen Sie Ihre Geschicklichkeit um 1 auf maximal 20.\n• Sie erwerben Kenntnisse in akrobatischen Fertigkeiten oder Fachkenntnissen, wenn Sie bereits über Kenntnisse verfügen.\n• Als Als Bonusaktion können Sie eine Geschicklichkeitsprüfung (Akrobatik) gegen DC 15 durchführen. Wenn Sie Erfolg haben, kostet Sie schwieriges Gelände bis zum Ende der aktuellen Runde keine zusätzliche Bewegung.

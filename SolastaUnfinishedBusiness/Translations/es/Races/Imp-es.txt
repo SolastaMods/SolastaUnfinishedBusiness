@@ -1,5 +1,3 @@
-Action/&ImpishWrathToggleDescription=Activar/desactivar Ira traviesa
-Action/&ImpishWrathToggleTitle=Ira traviesa
 Condition/&ConditionImpAssistedAllyDescription=Tienes ventaja en la primera tirada de ataque realizada a un objetivo asistido.
 Condition/&ConditionImpAssistedAllyTitle=Asistido
 Condition/&ConditionImpAssistedEnemyDescription=El aliado asistido tiene ventaja en las tiradas de ataque contra esta unidad.

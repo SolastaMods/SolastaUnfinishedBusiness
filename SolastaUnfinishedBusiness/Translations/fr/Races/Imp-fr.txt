@@ -1,5 +1,3 @@
-Action/&ImpishWrathToggleDescription=Activer/désactiver Impish Wrath
-Action/&ImpishWrathToggleTitle=Colère espiègle
 Condition/&ConditionImpAssistedAllyDescription=Vous avez l'avantage au premier jet d'attaque effectué sur une cible assistée.
 Condition/&ConditionImpAssistedAllyTitle=Assisté
 Condition/&ConditionImpAssistedEnemyDescription=L'allié assisté a un avantage aux jets d'attaque contre cette unité.

@@ -1,5 +1,3 @@
-Action/&AmazingDisplayToggleDescription=Activar/desactivar Amazing Display
-Action/&AmazingDisplayToggleTitle=Pantalla increíble
 Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Asombrado
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Cuando realizas una prueba de Carisma (Actuación) o Destreza (Acrobacia), puedes tratar una tirada de d20 de 9 o menos como un 10.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Gracia

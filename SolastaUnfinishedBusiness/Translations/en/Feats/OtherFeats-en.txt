@@ -1,5 +1,3 @@
-Action/&BalefulScionToggleDescription=Activate/deactivate Baleful Scion
-Action/&BalefulScionToggleTitle=Baleful Scion
 Condition/&ConditionFeatMobileAfterDashDescription=Grants immunity to movement restrictions as well as being restrained.
 Condition/&ConditionFeatMobileAfterDashTitle=Freedom
 Feat/&FeatAcrobatDescription=You become more nimble, gaining the following benefits:\n• Increase your Dexterity by 1, to a maximum of 20.\n• You gain proficiency with Acrobatic skill or expertise if you are already proficient.\n• As a bonus action, you can make a DC 15 Dexterity (Acrobatics) check. If you succeed, difficult terrain doesn't cost you extra movement until the end of the current turn.

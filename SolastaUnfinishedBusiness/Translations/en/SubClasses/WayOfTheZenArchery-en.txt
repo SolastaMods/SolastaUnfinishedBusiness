@@ -1,5 +1,3 @@
-Action/&ZenShotToggleDescription=Activate/deactivate Zen Shot
-Action/&ZenShotToggleTitle=Zen Shot
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=You can replace one of your bonus unarmed strikes with a bow attack.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Flurry of Arrows
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage, and you can now use your Stunning Strike feature with bow attacks.

@@ -1,5 +1,3 @@
-Action/&ImpishWrathToggleDescription=Impish Wrath 활성화/비활성화
-Action/&ImpishWrathToggleTitle=사악한 분노
 Condition/&ConditionImpAssistedAllyDescription=당신은 지원 대상에 대한 첫 번째 공격 굴림에서 이점을 얻습니다.
 Condition/&ConditionImpAssistedAllyTitle=어시스트
 Condition/&ConditionImpAssistedEnemyDescription=도움을 받은 아군은 이 유닛에 대한 공격 굴림에서 이점을 갖습니다.

@@ -1,5 +1,3 @@
-Action/&AmazingDisplayToggleDescription=Ativar/desativar exibição incrível
-Action/&AmazingDisplayToggleTitle=Exibição incrível
 Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Espantado
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Quando você faz um teste de Carisma (Atuação) ou Destreza (Acrobacia), você pode tratar um resultado de 9 ou menos no d20 como 10.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Graça

@@ -1,5 +1,3 @@
-Action/&PowerSurgeToggleDescription=Ativar/desativar surto de energia
-Action/&PowerSurgeToggleTitle=Oscilação de energia
 Condition/&ConditionWarMagicArcaneDeflectionDescription=Você não pode lançar magias além de truques.
 Condition/&ConditionWarMagicArcaneDeflectionTitle=Deflexão Arcana
 Feature/&AttributeModifierWarMagicTacticalWitDescription=Sua grande capacidade de avaliar situações táticas permite que você aja rapidamente na batalha. Você pode conceder a si mesmo um bônus em suas jogadas de iniciativa igual ao seu modificador de Inteligência.

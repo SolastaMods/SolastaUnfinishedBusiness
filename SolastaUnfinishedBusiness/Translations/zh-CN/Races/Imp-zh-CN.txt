@@ -1,5 +1,3 @@
-Action/&ImpishWrathToggleDescription=激活/停用小魔鬼之怒
-Action/&ImpishWrathToggleTitle=小魔鬼之怒
 Condition/&ConditionImpAssistedAllyDescription=你在对受协助的目标进行第一次攻击检定时具有优势。
 Condition/&ConditionImpAssistedAllyTitle=协助
 Condition/&ConditionImpAssistedEnemyDescription=受协助的盟友在对抗该单位的攻击检定上具有优势。

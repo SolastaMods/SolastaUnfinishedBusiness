@@ -1,5 +1,3 @@
-Action/&ImpishWrathToggleDescription=Ativar/desativar Ira Impish
-Action/&ImpishWrathToggleTitle=Ira Implacável
 Condition/&ConditionImpAssistedAllyDescription=Você tem vantagem na primeira jogada de ataque feita a um alvo assistido.
 Condition/&ConditionImpAssistedAllyTitle=Assistido
 Condition/&ConditionImpAssistedEnemyDescription=Aliado assistido tem vantagem nas jogadas de ataque contra esta unidade.

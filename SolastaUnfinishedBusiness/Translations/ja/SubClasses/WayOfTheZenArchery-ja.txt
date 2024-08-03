@@ -1,5 +1,3 @@
-Action/&ZenShotToggleDescription=Zen Shotを有効化/無効化
-Action/&ZenShotToggleTitle=禅ショット
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=ボーナスの素手攻撃の 1 つを弓攻撃に置き換えることができます。
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=矢の嵐
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=あなたの弓攻撃は、魔法以外の攻撃やダメージに対する抵抗と免疫を克服する目的で魔法としてカウントされ、弓攻撃でスタニングストライク機能を使用できるようになりました。

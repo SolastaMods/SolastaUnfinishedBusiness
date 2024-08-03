@@ -1,5 +1,3 @@
-Action/&AmazingDisplayToggleDescription=Amazing Display aktivieren/deaktivieren
-Action/&AmazingDisplayToggleTitle=Erstaunliche Darstellung
 Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Erstaunt
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Wenn Sie eine Prüfung auf Charisma (Leistung) oder Geschicklichkeit (Akrobatik) durchführen, können Sie einen W20-Wurf von 9 oder weniger als 10 behandeln.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Anmut
