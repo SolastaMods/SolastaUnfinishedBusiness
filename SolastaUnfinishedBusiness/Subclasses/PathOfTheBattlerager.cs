@@ -63,7 +63,6 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, rulesetCharacter, _, _, mode, _) =>

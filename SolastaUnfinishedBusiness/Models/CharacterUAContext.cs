@@ -130,7 +130,6 @@ internal static partial class CharacterContext
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag("BrutalStrike")
                 .SetDamageDice(DieType.D10, 1)
-                .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                 .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 9)
                 .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                 .AddCustomSubFeatures(
@@ -251,7 +250,6 @@ internal static partial class CharacterContext
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("SunderingBlow")
             .SetDamageDice(DieType.D10, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .AddToDB();
 
         var conditionSunderingBlowAlly = ConditionDefinitionBuilder

@@ -520,7 +520,6 @@ internal static class MeleeCombatFeats
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("Charger")
             .SetDamageDice(DieType.D8, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetAttackModeOnly()
             .SetImpactParticleReference(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
@@ -1334,7 +1333,6 @@ internal static class MeleeCombatFeats
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("DevastatingStrikes")
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(

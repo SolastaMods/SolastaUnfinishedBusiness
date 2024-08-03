@@ -1583,7 +1583,6 @@ internal static class RaceFeats
             .Create($"AdditionalDamage{Name}")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("OrcishFury")
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
             .AddToDB();
 

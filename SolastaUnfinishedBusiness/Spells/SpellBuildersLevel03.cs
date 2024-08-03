@@ -888,11 +888,8 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{damageType}ElementalWeapon")
             .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
                 AdditionalDamageElementalWeaponDescription(damageType), MagicWeapon.guiPresentation.SpriteReference)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetSpecificDamageType(damageType)
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D4, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetImpactParticleReference(effectParticleParameters.impactParticleReference)
             .AddToDB();
@@ -901,11 +898,8 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{damageType}ElementalWeapon1")
             .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
                 AdditionalDamageElementalWeaponDescription1(damageType), MagicWeapon.guiPresentation.SpriteReference)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetSpecificDamageType(damageType)
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D4, 2)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetImpactParticleReference(effectParticleParameters.impactParticleReference)
             .AddToDB();
@@ -914,11 +908,9 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{damageType}ElementalWeapon2")
             .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
                 AdditionalDamageElementalWeaponDescription2(damageType), MagicWeapon.guiPresentation.SpriteReference)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(damageType)
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D4, 3)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetImpactParticleReference(effectParticleParameters.impactParticleReference)
             .AddToDB();

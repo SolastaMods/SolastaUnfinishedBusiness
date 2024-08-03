@@ -62,7 +62,6 @@ internal static class GambitsBuilders
             .Create("AdditionalDamageGambitDie")
             .SetGuiPresentationNoContent(true)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
             .AddConditionOperation(
                 new ConditionOperationDescription
@@ -81,7 +80,6 @@ internal static class GambitsBuilders
             .Create("AdditionalDamageGambitDieMelee")
             .SetGuiPresentationNoContent(true)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
             .AddConditionOperation(
                 new ConditionOperationDescription

@@ -392,7 +392,7 @@ internal static partial class SpellBuilders
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None)
@@ -456,7 +456,7 @@ internal static partial class SpellBuilders
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePsychic)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
@@ -1396,7 +1396,7 @@ internal static partial class SpellBuilders
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag($"{NAME}{shortDamageType}")
                 .SetDamageDice(DieType.D6, 1)
-                .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ConditionAmount, 1)
+                .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ConditionAmount)
                 .SetSpecificDamageType(damageType)
                 .SetImpactParticleReference(
                     magicEffect.EffectDescription.EffectParticleParameters.impactParticleReference)

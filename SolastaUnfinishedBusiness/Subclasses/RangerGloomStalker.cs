@@ -50,7 +50,6 @@ public sealed class RangerGloomStalker : AbstractSubclass
             .SetNotificationTag("DreadAmbusher")
             .SetDamageDice(DieType.D8, 1)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetImpactParticleReference(ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 

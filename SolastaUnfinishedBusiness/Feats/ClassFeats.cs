@@ -111,7 +111,7 @@ internal static class ClassFeats
             .AddToDB();
 
         condition.GuiPresentation.description = Gui.NoLocalization;
-        
+
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatCallForCharge")
             .SetGuiPresentation(Category.Feat)
@@ -1143,7 +1143,6 @@ internal static class ClassFeats
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("SlayTheEnemy")
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetIgnoreCriticalDoubleDice(true)
             .SetFlatDamageBonus(0)
             .SetAdvancement(ExtraAdditionalDamageAdvancement.ConditionAmount,

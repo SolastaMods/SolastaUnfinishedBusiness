@@ -131,9 +131,6 @@ public sealed class PathOfTheBeast : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("CallTheHunt")
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.None)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetDamageDice(DieType.D6, 1)
             .AddToDB();
 

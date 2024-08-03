@@ -77,7 +77,6 @@ public sealed class PathOfTheLight : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
             .SetSpecificDamageType(DamageTypeRadiant)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetConditionOperations(
                 new ConditionOperationDescription
