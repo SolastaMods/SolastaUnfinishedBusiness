@@ -586,9 +586,9 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         return level switch
         {
-            >= 17 => DieType.D12,
-            >= 11 => DieType.D10,
-            >= 5 => DieType.D8,
+            >= 18 => DieType.D12,
+            >= 10 => DieType.D10,
+            >= 3 => DieType.D8,
             _ => DieType.D6
         };
     }
