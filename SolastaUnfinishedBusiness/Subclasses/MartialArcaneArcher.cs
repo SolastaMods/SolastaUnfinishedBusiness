@@ -24,11 +24,12 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class MartialArcaneArcher : AbstractSubclass
 {
     private const string Name = "MartialArcaneArcher";
+    private const string FeatureSetArcaneShotName = $"FeatureSet{Name}ArcaneShot";
     private const ActionDefinitions.Id ArcaneArcherToggle = (ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle;
 
     internal static readonly FeatureDefinitionPower PowerArcaneShot = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}ArcaneShot")
-        .SetGuiPresentation($"FeatureSet{Name}ArcaneShot", Category.Feature)
+        .SetGuiPresentation(FeatureSetArcaneShotName, Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
         .DelegatedToAction()
         .AddToDB();
@@ -105,7 +106,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         _ = ActionDefinitionBuilder
             .Create(MetamagicToggle, "ArcaneArcherToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation(FeatureSetArcaneShotName, Category.Feature)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ArcaneArcherToggle)
             .SetActivatedPower(PowerArcaneShot)

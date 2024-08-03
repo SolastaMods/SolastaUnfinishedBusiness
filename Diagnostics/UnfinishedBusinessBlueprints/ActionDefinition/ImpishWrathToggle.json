@@ -47,8 +47,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Action/&ImpishWrathToggleTitle",
-    "description": "Action/&ImpishWrathToggleDescription",
+    "title": "Feature/&PowerImpForestImpishWrathTitle",
+    "description": "Feature/&PowerImpForestImpishWrathDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f039effbc135454c9bb55de2851472b1",

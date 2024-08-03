@@ -152,7 +152,7 @@ public sealed class DomainTempest : AbstractSubclass
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "DestructiveWrathToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation(powerDestructiveWrath.Name, Category.Feature)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.DestructiveWrathToggle)
             .SetActivatedPower(powerDestructiveWrath)

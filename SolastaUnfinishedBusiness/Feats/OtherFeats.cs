@@ -839,7 +839,7 @@ internal static class OtherFeats
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "BalefulScionToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation(powerBalefulScion.Name, Category.Feature)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.BalefulScionToggle)
             .SetActivatedPower(powerBalefulScion)

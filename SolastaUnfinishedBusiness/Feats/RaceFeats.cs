@@ -1606,7 +1606,7 @@ internal static class RaceFeats
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "OrcishFuryToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation("FeatGroupOrcishFury", Category.Feat)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.OrcishFuryToggle)
             .SetActivatedPower(power)

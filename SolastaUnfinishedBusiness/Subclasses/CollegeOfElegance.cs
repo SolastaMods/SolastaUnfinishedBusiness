@@ -192,7 +192,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "AmazingDisplayToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation(AmazingDisplayName, Category.Feature)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.AmazingDisplayToggle)
             .SetActivatedPower(powerAmazingDisplay)
