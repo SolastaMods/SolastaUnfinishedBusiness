@@ -659,6 +659,7 @@ internal static class InvocationsBuilders
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(abilityCheckAffinityPerniciousCloak)
             .CopyParticleReferences(ConditionDefinitions.ConditionOnAcidPilgrim)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var powerPerniciousCloakDamage = FeatureDefinitionPowerBuilder
@@ -730,17 +731,18 @@ internal static class InvocationsBuilders
                 new CustomBehaviorPerniciousCloakRemove(powerPerniciousCloak, conditionPerniciousCloakSelf))
             .AddToDB();
 
-        var featureSetPerniciousCloak = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddFeatureSet(powerPerniciousCloak, powerPerniciousCloakDamage, powerPerniciousCloakRemove)
+        conditionPerniciousCloakSelf.Features.Add(powerPerniciousCloakRemove);
+
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
+            .Create(powerPerniciousCloak, $"FeatureSet{Name}")
             .AddToDB();
 
         return InvocationDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Invocation, sprite)
             .SetRequirements(5)
-            .SetGrantedFeature(featureSetPerniciousCloak)
+            .SetGrantedFeature(powerPerniciousCloak)
             .AddToDB();
     }
 
@@ -788,11 +790,8 @@ internal static class InvocationsBuilders
     }
 
     private sealed class CustomBehaviorPerniciousCloakRemove(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerPerniciousCloak,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionPerniciousCloakSelf)
-        : IPowerOrSpellFinishedByMe, IValidatePowerUse
+        ConditionDefinition conditionPerniciousCloakSelf) : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1070,17 +1069,16 @@ internal static class InvocationsBuilders
         powerInvocationChillingHex.AddCustomSubFeatures(
             new CustomBehaviorChillingHex(powerInvocationChillingHex, powerInvocationChillingHexDamage));
 
-        var featureSetChillingHex = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .AddFeatureSet(powerInvocationChillingHex, powerInvocationChillingHexDamage)
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
+            .Create(powerInvocationChillingHex, $"FeatureSet{NAME}")
             .AddToDB();
 
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, RayOfFrost)
             .SetValidators(ValidateHex)
-            .SetGrantedFeature(featureSetChillingHex)
+            .SetGrantedFeature(powerInvocationChillingHex)
             .AddToDB();
     }
 
@@ -1275,10 +1273,9 @@ internal static class InvocationsBuilders
         powerInvocationVexingHex.AddCustomSubFeatures(
             new FilterTargetingCharacterVexingHex(powerInvocationVexingHex, powerInvocationVexingHexDamage));
 
-        var featureSetVexingHex = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .AddFeatureSet(powerInvocationVexingHex, powerInvocationVexingHexDamage)
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
+            .Create(powerInvocationVexingHex, $"FeatureSet{NAME}")
             .AddToDB();
 
         return InvocationDefinitionWithPrerequisitesBuilder
@@ -1286,7 +1283,7 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(Category.Invocation, Blindness)
             .SetRequirements(5)
             .SetValidators(ValidateHex)
-            .SetGrantedFeature(featureSetVexingHex)
+            .SetGrantedFeature(powerInvocationVexingHex)
             .AddToDB();
     }
 

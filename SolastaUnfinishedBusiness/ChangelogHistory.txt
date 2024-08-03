@@ -7,6 +7,7 @@ PATRONS: UB is running low on cash flow. If you can, please donate at github.com
 - added Way of Zen Archery zen shot feature at level 3 [use Ki once per turn to add add. damage to bow attack]
 - combined Bow Mastery and Crossbow Mastery feats into Ranged Mastery
 - fixed Bait and Switch maneuver not adding AC to self when switching an ally
+- fixed Chilling Hex, Cloak of Flies, and Maddening Hex invocations not granting powers
 - fixed Circle of Power saving throw advantage to only trigger against spells
 - fixed Exploiter feat reacting against every defender attacked by spells with more than one target
 - fixed Path of Yeoman strong bow, and Roguish Raven sniper aim damage progression

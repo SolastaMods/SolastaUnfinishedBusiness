@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Neutral",
   "features": [
-    "Definition:AbilityCheckAffinityInvocationPerniciousCloak:36dbc460-a18e-529a-a6bc-9e5340c00cab"
+    "Definition:AbilityCheckAffinityInvocationPerniciousCloak:36dbc460-a18e-529a-a6bc-9e5340c00cab",
+    "Definition:PowerInvocationPerniciousCloakRemove:f968d22a-b5a4-5f53-a2cb-6c154653170f"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
