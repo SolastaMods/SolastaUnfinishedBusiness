@@ -43,12 +43,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolGambitUnlearn:444d8f27-2c19-580a-bb72-1fe476ae5ec6",
+      "featureDefinition": "Definition:InvocationPoolGambitLearn2:81610ec8-6ee4-5218-a274-46987457db6c",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSefTacticianStrategicPlan:adb9d7d1-a30b-5c04-9663-771cc4ac75ea",
+      "featureDefinition": "Definition:InvocationPoolGambitUnlearn:444d8f27-2c19-580a-bb72-1fe476ae5ec6",
       "level": 10
     },
     {

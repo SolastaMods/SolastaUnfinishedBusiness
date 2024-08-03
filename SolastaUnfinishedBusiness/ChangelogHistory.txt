@@ -5,18 +5,17 @@ PATRONS: UB is running low on cash flow. If you can, please donate at github.com
 - added Gameplay > Character > 'Enable Sorcerer quickened action to allow cast leveled main in the end'
 - added triple camera range to Interface > Game UI > 'Enable elevation camera during battle to stay at position'
 - added Way of Zen Archery zen shot feature at level 3 [use Ki once per turn to add add. damage to bow attack]
+- combined Bow Mastery and Crossbow Mastery feats into Ranged Mastery
 - fixed Bait and Switch maneuver not adding AC to self when switching an ally
 - fixed Circle of Power saving throw advantage to only trigger against spells
 - fixed Polearm feat interaction with Great Weapon Master, Power Attack, and Two Weapon Fighting
 - fixed Polearm feat missing the attack attribute modifier on bonus attack damage
 - fixed Roguish Arcane Scoundrel backslash counter spell reaction modal description
 - fixed Sentinel feat behavior to cancel all enemy queued actions immediately after the attack
-- improved Martial Battle Master to simply grant 2 additional dice at 10th instead of strategic plan
 - improved Martial Psi Warrior force powered strike dice progression to 1d8 at 3rd, 1d10 at 10th, and 1d12 at 18th
 - improved Rogue cunning strike withdraw behavior to work immediately after the attack
 - improved Roguish Umbral Stalker, now Roguish Shadowdancer, to also allow ranged builds
 - improved Way of Zen Archery flurry of arrows to replace one of your bonus unarmed strikes with a bow attack
-- merged Bow Mastery and Crossbow Mastery feats into Ranged Mastery
 
 KNOWN ISSUES:
 
