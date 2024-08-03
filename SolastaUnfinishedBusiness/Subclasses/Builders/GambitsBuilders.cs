@@ -674,7 +674,6 @@ internal static class GambitsBuilders
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetFeatures(gambitDieDamage)
                                 .SetSpecialInterruptions(
-                                    ConditionInterruption.Attacked,
                                     (ConditionInterruption)ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .AddToDB()))
                     .Build())
