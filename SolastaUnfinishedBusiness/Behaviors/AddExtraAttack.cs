@@ -310,10 +310,7 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
     }
 
     private void AddItemAttack(
-        // ReSharper disable once SuggestBaseTypeForParameter
-        List<RulesetAttackMode> attackModes,
-        [NotNull] string slot,
-        [NotNull] RulesetCharacterHero hero)
+        List<RulesetAttackMode> attackModes, [NotNull] string slot, [NotNull] RulesetCharacterHero hero)
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
 
@@ -335,29 +332,21 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
             item
         );
 
-        var effectDamageForms = attackMode.EffectDescription.EffectForms
-            .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
-            .ToList();
+        var effectDamageForm = attackMode.EffectDescription.EffectForms
+            .FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-        if (effectDamageForms.Count != 0)
+        if (effectDamageForm != null &&
+            // ensures PAM interacts well with GWM
+            !hero.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, "ConditionFeatCleavingAttackFinish"))
         {
-            var value = hero.TryGetAttributeValue(attackMode.AbilityScore);
-            var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(value);
-
-            effectDamageForms[0] = EffectForm.GetCopy(effectDamageForms[0]);
-            effectDamageForms[0].DamageForm.DamageType = DamageTypeBludgeoning;
-            effectDamageForms[0].DamageForm.DieType = DieType.D4;
-            effectDamageForms[0].DamageForm.DiceNumber = 1;
-            effectDamageForms[0].DamageForm.versatile = false;
-            effectDamageForms[0].DamageForm.versatileDieType = DieType.D4;
-            effectDamageForms[0].DamageForm.BonusDamage = modifier;
+            effectDamageForm.DamageForm.DieType = DieType.D4;
+            effectDamageForm.DamageForm.DiceNumber = 1;
+            effectDamageForm.DamageForm.versatile = false;
+            effectDamageForm.DamageForm.versatileDieType = DieType.D4;
         }
 
-        attackMode.Reach = true;
-        attackMode.Ranged = false;
-        attackMode.Thrown = false;
         attackMode.AttackTags.Add(PolearmFollowUpAttack);
-        attackMode.EffectDescription.EffectForms.SetRange(effectDamageForms);
         attackModes.Add(attackMode);
     }
 }
