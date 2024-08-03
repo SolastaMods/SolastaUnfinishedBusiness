@@ -1,22 +1,22 @@
-Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Vous gagnez une action supplémentaire, et vous pouvez utiliser toutes vos polyvalences sans contrôle ni consommation de points, en réglant la Force, l'Intelligence ou la Sagesse à 22 minimum.
+Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Vous gagnez une action supplémentaire, et vous pouvez utiliser toutes vos polyvalences sans tests ni consommation de points, en fixant la Force, l'Intelligence ou la Sagesse à 22 minimum.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Surcharge d'explosion
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Vous gagnez <b>Eldritch Blast</b> en bonus. Le nombre de faisceaux est dérivé de votre détermination, calculé comme suit : [Niveaux de démoniste] - 2 * [Niveaux des autres classes]. Vous pouvez lancer 2 faisceaux lorsque votre détermination>= 3, 3 lorsque >= 8, 4 lorsque >= 13 et 5 lorsque >= 18.
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Explosion exclusive
-Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Gagnez un point Eldritch supplémentaire lorsque vous touchez un ennemi à moins de 9 mètres. Lorsque vous tuez un ennemi, gagnez des points surnaturels supplémentaires égaux au nombre de faisceaux par lancement d'Eldritch Blast.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Vous obtenez <b>Explosion eldritch</b> en tant que sort bonus. Le nombre de rayons est déterminé par votre détermination, calculé comme suit : [Niveaux de sorcier] - 2 * [Niveaux des autres classes]. Vous pouvez lancer 2 rayons lorsque votre détermination est >= 3, 3 lorsque votre détermination est >= 8, 4 lorsque votre détermination est >= 13 et 5 lorsque votre détermination est >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Exclusivité Blast
+Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Gagnez un point occulte supplémentaire lorsque vous touchez un ennemi à moins de 9 mètres. Lorsque vous tuez un ennemi, gagnez des points occultes supplémentaires égaux au nombre de rayons par lancement d'Explosion occulte.
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Poursuite explosive
 Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Une fois par repos long, vous pouvez utiliser une action gratuite pour entrer en surcharge. Jusqu'au début de votre prochain tour, vous gagnez une action supplémentaire, et vous pouvez utiliser toutes vos polyvalences sans contrôle ni consommation de points.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Surcharge d'explosion
-Feature/&PowerPatronEldritchSurgeBlastReloadDescription=Vous pouvez lancer les sorts mineurs que vous avez lancés ce tour-ci avec votre action principale comme action bonus.
-Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Rechargement explosif
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Lorsque vous utilisez la polyvalence, traitez votre Intelligence comme un bonus de compétence de 10 + 2 *.
+Feature/&PowerPatronEldritchSurgeBlastReloadDescription=Vous pouvez lancer les sorts que vous avez lancés ce tour-ci avec votre action principale en tant qu'action bonus.
+Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Rechargement par explosion
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Lorsque vous utilisez des polyvalences, traitez votre intelligence comme 10 + 2 * Bonus de compétence.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntTitle=Int
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=Votre Force, votre Intelligence ou votre Sagesse gagnent un bonus égal au nombre de polyvalences que vous avez apprises.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=Votre force, votre intelligence ou votre sagesse gagnent un bonus égal à la quantité de polyvalences que vous avez apprises.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneTitle=Polyvalent
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=À chaque tour, vous pouvez basculer entre Force, Intelligence, Sagesse ou Polyvalence. Si vous choisissez un score de capacité, traitez le score de capacité choisi comme 10 + 2 * [Bonus de compétence] lorsque vous utilisez des polyvalences. Si vous choisissez Polyvalent, votre Force, votre Intelligence et votre Sagesse gagnent un bonus égal au nombre de polyvalences que vous avez apprises.
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolTitle=Commutateur de polyvalence
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Lorsque vous utilisez des polyvalences, considérez votre Force comme un bonus de compétence de 10 + 2 *.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=À chaque tour, vous pouvez choisir entre Force, Intelligence, Sagesse ou Polyvalence. Si vous choisissez une caractéristique, considérez la caractéristique choisie comme 10 + 2 * [Bonus de maîtrise] lorsque vous utilisez des polyvalences. Si vous choisissez Polyvalence, votre Force, votre Intelligence et votre Sagesse gagnent un bonus égal au nombre de polyvalences que vous avez apprises.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolTitle=Interrupteur de polyvalence
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Lorsque vous utilisez des polyvalences, traitez votre force comme 10 + 2 * Bonus de compétence.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrTitle=Str
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=Lorsque vous utilisez la polyvalence, traitez votre Sagesse comme un bonus de compétence de 10 + 2 *.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=Lorsque vous utilisez des polyvalences, traitez votre Sagesse comme 10 + 2 * Bonus de Compétence.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisTitle=Wis
-Subclass/&PatronEldritchSurgeDescription=Vous avez conclu un pacte avec une entité mystérieuse qui pourrait être une conscience issue de la complexité du Tissage, croyant que le pouvoir arcanique pur peut créer n'importe quel phénomène. Et vous devez le prouver.
-Subclass/&PatronEldritchSurgeTitle=La montée surnaturelle
+Subclass/&PatronEldritchSurgeDescription=Vous avez conclu un pacte avec une entité mystérieuse qui pourrait être une conscience issue de la complexité de la Toile, persuadé que le pouvoir pur des arcanes peut créer n'importe quel phénomène. Et vous devez le prouver.
+Subclass/&PatronEldritchSurgeTitle=La vague surnaturelle

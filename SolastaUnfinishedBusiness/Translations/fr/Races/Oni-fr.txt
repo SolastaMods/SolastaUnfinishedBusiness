@@ -1,10 +1,10 @@
-Feature/&CastSpellOniOgreMagicDescription=Au niveau 3, vous pouvez lancer <b>Châtiment tonitruant</b> une fois par repos long. La <b>Sagesse</b> est votre capacité de lancement de sorts.
-Feature/&CastSpellOniOgreMagicTitle=Magie des Ogres
+Feature/&CastSpellOniOgreMagicDescription=Au niveau 3, vous pouvez lancer <b>Châtiment tonitruant</b> une fois par repos long. <b>Sagesse</b> est votre capacité de lancement de sorts pour ce sort.
+Feature/&CastSpellOniOgreMagicTitle=Magie des ogres
 Feature/&FeatureSetOniAbilityScoreIncreaseDescription=Force +2, Sagesse +1
 Feature/&FeatureSetOniAbilityScoreIncreaseTitle=Augmentation des attributs
 Feature/&ProficiencyOniOgreMightDescription=Vous maîtrisez les <b>armes martiales</b>.
-Feature/&ProficiencyOniOgreMightTitle=La puissance de l'ogre
+Feature/&ProficiencyOniOgreMightTitle=Puissance de l'ogre
 Feature/&ProficiencyOniThirdEyeDescription=Vous maîtrisez la compétence <b>Perception</b>.
 Feature/&ProficiencyOniThirdEyeTitle=Troisième oeil
-Race/&RaceOniDescription=Les Oni sont des créatures semblables à des démons du royaume insulaire d'Extrême-Orient d'Himoto. Ils sont arrivés à Solasta par des portes principales activées.
+Race/&RaceOniDescription=Les Oni sont des créatures démoniaques originaires du royaume insulaire d'Himoto, à l'extrême est du pays. Ils sont arrivés à Solasta en passant par des portes majeures activées.
 Race/&RaceOniTitle=Oni

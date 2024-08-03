@@ -2,5 +2,5 @@ Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseDescription=F
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseTitle=Augmentation du score de capacité
 Feature/&ProficiencyIronbornDwarfArmorTrainingDescription=Vous maîtrisez les armures légères et moyennes.
 Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Entraînement à l'armure Ironborn
-Race/&RaceIronbornDwarfDescription=Forts et robustes, les Nains Fer-nés vivent parmi, mais souvent séparés, leurs cousins les Nains des Neiges. Clans et distants, on peut néanmoins compter sur eux pour se tenir côte à côte avec tous les membres de l'Alliance des Neiges.
+Race/&RaceIronbornDwarfDescription=Forts et robustes, les Nains Fer-nés vivent parmi leurs cousins, les Nains des Neiges, mais souvent à l'écart d'eux. Fidèles à leur clan et distants, ils peuvent néanmoins être considérés comme des alliés de poids de l'Alliance des Neiges.
 Race/&RaceIronbornDwarfTitle=Nain Fer-né

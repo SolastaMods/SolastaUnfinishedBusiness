@@ -1,4 +1,4 @@
-Feat/&FeatDualFlurryDescription=Tant que vous utilisez des armes de mêlée à double usage, lorsque vous utilisez votre action bonus pour attaquer une créature avec votre arme de main gauche, vous effectuez deux attaques contre la créature avec l'arme au lieu d'une.
+Feat/&FeatDualFlurryDescription=Lorsque vous utilisez deux armes de mêlée, lorsque vous utilisez votre action bonus pour attaquer une créature avec votre arme secondaire, vous effectuez deux attaques contre la créature avec l'arme au lieu d'une.
 Feat/&FeatDualFlurryTitle=Double rafale
-Feat/&FeatDualWeaponDefenseDescription=Vous maîtrisez le combat avec deux armes et bénéficiez des avantages suivants :\n• Vous bénéficiez d'un bonus de +1 à la CA lorsque vous utilisez des armes de mêlée à deux mains.\n• Vous pouvez utiliser le combat à deux armes même lorsque l'arme à une main les armes de mêlée que vous utilisez ne sont pas légères.
-Feat/&FeatDualWeaponDefenseTitle=Double porteur
+Feat/&FeatDualWeaponDefenseDescription=Vous maîtrisez le combat avec deux armes, ce qui vous permet d'obtenir les avantages suivants :\n• Vous obtenez un bonus de +1 à la CA lorsque vous utilisez deux armes de mêlée.\n• Vous pouvez utiliser le combat à deux armes même lorsque les armes de mêlée à une main que vous utilisez ne sont pas légères.
+Feat/&FeatDualWeaponDefenseTitle=Double manieur

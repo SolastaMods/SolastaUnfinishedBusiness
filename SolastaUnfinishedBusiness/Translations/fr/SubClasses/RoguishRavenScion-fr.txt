@@ -1,21 +1,21 @@
-Condition/&ConditionRavenScionHeartSeekingShotDescription=Votre prochaine attaque avec une arme à distance entraînera un coup critique garanti si elle touche une créature.
+Condition/&ConditionRavenScionHeartSeekingShotDescription=Votre prochaine attaque d'arme à distance entraînera un coup critique garanti si elle touche une créature.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Tir à la recherche du cœur
-Feature/&AdditionalDamageRavenScionSniperAimDescription=Une fois par tour, lorsque vous touchez une créature avec une attaque avec une arme à distance, cette créature subit des dégâts supplémentaires du même type égaux à votre niveau de voleur.
-Feature/&AdditionalDamageRavenScionSniperAimTitle=Objectif du tireur d'élite
-Feature/&FeatureRavenScionKillingSpreeDescription=Une fois pendant votre tour, lorsque vous réduisez une créature à 0 point de vie, vous gagnez une attaque supplémentaire dans le cadre de votre action principale et réinitialisez l'utilisation de la fonction de visée de votre Sniper.
-Feature/&FeatureRavenScionKillingSpreeTitle=Frénésie meurtrière
+Feature/&AdditionalDamageRavenScionSniperAimDescription=Une fois par tour, lorsque vous touchez une créature avec une attaque d'arme à distance, cette créature subit des dégâts supplémentaires du même type égaux à votre niveau de voleur.
+Feature/&AdditionalDamageRavenScionSniperAimTitle=Visée du tireur d'élite
+Feature/&FeatureRavenScionKillingSpreeDescription=Une fois pendant votre tour, lorsque vous réduisez une créature à 0 point de vie, vous gagnez une attaque supplémentaire dans le cadre de votre action principale et réinitialisez l'utilisation de votre fonction Visée du tireur d'élite.
+Feature/&FeatureRavenScionKillingSpreeTitle=Une tuerie
 Feature/&FeatureSetRavenScionRangedSpecialistDescription=Vous maîtrisez toutes les armes à distance à deux mains et acquérez le style de combat à l'arc.
 Feature/&FeatureSetRavenScionRangedSpecialistTitle=Spécialiste à distance
-Feature/&PowerRavenScionDeadlyFocusDescription=Si vous ratez un jet d'attaque avec une arme à distance, vous pouvez le relancer avec avantage. Vous pouvez utiliser cette fonctionnalité une fois par court repos.
-Feature/&PowerRavenScionDeadlyFocusTitle=Concentration mortelle
+Feature/&PowerRavenScionDeadlyFocusDescription=Si vous ratez un jet d'attaque à distance, vous pouvez le relancer avec avantage. Vous pouvez utiliser cette fonction une fois par repos court.
+Feature/&PowerRavenScionDeadlyFocusTitle=Focus mortel
 Feature/&PowerRavenScionHeartSeekingShotDescription=Par une action gratuite, vous pouvez faire en sorte que votre prochaine attaque avec une arme à distance entraîne un coup critique garanti si elle touche une créature. Vous pouvez utiliser cette fonctionnalité une fois par court repos.
 Feature/&PowerRavenScionHeartSeekingShotTitle=Tir à la recherche du cœur
-Feedback/&AdditionalDamageSniperAimFormat=Objectif du tireur d'élite
+Feedback/&AdditionalDamageSniperAimFormat=Visée du tireur d'élite
 Feedback/&AdditionalDamageSniperAimLine=La Visée du Sniper inflige +{2} dégâts supplémentaires !
-Feedback/&TriggerRavenScionRerollLine={0} lance {1} = {2}. Deadly Focus forcera un coup critique.
+Feedback/&TriggerRavenScionRerollLine={0} lance {1} = {2}. Focus mortel forcera un coup critique.
 Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Utilisez votre concentration mortelle pour réessayer l'attaque.
 Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Utilisez votre concentration mortelle pour réessayer l'attaque.
 Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=Réessayer l'attaque
-Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Concentration mortelle
-Subclass/&RoguishRavenScionDescription=Les corbeaux sont des spécialistes des armes à distance entraînés pour éliminer les ennemis rapidement et efficacement.
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Focus mortel
+Subclass/&RoguishRavenScionDescription=Les corbeaux sont des spécialistes des armes à distance, entraînés à abattre les ennemis rapidement et efficacement.
 Subclass/&RoguishRavenScionTitle=Corbeau

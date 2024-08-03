@@ -1,10 +1,10 @@
-Feature/&AdditionalActionArcaneFighterDescription=Vous pouvez lancer un sort après avoir vaincu un ennemi avec vos attaques avec une arme.
-Feature/&AdditionalActionArcaneFighterTitle=Combat de sorts
-Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Une fois par tour, vos attaques avec votre arme infligent 1d8 dégâts supplémentaires.
+Feature/&AdditionalActionArcaneFighterDescription=Vous pouvez lancer un sort après avoir vaincu un ennemi avec vos attaques d'arme.
+Feature/&AdditionalActionArcaneFighterTitle=Combattre les sorts
+Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Une fois par tour, vos attaques d'arme infligent 1d8 dégâts supplémentaires.
 Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Attaques magiques
-Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Grâce à votre expérience dans le chaos du combat, bénéficiez d'un avantage aux tests de concentration.
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Grâce à votre expérience dans le chaos du combat, bénéficiez d'un avantage sur les tests de concentration.
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Concentration améliorée
 Feedback/&AdditionalDamageArcaneFighterFormat=Combattant arcanique !
-Feedback/&AdditionalDamageArcaneFighterLine=Arcane Fighter inflige +{2} dégâts supplémentaires !
-Subclass/&WizardArcaneFighterDescription=Les combattants arcaniques canalisent la magie dans leurs armes afin d'effectuer des attaques dévastatrices. Leurs adversaires sont souvent surpris de la férocité et de l'acharnement de ces lanceurs de sorts.
-Subclass/&WizardArcaneFighterTitle=Combattant arcanique
+Feedback/&AdditionalDamageArcaneFighterLine=Arcane Fighter inflige +{2} de dégâts supplémentaires !
+Subclass/&WizardArcaneFighterDescription=Les combattants des arcanes canalisent la magie dans leurs armes afin de réaliser des attaques dévastatrices. Leurs adversaires sont souvent surpris par la férocité et l'acharnement de ces lanceurs de sorts.
+Subclass/&WizardArcaneFighterTitle=Combattant des arcanes

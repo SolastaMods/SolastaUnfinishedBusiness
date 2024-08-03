@@ -1,9 +1,9 @@
 Feature/&AttributeModifierBattlebornBonusACTitle=Résilience arcanique
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=Constitution +2, augmente 1 autre score de 1 point.
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=Augmentation du score de capacité
-Feature/&FeatureSetBattlebornArcaneResilienceDescription=Vous avez été créé pour avoir une force d'âme remarquable, représentée par les avantages suivants :\n• Vous gagnez un bonus de +1 à la classe d'armure.\n• Vous avez un avantage aux jets de sauvegarde contre l'empoisonnement et vous avez une résistance aux dégâts de poison. \n• Vous êtes immunisé contre les maladies.\n• Vous n'avez pas besoin de dormir et la magie ne peut pas vous endormir.
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=Vous avez été créé pour avoir une force d'âme remarquable, représentée par les avantages suivants :\n• Vous obtenez un bonus de +1 à la CA.\n• Vous avez un avantage aux jets de sauvegarde contre l'empoisonnement, et vous avez une résistance aux dégâts de poison.\n• Vous êtes immunisé contre les maladies.\n• Vous n'avez pas besoin de dormir, et la magie ne peut pas vous endormir.
 Feature/&FeatureSetBattlebornArcaneResilienceTitle=Résilience arcanique
-Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Vous gagnez une maîtrise de compétence et une maîtrise d'outil de votre choix.
+Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Vous obtenez une maîtrise d'une compétence et une maîtrise d'un outil de votre choix.
 Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Infusion spécialisée
-Race/&RaceBattlebornDescription=Les Battleborn sont le résultat d'expériences arcaniques, mélangeant chair, alchimie et magie pour créer de parfaits soldats de champ de bataille. Créés pour servir d'armes, ils doivent désormais trouver une utilité au-delà de la guerre. Un né au combat peut être un allié fidèle, une machine à tuer sans pitié ou un errant en quête de but et de sens.
+Race/&RaceBattlebornDescription=Les guerriers-nés sont le résultat d'expériences mystérieuses, mêlant chair, alchimie et magie pour créer des soldats parfaits sur le champ de bataille. Créés pour servir d'armes, ils doivent désormais trouver un but au-delà de la guerre. Un guerrier-né peut être un allié loyal, une machine à tuer impitoyable ou une âme errante en quête de sens et de but.
 Race/&RaceBattlebornTitle=Forgeron de guerre
