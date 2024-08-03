@@ -75,7 +75,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}LunarRadianceEnemy")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation($"Power{Name}LunarRadiance", Category.Feature, Gui.NoLocalization)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -1)
                     .AddToDB())
             .AddToDB();

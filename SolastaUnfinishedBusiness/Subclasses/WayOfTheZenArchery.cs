@@ -4,7 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -242,19 +241,16 @@ public sealed class WayOfZenArchery : AbstractSubclass
             bool criticalHit)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerZenShot, rulesetAttacker);
 
             if (!ValidatorsCharacter.HasBowWithoutArmor(attacker.RulesetCharacter) ||
                 !attacker.OnceInMyTurnIsValid("ZenShot") ||
                 !rulesetAttacker.IsToggleEnabled(ZenShotToggle) ||
-                rulesetAttacker.RemainingKiPoints == 0)
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd("ZenShot", 0);
-            rulesetAttacker.LogCharacterUsedPower(powerZenShot);
-
-            var usablePower = PowerProvider.Get(powerZenShot, rulesetAttacker);
             var firstDamageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
             var index = actualEffectForms.IndexOf(firstDamageForm);
             var dieType = rulesetAttacker.GetMonkDieType();
@@ -264,7 +260,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 firstDamageForm!.DamageForm.DamageType, 1, dieType, wisMod);
 
             actualEffectForms.Insert(index + 1, effectDamageForm);
-            usablePower.Consume();
+            attacker.UsedSpecialFeatures.TryAdd("ZenShot", 0);
+            rulesetAttacker.UsePower(usablePower);
         }
     }
 
@@ -311,11 +308,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
             var actingCharacter = action.ActingCharacter;
             var targets = action.ActionParams.TargetCharacters
                 .Where(x => CanBowAttack(actingCharacter, x))
