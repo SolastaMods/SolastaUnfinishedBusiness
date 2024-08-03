@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -21,7 +18,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class MartialTactician : AbstractSubclass
 {
     internal const string Name = "MartialTactician";
-    internal const string MarkDamagedByGambit = "ConditionTacticianDamagedByGambit";
     internal const string TacticalAwareness = "TacticalAwareness";
 
     private static int _gambitPoolIncreases;
@@ -30,8 +26,27 @@ public sealed class MartialTactician : AbstractSubclass
     {
         var unlearn = BuildUnlearn();
 
+        var gambitPoolIncrease2 = BuildGambitPoolIncrease(2, "ImproviseStrategy");
+
+        // kept name for backward compatibility
+        var gambitPoolIncrease = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureImproviseStrategy")
+            .SetGuiPresentation("PowerUseModifierTacticianGambitPool2", Category.Feature)
+            .AddFeatureSet(gambitPoolIncrease2)
+            .AddToDB();
+
         // kept for backward compatibility
-        BuildStrategicPlan();
+        _ = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureAdaptiveStrategy")
+            .SetGuiPresentation("PowerUseModifierTacticianGambitPool2", Category.Feature)
+            .AddFeatureSet(gambitPoolIncrease2)
+            .AddToDB();
+
+        _ = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureOvercomingStrategy")
+            .SetGuiPresentation("PowerUseModifierTacticianGambitPool2", Category.Feature)
+            .AddFeatureSet(gambitPoolIncrease2)
+            .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -44,7 +59,7 @@ public sealed class MartialTactician : AbstractSubclass
                 GambitsBuilders.Learn2Gambit,
                 unlearn)
             .AddFeaturesAtLevel(10, BuildGambitDieSize(DieType.D10),
-                GambitsBuilders.Learn2Gambit,
+                gambitPoolIncrease,
                 unlearn)
             .AddFeaturesAtLevel(15, BuildBattleClarity(), BuildGambitPoolIncrease(),
                 GambitsBuilders.Learn2Gambit,
@@ -137,36 +152,6 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static void BuildStrategicPlan()
-    {
-        var feature = FeatureDefinitionBuilder
-            .Create("FeatureAdaptiveStrategy")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        feature.AddCustomSubFeatures(
-            new PhysicalAttackFinishedByMeAdaptiveStrategy(GambitsBuilders.GambitPool, feature));
-
-        _ = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureImproviseStrategy")
-            .SetGuiPresentation(GambitsBuilders.Learn2Gambit.GuiPresentation)
-            .AddFeatureSet(BuildGambitPoolIncrease(2, "ImproviseStrategy"))
-            .AddToDB();
-
-        feature = FeatureDefinitionBuilder
-            .Create("FeatureOvercomingStrategy")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        ConditionDefinitionBuilder
-            .Create(MarkDamagedByGambit)
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new RefundPowerUseWhenTargetWithConditionDies(GambitsBuilders.GambitPool, feature))
-            .SetSpecialDuration(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
-            .AddToDB();
-    }
-
     private static FeatureDefinitionCustomInvocationPool BuildUnlearn()
     {
         return CustomInvocationPoolDefinitionBuilder
@@ -195,105 +180,6 @@ public sealed class MartialTactician : AbstractSubclass
         feature.AddCustomSubFeatures(new CharacterTurnStartListenerTacticalAwareness(feature));
 
         return feature;
-    }
-
-    private class PhysicalAttackFinishedByMeAdaptiveStrategy(
-        FeatureDefinitionPower power,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition feature)
-        : IPhysicalAttackFinishedByMe
-    {
-        public IEnumerator OnPhysicalAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
-        {
-            if (rollOutcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            if (attackMode == null)
-            {
-                yield break;
-            }
-
-            // once per turn
-            if (!attacker.OncePerTurnIsValid(feature.Name))
-            {
-                yield break;
-            }
-
-            var character = attacker.RulesetCharacter;
-
-            if (character is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.TryAdd(feature.Name, 1);
-            character.LogCharacterUsedFeature(feature, indent: true);
-            character.UpdateUsageForPower(power, -1);
-        }
-    }
-
-    private class RefundPowerUseWhenTargetWithConditionDies(
-        FeatureDefinitionPower power,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition feature)
-        : IOnConditionAddedOrRemoved
-    {
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            // empty
-        }
-
-        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            // SHOULD ONLY TRIGGER ON DEATH
-            if (target is not { IsDeadOrDyingOrUnconscious: true })
-            {
-                return;
-            }
-
-            var character = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
-
-            if (character == null || character.GetClassLevel(CharacterClassDefinitions.Fighter) < 10)
-            {
-                return;
-            }
-
-            var glc = GameLocationCharacter.GetFromActor(character);
-
-            if (glc == null)
-            {
-                return;
-            }
-
-            // once per turn
-            if (!glc.OncePerTurnIsValid(feature.Name))
-            {
-                return;
-            }
-
-            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
-            {
-                return;
-            }
-
-            glc.UsedSpecialFeatures.TryAdd(feature.Name, 1);
-            character.LogCharacterUsedFeature(feature, indent: true);
-            character.UpdateUsageForPower(power, -1);
-        }
     }
 
     private sealed class CharacterTurnStartListenerTacticalAwareness(FeatureDefinition featureDefinition)

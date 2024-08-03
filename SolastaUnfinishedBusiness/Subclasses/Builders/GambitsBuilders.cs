@@ -63,12 +63,6 @@ internal static class GambitsBuilders
             .SetGuiPresentationNoContent(true)
             .SetDamageDice(DieType.D6, 1)
             .SetNotificationTag("GambitDie")
-            .AddConditionOperation(
-                new ConditionOperationDescription
-                {
-                    operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionName = MartialTactician.MarkDamagedByGambit
-                })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .SetAttackModeOnly()
             .AddToDB();
@@ -81,19 +75,13 @@ internal static class GambitsBuilders
             .SetGuiPresentationNoContent(true)
             .SetDamageDice(DieType.D6, 1)
             .SetNotificationTag("GambitDie")
-            .AddConditionOperation(
-                new ConditionOperationDescription
-                {
-                    operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionName = MartialTactician.MarkDamagedByGambit
-                })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .SetAttackModeOnly()
             .AddToDB();
 
         gambitDieDamageMelee.AddCustomSubFeatures(
-            new ModifyAdditionalDamageGambitDieSize(gambitDieDamageMelee),
-            ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack);
+            ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack,
+            new ModifyAdditionalDamageGambitDieSize(gambitDieDamageMelee));
 
         var conditionGambitDieDamage = ConditionDefinitionBuilder
             .Create("ConditionGambitDieDamage")
