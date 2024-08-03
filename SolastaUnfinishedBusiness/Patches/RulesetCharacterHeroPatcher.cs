@@ -534,8 +534,9 @@ public static class RulesetCharacterHeroPatcher
             //PATCH: remove invalid attacks
             //used to prevent hand crossbows use with no free hand
             __instance.AttackModes.RemoveAll(mode => SrdAndHouseRulesContext.IsAttackModeInvalid(__instance, mode));
+ 
             //PATCH: support for IAdditionalActionAttackValidator
-            ValidateAdditionalActionAttack.ValidateAttackModes(__instance);
+            //ValidateAdditionalActionAttack.ValidateAttackModes(__instance);
 
             //refresh character if needed after postfix
             if (_callRefresh && __instance.CharacterRefreshed != null)

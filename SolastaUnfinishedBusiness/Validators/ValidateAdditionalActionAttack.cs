@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿#if false
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 
 namespace SolastaUnfinishedBusiness.Validators;
 
@@ -68,3 +69,4 @@ internal class ValidateAdditionalActionAttack : IValidateAdditionalActionAttack
             });
     }
 }
+#endif
