@@ -8,6 +8,7 @@ PATRONS: UB is running low on cash flow. If you can, please donate at github.com
 - combined Bow Mastery and Crossbow Mastery feats into Ranged Mastery
 - fixed Bait and Switch maneuver not adding AC to self when switching an ally
 - fixed Circle of Power saving throw advantage to only trigger against spells
+- fixed Exploiter feat reacting against every defender attacked by spells with more than one target
 - fixed Polearm feat interaction with Great Weapon Master, Power Attack, and Two Weapon Fighting
 - fixed Polearm feat missing the attack attribute modifier on bonus attack damage
 - fixed Roguish Arcane Scoundrel backslash counter spell reaction modal description

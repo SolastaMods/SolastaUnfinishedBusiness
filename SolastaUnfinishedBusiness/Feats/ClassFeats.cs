@@ -378,7 +378,8 @@ internal static class ClassFeats
         {
             var effectDescription = action.actionParams.RulesetEffect.EffectDescription;
 
-            if (effectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            if (effectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit) ||
+                effectDescription.TargetParameter != 1)
             {
                 yield break;
             }
@@ -412,17 +413,9 @@ internal static class ClassFeats
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager)
-            {
-                yield break;
-            }
-
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            if (attacker == helper ||
+            if (!actionManager ||
+                attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                attacker == helper ||
                 helper.IsMyTurn() ||
                 !helper.CanReact())
             {
@@ -454,6 +447,11 @@ internal static class ClassFeats
                 actionManager.AddInterruptRequest(reactionRequest);
 
                 yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+                if (actionParams.ReactionValidated)
+                {
+                    yield break;
+                }
             }
         }
     }
