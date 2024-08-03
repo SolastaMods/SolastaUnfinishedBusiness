@@ -33,18 +33,7 @@
   "savingThrowDC": 10,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
-  "conditionOperations": [
-    {
-      "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": false,
-      "operation": "Add",
-      "conditionName": "ConditionTacticianDamagedByGambit",
-      "conditionDefinition": null,
-      "saveAffinity": "None",
-      "canSaveToCancel": false,
-      "saveOccurence": "EndOfTurn"
-    }
-  ],
+  "conditionOperations": [],
   "addLightSource": false,
   "lightSourceForm": null,
   "impactParticleReference": null,
