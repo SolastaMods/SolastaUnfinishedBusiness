@@ -1,5 +1,3 @@
-Condition/&ConditionFeatCallForChargeDescription=Your speed increase by 15 ft, and you have advantage on your attack.
-Condition/&ConditionFeatCallForChargeTitle=Call for Charge
 Condition/&ConditionFeatSlayTheEnemiesDescription=You have a bonus to attack and damage rolls equal to {0}. If your target is a favored enemy, you have advantage instead of attack roll bonus.
 Condition/&ConditionFeatSlayTheEnemiesTitle=Slay the Enemies
 Feat/&FeatAwakenTheBeastWithinDescription=Increase your {0} by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.

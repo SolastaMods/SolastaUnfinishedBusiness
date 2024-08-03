@@ -1,5 +1,3 @@
-Condition/&ConditionFeatCallForChargeDescription=Sua velocidade aumenta em 4,5 metros e você tem vantagem no ataque.
-Condition/&ConditionFeatCallForChargeTitle=Chamada para cobrança
 Condition/&ConditionFeatSlayTheEnemiesDescription=Você tem um bônus nas jogadas de ataque e dano igual a {0}. Se o seu alvo for um inimigo favorito, você terá vantagem em vez de bônus na jogada de ataque.
 Condition/&ConditionFeatSlayTheEnemiesTitle=Mate os inimigos
 Feat/&FeatAwakenTheBeastWithinDescription=Aumente seu {0} em 1, até um máximo de 20. Sempre que você usar sua habilidade Forma Selvagem para se transformar em uma fera, você ganha pontos de vida temporários iguais ao dobro do seu nível de druida.

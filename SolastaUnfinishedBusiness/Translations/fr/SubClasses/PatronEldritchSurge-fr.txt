@@ -1,4 +1,3 @@
-Attribute/&TitleLong=Polyvalent
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Vous gagnez une action supplémentaire, et vous pouvez utiliser toutes vos polyvalences sans contrôle ni consommation de points, en réglant la Force, l'Intelligence ou la Sagesse à 22 minimum.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Surcharge d'explosion
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Vous gagnez <b>Eldritch Blast</b> en bonus. Le nombre de faisceaux est dérivé de votre détermination, calculé comme suit : [Niveaux de démoniste] - 2 * [Niveaux des autres classes]. Vous pouvez lancer 2 faisceaux lorsque votre détermination>= 3, 3 lorsque >= 8, 4 lorsque >= 13 et 5 lorsque >= 18.

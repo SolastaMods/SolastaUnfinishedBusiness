@@ -1,4 +1,3 @@
-Attribute/&TitleLong=Versatile
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=You gain an extra action, and you can use all your versatilities without checks or points consumption, setting Strength, Intelligence or Wisdom at 22 minimum.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Blast Overload
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=You gain <b>Eldritch Blast</b> as a bonus cantrip. The number of beams is derived by your determination calculated as: [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams when your determination >= 3, 3 when >= 8, 4 when >= 13 and 5 when >= 18.

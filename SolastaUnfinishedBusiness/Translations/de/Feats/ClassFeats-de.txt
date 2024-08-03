@@ -1,5 +1,3 @@
-Condition/&ConditionFeatCallForChargeDescription=Ihre Geschwindigkeit erhöht sich um 15 Fuß und Sie haben einen Vorteil bei Ihrem Angriff.
-Condition/&ConditionFeatCallForChargeTitle=Anruf zur Gebührenabrechnung
 Condition/&ConditionFeatSlayTheEnemiesDescription=Du hast einen Bonus auf Angriffs- und Schadenswürfe in Höhe von {0}. Wenn Ihr Ziel ein bevorzugter Feind ist, haben Sie einen Vorteil anstelle eines Angriffswurfbonus.
 Condition/&ConditionFeatSlayTheEnemiesTitle=Töte die Feinde
 Feat/&FeatAwakenTheBeastWithinDescription=Erhöhe deinen {0} um 1, bis zu einem Maximum von 20. Immer wenn du deine Wildform-Fähigkeit nutzt, um dich in ein Biest zu verwandeln, erhältst du temporäre Trefferpunkte in Höhe des Doppelten deiner Druidenstufe.

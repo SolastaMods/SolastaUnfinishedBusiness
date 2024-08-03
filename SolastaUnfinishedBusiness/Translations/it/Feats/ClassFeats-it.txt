@@ -1,5 +1,3 @@
-Condition/&ConditionFeatCallForChargeDescription=La tua velocità aumenta di 15 piedi e hai un vantaggio nel tuo attacco.
-Condition/&ConditionFeatCallForChargeTitle=Chiamata a pagamento
 Condition/&ConditionFeatSlayTheEnemiesDescription=Hai un bonus ai tiri per colpire e per i danni pari a {0}. Se il tuo bersaglio è un nemico prescelto, hai vantaggio invece del bonus al tiro per colpire.
 Condition/&ConditionFeatSlayTheEnemiesTitle=Uccidi i nemici
 Feat/&FeatAwakenTheBeastWithinDescription=Aumenta il tuo {0} di 1, fino a un massimo di 20. Ogni volta che usi la tua abilità Forma selvatica per trasformarti in una bestia, guadagni punti ferita temporanei pari al doppio del tuo livello da druido.

@@ -142,3 +142,4 @@ Feat/&FeatGroupVerdantTouchedDescription=Augmentez l'un de vos attributs mentaux
 Feat/&FeatGroupVerdantTouchedTitle=Verdoyant touché
 Feat/&FeatGroupWeaponMasterDescription=Vous vous êtes beaucoup entraîné avec une variété d'armes, bénéficiant des avantages suivants :\n• Augmentez votre score de force ou de dextérité de 1, jusqu'à un maximum de 20.\n• Vous maîtrisez quatre armes de votre choix. Chacun doit être une arme simple ou martiale.
 Feat/&FeatGroupWeaponMasterTitle=Maître d'armes
+Feature/&MartialChampionSuperiorCriticalDescription=Vos attaques avec des armes infligent un coup critique sur un résultat de 18, 19 ou 20.

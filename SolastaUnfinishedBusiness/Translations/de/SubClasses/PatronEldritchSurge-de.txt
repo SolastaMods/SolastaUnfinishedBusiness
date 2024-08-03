@@ -1,4 +1,3 @@
-Attribute/&TitleLong=Vielseitig
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Sie erhalten eine zusätzliche Aktion und können alle Ihre Vielseitigkeiten ohne Würfe oder Punkteverbrauch nutzen, indem Sie Stärke, Intelligenz oder Weisheit auf mindestens 22 setzen.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Explosionsüberlastung
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Du erhältst <b>Eldritch Blast</b> als Bonus-Cantrip. Die Anzahl der Strahlen ergibt sich aus Ihrer Entscheidung und berechnet sich wie folgt: [Hexenmeisterstufen] – 2 * [Stufen anderer Klassen]. Sie können 2 Strahlen werfen, wenn Ihre Entschlossenheit>= 3, 3, wenn >= 8, 4, wenn >= 13 und 5, wenn >= 18.

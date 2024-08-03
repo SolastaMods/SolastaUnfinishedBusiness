@@ -1,1 +1,0 @@
-Feature/&MartialChampionSuperiorCriticalDescription=Ваши атаки оружием вызывают критическое попадание при бросках 18, 19 и 20.

@@ -1,1 +1,0 @@
-Feature/&MartialChampionSuperiorCriticalDescription=무기 공격은 18, 19 또는 20이 나올 때 치명타를 기록합니다.

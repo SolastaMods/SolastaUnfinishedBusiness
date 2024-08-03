@@ -1,4 +1,3 @@
-Attribute/&TitleLong=通才
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=你获得一个额外主要动作，你施展所有的才能不需要消耗魔能点，不需要进行任何检定。
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=魔爆超限
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=你将 <b>魔能爆</b> 作为额外戏法，其射线的数量改为由你的邪术师等级减去两倍其他职业等级决定，该差每大于等于 3, 8, 13, 18，增加一条射线。

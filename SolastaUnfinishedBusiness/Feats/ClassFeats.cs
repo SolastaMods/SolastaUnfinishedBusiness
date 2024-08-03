@@ -92,6 +92,26 @@ internal static class ClassFeats
     {
         const string NAME = "FeatCallForCharge";
 
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat, ConditionDefinitions.ConditionBlessed)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create($"MovementAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedAdditiveModifier(3)
+                    .AddToDB(),
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+                    .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .AddToDB())
+            .AddToDB();
+
+        condition.GuiPresentation.description = Gui.NoLocalization;
+        
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatCallForCharge")
             .SetGuiPresentation(Category.Feat)
@@ -107,32 +127,7 @@ internal static class ClassFeats
                             .Create()
                             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                            .SetEffectForms(
-                                EffectFormBuilder
-                                    .Create()
-                                    .SetConditionForm(
-                                        ConditionDefinitionBuilder
-                                            .Create($"Condition{NAME}")
-                                            .SetGuiPresentation(Category.Condition,
-                                                ConditionDefinitions.ConditionBlessed)
-                                            .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                            .SetPossessive()
-                                            .SetFeatures(
-                                                FeatureDefinitionMovementAffinityBuilder
-                                                    .Create($"MovementAffinity{NAME}")
-                                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition,
-                                                        Gui.NoLocalization)
-                                                    .SetBaseSpeedAdditiveModifier(3)
-                                                    .AddToDB(),
-                                                FeatureDefinitionCombatAffinityBuilder
-                                                    .Create($"CombatAffinity{NAME}")
-                                                    .SetGuiPresentation(
-                                                        $"Condition{NAME}", Category.Condition, Gui.NoLocalization)
-                                                    .SetMyAttackAdvantage(AdvantageType.Advantage)
-                                                    .AddToDB())
-                                            .AddToDB(),
-                                        ConditionForm.ConditionOperation.Add)
-                                    .Build())
+                            .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
                             .SetParticleEffectParameters(MagicWeapon)
                             .Build())
                     .AddToDB())

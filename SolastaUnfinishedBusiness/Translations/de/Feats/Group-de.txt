@@ -142,3 +142,4 @@ Feat/&FeatGroupVerdantTouchedDescription=Erhöhe eines deiner Geistesattribute u
 Feat/&FeatGroupVerdantTouchedTitle=Grün berührt
 Feat/&FeatGroupWeaponMasterDescription=Sie haben ausgiebig mit einer Vielzahl von Waffen geübt und dabei die folgenden Vorteile erlangt:\n• Erhöhen Sie Ihren Stärke- oder Geschicklichkeitswert um 1 auf maximal 20.\n• Sie erwerben Kenntnisse im Umgang mit vier Waffen Ihrer Wahl. Bei jeder davon muss es sich um eine einfache Waffe oder eine Kampfwaffe handeln.
 Feat/&FeatGroupWeaponMasterTitle=Waffenmeister
+Feature/&MartialChampionSuperiorCriticalDescription=Ihre Waffenangriffe erzielen bei einem Ergebnis von 18, 19 oder 20 einen kritischen Treffer.

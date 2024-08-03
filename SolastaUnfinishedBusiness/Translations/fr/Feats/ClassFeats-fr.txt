@@ -1,5 +1,3 @@
-Condition/&ConditionFeatCallForChargeDescription=Votre vitesse augmente de 15 pieds et vous avez un avantage sur votre attaque.
-Condition/&ConditionFeatCallForChargeTitle=Appel payant
 Condition/&ConditionFeatSlayTheEnemiesDescription=Vous disposez d'un bonus aux jets d'attaque et de dégâts égal à {0}. Si votre cible est un ennemi favori, vous bénéficiez d'un avantage au lieu d'un bonus aux jets d'attaque.
 Condition/&ConditionFeatSlayTheEnemiesTitle=Tuez les ennemis
 Feat/&FeatAwakenTheBeastWithinDescription=Augmentez votre {0} de 1, jusqu'à un maximum de 20. Chaque fois que vous utilisez votre capacité Wild Shape pour vous transformer en bête, vous gagnez des points de vie temporaires égaux à deux fois votre niveau de druide.

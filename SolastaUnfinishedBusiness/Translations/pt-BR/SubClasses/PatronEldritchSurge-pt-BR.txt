@@ -1,4 +1,3 @@
-Attribute/&TitleLong=Versátil
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Você ganha uma ação extra e pode usar todas as suas versatilidades sem testes ou consumo de pontos, definindo Força, Inteligência ou Sabedoria em no mínimo 22.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Sobrecarga de explosão
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Você ganha <b>Eldritch Blast</b> como um truque bônus. O número de feixes é derivado de sua determinação, calculado como: [Níveis de Warlock] - 2 * [Níveis de Outras Classes]. Você pode lançar 2 raios quando sua determinação for>= 3, 3 quando >= 8, 4 quando >= 13 e 5 quando >= 18.

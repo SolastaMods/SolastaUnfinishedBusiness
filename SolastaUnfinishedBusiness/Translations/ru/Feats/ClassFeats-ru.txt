@@ -1,5 +1,3 @@
-Condition/&ConditionFeatCallForChargeDescription=Ваша скорость увеличивается на 15 футов и вы получаете преимущество на бросок атаки.
-Condition/&ConditionFeatCallForChargeTitle=Призыв к атаке
 Condition/&ConditionFeatSlayTheEnemiesDescription=Вы обладаете бонусом к броскам атаки и урона, равным {0}. Если ваша цель - предпочтительный противник, вместо этого вы получаете преимущество.
 Condition/&ConditionFeatSlayTheEnemiesTitle=Сразить врагов
 Feat/&FeatAwakenTheBeastWithinDescription=Увеличьте значение {0} на 1 при максимуме 20. Каждый раз, когда вы используете Облик зверя, вы получаете временные хиты, равные вашему удвоенному уровню друида.

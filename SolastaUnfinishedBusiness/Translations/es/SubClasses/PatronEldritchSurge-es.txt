@@ -1,4 +1,3 @@
-Attribute/&TitleLong=Versátil
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Obtienes una acción adicional y puedes usar todas tus versatilidades sin controles ni consumo de puntos, estableciendo Fuerza, Inteligencia o Sabiduría en 22 como mínimo.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Sobrecarga explosiva
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Obtienes <b>Explosión sobrenatural</b> como truco adicional. El número de rayos se deriva de su determinación calculada como: [Niveles de brujo] - 2 * [Niveles de otras clases]. Puedes lanzar 2 rayos cuando tu determinación>= 3, 3 cuando >= 8, 4 cuando >= 13 y 5 cuando >= 18.

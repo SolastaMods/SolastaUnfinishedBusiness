@@ -1,5 +1,3 @@
-Condition/&ConditionFeatCallForChargeDescription=Tu velocidad aumenta en 15 pies y tienes ventaja en tu ataque.
-Condition/&ConditionFeatCallForChargeTitle=Llame para cobrar
 Condition/&ConditionFeatSlayTheEnemiesDescription=Tienes una bonificación a las tiradas de ataque y daño igual a {0}. Si tu objetivo es un enemigo favorito, tienes ventaja en lugar de bonificación a la tirada de ataque.
 Condition/&ConditionFeatSlayTheEnemiesTitle=Mata a los enemigos
 Feat/&FeatAwakenTheBeastWithinDescription=Aumenta tu {0} en 1, hasta un máximo de 20. Siempre que uses tu habilidad Forma salvaje para transformarte en una bestia, obtienes puntos de vida temporales equivalentes al doble de tu nivel de druida.

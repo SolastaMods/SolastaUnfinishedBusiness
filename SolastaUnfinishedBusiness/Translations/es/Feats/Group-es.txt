@@ -142,3 +142,4 @@ Feat/&FeatGroupVerdantTouchedDescription=Aumenta uno de tus atributos mentales e
 Feat/&FeatGroupVerdantTouchedTitle=Verde tocado
 Feat/&FeatGroupWeaponMasterDescription=Has practicado extensamente con una variedad de armas y has obtenido los siguientes beneficios:\n• Aumenta tu puntuación de Fuerza o Destreza en 1, hasta un máximo de 20.\n• Obtienes competencia con cuatro armas de tu elección. Cada uno debe ser un arma simple o marcial.
 Feat/&FeatGroupWeaponMasterTitle=Maestro de armas
+Feature/&MartialChampionSuperiorCriticalDescription=Tus ataques con armas obtienen un golpe crítico con una tirada de 18, 19 o 20.
