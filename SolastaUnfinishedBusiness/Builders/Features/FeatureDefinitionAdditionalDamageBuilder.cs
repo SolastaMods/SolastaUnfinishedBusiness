@@ -169,13 +169,6 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
-    internal FeatureDefinitionAdditionalDamageBuilder SetAdditionalDamageType(
-        AdditionalDamageType damageType)
-    {
-        Definition.additionalDamageType = damageType;
-        return this;
-    }
-
     internal FeatureDefinitionAdditionalDamageBuilder SetDamageValueDetermination(
         AdditionalDamageValueDetermination determination)
     {

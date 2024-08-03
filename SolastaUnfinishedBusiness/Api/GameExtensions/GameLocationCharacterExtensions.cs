@@ -292,7 +292,6 @@ public static class GameLocationCharacterExtensions
         var ranks = instance.currentActionRankByType;
         return ranks.TryGetValue(type, out var value) ? value : 0;
     }
-#endif
 
     internal static FeatureDefinition GetCurrentAdditionalActionFeature(
         this GameLocationCharacter instance,
@@ -306,6 +305,7 @@ public static class GameLocationCharacterExtensions
         var filters = instance.ActionPerformancesByType[type];
         return rank >= filters.Count ? null : PerformanceFilterExtraData.GetData(filters[rank])?.Feature;
     }
+#endif
 
     internal static bool CanCastAnyInvocationOfActionId(
         this GameLocationCharacter instance,
