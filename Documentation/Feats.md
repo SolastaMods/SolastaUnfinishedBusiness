@@ -209,7 +209,7 @@ When angered, you radiate menace. You gain the following benefits:
 
 You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:
 • Increase your Strength, Constitution, or Charisma by 1, up to a maximum of 20.
-• Your scales harden. While you aren't wearing armor, your armor class is equal to 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
+• Your scales harden. While you aren't wearing armor, your AC is equal to 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
 • You can grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.
 
 # 43. - *Dragon Wings* © [UB]
@@ -419,7 +419,7 @@ You have spent a lot of time studying locks - how to craft them and how to pick 
 
 You are descended from a master of the longsword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity by 1, to a maximum of 20.
-• While you are holding a longsword, you gain a +1 bonus to armor class.
+• While you are holding a longsword, you gain a +1 bonus to AC.
 • Longsword has the finesse property when you wield it.
 
 # 86. - *Lucky* © [UB]
@@ -595,7 +595,7 @@ Before you make your first attack on your turn, you can decide to attack reckles
 
 You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity or Strength by 1, to a maximum of 20.
-• While you are holding a great sword, you gain a +1 bonus to armor class.
+• While you are holding a great sword, you gain a +1 bonus to AC.
 • Great sword has the finesse property when you wield it.
 
 # 123. - Robust [SOL]
@@ -737,7 +737,7 @@ When you are about to get hit by a melee attack while dual-wielding (not sword +
 # 151. - Unarmored Expert [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.
+While you are not wearing any armor, your AC is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.
 
 # 152. - Uncanny Accuracy [SOL]
 

@@ -169,7 +169,7 @@ When you hit an enemy with your attack you can channel magical energy through th
 
 Your Force Jolt and Steel Defender become more powerful:
 • The extra damage of your Force Jolt increase to 4d6.
-• Your Steel Defender gains a +2 bonus to Armor Class.
+• Your Steel Defender gains a +2 bonus to AC.
 
 
 
@@ -756,7 +756,7 @@ Starting at 3rd level, you can dual-wield non-light melee weapons as well as add
 
 * Furious Defense
 
-Starting at 6th level, while you are raging, whenever you roll a Dexterity saving throw, you can use your Strength saving throw instead. You gain +2 AC while you are raging and dual-wielding two melee weapons.
+Starting at 6th level, while you are raging, whenever you roll a Dexterity saving throw, you can use your Strength saving throw instead. You gain +2 bonus to AC while you are raging and dual-wielding two melee weapons.
 
 
 ### Level 10
@@ -954,7 +954,7 @@ The College of Elegance is the home of bards who mastered the art of bodily moti
 * Elegant Fighting
 
 You express your battle arts through nimbleness and movement. While you are wearing no armor and not wielding a shield, you gain the following benefits:
-• Your Armor Class equals 10 + your Dexterity modifier + your Charisma modifier.
+• Your AC equals 10 + your Dexterity modifier + your Charisma modifier.
 • You can expend a Bardic Inspiration die and use your bonus action to gain benefits of Dash, Disengage or Dodge actions.
 
 * Grace
@@ -966,7 +966,7 @@ When you make a Charisma (Performance) or Dexterity (Acrobatics) check, you can 
 
 * Evasive Footwork
 
-Whenever an attack is about to hit you, and you are wearing no armor and not wielding a shield, you can use your reaction to add your Bardic Inspiration die to your Armor Class for that attack, potentially causing it to miss.
+Whenever an attack is about to hit you, and you are wearing no armor and not wielding a shield, you can use your reaction to add your Bardic Inspiration die to your AC for that attack, potentially causing it to miss.
 
 * Extra Attack
 
@@ -1306,7 +1306,7 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * Gut Deflection
 
-You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your armor class until your next turn.
+You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
 
 
 
@@ -2477,7 +2477,7 @@ Arboreal tendrils grow from your ft and dig into the ground. Your speed becomes 
 
 * Barkskin
 
-Armor class is set to 16.
+AC is set to 16.
 
 * Forest Barrier
 
@@ -3025,9 +3025,9 @@ You can replace one maneuver you know with a new one.
 
 ### Level 10
 
-* Maneuvers
+* Additional Superiority Die
 
-Learn 2 maneuvers.
+You gain two additional superiority die.
 
 * Replace Maneuver
 
@@ -3197,7 +3197,7 @@ When you hit a creature with a weapon attack, that creature has disadvantage on 
 
 * Arcane Deflection
 
-You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your armor class until your next turn.
+You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
 
 
 ### Level 18
@@ -5021,7 +5021,7 @@ The Wildmaster archetype embodies a friendship between the civilized races and t
 
 * Beast Companion
 
-You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It gains your Wisdom modifier to armor class, attack rolls and damage rolls. It also gains 5 + 5 HP per ranger level, both Beast Companion and ranger share the same initiative, and you can choose between a Bear, an Eagle or a Wolf: Bear gains an additional 3 HP per ranger level, Eagle can fly and Wolf has pact tactics.
+You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It gains your Wisdom modifier to AC, attack rolls and damage rolls. It also gains 5 + 5 HP per ranger level, both Beast Companion and ranger share the same initiative, and you can choose between a Bear, an Eagle or a Wolf: Bear gains an additional 3 HP per ranger level, Eagle can fly and Wolf has pact tactics.
 
 
 ### Level 7
@@ -5061,7 +5061,7 @@ You gain proficiency in the acrobat skill.
 
 * Acrobat Protector
 
-You add half your proficiency bonus (rounded down) to your armor class while wielding a quarterstaff in two hands, and you are wearing no armor or light armor.
+You add half your proficiency bonus (rounded down) to your AC while wielding a quarterstaff in two hands, and you are wearing no armor or light armor.
 
 * Acrobat Trooper
 
@@ -5815,7 +5815,7 @@ When you hit with an attack or deal damage with a spell, add your Charisma modif
 
 * Battle Reflexes
 
-Your armor class increases by 2, and you gain proficiency in Dexterity saving throws.
+Your AC increases by 2, and you gain proficiency in Dexterity saving throws.
 
 
 
@@ -6388,7 +6388,7 @@ You can summon forth a spiritual form of a weapon, for one minute, from your pac
 
 * Soul Shield
 
-You can use the power of souls to defend yourself. As a reaction, you can gain +5 to your armor class until the start of your next turn. You can use this feature once per short rest.
+You can use the power of souls to defend yourself. As a reaction, you can gain +5 to your AC until the start of your next turn. You can use this feature once per short rest.
 
 
 ### Level 14
@@ -6777,7 +6777,7 @@ Bladesingers use a series of intricate, elegant maneuvers that fend off harm and
 * Blade Dance
 
 You can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you use medium armor, heavy armor or a shield, or if you wield a two-handed to make an attack with a weapon:
-• You gain a bonus to your armor class equal to your Intelligence modifier.
+• You gain a bonus to your AC equal to your Intelligence modifier.
 • Your walking speed increases by 10 ft.
 • You have advantage on Dexterity (Acrobatics) checks.
 • You have advantage on Constitution checks.

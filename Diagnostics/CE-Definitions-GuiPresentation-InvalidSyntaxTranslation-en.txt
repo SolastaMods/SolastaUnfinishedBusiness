@@ -796,7 +796,7 @@ FeatGroupCrusher	Description='Increase your Strength or Constitution by 1, to a 
 When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.'.
 FeatGroupDefenseCombat	Description='Always Ready, Battle Fervor, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Raise Shield, Shield Bash, Shield Master, Twin Blade, Unarmored Expert'.
 FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.'.
+While you are not wearing any armor, your AC is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.'.
 FeatGroupDevastatingStrikes	Description='Your melee attacks are especially deadly. You gain the following benefits:
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • Once per turn, when you hit a creature with a melee weapon attack, you deal additional damage equal to your proficiency bonus.
@@ -806,7 +806,7 @@ FeatGroupDragonFear	Description='When angered, you radiate menace. You gain the 
 • Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failed save, a target becomes frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.'.
 FeatGroupDragonHide	Description='You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:
 • Increase your Strength, Constitution, or Charisma by 1, up to a maximum of 20.
-• Your scales harden. While you aren't wearing armor, your armor class is equal to 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
+• Your scales harden. While you aren't wearing armor, your AC is equal to 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
 • You can grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.'.
 FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to the chosen damage type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.'.
 FeatGroupElementalMaster	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to the chosen damage type. In addition, when you roll attack for a spell you cast that deals damage of that type, you can reroll any 1s.'.
@@ -865,7 +865,7 @@ FeatGroupRetinueTouched	Description='Increase one of your mental attributes by 1
 You gain the ability to cast the bless, heroism and enhance ability spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupRevenantGreatSword	Description='You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity or Strength by 1, to a maximum of 20.
-• While you are holding a great sword, you gain a +1 bonus to armor class.
+• While you are holding a great sword, you gain a +1 bonus to AC.
 • Great sword has the finesse property when you wield it.'.
 FeatGroupSecondChance	Description='Increase your Dexterity, Constitution, or Charisma by 1, to a maximum of 20. When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.'.
 FeatGroupShadowTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.

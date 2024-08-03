@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierMoonlitScionLunarRadianceEnemyTitle",
-    "description": "Feature/&AttributeModifierMoonlitScionLunarRadianceEnemyDescription",
+    "title": "Feature/&PowerMoonlitScionLunarRadianceTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

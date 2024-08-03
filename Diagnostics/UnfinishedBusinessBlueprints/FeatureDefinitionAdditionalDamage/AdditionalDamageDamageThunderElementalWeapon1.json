@@ -19,112 +19,11 @@
   "flatBonus": 0,
   "damageDieType": "D4",
   "damageDiceNumber": 2,
-  "additionalDamageType": "Specific",
-  "specificDamageType": "DamageThunder",
+  "additionalDamageType": "SameAsBaseDamage",
+  "specificDamageType": "Radiant",
   "ancestryTypeForDamageType": "Sorcerer",
-  "damageAdvancement": "SlotLevel",
-  "diceByRankTable": [
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 1,
-      "diceNumber": 0
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 2,
-      "diceNumber": 1
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 3,
-      "diceNumber": 2
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 4,
-      "diceNumber": 3
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 5,
-      "diceNumber": 4
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 6,
-      "diceNumber": 5
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 7,
-      "diceNumber": 6
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 8,
-      "diceNumber": 7
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 9,
-      "diceNumber": 8
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 10,
-      "diceNumber": 9
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 11,
-      "diceNumber": 10
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 12,
-      "diceNumber": 11
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 13,
-      "diceNumber": 12
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 14,
-      "diceNumber": 13
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 15,
-      "diceNumber": 14
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 16,
-      "diceNumber": 15
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 17,
-      "diceNumber": 16
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 18,
-      "diceNumber": 17
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 19,
-      "diceNumber": 18
-    },
-    {
-      "$type": "DiceByRank, Assembly-CSharp",
-      "rank": 20,
-      "diceNumber": 19
-    }
-  ],
+  "damageAdvancement": "None",
+  "diceByRankTable": [],
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
   "ignoreCriticalDoubleDice": false,

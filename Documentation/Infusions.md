@@ -5,7 +5,7 @@ Only one additional damage infusion can be active per weapon.
 
 # 2. - Enhance Defense [UB]
 
-Infuse armor or shield to grant a +1 to armor class.
+Infuse armor or shield to grant a +1 to AC.
 The bonus increases to +2 when you reach level 10 of Artificer class.
 
 # 3. - Enhance Focus [UB]

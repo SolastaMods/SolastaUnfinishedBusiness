@@ -1,6 +1,6 @@
 # 1. - Acid Claws (S) level 0 Transmutation [UB]
 
-Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 ft of you. On a hit, the target takes 1d8 acid damage and has armor class lowered by 1 for 1 round (not stacking).
+Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 ft of you. On a hit, the target takes 1d8 acid damage and has AC lowered by 1 for 1 round (not stacking).
 
 # 2. - Acid Splash (V,S) level 0 Conjuration [SOL]
 
@@ -561,7 +561,7 @@ A nonmagical weapon becomes a +1 weapon for up to one hour.
 
 Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
-A duplicate's armor class is equal to 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
+A duplicate's AC is equal to 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
 A creature is unaffected by this spell if it is Blinded, or has Blindsight, Truesight or Tremorsense (doesn't apply if you don't touch ground).
 
 # 136. - Misty Step (V) level 2 Conjuration [SOL]
