@@ -137,20 +137,14 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionFeatureSet BuildStrategicPlan()
+    private static void BuildStrategicPlan()
     {
-        return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSefTacticianStrategicPlan")
-            .SetGuiPresentation(Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .AddFeatureSet(
-                BuildAdaptiveStrategy(),
-                BuildImproviseStrategy(),
-                BuildOvercomingStrategy())
-            .AddToDB();
+        BuildAdaptiveStrategy();
+        BuildImproviseStrategy();
+        BuildOvercomingStrategy();
     }
 
-    private static FeatureDefinition BuildAdaptiveStrategy()
+    private static void BuildAdaptiveStrategy()
     {
         var feature = FeatureDefinitionBuilder
             .Create("FeatureAdaptiveStrategy")
@@ -159,22 +153,18 @@ public sealed class MartialTactician : AbstractSubclass
 
         feature.AddCustomSubFeatures(
             new PhysicalAttackFinishedByMeAdaptiveStrategy(GambitsBuilders.GambitPool, feature));
-
-        return feature;
     }
 
-    private static FeatureDefinitionFeatureSet BuildImproviseStrategy()
+    private static void BuildImproviseStrategy()
     {
-        var feature = FeatureDefinitionFeatureSetBuilder
+        _ = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureImproviseStrategy")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(BuildGambitPoolIncrease(2, "ImproviseStrategy"))
             .AddToDB();
-
-        return feature;
     }
 
-    private static FeatureDefinition BuildOvercomingStrategy()
+    private static void BuildOvercomingStrategy()
     {
         var feature = FeatureDefinitionBuilder
             .Create("FeatureOvercomingStrategy")
@@ -188,8 +178,6 @@ public sealed class MartialTactician : AbstractSubclass
             .AddCustomSubFeatures(new RefundPowerUseWhenTargetWithConditionDies(GambitsBuilders.GambitPool, feature))
             .SetSpecialDuration(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
             .AddToDB();
-
-        return feature;
     }
 
     private static FeatureDefinitionCustomInvocationPool BuildUnlearn()
