@@ -30,6 +30,9 @@ public sealed class MartialTactician : AbstractSubclass
     {
         var unlearn = BuildUnlearn();
 
+        // kept for backward compatibility
+        BuildStrategicPlan();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass,
@@ -40,7 +43,8 @@ public sealed class MartialTactician : AbstractSubclass
             .AddFeaturesAtLevel(7, BuildHonedCraft(), BuildGambitPoolIncrease(),
                 GambitsBuilders.Learn2Gambit,
                 unlearn)
-            .AddFeaturesAtLevel(10, BuildStrategicPlan(), BuildGambitDieSize(DieType.D10),
+            .AddFeaturesAtLevel(10, BuildGambitDieSize(DieType.D10),
+                GambitsBuilders.Learn2Gambit,
                 unlearn)
             .AddFeaturesAtLevel(15, BuildBattleClarity(), BuildGambitPoolIncrease(),
                 GambitsBuilders.Learn2Gambit,
