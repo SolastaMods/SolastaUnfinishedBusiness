@@ -56,7 +56,6 @@ Feature/&AlwaysBeardDescription={0}% の確率で立派なひげが生えてき�
 Feature/&AncestryLevelUpDraconicDescription=あなたの竜族の祖先は、あなたに {0} のダメージ タイプへの親和性を与えます。
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=ボーナスアクションとして素手攻撃を 1 回行うことができます。
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=マーシャルアーツ - ボーナス素手打撃
-Feature/&AttributeModifierDazzledDescription=アーマークラスペナルティ -2。
 Feature/&AttributeModifierDazzledTitle=AC Penalty
 Feature/&AttributeModifierMonkAbundantKiDescription=熟練度ボーナスの半分（切り捨て）を Ki ポイント プールに追加します。
 Feature/&AttributeModifierMonkAbundantKiTitle=豊かな気

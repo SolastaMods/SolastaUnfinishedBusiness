@@ -1,5 +1,3 @@
-Feature/&AttributeModifierMoonlitScionLunarRadianceEnemyDescription=ACへのペナルティ-1
-Feature/&AttributeModifierMoonlitScionLunarRadianceEnemyTitle=月の輝き
 Feature/&FeatureMoonlitScionLunarEmbraceDescription=ルナ クロークへのダメージは 2d8 に増加します。さらに、クロークを召喚するたびに、クロークの持続時間中は歩行速度に等しい飛行速度が得られます。
 Feature/&FeatureMoonlitScionLunarEmbraceTitle=月の抱擁
 Feature/&FeatureSetMoonlitScionLunarCloakDescription=ボーナス アクションを使用すると、光または闇のマントを呼び出すことができ、1 分間次のいずれかのメリットが得られます:\n満月: 半径 15 フィートで明るい光を放ち、さらに 15 フィートで薄暗い光を放ちます。あなたの周りの半径を拡大し、月の輝きパワーを獲得してください。近接呪文攻撃を行う。ヒットすると、クリーチャーは 1d8 の放射ダメージを受け、次のターンの終了時まで AC に -1 のペナルティが与えられます。\n新月: あなたは魔法ではない暗闇に覆われます。薄暗い光または明るい光のタイルに移動すると、魔法ではない暗闇にいるとみなされ、月の冷気の力を獲得します。近接呪文攻撃を行う。ヒットすると、クリーチャーは 1d8 の冷気ダメージを受け、次のターンの終了時まで行動が妨げられます。

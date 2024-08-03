@@ -56,7 +56,6 @@ Feature/&AlwaysBeardDescription={0} % de chances de laisser pousser une magnifi
 Feature/&AncestryLevelUpDraconicDescription=Votre ascendance draconique vous confère une affinité avec {0} types de dégâts.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=Vous pouvez effectuer une frappe à mains nues comme action bonus.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Arts martiaux – Bonus de frappe à mains nues
-Feature/&AttributeModifierDazzledDescription=-2 de pénalité de classe d'armure.
 Feature/&AttributeModifierDazzledTitle=AC Penalty
 Feature/&AttributeModifierMonkAbundantKiDescription=Ajoutez la moitié de votre bonus de compétence (arrondi à l'inférieur) à votre pool de points Ki.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abondant

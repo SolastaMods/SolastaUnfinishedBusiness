@@ -56,7 +56,6 @@ Feature/&AlwaysBeardDescription=Шанс {0}% отрастить великол�
 Feature/&AncestryLevelUpDraconicDescription=Ваше драконье наследие роднит вас со стихией {0}.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=Бонусным действием вы можете совершить один безоружный удар.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Боевые искусства — бонусный безоружный удар
-Feature/&AttributeModifierDazzledDescription=Штраф -2 к классу доспеха.
 Feature/&AttributeModifierDazzledTitle=Штраф к КД
 Feature/&AttributeModifierMonkAbundantKiDescription=Добавьте половину бонуса мастерства (округленного в меньшую сторону) к вашему запасу очков Ки.
 Feature/&AttributeModifierMonkAbundantKiTitle=Обильная Ци

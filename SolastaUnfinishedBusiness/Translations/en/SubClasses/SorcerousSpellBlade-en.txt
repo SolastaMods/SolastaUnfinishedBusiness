@@ -1,6 +1,6 @@
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=When you hit with an attack or deal damage with a spell, add your Charisma modifier as bonus force damage to one damage roll of that attack or spell.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=War Sorcerer
-Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Your armor class increases by 2, and you gain proficiency in Dexterity saving throws.
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Your AC increases by 2, and you gain proficiency in Dexterity saving throws.
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Battle Reflexes
 Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=You can use your bonus action to gain temporary hit points equal to your sorcerer level + Charisma modifier, a number of times per long rest equal to your proficiency bonus. If you are out of uses, you can spend two sorcery points instead.
 Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=Mana Shield

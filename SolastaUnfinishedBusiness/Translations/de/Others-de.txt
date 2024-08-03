@@ -56,7 +56,6 @@ Feature/&AlwaysBeardDescription={0} % Chancen, einen herrlichen Bart wachsen zu 
 Feature/&AncestryLevelUpDraconicDescription=Deine drakonische Abstammung verleiht dir eine Affinität zur Schadensart {0}.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=Als Bonusaktion können Sie einen unbewaffneten Schlag ausführen.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Kampfkunst – Bonus unbewaffneter Schlag
-Feature/&AttributeModifierDazzledDescription=-2 Rüstungsklassenstrafe.
 Feature/&AttributeModifierDazzledTitle=AC Penalty
 Feature/&AttributeModifierMonkAbundantKiDescription=Füge die Hälfte deines Kompetenzbonus (abgerundet) zu deinem Ki-Punkte-Pool hinzu.
 Feature/&AttributeModifierMonkAbundantKiTitle=Reichlich Ki
