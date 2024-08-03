@@ -42,9 +42,10 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.PowerSurgeToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
-        (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
-        (Id)ExtraActionId.SupremeWillToggle
+        (Id)ExtraActionId.ThunderousStrikeToggle,
+        (Id)ExtraActionId.SupremeWillToggle,
+        (Id)ExtraActionId.ZenShotToggle
     ];
 
     internal static FeatureDefinitionPower FarStep { get; private set; }

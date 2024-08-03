@@ -62,11 +62,12 @@ public sealed class WayOfZenArchery : AbstractSubclass
             .Create($"Power{Name}ZenShot")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
+            .DelegatedToAction()
             .AddToDB();
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "ZenShotToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation(powerZenShot.Name, Category.Feature)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ZenShotToggle)
             .SetActivatedPower(powerZenShot)
