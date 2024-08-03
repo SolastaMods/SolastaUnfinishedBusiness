@@ -197,7 +197,7 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false, AttributeDefinitions.Charisma)
                     .AddToDB())
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddCustomSubFeatures(new ModifyDamageAffinitySoulExpulsion())
             .AddToDB();
 

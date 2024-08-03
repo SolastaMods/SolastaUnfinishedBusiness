@@ -41,7 +41,7 @@ internal static class CustomConditionsContext
         Distracted = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityDistractedByAlly")

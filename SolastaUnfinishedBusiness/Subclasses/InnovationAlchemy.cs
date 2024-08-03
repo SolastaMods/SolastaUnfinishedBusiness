@@ -378,7 +378,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                     .SetConditionType(ConditionType.Detrimental)
                     .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityParalyzedAdvantage)
                     .SetSpecialDuration(DurationType.Round, 1)
-                    .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                    .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
                     .AddToDB(),
                 ConditionForm.ConditionOperation.Add)
             .Build();
