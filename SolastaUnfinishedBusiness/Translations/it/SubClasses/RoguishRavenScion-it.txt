@@ -1,21 +1,21 @@
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Il tuo prossimo attacco con arma a distanza avrà come risultato un colpo critico garantito se colpisce una creatura.
-Condition/&ConditionRavenScionHeartSeekingShotTitle=Tiro al cuore
-Feature/&AdditionalDamageRavenScionSniperAimDescription=Una volta per turno, quando colpisci una creatura con un attacco con un'arma a distanza, quella creatura subisce danni extra dello stesso tipo pari al tuo livello da ladro.
-Feature/&AdditionalDamageRavenScionSniperAimTitle=Obiettivo del cecchino
-Feature/&FeatureRavenScionKillingSpreeDescription=Una volta durante il tuo turno, quando riduci una creatura a 0 punti ferita, ottieni un attacco extra come parte della tua azione principale e azzeri l'utilizzo della funzione Mira da cecchino.
+Condition/&ConditionRavenScionHeartSeekingShotTitle=Colpo alla ricerca del cuore
+Feature/&AdditionalDamageRavenScionSniperAimDescription=Una volta per turno, quando colpisci una creatura con un attacco con arma a distanza, quella creatura subisce danni extra dello stesso tipo pari al tuo livello da ladro.
+Feature/&AdditionalDamageRavenScionSniperAimTitle=Mira del cecchino
+Feature/&FeatureRavenScionKillingSpreeDescription=Una volta durante il tuo turno, quando riduci una creatura a 0 punti ferita, ottieni un attacco extra come parte della tua azione principale e azzeri l'utilizzo della tua caratteristica Mira del cecchino.
 Feature/&FeatureRavenScionKillingSpreeTitle=Follia omicida
-Feature/&FeatureSetRavenScionRangedSpecialistDescription=Sei abile con tutte le armi a distanza a due mani e acquisisci lo stile di combattimento del tiro con l'arco.
+Feature/&FeatureSetRavenScionRangedSpecialistDescription=Hai dimestichezza con tutte le armi a distanza a due mani e hai acquisito lo stile di combattimento Tiro con l'arco.
 Feature/&FeatureSetRavenScionRangedSpecialistTitle=Specialista a distanza
-Feature/&PowerRavenScionDeadlyFocusDescription=Se fallisci un tiro per colpire con un'arma a distanza, puoi lanciarlo di nuovo con vantaggio. Puoi usare questa capacità una volta per ogni riposo breve.
-Feature/&PowerRavenScionDeadlyFocusTitle=Focus mortale
-Feature/&PowerRavenScionHeartSeekingShotDescription=Come azione gratuita, puoi fare in modo che il tuo prossimo attacco con arma a distanza risulti in un colpo critico garantito se colpisce una creatura. Puoi usare questa capacità una volta per ogni riposo breve.
-Feature/&PowerRavenScionHeartSeekingShotTitle=Tiro al cuore
-Feedback/&AdditionalDamageSniperAimFormat=Obiettivo del cecchino
-Feedback/&AdditionalDamageSniperAimLine=La Mira del cecchino infligge +{2} danni extra!
-Feedback/&TriggerRavenScionRerollLine={0} tira {1} = {2}. Deadly Focus imporrà un colpo critico.
-Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Usa la tua concentrazione letale per ritentare l'attacco.
-Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Usa la tua concentrazione letale per ritentare l'attacco.
+Feature/&PowerRavenScionDeadlyFocusDescription=Se sbagli con un tiro di attacco con arma a distanza, puoi tirarlo di nuovo con vantaggio. Puoi usare questa caratteristica una volta per riposo breve.
+Feature/&PowerRavenScionDeadlyFocusTitle=Messa a fuoco mortale
+Feature/&PowerRavenScionHeartSeekingShotDescription=Come azione gratuita, puoi far sì che il tuo prossimo attacco con arma a distanza dia come risultato un colpo critico garantito se colpisce una creatura. Puoi usare questa caratteristica una volta per riposo breve.
+Feature/&PowerRavenScionHeartSeekingShotTitle=Colpo alla ricerca del cuore
+Feedback/&AdditionalDamageSniperAimFormat=Mira del cecchino
+Feedback/&AdditionalDamageSniperAimLine=La mira del cecchino infligge +{2} danni extra!
+Feedback/&TriggerRavenScionRerollLine={0} tira {1} = {2}. Deadly Focus forzerà un colpo critico.
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Usa la tua concentrazione mortale per riprovare l'attacco.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Usa la tua concentrazione mortale per riprovare l'attacco.
 Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=Riprova l'attacco
-Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Focus mortale
-Subclass/&RoguishRavenScionDescription=I corvi sono specialisti di armi a distanza addestrati ad abbattere i nemici in modo rapido ed efficace.
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Messa a fuoco mortale
+Subclass/&RoguishRavenScionDescription=I corvi sono specialisti nelle armi a distanza, addestrati ad abbattere i nemici in modo rapido ed efficace.
 Subclass/&RoguishRavenScionTitle=Corvo

@@ -1,6 +1,6 @@
-Race/&RaceHalfElfDarkDescription=Los elfos semioscuros son descendientes de elfos que han cambiado con el tiempo al vivir en las inhóspitas Badlands. Su herencia humana los hizo adaptables a la luz brillante.
+Race/&RaceHalfElfDarkDescription=Los elfos semioscuros son descendientes de elfos que han cambiado con el tiempo al vivir en las inhóspitas Tierras Baldías. Su herencia humana los hizo adaptables a la luz brillante.
 Race/&RaceHalfElfDarkTitle=Elfo medio oscuro
-Race/&RaceHalfElfHighDescription=Los elfos semialtos están entrenados para usar magia desde muy temprano.
+Race/&RaceHalfElfHighDescription=Los elfos semialtos son entrenados para usar magia desde muy temprano.
 Race/&RaceHalfElfHighTitle=Elfo medio alto
-Race/&RaceHalfElfSylvanDescription=Los elfos semisilvanos están entrenados para sobrevivir en la naturaleza y son particularmente aptos para sobrevivir. Como herencia de los elfos selváticos, están entrenados para luchar con espadas y arcos desde la infancia.
-Race/&RaceHalfElfSylvanTitle=Elfo medio selvático
+Race/&RaceHalfElfSylvanDescription=Los elfos semisilvanos están entrenados para sobrevivir en la naturaleza y son particularmente aptos para ello. Como herencia de elfos silvanos, están entrenados para luchar con espadas y arcos desde la infancia.
+Race/&RaceHalfElfSylvanTitle=Elfo medio silvano

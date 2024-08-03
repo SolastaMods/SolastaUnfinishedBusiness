@@ -1,4 +1,4 @@
-Feat/&FeatDualFlurryDescription=Enquanto você estiver empunhando armas corpo a corpo duplas, quando usar sua ação bônus para atacar uma criatura com sua arma secundária, você fará dois ataques contra a criatura com a arma em vez de um.
-Feat/&FeatDualFlurryTitle=Agitação Dupla
-Feat/&FeatDualWeaponDefenseDescription=Você domina o combate com duas armas, ganhando os seguintes benefícios:\n• Você ganha um bônus de +1 na CA enquanto usa armas corpo a corpo com empunhadura dupla.\n• Você pode usar o combate com duas armas, mesmo quando estiver com uma mão. as armas brancas que você empunha não são leves.
+Feat/&FeatDualFlurryDescription=Enquanto estiver empunhando duas armas brancas, ao usar sua ação bônus para atacar uma criatura com sua arma secundária, você faz dois ataques contra a criatura com a arma em vez de um.
+Feat/&FeatDualFlurryTitle=Rajada dupla
+Feat/&FeatDualWeaponDefenseDescription=Você domina a luta com duas armas, ganhando os seguintes benefícios:\n• Você ganha um bônus de +1 na CA enquanto estiver empunhando duas armas corpo a corpo.\n• Você pode usar a luta com duas armas mesmo quando as armas corpo a corpo de uma mão que estiver empunhando não forem leves.
 Feat/&FeatDualWeaponDefenseTitle=Portador Duplo

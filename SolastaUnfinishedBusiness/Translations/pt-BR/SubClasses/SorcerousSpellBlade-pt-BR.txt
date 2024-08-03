@@ -1,12 +1,12 @@
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Quando você acertar um ataque ou causar dano com uma magia, adicione seu modificador de Carisma como dano de força adicional a uma jogada de dano daquele ataque ou magia.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Quando você acerta com um ataque ou causa dano com uma magia, adicione seu modificador de Carisma como dano de força bônus a uma jogada de dano daquele ataque ou magia.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Feiticeiro de Guerra
-Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Sua classe de armadura aumenta em 2 e você ganha proficiência em testes de resistência de Destreza.
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Sua CA aumenta em 2 e você ganha proficiência em testes de resistência de Destreza.
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Reflexos de Batalha
-Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=Você pode usar sua ação bônus para ganhar pontos de vida temporários iguais ao seu nível de feiticeiro + modificador de Carisma, um número de vezes por descanso longo igual ao seu bônus de proficiência. Se você estiver sem uso, poderá gastar dois pontos de feitiçaria.
+Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=Você pode usar sua ação bônus para ganhar pontos de vida temporários iguais ao seu nível de feiticeiro + modificador de Carisma, um número de vezes por descanso longo igual ao seu bônus de proficiência. Se você estiver sem usos, pode gastar dois pontos de feitiçaria em vez disso.
 Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=Escudo de Mana
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Você ganha proficiência com armaduras leves, armaduras médias e armas marciais.
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Treinamento Marcial
 Feedback/&AdditionalDamageWarSorcererFormat=Feiticeiro de Guerra
 Feedback/&AdditionalDamageWarSorcererLine={0} causa dano de Feiticeiro de Guerra em {1} (+{2})
-Subclass/&SorcerousSpellBladeDescription=Forceblades combinam proezas marciais com talentos mágicos inatos para superar seus inimigos.
-Subclass/&SorcerousSpellBladeTitle=Lâmina de força
+Subclass/&SorcerousSpellBladeDescription=As lâminas de força combinam destreza marcial com talentos mágicos inatos para superar seus inimigos.
+Subclass/&SorcerousSpellBladeTitle=Lâminas de força

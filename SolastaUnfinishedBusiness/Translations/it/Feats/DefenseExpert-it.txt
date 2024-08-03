@@ -1,6 +1,6 @@
-Feat/&FeatArcaneDefenseDescription=Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nMentre non indossi alcuna armatura o scudo, la tua classe armatura è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Intelligenza.
+Feat/&FeatArcaneDefenseDescription=Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nFinché non indossi armature o scudi, la tua CA è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Intelligenza.
 Feat/&FeatArcaneDefenseTitle=Difesa Arcana
-Feat/&FeatCharismaticDefenseDescription=Aumenta il tuo Carisma di 1, fino a un massimo di 20.\nMentre non indossi alcuna armatura o scudo, la tua classe armatura è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Carisma.
+Feat/&FeatCharismaticDefenseDescription=Aumenta il tuo Carisma di 1, fino a un massimo di 20.\nMentre non indossi alcuna armatura o scudo, la tua CA è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Carisma.
 Feat/&FeatCharismaticDefenseTitle=Difesa carismatica
-Feat/&FeatWiseDefenseDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nMentre non indossi alcuna armatura o scudo, la tua classe armatura è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Saggezza.
+Feat/&FeatWiseDefenseDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nFinché non indossi armature o scudi, la tua CA è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Saggezza.
 Feat/&FeatWiseDefenseTitle=Difesa saggia

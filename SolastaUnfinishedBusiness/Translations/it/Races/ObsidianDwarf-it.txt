@@ -1,5 +1,5 @@
 Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=Forza +1
-Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Brawn delle Badlands
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Forza bruta delle Badlands
 Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Hai resistenza ai danni da fuoco.
 Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Cullato dal fuoco
 Feature/&ProficiencyObsidianDwarfLanguagesDescription=Comune, Nanico e Gigante

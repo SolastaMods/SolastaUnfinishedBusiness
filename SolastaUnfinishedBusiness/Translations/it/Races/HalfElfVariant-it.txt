@@ -1,6 +1,6 @@
-Race/&RaceHalfElfDarkDescription=Gli elfi semi-oscuri sono discendenti di elfi che sono stati modificati nel tempo vivendo nelle inospitali Badlands. La loro eredità umana li ha resi adattabili alla luce intensa.
-Race/&RaceHalfElfDarkTitle=Elfo Mezzoscuro
+Race/&RaceHalfElfDarkDescription=Gli elfi Half-Dark sono discendenti di elfi che sono stati modificati nel tempo vivendo nelle inospitali Badlands. La loro eredità umana li ha resi adattabili alla luce intensa.
+Race/&RaceHalfElfDarkTitle=Elfo mezzo oscuro
 Race/&RaceHalfElfHighDescription=Gli elfi mezzo-alti vengono addestrati a usare la magia molto presto.
-Race/&RaceHalfElfHighTitle=Elfo Mezzo-Alto
-Race/&RaceHalfElfSylvanDescription=Gli elfi mezzo-silvani sono addestrati per sopravvivere nelle terre selvagge e sono particolarmente adatti a sopravvivere. Essendo la loro eredità di elfi silvani, sono addestrati a combattere con spade e archi fin dall'infanzia.
-Race/&RaceHalfElfSylvanTitle=Elfo Mezzo Silvano
+Race/&RaceHalfElfHighTitle=Elfo mezzo-alto
+Race/&RaceHalfElfSylvanDescription=Gli elfi mezzo-silvani sono addestrati a sopravvivere nella natura selvaggia e sono particolarmente adatti alla sopravvivenza. Come loro eredità elfica silvana, sono addestrati a combattere con spade e archi fin dall'infanzia.
+Race/&RaceHalfElfSylvanTitle=Elfo mezzo silvano

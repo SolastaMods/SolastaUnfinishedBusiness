@@ -1,4 +1,4 @@
-Feat/&FeatDualFlurryDescription=Mientras empuñas dos armas cuerpo a cuerpo, cuando usas tu acción adicional para atacar a una criatura con tu arma de la mano izquierda, realizas dos ataques contra la criatura con el arma en lugar de uno.
-Feat/&FeatDualFlurryTitle=Ráfaga doble
-Feat/&FeatDualWeaponDefenseDescription=Dominas la lucha con dos armas y obtienes los siguientes beneficios:\n• Obtienes una bonificación de +1 a la CA mientras empuñas dos armas cuerpo a cuerpo.\n• Puedes usar la lucha con dos armas incluso cuando usas una mano. Las armas cuerpo a cuerpo que empuñas no son ligeras.
-Feat/&FeatDualWeaponDefenseTitle=Doble portador
+Feat/&FeatDualFlurryDescription=Mientras empuñas dos armas cuerpo a cuerpo, cuando usas tu acción adicional para atacar a una criatura con tu arma de mano secundaria, realizas dos ataques contra la criatura con el arma en lugar de uno.
+Feat/&FeatDualFlurryTitle=Doble ráfaga
+Feat/&FeatDualWeaponDefenseDescription=Dominas el combate con dos armas, lo que te permite obtener los siguientes beneficios:\n• Obtienes un bonificador de +1 a la CA mientras empuñas dos armas cuerpo a cuerpo.\n• Puedes usar el combate con dos armas incluso cuando las armas cuerpo a cuerpo de una mano que empuñas no son ligeras.
+Feat/&FeatDualWeaponDefenseTitle=Portador doble

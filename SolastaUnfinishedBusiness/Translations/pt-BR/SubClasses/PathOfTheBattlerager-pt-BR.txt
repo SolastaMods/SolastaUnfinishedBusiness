@@ -1,10 +1,10 @@
 Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Ao usar Ataque Imprudente enquanto estiver em fúria, você também ganha pontos de vida temporários iguais ao seu modificador de Constituição (mínimo de 1).
 Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Total abandono
-Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Você ganha proficiência em Armadura Pesada. Seus recursos de fúria também funcionam ao usar armadura pesada.\n\nEnquanto estiver usando armadura, seu ataque desarmado causa 1d6 de dano base. Se você estiver usando uma armadura mágica, seus ataques desarmados contam como mágicos com o propósito de superar a resistência e a imunidade a ataques e danos não mágicos. \n\nEnquanto estiver em fúria, você pode usar ataque desarmado como uma ação bônus.
-Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Armadura de Batalha Furiosa
-Feature/&PowerPathOfTheBattleragerArmoredRetributionDescription=Enquanto você estiver em fúria, quando uma criatura a até 1,5 metro de você atingir você com um ataque corpo a corpo, o atacante sofre 3 pontos de dano de concussão.
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Você ganha proficiência em Armadura Pesada. Suas características de fúria também funcionam enquanto estiver usando armadura pesada.\n\nEnquanto estiver usando armadura, seu ataque desarmado causa 1d6 de dano base. Se estiver usando armadura mágica, seus ataques desarmados contam como mágicos para o propósito de superar resistência e imunidade a ataques e danos não mágicos. \n\nEnquanto estiver em fúria, você pode usar ataque desarmado como uma ação bônus.
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Armadura Battlerager
+Feature/&PowerPathOfTheBattleragerArmoredRetributionDescription=Enquanto você estiver furioso, quando uma criatura a até 1,5 m de você lhe atingir com um ataque corpo a corpo, o atacante sofre 3 de dano contundente.
 Feature/&PowerPathOfTheBattleragerArmoredRetributionTitle=Retribuição Blindada
-Feature/&PowerPathOfTheBattleragerBattleragerChargeDescription=Enquanto estiver em fúria, você pode realizar a ação Correr como uma ação bônus.
-Feature/&PowerPathOfTheBattleragerBattleragerChargeTitle=Carga de Battlerager
-Subclass/&PathOfTheBattleragerDescription=Battleragers dominaram a arte de usar suas armaduras como armas e se lançar no meio de seus inimigos.
+Feature/&PowerPathOfTheBattleragerBattleragerChargeDescription=Enquanto estiver furioso, você pode realizar a ação de Disparada como uma ação bônus.
+Feature/&PowerPathOfTheBattleragerBattleragerChargeTitle=Ataque de Battlerager
+Subclass/&PathOfTheBattleragerDescription=Os Battleragers dominam a arte de usar suas armaduras como armas e se lançar no meio de seus inimigos.
 Subclass/&PathOfTheBattleragerTitle=Caminho do Battlerager

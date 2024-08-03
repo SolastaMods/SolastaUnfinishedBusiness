@@ -1,8 +1,8 @@
 Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=Stärke +1
-Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Badlands Brawn
-Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Du hast Resistenz gegen Feuerschaden.
-Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Vom Feuer umschlungen
-Feature/&ProficiencyObsidianDwarfLanguagesDescription=Gewöhnlich, Zwergisch und Riesig
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Badlands-Muskeln
+Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Sie sind resistent gegen Feuerschäden.
+Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Vom Feuer gewiegt
+Feature/&ProficiencyObsidianDwarfLanguagesDescription=Gewöhnlich, Zwergenartig und Riesig
 Feature/&ProficiencyObsidianDwarfLanguagesTitle=Sprachen
-Race/&RaceObsidianDwarfDescription=In vergangenen Zeiten wurde eine Gruppe Zwerge von Feuerriesen als Bergleute und Handwerker versklavt. Die chaotische Magie der Katastrophe verlieh vielen dieser Zwerge etwas von der Stärke und Widerstandskraft ihrer Unterdrücker. Die Zwerge rebellierten, erlangten ihre Freiheit und zogen sich in die Badlands zurück. Sie nennen sich Obsidianzwerge und sind gewachsen und gediehen.
+Race/&RaceObsidianDwarfDescription=In vergangenen Zeiten wurde eine Gruppe Zwerge von Feuerriesen als Bergarbeiter und Handwerker versklavt. Die chaotische Magie der Katastrophe verlieh vielen dieser Zwerge etwas von der Stärke und Widerstandskraft ihrer Unterdrücker. Die Zwerge rebellierten, gewannen ihre Freiheit und zogen sich in die Badlands zurück. Sie nannten sich Obsidian-Zwerge und sind gewachsen und gediehen.
 Race/&RaceObsidianDwarfTitle=Obsidian-Zwerg

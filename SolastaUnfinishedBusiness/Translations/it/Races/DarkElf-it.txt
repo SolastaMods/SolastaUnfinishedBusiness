@@ -1,8 +1,8 @@
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Carisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento del punteggio di abilità
-Feature/&CastSpellDarkelfMagicDescription=Conosci il trucchetto <b>Luci danzanti</b>. Al 3° livello impari il <b>Fuoco fatato</b> e al 5° livello, l'<b>Oscurità</b>. Entrambi possono essere utilizzati una volta per riposo lungo.
-Feature/&CastSpellDarkelfMagicTitle=Magia degli Elfi Oscuri
-Feature/&ProficiencyDarkelfWeaponTrainingDescription=Hai competenza con gli stocchi, le spade corte e le balestre a mano.
-Feature/&ProficiencyDarkelfWeaponTrainingTitle=Addestramento con le armi degli Elfi Oscuri
+Feature/&CastSpellDarkelfMagicDescription=Conosci il trucchetto <b>Dancing Lights</b>. Al 3° livello impari <b>Faerie Fire</b> e al 5° livello, <b>Darkness</b>. Entrambi possono essere usati una volta per riposo lungo.
+Feature/&CastSpellDarkelfMagicTitle=Magia degli elfi oscuri
+Feature/&ProficiencyDarkelfWeaponTrainingDescription=Hai competenza nell'uso di spade, spade corte e balestre a mano.
+Feature/&ProficiencyDarkelfWeaponTrainingTitle=Addestramento alle armi degli elfi oscuri
 Race/&RaceDarkelfDescription=Gli elfi oscuri sono discendenti di elfi che sono stati modificati nel tempo vivendo nelle inospitali Badlands. Gli elfi oscuri sono in gran parte notturni e si sono adattati a vivere nelle antiche rovine delle Badlands, in particolare nelle rovine sotterranee sepolte. Tendono ad avere la pelle scura e i capelli chiari.
 Race/&RaceDarkelfTitle=Elfo Oscuro

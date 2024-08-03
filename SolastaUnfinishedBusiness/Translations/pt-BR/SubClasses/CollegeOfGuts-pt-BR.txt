@@ -1,4 +1,4 @@
-Feature/&PowerCollegeOfGutsArcaneDeflectionDescription=Você pode usar seus poderes arcanos para se proteger como reação. Isso lhe dá +3 na sua classe de armadura até o próximo turno.
-Feature/&PowerCollegeOfGutsArcaneDeflectionTitle=Deflexão intestinal
-Subclass/&CollegeOfGutsDescription=Os bardos do Colégio da Bravura se reúnem em salões de hidromel ou ao redor de grandes fogueiras para cantar os feitos dos poderosos, tanto do passado quanto do presente. Eles viajam pelo país para testemunhar grandes acontecimentos em primeira mão e para garantir que a memória desses acontecimentos não se afaste do mundo. Com suas canções, eles inspiram outros a alcançar os mesmos níveis de realização que os heróis de antigamente.
-Subclass/&CollegeOfGutsTitle=Colégio do Valor
+Feature/&PowerCollegeOfGutsArcaneDeflectionDescription=Você pode usar seus poderes arcanos para se proteger como uma reação. Isso lhe dá +3 na sua CA até seu próximo turno.
+Feature/&PowerCollegeOfGutsArcaneDeflectionTitle=Desvio intestinal
+Subclass/&CollegeOfGutsDescription=Bardos do Colégio do Valor se reúnem em salões de hidromel ou ao redor de grandes fogueiras para cantar os feitos dos poderosos, tanto do passado quanto do presente. Eles viajam pela terra para testemunhar grandes eventos em primeira mão e para garantir que a memória desses eventos não passe do mundo. Com suas canções, eles inspiram outros a alcançarem as mesmas alturas de realização que os heróis de antigamente.
+Subclass/&CollegeOfGutsTitle=Faculdade de Valor

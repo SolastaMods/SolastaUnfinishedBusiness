@@ -1,15 +1,15 @@
-Tutorial/&TutorialActionSwitchingDescription=Quando hai più di un'azione principale o bonus disponibile, puoi fare clic sul simbolo di stato dell'azione per renderla l'azione attualmente attiva. Ciò consente di attaccare utilizzando l'azione Haste o Horde Breaker e quindi lanciare incantesimi con l'azione predefinita. O qualsiasi altra combinazione di cui potresti aver bisogno.\nPassando il mouse sul simbolo di stato dell'azione viene visualizzata una descrizione comando con il nome della funzione o della condizione che ha concesso l'azione.
+Tutorial/&TutorialActionSwitchingDescription=Quando hai più di un'azione principale o bonus disponibile, puoi cliccare sul simbolo di stato dell'azione per renderla la tua azione attiva. Ciò consente di attaccare usando l'azione Haste o Horde Breaker e poi lanciare un incantesimo con l'azione predefinita. O qualsiasi altra combinazione di cui potresti aver bisogno.\nPassando il mouse sul simbolo di stato dell'azione viene visualizzato un suggerimento con il nome della caratteristica o condizione che ha concesso l'azione.
 Tutorial/&TutorialActionSwitchingTitle=Azioni multiple
 UI/&Add=Add
 UI/&AdditionalActionSource=Concesso da: {0}
 UI/&Current Party=Partito attuale
 UI/&DistanceFormat=Distanza: {0}
-UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'utilizzo]</color></i>:
+UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'uso]</color></i>:
 UI/&Expert=Esperto
 UI/&From=Da
 UI/&PartyEditor=Redattore del partito
-UI/&PartyEditorMessage=Questo semplice editor di party ti consente di modificare i personaggi in una sessione di gioco caricata. Fare clic su quanto segue per segnalare problemi:
-UI/&PartyEditorUnavailable=****** Party Editor non disponibile: carica un salvataggio ******
+UI/&PartyEditorMessage=Questo semplice editor di gruppo ti consente di modificare i personaggi in una sessione di gioco caricata. Clicca su quanto segue per segnalare i problemi:
+UI/&PartyEditorUnavailable=****** Party Editor non disponibile: caricare un salvataggio della partita ******
 UI/&Quickies=Sveltine
 UI/&Remove=Rimuovere
 UI/&Skilled=Abile

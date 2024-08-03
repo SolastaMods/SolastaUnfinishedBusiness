@@ -1,6 +1,6 @@
-Feat/&FeatArcanePrecisionDescription=Aumente sua Inteligência em 1, até um máximo de 20.\nVocê pode usar uma ação bônus para selecionar uma arma. Seus ataques contam como mágicos e você usa sua Inteligência para ataques e jogadas de dano por 1 minuto. Este recurso pode ser usado vezes bônus de proficiência por descanso longo.
+Feat/&FeatArcanePrecisionDescription=Aumente sua Inteligência em 1, até um máximo de 20.\nVocê pode usar uma ação bônus para selecionar uma arma. Seus ataques contam como mágicos, e você usa sua Inteligência para suas jogadas de ataque e dano por 1 minuto. Esta característica pode ser usada vezes bônus de proficiência por descanso longo.
 Feat/&FeatArcanePrecisionTitle=Precisão Arcana
-Feat/&FeatCharismaticPrecisionDescription=Aumente seu Carisma em 1, até um máximo de 20.\nVocê pode usar uma ação bônus para selecionar uma arma. Seus ataques contam como mágicos e você usa seu Carisma para ataques e jogadas de dano por 1 minuto. Este recurso pode ser usado vezes bônus de proficiência por descanso longo.
+Feat/&FeatCharismaticPrecisionDescription=Aumente seu Carisma em 1, até um máximo de 20.\nVocê pode usar uma ação bônus para selecionar uma arma. Seus ataques contam como mágicos, e você usa seu Carisma para suas jogadas de ataque e dano por 1 minuto. Esta característica pode ser usada vezes bônus de proficiência por descanso longo.
 Feat/&FeatCharismaticPrecisionTitle=Precisão Carismática
-Feat/&FeatWisePrecisionDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê pode usar uma ação bônus para selecionar uma arma. Seus ataques contam como mágicos e você usa sua Sabedoria para ataques e jogadas de dano por 1 minuto. Este recurso pode ser usado vezes bônus de proficiência por descanso longo.
-Feat/&FeatWisePrecisionTitle=Precisão Sábia
+Feat/&FeatWisePrecisionDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê pode usar uma ação bônus para selecionar uma arma. Seus ataques contam como mágicos, e você usa sua Sabedoria para suas jogadas de ataque e dano por 1 minuto. Esta característica pode ser usada vezes bônus de proficiência por descanso longo.
+Feat/&FeatWisePrecisionTitle=Precisão sábia

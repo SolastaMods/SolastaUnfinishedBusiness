@@ -1,6 +1,6 @@
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseDescription=Stärke +2
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseTitle=Steigerung des Fähigkeitswerts
 Feature/&ProficiencyIronbornDwarfArmorTrainingDescription=Sie verfügen über Kenntnisse im Umgang mit leichter und mittlerer Rüstung.
-Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Eisengeborenes Rüstungstraining
-Race/&RaceIronbornDwarfDescription=Die Eisengeborenenzwerge sind stark und zäh und leben unter, aber oft getrennt von ihren Cousins, den Schneezwergen. Clanhaft und distanziert, kann man sich dennoch darauf verlassen, dass sie Seite an Seite mit allen Mitgliedern der Schnee-Allianz stehen.
+Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Eisengeborenen-Rüstungstraining
+Race/&RaceIronbornDwarfDescription=Die Eisengeborenen Zwerge sind stark und robust und leben unter ihren Cousins, den Schneezwergen, aber oft auch getrennt von ihnen. Obwohl sie klammheimlich und unnahbar sind, kann man sich darauf verlassen, dass sie jedem Mitglied der Schnee-Allianz Seite an Seite stehen.
 Race/&RaceIronbornDwarfTitle=Eisengeborener Zwerg
