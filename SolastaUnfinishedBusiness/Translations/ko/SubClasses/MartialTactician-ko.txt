@@ -1,7 +1,5 @@
 Feature/&FeatureAdaptiveStrategyDescription=당신의 공격 중 하나가 치명타 실패나 치명타를 기록할 때마다 우월 주사위 1개를 얻습니다. 이 이득은 턴당 한 번만 발생할 수 있으며 최대 우월성 주사위 한도를 초과할 수 없습니다.
 Feature/&FeatureAdaptiveStrategyTitle=전략: 적응
-Feature/&FeatureImproviseStrategyDescription=우월성 주사위 최대값을 2만큼 늘립니다.
-Feature/&FeatureImproviseStrategyTitle=전략: 즉흥적으로
 Feature/&FeatureOvercomingStrategyDescription=당신의 공격 중 하나가 생물을 죽일 때마다 또는 당신의 우월성 주사위 능력으로 피해를 입은 생물이 다음 턴이 시작되기 전에 죽을 때마다 우월성 주사위 1개를 다시 얻습니다. 이 이득은 라운드당 한 번만 발생할 수 있으며 최대 우월성 주사위 한도를 초과할 수 없습니다.
 Feature/&FeatureOvercomingStrategyTitle=전략: 극복
 Feature/&FeatureSetTacticianBattleClarityDescription=선택한 내성 굴림으로 숙련도를 높이세요.

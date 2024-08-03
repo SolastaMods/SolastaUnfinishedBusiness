@@ -1,7 +1,5 @@
 Feature/&FeatureAdaptiveStrategyDescription=Gain one superiority die whenever you roll a critical miss or a critical hit on one of your attacks. This gain can occur only once per turn and cannot put you over your maximum superiority die limit.
 Feature/&FeatureAdaptiveStrategyTitle=Strategy: Adapt
-Feature/&FeatureImproviseStrategyDescription=Increase your superiority die maximum by 2.
-Feature/&FeatureImproviseStrategyTitle=Strategy: Improvise
 Feature/&FeatureOvercomingStrategyDescription=Regain one superiority die whenever one of your attacks kills a creature, or whenever a creature damaged by your damaging superiority die abilities dies before the start of your next turn. This gain can occur only once per round and cannot put you over your maximum superiority die limit.
 Feature/&FeatureOvercomingStrategyTitle=Strategy: Overcome
 Feature/&FeatureSetTacticianBattleClarityDescription=Gain proficiency with a saving throw of your choice.

@@ -1,7 +1,5 @@
 Feature/&FeatureAdaptiveStrategyDescription=Gagnez un dé de supériorité chaque fois que vous obtenez un échec critique ou un coup critique sur l'une de vos attaques. Ce gain ne peut se produire qu'une seule fois par tour et ne peut pas vous faire dépasser votre limite maximale de dés de supériorité.
 Feature/&FeatureAdaptiveStrategyTitle=Stratégie : Adapter
-Feature/&FeatureImproviseStrategyDescription=Augmentez le maximum de votre dé de supériorité de 2.
-Feature/&FeatureImproviseStrategyTitle=Stratégie : improviser
 Feature/&FeatureOvercomingStrategyDescription=Regagnez un dé de supériorité chaque fois qu'une de vos attaques tue une créature, ou chaque fois qu'une créature endommagée par vos capacités de dé de supériorité dommageables meurt avant le début de votre prochain tour. Ce gain ne peut se produire qu'une seule fois par tour et ne peut pas vous faire dépasser votre limite maximale de dés de supériorité.
 Feature/&FeatureOvercomingStrategyTitle=Stratégie : surmonter
 Feature/&FeatureSetTacticianBattleClarityDescription=Gagnez en compétence avec un jet de sauvegarde de votre choix.

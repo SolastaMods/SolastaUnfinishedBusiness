@@ -1,7 +1,5 @@
 Feature/&FeatureAdaptiveStrategyDescription=Erhalten Sie einen Überlegenheitswürfel, wenn Sie bei einem Ihrer Angriffe einen kritischen Fehlschuss oder einen kritischen Treffer erzielen. Dieser Gewinn kann nur einmal pro Runde erfolgen und Sie können Ihr maximales Überlegenheitswürfellimit nicht überschreiten.
 Feature/&FeatureAdaptiveStrategyTitle=Strategie: Anpassen
-Feature/&FeatureImproviseStrategyDescription=Erhöhe das Maximum deines Überlegenheitswürfels um 2.
-Feature/&FeatureImproviseStrategyTitle=Strategie: Improvisieren
 Feature/&FeatureOvercomingStrategyDescription=Erhalten Sie einen Überlegenheitswürfel zurück, wenn einer Ihrer Angriffe eine Kreatur tötet oder wenn eine Kreatur, die durch Ihre schädlichen Überlegenheitswürfelfähigkeiten beschädigt wurde, vor Beginn Ihres nächsten Zuges stirbt. Dieser Gewinn kann nur einmal pro Runde erfolgen und Sie können Ihr maximales Überlegenheitswürfellimit nicht überschreiten.
 Feature/&FeatureOvercomingStrategyTitle=Strategie: Überwinden
 Feature/&FeatureSetTacticianBattleClarityDescription=Erlangen Sie Fertigkeit mit einem Rettungswurf Ihrer Wahl.

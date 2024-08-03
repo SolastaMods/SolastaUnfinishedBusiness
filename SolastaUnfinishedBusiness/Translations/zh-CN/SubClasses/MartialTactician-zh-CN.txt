@@ -1,7 +1,5 @@
 Feature/&FeatureAdaptiveStrategyDescription=每当你在一次攻击骰中掷出严重失误或重击时，就会获得一个卓越骰。每回合至多以此法获得一个卓越骰，并且不会使你超过最大卓越骰限制。
 Feature/&FeatureAdaptiveStrategyTitle=战技：适应
-Feature/&FeatureImproviseStrategyDescription=将你的卓越骰数限制增加 2。
-Feature/&FeatureImproviseStrategyTitle=战技：即兴发挥
 Feature/&FeatureOvercomingStrategyDescription=每当你的一次攻击杀死一个生物，或者每当一个被你的有害卓越骰特性伤害的生物在你的下一回合开始之前死亡时，就会重新获得一个卓越骰。这种增益每轮只能发生一次，并且不会使你超过最大卓越骰限制。
 Feature/&FeatureOvercomingStrategyTitle=战技：克服
 Feature/&FeatureSetTacticianBattleClarityDescription=获得你选择的豁免熟练项。

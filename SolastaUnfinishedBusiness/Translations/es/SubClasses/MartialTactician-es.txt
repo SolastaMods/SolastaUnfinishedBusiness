@@ -1,7 +1,5 @@
 Feature/&FeatureAdaptiveStrategyDescription=Gana un dado de superioridad cada vez que lanzas un fallo crítico o un golpe crítico en uno de tus ataques. Esta ganancia puede ocurrir sólo una vez por turno y no puede ponerte por encima de tu límite máximo de superioridad.
 Feature/&FeatureAdaptiveStrategyTitle=Estrategia: Adaptarse
-Feature/&FeatureImproviseStrategyDescription=Aumenta tu superioridad como máximo en 2.
-Feature/&FeatureImproviseStrategyTitle=Estrategia: improvisar
 Feature/&FeatureOvercomingStrategyDescription=Recupera un dado de superioridad cada vez que uno de tus ataques mata a una criatura, o cada vez que una criatura dañada por tus habilidades dañinas de dado de superioridad muere antes del comienzo de tu siguiente turno. Esta ganancia puede ocurrir sólo una vez por ronda y no puede ponerte por encima de tu límite máximo de superioridad.
 Feature/&FeatureOvercomingStrategyTitle=Estrategia: Superar
 Feature/&FeatureSetTacticianBattleClarityDescription=Gana competencia con una tirada de salvación de tu elección.

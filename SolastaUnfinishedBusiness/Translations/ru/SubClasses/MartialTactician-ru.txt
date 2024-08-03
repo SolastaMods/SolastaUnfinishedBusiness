@@ -1,7 +1,5 @@
 Feature/&FeatureAdaptiveStrategyDescription=Вы получаете одну кость превосходства каждый раз, когда критически промахиваетесь или критически попадаете одной из ваших атак. Это может произойти только один раз за ход и не должно превышать ваш максимум костей превосходства.
 Feature/&FeatureAdaptiveStrategyTitle=Стратегия: Адаптируйся
-Feature/&FeatureImproviseStrategyDescription=Ваш максимум костей превосходства увеличивается на 2.
-Feature/&FeatureImproviseStrategyTitle=Стратегия: Импровизируй
 Feature/&FeatureOvercomingStrategyDescription=Восстановите одну кость превосходства, когда одна из ваших атак убивает существо или когда существо, получившее повреждения от вашей кости превосходства, умирает до начала вашего следующего хода. Это восстановление может произойти только один раз за раунд и не должно превышать ваш максимум костей превосходства.
 Feature/&FeatureOvercomingStrategyTitle=Стратегия: Преодолевай
 Feature/&FeatureSetTacticianBattleClarityDescription=Вы получаете владения спасброском по вашему выбору.

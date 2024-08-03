@@ -1,7 +1,5 @@
 Feature/&FeatureAdaptiveStrategyDescription=いずれかの攻撃でクリティカルミスまたはクリティカルヒットをロールするたびに、優位性ダイスを 1 つ獲得します。この利益はターンごとに 1 回だけ発生し、最大の優位性ダイス制限を超えることはできません。
 Feature/&FeatureAdaptiveStrategyTitle=戦略: 適応する
-Feature/&FeatureImproviseStrategyDescription=優位性ダイスの最大値が 2 増加します。
-Feature/&FeatureImproviseStrategyTitle=戦略: 即興演奏
 Feature/&FeatureOvercomingStrategyDescription=あなたの攻撃のいずれかがクリーチャーを殺すたび、またはあなたのダメージを与える優位性ダイ能力によってダメージを受けたクリーチャーが次のターンの開始前に死亡するたびに、優位性ダイスを1つ回復します。この利益はラウンドごとに 1 回だけ発生し、最大の優位性ダイス制限を超えることはできません。
 Feature/&FeatureOvercomingStrategyTitle=戦略: 克服する
 Feature/&FeatureSetTacticianBattleClarityDescription=選択したセーヴィング スローの習熟度を高めます。

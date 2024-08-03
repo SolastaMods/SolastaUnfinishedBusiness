@@ -1,7 +1,5 @@
 Feature/&FeatureAdaptiveStrategyDescription=Ganhe um dado de superioridade sempre que você obtiver um erro crítico ou um acerto crítico em um de seus ataques. Este ganho pode ocorrer apenas uma vez por turno e não pode ultrapassar o limite máximo do seu dado de superioridade.
 Feature/&FeatureAdaptiveStrategyTitle=Estratégia: Adaptar
-Feature/&FeatureImproviseStrategyDescription=Aumente o máximo do seu dado de superioridade em 2.
-Feature/&FeatureImproviseStrategyTitle=Estratégia: Improvisar
 Feature/&FeatureOvercomingStrategyDescription=Recupere um dado de superioridade sempre que um de seus ataques matar uma criatura, ou sempre que uma criatura danificada por suas habilidades de dado de superioridade prejudicial morrer antes do início do seu próximo turno. Esse ganho pode ocorrer apenas uma vez por rodada e não pode ultrapassar o limite máximo do seu dado de superioridade.
 Feature/&FeatureOvercomingStrategyTitle=Estratégia: Superar
 Feature/&FeatureSetTacticianBattleClarityDescription=Ganhe proficiência com um teste de resistência de sua escolha.

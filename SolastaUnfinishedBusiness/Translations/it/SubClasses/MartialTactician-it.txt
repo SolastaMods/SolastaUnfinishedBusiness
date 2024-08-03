@@ -1,7 +1,5 @@
 Feature/&FeatureAdaptiveStrategyDescription=Ottieni un dado superiorità ogni volta che ottieni un fallimento critico o un colpo critico su uno dei tuoi attacchi. Questo guadagno può verificarsi solo una volta per turno e non può farti superare il limite massimo di dadi di superiorità.
 Feature/&FeatureAdaptiveStrategyTitle=Strategia: adattarsi
-Feature/&FeatureImproviseStrategyDescription=Aumenta il massimo del tuo dado superiorità di 2.
-Feature/&FeatureImproviseStrategyTitle=Strategia: improvvisare
 Feature/&FeatureOvercomingStrategyDescription=Recupera un dado superiorità ogni volta che uno dei tuoi attacchi uccide una creatura, o ogni volta che una creatura danneggiata dalle tue capacità dannose del dado superiorità muore prima dell'inizio del tuo turno successivo. Questo guadagno può verificarsi solo una volta per round e non può farti superare il limite massimo di dadi di superiorità.
 Feature/&FeatureOvercomingStrategyTitle=Strategia: superare
 Feature/&FeatureSetTacticianBattleClarityDescription=Ottieni competenza con un tiro salvezza a tua scelta.

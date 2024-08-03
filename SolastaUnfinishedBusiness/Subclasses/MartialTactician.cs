@@ -139,13 +139,6 @@ public sealed class MartialTactician : AbstractSubclass
 
     private static void BuildStrategicPlan()
     {
-        BuildAdaptiveStrategy();
-        BuildImproviseStrategy();
-        BuildOvercomingStrategy();
-    }
-
-    private static void BuildAdaptiveStrategy()
-    {
         var feature = FeatureDefinitionBuilder
             .Create("FeatureAdaptiveStrategy")
             .SetGuiPresentation(Category.Feature)
@@ -153,20 +146,14 @@ public sealed class MartialTactician : AbstractSubclass
 
         feature.AddCustomSubFeatures(
             new PhysicalAttackFinishedByMeAdaptiveStrategy(GambitsBuilders.GambitPool, feature));
-    }
 
-    private static void BuildImproviseStrategy()
-    {
         _ = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureImproviseStrategy")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(GambitsBuilders.Learn2Gambit.GuiPresentation)
             .AddFeatureSet(BuildGambitPoolIncrease(2, "ImproviseStrategy"))
             .AddToDB();
-    }
 
-    private static void BuildOvercomingStrategy()
-    {
-        var feature = FeatureDefinitionBuilder
+        feature = FeatureDefinitionBuilder
             .Create("FeatureOvercomingStrategy")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
