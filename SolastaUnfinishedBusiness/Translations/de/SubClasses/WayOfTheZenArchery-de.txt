@@ -1,5 +1,5 @@
-Action/&ActionZenShotToggleDescription=Zen Shot aktivieren/deaktivieren
-Action/&ActionZenShotToggleTitle=Zen-Schuss
+Action/&ZenShotToggleDescription=Zen Shot aktivieren/deaktivieren
+Action/&ZenShotToggleTitle=Zen-Schuss
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Sie können einen Ihrer zusätzlichen waffenlosen Schläge durch einen Bogenangriff ersetzen.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Pfeilhagel
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Ihre Bogenangriffe gelten als magisch, wenn es darum geht, Widerstand und Immunität gegenüber nicht-magischen Angriffen und Schaden zu überwinden. Sie können jetzt auch die Funktion „Atemberaubender Schlag“ bei Bogenangriffen nutzen.

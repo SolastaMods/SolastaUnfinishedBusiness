@@ -1,5 +1,5 @@
-Action/&ActionZenShotToggleDescription=Активировать/деактивировать Zen Shot
-Action/&ActionZenShotToggleTitle=Дзен-снимок
+Action/&ZenShotToggleDescription=Активировать/деактивировать Zen Shot
+Action/&ZenShotToggleTitle=Дзен-снимок
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Вы можете заменить один из бонусных безоружных ударов атакой из лука.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Шквал стрел
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Ваши выстрелы из лука считаются магическими при определении преодоления сопротивления и иммунитета к немагическим атакам и урону, также теперь вы можете использовать умение Ошеломляющий удар, стреляя из лука.

@@ -1,5 +1,5 @@
-Action/&ActionZenShotToggleDescription=Attiva/disattiva Zen Shot
-Action/&ActionZenShotToggleTitle=Colpo Zen
+Action/&ZenShotToggleDescription=Attiva/disattiva Zen Shot
+Action/&ZenShotToggleTitle=Colpo Zen
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Puoi sostituire uno dei tuoi colpi senz'armi bonus con un attacco con l'arco.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Raffica di frecce
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=I tuoi attacchi con l'arco contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici, e ora puoi utilizzare la tua funzione Colpo stordente con gli attacchi con l'arco.
