@@ -204,6 +204,8 @@ internal abstract class ModifyWeaponAttackModeBase(
 
 internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
 {
+    internal const string AbortUpgradeWeaponDice = "AbortUpgradeWeaponDice";
+
     private readonly GetWeaponDiceHandler _getWeaponDice;
 
     internal UpgradeWeaponDice(
@@ -221,9 +223,9 @@ internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
         var effectDescription = attackMode.EffectDescription;
         var damage = effectDescription.FindFirstDamageForm();
 
-        // don't upgrade die if a polearm followup attack
+        // don't upgrade die if aborted by other scenarios [i.e.: GWM or PAM]
         if (damage == null ||
-            attackMode.AttackTags.Contains(AddPolearmFollowUpAttack.PolearmFollowUpAttack))
+            attackMode.AttackTags.Contains(AbortUpgradeWeaponDice))
         {
             return;
         }
