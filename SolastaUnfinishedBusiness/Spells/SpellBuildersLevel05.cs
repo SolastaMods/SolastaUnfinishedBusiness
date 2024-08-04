@@ -115,7 +115,7 @@ internal static partial class SpellBuilders
 
         var conditionMuddled = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDazzled)
+            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDazzled)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
@@ -501,7 +501,7 @@ internal static partial class SpellBuilders
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{NAME}{skill.Name}")
                                     .SetGuiPresentation(
-                                        skill.GuiPresentation.Title, Gui.NoLocalization, ConditionBullsStrength)
+                                        skill.GuiPresentation.Title, Gui.EmptyContent, ConditionBullsStrength)
                                     .SetPossessive()
                                     .SetFeatures(
                                         FeatureDefinitionProficiencyBuilder

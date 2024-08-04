@@ -231,15 +231,16 @@ internal static partial class SpellBuilders
                         .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
                         .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                             additionalTargetsPerIncrement: 1)
-                        .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
-                            .Create($"Condition{NAME}{damageType}")
-                            .SetGuiPresentation(
-                                Gui.Format($"Condition/&Condition{NAME}Title", title),
-                                Gui.NoLocalization,
-                                ConditionAuraOfProtection)
-                            .SetPossessive()
-                            .SetFeatures(damageAffinity)
-                            .AddToDB()))
+                        .SetEffectForms(EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{NAME}{damageType}")
+                                .SetGuiPresentation(
+                                    Gui.Format($"Condition/&Condition{NAME}Title", title),
+                                    Gui.EmptyContent,
+                                    ConditionAuraOfProtection)
+                                .SetPossessive()
+                                .SetFeatures(damageAffinity)
+                                .AddToDB()))
                         .SetCasterEffectParameters(casterEffect)
                         .SetImpactEffectParameters(impactEffect)
                         .Build())

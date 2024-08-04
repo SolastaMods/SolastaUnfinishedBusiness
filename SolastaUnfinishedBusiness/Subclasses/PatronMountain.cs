@@ -123,7 +123,7 @@ public class PatronMountain : AbstractSubclass
 
         var conditionClingingStrength = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionLongstrider, $"Condition{Name}ClingingStrength")
-            .SetGuiPresentation($"Power{Name}ClingingStrength", Category.Feature, Gui.NoLocalization,
+            .SetGuiPresentation($"Power{Name}ClingingStrength", Category.Feature, Gui.EmptyContent,
                 ConditionDefinitions.ConditionLongstrider.GuiPresentation.SpriteReference)
             .AddFeatures(FeatureDefinitionMovementAffinitys.MovementAffinitySpiderClimb)
             .AddToDB();

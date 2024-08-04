@@ -719,8 +719,8 @@ internal static partial class SpellBuilders
 
         var conditionThunderousSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation($"{NAME}Title".Formatted(Category.Spell), Gui.NoLocalization,
-                ConditionBrandingSmite)
+            .SetGuiPresentation(
+                $"{NAME}Title".Formatted(Category.Spell), Gui.EmptyContent, ConditionBrandingSmite)
             .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .SetFeatures(powerThunderousSmite)
@@ -828,7 +828,7 @@ internal static partial class SpellBuilders
 
         var conditionLeap = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Leap")
-            .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+            .SetGuiPresentation(NAME, Category.Spell, Gui.EmptyContent)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetFeatures(powerLeap)
@@ -1674,7 +1674,7 @@ internal static partial class SpellBuilders
 
         var conditionStrikeWithTheWindAttackMovement = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Movement")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
+            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetFeatures(movementAffinityStrikeWithTheWind)
             .SetConditionParticleReference(ConditionSpellbladeArcaneEscape)

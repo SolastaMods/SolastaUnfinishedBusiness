@@ -579,8 +579,8 @@ internal static partial class SpellBuilders
                             EffectFormBuilder.ConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{NAME}{skill.Name}")
-                                    .SetGuiPresentation(skill.GuiPresentation.Title, Gui.NoLocalization,
-                                        ConditionBullsStrength)
+                                    .SetGuiPresentation(
+                                        skill.GuiPresentation.Title, Gui.EmptyContent, ConditionBullsStrength)
                                     .SetPossessive()
                                     .SetFeatures(
                                         FeatureDefinitionProficiencyBuilder

@@ -1025,7 +1025,7 @@ internal static class OtherFeats
                         new CustomBehaviorDungeonDelver(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{Name}")
-                                .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                                .SetGuiPresentation(Name, Category.Feat, Gui.EmptyContent)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetFeatures(
                                     DamageAffinityAcidResistance,
@@ -2277,7 +2277,7 @@ internal static class OtherFeats
                 .AddCustomSubFeatures(new CustomBehaviorMageSlayer(
                     ConditionDefinitionBuilder
                         .Create($"Condition{FeatMageSlayerName}")
-                        .SetGuiPresentation(FeatMageSlayerName, Category.Feat, Gui.NoLocalization)
+                        .SetGuiPresentation(FeatMageSlayerName, Category.Feat, Gui.EmptyContent)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .AddFeatures(
                             FeatureDefinitionMagicAffinityBuilder
