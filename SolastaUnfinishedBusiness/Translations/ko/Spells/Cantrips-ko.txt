@@ -57,5 +57,5 @@ Spell/&ThunderStrikeDescription=천둥소리를 터뜨려 주변 생물이 건�
 Spell/&ThunderStrikeTitle=천둥소리
 Spell/&TollTheDeadDescription=범위 내에서 볼 수 있는 생물 하나를 가리키면, 비통한 종소리가 잠시 그 주변 공기를 가득 채웁니다. 대상은 지혜 내성굴림에 성공하거나 1d8의 괴사 피해를 입어야 합니다. 대상의 체력이 하나라도 손실되면 대신 1d12의 괴사 피해를 입습니다.
 Spell/&TollTheDeadTitle=망자에게 알리다
-Spell/&WrackDescription=범위 내에 있는 생물에게 극심한 고통을 퍼붓습니다. 대상은 건강 내성 굴림을 하거나 1d8의 괴사 피해를 입어야 하며 돌진하거나 이탈하는 것을 방지해야 합니다.
+Spell/&WrackDescription=범위 내에 있는 생물에게 극심한 고통을 퍼붓습니다. 대상은 건강 내성 굴림을 하거나 1d6의 괴사 피해를 입어야 하며 돌진하거나 이탈하는 것을 방지해야 합니다.
 Spell/&WrackTitle=난파선

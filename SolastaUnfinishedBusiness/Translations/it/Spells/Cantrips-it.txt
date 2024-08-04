@@ -57,5 +57,5 @@ Spell/&ThunderStrikeDescription=Crea un'esplosione di suono fragoroso, costringe
 Spell/&ThunderStrikeTitle=Tuono
 Spell/&TollTheDeadDescription=Indichi una creatura che puoi vedere entro il raggio d'azione e il suono di una campana dolorosa riempie l'aria attorno a essa per un momento. Il bersaglio deve superare un tiro salvezza su Saggezza o subire 1d8 danni necrotici. Se il bersaglio perde uno qualsiasi dei suoi punti ferita, subisce invece 1d12 danni necrotici.
 Spell/&TollTheDeadTitle=Suonare i morti
-Spell/&WrackDescription=Scatena un'ondata di dolore paralizzante contro una creatura entro il raggio d'azione. Il bersaglio deve effettuare un tiro salvezza su Costituzione o subire 1d8 danni necrotici, impedendogli di scattare o disimpegnarsi.
+Spell/&WrackDescription=Scatena un'ondata di dolore paralizzante contro una creatura entro il raggio d'azione. Il bersaglio deve effettuare un tiro salvezza su Costituzione o subire 1d6 danni necrotici, impedendogli di scattare o disimpegnarsi.
 Spell/&WrackTitle=Relitto

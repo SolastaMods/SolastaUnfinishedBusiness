@@ -57,5 +57,5 @@ Spell/&ThunderStrikeDescription=Crea una ráfaga de sonido atronador que obliga 
 Spell/&ThunderStrikeTitle=Tronido
 Spell/&TollTheDeadDescription=Señalas a una criatura que puedas ver dentro del alcance y el sonido de una campana dolorosa llena el aire a su alrededor por un momento. El objetivo debe superar una tirada de salvación de Sabiduría o sufrirá 1d8 puntos de daño necrótico. Si al objetivo le falta alguno de sus puntos de golpe, sufre 1d12 puntos de daño necrótico.
 Spell/&TollTheDeadTitle=Cuenta de muertos
-Spell/&WrackDescription=Desata una ola de dolor paralizante contra una criatura que se encuentre dentro del alcance. El objetivo debe realizar una tirada de salvación de Constitución o sufrir 1d8 puntos de daño necrótico, lo que le impide correr o retirarse.
+Spell/&WrackDescription=Desata una ola de dolor paralizante contra una criatura que se encuentre dentro del alcance. El objetivo debe realizar una tirada de salvación de Constitución o sufrir 1d6 puntos de daño necrótico, lo que le impide correr o retirarse.
 Spell/&WrackTitle=Estante

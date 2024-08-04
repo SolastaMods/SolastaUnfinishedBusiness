@@ -57,5 +57,5 @@ Spell/&ThunderStrikeDescription=Cria uma explosão de som trovejante, forçando 
 Spell/&ThunderStrikeTitle=Trovão
 Spell/&TollTheDeadDescription=Você aponta para uma criatura que você pode ver dentro do alcance, e o som de um sino doloroso preenche o ar ao redor dela por um momento. O alvo deve ter sucesso em um teste de resistência de Sabedoria ou sofrer 1d8 de dano necrótico. Se o alvo estiver sem nenhum de seus pontos de vida, ele sofre 1d12 de dano necrótico.
 Spell/&TollTheDeadTitle=Tocar o pedágio dos mortos
-Spell/&WrackDescription=Desencadeia uma onda de dor paralisante em uma criatura dentro do alcance. O alvo deve fazer um teste de resistência de Constituição ou sofrer 1d8 de dano necrótico, e impedindo-o de correr ou se desvencilhar.
+Spell/&WrackDescription=Desencadeia uma onda de dor paralisante em uma criatura dentro do alcance. O alvo deve fazer um teste de resistência de Constituição ou sofrer 1d6 de dano necrótico, e impedindo-o de correr ou se desvencilhar.
 Spell/&WrackTitle=Destruição

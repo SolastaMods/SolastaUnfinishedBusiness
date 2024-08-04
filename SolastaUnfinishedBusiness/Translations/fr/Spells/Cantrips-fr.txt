@@ -57,5 +57,5 @@ Spell/&ThunderStrikeDescription=Créez une explosion de bruit de tonnerre, forç
 Spell/&ThunderStrikeTitle=Coup de tonnerre
 Spell/&TollTheDeadDescription=Vous désignez une créature que vous pouvez voir à portée, et le son d'une cloche douloureuse emplit l'air autour d'elle pendant un moment. La cible doit réussir un jet de sauvegarde de Sagesse ou subir 1d8 dégâts nécrotiques. Si la cible n'a plus aucun point de vie, elle subit à la place 1d12 dégâts nécrotiques.
 Spell/&TollTheDeadTitle=Faire le bilan des morts
-Spell/&WrackDescription=Déchaîne une vague de douleur paralysante sur une créature à portée. La cible doit réussir un jet de sauvegarde de Constitution ou subir 1d8 dégâts nécrotiques, ce qui l'empêche de foncer ou de se désengager.
+Spell/&WrackDescription=Déchaîne une vague de douleur paralysante sur une créature à portée. La cible doit réussir un jet de sauvegarde de Constitution ou subir 1d6 dégâts nécrotiques, ce qui l'empêche de foncer ou de se désengager.
 Spell/&WrackTitle=Varech

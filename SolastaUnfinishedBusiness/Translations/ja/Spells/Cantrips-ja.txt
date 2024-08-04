@@ -57,5 +57,5 @@ Spell/&ThunderStrikeDescription=雷鳴のバーストを発生させ、あなた
 Spell/&ThunderStrikeTitle=雷鳴
 Spell/&TollTheDeadDescription=範囲内に見える 1 匹の生き物を指さすと、悲痛な鐘の音が一瞬その周囲の空気を満たします。ターゲットは知恵のセーヴィング・スローに成功するか、1d8の壊死ダメージを受ける必要がある。ターゲットがヒット ポイントを失った場合、代わりに 1d12 の壊死ダメージを受けます。
 Spell/&TollTheDeadTitle=トール・ザ・デッド
-Spell/&WrackDescription=範囲内のクリーチャーに壊滅的な痛みの波を放ちます。ターゲットは憲法セーヴィングスローを行うか、1d8の壊死ダメージを受け、ダッシュや離脱を阻止しなければならない。
+Spell/&WrackDescription=範囲内のクリーチャーに壊滅的な痛みの波を放ちます。ターゲットは憲法セーヴィングスローを行うか、1d6の壊死ダメージを受け、ダッシュや離脱を阻止しなければならない。
 Spell/&WrackTitle=ひび割れ
