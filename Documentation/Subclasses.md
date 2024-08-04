@@ -3025,10 +3025,6 @@ You can replace one maneuver you know with a new one.
 
 ### Level 10
 
-* Additional Superiority Die
-
-You gain two additional superiority die.
-
 * Replace Maneuver
 
 You can replace one maneuver you know with a new one.
@@ -3036,6 +3032,10 @@ You can replace one maneuver you know with a new one.
 * Superiority Die Size (d10)
 
 Your superiority die is upgraded to D10.
+
+* Two Additional Superiority Dice
+
+You gain two additional superiority dice.
 
 
 ### Level 15
