@@ -10,7 +10,3 @@ Condition/&ConditionTauntedDescription=Вы совершаете с помехо
 Condition/&ConditionTauntedTitle=Спровоцирован
 Feature/&AbilityCheckAffinityDarknessPerceptiveDescription=Вы совершаете с преимуществом проверки Мудрости (Восприятие), если находитесь не на свету или в области магической тьмы.
 Feature/&AbilityCheckAffinityDarknessPerceptiveTitle=Восприятие тьмы
-Feature/&AbilityCheckAffinityLightSensitivityDescription=Вы совершаете с помехой проверки Мудрости (Восприятие).
-Feature/&AbilityCheckAffinityLightSensitivityTitle=Чувствительность к свету
-Feature/&CombatAffinityLightSensitivityDescription=Вы получаете штраф -1d4 к броскам атаки.
-Feature/&CombatAffinityLightSensitivityTitle=Чувствительность к свету

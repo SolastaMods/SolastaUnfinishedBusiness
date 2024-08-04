@@ -10,7 +10,3 @@ Condition/&ConditionTauntedDescription=Sie sind bei Angriffswürfen gegen andere
 Condition/&ConditionTauntedTitle=Verspottet
 Feature/&AbilityCheckAffinityDarknessPerceptiveDescription=Sie haben einen Vorteil bei Weisheitswürfen (Wahrnehmung), wenn Sie unbeleuchtet sind oder sich in magischer Dunkelheit befinden.
 Feature/&AbilityCheckAffinityDarknessPerceptiveTitle=Dunkelheit wahrnehmend
-Feature/&AbilityCheckAffinityLightSensitivityDescription=Sie haben einen Nachteil bei Weisheitsprüfungen (Wahrnehmung).
-Feature/&AbilityCheckAffinityLightSensitivityTitle=Lichtempfindlichkeit
-Feature/&CombatAffinityLightSensitivityDescription=Sie erleiden einen Malus von -1W4 auf Angriffswürfe.
-Feature/&CombatAffinityLightSensitivityTitle=Lichtempfindlichkeit

@@ -10,7 +10,3 @@ Condition/&ConditionTauntedDescription=Vous avez un désavantage sur les jets d'
 Condition/&ConditionTauntedTitle=Moqué
 Feature/&AbilityCheckAffinityDarknessPerceptiveDescription=Vous avez un avantage sur les tests de Sagesse (Perception) lorsque vous n'êtes pas éclairé ou dans l'obscurité magique.
 Feature/&AbilityCheckAffinityDarknessPerceptiveTitle=Perception des ténèbres
-Feature/&AbilityCheckAffinityLightSensitivityDescription=Vous avez un désavantage sur les tests de Sagesse (Perception).
-Feature/&AbilityCheckAffinityLightSensitivityTitle=Sensibilité à la lumière
-Feature/&CombatAffinityLightSensitivityDescription=Vous subissez une pénalité de -1d4 sur les jets d'attaque.
-Feature/&CombatAffinityLightSensitivityTitle=Sensibilité à la lumière

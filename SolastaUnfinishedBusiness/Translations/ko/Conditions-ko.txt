@@ -10,7 +10,3 @@ Condition/&ConditionTauntedDescription=당신은 조롱하는 사람 이외의 �
 Condition/&ConditionTauntedTitle=도발됨
 Feature/&AbilityCheckAffinityDarknessPerceptiveDescription=불이 켜지지 않거나 마법의 어둠 속에 있을 때 지혜(지각) 판정에 유리합니다.
 Feature/&AbilityCheckAffinityDarknessPerceptiveTitle=어둠 감지
-Feature/&AbilityCheckAffinityLightSensitivityDescription=당신은 지혜(지각) 판정에 불리함을 가지고 있습니다.
-Feature/&AbilityCheckAffinityLightSensitivityTitle=빛 감도
-Feature/&CombatAffinityLightSensitivityDescription=공격 굴림에 -1d4 페널티를 받습니다.
-Feature/&CombatAffinityLightSensitivityTitle=빛 감도

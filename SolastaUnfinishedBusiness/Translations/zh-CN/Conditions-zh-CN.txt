@@ -10,7 +10,3 @@ Condition/&ConditionTauntedDescription=你在对抗嘲讽者以外的生物时�
 Condition/&ConditionTauntedTitle=嘲讽
 Feature/&AbilityCheckAffinityDarknessPerceptiveDescription=在未点亮或处于魔法黑暗中时，你可以进行感知优势（察觉）检定。
 Feature/&AbilityCheckAffinityDarknessPerceptiveTitle=黑暗感知
-Feature/&AbilityCheckAffinityLightSensitivityDescription=你在感知（察觉）检定上处于劣势。
-Feature/&AbilityCheckAffinityLightSensitivityTitle=光照敏感
-Feature/&CombatAffinityLightSensitivityDescription=你的攻击检定受到 -1d4 的惩罚。
-Feature/&CombatAffinityLightSensitivityTitle=光照敏感

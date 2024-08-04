@@ -10,7 +10,3 @@ Condition/&ConditionTauntedDescription=Tienes desventaja en las tiradas de ataqu
 Condition/&ConditionTauntedTitle=Burlado
 Feature/&AbilityCheckAffinityDarknessPerceptiveDescription=Tienes Ventaja en las pruebas de Sabiduría (Percepción) mientras estés apagado o en oscuridad mágica.
 Feature/&AbilityCheckAffinityDarknessPerceptiveTitle=Percepción de la oscuridad
-Feature/&AbilityCheckAffinityLightSensitivityDescription=Tienes Desventaja en las pruebas de Sabiduría (Percepción).
-Feature/&AbilityCheckAffinityLightSensitivityTitle=Sensibilidad a la luz
-Feature/&CombatAffinityLightSensitivityDescription=Sufres una penalización de -1d4 en las tiradas de ataque.
-Feature/&CombatAffinityLightSensitivityTitle=Sensibilidad a la luz

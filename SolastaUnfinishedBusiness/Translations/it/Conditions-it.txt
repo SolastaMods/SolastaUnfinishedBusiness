@@ -10,7 +10,3 @@ Condition/&ConditionTauntedDescription=Hai svantaggio nei tiri per colpire contr
 Condition/&ConditionTauntedTitle=Schernito
 Feature/&AbilityCheckAffinityDarknessPerceptiveDescription=Hai Vantaggio nelle prove di Saggezza (Percezione) quando sei al buio o nell'oscurità magica.
 Feature/&AbilityCheckAffinityDarknessPerceptiveTitle=Percezione dell'oscurità
-Feature/&AbilityCheckAffinityLightSensitivityDescription=Hai uno Svantaggio nelle prove di Saggezza (Percezione).
-Feature/&AbilityCheckAffinityLightSensitivityTitle=Sensibilità alla luce
-Feature/&CombatAffinityLightSensitivityDescription=Subisci una penalità di -1d4 ai tiri per colpire.
-Feature/&CombatAffinityLightSensitivityTitle=Sensibilità alla luce

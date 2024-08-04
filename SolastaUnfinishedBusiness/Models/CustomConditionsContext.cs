@@ -69,7 +69,7 @@ internal static class CustomConditionsContext
     {
         var abilityCheckAffinityLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityLightSensitivity")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation("ConditionLightSensitivity", Category.Condition, Gui.NoLocalization)
             .BuildAndSetAffinityGroups(
                 CharacterAbilityCheckAffinity.Disadvantage,
                 abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
@@ -77,7 +77,7 @@ internal static class CustomConditionsContext
 
         var combatAffinityDarkelfLightSensitivity = FeatureDefinitionCombatAffinityBuilder
             .Create(CombatAffinitySensitiveToLight, "CombatAffinityLightSensitivity")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation("ConditionLightSensitivity", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.None)
             .SetMyAttackModifierSign(AttackModifierSign.Substract)
             .SetMyAttackModifierDieType(DieType.D4)
