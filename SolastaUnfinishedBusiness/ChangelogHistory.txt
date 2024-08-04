@@ -9,7 +9,7 @@ PATRONS: UB is running low on cash flow. If you can, please donate at github.com
 - fixed Bait and Switch maneuver not adding AC to self when switching an ally
 - fixed Chilling Hex, Cloak of Flies, and Maddening Hex invocations not granting powers
 - fixed Circle of Power saving throw advantage to only trigger against spells
-- fixed Corrupting Bolt spell not removing condition after target was hit
+- fixed Corrupting Bolt spell not removing corrupted condition after target was hit
 - fixed Exploiter feat reacting against every defender attacked by spells with more than one target
 - fixed Path of Yeoman strong bow, and Roguish Raven sniper aim damage progression off by 1 class level
 - fixed Polearm feat interaction with Great Weapon Master, Power Attack, and Two Weapon Fighting
