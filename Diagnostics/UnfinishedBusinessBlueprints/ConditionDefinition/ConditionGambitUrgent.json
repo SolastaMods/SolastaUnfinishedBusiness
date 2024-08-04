@@ -18,7 +18,6 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "Attacked",
     9002
   ],
   "interruptionRequiresSavingThrow": false,

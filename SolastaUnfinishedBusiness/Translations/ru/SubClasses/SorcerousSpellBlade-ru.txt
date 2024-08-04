@@ -1,6 +1,6 @@
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Когда вы попадаете атакой или наносите урон заклинанием, добавьте свой модификатор Харизмы в качестве бонусного урона силовым полем к одному броску урона этой атаки или заклинания.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Боевой чародей
-Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Ваш класс доспеха увеличивается на 2, и вы получаете владение спасбросками Ловкости.
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Ваш КД увеличивается на 2, и вы получаете владение спасбросками Ловкости.
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Боевые рефлексы
 Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=Вы можете использовать свое бонусное действие, чтобы получить временные хиты, равные вашему уровню чародея + модификатор Харизмы. Вы можете использовать это умение количество раз до длительного отдыха, равное вашему бонусу мастерства. Если у вас закончились использования, вы можете потратить две единицы чародейства вместо этого.
 Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=Щит маны

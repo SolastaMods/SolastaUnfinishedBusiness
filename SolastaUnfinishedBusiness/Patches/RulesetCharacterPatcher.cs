@@ -21,6 +21,7 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using MirrorImage = SolastaUnfinishedBusiness.Behaviors.Specific.MirrorImage;
@@ -1467,10 +1468,36 @@ public static class RulesetCharacterPatcher
     [UsedImplicitly]
     public static class ApplyRest_Patch
     {
-        [UsedImplicitly]
-        public static void Postfix(
-            RulesetCharacter __instance, RestType restType, bool simulate)
+        //BUGFIX: chain of the master is a long rest power. only allow bindChain in there if long rest
+        private static void SwitchBindChainPowers(RestType restType, RechargeRate rechargeRate)
         {
+            FeatureDefinitionPower[] bindChainPowers =
+            [
+                PowerPactChainImp, PowerPactChainPseudodragon, PowerPactChainPseudodragon, PowerPactChainQuasit
+            ];
+
+            if (restType != RestType.ShortRest)
+            {
+                return;
+            }
+
+            foreach (var power in bindChainPowers)
+            {
+                power.rechargeRate = rechargeRate;
+            }
+        }
+
+        [UsedImplicitly]
+        public static void Prefix(RestType restType)
+        {
+            SwitchBindChainPowers(restType, RechargeRate.LongRest);
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, RestType restType, bool simulate)
+        {
+            SwitchBindChainPowers(restType, RechargeRate.BindChain);
+
             //PATCH: update usage for power pools
             if (!simulate)
             {
@@ -1479,22 +1506,26 @@ public static class RulesetCharacterPatcher
 
             // The player isn't recharging the shared pool features, just the pool.
             // Hide the features that use the pool from the UI.
-            foreach (var feature in __instance.RecoveredFeatures.Where(f => f is FeatureDefinitionPowerSharedPool)
-                         .ToArray())
+            foreach (var feature in __instance.RecoveredFeatures
+                         .Where(f => f is FeatureDefinitionPowerSharedPool)
+                         .ToList())
             {
                 __instance.RecoveredFeatures.Remove(feature);
             }
 
             //PATCH: support for invocations that recharge on short rest (like Fey Teleportation feat)
-            foreach (var invocation in __instance.Invocations
-                         .Where(invocation =>
-                             invocation.InvocationDefinition.HasSubFeatureOfType<RechargeInvocationOnShortRest>()))
+            if (!simulate)
             {
-                invocation.Recharge();
+                foreach (var invocation in __instance.Invocations
+                             .Where(invocation =>
+                                 invocation.InvocationDefinition.HasSubFeatureOfType<RechargeInvocationOnShortRest>()))
+                {
+                    invocation.Recharge();
+                }
             }
 
-            //PATCH: support for Barbarians to regain one rage point at short rests from level 7
             // ReSharper disable once InvertIf
+            //PATCH: support for Barbarians to regain one rage point at short rests from level 7
             if (Main.Settings.EnableBarbarianRegainOneRageAtShortRest &&
                 restType == RestType.ShortRest &&
                 __instance.GetClassLevel(Barbarian) >= 7)

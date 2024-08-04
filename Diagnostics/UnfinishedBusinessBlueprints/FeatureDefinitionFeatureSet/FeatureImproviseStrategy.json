@@ -13,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureImproviseStrategyTitle",
-    "description": "Feature/&FeatureImproviseStrategyDescription",
+    "title": "Feature/&PowerUseModifierTacticianGambitPool2Title",
+    "description": "Feature/&PowerUseModifierTacticianGambitPool2Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -39,7 +39,7 @@ internal static partial class SpellBuilders
             .AddFeatures(movementAffinityAdderFangs)
             .AddToDB();
 
-        conditionAdderFangs.GuiPresentation.Description = Gui.NoLocalization;
+        conditionAdderFangs.GuiPresentation.description = Gui.EmptyContent;
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
@@ -282,7 +282,7 @@ internal static partial class SpellBuilders
             .SetConditionParticleReference(ConditionFeebleMinded)
             .AddToDB();
 
-        condition.GuiPresentation.description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Gui.EmptyContent;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -420,7 +420,7 @@ internal static partial class SpellBuilders
                 .SetConditionParticleReference(ConditionOnFire)
                 .AddToDB();
 
-            conditionAshardalonStride.GuiPresentation.Description = Gui.NoLocalization;
+            conditionAshardalonStride.GuiPresentation.description = Gui.EmptyContent;
 
             conditions.Add(conditionAshardalonStride);
         }
@@ -888,11 +888,8 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{damageType}ElementalWeapon")
             .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
                 AdditionalDamageElementalWeaponDescription(damageType), MagicWeapon.guiPresentation.SpriteReference)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetSpecificDamageType(damageType)
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D4, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetImpactParticleReference(effectParticleParameters.impactParticleReference)
             .AddToDB();
@@ -901,11 +898,8 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{damageType}ElementalWeapon1")
             .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
                 AdditionalDamageElementalWeaponDescription1(damageType), MagicWeapon.guiPresentation.SpriteReference)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetSpecificDamageType(damageType)
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D4, 2)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetImpactParticleReference(effectParticleParameters.impactParticleReference)
             .AddToDB();
@@ -914,11 +908,9 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{damageType}ElementalWeapon2")
             .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
                 AdditionalDamageElementalWeaponDescription2(damageType), MagicWeapon.guiPresentation.SpriteReference)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(damageType)
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D4, 3)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetImpactParticleReference(effectParticleParameters.impactParticleReference)
             .AddToDB();

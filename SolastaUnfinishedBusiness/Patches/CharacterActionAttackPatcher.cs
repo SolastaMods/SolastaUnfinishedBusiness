@@ -810,8 +810,7 @@ public static class CharacterActionAttackPatcher
             target.RulesetActor.ProcessConditionsMatchingInterruption(
                 ConditionInterruption.PhysicalAttackReceivedExecuted);
 
-
-            //PATCH: process ExtraConditionInterruption.AttackedNotBySource
+            //PATCH: allow condition interruption after target was attacked not by source
             var rulesetDefender = target.RulesetActor;
 
             if (!rulesetDefender.matchingInterruption)
@@ -838,16 +837,15 @@ public static class CharacterActionAttackPatcher
                 rulesetDefender.matchingInterruptionConditions.Clear();
                 rulesetDefender.matchingInterruption = false;
             }
-            //END PATCH
 
             //PATCH: Allows condition interruption after target was attacked
-            rulesetCharacter.ProcessConditionsMatchingInterruption(
+            rulesetDefender.ProcessConditionsMatchingInterruption(
                 (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
 
             //PATCH: Allows condition interruption after target was attacked
             if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                rulesetCharacter.ProcessConditionsMatchingInterruption(
+                rulesetDefender.ProcessConditionsMatchingInterruption(
                     (ConditionInterruption)ExtraConditionInterruption.AfterWasHit);
             }
 

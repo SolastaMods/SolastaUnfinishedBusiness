@@ -267,7 +267,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionStopMovementTitle",
-    "description": "Condition/&ConditionStopMovementDescription",
+    "description": "-",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",

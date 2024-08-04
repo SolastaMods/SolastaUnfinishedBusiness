@@ -8,7 +8,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityZenShotToggle:a772ae30-46cd-5678-9f3f-18ebdc12d73c",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyWayOfZenArcheryOneWithTheBow:523a5d40-1c1f-517a-b44b-028d1e31f7a9",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfZenArcheryZenShot:382fe60d-e23a-5974-a564-ac8eb0db7b6a",
       "level": 3
     },
     {

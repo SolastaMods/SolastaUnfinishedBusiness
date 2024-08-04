@@ -267,7 +267,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionBlindedByStinkingCloudTitle",
+    "title": "Blinded by Stinking Cloud",
     "description": "Rules/&ConditionBlindedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

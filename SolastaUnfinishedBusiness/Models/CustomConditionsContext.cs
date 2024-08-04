@@ -41,7 +41,7 @@ internal static class CustomConditionsContext
         Distracted = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityDistractedByAlly")
@@ -49,6 +49,8 @@ internal static class CustomConditionsContext
                     .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                     .AddToDB())
             .AddToDB();
+
+        Distracted.GuiPresentation.description = Gui.EmptyContent;
 
         FlightSuspended = BuildFlightSuspended();
 
@@ -62,6 +64,8 @@ internal static class CustomConditionsContext
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
             .AddToDB();
 
+        StopMovement.GuiPresentation.description = Gui.EmptyContent;
+
         BuildTaunted();
     }
 
@@ -69,7 +73,7 @@ internal static class CustomConditionsContext
     {
         var abilityCheckAffinityLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityLightSensitivity")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation("ConditionLightSensitivity", Category.Condition, Gui.NoLocalization)
             .BuildAndSetAffinityGroups(
                 CharacterAbilityCheckAffinity.Disadvantage,
                 abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
@@ -77,7 +81,7 @@ internal static class CustomConditionsContext
 
         var combatAffinityDarkelfLightSensitivity = FeatureDefinitionCombatAffinityBuilder
             .Create(CombatAffinitySensitiveToLight, "CombatAffinityLightSensitivity")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation("ConditionLightSensitivity", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.None)
             .SetMyAttackModifierSign(AttackModifierSign.Substract)
             .SetMyAttackModifierDieType(DieType.D4)
@@ -92,7 +96,7 @@ internal static class CustomConditionsContext
             .SetFeatures(abilityCheckAffinityLightSensitivity, combatAffinityDarkelfLightSensitivity)
             .AddToDB();
 
-        conditionLightSensitive.GuiPresentation.description = Gui.NoLocalization;
+        conditionLightSensitive.GuiPresentation.description = Gui.EmptyContent;
 
         return conditionLightSensitive;
     }

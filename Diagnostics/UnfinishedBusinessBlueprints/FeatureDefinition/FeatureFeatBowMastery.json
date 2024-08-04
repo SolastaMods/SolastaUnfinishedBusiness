@@ -1,16 +1,5 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:PowerInvocationChillingHex:7c38ed4a-2196-5c69-b08e-35bee1324744",
-    "Definition:PowerInvocationChillingHexDamage:68c10588-29bb-5b74-aac7-ea6fd3a235c1"
-  ],
-  "mode": "Union",
-  "ancestryDamageTypeMap": [],
-  "ancestryType": "Sorcerer",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -35,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "56ba928e-c0a3-5076-a248-f63079db0de9",
+  "guid": "d7f8fbf6-dad1-5079-a788-b99ea8472a4c",
   "contentPack": 9999,
-  "name": "FeatureSetInvocationChillingHex"
+  "name": "FeatureFeatBowMastery"
 }

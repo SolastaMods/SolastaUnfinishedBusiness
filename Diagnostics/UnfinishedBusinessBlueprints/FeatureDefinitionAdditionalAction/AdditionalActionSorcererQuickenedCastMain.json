@@ -1,9 +1,17 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Main",
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [
+    "CastMain"
+  ],
+  "maxAttacksNumber": -1,
+  "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionFeatCleavingAttackFinishTitle",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -24,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1f5fa1d9-38ef-5a58-99e3-a691fcbdc8eb",
+  "guid": "5aaab60e-6ab6-5d5d-b47d-f3a265133a7c",
   "contentPack": 9999,
-  "name": "FeatureFeatCleavingAttackFinish"
+  "name": "AdditionalActionSorcererQuickenedCastMain"
 }

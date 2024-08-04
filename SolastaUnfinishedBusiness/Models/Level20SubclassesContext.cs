@@ -716,10 +716,11 @@ internal static class Level20SubclassesContext
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.StunningStrikeToggle, "TraditionOpenHandQuiveringPalmToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
             .SetActionId(ExtraActionId.QuiveringPalmToggle)
             .SetActivatedPower(
                 powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower, false)
-            .RequiresAuthorization()
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         _ = DamageDefinitionBuilder

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupDefenseExpertTitle",
-    "description": "Increase one of your mental attributes by 1, to a maximum of 20.\nWhile you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.",
+    "description": "Increase one of your mental attributes by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

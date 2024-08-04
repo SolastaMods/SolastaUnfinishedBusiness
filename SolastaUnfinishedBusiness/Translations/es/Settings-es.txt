@@ -42,7 +42,6 @@ ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Otorgar maldición</color> no requiere concentración cuando se lanza con un espacio de hechizo N5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condición <color=#D89555>Cegado</color> no permite ataques de oportunidad.
 ModUi/&Blueprints=Planos
-ModUi/&Camera=<color=#F0DAA0>Cámara:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campañas:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campañas y ubicaciones:</color>
 ModUi/&Category=Categoría
@@ -119,7 +118,7 @@ ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableCustomPortraits=Habilitar retratos personalizados
 ModUi/&EnableCustomPortraitsHelp=• Coloque sus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color> </b></i>, que lleva el nombre del nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n• Utilice PNG imágenes, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[use GIMP para obtener mejores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluye salas planas, tamaños de mazmorra de 150 x 150 y 200 x 200 y una combinación sencilla de recursos de todos los entornos]</color></i>
-ModUi/&EnableElevationCameraToStayAtPosition=Habilite la cámara de elevación para permanecer en su posición después de desactivarla
+ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Habilita la cámara de elevación durante la batalla para permanecer en la posición después de deshabilitarla y triplicar su alcance</i>
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar visualización del panel de competencias extendidas <i><color=#F0DAA0>[Disparos arcanos, infusiones, maniobras y versatilidades]</color></i>\n<b><i><color=#C04040E0>[rendimiento éxito en la inspección del personaje. úsalo bajo tu propia responsabilidad]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilite la selección de <color=#D89555>dotes</color> en los niveles 2, 10 y 18
@@ -162,6 +161,7 @@ ModUi/&EnableRogueStrSaving=Habilite a <color=#D89555>Pícaro</color> para que u
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSignatureSpellsRelearn=Habilite los hechizos característicos del <color=#D89555>Mago</color> para que se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Habilita <color=#D89555>Hechicero</color> <b>guía mágica</b> en el nivel 5.
+ModUi/&EnableSorcererQuickenedAction=Habilitar la <b>acción rápida</b> del <color=#D89555>Hechicero</color> para permitir lanzar el personaje principal nivelado al final
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de recursos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Muestra estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir: golpes críticos, fallos críticos, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe agrega una tirada D20 al peso para darle un poco de aleatoriedad <color=#F0DAA0>[peso elegido = votos * modificador de carisma del héroe + tirada D20]</color></i>

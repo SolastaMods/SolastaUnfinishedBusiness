@@ -1,11 +1,11 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9061,
+  "id": 9003,
   "actionType": "NoCost",
   "actionScope": "All",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
-  "classNameOverride": "",
+  "classNameOverride": "Toggle",
   "requiresAuthorization": true,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",
@@ -47,8 +47,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Action/&BalefulScionToggleTitle",
-    "description": "Action/&BalefulScionToggleDescription",
+    "title": "Feature/&PowerFeatBalefulScionTitle",
+    "description": "Feature/&PowerFeatBalefulScionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f039effbc135454c9bb55de2851472b1",

@@ -125,7 +125,7 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
-        condition.GuiPresentation.description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Gui.EmptyContent;
 
         return SpellDefinitionBuilder
             .Create(NAME)
@@ -196,7 +196,7 @@ internal static partial class SpellBuilders
             .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddToDB();
 
-        condition.GuiPresentation.description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Gui.EmptyContent;
 
         var spell = SpellDefinitionBuilder
             .Create(RescueTheDyingName)
@@ -378,7 +378,7 @@ internal static partial class SpellBuilders
             .CopyParticleReferences(DeathWard)
             .AddToDB();
 
-        conditionCrownOfStars.GuiPresentation.description = Gui.NoLocalization;
+        conditionCrownOfStars.GuiPresentation.description = Gui.EmptyContent;
 
         var lightSourceForm = FaerieFire.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;

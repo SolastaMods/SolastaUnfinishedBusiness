@@ -1,5 +1,3 @@
-Action/&AmazingDisplayToggleDescription=激活/停用惊奇展示
-Action/&AmazingDisplayToggleTitle=惊奇展示
 Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=惊讶
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=当你进行魅力（表演）或敏捷（特技）检定时，你可以将 9 或更低的 d20 检定视为 10。
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=优雅

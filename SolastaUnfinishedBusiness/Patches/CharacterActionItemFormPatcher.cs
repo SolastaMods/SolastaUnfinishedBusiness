@@ -4,8 +4,10 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Validators;
 using TA.AddressableAssets;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -40,6 +42,13 @@ public static class CharacterActionItemFormPatcher
         [UsedImplicitly]
         public static void Postfix(CharacterActionItemForm __instance)
         {
+            //PATCH: supports Way of Zen Archery flurry of arrows to not display max attack numbers on action button
+            if (__instance.currentAttackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
+                ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType)(__instance.currentAttackMode, null, null))
+            {
+                __instance.attacksNumberGroup.gameObject.SetActive(false);
+            }
+
             //PATCH: support display remaining spell points on cast actions (SPELL_POINTS)
             SpellPointsContext.DisplayRemainingSpellPointsOnCastActions(
                 __instance.GuiCharacterAction, __instance.useSlotsTable, __instance.highSlotNumber);

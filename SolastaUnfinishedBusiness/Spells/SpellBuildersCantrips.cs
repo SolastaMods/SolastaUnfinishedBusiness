@@ -234,7 +234,7 @@ internal static partial class SpellBuilders
                         .AddToDB())
                 .AddToDB();
 
-            condition.GuiPresentation.description = Gui.NoLocalization;
+            condition.GuiPresentation.description = Gui.EmptyContent;
 
             var attributeTitle = $"Attribute/&{attribute}TitleLong";
             var title = Gui.Format("Spell/&EgoShockSubspellTitle", attributeTitle);
@@ -675,7 +675,7 @@ internal static partial class SpellBuilders
                         ConditionOperationDescription.ConditionOperation.Add,
                         ConditionDefinitionBuilder
                             .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
-                            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
                             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                             .AddToDB())
                     .SetAddLightSource(true)

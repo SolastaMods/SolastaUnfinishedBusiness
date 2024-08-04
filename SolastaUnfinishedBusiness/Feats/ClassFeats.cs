@@ -92,6 +92,26 @@ internal static class ClassFeats
     {
         const string NAME = "FeatCallForCharge";
 
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat, ConditionDefinitions.ConditionBlessed)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create($"MovementAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedAdditiveModifier(3)
+                    .AddToDB(),
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+                    .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .AddToDB())
+            .AddToDB();
+
+        condition.GuiPresentation.description = Gui.EmptyContent;
+
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatCallForCharge")
             .SetGuiPresentation(Category.Feat)
@@ -107,32 +127,7 @@ internal static class ClassFeats
                             .Create()
                             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                            .SetEffectForms(
-                                EffectFormBuilder
-                                    .Create()
-                                    .SetConditionForm(
-                                        ConditionDefinitionBuilder
-                                            .Create($"Condition{NAME}")
-                                            .SetGuiPresentation(Category.Condition,
-                                                ConditionDefinitions.ConditionBlessed)
-                                            .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                            .SetPossessive()
-                                            .SetFeatures(
-                                                FeatureDefinitionMovementAffinityBuilder
-                                                    .Create($"MovementAffinity{NAME}")
-                                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition,
-                                                        Gui.NoLocalization)
-                                                    .SetBaseSpeedAdditiveModifier(3)
-                                                    .AddToDB(),
-                                                FeatureDefinitionCombatAffinityBuilder
-                                                    .Create($"CombatAffinity{NAME}")
-                                                    .SetGuiPresentation(
-                                                        $"Condition{NAME}", Category.Condition, Gui.NoLocalization)
-                                                    .SetMyAttackAdvantage(AdvantageType.Advantage)
-                                                    .AddToDB())
-                                            .AddToDB(),
-                                        ConditionForm.ConditionOperation.Add)
-                                    .Build())
+                            .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
                             .SetParticleEffectParameters(MagicWeapon)
                             .Build())
                     .AddToDB())
@@ -378,7 +373,8 @@ internal static class ClassFeats
         {
             var effectDescription = action.actionParams.RulesetEffect.EffectDescription;
 
-            if (effectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            if (effectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit) ||
+                effectDescription.TargetParameter != 1)
             {
                 yield break;
             }
@@ -412,17 +408,9 @@ internal static class ClassFeats
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager)
-            {
-                yield break;
-            }
-
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            if (attacker == helper ||
+            if (!actionManager ||
+                attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                attacker == helper ||
                 helper.IsMyTurn() ||
                 !helper.CanReact())
             {
@@ -454,6 +442,11 @@ internal static class ClassFeats
                 actionManager.AddInterruptRequest(reactionRequest);
 
                 yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+                if (actionParams.ReactionValidated)
+                {
+                    yield break;
+                }
             }
         }
     }
@@ -1150,7 +1143,6 @@ internal static class ClassFeats
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("SlayTheEnemy")
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetIgnoreCriticalDoubleDice(true)
             .SetFlatDamageBonus(0)
             .SetAdvancement(ExtraAdditionalDamageAdvancement.ConditionAmount,

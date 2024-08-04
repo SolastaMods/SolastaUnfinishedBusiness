@@ -1,6 +1,32 @@
-1.5.97.24:
+1.5.97.25:
 
-CALL FOR PATRONS: UB is running low on cash flow. If you can, please use donation links at github.com/SolastaMods/SolastaUnfinishedBusiness
+PATRONS: UB is running low on cash flow. If you can, please donate at github.com/SolastaMods/SolastaUnfinishedBusiness
+
+- added Gameplay > Character > 'Enable Sorcerer quickened action to allow cast leveled main in the end'
+- added triple camera range to Interface > Game UI > 'Enable elevation camera during battle to stay at position'
+- added Way of Zen Archery zen shot feature at level 3 [use Ki once per turn to add add. damage to bow attack]
+- combined Bow Mastery and Crossbow Mastery feats into Ranged Mastery
+- fixed Bait and Switch maneuver not adding AC to self when switching an ally
+- fixed Chilling Hex, Cloak of Flies, and Maddening Hex invocations not granting powers
+- fixed Circle of Power saving throw advantage to only trigger against spells
+- fixed Corrupting Bolt spell not removing corrupted condition after target was hit
+- fixed Exploiter feat reacting against every defender attacked by spells with more than one target
+- fixed Path of Yeoman strong bow, and Roguish Raven sniper aim damage progression off by 1 class level
+- fixed Polearm feat interaction with Great Weapon Master, Power Attack, and Two Weapon Fighting
+- fixed Polearm feat missing the attack attribute modifier on bonus attack damage
+- fixed Roguish Arcane Scoundrel backslash counter spell reaction modal description
+- fixed Sentinel feat behavior to cancel all enemy queued actions immediately after the attack of opportunity
+- improved Martial Psi Warrior force powered strike dice progression to 1d8 at 3rd, 1d10 at 10th, and 1d12 at 18th
+- improved Rogue cunning strike withdraw behavior to work immediately after the attack
+- improved Roguish Umbral Stalker, now Roguish Shadowdancer, to also allow ranged builds
+- improved Way of Zen Archery flurry of arrows to replace one of your bonus unarmed strikes with a bow attack
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
+
+1.5.97.24:
 
 - added Artificer soul of artifice at 20th
 - added General > Rules > 'Set Sorcerer Wild Magic chance die threshold' setting
@@ -17,11 +43,6 @@ CALL FOR PATRONS: UB is running low on cash flow. If you can, please use donatio
 - fixed Roguish Raven deadly focus not adding advantage on attack re-attempt
 - fixed Warlock pact chain powers recharge rate to long rest [VANILLA]
 - removed Interface > Game UI > 'Increase elevation camera max height by' setting as causing a game soft lock
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
 
 1.5.97.23:
 

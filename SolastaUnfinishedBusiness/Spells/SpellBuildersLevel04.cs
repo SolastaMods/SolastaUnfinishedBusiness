@@ -334,7 +334,7 @@ internal static partial class SpellBuilders
                     .AddToDB())
             .AddToDB();
 
-        conditionDazed.GuiPresentation.description = Gui.NoLocalization;
+        conditionDazed.GuiPresentation.description = Gui.EmptyContent;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)

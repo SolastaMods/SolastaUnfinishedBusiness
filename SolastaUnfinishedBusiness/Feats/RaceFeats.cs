@@ -93,7 +93,7 @@ internal static class RaceFeats
             .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly12)
             .AddToDB();
 
-        condition.GuiPresentation.description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Gui.EmptyContent;
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatDragonWings")
@@ -1583,7 +1583,6 @@ internal static class RaceFeats
             .Create($"AdditionalDamage{Name}")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("OrcishFury")
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
             .AddToDB();
 
@@ -1606,10 +1605,11 @@ internal static class RaceFeats
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "OrcishFuryToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation("FeatGroupOrcishFury", Category.Feat)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.OrcishFuryToggle)
             .SetActivatedPower(power)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder

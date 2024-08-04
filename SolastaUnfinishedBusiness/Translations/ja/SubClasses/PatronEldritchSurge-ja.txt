@@ -1,4 +1,3 @@
-Attribute/&TitleLong=多用途
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=追加のアクションを獲得し、強さ、知性、または知恵を最低 22 に設定して、チェックやポイント消費なしですべての多用途性を使用できます。
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=ブラストオーバーロード
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=ボーナス キャントリップとして <b>エルドリッチ ブラスト</b> を獲得します。ビームの数は、次のように計算される決意によって決まります: [ウォーロック レベル] - 2 * [他のクラスのレベル]。決意が 3 以上のときは 2 本のビームを、8 以上のときは 3 本、13 以上のときは 4 本、18 以上のときは 5 本をキャストできます。

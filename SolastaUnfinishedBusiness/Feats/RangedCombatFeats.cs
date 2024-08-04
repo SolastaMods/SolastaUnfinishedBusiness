@@ -22,17 +22,18 @@ internal static class RangedCombatFeats
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featBowMastery = BuildBowMastery();
-        var featCrossbowMastery = BuildCrossbowMastery();
         var featDeadEye = BuildDeadEye();
         var featRangedExpert = BuildRangedExpert();
         var featZenArcher = BuildZenArcher();
 
+        // kept for backward compatibility
+        _ = BuildCrossbowMastery(featBowMastery);
+
         feats.AddRange(
-            featBowMastery, featCrossbowMastery, featDeadEye, featRangedExpert, featZenArcher);
+            featBowMastery, featDeadEye, featRangedExpert, featZenArcher);
 
         GroupFeats.FeatGroupRangedCombat.AddFeats(
             featBowMastery,
-            featCrossbowMastery,
             featDeadEye,
             featRangedExpert,
             featZenArcher);
@@ -66,18 +67,19 @@ internal static class RangedCombatFeats
     {
         const string NAME = "FeatBowMastery";
 
-        var isLongOrShortbow = ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType);
+        var isLongOrShortBowOrCrossbow = ValidatorsWeapon.IsOfWeaponType(
+            LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType, CustomWeaponsContext.HandXbowWeaponType);
 
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttackModifierBuilder
-                    .Create($"Custom{NAME}")
-                    .SetGuiPresentation(NAME, Category.Feat)
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
                     .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
-                            (OperationType.Set, isLongOrShortbow(mode, null, character))),
+                            (OperationType.Set, isLongOrShortBowOrCrossbow(mode, null, character))),
                         new AddExtraRangedAttack(
                             ActionDefinitions.ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(LongbowType),
@@ -85,28 +87,7 @@ internal static class RangedCombatFeats
                         new AddExtraRangedAttack(
                             ActionDefinitions.ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(ShortbowType),
-                            ValidatorsCharacter.HasUsedWeaponType(ShortbowType)))
-                    .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildCrossbowMastery()
-    {
-        const string NAME = "FeatCrossbowMastery";
-
-        var isCrossbow = ValidatorsWeapon.IsOfWeaponType(
-            HeavyCrossbowType, LightCrossbowType, CustomWeaponsContext.HandXbowWeaponType);
-
-        return FeatDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionAttackModifierBuilder
-                    .Create($"Custom{NAME}")
-                    .SetGuiPresentation(NAME, Category.Feat)
-                    .AddCustomSubFeatures(
-                        new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
-                            (OperationType.Set, isCrossbow(mode, null, character))),
+                            ValidatorsCharacter.HasUsedWeaponType(ShortbowType)),
                         new AddExtraRangedAttack(
                             ActionDefinitions.ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(HeavyCrossbowType),
@@ -121,6 +102,19 @@ internal static class RangedCombatFeats
                             ValidatorsCharacter.HasUsedWeaponType(CustomWeaponsContext.HandXbowWeaponType)))
                     .AddToDB())
             .AddToDB();
+    }
+
+    private static FeatDefinition BuildCrossbowMastery(FeatDefinition featBowMastery)
+    {
+        const string NAME = "FeatCrossbowMastery";
+
+        var feat = FeatDefinitionBuilder
+            .Create(featBowMastery, NAME)
+            .AddToDB();
+
+        feat.GuiPresentation.hidden = true;
+
+        return feat;
     }
 
     private static FeatDefinition BuildDeadEye()

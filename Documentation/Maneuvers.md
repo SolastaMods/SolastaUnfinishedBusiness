@@ -4,7 +4,7 @@ The next weapon or unarmed attack you make before your turn ends will use your b
 
 # 2. - Bait and Switch [UB]
 
-You can use your bonus action to expend a superiority die and 5ft of your movement to switch places with a creature. If used on an ally, you switch places with the ally and can choose to either increase your own armor class or your ally's by an amount equal to one roll of your superiority die until the start of your next turn. If used on an enemy, they must pass a Dexterity saving throw or switch places with you and be unable to make opportunity attacks until the end of your turn.
+You can use your bonus action to expend a superiority die and 5ft of your movement to switch places with a creature. If used on an ally, you switch places with the ally and can choose to either increase your own AC or your ally's by an amount equal to one roll of your superiority die until the start of your next turn. If used on an enemy, they must pass a Dexterity saving throw or switch places with you and be unable to make opportunity attacks until the end of your turn.
 
 # 3. - Brace [UB]
 

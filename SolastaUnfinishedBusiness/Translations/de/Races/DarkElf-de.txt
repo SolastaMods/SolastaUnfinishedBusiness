@@ -1,8 +1,8 @@
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisma +1
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Erhöhung des Fähigkeitswerts
-Feature/&CastSpellDarkelfMagicDescription=Sie kennen den <b>Dancing Lights</b>-Cantrip. Auf der 3. Stufe lernst du <b>Feenfeuer</b> und auf der 5. Stufe <b>Dunkelheit</b>. Beide können einmal pro langer Pause verwendet werden.
-Feature/&CastSpellDarkelfMagicTitle=Dunkelelfenmagie
-Feature/&ProficiencyDarkelfWeaponTrainingDescription=Sie beherrschen den Umgang mit Degen, Kurzschwertern und Handarmbrüsten.
-Feature/&ProficiencyDarkelfWeaponTrainingTitle=Dunkelelfen-Waffentraining
-Race/&RaceDarkelfDescription=Dunkelelfen sind Nachkommen von Elfen, die im Laufe der Zeit durch das Leben in den unwirtlichen Ödlanden verändert wurden. Dunkelelfen sind größtenteils nachtaktiv und haben sich an das Leben in alten Ruinen der Badlands angepasst, insbesondere in vergrabenen unterirdischen Ruinen. Sie neigen dazu, dunkle Haut und helles Haar zu haben.
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Steigerung des Fähigkeitswerts
+Feature/&CastSpellDarkelfMagicDescription=Du kennst den Zauberspruch <b>Tanzende Lichter</b>. Auf der 3. Stufe lernst du <b>Feenfeuer</b> und auf der 5. Stufe <b>Dunkelheit</b>. Beide können einmal pro langer Pause verwendet werden.
+Feature/&CastSpellDarkelfMagicTitle=Magie der Dunkelelfen
+Feature/&ProficiencyDarkelfWeaponTrainingDescription=Sie sind mit Rapiern, Kurzschwertern und Handarmbrüsten vertraut.
+Feature/&ProficiencyDarkelfWeaponTrainingTitle=Waffentraining der Dunkelelfen
+Race/&RaceDarkelfDescription=Dunkelelfen sind Nachkommen von Elfen, die sich im Laufe der Zeit durch das Leben in den unwirtlichen Badlands verändert haben. Dunkelelfen sind größtenteils nachtaktiv und haben sich an das Leben in alten Badlands-Ruinen angepasst, insbesondere in unterirdischen Ruinen. Sie haben meist dunkle Haut und helles Haar.
 Race/&RaceDarkelfTitle=Dunkelelf

@@ -1,6 +1,6 @@
 # 1. - *Abilities of the Chain Master* © [UB]
 
-Gain additional effects when bound to a creature. When bound to Imp gain greater invisibility, when bound to Pseudo Dragon gain flight and attacks imbued with poison, when bound to Quasit gain an additional main action and advantage on Dexterity saving throws, and when bound to Sprite get an armor class score of at least 16 and attackers have disadvantage against you.
+Gain additional effects when bound to a creature. When bound to Imp gain greater invisibility, when bound to Pseudo Dragon gain flight and attacks imbued with poison, when bound to Quasit gain an additional main action and advantage on Dexterity saving throws, and when bound to Sprite get an AC score of at least 16 and attackers have disadvantage against you.
 
 # 2. - Agonizing Blast [SOL]
 

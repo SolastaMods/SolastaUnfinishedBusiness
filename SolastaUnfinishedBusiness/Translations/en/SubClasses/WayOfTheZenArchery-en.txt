@@ -1,4 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Whenever you use your Flurry of Blows, you can replace one unarmed attack with a bow attack.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=You can replace one of your bonus unarmed strikes with a bow attack.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Flurry of Arrows
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage, and you can now use your Stunning Strike feature with bow attacks.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Ki-Empowered Arrows
@@ -6,6 +6,8 @@ Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=You gain half your p
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionTitle=Unerring Precision
 Feature/&PowerWayOfZenArcheryHailOfArrowsDescription=You can use your action and spend 3 ki to fire a barrage of arrows. You make one bow attack against each enemy creature you can see in a 45-foot-cone.
 Feature/&PowerWayOfZenArcheryHailOfArrowsTitle=Hail of Arrows
+Feature/&PowerWayOfZenArcheryZenShotDescription=When you hit a creature with a bow attack during your turn, you can expend 1 ki to deal extra damage equal to your martial arts die + Wisdom modifier.
+Feature/&PowerWayOfZenArcheryZenShotTitle=Zen Shot
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=You become proficient with shortbow and longbow. These weapons now count as monk weapons for you. You also gain proficiency with smithing tools.
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=One with the Bow
 Subclass/&WayOfZenArcheryDescription=A weapon is an extension of oneself, and a plain rendition of the one that wields it. Monks of the Way of Zen Archery know this well. The beauty and precision of martial arts has given these monks the tools to master their weapon of choice – the bow. They wield it with peerless skill and display their mastery of archery with each pull of the string.

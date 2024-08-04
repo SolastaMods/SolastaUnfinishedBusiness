@@ -77,8 +77,7 @@ internal class ConditionDefinitionBuilder
     internal ConditionDefinitionBuilder AdditionalDiceDamageWhenHit(
         int dieNumber = 0,
         DieType dieType = DieType.D1,
-        AdditionalDamageType damageTypeDetermination =
-            AdditionalDamageType.SameAsBaseDamage,
+        AdditionalDamageType damageTypeDetermination = AdditionalDamageType.SameAsBaseDamage,
         string damageType = null)
     {
         if (damageTypeDetermination == AdditionalDamageType.Specific

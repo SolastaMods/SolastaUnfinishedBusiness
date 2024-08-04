@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:ActionAffinityCollegeOfEleganceAmazingDisplay:66761f7b-66c6-5e1d-a27a-5c6823fd6f51",
-    "Definition:MovementAffinityCollegeOfEleganceAmazingDisplay:a3913032-93b8-515b-875c-2b616e16cd9a"
+    "Definition:ActionAffinityConditionRestrained:0a11d859909c2624086506f327824de8",
+    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

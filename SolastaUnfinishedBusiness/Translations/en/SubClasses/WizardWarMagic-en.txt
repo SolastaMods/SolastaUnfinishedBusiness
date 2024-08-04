@@ -1,5 +1,3 @@
-Action/&PowerSurgeToggleDescription=Activate/deactivate Power Surge
-Action/&PowerSurgeToggleTitle=Power Surge
 Condition/&ConditionWarMagicArcaneDeflectionDescription=You can't cast spells other than cantrips.
 Condition/&ConditionWarMagicArcaneDeflectionTitle=Arcane Deflection
 Feature/&AttributeModifierWarMagicTacticalWitDescription=Your keen ability to assess tactical situations allows you to act quickly in battle. You can give yourself a bonus to your initiative rolls equal to your Intelligence modifier.

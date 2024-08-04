@@ -42,7 +42,6 @@ ModUi/&Bestiary=동물 우화집
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>저주 부여</color>는 L5+ 주문 슬롯으로 시전할 때 집중이 필요하지 않습니다.
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>맹인</color> 상태는 기회 공격을 허용하지 않습니다.
 ModUi/&Blueprints=청사진
-ModUi/&Camera=<color=#F0DAA0>카메라:</color>
 ModUi/&Campaigns=<color=#F0DAA0>캠페인:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>캠페인 및 위치:</color>
 ModUi/&Category=범주
@@ -119,7 +118,7 @@ ModUi/&EnableCheatMenu=치트 메뉴 활성화
 ModUi/&EnableCustomPortraits=맞춤 인물 사진 활성화
 ModUi/&EnableCustomPortraitsHelp=• 사용자 정의 초상화를 하위 폴더 <i><b><color=#F0DAA0>개인</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color> 아래에 배치하세요. </b></i>, 영웅의 이름을 따서 명명됨 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• PNG 사용 투명 레이어가 있는 256 x 384 픽셀 크기의 이미지 <i><color=#F0DAA0>[최상의 결과를 얻으려면 김프 사용]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 활성화\n<i><color=#F0DAA0>[플랫 룸, 150x150 및 200x200 던전 크기 및 모든 환경의 자산을 혼합하는 장식 없음]</color></i>
-ModUi/&EnableElevationCameraToStayAtPosition=비활성화된 후 고도 카메라를 활성화하여 위치를 유지합니다.
+ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 전투 중 고도 카메라를 활성화하여 비활성화 후에도 위치를 유지하고 범위를 3배로 늘립니다.</i>
 ModUi/&EnableEpicPointsAndArray=엄청난 35포인트 구매 시스템 및 배열 활성화 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=확장된 숙련도 패널 표시 활성화 <i><color=#F0DAA0>[비전 사격, 주입, 기동 및 다용도]</color></i>\n<b><i><color=#C04040E0>[performance 캐릭터 점검에 들어갑니다. 사용에 따른 책임은 본인에게 있습니다]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=레벨 2, 10, 18에서 <color=#D89555>재능</color> 선택 활성화
@@ -162,6 +161,7 @@ ModUi/&EnableRogueStrSaving=<color=#D89555>도적</color>을 활성화하여 <b>
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
 ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 준비되도록 <color=#D89555>마법사</color> 시그니처 주문을 활성화하세요. <i><color=#F0DAA0>[레벨 20에 한 번이 아닌]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 <color=#D89555>소서러</color> <b>마법의 인도</b> 활성화
+ModUi/&EnableSorcererQuickenedAction=<color=#D89555>마법사</color>의 <b>빠른 동작</b>을 활성화하여 마지막에 레벨업된 메인을 시전할 수 있도록 합니다.
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 또한 각 영웅은 약간의 무작위성을 위해 가중치에 D20 롤을 추가합니다. <color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정자 + D20 롤]</color></i>

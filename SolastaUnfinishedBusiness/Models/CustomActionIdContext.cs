@@ -42,9 +42,10 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.PowerSurgeToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
-        (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
-        (Id)ExtraActionId.SupremeWillToggle
+        (Id)ExtraActionId.ThunderousStrikeToggle,
+        (Id)ExtraActionId.SupremeWillToggle,
+        (Id)ExtraActionId.ZenShotToggle
     ];
 
     internal static FeatureDefinitionPower FarStep { get; private set; }
@@ -236,6 +237,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.BrutalStrikeToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -243,6 +245,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CompellingStrikeToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -250,6 +253,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CunningStrikeToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -257,6 +261,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.DragonHideToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -264,6 +269,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.DyingLightToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -271,6 +277,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.FeatCrusherToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -278,6 +285,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.GloomBladeToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -285,6 +293,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.HailOfBladesToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -292,6 +301,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.MasterfulWhirlToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -299,6 +309,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.MindSculptToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -306,6 +317,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.PaladinSmiteToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -313,6 +325,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ThunderousStrikeToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -320,6 +333,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.PressTheAdvantageToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -327,6 +341,7 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.SupremeWillToggle)
+            .OverrideClassName("Toggle")
             .AddToDB();
     }
 

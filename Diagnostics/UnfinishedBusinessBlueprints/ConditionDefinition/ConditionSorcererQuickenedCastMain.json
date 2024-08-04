@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinitySentinelStopMovement:93efd630-5ffb-5ef9-ac9a-46a6f05e3bc0"
+    "Definition:AdditionalActionSorcererQuickenedCastMain:5aaab60e-6ab6-5d5d-b47d-f3a265133a7c"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a6db340c-848a-5914-809f-405dcdf5ac4c",
+  "guid": "fcc009a6-3b9b-513a-865f-ed6c5e37bfdf",
   "contentPack": 9999,
-  "name": "ConditionPreventAttackAtReach"
+  "name": "ConditionSorcererQuickenedCastMain"
 }

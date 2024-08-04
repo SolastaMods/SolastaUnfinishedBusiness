@@ -1,5 +1,3 @@
-Action/&PowerSurgeToggleDescription=パワーサージの有効化/無効化
-Action/&PowerSurgeToggleTitle=電力サージ
 Condition/&ConditionWarMagicArcaneDeflectionDescription=キャントリップ以外の呪文を唱えることはできない。
 Condition/&ConditionWarMagicArcaneDeflectionTitle=難解な偏向
 Feature/&AttributeModifierWarMagicTacticalWitDescription=戦術的な状況を判断する鋭い能力により、戦闘中に迅速に行動することができます。あなたは自分のイニシアチブロールに知力修正値に等しいボーナスを自分自身に与えることができます。

@@ -1,6 +1,6 @@
-Feature/&PointPoolAbilityScore3Description=Utilisez trois boosts sur les scores de capacité dans n'importe quelle combinaison de votre choix.
+Feature/&PointPoolAbilityScore3Description=Utilisez trois bonus sur les scores de capacité dans n'importe quelle combinaison de votre choix.
 Feature/&PointPoolAbilityScore3Title=Augmentation du score de capacité
-Feature/&PointPoolAbilityScore4Description=Utilisez quatre boosts sur les scores de capacité dans n'importe quelle combinaison de votre choix.
+Feature/&PointPoolAbilityScore4Description=Utilisez quatre bonus sur les scores de capacité dans n'importe quelle combinaison de votre choix.
 Feature/&PointPoolAbilityScore4Title=Augmentation du score de capacité
-Feature/&PointPoolSelectBonusFeatsDescription=Sélectionnez {0} exploits supplémentaires pour votre personnage.
-Feature/&PointPoolSelectBonusFeatsTitle={0} exploits bonus
+Feature/&PointPoolSelectBonusFeatsDescription=Sélectionnez {0} exploits supplémentaires pour votre personnage.
+Feature/&PointPoolSelectBonusFeatsTitle={0} Exploits bonus

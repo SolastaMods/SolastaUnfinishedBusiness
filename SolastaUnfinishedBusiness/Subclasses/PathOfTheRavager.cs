@@ -32,7 +32,6 @@ public sealed class PathOfTheRavager : AbstractSubclass
                 .SetGuiPresentation(Category.Feature)
                 .SetNotificationTag("Frenzy")
                 .SetDamageDice(DieType.D6, 2)
-                .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                 .SetAdvancement(AdditionalDamageAdvancement.ClassLevel,
                     DiceByRankBuilder.InterpolateDiceByRankTable(1, 20, (3, 2), (9, 3), (16, 4)))
                 .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)

@@ -392,7 +392,7 @@ internal static partial class SpellBuilders
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None)
@@ -456,7 +456,7 @@ internal static partial class SpellBuilders
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePsychic)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
@@ -591,7 +591,7 @@ internal static partial class SpellBuilders
             .SetFeatures(actionAffinityVoidGrasp)
             .AddToDB();
 
-        conditionVoidGrasp.GuiPresentation.Description = Gui.NoLocalization;
+        conditionVoidGrasp.GuiPresentation.description = Gui.EmptyContent;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -1396,7 +1396,7 @@ internal static partial class SpellBuilders
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag($"{NAME}{shortDamageType}")
                 .SetDamageDice(DieType.D6, 1)
-                .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ConditionAmount, 1)
+                .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ConditionAmount)
                 .SetSpecificDamageType(damageType)
                 .SetImpactParticleReference(
                     magicEffect.EffectDescription.EffectParticleParameters.impactParticleReference)
@@ -2056,7 +2056,7 @@ internal static partial class SpellBuilders
                 0, AttributeDefinitions.Wisdom, null, modifierTrend, advantageTrends, attackerWisModifier, casterSaveDC,
                 false, out var savingOutcome, out _);
 
-            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (savingOutcome == RollOutcome.Success)
             {
                 yield break;
             }

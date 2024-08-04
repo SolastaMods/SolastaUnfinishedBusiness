@@ -1,11 +1,11 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9050,
+  "id": 9005,
   "actionType": "NoCost",
   "actionScope": "All",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
-  "classNameOverride": "",
+  "classNameOverride": "Toggle",
   "requiresAuthorization": true,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",

@@ -18,7 +18,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
-using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -217,12 +216,13 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         // Wild Magic Surge
 
-        ConditionDamageResistance.GuiPresentation.description = Gui.NoLocalization;
-        ConditionPiercingVulnerability.GuiPresentation.description = Gui.NoLocalization;
-        ConditionLightningStrike.GuiPresentation.description = Gui.NoLocalization;
+        ConditionDamageResistance.GuiPresentation.description = Gui.EmptyContent;
+        ConditionPiercingVulnerability.GuiPresentation.description = Gui.EmptyContent;
+        ConditionLightningStrike.GuiPresentation.description = Gui.EmptyContent;
 
         PowerLightningStrike.EffectDescription.EffectForms.Add(
-            EffectFormBuilder.ConditionForm(ConditionLightningStrike, ConditionForm.ConditionOperation.Remove, true, true));
+            EffectFormBuilder.ConditionForm(
+                ConditionLightningStrike, ConditionForm.ConditionOperation.Remove, true, true));
 
         PowerWildHealing
             .EffectDescription.EffectForms[0].DamageForm.healFromInflictedDamage = HealFromInflictedDamage.Full;
@@ -1391,8 +1391,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 EffectHelpers.StartVisualEffect(
                     caster, caster, Resurrection, EffectHelpers.EffectType.Effect);
                 rulesetCaster.LogCharacterActivatesAbility(string.Empty, "Screen/&SorceryPointsRecoveredDescription");
-                rulesetCaster.UsedSorceryPoints = 0;
-                rulesetCaster.SorceryPointsAltered?.Invoke(rulesetCaster, rulesetCaster.RemainingSorceryPoints);
+                rulesetCaster.SpendSorceryPoints(-rulesetCaster.UsedSorceryPoints);
                 break;
         }
 
@@ -1549,7 +1548,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
 
         targets.SetRange(contenders.Where(x =>
-            x.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} &&
+            x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
             x.IsWithinRange(caster, range) &&
             (includeCaster || x != caster)));
     }
@@ -1613,38 +1612,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     // Teleport
     //
 
-    private sealed class PowerOrSpellInitiatedByMeTeleport : IPowerOrSpellInitiatedByMe
+    private sealed class PowerOrSpellInitiatedByMeTeleport
+        : IPowerOrSpellInitiatedByMe, IIgnoreInvisibilityInterruptionCheck
     {
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var cursorService = ServiceRepository.GetService<ICursorService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var character = action.ActingCharacter;
-            var rulesetCharacter = character.RulesetCharacter;
-            var usablePower = PowerProvider.Get(PowerTeleport, rulesetCharacter);
-            var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost)
-            {
-                RulesetEffect =
-                    implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, true)
-            };
-
-            GameUiContext.ResetCamera();
-            cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
-
-            var position = int3.zero;
-
-            while (cursorService.CurrentCursor is CursorLocationSelectPosition cursorLocationSelectPosition)
-            {
-                position = cursorLocationSelectPosition.hasValidPosition
-                    ? cursorLocationSelectPosition.HoveredLocation
-                    : character.LocationPosition;
-
-                yield return null;
-            }
-
-            action.ActionParams.positions.SetRange(position);
+            yield return GameUiContext.SelectPosition(action, PowerTeleport);
         }
     }
 

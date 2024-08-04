@@ -730,10 +730,11 @@ internal static class RaceImpBuilder
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "ImpishWrathToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation(powerImpForestImpishWrath.Name, Category.Feature)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ImpishWrathToggle)
             .SetActivatedPower(powerImpForestImpishWrath)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder

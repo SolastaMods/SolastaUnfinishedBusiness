@@ -1,4 +1,4 @@
-Condition/&ConditionAcidClawsDescription=Armor class is lowered by 1.
+Condition/&ConditionAcidClawsDescription=-1 to AC.
 Condition/&ConditionAcidClawsTitle=Acid Burn
 Condition/&ConditionBoomingBladeDescription=At 5th level, attacks triggered by this cantrip deals an additional 1d8 thunder damage. The damage further increases by 1d8 at 11th and 17th levels.
 Condition/&ConditionBoomingBladeSheathedDescription=You are sheathed in booming energy. If you willingly move 5 feet or more, you take thunder damage.
@@ -19,7 +19,7 @@ Feedback/&AdditionalDamageResonatingStrikeFormat=Green-Flame Blade!
 Feedback/&AdditionalDamageResonatingStrikeLine={0} burns {1}! (+{2})
 Feedback/&AdditionalDamageSunlightBladeFormat=Sunlit Blade!
 Feedback/&AdditionalDamageSunlightBladeLine={0} illuminates {1} with Sunlit Blade! (+{2})
-Spell/&AcidClawsDescription=Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 ft of you. On a hit, the target takes 1d8 acid damage and has armor class lowered by 1 for 1 round (not stacking).
+Spell/&AcidClawsDescription=Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 ft of you. On a hit, the target takes 1d8 acid damage and has AC lowered by 1 for 1 round (not stacking).
 Spell/&AcidClawsTitle=Acid Claws
 Spell/&AirBlastDescription=Fire a blast of focused air at your target.
 Spell/&AirBlastTitle=Gust

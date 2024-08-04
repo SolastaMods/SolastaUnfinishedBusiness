@@ -1,8 +1,8 @@
 Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=Fuerza +1
-Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Músculo de las tierras baldías
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Fuerza de las tierras baldías
 Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Tienes resistencia al daño por fuego.
 Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Acunado por el fuego
 Feature/&ProficiencyObsidianDwarfLanguagesDescription=Común, enano y gigante
 Feature/&ProficiencyObsidianDwarfLanguagesTitle=Idiomas
-Race/&RaceObsidianDwarfDescription=En épocas pasadas, un grupo de enanos fue esclavizado por gigantes de fuego como mineros y artesanos. La magia caótica del cataclismo imbuyó a muchos de estos enanos de algo de la fuerza y resistencia de sus opresores. Los enanos se rebelaron, ganaron su libertad y se retiraron a Badlands. Llamándose a sí mismos los Enanos de Obsidiana, han crecido y prosperado.
+Race/&RaceObsidianDwarfDescription=En épocas pasadas, un grupo de enanos fue esclavizado por gigantes de fuego como mineros y artesanos. La magia caótica del cataclismo imbuyó a muchos de estos enanos de algo de la fuerza y la resistencia de sus opresores. Los enanos se rebelaron, obtuvieron su libertad y se retiraron a las Tierras Baldías. Se autodenominaron Enanos de Obsidiana y han crecido y prosperado.
 Race/&RaceObsidianDwarfTitle=Enano de obsidiana

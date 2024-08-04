@@ -1,21 +1,21 @@
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Seu próximo ataque com arma de longo alcance resultará em um acerto crítico garantido se atingir uma criatura.
-Condition/&ConditionRavenScionHeartSeekingShotTitle=Tiro em busca do coração
-Feature/&AdditionalDamageRavenScionSniperAimDescription=Uma vez por turno, quando você atinge uma criatura com um ataque com arma de longo alcance, aquela criatura sofre dano extra do mesmo tipo igual ao seu nível de ladino.
-Feature/&AdditionalDamageRavenScionSniperAimTitle=Mira do atirador
-Feature/&FeatureRavenScionKillingSpreeDescription=Uma vez durante o seu turno, quando você reduz uma criatura a 0 pontos de vida, você ganha um ataque extra como parte de sua ação principal e reinicia o uso do recurso Mira do seu Sniper.
+Condition/&ConditionRavenScionHeartSeekingShotTitle=Tiro em Busca do Coração
+Feature/&AdditionalDamageRavenScionSniperAimDescription=Uma vez por turno, quando você atinge uma criatura com um ataque de arma de longo alcance, aquela criatura sofre dano extra do mesmo tipo igual ao seu nível de ladino.
+Feature/&AdditionalDamageRavenScionSniperAimTitle=Mira do Sniper
+Feature/&FeatureRavenScionKillingSpreeDescription=Uma vez durante seu turno, quando você reduz uma criatura a 0 pontos de vida, você ganha um ataque extra como parte de sua ação principal e redefine o uso do seu recurso Mira de Atirador.
 Feature/&FeatureRavenScionKillingSpreeTitle=Matança
-Feature/&FeatureSetRavenScionRangedSpecialistDescription=Você é proficiente com todas as armas de longo alcance de duas mãos e ganha estilo de luta com arco e flecha.
-Feature/&FeatureSetRavenScionRangedSpecialistTitle=Especialista de longo alcance
-Feature/&PowerRavenScionDeadlyFocusDescription=Se você errar em uma jogada de ataque com arma de longo alcance, você pode rolar novamente com vantagem. Você pode usar esse recurso uma vez por descanso curto.
+Feature/&FeatureSetRavenScionRangedSpecialistDescription=Você é proficiente com todas as armas de longo alcance de duas mãos e ganha o estilo de luta Arco e Flecha.
+Feature/&FeatureSetRavenScionRangedSpecialistTitle=Especialista em Combate à Distância
+Feature/&PowerRavenScionDeadlyFocusDescription=Se você errar um teste de ataque com arma de longo alcance, você pode rolar novamente com vantagem. Você pode usar essa habilidade uma vez por descanso curto.
 Feature/&PowerRavenScionDeadlyFocusTitle=Foco Mortal
 Feature/&PowerRavenScionHeartSeekingShotDescription=Como uma ação livre, você pode fazer com que seu próximo ataque com arma de longo alcance resulte em um acerto crítico garantido se atingir uma criatura. Você pode usar esse recurso uma vez por descanso curto.
-Feature/&PowerRavenScionHeartSeekingShotTitle=Tiro em busca do coração
-Feedback/&AdditionalDamageSniperAimFormat=Mira do atirador
-Feedback/&AdditionalDamageSniperAimLine=Mira do Sniper causa +{2} de dano extra!
-Feedback/&TriggerRavenScionRerollLine={0} rola {1} = {2}. Deadly Focus forçará um acerto crítico.
-Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Use seu foco mortal para tentar novamente o ataque.
-Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Use seu foco mortal para tentar novamente o ataque.
+Feature/&PowerRavenScionHeartSeekingShotTitle=Tiro em Busca do Coração
+Feedback/&AdditionalDamageSniperAimFormat=Mira do Sniper
+Feedback/&AdditionalDamageSniperAimLine=A Mira do Atirador causa +{2} de dano extra!
+Feedback/&TriggerRavenScionRerollLine={0} rola {1} = {2}. Foco Mortal forçará um acerto crítico.
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Use seu foco mortal para tentar o ataque novamente.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Use seu foco mortal para tentar o ataque novamente.
 Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=Tentar novamente o ataque
 Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Foco Mortal
-Subclass/&RoguishRavenScionDescription=Ravens são especialistas em armas de longo alcance treinados para derrubar inimigos de forma rápida e eficaz.
+Subclass/&RoguishRavenScionDescription=Corvos são especialistas em armas de longo alcance treinados para derrubar inimigos de forma rápida e eficaz.
 Subclass/&RoguishRavenScionTitle=Raven

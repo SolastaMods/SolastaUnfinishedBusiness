@@ -1,5 +1,3 @@
-Action/&ImpishWrathToggleDescription=Activate/deactivate Impish Wrath
-Action/&ImpishWrathToggleTitle=Impish Wrath
 Condition/&ConditionImpAssistedAllyDescription=You have advantage on the first attack roll made to an assisted target.
 Condition/&ConditionImpAssistedAllyTitle=Assisted
 Condition/&ConditionImpAssistedEnemyDescription=Assisted ally has advantage on attack rolls against this unit.

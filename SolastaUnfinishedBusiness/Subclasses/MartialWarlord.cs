@@ -28,6 +28,7 @@ public sealed class MartialWarlord : AbstractSubclass
     private const string Name = "MartialWarlord";
     private const string CoordinatedAssaultMarker = "CoordinatedAssault";
     private const string PressTheAdvantageMarker = "PressTheAdvantage";
+    private const string FeatureSetCoordinatedAssaultName = $"FeatureSet{Name}CoordinatedAssault";
 
     private const ActionDefinitions.Id CoordinatedAssaultToggle =
         (ActionDefinitions.Id)ExtraActionId.CoordinatedAssaultToggle;
@@ -228,7 +229,7 @@ public sealed class MartialWarlord : AbstractSubclass
 
         var powerCoordinatedAssault = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CoordinatedAssault")
-            .SetGuiPresentation($"FeatureSet{Name}CoordinatedAssault", Category.Feature)
+            .SetGuiPresentation(FeatureSetCoordinatedAssaultName, Category.Feature)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
             .DelegatedToAction()
             .AddToDB();
@@ -238,10 +239,11 @@ public sealed class MartialWarlord : AbstractSubclass
 
         _ = ActionDefinitionBuilder
             .Create(MetamagicToggle, "CoordinatedAssaultToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation(FeatureSetCoordinatedAssaultName, Category.Feature)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CoordinatedAssaultToggle)
             .SetActivatedPower(powerCoordinatedAssault)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var actionAffinityCoordinatedAssaultToggle = FeatureDefinitionActionAffinityBuilder
@@ -253,7 +255,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .AddToDB();
 
         var featureSetCoordinatedAssault = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}CoordinatedAssault")
+            .Create(FeatureSetCoordinatedAssaultName)
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 powerCoordinatedAssault,

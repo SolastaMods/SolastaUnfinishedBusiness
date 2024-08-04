@@ -1,6 +1,6 @@
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseDescription=Força +2
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseTitle=Aumento da pontuação de habilidade
 Feature/&ProficiencyIronbornDwarfArmorTrainingDescription=Você tem proficiência com armaduras leves e médias.
-Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Treinamento de Armadura Ironborn
-Race/&RaceIronbornDwarfDescription=Fortes e resistentes, os Anões Nascidos de Ferro vivem entre, mas muitas vezes separados, de seus primos, os Anões da Neve. Clãs e distantes, eles, no entanto, podem ser contados para ficarem lado a lado com qualquer um da Aliança da Neve.
+Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Treinamento de armadura de homens de ferro
+Race/&RaceIronbornDwarfDescription=Fortes e resistentes, os Anões Ironborn vivem entre, mas frequentemente separados, de seus primos, os Snow Dwarves. Clanish e indiferentes, eles, no entanto, podem ser contados para ficar ombro a ombro com qualquer um na Snow Alliance.
 Race/&RaceIronbornDwarfTitle=Anão Nascido de Ferro

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -39,7 +40,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     {
         // LEVEL 3
 
-        // Deadly Shadows
+        // One With Shadows (ex Deadly Shadows)
 
         var additionalDamageDeadlyShadows = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DeadlyShadows")
@@ -47,7 +48,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
-            .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBrightAndWithin5Ft)
+            .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceOrTargetAreNotBright)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
@@ -59,7 +60,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetFeatureSet(FeatureDefinitionSenses.SenseDarkvision, additionalDamageDeadlyShadows)
             .AddToDB();
 
-        // Gloomblade
+        // Shadowstrike (ex Gloomblade)
 
         var dieRollModifierDieRollModifier = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}GloomBlade")
@@ -73,7 +74,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetNotificationTag("GloomBlade")
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeNecrotic)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetImpactParticleReference(Power_HornOfBlasting)
             .AddToDB();
 
@@ -152,12 +153,13 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
         // LEVEL 13
 
-        // Umbral Soul
+        // Umbral Constitution (ex Umbral Soul)
 
         var powerUmbralSoul = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}UmbralSoul")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerUmbralSoul.AddCustomSubFeatures(
@@ -223,7 +225,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static bool SourceAndTargetAreNotBrightAndWithin5Ft(
+    internal static bool SourceOrTargetAreNotBright(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         AdvantageType advantageType)
@@ -231,9 +233,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         return
             advantageType != AdvantageType.Disadvantage &&
             attacker.RulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Rogue, Name) > 0 &&
-            attacker.IsWithinRange(defender, 1) &&
-            attacker.LightingState != LocationDefinitions.LightingState.Bright &&
-            defender.LightingState != LocationDefinitions.LightingState.Bright;
+            (attacker.LightingState != LocationDefinitions.LightingState.Bright ||
+             defender.LightingState != LocationDefinitions.LightingState.Bright);
     }
 
 
@@ -302,8 +303,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) ||
-                !CharacterContext.IsSneakAttackValid(actionModifier, attacker, defender))
+            if (!CharacterContext.IsSneakAttackValid(actionModifier, attacker, defender))
             {
                 yield break;
             }
@@ -323,6 +323,34 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 0,
                 0,
                 0);
+
+            // convert base weapon attack to necrotic
+            if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle))
+            {
+                yield break;
+            }
+
+            var effectDamageForm =
+                actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+
+            if (effectDamageForm == null)
+            {
+                yield break;
+            }
+
+            effectDamageForm.DamageForm.DamageType = DamageTypeNecrotic;
+
+            var title = Gui.Format("Feature/&ActionAffinityGloomBladeToggleTitle");
+            var description = Gui.Format("Feature/&ActionAffinityGloomBladeToggleDescription");
+
+            rulesetAttacker.LogCharacterActivatesAbility(
+                title, "Feedback/&GloomBladeBaseAttackSneakDiceDamageType",
+                true,
+                description,
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.Localize("Tooltip/&TagDamageNecroticTitle"))
+                ]);
         }
     }
 
@@ -400,10 +428,9 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
             {
                 yield break;
             }
@@ -440,7 +467,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 yield break;
             }
 
-            var hitPoints = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Rogue);
+            var hitPoints = 2 * rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Rogue);
 
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 

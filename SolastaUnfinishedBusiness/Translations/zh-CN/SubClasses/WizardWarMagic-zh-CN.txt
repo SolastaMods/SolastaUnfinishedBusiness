@@ -1,5 +1,3 @@
-Action/&PowerSurgeToggleDescription=激活/停用魔力潮涌
-Action/&PowerSurgeToggleTitle=魔力潮涌
 Condition/&ConditionWarMagicArcaneDeflectionDescription=你不能施展戏法以外的法术。
 Condition/&ConditionWarMagicArcaneDeflectionTitle=奥术偏斜
 Feature/&AttributeModifierWarMagicTacticalWitDescription=你敏锐的评估战术局势的能力使你能够在战斗中快速行动。你在先攻检定中获得等同于你智力调整值的加值。

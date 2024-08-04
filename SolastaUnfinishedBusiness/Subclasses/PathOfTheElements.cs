@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -545,7 +544,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             }
 
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
-            var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.SpendPower)
+            var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
@@ -554,7 +553,6 @@ public sealed class PathOfTheElements : AbstractSubclass
                 targetCharacters = targets
             };
 
-            rulesetAttacker.LogCharacterUsedPower(powerDamage);
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
         }
@@ -602,11 +600,14 @@ public sealed class PathOfTheElements : AbstractSubclass
                     out var savingOutcome,
                     out _);
 
-                if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                if (savingOutcome == RollOutcome.Success)
                 {
                     continue;
                 }
 
+                var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+                actionService.StopCharacterActions(targetLocationCharacter, CharacterAction.InterruptionType.Abort);
                 rulesetDefender.InflictCondition(
                     CustomConditionsContext.StopMovement.Name,
                     DurationType.Round,

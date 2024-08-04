@@ -1,10 +1,10 @@
 Feature/&AdditionalActionArcaneFighterDescription=Você pode lançar um feitiço após derrotar um inimigo com seus ataques de arma.
 Feature/&AdditionalActionArcaneFighterTitle=Luta de feitiços
-Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Uma vez por turno, seus ataques com arma causam 1d8 de dano extra.
-Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Ataques com poder mágico
+Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Uma vez por turno, seus ataques de arma causam 1d8 de dano extra.
+Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Ataques com poderes mágicos
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Devido à experiência no caos do combate, ganhe vantagem em testes de concentração.
-Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Concentração Melhorada
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Concentração melhorada
 Feedback/&AdditionalDamageArcaneFighterFormat=Lutador Arcano!
-Feedback/&AdditionalDamageArcaneFighterLine=Arcane Fighter causa +{2} de dano extra!
-Subclass/&WizardArcaneFighterDescription=Arcane Fighters canalizam magia em suas armas para realizar ataques devastadores. Seus adversários costumam ficar surpresos com a ferocidade e implacabilidade desses lançadores de feitiços.
+Feedback/&AdditionalDamageArcaneFighterLine=O Guerreiro Arcano causa +{2} de dano extra!
+Subclass/&WizardArcaneFighterDescription=Os Arcane Fighters canalizam magia para suas armas a fim de realizar ataques devastadores. Seus adversários geralmente ficam surpresos com a ferocidade e a implacabilidade desses conjuradores de magia.
 Subclass/&WizardArcaneFighterTitle=Lutador Arcano

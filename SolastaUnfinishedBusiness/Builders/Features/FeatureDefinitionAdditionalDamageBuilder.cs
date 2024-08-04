@@ -65,7 +65,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
         AdditionalDamageAdvancement advancement,
-        int start = 0,
+        int start = 1,
         int increment = 1,
         int step = 1,
         int begin = 1)
@@ -166,13 +166,6 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         RestrictedContextRequiredProperty property)
     {
         Definition.requiredProperty = property;
-        return this;
-    }
-
-    internal FeatureDefinitionAdditionalDamageBuilder SetAdditionalDamageType(
-        AdditionalDamageType damageType)
-    {
-        Definition.additionalDamageType = damageType;
         return this;
     }
 

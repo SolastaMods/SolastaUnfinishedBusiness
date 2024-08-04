@@ -5,7 +5,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -182,7 +181,6 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         ActionDefinitions.ActionType actionType,
         params IsCharacterValidHandler[] validators) : base(actionType, validators)
     {
-        // Empty
     }
 
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
@@ -197,9 +195,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
         var strikeDefinition = mainHandItem?.ItemDefinition;
 
-#pragma warning disable IDE0270
         if (!strikeDefinition)
-#pragma warning restore IDE0270
         {
             strikeDefinition = hero.UnarmedStrikeDefinition;
         }
@@ -217,6 +213,8 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
             hero.FeaturesOrigin,
             mainHandItem
         );
+
+        attackMode.AttackTags.Add(UpgradeWeaponDice.AbortUpgradeWeaponDice);
 
         return [attackMode];
     }
@@ -286,8 +284,6 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 
 internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
 {
-    internal const string PolearmFollowUpAttack = "PolearmFollowUpAttack";
-
     private readonly WeaponTypeDefinition _weaponTypeDefinition;
 
     internal AddPolearmFollowUpAttack(WeaponTypeDefinition weaponTypeDefinition) : base(
@@ -305,24 +301,12 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
             return null;
         }
 
-        var result = new List<RulesetAttackMode>();
+        var item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
 
-        AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
-
-        return result;
-    }
-
-    private void AddItemAttack(
-        // ReSharper disable once SuggestBaseTypeForParameter
-        List<RulesetAttackMode> attackModes,
-        [NotNull] string slot,
-        [NotNull] RulesetCharacterHero hero)
-    {
-        var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
-
-        if (item == null || !ValidatorsWeapon.IsWeaponType(item, _weaponTypeDefinition))
+        if (item == null ||
+            !ValidatorsWeapon.IsWeaponType(item, _weaponTypeDefinition))
         {
-            return;
+            return null;
         }
 
         var strikeDefinition = item.ItemDefinition;
@@ -332,33 +316,33 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
             strikeDefinition.WeaponDescription,
             ValidatorsCharacter.IsFreeOffhand(hero),
             true,
-            slot,
+            EquipmentDefinitions.SlotTypeMainHand,
             hero.attackModifiers,
             hero.FeaturesOrigin,
             item
         );
 
-        var effectDamageForms = attackMode.EffectDescription.EffectForms
-            .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
-            .ToList();
+        var effectDamageForm = attackMode.EffectDescription.EffectForms
+            .FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-        if (effectDamageForms.Count != 0)
+        if (effectDamageForm != null)
         {
-            effectDamageForms[0] = EffectForm.GetCopy(effectDamageForms[0]);
-            effectDamageForms[0].DamageForm.DamageType = DamageTypeBludgeoning;
-            effectDamageForms[0].DamageForm.DieType = DieType.D4;
-            effectDamageForms[0].DamageForm.DiceNumber = 1;
-            effectDamageForms[0].DamageForm.versatile = false;
-            effectDamageForms[0].DamageForm.versatileDieType = DieType.D4;
-            effectDamageForms[0].DamageForm.BonusDamage = 0;
+            // ensures PAM interacts well with GWM
+            if (!hero.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionFeatCleavingAttackFinish"))
+            {
+                effectDamageForm.DamageForm.DamageType = DamageTypeBludgeoning;
+                effectDamageForm.DamageForm.DieType = DieType.D4;
+                effectDamageForm.DamageForm.DiceNumber = 1;
+            }
+
+            effectDamageForm.DamageForm.versatile = false;
+            effectDamageForm.DamageForm.versatileDieType = effectDamageForm.DamageForm.DieType;
         }
 
-        attackMode.Reach = true;
-        attackMode.Ranged = false;
-        attackMode.Thrown = false;
-        attackMode.AttackTags.Add(PolearmFollowUpAttack);
-        attackMode.EffectDescription.EffectForms.SetRange(effectDamageForms);
-        attackModes.Add(attackMode);
+        attackMode.AttackTags.Add(UpgradeWeaponDice.AbortUpgradeWeaponDice);
+
+        return [attackMode];
     }
 }
 
@@ -379,7 +363,8 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         var offHandItem = hero.GetOffhandWeapon();
 
-        if (offHandItem == null || !ValidatorsWeapon.IsShield(offHandItem))
+        if (offHandItem == null ||
+            !ValidatorsWeapon.IsShield(offHandItem))
         {
             return null;
         }
@@ -453,24 +438,11 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
             return null;
         }
 
-        var result = new List<RulesetAttackMode>();
-
-        AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
-
-        return result;
-    }
-
-    private void AddItemAttack(
-        // ReSharper disable once SuggestBaseTypeForParameter
-        List<RulesetAttackMode> attackModes,
-        [NotNull] string slot,
-        [NotNull] RulesetCharacterHero hero)
-    {
-        var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
+        var item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
         if (item == null || !ValidatorsCharacter.HasLightSourceOffHand(hero))
         {
-            return;
+            return null;
         }
 
         var strikeDefinition = item.ItemDefinition;
@@ -480,7 +452,7 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
             strikeDefinition.WeaponDescription,
             ValidatorsCharacter.IsFreeOffhand(hero),
             true,
-            slot,
+            EquipmentDefinitions.SlotTypeOffHand,
             hero.attackModifiers,
             hero.FeaturesOrigin,
             item
@@ -499,6 +471,6 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
         attackMode.EffectDescription.fixedSavingThrowDifficultyClass =
             8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
 
-        attackModes.Add(attackMode);
+        return [attackMode];
     }
 }

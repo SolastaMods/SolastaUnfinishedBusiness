@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupRevenantGreatSwordTitle",
-    "description": "You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:\n• Increase your Dexterity or Strength by 1, to a maximum of 20.\n• While you are holding a great sword, you gain a +1 bonus to armor class.\n• Great sword has the finesse property when you wield it.",
+    "description": "You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:\n• Increase your Dexterity or Strength by 1, to a maximum of 20.\n• While you are holding a great sword, you gain a +1 bonus to AC.\n• Great sword has the finesse property when you wield it.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

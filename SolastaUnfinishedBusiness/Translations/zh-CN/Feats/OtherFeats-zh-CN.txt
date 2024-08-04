@@ -1,5 +1,3 @@
-Action/&BalefulScionToggleDescription=激活/停用恶意后继者
-Action/&BalefulScionToggleTitle=恶意后继者
 Condition/&ConditionFeatMobileAfterDashDescription=免疫束缚及移动限制效应。
 Condition/&ConditionFeatMobileAfterDashTitle=行动自如
 Feat/&FeatAcrobatDescription=你会变得更加敏捷，并获得以下好处：\n• 你的敏捷 +1，上限为 20。\n• 你获得特技熟练项，如果已有熟练项，则获得专精。\n• 以一个附赠动作，你可以进行 DC 15 敏捷（特技）检定。如果你成功了，困难的地形不会花费你额外的移动力，直到当前回合结束。

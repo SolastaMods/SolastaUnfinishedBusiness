@@ -1,6 +1,6 @@
-Feature/&DamageAffinityShadarKaiDescription=Você tem resistência a danos necróticos.
+Feature/&DamageAffinityShadarKaiDescription=Você tem resistência a dano necrótico.
 Feature/&DamageAffinityShadarKaiTitle=Resistência Necrótica
-Feature/&PowerShadarKaiTeleportDescription=Como uma ação bônus, você pode se teletransportar magicamente até 9 metros para um espaço desocupado que você possa ver. Você pode usar esta característica um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos ao terminar um descanso longo. A partir do 3º nível, você também ganha resistência a todos os danos ao se teletransportar usando esta característica. A resistência dura até o início do seu próximo turno. Durante esse tempo, você parece fantasmagórico e translúcido.
-Feature/&PowerShadarKaiTeleportTitle=Bênção da Rainha Raven
-Race/&RaceShadarKaiDescription=Shadar-kai são os elfos do Pendor das Sombras, originalmente atraídos para aquele reino terrível pela Rainha Raven. Ao longo dos séculos, alguns deles continuaram a servi-la, enquanto outros se aventuraram no Plano Material para forjar seus próprios destinos.
+Feature/&PowerShadarKaiTeleportDescription=Como uma ação bônus, você pode magicamente se teletransportar até 30 pés para um espaço desocupado que você pode ver. Você pode usar essa característica um número de vezes igual ao seu bônus de proficiência, e você recupera todos os usos gastos quando você termina um descanso longo. Começando no 3º nível, você também ganha resistência a todo dano quando você se teletransporta usando essa característica. A resistência dura até o início do seu próximo turno. Durante esse tempo, você parece fantasmagórico e translúcido.
+Feature/&PowerShadarKaiTeleportTitle=Bênção da Rainha Corvo
+Race/&RaceShadarKaiDescription=Shadar-kai são os elfos do Pendor das Sombras, originalmente atraídos para aquele reino temido pela Rainha Corvo. Ao longo dos séculos, alguns deles continuaram a servi-la, enquanto outros se aventuraram no Plano Material para forjar seus próprios destinos.
 Race/&RaceShadarKaiTitle=Shadar Kai

@@ -1,10 +1,10 @@
-Feature/&AdditionalActionArcaneFighterDescription=Puoi lanciare un incantesimo dopo aver sconfitto un nemico con i tuoi attacchi con l'arma.
-Feature/&AdditionalActionArcaneFighterTitle=Lotta con gli incantesimi
-Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Una volta per turno, gli attacchi con la tua arma infliggono 1d8 danni aggiuntivi.
+Feature/&AdditionalActionArcaneFighterDescription=Puoi lanciare un incantesimo dopo aver sconfitto un nemico con i tuoi attacchi con le armi.
+Feature/&AdditionalActionArcaneFighterTitle=Combattimento con incantesimi
+Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Una volta per turno, i tuoi attacchi con le armi infliggono 1d8 danni extra.
 Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Attacchi potenziati magicamente
-Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Grazie all'esperienza nel caos del combattimento, ottieni vantaggio nelle prove di concentrazione.
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Grazie all'esperienza nel caos del combattimento, ottieni un vantaggio nei controlli di concentrazione.
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Concentrazione migliorata
-Feedback/&AdditionalDamageArcaneFighterFormat=Combattente arcano!
-Feedback/&AdditionalDamageArcaneFighterLine=Il Guerriero Arcano infligge +{2} danni extra!
-Subclass/&WizardArcaneFighterDescription=I Guerrieri Arcani incanalano la magia nelle loro armi per eseguire attacchi devastanti. I loro avversari sono spesso sorpresi dalla ferocia e dall'implacabilità di questi lanciatori di incantesimi.
+Feedback/&AdditionalDamageArcaneFighterFormat=Combattente Arcano!
+Feedback/&AdditionalDamageArcaneFighterLine=Il Combattente Arcano infligge +{2} danni extra!
+Subclass/&WizardArcaneFighterDescription=Gli Arcane Fighters incanalano la magia nelle loro armi per eseguire attacchi devastanti. I loro avversari sono spesso sorpresi dalla ferocia e dalla spietatezza di questi incantatori.
 Subclass/&WizardArcaneFighterTitle=Combattente Arcano

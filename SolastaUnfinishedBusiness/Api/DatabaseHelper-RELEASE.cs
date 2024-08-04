@@ -51,7 +51,6 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
         internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
         internal static ActionDefinition RecklessAttack { get; } = GetDefinition<ActionDefinition>("RecklessAttack");
-        internal static ActionDefinition StepBack { get; } = GetDefinition<ActionDefinition>("StepBack");
 
         internal static ActionDefinition StunningStrikeToggle { get; } =
             GetDefinition<ActionDefinition>("StunningStrikeToggle");
@@ -1719,9 +1718,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
-        internal static FeatureDefinitionPower PowerSorcererHauntedSoulSoulDrain { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSoulDrain");
-
         internal static FeatureDefinitionPower PowerIncubus_Drain { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerIncubus_Drain");
 

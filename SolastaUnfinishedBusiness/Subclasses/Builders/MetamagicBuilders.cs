@@ -426,8 +426,6 @@ internal static class MetamagicBuilders
                 if (!actionParams.ReactionValidated)
                 {
                     rulesetAttacker.SpendSorceryPoints(-1);
-                    rulesetAttacker.SorceryPointsAltered?.Invoke(
-                        rulesetAttacker, rulesetAttacker.RemainingSorceryPoints);
 
                     yield break;
                 }
@@ -531,7 +529,6 @@ internal static class MetamagicBuilders
             }
 
             rulesetHelper.SpendSorceryPoints(2);
-            rulesetHelper.SorceryPointsAltered?.Invoke(rulesetHelper, rulesetHelper.RemainingSorceryPoints);
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
             var previousRoll = action.AttackRoll;

@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Patches;
@@ -135,6 +138,38 @@ internal static class GameUiContext
 
     private static readonly List<RectTransform> SpellLineTables = [];
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
+
+    internal static IEnumerator SelectPosition(CharacterAction action, FeatureDefinitionPower power)
+    {
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var character = action.ActingCharacter;
+        var rulesetCharacter = character.RulesetCharacter;
+        var usablePower = PowerProvider.Get(power, rulesetCharacter);
+        var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost)
+        {
+            RulesetEffect =
+                implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, true)
+        };
+        var cursorService = ServiceRepository.GetService<ICursorService>();
+
+        ResetCamera();
+        cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
+
+        var position = int3.zero;
+
+        while (cursorService.CurrentCursor is CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            position = cursorLocationSelectPosition.hasValidPosition
+                ? cursorLocationSelectPosition.HoveredLocation
+                : actionParams.ActingCharacter.LocationPosition;
+
+            yield return null;
+        }
+
+        action.actionParams.Positions.SetRange(position);
+    }
 
     internal static void ResetCamera()
     {

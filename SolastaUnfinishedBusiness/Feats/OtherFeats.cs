@@ -839,10 +839,11 @@ internal static class OtherFeats
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "BalefulScionToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation(powerBalefulScion.Name, Category.Feature)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.BalefulScionToggle)
             .SetActivatedPower(powerBalefulScion)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var actionAffinityBalefulScion = FeatureDefinitionActionAffinityBuilder
@@ -1120,7 +1121,7 @@ internal static class OtherFeats
             .SetFeatures(movementAffinity)
             .AddToDB();
 
-        condition.GuiPresentation.Description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Gui.EmptyContent;
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
@@ -1668,7 +1669,7 @@ internal static class OtherFeats
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                 .AddToDB();
 
-            condition.GuiPresentation.description = Gui.NoLocalization;
+            condition.GuiPresentation.description = Gui.EmptyContent;
         }
 
         PowerBundle.RegisterPowerBundle(powerChromaticInfusion, false, powersChromaticInfusion);
@@ -3053,33 +3054,12 @@ internal static class OtherFeats
                 .AddCustomSubFeatures(
                     AttacksOfOpportunity.IgnoreDisengage,
                     AttacksOfOpportunity.SentinelFeatMarker,
-                    new PhysicalAttackFinishedByMeFeatSentinel(
-                        CustomConditionsContext.StopMovement,
-                        ConditionDefinitionBuilder
-                            .Create("ConditionPreventAttackAtReach")
-                            .SetGuiPresentationNoContent(true)
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetFeatures(
-                                // this is a hack to ensure game engine won't execute the attack even at reach
-                                // given that game AI will only run an enemy towards an ally with an attack intention
-                                // this should be good enough as enemy won't run next to other allies
-                                FeatureDefinitionActionAffinityBuilder
-                                    .Create($"ActionAffinity{SentinelName}StopMovement")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetForbiddenActions(
-                                        ActionDefinitions.Id.Shove,
-                                        ActionDefinitions.Id.ShoveBonus,
-                                        ActionDefinitions.Id.AttackMain,
-                                        ActionDefinitions.Id.AttackOff,
-                                        ActionDefinitions.Id.AttackFree)
-                                    .AddToDB())
-                            .AddToDB()))
+                    new PhysicalAttackFinishedByMeFeatSentinel(CustomConditionsContext.StopMovement))
                 .AddToDB())
         .AddToDB();
 
-    private sealed class PhysicalAttackFinishedByMeFeatSentinel(
-        ConditionDefinition conditionSentinelStopMovement,
-        ConditionDefinition conditionPreventAttackAtReach) : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    private sealed class PhysicalAttackFinishedByMeFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -3099,9 +3079,11 @@ internal static class OtherFeats
                 yield break;
             }
 
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetActor;
 
+            actionService.StopCharacterActions(defender, CharacterAction.InterruptionType.Abort);
             rulesetDefender.InflictCondition(
                 conditionSentinelStopMovement.Name,
                 DurationType.Round,
@@ -3115,23 +3097,6 @@ internal static class OtherFeats
                 0,
                 0,
                 0);
-
-            if (attackMode.Reach)
-            {
-                rulesetDefender.InflictCondition(
-                    conditionPreventAttackAtReach.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionPreventAttackAtReach.Name,
-                    0,
-                    0,
-                    0);
-            }
         }
     }
 

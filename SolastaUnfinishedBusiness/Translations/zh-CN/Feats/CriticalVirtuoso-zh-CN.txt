@@ -1,1 +1,0 @@
-Feature/&MartialChampionSuperiorCriticalDescription=如果掷出 18、19 或 20，你的武器攻击将获得重击。

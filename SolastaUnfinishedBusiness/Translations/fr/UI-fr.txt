@@ -1,15 +1,15 @@
-Tutorial/&TutorialActionSwitchingDescription=Lorsque vous avez plus d'une action principale ou bonus disponible, vous pouvez cliquer sur le symbole de statut de l'action pour en faire votre action actuellement active. Cela permet d'attaquer en utilisant l'action Hâte ou Horde Breaker, puis de lancer un sort avec l'action par défaut. Ou toute autre combinaison dont vous pourriez avoir besoin.\nEn survolant le symbole d'état de l'action, une info-bulle apparaît avec le nom de la fonctionnalité ou de la condition qui a accordé l'action.
+Tutorial/&TutorialActionSwitchingDescription=Lorsque vous avez plusieurs actions principales ou bonus disponibles, vous pouvez cliquer sur le symbole d'état de l'action pour en faire votre action actuellement active. Cela permet d'attaquer en utilisant l'action Hâte ou Briseur de Horde, puis de lancer un sort avec l'action par défaut. Ou toute autre combinaison dont vous pourriez avoir besoin.\nLe survol du symbole d'état de l'action affiche une info-bulle avec le nom de la fonctionnalité ou de la condition qui a accordé l'action.
 Tutorial/&TutorialActionSwitchingTitle=Actions multiples
 UI/&Add=Add
 UI/&AdditionalActionSource=Accordé par : {0}
 UI/&Current Party=Fête actuelle
-UI/&DistanceFormat=Distance : {0}
-UI/&Experimental Preview:=Aperçu expérimental <i><color=Yellow>[sauvegarde avant utilisation]</color></i> :
+UI/&DistanceFormat=Distance: {0}
+UI/&Experimental Preview:=Aperçu expérimental <i><color=Jaune>[sauvegarde avant utilisation]</color></i>:
 UI/&Expert=Expert
 UI/&From=Depuis
-UI/&PartyEditor=Éditeur de fête
-UI/&PartyEditorMessage=Cet éditeur de groupe simple vous permet de modifier des personnages dans une session de jeu chargée. Veuillez cliquer sur ce qui suit pour signaler des problèmes :
-UI/&PartyEditorUnavailable=****** Party Editor indisponible : veuillez charger une sauvegarde ******
+UI/&PartyEditor=Rédacteur en chef du parti
+UI/&PartyEditorMessage=Cet éditeur de groupe simple vous permet de modifier des personnages dans une session de jeu chargée. Veuillez cliquer sur les éléments suivants pour signaler des problèmes :
+UI/&PartyEditorUnavailable=****** Éditeur de groupe indisponible : veuillez charger une sauvegarde ******
 UI/&Quickies=Rapides
 UI/&Remove=Retirer
 UI/&Skilled=Qualifié

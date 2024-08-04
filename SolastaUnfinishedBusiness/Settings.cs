@@ -219,6 +219,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueSteadyAim { get; set; }
     public bool EnableRogueStrSaving { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
+    public bool EnableSorcererQuickenedAction { get; set; }
 
     // Visuals
     public bool OfferAdditionalLoreFriendlyNames { get; set; }

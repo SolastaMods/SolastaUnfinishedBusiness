@@ -5,13 +5,15 @@
     true,
     true,
     true,
-    false,
+    true,
     true
   ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
   "forbiddenActions": [],
-  "authorizedActions": [],
+  "authorizedActions": [
+    9069
+  ],
   "restrictedActions": [],
   "actionExecutionModifiers": [],
   "specialBehaviour": "None",
@@ -20,8 +22,8 @@
   "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&FeatureSetCollegeOfEleganceAmazingDisplayTitle",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -42,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "66761f7b-66c6-5e1d-a27a-5c6823fd6f51",
+  "guid": "a772ae30-46cd-5678-9f3f-18ebdc12d73c",
   "contentPack": 9999,
-  "name": "ActionAffinityCollegeOfEleganceAmazingDisplay"
+  "name": "ActionAffinityZenShotToggle"
 }

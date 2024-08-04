@@ -1,6 +1,6 @@
-Feat/&FeatArcaneDefenseDescription=Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\n Tant que vous ne portez aucune armure ni bouclier, votre classe d'armure est égale à 10 + votre modificateur de Dextérité + votre modificateur d'Intelligence.
-Feat/&FeatArcaneDefenseTitle=Défense arcanique
-Feat/&FeatCharismaticDefenseDescription=Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\n Tant que vous ne portez aucune armure ni bouclier, votre classe d'armure est égale à 10 + votre modificateur de Dextérité + votre modificateur de Charisme.
+Feat/&FeatArcaneDefenseDescription=Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nLorsque vous ne portez pas d'armure ou de bouclier, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur d'Intelligence.
+Feat/&FeatArcaneDefenseTitle=Défense des arcanes
+Feat/&FeatCharismaticDefenseDescription=Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nLorsque vous ne portez aucune armure ni aucun bouclier, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Charisme.
 Feat/&FeatCharismaticDefenseTitle=Défense charismatique
-Feat/&FeatWiseDefenseDescription=Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\n Tant que vous ne portez aucune armure ni bouclier, votre classe d'armure est égale à 10 + votre modificateur de Dextérité + votre modificateur de Sagesse.
+Feat/&FeatWiseDefenseDescription=Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nLorsque vous ne portez pas d'armure ou de bouclier, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Sagesse.
 Feat/&FeatWiseDefenseTitle=Défense sage

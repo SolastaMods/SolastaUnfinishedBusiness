@@ -520,7 +520,6 @@ internal static class MeleeCombatFeats
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("Charger")
             .SetDamageDice(DieType.D8, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetAttackModeOnly()
             .SetImpactParticleReference(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
@@ -1054,14 +1053,7 @@ internal static class MeleeCombatFeats
             .Create($"Condition{Name}Finish")
             .SetGuiPresentation(Category.Condition)
             .SetPossessive()
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create($"Feature{Name}Finish")
-                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition, Gui.NoLocalization)
-                    .AddCustomSubFeatures(
-                        ValidateAdditionalActionAttack.MeleeOnly,
-                        new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
-                    .AddToDB())
+            .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
             .AddToDB();
 
         var conditionCleavingAttack = ConditionDefinitionBuilder
@@ -1089,8 +1081,7 @@ internal static class MeleeCombatFeats
                     .Build())
             .AddCustomSubFeatures(
                 IgnoreInvisibilityInterruptionCheck.Marker,
-                new ValidatorsValidatePowerUse(
-                    ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
             .AddToDB();
 
         var powerTurnOffCleavingAttack = FeatureDefinitionPowerBuilder
@@ -1342,7 +1333,6 @@ internal static class MeleeCombatFeats
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("DevastatingStrikes")
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(

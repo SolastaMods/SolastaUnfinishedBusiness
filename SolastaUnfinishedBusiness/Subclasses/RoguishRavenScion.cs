@@ -119,19 +119,19 @@ public sealed class RoguishRavenScion : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
                 // bonus range attack from main and can use sniper's aim again during this turn
-                new OnReducedToZeroHpByMeKillingSpree(ConditionDefinitionBuilder
-                    .Create($"Condition{Name}KillingSpree")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-                        .Create($"AdditionalAction{Name}KillingSpree")
+                new OnReducedToZeroHpByMeKillingSpree(
+                    ConditionDefinitionBuilder
+                        .Create($"Condition{Name}KillingSpree")
                         .SetGuiPresentationNoContent(true)
-                        .SetActionType(ActionDefinitions.ActionType.Main)
-                        .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-                        .SetMaxAttacksNumber(1)
-                        .AddCustomSubFeatures(ValidateAdditionalActionAttack.TwoHandedRanged)
-                        .AddToDB())
-                    .AddToDB()))
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetFeatures(FeatureDefinitionAdditionalActionBuilder
+                            .Create($"AdditionalAction{Name}KillingSpree")
+                            .SetGuiPresentationNoContent(true)
+                            .SetActionType(ActionDefinitions.ActionType.Main)
+                            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                            .SetMaxAttacksNumber(1)
+                            .AddToDB())
+                        .AddToDB()))
             .AddToDB();
 
         // MAIN
@@ -160,9 +160,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Killing Spree
     //
 
-    private sealed class OnReducedToZeroHpByMeKillingSpree(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition condition) : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeKillingSpree(ConditionDefinition condition) : IOnReducedToZeroHpByMe
     {
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
@@ -172,8 +170,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (activeEffect != null ||
-                !attacker.IsMyTurn() ||
+            if (!attacker.IsMyTurn() ||
                 !ValidatorsWeapon.IsTwoHandedRanged(attackMode) ||
                 rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name))
             {
@@ -186,7 +183,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 condition.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
@@ -218,8 +215,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
         {
             if (action.AttackRollOutcome != RollOutcome.Success ||
                 helper != attacker ||
-                attackMode is not { Ranged: true } ||
-                !ValidatorsWeapon.HasTwoHandedTag(attackMode))
+                !ValidatorsWeapon.IsTwoHandedRanged(attackMode))
             {
                 yield break;
             }
@@ -252,7 +248,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
-                attackMode is not { ranged: true } ||
+                !ValidatorsWeapon.IsTwoHandedRanged(attackMode) ||
                 rulesetAttacker.GetRemainingPowerUses(powerDeadlyFocus) == 0)
             {
                 yield break;
@@ -263,7 +259,6 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerDeadlyFocus, rulesetAttacker);
-            // could have used PowerNoCost but looking for a better log message below
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "RavenScionDeadlyFocus",
@@ -282,7 +277,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UsePower(usablePower);
+            usablePower.Consume();
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
@@ -304,7 +299,6 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
             attackModifier.AttackAdvantageTrends.SetRange(advantageTrends);
 
-            // testMode true avoids the roll to display on combat log as the original one will get there with altered results
             var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 defender.RulesetActor,

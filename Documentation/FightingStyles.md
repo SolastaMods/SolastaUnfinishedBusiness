@@ -12,7 +12,7 @@ You have blind sight with a range of 10 ft. Within that range, you can effective
 
 # 4. - Classical Swordplay [UB]
 
-You gain a +1 bonus to your attack rolls and a +1 to bonus to your Armor Class while wielding a melee one-handed or versatile weapon and no other weapon or shield.
+You gain a +1 bonus to your attack rolls and a +1 to bonus to your AC while wielding a melee one-handed or versatile weapon and no other weapon or shield.
 
 # 5. - Crippling [UB]
 

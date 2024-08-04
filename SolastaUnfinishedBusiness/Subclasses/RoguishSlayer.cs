@@ -286,7 +286,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                 modifierTrend, advantageTrends, defenderConstitutionModifier,
                 8 + attackerProficiencyBonus + attackerDexterityModifier, false, out var savingOutcome, out _);
 
-            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (savingOutcome == RollOutcome.Success)
             {
                 yield break;
             }

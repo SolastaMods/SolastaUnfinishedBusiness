@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
@@ -23,14 +22,8 @@ public class AddUsablePowersFromCondition : IOnConditionAddedOrRemoved
                      .OfType<FeatureDefinitionPower>()
                      .Where(x => !powers.Contains(x)))
         {
-            var usablePower = PowerProvider.Get(power, target);
-            var poolSize = target.GetMaxUsesOfPower(usablePower);
-
-            usablePower.remainingUses = poolSize;
-            target.UsablePowers.Add(usablePower);
+            target.UsablePowers.Add(PowerProvider.Get(power, target));
         }
-
-        PowerBundle.RechargeLinkedPowers(target, RuleDefinitions.RestType.LongRest);
     }
 
     public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)

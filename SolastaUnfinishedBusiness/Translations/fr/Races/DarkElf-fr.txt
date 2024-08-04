@@ -1,8 +1,8 @@
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisme +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Augmentation du score de capacité
-Feature/&CastSpellDarkelfMagicDescription=Vous connaissez le cantrip <b>Dancing Lights</b>. Au niveau 3, vous apprenez le <b>Feu féerique</b> et au niveau 5, les <b>Ténèbres</b>. Les deux peuvent être utilisés une fois par repos prolongé.
-Feature/&CastSpellDarkelfMagicTitle=Magie des Elfes Noirs
+Feature/&CastSpellDarkelfMagicDescription=Vous connaissez le tour de magie <b>Lumières dansantes</b>. Au niveau 3, vous apprenez <b>Feu des fées</b> et au niveau 5, <b>Ténèbres</b>. Ces deux sorts peuvent être utilisés une fois par repos long.
+Feature/&CastSpellDarkelfMagicTitle=Magie des elfes noirs
 Feature/&ProficiencyDarkelfWeaponTrainingDescription=Vous maîtrisez les rapières, les épées courtes et les arbalètes à main.
 Feature/&ProficiencyDarkelfWeaponTrainingTitle=Entraînement aux armes des elfes noirs
-Race/&RaceDarkelfDescription=Les elfes noirs sont les descendants d'elfes qui ont été transformés au fil du temps en vivant dans les Badlands inhospitaliers. Les elfes noirs sont en grande partie nocturnes et se sont adaptés à la vie dans les ruines anciennes des Badlands, en particulier dans les ruines souterraines enfouies. Ils ont tendance à avoir la peau foncée et les cheveux pâles.
+Race/&RaceDarkelfDescription=Les elfes noirs sont les descendants d'elfes qui ont changé au fil du temps en vivant dans les inhospitalières Badlands. Les elfes noirs sont en grande partie nocturnes et se sont adaptés à la vie dans les ruines antiques des Badlands, en particulier les ruines souterraines enfouies. Ils ont tendance à avoir la peau foncée et les cheveux pâles.
 Race/&RaceDarkelfTitle=Elfe noir

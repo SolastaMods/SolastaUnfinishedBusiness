@@ -1,6 +1,6 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9048,
+  "id": 9068,
   "actionType": "NoCost",
   "actionScope": "Battle",
   "pairedActionId": "NoAction",
@@ -11,11 +11,11 @@
   "feedbackOnHoverType": "None",
   "iterativeTargeting": false,
   "canTriggerBattle": false,
-  "parameter": "Destination",
+  "parameter": "None",
   "formType": "Large",
   "overrideGuiActionType": false,
   "overridenGuiActionType": "Main",
-  "focusCameraOnAction": false,
+  "focusCameraOnAction": true,
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
@@ -25,34 +25,21 @@
   "dieType": "D10",
   "abilityScore": "Dexterity",
   "addLevel": false,
-  "maxCells": 3,
+  "maxCells": 1,
   "targetType": "Sphere",
   "targetParameter": 1,
   "matchingCondition": "",
-  "particlePrefab": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "soundEvent": {
-    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": null,
-    "idInternal": 0,
-    "valueGuidInternal": {
-      "$type": "System.Byte[], mscorlib",
-      "$value": ""
-    }
-  },
+  "particlePrefab": null,
+  "soundEvent": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Action/&WithdrawTitle",
-    "description": "Action/&WithdrawDescription",
+    "title": "Rules/&MetamagicOptionQuickenedSpellTitle",
+    "description": "Rules/&MetamagicOptionQuickenedSpellDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "56c590fbbd5de4e4f806c7e13e6279c7",
-      "m_SubObjectName": "StepBack",
+      "m_AssetGUID": "944eb32f28b68144283fab27de377493",
+      "m_SubObjectName": "CastSpell",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -68,7 +55,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e84585ff-116f-5417-93e4-260af9117624",
+  "guid": "eb19933b-6209-5087-a127-16978d24656d",
   "contentPack": 9999,
-  "name": "Withdraw"
+  "name": "Quickened"
 }

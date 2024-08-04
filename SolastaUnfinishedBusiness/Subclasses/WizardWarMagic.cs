@@ -76,10 +76,11 @@ public sealed class WizardWarMagic : AbstractSubclass
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "PowerSurgeToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation(powerSurge.Name, Category.Feature)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.PowerSurgeToggle)
             .SetActivatedPower(powerSurge)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         powerSurge.AddCustomSubFeatures(new CustomBehaviorPowerSurge(powerSurge, conditionSurgeMark));

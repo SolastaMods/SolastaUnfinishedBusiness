@@ -1,1 +1,0 @@
-Feature/&MartialChampionSuperiorCriticalDescription=Your weapon attacks score a critical hit on a roll of 18, 19 or 20.

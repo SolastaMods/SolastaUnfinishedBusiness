@@ -62,14 +62,7 @@ internal static class GambitsBuilders
             .Create("AdditionalDamageGambitDie")
             .SetGuiPresentationNoContent(true)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
-            .AddConditionOperation(
-                new ConditionOperationDescription
-                {
-                    operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionName = MartialTactician.MarkDamagedByGambit
-                })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .SetAttackModeOnly()
             .AddToDB();
@@ -81,21 +74,14 @@ internal static class GambitsBuilders
             .Create("AdditionalDamageGambitDieMelee")
             .SetGuiPresentationNoContent(true)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
-            .AddConditionOperation(
-                new ConditionOperationDescription
-                {
-                    operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionName = MartialTactician.MarkDamagedByGambit
-                })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .SetAttackModeOnly()
             .AddToDB();
 
         gambitDieDamageMelee.AddCustomSubFeatures(
-            new ModifyAdditionalDamageGambitDieSize(gambitDieDamageMelee),
-            ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack);
+            ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack,
+            new ModifyAdditionalDamageGambitDieSize(gambitDieDamageMelee));
 
         var conditionGambitDieDamage = ConditionDefinitionBuilder
             .Create("ConditionGambitDieDamage")
@@ -128,6 +114,7 @@ internal static class GambitsBuilders
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(combatAffinityDistracted)
             .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttackedNotBySource)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionLeadByExampleMarked)
             .AddToDB();
 
         combatAffinityDistracted.requiredCondition = conditionDistracted;
@@ -674,7 +661,6 @@ internal static class GambitsBuilders
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetFeatures(gambitDieDamage)
                                 .SetSpecialInterruptions(
-                                    ConditionInterruption.Attacked,
                                     (ConditionInterruption)ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .AddToDB()))
                     .Build())
@@ -1495,6 +1481,9 @@ internal static class GambitsBuilders
             // consume one tactical move
             actingCharacter.UsedTacticalMoves++;
 
+            var dieType = GetGambitDieSize(caster);
+            int dieRoll;
+
             if (caster.IsOppositeSide(target.Side))
             {
                 target.InflictCondition(
@@ -1511,6 +1500,9 @@ internal static class GambitsBuilders
                     0,
                     0);
 
+                dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+                caster.ShowDieRoll(dieType, dieRoll, title: good.GuiPresentation.Title);
+
                 caster.InflictCondition(
                     self.Name,
                     DurationType.Round,
@@ -1522,6 +1514,19 @@ internal static class GambitsBuilders
                     1,
                     self.Name,
                     0,
+                    0,
+                    0);
+                caster.InflictCondition(
+                    good.Name,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    caster.Guid,
+                    caster.CurrentFaction.Name,
+                    1,
+                    good.Name,
+                    dieRoll,
                     0,
                     0);
 
@@ -1548,14 +1553,7 @@ internal static class GambitsBuilders
 
             yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var dieType = GetGambitDieSize(caster);
-            var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
+            dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
             caster.ShowDieRoll(dieType, dieRoll, title: good.GuiPresentation.Title);
 
             var finalTarget = !reactionParams.ReactionValidated ? caster : target;

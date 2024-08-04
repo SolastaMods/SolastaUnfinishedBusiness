@@ -1,1 +1,0 @@
-Feature/&MartialChampionSuperiorCriticalDescription=Tus ataques con armas obtienen un golpe crítico con una tirada de 18, 19 o 20.

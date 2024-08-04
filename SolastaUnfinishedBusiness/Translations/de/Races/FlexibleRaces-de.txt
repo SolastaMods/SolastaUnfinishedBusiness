@@ -1,6 +1,6 @@
 Feature/&PointPoolAbilityScore3Description=Verwenden Sie drei Boosts für Fähigkeitswerte in einer beliebigen Kombination Ihrer Wahl.
-Feature/&PointPoolAbilityScore3Title=Erhöhung des Fähigkeitswerts
+Feature/&PointPoolAbilityScore3Title=Steigerung des Fähigkeitswerts
 Feature/&PointPoolAbilityScore4Description=Verwenden Sie vier Boosts für Fähigkeitswerte in einer beliebigen Kombination Ihrer Wahl.
-Feature/&PointPoolAbilityScore4Title=Erhöhung des Fähigkeitswerts
-Feature/&PointPoolSelectBonusFeatsDescription=Wählen Sie {0} zusätzliche Talente für Ihren Charakter.
+Feature/&PointPoolAbilityScore4Title=Steigerung des Fähigkeitswerts
+Feature/&PointPoolSelectBonusFeatsDescription=Wählen Sie {0} zusätzliche Talente für Ihren Charakter aus.
 Feature/&PointPoolSelectBonusFeatsTitle={0} Bonustalente

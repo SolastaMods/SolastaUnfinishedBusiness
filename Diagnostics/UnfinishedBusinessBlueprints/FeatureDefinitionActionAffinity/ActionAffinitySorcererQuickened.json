@@ -12,7 +12,7 @@
   "maxAttacksNumber": -1,
   "forbiddenActions": [],
   "authorizedActions": [
-    9048
+    9068
   ],
   "restrictedActions": [],
   "actionExecutionModifiers": [],
@@ -44,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ea2fd04d-e230-5340-9792-6197124b9431",
+  "guid": "38bb8988-a558-5c0c-8145-02d893f70586",
   "contentPack": 9999,
-  "name": "ActionAffinityWithdraw"
+  "name": "ActionAffinitySorcererQuickened"
 }

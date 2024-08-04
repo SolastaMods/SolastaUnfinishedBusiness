@@ -169,7 +169,7 @@ When you hit an enemy with your attack you can channel magical energy through th
 
 Your Force Jolt and Steel Defender become more powerful:
 • The extra damage of your Force Jolt increase to 4d6.
-• Your Steel Defender gains a +2 bonus to Armor Class.
+• Your Steel Defender gains a +2 bonus to AC.
 
 
 
@@ -756,7 +756,7 @@ Starting at 3rd level, you can dual-wield non-light melee weapons as well as add
 
 * Furious Defense
 
-Starting at 6th level, while you are raging, whenever you roll a Dexterity saving throw, you can use your Strength saving throw instead. You gain +2 AC while you are raging and dual-wielding two melee weapons.
+Starting at 6th level, while you are raging, whenever you roll a Dexterity saving throw, you can use your Strength saving throw instead. You gain +2 bonus to AC while you are raging and dual-wielding two melee weapons.
 
 
 ### Level 10
@@ -954,7 +954,7 @@ The College of Elegance is the home of bards who mastered the art of bodily moti
 * Elegant Fighting
 
 You express your battle arts through nimbleness and movement. While you are wearing no armor and not wielding a shield, you gain the following benefits:
-• Your Armor Class equals 10 + your Dexterity modifier + your Charisma modifier.
+• Your AC equals 10 + your Dexterity modifier + your Charisma modifier.
 • You can expend a Bardic Inspiration die and use your bonus action to gain benefits of Dash, Disengage or Dodge actions.
 
 * Grace
@@ -966,7 +966,7 @@ When you make a Charisma (Performance) or Dexterity (Acrobatics) check, you can 
 
 * Evasive Footwork
 
-Whenever an attack is about to hit you, and you are wearing no armor and not wielding a shield, you can use your reaction to add your Bardic Inspiration die to your Armor Class for that attack, potentially causing it to miss.
+Whenever an attack is about to hit you, and you are wearing no armor and not wielding a shield, you can use your reaction to add your Bardic Inspiration die to your AC for that attack, potentially causing it to miss.
 
 * Extra Attack
 
@@ -1306,7 +1306,7 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * Gut Deflection
 
-You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your armor class until your next turn.
+You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
 
 
 
@@ -2477,7 +2477,7 @@ Arboreal tendrils grow from your ft and dig into the ground. Your speed becomes 
 
 * Barkskin
 
-Armor class is set to 16.
+AC is set to 16.
 
 * Forest Barrier
 
@@ -3029,13 +3029,13 @@ You can replace one maneuver you know with a new one.
 
 You can replace one maneuver you know with a new one.
 
-* Strategic Plan
-
-You can choose a strategy to deal with prolonged encounters - abilities that would allow you to gain superiority dice under certain circumstances.
-
 * Superiority Die Size (d10)
 
 Your superiority die is upgraded to D10.
+
+* Two Additional Superiority Dice
+
+You gain two additional superiority dice.
 
 
 ### Level 15
@@ -3197,7 +3197,7 @@ When you hit a creature with a weapon attack, that creature has disadvantage on 
 
 * Arcane Deflection
 
-You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your armor class until your next turn.
+You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
 
 
 ### Level 18
@@ -3311,7 +3311,7 @@ Psi Warriors are disciplined warriors who utilize a wide range of psychokinetic 
 * Psionic Initiate
 
 You gain a number of Force Points that can be used to fuel various psychokinetic abilities. You start with 3 Force Points and gain 1 additional point every 3 levels thereafter. Your Force Points recharge on short or long rest.
-• Force-Powered Strike. Once on each of your turns when you hit a creature with a weapon attack, you can expend 1 Force Point to deal additional force damage equal to 1d6 + Intelligence modifier. The damage increases to 1d8 at 5th, 1d10 at 11th and 1d12 at 17th level.
+• Force-Powered Strike. Once on each of your turns when you hit a creature with a weapon attack, you can expend 1 Force Point to deal additional force damage equal to 1d8 + Intelligence modifier. The damage increases to 1d10 at 10th, and 1d12 at 18th level.
 • Kinetic Barrier. When you or another allied creature that you can see within 30 feet of you is about to be hit by an attack, you can expend 1 Force Point and use your reaction to form a protective shield of pure force around it, granting it extra AC equal to your Intelligence modifier (minimum +1) against that attack and all subsequent attacks until the end of the attacking creature's turn.
 • Force Drive. You can expend 1 Force Point as a free action to launch weapons using your psychokinetic powers. Until the end of your turn, your equipped melee weapons gain 30 feet of additional range. You can use this feature once per short rest without expending a Force Point.
 
@@ -3824,11 +3824,15 @@ A weapon is an extension of oneself, and a plain rendition of the one that wield
 
 * Flurry of Arrows
 
-Whenever you use your Flurry of Blows, you can replace one unarmed attack with a bow attack.
+You can replace one of your bonus unarmed strikes with a bow attack.
 
 * One with the Bow
 
 You become proficient with shortbow and longbow. These weapons now count as monk weapons for you. You also gain proficiency with smithing tools.
+
+* Zen Shot
+
+When you hit a creature with a bow attack during your turn, you can expend 1 ki to deal extra damage equal to your martial arts die + Wisdom modifier.
 
 
 ### Level 6
@@ -5017,7 +5021,7 @@ The Wildmaster archetype embodies a friendship between the civilized races and t
 
 * Beast Companion
 
-You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It gains your Wisdom modifier to armor class, attack rolls and damage rolls. It also gains 5 + 5 HP per ranger level, both Beast Companion and ranger share the same initiative, and you can choose between a Bear, an Eagle or a Wolf: Bear gains an additional 3 HP per ranger level, Eagle can fly and Wolf has pact tactics.
+You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It gains your Wisdom modifier to AC, attack rolls and damage rolls. It also gains 5 + 5 HP per ranger level, both Beast Companion and ranger share the same initiative, and you can choose between a Bear, an Eagle or a Wolf: Bear gains an additional 3 HP per ranger level, Eagle can fly and Wolf has pact tactics.
 
 
 ### Level 7
@@ -5057,7 +5061,7 @@ You gain proficiency in the acrobat skill.
 
 * Acrobat Protector
 
-You add half your proficiency bonus (rounded down) to your armor class while wielding a quarterstaff in two hands, and you are wearing no armor or light armor.
+You add half your proficiency bonus (rounded down) to your AC while wielding a quarterstaff in two hands, and you are wearing no armor or light armor.
 
 * Acrobat Trooper
 
@@ -5429,7 +5433,45 @@ Starting at 17th level, you can use your bonus action to magically transform you
 
 
 
-## 10. Slayer [UB]
+## 10. Shadowdancer [UB]
+
+Most beings who come in contact with the shadow realm become consumed by its fell energies, but those who are able to protect themselves and withstand these energies can gain various supernatural traits and abilities. Shadowdancers are individuals who became artists of shadow manipulation, able to utilize even the faintest shadow to strike with obfuscation and escape without a trace. Such unique skillset makes them perfect candidates to work as agents, informants, spies or assassins.
+
+
+### Level 3
+
+* One with Shadows
+
+You become accustomed to darkness and make it your deadly playground. You gain darkvision of 60 feet. You don't need advantage on the attack roll to use your Sneak Attack if either you or your target are in dim light or darkness. All the other rules for Sneak Attack still apply to you.
+
+* Shadow Strike
+
+You infuse your attacks with the essence of darkness itself. Whenever you sneak attack a creature with a weapon attack, you roll an additional d6, reroll any 1s and 2s on damage dice of that attack and must take the second result, and can choose to convert the base weapon and sneak attack damage you deal into necrotic damage.
+
+
+### Level 9
+
+* Shadow Stride
+
+Once per turn as a free action, you can substitute any amount of your movement for a teleportation of the equivalent distance. When teleporting in this way, both your starting and final location must be in dim light or darkness.
+
+
+### Level 13
+
+* Umbral Constitution
+
+You gain resistance to cold and necrotic damage. In addition, whenever you are reduced to 0 hit points, you regain a number of hit points equal to twice your rogue level and stand up. You can use this feature once per long rest.
+
+
+### Level 17
+
+* Shadow Dance
+
+You can use your bonus action to empower yourself with a swirling nimbus of shadow energy for one minute. While this shadow energy persists, you are obscured by magical darkness which you can see through, and whenever you deal sneak attack damage and roll the maximum number on one of your dice attack, you reroll that die and add it to the damage. You can use this feature once per long rest.
+
+
+
+## 11. Slayer [UB]
 
 Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 
@@ -5463,7 +5505,7 @@ Starting at 17th level, you become a master of instant death. When you attack an
 
 
 
-## 11. Thief [SOL]
+## 12. Thief [SOL]
 
 Thieves have honed their skills in the larcenous arts. In addition to improving their agility and stealth, they learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items they normally couldn't employ.
 
@@ -5498,44 +5540,6 @@ By level 13, you have learned enough about the workings of magic that you can im
 * Thief's Reflexes
 
 Starting at 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised.
-
-
-
-## 12. Umbral Stalker [UB]
-
-Rumors say there are things far darker than any shadow prowling the darkest corners of Solasta. Stories forewarning about entities wielding supernatural powers to manipulate darkness, ambushing the unfortunate and disappearing seemingly at will. Whether the stories are true or not, many look twice over their shoulders when traversing a dark alley in the dead of night.
-
-
-### Level 3
-
-* Deadly Shadows
-
-You become accustomed to darkness and make it your deadly playground. You gain darkvision of 60 feet. You don't need advantage on the attack roll to use your sneak attack if both you and the target creature are in dim light or darkness, you are within 5 feet of the creature, and you don't have disadvantage on the attack roll. All the other rules for sneak attack still apply to you.
-
-* Gloomblade
-
-You infuse your attacks with the essence of darkness itself. Whenever you sneak attack a creature with a melee weapon attack, you deal an additional 1d6 necrotic damage and reroll any 1s and 2s on damage dice of that attack and must take the second result. In addition, you can choose to roll your sneak attack damage dice as necrotic damage at will.
-
-
-### Level 9
-
-* Shadow Stride
-
-Once per turn as a free action, you can substitute any amount of your movement for a teleportation of the equivalent distance. When teleporting in this way, both your starting and final location must be in dim light or darkness.
-
-
-### Level 13
-
-* Umbral Soul
-
-You gain resistance to cold and necrotic damage. In addition, whenever you are reduced to 0 hit points, you regain a number of hit points equal to your rogue level, and stand up. You can use this feature once per long rest.
-
-
-### Level 17
-
-* Shadow Dance
-
-You can use your bonus action to empower yourself with a swirling nimbus of shadow energy for one minute. While this shadow energy persists, you are obscured by magical darkness which you can see through, and whenever you deal sneak attack damage and roll the maximum number on one of your dice attack, you reroll that die and add it to the damage. You can use this feature once per long rest.
 
 
 
@@ -5811,7 +5815,7 @@ When you hit with an attack or deal damage with a spell, add your Charisma modif
 
 * Battle Reflexes
 
-Your armor class increases by 2, and you gain proficiency in Dexterity saving throws.
+Your AC increases by 2, and you gain proficiency in Dexterity saving throws.
 
 
 
@@ -6384,7 +6388,7 @@ You can summon forth a spiritual form of a weapon, for one minute, from your pac
 
 * Soul Shield
 
-You can use the power of souls to defend yourself. As a reaction, you can gain +5 to your armor class until the start of your next turn. You can use this feature once per short rest.
+You can use the power of souls to defend yourself. As a reaction, you can gain +5 to your AC until the start of your next turn. You can use this feature once per short rest.
 
 
 ### Level 14
@@ -6773,7 +6777,7 @@ Bladesingers use a series of intricate, elegant maneuvers that fend off harm and
 * Blade Dance
 
 You can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you use medium armor, heavy armor or a shield, or if you wield a two-handed to make an attack with a weapon:
-• You gain a bonus to your armor class equal to your Intelligence modifier.
+• You gain a bonus to your AC equal to your Intelligence modifier.
 • Your walking speed increases by 10 ft.
 • You have advantage on Dexterity (Acrobatics) checks.
 • You have advantage on Constitution checks.

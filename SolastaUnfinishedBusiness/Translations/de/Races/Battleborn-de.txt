@@ -1,9 +1,9 @@
 Feature/&AttributeModifierBattlebornBonusACTitle=Arkane Widerstandsfähigkeit
-Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=Konstitution +2, 1 weiteren Punktewert um 1 Punkt erhöhen.
-Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=Erhöhung des Fähigkeitswerts
-Feature/&FeatureSetBattlebornArcaneResilienceDescription=Du wurdest geschaffen, um über eine bemerkenswerte Stärke zu verfügen, die sich in den folgenden Vorteilen widerspiegelt:\n• Du erhältst einen Bonus von +1 auf die Rüstungsklasse.\n• Du hast einen Vorteil bei Rettungswürfen gegen Vergiftungen und bist resistent gegen Giftschaden. \n• Du bist immun gegen Krankheiten.\n• Du brauchst keinen Schlaf und Magie kann dich nicht einschläfern lassen.
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=Konstitution +2, erhöht 1 anderen Score um 1 Punkt.
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=Steigerung des Fähigkeitswerts
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=Sie wurden mit einer bemerkenswerten Stärke erschaffen, die sich in den folgenden Vorteilen widerspiegelt:\n• Sie erhalten einen Bonus von +1 auf die RK.\n• Sie haben einen Vorteil bei Rettungswürfen gegen Vergiftungen und sind resistent gegen Giftschäden.\n• Sie sind immun gegen Krankheiten.\n• Sie müssen nicht schlafen und können durch Magie nicht eingeschläfert werden.
 Feature/&FeatureSetBattlebornArcaneResilienceTitle=Arkane Widerstandsfähigkeit
-Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Sie erwerben eine Fertigkeitskompetenz und eine Werkzeugkompetenz Ihrer Wahl.
-Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Spezialisierte Infusion
-Race/&RaceBattlebornDescription=Die Kampfgeborenen sind das Ergebnis arkaner Experimente, bei denen Fleisch, Alchemie und Magie vermischt wurden, um perfekte Schlachtfeldsoldaten zu erschaffen. Sie wurden als Waffen entwickelt und müssen nun einen Zweck finden, der über den Krieg hinausgeht. Ein Kampfgeborener kann ein treuer Verbündeter, eine kaltherzige Tötungsmaschine oder ein wandernder Mensch auf der Suche nach Sinn und Zweck sein.
+Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Sie erwerben eine Fertigkeits- und eine Werkzeugkompetenz Ihrer Wahl.
+Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Spezialinfusion
+Race/&RaceBattlebornDescription=Die Battleborn sind das Ergebnis geheimnisvoller Experimente, bei denen Fleisch, Alchemie und Magie vermischt werden, um perfekte Soldaten für das Schlachtfeld zu erschaffen. Sie wurden geschaffen, um als Waffen zu dienen, müssen nun aber einen Zweck jenseits des Krieges finden. Ein Battleborn kann ein loyaler Verbündeter, eine kaltherzige Tötungsmaschine oder eine wandernde Seele sein, die nach Sinn und Zweck sucht.
 Race/&RaceBattlebornTitle=Kriegsgeschmiedet

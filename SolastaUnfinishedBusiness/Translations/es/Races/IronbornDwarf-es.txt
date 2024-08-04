@@ -1,6 +1,6 @@
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseDescription=Fuerza +2
-Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseTitle=Aumento de puntuación de habilidad
+Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseTitle=Aumento de la puntuación de habilidad
 Feature/&ProficiencyIronbornDwarfArmorTrainingDescription=Tienes competencia con armaduras ligeras y medias.
-Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Entrenamiento de armadura de hierro
-Race/&RaceIronbornDwarfDescription=Fuertes y resistentes, los Enanos Hijos del Hierro viven entre sus primos, los Enanos de las Nieves, pero a menudo separados de ellos. Aunque son clandestinos y distantes, se puede contar con ellos para estar hombro con hombro con cualquiera de la Alianza de la Nieve.
-Race/&RaceIronbornDwarfTitle=Enano nacido del hierro
+Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Entrenamiento de armadura de los hijos del hierro
+Race/&RaceIronbornDwarfDescription=Fuertes y resistentes, los Enanos Hijos del Hierro viven entre sus primos, los Enanos de las Nieves, aunque a menudo separados de ellos. Aunque son distantes y se comportan como clanes, se puede contar con ellos para luchar hombro con hombro con cualquiera de los miembros de la Alianza de las Nieves.
+Race/&RaceIronbornDwarfTitle=Enano nacido de hierro

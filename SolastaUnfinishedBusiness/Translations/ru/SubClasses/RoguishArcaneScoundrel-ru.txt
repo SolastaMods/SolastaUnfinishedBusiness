@@ -16,7 +16,7 @@ Feature/&PowerRoguishArcaneScoundrelEssenceTheftDescription=Вы можете у
 Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=Разрыв сущности
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Вы получаете владение навыком Магии.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Родство с магией
-Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={0} накладывает заклинание! Вы можете реакцией прервать его без затрат ячеек заклинаний.
+Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={1}={0} накладывает заклинание! Вы можете реакцией прервать его без затрат ячеек заклинаний.
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactDescription=Наложите контрзаклинание и прервите заклинание противника.
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactTitle=Прервать
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Враждебное наложение заклинания

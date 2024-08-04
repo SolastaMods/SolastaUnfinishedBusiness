@@ -11,7 +11,7 @@
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
   "forbiddenActions": [
-    9047
+    9061
   ],
   "authorizedActions": [],
   "restrictedActions": [],

@@ -29,7 +29,6 @@ internal static class CommonBuilders
             .SetNotificationTag("FavoredEnemy")
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpecificCharacterFamily)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetRequiredCharacterFamily(Humanoid)
             .AddToDB();
 

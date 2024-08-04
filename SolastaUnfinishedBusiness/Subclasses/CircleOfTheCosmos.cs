@@ -171,7 +171,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
-        conditionWealCosmosOmen.GuiPresentation.description = Gui.NoLocalization;
+        conditionWealCosmosOmen.GuiPresentation.description = Gui.EmptyContent;
 
         var conditionWoeCosmosOmen = ConditionDefinitionBuilder
             .Create($"Condition{Name}WoeCosmosOmen")
@@ -182,7 +182,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
-        conditionWoeCosmosOmen.GuiPresentation.description = Gui.NoLocalization;
+        conditionWoeCosmosOmen.GuiPresentation.description = Gui.EmptyContent;
 
         var powerCosmosOmen = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CosmosOmen")
@@ -374,7 +374,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
-        conditionArcher.GuiPresentation.description = Gui.NoLocalization;
+        conditionArcher.GuiPresentation.description = Gui.EmptyContent;
 
         var conditionArcher14 = ConditionDefinitionBuilder
             .Create(conditionArcher, $"Condition{Name}Archer14")
@@ -557,7 +557,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .CopyParticleReferences(PowerSorcererDraconicElementalResistance)
             .AddToDB();
 
-        conditionDragon.GuiPresentation.description = Gui.NoLocalization;
+        conditionDragon.GuiPresentation.description = Gui.EmptyContent;
 
         var conditionDragon10 = ConditionDefinitionBuilder
             .Create(conditionDragon, $"Condition{Name}Dragon10")

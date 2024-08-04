@@ -1,5 +1,3 @@
-Action/&PowerSurgeToggleDescription=Активировать/деактивировать Всплеск мощи
-Action/&PowerSurgeToggleTitle=Всплеск мощи
 Condition/&ConditionWarMagicArcaneDeflectionDescription=Вы не можете накладывать никакие заклинания, кроме заговоров.
 Condition/&ConditionWarMagicArcaneDeflectionTitle=Магическое отражение
 Feature/&AttributeModifierWarMagicTacticalWitDescription=Ваша способность оценивать тактические ситуации позволяет вам действовать быстрее в бою. Вы можете получить бонус к броску инициативы равный вашему модификатору Интеллекта.

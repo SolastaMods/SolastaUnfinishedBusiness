@@ -20,8 +20,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AbilityCheckAffinityLightSensitivityTitle",
-    "description": "Feature/&AbilityCheckAffinityLightSensitivityDescription",
+    "title": "Condition/&ConditionLightSensitivityTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

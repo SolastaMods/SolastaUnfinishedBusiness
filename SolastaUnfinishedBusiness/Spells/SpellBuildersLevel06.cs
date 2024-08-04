@@ -305,7 +305,7 @@ internal static partial class SpellBuilders
             .SetConditionParticleReference(WardingBond)
             .AddToDB();
 
-        conditionMark.GuiPresentation.description = Gui.NoLocalization;
+        conditionMark.GuiPresentation.description = Gui.EmptyContent;
 
         var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
@@ -639,7 +639,7 @@ internal static partial class SpellBuilders
             target.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
                 advantageTrends, conModifier, 15, false, out var savingOutcome, out _);
 
-            if (savingOutcome is RollOutcome.Success)
+            if (savingOutcome == RollOutcome.Success)
             {
                 return;
             }
@@ -709,7 +709,7 @@ internal static partial class SpellBuilders
             .CopyParticleReferences(PowerSorcererChildRiftDeflection)
             .AddToDB();
 
-        conditionRingOfBlades.GuiPresentation.description = Gui.NoLocalization;
+        conditionRingOfBlades.GuiPresentation.description = Gui.EmptyContent;
 
         var conditionRingOfBladesFree = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Free")

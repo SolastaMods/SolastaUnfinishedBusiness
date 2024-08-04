@@ -1,5 +1,3 @@
-Action/&ImpishWrathToggleDescription=Активировать/деактивировать гнев беса
-Action/&ImpishWrathToggleTitle=Гнев беса
 Condition/&ConditionImpAssistedAllyDescription=Вы совершаете с преимуществом первый бросок атаки по цели, с которой вам оказывают помощь.
 Condition/&ConditionImpAssistedAllyTitle=Ассистируемый
 Condition/&ConditionImpAssistedEnemyDescription=Ассистируемый союзник совершает с преимуществом броски атаки по этому существу.

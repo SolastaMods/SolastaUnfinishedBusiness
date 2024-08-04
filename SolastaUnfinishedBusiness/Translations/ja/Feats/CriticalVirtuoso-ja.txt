@@ -1,1 +1,0 @@
-Feature/&MartialChampionSuperiorCriticalDescription=武器攻撃は、18、19、または 20 の出目でクリティカル ヒットを獲得します。

@@ -1,6 +1,6 @@
 Condition/&ConditionRangerSurvivalistDisablingStrikeDescription=-2 to move speed.
 Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Disabling Strike
-Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 to armor class and move speed.
+Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 to AC and move speed.
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle=Improved Disabling Strike
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=The first time you hit a creature with a weapon attack on each of your turns, they must make a Dexterity saving throw against your ranger spell DC or become hindered for one minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on a success.
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeTitle=Disabling Strike

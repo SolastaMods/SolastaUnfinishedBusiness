@@ -1,6 +1,6 @@
-Feat/&FeatArcaneDefenseDescription=Erhöhen Sie Ihre Intelligenz um 1 auf maximal 20.\nSolange Sie keine Rüstung oder Schild tragen, beträgt Ihre Rüstungsklasse 10 + Ihr Geschicklichkeitsmodifikator + Ihr Intelligenzmodifikator.
+Feat/&FeatArcaneDefenseDescription=Erhöhen Sie Ihre Intelligenz um 1 bis zu einem Maximum von 20.\nWenn Sie keine Rüstung oder keinen Schild tragen, beträgt Ihre AC 10 + Ihr Geschicklichkeitsmodifikator + Ihr Intelligenzmodifikator.
 Feat/&FeatArcaneDefenseTitle=Arkane Verteidigung
-Feat/&FeatCharismaticDefenseDescription=Erhöhen Sie Ihr Charisma um 1 auf maximal 20. \n Wenn Sie keine Rüstung oder einen Schild tragen, entspricht Ihre Rüstungsklasse 10 + Ihrem Geschicklichkeitsmodifikator + Ihr Charisma -Modifikator.
+Feat/&FeatCharismaticDefenseDescription=Erhöhen Sie Ihr Charisma um 1 bis zu einem Maximum von 20.\nWenn Sie keine Rüstung oder keinen Schild tragen, beträgt Ihre AC 10 + Ihr Geschicklichkeitsmodifikator + Ihr Charismamodifikator.
 Feat/&FeatCharismaticDefenseTitle=Charismatische Verteidigung
-Feat/&FeatWiseDefenseDescription=Erhöhen Sie Ihre Weisheit um 1 auf maximal 20.\nSolange Sie keine Rüstung oder Schild tragen, beträgt Ihre Rüstungsklasse 10 + Ihr Geschicklichkeitsmodifikator + Ihr Weisheitsmodifikator.
+Feat/&FeatWiseDefenseDescription=Erhöhen Sie Ihre Weisheit um 1 bis zu einem Maximum von 20.\nWenn Sie keine Rüstung oder keinen Schild tragen, beträgt Ihre AC 10 + Ihr Geschicklichkeitsmodifikator + Ihr Weisheitsmodifikator.
 Feat/&FeatWiseDefenseTitle=Kluge Verteidigung

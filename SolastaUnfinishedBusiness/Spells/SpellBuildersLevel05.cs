@@ -899,7 +899,8 @@ internal static partial class SpellBuilders
         var savingThrowAffinityCircleOfMagicalNegation = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
+            // only against magic
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, true,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
                 AttributeDefinitions.Constitution,
@@ -916,7 +917,7 @@ internal static partial class SpellBuilders
             .SetFeatures(savingThrowAffinityCircleOfMagicalNegation)
             .AddToDB();
 
-        conditionCircleOfMagicalNegation.GuiPresentation.Description = Gui.NoLocalization;
+        conditionCircleOfMagicalNegation.GuiPresentation.description = Gui.EmptyContent;
 
         conditionCircleOfMagicalNegation.AddCustomSubFeatures(
             new MagicEffectBeforeHitConfirmedOnMeCircleOfMagicalNegation(conditionCircleOfMagicalNegation));

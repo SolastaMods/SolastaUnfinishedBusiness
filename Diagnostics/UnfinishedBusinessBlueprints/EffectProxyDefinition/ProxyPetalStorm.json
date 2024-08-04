@@ -7,7 +7,7 @@
   "canTriggerPower": false,
   "autoTerminateOnTriggerPower": false,
   "incrementalDamageDice": 0,
-  "actionId": 9055,
+  "actionId": 9051,
   "freeActionId": "NoAction",
   "attackMethod": "ReproduceDamageForms",
   "firstAttackIsFree": false,

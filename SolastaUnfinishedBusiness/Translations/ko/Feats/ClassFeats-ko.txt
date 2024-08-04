@@ -1,5 +1,3 @@
-Condition/&ConditionFeatCallForChargeDescription=속도가 15피트 증가하고 공격에 유리해집니다.
-Condition/&ConditionFeatCallForChargeTitle=돌격 요청
 Condition/&ConditionFeatSlayTheEnemiesDescription=당신은 공격 및 피해 굴림에 {0}만큼의 보너스를 받습니다. 당신의 목표가 선호하는 적이라면 공격 굴림 보너스 대신 이점을 얻습니다.
 Condition/&ConditionFeatSlayTheEnemiesTitle=적군 살해
 Feat/&FeatAwakenTheBeastWithinDescription={0} 점수를 1씩 최대 20까지 높이세요. 변신 능력을 사용하여 야수로 변신할 때마다 드루이드 레벨의 두 배에 해당하는 임시 체력을 얻습니다.

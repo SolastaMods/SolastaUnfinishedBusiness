@@ -1,11 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:FeatureAdaptiveStrategy:233c2b1c-b40f-58b9-99dd-7ef75bd1159b",
-    "Definition:FeatureImproviseStrategy:619b0594-2816-595d-a7fc-8656266ac307",
-    "Definition:FeatureOvercomingStrategy:acddf05f-e1fa-5a26-8057-62d774eb9328"
+    "Definition:PowerUseModifierTacticianGambitPoolImproviseStrategy:18ec73c9-8c06-5ef8-b4c9-9aba6a7e649f"
   ],
-  "mode": "Exclusion",
+  "mode": "Union",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",
   "defaultSelection": 0,
@@ -15,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSefTacticianStrategicPlanTitle",
-    "description": "Feature/&FeatureSefTacticianStrategicPlanDescription",
+    "title": "Feature/&PowerUseModifierTacticianGambitPool2Title",
+    "description": "Feature/&PowerUseModifierTacticianGambitPool2Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "adb9d7d1-a30b-5c04-9663-771cc4ac75ea",
+  "guid": "acddf05f-e1fa-5a26-8057-62d774eb9328",
   "contentPack": 9999,
-  "name": "FeatureSefTacticianStrategicPlan"
+  "name": "FeatureOvercomingStrategy"
 }

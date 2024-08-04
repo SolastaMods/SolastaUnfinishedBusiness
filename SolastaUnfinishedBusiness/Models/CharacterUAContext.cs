@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -129,7 +130,6 @@ internal static partial class CharacterContext
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag("BrutalStrike")
                 .SetDamageDice(DieType.D10, 1)
-                .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                 .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 9)
                 .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                 .AddCustomSubFeatures(
@@ -197,7 +197,7 @@ internal static partial class CharacterContext
             .CopyParticleReferences(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
-        _conditionHamstringBlow.GuiPresentation.description = Gui.NoLocalization;
+        _conditionHamstringBlow.GuiPresentation.description = Gui.EmptyContent;
 
         // Staggering Blow
 
@@ -232,7 +232,7 @@ internal static partial class CharacterContext
             .CopyParticleReferences(ConditionDefinitions.ConditionDazzled)
             .AddToDB();
 
-        _conditionStaggeringBlow.GuiPresentation.description = Gui.NoLocalization;
+        _conditionStaggeringBlow.GuiPresentation.description = Gui.EmptyContent;
 
         _conditionStaggeringBlowAoO = ConditionDefinitionBuilder
             .Create("ConditionStaggeringBlowAoO")
@@ -250,7 +250,6 @@ internal static partial class CharacterContext
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("SunderingBlow")
             .SetDamageDice(DieType.D10, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .AddToDB();
 
         var conditionSunderingBlowAlly = ConditionDefinitionBuilder
@@ -862,18 +861,10 @@ internal static partial class CharacterContext
 
     internal static void SwitchMonkDoNotRequireAttackActionForFlurry()
     {
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry)
-        {
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
-                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.title =
-                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsTitle";
-        }
-        else
-        {
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.description = "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.title = "Feature/&FeatureSetMonkFlurryOfBlowsTitle";
-        }
+        FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
+            Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry
+                ? "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription"
+                : "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
     }
 
     internal static void SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall()
@@ -1331,30 +1322,6 @@ internal static partial class CharacterContext
 
         // Withdraw
 
-        _ = ActionDefinitionBuilder
-            .Create(StepBack, "Withdraw")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .SetActionId(ExtraActionId.Withdraw)
-            .SetActionType(ActionDefinitions.ActionType.NoCost)
-            .SetAddedConditionName(string.Empty)
-            .SetMaxCells(3)
-            .RequiresAuthorization()
-            .AddToDB();
-
-        var actionAffinityWithdraw = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityWithdraw")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.Withdraw)
-            .AddToDB();
-
-        var conditionWithdraw = ConditionDefinitionBuilder
-            .Create($"Condition{Cunning}Withdraw")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
-            .SetPossessive()
-            .SetSilent(Silent.WhenRemoved)
-            .AddFeatures(actionAffinityWithdraw)
-            .AddToDB();
-
         var powerWithdraw = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Cunning}Withdraw")
             .SetGuiPresentation(Category.Feature)
@@ -1364,10 +1331,12 @@ internal static partial class CharacterContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWithdraw))
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
+            .AddCustomSubFeatures(
+                ModifyPowerVisibility.Hidden,
+                PowerUsesSneakDiceTooltipModifier.Instance,
+                new CustomBehaviorWithdraw())
             .AddToDB();
 
         //
@@ -1494,7 +1463,7 @@ internal static partial class CharacterContext
 
         powerPool.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new CustomBehaviorCunningStrike(powerPool, powerKnockOut, powerKnockOutApply));
+            new CustomBehaviorCunningStrike(powerPool, powerKnockOut, powerKnockOutApply, powerWithdraw));
 
         PowerBundle.RegisterPowerBundle(powerPool, true,
             powerDisarm, powerPoison, powerTrip, powerWithdraw, powerDaze, powerKnockOut, powerObscure);
@@ -1544,15 +1513,16 @@ internal static partial class CharacterContext
                     .IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker) ||
                 // it's a Duelist and target is dueling with him
                 RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType) ||
-                // it's an Umbral Stalker and source and target are in dim light or darkness
-                RoguishUmbralStalker.SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender, advantageType)
+                // it's an Umbral Stalker and source or target are in dim light or darkness
+                RoguishUmbralStalker.SourceOrTargetAreNotBright(attacker, defender, advantageType)
         };
     }
 
     private sealed class CustomBehaviorCunningStrike(
         FeatureDefinitionPower powerRogueCunningStrike,
         FeatureDefinitionPower powerKnockOut,
-        FeatureDefinitionPower powerKnockOutApply)
+        FeatureDefinitionPower powerKnockOutApply,
+        FeatureDefinitionPower powerWithdraw)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private FeatureDefinitionPower _selectedPower;
@@ -1649,13 +1619,59 @@ internal static partial class CharacterContext
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (_selectedPower != powerKnockOut)
+            if (_selectedPower == powerKnockOut)
             {
-                yield break;
+                yield return HandleKnockOut(attacker, defender);
+            }
+            else if (_selectedPower == powerWithdraw)
+            {
+                yield return HandleWithdraw(action, attacker);
             }
 
             _selectedPower = null;
+        }
 
+        private IEnumerator HandleWithdraw(CharacterAction action, GameLocationCharacter attacker)
+        {
+            yield return GameUiContext.SelectPosition(action, powerWithdraw);
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var targetPosition = action.ActionParams.Positions[0];
+            var distance = int3.Distance(attacker.LocationPosition, targetPosition);
+            var actionParams =
+                new CharacterActionParams(attacker, ActionDefinitions.Id.TacticalMove)
+                {
+                    Positions = { targetPosition }
+                };
+
+            attacker.UsedTacticalMoves -= (int)distance;
+
+            if (attacker.UsedTacticalMoves < 0)
+            {
+                attacker.UsedTacticalMoves = 0;
+            }
+
+            rulesetAttacker.InflictCondition(
+                ConditionDisengaging,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                // all disengaging in game is set under TagCombat (why?)
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionDisengaging,
+                0,
+                0,
+                0);
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+
+        private IEnumerator HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)
+        {
             var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
@@ -1678,7 +1694,6 @@ internal static partial class CharacterContext
                 TargetCharacters = { defender }
             };
 
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
         }
@@ -1710,6 +1725,43 @@ internal static partial class CharacterContext
                 0,
                 0,
                 0);
+        }
+    }
+
+    private sealed class CustomBehaviorWithdraw : IFilterTargetingPosition, IIgnoreInvisibilityInterruptionCheck
+    {
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+            var halfMaxTacticalMoves = (actingCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
+            var boxInt = new BoxInt(actingCharacter.LocationPosition, int3.zero, int3.zero);
+
+            boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves);
+
+            foreach (var position in boxInt.EnumerateAllPositionsWithin())
+            {
+                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                    !positioningService.CanPlaceCharacter(
+                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                    !positioningService.CanCharacterStayAtPosition_Floor(
+                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
+                {
+                    continue;
+                }
+
+                cursorLocationSelectPosition.validPositionsCache.Add(position);
+
+                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
+                }
+            }
         }
     }
 

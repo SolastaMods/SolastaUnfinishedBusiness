@@ -142,3 +142,4 @@ Feat/&FeatGroupVerdantTouchedDescription=精神属性の 1 つを 1 つ増やし
 Feat/&FeatGroupVerdantTouchedTitle=緑豊かなタッチ
 Feat/&FeatGroupWeaponMasterDescription=さまざまな武器を使って徹底的に練習したため、次のようなメリットが得られます。\n• 強さまたは器用さのスコアが 1 増加し、最大 20 になります。\n• 選択した 4 つの武器の熟練度が上がります。それぞれが単純な武器か武用武器でなければなりません。
 Feat/&FeatGroupWeaponMasterTitle=ウェポンマスター
+Feature/&MartialChampionSuperiorCriticalDescription=武器攻撃は、18、19、または 20 のロールでクリティカル ヒットとなります。

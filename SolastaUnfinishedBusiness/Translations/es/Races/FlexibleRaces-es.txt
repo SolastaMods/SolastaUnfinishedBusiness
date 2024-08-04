@@ -1,6 +1,6 @@
-Feature/&PointPoolAbilityScore3Description=Utilice tres mejoras en las puntuaciones de habilidad en cualquier combinación que elija.
-Feature/&PointPoolAbilityScore3Title=Aumento de puntuación de habilidad
-Feature/&PointPoolAbilityScore4Description=Utilice cuatro mejoras en las puntuaciones de habilidad en cualquier combinación que elija.
-Feature/&PointPoolAbilityScore4Title=Aumento de puntuación de habilidad
+Feature/&PointPoolAbilityScore3Description=Usa tres mejoras en las puntuaciones de habilidad en cualquier combinación que elijas.
+Feature/&PointPoolAbilityScore3Title=Aumento de la puntuación de habilidad
+Feature/&PointPoolAbilityScore4Description=Usa cuatro mejoras en las puntuaciones de habilidad en cualquier combinación que elijas.
+Feature/&PointPoolAbilityScore4Title=Aumento de la puntuación de habilidad
 Feature/&PointPoolSelectBonusFeatsDescription=Selecciona {0} dotes adicionales para tu personaje.
 Feature/&PointPoolSelectBonusFeatsTitle={0} Dotes adicionales

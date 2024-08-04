@@ -24,6 +24,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
     internal const string HailOfArrowsAttack = "HailOfArrowsAttack";
     internal const string HailOfArrowsAttacksTab = "HailOfArrowsAttacksTab";
     internal const int StunningStrikeWithBowAllowedLevel = 6;
+    private const ActionDefinitions.Id ZenShotToggle = (ActionDefinitions.Id)ExtraActionId.ZenShotToggle;
 
     public WayOfZenArchery()
     {
@@ -31,7 +32,20 @@ public sealed class WayOfZenArchery : AbstractSubclass
         // LEVEL 03
         //
 
-        // Way of The Bow
+        // Flurry of Arrows
+
+        var featureFlurryOfArrows = FeatureDefinitionBuilder
+            .Create($"Feature{Name}FlurryOfArrows")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(
+                new ModifyWeaponAttackModeFlurryOfArrows(),
+                new AddExtraMainHandAttack(
+                    ActionDefinitions.ActionType.Bonus,
+                    ValidatorsCharacter.HasBowWithoutArmor,
+                    ValidatorsCharacter.HasAnyOfConditions(ConditionMonkMartialArtsUnarmedStrikeBonus)))
+            .AddToDB();
+
+        // One with the Bow
 
         var proficiencyOneWithTheBow =
             FeatureDefinitionProficiencyBuilder
@@ -41,21 +55,34 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 .AddCustomSubFeatures(new CustomLevelUpLogicOneWithTheBow())
                 .AddToDB();
 
-        // Flurry of Arrows
+        // Zen Shot
 
-        var conditionFlurryOfArrows = ConditionDefinitionBuilder
-            .Create($"Condition{Name}FlurryOfArrows")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus,
-                ValidatorsCharacter.HasBowWithoutArmor))
-            .AddToDB();
-
-        var featureFlurryOfArrows = FeatureDefinitionBuilder
-            .Create($"Feature{Name}FlurryOfArrows")
+        var powerZenShot = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ZenShot")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new ActionFinishedByMeFlurryOfArrows(conditionFlurryOfArrows))
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
+            .DelegatedToAction()
             .AddToDB();
+
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "ZenShotToggle")
+            .SetOrUpdateGuiPresentation(powerZenShot.Name, Category.Feature)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.ZenShotToggle)
+            .SetActivatedPower(powerZenShot)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        var actionAffinityZenShotToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityZenShotToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions(ZenShotToggle)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerZenShot)))
+            .AddToDB();
+
+        powerZenShot.AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyZenShot(powerZenShot));
 
         //
         // LEVEL 06
@@ -122,14 +149,13 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
         actionHailOfArrows.particlePrefab = new AssetReference();
 
-        //
-        // PROGRESSION
-        //
+        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheZenArchery, 256))
-            .AddFeaturesAtLevel(3, proficiencyOneWithTheBow, featureFlurryOfArrows)
+            .AddFeaturesAtLevel(3,
+                proficiencyOneWithTheBow, featureFlurryOfArrows, actionAffinityZenShotToggle, powerZenShot)
             .AddFeaturesAtLevel(6, featureKiEmpoweredArrows)
             .AddFeaturesAtLevel(11, featureUnerringPrecision)
             .AddFeaturesAtLevel(17, actionAffinityHailOfArrows, powerHailOfArrows)
@@ -145,6 +171,32 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Flurry of Arrows
+    //
+
+    // set attacks number to 2 to allow a mix of unarmed / bow attacks otherwise game engine will consume bonus action
+    // once at least one bonus attack is used this check fails and everything gets back to normal
+    // the patch on CharacterActionItemForm.Refresh finishes the trick by hiding the number of attacks image
+    private sealed class ModifyWeaponAttackModeFlurryOfArrows : IModifyWeaponAttackMode
+    {
+        public void ModifyAttackMode(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
+        {
+            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+            if (character is { UsedBonusAttacks: 0 } &&
+                attackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
+                rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionFlurryOfBlows) &&
+                ValidatorsWeapon.IsOfWeaponType(
+                    WeaponTypeDefinitions.LongbowType,
+                    WeaponTypeDefinitions.ShortbowType)(attackMode, null, null))
+            {
+                attackMode.AttacksNumber = 2;
+            }
+        }
+    }
 
     //
     // One with the Bow
@@ -170,35 +222,46 @@ public sealed class WayOfZenArchery : AbstractSubclass
     }
 
     //
-    // Flurry of Arrows
+    // Zen Shot
     //
 
-    private sealed class ActionFinishedByMeFlurryOfArrows(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition condition) : IActionFinishedByMe
+    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyZenShot(FeatureDefinitionPower powerZenShot)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (action is not CharacterActionFlurryOfBlows)
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerZenShot, rulesetAttacker);
+
+            if (!ValidatorsCharacter.HasBowWithoutArmor(attacker.RulesetCharacter) ||
+                !attacker.OnceInMyTurnIsValid("ZenShot") ||
+                !rulesetAttacker.IsToggleEnabled(ZenShotToggle) ||
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var firstDamageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+            var index = actualEffectForms.IndexOf(firstDamageForm);
+            var dieType = rulesetAttacker.GetMonkDieType();
+            var wisdom = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+            var effectDamageForm = EffectFormBuilder.DamageForm(
+                firstDamageForm!.DamageForm.DamageType, 1, dieType, wisMod);
 
-            rulesetCharacter.InflictCondition(
-                condition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                condition.Name,
-                0,
-                0,
-                0);
+            actualEffectForms.Insert(index + 1, effectDamageForm);
+            attacker.UsedSpecialFeatures.TryAdd("ZenShot", 0);
+            rulesetAttacker.UsePower(usablePower);
         }
     }
 
@@ -245,11 +308,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
             var actingCharacter = action.ActingCharacter;
             var targets = action.ActionParams.TargetCharacters
                 .Where(x => CanBowAttack(actingCharacter, x))

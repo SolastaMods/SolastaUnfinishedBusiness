@@ -1,4 +1,3 @@
-Attribute/&TitleLong=Универсальный
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Вы получаете дополнительное действие и можете использовать все свои универсалии без затрат очков и совершения проверок, ваше минимальное значения Силы, Интеллекта или Мудрости становится равно 22.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Перегрузка заряда
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Вы получаете <b>Мистический заряд</b> в качестве бонусного заговора. Количество лучей зависит от вашей решимости, которая рассчитывается как [уровень колдуна] - 2 * [уровни других классов]. Вы можете создать 2 луча, если ваша решимость >= 3, 3 - если >= 8, 4 - если >= 13 и 5 - если >= 18.

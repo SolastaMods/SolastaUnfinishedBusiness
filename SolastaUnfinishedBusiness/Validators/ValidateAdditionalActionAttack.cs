@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿#if false
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 
 namespace SolastaUnfinishedBusiness.Validators;
 
@@ -12,9 +13,6 @@ internal interface IValidateAdditionalActionAttack
 
 internal class ValidateAdditionalActionAttack : IValidateAdditionalActionAttack
 {
-    internal static readonly IValidateAdditionalActionAttack MeleeOnly =
-        new ValidateAdditionalActionAttack(ValidatorsWeapon.IsMelee);
-
     internal static readonly IValidateAdditionalActionAttack TwoHandedRanged =
         new ValidateAdditionalActionAttack(ValidatorsWeapon.IsTwoHandedRanged);
 
@@ -71,3 +69,4 @@ internal class ValidateAdditionalActionAttack : IValidateAdditionalActionAttack
             });
     }
 }
+#endif

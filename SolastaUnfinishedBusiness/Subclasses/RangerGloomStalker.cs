@@ -50,7 +50,6 @@ public sealed class RangerGloomStalker : AbstractSubclass
             .SetNotificationTag("DreadAmbusher")
             .SetDamageDice(DieType.D8, 1)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetImpactParticleReference(ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
@@ -98,7 +97,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
             .SetFeatures(movementAffinityDreadAmbusher)
             .AddToDB();
 
-        conditionDreadAmbusher.GuiPresentation.description = Gui.NoLocalization;
+        conditionDreadAmbusher.GuiPresentation.description = Gui.EmptyContent;
 
         var attributeModifierDreadAmbusher = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}DreadAmbusher")

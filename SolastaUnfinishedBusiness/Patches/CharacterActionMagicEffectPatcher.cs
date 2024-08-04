@@ -1019,7 +1019,6 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             var actingCharacter = __instance.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetActor;
             var rulesetTarget = target.RulesetActor;
             var effectDescription = rulesetEffect.EffectDescription;
 
@@ -1243,7 +1242,7 @@ public static class CharacterActionMagicEffectPatcher
 
             if (rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit)
             {
-                //PATCH: process ExtraConditionInterruption.AttackedNotBySource
+                //PATCH: allow condition interruption after target was attacked not by source
                 if (!rulesetTarget.matchingInterruption)
                 {
                     rulesetTarget.matchingInterruption = true;
@@ -1270,16 +1269,15 @@ public static class CharacterActionMagicEffectPatcher
                     rulesetTarget.matchingInterruptionConditions.Clear();
                     rulesetTarget.matchingInterruption = false;
                 }
-                //END PATCH
 
                 //PATCH: Allows condition interruption after target was attacked
-                rulesetCharacter.ProcessConditionsMatchingInterruption(
+                rulesetTarget.ProcessConditionsMatchingInterruption(
                     (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
 
-                //PATCH: Allows condition interruption after target was attacked
+                //PATCH: Allows condition interruption after target was attacked and hit
                 if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                 {
-                    rulesetCharacter.ProcessConditionsMatchingInterruption(
+                    rulesetTarget.ProcessConditionsMatchingInterruption(
                         (ConditionInterruption)ExtraConditionInterruption.AfterWasHit);
                 }
             }

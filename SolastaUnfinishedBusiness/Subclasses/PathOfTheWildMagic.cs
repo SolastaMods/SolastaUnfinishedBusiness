@@ -424,7 +424,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
-                .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                 .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                     (OperationType.Set, mode is { Ranged: true, Thrown: true })))
                 .AddToDB();

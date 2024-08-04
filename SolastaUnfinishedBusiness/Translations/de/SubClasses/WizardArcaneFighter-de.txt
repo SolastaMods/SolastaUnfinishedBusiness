@@ -1,10 +1,10 @@
 Feature/&AdditionalActionArcaneFighterDescription=Sie können einen Zauber wirken, nachdem Sie einen Feind mit Ihren Waffenangriffen besiegt haben.
 Feature/&AdditionalActionArcaneFighterTitle=Zauberkampf
-Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Einmal pro Spielzug verursachen deine Waffenangriffe zusätzlich 1W8 Schaden.
+Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Einmal pro Runde verursachen Ihre Waffenangriffe zusätzliche 1W8 Schaden.
 Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Magisch angetriebene Angriffe
-Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Verschaffen Sie sich durch Erfahrung im Chaos des Kampfes einen Vorteil bei Konzentrationsprüfungen.
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Erhalten Sie aufgrund Ihrer Erfahrung im Chaos des Gefechts einen Vorteil bei Konzentrationsprüfungen.
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Verbesserte Konzentration
 Feedback/&AdditionalDamageArcaneFighterFormat=Arkaner Kämpfer!
 Feedback/&AdditionalDamageArcaneFighterLine=Arkaner Kämpfer verursacht zusätzlichen +{2} Schaden!
-Subclass/&WizardArcaneFighterDescription=Arkane Kämpfer kanalisieren Magie in ihre Waffen, um verheerende Angriffe auszuführen. Ihre Gegner sind oft überrascht über die Wildheit und Unerbittlichkeit dieser Zauberer.
+Subclass/&WizardArcaneFighterDescription=Arkane Kämpfer leiten Magie in ihre Waffen, um verheerende Angriffe auszuführen. Ihre Gegner sind oft überrascht von der Wildheit und Unerbittlichkeit dieser Zauberer.
 Subclass/&WizardArcaneFighterTitle=Arkaner Kämpfer
