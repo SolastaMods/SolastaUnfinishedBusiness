@@ -364,7 +364,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        conditionForceBulwark.GuiPresentation.description = Gui.NoLocalization;
+        conditionForceBulwark.GuiPresentation.description = Gui.EmptyContent;
 
         var conditionForceBulwarkSelf = ConditionDefinitionBuilder
             .Create($"Condition{Name}ForceBulwarkSelf")

@@ -197,7 +197,7 @@ internal static partial class CharacterContext
             .CopyParticleReferences(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
-        _conditionHamstringBlow.GuiPresentation.description = Gui.NoLocalization;
+        _conditionHamstringBlow.GuiPresentation.description = Gui.EmptyContent;
 
         // Staggering Blow
 
@@ -232,7 +232,7 @@ internal static partial class CharacterContext
             .CopyParticleReferences(ConditionDefinitions.ConditionDazzled)
             .AddToDB();
 
-        _conditionStaggeringBlow.GuiPresentation.description = Gui.NoLocalization;
+        _conditionStaggeringBlow.GuiPresentation.description = Gui.EmptyContent;
 
         _conditionStaggeringBlowAoO = ConditionDefinitionBuilder
             .Create("ConditionStaggeringBlowAoO")

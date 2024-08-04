@@ -39,7 +39,7 @@ internal static partial class SpellBuilders
             .AddFeatures(movementAffinityAdderFangs)
             .AddToDB();
 
-        conditionAdderFangs.GuiPresentation.Description = Gui.NoLocalization;
+        conditionAdderFangs.GuiPresentation.description = Gui.EmptyContent;
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
@@ -282,7 +282,7 @@ internal static partial class SpellBuilders
             .SetConditionParticleReference(ConditionFeebleMinded)
             .AddToDB();
 
-        condition.GuiPresentation.description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Gui.EmptyContent;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -420,7 +420,7 @@ internal static partial class SpellBuilders
                 .SetConditionParticleReference(ConditionOnFire)
                 .AddToDB();
 
-            conditionAshardalonStride.GuiPresentation.Description = Gui.NoLocalization;
+            conditionAshardalonStride.GuiPresentation.description = Gui.EmptyContent;
 
             conditions.Add(conditionAshardalonStride);
         }

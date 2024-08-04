@@ -241,7 +241,7 @@ internal static partial class SpellBuilders
             .SetConditionParticleReference(ConditionMonkSlowFall)
             .AddToDB();
 
-        condition.GuiPresentation.Description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Gui.EmptyContent;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)

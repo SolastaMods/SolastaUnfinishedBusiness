@@ -68,7 +68,7 @@ internal static class FixesContext
 
         // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
-        AttributeModifierDazzled.GuiPresentation.description = Gui.NoLocalization;
+        AttributeModifierDazzled.GuiPresentation.description = Gui.EmptyContent;
 
         // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);

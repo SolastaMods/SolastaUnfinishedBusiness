@@ -93,7 +93,7 @@ internal static class RaceFeats
             .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly12)
             .AddToDB();
 
-        condition.GuiPresentation.description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Gui.EmptyContent;
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatDragonWings")

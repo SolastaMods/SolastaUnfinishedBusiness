@@ -1121,7 +1121,7 @@ internal static class OtherFeats
             .SetFeatures(movementAffinity)
             .AddToDB();
 
-        condition.GuiPresentation.Description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Gui.EmptyContent;
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
@@ -1669,7 +1669,7 @@ internal static class OtherFeats
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                 .AddToDB();
 
-            condition.GuiPresentation.description = Gui.NoLocalization;
+            condition.GuiPresentation.description = Gui.EmptyContent;
         }
 
         PowerBundle.RegisterPowerBundle(powerChromaticInfusion, false, powersChromaticInfusion);

@@ -216,9 +216,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         // Wild Magic Surge
 
-        ConditionDamageResistance.GuiPresentation.description = Gui.NoLocalization;
-        ConditionPiercingVulnerability.GuiPresentation.description = Gui.NoLocalization;
-        ConditionLightningStrike.GuiPresentation.description = Gui.NoLocalization;
+        ConditionDamageResistance.GuiPresentation.description = Gui.EmptyContent;
+        ConditionPiercingVulnerability.GuiPresentation.description = Gui.EmptyContent;
+        ConditionLightningStrike.GuiPresentation.description = Gui.EmptyContent;
 
         PowerLightningStrike.EffectDescription.EffectForms.Add(
             EffectFormBuilder.ConditionForm(

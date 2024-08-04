@@ -110,7 +110,7 @@ internal static class ClassFeats
                     .AddToDB())
             .AddToDB();
 
-        condition.GuiPresentation.description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Gui.EmptyContent;
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatCallForCharge")

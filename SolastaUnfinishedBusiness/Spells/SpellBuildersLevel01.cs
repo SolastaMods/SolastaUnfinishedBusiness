@@ -591,7 +591,7 @@ internal static partial class SpellBuilders
             .SetFeatures(actionAffinityVoidGrasp)
             .AddToDB();
 
-        conditionVoidGrasp.GuiPresentation.Description = Gui.NoLocalization;
+        conditionVoidGrasp.GuiPresentation.description = Gui.EmptyContent;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
