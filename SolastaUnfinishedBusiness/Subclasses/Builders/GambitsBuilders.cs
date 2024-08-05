@@ -821,7 +821,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.All, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .ExcludeCaster()
                     .SetSavingThrowData(true, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency)

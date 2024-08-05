@@ -1,5 +1,6 @@
 1.5.97.26:
 
+- fixed Bait and Switch maneuver greyed out on action bar
 - fixed Martial Guardian not getting the Sentinel feat
 - fixed Variant Spell Points consumption on slots above 5
 
