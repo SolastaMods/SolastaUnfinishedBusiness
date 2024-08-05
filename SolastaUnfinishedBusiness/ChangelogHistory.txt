@@ -1,6 +1,7 @@
 1.5.97.26:
 
-- fixed Variant Spell Points rules blocking all slots above or at 6 if any on those levels cast
+- fixed Martial Guardian not getting the Sentinel feat
+- fixed Variant Spell Points consumption on slots above 5
 
 KNOWN ISSUES:
 
