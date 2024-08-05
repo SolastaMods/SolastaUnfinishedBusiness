@@ -1,6 +1,13 @@
-1.5.97.25:
+1.5.97.26:
 
-PATRONS: UB is running low on cash flow. If you can, please donate at github.com/SolastaMods/SolastaUnfinishedBusiness
+- fixed Variant Spell Points rules blocking all slots above or at 6 if any on those levels cast
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
+
+1.5.97.25:
 
 - added Gameplay > Character > 'Enable Sorcerer quickened action to allow cast leveled main in the end'
 - added triple camera range to Interface > Game UI > 'Enable elevation camera during battle to stay at position'
@@ -20,11 +27,6 @@ PATRONS: UB is running low on cash flow. If you can, please donate at github.com
 - improved Rogue cunning strike withdraw behavior to work immediately after the attack
 - improved Roguish Umbral Stalker, now Roguish Shadowdancer, to also allow ranged builds
 - improved Way of Zen Archery flurry of arrows to replace one of your bonus unarmed strikes with a bow attack
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
 
 1.5.97.24:
 
@@ -342,11 +344,6 @@ all fixes marked with * were introduced with the IsMelee change on v18
 - improved invisible creatures can be targeted behavior to behave as vanilla in off battle scenarios
 - improved invocations that grant spells with balanced usage and standardized descriptions
 - improved Sorcerer spell list with Fire Shield spell [VANILLA]
-
-known issues:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Artillerist Fortified Position medium cannon doesn't grant buff to self
 
 1.5.97.5:
 

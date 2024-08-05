@@ -192,8 +192,9 @@ internal static class SpellPointsContext
     }
 
     internal static void ConsumeSlotsAtLevelsPointsCannotCastAnymore(
-        RulesetCharacterHero hero, RulesetSpellRepertoire repertoire, int slotLevel,
-        bool consume = true, bool isMulticaster = false)
+        RulesetCharacterHero hero,
+        RulesetSpellRepertoire repertoire,
+        int slotLevel, bool consume = true, bool isMulticaster = false)
     {
         // consume points
         var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
@@ -210,17 +211,28 @@ internal static class SpellPointsContext
             ? SharedSpellsContext.GetSharedSpellLevel(hero)
             : repertoire.MaxSpellLevelOfSpellCastingLevel;
 
-        var warlockLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-
         for (var i = level; i > 0; i--)
         {
-            if (usablePower.RemainingUses >= SpellCostByLevel[i] &&
-                // handle scenario where spells at level 6 and above can only be cast once per level
-                slotLevel <= 5)
+            if (usablePower.RemainingUses >= SpellCostByLevel[i])
             {
+                if (slotLevel > 5)
+                {
+                    ConsumeSlot(slotLevel);
+                }
+
                 continue;
             }
 
+            ConsumeSlot(i);
+        }
+        
+        repertoire.RepertoireRefreshed?.Invoke(repertoire);
+
+        return;
+
+        void ConsumeSlot(int slot)
+        {
+            var warlockLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
             var usedWarlockSlots = 0;
 
             if (level == warlockLevel &&
@@ -231,11 +243,9 @@ internal static class SpellPointsContext
 
             var usedSpellsSlots = repertoire.usedSpellsSlots;
 
-            usedSpellsSlots.TryAdd(i, 0);
-            usedSpellsSlots[i] = usedWarlockSlots + 1;
+            usedSpellsSlots.TryAdd(slot, 0);
+            usedSpellsSlots[slot] = usedWarlockSlots + 1;
         }
-
-        repertoire.RepertoireRefreshed?.Invoke(repertoire);
     }
 
     internal static void ConvertAdditionalSlotsIntoSpellPointsBeforeRefreshSpellRepertoire(RulesetCharacterHero hero)
