@@ -2,6 +2,7 @@
 
 - fixed Bait and Switch maneuver greyed out on action bar
 - fixed Martial Guardian not getting the Sentinel feat
+- fixed Cleric domains missing divine intervention improvement at 20
 - fixed Sunlit Blade cantrip highlighted condition duration
 - fixed Toll the Dead and Wrack cantrips description
 - fixed Variant Spell Points consumption on slots above 5

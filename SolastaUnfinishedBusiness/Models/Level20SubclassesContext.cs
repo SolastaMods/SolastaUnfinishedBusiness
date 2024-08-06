@@ -29,6 +29,32 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class Level20SubclassesContext
 {
+    private const string Tag = "PowerClericImprovedDivineIntervention";
+
+    internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementCleric =
+        FeatureDefinitionPowerBuilder
+            .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
+            .SetOrUpdateGuiPresentation(Tag, Category.Feature)
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionCleric)
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementPaladin =
+        FeatureDefinitionPowerBuilder
+            .Create(PowerClericDivineInterventionPaladin, "PowerClericDivineInterventionImprovementPaladin")
+            .SetOrUpdateGuiPresentation(Tag, Category.Feature)
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionPaladin)
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementWizard =
+        FeatureDefinitionPowerBuilder
+            .Create(PowerClericDivineInterventionWizard, "PowerClericDivineInterventionImprovementWizard")
+            .SetOrUpdateGuiPresentation(Tag, Category.Feature)
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionWizard)
+            .AddToDB();
+
     internal static void Load()
     {
         ClericLoad();
@@ -392,49 +418,26 @@ internal static class Level20SubclassesContext
         // Divine Intervention [ALL CLERICS]
         //
 
-        const string TAG = "PowerClericImprovedDivineIntervention";
-
-        var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
-            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionCleric)
-            .AddToDB();
-
-        var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionPaladin, "PowerClericDivineInterventionImprovementPaladin")
-            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionPaladin)
-            .AddToDB();
-
-        var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionWizard, "PowerClericDivineInterventionImprovementWizard")
-            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionWizard)
-            .AddToDB();
-
         DomainBattle.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
         DomainElementalCold.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         DomainElementalFire.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         DomainElementalLighting.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         DomainInsight.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
         DomainLaw.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
         DomainLife.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
         DomainMischief.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         DomainOblivion.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
         DomainSun.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
     }
 
     private static void FighterLoad()

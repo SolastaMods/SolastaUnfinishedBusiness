@@ -360,6 +360,8 @@ public sealed class DomainSmith : AbstractSubclass
                 powerReinforceArmor16)
             .AddFeaturesAtLevel(17,
                 featureBlessedMetal)
+            .AddFeaturesAtLevel(20,
+                Level20SubclassesContext.PowerClericDivineInterventionImprovementPaladin)
             .AddToDB();
 
         return;

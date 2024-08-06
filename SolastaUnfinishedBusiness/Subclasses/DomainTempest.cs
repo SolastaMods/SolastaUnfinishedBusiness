@@ -269,6 +269,7 @@ public sealed class DomainTempest : AbstractSubclass
             .AddFeaturesAtLevel(8, additionalDamageDivineStrike)
             .AddFeaturesAtLevel(10, PowerClericDivineInterventionPaladin)
             .AddFeaturesAtLevel(17, featureSetStormborn)
+            .AddFeaturesAtLevel(20, Level20SubclassesContext.PowerClericDivineInterventionImprovementWizard)
             .AddToDB();
     }
 
