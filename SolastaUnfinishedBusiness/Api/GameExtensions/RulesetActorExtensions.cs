@@ -8,6 +8,18 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class RulesetActorExtensions
 {
+    internal static void ModifyAttributeAndMax(this RulesetActor hero, string attributeName, int amount)
+    {
+        var attribute = hero.GetAttribute(attributeName);
+
+        attribute.BaseValue += amount;
+        attribute.MaxValue += amount;
+        attribute.MaxEditableValue += amount;
+        attribute.Refresh();
+
+        hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
+    }
+
     [NotNull]
     private static List<T> FeaturesByType<T>([CanBeNull] RulesetActor actor) where T : class
     {

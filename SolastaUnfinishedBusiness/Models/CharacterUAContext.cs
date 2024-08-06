@@ -1043,30 +1043,16 @@ internal static partial class CharacterContext
     {
         public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Dexterity, 4);
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, 4);
-
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Dexterity, 4);
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Wisdom, 4);
             hero.RefreshAll();
         }
 
         public void RemoveFeature([NotNull] RulesetCharacterHero hero, string tag)
         {
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Dexterity, -4);
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, -4);
-
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Dexterity, -4);
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Wisdom, -4);
             hero.RefreshAll();
-        }
-
-        private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
-        {
-            var attribute = hero.GetAttribute(attributeName);
-
-            attribute.BaseValue += amount;
-            attribute.MaxValue += amount;
-            attribute.MaxEditableValue += amount;
-            attribute.Refresh();
-
-            hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
         }
     }
 
@@ -1118,11 +1104,8 @@ internal static partial class CharacterContext
                 .AdditionalDamageMarshalFavoredEnemyHumanoid);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort((x, y) =>
-                string.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCulture));
-        }
+        AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort((x, y) =>
+            string.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCulture));
     }
 
     internal static void SwitchRangerNatureShroud()
@@ -1196,12 +1179,7 @@ internal static partial class CharacterContext
                 .SetImpactEffectParameters(new AssetReference())
                 .Build())
         .AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(character =>
-            {
-                var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
-
-                return gameLocationCharacter == null || gameLocationCharacter.UsedTacticalMoves == 0;
-            }))
+            new ValidatorsValidatePowerUse(c => GameLocationCharacter.GetFromActor(c) is { UsedTacticalMoves: 0 }))
         .AddToDB();
 
     internal static readonly ConditionDefinition ConditionReduceSneakDice = ConditionDefinitionBuilder
