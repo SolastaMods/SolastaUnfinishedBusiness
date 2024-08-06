@@ -280,30 +280,10 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
+            var usablePower = PowerProvider.Get(powerSlashingWhirlDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker, withinRange: 1).Where(x => x != defender).ToList();
 
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var usablePower = PowerProvider.Get(powerSlashingWhirlDamage, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteAction(ActionDefinitions.Id.SpendPower, usablePower, targets);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)

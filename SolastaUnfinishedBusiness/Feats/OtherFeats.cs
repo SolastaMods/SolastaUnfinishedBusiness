@@ -2933,42 +2933,22 @@ internal static class OtherFeats
                 yield break;
             }
 
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
+            if (!ValidatorsWeapon.IsMelee(attackMode) &&
+                !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerMerciless, rulesetAttacker);
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var distance = attacker.UsedSpecialFeatures.TryGetValue(MercilessName, out var value) && value == 1
                 ? proficiencyBonus
                 : (proficiencyBonus + 1) / 2;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerMerciless, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(
                 downedCreature, attacker, isOppositeSide: false, hasToPerceivePerceiver: true, withinRange: distance);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(

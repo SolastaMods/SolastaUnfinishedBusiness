@@ -1338,13 +1338,10 @@ internal static partial class SpellBuilders
 
             EffectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             // need to loop over target characters to support twinned metamagic scenarios
             foreach (var target in actionCastSpell.ActionParams.TargetCharacters)
             {
-                var contenders = Gui.Battle.AllContenders
+                var targets = Gui.Battle.AllContenders
                     .Where(x =>
                         x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                         x.IsWithinRange(target, 1))
@@ -1354,24 +1351,7 @@ internal static partial class SpellBuilders
 
                 usablePower.saveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
 
-                var actionModifiers = new List<ActionModifier>();
-
-                for (var i = 0; i < contenders.Count; i++)
-                {
-                    actionModifiers.Add(new ActionModifier());
-                }
-
-                var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-                {
-                    ActionModifiers = actionModifiers,
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-                    UsablePower = usablePower,
-                    targetCharacters = contenders
-                };
-
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
+                caster.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
             }
         }
     }
@@ -2367,30 +2347,9 @@ internal static partial class SpellBuilders
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
         }
     }
 

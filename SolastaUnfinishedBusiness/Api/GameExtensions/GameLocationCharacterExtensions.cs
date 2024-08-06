@@ -15,6 +15,34 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
+    internal static void MyExecuteAction(
+        this GameLocationCharacter character,
+        Id actionId,
+        RulesetUsablePower usablePower,
+        List<GameLocationCharacter> targets)
+    {
+        var actionModifiers = new List<ActionModifier>();
+        var rulesetCharacter = character.RulesetCharacter;
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        for (var i = 0; i < targets.Count; i++)
+        {
+            actionModifiers.Add(new ActionModifier());
+        }
+
+        var actionParams = new CharacterActionParams(character, actionId)
+        {
+            ActionModifiers = actionModifiers,
+            RulesetEffect = implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+            UsablePower = usablePower,
+            targetCharacters = targets
+        };
+
+        // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+        ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+    }
+
     internal static GameLocationCharacter GetEffectControllerOrSelf(this GameLocationCharacter character)
     {
         if (character.RulesetCharacter is not RulesetCharacterEffectProxy effectProxy)

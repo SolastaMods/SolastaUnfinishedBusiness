@@ -392,30 +392,9 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
             usablePower.Consume();
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePowerEnemy = PowerProvider.Get(powerAmazingDisplayEnemy, rulesetAttacker);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams =
-                new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-                {
-                    ActionModifiers = actionModifiers,
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePowerEnemy, false),
-                    UsablePower = usablePowerEnemy,
-                    targetCharacters = targets
-                };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePowerEnemy, targets);
         }
     }
 }

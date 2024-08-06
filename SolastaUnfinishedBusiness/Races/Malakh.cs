@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -328,31 +327,10 @@ internal static class RaceMalakhBuilder
             }
 
             var rulesetAttacker = locationCharacter.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
+            var usablePower = PowerProvider.Get(powerAngelicRadianceDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 3);
 
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var usablePower = PowerProvider.Get(powerAngelicRadianceDamage, rulesetAttacker);
-            var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.SpendPower)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            locationCharacter.MyExecuteAction(ActionDefinitions.Id.SpendPower, usablePower, targets);
         }
     }
 }

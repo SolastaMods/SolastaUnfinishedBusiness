@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -1077,25 +1076,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetTarget);
-            var effectPower = implementationManager
-                .MyInstantiateEffectPower(rulesetTarget, usablePower, false);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(selectedTarget, Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = effectPower,
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            selectedTarget.MyExecuteAction(Id.PowerNoCost, usablePower, targets);
 
             yield break;
         }

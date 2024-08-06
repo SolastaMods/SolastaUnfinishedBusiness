@@ -318,14 +318,10 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging) ||
                 rulesetAttacker.IsWearingHeavyArmor() ||
                 !IsLongBow(attackMode, null, null))
@@ -333,31 +329,11 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerMightyShot, rulesetAttacker);
             var targets = battleManager.Battle
                 .GetContenders(defender, isOppositeSide: false, withinRange: 3);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
         }
     }
 }

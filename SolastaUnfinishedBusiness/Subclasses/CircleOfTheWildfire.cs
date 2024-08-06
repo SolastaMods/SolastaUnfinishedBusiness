@@ -659,18 +659,14 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerSummonSpirit, rulesetAttacker);
             var spirit = GetMySpirit(attacker.Guid);
-
             var contenders =
                 Gui.Battle?.AllContenders ??
                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-
             var targets = contenders
                 .Where(x =>
                     attacker != x &&
@@ -678,25 +674,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     spirit.IsWithinRange(x, 2))
                 .ToList();
 
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var usablePower = PowerProvider.Get(powerSummonSpirit, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteAction(Id.PowerNoCost, usablePower, targets);
 
             yield break;
         }
@@ -743,29 +721,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         {
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < _targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = _targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteAction(Id.PowerNoCost, usablePower, _targets);
 
             yield break;
         }

@@ -1412,35 +1412,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private static void ExecutePowerNoCostOnCasterLocation(
         GameLocationCharacter caster, FeatureDefinitionPower power, int range = 0, bool includeCaster = true)
     {
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var rulesetCaster = caster.RulesetCharacter;
         var usablePower = PowerProvider.Get(power, rulesetCaster);
-        var actionModifiers = new List<ActionModifier>();
         var targets = new List<GameLocationCharacter>();
 
-        if (range > 0)
-        {
-            EnumerateTargetsWithinRange(caster, range, targets, includeCaster);
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-        }
-
-        var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-        {
-            ActionModifiers = actionModifiers,
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-            UsablePower = usablePower,
-            Positions = { caster.LocationPosition },
-            targetCharacters = targets
-        };
-
-        actionService.ExecuteAction(actionParams, null, true);
+        EnumerateTargetsWithinRange(caster, range, targets, includeCaster);
+        caster.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
