@@ -2,6 +2,7 @@
 
 - fixed Bait and Switch maneuver greyed out on action bar
 - fixed Martial Guardian not getting the Sentinel feat
+- fixed Sunlit Blade cantrip condition interruption logic
 - fixed Variant Spell Points consumption on slots above 5
 
 KNOWN ISSUES:

@@ -675,7 +675,8 @@ internal static partial class SpellBuilders
                         ConditionOperationDescription.ConditionOperation.Add,
                         ConditionDefinitionBuilder
                             .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
-                            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+                            // don't use AfterWasAttacked here as it gets removed too soon
+                            .SetSpecialInterruptions(ConditionInterruption.Attacked)
                             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                             .AddToDB())
                     .SetAddLightSource(true)
