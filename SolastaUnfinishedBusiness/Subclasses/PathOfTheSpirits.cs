@@ -444,14 +444,6 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 (characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart &&
                  characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart))
@@ -471,34 +463,24 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+
+            yield return attacker.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [attacker],
+                attacker,
+                "SpiritWalker",
+                reactionValidated: ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "SpiritWalker",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { attacker }
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            if (power == powerRageCost)
-            {
-                rulesetCharacter.SpendRagePoint();
+                if (power == powerRageCost)
+                {
+                    rulesetCharacter.SpendRagePoint();
+                }
             }
         }
     }
