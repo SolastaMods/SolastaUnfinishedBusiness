@@ -207,11 +207,6 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            if (!battleManager.IsBattleInProgress)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
@@ -221,32 +216,19 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerTrialMark, rulesetAttacker);
 
-            if (rulesetAttacker.GetRemainingPowerUses(powerTrialMark) == 0)
+            if (rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerTrialMark, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                StringParameter = "LightEnergyCrossbowBolt",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return attacker.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [defender],
+                attacker,
+                "LightEnergyCrossbowBolt");
         }
     }
 
