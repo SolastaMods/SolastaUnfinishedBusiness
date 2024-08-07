@@ -555,27 +555,16 @@ public class PatronArchfey : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var rulesetDefender = defender.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBeguilingDefenses, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "BeguilingDefenses",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { attacker }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [attacker],
+                attacker,
+                "BeguilingDefenses",
+                battleManager: battleManager);
         }
     }
 }
