@@ -337,43 +337,26 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             GameLocationCharacter defender)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
 
-            if (!attacker.CanReact() ||
-                rulesetAttacker.GetRemainingPowerUses(powerHailOfBlades) == 0)
+            if (Gui.Battle == null ||
+                !attacker.CanReact() ||
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
-            var targets = battleManager.Battle
+            var targets = Gui.Battle
                 .GetContenders(defender, attacker,
                     isOppositeSide: false, excludeSelf: false, hasToPerceiveTarget: true, withinRange: 2);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams =
-                new CharacterActionParams(attacker, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "HailOfBlades",
-                    ActionModifiers = actionModifiers,
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    targetCharacters = targets
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", attacker);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return attacker.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                targets,
+                attacker,
+                "HailOfBlades",
+                battleManager: battleManager);
         }
 
         private enum BladeMarkStatus
