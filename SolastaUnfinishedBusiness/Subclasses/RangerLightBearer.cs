@@ -405,50 +405,24 @@ public sealed class RangerLightBearer : AbstractSubclass
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker.GetRemainingPowerCharges(featureDefinitionPower) <= 0)
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
+            
+            if (Gui.Battle == null ||
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            var targets = Gui.Battle.GetContenders(attacker, withinRange: 5);
 
-            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
-            var targets = battleManager.Battle
-                .GetContenders(attacker, withinRange: 5);
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
-            {
-                StringParameter = "BlessedGlow",
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", attacker);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return attacker.MyReactToUsePower(
+                Id.PowerNoCost,
+                usablePower,
+                targets,
+                attacker,
+                "BlessedGlow");
         }
     }
 
