@@ -846,36 +846,23 @@ public sealed class WayOfTheDragon : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetDefender);
 
-            if (helper != defender ||
+            if (defender != helper ||
                 !defender.CanReact() ||
-                rulesetEffect != null ||
                 !ValidatorsWeapon.IsMelee(attackMode) ||
-                rulesetDefender.GetRemainingPowerUses(powerReactiveHide) == 0)
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "ReactiveHide",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "ReactiveHide",
+                battleManager: battleManager);
         }
     }
 }
