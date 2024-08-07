@@ -902,55 +902,36 @@ internal static class InventorClass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = defender.RulesetCharacter;
-
-            if (rulesetCharacter.GetRemainingPowerUses(powerSoulOfArtifice) == 0)
-            {
-                yield break;
-            }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerSoulOfArtifice, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
-            {
-                StringParameter = "SoulOfArtifice",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
+            if (rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
+            
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [defender],
+                attacker,
+                "SoulOfArtifice",
+                reactionValidated: ReactionValidated);
 
-            var hitPoints = rulesetCharacter.GetClassLevel(Class);
+            yield break;
 
-            rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
+            void ReactionValidated()
+            {
+                var hitPoints = rulesetCharacter.GetClassLevel(Class);
 
-            EffectHelpers.StartVisualEffect(
-                defender, defender, FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift,
-                EffectHelpers.EffectType.Caster);
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
+                rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
+
+                EffectHelpers.StartVisualEffect(
+                    defender, defender, FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift,
+                    EffectHelpers.EffectType.Caster);
+                ServiceRepository.GetService<ICommandService>()?
+                    .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
+            }
         }
 
         public void OnSavingThrowInitiated(
