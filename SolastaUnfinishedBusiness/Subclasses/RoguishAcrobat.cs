@@ -215,36 +215,24 @@ public sealed class RoguishAcrobat : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerHeroicUncannyDodge, rulesetDefender);
 
             if (helper != defender ||
                 defender.IsMyTurn() ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
-                rulesetDefender.GetRemainingPowerUses(powerHeroicUncannyDodge) == 0)
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerHeroicUncannyDodge, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "HeroicUncannyDodge",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return attacker.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "HeroicUncannyDodge",
+                battleManager: battleManager);
         }
     }
 }
