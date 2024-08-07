@@ -170,6 +170,7 @@ internal static class RaceOligathBuilder
             RulesetEffect rulesetEffect)
         {
             var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerStoneEndurance, rulesetDefender);
 
             // don't use CanReact() to allow stone endurance when prone
             if (helper != defender ||
@@ -178,30 +179,18 @@ internal static class RaceOligathBuilder
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionStunned) ||
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionParalyzed) ||
-                rulesetDefender.GetRemainingPowerUses(powerStoneEndurance) == 0)
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerStoneEndurance, rulesetDefender);
-            var actionParams = new CharacterActionParams(defender, Id.PowerReaction)
-            {
-                StringParameter = "StoneEndurance",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return defender.MyReactToUsePower(
+                Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "StoneEndurance",
+                battleManager: battleManager);
         }
     }
 }
