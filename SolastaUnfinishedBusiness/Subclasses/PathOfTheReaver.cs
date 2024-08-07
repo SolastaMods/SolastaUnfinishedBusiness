@@ -219,19 +219,12 @@ public sealed class PathOfTheReaver : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerBloodBath, rulesetAttacker);
 
             if (rulesetAttacker.MissingHitPoints == 0 ||
                 !rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging) ||
-                rulesetAttacker.GetRemainingPowerUses(powerBloodBath) == 0)
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -244,34 +237,21 @@ public sealed class PathOfTheReaver : AbstractSubclass
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
             var totalHealing = 2 * classLevel;
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return attacker.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [attacker],
+                attacker,
+                "Bloodbath",
+                "UseBloodbathDescription".Formatted(Category.Reaction, totalHealing.ToString()),
+                ReactionValidated);
 
-            var usablePower = PowerProvider.Get(powerBloodBath, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "Bloodbath",
-                StringParameter2 = "UseBloodbathDescription".Formatted(
-                    Category.Reaction, totalHealing.ToString()),
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { attacker }
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                ReceiveHealing(attacker, totalHealing);
             }
-
-            ReceiveHealing(attacker, totalHealing);
         }
     }
 
