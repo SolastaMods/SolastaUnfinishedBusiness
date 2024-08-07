@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.ModKit.Utility;
@@ -41,6 +43,56 @@ public static class GameLocationCharacterExtensions
 
         // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
         ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+    }
+
+    internal static IEnumerator MyReactToUsePower(this GameLocationCharacter character,
+        Id actionId,
+        RulesetUsablePower usablePower,
+        List<GameLocationCharacter> targets,
+        GameLocationCharacter waiter,
+        string stringParameter,
+        string stringParameter2 = "",
+        Action reactionValidated = null,
+        GameLocationBattleManager battleManager = null)
+    {
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!battleManager)
+        {
+            yield break;
+        }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+        var actionModifiers = new List<ActionModifier>();
+
+        for (var i = 0; i < targets.Count; i++)
+        {
+            actionModifiers.Add(new ActionModifier());
+        }
+
+        var actionParams = new CharacterActionParams(character, actionId)
+        {
+            StringParameter = stringParameter,
+            StringParameter2 = stringParameter2,
+            ActionModifiers = actionModifiers,
+            RulesetEffect =
+                implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
+            UsablePower = usablePower,
+            targetCharacters = targets,
+            IsReactionEffect = true
+        };
+
+        actionService.ReactToUsePower(actionParams, "UsePower", character);
+
+        yield return battleManager.WaitForReactions(waiter, actionService, count);
+
+        if (actionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke();
+        }
     }
 
     internal static GameLocationCharacter GetEffectControllerOrSelf(this GameLocationCharacter character)
