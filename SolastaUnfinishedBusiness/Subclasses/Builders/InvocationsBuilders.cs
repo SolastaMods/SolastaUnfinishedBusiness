@@ -1518,49 +1518,33 @@ internal static class InvocationsBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            if (!defender.CanReact())
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.GetRemainingPowerCharges(powerTombOfFrost) <= 0)
-            {
-                yield break;
-            }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerTombOfFrost, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "TombOfFrost",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
 
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!actionParams.ReactionValidated)
+            if (!defender.CanReact() ||
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "TombOfFrost",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            rulesetDefender.ReceiveTemporaryHitPoints(
-                classLevel * 10, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetDefender.Guid);
+            yield break;
+
+            void ReactionValidated()
+            {
+                var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
+
+                rulesetDefender.ReceiveTemporaryHitPoints(
+                    classLevel * 10, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetDefender.Guid);
+            }
         }
     }
 
