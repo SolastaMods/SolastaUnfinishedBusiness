@@ -337,61 +337,36 @@ public class PatronCelestial : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = defender.RulesetCharacter;
-
-            if (rulesetCharacter.GetRemainingPowerUses(powerSearingVengeance) == 0)
-            {
-                yield break;
-            }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
-            var targets = battleManager.Battle
-                .GetContenders(defender, withinRange: 5);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
-            {
-                StringParameter = "SearingVengeance",
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
+            if (Gui.Battle == null ||
+                rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var hitPoints = rulesetCharacter.MissingHitPoints / 2;
+            var targets = Gui.Battle.GetContenders(defender, withinRange: 5);
 
-            rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                targets,
+                attacker,
+                "SearingVengeance",
+                reactionValidated: ReactionValidated);
 
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
+            yield break;
+
+            void ReactionValidated()
+            {
+                var hitPoints = rulesetCharacter.MissingHitPoints / 2;
+
+                rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
+
+                ServiceRepository.GetService<ICommandService>()
+                    ?.ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
+            }
         }
     }
 }
