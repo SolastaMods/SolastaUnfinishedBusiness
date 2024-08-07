@@ -745,12 +745,13 @@ public sealed class MartialForceKnight : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerKineticBarrier, rulesetHelper);
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
-                rulesetHelper.GetRemainingPowerUses(powerKineticBarrier) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -774,28 +775,14 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerKineticBarrier, rulesetHelper);
-            var actionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "KineticBarrier",
-                    StringParameter2 = FormatReactionDescription(attacker, defender, helper),
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", helper);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return helper.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "KineticBarrier",
+                FormatReactionDescription(attacker, defender, helper),
+                battleManager: battleManager);
         }
 
         private static string FormatReactionDescription(
