@@ -511,56 +511,34 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 continue;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return source.MyReactToUsePower(
+                Id.PowerReaction,
+                usablePower,
+                [character],
+                character,
+                character.Side == Side.Enemy ? "CauterizingFlamesDamage" : "CauterizingFlamesHeal",
+                reactionValidated: ReactionValidated);
 
-            var actionParams = new CharacterActionParams(source, Id.PowerReaction)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = character.Side == Side.Enemy ? "CauterizingFlamesDamage" : "CauterizingFlamesHeal",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetSource, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { character }
-            };
+                var powerToTerminate = rulesetSource.PowersUsedByMe.FirstOrDefault(x =>
+                    x.Guid == rulesetProxy.EffectGuid);
 
-            var count = actionService.PendingReactionRequestGroups.Count;
+                if (powerToTerminate != null)
+                {
+                    rulesetSource.TerminatePower(powerToTerminate);
+                }
 
-            actionService.ReactToUsePower(actionParams, "UsePower", source);
+                usablePower = PowerProvider.Get(
+                    character.Side == Side.Enemy
+                        ? PowerCauterizingFlamesDamage
+                        : PowerCauterizingFlamesHeal,
+                    rulesetSource);
 
-            yield return battleManager.WaitForReactions(character, actionService, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
+                source.MyExecuteAction(Id.PowerNoCost, usablePower, [character]);
             }
-
-            var powerToTerminate = rulesetSource.PowersUsedByMe.FirstOrDefault(x =>
-                x.Guid == rulesetProxy.EffectGuid);
-
-            if (powerToTerminate != null)
-            {
-                rulesetSource.TerminatePower(powerToTerminate);
-            }
-
-            usablePower = PowerProvider.Get(
-                character.Side == Side.Enemy
-                    ? PowerCauterizingFlamesDamage
-                    : PowerCauterizingFlamesHeal,
-                rulesetSource);
-
-            actionParams = new CharacterActionParams(source, Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetSource, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { character }
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -923,14 +901,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = defender.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBlazingRevival, rulesetCharacter);
 
@@ -939,38 +909,27 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return defender.MyReactToUsePower(
+                Id.PowerNoCost,
+                usablePower,
+                [defender],
+                attacker,
+                "BlazingRevival",
+                reactionValidated: ReactionValidated);
 
-            var reactionParams = new CharacterActionParams(defender, Id.PowerNoCost)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "BlazingRevival",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                var hitPoints = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.HitPoints) / 2;
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
+                rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                EffectHelpers.StartVisualEffect(
+                    defender, defender, PowerDefilerMistyFormEscape, EffectHelpers.EffectType.Caster);
+                ServiceRepository.GetService<ICommandService>()?
+                    .ExecuteAction(new CharacterActionParams(defender, Id.StandUp), null, true);
             }
-
-            var hitPoints = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.HitPoints) / 2;
-
-            rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
-
-            EffectHelpers.StartVisualEffect(
-                defender, defender, PowerDefilerMistyFormEscape, EffectHelpers.EffectType.Caster);
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(new CharacterActionParams(defender, Id.StandUp), null, true);
         }
     }
 }
