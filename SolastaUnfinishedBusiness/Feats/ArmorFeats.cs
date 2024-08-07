@@ -172,49 +172,40 @@ internal static class ArmorFeats
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerShieldTechniques, rulesetDefender);
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [defender],
+                attacker,
+                "ShieldTechniques",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "ShieldTechniques",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                actionModifier.DefenderDamageMultiplier *= 0.5f;
+                rulesetDefender.DamageHalved(rulesetDefender, powerShieldTechniques);
 
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
+                var rulesetAttacker = attacker.RulesetCharacter;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetDefender.InflictCondition(
+                    conditionMark.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfSourceTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionMark.Name,
+                    0,
+                    0,
+                    0);
             }
-
-            actionModifier.DefenderDamageMultiplier *= 0.5f;
-            rulesetDefender.DamageHalved(rulesetDefender, powerShieldTechniques);
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            rulesetDefender.InflictCondition(
-                conditionMark.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                conditionMark.Name,
-                0,
-                0,
-                0);
         }
 
         // add +2 on DEX savings
