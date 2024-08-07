@@ -988,38 +988,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             return null;
         }
 
-        private sealed class WildSurgeSummonOnTurnEnd(EffectProxyDefinition powerSummon)
-            : ICharacterBeforeTurnEndListener
-        {
-            public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
-            {
-                ProcessWildSurgeSummon(locationCharacter);
-            }
-
-            private void ProcessWildSurgeSummon(GameLocationCharacter locationCharacter)
-            {
-                if (locationCharacter?.RulesetCharacter?.controlledEffectProxies == null ||
-                    locationCharacter.RulesetCharacter.controlledEffectProxies.Count == 0)
-                {
-                    return;
-                }
-
-                foreach (var proxy in locationCharacter.RulesetCharacter.controlledEffectProxies
-                             .Where(proxy =>
-                                 proxy?.EffectProxyDefinition?.Name == powerSummon?.Name &&
-                                 proxy?.ControllerGuid != null))
-                {
-                    if (!RulesetEntity.TryGetEntity<RulesetCharacter>(proxy.ControllerGuid, out var controller))
-                    {
-                        continue;
-                    }
-
-                    var service = ServiceRepository.GetService<IRulesetImplementationService>();
-                    service.AutoTriggerProxy(proxy, controller);
-                }
-            }
-        }
-
         private sealed class WildSurgeWeaponModifyAttackMode : IModifyWeaponAttackMode
         {
             public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
