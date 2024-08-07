@@ -282,46 +282,35 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerShadowSanctuary, rulesetDefender);
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                helper != defender ||
+                defender != helper ||
                 !defender.CanReact() ||
-                rulesetDefender.GetRemainingPowerUses(powerShadowSanctuary) == 0)
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "ShadowySanctuary",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            var usablePower = PowerProvider.Get(powerShadowSanctuary, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "ShadowySanctuary",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
+            yield break;
 
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!actionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                var delta = -action.AttackSuccessDelta - 1;
+
+                action.AttackRollOutcome = RollOutcome.Failure;
+                action.AttackSuccessDelta = -1;
+                action.AttackRoll += delta;
             }
-
-            var delta = -action.AttackSuccessDelta - 1;
-
-            action.AttackRollOutcome = RollOutcome.Failure;
-            action.AttackSuccessDelta = -1;
-            action.AttackRoll += delta;
         }
     }
 }
