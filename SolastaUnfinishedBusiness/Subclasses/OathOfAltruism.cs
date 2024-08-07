@@ -232,13 +232,14 @@ public sealed class OathOfAltruism : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerSpiritualShielding, rulesetHelper);
 
             if (action.AttackRollOutcome is not RollOutcome.Success ||
                 helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact(true) ||
                 !helper.CanPerceiveTarget(defender) ||
-                rulesetHelper.GetRemainingPowerUses(powerSpiritualShielding) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -262,28 +263,15 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerSpiritualShielding, rulesetHelper);
-            var actionParams =
-                new CharacterActionParams(helper, Id.PowerReaction)
-                {
-                    StringParameter = "SpiritualShielding",
-                    StringParameter2 = "UseSpiritualShieldingDescription".Formatted(
-                        Category.Reaction, attacker.Name, defender.Name, chaMod.ToString()),
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", helper);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return helper.MyReactToUsePower(
+                Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "SpiritualShielding",
+                "UseSpiritualShieldingDescription".Formatted(
+                    Category.Reaction, attacker.Name, defender.Name, chaMod.ToString()),
+                battleManager: battleManager);
         }
     }
 }
