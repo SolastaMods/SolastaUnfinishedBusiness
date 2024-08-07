@@ -1,6 +1,7 @@
 1.5.97.26:
 
 - fixed Bait and Switch maneuver greyed out on action bar
+- fixed Bountiful Luck feat triggering on any failure regardless of dice roll
 - fixed Martial Guardian not getting the Sentinel feat
 - fixed Cleric domains missing divine intervention improvement at 20
 - fixed Sunlit Blade cantrip highlighted condition duration

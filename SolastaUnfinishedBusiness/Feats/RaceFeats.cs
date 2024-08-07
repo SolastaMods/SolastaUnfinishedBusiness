@@ -661,7 +661,7 @@ internal static class RaceFeats
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (!actionManager ||
-                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                action.AttackRoll != 1 ||
                 attacker == helper ||
                 attacker.IsOppositeSide(helper.Side) ||
                 !helper.CanReact() ||
@@ -756,7 +756,7 @@ internal static class RaceFeats
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (!actionManager ||
-                abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRoll != 1 ||
                 abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
                 helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
@@ -866,6 +866,13 @@ internal static class RaceFeats
                 yield break;
             }
 
+            var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
+
+            if (savingRoll != 1)
+            {
+                yield break;
+            }
+
             var reactionParams =
                 new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
@@ -890,7 +897,6 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
 
             if (dieRoll <= savingRoll)
             {
@@ -928,10 +934,8 @@ internal static class RaceFeats
                 "Feedback/&BountifulLuckSavingToHitRoll",
                 extra:
                 [
-                    (dieRoll > savingRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        dieRoll.ToString()),
-                    (savingRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        savingRoll.ToString())
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                    (ConsoleStyleDuplet.ParameterType.Negative, savingRoll.ToString())
                 ]);
         }
     }
