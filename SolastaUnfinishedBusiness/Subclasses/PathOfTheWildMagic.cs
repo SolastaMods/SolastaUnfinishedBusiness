@@ -292,25 +292,11 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         private static WildSurgeEffect BuildWildSurgeSummon()
         {
-            var proxySummon = EffectProxyDefinitionBuilder
-                .Create(EffectProxyDefinitions.ProxyDancingLights, $"Proxy{Name}Summon")
-                .SetGuiPresentation($"{ConditionWildSurgePrefix}Summon", Category.Condition,
-                    EffectProxyDefinitions.ProxyDelayedBlastFireball)
-                .SetPortrait(EffectProxyDefinitions.ProxyDancingLights.PortraitSpriteReference)
-                .SetCanMove(false, false)
-                .SetAttackMethod(ProxyAttackMethod.ReproduceDamageForms)
-                .AddToDB();
-
-            proxySummon.autoTerminateOnTriggerPower = true;
-            proxySummon.actionId = Id.NoAction;
-            proxySummon.canTriggerPower = true;
-
             var actionAffinitySummon = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}Summon")
                 .SetGuiPresentationNoContent(true)
                 .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeSummon)
-                .AddCustomSubFeatures(new WildSurgeSummonOnTurnEnd(proxySummon))
                 .AddToDB();
 
             var actionAffinitySummonFree = FeatureDefinitionActionAffinityBuilder
@@ -321,8 +307,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .AddToDB();
 
             var effectDescriptionBlast = EffectDescriptionBuilder
-                .Create(FeatureDefinitionPowers.PowerDelayedBlastFireballDetonate.effectDescription)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube, 3)
                 .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Constitution, 8)
                 .UseQuickAnimations()
@@ -331,6 +317,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         .Create()
                         .SetDamageForm(DamageTypeForce, 1, DieType.D6)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                         .Build())
                 .SetImpactEffectParameters(SpellDefinitions.MagicMissile)
                 .Build();
@@ -338,37 +325,11 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             effectDescriptionBlast.EffectParticleParameters.zoneParticleReference
                 = SpellDefinitions.Shatter.effectDescription.EffectParticleParameters.zoneParticleReference;
 
-            var powerSummonBlast = FeatureDefinitionPowerBuilder
-                .Create(FeatureDefinitionPowers.PowerDelayedBlastFireballDetonate, $"Power{Name}SummonBlast")
-                .SetGuiPresentation(Category.Feature)
-                .SetEffectDescription(effectDescriptionBlast)
-                .AddToDB();
-
-            proxySummon.attackPower = powerSummonBlast;
-
-            var powerSummonBlastReaction = FeatureDefinitionPowerBuilder
-                .Create(powerSummonBlast, $"Power{Name}SummonBlastReaction")
-                .SetEffectDescription(EffectDescriptionBuilder.Create(effectDescriptionBlast)
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube, 3)
-                    .Build())
-                .AddToDB();
-
-            var effectDescription = EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Round, 2, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetSummonEffectProxyForm(proxySummon)
-                        .Build())
-                .Build();
-
             var powerSummon = FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}Summon")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.DelayedBlastFireball)
                 .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
-                .SetEffectDescription(effectDescription)
+                .SetEffectDescription(effectDescriptionBlast)
                 .DelegatedToAction()
                 .AddToDB();
 
@@ -413,7 +374,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 EffectName = "Summon",
                 Condition = conditionWildSurgeSummon,
                 ConditionFirstTurn = conditionWildSurgeSummonFree,
-                ReactPower = powerSummonBlastReaction
+                ReactPower = powerSummon
             };
         }
 
@@ -1028,14 +989,9 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         }
 
         private sealed class WildSurgeSummonOnTurnEnd(EffectProxyDefinition powerSummon)
-            : ICharacterBeforeTurnEndListener, ICharacterBeforeTurnStartListener
+            : ICharacterBeforeTurnEndListener
         {
             public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
-            {
-                ProcessWildSurgeSummon(locationCharacter);
-            }
-
-            public void OnCharacterBeforeTurnStarted(GameLocationCharacter locationCharacter)
             {
                 ProcessWildSurgeSummon(locationCharacter);
             }
