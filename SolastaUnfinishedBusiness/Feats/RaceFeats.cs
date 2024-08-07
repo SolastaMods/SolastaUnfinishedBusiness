@@ -1340,40 +1340,21 @@ internal static class RaceFeats
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             if (!action.ActionParams.activeEffect.EffectDescription.EffectForms.Any(x =>
                     x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType is DamageTypeFire))
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var rulesetCharacter = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                StringParameter = "PowerFeatFlamesOfPhlegethos",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { attacker }
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return attacker.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [attacker],
+                attacker,
+                "PowerFeatFlamesOfPhlegethos");
         }
     }
 
