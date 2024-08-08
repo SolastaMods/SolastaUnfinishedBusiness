@@ -683,10 +683,11 @@ public sealed class PathOfTheBeast : AbstractSubclass
                     256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique, 2)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique, 2)
+                    .Build())
             .AddToDB();
 
         powerInfectiousFuryCompelledStrike.AddCustomSubFeatures(new CompelledStrikeHandler(conditionInfectiousFury));
@@ -696,14 +697,16 @@ public sealed class PathOfTheBeast : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerInfectiousFuryMindlash", Resources.PowerInfectiousFuryMindlash, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                .SetRequiredCondition(conditionInfectiousFury)
-                .SetEffectForms(
-                    EffectFormBuilder.DamageForm(DamageTypePsychic, 2, DieType.D12),
-                    EffectFormBuilder.ConditionForm(conditionInfectiousFury, ConditionForm.ConditionOperation.Remove))
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetRequiredCondition(conditionInfectiousFury)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypePsychic, 2, DieType.D12),
+                        EffectFormBuilder.ConditionForm(conditionInfectiousFury,
+                            ConditionForm.ConditionOperation.Remove))
+                    .Build())
             .AddToDB();
 
         powerInfectiousFury.AddCustomSubFeatures(
@@ -725,46 +728,28 @@ public sealed class PathOfTheBeast : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerInfectiousFury, attacker.RulesetCharacter);
 
-            if (!attacker.IsMyTurn())
-            {
-                yield break;
-            }
-
-            if (defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                defender.RulesetCharacter.HasAnyConditionOfType(condition.name) ||
-                attacker.RulesetCharacter.GetRemainingPowerUses(powerInfectiousFury) == 0)
-            {
-                yield break;
-            }
-
-            if (attackMode.SourceDefinition is not ItemDefinition item ||
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !attacker.IsMyTurn() ||
+                rulesetAttacker.GetRemainingPowerUses(powerInfectiousFury) == 0 ||
+                rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetDefender.HasAnyConditionOfType(condition.name) ||
+                attackMode.SourceDefinition is not ItemDefinition item ||
                 !item.ItemTags.Contains(TagBeastWeapon))
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var usablePower = PowerProvider.Get(powerInfectiousFury, attacker.RulesetCharacter);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-            {
-                StringParameter = "InfectiousFury",
-                RulesetEffect =
-                    implementationService.InstantiateEffectPower(attacker.RulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = [defender],
-                actionModifiers = [new ActionModifier()]
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToSpendPower(reactionParams);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return attacker.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [defender],
+                attacker,
+                "InfectiousFury",
+                battleManager: battleManager);
         }
     }
 
