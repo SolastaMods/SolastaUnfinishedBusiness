@@ -406,16 +406,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
     private static IEnumerator HandleControlledChaos(GameLocationCharacter attacker, bool avoidOnes = false)
     {
-        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-        if (!actionManager || !battleManager)
-        {
-            yield break;
-        }
+        var threshold = avoidOnes ? 2 : 1;
 
         var wildSurgeDie1 = 0;
-        var threshold = avoidOnes ? 2 : 1;
 
         while (wildSurgeDie1 < threshold)
         {
@@ -456,47 +449,37 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         rulesetAttacker.UsablePowers.Add(usablePowerFirst);
         rulesetAttacker.UsablePowers.Add(usablePowerSecond);
 
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-        {
-            StringParameter = "ControlledChaos",
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetAttacker, usablePowerPool, false),
-            UsablePower = usablePowerPool,
-            TargetCharacters = { attacker }
-        };
-
-        var count = actionManager.PendingReactionRequestGroups.Count;
-        var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-        actionManager.AddInterruptRequest(reactionRequest);
-
-        yield return battleManager.WaitForReactions(attacker, actionManager, count);
+        yield return attacker.MyReactToSpendPowerBundle(
+            usablePowerPool,
+            [attacker],
+            attacker,
+            "ControlledChaos",
+            ReactionValidated,
+            ReactionNotValidated);
 
         rulesetAttacker.UsablePowers.Remove(usablePowerFirst);
         rulesetAttacker.UsablePowers.Remove(usablePowerSecond);
 
-        int selectedRoll;
-        FeatureDefinitionPower selectedPower;
+        yield break;
 
-        if (reactionRequest.Validated)
+        void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
         {
-            selectedPower = WildSurgePowers.ElementAt(reactionRequest.SelectedSubOption);
-            selectedRoll = reactionRequest.SelectedSubOption + 1;
+            var selectedRoll = reactionRequest.SelectedSubOption + 1;
+            var selectedPower = WildSurgePowers.ElementAt(reactionRequest.SelectedSubOption);
+
+            ApplyWildSurge(
+                attacker, selectedRoll, PowerControlledChaos, selectedPower, "Feedback/&ControlledChaosDieChoice");
         }
-        else
+
+        void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
         {
             var choiceRoll = RollDie(DieType.D2, AdvantageType.None, out _, out _);
-            var choice = choiceRoll == 1 ? wildSurgeDie1 : wildSurgeDie2;
+            var selectedRoll = choiceRoll == 1 ? wildSurgeDie1 : wildSurgeDie2;
+            var selectedPower = WildSurgePowers.ElementAt(selectedRoll - 1);
 
-            selectedPower = WildSurgePowers.ElementAt(choice - 1);
-            selectedRoll = choice;
+            ApplyWildSurge(
+                attacker, selectedRoll, PowerControlledChaos, selectedPower, "Feedback/&ControlledChaosDieChoice");
         }
-
-        ApplyWildSurge(
-            attacker, selectedRoll, PowerControlledChaos, selectedPower, "Feedback/&ControlledChaosDieChoice");
     }
 
     //
