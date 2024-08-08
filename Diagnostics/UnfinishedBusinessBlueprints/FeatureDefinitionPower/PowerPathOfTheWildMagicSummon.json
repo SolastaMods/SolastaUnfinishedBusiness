@@ -6,9 +6,9 @@
     "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Position",
+    "targetType": "Cube",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 3,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -30,21 +30,21 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Round",
-    "durationParameter": 2,
-    "endOfEffect": "StartOfTurn",
-    "hasSavingThrow": false,
+    "targetSide": "All",
+    "durationType": "Instantaneous",
+    "durationParameter": 1,
+    "endOfEffect": "EndOfTurn",
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
-    "ignoreCover": false,
+    "ignoreCover": true,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
-    "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 15,
+    "difficultyClassComputation": "AbilityScoreAndProficiency",
+    "savingThrowDifficultyAbility": "Constitution",
+    "fixedSavingThrowDifficultyClass": 8,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "damageAffinitiesByFamily": [],
@@ -63,30 +63,136 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Summon",
+        "formType": "Damage",
         "addBonusMode": "None",
-        "applyLevel": "No",
+        "applyLevel": "DiceNumberByLevelTable",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
-        "diceByLevelTable": [],
+        "diceByLevelTable": [
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 1,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 2,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 3,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 4,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 5,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 6,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 7,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 8,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 9,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 10,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 11,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 12,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 13,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 14,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 15,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 16,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 17,
+            "diceNumber": 2
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 18,
+            "diceNumber": 2
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 19,
+            "diceNumber": 2
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 20,
+            "diceNumber": 2
+          }
+        ],
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "summonForm": {
-          "$type": "SummonForm, Assembly-CSharp",
-          "summonType": "EffectProxy",
-          "itemDefinition": null,
-          "trackItem": false,
-          "monsterDefinitionName": "",
-          "number": 0,
-          "conditionDefinition": null,
-          "persistOnConcentrationLoss": true,
-          "decisionPackage": null,
-          "effectProxyDefinitionName": "ProxyPathOfTheWildMagicSummon"
+        "damageForm": {
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 1,
+          "dieType": "D6",
+          "overrideWithBardicInspirationDie": false,
+          "versatileDieType": "D1",
+          "bonusDamage": 0,
+          "damageType": "DamageForce",
+          "ancestryType": "Sorcerer",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -110,7 +216,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedParameter": -1.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -130,7 +236,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -154,7 +260,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b6820f3b2273d454c97a4c29dd5e50dd",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -166,7 +272,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "9f1fe10e6ef8c9c43b6b2ef91b2ad38a",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

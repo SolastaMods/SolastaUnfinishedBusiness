@@ -166,8 +166,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Wild Surge: Summon",
-    "description": "An intangible spirit appears an unoccupied space that you can see within 30 feet of you. At the end of the current turn, the spirit explodes, and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 1d6 force damage. Until your rage ends, you can use this effect again, summoning another spirit, on each of your turns as a bonus action.",
+    "title": "Wild Surge: Spirit Blast",
+    "description": "Choose a point you can see within 30 feet of you. A burst of spiritual energy erupts from the point and each creature within a 15-foot cube centered on the point must make a Dexterity saving throw. On a failed save, the creature takes 1d6 force damage. This damage increases to 2d6 at 11th level, and 3d6 at 17th level. Until your rage ends, you can use this effect again on each of your turns as a bonus action.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

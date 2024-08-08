@@ -864,7 +864,7 @@ When you enter your rage, roll on the Wild Magic table to determine the magical 
 Wild Magic Table:
 - Each creature within 30 feet of you must succeed on a Constitution saving throw or take 1d12 necrotic damage. You also gain 1d12 temporary hit points.
 - You teleport up to 30 feet to an unoccupied space you can see. Until your rage ends, you can use this effect again on each of your turns as a bonus action.
-- An intangible spirit appears an unoccupied space that you can see within 30 feet of you. At the end of the current turn, the spirit explodes, and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 1d6 force damage. Until your rage ends, you can use this effect again, summoning another spirit, on each of your turns as a bonus action.
+- Choose a point you can see within 30 feet of you. A burst of spiritual energy erupts from the point and each creature within a 15-foot cube centered on the point must make a Dexterity saving throw. On a failed save, the creature takes 1d6 force damage. This damage increases to 2d6 at 11th level, and 3d6 at 17th level. Until your rage ends, you can use this effect again on each of your turns as a bonus action.
 - Magic infuses the weapon that you are holding. Until your rage ends, the weapon's damage type changes to force, and it gains the thrown properties, with a normal range of 20 feet and a long range of 60 feet. If the weapon leaves your hand, the weapon reappears in your hand. Your rage damage bonus will also apply on this thrown weapon.
 - Whenever a creature hits you with an attack roll before your rage ends, that creature takes 1d6 force damage.
 - Until your rage ends, you gain a +1 bonus to AC, and while within 10 feet of you, your allies gain the same bonus.
@@ -1455,6 +1455,13 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 You learn Circle of Death and Finger of Death spells, and it is added to the list of spells known. They are always prepared, don't count towards your prepared spells limit, and are treated as cleric spells for you. Whenever you deal necrotic damage, you can deal maximum damage instead of rolling. You can use this feature once per long rest.
 
 
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
 
 ## 3. Elemental (Fire) [SOL]
 
@@ -1761,6 +1768,13 @@ Your blessed affinity with fire and metal becomes more powerful. While wearing a
 • You have resistance to bludgeoning, piercing, and slashing damage from non-magical attacks.
 
 
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
 
 ## 7. Insight [SOL]
 
@@ -2006,7 +2020,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
 
 * Mischief Domain Spells
 
@@ -2040,7 +2054,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
 
 
 ### Level 8
@@ -2137,6 +2151,13 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 * Channel Divinity: Master of Nature
 
 As an action, you present your holy symbol and invoke the name of your deity. Each beast or plant creature that can see you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is mind controlled by you for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -2365,6 +2386,13 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 * Stormborn
 
 You can use your bonus action to gain flying speed equal to your walking speed for one hour.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -3025,6 +3053,10 @@ You can replace one maneuver you know with a new one.
 
 ### Level 10
 
+* Additional Superiority Dice
+
+You gain two additional superiority dice.
+
 * Replace Maneuver
 
 You can replace one maneuver you know with a new one.
@@ -3032,10 +3064,6 @@ You can replace one maneuver you know with a new one.
 * Superiority Die Size (d10)
 
 Your superiority die is upgraded to D10.
-
-* Two Additional Superiority Dice
-
-You gain two additional superiority dice.
 
 
 ### Level 15
@@ -3132,14 +3160,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ### Level 7
 
-* Coordinated Defense
+* Coordinated Defense​​​​​​​
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ### Level 10
 
-* Invigorating Shout
+* Invigorating Shout​​​​​​​
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
