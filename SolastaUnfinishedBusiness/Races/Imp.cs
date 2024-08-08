@@ -594,44 +594,34 @@ internal static class RaceImpBuilder
             RulesetEffect rulesetEffect)
         {
             var rulesetHelper = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetHelper);
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
                 action.AttackSuccessDelta < -InspirationValue ||
-                rulesetHelper.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return attacker.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "DrawInspiration",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetHelper);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "DrawInspiration",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToSpendPower(actionParams);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
+                action.AttackSuccessDelta += InspirationValue;
+                action.AttackRollOutcome = RollOutcome.Success;
+                actionModifier.AttackRollModifier += InspirationValue;
+                actionModifier.AttacktoHitTrends.Add(new TrendInfo(
+                    InspirationValue, FeatureSourceType.Power,
+                    powerImpBadlandDrawInspiration.Name, powerImpBadlandDrawInspiration));
             }
-
-            action.AttackSuccessDelta += InspirationValue;
-            action.AttackRollOutcome = RollOutcome.Success;
-            actionModifier.AttackRollModifier += InspirationValue;
-            actionModifier.AttacktoHitTrends.Add(new TrendInfo(
-                InspirationValue, FeatureSourceType.Power,
-                powerImpBadlandDrawInspiration.Name, powerImpBadlandDrawInspiration));
         }
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(GameLocationBattleManager battleManager,
@@ -643,41 +633,32 @@ internal static class RaceImpBuilder
             bool hasHitVisual, [UsedImplicitly] bool hasBorrowedLuck)
         {
             var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetDefender);
 
             if (helper != defender ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
-                rulesetDefender.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0 ||
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0 ||
                 action.SaveOutcomeDelta < -InspirationValue)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return defender.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "DrawInspiration",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetDefender);
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "DrawInspiration",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToSpendPower(actionParams);
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
+                action.RolledSaveThrow = true;
+                action.SaveOutcomeDelta = 0;
+                action.SaveOutcome = RollOutcome.Success;
             }
-
-            action.RolledSaveThrow = true;
-            action.SaveOutcomeDelta = 0;
-            action.SaveOutcome = RollOutcome.Success;
         }
     }
 
