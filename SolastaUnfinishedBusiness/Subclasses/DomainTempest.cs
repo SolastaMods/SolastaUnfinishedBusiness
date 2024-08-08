@@ -390,9 +390,8 @@ public sealed class DomainTempest : AbstractSubclass
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower)
             {
-                ActionModifiers = { new ActionModifier() },
                 StringParameter = "WrathOfTheStorm",
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
