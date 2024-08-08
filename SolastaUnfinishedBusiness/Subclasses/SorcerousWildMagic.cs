@@ -634,95 +634,84 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-            {
-                StringParameter = "TidesOfChaosAttack",
-                StringParameter2 = "SpendPowerTidesOfChaosAttackDescription"
+            yield return helper.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "TidesOfChaosAttack",
+                "SpendPowerTidesOfChaosAttackDescription"
                     .Formatted(Category.Reaction, defender.Name, action.FormatTitle()),
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                ReactionValidated,
+                battleManager);
 
-            actionService.ReactToSpendPower(reactionParams);
+            yield break;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
-            }
+                List<TrendInfo> advantageTrends =
+                    [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
 
-            List<TrendInfo> advantageTrends =
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
+                actionModifier.AttackAdvantageTrends.SetRange(advantageTrends);
 
-            actionModifier.AttackAdvantageTrends.SetRange(advantageTrends);
+                RollOutcome outcome;
+                var attackRoll = action.AttackRoll;
+                int roll;
+                int toHitBonus;
+                int successDelta;
 
-            RollOutcome outcome;
-            var attackRoll = action.AttackRoll;
-            int roll;
-            int toHitBonus;
-            int successDelta;
+                if (attackMode != null)
+                {
+                    toHitBonus = attackMode.ToHitBonus + actionModifier.AttackRollModifier;
+                    roll = rulesetHelper.RollAttack(
+                        attackMode.ToHitBonus,
+                        defender.RulesetActor,
+                        attackMode.SourceDefinition,
+                        attackMode.ToHitBonusTrends,
+                        false,
+                        actionModifier.AttackAdvantageTrends,
+                        attackMode.ranged,
+                        false,
+                        actionModifier.AttackRollModifier,
+                        out outcome,
+                        out successDelta,
+                        -1,
+                        true);
+                }
+                else if (rulesetEffect != null)
+                {
+                    toHitBonus = rulesetEffect.MagicAttackBonus + actionModifier.AttackRollModifier;
+                    roll = rulesetHelper.RollMagicAttack(
+                        rulesetEffect,
+                        defender.RulesetActor,
+                        rulesetEffect.GetEffectSource(),
+                        actionModifier.AttacktoHitTrends,
+                        actionModifier.AttackAdvantageTrends,
+                        false,
+                        actionModifier.AttackRollModifier,
+                        out outcome,
+                        out successDelta,
+                        -1,
+                        true);
+                }
+                // should never happen
+                else
+                {
+                    return;
+                }
 
-            if (attackMode != null)
-            {
-                toHitBonus = attackMode.ToHitBonus + actionModifier.AttackRollModifier;
-                roll = rulesetHelper.RollAttack(
-                    attackMode.ToHitBonus,
-                    defender.RulesetActor,
-                    attackMode.SourceDefinition,
-                    attackMode.ToHitBonusTrends,
+                action.AttackRollOutcome = outcome;
+                action.AttackSuccessDelta = successDelta;
+                action.AttackRoll = roll;
+
+                var sign = toHitBonus > 0 ? "+" : string.Empty;
+
+                rulesetHelper.LogCharacterUsedFeature(
+                    PowerTidesOfChaos,
+                    "Feedback/&TriggerRerollLine",
                     false,
-                    actionModifier.AttackAdvantageTrends,
-                    attackMode.ranged,
-                    false,
-                    actionModifier.AttackRollModifier,
-                    out outcome,
-                    out successDelta,
-                    -1,
-                    true);
+                    (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
+                    (ConsoleStyleDuplet.ParameterType.FailedRoll,
+                        Gui.Format("Feedback/&RollAttackFailureTitle", $"{attackRoll + toHitBonus}")));
             }
-            else if (rulesetEffect != null)
-            {
-                toHitBonus = rulesetEffect.MagicAttackBonus + actionModifier.AttackRollModifier;
-                roll = rulesetHelper.RollMagicAttack(
-                    rulesetEffect,
-                    defender.RulesetActor,
-                    rulesetEffect.GetEffectSource(),
-                    actionModifier.AttacktoHitTrends,
-                    actionModifier.AttackAdvantageTrends,
-                    false,
-                    actionModifier.AttackRollModifier,
-                    out outcome,
-                    out successDelta,
-                    -1,
-                    true);
-            }
-            // should never happen
-            else
-            {
-                yield break;
-            }
-
-            action.AttackRollOutcome = outcome;
-            action.AttackSuccessDelta = successDelta;
-            action.AttackRoll = roll;
-
-            var sign = toHitBonus > 0 ? "+" : string.Empty;
-
-            usablePower.Consume();
-            rulesetHelper.LogCharacterUsedFeature(
-                PowerTidesOfChaos,
-                "Feedback/&TriggerRerollLine",
-                false,
-                (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
-                (ConsoleStyleDuplet.ParameterType.FailedRoll,
-                    Gui.Format("Feedback/&RollAttackFailureTitle", $"{attackRoll + toHitBonus}")));
         }
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
@@ -746,56 +735,45 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-            {
-                StringParameter = "TidesOfChaosSave",
-                StringParameter2 = "SpendPowerTidesOfChaosSaveDescription"
+            yield return helper.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "TidesOfChaosSave",
+                "SpendPowerTidesOfChaosSaveDescription"
                     .Formatted(Category.Reaction, attacker.Name, action.FormatTitle()),
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                ReactionValidated,
+                battleManager);
 
-            actionService.ReactToSpendPower(reactionParams);
+            yield break;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                List<TrendInfo> advantageTrends =
+                    [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
+
+                actionModifier.SavingThrowAdvantageTrends.SetRange(advantageTrends);
+
+                action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
+                    ? action.ActionParams.AttackMode.TryRollSavingThrow(
+                        attacker.RulesetCharacter,
+                        defender.RulesetActor,
+                        actionModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms,
+                        out var saveOutcome, out var saveOutcomeDelta)
+                    : action.ActionParams.RulesetEffect.TryRollSavingThrow(
+                        attacker.RulesetCharacter,
+                        attacker.Side,
+                        defender.RulesetActor,
+                        actionModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual,
+                        out saveOutcome, out saveOutcomeDelta);
+                action.SaveOutcome = saveOutcome;
+                action.SaveOutcomeDelta = saveOutcomeDelta;
+
+                rulesetHelper.LogCharacterActivatesAbility(
+                    PowerTidesOfChaos.GuiPresentation.Title,
+                    "Feedback/&TidesOfChaosAdvantageSavingThrow",
+                    tooltipContent: PowerTidesOfChaos.Name,
+                    tooltipClass: "PowerDefinition");
             }
-
-            List<TrendInfo> advantageTrends =
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
-
-            actionModifier.SavingThrowAdvantageTrends.SetRange(advantageTrends);
-
-            action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
-                ? action.ActionParams.AttackMode.TryRollSavingThrow(
-                    attacker.RulesetCharacter,
-                    defender.RulesetActor,
-                    actionModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms,
-                    out var saveOutcome, out var saveOutcomeDelta)
-                : action.ActionParams.RulesetEffect.TryRollSavingThrow(
-                    attacker.RulesetCharacter,
-                    attacker.Side,
-                    defender.RulesetActor,
-                    actionModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual,
-                    out saveOutcome, out saveOutcomeDelta);
-            action.SaveOutcome = saveOutcome;
-            action.SaveOutcomeDelta = saveOutcomeDelta;
-
-            usablePower.Consume();
-            rulesetHelper.LogCharacterActivatesAbility(
-                PowerTidesOfChaos.GuiPresentation.Title,
-                "Feedback/&TidesOfChaosAdvantageSavingThrow",
-                tooltipContent: PowerTidesOfChaos.Name,
-                tooltipClass: "PowerDefinition");
         }
     }
 
