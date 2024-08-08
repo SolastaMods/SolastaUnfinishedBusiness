@@ -294,10 +294,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager ||
-                !action.RolledSaveThrow ||
+            if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Success ||
                 !HasCharmedOrFrightened(
                     action.ActionParams.activeEffect?.EffectDescription.EffectForms ??
@@ -312,33 +309,22 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             }
 
             var rulesetHelper = helper.RulesetCharacter;
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerBeguilingTwist, rulesetHelper);
-            var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+
+            yield return helper.MyReactToSpendPowerBundle(
+                usablePower,
+                [attacker],
+                attacker,
+                powerBeguilingTwist.Name,
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                ActionModifiers = { actionModifier },
-                StringParameter = powerBeguilingTwist.Name,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { attacker }
-            };
-
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionRequest.Validated)
-            {
-                yield break;
+                attacker.SpendActionType(ActionDefinitions.ActionType.Reaction);
             }
-
-            helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
         }
 
         private static bool HasCharmedOrFrightened(List<EffectForm> effectForms)
