@@ -1069,14 +1069,6 @@ internal static partial class SpellBuilders
                         (ConsoleStyleDuplet.ParameterType.Positive, secondRoll.ToString())
                     ]);
 
-                var actionManager =
-                    ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-                if (!actionManager)
-                {
-                    yield break;
-                }
-
                 var usablePowerPool = PowerProvider.Get(powerPool, rulesetAttacker);
                 var usablePowerFirst = PowerProvider.Get(powers[firstRoll - 1], rulesetAttacker);
                 var usablePowerSecond = PowerProvider.Get(powers[secondRoll - 1], rulesetAttacker);
@@ -1085,41 +1077,39 @@ internal static partial class SpellBuilders
                 rulesetAttacker.UsablePowers.Add(usablePowerFirst);
                 rulesetAttacker.UsablePowers.Add(usablePowerSecond);
 
-                var implementationManager =
-                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-                var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
-                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-                {
-                    StringParameter = "ChaosBolt",
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-
-                var count = actionManager.PendingReactionRequestGroups.Count;
-                var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-                actionManager.AddInterruptRequest(reactionRequest);
-
-                yield return battleManager.WaitForReactions(attacker, actionManager, count);
+                yield return attacker.MyReactToSpendPowerBundle(
+                    usablePowerPool,
+                    [defender],
+                    attacker,
+                    "ChaosBolt",
+                    ReactionValidated,
+                    ReactionNotValidated,
+                    battleManager);
 
                 rulesetAttacker.UsablePowers.Remove(usablePowerPool);
                 rulesetAttacker.UsablePowers.Remove(usablePowerFirst);
                 rulesetAttacker.UsablePowers.Remove(usablePowerSecond);
 
-                string damageType;
-                IMagicEffect effect;
+                void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
+                {
+                    var (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(reactionRequest.SelectedSubOption);
 
-                if (!reactionRequest.Validated)
+                    MagicEffect.Add((defender, effect));
+
+                    foreach (var effectForm in actualEffectForms
+                                 .Where(x =>
+                                     x.FormType == EffectForm.EffectFormType.Damage &&
+                                     x.DamageForm.DamageType == DamageTypeBludgeoning))
+                    {
+                        effectForm.DamageForm.DamageType = damageType;
+                    }
+                }
+
+                void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
                 {
                     var choiceRoll = RollDie(DieType.D2, AdvantageType.None, out _, out _);
-
                     var option = choiceRoll == 1 ? firstRoll : secondRoll;
-
-                    (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(option - 1);
-
+                    var (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(option - 1);
                     var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
 
                     rulesetAttacker.LogCharacterActivatesAbility(
@@ -1128,20 +1118,16 @@ internal static partial class SpellBuilders
                         [
                             (ConsoleStyleDuplet.ParameterType.Base, damageTitle)
                         ]);
-                }
-                else
-                {
-                    (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(reactionRequest.SelectedSubOption);
-                }
 
-                MagicEffect.Add((defender, effect));
+                    MagicEffect.Add((defender, effect));
 
-                foreach (var effectForm in actualEffectForms
-                             .Where(x =>
-                                 x.FormType == EffectForm.EffectFormType.Damage &&
-                                 x.DamageForm.DamageType == DamageTypeBludgeoning))
-                {
-                    effectForm.DamageForm.DamageType = damageType;
+                    foreach (var effectForm in actualEffectForms
+                                 .Where(x =>
+                                     x.FormType == EffectForm.EffectFormType.Damage &&
+                                     x.DamageForm.DamageType == DamageTypeBludgeoning))
+                    {
+                        effectForm.DamageForm.DamageType = damageType;
+                    }
                 }
             }
         }
