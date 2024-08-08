@@ -331,87 +331,72 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerAudaciousWhirl, rulesetAttacker);
             var isAudaciousWhirl = rulesetAttacker.IsToggleEnabled(AudaciousWhirlToggle);
             var hasAvailablePowerUses = rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
             var isMasterfulWhirl = rulesetAttacker.IsToggleEnabled(MasterfulWhirlToggle);
 
-            if (!actionManager ||
-                !attacker.OnceInMyTurnIsValid(WhirlMarker) ||
+            if (!attacker.OnceInMyTurnIsValid(WhirlMarker) ||
                 !ValidatorsWeapon.IsMelee(attackMode) ||
                 !((isAudaciousWhirl && hasAvailablePowerUses) || isMasterfulWhirl))
             {
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var actionParams =
-                new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-                {
-                    ActionModifiers = { new ActionModifier() },
-                    StringParameter = powerAudaciousWhirl.Name,
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
             attacker.UsedSpecialFeatures.TryAdd(WhirlSelectedPower, -1);
 
-            if (!actionParams.ReactionValidated)
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                powerAudaciousWhirl.Name,
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                yield break;
-            }
+                attacker.UsedSpecialFeatures[WhirlSelectedPower] = reactionRequest.SelectedSubOption;
+                attacker.UsedSpecialFeatures.TryAdd(WhirlMarker, 1);
 
-            attacker.UsedSpecialFeatures[WhirlSelectedPower] = reactionRequest.SelectedSubOption;
-            attacker.UsedSpecialFeatures.TryAdd(WhirlMarker, 1);
+                var firstDamageForm =
+                    actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-            var firstDamageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
-
-            if (firstDamageForm != null)
-            {
-                var damageType = firstDamageForm.DamageForm.DamageType;
-                var effectDamageForm = EffectFormBuilder.DamageForm(damageType, 1, DieType.D6);
-
-                effectDamageForm.DamageForm.OverrideWithBardicInspirationDie = !isMasterfulWhirl;
-
-                if (reactionRequest.SelectedSubOption == 0)
+                if (firstDamageForm != null)
                 {
-                    effectDamageForm.DamageForm.AncestryType =
-                        (AncestryType)ExtraAncestryType.CollegeOfAudacityDefensiveWhirl;
+                    var damageType = firstDamageForm.DamageForm.DamageType;
+                    var effectDamageForm = EffectFormBuilder.DamageForm(damageType, 1, DieType.D6);
+
+                    effectDamageForm.DamageForm.OverrideWithBardicInspirationDie = !isMasterfulWhirl;
+
+                    if (reactionRequest.SelectedSubOption == 0)
+                    {
+                        effectDamageForm.DamageForm.AncestryType =
+                            (AncestryType)ExtraAncestryType.CollegeOfAudacityDefensiveWhirl;
+                    }
+
+                    var index = actualEffectForms.IndexOf(firstDamageForm);
+
+                    actualEffectForms.Insert(index + 1, effectDamageForm);
+
+                    var damageTypes = DatabaseRepository.GetDatabase<DamageDefinition>().ToList();
+                    var damageTypeDefinition = damageTypes.FirstOrDefault(x => x.Name == damageType);
+                    var damageIndex = damageTypes.IndexOf(damageTypeDefinition);
+
+                    attacker.UsedSpecialFeatures.TryAdd(WhirlDamageType, damageIndex);
                 }
 
-                var index = actualEffectForms.IndexOf(firstDamageForm);
+                if (isMasterfulWhirl)
+                {
+                    return;
+                }
 
-                actualEffectForms.Insert(index + 1, effectDamageForm);
-
-                var damageTypes = DatabaseRepository.GetDatabase<DamageDefinition>().ToList();
-                var damageTypeDefinition = damageTypes.FirstOrDefault(x => x.Name == damageType);
-                var damageIndex = damageTypes.IndexOf(damageTypeDefinition);
-
-                attacker.UsedSpecialFeatures.TryAdd(WhirlDamageType, damageIndex);
+                rulesetAttacker.UsedBardicInspiration++;
+                rulesetAttacker.BardicInspirationAltered?.Invoke(
+                    rulesetAttacker, rulesetAttacker.RemainingBardicInspirations);
             }
-
-            if (isMasterfulWhirl)
-            {
-                yield break;
-            }
-
-            rulesetAttacker.UsedBardicInspiration++;
-            rulesetAttacker.BardicInspirationAltered?.Invoke(
-                rulesetAttacker, rulesetAttacker.RemainingBardicInspirations);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
