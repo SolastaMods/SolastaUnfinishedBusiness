@@ -959,8 +959,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             {
                 result[0] = firstRoll;
             }
-
-            yield return null;
         }
 
         private void RemoveExistingWildSurgeCondition(RulesetCharacter character)
