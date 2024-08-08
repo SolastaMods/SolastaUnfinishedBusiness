@@ -226,7 +226,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            yield return attacker.MyReactToUsePower(
+            yield return defender.MyReactToUsePower(
                 ActionDefinitions.Id.PowerReaction,
                 usablePower,
                 [defender],

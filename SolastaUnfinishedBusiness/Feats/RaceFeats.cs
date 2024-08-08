@@ -1354,7 +1354,7 @@ internal static class RaceFeats
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
 
             yield return attacker.MyReactToUsePower(
-                ActionDefinitions.Id.PowerReaction,
+                ActionDefinitions.Id.PowerNoCost,
                 usablePower,
                 [attacker],
                 attacker,
