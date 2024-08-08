@@ -221,38 +221,15 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 yield break;
             }
 
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!actionManager || !battleManager)
-            {
-                yield break;
-            }
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var character = characterAction.ActingCharacter;
             var rulesetCharacter = character.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerPool, rulesetCharacter);
 
-            var actionParams =
-                new CharacterActionParams(GameLocationCharacter.GetFromActor(rulesetCharacter),
-                    ActionDefinitions.Id.SpendPower)
-                {
-                    StringParameter = "FormOfTheBeast",
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                    UsablePower = usablePower,
-                    targetCharacters = [character]
-                };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(character, actionManager, count);
+            yield return character.MyReactToSpendPowerBundle(
+                usablePower,
+                [character],
+                character,
+                "FormOfTheBeast");
         }
     }
 
