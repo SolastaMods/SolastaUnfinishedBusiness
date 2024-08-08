@@ -992,6 +992,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         }
 
         var rulesetHelper = helper.RulesetCharacter;
+        var usablePower = PowerProvider.Get(power, rulesetHelper);
         var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
         var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
@@ -999,57 +1000,48 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
             !helper.CanReact() ||
             !helper.CanPerceiveTarget(defender) ||
-            rulesetHelper.GetRemainingPowerUses(power) == 0 ||
+            rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
             abilityCheckData.AbilityCheckSuccessDelta + bonus < 0)
         {
             yield break;
         }
 
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-        var usablePower = PowerProvider.Get(power, rulesetHelper);
-        var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
-        {
-            StringParameter = "InventorFlashOfGeniusCheck",
-            StringParameter2 = "SpendPowerInventorFlashOfGeniusCheckDescription".Formatted(
+        yield return helper.MyReactToUsePower(
+            ActionDefinitions.Id.PowerReaction,
+            usablePower,
+            [helper],
+            defender,
+            "InventorFlashOfGeniusCheck",
+            "SpendPowerInventorFlashOfGeniusCheckDescription".Formatted(
                 Category.Reaction, defender.Name, helper.Name),
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-            UsablePower = usablePower
-        };
-        var count = actionService.PendingReactionRequestGroups.Count;
+            ReactionValidated,
+            battleManager);
 
-        actionService.ReactToSpendPower(reactionParams);
+        yield break;
 
-        yield return battleManager.WaitForReactions(defender, actionService, count);
-
-        if (!reactionParams.ReactionValidated)
+        void ReactionValidated()
         {
-            yield break;
+            abilityCheckData.AbilityCheckRoll += bonus;
+            abilityCheckData.AbilityCheckSuccessDelta += bonus;
+
+            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
+            {
+                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
+            }
+
+            var extra = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
+                : (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
+
+            helper.RulesetCharacter.LogCharacterUsedPower(
+                power,
+                "Feedback/&FlashOfGeniusCheckToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
+                    extra
+                ]);
         }
-
-        abilityCheckData.AbilityCheckRoll += bonus;
-        abilityCheckData.AbilityCheckSuccessDelta += bonus;
-
-        if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
-        {
-            abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
-        }
-
-        var extra = abilityCheckData.AbilityCheckSuccessDelta >= 0
-            ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
-            : (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
-
-        helper.RulesetCharacter.LogCharacterUsedPower(
-            power,
-            "Feedback/&FlashOfGeniusCheckToHitRoll",
-            extra:
-            [
-                (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
-                extra
-            ]);
     }
 
     public IEnumerator OnTryAlterOutcomeSavingThrow(
@@ -1075,6 +1067,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         }
 
         var rulesetHelper = helper.RulesetCharacter;
+        var usablePower = PowerProvider.Get(power, rulesetHelper);
         var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
         var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
@@ -1082,55 +1075,46 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             action.SaveOutcome != RollOutcome.Failure ||
             !helper.CanReact() ||
             !helper.CanPerceiveTarget(defender) ||
-            rulesetHelper.GetRemainingPowerUses(power) == 0 ||
+            rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
             action.SaveOutcomeDelta + bonus < 0)
         {
             yield break;
         }
 
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+        yield return helper.MyReactToUsePower(
+            ActionDefinitions.Id.PowerReaction,
+            usablePower,
+            [helper],
+            attacker,
+            "InventorFlashOfGenius",
+            FormatReactionDescription(action, attacker, defender, helper),
+            ReactionValidated,
+            battleManager);
 
-        var usablePower = PowerProvider.Get(power, rulesetHelper);
-        var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
+        yield break;
+
+        void ReactionValidated()
         {
-            StringParameter = "InventorFlashOfGenius",
-            StringParameter2 = FormatReactionDescription(action, attacker, defender, helper),
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-            UsablePower = usablePower
-        };
-        var count = actionService.PendingReactionRequestGroups.Count;
+            action.SaveOutcomeDelta += bonus;
 
-        actionService.ReactToSpendPower(reactionParams);
+            if (action.SaveOutcomeDelta >= 0)
+            {
+                action.SaveOutcome = RollOutcome.Success;
+            }
 
-        yield return battleManager.WaitForReactions(attacker, actionService, count);
+            var extra = action.SaveOutcomeDelta >= 0
+                ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
+                : (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
 
-        if (!reactionParams.ReactionValidated)
-        {
-            yield break;
+            helper.RulesetCharacter.LogCharacterUsedPower(
+                power,
+                "Feedback/&FlashOfGeniusSavingToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
+                    extra
+                ]);
         }
-
-        action.SaveOutcomeDelta += bonus;
-
-        if (action.SaveOutcomeDelta >= 0)
-        {
-            action.SaveOutcome = RollOutcome.Success;
-        }
-
-        var extra = action.SaveOutcomeDelta >= 0
-            ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
-            : (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
-
-        helper.RulesetCharacter.LogCharacterUsedPower(
-            power,
-            "Feedback/&FlashOfGeniusSavingToHitRoll",
-            extra:
-            [
-                (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
-                extra
-            ]);
     }
 
     private static string FormatReactionDescription(
