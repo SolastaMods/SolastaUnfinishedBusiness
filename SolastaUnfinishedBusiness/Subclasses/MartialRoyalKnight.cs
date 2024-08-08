@@ -4,7 +4,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -257,60 +256,49 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var rulesetOriginalHelper);
 
             var originalHelper = GameLocationCharacter.GetFromActor(rulesetOriginalHelper);
+            var usablePower = PowerProvider.Get(powerInspiringProtection, rulesetOriginalHelper);
 
             if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 !originalHelper.CanReact() ||
                 !originalHelper.CanPerceiveTarget(defender) ||
-                rulesetOriginalHelper.GetRemainingPowerUses(powerInspiringProtection) == 0)
+                rulesetOriginalHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return originalHelper.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "RoyalKnightInspiringProtection",
+                FormatReactionDescription(action, attacker, defender, originalHelper),
+                ReactionValidated,
+                battleManager);
 
-            var usablePower = PowerProvider.Get(powerInspiringProtection, rulesetOriginalHelper);
-            var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "RoyalKnightInspiringProtection",
-                StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false),
-                UsablePower = usablePower
-            };
+                rulesetOriginalHelper.UsePower(usablePower);
 
-            var count = actionService.PendingReactionRequestGroups.Count;
+                action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
+                    ? action.ActionParams.AttackMode.TryRollSavingThrow(
+                        attacker.RulesetCharacter,
+                        defender.RulesetActor,
+                        saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms,
+                        out var saveOutcome, out var saveOutcomeDelta)
+                    : action.ActionParams.RulesetEffect.TryRollSavingThrow(
+                        attacker.RulesetCharacter,
+                        attacker.Side,
+                        defender.RulesetActor,
+                        saveModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual,
+                        out saveOutcome, out saveOutcomeDelta);
 
-            actionService.ReactToSpendPower(reactionParams);
+                action.SaveOutcome = saveOutcome;
+                action.SaveOutcomeDelta = saveOutcomeDelta;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetOriginalHelper.LogCharacterUsedPower(powerInspiringProtection, indent: true);
             }
-
-            rulesetOriginalHelper.UsePower(usablePower);
-
-            action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
-                ? action.ActionParams.AttackMode.TryRollSavingThrow(
-                    attacker.RulesetCharacter,
-                    defender.RulesetActor,
-                    saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms,
-                    out var saveOutcome, out var saveOutcomeDelta)
-                : action.ActionParams.RulesetEffect.TryRollSavingThrow(
-                    attacker.RulesetCharacter,
-                    attacker.Side,
-                    defender.RulesetActor,
-                    saveModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual,
-                    out saveOutcome, out saveOutcomeDelta);
-
-            action.SaveOutcome = saveOutcome;
-            action.SaveOutcomeDelta = saveOutcomeDelta;
-
-            rulesetOriginalHelper.LogCharacterUsedPower(powerInspiringProtection, indent: true);
         }
 
         private static string FormatReactionDescription(
