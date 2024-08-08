@@ -1779,7 +1779,7 @@ internal static class OtherFeats
                 "ReactiveResistance",
                 "UseReactiveResistanceDescription".Formatted(Category.Reaction, attacker.Name, damageTitle),
                 ReactionValidated,
-                battleManager: battleManager);
+                battleManager);
 
             yield break;
 
@@ -2004,7 +2004,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return defender.MyReactToUsePower(
+            yield return helper.MyReactToUsePower(
                 ActionDefinitions.Id.PowerNoCost,
                 usablePower,
                 [helper],
@@ -2090,7 +2090,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return defender.MyReactToUsePower(
+            yield return helper.MyReactToUsePower(
                 ActionDefinitions.Id.PowerNoCost,
                 usablePower,
                 [helper],
@@ -2171,7 +2171,7 @@ internal static class OtherFeats
                 "LuckySaving",
                 "UseLuckySavingDescription".Formatted(Category.Reaction, defender.Name, attacker.Name, helper.Name),
                 ReactionValidated,
-                battleManager: battleManager);
+                battleManager);
 
             yield break;
 

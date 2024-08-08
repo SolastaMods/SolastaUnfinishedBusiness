@@ -909,7 +909,7 @@ internal static class InventorClass
             {
                 yield break;
             }
-            
+
             yield return defender.MyReactToUsePower(
                 ActionDefinitions.Id.PowerNoCost,
                 usablePower,

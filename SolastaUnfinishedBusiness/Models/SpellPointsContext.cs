@@ -225,7 +225,7 @@ internal static class SpellPointsContext
 
             ConsumeSlot(i);
         }
-        
+
         repertoire.RepertoireRefreshed?.Invoke(repertoire);
 
         return;

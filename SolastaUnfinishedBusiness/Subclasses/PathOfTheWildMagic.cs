@@ -1051,7 +1051,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 bool criticalHit)
             {
                 if (defender == attacker
-                    || attacker.RulesetCharacter.IsDeadOrDying 
+                    || attacker.RulesetCharacter.IsDeadOrDying
                     || defender.RulesetCharacter.IsDeadOrDying)
                 {
                     yield break;

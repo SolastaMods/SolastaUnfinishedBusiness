@@ -4,7 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -408,7 +407,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
-            
+
             if (Gui.Battle == null ||
                 rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {

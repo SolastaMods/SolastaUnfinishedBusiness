@@ -531,7 +531,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             yield return helper.MyReactToUsePower(
                 ActionDefinitions.Id.PowerReaction,
                 usablePower,
-                [defender],
+                [helper],
                 attacker,
                 "BeastTailSwipe",
                 battleManager: battleManager);
