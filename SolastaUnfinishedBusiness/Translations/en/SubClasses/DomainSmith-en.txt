@@ -1,6 +1,6 @@
 Condition/&ConditionDomainSmithAdamantBenedictionDescription=Your armor strengthens to adamantine, halving critical damage.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Adamantine Armor
-Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Once per turn, deal +1d8 fire damage on weapon attacks. This damage increases to 2d8 at 14th level.
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Once during your turn, deal +1d8 fire damage on weapon attacks. This damage increases to 2d8 at 14th level.
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Divine Strike
 Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Gain fire resistance and while wearing armor gain +1 AC.
 Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Forge Mastery

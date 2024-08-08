@@ -1,6 +1,6 @@
 Condition/&ConditionDomainSmithAdamantBenedictionDescription=Ihre Rüstung wird zu Diamant verstärkt, wodurch der kritische Schaden halbiert wird.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Adamantin-Rüstung
-Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Füge einmal pro Runde +1W8 Feuerschaden bei Waffenangriffen zu. Dieser Schaden erhöht sich auf der 14. Stufe auf 2W8.
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Füge einmal während deines Zuges +1W8 Feuerschaden bei Waffenangriffen zu. Dieser Schaden erhöht sich auf der 14. Stufe auf 2W8.
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Göttlicher Schlag
 Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Erlangen Sie Feuerresistenz und, während Sie eine Rüstung tragen, +1 AC.
 Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Schmiedemeister
