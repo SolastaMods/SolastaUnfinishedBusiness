@@ -1039,36 +1039,26 @@ internal static class Level20Context
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return attacker.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "RogueStrokeOfLuck",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "RogueStrokeOfLuck",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                var delta = -action.AttackSuccessDelta;
 
-            actionService.ReactToSpendPower(reactionParams);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetAttacker.UsePower(usablePower);
+                action.AttackRollOutcome = RollOutcome.Success;
+                action.AttackSuccessDelta += delta;
+                action.AttackRoll += delta;
+                attackModifier.AttackRollModifier += delta;
+                attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
             }
-
-            var delta = -action.AttackSuccessDelta;
-
-            rulesetAttacker.UsePower(usablePower);
-            action.AttackRollOutcome = RollOutcome.Success;
-            action.AttackSuccessDelta += delta;
-            action.AttackRoll += delta;
-            attackModifier.AttackRollModifier += delta;
-            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }
     }
 
