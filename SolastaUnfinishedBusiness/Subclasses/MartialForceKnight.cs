@@ -653,12 +653,10 @@ public sealed class MartialForceKnight : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var rulesetAttacker = attacker.RulesetCharacter;
             var levels = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Fighter);
 
-            if (!actionManager ||
-                !attacker.UsedSpecialFeatures.TryGetValue(powerPsionicAdept.Name, out var value) || value == 0 ||
+            if (!attacker.UsedSpecialFeatures.TryGetValue(powerPsionicAdept.Name, out var value) || value == 0 ||
                 defender.RulesetActor is not { IsDeadOrDyingOrUnconscious: false } ||
                 levels < 7)
             {
@@ -667,26 +665,14 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             attacker.UsedSpecialFeatures[powerPsionicAdept.Name] = 0;
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerPsionicAdept, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                StringParameter = "PsionicAdept",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
 
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                "PsionicAdept",
+                battleManager: battleManager);
         }
     }
 
