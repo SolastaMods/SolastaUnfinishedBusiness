@@ -164,7 +164,7 @@ This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level 
 
 # 40. - *Toll the Dead* © (V,S) level 0 Necromancy [UB]
 
-You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage.
+You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d6 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage.
 
 # 41. - True Strike (S) level 0 Divination [Concentration] [SOL]
 
@@ -184,7 +184,7 @@ Create a brilliant flash of shimmering light, damaging all enemies around you.
 
 # 45. - Wrack (V,S) level 0 Necromancy [UB]
 
-Unleash a wave of crippling pain at a creature within range. The target must make a Constitution saving throw or take 1d8 necrotic damage, and preventing them from dashing or disengaging.
+Unleash a wave of crippling pain at a creature within range. The target must make a Constitution saving throw or take 1d6 necrotic damage, and preventing them from dashing or disengaging.
 
 # 46. - *Absorb Elements* © (S) level 1 Abjuration [UB]
 

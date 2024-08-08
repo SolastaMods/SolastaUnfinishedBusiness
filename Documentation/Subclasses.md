@@ -1735,7 +1735,7 @@ Once per short rest, you may reinforce a non-magical piece of armor or shield. T
 
 * Divine Strike
 
-Once per turn, deal +1d8 fire damage on weapon attacks. This damage increases to 2d8 at 14th level.
+Once during your turn, deal +1d8 fire damage on weapon attacks. This damage increases to 2d8 at 14th level.
 
 
 ### Level 10
@@ -2020,7 +2020,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
 
 * Mischief Domain Spells
 
@@ -2054,7 +2054,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
 
 
 ### Level 8
@@ -3160,14 +3160,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ### Level 7
 
-* Coordinated Defense​​​​​​​
+* Coordinated Defense
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ### Level 10
 
-* Invigorating Shout​​​​​​​
+* Invigorating Shout
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
