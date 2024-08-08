@@ -5,7 +5,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -245,78 +244,68 @@ public sealed class RoguishRavenScion : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerDeadlyFocus, rulesetAttacker);
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
                 !ValidatorsWeapon.IsTwoHandedRanged(attackMode) ||
-                rulesetAttacker.GetRemainingPowerUses(powerDeadlyFocus) == 0)
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return attacker.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "RavenScionDeadlyFocus",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            var usablePower = PowerProvider.Get(powerDeadlyFocus, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "RavenScionDeadlyFocus",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                usablePower.Consume();
 
-            actionService.ReactToSpendPower(reactionParams);
+                var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
+                var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
+                    ? "Feedback/&RollAttackCriticalFailureTitle"
+                    : "Feedback/&RollAttackFailureTitle";
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+                rulesetAttacker.LogCharacterUsedPower(
+                    powerDeadlyFocus,
+                    $"Feedback/&Trigger{Name}RerollLine",
+                    false,
+                    (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
+                    (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                var advantageTrends =
+                    new List<TrendInfo>
+                    {
+                        new(1, FeatureSourceType.CharacterFeature, powerDeadlyFocus.Name, powerDeadlyFocus)
+                    };
+
+                attackModifier.AttackAdvantageTrends.SetRange(advantageTrends);
+
+                var roll = rulesetAttacker.RollAttack(
+                    attackMode.toHitBonus,
+                    defender.RulesetActor,
+                    attackMode.sourceDefinition,
+                    attackModifier.attackToHitTrends,
+                    false,
+                    attackModifier.AttackAdvantageTrends,
+                    attackMode.ranged,
+                    false,
+                    attackModifier.attackRollModifier,
+                    out var outcome,
+                    out var successDelta,
+                    -1,
+                    true);
+
+                action.AttackRollOutcome = outcome;
+                action.AttackSuccessDelta = successDelta;
+                action.AttackRoll = roll;
             }
-
-            usablePower.Consume();
-
-            var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
-            var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
-                ? "Feedback/&RollAttackCriticalFailureTitle"
-                : "Feedback/&RollAttackFailureTitle";
-
-            rulesetAttacker.LogCharacterUsedPower(
-                powerDeadlyFocus,
-                $"Feedback/&Trigger{Name}RerollLine",
-                false,
-                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
-                (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
-
-            var advantageTrends =
-                new List<TrendInfo>
-                {
-                    new(1, FeatureSourceType.CharacterFeature, powerDeadlyFocus.Name, powerDeadlyFocus)
-                };
-
-            attackModifier.AttackAdvantageTrends.SetRange(advantageTrends);
-
-            var roll = rulesetAttacker.RollAttack(
-                attackMode.toHitBonus,
-                defender.RulesetActor,
-                attackMode.sourceDefinition,
-                attackModifier.attackToHitTrends,
-                false,
-                attackModifier.AttackAdvantageTrends,
-                attackMode.ranged,
-                false,
-                attackModifier.attackRollModifier,
-                out var outcome,
-                out var successDelta,
-                -1,
-                true);
-
-            action.AttackRollOutcome = outcome;
-            action.AttackSuccessDelta = successDelta;
-            action.AttackRoll = roll;
         }
     }
 }
