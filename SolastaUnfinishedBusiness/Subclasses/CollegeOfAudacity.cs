@@ -342,6 +342,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
             if (!actionManager ||
                 !attacker.OnceInMyTurnIsValid(WhirlMarker) ||
+                !ValidatorsWeapon.IsMelee(attackMode) ||
                 !((isAudaciousWhirl && hasAvailablePowerUses) || isMasterfulWhirl))
             {
                 yield break;
@@ -424,10 +425,13 @@ public sealed class CollegeOfAudacity : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
+                !attacker.UsedSpecialFeatures.TryGetValue(WhirlSelectedPower, out var value))
             {
                 yield break;
             }
+
+            attacker.UsedSpecialFeatures.Remove(WhirlSelectedPower);
 
             if (!rulesetAttacker.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionExtraMovement.Name))
@@ -446,13 +450,6 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     0,
                     0);
             }
-
-            if (!attacker.UsedSpecialFeatures.TryGetValue(WhirlSelectedPower, out var value))
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.Remove(WhirlSelectedPower);
 
             switch (value)
             {
