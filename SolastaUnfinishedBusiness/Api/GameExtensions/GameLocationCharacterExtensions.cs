@@ -45,7 +45,47 @@ public static class GameLocationCharacterExtensions
         ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
     }
 
-    internal static IEnumerator MyReactToUsePower(this GameLocationCharacter character,
+    internal static IEnumerator MyReactToSpendPower(
+        this GameLocationCharacter character,
+        RulesetUsablePower usablePower,
+        GameLocationCharacter waiter,
+        string stringParameter,
+        string stringParameter2 = "",
+        Action reactionValidated = null,
+        GameLocationBattleManager battleManager = null)
+    {
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!battleManager)
+        {
+            yield break;
+        }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+        var actionParams = new CharacterActionParams(character, Id.SpendPower)
+        {
+            StringParameter = stringParameter,
+            StringParameter2 = stringParameter2,
+            RulesetEffect =
+                implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
+            UsablePower = usablePower
+        };
+
+        actionService.ReactToSpendPower(actionParams);
+
+        yield return battleManager.WaitForReactions(waiter, actionService, count);
+
+        if (actionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke();
+        }
+    }
+
+    internal static IEnumerator MyReactToUsePower(
+        this GameLocationCharacter character,
         Id actionId,
         RulesetUsablePower usablePower,
         List<GameLocationCharacter> targets,
