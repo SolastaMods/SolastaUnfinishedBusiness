@@ -619,52 +619,30 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 yield break;
             }
 
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                "ArcaneShot",
+                ReactionValidated,
+                battleManager: battleManager);
 
-            if (!actionManager)
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                yield break;
-            }
+                attacker.UsedSpecialFeatures.TryAdd(powerBurstingArrow.Name, 0);
+                attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = -1;
+                attacker.UsedSpecialFeatures.TryAdd(ArcaneShotMarker, 1);
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+                var option = reactionRequest.SelectedSubOption;
+                var subPowers = PowerArcaneShot.GetBundle()?.SubPowers;
 
-            var actionParams =
-                new CharacterActionParams(GameLocationCharacter.GetFromActor(rulesetAttacker),
-                    ActionDefinitions.Id.SpendPower)
+                if (subPowers != null &&
+                    subPowers[option] == powerBurstingArrow)
                 {
-                    ActionModifiers = { new ActionModifier() },
-                    StringParameter = "ArcaneShot",
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            attacker.UsedSpecialFeatures.TryAdd(powerBurstingArrow.Name, 0);
-            attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = -1;
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.TryAdd(ArcaneShotMarker, 1);
-
-            var option = reactionRequest.SelectedSubOption;
-            var subPowers = PowerArcaneShot.GetBundle()?.SubPowers;
-
-            if (subPowers != null &&
-                subPowers[option] == powerBurstingArrow)
-            {
-                attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = 0;
+                    attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = 0;
+                }
             }
         }
 
