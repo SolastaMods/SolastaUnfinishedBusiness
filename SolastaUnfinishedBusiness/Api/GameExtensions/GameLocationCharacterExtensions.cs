@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
@@ -81,6 +82,61 @@ public static class GameLocationCharacterExtensions
         if (actionParams.ReactionValidated)
         {
             reactionValidated?.Invoke();
+        }
+    }
+
+    internal static IEnumerator MyReactToSpendPowerBundle(
+        this GameLocationCharacter character,
+        RulesetUsablePower usablePower,
+        List<GameLocationCharacter> targets,
+        GameLocationCharacter waiter,
+        string stringParameter,
+        Action<ReactionRequestSpendBundlePower> reactionValidated = null,
+        Action<ReactionRequestSpendBundlePower> reactionNotValidated = null,
+        GameLocationBattleManager battleManager = null)
+    {
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!actionManager || !battleManager)
+        {
+            yield break;
+        }
+
+        var count = actionManager.PendingReactionRequestGroups.Count;
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+        var actionModifiers = new List<ActionModifier>();
+
+        for (var i = 0; i < targets.Count; i++)
+        {
+            actionModifiers.Add(new ActionModifier());
+        }
+
+        var actionParams = new CharacterActionParams(character, Id.SpendPower)
+        {
+            StringParameter = stringParameter,
+            ActionModifiers = actionModifiers,
+            RulesetEffect =
+                implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
+            UsablePower = usablePower,
+            targetCharacters = targets,
+            IsReactionEffect = true
+        };
+        var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+        actionManager.AddInterruptRequest(reactionRequest);
+
+        yield return battleManager.WaitForReactions(waiter, actionManager, count);
+
+        if (actionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke(reactionRequest);
+        }
+        else
+        {
+            reactionNotValidated?.Invoke(reactionRequest);
         }
     }
 
