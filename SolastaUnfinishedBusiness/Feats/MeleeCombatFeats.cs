@@ -600,18 +600,9 @@ internal static class MeleeCombatFeats
             bool firstTarget,
             bool criticalHit)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
-
             var attackerPosition = attacker.LocationPosition;
             var defenderPosition = defender.LocationPosition;
-
             var attackDirectionX = Math.Sign(attackerPosition.x - defenderPosition.x);
             var attackDirectionY = Math.Sign(attackerPosition.y - defenderPosition.y);
             var attackDirectionZ = Math.Sign(attackerPosition.z - defenderPosition.z);
@@ -629,42 +620,31 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                powerPool.Name,
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                ActionModifiers = { actionModifier },
-                StringParameter = powerPool.Name,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
+                attacker.UsedSpecialFeatures.TryAdd(powerPool.Name, 0);
 
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+                // add the shove form direct to the attack
+                var option = reactionRequest.SelectedSubOption;
+                var subPowers = powerPool.GetBundle()?.SubPowers;
 
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.TryAdd(powerPool.Name, 0);
-
-            // add the shove form direct to the attack
-            var option = reactionRequest.SelectedSubOption;
-            var subPowers = powerPool.GetBundle()?.SubPowers;
-
-            if (subPowers != null &&
-                subPowers[option].Name == "PowerFeatChargerShove")
-            {
-                actualEffectForms.Add(ShoveForm);
+                if (subPowers != null &&
+                    subPowers[option].Name == "PowerFeatChargerShove")
+                {
+                    actualEffectForms.Add(ShoveForm);
+                }
             }
         }
 
