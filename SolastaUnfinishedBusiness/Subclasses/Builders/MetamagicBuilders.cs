@@ -379,68 +379,56 @@ internal static class MetamagicBuilders
                 yield break;
             }
 
-            if (!rulesetAttacker.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, condition.Name))
+            if (rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name))
             {
-                rulesetAttacker.InflictCondition(
-                    condition.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    condition.Name,
-                    0,
-                    0,
-                    0);
+                yield break;
+            }
 
-                var actionManager =
-                    ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            rulesetAttacker.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                condition.Name,
+                0,
+                0,
+                0);
 
-                if (!actionManager)
-                {
-                    yield break;
-                }
+            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
 
-                var implementationManager =
-                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                MetamagicTransmuted,
+                ReactionValidated,
+                ReactionNotValidated,
+                battleManager);
 
-                var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
-                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-                {
-                    StringParameter = MetamagicTransmuted,
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-                var count = actionManager.PendingReactionRequestGroups.Count;
-                var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+            yield break;
 
-                actionManager.AddInterruptRequest(reactionRequest);
-
-                yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-                if (!actionParams.ReactionValidated)
-                {
-                    rulesetAttacker.SpendSorceryPoints(-1);
-
-                    yield break;
-                }
-
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
+            {
                 var option = reactionRequest.SelectedSubOption;
 
                 _newDamageType = TransmutedDamageTypes[option];
+
+                foreach (var effectForm in actualEffectForms
+                             .Where(x =>
+                                 x.FormType == EffectForm.EffectFormType.Damage &&
+                                 TransmutedDamageTypes.Contains(x.DamageForm.DamageType)))
+                {
+                    effectForm.DamageForm.damageType = _newDamageType;
+                }
             }
 
-            foreach (var effectForm in actualEffectForms
-                         .Where(x =>
-                             x.FormType == EffectForm.EffectFormType.Damage &&
-                             TransmutedDamageTypes.Contains(x.DamageForm.DamageType)))
+            void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                effectForm.DamageForm.damageType = _newDamageType;
+                rulesetAttacker.SpendSorceryPoints(-1);
             }
         }
     }
