@@ -630,11 +630,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!actionManager || !battleManager || action.Countered)
+            if (action.Countered)
             {
                 yield break;
             }
@@ -679,45 +675,35 @@ internal static partial class SpellBuilders
                 rulesetCharacter.UsablePowers.Add(up);
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerPool, rulesetCharacter);
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
-            {
-                StringParameter = "BorrowedKnowledge",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { actingCharacter }
-            };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
 
             rulesetCharacter.UsablePowers.Remove(usablePower);
             usablePowers.ForEach(x => rulesetCharacter.UsablePowers.Remove(x));
 
-            if (!actionParams.ReactionValidated)
+            yield return actingCharacter.MyReactToSpendPowerBundle(
+                usablePower,
+                [actingCharacter],
+                actingCharacter,
+                "BorrowedKnowledge",
+                ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                yield break;
-            }
+                var selectedPower = powers[reactionRequest.SelectedSubOption];
 
-            var selectedPower = powers[reactionRequest.SelectedSubOption];
-
-            foreach (var skill in skillsDb)
-            {
-                var conditionName = $"ConditionBorrowedKnowledge{skill.Name}";
-
-                if (rulesetCharacter.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
-                    activeCondition.SourceGuid == actingCharacter.Guid &&
-                    !selectedPower.Name.Contains(skill.Name))
+                foreach (var skill in skillsDb)
                 {
-                    rulesetCharacter.RemoveCondition(activeCondition);
+                    var conditionName = $"ConditionBorrowedKnowledge{skill.Name}";
+
+                    if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
+                        activeCondition.SourceGuid == actingCharacter.Guid &&
+                        !selectedPower.Name.Contains(skill.Name))
+                    {
+                        rulesetCharacter.RemoveCondition(activeCondition);
+                    }
                 }
             }
         }
