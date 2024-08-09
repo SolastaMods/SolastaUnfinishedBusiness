@@ -10,6 +10,7 @@
 - fixed Time Stop spell to work as in tabletop
 - fixed Toll the Dead and Wrack cantrips description
 - fixed Variant Spell Points consumption on slots above 5
+- improved Bladestorm feat with an additional BA attack as PAM
 
 KNOWN ISSUES:
 

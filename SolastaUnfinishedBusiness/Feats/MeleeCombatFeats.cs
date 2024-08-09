@@ -1901,11 +1901,20 @@ internal static class MeleeCombatFeats
                 new PowerOrSpellFinishedByMeWhirlWindAttack())
             .AddToDB();
 
+        var featureExtraBonusAttack = FeatureDefinitionBuilder
+            .Create($"Feature{NAME}ExtraBonusAttack")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(
+                new AddWhirlWindFollowUpAttack(GreatswordType),
+                new AddWhirlWindFollowUpAttack(MaulType),
+                new AddWhirlWindFollowUpAttack(GreataxeType))
+            .AddToDB();
+
         // name kept for backward compatibility
         return FeatDefinitionBuilder
             .Create("FeatWhirlWindAttackDex")
             .SetGuiPresentation($"Feat{NAME}", Category.Feat)
-            .SetFeatures(powerWhirlWindAttack)
+            .SetFeatures(powerWhirlWindAttack, featureExtraBonusAttack)
             .AddToDB();
     }
 
@@ -1940,7 +1949,9 @@ internal static class MeleeCombatFeats
             attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
 
             //remove additional ability score modifier damage
+#if false
             var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
             var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 actingCharacter.RulesetCharacter.TryGetAttributeValue(attackMode.AbilityScore));
 
@@ -1948,6 +1959,7 @@ internal static class MeleeCombatFeats
             {
                 damageForm.BonusDamage -= modifier;
             }
+#endif
 
             actingCharacter.BurnOneMainAttack();
             actingCharacter.UsedSpecialFeatures.TryAdd("PowerWhirlWindAttack", 0);

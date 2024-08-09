@@ -12,6 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
+    "Definition:FeatureWhirlWindAttackExtraBonusAttack:a88ebaf9-1b2e-5979-90a1-fd8b4ff3feeb",
     "Definition:PowerWhirlWindAttack:8d198daa-c292-55c4-8ec3-f8a88cceef82"
   ],
   "guiPresentation": {
