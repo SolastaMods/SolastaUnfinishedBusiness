@@ -2323,48 +2323,39 @@ internal static class OtherFeats
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
             var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetDefender);
+
             var effectDescription = action.ActionParams.AttackMode?.EffectDescription ??
                                     action.ActionParams.RulesetEffect?.EffectDescription;
 
-            if (!actionManager ||
-                helper != defender ||
+            if (helper != defender ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
-                rulesetDefender.GetRemainingPowerUses(PowerMageSlayerSaving) == 0 ||
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0 ||
                 effectDescription?.savingThrowAbility is not
                     (AttributeDefinitions.Intelligence or AttributeDefinitions.Wisdom or AttributeDefinitions.Charisma))
             {
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetDefender);
-            var reactionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            yield return defender.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "MageSlayer",
+                "CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
+                ReactionValidated,
+                battleManager);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter =
-                    "CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
-                UsablePower = usablePower
-            };
-            var reactionRequest = new ReactionRequestCustom("MageSlayer", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+                action.SaveOutcomeDelta = 0;
+                action.SaveOutcome = RollOutcome.Success;
 
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetDefender.LogCharacterUsedPower(PowerMageSlayerSaving);
             }
-
-            action.SaveOutcomeDelta = 0;
-            action.SaveOutcome = RollOutcome.Success;
-
-            rulesetDefender.UsePower(usablePower);
-            rulesetDefender.LogCharacterUsedPower(PowerMageSlayerSaving);
         }
 
         internal static IEnumerator HandleEnemyCastSpellWithin5Ft(
