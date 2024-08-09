@@ -1244,16 +1244,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             effectPower.remainingRounds = remainingRounds;
 
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = effectPower,
-                UsablePower = usablePower,
-                TargetCharacters = { actingCharacter }
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            actingCharacter.MyExecuteAction(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [actingCharacter]);
 
             usablePower.RepayUse();
         }

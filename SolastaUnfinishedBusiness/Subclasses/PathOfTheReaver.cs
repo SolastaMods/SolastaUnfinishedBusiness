@@ -280,21 +280,12 @@ public sealed class PathOfTheReaver : AbstractSubclass
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerCorruptedBlood, rulesetDefender);
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { attacker }
-            };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            defender.MyExecuteAction(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [attacker]);
         }
     }
 }

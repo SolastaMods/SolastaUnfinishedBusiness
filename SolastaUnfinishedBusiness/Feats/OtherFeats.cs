@@ -2551,22 +2551,12 @@ internal static class OtherFeats
             yield break;
         }
 
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
         var usablePower = PowerProvider.Get(PowerFeatPoisonousSkin, rulesetMe);
-        var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
-        {
-            ActionModifiers = { new ActionModifier() },
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetMe, usablePower, false),
-            UsablePower = usablePower,
-            TargetCharacters = { target }
-        };
 
-        // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-        ServiceRepository.GetService<IGameLocationActionService>()?
-            .ExecuteAction(actionParams, null, true);
+        me.MyExecuteAction(
+            ActionDefinitions.Id.PowerNoCost,
+            usablePower,
+            [target]);
     }
 
     //Poison character that shoves me

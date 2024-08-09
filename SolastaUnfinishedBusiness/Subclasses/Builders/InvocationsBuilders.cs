@@ -769,22 +769,12 @@ internal static class InvocationsBuilders
             }
 
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerPerniciousCloakDamage, rulesetCaster);
-            var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { character }
-            };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            caster.MyExecuteAction(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [character]);
         }
     }
 

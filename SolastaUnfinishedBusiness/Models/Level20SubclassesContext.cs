@@ -1983,21 +1983,12 @@ internal static class Level20SubclassesContext
             // takes 10d10 Necrotic
             if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                var implementationManager =
-                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
                 var usablePower = PowerProvider.Get(powerQuiveringPalmDamage, rulesetAttacker);
-                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-                {
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { target }
-                };
 
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
+                attacker.MyExecuteAction(
+                    ActionDefinitions.Id.PowerNoCost,
+                    usablePower,
+                    [target]);
 
                 yield break;
             }
