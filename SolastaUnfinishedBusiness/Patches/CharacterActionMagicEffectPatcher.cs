@@ -1273,13 +1273,6 @@ public static class CharacterActionMagicEffectPatcher
                 //PATCH: Allows condition interruption after target was attacked
                 rulesetTarget.ProcessConditionsMatchingInterruption(
                     (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
-
-                //PATCH: Allows condition interruption after target was attacked and hit
-                if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-                {
-                    rulesetTarget.ProcessConditionsMatchingInterruption(
-                        (ConditionInterruption)ExtraConditionInterruption.AfterWasHit);
-                }
             }
 
             if (!__instance.RolledSaveThrow && rulesetEffect.EffectDescription.HasShoveRoll)
