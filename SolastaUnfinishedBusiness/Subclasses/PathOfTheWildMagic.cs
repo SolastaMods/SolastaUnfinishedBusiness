@@ -895,16 +895,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         private IEnumerator HandleControlledSurge(GameLocationCharacter character, List<int> result)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!actionManager || !battleManager)
-            {
-                yield break;
-            }
-
             var rulesetAttacker = character.RulesetCharacter;
             var firstRoll =
                 rulesetAttacker.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
@@ -929,33 +919,24 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             rulesetAttacker.usablePowers = myUsablePowers;
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(_powerPool, rulesetAttacker);
-            var actionParams =
-                new CharacterActionParams(GameLocationCharacter.GetFromActor(rulesetAttacker), Id.SpendPower)
-                {
-                    StringParameter = "ControlledSurge",
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    targetCharacters = [character]
-                };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(character, actionManager, count);
+            yield return character.MyReactToSpendPowerBundle(
+                usablePowerPool,
+                [character],
+                character,
+                "ControlledSurge",
+                ReactionValidated,
+                ReactionNotValidated);
 
             rulesetAttacker.usablePowers = usablePowersOrig;
 
-            if (reactionRequest.Validated && reactionRequest.SelectedSubOption >= 0)
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
                 result[0] = reactionRequest.SelectedSubOption + 1;
             }
-            else
+
+            void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
                 result[0] = firstRoll;
             }
