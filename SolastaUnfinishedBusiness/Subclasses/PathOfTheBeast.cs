@@ -778,7 +778,8 @@ public sealed class PathOfTheBeast : AbstractSubclass
             attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
             attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
                 AttributeDefinitions.TagEffect, condition.name);
-            Attack(attacker, defender, attackModeCopy, attackModifier, ActionDefinitions.Id.AttackOpportunity);
+
+            attacker.MyExecuteActionOpportunityAttack(defender, attackModeCopy, attackModifier);
         }
 
         private static bool IsValidAttack(
@@ -805,23 +806,6 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 targetedCharacter, targetedCharacter.LocationPosition, __instance.actionModifier);
 
             return __instance.BattleService.CanAttack(attackParams2);
-        }
-
-        private static void Attack(
-            GameLocationCharacter actingCharacter,
-            GameLocationCharacter target,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier,
-            ActionDefinitions.Id actionId = ActionDefinitions.Id.AttackFree)
-        {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var attackActionParams =
-                new CharacterActionParams(actingCharacter, actionId)
-                {
-                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-                };
-
-            actionService.ExecuteAction(attackActionParams, null, true);
         }
     }
 
