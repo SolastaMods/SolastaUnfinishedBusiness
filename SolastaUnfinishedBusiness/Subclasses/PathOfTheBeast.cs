@@ -312,63 +312,41 @@ public sealed class PathOfTheBeast : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackMode.SourceDefinition is not ItemDefinition item ||
-                item != _beastClaws)
+            if (attackMode.SourceDefinition is not ItemDefinition item || item != _beastClaws ||
+                attacker.UsedSpecialFeatures.ContainsKey(TagBeastClawAttack) ||
+                defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            if (defender.RulesetCharacter is not
-                { IsDeadOrDyingOrUnconscious: false })
+            yield return attacker.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "ExtraClawAttack",
+                "CustomReactionExtraClawAttackDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                yield break;
-            }
+                attacker.UsedSpecialFeatures.Add(TagBeastClawAttack, 0);
 
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+                var attackModeCopy = attackMode.DeepCopy();
 
-            if (!actionManager)
-            {
-                yield break;
-            }
+                attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
 
-            if (attacker.UsedSpecialFeatures.ContainsKey(TagBeastClawAttack))
-            {
-                yield break;
-            }
-
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.AttackFree)
                 {
-                    StringParameter = Gui.Format("Reaction/&CustomReactionExtraClawAttackDescription")
+                    ActionModifiers = { new ActionModifier() },
+                    AttackMode = attackModeCopy,
+                    TargetCharacters = { defender }
                 };
-            var reactionRequest = new ReactionRequestCustom("ExtraClawAttack", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.reactionValidated)
-            {
-                yield break;
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
             }
-
-            attacker.UsedSpecialFeatures.Add(TagBeastClawAttack, 0);
-
-            var attackModeCopy = attackMode.DeepCopy();
-
-            attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.AttackFree)
-            {
-                ActionModifiers = { new ActionModifier() },
-                AttackMode = attackModeCopy,
-                TargetCharacters = { defender }
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
         }
 
         protected override AttackModeOrder GetOrder(RulesetCharacter character)
