@@ -405,11 +405,7 @@ internal static class ClassFeats
             // ReSharper disable once ParameterTypeCanBeEnumerable.Local
             List<GameLocationCharacter> targets)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager ||
-                attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 attacker == helper ||
                 helper.IsMyTurn() ||
                 !helper.CanReact())
@@ -424,29 +420,18 @@ internal static class ClassFeats
 
                 if (opportunityAttackMode == null || actionModifier == null)
                 {
-                    yield break;
+                    continue;
                 }
 
                 opportunityAttackMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-                var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.AttackOpportunity)
-                {
-                    StringParameter = helper.Name,
-                    ActionModifiers = { actionModifier },
-                    AttackMode = opportunityAttackMode,
-                    TargetCharacters = { defender }
-                };
-                var reactionRequest = new ReactionRequestReactionAttack("Exploiter", actionParams);
-                var count = actionManager.PendingReactionRequestGroups.Count;
-
-                actionManager.AddInterruptRequest(reactionRequest);
-
-                yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-                if (actionParams.ReactionValidated)
-                {
-                    yield break;
-                }
+                yield return helper.MyReactForOpportunityAttack(
+                    defender,
+                    attacker,
+                    opportunityAttackMode,
+                    actionModifier,
+                    "Exploiter",
+                    battleManager: battleManager);
             }
         }
     }
