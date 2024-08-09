@@ -172,7 +172,6 @@ internal static partial class SpellBuilders
                             .SetDamageAffinityType(DamageAffinityType.Vulnerability)
                             .SetDamageType(damageDefinition.Name)
                             .AddToDB()))
-            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasHit)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -209,6 +208,43 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    private sealed class CustomBehaviorCorruptingBolt : IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+            
+            rulesetDefender.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect, "ConditionCorruptingBolt");
+            
+            yield break;
+        }
+
+        public IEnumerator OnMagicEffectFinishedOnMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
+        {
+            var rulesetEffect = action.ActionParams.RulesetEffect;
+
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
+            
+            var rulesetDefender = defender.RulesetCharacter;
+            
+            rulesetDefender.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect, "ConditionCorruptingBolt");
+        }
+    }
+    
     #endregion
 
     #region Crusaders Mantle
