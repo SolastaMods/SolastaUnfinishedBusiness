@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
@@ -18,21 +19,28 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
+    private static List<ActionModifier> GetActionModifiers(int count)
+    {
+        var actionModifiers = new List<ActionModifier>();
+
+        for (var i = 0; i < count; i++)
+        {
+            actionModifiers.Add(new ActionModifier());
+        }
+
+        return actionModifiers;
+    }
+
     internal static void MyExecuteAction(
         this GameLocationCharacter character,
         Id actionId,
         RulesetUsablePower usablePower,
         List<GameLocationCharacter> targets)
     {
-        var actionModifiers = new List<ActionModifier>();
+        var actionModifiers = GetActionModifiers(targets.Count);
         var rulesetCharacter = character.RulesetCharacter;
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-        for (var i = 0; i < targets.Count; i++)
-        {
-            actionModifiers.Add(new ActionModifier());
-        }
 
         var actionParams = new CharacterActionParams(character, actionId)
         {
@@ -44,6 +52,44 @@ public static class GameLocationCharacterExtensions
 
         // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
         ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+    }
+
+    internal static IEnumerator MyReactToDoNothing(
+        this GameLocationCharacter character,
+        ExtraActionId actionId,
+        GameLocationCharacter waiter,
+        string type,
+        string stringParameter,
+        Action reactionValidated = null,
+        Action reactionNotValidated = null,
+        GameLocationBattleManager battleManager = null,
+        ICustomReactionResource resource = null)
+    {
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!actionManager || !battleManager)
+        {
+            yield break;
+        }
+
+        var count = actionManager.PendingReactionRequestGroups.Count;
+        var actionParams = new CharacterActionParams(character, (Id)actionId) { StringParameter = stringParameter };
+        var reactionRequest = new ReactionRequestCustom(type, actionParams) { Resource = resource };
+
+        actionManager.AddInterruptRequest(reactionRequest);
+
+        yield return battleManager.WaitForReactions(waiter, actionManager, count);
+
+        if (actionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke();
+        }
+        else
+        {
+            reactionNotValidated?.Invoke();
+        }
     }
 
     internal static IEnumerator MyReactToSpendPower(
@@ -66,6 +112,7 @@ public static class GameLocationCharacterExtensions
         var count = actionService.PendingReactionRequestGroups.Count;
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
         var actionParams = new CharacterActionParams(character, Id.SpendPower)
         {
             StringParameter = stringParameter,
@@ -105,14 +152,9 @@ public static class GameLocationCharacterExtensions
         }
 
         var count = actionManager.PendingReactionRequestGroups.Count;
+        var actionModifiers = GetActionModifiers(targets.Count);
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-        var actionModifiers = new List<ActionModifier>();
-
-        for (var i = 0; i < targets.Count; i++)
-        {
-            actionModifiers.Add(new ActionModifier());
-        }
 
         var actionParams = new CharacterActionParams(character, Id.SpendPower)
         {
@@ -160,14 +202,9 @@ public static class GameLocationCharacterExtensions
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
+        var actionModifiers = GetActionModifiers(targets.Count);
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-        var actionModifiers = new List<ActionModifier>();
-
-        for (var i = 0; i < targets.Count; i++)
-        {
-            actionModifiers.Add(new ActionModifier());
-        }
 
         var actionParams = new CharacterActionParams(character, actionId)
         {

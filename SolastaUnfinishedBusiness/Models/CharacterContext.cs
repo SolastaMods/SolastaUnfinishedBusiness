@@ -1242,13 +1242,9 @@ internal static partial class CharacterContext
             GameLocationCharacter helper,
             ActionModifier abilityCheckModifier)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (!actionManager ||
-                abilityCheckData.AbilityCheckRoll == 0 ||
+            if (abilityCheckData.AbilityCheckRoll == 0 ||
                 abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
                 helper != defender ||
                 rulesetHelper.RemainingSorceryPoints == 0)
@@ -1256,49 +1252,43 @@ internal static partial class CharacterContext
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "CustomReactionMagicalGuidanceCheckDescription".Formatted(
-                        Category.Reaction, defender.Name, helper.Name)
-                };
-            var count = actionManager.PendingReactionRequestGroups.Count;
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                defender,
+                "MagicalGuidanceCheck",
+                "CustomReactionMagicalGuidanceCheckDescription"
+                    .Formatted(Category.Reaction, defender.Name, helper.Name),
+                ReactionValidated,
+                battleManager: battleManager,
+                resource: ReactionResourceSorceryPoints.Instance);
 
-            var reactionRequest = new ReactionRequestCustom("MagicalGuidanceCheck", reactionParams)
+            yield break;
+
+            void ReactionValidated()
             {
-                Resource = ReactionResourceSorceryPoints.Instance
-            };
+                rulesetHelper.SpendSorceryPoints(1);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
+                    out _);
+                var previousRoll = abilityCheckData.AbilityCheckRoll;
 
-            yield return battleManager.WaitForReactions(defender, actionManager, count);
+                abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
+                abilityCheckData.AbilityCheckRoll = dieRoll;
+                abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                    ? RollOutcome.Success
+                    : RollOutcome.Failure;
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feature/&FeatureSorcererMagicalGuidanceTitle",
+                    "Feedback/&MagicalGuidanceCheckToHitRoll",
+                    extra:
+                    [
+                        (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            dieRoll.ToString()),
+                        (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            previousRoll.ToString())
+                    ]);
             }
-
-            rulesetHelper.SpendSorceryPoints(1);
-
-            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            var previousRoll = abilityCheckData.AbilityCheckRoll;
-
-            abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
-            abilityCheckData.AbilityCheckRoll = dieRoll;
-            abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
-                ? RollOutcome.Success
-                : RollOutcome.Failure;
-
-            rulesetHelper.LogCharacterActivatesAbility(
-                "Feature/&FeatureSorcererMagicalGuidanceTitle",
-                "Feedback/&MagicalGuidanceCheckToHitRoll",
-                extra:
-                [
-                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        dieRoll.ToString()),
-                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        previousRoll.ToString())
-                ]);
         }
     }
 

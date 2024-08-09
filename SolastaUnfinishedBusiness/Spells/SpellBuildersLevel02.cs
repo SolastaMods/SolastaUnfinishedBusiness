@@ -1190,6 +1190,7 @@ internal static partial class SpellBuilders
             var attacker = action.ActingCharacter;
             var hasHealed = false;
             var effectLevel = rulesetEffectSpell.EffectLevel;
+            var passed = false;
 
             rulesetTarget.HitDieRolled += HitDieRolled;
 
@@ -1199,28 +1200,22 @@ internal static partial class SpellBuilders
             {
                 var maxHitPoints = rulesetTarget.TryGetAttributeValue(AttributeDefinitions.HitPoints);
                 var remainingHitPoints = maxHitPoints - rulesetTarget.MissingHitPoints;
-                var reactionParams =
-                    new CharacterActionParams(_target, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-                    {
-                        StringParameter = Gui.Format(
-                            "Reaction/&CustomReactionWitherAndBloomDescription",
-                            remainingHitPoints.ToString(), maxHitPoints.ToString(), attacker.Name,
-                            _spellCastingAbilityModifier.ToString())
-                    };
-                var reactionRequest = new ReactionRequestCustom("WitherAndBloom", reactionParams);
-                var count = actionManager.PendingReactionRequestGroups.Count;
 
-                actionManager.AddInterruptRequest(reactionRequest);
+                yield return _target.MyReactToDoNothing(
+                    ExtraActionId.DoNothingFree,
+                    attacker,
+                    "WitherAndBloom",
+                    "CustomReactionWitherAndBloomDescription".Formatted(Category.Reaction,
+                        remainingHitPoints.ToString(), maxHitPoints.ToString(), attacker.Name,
+                        _spellCastingAbilityModifier.ToString()),
+                    ReactionValidated,
+                    ReactionNotValidated,
+                    battleManager);
 
-                yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-                if (!reactionParams.ReactionValidated)
+                if (passed)
                 {
                     break;
                 }
-
-                hasHealed = true;
-                rulesetTarget.RollHitDie();
             }
 
             rulesetTarget.HitDieRolled -= HitDieRolled;
@@ -1228,6 +1223,19 @@ internal static partial class SpellBuilders
             if (hasHealed)
             {
                 EffectHelpers.StartVisualEffect(attacker, _target, CureWounds, EffectHelpers.EffectType.Effect);
+            }
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                hasHealed = true;
+                rulesetTarget.RollHitDie();
+            }
+
+            void ReactionNotValidated()
+            {
+                passed = true;
             }
         }
 

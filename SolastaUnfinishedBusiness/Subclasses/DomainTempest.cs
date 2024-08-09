@@ -366,54 +366,21 @@ public sealed class DomainTempest : AbstractSubclass
             var attacker = action.ActingCharacter;
             var rulesetDefender = defender.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetDefender);
-            var isValid = defender.IsWithinRange(attacker, 1) &&
-                          defender.CanReact() &&
-                          defender.CanPerceiveTarget(attacker) &&
-                          rulesetDefender.GetRemainingUsesOfPower(usablePower) > 0;
 
-            if (!isValid)
+            if (defender.CanReact() ||
+                defender.IsWithinRange(attacker, 1) ||
+                defender.CanPerceiveTarget(attacker) ||
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true, Battle.InitiativeRollFinished: true })
-            {
-                yield break;
-            }
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower)
-            {
-                StringParameter = "WrathOfTheStorm",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { attacker }
-            };
-
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest =
-                new ReactionRequestSpendBundlePower(actionParams)
-                {
-                    Resource = ReactionResourceWrathOfTheStorm.Instance
-                };
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (actionParams.ReactionValidated)
-            {
-                attacker.SpendActionType(ActionDefinitions.ActionType.Reaction);
-            }
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [attacker],
+                attacker,
+                "WrathOfTheStorm");
         }
     }
 

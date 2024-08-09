@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -251,14 +252,6 @@ public sealed class CollegeOfElegance : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
@@ -290,44 +283,42 @@ public sealed class CollegeOfElegance : AbstractSubclass
                 yield break;
             }
 
-            var actionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "EvasiveFootwork",
+                "CustomReactionEvasiveFootworkDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "Reaction/&CustomReactionEvasiveFootworkDescription"
-            };
-            var reactionRequest = new ReactionRequestCustom("EvasiveFootwork", actionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+                var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                rulesetHelper.InflictCondition(
+                    conditionEvasiveFootwork.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    TagEffect,
+                    rulesetHelper.guid,
+                    rulesetHelper.CurrentFaction.Name,
+                    1,
+                    conditionEvasiveFootwork.Name,
+                    dieRoll,
+                    0,
+                    0);
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
+                EffectHelpers.StartVisualEffect(defender, defender, PowerKnightLeadership,
+                    EffectHelpers.EffectType.Effect);
+                rulesetHelper.LogCharacterUsedFeature(
+                    featureEvasiveFootwork,
+                    "Feedback/&EvasiveFootworkACIncrease", true,
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
             }
-
-            var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
-            rulesetHelper.InflictCondition(
-                conditionEvasiveFootwork.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                TagEffect,
-                rulesetHelper.guid,
-                rulesetHelper.CurrentFaction.Name,
-                1,
-                conditionEvasiveFootwork.Name,
-                dieRoll,
-                0,
-                0);
-
-            EffectHelpers.StartVisualEffect(defender, defender, PowerKnightLeadership, EffectHelpers.EffectType.Effect);
-            rulesetHelper.LogCharacterUsedFeature(
-                featureEvasiveFootwork,
-                "Feedback/&EvasiveFootworkACIncrease", true,
-                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
-                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
         }
     }
 

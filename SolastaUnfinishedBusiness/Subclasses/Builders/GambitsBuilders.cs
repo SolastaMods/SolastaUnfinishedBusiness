@@ -1516,6 +1516,7 @@ internal static class GambitsBuilders
                     0,
                     0,
                     0);
+
                 caster.InflictCondition(
                     good.Name,
                     DurationType.Round,
@@ -1533,49 +1534,65 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            yield return actingCharacter.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                actingCharacter,
+                "GambitSwitch",
+                "CustomReactionGambitSwitchDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                ReactionNotValidated);
 
-            if (!actionManager || !battleManager)
+            yield break;
+
+            void ReactionValidated()
             {
-                yield break;
+                dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+                caster.ShowDieRoll(dieType, dieRoll, title: good.GuiPresentation.Title);
+
+                target.InflictCondition(
+                    good.Name,
+                    DurationType.Round,
+                    1,
+                    (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
+                    AttributeDefinitions.TagEffect,
+                    caster.Guid,
+                    caster.CurrentFaction.Name,
+                    1,
+                    good.Name,
+                    dieRoll,
+                    0,
+                    0);
+
+                caster.LogCharacterUsedPower(powerSwitchActivate, "Feedback/&GambitSwitchACIncrease", true,
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                    (ConsoleStyleDuplet.ParameterType.Player, target.Name),
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
             }
 
-            var reactionParams =
-                new CharacterActionParams(actingCharacter, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-                {
-                    StringParameter = "Reaction/&CustomReactionGambitSwitchDescription"
-                };
-            var reactionRequest = new ReactionRequestCustom("GambitSwitch", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+            void ReactionNotValidated()
+            {
+                dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+                caster.ShowDieRoll(dieType, dieRoll, title: good.GuiPresentation.Title);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                caster.InflictCondition(
+                    good.Name,
+                    DurationType.Round,
+                    1,
+                    (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
+                    AttributeDefinitions.TagEffect,
+                    caster.Guid,
+                    caster.CurrentFaction.Name,
+                    1,
+                    good.Name,
+                    dieRoll,
+                    0,
+                    0);
 
-            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
-
-            dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-            caster.ShowDieRoll(dieType, dieRoll, title: good.GuiPresentation.Title);
-
-            var finalTarget = !reactionParams.ReactionValidated ? caster : target;
-
-            finalTarget.InflictCondition(
-                good.Name,
-                DurationType.Round,
-                1,
-                (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
-                AttributeDefinitions.TagEffect,
-                caster.Guid,
-                caster.CurrentFaction.Name,
-                1,
-                good.Name,
-                dieRoll,
-                0,
-                0);
-
-            caster.LogCharacterUsedPower(powerSwitchActivate, "Feedback/&GambitSwitchACIncrease", true,
-                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
-                (ConsoleStyleDuplet.ParameterType.Player, finalTarget.Name),
-                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
+                caster.LogCharacterUsedPower(powerSwitchActivate, "Feedback/&GambitSwitchACIncrease", true,
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                    (ConsoleStyleDuplet.ParameterType.Player, caster.Name),
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
+            }
         }
     }
 
@@ -1660,13 +1677,12 @@ internal static class GambitsBuilders
     private sealed class Precise(FeatureDefinitionPower pool, FeatureDefinition feature)
         : ITryAlterOutcomeAttack
     {
-        private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
 
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1675,13 +1691,9 @@ internal static class GambitsBuilders
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!actionManager ||
-                action.AttackRollOutcome != RollOutcome.Failure ||
+            if (action.AttackRollOutcome != RollOutcome.Failure ||
                 helper != attacker ||
                 !rulesetAttacker.CanUsePower(pool))
             {
@@ -1700,60 +1712,54 @@ internal static class GambitsBuilders
             var guiAttacker = new GuiCharacter(attacker);
             var guiDefender = new GuiCharacter(defender);
 
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            yield return attacker.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                attacker,
+                "GambitPrecise",
+                "CustomReactionGambitPreciseDescription"
+                    .Formatted(Category.Reaction, guiAttacker.Name, guiDefender.Name, delta.ToString(), Gui.FormatDieTitle(dieType)),
+                ReactionValidated,
+                battleManager: battleManager,
+                resource: new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon));
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                rulesetAttacker.UpdateUsageForPower(pool, 1);
+
+                var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+
+                attackModifier.AttacktoHitTrends.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
                 {
-                    StringParameter = Gui.Format(
-                        Format, guiAttacker.Name, guiDefender.Name, delta.ToString(), Gui.FormatDieTitle(dieType))
-                };
-            var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
-            {
-                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
-            };
-            var count = actionManager.PendingReactionRequestGroups.Count;
+                    dieType = dieType, dieFlag = TrendInfoDieFlag.None
+                });
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                action.AttackSuccessDelta += dieRoll;
+                attackModifier.AttackRollModifier += dieRoll;
 
-            yield return battle.WaitForReactions(attacker, actionManager, count);
+                if (action.AttackSuccessDelta >= 0)
+                {
+                    action.AttackRollOutcome = RollOutcome.Success;
+                }
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetAttacker.ShowDieRoll(
+                    dieType,
+                    dieRoll,
+                    title: feature.GuiPresentation.Title,
+                    outcome: action.AttackRollOutcome,
+                    displayOutcome: true
+                );
+
+                rulesetAttacker.LogCharacterUsedFeature(
+                    feature,
+                    Line,
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                        (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                    ]);
             }
-
-            rulesetAttacker.UpdateUsageForPower(pool, 1);
-
-            var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
-            attackModifier.AttacktoHitTrends.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
-            {
-                dieType = dieType, dieFlag = TrendInfoDieFlag.None
-            });
-
-            action.AttackSuccessDelta += dieRoll;
-            attackModifier.AttackRollModifier += dieRoll;
-
-            if (action.AttackSuccessDelta >= 0)
-            {
-                action.AttackRollOutcome = RollOutcome.Success;
-            }
-
-            rulesetAttacker.ShowDieRoll(
-                dieType,
-                dieRoll,
-                title: feature.GuiPresentation.Title,
-                outcome: action.AttackRollOutcome,
-                displayOutcome: true
-            );
-
-            rulesetAttacker.LogCharacterUsedFeature(
-                feature,
-                Line,
-                extra:
-                [
-                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
-                ]);
         }
     }
 
@@ -1777,14 +1783,6 @@ internal static class GambitsBuilders
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
@@ -1802,46 +1800,40 @@ internal static class GambitsBuilders
             var guiMe = new GuiCharacter(defender);
             var guiTarget = new GuiCharacter(attacker);
 
-            var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "CustomReactionGambitParryDescription"
-                        .Formatted(Category.Reaction, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType))
-                };
-            var reactionRequest = new ReactionRequestCustom("GambitParry", reactionParams)
+            yield return defender.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "GambitParry",
+                "CustomReactionGambitParryDescription"
+                    .Formatted(Category.Reaction, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType)),
+                ReactionValidated,
+                battleManager: battleManager,
+                resource: new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon));
+
+            yield break;
+
+            void ReactionValidated()
             {
-                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
-            };
-            var count = actionManager.PendingReactionRequestGroups.Count;
+                rulesetDefender.UpdateUsageForPower(pool, 1);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+                var pb = 2 * rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                var reduction = dieRoll + pb;
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                actionModifier.damageRollReduction += reduction;
+
+                rulesetDefender.ShowDieRoll(dieType, dieRoll,
+                    title: feature.GuiPresentation.Title,
+                    displayModifier: true, modifier: pb);
+
+                rulesetDefender.LogCharacterUsedFeature(feature, Line,
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                        (ConsoleStyleDuplet.ParameterType.Positive, reduction.ToString())
+                    ]);
             }
-
-            rulesetDefender.UpdateUsageForPower(pool, 1);
-
-            var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
-            var pb = 2 * rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var reduction = dieRoll + pb;
-
-            actionModifier.damageRollReduction += reduction;
-
-            rulesetDefender.ShowDieRoll(dieType, dieRoll,
-                title: feature.GuiPresentation.Title,
-                displayModifier: true, modifier: pb);
-
-            rulesetDefender.LogCharacterUsedFeature(feature, Line,
-                extra:
-                [
-                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
-                    (ConsoleStyleDuplet.ParameterType.Positive, reduction.ToString())
-                ]);
         }
     }
 
