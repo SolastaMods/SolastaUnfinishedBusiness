@@ -13,9 +13,7 @@ public class ReactionResourceSorceryPoints : ICustomReactionResource, ICustomRea
 
     public string GetRequestPoints(CharacterReactionItem item)
     {
-        return item.ReactionRequest.ReactionParams.StringParameter2 == string.Empty
-            ? "1"
-            : item.ReactionRequest.ReactionParams.StringParameter2;
+        return item.ReactionRequest.ReactionParams.UsablePower?.PowerDefinition.CostPerUse.ToString() ?? "1";
     }
 
     public AssetReferenceSprite Icon => Sprites.SorceryPointsResourceIcon;

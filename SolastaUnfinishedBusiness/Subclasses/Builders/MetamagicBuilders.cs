@@ -475,17 +475,9 @@ internal static class MetamagicBuilders
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            if (action is not CharacterActionCastSpell)
-            {
-                yield break;
-            }
-
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (!actionManager ||
-                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
                 !helper.IsActionOnGoing(ActionDefinitions.Id.MetamagicToggle) ||
                 rulesetHelper.RemainingSorceryPoints < 2)
@@ -493,56 +485,46 @@ internal static class MetamagicBuilders
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                attacker,
+                "MetamagicSeekingSpell",
+                "CustomReactionMetamagicSeekingSpellDescription".Formatted(Category.Reaction, defender.Name),
+                ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                rulesetHelper.SpendSorceryPoints(2);
+
+                var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
+                    out _);
+                var previousRoll = action.AttackRoll;
+
+                action.AttackSuccessDelta += dieRoll - previousRoll;
+                action.AttackRoll = dieRoll;
+
+                if (action.AttackSuccessDelta >= 0)
                 {
-                    StringParameter = "CustomReactionMetamagicSeekingSpellDescription".Formatted(
-                        Category.Reaction, defender.Name),
-                    StringParameter2 = "2"
-                };
-            var count = actionManager.PendingReactionRequestGroups.Count;
+                    action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
+                }
+                else
+                {
+                    action.AttackRollOutcome = dieRoll == 1 ? RollOutcome.CriticalFailure : RollOutcome.Failure;
+                }
 
-            var reactionRequest = new ReactionRequestCustom("MetamagicSeekingSpell", reactionParams)
-            {
-                Resource = ReactionResourceSorceryPoints.Instance
-            };
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feature/&MetamagicSeekingSpellTitle",
+                    "Feedback/&MetamagicSeekingSpellToHitRoll",
+                    extra:
+                    [
+                        (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            dieRoll.ToString()),
+                        (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            previousRoll.ToString())
+                    ]);
             }
-
-            rulesetHelper.SpendSorceryPoints(2);
-
-            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            var previousRoll = action.AttackRoll;
-
-            action.AttackSuccessDelta += dieRoll - previousRoll;
-            action.AttackRoll = dieRoll;
-
-            if (action.AttackSuccessDelta >= 0)
-            {
-                action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
-            }
-            else
-            {
-                action.AttackRollOutcome = dieRoll == 1 ? RollOutcome.CriticalFailure : RollOutcome.Failure;
-            }
-
-            rulesetHelper.LogCharacterActivatesAbility(
-                "Feature/&MetamagicSeekingSpellTitle",
-                "Feedback/&MetamagicSeekingSpellToHitRoll",
-                extra:
-                [
-                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        dieRoll.ToString()),
-                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        previousRoll.ToString())
-                ]);
         }
     }
 
