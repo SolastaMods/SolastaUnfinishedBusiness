@@ -850,19 +850,13 @@ internal static class MeleeCombatFeats
 
         retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-        var actionParams = new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
-        {
-            StringParameter = target.Name,
-            ActionModifiers = { retaliationModifier },
-            AttackMode = retaliationMode,
-            TargetCharacters = { enemy }
-        };
-        var reactionRequest = new ReactionRequestReactionAttack("OldTactics", actionParams);
-        var count = actionManager.PendingReactionRequestGroups.Count;
-
-        actionManager.AddInterruptRequest(reactionRequest);
-
-        yield return battleManager.WaitForReactions(enemy, actionManager, count);
+        yield return target.MyReactForOpportunityAttack(
+            enemy,
+            enemy,
+            retaliationMode,
+            retaliationModifier,
+            "OldTactics",
+            battleManager: battleManager);
     }
 
     #endregion
