@@ -76,14 +76,6 @@ internal sealed class Interception : AbstractFightingStyle
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             if (helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
@@ -101,40 +93,36 @@ internal sealed class Interception : AbstractFightingStyle
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "CustomReactionInterceptionDescription"
-                        .Formatted(Category.Reaction, defender.Name, attacker.Name)
-                };
-            var reactionRequest = new ReactionRequestCustom(Name, reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                Name,
+                "CustomReactionInterceptionDescription".Formatted(Category.Reaction, defender.Name, attacker.Name),
+                ReactionValidated,
+                battleManager: battleManager);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+            yield break;
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                var roll = helperCharacter.RollDie(DieType.D10, RollContext.None, true, AdvantageType.None, out _,
+                    out _);
+                var reducedDamage = roll + helperCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+                defender.RulesetActor.InflictCondition(
+                    conditionDefinition.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    helperCharacter.guid,
+                    helperCharacter.CurrentFaction.Name,
+                    1,
+                    conditionDefinition.Name,
+                    reducedDamage,
+                    0,
+                    0);
             }
-
-            var roll = helperCharacter.RollDie(DieType.D10, RollContext.None, true, AdvantageType.None, out _, out _);
-            var reducedDamage = roll + helperCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-            defender.RulesetActor.InflictCondition(
-                conditionDefinition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                helperCharacter.guid,
-                helperCharacter.CurrentFaction.Name,
-                1,
-                conditionDefinition.Name,
-                reducedDamage,
-                0,
-                0);
         }
     }
 }
