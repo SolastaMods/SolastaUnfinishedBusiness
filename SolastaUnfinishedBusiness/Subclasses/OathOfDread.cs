@@ -435,19 +435,13 @@ public sealed class OathOfDread : AbstractSubclass
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.AttackOpportunity)
-            {
-                StringParameter = helper.Name,
-                ActionModifiers = { retaliationModifier },
-                AttackMode = retaliationMode,
-                TargetCharacters = { attacker }
-            };
-            var reactionRequest = new ReactionRequestReactionAttack("HarrowingCrusade", actionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+            yield return helper.MyReactForOpportunityAttack(
+                attacker,
+                attacker,
+                retaliationMode,
+                retaliationModifier,
+                "HarrowingCrusade",
+                battleManager: battleManager);
         }
     }
 }
