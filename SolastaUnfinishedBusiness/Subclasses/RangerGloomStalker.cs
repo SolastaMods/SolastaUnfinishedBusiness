@@ -343,10 +343,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager ||
-                action.AttackRollOutcome != RollOutcome.Success ||
+            if (action.AttackRollOutcome != RollOutcome.Success ||
                 helper != defender ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(attacker))

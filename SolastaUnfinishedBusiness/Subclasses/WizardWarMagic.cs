@@ -175,13 +175,11 @@ public sealed class WizardWarMagic : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var rulesetCharacter = helper.RulesetCharacter;
             var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
-            if (!actionManager ||
-                action.AttackRollOutcome != RollOutcome.Success ||
+            if (action.AttackRollOutcome != RollOutcome.Success ||
                 action.AttackSuccessDelta - bonus >= 0 ||
                 helper != defender ||
                 !defender.CanReact() ||
@@ -247,13 +245,11 @@ public sealed class WizardWarMagic : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var rulesetCharacter = helper.RulesetCharacter;
             var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
-            if (!actionManager ||
-                !action.RolledSaveThrow ||
+            if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 action.SaveOutcomeDelta + bonus < 0 ||
                 helper != defender ||

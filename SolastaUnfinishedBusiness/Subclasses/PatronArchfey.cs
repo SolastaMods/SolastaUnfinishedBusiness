@@ -456,11 +456,7 @@ public class PatronArchfey : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager ||
-                defender.RulesetCharacter.GetRemainingPowerUses(powerMistyEscape) == 0 ||
+            if (defender.RulesetCharacter.GetRemainingPowerUses(powerMistyEscape) == 0 ||
                 defender.IsMyTurn())
             {
                 yield break;
