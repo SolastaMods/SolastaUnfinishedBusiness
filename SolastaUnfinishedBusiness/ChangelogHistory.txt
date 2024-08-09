@@ -3,7 +3,6 @@
 - fixed Bait and Switch maneuver greyed out on action bar
 - fixed Bountiful Luck feat triggering on any failure regardless the dice roll
 - fixed Cleric domains missing divine intervention improvement at 20
-- fixed College of Swords flourish melee weapon validator
 - fixed Martial Guardian not getting the Sentinel feat
 - fixed Path of the Wild Magic retribution on self, and spirit blast soft lock
 - fixed Sunlit Blade cantrip highlighted condition duration
