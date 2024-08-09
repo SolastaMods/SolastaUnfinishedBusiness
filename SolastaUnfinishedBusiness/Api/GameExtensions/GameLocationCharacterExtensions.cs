@@ -54,8 +54,9 @@ public static class GameLocationCharacterExtensions
         ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
     }
 
-    internal static void MyExecuteActionOpportunityAttack(
+    internal static void MyExecuteActionAttack(
         this GameLocationCharacter attacker,
+        Id actionId,
         GameLocationCharacter defender,
         RulesetAttackMode attackMode,
         ActionModifier actionModifier)
@@ -63,7 +64,7 @@ public static class GameLocationCharacterExtensions
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var actionParams = new CharacterActionParams(
             attacker,
-            Id.AttackOpportunity,
+            actionId,
             attackMode,
             defender,
             actionModifier);

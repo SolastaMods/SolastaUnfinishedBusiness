@@ -779,7 +779,8 @@ public sealed class PathOfTheBeast : AbstractSubclass
             attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
                 AttributeDefinitions.TagEffect, condition.name);
 
-            attacker.MyExecuteActionOpportunityAttack(defender, attackModeCopy, attackModifier);
+            attacker.MyExecuteActionAttack(
+                ActionDefinitions.Id.AttackOpportunity, defender, attackModeCopy, attackModifier);
         }
 
         private static bool IsValidAttack(

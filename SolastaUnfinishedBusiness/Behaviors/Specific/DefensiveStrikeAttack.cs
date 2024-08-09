@@ -101,7 +101,7 @@ internal static class DefensiveStrikeAttack
             resource: ReactionResourceChannelDivinity.Instance);
 
         yield break;
-        
+
         void ReactionValidated()
         {
             //spend resources
@@ -120,10 +120,7 @@ internal static class DefensiveStrikeAttack
                 new TrendInfo(bonus, FeatureSourceType.CharacterFeature, OathOfAltruism.DefensiveStrike, unit));
 
             //Execute attack
-            defender.MyExecuteActionOpportunityAttack(attacker, opportunityAttackMode, actionModifier);
-
-            //return our copied attack mode to the pool
-            RulesetAttackMode.AttackModesPool.Return(opportunityAttackMode);
+            defender.MyExecuteActionAttack(Id.AttackOpportunity, attacker, opportunityAttackMode, actionModifier);
         }
     }
 }

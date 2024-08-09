@@ -1773,23 +1773,18 @@ internal static class RaceFeats
                 return;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var attackMode = target.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
             var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
             attackModeCopy.Copy(attackMode);
             attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
 
-            var attackActionParams =
-                new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
-                {
-                    AttackMode = attackModeCopy,
-                    TargetCharacters = { action.ActingCharacter },
-                    ActionModifiers = { new ActionModifier() }
-                };
-
             rulesetTarget.LogCharacterUsedPower(powerOrcishFury);
-            actionService.ExecuteAction(attackActionParams, null, true);
+            target.MyExecuteActionAttack(
+                ActionDefinitions.Id.AttackOpportunity,
+                action.ActingCharacter,
+                attackModeCopy,
+                new ActionModifier());
         }
 
         #endregion
