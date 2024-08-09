@@ -54,6 +54,23 @@ public static class GameLocationCharacterExtensions
         ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
     }
 
+    internal static void MyExecuteActionOpportunityAttack(
+        this GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        RulesetAttackMode attackMode,
+        ActionModifier actionModifier)
+    {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var actionParams = new CharacterActionParams(
+            attacker,
+            Id.AttackOpportunity,
+            attackMode,
+            defender,
+            actionModifier);
+
+        actionService.ExecuteAction(actionParams, null, true);
+    }
+
     internal static IEnumerator MyReactToDoNothing(
         this GameLocationCharacter character,
         ExtraActionId actionId,
@@ -89,6 +106,51 @@ public static class GameLocationCharacterExtensions
         else
         {
             reactionNotValidated?.Invoke();
+        }
+    }
+
+    internal static IEnumerator MyReactForOpportunityAttack(
+        this GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        GameLocationCharacter waiter,
+        RulesetAttackMode attackMode,
+        ActionModifier actionModifier,
+        string stringParameter2,
+        Action reactionValidated = null,
+        GameLocationBattleManager battleManager = null,
+        ReactionResourcePowerPool resource = null)
+    {
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+        
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!actionManager || !battleManager)
+        {
+            yield break;
+        }
+
+        var count = actionManager.PendingReactionRequestGroups.Count;
+        var reactionParams = new CharacterActionParams(
+            attacker,
+            Id.AttackOpportunity,
+            attackMode,
+            defender,
+            actionModifier)
+        {
+            StringParameter2 = stringParameter2
+        };
+        var reactionRequest = new ReactionRequestReactionAttack(stringParameter2, reactionParams)
+        {
+            Resource = resource
+        };
+
+        actionManager.AddInterruptRequest(reactionRequest);
+
+        yield return battleManager.WaitForReactions(waiter, actionManager, count);
+
+        if (reactionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke();
         }
     }
 
@@ -261,8 +323,7 @@ public static class GameLocationCharacterExtensions
 
     // consolidate all checks if a character can perceive another
     public static bool CanPerceiveTarget(
-        this GameLocationCharacter __instance,
-        GameLocationCharacter target)
+        this GameLocationCharacter __instance, GameLocationCharacter target)
     {
         if (__instance == target)
         {
@@ -286,9 +347,7 @@ public static class GameLocationCharacterExtensions
     }
 
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeModeThatCanAttack(
-        this GameLocationCharacter instance,
-        GameLocationCharacter target,
-        IGameLocationBattleService service)
+        this GameLocationCharacter instance, GameLocationCharacter target, IGameLocationBattleService service)
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
@@ -316,9 +375,7 @@ public static class GameLocationCharacterExtensions
     }
 
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstRangedModeThatCanAttack(
-        this GameLocationCharacter instance,
-        GameLocationCharacter target,
-        IGameLocationBattleService service)
+        this GameLocationCharacter instance, GameLocationCharacter target, IGameLocationBattleService service)
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
@@ -430,17 +487,17 @@ public static class GameLocationCharacterExtensions
         return false;
     }
 
-    internal static bool CanAct(this GameLocationCharacter instance)
+    internal static bool CanAct(this GameLocationCharacter character)
     {
-        var character = instance.RulesetCharacter;
+        var rulesetCharacter = character.RulesetCharacter;
 
-        return character is { IsDeadOrDyingOrUnconscious: false } &&
-               !instance.IsCharging &&
-               !instance.MoveStepInProgress &&
-               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
-               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionIncapacitated) &&
-               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned) &&
-               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
+        return rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+               !character.IsCharging &&
+               !character.MoveStepInProgress &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionIncapacitated) &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned) &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
     }
 
     internal static bool IsReactionAvailable(this GameLocationCharacter instance, bool ignoreReactionUses = false)
