@@ -349,14 +349,6 @@ public sealed class DomainNature : AbstractSubclass
             GameLocationCharacter defender,
             List<EffectForm> actualEffectForms)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             var damageTypes = DampenElementsDamageTypes.Intersect(
                     actualEffectForms
                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
@@ -390,40 +382,36 @@ public sealed class DomainNature : AbstractSubclass
                 yield break;
             }
 
-            var actionParams = new CharacterActionParams(glc, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            yield return glc.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "DampenElements",
+                "CustomReactionDampenElementsDescription".Formatted(Category.Reaction, defender.Name),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "CustomReactionDampenElementsDescription"
-                    .Formatted(Category.Reaction, rulesetDefender.Name)
-            };
-            var reactionRequest = new ReactionRequestCustom("DampenElements", actionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            EffectHelpers.StartVisualEffect(glc, defender, PowerPaladinNeutralizePoison,
-                EffectHelpers.EffectType.Effect);
-            foreach (var conditionName in damageTypes.Select(damageType => $"ConditionDomainNature{damageType}"))
-            {
-                rulesetDefender.InflictCondition(
-                    conditionName,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetDefender.guid,
-                    rulesetDefender.CurrentFaction.Name,
-                    1,
-                    conditionName,
-                    0,
-                    0,
-                    0);
+                EffectHelpers.StartVisualEffect(glc, defender, PowerPaladinNeutralizePoison,
+                    EffectHelpers.EffectType.Effect);
+                foreach (var conditionName in damageTypes.Select(damageType => $"ConditionDomainNature{damageType}"))
+                {
+                    rulesetDefender.InflictCondition(
+                        conditionName,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetDefender.guid,
+                        rulesetDefender.CurrentFaction.Name,
+                        1,
+                        conditionName,
+                        0,
+                        0,
+                        0);
+                }
             }
         }
     }
