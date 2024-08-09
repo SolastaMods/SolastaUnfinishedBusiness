@@ -1498,7 +1498,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorElementalInfusion(SpellDefinition spellDefinition) :
-        ITryAlterOutcomeAttack, IMagicEffectBeforeHitConfirmedOnMe
+        IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         private static readonly IEnumerable<string> AllowedDamageTypes = DamagesAndEffects
             .Where(x => x.Item1 != DamageTypePoison)
@@ -1514,36 +1514,22 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect is RulesetEffectSpell &&
-                rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
-            {
-                yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
-            }
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
-        public int HandlerPriority => 10;
-
-        public IEnumerator OnTryAlterOutcomeAttack(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect)
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (helper != defender ||
-                !helper.CanReact() ||
-                !helper.RulesetCharacter.AreSpellComponentsValid(spellDefinition))
-            {
-                yield break;
-            }
-
-            var actualEffectForms =
-                attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
-
-            yield return HandleReaction(battleManager, attacker, helper, actualEffectForms);
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
@@ -1552,6 +1538,11 @@ internal static partial class SpellBuilders
             GameLocationCharacter helper,
             IEnumerable<EffectForm> actualEffectForms)
         {
+            if (!helper.CanReact())
+            {
+                yield break;
+            }
+
             var attackDamageTypes = actualEffectForms
                 .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
                 .Select(x => x.DamageForm.DamageType)

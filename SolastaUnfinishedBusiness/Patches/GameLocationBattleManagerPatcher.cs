@@ -378,6 +378,20 @@ public static class GameLocationBattleManagerPatcher
                     rangedAttack, advantageType, actualEffectForms, firstTarget, criticalHit);
             }
 
+            //PATCH: support for `IMagicEffectBeforeHitConfirmedOnMe` on SPELLS
+            // should also happen outside battles
+            if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                foreach (var attackBeforeHitConfirmedOnMe in defender.RulesetCharacter.UsableSpells
+                             .SelectMany(x => x.GetAllSubFeaturesOfType<IPhysicalAttackBeforeHitConfirmedOnMe>())
+                             .ToList())
+                {
+                    yield return attackBeforeHitConfirmedOnMe.OnPhysicalAttackBeforeHitConfirmedOnMe(
+                        __instance, attacker, defender, attackModifier, attackMode,
+                        rangedAttack, advantageType, actualEffectForms, firstTarget, criticalHit);
+                }
+            }
+
             //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe`
             if (__instance.Battle != null)
             {
