@@ -362,10 +362,7 @@ public class PatronCelestial : AbstractSubclass
             {
                 var hitPoints = rulesetCharacter.MissingHitPoints / 2;
 
-                rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
-
-                ServiceRepository.GetService<ICommandService>()
-                    ?.ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
+                defender.MyExecuteActionStabilizeAndStandUp(hitPoints);
             }
         }
     }

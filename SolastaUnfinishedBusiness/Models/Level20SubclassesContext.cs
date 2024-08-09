@@ -1863,10 +1863,7 @@ internal static class Level20SubclassesContext
             void ReactionValidated()
             {
                 rulesetCharacter.ForceKiPointConsumption(1);
-                rulesetCharacter.StabilizeAndGainHitPoints(1);
-
-                ServiceRepository.GetService<ICommandService>()
-                    ?.ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
+                defender.MyExecuteActionStabilizeAndStandUp(1);
             }
         }
     }

@@ -369,14 +369,12 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             void ReactionValidated()
             {
+                defender.MyExecuteActionStabilizeAndStandUp(1);
+
                 var tempHitPoints = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Sorcerer) * 3;
 
-                rulesetCharacter.StabilizeAndGainHitPoints(1);
                 rulesetCharacter.ReceiveTemporaryHitPoints(
                     tempHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
-
-                ServiceRepository.GetService<ICommandService>()?
-                    .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
             }
         }
     }

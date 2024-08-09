@@ -71,6 +71,22 @@ public static class GameLocationCharacterExtensions
         actionService.ExecuteAction(actionParams, null, true);
     }
 
+    internal static void MyExecuteActionStabilizeAndStandUp(
+        this GameLocationCharacter character, int hitPoints, IMagicEffect magicEffect = null)
+    {
+        var commandService = ServiceRepository.GetService<ICommandService>();
+        var rulesetCharacter = character.RulesetCharacter;
+
+        rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
+
+        if (magicEffect != null)
+        {
+            EffectHelpers.StartVisualEffect(character, character, magicEffect, EffectHelpers.EffectType.Caster);
+        }
+
+        commandService.ExecuteInstantSingleAction(new CharacterActionParams(character, Id.StandUp));
+    }
+
     internal static IEnumerator MyReactToDoNothing(
         this GameLocationCharacter character,
         ExtraActionId actionId,
@@ -121,7 +137,7 @@ public static class GameLocationCharacterExtensions
         ReactionResourcePowerPool resource = null)
     {
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-        
+
         battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
         if (!actionManager || !battleManager)
@@ -135,14 +151,9 @@ public static class GameLocationCharacterExtensions
             Id.AttackOpportunity,
             attackMode,
             defender,
-            actionModifier)
-        {
-            StringParameter2 = stringParameter2
-        };
-        var reactionRequest = new ReactionRequestReactionAttack(stringParameter2, reactionParams)
-        {
-            Resource = resource
-        };
+            actionModifier) { StringParameter2 = stringParameter2 };
+        var reactionRequest =
+            new ReactionRequestReactionAttack(stringParameter2, reactionParams) { Resource = resource };
 
         actionManager.AddInterruptRequest(reactionRequest);
 
@@ -181,7 +192,8 @@ public static class GameLocationCharacterExtensions
             StringParameter2 = stringParameter2,
             RulesetEffect =
                 implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
-            UsablePower = usablePower
+            UsablePower = usablePower,
+            IsReactionEffect = true
         };
 
         actionService.ReactToSpendPower(actionParams);
