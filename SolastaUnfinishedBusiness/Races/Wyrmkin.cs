@@ -362,28 +362,23 @@ internal static class RaceWyrmkinBuilder
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var actionParams = new CharacterActionParams(defender, Id.AttackOpportunity)
+            yield return defender.MyReactForOpportunityAttack(
+                attacker,
+                attacker,
+                retaliationMode,
+                retaliationModifier,
+                "ReactiveRetribution",
+                ReactionValidated,
+                battleManager);
+
+            yield break;
+            
+            void ReactionValidated()
             {
-                StringParameter = defender.Name,
-                ActionModifiers = { retaliationModifier },
-                AttackMode = retaliationMode,
-                TargetCharacters = { attacker }
-            };
-            var reactionRequest = new ReactionRequestReactionAttack("ReactiveRetribution", actionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+                var usablePower = PowerProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetDefender);
 
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetDefender.UsePower(usablePower);
             }
-
-            var usablePower = PowerProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetDefender);
-
-            rulesetDefender.UsePower(usablePower);
         }
     }
 
