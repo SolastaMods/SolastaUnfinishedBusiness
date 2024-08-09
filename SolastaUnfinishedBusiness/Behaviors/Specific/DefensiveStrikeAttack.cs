@@ -89,65 +89,42 @@ internal static class DefensiveStrikeAttack
         //Calculate bonus
         var charisma = unitCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma);
         var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
-        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-        if (!actionManager)
-        {
-            yield break;
-        }
-
-        var actionParams = new CharacterActionParams(unit, (Id)ExtraActionId.DoNothingReaction)
-        {
-            StringParameter = $"CustomReaction{OathOfAltruism.DefensiveStrike}Description"
-                .Formatted(Category.Reaction, defender.Name, attacker.Name, bonus)
-        };
-
-        var count = actionManager.PendingReactionRequestGroups.Count;
-
-        var reactionRequest = new ReactionRequestCustom(OathOfAltruism.DefensiveStrike, actionParams)
-        {
-            Resource = ReactionResourceChannelDivinity.Instance
-        };
-
-        actionManager.AddInterruptRequest(reactionRequest);
-
-        yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-        if (!actionParams.ReactionValidated)
-        {
-            yield break;
-        }
-
-        //spend resources
-        unitCharacter.UsedChannelDivinity++;
-
-        //create attack mode copy so we won't affect real one
-        var attackMode = RulesetAttackMode.AttackModesPool.Get();
-
-        attackMode.Copy(opportunityAttackMode);
-        opportunityAttackMode = attackMode;
-
-        //Apply bonus to hit and damage of the attack mode
-        opportunityAttackMode.EffectDescription.FindFirstDamageForm().BonusDamage += bonus;
-        opportunityAttackMode.ToHitBonus += bonus;
-        opportunityAttackMode.ToHitBonusTrends.Add(
-            new TrendInfo(bonus, FeatureSourceType.CharacterFeature, OathOfAltruism.DefensiveStrike, unit));
-
-        //Create and execute attack
-        var enums = new CharacterActionAttack(new CharacterActionParams(
-            defender,
-            Id.AttackOpportunity,
-            opportunityAttackMode,
+        yield return unit.MyReactToDoNothing(
+            ExtraActionId.DoNothingReaction,
             attacker,
-            actionModifier)).Execute();
+            OathOfAltruism.DefensiveStrike,
+            $"CustomReaction{OathOfAltruism.DefensiveStrike}Description"
+                .Formatted(Category.Reaction, defender.Name, attacker.Name, bonus),
+            ReactionValidated,
+            battleManager: battleManager,
+            resource: ReactionResourceChannelDivinity.Instance);
 
-        while (enums.MoveNext())
+        yield break;
+        
+        void ReactionValidated()
         {
-            yield return enums.Current;
-        }
+            //spend resources
+            unitCharacter.UsedChannelDivinity++;
 
-        //return our copied attack mode to the pool
-        RulesetAttackMode.AttackModesPool.Return(opportunityAttackMode);
+            //create attack mode copy so we won't affect real one
+            var attackMode = RulesetAttackMode.AttackModesPool.Get();
+
+            attackMode.Copy(opportunityAttackMode);
+            opportunityAttackMode = attackMode;
+
+            //Apply bonus to hit and damage of the attack mode
+            opportunityAttackMode.EffectDescription.FindFirstDamageForm().BonusDamage += bonus;
+            opportunityAttackMode.ToHitBonus += bonus;
+            opportunityAttackMode.ToHitBonusTrends.Add(
+                new TrendInfo(bonus, FeatureSourceType.CharacterFeature, OathOfAltruism.DefensiveStrike, unit));
+
+            //Execute attack
+            defender.MyExecuteActionOpportunityAttack(attacker, opportunityAttackMode, actionModifier);
+
+            //return our copied attack mode to the pool
+            RulesetAttackMode.AttackModesPool.Return(opportunityAttackMode);
+        }
     }
 }
 
