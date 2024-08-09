@@ -146,16 +146,21 @@ public sealed class PathOfTheBeast : AbstractSubclass
         var powerCallTheHunt = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CallTheHunt")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.OnPowerActivatedAuto)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
-                EffectDescriptionBuilder.Create()
+                EffectDescriptionBuilder
+                    .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .AddEffectForms(EffectFormBuilder.ConditionForm(conditionCallTheHunt))
                     .Build())
             .AddToDB();
+
         // need to handle custom because OnRageStartChoice doesn't seem to affect allies
-        powerCallTheHunt.AddCustomSubFeatures(new PowerCallTheHuntHandler(powerCallTheHunt));
+        powerCallTheHunt.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new PowerCallTheHuntHandler(powerCallTheHunt));
         return powerCallTheHunt;
     }
 
@@ -827,63 +832,39 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
 {
     public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
     {
-        if (characterAction is not CharacterActionCombatRageStart)
-        {
-            yield break;
-        }
-
-        var actionManager =
-            ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-        if (!actionManager || !battleManager)
-        {
-            yield break;
-        }
-
         var character = characterAction.ActingCharacter;
         var rulesetCharacter = character.RulesetCharacter;
-
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
         var usablePower = PowerProvider.Get(power, rulesetCharacter);
-        var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.SpendPower)
-        {
-            StringParameter = "CallTheHunt",
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-            UsablePower = usablePower,
-            targetCharacters = [],
-            actionModifiers = []
-        };
 
-        foreach (var ally in locationCharacterService.AllValidEntities
-                     .Where(x =>
-                         x.Side == character.Side &&
-                         x.IsWithinRange(character, 6) &&
-                         x.CanAct())
-                     .ToList())
-        {
-            actionParams.targetCharacters.Add(ally);
-            actionParams.actionModifiers.Add(new ActionModifier());
-        }
-
-        var count = actionManager.PendingReactionRequestGroups.Count;
-        var reactionRequest = new ReactionRequestSpendPower(actionParams);
-
-        actionManager.AddInterruptRequest(reactionRequest);
-
-        yield return battleManager.WaitForReactions(character, actionManager, count);
-
-        if (!reactionRequest.Validated)
+        if (characterAction is not CharacterActionCombatRageStart ||
+            rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
         {
             yield break;
         }
 
-        rulesetCharacter.ReceiveTemporaryHitPoints(
-            15, DurationType.UntilAnyRest, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var targets =
+            locationCharacterService.PartyCharacters
+                .Union(locationCharacterService.GuestCharacters)
+                .Where(x =>
+                    x.CanAct() &&
+                    x.IsWithinRange(character, 6))
+                .ToList();
+
+        yield return character.MyReactToUsePower(
+            ActionDefinitions.Id.PowerNoCost,
+            usablePower,
+            targets,
+            character,
+            "CallTheHunt",
+            reactionValidated: ReactionValidated);
+
+        yield break;
+
+        void ReactionValidated()
+        {
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                15, DurationType.UntilAnyRest, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+        }
     }
 }
