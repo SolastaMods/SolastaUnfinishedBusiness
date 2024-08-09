@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -264,7 +265,7 @@ public sealed class OathOfHatred : AbstractSubclass
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -273,11 +274,7 @@ public sealed class OathOfHatred : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager ||
-                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
                 !helper.OncePerTurnIsValid(power.Name))
             {
@@ -287,32 +284,29 @@ public sealed class OathOfHatred : AbstractSubclass
             var guiAttacker = new GuiCharacter(attacker);
             var guiDefender = new GuiCharacter(defender);
 
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            yield return attacker.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                attacker,
+                "HatredArdentHate",
+                "CustomReactionHatredArdentHateDescription".Formatted(
+                    Category.Reaction, guiAttacker.Name, guiDefender.Name),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = Gui.Format(
-                    "Reaction/&CustomReactionHatredArdentHateDescription", guiAttacker.Name, guiDefender.Name)
-            };
-            var reactionRequest = new ReactionRequestCustom("HatredArdentHate", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+                attacker.UsedSpecialFeatures.TryAdd(power.Name, 1);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                var delta = -action.AttackSuccessDelta;
 
-            yield return battle.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                action.AttackRollOutcome = RollOutcome.Success;
+                action.AttackSuccessDelta = 0;
+                action.AttackRoll += delta;
+                attackModifier.AttackRollModifier += delta;
+                attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
             }
-
-            attacker.UsedSpecialFeatures.TryAdd(power.Name, 1);
-
-            var delta = -action.AttackSuccessDelta;
-
-            action.AttackRollOutcome = RollOutcome.Success;
-            action.AttackSuccessDelta = 0;
-            action.AttackRoll += delta;
-            attackModifier.AttackRollModifier += delta;
-            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }
     }
 }
