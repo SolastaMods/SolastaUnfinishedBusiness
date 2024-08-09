@@ -675,7 +675,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             EffectHelpers
                 .StartVisualEffect(attacker, defender, SpellDefinitions.Shatter, EffectHelpers.EffectType.Zone);
-            attacker.MyExecuteAction(ActionDefinitions.Id.SpendPower, usablePower, targets);
+            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
         }
     }
 

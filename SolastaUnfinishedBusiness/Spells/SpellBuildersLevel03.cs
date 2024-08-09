@@ -738,7 +738,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.SpendPower, usablePower, _targets);
+            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, _targets);
         }
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
