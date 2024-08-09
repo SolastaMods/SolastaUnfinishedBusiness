@@ -1,7 +1,9 @@
 Condition/&ConditionForesightDescription=Преимущество на все броски атаки, проверки характеристик и спасброски. Остальные существа получают помеху на броски атаки по вам.
 Condition/&ConditionForesightTitle=Предвидение
-Condition/&ConditionTimeStopDescription=Время остановилось для этого существа.
-Condition/&ConditionTimeStopTitle=Замер во времени
+Condition/&ConditionTimeStopDescription=Вы делаете 1d4+1 ход подряд.
+Condition/&ConditionTimeStopEnemyDescription=Время для вас остановилось.
+Condition/&ConditionTimeStopEnemyTitle=Остановка времени
+Condition/&ConditionTimeStopTitle=Остановка времени
 Condition/&ConditionWeirdDescription=Испуган. В конце каждого своего хода совершает спасбросок Мудрости. При провале получает 4d10 психического урона. При успехе состояние оканчивается.
 Condition/&ConditionWeirdTitle=В ужасе
 Feedback/&TimeStop={0} получает {2} дополнительных раундов

@@ -1,7 +1,9 @@
 Condition/&ConditionForesightDescription=Ventaja en todas las tiradas de ataque, comprobaciones de característica y tiradas de salvación. Las demás criaturas tienen desventaja en las tiradas de ataque.
 Condition/&ConditionForesightTitle=Previsión
-Condition/&ConditionTimeStopDescription=El tiempo se congela para la criatura afectada.
-Condition/&ConditionTimeStopTitle=El tiempo se detuvo
+Condition/&ConditionTimeStopDescription=Realizas 1d4+1 turnos seguidos.
+Condition/&ConditionTimeStopEnemyDescription=El tiempo se ha detenido para ti.
+Condition/&ConditionTimeStopEnemyTitle=Detener el tiempo
+Condition/&ConditionTimeStopTitle=Detener el tiempo
 Condition/&ConditionWeirdDescription=Asustado. Al final de cada turno, realiza una tirada de salvación de Sabiduría. Si falla, sufre 4d10 de daño psíquico. Si tiene éxito, esta condición termina.
 Condition/&ConditionWeirdTitle=Extraño
 Feedback/&TimeStop={0} gana {2} rondas adicionales

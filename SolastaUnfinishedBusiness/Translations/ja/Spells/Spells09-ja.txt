@@ -1,7 +1,9 @@
 Condition/&ConditionForesightDescription=すべての攻撃ロール、能力チェック、セーヴィング スローで有利になります。他のクリーチャーは攻撃ロールで不利になります。
 Condition/&ConditionForesightTitle=先見の明
-Condition/&ConditionTimeStopDescription=影響を受けたクリーチャーの時間は停止します。
-Condition/&ConditionTimeStopTitle=止まった時間
+Condition/&ConditionTimeStopDescription=連続して 1d4+1 ターンを実行します。
+Condition/&ConditionTimeStopEnemyDescription=あなたにとって時間は止まっています。
+Condition/&ConditionTimeStopEnemyTitle=時間停止
+Condition/&ConditionTimeStopTitle=時間停止
 Condition/&ConditionWeirdDescription=恐ろしかった。各ターンの終了時に、知恵のセーヴィング スローを行います。失敗すると、4d10の精神的ダメージを受ける。成功すると、この状態は終了します。
 Condition/&ConditionWeirdTitle=奇妙な
 Feedback/&TimeStop={0}は{2}ラウンド追加獲得

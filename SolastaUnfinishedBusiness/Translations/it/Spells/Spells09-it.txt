@@ -1,7 +1,9 @@
 Condition/&ConditionForesightDescription=Vantaggio su tutti i tiri per colpire, prove di abilità e tiri salvezza. Le altre creature hanno svantaggio sui tiri per colpire.
 Condition/&ConditionForesightTitle=Lungimiranza
-Condition/&ConditionTimeStopDescription=Per la creatura interessata il tempo è congelato.
-Condition/&ConditionTimeStopTitle=Il tempo si è fermato
+Condition/&ConditionTimeStopDescription=Si svolgono 1d4+1 turni consecutivi.
+Condition/&ConditionTimeStopEnemyDescription=Per te il tempo si è fermato.
+Condition/&ConditionTimeStopEnemyTitle=Fermata del tempo
+Condition/&ConditionTimeStopTitle=Fermata del tempo
 Condition/&ConditionWeirdDescription=Spaventato. Alla fine di ogni turno, fai un tiro salvezza su Saggezza. In caso di fallimento, subisci 4d10 danni psichici. In caso di successo, questa condizione termina.
 Condition/&ConditionWeirdTitle=Strano
 Feedback/&TimeStop={0} guadagna {2} round aggiuntivi

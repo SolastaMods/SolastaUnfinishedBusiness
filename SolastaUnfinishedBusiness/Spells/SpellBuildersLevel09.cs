@@ -284,6 +284,12 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(new ActionFinishedByMeTimeStop())
             .AddToDB();
 
+        var conditionTimeStopEnemy = ConditionDefinitionBuilder
+            .Create("ConditionTimeStopEnemy")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime)
+            .SetConditionType(ConditionType.Detrimental)
+            .AddToDB();
+        
         return SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.TimeStop, 128))
@@ -298,47 +304,38 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Permanent)
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTimeStop))
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 24)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionTimeStopEnemy),
+                        EffectFormBuilder.ConditionForm(
+                            conditionTimeStop,
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(DispelMagic)
+                    .SetCasterEffectParameters(GravitySlam)
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorTimeStop())
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeTimeStop 
-        : IActionFinishedByMe, ICharacterBeforeTurnEndListener, IOnConditionAddedOrRemoved
+    private sealed class ActionFinishedByMeTimeStop : IActionFinishedByMe, ICharacterBeforeTurnEndListener
     {
+        // remove time stop if any action has non self target
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             var character = action.ActingCharacter;
             var targets = action.ActionParams.TargetCharacters;
-            var hasNonSelfTarget = targets.Any(x => x != character);
+            var hasNonSelfTarget = targets == null || targets.Any(x => x != character);
 
             if (!hasNonSelfTarget)
             {
                 yield break;
             }
-
-            var rulesetCharacter = character.RulesetCharacter;
-
-            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, "ConditionTimeStop", out var activeCondition))
-            {
-                rulesetCharacter.RemoveCondition(activeCondition);
-            }
-        }
-
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-
-        }
-
-        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            RemoveDuplicateContenders(GameLocationCharacter.GetFromActor(target));
+            
+            RemoveTimeStop(character);
         }
         
+        // remove time stop after last instance turn
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var battle = Gui.Battle;
@@ -355,20 +352,52 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            RemoveDuplicateContenders(locationCharacter);
+            RemoveTimeStop(locationCharacter);
         }
 
-        private static void RemoveDuplicateContenders(GameLocationCharacter locationCharacter)
+        private static void RemoveTimeStop(GameLocationCharacter locationCharacter)
         {
             var battle = Gui.Battle;
-            
-            while (battle.InitiativeSortedContenders.Count(x => x == locationCharacter) > 1)
+
+            // remove duplicates
+            if (Gui.Battle != null)
             {
-                var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
+                while (battle.InitiativeSortedContenders.Count(x => x == locationCharacter) > 1)
+                {
+                    var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
                 
-                battle.InitiativeSortedContenders.RemoveAt(index);
+                    battle.InitiativeSortedContenders.RemoveAt(index);
+                }
+            }
+             
+            // remove time stop condition from others
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
+
+            foreach (var rulesetContender in contenders
+                         .Select(contender => contender.RulesetCharacter))
+            {
+                if (rulesetContender.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, "ConditionTimeStopEnemy", out var activeConditionEnemy) &&
+                    activeConditionEnemy.SourceGuid == rulesetContender.Guid)
+                {
+                    rulesetContender.RemoveCondition(activeConditionEnemy);
+                }
             }
             
+            // remove time stop from self
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionTimeStop", out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+            
+            // refresh UI
             var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
 
             gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,

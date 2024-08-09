@@ -1,9 +1,9 @@
 Condition/&ConditionForesightDescription=Advantage on all attack rolls, ability checks, and saving throws. Other creatures have disadvantage on attack rolls.
 Condition/&ConditionForesightTitle=Foresight
-Condition/&ConditionTimeStopDescription=Time is frozen for the affected creature.
 Condition/&ConditionTimeStopDescription=You take 1d4+1 turns in a row.
+Condition/&ConditionTimeStopEnemyDescription=The time has stopped for you.
+Condition/&ConditionTimeStopEnemyTitle=Time Stop
 Condition/&ConditionTimeStopTitle=Time Stop
-Condition/&ConditionTimeStopTitle=Time Stopped
 Condition/&ConditionWeirdDescription=Frightened. At the end of each turn, make a Wisdom saving throw. On a failure, take 4d10 psychic damage. On a success, this condition ends.
 Condition/&ConditionWeirdTitle=Weirded
 Feedback/&TimeStop={0} gains {2} additional rounds

@@ -1,7 +1,9 @@
 Condition/&ConditionForesightDescription=在所有攻击检定、能力检定和豁免检定上具有优势。其他生物在攻击检定上有劣势。
 Condition/&ConditionForesightTitle=预警术
-Condition/&ConditionTimeStopDescription=受影响生物的时间被冻结。
-Condition/&ConditionTimeStopTitle=时间被停止
+Condition/&ConditionTimeStopDescription=你连续进行 1d4+1 轮。
+Condition/&ConditionTimeStopEnemyDescription=时间对你来说已停止。
+Condition/&ConditionTimeStopEnemyTitle=時間停止
+Condition/&ConditionTimeStopTitle=時間停止
 Condition/&ConditionWeirdDescription=受惊。在每个回合结束时，进行一次感知豁免。失败时，受到 4d10 心灵伤害。成功时，此条件结束。
 Condition/&ConditionWeirdTitle=怪影杀手
 Feedback/&TimeStop={0} 获得 {2} 个额外回合

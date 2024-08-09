@@ -1,7 +1,9 @@
 Condition/&ConditionForesightDescription=Avantage sur tous les jets d'attaque, de caractéristique et de sauvegarde. Les autres créatures ont un désavantage sur les jets d'attaque.
 Condition/&ConditionForesightTitle=Prévoyance
-Condition/&ConditionTimeStopDescription=Le temps est figé pour la créature affectée.
-Condition/&ConditionTimeStopTitle=Le temps s'est arrêté
+Condition/&ConditionTimeStopDescription=Vous jouez 1d4+1 tours d'affilée.
+Condition/&ConditionTimeStopEnemyDescription=Le temps s'est arrêté pour vous.
+Condition/&ConditionTimeStopEnemyTitle=Arrêt du temps
+Condition/&ConditionTimeStopTitle=Arrêt du temps
 Condition/&ConditionWeirdDescription=Effrayé. À la fin de chaque tour, effectuez un jet de sauvegarde de Sagesse. En cas d'échec, subissez 4d10 dégâts psychiques. En cas de réussite, cette condition prend fin.
 Condition/&ConditionWeirdTitle=Bizarre
 Feedback/&TimeStop={0} gagne {2} tours supplémentaires

@@ -1,7 +1,9 @@
 Condition/&ConditionForesightDescription=모든 공격 굴림, 능력 판정, 내성 굴림에 유리합니다. 다른 생물은 공격 굴림에 불리한 점이 있습니다.
 Condition/&ConditionForesightTitle=선견
-Condition/&ConditionTimeStopDescription=영향을 받은 생물의 시간은 동결됩니다.
-Condition/&ConditionTimeStopTitle=정지된 시간
+Condition/&ConditionTimeStopDescription=연속으로 1d4+1턴을 진행합니다.
+Condition/&ConditionTimeStopEnemyDescription=당신의 시간은 멈췄습니다.
+Condition/&ConditionTimeStopEnemyTitle=시간 정지
+Condition/&ConditionTimeStopTitle=시간 정지
 Condition/&ConditionWeirdDescription=겁먹은. 매 턴이 끝날 때마다 지혜 내성 굴림을 합니다. 실패하면 4d10의 정신적 피해를 입습니다. 성공하면 이 조건이 종료됩니다.
 Condition/&ConditionWeirdTitle=이상해
 Feedback/&TimeStop={0}은 {2}개의 추가 라운드를 얻습니다.

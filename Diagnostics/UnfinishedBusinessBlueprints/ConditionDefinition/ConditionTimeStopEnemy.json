@@ -2,11 +2,11 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -128,13 +128,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionTimeStopTitle",
-    "description": "Condition/&ConditionTimeStopDescription",
+    "title": "Condition/&ConditionTimeStopEnemyTitle",
+    "description": "Condition/&ConditionTimeStopEnemyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6eb5f89a-1722-57b5-bc21-d9e9ec17446c",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "7acad79b4cc3fd649884a5ce979ac17c",
+      "m_SubObjectName": "CurseOfTime",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e1d29b24-2799-5edd-a865-dbd2b5fc43b0",
+  "guid": "637edef6-8b8b-5244-8157-235b0eaf6411",
   "contentPack": 9999,
-  "name": "ConditionTimeStop"
+  "name": "ConditionTimeStopEnemy"
 }

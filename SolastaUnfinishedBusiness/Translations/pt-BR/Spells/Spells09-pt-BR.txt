@@ -1,7 +1,9 @@
 Condition/&ConditionForesightDescription=Vantagem em todas as jogadas de ataque, testes de habilidade e testes de resistência. Outras criaturas têm desvantagem em jogadas de ataque.
 Condition/&ConditionForesightTitle=Previsão
-Condition/&ConditionTimeStopDescription=O tempo é congelado para a criatura afetada.
-Condition/&ConditionTimeStopTitle=O tempo parou
+Condition/&ConditionTimeStopDescription=Você joga 1d4+1 turnos seguidos.
+Condition/&ConditionTimeStopEnemyDescription=O tempo parou para você.
+Condition/&ConditionTimeStopEnemyTitle=Parada do Tempo
+Condition/&ConditionTimeStopTitle=Parada do Tempo
 Condition/&ConditionWeirdDescription=Assustado. No final de cada turno, faça um teste de resistência de Sabedoria. Em caso de falha, receba 4d10 de dano psíquico. Em caso de sucesso, essa condição termina.
 Condition/&ConditionWeirdTitle=Estranho
 Feedback/&TimeStop={0} ganha {2} rodadas adicionais

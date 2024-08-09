@@ -1,7 +1,9 @@
 Condition/&ConditionForesightDescription=Vorteil bei allen Angriffswürfen, Fähigkeitsprüfungen und Rettungswürfen. Andere Kreaturen haben bei Angriffswürfen einen Nachteil.
 Condition/&ConditionForesightTitle=Voraussicht
-Condition/&ConditionTimeStopDescription=Für das betroffene Wesen ist die Zeit eingefroren.
-Condition/&ConditionTimeStopTitle=Die Zeit ist stehen geblieben
+Condition/&ConditionTimeStopDescription=Sie spielen 1W4+1 Runden hintereinander.
+Condition/&ConditionTimeStopEnemyDescription=Die Zeit ist für Sie stehen geblieben.
+Condition/&ConditionTimeStopEnemyTitle=Zeitstopp
+Condition/&ConditionTimeStopTitle=Zeitstopp
 Condition/&ConditionWeirdDescription=Verängstigt. Am Ende jeder Runde machst du einen Weisheitsrettungswurf. Bei einem Fehlschlag erleidest du 4W10 psychischen Schaden. Bei einem Erfolg endet dieser Zustand.
 Condition/&ConditionWeirdTitle=Seltsam
 Feedback/&TimeStop={0} erhält {2} zusätzliche Runden

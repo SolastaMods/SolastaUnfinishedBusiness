@@ -1323,7 +1323,7 @@ You assume the form of a different creature for the duration. The new form can b
 
 # 321. - *Time Stop* © (V) level 9 Transmutation [UB]
 
-You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
+You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4+1 turns in a row, during which you can use actions and move as normal. This spell ends if one of the actions you use during this period, or any effects that you create during this period, affects a creature other than you.
 
 # 322. - *Weird* © (V,S) level 9 Illusion [Concentration] [UB]
 
