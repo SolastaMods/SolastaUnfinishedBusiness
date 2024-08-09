@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -465,41 +466,38 @@ public class PatronArchfey : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            yield return defender.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                attacker,
+                TagMistyEscape,
+                $"CustomReaction{TagMistyEscape}Description".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = $"Reaction/&CustomReaction{TagMistyEscape}Description"
-            };
-            var reactionRequest = new ReactionRequestCustom(TagMistyEscape, reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+                defender.UsedSpecialFeatures.TryAdd(TagMistyEscape, 0);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                // trick to ensure enemy won't execute any more attack or shove action after teleport
+                var rulesetAttacker = attacker.RulesetCharacter;
+                var rulesetDefender = defender.RulesetCharacter;
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetAttacker.InflictCondition(
+                    conditionMistyEscape.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetDefender.guid,
+                    rulesetDefender.CurrentFaction.Name,
+                    1,
+                    conditionMistyEscape.Name,
+                    0,
+                    0,
+                    0);
             }
-
-            defender.UsedSpecialFeatures.TryAdd(TagMistyEscape, 0);
-
-            // trick to ensure enemy won't execute any more attack or shove action after teleport
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
-            rulesetAttacker.InflictCondition(
-                conditionMistyEscape.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetDefender.guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                conditionMistyEscape.Name,
-                0,
-                0,
-                0);
         }
     }
 
