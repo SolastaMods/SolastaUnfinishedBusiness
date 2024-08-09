@@ -2362,37 +2362,28 @@ internal static class OtherFeats
             GameLocationCharacter caster,
             GameLocationCharacter defender)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager || !battleManager)
+            if (!battleManager)
             {
                 yield break;
             }
 
             var (attackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(caster, battleManager);
 
-            if (attackMode == null ||
-                !defender.CanReact())
+            if (attackMode == null || !defender.CanReact())
             {
                 yield break;
             }
 
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.AttackOpportunity)
-            {
-                StringParameter = defender.Name,
-                ActionModifiers = { actionModifier },
-                AttackMode = attackMode,
-                TargetCharacters = { caster }
-            };
-            var reactionRequest = new ReactionRequestReactionAttack("MageSlayer", actionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(caster, actionManager, count);
+            yield return defender.MyReactForOpportunityAttack(
+                caster,
+                caster,
+                attackMode,
+                actionModifier,
+                "MageSlayer",
+                battleManager: battleManager);
         }
     }
 
