@@ -190,55 +190,51 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "CustomReactionArcaneDeflectionAttackDescription".Formatted(Category.Reaction)
-                };
-            var reactionRequest = new ReactionRequestCustom("ArcaneDeflectionAttack", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "ArcaneDeflectionAttack",
+                "CustomReactionArcaneDeflectionAttackDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+            yield break;
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                EffectHelpers.StartVisualEffect(
+                    helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
+                rulesetCharacter.InflictCondition(
+                    conditionArcaneDeflection.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    conditionArcaneDeflection.Name,
+                    0,
+                    0,
+                    0);
+
+                attackModifier.attackRollModifier -= bonus;
+                attackModifier.AttacktoHitTrends.Add(
+                    new TrendInfo(-bonus, FeatureSourceType.CharacterFeature, featureArcaneDeflection.Name,
+                        featureArcaneDeflection));
+                action.AttackSuccessDelta -= bonus;
+                action.AttackRollOutcome = RollOutcome.Failure;
+                helper.RulesetCharacter.LogCharacterUsedFeature(
+                    featureArcaneDeflection,
+                    "Feedback/&ArcaneDeflectionAttackRoll",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollAttackFailureTitle")
+                    ]);
+
+                HandleDeflectionShroud(helper);
             }
-
-            EffectHelpers.StartVisualEffect(
-                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
-            rulesetCharacter.InflictCondition(
-                conditionArcaneDeflection.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                conditionArcaneDeflection.Name,
-                0,
-                0,
-                0);
-
-            attackModifier.attackRollModifier -= bonus;
-            attackModifier.AttacktoHitTrends.Add(
-                new TrendInfo(-bonus, FeatureSourceType.CharacterFeature, featureArcaneDeflection.Name,
-                    featureArcaneDeflection));
-            action.AttackSuccessDelta -= bonus;
-            action.AttackRollOutcome = RollOutcome.Failure;
-            helper.RulesetCharacter.LogCharacterUsedFeature(
-                featureArcaneDeflection,
-                "Feedback/&ArcaneDeflectionAttackRoll",
-                extra:
-                [
-                    (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
-                    (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollAttackFailureTitle")
-                ]);
-
-            HandleDeflectionShroud(helper);
         }
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
@@ -267,51 +263,47 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "CustomReactionArcaneDeflectionSavingDescription".Formatted(Category.Reaction)
-                };
-            var reactionRequest = new ReactionRequestCustom("ArcaneDeflectionSaving", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "ArcaneDeflectionSaving",
+                "CustomReactionArcaneDeflectionSavingDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+            yield break;
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                EffectHelpers.StartVisualEffect(
+                    helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
+                rulesetCharacter.InflictCondition(
+                    conditionArcaneDeflection.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    conditionArcaneDeflection.Name,
+                    0,
+                    0,
+                    0);
+
+                action.SaveOutcomeDelta += bonus;
+                action.SaveOutcome = RollOutcome.Success;
+                helper.RulesetCharacter.LogCharacterUsedFeature(
+                    featureArcaneDeflection,
+                    "Feedback/&ArcaneDeflectionSavingRoll",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
+                    ]);
+
+                HandleDeflectionShroud(helper);
             }
-
-            EffectHelpers.StartVisualEffect(
-                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
-            rulesetCharacter.InflictCondition(
-                conditionArcaneDeflection.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                conditionArcaneDeflection.Name,
-                0,
-                0,
-                0);
-
-            action.SaveOutcomeDelta += bonus;
-            action.SaveOutcome = RollOutcome.Success;
-            helper.RulesetCharacter.LogCharacterUsedFeature(
-                featureArcaneDeflection,
-                "Feedback/&ArcaneDeflectionSavingRoll",
-                extra:
-                [
-                    (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
-                    (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
-                ]);
-
-            HandleDeflectionShroud(helper);
         }
 
         private void HandleDeflectionShroud(GameLocationCharacter helper)
