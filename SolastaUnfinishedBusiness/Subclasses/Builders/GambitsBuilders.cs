@@ -1394,13 +1394,8 @@ internal static class GambitsBuilders
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
             retaliationMode.AddAttackTagAsNeeded(MartialTactician.TacticalAwareness);
 
-            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.AttackOpportunity);
-
-            reactionParams.TargetCharacters.Add(attacker);
-            reactionParams.ActionModifiers.Add(retaliationModifier);
-            reactionParams.AttackMode = retaliationMode;
-
             var rulesetCharacter = defender.RulesetCharacter;
+            var tag = melee ? "GambitRiposte" : "GambitReturnFire";
 
             rulesetCharacter.InflictCondition(
                 condition.Name,
@@ -1416,23 +1411,22 @@ internal static class GambitsBuilders
                 0,
                 0);
 
-            var tag = melee ? "GambitRiposte" : "GambitReturnFire";
-            var reactionRequest = new ReactionRequestReactionAttack(tag, reactionParams)
+            yield return defender.MyReactForOpportunityAttack(
+                attacker,
+                attacker,
+                retaliationMode,
+                retaliationModifier,
+                tag,
+                ReactionValidated,
+                battleManager,
+                new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon));
+
+            yield break;
+            
+            void ReactionValidated()
             {
-                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
-            };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetCharacter.UpdateUsageForPower(pool, 1);
             }
-
-            rulesetCharacter.UpdateUsageForPower(pool, 1);
         }
     }
 
@@ -1717,7 +1711,8 @@ internal static class GambitsBuilders
                 attacker,
                 "GambitPrecise",
                 "CustomReactionGambitPreciseDescription"
-                    .Formatted(Category.Reaction, guiAttacker.Name, guiDefender.Name, delta.ToString(), Gui.FormatDieTitle(dieType)),
+                    .Formatted(Category.Reaction,
+                        guiAttacker.Name, guiDefender.Name, delta.ToString(), Gui.FormatDieTitle(dieType)),
                 ReactionValidated,
                 battleManager: battleManager,
                 resource: new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon));
