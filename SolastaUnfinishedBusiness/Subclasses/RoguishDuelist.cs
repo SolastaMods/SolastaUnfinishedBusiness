@@ -239,15 +239,13 @@ public sealed class RoguishDuelist : AbstractSubclass
 
             rulesetDefender.RemoveCondition(activeCondition);
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var actionParams = action.ActionParams.Clone();
             var attackModeMain = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
-            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.AttackFree];
-            actionParams.AttackMode = attackModeMain;
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionAttack(
+                ActionDefinitions.Id.AttackFree,
+                defender,
+                attackModeMain,
+                action.ActionParams.ActionModifiers[0]);
         }
     }
 

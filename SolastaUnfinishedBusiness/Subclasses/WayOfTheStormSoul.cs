@@ -324,13 +324,12 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             foreach (var target in targets)
             {
                 var attackModifier = new ActionModifier();
-                var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
-                {
-                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-                };
 
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
+                actingCharacter.MyExecuteActionAttack(
+                    ActionDefinitions.Id.AttackFree,
+                    target,
+                    attackMode,
+                    attackModifier);
             }
         }
     }

@@ -1422,7 +1422,7 @@ internal static class GambitsBuilders
                 new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon));
 
             yield break;
-            
+
             void ReactionValidated()
             {
                 rulesetCharacter.UpdateUsageForPower(pool, 1);
@@ -2130,14 +2130,11 @@ internal static class GambitsBuilders
         ActionModifier attackModifier,
         ActionDefinitions.Id actionId = ActionDefinitions.Id.AttackFree)
     {
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var attackActionParams =
-            new CharacterActionParams(actingCharacter, actionId)
-            {
-                AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-            };
-
-        actionService.ExecuteAction(attackActionParams, null, true);
+        actingCharacter.MyExecuteActionAttack(
+            actionId,
+            target,
+            attackMode,
+            attackModifier);
     }
 
     #endregion

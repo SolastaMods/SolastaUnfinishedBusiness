@@ -312,14 +312,14 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var actionParams = action.ActionParams.Clone();
-
-            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.AttackFree];
             attacker.UsedSpecialFeatures.TryAdd(featureStalkersFlurry.Name, 1);
             attacker.RulesetCharacter.LogCharacterUsedFeature(featureStalkersFlurry);
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+
+            attacker.MyExecuteActionAttack(
+                ActionDefinitions.Id.AttackFree,
+                defender,
+                attackMode,
+                action.ActionParams.ActionModifiers[0]);
         }
     }
 

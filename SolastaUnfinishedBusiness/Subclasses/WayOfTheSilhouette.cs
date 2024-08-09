@@ -250,14 +250,14 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var actionParams = action.ActionParams.Clone();
-
-            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.AttackFree];
             attacker.UsedSpecialFeatures.TryAdd(featureShadowFlurry.Name, 1);
             attacker.RulesetCharacter.LogCharacterUsedFeature(featureShadowFlurry);
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+
+            attacker.MyExecuteActionAttack(
+                ActionDefinitions.Id.AttackFree,
+                defender,
+                attackMode,
+                action.ActionParams.ActionModifiers[0]);
         }
     }
 
