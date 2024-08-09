@@ -354,93 +354,89 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            yield return defender.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "ShadowyDodge",
+                "CustomReactionShadowyDodgeDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                var attackRoll = action.AttackRoll;
+                var outcome = action.AttackRollOutcome;
+                var rollCaption = outcome == RollOutcome.CriticalSuccess
+                    ? "Feedback/&RollAttackCriticalSuccessTitle"
+                    : "Feedback/&RollAttackSuccessTitle";
+                var rulesetAttacker = attacker.RulesetCharacter;
+
+                int roll;
+                int toHitBonus;
+                int successDelta;
+
+                actionModifier.AttackAdvantageTrends.SetRange(new List<TrendInfo>
                 {
-                    StringParameter = "Reaction/&CustomReactionShadowyDodgeDescription"
-                };
-            var reactionRequest = new ReactionRequestCustom("ShadowyDodge", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+                    new(-1, FeatureSourceType.CharacterFeature, featureShadowyDodge.Name, featureShadowyDodge)
+                });
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                if (attackMode != null)
+                {
+                    toHitBonus = attackMode.ToHitBonus + actionModifier.AttackRollModifier;
+                    roll = rulesetAttacker.RollAttack(
+                        toHitBonus,
+                        defender.RulesetActor,
+                        attackMode.SourceDefinition,
+                        attackMode.ToHitBonusTrends,
+                        false,
+                        actionModifier.AttackAdvantageTrends,
+                        attackMode.ranged,
+                        false,
+                        actionModifier.AttackRollModifier,
+                        out outcome,
+                        out successDelta,
+                        -1,
+                        true);
+                }
+                else if (rulesetEffect != null)
+                {
+                    toHitBonus = rulesetEffect.MagicAttackBonus + actionModifier.AttackRollModifier;
+                    roll = rulesetAttacker.RollMagicAttack(
+                        rulesetEffect,
+                        defender.RulesetActor,
+                        rulesetEffect.GetEffectSource(),
+                        actionModifier.AttacktoHitTrends,
+                        actionModifier.AttackAdvantageTrends,
+                        false,
+                        actionModifier.AttackRollModifier,
+                        out outcome,
+                        out successDelta,
+                        -1,
+                        true);
+                }
+                // should never happen
+                else
+                {
+                    return;
+                }
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+                var rulesetDefender = defender.RulesetCharacter;
+                var sign = toHitBonus >= 0 ? "+" : string.Empty;
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var attackRoll = action.AttackRoll;
-            var outcome = action.AttackRollOutcome;
-            var rollCaption = outcome == RollOutcome.CriticalSuccess
-                ? "Feedback/&RollAttackCriticalSuccessTitle"
-                : "Feedback/&RollAttackSuccessTitle";
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            int roll;
-            int toHitBonus;
-            int successDelta;
-
-            actionModifier.AttackAdvantageTrends.SetRange(new List<TrendInfo>
-            {
-                new(-1, FeatureSourceType.CharacterFeature, featureShadowyDodge.Name, featureShadowyDodge)
-            });
-
-            if (attackMode != null)
-            {
-                toHitBonus = attackMode.ToHitBonus + actionModifier.AttackRollModifier;
-                roll = rulesetAttacker.RollAttack(
-                    toHitBonus,
-                    defender.RulesetActor,
-                    attackMode.SourceDefinition,
-                    attackMode.ToHitBonusTrends,
+                rulesetDefender.LogCharacterUsedFeature(
+                    featureShadowyDodge,
+                    "Feedback/&TriggerRerollLine",
                     false,
-                    actionModifier.AttackAdvantageTrends,
-                    attackMode.ranged,
-                    false,
-                    actionModifier.AttackRollModifier,
-                    out outcome,
-                    out successDelta,
-                    -1,
-                    true);
-            }
-            else if (rulesetEffect != null)
-            {
-                toHitBonus = rulesetEffect.MagicAttackBonus + actionModifier.AttackRollModifier;
-                roll = rulesetAttacker.RollMagicAttack(
-                    rulesetEffect,
-                    defender.RulesetActor,
-                    rulesetEffect.GetEffectSource(),
-                    actionModifier.AttacktoHitTrends,
-                    actionModifier.AttackAdvantageTrends,
-                    false,
-                    actionModifier.AttackRollModifier,
-                    out outcome,
-                    out successDelta,
-                    -1,
-                    true);
-            }
-            // should never happen
-            else
-            {
-                yield break;
-            }
+                    (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
+                    (ConsoleStyleDuplet.ParameterType.FailedRoll,
+                        Gui.Format(rollCaption, $"{attackRoll + toHitBonus}")));
 
-            var rulesetDefender = defender.RulesetCharacter;
-            var sign = toHitBonus >= 0 ? "+" : string.Empty;
-
-            rulesetDefender.LogCharacterUsedFeature(
-                featureShadowyDodge,
-                "Feedback/&TriggerRerollLine",
-                false,
-                (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
-                (ConsoleStyleDuplet.ParameterType.FailedRoll,
-                    Gui.Format(rollCaption, $"{attackRoll + toHitBonus}")));
-
-            action.AttackRollOutcome = outcome;
-            action.AttackSuccessDelta = successDelta;
-            action.AttackRoll = roll;
+                action.AttackRollOutcome = outcome;
+                action.AttackSuccessDelta = successDelta;
+                action.AttackRoll = roll;
+            }
         }
     }
 }
