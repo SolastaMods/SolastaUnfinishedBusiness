@@ -1164,12 +1164,7 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!actionManager || !battleManager || action.Countered)
+            if (action.Countered)
             {
                 yield break;
             }
@@ -1209,8 +1204,7 @@ internal static partial class SpellBuilders
                         remainingHitPoints.ToString(), maxHitPoints.ToString(), attacker.Name,
                         _spellCastingAbilityModifier.ToString()),
                     ReactionValidated,
-                    ReactionNotValidated,
-                    battleManager);
+                    ReactionNotValidated);
 
                 if (passed)
                 {

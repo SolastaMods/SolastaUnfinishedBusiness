@@ -657,11 +657,7 @@ internal static class RaceFeats
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager ||
-                action.AttackRoll != 1 ||
+            if (action.AttackRoll != 1 ||
                 attacker == helper ||
                 attacker.IsOppositeSide(helper.Side) ||
                 !helper.CanReact() ||
@@ -745,11 +741,7 @@ internal static class RaceFeats
             GameLocationCharacter helper,
             ActionModifier abilityCheckModifier)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager ||
-                abilityCheckData.AbilityCheckRoll != 1 ||
+            if (abilityCheckData.AbilityCheckRoll != 1 ||
                 abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
                 helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
@@ -834,11 +826,7 @@ internal static class RaceFeats
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager ||
-                !action.RolledSaveThrow ||
+            if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
