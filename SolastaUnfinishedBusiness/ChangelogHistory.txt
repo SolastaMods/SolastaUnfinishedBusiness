@@ -7,6 +7,7 @@
 - fixed Martial Guardian not getting the Sentinel feat
 - fixed Path of the Wild Magic retribution on self, and spirit blast soft lock
 - fixed Sunlit Blade cantrip highlighted condition duration
+- fixed Time Stop spell to work as in tabletop
 - fixed Toll the Dead and Wrack cantrips description
 - fixed Variant Spell Points consumption on slots above 5
 

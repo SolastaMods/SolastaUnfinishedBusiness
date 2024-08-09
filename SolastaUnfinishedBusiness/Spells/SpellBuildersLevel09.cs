@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -275,13 +278,10 @@ internal static partial class SpellBuilders
         const string NAME = "TimeStop";
 
         var conditionTimeStop = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionIncapacitated, "ConditionTimeStop")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
-            .SetFeatures()
-            .SetInterruptionDamageThreshold(1)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked, ConditionInterruption.Damaged)
-            .CopyParticleReferences(ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime)
+            .Create("ConditionTimeStop")
+            .SetGuiPresentation(Category.Condition, Sprites.GetSprite(NAME, Resources.ConditionTimeStop, 27, 32))
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new ActionFinishedByMeTimeStop())
             .AddToDB();
 
         return SpellDefinitionBuilder
@@ -297,16 +297,118 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 3)
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cylinder, 20, 10)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionTimeStop))
-                    .ExcludeCaster()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTimeStop))
                     .SetParticleEffectParameters(DispelMagic)
                     .Build())
+            .AddCustomSubFeatures(new CustomBehaviorTimeStop())
             .AddToDB();
     }
 
+    private sealed class ActionFinishedByMeTimeStop 
+        : IActionFinishedByMe, ICharacterBeforeTurnEndListener, IOnConditionAddedOrRemoved
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            var character = action.ActingCharacter;
+            var targets = action.ActionParams.TargetCharacters;
+            var hasNonSelfTarget = targets.Any(x => x != character);
+
+            if (!hasNonSelfTarget)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = character.RulesetCharacter;
+
+            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionTimeStop", out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            RemoveDuplicateContenders(GameLocationCharacter.GetFromActor(target));
+        }
+        
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null || battle.CurrentRound > 1)
+            {
+                return;
+            }
+
+            var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
+            
+            if (battle.activeContenderIndex != index)
+            {
+                return;
+            }
+
+            RemoveDuplicateContenders(locationCharacter);
+        }
+
+        private static void RemoveDuplicateContenders(GameLocationCharacter locationCharacter)
+        {
+            var battle = Gui.Battle;
+            
+            while (battle.InitiativeSortedContenders.Count(x => x == locationCharacter) > 1)
+            {
+                var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
+                
+                battle.InitiativeSortedContenders.RemoveAt(index);
+            }
+            
+            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
+
+            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
+                GameLocationBattle.ContenderModificationMode.Remove, false, false); 
+        }
+    }
+    
+    private sealed class CustomBehaviorTimeStop : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var locationCharacter = action.ActingCharacter;
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var initiativeSortedContenders = Gui.Battle.InitiativeSortedContenders;
+            var positionCharacter = initiativeSortedContenders.FirstOrDefault(x => x == locationCharacter);
+            var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
+            var dieRoll = RollDie(DieType.D4, AdvantageType.None, out _, out _);
+
+            rulesetCharacter.LogCharacterActivatesAbility(
+                string.Empty,
+                "Feedback/&TimeStop",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Base, dieRoll.ToString())
+                ]);
+            
+            for (var i = 0; i < dieRoll; i++)
+            {
+                initiativeSortedContenders.Insert(positionCharacterIndex + 1, locationCharacter);
+            }
+            
+            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
+
+            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
+                GameLocationBattle.ContenderModificationMode.Add, false, false);
+            
+            yield break;
+        }
+    }
+    
     #endregion
 
     #region Weird
