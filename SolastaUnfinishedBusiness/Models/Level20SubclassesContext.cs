@@ -2199,8 +2199,7 @@ internal static class Level20SubclassesContext
 
             var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
 
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Remove, false, false);
+            Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Remove, false, false);
         }
 
         public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
@@ -2219,6 +2218,8 @@ internal static class Level20SubclassesContext
             var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
 
             initiativeSortedContenders.Insert(positionCharacterIndex, locationCharacter);
+            
+            Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Add, false, false);
         }
     }
 

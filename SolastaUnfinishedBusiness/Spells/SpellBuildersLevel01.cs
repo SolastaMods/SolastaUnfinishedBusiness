@@ -2155,14 +2155,10 @@ internal static partial class SpellBuilders
             var rulesetCharacter = locationCharacter.RulesetCharacter;
             var roll = rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Remove, false, false);
-
+            Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Remove, false, false);
             locationCharacter.LastInitiative += roll;
             Gui.Battle.initiativeSortedContenders.Sort(Gui.Battle);
-
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Add, false, false);
+            Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Add, false, false);
 
             locationCharacter.RulesetCharacter.LogCharacterUsedFeature(
                 featureDefinition,
