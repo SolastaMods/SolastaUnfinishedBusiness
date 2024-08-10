@@ -54,6 +54,7 @@ Feature/&PowerPathOfTheWildMagicUnstableBacklashDescription=使用你的反应�
 Feature/&PowerPathOfTheWildMagicUnstableBacklashTitle=掌控浪潮
 Proxy/&ProxyPathOfTheWildMagicSummonTitle=狂野浪潮：召唤灵魂
 Reaction/&ReactionSpendPowerBundleControlledSurgeDescription=选择要激活的狂野涌动效果。如果未进行选择，则默认激活第一个效果。
+Reaction/&ReactionSpendPowerBundleControlledSurgeReactDescription=激活狂野涌动效果。
 Reaction/&ReactionSpendPowerBundleControlledSurgeReactTitle=启用
 Reaction/&ReactionSpendPowerBundleControlledSurgeTitle=控制浪涌
 Reaction/&UsePowerPathOfTheWildMagicUnstableBacklashDescription=使用你的反应来滚动狂野浪潮并替换主动效果。

@@ -54,6 +54,7 @@ Feature/&PowerPathOfTheWildMagicUnstableBacklashDescription=反応を使用し�
 Feature/&PowerPathOfTheWildMagicUnstableBacklashTitle=不安定な反発
 Proxy/&ProxyPathOfTheWildMagicSummonTitle=ワイルドサージ：召喚されたスピリット
 Reaction/&ReactionSpendPowerBundleControlledSurgeDescription=有効にするワイルドサージ効果を選択します。選択しない場合は、デフォルトで最初の効果が有効になります。
+Reaction/&ReactionSpendPowerBundleControlledSurgeReactDescription=ワイルドサージ効果を発動します。
 Reaction/&ReactionSpendPowerBundleControlledSurgeReactTitle=活性化
 Reaction/&ReactionSpendPowerBundleControlledSurgeTitle=制御されたサージ
 Reaction/&UsePowerPathOfTheWildMagicUnstableBacklashDescription=反応を使用してワイルドサージをロールし、アクティブな効果を置き換えます。

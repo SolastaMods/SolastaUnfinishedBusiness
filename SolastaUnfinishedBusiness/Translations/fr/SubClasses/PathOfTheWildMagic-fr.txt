@@ -54,6 +54,7 @@ Feature/&PowerPathOfTheWildMagicUnstableBacklashDescription=Utilisez votre réac
 Feature/&PowerPathOfTheWildMagicUnstableBacklashTitle=Contrecoup instable
 Proxy/&ProxyPathOfTheWildMagicSummonTitle=Wild Surge : Esprit invoqué
 Reaction/&ReactionSpendPowerBundleControlledSurgeDescription=Sélectionnez un effet Wild Surge à activer. Si aucune sélection n'est effectuée, le premier effet sera activé par défaut.
+Reaction/&ReactionSpendPowerBundleControlledSurgeReactDescription=Activez un effet Wild Surge.
 Reaction/&ReactionSpendPowerBundleControlledSurgeReactTitle=Activer
 Reaction/&ReactionSpendPowerBundleControlledSurgeTitle=Surtension contrôlée
 Reaction/&UsePowerPathOfTheWildMagicUnstableBacklashDescription=Utilisez votre réaction pour lancer Wild Surge et remplacer l'effet actif.

@@ -54,6 +54,7 @@ Feature/&PowerPathOfTheWildMagicUnstableBacklashDescription=반응을 사용하�
 Feature/&PowerPathOfTheWildMagicUnstableBacklashTitle=불안정한 반발
 Proxy/&ProxyPathOfTheWildMagicSummonTitle=와일드 서지: 소환된 영혼
 Reaction/&ReactionSpendPowerBundleControlledSurgeDescription=활성화할 Wild Surge 효과를 선택합니다. 선택하지 않으면 기본적으로 첫 번째 효과가 활성화됩니다.
+Reaction/&ReactionSpendPowerBundleControlledSurgeReactDescription=와일드 서지 효과를 활성화합니다.
 Reaction/&ReactionSpendPowerBundleControlledSurgeReactTitle=활성화
 Reaction/&ReactionSpendPowerBundleControlledSurgeTitle=제어된 서지
 Reaction/&UsePowerPathOfTheWildMagicUnstableBacklashDescription=반응을 사용하여 Wild Surge를 굴리고 활성 효과를 교체하십시오.

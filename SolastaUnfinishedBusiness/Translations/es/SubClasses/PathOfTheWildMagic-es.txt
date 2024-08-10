@@ -54,6 +54,7 @@ Feature/&PowerPathOfTheWildMagicUnstableBacklashDescription=Usa tu reacción par
 Feature/&PowerPathOfTheWildMagicUnstableBacklashTitle=Reacción inestable
 Proxy/&ProxyPathOfTheWildMagicSummonTitle=Oleada salvaje: Espíritu invocado
 Reaction/&ReactionSpendPowerBundleControlledSurgeDescription=Selecciona un efecto de Oleada salvaje para activar. Si no realizas ninguna selección, se activará el primer efecto de forma predeterminada.
+Reaction/&ReactionSpendPowerBundleControlledSurgeReactDescription=Activa un efecto de Oleada salvaje.
 Reaction/&ReactionSpendPowerBundleControlledSurgeReactTitle=Activar
 Reaction/&ReactionSpendPowerBundleControlledSurgeTitle=Aumento controlado
 Reaction/&UsePowerPathOfTheWildMagicUnstableBacklashDescription=Usa tu reacción para lanzar Oleada salvaje y reemplazar el efecto activo.
