@@ -359,9 +359,20 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(Disintegrate)
                     .SetEffectEffectParameters(Disintegrate)
                     .Build())
+            .AddCustomSubFeatures(new PowerOrSpellInitiatedByMeCorruptingBolt())
             .AddToDB();
 
         return spell;
+    }
+
+    private sealed class PowerOrSpellInitiatedByMeCorruptingBolt : IPowerOrSpellInitiatedByMe
+    {
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActingCharacter.UsedSpecialFeatures.TryAdd("CorruptingBolt", 0);
+
+            yield break;
+        }
     }
 
     private sealed class CustomBehaviorCorruptingBolt : IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe
@@ -372,6 +383,12 @@ internal static partial class SpellBuilders
             GameLocationCharacter defender,
             List<GameLocationCharacter> targets)
         {
+            // finishing corrupting bolt cast
+            if (attacker.UsedSpecialFeatures.Remove("CorruptingBolt"))
+            {
+                yield break;
+            }
+
             var rulesetEffect = action.ActionParams.RulesetEffect;
 
             if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
@@ -381,8 +398,8 @@ internal static partial class SpellBuilders
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            rulesetDefender.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
-                "ConditionCorruptingBolt");
+            rulesetDefender.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, "ConditionCorruptingBolt");
         }
 
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -396,8 +413,8 @@ internal static partial class SpellBuilders
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            rulesetDefender.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
-                "ConditionCorruptingBolt");
+            rulesetDefender.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, "ConditionCorruptingBolt");
 
             yield break;
         }
