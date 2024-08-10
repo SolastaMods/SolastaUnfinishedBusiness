@@ -221,14 +221,10 @@ You send a jolt of green energy toward the target momentarily disorientating the
 # 54. - *Chaos Bolt* © (V,S) level 1 Evocation [UB]
 
 Make a ranged spell attack against a target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type:
-1• Acid
-2• Cold
-3• Fire
-4• Force
-5• Lightning
-6• Poison
-7• Psychic
-8• Thunder
+1: ◰ Acid  	2: ◲ Cold
+3: ◳ Fire  	4: ◴ Force
+5: ◵ Lightning  	6: ◸ Poison
+7: ◹ Psychic  	8: ◼ Thunder
 If you roll the same number on both d8s, you can use your free action to target a different creature of your choice. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again. A creature can be damaged only once by each casting of this spell.
 
 # 55. - Charm Person (V,S) level 1 Enchantment [SOL]

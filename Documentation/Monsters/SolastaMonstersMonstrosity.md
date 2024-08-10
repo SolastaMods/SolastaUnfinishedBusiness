@@ -112,7 +112,7 @@ A giant spider from the underground acid lakes of the Badlands.
 
 Alignment: *Neutral* 
 
-Dungeon Maker: *YES* 
+Dungeon Maker: *NO* 
 
 Size: *Large* 
 |  AC  |   HD   |  CR  |
@@ -182,7 +182,7 @@ From the ranks of the powerful minotaurs, Greymane arise as superior fighters an
 
 Alignment: *Chaotic Evil* 
 
-Dungeon Maker: *YES* 
+Dungeon Maker: *NO* 
 
 Size: *Large* 
 |  AC  |   HD   |  CR  |
@@ -195,9 +195,9 @@ Size: *Large*
 
 *Features:*
 * Condition Affinity Frightened Immunity
-* Damage Affinity Bludgeoning Resistance
-* Damage Affinity Piercing Resistance
-* Damage Affinity Slashing Resistance
+* Damage Affinity Bludgeoning Resistance True
+* Damage Affinity Piercing Resistance True
+* Damage Affinity Slashing Resistance True
 * Walk 8
 * Action Surge
 * Reckless

@@ -1168,7 +1168,7 @@ Bards of the College of Swords entertain through daring feats of weapon prowess.
 
 * Blade Flourish
 
-Whenever you take the Attack action on your turn, your walking speed increases by 10 feet until the end of the turn, and if a melee weapon attack that you make as part of this action hits a creature, you can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also choose a particular maneuver:
+Whenever you take the Attack action on your turn, your walking speed increases by 10 feet until the end of the turn, and if a weapon attack that you make as part of this action hits a creature, you can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also choose a particular maneuver:
 • Defensive Flourish: You add the Bardic Inspiration die roll to your AC until the start of your next turn.
 • Slashing Flourish: You deal the extra damage to all other enemy creatures within 5 feet of you.
 • Mobile Flourish: You gain benefits of disengage until the end of your turn.

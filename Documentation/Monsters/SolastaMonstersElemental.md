@@ -44,7 +44,7 @@ A flying current of whirling air animated by magical elemental forces.
 
 Alignment: *Neutral* 
 
-Dungeon Maker: *YES* 
+Dungeon Maker: *NO* 
 
 Size: *Large* 
 |  AC  |   HD   |  CR  |
@@ -120,7 +120,7 @@ A bulky stone creature animated by magical elemental forces.
 
 Alignment: *Neutral* 
 
-Dungeon Maker: *YES* 
+Dungeon Maker: *NO* 
 
 Size: *Large* 
 |  AC  |   HD   |  CR  |
@@ -197,7 +197,7 @@ A creature of pure fire, animated by magical elemental forces.
 
 Alignment: *Neutral* 
 
-Dungeon Maker: *YES* 
+Dungeon Maker: *NO* 
 
 Size: *Large* 
 |  AC  |   HD   |  CR  |
@@ -432,7 +432,7 @@ A creature of pure ice, animated by magical forces that also sustain its extreme
 
 Alignment: *Neutral* 
 
-Dungeon Maker: *YES* 
+Dungeon Maker: *NO* 
 
 Size: *Large* 
 |  AC  |   HD   |  CR  |
