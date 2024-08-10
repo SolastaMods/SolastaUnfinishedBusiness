@@ -970,16 +970,15 @@ internal static class OtherFeats
         private IEnumerator HandleBalefulScion(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
 
             if (!attacker.IsWithinRange(defender, 12) ||
                 !attacker.OncePerTurnIsValid(powerBalefulScion.Name) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) ||
-                rulesetAttacker.GetRemainingPowerUses(powerBalefulScion) == 0)
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
-
-            var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
 
             attacker.UsedSpecialFeatures.TryAdd(powerBalefulScion.Name, 0);
             usablePower.Consume();

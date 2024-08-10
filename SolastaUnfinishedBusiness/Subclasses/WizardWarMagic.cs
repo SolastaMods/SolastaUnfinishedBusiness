@@ -389,17 +389,16 @@ public sealed class WizardWarMagic : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerSurge, rulesetAttacker);
             var alreadyTriggered = rulesetAttacker.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionSurgeMark.Name);
             var shouldTrigger =
                 attacker.OncePerTurnIsValid(powerSurge.Name) &&
                 rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PowerSurgeToggle) &&
-                rulesetAttacker.GetRemainingPowerUses(powerSurge) > 0;
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
 
             if (shouldTrigger && !alreadyTriggered)
             {
-                var usablePower = PowerProvider.Get(powerSurge, rulesetAttacker);
-
                 attacker.UsedSpecialFeatures.TryAdd(powerSurge.Name, 0);
                 rulesetAttacker.UsePower(usablePower);
                 rulesetAttacker.InflictCondition(

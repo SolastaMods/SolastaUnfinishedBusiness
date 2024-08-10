@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -797,16 +796,15 @@ internal static class RaceImpBuilder
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerImpForestImpishWrath, rulesetAttacker);
             var alreadyTriggered = rulesetAttacker.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionImpForestImpishWrathMark.Name);
             var shouldTrigger =
                 rulesetAttacker.IsToggleEnabled(ImpishWrathToggle) &&
-                rulesetAttacker.GetRemainingPowerUses(powerImpForestImpishWrath) > 0;
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
 
             if (shouldTrigger && !alreadyTriggered)
             {
-                var usablePower = PowerProvider.Get(powerImpForestImpishWrath, rulesetAttacker);
-
                 rulesetAttacker.UsePower(usablePower);
                 rulesetAttacker.InflictCondition(
                     conditionImpForestImpishWrathMark.Name,

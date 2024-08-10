@@ -381,13 +381,12 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             RulesetEffect activeEffect)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
 
-            if (rulesetAttacker.GetRemainingPowerUses(powerHailOfBlades) > 0)
+            if (rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0)
             {
                 yield break;
             }
-
-            var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
 
             rulesetAttacker.RepayPowerUse(usablePower);
         }

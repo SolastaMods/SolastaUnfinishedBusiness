@@ -737,7 +737,8 @@ public sealed class MartialForceKnight : AbstractSubclass
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
-                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+                // must use GetRemainingPowerUses as a shared pool power
+                rulesetHelper.GetRemainingPowerUses(powerKineticBarrier) == 0)
             {
                 yield break;
             }

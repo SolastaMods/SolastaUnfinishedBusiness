@@ -681,11 +681,11 @@ public sealed class PathOfTheBeast : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerInfectiousFury, attacker.RulesetCharacter);
+            var usablePower = PowerProvider.Get(powerInfectiousFury, rulesetAttacker);
 
             if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 !attacker.IsMyTurn() ||
-                rulesetAttacker.GetRemainingPowerUses(powerInfectiousFury) == 0 ||
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0 ||
                 rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetDefender.HasAnyConditionOfType(condition.name) ||
                 attackMode.SourceDefinition is not ItemDefinition item ||

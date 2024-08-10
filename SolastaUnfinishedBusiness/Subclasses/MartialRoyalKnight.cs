@@ -267,8 +267,10 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
-            yield return originalHelper.MyReactToSpendPower(
+            yield return originalHelper.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
                 usablePower,
+                [],
                 attacker,
                 "RoyalKnightInspiringProtection",
                 FormatReactionDescription(action, attacker, defender, originalHelper),

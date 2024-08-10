@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -1582,9 +1581,8 @@ internal static class RaceFeats
     private sealed class CustomBehaviorOrcishFury(
         FeatureDefinitionPower powerOrcishFury,
         ConditionDefinition conditionDefinition)
-        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
-            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe,
-            IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnMe,
+            IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe
     {
         #region Additional Damage
 
@@ -1601,15 +1599,17 @@ internal static class RaceFeats
             bool criticalHit)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerOrcishFury, rulesetAttacker);
 
             if (!ValidatorsWeapon.IsOfWeaponType(CustomSituationalContext.SimpleOrMartialWeapons)
                     (attackMode, null, null) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle) ||
-                rulesetAttacker.GetRemainingPowerUses(powerOrcishFury) == 0)
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
+            usablePower.Consume();
             rulesetAttacker.InflictCondition(
                 conditionDefinition.Name,
                 DurationType.Round,
@@ -1623,35 +1623,6 @@ internal static class RaceFeats
                 0,
                 0,
                 0);
-        }
-
-        public IEnumerator OnPhysicalAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
-        {
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (!ValidatorsWeapon.IsOfWeaponType(CustomSituationalContext.SimpleOrMartialWeapons)
-                    (attackMode, null, null) ||
-                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle) ||
-                rulesetAttacker.GetRemainingPowerUses(powerOrcishFury) == 0)
-            {
-                yield break;
-            }
-
-            var usablePower = PowerProvider.Get(powerOrcishFury, rulesetAttacker);
-
-            rulesetAttacker.UsePower(usablePower);
         }
 
         #endregion

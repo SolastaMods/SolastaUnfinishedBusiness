@@ -545,8 +545,9 @@ public sealed class MartialWarlord : AbstractSubclass
             int damageAmount)
         {
             var rulesetCharacter = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerCoordinatedAssault, rulesetCharacter);
 
-            if (rulesetCharacter.GetRemainingPowerUses(powerCoordinatedAssault) == 0)
+            if (rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -672,8 +673,6 @@ public sealed class MartialWarlord : AbstractSubclass
             {
                 yield break;
             }
-
-            var usablePower = PowerProvider.Get(powerCoordinatedAssault, rulesetCharacter);
 
             attacker.UsedSpecialFeatures.TryAdd(CoordinatedAssaultMarker, 0);
             rulesetCharacter.UsePower(usablePower);

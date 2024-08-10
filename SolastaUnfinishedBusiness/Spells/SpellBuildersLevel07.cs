@@ -397,7 +397,8 @@ internal static partial class SpellBuilders
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var remainingUses = action.ActingCharacter.RulesetCharacter.GetRemainingPowerUses(powerMotes);
+            // must use GetRemainingPowerUses for convenience
+            var remainingUses = rulesetCharacter.GetRemainingPowerUses(powerMotes);
 
             // ReSharper disable once ConvertIfStatementToSwitchStatement
             if (remainingUses == 0 &&

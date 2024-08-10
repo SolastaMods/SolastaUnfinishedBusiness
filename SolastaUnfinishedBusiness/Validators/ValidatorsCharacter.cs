@@ -124,11 +124,13 @@ internal static class ValidatorsCharacter
 
     internal static IsCharacterValidHandler HasAvailablePowerUsage(FeatureDefinitionPower power)
     {
+        // must use GetRemainingPowerUses
         return character => character.GetRemainingPowerUses(power) > 0;
     }
 
     internal static IsCharacterValidHandler HasNotAvailablePowerUsage(FeatureDefinitionPower power)
     {
+        // must use GetRemainingPowerUses
         return character => character.GetRemainingPowerUses(power) == 0;
     }
 

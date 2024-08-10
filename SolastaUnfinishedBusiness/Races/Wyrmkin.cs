@@ -328,20 +328,13 @@ internal static class RaceWyrmkinBuilder
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetDefender);
 
             if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 defender.IsMyTurn() ||
                 !defender.CanReact() ||
-                rulesetDefender.GetRemainingPowerUses(powerHighWyrmkinSwiftRetribution) == 0)
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -372,11 +365,9 @@ internal static class RaceWyrmkinBuilder
                 battleManager);
 
             yield break;
-            
+
             void ReactionValidated()
             {
-                var usablePower = PowerProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetDefender);
-
                 rulesetDefender.UsePower(usablePower);
             }
         }
