@@ -293,7 +293,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
             var power = classLevel < 14 ? powerTerrificPerformance : powerImprovedTerrificPerformance;
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 

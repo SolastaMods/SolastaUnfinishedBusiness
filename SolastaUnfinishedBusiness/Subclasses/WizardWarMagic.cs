@@ -319,7 +319,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 .Take(3)
                 .ToList();
 
-            helper.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            helper.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 

@@ -117,6 +117,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .Create($"Power{Name}SlashingWhirlDamage")
             .SetGuiPresentation($"Power{Name}SlashingWhirl", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -283,7 +284,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             var usablePower = PowerProvider.Get(powerSlashingWhirlDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker, withinRange: 1).Where(x => x != defender).ToList();
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.SpendPower, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)

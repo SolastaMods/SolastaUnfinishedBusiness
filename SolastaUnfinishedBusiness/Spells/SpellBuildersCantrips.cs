@@ -1037,10 +1037,7 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerBoomingBladeDamage, rulesetAttacker);
 
-            defender.MyExecuteAction(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
-                [defender]);
+            defender.MyExecuteActionPowerNoCost(usablePower, [defender]);
         }
     }
 
@@ -1280,10 +1277,7 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerResonatingStrikeDamage, rulesetAttacker);
 
-            defender.MyExecuteAction(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
-                [secondDefender]);
+            defender.MyExecuteActionPowerNoCost(usablePower, [secondDefender]);
         }
     }
 

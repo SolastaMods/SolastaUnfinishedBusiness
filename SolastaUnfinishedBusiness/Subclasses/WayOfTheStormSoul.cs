@@ -124,6 +124,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             .Create($"Power{Name}EyeOfTheStormLeap")
             .SetGuiPresentation($"FeatureSet{Name}EyeOfTheStorm", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -360,7 +361,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                                   y.SourceGuid == rulesetAttacker.Guid))
                 .ToList();
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 }

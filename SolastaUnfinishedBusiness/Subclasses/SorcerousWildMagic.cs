@@ -90,6 +90,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Power{Name}Fireball")
         .SetGuiPresentation($"Power{Name}D02", Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(Fireball)
@@ -102,6 +103,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Power{Name}Grease")
         .SetGuiPresentation($"Power{Name}D12", Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(Grease)
@@ -1347,7 +1349,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         var targets = new List<GameLocationCharacter>();
 
         EnumerateTargetsWithinRange(caster, range, targets, includeCaster);
-        caster.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+        caster.MyExecuteActionPowerNoCost(usablePower, targets);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

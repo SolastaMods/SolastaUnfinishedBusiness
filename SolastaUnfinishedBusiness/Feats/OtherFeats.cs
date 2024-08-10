@@ -2553,10 +2553,7 @@ internal static class OtherFeats
 
         var usablePower = PowerProvider.Get(PowerFeatPoisonousSkin, rulesetMe);
 
-        me.MyExecuteAction(
-            ActionDefinitions.Id.PowerNoCost,
-            usablePower,
-            [target]);
+        me.MyExecuteActionPowerNoCost(usablePower, [target]);
     }
 
     //Poison character that shoves me
@@ -2878,7 +2875,7 @@ internal static class OtherFeats
             var targets = Gui.Battle.GetContenders(
                 downedCreature, attacker, isOppositeSide: false, hasToPerceivePerceiver: true, withinRange: distance);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(

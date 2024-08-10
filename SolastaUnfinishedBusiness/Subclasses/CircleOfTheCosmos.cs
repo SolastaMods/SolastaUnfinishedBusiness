@@ -258,6 +258,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}SwitchConstellationFormArcher")
             .SetGuiPresentation($"Power{Name}ArcherConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
+            .SetShowCasting(false)
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeTwinklingStars(powerArcherConstellationForm))
             .AddToDB();
 
@@ -265,6 +266,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}SwitchConstellationFormChalice")
             .SetGuiPresentation($"Power{Name}ChaliceConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
+            .SetShowCasting(false)
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeTwinklingStars(powerChaliceConstellationForm))
             .AddToDB();
 
@@ -272,6 +274,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}SwitchConstellationFormDragon")
             .SetGuiPresentation($"Power{Name}DragonConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
+            .SetShowCasting(false)
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeTwinklingStars(powerDragonConstellationForm))
             .AddToDB();
 
@@ -1244,10 +1247,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             effectPower.remainingRounds = remainingRounds;
 
-            actingCharacter.MyExecuteAction(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
-                [actingCharacter]);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePower, [actingCharacter]);
 
             usablePower.RepayUse();
         }

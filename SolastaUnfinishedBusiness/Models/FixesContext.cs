@@ -730,10 +730,7 @@ internal static class FixesContext
 
             var usablePower = PowerProvider.Get(PowerMonkStunningStrike, rulesetAttacker);
 
-            attacker.MyExecuteAction(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
-                [defender]);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -741,8 +738,8 @@ internal static class FixesContext
             if (action.RolledSaveThrow &&
                 action.SaveOutcome == RollOutcome.Failure)
             {
-                action.ActingCharacter.RulesetCharacter.ToggledPowersOn.Remove(
-                    PowerMonkStunningStrike.AutoActivationPowerTag);
+                action.ActingCharacter.RulesetCharacter.ToggledPowersOn
+                    .Remove(PowerMonkStunningStrike.AutoActivationPowerTag);
             }
 
             yield break;

@@ -174,6 +174,7 @@ public sealed class OathOfThunder : AbstractSubclass
         var powerBifrostDamage = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BifrostDamage")
             .SetGuiPresentation($"Power{Name}Bifrost", Category.Feature, hidden: true)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -378,7 +379,7 @@ public sealed class OathOfThunder : AbstractSubclass
             var targets = Gui.Battle
                 .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 }

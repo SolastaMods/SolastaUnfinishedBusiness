@@ -818,10 +818,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerReactiveHideDamage, rulesetDefender);
 
-            defender.MyExecuteAction(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
-                [attacker]);
+            defender.MyExecuteActionPowerNoCost(usablePower, [attacker]);
         }
 
         public int HandlerPriority => 10;

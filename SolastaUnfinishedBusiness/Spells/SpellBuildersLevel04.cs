@@ -832,10 +832,7 @@ internal static partial class SpellBuilders
 
             usablePower.SaveDC = 8 + rulesetCondition.SourceAbilityBonus + rulesetCondition.SourceProficiencyBonus;
 
-            caster.MyExecuteAction(
-                Id.PowerNoCost,
-                usablePower,
-                [character]);
+            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
         }
     }
 
@@ -1298,10 +1295,7 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerElementalBane, rulesetAttacker);
 
-            attacker.MyExecuteAction(
-                Id.PowerNoCost,
-                usablePower,
-                [defender]);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
         }
     }
 

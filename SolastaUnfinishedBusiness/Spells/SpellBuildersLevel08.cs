@@ -344,7 +344,7 @@ internal static partial class SpellBuilders
                 target, actingCharacter, isOppositeSide: false, hasToPerceiveTarget: true, withinRange: 12);
 
             actingCharacter.UsedSpecialFeatures.TryAdd("SoulExpulsion", action.ActionParams.RulesetEffect.EffectLevel);
-            actingCharacter.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePower, targets);
         }
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)

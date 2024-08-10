@@ -771,9 +771,7 @@ internal static class InvocationsBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerPerniciousCloakDamage, rulesetCaster);
 
-            caster.MyExecuteAction(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
+            caster.MyExecuteActionPowerNoCost(usablePower,
                 [character]);
         }
     }
@@ -1115,7 +1113,7 @@ internal static class InvocationsBuilders
             var usablePower = PowerProvider.Get(powerChillingHexDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 
@@ -1300,7 +1298,7 @@ internal static class InvocationsBuilders
             var usablePower = PowerProvider.Get(powerVexingHexDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 

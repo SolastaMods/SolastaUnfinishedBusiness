@@ -591,6 +591,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .Create(ELDRITCH_DETONATION)
             .SetGuiPresentation(Category.Feature, Fireball)
             .SetUsesFixed(ActivationTime.Action)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1073,7 +1074,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     x.IsWithinRange(selectedTarget, 4))
                 .ToList();
 
-            selectedTarget.MyExecuteAction(Id.PowerNoCost, usablePower, targets);
+            selectedTarget.MyExecuteActionPowerNoCost(usablePower, targets);
 
             yield break;
         }

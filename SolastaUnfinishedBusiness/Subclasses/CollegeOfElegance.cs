@@ -162,6 +162,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .Create($"Power{Name}AmazingDisplayEnemy")
             .SetGuiPresentation(AmazingDisplayName, Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -385,7 +386,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
             var usablePowerEnemy = PowerProvider.Get(powerAmazingDisplayEnemy, rulesetAttacker);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePowerEnemy, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePowerEnemy, targets);
         }
     }
 }

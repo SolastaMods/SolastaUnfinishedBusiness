@@ -428,9 +428,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
 
-            attacker.MyExecuteAction(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
+            attacker.MyExecuteActionPowerNoCost(usablePower,
                 [defender]);
         }
     }
@@ -488,7 +486,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
 
-            actingCharacter.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePowerDiscordance, targets);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePowerDiscordance, targets);
 
             // Turmoil
             var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
@@ -509,7 +507,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
 
-            actingCharacter.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePowerTurmoil, targets);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePowerTurmoil, targets);
         }
     }
 
@@ -580,7 +578,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
 
-            ally.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, [ally]);
+            ally.MyExecuteActionPowerNoCost(usablePower, [ally]);
         }
     }
 }

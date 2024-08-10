@@ -335,10 +335,7 @@ public sealed class OathOfDread : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerAuraOfDominationDamage, rulesetAttacker);
 
-            attacker.MyExecuteAction(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
-                [character]);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [character]);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)

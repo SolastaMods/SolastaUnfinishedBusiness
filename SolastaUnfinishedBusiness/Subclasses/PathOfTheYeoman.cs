@@ -333,7 +333,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             var targets = battleManager.Battle
                 .GetContenders(defender, isOppositeSide: false, withinRange: 3);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 }

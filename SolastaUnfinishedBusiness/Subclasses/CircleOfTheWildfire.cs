@@ -537,7 +537,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         : PowerCauterizingFlamesHeal,
                     rulesetSource);
 
-                source.MyExecuteAction(Id.PowerNoCost, usablePower, [character]);
+                source.MyExecuteActionPowerNoCost(usablePower, [character]);
             }
         }
     }
@@ -652,7 +652,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     spirit.IsWithinRange(x, 2))
                 .ToList();
 
-            attacker.MyExecuteAction(Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
 
             yield break;
         }
@@ -701,7 +701,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
-            attacker.MyExecuteAction(Id.PowerNoCost, usablePower, _targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, _targets);
 
             yield break;
         }

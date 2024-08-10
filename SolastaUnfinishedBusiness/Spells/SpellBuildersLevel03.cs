@@ -542,7 +542,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = mover.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
 
-            mover.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            mover.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 
@@ -777,7 +777,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, _targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, _targets);
         }
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1211,10 +1211,7 @@ internal static partial class SpellBuilders
 
             usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
 
-            caster.MyExecuteAction(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
-                [character]);
+            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter character)
@@ -1233,10 +1230,7 @@ internal static partial class SpellBuilders
 
             usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
 
-            caster.MyExecuteAction(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
-                [character]);
+            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
         }
     }
 
@@ -1252,6 +1246,7 @@ internal static partial class SpellBuilders
             .Create($"Power{Name}Leap")
             .SetGuiPresentation(Name, Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1455,7 +1450,7 @@ internal static partial class SpellBuilders
             var targets = battleManager.Battle
                 .GetContenders(defender, isOppositeSide: false, withinRange: 2);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 

@@ -98,6 +98,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .Create($"Power{Name}ForcefulStepApply")
             .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, hidden: true)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -247,7 +248,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker, withinRange: 2);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 }

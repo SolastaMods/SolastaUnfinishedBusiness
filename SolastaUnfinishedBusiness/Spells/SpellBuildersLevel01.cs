@@ -1337,7 +1337,7 @@ internal static partial class SpellBuilders
 
                 usablePower.saveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
 
-                caster.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+                caster.MyExecuteActionPowerNoCost(usablePower, targets);
             }
         }
     }
@@ -2184,6 +2184,7 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -2304,7 +2305,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 

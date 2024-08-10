@@ -157,6 +157,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .Create($"Feature{Name}DeathFromAbove")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -411,7 +412,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerDeathFromAbove, rulesetAttacker);
 
-            attacker.MyExecuteAction(ActionDefinitions.Id.PowerNoCost, usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 }
