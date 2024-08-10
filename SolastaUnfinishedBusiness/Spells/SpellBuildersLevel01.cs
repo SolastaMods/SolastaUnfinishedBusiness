@@ -893,6 +893,7 @@ internal static partial class SpellBuilders
             new FilterTargetingCharacterChaosBolt(conditionMark);
 
         spell.AddCustomSubFeatures(
+            CustomSpellAdvancementTooltip.ExtraDie(DieType.D6),
             initAndFinishBehavior,
             filterTargetBehavior);
         powerLeap.AddCustomSubFeatures(
