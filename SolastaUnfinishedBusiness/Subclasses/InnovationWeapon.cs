@@ -386,8 +386,10 @@ public sealed class InnovationWeapon : AbstractSubclass
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinitySteelDefenderBasic")
                     .SetGuiPresentationNoContent()
-                    .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
-                        Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
+                    .SetForbiddenActions(
+                        Id.AttackMain, Id.AttackOff, Id.AttackFree, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
+                        Id.PowerMain, Id.PowerBonus, Id.PowerNoCost, Id.PowerReaction, Id.SpendPower,
+                        Id.Shove, Id.ShoveBonus, Id.ShoveFree)
                     .AddCustomSubFeatures(new SummonerHasConditionOrKOd())
                     .AddToDB(),
                 FeatureDefinitionActionAffinitys.ActionAffinityFightingStyleProtection,

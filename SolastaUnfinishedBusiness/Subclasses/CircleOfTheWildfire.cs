@@ -166,7 +166,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 .SetGuiPresentationNoContent(true)
                 .SetForbiddenActions(
                     Id.AttackMain, Id.AttackOff, Id.AttackFree, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
-                    Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower, Id.Shove, Id.ShoveBonus, Id.ShoveFree)
+                    Id.PowerMain, Id.PowerBonus, Id.PowerNoCost, Id.PowerReaction, Id.SpendPower,
+                    Id.Shove, Id.ShoveBonus, Id.ShoveFree)
                 .AddCustomSubFeatures(new SummonerHasConditionOrKOd(), ForceInitiativeToSummoner.Mark)
                 .AddToDB();
 
