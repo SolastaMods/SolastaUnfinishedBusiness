@@ -9,7 +9,7 @@ public class ReactionResourceSorceryPoints : ICustomReactionResource, ICustomRea
     {
     }
 
-    public static ICustomReactionResource Instance { get; } = new ReactionResourceSorceryPoints();
+    public static ReactionResourceSorceryPoints Instance { get; } = new();
 
     public string GetRequestPoints(CharacterReactionItem item)
     {

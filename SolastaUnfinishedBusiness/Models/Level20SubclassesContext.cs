@@ -2197,8 +2197,6 @@ internal static class Level20SubclassesContext
 
             battle.InitiativeSortedContenders.RemoveAt(index);
 
-            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
-
             Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Remove, false, false);
         }
 

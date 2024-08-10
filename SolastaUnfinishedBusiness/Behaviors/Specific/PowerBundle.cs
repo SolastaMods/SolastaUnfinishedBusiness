@@ -202,6 +202,10 @@ internal static class PowerBundle
                 return (character.TryGetAttributeValue(AttributeDefinitions.BardicInspirationNumber) -
                         character.UsedBardicInspiration) /
                        power.CostPerUse;
+            case RechargeRate.BindChain:
+                return (character.TryGetAttributeValue(AttributeDefinitions.BindChainNumber) -
+                        character.UsedBindChain) /
+                       power.CostPerUse;
             case RechargeRate.ChannelDivinity:
                 return (character.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) -
                         character.UsedChannelDivinity) /
@@ -239,8 +243,6 @@ internal static class PowerBundle
             case RechargeRate.None:
                 break;
             case RechargeRate.D6_56:
-                break;
-            case RechargeRate.BindChain:
                 break;
             case RechargeRate.TurnStart:
                 break;
