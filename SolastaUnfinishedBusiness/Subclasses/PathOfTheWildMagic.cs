@@ -765,9 +765,9 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     {
                         var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
                         {
-                            RulesetEffect =
-                                implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                            IsReactionEffect = true
+                            RulesetEffect = implementationManager.MyInstantiateEffectPower(
+                                rulesetCharacter, usablePower, false)
+                            //IsReactionEffect = true
                         };
 
                         if (reactingOutOfTurn)
@@ -795,25 +795,15 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                                 }
 
                                 PreventEnemyAction(attacker, rulesetCharacter);
-
-                                var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
-                                {
-                                    RulesetEffect =
-                                        implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower,
-                                            false)
-                                };
-
-                                ServiceRepository.GetService<ICommandService>()
-                                    ?.ExecuteAction(actionParams, null, true);
+                                character.MyExecuteActionPowerNoCost(usablePower, []);
                             }
                             else
                             {
                                 var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
                                 {
-                                    RulesetEffect =
-                                        implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower,
-                                            false),
-                                    IsReactionEffect = true
+                                    RulesetEffect = implementationManager.MyInstantiateEffectPower(
+                                        rulesetCharacter, usablePower, false)
+                                    // IsReactionEffect = true
                                 };
                                 ServiceRepository.GetService<ICommandService>()
                                     ?.ExecuteInstantSingleAction(actionParams);
@@ -821,12 +811,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         }
                         else
                         {
-                            var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
-                            {
-                                RulesetEffect =
-                                    implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false)
-                            };
-                            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+                            character.MyExecuteActionPowerNoCost(usablePower, []);
                         }
                     }
                 }
