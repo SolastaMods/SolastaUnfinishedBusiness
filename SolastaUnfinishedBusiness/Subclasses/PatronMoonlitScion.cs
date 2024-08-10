@@ -587,7 +587,6 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 yield break;
             }
 
-
             yield return defender.MyReactToUsePower(
                 ActionDefinitions.Id.PowerReaction,
                 usablePower,

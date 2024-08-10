@@ -36,7 +36,7 @@ public static class GuiSpellDefinitionPatcher
             __result = PowerBundle.ModifyMagicEffectGui(__result, __instance.SpellDefinition);
         }
     }
-    
+
     [HarmonyPatch(typeof(GuiSpellDefinition), nameof(GuiSpellDefinition.AdvancementGain), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

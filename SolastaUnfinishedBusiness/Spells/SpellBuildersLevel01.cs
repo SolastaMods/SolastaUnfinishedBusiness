@@ -754,7 +754,8 @@ internal static partial class SpellBuilders
     #endregion
 
     #region Chaos Bolt
-    const string DamageTypeChaosBolt = "DamageChaosBolt";
+
+    private const string DamageTypeChaosBolt = "DamageChaosBolt";
 
     private static readonly (string, IMagicEffect)[] ChaosBoltDamagesAndEffects =
     [
@@ -780,16 +781,17 @@ internal static partial class SpellBuilders
                     formattedDamages += "\n";
                 }
             }
-            formattedDamages += $"{i+1}: {Gui.FormatDamageType(ChaosBoltDamagesAndEffects[i].Item1, true)}";
+
+            formattedDamages += $"{i + 1}: {Gui.FormatDamageType(ChaosBoltDamagesAndEffects[i].Item1, true)}";
         }
 
         var spellDescription = Gui.Format("Spell/&ChaosBoltDescription", formattedDamages);
         //267B = ♻
-        var damageGui = GuiPresentationBuilder.Build(Gui.NoLocalization, Gui.NoLocalization, symbol:"267B");
+        var damageGui = GuiPresentationBuilder.Build(Gui.NoLocalization, Gui.NoLocalization, symbol: "267B");
         DamageDefinitionBuilder.Create(DamageTypeChaosBolt)
             .SetGuiPresentation(damageGui)
             .AddToDB();
-        
+
         const string NAME = "ChaosBolt";
 
         var sprite = Sprites.GetSprite(NAME, Resources.ChaosBolt, 128);
@@ -1140,16 +1142,6 @@ internal static partial class SpellBuilders
             }
         }
 
-        private static void ModifyChaosBoltForms(List<EffectForm> actualEffectForms, string damageType)
-        {
-            foreach (var effectForm in actualEffectForms
-                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
-                                     x.DamageForm.DamageType == DamageTypeChaosBolt))
-            {
-                effectForm.DamageForm.DamageType = damageType;
-            }
-        }
-
         public void BeforeRoll(
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
@@ -1212,6 +1204,16 @@ internal static partial class SpellBuilders
             }
 
             return effectDescription;
+        }
+
+        private static void ModifyChaosBoltForms(List<EffectForm> actualEffectForms, string damageType)
+        {
+            foreach (var effectForm in actualEffectForms
+                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
+                                     x.DamageForm.DamageType == DamageTypeChaosBolt))
+            {
+                effectForm.DamageForm.DamageType = damageType;
+            }
         }
 
         public void Reset(GameLocationCharacter attacker)
@@ -2173,10 +2175,12 @@ internal static partial class SpellBuilders
             var rulesetCharacter = locationCharacter.RulesetCharacter;
             var roll = rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Remove, false, false);
+            Gui.Battle.ContenderModified(
+                locationCharacter, GameLocationBattle.ContenderModificationMode.Remove, false, false);
             locationCharacter.LastInitiative += roll;
             Gui.Battle.initiativeSortedContenders.Sort(Gui.Battle);
-            Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Add, false, false);
+            Gui.Battle.ContenderModified(
+                locationCharacter, GameLocationBattle.ContenderModificationMode.Add, false, false);
 
             locationCharacter.RulesetCharacter.LogCharacterUsedFeature(
                 featureDefinition,

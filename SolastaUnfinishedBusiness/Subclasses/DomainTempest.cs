@@ -367,7 +367,7 @@ public sealed class DomainTempest : AbstractSubclass
                 !defender.CanPerceiveTarget(attacker) ||
                 rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
-                  yield break;
+                yield break;
             }
 
             yield return defender.MyReactToSpendPowerBundle(
@@ -375,7 +375,7 @@ public sealed class DomainTempest : AbstractSubclass
                 [attacker],
                 attacker,
                 "WrathOfTheStorm",
-                reactionValidated: ReactionValidated);
+                ReactionValidated);
 
             yield break;
 

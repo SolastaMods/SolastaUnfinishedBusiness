@@ -473,7 +473,8 @@ internal static partial class SpellBuilders
                     battle.InitiativeSortedContenders.RemoveAt(index);
                 }
 
-                Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Remove, false, false);
+                Gui.Battle.ContenderModified(
+                    locationCharacter, GameLocationBattle.ContenderModificationMode.Remove, false, false);
             }
 
             // remove time stop condition from others
@@ -534,7 +535,8 @@ internal static partial class SpellBuilders
                 initiativeSortedContenders.Insert(positionCharacterIndex + 1, locationCharacter);
             }
 
-            Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Add, false, false);
+            Gui.Battle.ContenderModified(
+                locationCharacter, GameLocationBattle.ContenderModificationMode.Add, false, false);
         }
     }
 
