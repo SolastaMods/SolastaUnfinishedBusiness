@@ -20,7 +20,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Sphere",
     "itemSelectionType": "None",
-    "targetParameter": 24,
+    "targetParameter": 12,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,

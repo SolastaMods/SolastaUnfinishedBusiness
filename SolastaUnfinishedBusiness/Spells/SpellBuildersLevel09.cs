@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -271,175 +272,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Time Stop
-
-    internal static SpellDefinition BuildTimeStop()
-    {
-        const string NAME = "TimeStop";
-
-        var conditionTimeStop = ConditionDefinitionBuilder
-            .Create("ConditionTimeStop")
-            .SetGuiPresentation(Category.Condition, Sprites.GetSprite(NAME, Resources.ConditionTimeStop, 27, 32))
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new ActionFinishedByMeTimeStop())
-            .AddToDB();
-
-        var conditionTimeStopEnemy = ConditionDefinitionBuilder
-            .Create("ConditionTimeStopEnemy")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime)
-            .SetConditionType(ConditionType.Detrimental)
-            .AddToDB();
-        
-        return SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.TimeStop, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(9)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(false)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Divination)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Permanent)
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 24)
-                    .ExcludeCaster()
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionTimeStopEnemy),
-                        EffectFormBuilder.ConditionForm(
-                            conditionTimeStop,
-                            ConditionForm.ConditionOperation.Add, true, true))
-                    .SetParticleEffectParameters(DispelMagic)
-                    .SetCasterEffectParameters(GravitySlam)
-                    .Build())
-            .AddCustomSubFeatures(new CustomBehaviorTimeStop())
-            .AddToDB();
-    }
-
-    private sealed class ActionFinishedByMeTimeStop : IActionFinishedByMe, ICharacterBeforeTurnEndListener
-    {
-        // remove time stop if any action has non self target
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            var character = action.ActingCharacter;
-            var targets = action.ActionParams.TargetCharacters;
-            var hasNonSelfTarget = targets == null || targets.Any(x => x != character);
-
-            if (!hasNonSelfTarget)
-            {
-                yield break;
-            }
-            
-            RemoveTimeStop(character);
-        }
-        
-        // remove time stop after last instance turn
-        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
-        {
-            var battle = Gui.Battle;
-
-            if (battle == null || battle.CurrentRound > 1)
-            {
-                return;
-            }
-
-            var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
-            
-            if (battle.activeContenderIndex != index)
-            {
-                return;
-            }
-
-            RemoveTimeStop(locationCharacter);
-        }
-
-        private static void RemoveTimeStop(GameLocationCharacter locationCharacter)
-        {
-            var battle = Gui.Battle;
-
-            // remove duplicates
-            if (Gui.Battle != null)
-            {
-                while (battle.InitiativeSortedContenders.Count(x => x == locationCharacter) > 1)
-                {
-                    var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
-                
-                    battle.InitiativeSortedContenders.RemoveAt(index);
-                }
-            }
-             
-            // remove time stop condition from others
-            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var contenders =
-                (Gui.Battle?.AllContenders ??
-                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
-
-            foreach (var rulesetContender in contenders
-                         .Select(contender => contender.RulesetCharacter))
-            {
-                if (rulesetContender.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, "ConditionTimeStopEnemy", out var activeConditionEnemy) &&
-                    activeConditionEnemy.SourceGuid == rulesetContender.Guid)
-                {
-                    rulesetContender.RemoveCondition(activeConditionEnemy);
-                }
-            }
-            
-            // remove time stop from self
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, "ConditionTimeStop", out var activeCondition))
-            {
-                rulesetCharacter.RemoveCondition(activeCondition);
-            }
-            
-            // refresh UI
-            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
-
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Remove, false, false); 
-        }
-    }
-    
-    private sealed class CustomBehaviorTimeStop : IPowerOrSpellFinishedByMe
-    {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var locationCharacter = action.ActingCharacter;
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var initiativeSortedContenders = Gui.Battle.InitiativeSortedContenders;
-            var positionCharacter = initiativeSortedContenders.FirstOrDefault(x => x == locationCharacter);
-            var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
-            var dieRoll = RollDie(DieType.D4, AdvantageType.None, out _, out _);
-
-            rulesetCharacter.LogCharacterActivatesAbility(
-                string.Empty,
-                "Feedback/&TimeStop",
-                extra:
-                [
-                    (ConsoleStyleDuplet.ParameterType.Base, dieRoll.ToString())
-                ]);
-            
-            for (var i = 0; i < dieRoll; i++)
-            {
-                initiativeSortedContenders.Insert(positionCharacterIndex + 1, locationCharacter);
-            }
-            
-            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
-
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Add, false, false);
-            
-            yield break;
-        }
-    }
-    
-    #endregion
-
     #region Weird
 
     internal static SpellDefinition BuildWeird()
@@ -525,6 +357,185 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(PowerWordStun)
                     .Build())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Time Stop
+
+    internal static SpellDefinition BuildTimeStop()
+    {
+        const string NAME = "TimeStop";
+
+        var conditionTimeStop = ConditionDefinitionBuilder
+            .Create("ConditionTimeStop")
+            .SetGuiPresentation(Category.Condition, Sprites.GetSprite(NAME, Resources.ConditionTimeStop, 27, 32))
+            .SetPossessive()
+            .AddToDB();
+
+        var conditionTimeStopEnemy = ConditionDefinitionBuilder
+            .Create("ConditionTimeStopEnemy")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAllowedActionTypes(false, false, false, false, false, false)
+                    .AddToDB())
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.TimeStop, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(9)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Divination)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 12)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionTimeStopEnemy),
+                        EffectFormBuilder.ConditionForm(
+                            conditionTimeStop,
+                            ConditionForm.ConditionOperation.Add, true, true))
+                    .SetParticleEffectParameters(DispelMagic)
+                    .SetCasterEffectParameters(GravitySlam)
+                    .Build())
+            .AddCustomSubFeatures(new CustomBehaviorTimeStop())
+            .AddToDB();
+
+        conditionTimeStop.AddCustomSubFeatures(new ActionFinishedByMeTimeStop(spell));
+
+        return spell;
+    }
+
+    private sealed class ActionFinishedByMeTimeStop(SpellDefinition spellDefinition)
+        : IActionFinishedByMe, ICharacterBeforeTurnEndListener
+    {
+        // remove time stop if any action has non self target
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            var character = action.ActingCharacter;
+            var targets = action.ActionParams.TargetCharacters;
+            var hasNonSelfTarget = targets == null || targets.Any(x => x != character);
+
+            if (!hasNonSelfTarget ||
+                (action is CharacterActionCastSpell actionCastSpell &&
+                 actionCastSpell.ActiveSpell.SpellDefinition == spellDefinition))
+            {
+                yield break;
+            }
+
+            RemoveTimeStop(character);
+        }
+
+        // remove time stop after last instance turn
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null)
+            {
+                return;
+            }
+
+            var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
+
+            if (battle.activeContenderIndex != index)
+            {
+                return;
+            }
+
+            RemoveTimeStop(locationCharacter);
+        }
+
+        private static void RemoveTimeStop(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var battle = Gui.Battle;
+
+            // remove duplicates
+            if (Gui.Battle != null)
+            {
+                while (battle.InitiativeSortedContenders.Count(x => x == locationCharacter) > 1)
+                {
+                    var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
+
+                    battle.InitiativeSortedContenders.RemoveAt(index);
+                }
+
+                Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Remove, false, false);
+            }
+
+            // remove time stop condition from others
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
+
+            foreach (var rulesetContender in contenders
+                         .Select(contender => contender.RulesetCharacter))
+            {
+                if (rulesetContender.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, "ConditionTimeStopEnemy", out var activeConditionEnemy) &&
+                    activeConditionEnemy.SourceGuid == rulesetCharacter.Guid)
+                {
+                    rulesetContender.RemoveCondition(activeConditionEnemy);
+                }
+            }
+
+            // remove time stop from self
+
+            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionTimeStop", out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+        }
+    }
+
+    private sealed class CustomBehaviorTimeStop : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var locationCharacter = action.ActingCharacter;
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var initiativeSortedContenders = Gui.Battle.InitiativeSortedContenders;
+            var positionCharacter = initiativeSortedContenders.FirstOrDefault(x => x == locationCharacter);
+            var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
+            var rounds = RollDie(DieType.D4, AdvantageType.None, out _, out _) + 1;
+
+            rulesetCharacter.LogCharacterActivatesAbility(
+                string.Empty,
+                "Feedback/&TimeStop",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Base, rounds.ToString())
+                ]);
+
+            // add additional contenders to initiative
+            for (var i = 0; i < rounds; i++)
+            {
+                initiativeSortedContenders.Insert(positionCharacterIndex + 1, locationCharacter);
+            }
+
+            Gui.Battle.ContenderModified(locationCharacter, GameLocationBattle.ContenderModificationMode.Add, false, false);
+        }
     }
 
     #endregion
