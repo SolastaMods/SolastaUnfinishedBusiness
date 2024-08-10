@@ -1001,10 +1001,8 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             yield break;
         }
 
-        yield return helper.MyReactToUsePower(
-            ActionDefinitions.Id.PowerReaction,
+        yield return helper.MyReactToSpendPower(
             usablePower,
-            [helper],
             defender,
             "InventorFlashOfGeniusCheck",
             "SpendPowerInventorFlashOfGeniusCheckDescription".Formatted(
@@ -1028,6 +1026,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
                 ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
                 : (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
 
+            usablePower.Consume();
             helper.RulesetCharacter.LogCharacterUsedPower(
                 power,
                 "Feedback/&FlashOfGeniusCheckToHitRoll",

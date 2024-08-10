@@ -267,10 +267,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
-            yield return originalHelper.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return originalHelper.MyReactToSpendPower(
                 usablePower,
-                [],
                 attacker,
                 "RoyalKnightInspiringProtection",
                 FormatReactionDescription(action, attacker, defender, originalHelper),
@@ -298,8 +296,6 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
                 action.SaveOutcome = saveOutcome;
                 action.SaveOutcomeDelta = saveOutcomeDelta;
-
-                rulesetOriginalHelper.LogCharacterUsedPower(powerInspiringProtection, indent: true);
             }
         }
 
