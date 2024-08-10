@@ -106,6 +106,52 @@ public static class GameLocationCharacterExtensions
         commandService.ExecuteInstantSingleAction(new CharacterActionParams(character, Id.StandUp));
     }
 
+    internal static IEnumerator MyReactToCastSpell(
+        this GameLocationCharacter caster,
+        SpellDefinition spell,
+        GameLocationCharacter target,
+        GameLocationCharacter waiter,
+        Action<CharacterActionParams> reactionValidated = null,
+        GameLocationBattleManager battleManager = null)
+    {
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!battleManager)
+        {
+            yield break;
+        }
+
+        var ruleCaster = caster.RulesetCharacter;
+        var slotLevel = ruleCaster.GetLowestSlotLevelAndRepertoireToCastSpell(spell, out var repertoire);
+
+        if (slotLevel < spell.SpellLevel || repertoire == null)
+        {
+            yield break;
+        }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var reactionParams = new CharacterActionParams(caster, Id.CastReaction)
+        {
+            ActionModifiers = { new ActionModifier() },
+            IntParameter = slotLevel,
+            RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectSpell(ruleCaster, repertoire, spell, slotLevel, false),
+            SpellRepertoire = repertoire,
+            TargetCharacters = { target },
+            IsReactionEffect = true
+        };
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        actionService.ReactToSpendSpellSlot(reactionParams);
+
+        yield return battleManager.WaitForReactions(waiter, actionService, count);
+
+        if (reactionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke(reactionParams);
+        }
+    }
+
     internal static IEnumerator MyReactToDoNothing(
         this GameLocationCharacter character,
         ExtraActionId actionId,

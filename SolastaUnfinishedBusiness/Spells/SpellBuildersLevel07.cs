@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -274,58 +273,9 @@ internal static partial class SpellBuilders
 
             foreach (var contender in contenders)
             {
-                yield return HandleReaction(battleManager, waiter, defender, contender);
+                yield return contender
+                    .MyReactToCastSpell(_rescueTheDying, waiter, defender, battleManager: battleManager);
             }
-        }
-
-        private static IEnumerator HandleReaction(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter waiter,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            var rulesetHelper = helper.RulesetCharacter;
-            var slotLevel = rulesetHelper.GetLowestSlotLevelAndRepertoireToCastSpell(
-                _rescueTheDying, out var spellRepertoire);
-
-            if (slotLevel < 7 ||
-                spellRepertoire == null ||
-                helper.Side != defender.Side)
-            {
-                yield break;
-            }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetHelper, spellRepertoire, SpellsContext.RescueTheDying, slotLevel, false);
-            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendSpellSlot)
-            {
-                IntParameter = slotLevel,
-                StringParameter = _rescueTheDying.Name,
-                SpellRepertoire = spellRepertoire,
-                RulesetEffect = effectSpell
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToSpendSpellSlot(reactionParams);
-
-            yield return battleManager.WaitForReactions(waiter, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var slotUsed = reactionParams.IntParameter;
-            var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.CastReaction)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                    .InstantiateEffectSpell(rulesetHelper, spellRepertoire, _rescueTheDying, slotUsed, false),
-                TargetCharacters = { defender }
-            };
-
-            actionService.ExecuteAction(actionParams, null, true);
         }
 
         private static void HealingReceivedHandler(
@@ -335,8 +285,8 @@ internal static partial class SpellBuilders
             HealingCap healingCaps,
             IHealingModificationProvider healingModificationProvider)
         {
-            character.ReceiveTemporaryHitPoints(healing / 2, DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn,
-                sourceGuid);
+            character.ReceiveTemporaryHitPoints(
+                healing / 2, DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn, sourceGuid);
         }
     }
 

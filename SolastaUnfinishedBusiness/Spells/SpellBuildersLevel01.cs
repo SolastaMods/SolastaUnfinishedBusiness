@@ -1535,10 +1535,10 @@ internal static partial class SpellBuilders
         private IEnumerator HandleReaction(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter helper,
+            GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
-            if (!helper.CanReact())
+            if (!defender.CanReact())
             {
                 yield break;
             }
@@ -1556,61 +1556,39 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetHelper = helper.RulesetCharacter;
-            var slotLevel = rulesetHelper.GetLowestSlotLevelAndRepertoireToCastSpell(
-                spellDefinition, out var spellRepertoire);
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (slotLevel < 1 ||
-                spellRepertoire == null)
+            yield return defender.MyReactToCastSpell(
+                SpellsContext.ElementalInfusion, defender, attacker, ReactionValidated, battleManager);
+
+            yield break;
+
+            void ReactionValidated(CharacterActionParams actionParams)
             {
-                yield break;
-            }
+                var slotUsed = actionParams.IntParameter;
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetHelper, spellRepertoire, SpellsContext.ElementalInfusion, slotLevel,
-                    false);
-            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.CastReaction)
-            {
-                IntParameter = slotLevel,
-                StringParameter = spellDefinition.Name,
-                SpellRepertoire = spellRepertoire,
-                RulesetEffect = effectSpell
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Effect);
 
-            actionService.ReactToSpendSpellSlot(reactionParams);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var slotUsed = reactionParams.IntParameter;
-
-            EffectHelpers.StartVisualEffect(helper, helper, ShadowArmor, EffectHelpers.EffectType.Caster);
-            EffectHelpers.StartVisualEffect(helper, helper, ShadowArmor, EffectHelpers.EffectType.Effect);
-
-            foreach (var condition in resistanceDamageTypes
-                         .Select(damageType =>
-                             GetDefinition<ConditionDefinition>(
-                                 $"Condition{spellDefinition.Name}{damageType.Substring(6)}Resistance")))
-            {
-                rulesetHelper.InflictCondition(
-                    condition.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetHelper.guid,
-                    rulesetHelper.CurrentFaction.Name,
-                    1,
-                    condition.Name,
-                    slotUsed,
-                    0,
-                    0);
+                foreach (var condition in resistanceDamageTypes
+                             .Select(damageType =>
+                                 GetDefinition<ConditionDefinition>(
+                                     $"Condition{spellDefinition.Name}{damageType.Substring(6)}Resistance")))
+                {
+                    rulesetDefender.InflictCondition(
+                        condition.Name,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.StartOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetDefender.guid,
+                        rulesetDefender.CurrentFaction.Name,
+                        1,
+                        condition.Name,
+                        slotUsed,
+                        0,
+                        0);
+                }
             }
         }
     }
