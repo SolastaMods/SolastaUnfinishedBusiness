@@ -176,6 +176,7 @@ public static class GameLocationCharacterExtensions
         {
             ActionModifiers = { new ActionModifier() },
             IntParameter = slotLevel,
+            StringParameter = spell.Name,
             RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(ruleCaster, repertoire, spell, slotLevel, false),
             SpellRepertoire = repertoire,
