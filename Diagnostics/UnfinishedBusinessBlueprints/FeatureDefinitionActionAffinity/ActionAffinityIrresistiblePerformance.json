@@ -19,6 +19,7 @@
     "CastReaction",
     "AttackReadied",
     "CastReadied",
+    "CastRitual",
     "CastNoCost",
     "AttackFree",
     "CastInvocation"
