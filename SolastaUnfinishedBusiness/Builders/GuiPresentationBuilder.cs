@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.Infrastructure;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -79,14 +80,15 @@ internal class GuiPresentationBuilder
         return _guiPresentation;
     }
 
-    private static GuiPresentation Build(
+    public static GuiPresentation Build(
         string title,
         string description,
         AssetReferenceSprite sprite = null,
         int? sortOrder = null,
-        bool? hidden = null)
+        bool? hidden = null,
+        [CanBeNull] string symbol = null)
     {
-        return Build(null, title, description, sprite, sortOrder, hidden);
+        return Build(null, title, description, sprite, sortOrder, hidden, symbol);
     }
 
     internal static GuiPresentation Build(
@@ -95,7 +97,8 @@ internal class GuiPresentationBuilder
         string description,
         AssetReferenceSprite sprite = null,
         int? sortOrder = null,
-        bool? hidden = null)
+        bool? hidden = null,
+        [CanBeNull] string symbol = null)
     {
         var guiPresentation = reference == null ? new GuiPresentation() : new GuiPresentation(reference);
 
@@ -104,6 +107,7 @@ internal class GuiPresentationBuilder
         guiPresentation.spriteReference = sprite ?? reference?.SpriteReference ?? EmptySprite;
         guiPresentation.sortOrder = sortOrder ?? reference?.SortOrder ?? 0;
         guiPresentation.hidden = hidden ?? reference?.Hidden ?? false;
+        guiPresentation.symbolChar = symbol ?? reference?.symbolChar;
 
         return guiPresentation;
     }
@@ -113,9 +117,10 @@ internal class GuiPresentationBuilder
         Category category,
         AssetReferenceSprite sprite = null,
         int? sortOrder = null,
-        bool? hidden = null)
+        bool? hidden = null,
+        [CanBeNull] string symbol = null)
     {
-        return Build(null, name, category, sprite, sortOrder, hidden);
+        return Build(null, name, category, sprite, sortOrder, hidden, symbol);
     }
 
     internal static GuiPresentation Build(
@@ -124,10 +129,12 @@ internal class GuiPresentationBuilder
         Category category,
         AssetReferenceSprite sprite = null,
         int? sortOrder = null,
-        bool? hidden = null)
+        bool? hidden = null,
+        [CanBeNull] string symbol = null)
     {
         return Build(
-            reference, CreateTitleKey(name, category), CreateDescriptionKey(name, category), sprite, sortOrder, hidden);
+            reference, CreateTitleKey(name, category), CreateDescriptionKey(name, category), sprite, sortOrder, hidden,
+            symbol);
     }
 }
 

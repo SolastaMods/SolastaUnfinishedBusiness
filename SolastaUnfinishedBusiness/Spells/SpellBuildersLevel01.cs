@@ -754,6 +754,7 @@ internal static partial class SpellBuilders
     #endregion
 
     #region Chaos Bolt
+    const string DamageTypeChaosBolt = "DamageChaosBolt";
 
     private static readonly (string, IMagicEffect)[] ChaosBoltDamagesAndEffects =
     [
@@ -765,6 +766,30 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildChaosBolt()
     {
+        var formattedDamages = "";
+        for (var i = 0; i < ChaosBoltDamagesAndEffects.Length; i++)
+        {
+            if (i > 0)
+            {
+                if (i % 2 == 1)
+                {
+                    formattedDamages += "  \t";
+                }
+                else
+                {
+                    formattedDamages += "\n";
+                }
+            }
+            formattedDamages += $"{i+1}: {Gui.FormatDamageType(ChaosBoltDamagesAndEffects[i].Item1, true)}";
+        }
+
+        var spellDescription = Gui.Format("Spell/&ChaosBoltDescription", formattedDamages);
+        //267B = ♻
+        var damageGui = GuiPresentationBuilder.Build(Gui.NoLocalization, Gui.NoLocalization, symbol:"267B");
+        DamageDefinitionBuilder.Create(DamageTypeChaosBolt)
+            .SetGuiPresentation(damageGui)
+            .AddToDB();
+        
         const string NAME = "ChaosBolt";
 
         var sprite = Sprites.GetSprite(NAME, Resources.ChaosBolt, 128);
@@ -800,7 +825,7 @@ internal static partial class SpellBuilders
 
         var powerLeap = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Leap")
-            .SetGuiPresentation(NAME, Category.Spell, sprite)
+            .SetGuiPresentation(NAME, Category.Spell, spellDescription, sprite)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetUseSpellAttack()
             .SetEffectDescription(
@@ -811,8 +836,8 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 2, DieType.D8),
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
+                        EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 2, DieType.D8),
+                        EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -837,7 +862,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, sprite)
+            .SetGuiPresentation(Category.Spell, spellDescription, sprite)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -853,8 +878,8 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 2, DieType.D8),
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
+                        EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 2, DieType.D8),
+                        EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -1050,13 +1075,7 @@ internal static partial class SpellBuilders
 
                 MagicEffect.Add((defender, effect));
 
-                foreach (var effectForm in actualEffectForms
-                             .Where(x =>
-                                 x.FormType == EffectForm.EffectFormType.Damage &&
-                                 x.DamageForm.DamageType == DamageTypeBludgeoning))
-                {
-                    effectForm.DamageForm.DamageType = damageType;
-                }
+                ModifyChaosBoltForms(actualEffectForms, damageType);
             }
             else
             {
@@ -1096,13 +1115,7 @@ internal static partial class SpellBuilders
 
                     MagicEffect.Add((defender, effect));
 
-                    foreach (var effectForm in actualEffectForms
-                                 .Where(x =>
-                                     x.FormType == EffectForm.EffectFormType.Damage &&
-                                     x.DamageForm.DamageType == DamageTypeBludgeoning))
-                    {
-                        effectForm.DamageForm.DamageType = damageType;
-                    }
+                    ModifyChaosBoltForms(actualEffectForms, damageType);
                 }
 
                 void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
@@ -1121,14 +1134,18 @@ internal static partial class SpellBuilders
 
                     MagicEffect.Add((defender, effect));
 
-                    foreach (var effectForm in actualEffectForms
-                                 .Where(x =>
-                                     x.FormType == EffectForm.EffectFormType.Damage &&
-                                     x.DamageForm.DamageType == DamageTypeBludgeoning))
-                    {
-                        effectForm.DamageForm.DamageType = damageType;
-                    }
+                    ModifyChaosBoltForms(actualEffectForms, damageType);
                 }
+            }
+        }
+
+        private static void ModifyChaosBoltForms(List<EffectForm> actualEffectForms, string damageType)
+        {
+            foreach (var effectForm in actualEffectForms
+                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
+                                     x.DamageForm.DamageType == DamageTypeChaosBolt))
+            {
+                effectForm.DamageForm.DamageType = damageType;
             }
         }
 
