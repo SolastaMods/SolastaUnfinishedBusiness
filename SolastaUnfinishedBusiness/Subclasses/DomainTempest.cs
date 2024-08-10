@@ -79,7 +79,6 @@ public sealed class DomainTempest : AbstractSubclass
             .AddToDB();
 
         PowerWrathOfTheStorm.AddCustomSubFeatures(
-            ReactionResourceWrathOfTheStorm.Instance,
             ModifyPowerVisibility.Hidden,
             new CustomBehaviorWrathOfTheStorm(PowerWrathOfTheStorm));
 
@@ -357,30 +356,33 @@ public sealed class DomainTempest : AbstractSubclass
 
         private IEnumerator HandleReaction(CharacterAction action, GameLocationCharacter defender)
         {
-            if (action.AttackRoll == 0 ||
-                action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
             var attacker = action.ActingCharacter;
             var rulesetDefender = defender.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetDefender);
 
-            if (defender.CanReact() ||
-                defender.IsWithinRange(attacker, 1) ||
-                defender.CanPerceiveTarget(attacker) ||
+            if (action.AttackRoll == 0 ||
+                action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !defender.CanReact() ||
+                !defender.IsWithinRange(attacker, 1) ||
+                !defender.CanPerceiveTarget(attacker) ||
                 rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
-                yield break;
+                  yield break;
             }
 
-            yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerReaction,
+            yield return defender.MyReactToSpendPowerBundle(
                 usablePower,
                 [attacker],
                 attacker,
-                "WrathOfTheStorm");
+                "WrathOfTheStorm",
+                reactionValidated: ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
+            }
         }
     }
 
