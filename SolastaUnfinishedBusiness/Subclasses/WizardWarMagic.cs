@@ -175,8 +175,8 @@ public sealed class WizardWarMagic : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetCharacter = helper.RulesetCharacter;
-            var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var rulesetHelper = helper.RulesetCharacter;
+            var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
             if (action.AttackRollOutcome != RollOutcome.Success ||
@@ -202,14 +202,14 @@ public sealed class WizardWarMagic : AbstractSubclass
             {
                 EffectHelpers.StartVisualEffect(
                     helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
-                rulesetCharacter.InflictCondition(
+                rulesetHelper.InflictCondition(
                     conditionArcaneDeflection.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagEffect,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
+                    rulesetHelper.guid,
+                    rulesetHelper.CurrentFaction.Name,
                     1,
                     conditionArcaneDeflection.Name,
                     0,
@@ -245,8 +245,8 @@ public sealed class WizardWarMagic : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var rulesetCharacter = helper.RulesetCharacter;
-            var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var rulesetHelper = helper.RulesetCharacter;
+            var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
             if (!action.RolledSaveThrow ||
@@ -273,14 +273,14 @@ public sealed class WizardWarMagic : AbstractSubclass
             {
                 EffectHelpers.StartVisualEffect(
                     helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
-                rulesetCharacter.InflictCondition(
+                rulesetHelper.InflictCondition(
                     conditionArcaneDeflection.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagEffect,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
+                    rulesetHelper.guid,
+                    rulesetHelper.CurrentFaction.Name,
                     1,
                     conditionArcaneDeflection.Name,
                     0,

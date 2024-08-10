@@ -213,14 +213,14 @@ public sealed class RoguishAcrobat : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerHeroicUncannyDodge, rulesetDefender);
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerHeroicUncannyDodge, rulesetHelper);
 
             if (helper != defender ||
                 defender.IsMyTurn() ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
-                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }

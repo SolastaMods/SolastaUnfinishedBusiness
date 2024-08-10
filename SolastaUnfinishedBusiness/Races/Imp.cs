@@ -593,7 +593,7 @@ internal static class RaceImpBuilder
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetHelper = attacker.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetHelper);
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
@@ -634,13 +634,13 @@ internal static class RaceImpBuilder
             ActionModifier actionModifier,
             bool hasHitVisual, [UsedImplicitly] bool hasBorrowedLuck)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetDefender);
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetHelper);
 
             if (helper != defender ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
-                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0 ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 action.SaveOutcomeDelta < -InspirationValue)
             {
                 yield break;

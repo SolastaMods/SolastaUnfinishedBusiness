@@ -270,13 +270,13 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerShadowSanctuary, rulesetDefender);
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerShadowSanctuary, rulesetHelper);
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 defender != helper ||
                 !defender.CanReact() ||
-                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }

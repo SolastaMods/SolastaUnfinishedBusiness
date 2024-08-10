@@ -1837,13 +1837,13 @@ internal static class RaceFeats
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 helper != defender ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
-                rulesetDefender.HasConditionOfType(conditionSecondChance))
+                rulesetHelper.HasConditionOfType(conditionSecondChance))
             {
                 yield break;
             }
@@ -1860,14 +1860,14 @@ internal static class RaceFeats
 
             void ReactionValidated()
             {
-                rulesetDefender.InflictCondition(
+                rulesetHelper.InflictCondition(
                     conditionSecondChance.Name,
                     DurationType.UntilAnyRest,
                     0,
                     TurnOccurenceType.StartOfTurn,
                     AttributeDefinitions.TagEffect,
-                    rulesetDefender.guid,
-                    rulesetDefender.CurrentFaction.Name,
+                    rulesetHelper.guid,
+                    rulesetHelper.CurrentFaction.Name,
                     1,
                     conditionSecondChance.Name,
                     0,
@@ -1928,7 +1928,7 @@ internal static class RaceFeats
 
                 var sign = toHitBonus > 0 ? "+" : string.Empty;
 
-                rulesetDefender.LogCharacterUsedFeature(
+                rulesetHelper.LogCharacterUsedFeature(
                     featureSecondChance,
                     "Feedback/&TriggerRerollLine",
                     false,

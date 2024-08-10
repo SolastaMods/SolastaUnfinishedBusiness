@@ -1029,12 +1029,12 @@ internal static class Level20Context
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(power, rulesetHelper);
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
-                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -1050,7 +1050,7 @@ internal static class Level20Context
 
             void ReactionValidated()
             {
-                rulesetAttacker.UsePower(usablePower);
+                rulesetHelper.UsePower(usablePower);
 
                 var delta = -action.AttackSuccessDelta;
 

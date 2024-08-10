@@ -2322,8 +2322,8 @@ internal static class OtherFeats
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-            var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetDefender);
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetHelper);
 
             var effectDescription = action.ActionParams.AttackMode?.EffectDescription ??
                                     action.ActionParams.RulesetEffect?.EffectDescription;
@@ -2331,7 +2331,7 @@ internal static class OtherFeats
             if (helper != defender ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
-                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0 ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 effectDescription?.savingThrowAbility is not
                     (AttributeDefinitions.Intelligence or AttributeDefinitions.Wisdom or AttributeDefinitions.Charisma))
             {
@@ -2350,8 +2350,8 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
-                rulesetDefender.UsePower(usablePower);
-                
+                rulesetHelper.UsePower(usablePower);
+
                 action.SaveOutcomeDelta = 0;
                 action.SaveOutcome = RollOutcome.Success;
             }

@@ -243,13 +243,13 @@ public sealed class RoguishRavenScion : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerDeadlyFocus, rulesetAttacker);
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerDeadlyFocus, rulesetHelper);
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
                 !ValidatorsWeapon.IsTwoHandedRanged(attackMode) ||
-                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -272,7 +272,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                     ? "Feedback/&RollAttackCriticalFailureTitle"
                     : "Feedback/&RollAttackFailureTitle";
 
-                rulesetAttacker.LogCharacterUsedPower(
+                rulesetHelper.LogCharacterUsedPower(
                     powerDeadlyFocus,
                     $"Feedback/&Trigger{Name}RerollLine",
                     false,
@@ -287,7 +287,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
                 attackModifier.AttackAdvantageTrends.SetRange(advantageTrends);
 
-                var roll = rulesetAttacker.RollAttack(
+                var roll = rulesetHelper.RollAttack(
                     attackMode.toHitBonus,
                     defender.RulesetActor,
                     attackMode.sourceDefinition,

@@ -1685,16 +1685,16 @@ internal static class GambitsBuilders
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
             if (action.AttackRollOutcome != RollOutcome.Failure ||
                 helper != attacker ||
-                !rulesetAttacker.CanUsePower(pool))
+                !rulesetHelper.CanUsePower(pool))
             {
                 yield break;
             }
 
-            var dieType = GetGambitDieSize(rulesetAttacker);
+            var dieType = GetGambitDieSize(rulesetHelper);
             var max = DiceMaxValue[(int)dieType];
             var delta = Math.Abs(action.AttackSuccessDelta);
 
@@ -1721,7 +1721,7 @@ internal static class GambitsBuilders
 
             void ReactionValidated()
             {
-                rulesetAttacker.UpdateUsageForPower(pool, 1);
+                rulesetHelper.UpdateUsageForPower(pool, 1);
 
                 var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
@@ -1738,7 +1738,7 @@ internal static class GambitsBuilders
                     action.AttackRollOutcome = RollOutcome.Success;
                 }
 
-                rulesetAttacker.ShowDieRoll(
+                rulesetHelper.ShowDieRoll(
                     dieType,
                     dieRoll,
                     title: feature.GuiPresentation.Title,
@@ -1746,7 +1746,7 @@ internal static class GambitsBuilders
                     displayOutcome: true
                 );
 
-                rulesetAttacker.LogCharacterUsedFeature(
+                rulesetHelper.LogCharacterUsedFeature(
                     feature,
                     Line,
                     extra:
@@ -1778,20 +1778,20 @@ internal static class GambitsBuilders
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 helper != defender ||
                 rulesetEffect != null ||
                 !defender.CanReact() ||
-                rulesetDefender.GetRemainingPowerCharges(pool) <= 0 ||
+                rulesetHelper.GetRemainingPowerCharges(pool) <= 0 ||
                 attackMode is { Ranged: true } ||
                 attackMode is { Thrown: true })
             {
                 yield break;
             }
 
-            var dieType = GetGambitDieSize(rulesetDefender);
+            var dieType = GetGambitDieSize(rulesetHelper);
             var guiMe = new GuiCharacter(defender);
             var guiTarget = new GuiCharacter(attacker);
 
@@ -1809,20 +1809,20 @@ internal static class GambitsBuilders
 
             void ReactionValidated()
             {
-                rulesetDefender.UpdateUsageForPower(pool, 1);
+                rulesetHelper.UpdateUsageForPower(pool, 1);
 
                 var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
-                var pb = 2 * rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                var pb = 2 * rulesetHelper.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                 var reduction = dieRoll + pb;
 
                 actionModifier.damageRollReduction += reduction;
 
-                rulesetDefender.ShowDieRoll(dieType, dieRoll,
+                rulesetHelper.ShowDieRoll(dieType, dieRoll,
                     title: feature.GuiPresentation.Title,
                     displayModifier: true, modifier: pb);
 
-                rulesetDefender.LogCharacterUsedFeature(feature, Line,
+                rulesetHelper.LogCharacterUsedFeature(feature, Line,
                     extra:
                     [
                         (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),

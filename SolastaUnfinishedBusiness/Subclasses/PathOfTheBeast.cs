@@ -435,6 +435,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                 .SetPossessive()
                 .AddToDB();
+
             conditionTailSwipe.AddCustomSubFeatures(new BeastTailModifyArmorClass(conditionTailSwipe));
 
             _powerTailSwipe = FeatureDefinitionPowerBuilder
@@ -463,7 +464,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 helper != defender ||
@@ -477,7 +478,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
             defender.UsedSpecialFeatures.Remove(TagBeastTailArmorClass);
 
-            var usablePower = PowerProvider.Get(_powerTailSwipe, rulesetDefender);
+            var usablePower = PowerProvider.Get(_powerTailSwipe, rulesetHelper);
 
             yield return helper.MyReactToUsePower(
                 ActionDefinitions.Id.PowerReaction,

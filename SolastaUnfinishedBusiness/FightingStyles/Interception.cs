@@ -85,10 +85,10 @@ internal sealed class Interception : AbstractFightingStyle
                 yield break;
             }
 
-            var helperCharacter = helper.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
-            if (ValidatorsWeapon.IsUnarmed(helperCharacter.GetMainWeapon()?.ItemDefinition, null) &&
-                ValidatorsWeapon.IsUnarmed(helperCharacter.GetOffhandWeapon()?.ItemDefinition, null))
+            if (ValidatorsWeapon.IsUnarmed(rulesetHelper.GetMainWeapon()?.ItemDefinition, null) &&
+                ValidatorsWeapon.IsUnarmed(rulesetHelper.GetOffhandWeapon()?.ItemDefinition, null))
             {
                 yield break;
             }
@@ -105,9 +105,9 @@ internal sealed class Interception : AbstractFightingStyle
 
             void ReactionValidated()
             {
-                var roll = helperCharacter.RollDie(DieType.D10, RollContext.None, true, AdvantageType.None, out _,
+                var roll = rulesetHelper.RollDie(DieType.D10, RollContext.None, true, AdvantageType.None, out _,
                     out _);
-                var reducedDamage = roll + helperCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                var reducedDamage = roll + rulesetHelper.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
                 defender.RulesetActor.InflictCondition(
                     conditionDefinition.Name,
@@ -115,8 +115,8 @@ internal sealed class Interception : AbstractFightingStyle
                     0,
                     TurnOccurenceType.StartOfTurn,
                     AttributeDefinitions.TagEffect,
-                    helperCharacter.guid,
-                    helperCharacter.CurrentFaction.Name,
+                    rulesetHelper.guid,
+                    rulesetHelper.CurrentFaction.Name,
                     1,
                     conditionDefinition.Name,
                     reducedDamage,

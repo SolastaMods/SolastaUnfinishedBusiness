@@ -273,24 +273,24 @@ public sealed class MartialGuardian : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
             if (helper != defender ||
                 rulesetEffect != null ||
                 attackMode.Magical ||
-                !ValidatorsCharacter.HasHeavyArmor(rulesetDefender))
+                !ValidatorsCharacter.HasHeavyArmor(rulesetHelper))
             {
                 yield break;
             }
 
-            rulesetDefender.InflictCondition(
+            rulesetHelper.InflictCondition(
                 conditionImperviousProtector.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
-                rulesetDefender.Guid,
-                rulesetDefender.CurrentFaction.Name,
+                rulesetHelper.Guid,
+                rulesetHelper.CurrentFaction.Name,
                 1,
                 conditionImperviousProtector.Name,
                 0,

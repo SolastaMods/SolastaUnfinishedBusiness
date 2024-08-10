@@ -833,13 +833,13 @@ public sealed class WayOfTheDragon : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetDefender);
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetHelper);
 
             if (defender != helper ||
                 !defender.CanReact() ||
                 !ValidatorsWeapon.IsMelee(attackMode) ||
-                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }

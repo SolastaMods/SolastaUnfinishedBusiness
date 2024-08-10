@@ -168,17 +168,17 @@ internal static class RaceOligathBuilder
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerStoneEndurance, rulesetDefender);
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerStoneEndurance, rulesetHelper);
 
             // don't use CanReact() to allow stone endurance when prone
             if (helper != defender ||
-                !defender.IsReactionAvailable() ||
-                rulesetDefender is not { IsDeadOrUnconscious: false } ||
-                rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
-                rulesetDefender.HasConditionOfTypeOrSubType(ConditionStunned) ||
-                rulesetDefender.HasConditionOfTypeOrSubType(ConditionParalyzed) ||
-                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
+                !helper.IsReactionAvailable() ||
+                rulesetHelper is not { IsDeadOrUnconscious: false } ||
+                rulesetHelper.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
+                rulesetHelper.HasConditionOfTypeOrSubType(ConditionStunned) ||
+                rulesetHelper.HasConditionOfTypeOrSubType(ConditionParalyzed) ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
