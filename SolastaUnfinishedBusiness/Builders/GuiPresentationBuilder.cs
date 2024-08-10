@@ -107,7 +107,7 @@ internal class GuiPresentationBuilder
         guiPresentation.spriteReference = sprite ?? reference?.SpriteReference ?? EmptySprite;
         guiPresentation.sortOrder = sortOrder ?? reference?.SortOrder ?? 0;
         guiPresentation.hidden = hidden ?? reference?.Hidden ?? false;
-        guiPresentation.symbolChar = symbol ?? reference?.symbolChar;
+        guiPresentation.symbolChar = symbol ?? reference?.symbolChar ?? guiPresentation.symbolChar;
 
         return guiPresentation;
     }
