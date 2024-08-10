@@ -27,57 +27,6 @@ internal static class CustomReactionsContext
             .AddToDB();
     }
 
-#if false
-    //leaving this in case we need react with spell functionality
-    private static IEnumerator ReactWithSpell(SpellDefinition spell, GameLocationCharacter caster,
-        GameLocationCharacter target)
-    {
-        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-        if (actionManager == null)
-        {
-            yield break;
-        }
-
-        var ruleCaster = caster.RulesetCharacter;
-        var spellSlot = ruleCaster.GetLowestSlotLevelAndRepertoireToCastSpell(spell, out var spellBook);
-
-        if (spellBook == null)
-        {
-            yield break;
-        }
-
-        var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
-        var reactionParams = new CharacterActionParams(caster, Id.CastReaction)
-        {
-            IntParameter = 0,
-            RulesetEffect =
-                ruleset.InstantiateEffectSpell(ruleCaster, spellBook, spell, spellSlot, false),
-            IsReactionEffect = true
-        };
-
-        reactionParams.TargetCharacters.Add(target);
-        reactionParams.ActionModifiers.Add(new ActionModifier());
-
-        var reactions = actionManager.PendingReactionRequestGroups.Count;
-        var reaction = new ReactionRequestCastDamageSpell(reactionParams, target, spellSlot == 0);
-
-        actionManager.AddInterruptRequest(reaction);
-
-        yield return WaitForReactions(actionManager, reactions);
-    }
-
-    private static IEnumerator WaitForReactions([CanBeNull] IGameLocationActionService actionService,
-        int count)
-    {
-        while (actionService?.PendingReactionRequestGroups != null &&
-               count < actionService.PendingReactionRequestGroups.Count)
-        {
-            yield return null;
-        }
-    }
-#endif
-
     internal static void SaveReadyActionPreferredCantrip(
         [CanBeNull] CharacterActionParams actionParams,
         ReadyActionType readyActionType)

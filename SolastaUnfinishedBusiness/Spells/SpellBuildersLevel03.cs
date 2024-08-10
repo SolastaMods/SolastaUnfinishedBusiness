@@ -327,6 +327,7 @@ internal static partial class SpellBuilders
                             .SetDamageAffinityType(DamageAffinityType.Vulnerability)
                             .SetDamageType(damageDefinition.Name)
                             .AddToDB()))
+            .AddCustomSubFeatures(new CustomBehaviorCorruptingBolt())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder

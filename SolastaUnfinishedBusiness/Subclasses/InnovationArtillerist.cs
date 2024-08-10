@@ -1065,17 +1065,13 @@ public sealed class InnovationArtillerist : AbstractSubclass
             var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var selectedTarget = action.ActionParams.TargetCharacters[0];
             var rulesetTarget = selectedTarget.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetTarget);
             var targets = characterService.AllValidEntities
                 .Where(x =>
                     x != selectedTarget &&
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x.IsWithinRange(selectedTarget, 4))
                 .ToList();
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetTarget);
 
             selectedTarget.MyExecuteAction(Id.PowerNoCost, usablePower, targets);
 
