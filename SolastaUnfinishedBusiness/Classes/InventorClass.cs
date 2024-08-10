@@ -1014,6 +1014,8 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         void ReactionValidated()
         {
+            usablePower.Consume();
+
             abilityCheckData.AbilityCheckRoll += bonus;
             abilityCheckData.AbilityCheckSuccessDelta += bonus;
 
@@ -1026,7 +1028,6 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
                 ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
                 : (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
 
-            usablePower.Consume();
             helper.RulesetCharacter.LogCharacterUsedPower(
                 power,
                 "Feedback/&FlashOfGeniusCheckToHitRoll",

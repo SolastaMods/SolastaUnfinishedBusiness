@@ -2350,10 +2350,10 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
+                rulesetDefender.UsePower(usablePower);
+                
                 action.SaveOutcomeDelta = 0;
                 action.SaveOutcome = RollOutcome.Success;
-
-                rulesetDefender.LogCharacterUsedPower(PowerMageSlayerSaving);
             }
         }
 

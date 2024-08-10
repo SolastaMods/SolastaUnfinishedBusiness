@@ -828,6 +828,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
                 attackModifier.AttacktoHitTrends.Add(
@@ -891,6 +893,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
                 abilityCheckData.AbilityCheckRoll += dieRoll;
@@ -957,6 +961,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
                 action.RolledSaveThrow = true;
@@ -1037,6 +1043,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
@@ -1101,6 +1109,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
@@ -1168,6 +1178,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 

@@ -583,7 +583,8 @@ internal static class RaceImpBuilder
 
         public int HandlerPriority => -10;
 
-        public IEnumerator OnTryAlterOutcomeAttack(GameLocationBattleManager battleManager,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -614,6 +615,7 @@ internal static class RaceImpBuilder
 
             void ReactionValidated()
             {
+                usablePower.Consume();
                 action.AttackSuccessDelta += InspirationValue;
                 action.AttackRollOutcome = RollOutcome.Success;
                 actionModifier.AttackRollModifier += InspirationValue;
@@ -623,7 +625,8 @@ internal static class RaceImpBuilder
             }
         }
 
-        public IEnumerator OnTryAlterOutcomeSavingThrow(GameLocationBattleManager battleManager,
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -654,6 +657,7 @@ internal static class RaceImpBuilder
 
             void ReactionValidated()
             {
+                usablePower.Consume();
                 action.RolledSaveThrow = true;
                 action.SaveOutcomeDelta = 0;
                 action.SaveOutcome = RollOutcome.Success;
