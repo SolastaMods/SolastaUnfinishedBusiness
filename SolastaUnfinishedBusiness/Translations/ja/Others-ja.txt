@@ -301,6 +301,7 @@ Tooltip/&PreReqMustHaveExtraAttacks=追加攻撃が必要
 Tooltip/&PreReqMustKnow={0} を知っておく必要があります
 Tooltip/&SecondTargetNotWithinRange=最初の範囲内にないため、このターゲットを選択できません
 Tooltip/&Tag9000Title=カスタムエフェクト
+Tooltip/&TagDamageChaosBoltTitle=カオスダメージ
 Tooltip/&TagUnfinishedBusinessTitle=未完の仕事
 Tooltip/&TargetMeleeWeaponError=現在の武器ではこのターゲットに近接攻撃を実行できません
 UI/&CustomFeatureSelectionStageDescription=クラス/サブクラスの追加機能を選択します。

@@ -301,6 +301,7 @@ Tooltip/&PreReqMustHaveExtraAttacks=Muss zusätzliche Angriffe haben
 Tooltip/&PreReqMustKnow=Muss man wissen {0}
 Tooltip/&SecondTargetNotWithinRange=Dieses Ziel kann nicht ausgewählt werden, da es sich nicht in Reichweite des ersten befindet.
 Tooltip/&Tag9000Title=Benutzerdefinierter Effekt
+Tooltip/&TagDamageChaosBoltTitle=Chaotischer Schaden
 Tooltip/&TagUnfinishedBusinessTitle=Unerledigte Aufgabe
 Tooltip/&TargetMeleeWeaponError=Mit der aktuellen Waffe ist kein Nahkampfangriff auf dieses Ziel möglich.
 UI/&CustomFeatureSelectionStageDescription=Wählen Sie zusätzliche Funktionen für Ihre Klasse/Unterklasse aus.
