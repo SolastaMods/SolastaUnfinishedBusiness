@@ -162,17 +162,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetCharacter, null, Darkness, 0, false);
-
-            var actionParams = action.ActionParams.Clone();
-
-            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
-            actionParams.RulesetEffect = effectSpell;
-            actionService.ExecuteAction(actionParams, null, true);
+            action.ActingCharacter.MyExecuteActionCastNoCost(Darkness, 0, action.ActionParams);
 
             yield break;
         }

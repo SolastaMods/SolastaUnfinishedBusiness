@@ -509,15 +509,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
             var spellRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
                 x.SpellCastingClass == CharacterClassDefinitions.Warlock);
-            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetCharacter, spellRepertoire, MoonBeam, slotLevel, false);
-            var actionParams = action.ActionParams.Clone();
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>();
 
-            actionParams.ActionDefinition = actionManager.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
-            actionParams.RulesetEffect = effectSpell;
-
-            actionManager.ExecuteAction(actionParams, null, true);
+            action.ActingCharacter.MyExecuteActionCastNoCost(MoonBeam, slotLevel, action.ActionParams, spellRepertoire);
 
             yield break;
         }

@@ -72,6 +72,24 @@ public static class GameLocationCharacterExtensions
         actionService.ExecuteAction(actionParams, null, true);
     }
 
+    internal static void MyExecuteActionCastNoCost(
+        this GameLocationCharacter caster,
+        SpellDefinition spell,
+        int slotLevel,
+        CharacterActionParams originalActionParams,
+        RulesetSpellRepertoire spellRepertoire = null)
+    {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var rulesetCaster = caster.RulesetCharacter;
+        var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
+            .InstantiateEffectSpell(rulesetCaster, spellRepertoire, spell, slotLevel, false);
+        var actionParams = originalActionParams.Clone();
+
+        actionParams.ActionDefinition = actionService.AllActionDefinitions[Id.CastNoCost];
+        actionParams.RulesetEffect = effectSpell;
+        actionService.ExecuteAction(actionParams, null, true);
+    }
+
     internal static void MyExecuteActionStabilizeAndStandUp(
         this GameLocationCharacter character, int hitPoints, IMagicEffect magicEffect = null)
     {

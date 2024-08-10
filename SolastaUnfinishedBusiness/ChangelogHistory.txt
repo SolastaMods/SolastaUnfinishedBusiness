@@ -1,5 +1,6 @@
 1.5.97.26:
 
+- fixed Absorb Elements spell triggering behavior
 - fixed Bait and Switch maneuver greyed out on action bar
 - fixed Bountiful Luck feat triggering on any failure regardless the dice roll
 - fixed Cleric domains missing divine intervention improvement at 20
@@ -10,7 +11,7 @@
 - fixed Time Stop spell to work as in tabletop
 - fixed Toll the Dead and Wrack cantrips description
 - fixed Variant Spell Points consumption on slots above 5
-- improved Bladestorm feat with an additional BA attack as PAM
+- improved Bladestorm feat with an additional 1D4 BA attack, and modifier damage on whirlwind attack
 
 KNOWN ISSUES:
 
