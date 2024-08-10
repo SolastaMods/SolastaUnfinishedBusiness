@@ -1512,7 +1512,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetForbiddenActions(
                 Id.AttackFree, Id.AttackMain, Id.AttackOff, Id.AttackOpportunity, Id.AttackReadied,
-                Id.CastBonus, Id.CastInvocation, Id.CastMain, Id.CastReaction, Id.CastReadied, Id.CastNoCost)
+                Id.CastBonus, Id.CastInvocation, Id.CastMain, Id.CastReaction, Id.CastReadied, Id.CastRitual,
+                Id.CastNoCost)
             .AddToDB();
 
         var conditionIrresistiblePerformance = ConditionDefinitionBuilder
