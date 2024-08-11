@@ -228,21 +228,20 @@ internal static class InventoryManagementContext
 
     private static int ItemSort(RulesetInventorySlot slotA, RulesetInventorySlot slotB)
     {
-        var result = BySortGroup.Inverted ? -1 : 1;
         var itemA = slotA.EquipedItem;
         var itemB = slotB.EquipedItem;
 
         if (itemA == null)
         {
-            return itemB == null ? 0 : result;
+            return itemB == null ? 0 : 1;
         }
 
         if (itemB == null)
         {
-            return -result;
+            return -1;
         }
 
-        result *= SortGuiDropdown.value switch
+        var result = SortGuiDropdown.value switch
         {
             1 => SortByName(itemA, itemB),
             2 => SortByCategory(itemA, itemB),
