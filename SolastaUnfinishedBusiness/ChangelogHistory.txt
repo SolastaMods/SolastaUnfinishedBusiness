@@ -5,12 +5,14 @@
 - fixed Bountiful Luck feat triggering on any failure regardless the dice roll
 - fixed Cleric domains missing divine intervention improvement at 20
 - fixed College of Swords flourish description
+- fixed Corrupting Bolt spell removing corrupted condition too soon
 - fixed Martial Guardian not getting the Sentinel feat
 - fixed Path of the Wild Magic retribution on self, and spirit blast soft lock
 - fixed Sunlit Blade cantrip highlighted condition duration
 - fixed Toll the Dead and Wrack cantrips description
 - fixed Variant Spell Points consumption on slots above 5
 - improved Bladestorm feat with an additional 1D4 BA attack, and mod damage on whirlwind attack
+- improved Chaos Bolt tooltip to present damage symbols, and correct 1D6 damage progression
 - improved Time Stop spell to behave as in tabletop
 
 KNOWN ISSUES:

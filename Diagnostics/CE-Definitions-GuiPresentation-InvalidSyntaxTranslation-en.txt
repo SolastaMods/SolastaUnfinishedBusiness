@@ -90,6 +90,12 @@ CastSpellFeatSpellSniperWarlock	Title='Sniper'.
 CastSpellFeatSpellSniperWarlock	Description='You learn one cantrip of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 CastSpellFeatSpellSniperWizard	Title='Sniper'.
 CastSpellFeatSpellSniperWizard	Description='You learn one cantrip of your choice from the Wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
+ChaosBolt	Description='Make a ranged spell attack against a target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type:
+1: ◰ Acid  	2: ◲ Cold
+3: ◳ Fire  	4: ◴ Force
+5: ◵ Lightning  	6: ◸ Poison
+7: ◹ Psychic  	8: ◼ Thunder
+If you roll the same number on both d8s, you can use your free action to target a different creature of your choice. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again. A creature can be damaged only once by each casting of this spell.'.
 ChromaticOrbDamageAcid	Title='Acid Damage'.
 ChromaticOrbDamageAcid	Description='The creature takes 3d8 Acid Damage damage.'.
 ChromaticOrbDamageCold	Title='Cold Damage'.
@@ -1118,6 +1124,12 @@ PowerChaosBoltDamagePsychic	Title='Psychic Damage'.
 PowerChaosBoltDamagePsychic	Description='Use Psychic Damage damage.'.
 PowerChaosBoltDamageThunder	Title='Thunder Damage'.
 PowerChaosBoltDamageThunder	Description='Use Thunder Damage damage.'.
+PowerChaosBoltLeap	Description='Make a ranged spell attack against a target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type:
+1: ◰ Acid  	2: ◲ Cold
+3: ◳ Fire  	4: ◴ Force
+5: ◵ Lightning  	6: ◸ Poison
+7: ◹ Psychic  	8: ◼ Thunder
+If you roll the same number on both d8s, you can use your free action to target a different creature of your choice. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again. A creature can be damaged only once by each casting of this spell.'.
 PowerCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 PowerCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
 This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen.'.
