@@ -1850,12 +1850,10 @@ internal static class Level20SubclassesContext
             var rulesetCharacter = defender.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
 
-            yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return defender.MyReactToSpendPower(
                 usablePower,
-                [defender],
                 attacker,
-                "StoneEndurance",
+                "PhysicalPerfection",
                 reactionValidated: ReactionValidated);
 
             yield break;
