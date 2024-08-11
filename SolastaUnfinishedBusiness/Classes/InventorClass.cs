@@ -910,10 +910,8 @@ internal static class InventorClass
                 yield break;
             }
 
-            yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return defender.MyReactToSpendPower(
                 usablePower,
-                [defender],
                 attacker,
                 "SoulOfArtifice",
                 reactionValidated: ReactionValidated);
