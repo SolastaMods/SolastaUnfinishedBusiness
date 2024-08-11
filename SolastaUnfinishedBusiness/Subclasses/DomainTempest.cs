@@ -80,6 +80,7 @@ public sealed class DomainTempest : AbstractSubclass
 
         PowerWrathOfTheStorm.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
+            ReactionResourceWrathOfTheStorm.Instance,
             new CustomBehaviorWrathOfTheStorm(PowerWrathOfTheStorm));
 
         var powerWrathOfTheStormLightning = FeatureDefinitionPowerSharedPoolBuilder
