@@ -1074,10 +1074,8 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             yield break;
         }
 
-        yield return helper.MyReactToUsePower(
-            ActionDefinitions.Id.PowerReaction,
+        yield return helper.MyReactToSpendPower(
             usablePower,
-            [helper],
             attacker,
             "InventorFlashOfGenius",
             FormatReactionDescription(action, attacker, defender, helper),

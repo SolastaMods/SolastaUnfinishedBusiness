@@ -241,7 +241,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
                 usablePower,
                 attacker,
                 "Bloodbath",
-                "UseBloodbathDescription".Formatted(Category.Reaction, totalHealing.ToString()),
+                "SpendPowerBloodbathDescription".Formatted(Category.Reaction, totalHealing.ToString()),
                 ReactionValidated);
 
             yield break;
