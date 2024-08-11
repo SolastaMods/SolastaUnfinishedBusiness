@@ -13,7 +13,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class InventoryManagementContext
 {
-    public static bool Enabled => Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer;
+    public static bool Enabled => Main.Settings.EnableInventoryFilteringAndSorting
+                                  && (!Global.IsMultiplayer || Main.Settings.AllowSortingInMultiplayer);
 
     private static readonly List<string> SortCategories =
     [

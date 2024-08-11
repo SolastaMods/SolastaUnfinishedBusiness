@@ -459,6 +459,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AddCustomIconsToOfficialItems { get; set; }
     public bool DisableAutoEquip { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
+    public bool AllowSortingInMultiplayer { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
