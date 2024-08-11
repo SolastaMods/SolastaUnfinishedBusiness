@@ -120,14 +120,15 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         public WildSurgeHandler(FeatureDefinition featureControlledSurge)
         {
             _featureControlledSurge = featureControlledSurge;
-            _wildSurgeEffects.Add(BuildWildSurgeDrain());
-            _wildSurgeEffects.Add(BuildWildSurgeTeleport());
-            _wildSurgeEffects.Add(BuildWildSurgeSummon());
-            _wildSurgeEffects.Add(BuildWildSurgeWeapon());
-            _wildSurgeEffects.Add(BuildWildSurgeRetribution());
-            _wildSurgeEffects.Add(BuildWildSurgeAura());
-            _wildSurgeEffects.Add(BuildWildSurgeGrowth());
-            _wildSurgeEffects.Add(BuildWildSurgeBolt());
+            _wildSurgeEffects.AddRange(
+                BuildWildSurgeDrain(),
+                BuildWildSurgeTeleport(),
+                BuildWildSurgeSummon(),
+                BuildWildSurgeWeapon(),
+                BuildWildSurgeRetribution(),
+                BuildWildSurgeAura(),
+                BuildWildSurgeGrowth(),
+                BuildWildSurgeBolt());
 
             _conditionPreventAction = ConditionDefinitionBuilder
                 .Create($"Condition{Name}PreventAction")
@@ -755,6 +756,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             }
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var commandService = ServiceRepository.GetService<ICommandService>();
 
             if (power.EffectDescription.TargetType != TargetType.Position)
             {
@@ -765,9 +767,9 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     {
                         var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
                         {
-                            RulesetEffect = implementationManager.MyInstantiateEffectPower(
-                                rulesetCharacter, usablePower, false)
-                            //IsReactionEffect = true
+                            RulesetEffect = implementationManager
+                                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                            IsReactionEffect = true
                         };
 
                         if (reactingOutOfTurn)
@@ -801,12 +803,11 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                             {
                                 var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
                                 {
-                                    RulesetEffect = implementationManager.MyInstantiateEffectPower(
-                                        rulesetCharacter, usablePower, false)
-                                    // IsReactionEffect = true
+                                    RulesetEffect = implementationManager
+                                        .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                                    IsReactionEffect = true
                                 };
-                                ServiceRepository.GetService<ICommandService>()
-                                    ?.ExecuteInstantSingleAction(actionParams);
+                                commandService.ExecuteInstantSingleAction(actionParams);
                             }
                         }
                         else
@@ -831,7 +832,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
                     actionParams.TargetCharacters.Add(attacker);
                     actionParams.ActionModifiers.Add(new ActionModifier());
-                    ServiceRepository.GetService<ICommandService>()?.ExecuteInstantSingleAction(actionParams);
+                    commandService.ExecuteInstantSingleAction(actionParams);
                 }
             }
             else
@@ -989,15 +990,14 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
             {
                 var rulesetCharacter = locationCharacter.RulesetCharacter;
-                var actionParams = new CharacterActionParams(locationCharacter, Id.PowerBonus);
+                var actionParams = new CharacterActionParams(locationCharacter, Id.PowerNoCost);
                 var usablePower = PowerProvider.Get(power, rulesetCharacter);
 
                 actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                     .InstantiateEffectPower(rulesetCharacter, usablePower, false);
                 actionParams.SkipAnimationsAndVFX = true;
 
-                ServiceRepository.GetService<ICommandService>()?
-                    .ExecuteInstantSingleAction(actionParams);
+                ServiceRepository.GetService<ICommandService>()?.ExecuteInstantSingleAction(actionParams);
             }
         }
 
