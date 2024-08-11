@@ -432,6 +432,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .Create($"Power{Name}BlazingRevival")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerBlazingRevival.AddCustomSubFeatures(
@@ -910,10 +911,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            yield return defender.MyReactToUsePower(
-                Id.PowerNoCost,
+            yield return defender.MyReactToSpendPower(
                 usablePower,
-                [defender],
                 attacker,
                 "BlazingRevival",
                 reactionValidated: ReactionValidated);
