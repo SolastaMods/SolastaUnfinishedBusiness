@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -18,7 +20,7 @@ public static class ContainerPanelPatcher
         var newMethod =
             typeof(InventoryManagementContext).GetMethod(nameof(InventoryManagementContext.GetFilteredSlots));
 
-        return instructions.ReplaceCalls(oldMethod,  context,
+        return instructions.ReplaceCalls(oldMethod, context,
             new CodeInstruction(OpCodes.Ldarg_0),
             new CodeInstruction(OpCodes.Call, newMethod));
     }
@@ -32,7 +34,18 @@ public static class ContainerPanelPatcher
         [UsedImplicitly]
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            return ReplaceSlotsGetter(instructions, "ContainerPanel.RefreshVisibleSlots");
+            var oldMethod = typeof(RectTransform).GetProperty(nameof(RectTransform.anchoredPosition))!.GetSetMethod();
+            var newMethod = new Action<RectTransform, Vector2>(Noop).Method;
+
+            return ReplaceSlotsGetter(instructions, "ContainerPanel.RefreshVisibleSlots.1")
+                .ReplaceCall(oldMethod, 1, "ContainerPanel.RefreshVisibleSlots.2",
+                    new CodeInstruction(OpCodes.Call, newMethod));
+        }
+
+        [UsedImplicitly]
+        internal static void Prefix(ContainerPanel __instance)
+        {
+            __instance.slotsTable.anchoredPosition = new Vector2(__instance.slotsTable.anchoredPosition.x, 0);
         }
     }
 
@@ -47,5 +60,10 @@ public static class ContainerPanelPatcher
         {
             return ReplaceSlotsGetter(instructions, "ContainerPanel.ComputeTableHeight");
         }
+    }
+
+    private static void Noop(RectTransform instance, Vector2 c)
+    {
+        //Do nothing
     }
 }
