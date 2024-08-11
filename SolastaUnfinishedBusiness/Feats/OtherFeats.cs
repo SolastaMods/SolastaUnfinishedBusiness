@@ -2003,10 +2003,8 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return helper.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return helper.MyReactToSpendPower(
                 usablePower,
-                [helper],
                 attacker,
                 stringParameter,
                 reactionValidated: ReactionValidated,
@@ -2089,10 +2087,8 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return helper.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return helper.MyReactToSpendPower(
                 usablePower,
-                [helper],
                 defender,
                 "LuckyCheck",
                 reactionValidated: ReactionValidated,
@@ -2162,15 +2158,12 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return helper.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return helper.MyReactToSpendPower(
                 usablePower,
-                [helper],
                 attacker,
                 "LuckySaving",
-                "UseLuckySavingDescription".Formatted(Category.Reaction, defender.Name, attacker.Name, helper.Name),
-                ReactionValidated,
-                battleManager);
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
             yield break;
 
