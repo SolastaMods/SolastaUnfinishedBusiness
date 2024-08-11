@@ -38,6 +38,9 @@ internal static class InventoryManagementContext
 
     private static Toggle UnidentifiedToggle { get; set; }
     private static GameObject UnidentifiedText { get; set; }
+    
+    private static readonly List<RulesetInventorySlot> Filtered = new();
+    private static bool dirty = true;
 
     internal static void Load()
     {
@@ -81,14 +84,12 @@ internal static class InventoryManagementContext
         UnidentifiedToggle.onValueChanged.RemoveAllListeners();
         UnidentifiedText = Object.Instantiate(byTextMesh.gameObject, rightGroup);
 
-        // changes the reorder button label and refactor the listener
+        // repositions the reorder button and refactor the listener
 
         var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
         var reorderButton = reorder.GetComponent<Button>();
-        // var reorderTextMesh = reorder.GetComponentInChildren<TextMeshProUGUI>();
 
         reorder.localPosition = new Vector3(-10f, 358f, 0f);
-        // reorderTextMesh.text = "Reset";
         reorderButton.onClick.RemoveAllListeners();
         reorderButton.onClick.AddListener(delegate
         {
@@ -343,12 +344,13 @@ internal static class InventoryManagementContext
         return tagsMap.Keys.ToArray().Contains(TaggedGuiDropdown.options[taggedIndex].text);
     }
 
+    //`container` parameter is required for the transpile patch
     public static List<RulesetInventorySlot> GetFilteredSlots(RulesetContainer container, ContainerPanel panel)
     {
         return GetFilteredAndSorted(panel);
     }
 
-    public static void BindInventory(ContainerPanel panel, GuiCharacter character)
+    public static void BindInventory(ContainerPanel panel)
     {
         if (!panel.TryGetComponent<InventoryContainerPanelMarker>(out _))
         {
@@ -388,10 +390,6 @@ internal static class InventoryManagementContext
         dirty = true;
         Filtered.Clear();
     }
-
-    private static readonly List<RulesetInventorySlot> Filtered = new();
-    private static bool dirty = true;
-
 
     private static List<RulesetInventorySlot> GetFilteredAndSorted(ContainerPanel panel)
     {

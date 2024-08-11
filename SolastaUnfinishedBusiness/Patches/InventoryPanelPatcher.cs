@@ -34,12 +34,12 @@ public static class InventoryPanelPatcher
     public static class Bind_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(InventoryPanel __instance,  GuiCharacter guiCharacter)
+        public static void Prefix(InventoryPanel __instance)
         {
             // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
             if (InventoryManagementContext.Enabled && __instance.MainContainerPanel)
             {
-                InventoryManagementContext.BindInventory(__instance.MainContainerPanel, guiCharacter);
+                InventoryManagementContext.BindInventory(__instance.MainContainerPanel);
             }
         }
     }
