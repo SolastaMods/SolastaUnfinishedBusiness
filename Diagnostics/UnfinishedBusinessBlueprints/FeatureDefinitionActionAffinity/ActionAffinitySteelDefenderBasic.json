@@ -20,7 +20,11 @@
     "Shove",
     "SpendPower",
     "AttackReadied",
-    "Ready"
+    "Ready",
+    "PowerNoCost",
+    "ShoveBonus",
+    "AttackFree",
+    "ShoveFree"
   ],
   "authorizedActions": [],
   "restrictedActions": [],

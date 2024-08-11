@@ -50,6 +50,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ActionAffinityDyingLightToggle:503a74fe-d34e-5fcf-84a8-d8a323810192",
       "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerClericDivineInterventionImprovementWizard:e0410025-6a51-589f-9dc3-ecf95d055f7c",
+      "level": 20
     }
   ],
   "personalityFlagOccurences": [],

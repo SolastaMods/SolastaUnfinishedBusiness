@@ -439,18 +439,13 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var reactionParams = new CharacterActionParams(
-                helper,
-                ActionDefinitions.Id.AttackOpportunity,
-                attackMode,
+            yield return helper.MyReactForOpportunityAttack(
                 defender,
-                actionModifier) { StringParameter2 = "SeizeTheChance" };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactForOpportunityAttack(reactionParams);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+                attacker,
+                attackMode,
+                actionModifier,
+                "SeizeTheChance",
+                battleManager: battleManager);
         }
     }
 }

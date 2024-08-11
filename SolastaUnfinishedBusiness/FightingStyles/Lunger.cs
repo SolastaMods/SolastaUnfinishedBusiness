@@ -22,19 +22,20 @@ internal sealed class Lunger : AbstractFightingStyle
                 .Create("FeatureLunger")
                 .SetGuiPresentationNoContent(true)
                 .AddCustomSubFeatures(new IncreaseWeaponReach(1, (mode, rulesetItem, _) =>
-                {
-                    RulesetItem attackModeRulesetItem = null;
-
-                    if (mode?.SourceObject is RulesetItem rulesetItem1)
                     {
-                        attackModeRulesetItem = rulesetItem1;
-                    }
+                        RulesetItem attackModeRulesetItem = null;
 
-                    var item = attackModeRulesetItem ?? rulesetItem;
+                        if (mode?.SourceObject is RulesetItem rulesetItem1)
+                        {
+                            attackModeRulesetItem = rulesetItem1;
+                        }
 
-                    return ValidatorsWeapon.IsMelee(item) &&
-                           !ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagHeavy);
-                }, Name))
+                        var item = attackModeRulesetItem ?? rulesetItem;
+
+                        return ValidatorsWeapon.IsMelee(item) &&
+                               !ValidatorsWeapon.HasAnyWeaponTag(item?.ItemDefinition, TagsDefinitions.WeaponTagHeavy);
+                    },
+                    Name))
                 .AddToDB())
         .AddToDB();
 

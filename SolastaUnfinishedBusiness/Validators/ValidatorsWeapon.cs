@@ -158,7 +158,9 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsUnarmed([CanBeNull] ItemDefinition itemDefinition, [CanBeNull] RulesetAttackMode attackMode)
+    internal static bool IsUnarmed(
+        [CanBeNull] ItemDefinition itemDefinition,
+        [CanBeNull] RulesetAttackMode attackMode = null)
     {
         if (attackMode is { SourceDefinition: MonsterAttackDefinition { proximity: AttackProximity.Melee } })
         {
@@ -191,11 +193,5 @@ internal static class ValidatorsWeapon
                && itemDefinition.IsWeapon
                && itemDefinition.WeaponDescription != null
                && tags.Any(t => itemDefinition.WeaponDescription.WeaponTags.Contains(t));
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool HasAnyWeaponTag([CanBeNull] RulesetItem rulesetItem, [NotNull] params string[] tags)
-    {
-        return rulesetItem != null && HasAnyWeaponTag(rulesetItem.ItemDefinition, tags);
     }
 }

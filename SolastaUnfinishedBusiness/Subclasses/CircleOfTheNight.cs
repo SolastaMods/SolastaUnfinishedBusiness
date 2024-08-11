@@ -138,7 +138,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .AddToDB();
     }
 
-    internal static FeatureDefinitionPower PowerCircleOfTheNightWildShapeCombat { get; private set; }
+    internal static FeatureDefinitionPowerSharedPool PowerCircleOfTheNightWildShapeCombat { get; private set; }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Druid;
 

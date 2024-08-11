@@ -131,7 +131,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Lightning Damage Resistance",
-    "description": "Feature/&NoContentTitle",
+    "description": "-",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "04f42c446dd0c5143bcc4d3b56edfbb2",

@@ -21,6 +21,7 @@
     "SpendPower",
     "AttackReadied",
     "Ready",
+    "PowerNoCost",
     "ShoveBonus",
     "AttackFree",
     "ShoveFree"

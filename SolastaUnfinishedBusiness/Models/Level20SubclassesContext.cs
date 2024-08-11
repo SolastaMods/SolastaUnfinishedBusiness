@@ -29,6 +29,32 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class Level20SubclassesContext
 {
+    private const string Tag = "PowerClericImprovedDivineIntervention";
+
+    internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementCleric =
+        FeatureDefinitionPowerBuilder
+            .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
+            .SetOrUpdateGuiPresentation(Tag, Category.Feature)
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionCleric)
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementPaladin =
+        FeatureDefinitionPowerBuilder
+            .Create(PowerClericDivineInterventionPaladin, "PowerClericDivineInterventionImprovementPaladin")
+            .SetOrUpdateGuiPresentation(Tag, Category.Feature)
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionPaladin)
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementWizard =
+        FeatureDefinitionPowerBuilder
+            .Create(PowerClericDivineInterventionWizard, "PowerClericDivineInterventionImprovementWizard")
+            .SetOrUpdateGuiPresentation(Tag, Category.Feature)
+            .SetHasCastingFailure(false)
+            .SetOverriddenPower(PowerClericDivineInterventionWizard)
+            .AddToDB();
+
     internal static void Load()
     {
         ClericLoad();
@@ -392,49 +418,26 @@ internal static class Level20SubclassesContext
         // Divine Intervention [ALL CLERICS]
         //
 
-        const string TAG = "PowerClericImprovedDivineIntervention";
-
-        var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
-            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionCleric)
-            .AddToDB();
-
-        var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionPaladin, "PowerClericDivineInterventionImprovementPaladin")
-            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionPaladin)
-            .AddToDB();
-
-        var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionWizard, "PowerClericDivineInterventionImprovementWizard")
-            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionWizard)
-            .AddToDB();
-
         DomainBattle.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
         DomainElementalCold.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         DomainElementalFire.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         DomainElementalLighting.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         DomainInsight.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
         DomainLaw.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
         DomainLife.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
         DomainMischief.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
         DomainOblivion.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementCleric, 20));
         DomainSun.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+            new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));
     }
 
     private static void FighterLoad()
@@ -1507,22 +1510,9 @@ internal static class Level20SubclassesContext
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { actingCharacter }
-            };
 
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, true);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePower, [actingCharacter]);
 
             yield break;
         }
@@ -1857,46 +1847,24 @@ internal static class Level20SubclassesContext
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = defender.RulesetCharacter;
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [defender],
+                attacker,
+                "StoneEndurance",
+                reactionValidated: ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "PhysicalPerfection",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                rulesetCharacter.ForceKiPointConsumption(1);
+                defender.MyExecuteActionStabilizeAndStandUp(1);
             }
-
-            rulesetCharacter.ForceKiPointConsumption(1);
-            rulesetCharacter.StabilizeAndGainHitPoints(1);
-
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 
@@ -2015,21 +1983,9 @@ internal static class Level20SubclassesContext
             // takes 10d10 Necrotic
             if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                var implementationManager =
-                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
                 var usablePower = PowerProvider.Get(powerQuiveringPalmDamage, rulesetAttacker);
-                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-                {
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { target }
-                };
 
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
+                attacker.MyExecuteActionPowerNoCost(usablePower, [target]);
 
                 yield break;
             }
@@ -2130,13 +2086,12 @@ internal static class Level20SubclassesContext
             foreach (var target in targets)
             {
                 var attackModifier = new ActionModifier();
-                var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
-                {
-                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-                };
 
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
+                actingCharacter.MyExecuteActionAttack(
+                    ActionDefinitions.Id.AttackFree,
+                    target,
+                    attackMode,
+                    attackModifier);
             }
         }
     }
@@ -2242,10 +2197,8 @@ internal static class Level20SubclassesContext
 
             battle.InitiativeSortedContenders.RemoveAt(index);
 
-            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
-
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Remove, false, false);
+            Gui.Battle.ContenderModified(
+                locationCharacter, GameLocationBattle.ContenderModificationMode.Remove, false, false);
         }
 
         public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
@@ -2264,6 +2217,9 @@ internal static class Level20SubclassesContext
             var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
 
             initiativeSortedContenders.Insert(positionCharacterIndex, locationCharacter);
+
+            Gui.Battle.ContenderModified(
+                locationCharacter, GameLocationBattle.ContenderModificationMode.Add, false, false);
         }
     }
 

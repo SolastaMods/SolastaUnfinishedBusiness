@@ -5,7 +5,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -76,8 +75,8 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
         var conditionGiftOfTheWind = ConditionDefinitionBuilder
             .Create($"Condition{Name}GiftOfTheWind")
-            .SetGuiPresentation($"Condition{Name}GiftOfTheWindAttacked", Category.Condition,
-                Gui.NoLocalization)
+            .SetGuiPresentation(
+                $"Condition{Name}GiftOfTheWindAttacked", Category.Condition, Gui.EmptyContent)
             .SetPossessive()
             .AddFeatures(movementAffinityGiftOfTheWind, combatAffinityGiftOfTheWind)
             .AddToDB();
@@ -158,6 +157,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .Create($"Feature{Name}DeathFromAbove")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -311,37 +311,24 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerGhostlyHowl, rulesetHelper);
 
             if (helper != defender ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
                 !defender.IsWithinRange(attacker, 12) ||
-                rulesetHelper.GetRemainingPowerUses(powerGhostlyHowl) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerGhostlyHowl, rulesetHelper);
-            var actionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "GhostlyHowl",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { attacker }
-                };
-
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return helper.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [attacker],
+                attacker,
+                "GhostlyHowl",
+                battleManager: battleManager);
         }
     }
 
@@ -423,28 +410,9 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                 }
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerDeathFromAbove, rulesetAttacker);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 }

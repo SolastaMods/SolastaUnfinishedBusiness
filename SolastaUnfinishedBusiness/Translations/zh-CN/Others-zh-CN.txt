@@ -301,6 +301,7 @@ Tooltip/&PreReqMustHaveExtraAttacks=必须有额外的攻击
 Tooltip/&PreReqMustKnow=需要已知 {0}
 Tooltip/&SecondTargetNotWithinRange=无法选择此目标，因为不在第一个范围内
 Tooltip/&Tag9000Title=自定义效果
+Tooltip/&TagDamageChaosBoltTitle=混沌伤害
 Tooltip/&TagUnfinishedBusinessTitle=未竟之业
 Tooltip/&TargetMeleeWeaponError=无法使用当前武器对该目标进行近战攻击
 UI/&CustomFeatureSelectionStageDescription=为你的职业/子职业选择额外的特性。

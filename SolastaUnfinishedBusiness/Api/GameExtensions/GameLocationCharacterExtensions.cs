@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
@@ -15,6 +19,357 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
+    private static List<ActionModifier> GetActionModifiers(int count)
+    {
+        var actionModifiers = new List<ActionModifier>();
+
+        for (var i = 0; i < count; i++)
+        {
+            actionModifiers.Add(new ActionModifier());
+        }
+
+        return actionModifiers;
+    }
+
+    internal static void MyExecuteActionAttack(
+        this GameLocationCharacter attacker,
+        Id actionId,
+        GameLocationCharacter defender,
+        RulesetAttackMode attackMode,
+        ActionModifier actionModifier)
+    {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var actionParams = new CharacterActionParams(
+            attacker,
+            actionId,
+            attackMode,
+            defender,
+            actionModifier);
+
+        actionService.ExecuteAction(actionParams, null, true);
+    }
+
+    internal static void MyExecuteActionCastNoCost(
+        this GameLocationCharacter caster,
+        SpellDefinition spell,
+        int slotLevel,
+        CharacterActionParams originalActionParams,
+        RulesetSpellRepertoire spellRepertoire = null)
+    {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var rulesetCaster = caster.RulesetCharacter;
+        var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
+            .InstantiateEffectSpell(rulesetCaster, spellRepertoire, spell, slotLevel, false);
+        var actionParams = originalActionParams.Clone();
+
+        actionParams.ActionDefinition = actionService.AllActionDefinitions[Id.CastNoCost];
+        actionParams.RulesetEffect = effectSpell;
+        actionService.ExecuteAction(actionParams, null, true);
+    }
+
+    internal static void MyExecuteActionPowerNoCost(
+        this GameLocationCharacter character,
+        RulesetUsablePower usablePower,
+        List<GameLocationCharacter> targets)
+    {
+        var actionModifiers = GetActionModifiers(targets.Count);
+        var rulesetCharacter = character.RulesetCharacter;
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
+        {
+            ActionModifiers = actionModifiers,
+            RulesetEffect = implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+            UsablePower = usablePower,
+            targetCharacters = targets
+        };
+
+        ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+    }
+
+    internal static void MyExecuteActionStabilizeAndStandUp(
+        this GameLocationCharacter character, int hitPoints, IMagicEffect magicEffect = null)
+    {
+        var commandService = ServiceRepository.GetService<ICommandService>();
+        var rulesetCharacter = character.RulesetCharacter;
+
+        rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
+
+        if (magicEffect != null)
+        {
+            EffectHelpers.StartVisualEffect(character, character, magicEffect, EffectHelpers.EffectType.Caster);
+        }
+
+        commandService.ExecuteInstantSingleAction(new CharacterActionParams(character, Id.StandUp));
+    }
+
+    //
+    // mod custom reactions
+    //
+
+    internal static IEnumerator MyReactForOpportunityAttack(
+        this GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        GameLocationCharacter waiter,
+        RulesetAttackMode attackMode,
+        ActionModifier actionModifier,
+        string stringParameter2,
+        Action reactionValidated = null,
+        GameLocationBattleManager battleManager = null,
+        ReactionResourcePowerPool resource = null)
+    {
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!actionManager || !battleManager)
+        {
+            yield break;
+        }
+
+        var count = actionManager.PendingReactionRequestGroups.Count;
+        var reactionParams = new CharacterActionParams(
+            attacker,
+            Id.AttackOpportunity,
+            attackMode,
+            defender,
+            actionModifier) { StringParameter2 = stringParameter2 };
+        var reactionRequest =
+            new ReactionRequestReactionAttack(stringParameter2, reactionParams) { Resource = resource };
+
+        actionManager.AddInterruptRequest(reactionRequest);
+
+        yield return battleManager.WaitForReactions(waiter, actionManager, count);
+
+        if (reactionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke();
+        }
+    }
+
+    internal static IEnumerator MyReactToCastSpell(
+        this GameLocationCharacter caster,
+        SpellDefinition spell,
+        GameLocationCharacter target,
+        GameLocationCharacter waiter,
+        Action<CharacterActionParams> reactionValidated = null,
+        GameLocationBattleManager battleManager = null)
+    {
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!battleManager)
+        {
+            yield break;
+        }
+
+        var ruleCaster = caster.RulesetCharacter;
+        var slotLevel = ruleCaster.GetLowestSlotLevelAndRepertoireToCastSpell(spell, out var repertoire);
+
+        if (slotLevel < spell.SpellLevel || repertoire == null)
+        {
+            yield break;
+        }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var reactionParams = new CharacterActionParams(caster, Id.CastReaction)
+        {
+            ActionModifiers = { new ActionModifier() },
+            IntParameter = slotLevel,
+            StringParameter = spell.Name,
+            RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectSpell(ruleCaster, repertoire, spell, slotLevel, false),
+            SpellRepertoire = repertoire,
+            TargetCharacters = { target },
+            IsReactionEffect = true
+        };
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        actionService.ReactToSpendSpellSlot(reactionParams);
+
+        yield return battleManager.WaitForReactions(waiter, actionService, count);
+
+        if (reactionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke(reactionParams);
+        }
+    }
+
+    internal static IEnumerator MyReactToDoNothing(
+        this GameLocationCharacter character,
+        ExtraActionId actionId,
+        GameLocationCharacter waiter,
+        string type,
+        string stringParameter,
+        Action reactionValidated = null,
+        Action reactionNotValidated = null,
+        GameLocationBattleManager battleManager = null,
+        ICustomReactionResource resource = null)
+    {
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!actionManager || !battleManager)
+        {
+            yield break;
+        }
+
+        var count = actionManager.PendingReactionRequestGroups.Count;
+        var actionParams = new CharacterActionParams(character, (Id)actionId) { StringParameter = stringParameter };
+        var reactionRequest = new ReactionRequestCustom(type, actionParams) { Resource = resource };
+
+        actionManager.AddInterruptRequest(reactionRequest);
+
+        yield return battleManager.WaitForReactions(waiter, actionManager, count);
+
+        if (actionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke();
+        }
+        else
+        {
+            reactionNotValidated?.Invoke();
+        }
+    }
+
+    internal static IEnumerator MyReactToSpendPower(
+        this GameLocationCharacter character,
+        RulesetUsablePower usablePower,
+        GameLocationCharacter waiter,
+        string stringParameter,
+        string stringParameter2 = "",
+        Action reactionValidated = null,
+        GameLocationBattleManager battleManager = null)
+    {
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!battleManager)
+        {
+            yield break;
+        }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var actionParams = new CharacterActionParams(character, Id.SpendPower)
+        {
+            StringParameter = stringParameter,
+            StringParameter2 = stringParameter2,
+            RulesetEffect =
+                implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
+            UsablePower = usablePower,
+            IsReactionEffect = true
+        };
+
+        actionService.ReactToSpendPower(actionParams);
+
+        yield return battleManager.WaitForReactions(waiter, actionService, count);
+
+        if (actionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke();
+        }
+    }
+
+    internal static IEnumerator MyReactToSpendPowerBundle(
+        this GameLocationCharacter character,
+        RulesetUsablePower usablePower,
+        List<GameLocationCharacter> targets,
+        GameLocationCharacter waiter,
+        string stringParameter,
+        Action<ReactionRequestSpendBundlePower> reactionValidated = null,
+        Action<ReactionRequestSpendBundlePower> reactionNotValidated = null,
+        GameLocationBattleManager battleManager = null)
+    {
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!actionManager || !battleManager)
+        {
+            yield break;
+        }
+
+        var count = actionManager.PendingReactionRequestGroups.Count;
+        var actionModifiers = GetActionModifiers(targets.Count);
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var actionParams = new CharacterActionParams(character, Id.SpendPower)
+        {
+            StringParameter = stringParameter,
+            ActionModifiers = actionModifiers,
+            RulesetEffect =
+                implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
+            UsablePower = usablePower,
+            targetCharacters = targets,
+            IsReactionEffect = true
+        };
+        var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+        actionManager.AddInterruptRequest(reactionRequest);
+
+        yield return battleManager.WaitForReactions(waiter, actionManager, count);
+
+        if (actionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke(reactionRequest);
+        }
+        else
+        {
+            reactionNotValidated?.Invoke(reactionRequest);
+        }
+    }
+
+    internal static IEnumerator MyReactToUsePower(
+        this GameLocationCharacter character,
+        Id actionId,
+        RulesetUsablePower usablePower,
+        List<GameLocationCharacter> targets,
+        GameLocationCharacter waiter,
+        string stringParameter,
+        string stringParameter2 = "",
+        Action reactionValidated = null,
+        GameLocationBattleManager battleManager = null)
+    {
+        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!battleManager)
+        {
+            yield break;
+        }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+        var actionModifiers = GetActionModifiers(targets.Count);
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var actionParams = new CharacterActionParams(character, actionId)
+        {
+            StringParameter = stringParameter,
+            StringParameter2 = stringParameter2,
+            ActionModifiers = actionModifiers,
+            RulesetEffect =
+                implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
+            UsablePower = usablePower,
+            targetCharacters = targets,
+            IsReactionEffect = true
+        };
+
+        actionService.ReactToUsePower(actionParams, "UsePower", character);
+
+        yield return battleManager.WaitForReactions(waiter, actionService, count);
+
+        if (actionParams.ReactionValidated)
+        {
+            reactionValidated?.Invoke();
+        }
+    }
+
     internal static GameLocationCharacter GetEffectControllerOrSelf(this GameLocationCharacter character)
     {
         if (character.RulesetCharacter is not RulesetCharacterEffectProxy effectProxy)
@@ -48,8 +403,7 @@ public static class GameLocationCharacterExtensions
 
     // consolidate all checks if a character can perceive another
     public static bool CanPerceiveTarget(
-        this GameLocationCharacter __instance,
-        GameLocationCharacter target)
+        this GameLocationCharacter __instance, GameLocationCharacter target)
     {
         if (__instance == target)
         {
@@ -73,9 +427,7 @@ public static class GameLocationCharacterExtensions
     }
 
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeModeThatCanAttack(
-        this GameLocationCharacter instance,
-        GameLocationCharacter target,
-        IGameLocationBattleService service)
+        this GameLocationCharacter instance, GameLocationCharacter target, IGameLocationBattleService service)
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
@@ -103,9 +455,7 @@ public static class GameLocationCharacterExtensions
     }
 
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstRangedModeThatCanAttack(
-        this GameLocationCharacter instance,
-        GameLocationCharacter target,
-        IGameLocationBattleService service)
+        this GameLocationCharacter instance, GameLocationCharacter target, IGameLocationBattleService service)
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
@@ -217,17 +567,17 @@ public static class GameLocationCharacterExtensions
         return false;
     }
 
-    internal static bool CanAct(this GameLocationCharacter instance)
+    internal static bool CanAct(this GameLocationCharacter character)
     {
-        var character = instance.RulesetCharacter;
+        var rulesetCharacter = character.RulesetCharacter;
 
-        return character is { IsDeadOrDyingOrUnconscious: false } &&
-               !instance.IsCharging &&
-               !instance.MoveStepInProgress &&
-               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
-               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionIncapacitated) &&
-               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned) &&
-               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
+        return rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+               !character.IsCharging &&
+               !character.MoveStepInProgress &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionIncapacitated) &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned) &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
     }
 
     internal static bool IsReactionAvailable(this GameLocationCharacter instance, bool ignoreReactionUses = false)

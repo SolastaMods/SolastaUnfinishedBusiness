@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -193,6 +194,8 @@ public sealed class DomainDefiler : AbstractSubclass
                 powerDyingLight,
                 actionAffinityDyingLightToggle,
                 autoPreparedSpellsDyingLight)
+            .AddFeaturesAtLevel(20,
+                Level20SubclassesContext.PowerClericDivineInterventionImprovementWizard)
             .AddToDB();
     }
 

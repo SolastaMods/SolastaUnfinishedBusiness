@@ -60,6 +60,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureDomainSmithBlessedMetal:af616884-6e4e-54ea-93ec-6e13d7e5a730",
       "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerClericDivineInterventionImprovementPaladin:11d90029-4c67-591e-8e69-f6d52b78d522",
+      "level": 20
     }
   ],
   "personalityFlagOccurences": [],

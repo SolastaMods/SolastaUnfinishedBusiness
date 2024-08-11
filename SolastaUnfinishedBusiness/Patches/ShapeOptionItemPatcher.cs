@@ -2,7 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -36,12 +36,12 @@ public static class ShapeOptionItemPatcher
             var power = isCircleOfTheNight
                 ? CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat
                 : PowerDruidWildShape;
-            var rulesetUsablePower = PowerProvider.Get(power, rulesetCharacterHero);
             var isShapeOptionAvailable =
                 requiredLevel <= levels &&
                 (!isCircleOfTheNight ||
                  !CircleOfTheNight.IsTwoPointsShape(shapeDefinition) ||
-                 shifter.GetRemainingUsesOfPower(rulesetUsablePower) > 1);
+                 // must use GetRemainingPowerUses as PowerCircleOfTheNightWildShapeCombat is a shared pool power
+                 shifter.GetRemainingPowerUses(power) > 1);
 
             __instance.levelLabel.TMP_Text.color = isShapeOptionAvailable
                 ? __instance.validLevelColor

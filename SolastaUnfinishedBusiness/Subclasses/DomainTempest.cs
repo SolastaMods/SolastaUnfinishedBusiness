@@ -79,8 +79,8 @@ public sealed class DomainTempest : AbstractSubclass
             .AddToDB();
 
         PowerWrathOfTheStorm.AddCustomSubFeatures(
-            ReactionResourceWrathOfTheStorm.Instance,
             ModifyPowerVisibility.Hidden,
+            ReactionResourceWrathOfTheStorm.Instance,
             new CustomBehaviorWrathOfTheStorm(PowerWrathOfTheStorm));
 
         var powerWrathOfTheStormLightning = FeatureDefinitionPowerSharedPoolBuilder
@@ -269,6 +269,7 @@ public sealed class DomainTempest : AbstractSubclass
             .AddFeaturesAtLevel(8, additionalDamageDivineStrike)
             .AddFeaturesAtLevel(10, PowerClericDivineInterventionPaladin)
             .AddFeaturesAtLevel(17, featureSetStormborn)
+            .AddFeaturesAtLevel(20, Level20SubclassesContext.PowerClericDivineInterventionImprovementWizard)
             .AddToDB();
     }
 
@@ -356,63 +357,32 @@ public sealed class DomainTempest : AbstractSubclass
 
         private IEnumerator HandleReaction(CharacterAction action, GameLocationCharacter defender)
         {
-            if (action.AttackRoll == 0 ||
-                action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
             var attacker = action.ActingCharacter;
             var rulesetDefender = defender.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetDefender);
-            var isValid = defender.IsWithinRange(attacker, 1) &&
-                          defender.CanReact() &&
-                          defender.CanPerceiveTarget(attacker) &&
-                          rulesetDefender.GetRemainingUsesOfPower(usablePower) > 0;
 
-            if (!isValid)
+            if (action.AttackRoll == 0 ||
+                action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !defender.CanReact() ||
+                !defender.IsWithinRange(attacker, 1) ||
+                !defender.CanPerceiveTarget(attacker) ||
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            yield return defender.MyReactToSpendPowerBundle(
+                usablePower,
+                [attacker],
+                attacker,
+                "WrathOfTheStorm",
+                ReactionValidated);
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true, Battle.InitiativeRollFinished: true })
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                yield break;
-            }
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-            {
-                ActionModifiers = { new ActionModifier() },
-                StringParameter = "WrathOfTheStorm",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { attacker }
-            };
-
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest =
-                new ReactionRequestSpendBundlePower(actionParams)
-                {
-                    Resource = ReactionResourceWrathOfTheStorm.Instance
-                };
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (actionParams.ReactionValidated)
-            {
-                attacker.SpendActionType(ActionDefinitions.ActionType.Reaction);
+                defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
             }
         }
     }

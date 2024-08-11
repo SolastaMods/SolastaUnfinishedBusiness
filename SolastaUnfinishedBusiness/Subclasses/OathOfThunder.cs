@@ -174,6 +174,7 @@ public sealed class OathOfThunder : AbstractSubclass
         var powerBifrostDamage = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BifrostDamage")
             .SetGuiPresentation($"Power{Name}Bifrost", Category.Feature, hidden: true)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -374,31 +375,11 @@ public sealed class OathOfThunder : AbstractSubclass
 
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerBifrostDamage, rulesetAttacker);
             var targets = Gui.Battle
                 .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 }

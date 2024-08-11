@@ -842,13 +842,6 @@ public static class CharacterActionAttackPatcher
             rulesetDefender.ProcessConditionsMatchingInterruption(
                 (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
 
-            //PATCH: Allows condition interruption after target was attacked
-            if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
-                rulesetDefender.ProcessConditionsMatchingInterruption(
-                    (ConditionInterruption)ExtraConditionInterruption.AfterWasHit);
-            }
-
             yield return battleManager.HandleCharacterAttackOrMagicEffectFinishedLate(
                 __instance, actingCharacter);
         }

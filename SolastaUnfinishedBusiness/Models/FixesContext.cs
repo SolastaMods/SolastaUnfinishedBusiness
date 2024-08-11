@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -686,8 +685,9 @@ internal static class FixesContext
             }
 
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerMonkStunningStrike, rulesetAttacker);
 
-            if (rulesetAttacker.GetRemainingPowerUses(PowerMonkStunningStrike) == 0)
+            if (rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -728,21 +728,7 @@ internal static class FixesContext
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(PowerMonkStunningStrike, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-            {
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -750,8 +736,8 @@ internal static class FixesContext
             if (action.RolledSaveThrow &&
                 action.SaveOutcome == RollOutcome.Failure)
             {
-                action.ActingCharacter.RulesetCharacter.ToggledPowersOn.Remove(
-                    PowerMonkStunningStrike.AutoActivationPowerTag);
+                action.ActingCharacter.RulesetCharacter.ToggledPowersOn
+                    .Remove(PowerMonkStunningStrike.AutoActivationPowerTag);
             }
 
             yield break;

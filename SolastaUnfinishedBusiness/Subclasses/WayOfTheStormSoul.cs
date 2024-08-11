@@ -124,6 +124,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             .Create($"Power{Name}EyeOfTheStormLeap")
             .SetGuiPresentation($"FeatureSet{Name}EyeOfTheStorm", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -324,13 +325,12 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             foreach (var target in targets)
             {
                 var attackModifier = new ActionModifier();
-                var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
-                {
-                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-                };
 
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
+                actingCharacter.MyExecuteActionAttack(
+                    ActionDefinitions.Id.AttackFree,
+                    target,
+                    attackMode,
+                    attackModifier);
             }
         }
     }
@@ -353,10 +353,6 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
 
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker)
                 .Where(x =>
@@ -364,24 +360,8 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                         .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
                                   y.SourceGuid == rulesetAttacker.Guid))
                 .ToList();
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 }

@@ -653,12 +653,10 @@ public sealed class MartialForceKnight : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var rulesetAttacker = attacker.RulesetCharacter;
             var levels = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Fighter);
 
-            if (!actionManager ||
-                !attacker.UsedSpecialFeatures.TryGetValue(powerPsionicAdept.Name, out var value) || value == 0 ||
+            if (!attacker.UsedSpecialFeatures.TryGetValue(powerPsionicAdept.Name, out var value) || value == 0 ||
                 defender.RulesetActor is not { IsDeadOrDyingOrUnconscious: false } ||
                 levels < 7)
             {
@@ -667,26 +665,14 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             attacker.UsedSpecialFeatures[powerPsionicAdept.Name] = 0;
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerPsionicAdept, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                StringParameter = "PsionicAdept",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
 
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                "PsionicAdept",
+                battleManager: battleManager);
         }
     }
 
@@ -745,11 +731,13 @@ public sealed class MartialForceKnight : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerKineticBarrier, rulesetHelper);
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
+                // must use GetRemainingPowerUses as a shared pool power
                 rulesetHelper.GetRemainingPowerUses(powerKineticBarrier) == 0)
             {
                 yield break;
@@ -774,28 +762,14 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerKineticBarrier, rulesetHelper);
-            var actionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "KineticBarrier",
-                    StringParameter2 = FormatReactionDescription(attacker, defender, helper),
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", helper);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return helper.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "KineticBarrier",
+                FormatReactionDescription(attacker, defender, helper),
+                battleManager: battleManager);
         }
 
         private static string FormatReactionDescription(
@@ -1034,16 +1008,7 @@ public sealed class MartialForceKnight : AbstractSubclass
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetCharacter, null, spellTelekineticGrasp, 5, false);
-            var actionParams = action.ActionParams.Clone();
-
-            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
-            actionParams.RulesetEffect = effectSpell;
-            actionService.ExecuteAction(actionParams, null, true);
+            action.ActingCharacter.MyExecuteActionCastNoCost(spellTelekineticGrasp, 6, action.ActionParams);
 
             yield break;
         }

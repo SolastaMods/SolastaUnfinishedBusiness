@@ -346,63 +346,36 @@ public sealed class SorcerousPsion : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = defender.RulesetCharacter;
-
-            if (rulesetCharacter.GetRemainingPowerUses(powerMindOverMatter) == 0)
-            {
-                yield break;
-            }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
-            var targets = battleManager.Battle
-                .GetContenders(defender, withinRange: 2);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
-            {
-                StringParameter = "MindOverMatter",
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
+            if (Gui.Battle == null ||
+                rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var tempHitPoints = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Sorcerer) * 3;
+            var targets = Gui.Battle.GetContenders(defender, withinRange: 2);
 
-            rulesetCharacter.StabilizeAndGainHitPoints(1);
-            rulesetCharacter.ReceiveTemporaryHitPoints(
-                tempHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                targets,
+                attacker,
+                "MindOverMatter",
+                reactionValidated: ReactionValidated);
 
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
+            yield break;
+
+            void ReactionValidated()
+            {
+                defender.MyExecuteActionStabilizeAndStandUp(1);
+
+                var tempHitPoints = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Sorcerer) * 3;
+
+                rulesetCharacter.ReceiveTemporaryHitPoints(
+                    tempHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+            }
         }
     }
 

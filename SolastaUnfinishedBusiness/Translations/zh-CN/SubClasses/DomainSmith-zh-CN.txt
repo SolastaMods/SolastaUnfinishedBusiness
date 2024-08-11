@@ -1,6 +1,6 @@
 Condition/&ConditionDomainSmithAdamantBenedictionDescription=你的护甲强化为精金，暴击伤害减半。
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=精金护甲
-Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=每回合一次，武器攻击造成 +1d8 火焰伤害。该伤害在 14 级时增加至 2d8。
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=在你的回合中，一次武器攻击造成 +1d8 火焰伤害。此伤害在 14 级时增加到 2d8。
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=神圣打击
 Feature/&AttributeModifierDomainSmithForgeMasteryDescription=获得火焰抗性并在穿着护甲时获得 +1 护甲等级。
 Feature/&AttributeModifierDomainSmithForgeMasteryTitle=锻造掌握

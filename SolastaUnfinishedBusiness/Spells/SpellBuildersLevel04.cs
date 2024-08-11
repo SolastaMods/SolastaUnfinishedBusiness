@@ -828,25 +828,11 @@ internal static partial class SpellBuilders
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(power, rulesetCaster);
 
             usablePower.SaveDC = 8 + rulesetCondition.SourceAbilityBonus + rulesetCondition.SourceProficiencyBonus;
 
-            var actionParams = new CharacterActionParams(caster, Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { character }
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
         }
     }
 
@@ -1307,21 +1293,9 @@ internal static partial class SpellBuilders
                 0,
                 0);
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerElementalBane, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
         }
     }
 
@@ -1532,7 +1506,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetForbiddenActions(
                 Id.AttackFree, Id.AttackMain, Id.AttackOff, Id.AttackOpportunity, Id.AttackReadied,
-                Id.CastBonus, Id.CastInvocation, Id.CastMain, Id.CastReaction, Id.CastReadied, Id.CastNoCost)
+                Id.CastBonus, Id.CastInvocation, Id.CastMain, Id.CastReaction, Id.CastReadied, Id.CastRitual,
+                Id.CastNoCost)
             .AddToDB();
 
         var conditionIrresistiblePerformance = ConditionDefinitionBuilder

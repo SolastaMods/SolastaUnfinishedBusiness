@@ -9,13 +9,11 @@ public class ReactionResourceSorceryPoints : ICustomReactionResource, ICustomRea
     {
     }
 
-    public static ICustomReactionResource Instance { get; } = new ReactionResourceSorceryPoints();
+    public static ReactionResourceSorceryPoints Instance { get; } = new();
 
     public string GetRequestPoints(CharacterReactionItem item)
     {
-        return item.ReactionRequest.ReactionParams.StringParameter2 == string.Empty
-            ? "1"
-            : item.ReactionRequest.ReactionParams.StringParameter2;
+        return item.ReactionRequest.ReactionParams.UsablePower?.PowerDefinition.CostPerUse.ToString() ?? "1";
     }
 
     public AssetReferenceSprite Icon => Sprites.SorceryPointsResourceIcon;

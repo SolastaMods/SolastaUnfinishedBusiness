@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -123,7 +122,7 @@ public class PatronMountain : AbstractSubclass
 
         var conditionClingingStrength = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionLongstrider, $"Condition{Name}ClingingStrength")
-            .SetGuiPresentation($"Power{Name}ClingingStrength", Category.Feature, Gui.NoLocalization,
+            .SetGuiPresentation($"Power{Name}ClingingStrength", Category.Feature, Gui.EmptyContent,
                 ConditionDefinitions.ConditionLongstrider.GuiPresentation.SpriteReference)
             .AddFeatures(FeatureDefinitionMovementAffinitys.MovementAffinitySpiderClimb)
             .AddToDB();
@@ -246,6 +245,7 @@ public class PatronMountain : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var levels = rulesetHelper.GetClassLevel(CharacterClassDefinitions.Warlock);
             var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;
+            var usablePower = PowerProvider.Get(power, rulesetHelper);
 
             if (helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
@@ -253,31 +253,18 @@ public class PatronMountain : AbstractSubclass
                 !helper.CanPerceiveTarget(attacker) ||
                 !helper.CanPerceiveTarget(defender) ||
                 !helper.IsWithinRange(defender, 7) ||
-                rulesetHelper.GetRemainingPowerUses(power) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(power, rulesetHelper);
-            var actionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "BarrierOfStone",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", helper);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return helper.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "BarrierOfStone",
+                battleManager: battleManager);
         }
     }
 }

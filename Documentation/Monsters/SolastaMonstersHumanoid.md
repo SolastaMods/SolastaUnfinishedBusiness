@@ -1710,7 +1710,7 @@ Size: *Medium*
 | 2 | Misty Step | Teleports you to a free cell you can see, no more than 6 cells away. |
 | 2 | Mirror Image | Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
-A duplicate's armor class is equal to 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
+A duplicate's AC is equal to 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
 A creature is unaffected by this spell if it is Blinded, or has Blindsight, Truesight or Tremorsense (doesn't apply if you don't touch ground). |
 | 2 | Scorching Ray | Fling rays of fire at one or more enemies. |
 | 3 | Counterspell | Interrupt an enemy's spellcasting. |

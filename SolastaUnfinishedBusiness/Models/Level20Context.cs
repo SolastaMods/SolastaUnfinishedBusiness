@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -186,15 +185,14 @@ internal static class Level20Context
             .AddCustomSubFeatures(new CustomLevelUpLogicBarbarianPrimalChampion())
             .AddToDB();
 
-        Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
+        Barbarian.FeatureUnlocks.AddRange(
+            new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17),
             // vanilla already adds this even with top level 16
             // new(AttributeModifierBarbarianRagePointsAdd, 17),
-            new(changeAbilityCheckBarbarianIndomitableMight, 18),
-            new(FeatureSetAbilityScoreChoice, 19),
-            new(customCodeBarbarianPrimalChampion, 20)
-        });
+            new FeatureUnlockByLevel(changeAbilityCheckBarbarianIndomitableMight, 18),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
+            new FeatureUnlockByLevel(customCodeBarbarianPrimalChampion, 20)
+        );
     }
 
     private static void BardLoad()
@@ -211,12 +209,11 @@ internal static class Level20Context
         featureBardSuperiorInspiration.AddCustomSubFeatures(
             new BattleStartedListenerBardSuperiorInspiration(featureBardSuperiorInspiration));
 
-        Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(pointPoolBardMagicalSecrets18, 18),
-            new(FeatureSetAbilityScoreChoice, 19),
-            new(featureBardSuperiorInspiration, 20)
-        });
+        Bard.FeatureUnlocks.AddRange(
+            new FeatureUnlockByLevel(pointPoolBardMagicalSecrets18, 18),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
+            new FeatureUnlockByLevel(featureBardSuperiorInspiration, 20)
+        );
 
         EnumerateSlotsPerLevel(
             CasterProgression.Full,
@@ -245,12 +242,11 @@ internal static class Level20Context
             .SetEffectDescription(effectPowerClericTurnUndead17)
             .AddToDB();
 
-        Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(powerClericTurnUndead17, 17),
-            new(AttributeModifierClericChannelDivinityAdd, 18),
-            new(FeatureSetAbilityScoreChoice, 19)
-        });
+        Cleric.FeatureUnlocks.AddRange(
+            new FeatureUnlockByLevel(powerClericTurnUndead17, 17),
+            new FeatureUnlockByLevel(AttributeModifierClericChannelDivinityAdd, 18),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
+        );
 
         EnumerateSlotsPerLevel(
             CasterProgression.Full,
@@ -299,13 +295,12 @@ internal static class Level20Context
 
         magicAffinityArchDruid.AddCustomSubFeatures(new ActionFinishedByMeArchDruid(magicAffinityArchDruid));
 
-        Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(summoningAffinity, 2),
-            new(featureDruidBeastSpells, 18),
-            new(FeatureSetAbilityScoreChoice, 19),
-            new(magicAffinityArchDruid, 20)
-        });
+        Druid.FeatureUnlocks.AddRange(
+            new FeatureUnlockByLevel(summoningAffinity, 2),
+            new FeatureUnlockByLevel(featureDruidBeastSpells, 18),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
+            new FeatureUnlockByLevel(magicAffinityArchDruid, 20)
+        );
 
         EnumerateSlotsPerLevel(
             CasterProgression.Full,
@@ -322,13 +317,12 @@ internal static class Level20Context
             .SetOverriddenPower(PowerFighterActionSurge)
             .AddToDB();
 
-        Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(powerFighterActionSurge2, 17),
-            new(AttributeModifierFighterIndomitableAdd1, 17),
-            new(FeatureSetAbilityScoreChoice, 19),
-            new(AttributeModifierFighterExtraAttack, 20)
-        });
+        Fighter.FeatureUnlocks.AddRange(
+            new FeatureUnlockByLevel(powerFighterActionSurge2, 17),
+            new FeatureUnlockByLevel(AttributeModifierFighterIndomitableAdd1, 17),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
+            new FeatureUnlockByLevel(AttributeModifierFighterExtraAttack, 20)
+        );
     }
 
     private static void MonkLoad()
@@ -385,10 +379,11 @@ internal static class Level20Context
 
         featureFoeSlayer.AddCustomSubFeatures(new ModifyWeaponAttackModeRangerFoeSlayer(featureFoeSlayer));
 
-        Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(senseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19), new(featureFoeSlayer, 20)
-        });
+        Ranger.FeatureUnlocks.AddRange(
+            new FeatureUnlockByLevel(senseRangerFeralSenses, 18),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
+            new FeatureUnlockByLevel(featureFoeSlayer, 20)
+        );
 
         EnumerateSlotsPerLevel(
             CasterProgression.Half,
@@ -423,10 +418,12 @@ internal static class Level20Context
             ModifyPowerVisibility.Hidden,
             new TryAlterOutcomeAttackRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
-        Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(featureRogueElusive, 18), new(FeatureSetAbilityScoreChoice, 19), new(powerRogueStrokeOfLuck, 20)
-        });
+        Rogue.FeatureUnlocks.AddRange(
+        [
+            new FeatureUnlockByLevel(featureRogueElusive, 18),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
+            new FeatureUnlockByLevel(powerRogueStrokeOfLuck, 20)
+        ]);
     }
 
     private static void SorcererLoad()
@@ -470,12 +467,11 @@ internal static class Level20Context
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(PointPoolSorcererAdditionalMetamagic, 17),
-            new(FeatureSetAbilityScoreChoice, 19),
-            new(powerSorcerousRestoration, 20)
-        });
+        Sorcerer.FeatureUnlocks.AddRange(
+            new FeatureUnlockByLevel(PointPoolSorcererAdditionalMetamagic, 17),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
+            new FeatureUnlockByLevel(powerSorcerousRestoration, 20)
+        );
 
         EnumerateSlotsPerLevel(
             CasterProgression.Full,
@@ -515,13 +511,12 @@ internal static class Level20Context
             .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
             .AddToDB();
 
-        Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(pointPoolWarlockMysticArcanum9, 17),
-            new(pointPoolWarlockInvocation18, 18),
-            new(FeatureSetAbilityScoreChoice, 19),
-            new(powerWarlockEldritchMaster, 20)
-        });
+        Warlock.FeatureUnlocks.AddRange(
+            new FeatureUnlockByLevel(pointPoolWarlockMysticArcanum9, 17),
+            new FeatureUnlockByLevel(pointPoolWarlockInvocation18, 18),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
+            new FeatureUnlockByLevel(powerWarlockEldritchMaster, 20)
+        );
 
         CastSpellWarlock.KnownSpells.SetRange(SharedSpellsContext.WarlockKnownSpells);
 
@@ -536,10 +531,11 @@ internal static class Level20Context
         var spellMastery = WizardSpellMastery.BuildWizardSpellMastery();
         var signatureSpells = WizardSignatureSpells.BuildWizardSignatureSpells();
 
-        Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(spellMastery, 18), new(FeatureSetAbilityScoreChoice, 19), new(signatureSpells, 20)
-        });
+        Wizard.FeatureUnlocks.AddRange(
+            new FeatureUnlockByLevel(spellMastery, 18),
+            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
+            new FeatureUnlockByLevel(signatureSpells, 20)
+        );
 
         EnumerateSlotsPerLevel(
             CasterProgression.Full,
@@ -891,9 +887,7 @@ internal static class Level20Context
         }
     }
 
-    private sealed class ActionFinishedByMeArchDruid(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition) : IMagicEffectFinishedByMe
+    private sealed class ActionFinishedByMeArchDruid(FeatureDefinition featureDefinition) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
@@ -947,30 +941,16 @@ internal static class Level20Context
     {
         public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, 4);
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, 4);
-
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Strength, 4);
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Constitution, 4);
             hero.RefreshAll();
         }
 
         public void RemoveFeature([NotNull] RulesetCharacterHero hero, string tag)
         {
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, -4);
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, -4);
-
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Strength, -4);
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Constitution, -4);
             hero.RefreshAll();
-        }
-
-        private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
-        {
-            var attribute = hero.GetAttribute(attributeName);
-
-            attribute.BaseValue += amount;
-            attribute.MaxValue += amount;
-            attribute.MaxEditableValue += amount;
-            attribute.Refresh();
-
-            hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
         }
     }
 
@@ -980,12 +960,7 @@ internal static class Level20Context
         {
             var character = locationCharacter.RulesetCharacter;
 
-            if (character == null)
-            {
-                return;
-            }
-
-            if (character.RemainingKiPoints != 0)
+            if (character is not { RemainingKiPoints: 0 })
             {
                 return;
             }
@@ -1008,11 +983,6 @@ internal static class Level20Context
         {
             var rulesetDefender = defender.RulesetActor;
 
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
             if (rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated))
             {
                 yield break;
@@ -1023,9 +993,7 @@ internal static class Level20Context
         }
     }
 
-    private sealed class ModifyWeaponAttackModeRangerFoeSlayer(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition)
+    private sealed class ModifyWeaponAttackModeRangerFoeSlayer(FeatureDefinition featureDefinition)
         : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
@@ -1047,8 +1015,7 @@ internal static class Level20Context
         }
     }
 
-    private class TryAlterOutcomeAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
-        : ITryAlterOutcomeAttack
+    private class TryAlterOutcomeAttackRogueStrokeOfLuck(FeatureDefinitionPower power) : ITryAlterOutcomeAttack
     {
         public int HandlerPriority => -10;
 
@@ -1062,64 +1029,48 @@ internal static class Level20Context
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(power, rulesetHelper);
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
-                rulesetAttacker.GetRemainingPowerUses(power) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return attacker.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "RogueStrokeOfLuck",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            var usablePower = PowerProvider.Get(power, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "RogueStrokeOfLuck",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                rulesetHelper.UsePower(usablePower);
 
-            actionService.ReactToSpendPower(reactionParams);
+                var delta = -action.AttackSuccessDelta;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                action.AttackRollOutcome = RollOutcome.Success;
+                action.AttackSuccessDelta += delta;
+                action.AttackRoll += delta;
+                attackModifier.AttackRollModifier += delta;
+                attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
             }
-
-            var delta = -action.AttackSuccessDelta;
-
-            rulesetAttacker.UsePower(usablePower);
-            action.AttackRollOutcome = RollOutcome.Success;
-            action.AttackSuccessDelta += delta;
-            action.AttackRoll += delta;
-            attackModifier.AttackRollModifier += delta;
-            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }
     }
 
-    private sealed class BattleStartedListenerBardSuperiorInspiration(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition)
+    private sealed class BattleStartedListenerBardSuperiorInspiration(FeatureDefinition featureDefinition)
         : ICharacterBattleStartedListener
     {
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var character = locationCharacter.RulesetCharacter;
 
-            if (character == null)
-            {
-                return;
-            }
-
-            if (character.RemainingBardicInspirations != 0)
+            if (character is not { RemainingBardicInspirations: 0 })
             {
                 return;
             }

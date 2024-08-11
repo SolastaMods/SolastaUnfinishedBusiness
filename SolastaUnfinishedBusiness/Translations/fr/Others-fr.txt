@@ -301,6 +301,7 @@ Tooltip/&PreReqMustHaveExtraAttacks=Doit avoir des attaques supplémentaires
 Tooltip/&PreReqMustKnow=A savoir {0}
 Tooltip/&SecondTargetNotWithinRange=Impossible de sélectionner cette cible car elle n'est pas à portée de la première
 Tooltip/&Tag9000Title=Effet personnalisé
+Tooltip/&TagDamageChaosBoltTitle=Dégâts chaotiques
 Tooltip/&TagUnfinishedBusinessTitle=Inachevé
 Tooltip/&TargetMeleeWeaponError=Impossible d'effectuer une attaque au corps à corps sur cette cible avec l'arme actuelle
 UI/&CustomFeatureSelectionStageDescription=Sélectionnez des fonctionnalités supplémentaires pour votre classe/sous-classe.

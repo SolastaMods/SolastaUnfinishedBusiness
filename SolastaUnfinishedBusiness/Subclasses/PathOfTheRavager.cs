@@ -128,15 +128,8 @@ public sealed class PathOfTheRavager : AbstractSubclass
             // ReSharper disable once InconsistentNaming
             List<GameLocationCharacter> _targets)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
-            if (action is not CharacterActionUsePower characterActionUsePower ||
+            if (Gui.Battle == null ||
+                action is not CharacterActionUsePower characterActionUsePower ||
                 (characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart &&
                  characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart))
             {
@@ -144,7 +137,6 @@ public sealed class PathOfTheRavager : AbstractSubclass
             }
 
             var rulesetCharacter = attacker.RulesetCharacter;
-
             var power = rulesetCharacter.GetRemainingPowerUses(powerLongRest) > 0
                 ? powerLongRest
                 : rulesetCharacter.GetRemainingPowerUses(powerRageCost) > 0
@@ -156,43 +148,26 @@ public sealed class PathOfTheRavager : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
-            var targets = battleManager.Battle
+            var targets = Gui.Battle
                 .GetContenders(attacker, null, true, withinRange: 6);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
+            yield return attacker.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                targets,
+                attacker,
+                "IntimidatingPresence",
+                reactionValidated: ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                StringParameter = "IntimidatingPresence",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            if (power == powerRageCost)
-            {
-                rulesetCharacter.SpendRagePoint();
+                if (power == powerRageCost)
+                {
+                    rulesetCharacter.SpendRagePoint();
+                }
             }
         }
     }

@@ -273,13 +273,13 @@ internal class ConditionDefinitionBuilder
         Definition.SpecialInterruptions.Clear();
         return this;
     }
-#endif
 
     internal ConditionDefinitionBuilder SetInterruptionDamageThreshold(int value)
     {
         Definition.interruptionDamageThreshold = value;
         return this;
     }
+#endif
 
     #region Constructors
 

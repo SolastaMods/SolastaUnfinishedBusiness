@@ -214,19 +214,12 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerOrganDonation, rulesetAttacker);
             var usablePowerEmergencyCure = PowerProvider.Get(powerEmergencyCure, rulesetAttacker);
             var usablePowerEmergencySurgery = PowerProvider.Get(powerEmergencySurgery, rulesetAttacker);
 
-            if (rulesetAttacker.GetRemainingPowerUses(powerOrganDonation) == 0 ||
+            if (rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0 ||
                 !attacker.OncePerTurnIsValid(powerOrganDonation.Name) ||
                 (usablePowerEmergencyCure.MaxUses == usablePowerEmergencyCure.RemainingUses &&
                  usablePowerEmergencySurgery.MaxUses == usablePowerEmergencySurgery.RemainingUses))
@@ -236,31 +229,20 @@ public sealed class InnovationVivisectionist : AbstractSubclass
 
             attacker.UsedSpecialFeatures.TryAdd(powerOrganDonation.Name, 0);
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return attacker.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "OrganDonation",
+                reactionValidated: ReactionValidated);
 
-            var usablePower = PowerProvider.Get(powerOrganDonation, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "OrganDonation",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToSpendPower(reactionParams);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                usablePower.Consume();
+                rulesetAttacker.RepayPowerUse(usablePowerEmergencyCure);
+                rulesetAttacker.RepayPowerUse(usablePowerEmergencySurgery);
             }
-
-            rulesetAttacker.RepayPowerUse(usablePowerEmergencyCure);
-            rulesetAttacker.RepayPowerUse(usablePowerEmergencySurgery);
         }
     }
 }

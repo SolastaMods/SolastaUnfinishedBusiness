@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -619,52 +620,30 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 yield break;
             }
 
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                "ArcaneShot",
+                ReactionValidated,
+                battleManager: battleManager);
 
-            if (!actionManager)
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                yield break;
-            }
+                attacker.UsedSpecialFeatures.TryAdd(powerBurstingArrow.Name, 0);
+                attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = -1;
+                attacker.UsedSpecialFeatures.TryAdd(ArcaneShotMarker, 1);
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+                var option = reactionRequest.SelectedSubOption;
+                var subPowers = PowerArcaneShot.GetBundle()?.SubPowers;
 
-            var actionParams =
-                new CharacterActionParams(GameLocationCharacter.GetFromActor(rulesetAttacker),
-                    ActionDefinitions.Id.SpendPower)
+                if (subPowers != null &&
+                    subPowers[option] == powerBurstingArrow)
                 {
-                    ActionModifiers = { new ActionModifier() },
-                    StringParameter = "ArcaneShot",
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            attacker.UsedSpecialFeatures.TryAdd(powerBurstingArrow.Name, 0);
-            attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = -1;
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.TryAdd(ArcaneShotMarker, 1);
-
-            var option = reactionRequest.SelectedSubOption;
-            var subPowers = PowerArcaneShot.GetBundle()?.SubPowers;
-
-            if (subPowers != null &&
-                subPowers[option] == powerBurstingArrow)
-            {
-                attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = 0;
+                    attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = 0;
+                }
             }
         }
 
@@ -689,34 +668,14 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         private void HandleBurstingArrow(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
+            var usablePower = PowerProvider.Get(powerBurstingArrowDamage, rulesetAttacker);
             var targets = Gui.Battle.AllContenders
                 .Where(x => x.IsWithinRange(defender, 3) && x != defender)
                 .ToList();
 
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var usablePower = PowerProvider.Get(powerBurstingArrowDamage, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
             EffectHelpers
                 .StartVisualEffect(attacker, defender, SpellDefinitions.Shatter, EffectHelpers.EffectType.Zone);
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 
@@ -729,7 +688,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -738,11 +697,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager ||
-                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
                 !helper.CanReact() ||
                 !IsBow(attackMode, null, null))
@@ -750,56 +705,52 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "Reaction/&CustomReactionMartialArcaneArcherGuidedShotDescription"
-                };
-            var reactionRequest = new ReactionRequestCustom("MartialArcaneArcherGuidedShot", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+            yield return attacker.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "MartialArcaneArcherGuidedShot",
+                "CustomReactionMartialArcaneArcherGuidedShotDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+            yield break;
 
-            yield return battle.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                var toHitBonus = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
+                var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
+                var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
+                    ? "Feedback/&RollAttackCriticalFailureTitle"
+                    : "Feedback/&RollAttackFailureTitle";
+
+                var rulesetAttacker = attacker.RulesetCharacter;
+                var sign = toHitBonus > 0 ? "+" : string.Empty;
+
+                rulesetAttacker.LogCharacterUsedFeature(featureDefinition,
+                    "Feedback/&TriggerRerollLine",
+                    false,
+                    (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}{sign}{toHitBonus}"),
+                    (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
+
+                var roll = rulesetAttacker.RollAttack(
+                    attackMode.toHitBonus,
+                    defender.RulesetActor,
+                    attackMode.sourceDefinition,
+                    attackModifier.attackToHitTrends,
+                    attackModifier.IgnoreAdvantage,
+                    attackModifier.AttackAdvantageTrends,
+                    attackMode.ranged,
+                    false,
+                    attackModifier.attackRollModifier,
+                    out var outcome,
+                    out var successDelta,
+                    -1,
+                    true);
+
+                action.AttackRollOutcome = outcome;
+                action.AttackSuccessDelta = successDelta;
+                action.AttackRoll = roll;
             }
-
-            var toHitBonus = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
-            var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
-            var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
-                ? "Feedback/&RollAttackCriticalFailureTitle"
-                : "Feedback/&RollAttackFailureTitle";
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var sign = toHitBonus > 0 ? "+" : string.Empty;
-
-            rulesetAttacker.LogCharacterUsedFeature(featureDefinition,
-                "Feedback/&TriggerRerollLine",
-                false,
-                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}{sign}{toHitBonus}"),
-                (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
-
-            var roll = rulesetAttacker.RollAttack(
-                attackMode.toHitBonus,
-                defender.RulesetActor,
-                attackMode.sourceDefinition,
-                attackModifier.attackToHitTrends,
-                attackModifier.IgnoreAdvantage,
-                attackModifier.AttackAdvantageTrends,
-                attackMode.ranged,
-                false,
-                attackModifier.attackRollModifier,
-                out var outcome,
-                out var successDelta,
-                -1,
-                true);
-
-            action.AttackRollOutcome = outcome;
-            action.AttackSuccessDelta = successDelta;
-            action.AttackRoll = roll;
         }
     }
 

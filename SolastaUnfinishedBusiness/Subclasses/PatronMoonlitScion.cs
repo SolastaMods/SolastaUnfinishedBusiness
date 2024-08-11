@@ -509,15 +509,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
             var spellRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
                 x.SpellCastingClass == CharacterClassDefinitions.Warlock);
-            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetCharacter, spellRepertoire, MoonBeam, slotLevel, false);
-            var actionParams = action.ActionParams.Clone();
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>();
 
-            actionParams.ActionDefinition = actionManager.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
-            actionParams.RulesetEffect = effectSpell;
-
-            actionManager.ExecuteAction(actionParams, null, true);
+            action.ActingCharacter.MyExecuteActionCastNoCost(MoonBeam, slotLevel, action.ActionParams, spellRepertoire);
 
             yield break;
         }
@@ -585,33 +578,22 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             }
 
             var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerMoonlightGuise, rulesetDefender);
 
-            if (!defender.CanReact() ||
-                rulesetDefender.GetRemainingPowerUses(powerMoonlightGuise) == 0)
+            if (actualEffectForms.All(x => x.FormType != EffectForm.EffectFormType.Damage) ||
+                !defender.CanReact() ||
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerMoonlightGuise, rulesetDefender);
-            var reactionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "MoonlightGuise",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "MoonlightGuise",
+                battleManager: battleManager);
         }
     }
 }

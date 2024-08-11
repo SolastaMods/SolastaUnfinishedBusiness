@@ -600,18 +600,9 @@ internal static class MeleeCombatFeats
             bool firstTarget,
             bool criticalHit)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
-
             var attackerPosition = attacker.LocationPosition;
             var defenderPosition = defender.LocationPosition;
-
             var attackDirectionX = Math.Sign(attackerPosition.x - defenderPosition.x);
             var attackDirectionY = Math.Sign(attackerPosition.y - defenderPosition.y);
             var attackDirectionZ = Math.Sign(attackerPosition.z - defenderPosition.z);
@@ -629,42 +620,31 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                powerPool.Name,
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                ActionModifiers = { actionModifier },
-                StringParameter = powerPool.Name,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
+                attacker.UsedSpecialFeatures.TryAdd(powerPool.Name, 0);
 
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+                // add the shove form direct to the attack
+                var option = reactionRequest.SelectedSubOption;
+                var subPowers = powerPool.GetBundle()?.SubPowers;
 
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.TryAdd(powerPool.Name, 0);
-
-            // add the shove form direct to the attack
-            var option = reactionRequest.SelectedSubOption;
-            var subPowers = powerPool.GetBundle()?.SubPowers;
-
-            if (subPowers != null &&
-                subPowers[option].Name == "PowerFeatChargerShove")
-            {
-                actualEffectForms.Add(ShoveForm);
+                if (subPowers != null &&
+                    subPowers[option].Name == "PowerFeatChargerShove")
+                {
+                    actualEffectForms.Add(ShoveForm);
+                }
             }
         }
 
@@ -796,26 +776,15 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetHelper);
-            var actionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "DefensiveDuelist",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToUsePower(actionParams, "UsePower", helper);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return helper.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "DefensiveDuelist",
+                battleManager: battleManager);
         }
     }
 
@@ -881,19 +850,13 @@ internal static class MeleeCombatFeats
 
         retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-        var actionParams = new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
-        {
-            StringParameter = target.Name,
-            ActionModifiers = { retaliationModifier },
-            AttackMode = retaliationMode,
-            TargetCharacters = { enemy }
-        };
-        var reactionRequest = new ReactionRequestReactionAttack("OldTactics", actionParams);
-        var count = actionManager.PendingReactionRequestGroups.Count;
-
-        actionManager.AddInterruptRequest(reactionRequest);
-
-        yield return battleManager.WaitForReactions(enemy, actionManager, count);
+        yield return target.MyReactForOpportunityAttack(
+            enemy,
+            enemy,
+            retaliationMode,
+            retaliationModifier,
+            "OldTactics",
+            battleManager: battleManager);
     }
 
     #endregion
@@ -1529,9 +1492,6 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var attackModifier = action.ActionParams.ActionModifiers[0];
             var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
             var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
@@ -1580,18 +1540,8 @@ internal static class MeleeCombatFeats
             }
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
 
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
         }
     }
 
@@ -1948,11 +1898,20 @@ internal static class MeleeCombatFeats
                 new PowerOrSpellFinishedByMeWhirlWindAttack())
             .AddToDB();
 
+        var featureExtraBonusAttack = FeatureDefinitionBuilder
+            .Create($"Feature{NAME}ExtraBonusAttack")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(
+                new AddWhirlWindFollowUpAttack(GreatswordType),
+                new AddWhirlWindFollowUpAttack(MaulType),
+                new AddWhirlWindFollowUpAttack(GreataxeType))
+            .AddToDB();
+
         // name kept for backward compatibility
         return FeatDefinitionBuilder
             .Create("FeatWhirlWindAttackDex")
             .SetGuiPresentation($"Feat{NAME}", Category.Feat)
-            .SetFeatures(powerWhirlWindAttack)
+            .SetFeatures(powerWhirlWindAttack, featureExtraBonusAttack)
             .AddToDB();
     }
 
@@ -1987,7 +1946,9 @@ internal static class MeleeCombatFeats
             attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
 
             //remove additional ability score modifier damage
+#if false
             var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
             var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 actingCharacter.RulesetCharacter.TryGetAttributeValue(attackMode.AbilityScore));
 
@@ -1995,6 +1956,7 @@ internal static class MeleeCombatFeats
             {
                 damageForm.BonusDamage -= modifier;
             }
+#endif
 
             actingCharacter.BurnOneMainAttack();
             actingCharacter.UsedSpecialFeatures.TryAdd("PowerWhirlWindAttack", 0);
@@ -2003,13 +1965,12 @@ internal static class MeleeCombatFeats
             foreach (var target in targets)
             {
                 var attackModifier = new ActionModifier();
-                var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
-                {
-                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-                };
 
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
+                actingCharacter.MyExecuteActionAttack(
+                    ActionDefinitions.Id.AttackFree,
+                    target,
+                    attackMode,
+                    attackModifier);
             }
         }
     }

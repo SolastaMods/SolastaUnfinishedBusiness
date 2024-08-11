@@ -6,7 +6,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -428,53 +427,30 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!battleManager)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = defender.RulesetCharacter;
-
-            if (rulesetCharacter.GetRemainingPowerUses(powerUmbralSoul) == 0)
-            {
-                yield break;
-            }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerUmbralSoul, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
-            {
-                StringParameter = "UmbralSoul",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
+            if (rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var hitPoints = 2 * rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Rogue);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [defender],
+                attacker,
+                "UmbralSoul",
+                reactionValidated: ReactionValidated);
 
-            rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
+            yield break;
 
-            EffectHelpers.StartVisualEffect(
-                defender, defender, PowerDefilerMistyFormEscape, EffectHelpers.EffectType.Caster);
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
+            void ReactionValidated()
+            {
+                var hitPoints = 2 * rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Rogue);
+
+                defender.MyExecuteActionStabilizeAndStandUp(hitPoints, PowerDefilerMistyFormEscape);
+            }
         }
     }
 

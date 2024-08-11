@@ -816,21 +816,9 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerReactiveHideDamage, rulesetDefender);
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { attacker }
-            };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            defender.MyExecuteActionPowerNoCost(usablePower, [attacker]);
         }
 
         public int HandlerPriority => 10;
@@ -845,37 +833,24 @@ public sealed class WayOfTheDragon : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetHelper);
 
-            if (helper != defender ||
+            if (defender != helper ||
                 !defender.CanReact() ||
-                rulesetEffect != null ||
                 !ValidatorsWeapon.IsMelee(attackMode) ||
-                rulesetDefender.GetRemainingPowerUses(powerReactiveHide) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "ReactiveHide",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "ReactiveHide",
+                battleManager: battleManager);
         }
     }
 }

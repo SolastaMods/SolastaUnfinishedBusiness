@@ -153,64 +153,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Corrupting Bolt
-
-    internal static SpellDefinition BuildCorruptingBolt()
-    {
-        const string Name = "CorruptingBolt";
-
-        var conditionCorruptingBolt = ConditionDefinitionBuilder
-            .Create(ConditionEyebiteSickened, $"Condition{Name}")
-            .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(
-                DatabaseRepository.GetDatabase<DamageDefinition>()
-                    .Select(damageDefinition =>
-                        FeatureDefinitionDamageAffinityBuilder
-                            .Create($"DamageAffinity{Name}{damageDefinition.Name}")
-                            .SetGuiPresentationNoContent(true)
-                            .SetDamageAffinityType(DamageAffinityType.Vulnerability)
-                            .SetDamageType(damageDefinition.Name)
-                            .AddToDB()))
-            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasHit)
-            .AddToDB();
-
-        var spell = SpellDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CorruptingBolt, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .SetSpellLevel(3)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeNecrotic, 4, DieType.D8),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(conditionCorruptingBolt, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetParticleEffectParameters(FingerOfDeath)
-                    .SetImpactEffectParameters(Disintegrate)
-                    .SetEffectEffectParameters(Disintegrate)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    #endregion
-
     #region Crusaders Mantle
 
     internal static SpellDefinition BuildCrusadersMantle()
@@ -366,6 +308,111 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Corrupting Bolt
+
+    internal static SpellDefinition BuildCorruptingBolt()
+    {
+        const string Name = "CorruptingBolt";
+
+        var conditionCorruptingBolt = ConditionDefinitionBuilder
+            .Create(ConditionEyebiteSickened, $"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(
+                DatabaseRepository.GetDatabase<DamageDefinition>()
+                    .Select(damageDefinition =>
+                        FeatureDefinitionDamageAffinityBuilder
+                            .Create($"DamageAffinity{Name}{damageDefinition.Name}")
+                            .SetGuiPresentationNoContent(true)
+                            .SetDamageAffinityType(DamageAffinityType.Vulnerability)
+                            .SetDamageType(damageDefinition.Name)
+                            .AddToDB()))
+            .AddCustomSubFeatures(new CustomBehaviorCorruptingBolt())
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CorruptingBolt, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeNecrotic, 4, DieType.D8),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionCorruptingBolt, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(FingerOfDeath)
+                    .SetImpactEffectParameters(Disintegrate)
+                    .SetEffectEffectParameters(Disintegrate)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorCorruptingBolt : IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe
+    {
+        private const string ConditionCorruptingBoltName = "ConditionCorruptingBolt";
+
+        public IEnumerator OnMagicEffectFinishedOnMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
+        {
+            var rulesetEffect = action.ActionParams.RulesetEffect;
+
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition) &&
+                !rulesetAttacker.SpellsCastByMe.Any(x => x.TrackedConditionGuids.Contains(activeCondition.Guid)))
+            {
+                rulesetDefender.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
+            }
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
+
+            yield break;
+        }
+    }
+
+    #endregion
+
     #region Ashardalon's Stride
 
     internal static SpellDefinition BuildAshardalonStride()
@@ -491,7 +538,7 @@ internal static partial class SpellBuilders
         public void MoveStepFinished(GameLocationCharacter mover)
         {
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var contenders =
+            var targets =
                 (Gui.Battle?.AllContenders ??
                  locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
                 .Where(x => x.IsWithinRange(mover, 1) &&
@@ -503,27 +550,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = mover.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < contenders.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(mover, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = contenders
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            mover.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 
@@ -756,30 +783,9 @@ internal static partial class SpellBuilders
 
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < _targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            // don't use PowerNoCost here as it breaks the spell under MP
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = _targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, _targets);
         }
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1209,25 +1215,11 @@ internal static partial class SpellBuilders
 
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageAcid, rulesetCaster);
 
             usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
 
-            var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { character }
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter character)
@@ -1242,25 +1234,11 @@ internal static partial class SpellBuilders
 
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageCold, rulesetCaster);
 
             usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
 
-            var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { character }
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
         }
     }
 
@@ -1276,6 +1254,7 @@ internal static partial class SpellBuilders
             .Create($"Power{Name}Leap")
             .SetGuiPresentation(Name, Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1475,30 +1454,11 @@ internal static partial class SpellBuilders
             }
 
             // leap damage on enemies within 10 ft from target
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
             var targets = battleManager.Battle
                 .GetContenders(defender, isOppositeSide: false, withinRange: 2);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 

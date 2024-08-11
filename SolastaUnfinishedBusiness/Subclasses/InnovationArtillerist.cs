@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -54,7 +53,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetForbiddenActions(
                 Id.AttackMain, Id.AttackOff, Id.AttackFree, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
-                Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower, Id.Shove, Id.ShoveBonus, Id.ShoveFree)
+                Id.PowerMain, Id.PowerBonus, Id.PowerNoCost, Id.PowerReaction, Id.SpendPower,
+                Id.Shove, Id.ShoveBonus, Id.ShoveFree)
             .AddCustomSubFeatures(new SummonerHasConditionOrKOd())
             .AddToDB();
 
@@ -592,6 +592,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .Create(ELDRITCH_DETONATION)
             .SetGuiPresentation(Category.Feature, Fireball)
             .SetUsesFixed(ActivationTime.Action)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1066,6 +1067,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var selectedTarget = action.ActionParams.TargetCharacters[0];
             var rulesetTarget = selectedTarget.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetTarget);
             var targets = characterService.AllValidEntities
                 .Where(x =>
                     x != selectedTarget &&
@@ -1073,29 +1075,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     x.IsWithinRange(selectedTarget, 4))
                 .ToList();
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetTarget);
-            var effectPower = implementationManager
-                .MyInstantiateEffectPower(rulesetTarget, usablePower, false);
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(selectedTarget, Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = effectPower,
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            selectedTarget.MyExecuteActionPowerNoCost(usablePower, targets);
 
             yield break;
         }

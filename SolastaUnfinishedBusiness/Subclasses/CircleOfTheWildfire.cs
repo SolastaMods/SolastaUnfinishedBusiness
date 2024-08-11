@@ -166,7 +166,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 .SetGuiPresentationNoContent(true)
                 .SetForbiddenActions(
                     Id.AttackMain, Id.AttackOff, Id.AttackFree, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
-                    Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower, Id.Shove, Id.ShoveBonus, Id.ShoveFree)
+                    Id.PowerMain, Id.PowerBonus, Id.PowerNoCost, Id.PowerReaction, Id.SpendPower,
+                    Id.Shove, Id.ShoveBonus, Id.ShoveFree)
                 .AddCustomSubFeatures(new SummonerHasConditionOrKOd(), ForceInitiativeToSummoner.Mark)
                 .AddToDB();
 
@@ -203,7 +204,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create($"Condition{Name}SpiritAttackRoll")
-                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
+                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.EmptyContent)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
@@ -211,7 +212,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create($"Condition{Name}SpiritDamageRoll")
-                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
+                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.EmptyContent)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
@@ -219,7 +220,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create($"Condition{Name}SpiritHitPoints")
-                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
+                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.EmptyContent)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, DruidClass)
@@ -511,56 +512,34 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 continue;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return source.MyReactToUsePower(
+                Id.PowerReaction,
+                usablePower,
+                [character],
+                character,
+                character.Side == Side.Enemy ? "CauterizingFlamesDamage" : "CauterizingFlamesHeal",
+                reactionValidated: ReactionValidated);
 
-            var actionParams = new CharacterActionParams(source, Id.PowerReaction)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = character.Side == Side.Enemy ? "CauterizingFlamesDamage" : "CauterizingFlamesHeal",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetSource, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { character }
-            };
+                var powerToTerminate = rulesetSource.PowersUsedByMe.FirstOrDefault(x =>
+                    x.Guid == rulesetProxy.EffectGuid);
 
-            var count = actionService.PendingReactionRequestGroups.Count;
+                if (powerToTerminate != null)
+                {
+                    rulesetSource.TerminatePower(powerToTerminate);
+                }
 
-            actionService.ReactToUsePower(actionParams, "UsePower", source);
+                usablePower = PowerProvider.Get(
+                    character.Side == Side.Enemy
+                        ? PowerCauterizingFlamesDamage
+                        : PowerCauterizingFlamesHeal,
+                    rulesetSource);
 
-            yield return battleManager.WaitForReactions(character, actionService, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
+                source.MyExecuteActionPowerNoCost(usablePower, [character]);
             }
-
-            var powerToTerminate = rulesetSource.PowersUsedByMe.FirstOrDefault(x =>
-                x.Guid == rulesetProxy.EffectGuid);
-
-            if (powerToTerminate != null)
-            {
-                rulesetSource.TerminatePower(powerToTerminate);
-            }
-
-            usablePower = PowerProvider.Get(
-                character.Side == Side.Enemy
-                    ? PowerCauterizingFlamesDamage
-                    : PowerCauterizingFlamesHeal,
-                rulesetSource);
-
-            actionParams = new CharacterActionParams(source, Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetSource, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { character }
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -659,18 +638,14 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerSummonSpirit, rulesetAttacker);
             var spirit = GetMySpirit(attacker.Guid);
-
             var contenders =
                 Gui.Battle?.AllContenders ??
                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-
             var targets = contenders
                 .Where(x =>
                     attacker != x &&
@@ -678,25 +653,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     spirit.IsWithinRange(x, 2))
                 .ToList();
 
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var usablePower = PowerProvider.Get(powerSummonSpirit, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
 
             yield break;
         }
@@ -743,29 +700,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         {
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < _targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = _targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, _targets);
 
             yield break;
         }
@@ -965,14 +902,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = defender.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBlazingRevival, rulesetCharacter);
 
@@ -981,38 +910,22 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return defender.MyReactToUsePower(
+                Id.PowerNoCost,
+                usablePower,
+                [defender],
+                attacker,
+                "BlazingRevival",
+                reactionValidated: ReactionValidated);
 
-            var reactionParams = new CharacterActionParams(defender, Id.PowerNoCost)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "BlazingRevival",
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                var hitPoints = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.HitPoints) / 2;
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                defender.MyExecuteActionStabilizeAndStandUp(hitPoints, PowerDefilerMistyFormEscape);
             }
-
-            var hitPoints = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.HitPoints) / 2;
-
-            rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
-
-            EffectHelpers.StartVisualEffect(
-                defender, defender, PowerDefilerMistyFormEscape, EffectHelpers.EffectType.Caster);
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(new CharacterActionParams(defender, Id.StandUp), null, true);
         }
     }
 }

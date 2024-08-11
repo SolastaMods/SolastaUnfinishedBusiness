@@ -70,7 +70,8 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HasFreeHandWithoutTwoHandedInMain = character =>
         character.HasFreeHandSlot() &&
-        !ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(), TagsDefinitions.WeaponTagTwoHanded);
+        !ValidatorsWeapon.HasAnyWeaponTag(
+            character.GetMainWeapon()?.ItemDefinition, TagsDefinitions.WeaponTagTwoHanded);
 
     internal static readonly IsCharacterValidHandler HasFreeHand = character =>
         character.HasFreeHandSlot() ||
@@ -88,6 +89,7 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainHand = character =>
     {
         var weapon = character.GetMainWeapon();
+
         return ValidatorsWeapon.IsMelee(weapon) || (weapon == null && InnovationArmor.InGuardianMode(character));
     };
 
@@ -103,7 +105,7 @@ internal static class ValidatorsCharacter
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);
 
     private static readonly IsCharacterValidHandler IsUnarmedInMainHand = character =>
-        ValidatorsWeapon.IsUnarmed(character.GetMainWeapon()?.ItemDefinition, null);
+        ValidatorsWeapon.IsUnarmed(character.GetMainWeapon()?.ItemDefinition);
 
     internal static readonly IsCharacterValidHandler IsNotInBrightLight = character =>
         HasAnyOfLightingStates(
@@ -124,11 +126,13 @@ internal static class ValidatorsCharacter
 
     internal static IsCharacterValidHandler HasAvailablePowerUsage(FeatureDefinitionPower power)
     {
+        // must use GetRemainingPowerUses
         return character => character.GetRemainingPowerUses(power) > 0;
     }
 
     internal static IsCharacterValidHandler HasNotAvailablePowerUsage(FeatureDefinitionPower power)
     {
+        // must use GetRemainingPowerUses
         return character => character.GetRemainingPowerUses(power) == 0;
     }
 
@@ -215,15 +219,20 @@ internal static class ValidatorsCharacter
     {
         var monkWeaponSpecializations = character.GetSubFeaturesByType<CharacterContext.MonkWeaponSpecialization>();
 
-        return weaponDescription == null || weaponDescription.IsMonkWeaponOrUnarmed() ||
+        return weaponDescription == null ||
+               weaponDescription.IsMonkWeaponOrUnarmed() ||
                monkWeaponSpecializations.Exists(x => x.WeaponType == weaponDescription.WeaponTypeDefinition);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMonkWeapon(this RulesetCharacter character, ItemDefinition itemDefinition)
     {
-        return itemDefinition && itemDefinition.IsWeapon &&
-               character.IsMonkWeapon(itemDefinition.WeaponDescription);
+        if (!itemDefinition)
+        {
+            return false;
+        }
+
+        return itemDefinition.IsWeapon && character.IsMonkWeapon(itemDefinition.WeaponDescription);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -231,7 +240,7 @@ internal static class ValidatorsCharacter
     {
         var offHand = character.GetOffhandWeapon();
 
-        // does character has free offhand in TA's terms as used in RefreshAttackModes for Monk bonus unarmed attack?
+        // does character have free offhand in TA's terms as used in RefreshAttackModes for Monk bonus unarmed attack?
         return offHand == null || !offHand.ItemDefinition.IsWeapon;
     }
 
@@ -258,8 +267,8 @@ internal static class ValidatorsCharacter
             return false;
         }
 
-        var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
-            .EquipedItem;
+        var equipedItem =
+            character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
 
         if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
         {
@@ -269,7 +278,7 @@ internal static class ValidatorsCharacter
         var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
         var element = DatabaseHelper.GetDefinition<ArmorTypeDefinition>(armorDescription.ArmorType);
 
-        return DatabaseHelper.GetDefinition<ArmorCategoryDefinition>(element.ArmorCategory)
-            .IsPhysicalArmor && element.ArmorCategory == category;
+        return DatabaseHelper.GetDefinition<ArmorCategoryDefinition>(element.ArmorCategory).IsPhysicalArmor &&
+               element.ArmorCategory == category;
     }
 }

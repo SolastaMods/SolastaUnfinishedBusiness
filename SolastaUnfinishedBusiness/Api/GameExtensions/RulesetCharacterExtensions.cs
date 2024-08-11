@@ -196,7 +196,7 @@ internal static class RulesetCharacterExtensions
         bool considerUses = true,
         bool considerHaving = false)
     {
-        if (power == null)
+        if (!power)
         {
             return false;
         }

@@ -301,6 +301,7 @@ Tooltip/&PreReqMustHaveExtraAttacks=Должен иметь дополнител
 Tooltip/&PreReqMustKnow=Должен знать {0}
 Tooltip/&SecondTargetNotWithinRange=Невозможно выбрать эту цель, поскольку она находится вне досягаемости
 Tooltip/&Tag9000Title=Кастомный эффект
+Tooltip/&TagDamageChaosBoltTitle=Хаотический урон
 Tooltip/&TagUnfinishedBusinessTitle=Неоконченное Дело
 Tooltip/&TargetMeleeWeaponError=Невозможно провести атаку ближнего боя по этой цели с выбранным оружием
 UI/&CustomFeatureSelectionStageDescription=Выберите дополнительные черты для вашего класса/архетипа.

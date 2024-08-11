@@ -19,7 +19,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
-    9000
+    "Attacked"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",

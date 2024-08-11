@@ -175,13 +175,11 @@ public sealed class WizardWarMagic : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var rulesetCharacter = helper.RulesetCharacter;
-            var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var rulesetHelper = helper.RulesetCharacter;
+            var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
-            if (!actionManager ||
-                action.AttackRollOutcome != RollOutcome.Success ||
+            if (action.AttackRollOutcome != RollOutcome.Success ||
                 action.AttackSuccessDelta - bonus >= 0 ||
                 helper != defender ||
                 !defender.CanReact() ||
@@ -190,55 +188,51 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "CustomReactionArcaneDeflectionAttackDescription".Formatted(Category.Reaction)
-                };
-            var reactionRequest = new ReactionRequestCustom("ArcaneDeflectionAttack", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "ArcaneDeflectionAttack",
+                "CustomReactionArcaneDeflectionAttackDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+            yield break;
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                EffectHelpers.StartVisualEffect(
+                    helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
+                rulesetHelper.InflictCondition(
+                    conditionArcaneDeflection.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetHelper.guid,
+                    rulesetHelper.CurrentFaction.Name,
+                    1,
+                    conditionArcaneDeflection.Name,
+                    0,
+                    0,
+                    0);
+
+                attackModifier.attackRollModifier -= bonus;
+                attackModifier.AttacktoHitTrends.Add(
+                    new TrendInfo(-bonus, FeatureSourceType.CharacterFeature, featureArcaneDeflection.Name,
+                        featureArcaneDeflection));
+                action.AttackSuccessDelta -= bonus;
+                action.AttackRollOutcome = RollOutcome.Failure;
+                helper.RulesetCharacter.LogCharacterUsedFeature(
+                    featureArcaneDeflection,
+                    "Feedback/&ArcaneDeflectionAttackRoll",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollAttackFailureTitle")
+                    ]);
+
+                HandleDeflectionShroud(helper);
             }
-
-            EffectHelpers.StartVisualEffect(
-                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
-            rulesetCharacter.InflictCondition(
-                conditionArcaneDeflection.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                conditionArcaneDeflection.Name,
-                0,
-                0,
-                0);
-
-            attackModifier.attackRollModifier -= bonus;
-            attackModifier.AttacktoHitTrends.Add(
-                new TrendInfo(-bonus, FeatureSourceType.CharacterFeature, featureArcaneDeflection.Name,
-                    featureArcaneDeflection));
-            action.AttackSuccessDelta -= bonus;
-            action.AttackRollOutcome = RollOutcome.Failure;
-            helper.RulesetCharacter.LogCharacterUsedFeature(
-                featureArcaneDeflection,
-                "Feedback/&ArcaneDeflectionAttackRoll",
-                extra:
-                [
-                    (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
-                    (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollAttackFailureTitle")
-                ]);
-
-            HandleDeflectionShroud(helper);
         }
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
@@ -251,13 +245,11 @@ public sealed class WizardWarMagic : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var rulesetCharacter = helper.RulesetCharacter;
-            var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var rulesetHelper = helper.RulesetCharacter;
+            var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
-            if (!actionManager ||
-                !action.RolledSaveThrow ||
+            if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 action.SaveOutcomeDelta + bonus < 0 ||
                 helper != defender ||
@@ -267,51 +259,47 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "CustomReactionArcaneDeflectionSavingDescription".Formatted(Category.Reaction)
-                };
-            var reactionRequest = new ReactionRequestCustom("ArcaneDeflectionSaving", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "ArcaneDeflectionSaving",
+                "CustomReactionArcaneDeflectionSavingDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+            yield break;
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                EffectHelpers.StartVisualEffect(
+                    helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
+                rulesetHelper.InflictCondition(
+                    conditionArcaneDeflection.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetHelper.guid,
+                    rulesetHelper.CurrentFaction.Name,
+                    1,
+                    conditionArcaneDeflection.Name,
+                    0,
+                    0,
+                    0);
+
+                action.SaveOutcomeDelta += bonus;
+                action.SaveOutcome = RollOutcome.Success;
+                helper.RulesetCharacter.LogCharacterUsedFeature(
+                    featureArcaneDeflection,
+                    "Feedback/&ArcaneDeflectionSavingRoll",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
+                    ]);
+
+                HandleDeflectionShroud(helper);
             }
-
-            EffectHelpers.StartVisualEffect(
-                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
-            rulesetCharacter.InflictCondition(
-                conditionArcaneDeflection.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                conditionArcaneDeflection.Name,
-                0,
-                0,
-                0);
-
-            action.SaveOutcomeDelta += bonus;
-            action.SaveOutcome = RollOutcome.Success;
-            helper.RulesetCharacter.LogCharacterUsedFeature(
-                featureArcaneDeflection,
-                "Feedback/&ArcaneDeflectionSavingRoll",
-                extra:
-                [
-                    (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
-                    (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
-                ]);
-
-            HandleDeflectionShroud(helper);
         }
 
         private void HandleDeflectionShroud(GameLocationCharacter helper)
@@ -324,33 +312,14 @@ public sealed class WizardWarMagic : AbstractSubclass
                 return;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerDeflectionShroud, rulesetHelper);
             var targets = Gui.Battle
                 .GetContenders(helper, withinRange: 12)
                 .OrderBy(x => DistanceCalculation.GetDistanceFromCharacters(helper, x))
                 .Take(3)
                 .ToList();
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            helper.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 
@@ -420,17 +389,16 @@ public sealed class WizardWarMagic : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerSurge, rulesetAttacker);
             var alreadyTriggered = rulesetAttacker.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionSurgeMark.Name);
             var shouldTrigger =
                 attacker.OncePerTurnIsValid(powerSurge.Name) &&
                 rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PowerSurgeToggle) &&
-                rulesetAttacker.GetRemainingPowerUses(powerSurge) > 0;
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
 
             if (shouldTrigger && !alreadyTriggered)
             {
-                var usablePower = PowerProvider.Get(powerSurge, rulesetAttacker);
-
                 attacker.UsedSpecialFeatures.TryAdd(powerSurge.Name, 0);
                 rulesetAttacker.UsePower(usablePower);
                 rulesetAttacker.InflictCondition(

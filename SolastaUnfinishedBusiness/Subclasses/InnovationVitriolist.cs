@@ -78,7 +78,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
 
         var conditionCorroded = ConditionDefinitionBuilder
             .Create($"Condition{Name}Corroded")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionHeatMetal)
+            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionHeatMetal)
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
@@ -495,6 +495,11 @@ public sealed class InnovationVitriolist : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
+            if (action.ActionParams.RulesetEffect.SourceDefinition == powerVitriolicInfusion)
+            {
+                yield break;
+            }
+
             var damagedTargets = new List<GameLocationCharacter>();
 
             foreach (var target in targets)
@@ -514,8 +519,6 @@ public sealed class InnovationVitriolist : AbstractSubclass
             {
                 InflictDamage(attacker, damagedTargets);
             }
-
-            yield break;
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(
@@ -606,29 +609,9 @@ public sealed class InnovationVitriolist : AbstractSubclass
         private void InflictDamage(GameLocationCharacter attacker, List<GameLocationCharacter> targets)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
             var usablePower = PowerProvider.Get(powerVitriolicInfusion, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 }

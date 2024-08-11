@@ -1,6 +1,6 @@
 Condition/&ConditionDomainSmithAdamantBenedictionDescription=Votre armure se renforce en adamantine, réduisant de moitié les dégâts critiques.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Armure adamantine
-Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Une fois par tour, inflige +1d8 dégâts de feu aux attaques d'arme. Ces dégâts augmentent à 2d8 au niveau 14.
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Une fois pendant votre tour, infligez +1d8 dégâts de feu sur les attaques avec une arme. Ces dégâts augmentent à 2d8 au niveau 14.
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Frappe divine
 Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Gagnez une résistance au feu et lorsque vous portez une armure, gagnez +1 CA.
 Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Maîtrise de la forge

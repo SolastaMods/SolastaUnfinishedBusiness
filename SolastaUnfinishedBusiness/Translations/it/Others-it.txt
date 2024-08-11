@@ -301,6 +301,7 @@ Tooltip/&PreReqMustHaveExtraAttacks=Deve avere attacchi extra
 Tooltip/&PreReqMustKnow=Bisogna sapere {0}
 Tooltip/&SecondTargetNotWithinRange=Impossibile selezionare questo bersaglio perché non è nel raggio del primo
 Tooltip/&Tag9000Title=Effetto personalizzato
+Tooltip/&TagDamageChaosBoltTitle=Danno caotico
 Tooltip/&TagUnfinishedBusinessTitle=Lavoro incompleto
 Tooltip/&TargetMeleeWeaponError=Non è possibile eseguire un attacco corpo a corpo su questo bersaglio con l'arma attuale
 UI/&CustomFeatureSelectionStageDescription=Seleziona funzionalità extra per la tua classe/sottoclasse.

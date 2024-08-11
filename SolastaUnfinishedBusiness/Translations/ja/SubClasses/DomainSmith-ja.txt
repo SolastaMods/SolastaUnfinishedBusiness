@@ -1,6 +1,6 @@
 Condition/&ConditionDomainSmithAdamantBenedictionDescription=鎧はアダマンタインに強化され、クリティカルダメージが半減します。
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=アダマンティンアーマー
-Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=ターンごとに 1 回、武器攻撃で +1d8 の火炎ダメージを与える。このダメージは 14 レベルで 2d8 に増加します。
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=あなたのターン中に一度、武器攻撃に +1d8 の火炎ダメージを与えます。このダメージは 14 レベルで 2d8 に増加します。
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=神の一撃
 Feature/&AttributeModifierDomainSmithForgeMasteryDescription=耐火性を獲得し、鎧を着用している間 AC が +1 増加します。
 Feature/&AttributeModifierDomainSmithForgeMasteryTitle=フォージマスタリー

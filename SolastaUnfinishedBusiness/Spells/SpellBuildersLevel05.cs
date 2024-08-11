@@ -115,7 +115,7 @@ internal static partial class SpellBuilders
 
         var conditionMuddled = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDazzled)
+            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDazzled)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
@@ -501,7 +501,7 @@ internal static partial class SpellBuilders
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{NAME}{skill.Name}")
                                     .SetGuiPresentation(
-                                        skill.GuiPresentation.Title, Gui.NoLocalization, ConditionBullsStrength)
+                                        skill.GuiPresentation.Title, Gui.EmptyContent, ConditionBullsStrength)
                                     .SetPossessive()
                                     .SetFeatures(
                                         FeatureDefinitionProficiencyBuilder
@@ -567,11 +567,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!actionManager || !battleManager || action.Countered)
+            if (action.Countered)
             {
                 yield break;
             }
@@ -622,53 +618,44 @@ internal static partial class SpellBuilders
                 rulesetCharacter.UsablePowers.Add(up);
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerPool, rulesetCharacter);
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
-            {
-                StringParameter = "EmpoweredKnowledge",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { target }
-            };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
 
             rulesetCharacter.UsablePowers.Remove(usablePower);
             usablePowers.ForEach(x => rulesetCharacter.UsablePowers.Remove(x));
 
-            if (!actionParams.ReactionValidated)
+            yield return actingCharacter.MyReactToSpendPowerBundle(
+                usablePower,
+                [target],
+                actingCharacter,
+                "EmpoweredKnowledge",
+                ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                yield break;
-            }
+                var selectedPower = powers[reactionRequest.SelectedSubOption];
+                var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                var contenders =
+                    locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
+                        .ToList();
 
-            var selectedPower = powers[reactionRequest.SelectedSubOption];
-            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var contenders =
-                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
-                    .ToList();
-
-            foreach (var contender in contenders)
-            {
-                var rulesetContender = contender.RulesetCharacter;
-
-                foreach (var skill in skillsDb)
+                foreach (var contender in contenders)
                 {
-                    var conditionName = $"ConditionEmpoweredKnowledge{skill.Name}";
+                    var rulesetContender = contender.RulesetCharacter;
 
-                    if (rulesetContender.TryGetConditionOfCategoryAndType(
-                            AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
-                        activeCondition.SourceGuid == rulesetCharacter.Guid &&
-                        (activeCondition.TargetGuid != rulesetTarget.Guid || !selectedPower.Name.Contains(skill.Name)))
+                    foreach (var skill in skillsDb)
                     {
-                        rulesetContender.RemoveCondition(activeCondition);
+                        var conditionName = $"ConditionEmpoweredKnowledge{skill.Name}";
+
+                        if (rulesetContender.TryGetConditionOfCategoryAndType(
+                                AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
+                            activeCondition.SourceGuid == rulesetCharacter.Guid &&
+                            (activeCondition.TargetGuid != rulesetTarget.Guid ||
+                             !selectedPower.Name.Contains(skill.Name)))
+                        {
+                            rulesetContender.RemoveCondition(activeCondition);
+                        }
                     }
                 }
             }

@@ -488,6 +488,13 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for action switching
             ActionSwitching.CheckIfActionSwitched(
                 __instance, actionParams, scope, _mainRank, _mainAttacks, _bonusRank, _bonusAttacks);
+
+            //PATCH: vanilla doesn't refresh attack modes on free attacks
+            if (scope == ActionDefinitions.ActionScope.Battle &&
+                actionParams.ActionDefinition.Id == ActionDefinitions.Id.AttackFree)
+            {
+                __instance.RulesetCharacter.RefreshAttackModes();
+            }
         }
     }
 

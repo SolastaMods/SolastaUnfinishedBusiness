@@ -146,16 +146,21 @@ public sealed class PathOfTheBeast : AbstractSubclass
         var powerCallTheHunt = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CallTheHunt")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.OnPowerActivatedAuto)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
-                EffectDescriptionBuilder.Create()
+                EffectDescriptionBuilder
+                    .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .AddEffectForms(EffectFormBuilder.ConditionForm(conditionCallTheHunt))
                     .Build())
             .AddToDB();
+
         // need to handle custom because OnRageStartChoice doesn't seem to affect allies
-        powerCallTheHunt.AddCustomSubFeatures(new PowerCallTheHuntHandler(powerCallTheHunt));
+        powerCallTheHunt.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new PowerCallTheHuntHandler(powerCallTheHunt));
         return powerCallTheHunt;
     }
 
@@ -221,38 +226,15 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 yield break;
             }
 
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!actionManager || !battleManager)
-            {
-                yield break;
-            }
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var character = characterAction.ActingCharacter;
             var rulesetCharacter = character.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerPool, rulesetCharacter);
 
-            var actionParams =
-                new CharacterActionParams(GameLocationCharacter.GetFromActor(rulesetCharacter),
-                    ActionDefinitions.Id.SpendPower)
-                {
-                    StringParameter = "FormOfTheBeast",
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                    UsablePower = usablePower,
-                    targetCharacters = [character]
-                };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(character, actionManager, count);
+            yield return character.MyReactToSpendPowerBundle(
+                usablePower,
+                [character],
+                character,
+                "FormOfTheBeast");
         }
     }
 
@@ -335,63 +317,32 @@ public sealed class PathOfTheBeast : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackMode.SourceDefinition is not ItemDefinition item ||
-                item != _beastClaws)
+            if (attackMode.SourceDefinition is not ItemDefinition item || item != _beastClaws ||
+                attacker.UsedSpecialFeatures.ContainsKey(TagBeastClawAttack) ||
+                defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            if (defender.RulesetCharacter is not
-                { IsDeadOrDyingOrUnconscious: false })
+            yield return attacker.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "ExtraClawAttack",
+                "CustomReactionExtraClawAttackDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                yield break;
+                attacker.UsedSpecialFeatures.Add(TagBeastClawAttack, 0);
+                attacker.MyExecuteActionAttack(
+                    ActionDefinitions.Id.AttackFree,
+                    defender,
+                    attackMode,
+                    action.ActionParams.ActionModifiers[0]);
             }
-
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
-            if (attacker.UsedSpecialFeatures.ContainsKey(TagBeastClawAttack))
-            {
-                yield break;
-            }
-
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = Gui.Format("Reaction/&CustomReactionExtraClawAttackDescription")
-                };
-            var reactionRequest = new ReactionRequestCustom("ExtraClawAttack", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.reactionValidated)
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.Add(TagBeastClawAttack, 0);
-
-            var attackModeCopy = attackMode.DeepCopy();
-
-            attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.AttackFree)
-            {
-                ActionModifiers = { new ActionModifier() },
-                AttackMode = attackModeCopy,
-                TargetCharacters = { defender }
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
         }
 
         protected override AttackModeOrder GetOrder(RulesetCharacter character)
@@ -484,6 +435,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                 .SetPossessive()
                 .AddToDB();
+
             conditionTailSwipe.AddCustomSubFeatures(new BeastTailModifyArmorClass(conditionTailSwipe));
 
             _powerTailSwipe = FeatureDefinitionPowerBuilder
@@ -512,7 +464,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 helper != defender ||
@@ -526,26 +478,15 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
             defender.UsedSpecialFeatures.Remove(TagBeastTailArmorClass);
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            var usablePower = PowerProvider.Get(_powerTailSwipe, rulesetHelper);
 
-            var usablePower = PowerProvider.Get(_powerTailSwipe, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "BeastTailSwipe",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return helper.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [helper],
+                attacker,
+                "BeastTailSwipe",
+                battleManager: battleManager);
         }
 
         protected override AttackModeOrder GetOrder(RulesetCharacter character)
@@ -694,10 +635,11 @@ public sealed class PathOfTheBeast : AbstractSubclass
                     256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique, 2)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique, 2)
+                    .Build())
             .AddToDB();
 
         powerInfectiousFuryCompelledStrike.AddCustomSubFeatures(new CompelledStrikeHandler(conditionInfectiousFury));
@@ -707,14 +649,16 @@ public sealed class PathOfTheBeast : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerInfectiousFuryMindlash", Resources.PowerInfectiousFuryMindlash, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                .SetRequiredCondition(conditionInfectiousFury)
-                .SetEffectForms(
-                    EffectFormBuilder.DamageForm(DamageTypePsychic, 2, DieType.D12),
-                    EffectFormBuilder.ConditionForm(conditionInfectiousFury, ConditionForm.ConditionOperation.Remove))
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetRequiredCondition(conditionInfectiousFury)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypePsychic, 2, DieType.D12),
+                        EffectFormBuilder.ConditionForm(conditionInfectiousFury,
+                            ConditionForm.ConditionOperation.Remove))
+                    .Build())
             .AddToDB();
 
         powerInfectiousFury.AddCustomSubFeatures(
@@ -736,46 +680,28 @@ public sealed class PathOfTheBeast : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerInfectiousFury, rulesetAttacker);
 
-            if (!attacker.IsMyTurn())
-            {
-                yield break;
-            }
-
-            if (defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                defender.RulesetCharacter.HasAnyConditionOfType(condition.name) ||
-                attacker.RulesetCharacter.GetRemainingPowerUses(powerInfectiousFury) == 0)
-            {
-                yield break;
-            }
-
-            if (attackMode.SourceDefinition is not ItemDefinition item ||
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !attacker.IsMyTurn() ||
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0 ||
+                rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetDefender.HasAnyConditionOfType(condition.name) ||
+                attackMode.SourceDefinition is not ItemDefinition item ||
                 !item.ItemTags.Contains(TagBeastWeapon))
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var usablePower = PowerProvider.Get(powerInfectiousFury, attacker.RulesetCharacter);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-            {
-                StringParameter = "InfectiousFury",
-                RulesetEffect =
-                    implementationService.InstantiateEffectPower(attacker.RulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = [defender],
-                actionModifiers = [new ActionModifier()]
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToSpendPower(reactionParams);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return attacker.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [defender],
+                attacker,
+                "InfectiousFury",
+                battleManager: battleManager);
         }
     }
 
@@ -844,7 +770,9 @@ public sealed class PathOfTheBeast : AbstractSubclass
             attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
             attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
                 AttributeDefinitions.TagEffect, condition.name);
-            Attack(attacker, defender, attackModeCopy, attackModifier, ActionDefinitions.Id.AttackOpportunity);
+
+            attacker.MyExecuteActionAttack(
+                ActionDefinitions.Id.AttackOpportunity, defender, attackModeCopy, attackModifier);
         }
 
         private static bool IsValidAttack(
@@ -872,23 +800,6 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
             return __instance.BattleService.CanAttack(attackParams2);
         }
-
-        private static void Attack(
-            GameLocationCharacter actingCharacter,
-            GameLocationCharacter target,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier,
-            ActionDefinitions.Id actionId = ActionDefinitions.Id.AttackFree)
-        {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var attackActionParams =
-                new CharacterActionParams(actingCharacter, actionId)
-                {
-                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-                };
-
-            actionService.ExecuteAction(attackActionParams, null, true);
-        }
     }
 
     #endregion
@@ -898,63 +809,39 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
 {
     public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
     {
-        if (characterAction is not CharacterActionCombatRageStart)
-        {
-            yield break;
-        }
-
-        var actionManager =
-            ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-        if (!actionManager || !battleManager)
-        {
-            yield break;
-        }
-
         var character = characterAction.ActingCharacter;
         var rulesetCharacter = character.RulesetCharacter;
-
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
         var usablePower = PowerProvider.Get(power, rulesetCharacter);
-        var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.SpendPower)
-        {
-            StringParameter = "CallTheHunt",
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-            UsablePower = usablePower,
-            targetCharacters = [],
-            actionModifiers = []
-        };
 
-        foreach (var ally in locationCharacterService.AllValidEntities
-                     .Where(x =>
-                         x.Side == character.Side &&
-                         x.IsWithinRange(character, 6) &&
-                         x.CanAct())
-                     .ToList())
-        {
-            actionParams.targetCharacters.Add(ally);
-            actionParams.actionModifiers.Add(new ActionModifier());
-        }
-
-        var count = actionManager.PendingReactionRequestGroups.Count;
-        var reactionRequest = new ReactionRequestSpendPower(actionParams);
-
-        actionManager.AddInterruptRequest(reactionRequest);
-
-        yield return battleManager.WaitForReactions(character, actionManager, count);
-
-        if (!reactionRequest.Validated)
+        if (characterAction is not CharacterActionCombatRageStart ||
+            rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
         {
             yield break;
         }
 
-        rulesetCharacter.ReceiveTemporaryHitPoints(
-            15, DurationType.UntilAnyRest, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var targets =
+            locationCharacterService.PartyCharacters
+                .Union(locationCharacterService.GuestCharacters)
+                .Where(x =>
+                    x.CanAct() &&
+                    x.IsWithinRange(character, 6))
+                .ToList();
+
+        yield return character.MyReactToUsePower(
+            ActionDefinitions.Id.PowerNoCost,
+            usablePower,
+            targets,
+            character,
+            "CallTheHunt",
+            reactionValidated: ReactionValidated);
+
+        yield break;
+
+        void ReactionValidated()
+        {
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                15, DurationType.UntilAnyRest, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+        }
     }
 }

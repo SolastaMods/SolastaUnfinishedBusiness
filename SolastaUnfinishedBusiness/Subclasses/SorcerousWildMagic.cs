@@ -90,6 +90,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Power{Name}Fireball")
         .SetGuiPresentation($"Power{Name}D02", Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(Fireball)
@@ -102,6 +103,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Power{Name}Grease")
         .SetGuiPresentation($"Power{Name}D12", Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(Grease)
@@ -406,16 +408,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
     private static IEnumerator HandleControlledChaos(GameLocationCharacter attacker, bool avoidOnes = false)
     {
-        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-        if (!actionManager || !battleManager)
-        {
-            yield break;
-        }
+        var threshold = avoidOnes ? 2 : 1;
 
         var wildSurgeDie1 = 0;
-        var threshold = avoidOnes ? 2 : 1;
 
         while (wildSurgeDie1 < threshold)
         {
@@ -456,47 +451,37 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         rulesetAttacker.UsablePowers.Add(usablePowerFirst);
         rulesetAttacker.UsablePowers.Add(usablePowerSecond);
 
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-        {
-            StringParameter = "ControlledChaos",
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetAttacker, usablePowerPool, false),
-            UsablePower = usablePowerPool,
-            TargetCharacters = { attacker }
-        };
-
-        var count = actionManager.PendingReactionRequestGroups.Count;
-        var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-        actionManager.AddInterruptRequest(reactionRequest);
-
-        yield return battleManager.WaitForReactions(attacker, actionManager, count);
+        yield return attacker.MyReactToSpendPowerBundle(
+            usablePowerPool,
+            [attacker],
+            attacker,
+            "ControlledChaos",
+            ReactionValidated,
+            ReactionNotValidated);
 
         rulesetAttacker.UsablePowers.Remove(usablePowerFirst);
         rulesetAttacker.UsablePowers.Remove(usablePowerSecond);
 
-        int selectedRoll;
-        FeatureDefinitionPower selectedPower;
+        yield break;
 
-        if (reactionRequest.Validated)
+        void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
         {
-            selectedPower = WildSurgePowers.ElementAt(reactionRequest.SelectedSubOption);
-            selectedRoll = reactionRequest.SelectedSubOption + 1;
+            var selectedRoll = reactionRequest.SelectedSubOption + 1;
+            var selectedPower = WildSurgePowers.ElementAt(reactionRequest.SelectedSubOption);
+
+            ApplyWildSurge(
+                attacker, selectedRoll, PowerControlledChaos, selectedPower, "Feedback/&ControlledChaosDieChoice");
         }
-        else
+
+        void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
         {
             var choiceRoll = RollDie(DieType.D2, AdvantageType.None, out _, out _);
-            var choice = choiceRoll == 1 ? wildSurgeDie1 : wildSurgeDie2;
+            var selectedRoll = choiceRoll == 1 ? wildSurgeDie1 : wildSurgeDie2;
+            var selectedPower = WildSurgePowers.ElementAt(selectedRoll - 1);
 
-            selectedPower = WildSurgePowers.ElementAt(choice - 1);
-            selectedRoll = choice;
+            ApplyWildSurge(
+                attacker, selectedRoll, PowerControlledChaos, selectedPower, "Feedback/&ControlledChaosDieChoice");
         }
-
-        ApplyWildSurge(
-            attacker, selectedRoll, PowerControlledChaos, selectedPower, "Feedback/&ControlledChaosDieChoice");
     }
 
     //
@@ -634,95 +619,86 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-            {
-                StringParameter = "TidesOfChaosAttack",
-                StringParameter2 = "SpendPowerTidesOfChaosAttackDescription"
+            yield return helper.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "TidesOfChaosAttack",
+                "SpendPowerTidesOfChaosAttackDescription"
                     .Formatted(Category.Reaction, defender.Name, action.FormatTitle()),
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                ReactionValidated,
+                battleManager);
 
-            actionService.ReactToSpendPower(reactionParams);
+            yield break;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
-            }
+                usablePower.Consume();
 
-            List<TrendInfo> advantageTrends =
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
+                List<TrendInfo> advantageTrends =
+                    [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
 
-            actionModifier.AttackAdvantageTrends.SetRange(advantageTrends);
+                actionModifier.AttackAdvantageTrends.SetRange(advantageTrends);
 
-            RollOutcome outcome;
-            var attackRoll = action.AttackRoll;
-            int roll;
-            int toHitBonus;
-            int successDelta;
+                RollOutcome outcome;
+                var attackRoll = action.AttackRoll;
+                int roll;
+                int toHitBonus;
+                int successDelta;
 
-            if (attackMode != null)
-            {
-                toHitBonus = attackMode.ToHitBonus + actionModifier.AttackRollModifier;
-                roll = rulesetHelper.RollAttack(
-                    attackMode.ToHitBonus,
-                    defender.RulesetActor,
-                    attackMode.SourceDefinition,
-                    attackMode.ToHitBonusTrends,
+                if (attackMode != null)
+                {
+                    toHitBonus = attackMode.ToHitBonus + actionModifier.AttackRollModifier;
+                    roll = rulesetHelper.RollAttack(
+                        attackMode.ToHitBonus,
+                        defender.RulesetActor,
+                        attackMode.SourceDefinition,
+                        attackMode.ToHitBonusTrends,
+                        false,
+                        actionModifier.AttackAdvantageTrends,
+                        attackMode.ranged,
+                        false,
+                        actionModifier.AttackRollModifier,
+                        out outcome,
+                        out successDelta,
+                        -1,
+                        true);
+                }
+                else if (rulesetEffect != null)
+                {
+                    toHitBonus = rulesetEffect.MagicAttackBonus + actionModifier.AttackRollModifier;
+                    roll = rulesetHelper.RollMagicAttack(
+                        rulesetEffect,
+                        defender.RulesetActor,
+                        rulesetEffect.GetEffectSource(),
+                        actionModifier.AttacktoHitTrends,
+                        actionModifier.AttackAdvantageTrends,
+                        false,
+                        actionModifier.AttackRollModifier,
+                        out outcome,
+                        out successDelta,
+                        -1,
+                        true);
+                }
+                // should never happen
+                else
+                {
+                    return;
+                }
+
+                action.AttackRollOutcome = outcome;
+                action.AttackSuccessDelta = successDelta;
+                action.AttackRoll = roll;
+
+                var sign = toHitBonus > 0 ? "+" : string.Empty;
+
+                rulesetHelper.LogCharacterUsedFeature(
+                    PowerTidesOfChaos,
+                    "Feedback/&TriggerRerollLine",
                     false,
-                    actionModifier.AttackAdvantageTrends,
-                    attackMode.ranged,
-                    false,
-                    actionModifier.AttackRollModifier,
-                    out outcome,
-                    out successDelta,
-                    -1,
-                    true);
+                    (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
+                    (ConsoleStyleDuplet.ParameterType.FailedRoll,
+                        Gui.Format("Feedback/&RollAttackFailureTitle", $"{attackRoll + toHitBonus}")));
             }
-            else if (rulesetEffect != null)
-            {
-                toHitBonus = rulesetEffect.MagicAttackBonus + actionModifier.AttackRollModifier;
-                roll = rulesetHelper.RollMagicAttack(
-                    rulesetEffect,
-                    defender.RulesetActor,
-                    rulesetEffect.GetEffectSource(),
-                    actionModifier.AttacktoHitTrends,
-                    actionModifier.AttackAdvantageTrends,
-                    false,
-                    actionModifier.AttackRollModifier,
-                    out outcome,
-                    out successDelta,
-                    -1,
-                    true);
-            }
-            // should never happen
-            else
-            {
-                yield break;
-            }
-
-            action.AttackRollOutcome = outcome;
-            action.AttackSuccessDelta = successDelta;
-            action.AttackRoll = roll;
-
-            var sign = toHitBonus > 0 ? "+" : string.Empty;
-
-            usablePower.Consume();
-            rulesetHelper.LogCharacterUsedFeature(
-                PowerTidesOfChaos,
-                "Feedback/&TriggerRerollLine",
-                false,
-                (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
-                (ConsoleStyleDuplet.ParameterType.FailedRoll,
-                    Gui.Format("Feedback/&RollAttackFailureTitle", $"{attackRoll + toHitBonus}")));
         }
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
@@ -746,56 +722,47 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-            {
-                StringParameter = "TidesOfChaosSave",
-                StringParameter2 = "SpendPowerTidesOfChaosSaveDescription"
+            yield return helper.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "TidesOfChaosSave",
+                "SpendPowerTidesOfChaosSaveDescription"
                     .Formatted(Category.Reaction, attacker.Name, action.FormatTitle()),
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                UsablePower = usablePower
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                ReactionValidated,
+                battleManager);
 
-            actionService.ReactToSpendPower(reactionParams);
+            yield break;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                usablePower.Consume();
+
+                List<TrendInfo> advantageTrends =
+                    [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
+
+                actionModifier.SavingThrowAdvantageTrends.SetRange(advantageTrends);
+
+                action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
+                    ? action.ActionParams.AttackMode.TryRollSavingThrow(
+                        attacker.RulesetCharacter,
+                        defender.RulesetActor,
+                        actionModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms,
+                        out var saveOutcome, out var saveOutcomeDelta)
+                    : action.ActionParams.RulesetEffect.TryRollSavingThrow(
+                        attacker.RulesetCharacter,
+                        attacker.Side,
+                        defender.RulesetActor,
+                        actionModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual,
+                        out saveOutcome, out saveOutcomeDelta);
+                action.SaveOutcome = saveOutcome;
+                action.SaveOutcomeDelta = saveOutcomeDelta;
+
+                rulesetHelper.LogCharacterActivatesAbility(
+                    PowerTidesOfChaos.GuiPresentation.Title,
+                    "Feedback/&TidesOfChaosAdvantageSavingThrow",
+                    tooltipContent: PowerTidesOfChaos.Name,
+                    tooltipClass: "PowerDefinition");
             }
-
-            List<TrendInfo> advantageTrends =
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
-
-            actionModifier.SavingThrowAdvantageTrends.SetRange(advantageTrends);
-
-            action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
-                ? action.ActionParams.AttackMode.TryRollSavingThrow(
-                    attacker.RulesetCharacter,
-                    defender.RulesetActor,
-                    actionModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms,
-                    out var saveOutcome, out var saveOutcomeDelta)
-                : action.ActionParams.RulesetEffect.TryRollSavingThrow(
-                    attacker.RulesetCharacter,
-                    attacker.Side,
-                    defender.RulesetActor,
-                    actionModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual,
-                    out saveOutcome, out saveOutcomeDelta);
-            action.SaveOutcome = saveOutcome;
-            action.SaveOutcomeDelta = saveOutcomeDelta;
-
-            usablePower.Consume();
-            rulesetHelper.LogCharacterActivatesAbility(
-                PowerTidesOfChaos.GuiPresentation.Title,
-                "Feedback/&TidesOfChaosAdvantageSavingThrow",
-                tooltipContent: PowerTidesOfChaos.Name,
-                tooltipClass: "PowerDefinition");
         }
     }
 
@@ -846,86 +813,77 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return helper.MyReactToUsePower(ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [helper],
+                attacker,
+                stringParameter,
+                $"Use{stringParameter}Description".Formatted(Category.Reaction, attacker.Name),
+                ReactionValidated,
+                battleManager);
 
-            var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
+            yield break;
+
+            void ReactionValidated()
+            {
+                EffectHelpers.StartVisualEffect(helper, attacker,
+                    PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
+
+                var dieRoll = rulesetHelper.RollDie(
+                    DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
+
+                if (helper.Side == attacker.Side)
                 {
-                    StringParameter = stringParameter,
-                    StringParameter2 = $"Use{stringParameter}Description".Formatted(Category.Reaction, attacker.Name),
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { helper }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                    attackModifier.AttacktoHitTrends.Add(
+                        new TrendInfo(dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
+                        {
+                            dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
+                        });
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", helper);
+                    action.AttackSuccessDelta += dieRoll;
+                    attackModifier.AttackRollModifier += dieRoll;
+                    action.AttackRollOutcome =
+                        action.AttackSuccessDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        powerBendLuck.GuiPresentation.Title,
+                        "Feedback/&BendLuckAttackToHitRoll",
+                        tooltipContent: powerBendLuck.Name,
+                        tooltipClass: "PowerDefinition",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
+                            (action.AttackRollOutcome > 0
+                                ? ConsoleStyleDuplet.ParameterType.Positive
+                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                        ]);
+                }
+                else
+                {
+                    attackModifier.AttacktoHitTrends.Add(
+                        new TrendInfo(-dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
+                        {
+                            dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
+                        });
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
+                    action.AttackSuccessDelta -= dieRoll;
+                    attackModifier.AttackRollModifier -= dieRoll;
+                    action.AttackRollOutcome =
+                        action.AttackSuccessDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
-            EffectHelpers.StartVisualEffect(helper, attacker,
-                PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
-
-            var dieRoll = rulesetHelper.RollDie(DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
-
-            if (helper.Side == attacker.Side)
-            {
-                attackModifier.AttacktoHitTrends.Add(
-                    new TrendInfo(dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
-                    {
-                        dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
-                    });
-
-                action.AttackSuccessDelta += dieRoll;
-                attackModifier.AttackRollModifier += dieRoll;
-                action.AttackRollOutcome = action.AttackSuccessDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
-
-                rulesetHelper.LogCharacterActivatesAbility(
-                    powerBendLuck.GuiPresentation.Title,
-                    "Feedback/&BendLuckAttackToHitRoll",
-                    tooltipContent: powerBendLuck.Name,
-                    tooltipClass: "PowerDefinition",
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                        (action.AttackRollOutcome > 0
-                            ? ConsoleStyleDuplet.ParameterType.Positive
-                            : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
-                    ]);
-            }
-            else
-            {
-                attackModifier.AttacktoHitTrends.Add(
-                    new TrendInfo(-dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
-                    {
-                        dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
-                    });
-
-                action.AttackSuccessDelta -= dieRoll;
-                attackModifier.AttackRollModifier -= dieRoll;
-                action.AttackRollOutcome = action.AttackSuccessDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
-
-                rulesetHelper.LogCharacterActivatesAbility(
-                    powerBendLuck.GuiPresentation.Title,
-                    "Feedback/&BendLuckEnemyAttackToHitRoll",
-                    tooltipContent: powerBendLuck.Name,
-                    tooltipClass: "PowerDefinition",
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                        (action.AttackRollOutcome > 0
-                            ? ConsoleStyleDuplet.ParameterType.Positive
-                            : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
-                    ]);
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        powerBendLuck.GuiPresentation.Title,
+                        "Feedback/&BendLuckEnemyAttackToHitRoll",
+                        tooltipContent: powerBendLuck.Name,
+                        tooltipClass: "PowerDefinition",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
+                            (action.AttackRollOutcome > 0
+                                ? ConsoleStyleDuplet.ParameterType.Positive
+                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                        ]);
+                }
             }
         }
 
@@ -966,90 +924,79 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return helper.MyReactToUsePower(ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [helper],
+                defender,
+                stringParameter,
+                $"Use{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
+                ReactionValidated,
+                battleManager);
 
-            var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
+            yield break;
+
+            void ReactionValidated()
+            {
+                EffectHelpers.StartVisualEffect(helper, defender,
+                    PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
+
+                var dieRoll = rulesetHelper.RollDie(
+                    DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
+
+                if (helper.Side == defender.Side)
                 {
-                    StringParameter = stringParameter,
-                    StringParameter2 = $"Use{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { helper }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                    abilityCheckModifier.AbilityCheckAdvantageTrends.Add(
+                        new TrendInfo(dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
+                        {
+                            dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
+                        });
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", helper);
+                    abilityCheckModifier.AbilityCheckModifier += dieRoll;
+                    abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
+                    abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                        ? RollOutcome.Success
+                        : RollOutcome.Failure;
 
-            yield return battleManager.WaitForReactions(defender, actionService, count);
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        powerBendLuck.GuiPresentation.Title,
+                        "Feedback/&BendLuckCheckToHitRoll",
+                        tooltipContent: powerBendLuck.Name,
+                        tooltipClass: "PowerDefinition",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
+                            (abilityCheckData.AbilityCheckRollOutcome > 0
+                                ? ConsoleStyleDuplet.ParameterType.Positive
+                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                        ]);
+                }
+                else
+                {
+                    abilityCheckModifier.AbilityCheckAdvantageTrends.Add(
+                        new TrendInfo(-dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
+                        {
+                            dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
+                        });
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
+                    abilityCheckModifier.AbilityCheckModifier -= dieRoll;
+                    abilityCheckData.AbilityCheckSuccessDelta -= dieRoll;
+                    abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                        ? RollOutcome.Success
+                        : RollOutcome.Failure;
 
-            EffectHelpers.StartVisualEffect(helper, defender,
-                PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
-
-            var dieRoll = rulesetHelper.RollDie(DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
-
-            if (helper.Side == defender.Side)
-            {
-                abilityCheckModifier.AbilityCheckAdvantageTrends.Add(
-                    new TrendInfo(dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
-                    {
-                        dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
-                    });
-
-                abilityCheckModifier.AbilityCheckModifier += dieRoll;
-                abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
-                abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
-                    ? RollOutcome.Success
-                    : RollOutcome.Failure;
-
-                rulesetHelper.LogCharacterActivatesAbility(
-                    powerBendLuck.GuiPresentation.Title,
-                    "Feedback/&BendLuckCheckToHitRoll",
-                    tooltipContent: powerBendLuck.Name,
-                    tooltipClass: "PowerDefinition",
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                        (abilityCheckData.AbilityCheckRollOutcome > 0
-                            ? ConsoleStyleDuplet.ParameterType.Positive
-                            : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
-                    ]);
-            }
-            else
-            {
-                abilityCheckModifier.AbilityCheckAdvantageTrends.Add(
-                    new TrendInfo(-dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
-                    {
-                        dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
-                    });
-
-                abilityCheckModifier.AbilityCheckModifier -= dieRoll;
-                abilityCheckData.AbilityCheckSuccessDelta -= dieRoll;
-                abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
-                    ? RollOutcome.Success
-                    : RollOutcome.Failure;
-
-                rulesetHelper.LogCharacterActivatesAbility(
-                    powerBendLuck.GuiPresentation.Title,
-                    "Feedback/&BendLuckEnemyCheckToHitRoll",
-                    tooltipContent: powerBendLuck.Name,
-                    tooltipClass: "PowerDefinition",
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                        (abilityCheckData.AbilityCheckRollOutcome > 0
-                            ? ConsoleStyleDuplet.ParameterType.Positive
-                            : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
-                    ]);
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        powerBendLuck.GuiPresentation.Title,
+                        "Feedback/&BendLuckEnemyCheckToHitRoll",
+                        tooltipContent: powerBendLuck.Name,
+                        tooltipClass: "PowerDefinition",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
+                            (abilityCheckData.AbilityCheckRollOutcome > 0
+                                ? ConsoleStyleDuplet.ParameterType.Positive
+                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                        ]);
+                }
             }
         }
 
@@ -1093,86 +1040,75 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return helper.MyReactToUsePower(ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [helper],
+                attacker,
+                stringParameter,
+                $"Use{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
+                ReactionValidated,
+                battleManager);
 
-            var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
+            yield break;
+
+            void ReactionValidated()
+            {
+                EffectHelpers.StartVisualEffect(helper, defender,
+                    PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
+
+                var dieRoll = rulesetHelper.RollDie(
+                    DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
+
+                if (helper.Side == attacker.Side)
                 {
-                    StringParameter = stringParameter,
-                    StringParameter2 = $"Use{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { attacker }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                    saveModifier.SavingThrowAdvantageTrends.Add(
+                        new TrendInfo(dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
+                        {
+                            dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
+                        });
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
+                    action.SaveOutcomeDelta += dieRoll;
+                    saveModifier.SavingThrowModifier += dieRoll;
+                    action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        powerBendLuck.GuiPresentation.Title,
+                        "Feedback/&BendLuckSavingToHitRoll",
+                        tooltipContent: powerBendLuck.Name,
+                        tooltipClass: "PowerDefinition",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
+                            (action.SaveOutcome > 0
+                                ? ConsoleStyleDuplet.ParameterType.Positive
+                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                        ]);
+                }
+                else
+                {
+                    saveModifier.SavingThrowAdvantageTrends.Add(
+                        new TrendInfo(-dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
+                        {
+                            dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
+                        });
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
+                    action.SaveOutcomeDelta -= dieRoll;
+                    saveModifier.SavingThrowModifier -= dieRoll;
+                    action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
-            EffectHelpers.StartVisualEffect(helper, defender,
-                PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
-
-            var dieRoll = rulesetHelper.RollDie(DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
-
-            if (helper.Side == attacker.Side)
-            {
-                saveModifier.SavingThrowAdvantageTrends.Add(
-                    new TrendInfo(dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
-                    {
-                        dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
-                    });
-
-                action.SaveOutcomeDelta += dieRoll;
-                saveModifier.SavingThrowModifier += dieRoll;
-                action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
-
-                rulesetHelper.LogCharacterActivatesAbility(
-                    powerBendLuck.GuiPresentation.Title,
-                    "Feedback/&BendLuckSavingToHitRoll",
-                    tooltipContent: powerBendLuck.Name,
-                    tooltipClass: "PowerDefinition",
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                        (action.SaveOutcome > 0
-                            ? ConsoleStyleDuplet.ParameterType.Positive
-                            : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
-                    ]);
-            }
-            else
-            {
-                saveModifier.SavingThrowAdvantageTrends.Add(
-                    new TrendInfo(-dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
-                    {
-                        dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
-                    });
-
-                action.SaveOutcomeDelta -= dieRoll;
-                saveModifier.SavingThrowModifier -= dieRoll;
-                action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
-
-                rulesetHelper.LogCharacterActivatesAbility(
-                    powerBendLuck.GuiPresentation.Title,
-                    "Feedback/&BendLuckEnemySavingToHitRoll",
-                    tooltipContent: powerBendLuck.Name,
-                    tooltipClass: "PowerDefinition",
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                        (action.SaveOutcome > 0
-                            ? ConsoleStyleDuplet.ParameterType.Positive
-                            : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
-                    ]);
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        powerBendLuck.GuiPresentation.Title,
+                        "Feedback/&BendLuckEnemySavingToHitRoll",
+                        tooltipContent: powerBendLuck.Name,
+                        tooltipClass: "PowerDefinition",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
+                            (action.SaveOutcome > 0
+                                ? ConsoleStyleDuplet.ParameterType.Positive
+                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                        ]);
+                }
             }
         }
     }
@@ -1412,35 +1348,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private static void ExecutePowerNoCostOnCasterLocation(
         GameLocationCharacter caster, FeatureDefinitionPower power, int range = 0, bool includeCaster = true)
     {
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var rulesetCaster = caster.RulesetCharacter;
         var usablePower = PowerProvider.Get(power, rulesetCaster);
-        var actionModifiers = new List<ActionModifier>();
         var targets = new List<GameLocationCharacter>();
 
-        if (range > 0)
-        {
-            EnumerateTargetsWithinRange(caster, range, targets, includeCaster);
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-        }
-
-        var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-        {
-            ActionModifiers = actionModifiers,
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-            UsablePower = usablePower,
-            Positions = { caster.LocationPosition },
-            targetCharacters = targets
-        };
-
-        actionService.ExecuteAction(actionParams, null, true);
+        EnumerateTargetsWithinRange(caster, range, targets, includeCaster);
+        caster.MyExecuteActionPowerNoCost(usablePower, targets);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -231,15 +232,16 @@ internal static partial class SpellBuilders
                         .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
                         .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                             additionalTargetsPerIncrement: 1)
-                        .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
-                            .Create($"Condition{NAME}{damageType}")
-                            .SetGuiPresentation(
-                                Gui.Format($"Condition/&Condition{NAME}Title", title),
-                                Gui.NoLocalization,
-                                ConditionAuraOfProtection)
-                            .SetPossessive()
-                            .SetFeatures(damageAffinity)
-                            .AddToDB()))
+                        .SetEffectForms(EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{NAME}{damageType}")
+                                .SetGuiPresentation(
+                                    Gui.Format($"Condition/&Condition{NAME}Title", title),
+                                    Gui.EmptyContent,
+                                    ConditionAuraOfProtection)
+                                .SetPossessive()
+                                .SetFeatures(damageAffinity)
+                                .AddToDB()))
                         .SetCasterEffectParameters(casterEffect)
                         .SetImpactEffectParameters(impactEffect)
                         .Build())
@@ -414,17 +416,11 @@ internal static partial class SpellBuilders
                     actingCharacter.UsedSpecialFeatures.TryAdd(FizbanPlatinumShieldTag, rulesetSpell.RemainingRounds);
 
                     var spellRepertoire = rulesetSpell.SpellRepertoire;
-                    var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-                    var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                        .InstantiateEffectSpell(rulesetCharacter, spellRepertoire, spell, 6, false);
 
-                    var actionParams = action.ActionParams.Clone();
+                    // rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
 
-                    actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
-                    actionParams.RulesetEffect = effectSpell;
+                    action.ActingCharacter.MyExecuteActionCastNoCost(spell, 6, action.ActionParams, spellRepertoire);
 
-                    rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
-                    actionService.ExecuteAction(actionParams, null, true);
                     break;
                 }
                 case CharacterActionCastSpell
@@ -563,9 +559,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
             .SetAuthorizedActions()
             .SetForbiddenActions(
-                ActionDefinitions.Id.CastBonus, ActionDefinitions.Id.CastInvocation,
-                ActionDefinitions.Id.CastMain, ActionDefinitions.Id.CastReaction,
-                ActionDefinitions.Id.CastReadied, ActionDefinitions.Id.CastRitual, ActionDefinitions.Id.CastNoCost)
+                Id.CastBonus, Id.CastInvocation, Id.CastMain, Id.CastReaction, Id.CastReadied, Id.CastRitual,
+                Id.CastNoCost)
             .AddToDB();
 
         var conditionExhausted = ConditionDefinitionBuilder

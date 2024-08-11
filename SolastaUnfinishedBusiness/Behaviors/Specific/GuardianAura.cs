@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using static RuleDefinitions;
-using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
@@ -75,77 +74,60 @@ internal static class GuardianAura
             yield break;
         }
 
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
-        var actionParams = new CharacterActionParams(unit, (Id)ExtraActionId.DoNothingReaction)
+        yield return unit.MyReactToDoNothing(
+            ExtraActionId.DoNothingReaction,
+            attacker,
+            "GuardianAura",
+            "CustomReactionGuardianAuraDescription".Formatted(Category.Reaction, defender.Name, damageAmount),
+            ReactionValidated,
+            battleManager: battleManager,
+            resource: ReactionResourceChannelDivinity.Instance);
+
+        yield break;
+
+        void ReactionValidated()
         {
-            StringParameter = "CustomReactionGuardianAuraDescription"
-                .Formatted(Category.Reaction, defender.Name, damageAmount)
-        };
+            DamageForm damage = null;
 
-        RequestCustomReaction("GuardianAura", actionParams);
-
-        yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-        if (!actionParams.ReactionValidated)
-        {
-            yield break;
-        }
-
-        DamageForm damage = null;
-
-        if (attackerAttackMode != null)
-        {
-            damage = attackerAttackMode.EffectDescription.FindFirstDamageForm();
-        }
-
-        if (rulesetEffect != null)
-        {
-            damage = rulesetEffect.EffectDescription.FindFirstDamageForm();
-        }
-
-        defender.RulesetCharacter.ReceiveHealing(damageAmount, true, unit.Guid);
-        defender.RulesetCharacter.ForceSetHealth(damageAmount, true);
-
-        if (damage != null)
-        {
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            if (attackerAttackMode != null)
             {
-                sourceCharacter = attacker.RulesetCharacter,
-                targetCharacter = unit.RulesetCharacter,
-                position = unit.LocationPosition
-            };
+                damage = attackerAttackMode.EffectDescription.FindFirstDamageForm();
+            }
 
-            RulesetActor.InflictDamage(
-                damageAmount,
-                damage,
-                damage.DamageType,
-                applyFormsParams,
-                unit.RulesetCharacter,
-                false,
-                attacker.Guid,
-                false,
-                [],
-                new RollInfo(DieType.D1, [], damageAmount),
-                false,
-                out _);
+            if (rulesetEffect != null)
+            {
+                damage = rulesetEffect.EffectDescription.FindFirstDamageForm();
+            }
+
+            defender.RulesetCharacter.ReceiveHealing(damageAmount, true, unit.Guid);
+            defender.RulesetCharacter.ForceSetHealth(damageAmount, true);
+
+            if (damage != null)
+            {
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = attacker.RulesetCharacter,
+                    targetCharacter = unit.RulesetCharacter,
+                    position = unit.LocationPosition
+                };
+
+                RulesetActor.InflictDamage(
+                    damageAmount,
+                    damage,
+                    damage.DamageType,
+                    applyFormsParams,
+                    unit.RulesetCharacter,
+                    false,
+                    attacker.Guid,
+                    false,
+                    [],
+                    new RollInfo(DieType.D1, [], damageAmount),
+                    false,
+                    out _);
+            }
+
+            unit.RulesetCharacter.LogCharacterUsedPower(DummyAuraGuardianPower, "Feedback/&GuardianAuraHeal");
         }
-
-        unit.RulesetCharacter.LogCharacterUsedPower(DummyAuraGuardianPower, "Feedback/&GuardianAuraHeal");
-    }
-
-    private static void RequestCustomReaction(string type, CharacterActionParams actionParams)
-    {
-        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-        if (!actionManager)
-        {
-            return;
-        }
-
-        var reactionRequest = new ReactionRequestCustom(type, actionParams);
-
-        actionManager.AddInterruptRequest(reactionRequest);
     }
 
     private sealed class GuardianAuraCondition;

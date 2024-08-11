@@ -745,9 +745,6 @@ internal static partial class DatabaseHelper
         internal static EffectProxyDefinition ProxyIndomitableLight { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyIndomitableLight");
 
-        internal static EffectProxyDefinition ProxyDelayedBlastFireball { get; } =
-            GetDefinition<EffectProxyDefinition>("ProxyDelayedBlastFireball");
-
         internal static EffectProxyDefinition ProxyDancingLights { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyDancingLights");
 
@@ -1738,9 +1735,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMagebaneWarcry { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMagebaneWarcry");
-
-        internal static FeatureDefinitionPower PowerDelayedBlastFireballDetonate { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDelayedBlastFireballDetonate");
 
         internal static FeatureDefinitionPower PowerOathOfMotherlandFieryWrath { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfMotherlandFieryWrath");

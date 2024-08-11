@@ -2,7 +2,6 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -214,37 +213,25 @@ public sealed class RoguishAcrobat : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerHeroicUncannyDodge, rulesetHelper);
 
             if (helper != defender ||
                 defender.IsMyTurn() ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
-                rulesetDefender.GetRemainingPowerUses(powerHeroicUncannyDodge) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerHeroicUncannyDodge, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "HeroicUncannyDodge",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "HeroicUncannyDodge",
+                battleManager: battleManager);
         }
     }
 }

@@ -328,13 +328,6 @@ internal static partial class CharacterContext
             bool firstTarget,
             bool criticalHit)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!attacker.OnceInMyTurnIsValid(BrutalStrike) ||
@@ -359,58 +352,47 @@ internal static partial class CharacterContext
                 0,
                 0);
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerBarbarianBrutalStrike, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                powerBarbarianBrutalStrike.Name,
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                ActionModifiers = { actionModifier },
-                StringParameter = powerBarbarianBrutalStrike.Name,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
+                // determine selected power to collect cost
+                var option = reactionRequest.SelectedSubOption;
+                var subPowers = powerBarbarianBrutalStrike.GetBundle()?.SubPowers;
 
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+                if (subPowers == null)
+                {
+                    return;
+                }
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                var selectedPower = subPowers[option];
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            // determine selected power to collect cost
-            var option = reactionRequest.SelectedSubOption;
-            var subPowers = powerBarbarianBrutalStrike.GetBundle()?.SubPowers;
-
-            if (subPowers == null)
-            {
-                yield break;
-            }
-
-            var selectedPower = subPowers[option];
-
-            switch (selectedPower.Name)
-            {
-                case $"Power{BrutalStrike}ForcefulBlow":
-                    actualEffectForms.Add(ForcefulBlowForm);
-                    break;
-                case $"Power{BrutalStrike}HamstringBlow":
-                    InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionHamstringBlow.Name);
-                    break;
-                case $"Power{BrutalStrike}StaggeringBlow":
-                    InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionStaggeringBlow.Name);
-                    InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionStaggeringBlowAoO.Name);
-                    break;
-                case $"Power{BrutalStrike}SunderingBlow":
-                    InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionSunderingBlow.Name);
-                    break;
+                switch (selectedPower.Name)
+                {
+                    case $"Power{BrutalStrike}ForcefulBlow":
+                        actualEffectForms.Add(ForcefulBlowForm);
+                        break;
+                    case $"Power{BrutalStrike}HamstringBlow":
+                        InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionHamstringBlow.Name);
+                        break;
+                    case $"Power{BrutalStrike}StaggeringBlow":
+                        InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionStaggeringBlow.Name);
+                        InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionStaggeringBlowAoO.Name);
+                        break;
+                    case $"Power{BrutalStrike}SunderingBlow":
+                        InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionSunderingBlow.Name);
+                        break;
+                }
             }
         }
 
@@ -1043,30 +1025,16 @@ internal static partial class CharacterContext
     {
         public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Dexterity, 4);
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, 4);
-
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Dexterity, 4);
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Wisdom, 4);
             hero.RefreshAll();
         }
 
         public void RemoveFeature([NotNull] RulesetCharacterHero hero, string tag)
         {
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Dexterity, -4);
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, -4);
-
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Dexterity, -4);
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Wisdom, -4);
             hero.RefreshAll();
-        }
-
-        private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
-        {
-            var attribute = hero.GetAttribute(attributeName);
-
-            attribute.BaseValue += amount;
-            attribute.MaxValue += amount;
-            attribute.MaxEditableValue += amount;
-            attribute.Refresh();
-
-            hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
         }
     }
 
@@ -1118,11 +1086,8 @@ internal static partial class CharacterContext
                 .AdditionalDamageMarshalFavoredEnemyHumanoid);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort((x, y) =>
-                string.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCulture));
-        }
+        AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort((x, y) =>
+            string.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCulture));
     }
 
     internal static void SwitchRangerNatureShroud()
@@ -1196,12 +1161,7 @@ internal static partial class CharacterContext
                 .SetImpactEffectParameters(new AssetReference())
                 .Build())
         .AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(character =>
-            {
-                var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
-
-                return gameLocationCharacter == null || gameLocationCharacter.UsedTacticalMoves == 0;
-            }))
+            new ValidatorsValidatePowerUse(c => GameLocationCharacter.GetFromActor(c) is { UsedTacticalMoves: 0 }))
         .AddToDB();
 
     internal static readonly ConditionDefinition ConditionReduceSneakDice = ConditionDefinitionBuilder
@@ -1245,7 +1205,7 @@ internal static partial class CharacterContext
 
         var conditionDisarmed = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}Disarmed")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionBaned)
+            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(combatAffinityDisarmed)
             .AddToDB();
@@ -1399,7 +1359,7 @@ internal static partial class CharacterContext
 
         var conditionKnockOut = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Devious}KnockOut")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionAsleep)
+            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionAsleep)
             .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
             .SetFeatures()
             .SetSpecialInterruptions(ConditionInterruption.Damaged)
@@ -1549,64 +1509,46 @@ internal static partial class CharacterContext
                 yield break;
             }
 
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                powerRogueCunningStrike.Name,
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                ActionModifiers = { actionModifier },
-                StringParameter = powerRogueCunningStrike.Name,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
+                // determine selected power to collect cost
+                var option = reactionRequest.SelectedSubOption;
+                var subPowers = powerRogueCunningStrike.GetBundle()?.SubPowers;
 
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+                if (subPowers == null)
+                {
+                    return;
+                }
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                _selectedPower = subPowers[option];
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
+                // inflict condition passing power cost on amount to be deducted later on from sneak dice
+                rulesetAttacker.InflictCondition(
+                    ConditionReduceSneakDice.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    ConditionReduceSneakDice.Name,
+                    _selectedPower.CostPerUse,
+                    0,
+                    0);
             }
-
-            // determine selected power to collect cost
-            var option = reactionRequest.SelectedSubOption;
-            var subPowers = powerRogueCunningStrike.GetBundle()?.SubPowers;
-
-            if (subPowers == null)
-            {
-                yield break;
-            }
-
-            _selectedPower = subPowers[option];
-
-            // inflict condition passing power cost on amount to be deducted later on from sneak dice
-            rulesetAttacker.InflictCondition(
-                ConditionReduceSneakDice.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                ConditionReduceSneakDice.Name,
-                _selectedPower.CostPerUse,
-                0,
-                0);
         }
 
         // handle Knock Out exception which should apply condition after attack
@@ -1680,22 +1622,9 @@ internal static partial class CharacterContext
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerKnockOutApply, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
         }
     }
 

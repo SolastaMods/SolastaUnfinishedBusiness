@@ -1,6 +1,6 @@
 Condition/&ConditionDomainSmithAdamantBenedictionDescription=La tua armatura si rinforza fino a diventare adamantina, dimezzando i danni critici.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Armatura Adamantina
-Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Una volta per turno, infliggi +1d8 danni da fuoco agli attacchi con arma. Questi danni aumentano a 2d8 al 14° livello.
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Una volta durante il tuo turno, infliggi +1d8 danni da fuoco agli attacchi con le armi. Questi danni aumentano a 2d8 al 14° livello.
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Colpo divino
 Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Ottieni resistenza al fuoco e mentre indossi l'armatura ottieni +1 CA.
 Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Maestria nella forgia

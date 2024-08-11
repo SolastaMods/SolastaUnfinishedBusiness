@@ -150,7 +150,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
 
         var originalHero = character.GetOriginalHero();
         var mainHandItem = hero.GetMainWeapon();
-        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmed(mainHandItem.ItemDefinition, null);
+        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmed(mainHandItem.ItemDefinition);
         var strikeDefinition = isUnarmedWeapon
             ? mainHandItem.ItemDefinition
             : originalHero != null
@@ -275,7 +275,7 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 
         attackMode.Reach = false;
         attackMode.Ranged = true;
-        attackMode.Thrown = ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagThrown);
+        attackMode.Thrown = ValidatorsWeapon.HasAnyWeaponTag(item.ItemDefinition, TagsDefinitions.WeaponTagThrown);
         attackMode.AttackTags.Remove(TagsDefinitions.WeaponTagMelee);
 
         attackModes.Add(attackMode);
@@ -325,21 +325,80 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
         var effectDamageForm = attackMode.EffectDescription.EffectForms
             .FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-        if (effectDamageForm != null)
-        {
+        if (effectDamageForm == null ||
             // ensures PAM interacts well with GWM
-            if (!hero.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, "ConditionFeatCleavingAttackFinish"))
-            {
-                effectDamageForm.DamageForm.DamageType = DamageTypeBludgeoning;
-                effectDamageForm.DamageForm.DieType = DieType.D4;
-                effectDamageForm.DamageForm.DiceNumber = 1;
-            }
-
-            effectDamageForm.DamageForm.versatile = false;
-            effectDamageForm.DamageForm.versatileDieType = effectDamageForm.DamageForm.DieType;
+            hero.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, "ConditionFeatCleavingAttackFinish"))
+        {
+            return [attackMode];
         }
 
+        effectDamageForm.DamageForm.DamageType = DamageTypeBludgeoning;
+        effectDamageForm.DamageForm.DieType = DieType.D4;
+        effectDamageForm.DamageForm.DiceNumber = 1;
+        effectDamageForm.DamageForm.versatile = false;
+        effectDamageForm.DamageForm.versatileDieType = effectDamageForm.DamageForm.DieType;
+        attackMode.AttackTags.Add(UpgradeWeaponDice.AbortUpgradeWeaponDice);
+
+        return [attackMode];
+    }
+}
+
+internal sealed class AddWhirlWindFollowUpAttack : AddExtraAttackBase
+{
+    private readonly WeaponTypeDefinition _weaponTypeDefinition;
+
+    internal AddWhirlWindFollowUpAttack(WeaponTypeDefinition weaponTypeDefinition) : base(
+        ActionDefinitions.ActionType.Bonus,
+        ValidatorsCharacter.HasUsedWeaponType(weaponTypeDefinition),
+        ValidatorsCharacter.HasMainHandWeaponType(weaponTypeDefinition))
+    {
+        _weaponTypeDefinition = weaponTypeDefinition;
+    }
+
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
+    {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return null;
+        }
+
+        var item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+
+        if (item == null ||
+            !ValidatorsWeapon.IsWeaponType(item, _weaponTypeDefinition))
+        {
+            return null;
+        }
+
+        var strikeDefinition = item.ItemDefinition;
+        var attackMode = hero.RefreshAttackMode(
+            ActionType,
+            strikeDefinition,
+            strikeDefinition.WeaponDescription,
+            ValidatorsCharacter.IsFreeOffhand(hero),
+            true,
+            EquipmentDefinitions.SlotTypeMainHand,
+            hero.attackModifiers,
+            hero.FeaturesOrigin,
+            item
+        );
+
+        var effectDamageForm = attackMode.EffectDescription.EffectForms
+            .FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+
+        if (effectDamageForm == null ||
+            // ensures WhirlWind interacts well with GWM
+            hero.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, "ConditionFeatCleavingAttackFinish"))
+        {
+            return [attackMode];
+        }
+
+        effectDamageForm.DamageForm.DieType = DieType.D4;
+        effectDamageForm.DamageForm.DiceNumber = 1;
+        effectDamageForm.DamageForm.versatile = false;
+        effectDamageForm.DamageForm.versatileDieType = effectDamageForm.DamageForm.DieType;
         attackMode.AttackTags.Add(UpgradeWeaponDice.AbortUpgradeWeaponDice);
 
         return [attackMode];

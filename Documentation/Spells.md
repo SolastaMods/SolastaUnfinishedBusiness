@@ -164,7 +164,7 @@ This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level 
 
 # 40. - *Toll the Dead* © (V,S) level 0 Necromancy [UB]
 
-You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage.
+You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d6 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage.
 
 # 41. - True Strike (S) level 0 Divination [Concentration] [SOL]
 
@@ -184,7 +184,7 @@ Create a brilliant flash of shimmering light, damaging all enemies around you.
 
 # 45. - Wrack (V,S) level 0 Necromancy [UB]
 
-Unleash a wave of crippling pain at a creature within range. The target must make a Constitution saving throw or take 1d8 necrotic damage, and preventing them from dashing or disengaging.
+Unleash a wave of crippling pain at a creature within range. The target must make a Constitution saving throw or take 1d6 necrotic damage, and preventing them from dashing or disengaging.
 
 # 46. - *Absorb Elements* © (S) level 1 Abjuration [UB]
 
@@ -221,14 +221,10 @@ You send a jolt of green energy toward the target momentarily disorientating the
 # 54. - *Chaos Bolt* © (V,S) level 1 Evocation [UB]
 
 Make a ranged spell attack against a target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type:
-1• Acid
-2• Cold
-3• Fire
-4• Force
-5• Lightning
-6• Poison
-7• Psychic
-8• Thunder
+1: ◰ Acid  	2: ◲ Cold
+3: ◳ Fire  	4: ◴ Force
+5: ◵ Lightning  	6: ◸ Poison
+7: ◹ Psychic  	8: ◼ Thunder
 If you roll the same number on both d8s, you can use your free action to target a different creature of your choice. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again. A creature can be damaged only once by each casting of this spell.
 
 # 55. - Charm Person (V,S) level 1 Enchantment [SOL]
@@ -1323,7 +1319,7 @@ You assume the form of a different creature for the duration. The new form can b
 
 # 321. - *Time Stop* © (V) level 9 Transmutation [UB]
 
-You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
+You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4+1 turns in a row, during which you can use actions and move as normal. This spell ends if one of the actions you use during this period, or any effects that you create during this period, affects a creature other than you.
 
 # 322. - *Weird* © (V,S) level 9 Illusion [Concentration] [UB]
 

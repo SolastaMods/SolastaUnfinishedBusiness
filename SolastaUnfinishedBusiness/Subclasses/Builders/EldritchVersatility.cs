@@ -249,17 +249,6 @@ internal static class EldritchVersatilityBuilders
             supportCondition.IsOverload ? 22 : 0));
     }
 
-    private static void RequestCustomReaction(
-        IGameLocationActionService actionService, string type, CharacterActionParams actionParams, int requestPoints)
-    {
-        var reactionRequest = new ReactionRequestCustom(type, actionParams)
-        {
-            Resource = new ReactionResourceEldritchVersatilityPoints(requestPoints)
-        };
-
-        (actionService as GameLocationActionManager)?.AddInterruptRequest(reactionRequest);
-    }
-
     private static void InflictCondition(
         BaseDefinition condition,
         RulesetCharacter sourceCharacter,
@@ -1105,32 +1094,28 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "EldritchAegis",
+                "CustomReactionEldritchAegis".Formatted(Category.Reaction, defender.Name),
+                ReactionValidated,
+                battleManager: battleManager,
+                resource: new ReactionResourceEldritchVersatilityPoints(requiredACAddition));
 
-            var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "CustomReactionEldritchAegis".Formatted(Category.Reaction, defender.Name)
-            };
-
-            RequestCustomReaction(actionService, "EldritchAegis", actionParams, requiredACAddition);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
+                supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchAegis, requiredACAddition);
+                InflictCondition(
+                    EldritchAegisSupportRulesetCondition.BindingDefinition, helperCharacter, defenderCharacter);
+                EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
+                    defenderCharacter, out eldritchAegisSupportCondition);
+                eldritchAegisSupportCondition.ACBonus = requiredACAddition;
+                defenderCharacter.RefreshArmorClass(true);
+                console.AddEntry(entry);
             }
-
-            supportCondition.TryEarnOrSpendPoints(
-                PointAction.Modify, PointUsage.EldritchAegis, requiredACAddition);
-            InflictCondition(
-                EldritchAegisSupportRulesetCondition.BindingDefinition, helperCharacter, defenderCharacter);
-            EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
-                defenderCharacter, out eldritchAegisSupportCondition);
-            eldritchAegisSupportCondition.ACBonus = requiredACAddition;
-            defenderCharacter.RefreshArmorClass(true);
-            console.AddEntry(entry);
         }
 
         private sealed class EldritchAegisSupportRulesetCondition :
@@ -1264,41 +1249,39 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "EldritchWard",
+                "CustomReactionEldritchWard".Formatted(Category.Reaction, defender.Name),
+                ReactionValidated,
+                battleManager: battleManager,
+                resource: new ReactionResourceEldritchVersatilityPoints(requiredSaveAddition));
+
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter = "CustomReactionEldritchWard".Formatted(Category.Reaction, defender.Name)
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                supportCondition.TryEarnOrSpendPoints(
+                    PointAction.Modify, PointUsage.EldritchWard, requiredSaveAddition);
 
-            RequestCustomReaction(actionService, "EldritchWard", actionParams, requiredSaveAddition);
+                action.SaveOutcome = RollOutcome.Success;
+                action.saveOutcomeDelta = 0;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+                var console = Gui.Game.GameConsole;
+                var entry =
+                    new GameConsoleEntry("Feedback/&EldritchWardGivesSaveBonus", console.consoleTableDefinition)
+                    {
+                        Indent = true
+                    };
 
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
+                console.AddCharacterEntry(rulesetHelper, entry);
+                entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{requiredSaveAddition}");
+                entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
+                    Gui.Format(GameConsole.SaveSuccessOutcome, action.GetSaveDC().ToString()));
+
+                console.AddEntry(entry);
             }
-
-            supportCondition.TryEarnOrSpendPoints(
-                PointAction.Modify, PointUsage.EldritchWard, requiredSaveAddition);
-
-            action.SaveOutcome = RollOutcome.Success;
-            action.saveOutcomeDelta = 0;
-
-            var console = Gui.Game.GameConsole;
-            var entry =
-                new GameConsoleEntry("Feedback/&EldritchWardGivesSaveBonus", console.consoleTableDefinition)
-                {
-                    Indent = true
-                };
-
-            console.AddCharacterEntry(rulesetHelper, entry);
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{requiredSaveAddition}");
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
-                Gui.Format(GameConsole.SaveSuccessOutcome, action.GetSaveDC().ToString()));
-
-            console.AddEntry(entry);
         }
     }
 

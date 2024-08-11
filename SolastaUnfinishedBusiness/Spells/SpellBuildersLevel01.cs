@@ -719,8 +719,8 @@ internal static partial class SpellBuilders
 
         var conditionThunderousSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation($"{NAME}Title".Formatted(Category.Spell), Gui.NoLocalization,
-                ConditionBrandingSmite)
+            .SetGuiPresentation(
+                $"{NAME}Title".Formatted(Category.Spell), Gui.EmptyContent, ConditionBrandingSmite)
             .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .SetFeatures(powerThunderousSmite)
@@ -755,6 +755,8 @@ internal static partial class SpellBuilders
 
     #region Chaos Bolt
 
+    private const string DamageTypeChaosBolt = "DamageChaosBolt";
+
     private static readonly (string, IMagicEffect)[] ChaosBoltDamagesAndEffects =
     [
         (DamageTypeAcid, AcidSplash), (DamageTypeCold, ConeOfCold),
@@ -765,6 +767,31 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildChaosBolt()
     {
+        var formattedDamages = "";
+        for (var i = 0; i < ChaosBoltDamagesAndEffects.Length; i++)
+        {
+            if (i > 0)
+            {
+                if (i % 2 == 1)
+                {
+                    formattedDamages += "  \t";
+                }
+                else
+                {
+                    formattedDamages += "\n";
+                }
+            }
+
+            formattedDamages += $"{i + 1}: {Gui.FormatDamageType(ChaosBoltDamagesAndEffects[i].Item1, true)}";
+        }
+
+        var spellDescription = Gui.Format("Spell/&ChaosBoltDescription", formattedDamages);
+        //267B = ♻
+        var damageGui = GuiPresentationBuilder.Build(Gui.NoLocalization, Gui.NoLocalization, symbol: "267B");
+        DamageDefinitionBuilder.Create(DamageTypeChaosBolt)
+            .SetGuiPresentation(damageGui)
+            .AddToDB();
+
         const string NAME = "ChaosBolt";
 
         var sprite = Sprites.GetSprite(NAME, Resources.ChaosBolt, 128);
@@ -800,7 +827,7 @@ internal static partial class SpellBuilders
 
         var powerLeap = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Leap")
-            .SetGuiPresentation(NAME, Category.Spell, sprite)
+            .SetGuiPresentation(NAME, Category.Spell, spellDescription, sprite)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetUseSpellAttack()
             .SetEffectDescription(
@@ -811,8 +838,8 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 2, DieType.D8),
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
+                        EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 2, DieType.D8),
+                        EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -828,7 +855,7 @@ internal static partial class SpellBuilders
 
         var conditionLeap = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Leap")
-            .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+            .SetGuiPresentation(NAME, Category.Spell, Gui.EmptyContent)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetFeatures(powerLeap)
@@ -837,7 +864,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, sprite)
+            .SetGuiPresentation(Category.Spell, spellDescription, sprite)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -853,8 +880,8 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 2, DieType.D8),
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
+                        EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 2, DieType.D8),
+                        EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -868,6 +895,7 @@ internal static partial class SpellBuilders
             new FilterTargetingCharacterChaosBolt(conditionMark);
 
         spell.AddCustomSubFeatures(
+            CustomSpellAdvancementTooltip.ExtraDie(DieType.D6),
             initAndFinishBehavior,
             filterTargetBehavior);
         powerLeap.AddCustomSubFeatures(
@@ -1050,13 +1078,7 @@ internal static partial class SpellBuilders
 
                 MagicEffect.Add((defender, effect));
 
-                foreach (var effectForm in actualEffectForms
-                             .Where(x =>
-                                 x.FormType == EffectForm.EffectFormType.Damage &&
-                                 x.DamageForm.DamageType == DamageTypeBludgeoning))
-                {
-                    effectForm.DamageForm.DamageType = damageType;
-                }
+                ModifyChaosBoltForms(actualEffectForms, damageType);
             }
             else
             {
@@ -1069,14 +1091,6 @@ internal static partial class SpellBuilders
                         (ConsoleStyleDuplet.ParameterType.Positive, secondRoll.ToString())
                     ]);
 
-                var actionManager =
-                    ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-                if (!actionManager)
-                {
-                    yield break;
-                }
-
                 var usablePowerPool = PowerProvider.Get(powerPool, rulesetAttacker);
                 var usablePowerFirst = PowerProvider.Get(powers[firstRoll - 1], rulesetAttacker);
                 var usablePowerSecond = PowerProvider.Get(powers[secondRoll - 1], rulesetAttacker);
@@ -1085,41 +1099,33 @@ internal static partial class SpellBuilders
                 rulesetAttacker.UsablePowers.Add(usablePowerFirst);
                 rulesetAttacker.UsablePowers.Add(usablePowerSecond);
 
-                var implementationManager =
-                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-                var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
-                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-                {
-                    StringParameter = "ChaosBolt",
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-
-                var count = actionManager.PendingReactionRequestGroups.Count;
-                var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-                actionManager.AddInterruptRequest(reactionRequest);
-
-                yield return battleManager.WaitForReactions(attacker, actionManager, count);
+                yield return attacker.MyReactToSpendPowerBundle(
+                    usablePowerPool,
+                    [defender],
+                    attacker,
+                    "ChaosBolt",
+                    ReactionValidated,
+                    ReactionNotValidated,
+                    battleManager);
 
                 rulesetAttacker.UsablePowers.Remove(usablePowerPool);
                 rulesetAttacker.UsablePowers.Remove(usablePowerFirst);
                 rulesetAttacker.UsablePowers.Remove(usablePowerSecond);
 
-                string damageType;
-                IMagicEffect effect;
+                void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
+                {
+                    var (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(reactionRequest.SelectedSubOption);
 
-                if (!reactionRequest.Validated)
+                    MagicEffect.Add((defender, effect));
+
+                    ModifyChaosBoltForms(actualEffectForms, damageType);
+                }
+
+                void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
                 {
                     var choiceRoll = RollDie(DieType.D2, AdvantageType.None, out _, out _);
-
                     var option = choiceRoll == 1 ? firstRoll : secondRoll;
-
-                    (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(option - 1);
-
+                    var (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(option - 1);
                     var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
 
                     rulesetAttacker.LogCharacterActivatesAbility(
@@ -1128,20 +1134,10 @@ internal static partial class SpellBuilders
                         [
                             (ConsoleStyleDuplet.ParameterType.Base, damageTitle)
                         ]);
-                }
-                else
-                {
-                    (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(reactionRequest.SelectedSubOption);
-                }
 
-                MagicEffect.Add((defender, effect));
+                    MagicEffect.Add((defender, effect));
 
-                foreach (var effectForm in actualEffectForms
-                             .Where(x =>
-                                 x.FormType == EffectForm.EffectFormType.Damage &&
-                                 x.DamageForm.DamageType == DamageTypeBludgeoning))
-                {
-                    effectForm.DamageForm.DamageType = damageType;
+                    ModifyChaosBoltForms(actualEffectForms, damageType);
                 }
             }
         }
@@ -1208,6 +1204,16 @@ internal static partial class SpellBuilders
             }
 
             return effectDescription;
+        }
+
+        private static void ModifyChaosBoltForms(List<EffectForm> actualEffectForms, string damageType)
+        {
+            foreach (var effectForm in actualEffectForms
+                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
+                                     x.DamageForm.DamageType == DamageTypeChaosBolt))
+            {
+                effectForm.DamageForm.DamageType = damageType;
+            }
         }
 
         public void Reset(GameLocationCharacter attacker)
@@ -1338,13 +1344,10 @@ internal static partial class SpellBuilders
 
             EffectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             // need to loop over target characters to support twinned metamagic scenarios
             foreach (var target in actionCastSpell.ActionParams.TargetCharacters)
             {
-                var contenders = Gui.Battle.AllContenders
+                var targets = Gui.Battle.AllContenders
                     .Where(x =>
                         x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                         x.IsWithinRange(target, 1))
@@ -1354,24 +1357,7 @@ internal static partial class SpellBuilders
 
                 usablePower.saveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
 
-                var actionModifiers = new List<ActionModifier>();
-
-                for (var i = 0; i < contenders.Count; i++)
-                {
-                    actionModifiers.Add(new ActionModifier());
-                }
-
-                var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-                {
-                    ActionModifiers = actionModifiers,
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-                    UsablePower = usablePower,
-                    targetCharacters = contenders
-                };
-
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
+                caster.MyExecuteActionPowerNoCost(usablePower, targets);
             }
         }
     }
@@ -1532,7 +1518,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorElementalInfusion(SpellDefinition spellDefinition) :
-        ITryAlterOutcomeAttack, IMagicEffectBeforeHitConfirmedOnMe
+        IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         private static readonly IEnumerable<string> AllowedDamageTypes = DamagesAndEffects
             .Where(x => x.Item1 != DamageTypePoison)
@@ -1548,44 +1534,35 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect is RulesetEffectSpell &&
-                rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
-            {
-                yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
-            }
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
-        public int HandlerPriority => 10;
-
-        public IEnumerator OnTryAlterOutcomeAttack(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect)
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (helper != defender ||
-                !helper.CanReact() ||
-                !helper.RulesetCharacter.AreSpellComponentsValid(spellDefinition))
-            {
-                yield break;
-            }
-
-            var actualEffectForms =
-                attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
-
-            yield return HandleReaction(battleManager, attacker, helper, actualEffectForms);
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter helper,
+            GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
+            if (!defender.CanReact())
+            {
+                yield break;
+            }
+
             var attackDamageTypes = actualEffectForms
                 .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
                 .Select(x => x.DamageForm.DamageType)
@@ -1599,61 +1576,39 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetHelper = helper.RulesetCharacter;
-            var slotLevel = rulesetHelper.GetLowestSlotLevelAndRepertoireToCastSpell(
-                spellDefinition, out var spellRepertoire);
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (slotLevel < 1 ||
-                spellRepertoire == null)
+            yield return defender.MyReactToCastSpell(
+                SpellsContext.ElementalInfusion, defender, attacker, ReactionValidated, battleManager);
+
+            yield break;
+
+            void ReactionValidated(CharacterActionParams actionParams)
             {
-                yield break;
-            }
+                var slotUsed = actionParams.IntParameter;
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetHelper, spellRepertoire, SpellsContext.ElementalInfusion, slotLevel,
-                    false);
-            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.CastReaction)
-            {
-                IntParameter = slotLevel,
-                StringParameter = spellDefinition.Name,
-                SpellRepertoire = spellRepertoire,
-                RulesetEffect = effectSpell
-            };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Effect);
 
-            actionService.ReactToSpendSpellSlot(reactionParams);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var slotUsed = reactionParams.IntParameter;
-
-            EffectHelpers.StartVisualEffect(helper, helper, ShadowArmor, EffectHelpers.EffectType.Caster);
-            EffectHelpers.StartVisualEffect(helper, helper, ShadowArmor, EffectHelpers.EffectType.Effect);
-
-            foreach (var condition in resistanceDamageTypes
-                         .Select(damageType =>
-                             GetDefinition<ConditionDefinition>(
-                                 $"Condition{spellDefinition.Name}{damageType.Substring(6)}Resistance")))
-            {
-                rulesetHelper.InflictCondition(
-                    condition.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetHelper.guid,
-                    rulesetHelper.CurrentFaction.Name,
-                    1,
-                    condition.Name,
-                    slotUsed,
-                    0,
-                    0);
+                foreach (var condition in resistanceDamageTypes
+                             .Select(damageType =>
+                                 GetDefinition<ConditionDefinition>(
+                                     $"Condition{spellDefinition.Name}{damageType.Substring(6)}Resistance")))
+                {
+                    rulesetDefender.InflictCondition(
+                        condition.Name,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.StartOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetDefender.guid,
+                        rulesetDefender.CurrentFaction.Name,
+                        1,
+                        condition.Name,
+                        slotUsed,
+                        0,
+                        0);
+                }
             }
         }
     }
@@ -1674,7 +1629,7 @@ internal static partial class SpellBuilders
 
         var conditionStrikeWithTheWindAttackMovement = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Movement")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
+            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetFeatures(movementAffinityStrikeWithTheWind)
             .SetConditionParticleReference(ConditionSpellbladeArcaneEscape)
@@ -2220,14 +2175,12 @@ internal static partial class SpellBuilders
             var rulesetCharacter = locationCharacter.RulesetCharacter;
             var roll = rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Remove, false, false);
-
+            Gui.Battle.ContenderModified(
+                locationCharacter, GameLocationBattle.ContenderModificationMode.Remove, false, false);
             locationCharacter.LastInitiative += roll;
             Gui.Battle.initiativeSortedContenders.Sort(Gui.Battle);
-
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Add, false, false);
+            Gui.Battle.ContenderModified(
+                locationCharacter, GameLocationBattle.ContenderModificationMode.Add, false, false);
 
             locationCharacter.RulesetCharacter.LogCharacterUsedFeature(
                 featureDefinition,
@@ -2249,6 +2202,7 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -2367,30 +2321,9 @@ internal static partial class SpellBuilders
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 

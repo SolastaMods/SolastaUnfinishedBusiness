@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -770,22 +769,10 @@ internal static class InvocationsBuilders
             }
 
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerPerniciousCloakDamage, rulesetCaster);
-            var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { character }
-            };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            caster.MyExecuteActionPowerNoCost(usablePower,
+                [character]);
         }
     }
 
@@ -1123,30 +1110,10 @@ internal static class InvocationsBuilders
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerChillingHexDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1);
 
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerChillingHexDamage, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 
@@ -1328,30 +1295,10 @@ internal static class InvocationsBuilders
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerVexingHexDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1);
 
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerVexingHexDamage, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 
@@ -1558,49 +1505,33 @@ internal static class InvocationsBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            if (!defender.CanReact())
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.GetRemainingPowerCharges(powerTombOfFrost) <= 0)
-            {
-                yield break;
-            }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerTombOfFrost, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "TombOfFrost",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
 
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!actionParams.ReactionValidated)
+            if (!defender.CanReact() ||
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "TombOfFrost",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            rulesetDefender.ReceiveTemporaryHitPoints(
-                classLevel * 10, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetDefender.Guid);
+            yield break;
+
+            void ReactionValidated()
+            {
+                var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
+
+                rulesetDefender.ReceiveTemporaryHitPoints(
+                    classLevel * 10, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetDefender.Guid);
+            }
         }
     }
 

@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -163,17 +162,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetCharacter, null, Darkness, 0, false);
-
-            var actionParams = action.ActionParams.Clone();
-
-            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
-            actionParams.RulesetEffect = effectSpell;
-            actionService.ExecuteAction(actionParams, null, true);
+            action.ActingCharacter.MyExecuteActionCastNoCost(Darkness, 0, action.ActionParams);
 
             yield break;
         }
@@ -251,14 +240,14 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var actionParams = action.ActionParams.Clone();
-
-            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.AttackFree];
             attacker.UsedSpecialFeatures.TryAdd(featureShadowFlurry.Name, 1);
             attacker.RulesetCharacter.LogCharacterUsedFeature(featureShadowFlurry);
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+
+            attacker.MyExecuteActionAttack(
+                ActionDefinitions.Id.AttackFree,
+                defender,
+                attackMode,
+                action.ActionParams.ActionModifiers[0]);
         }
     }
 
@@ -281,47 +270,36 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerShadowSanctuary, rulesetHelper);
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                helper != defender ||
+                defender != helper ||
                 !defender.CanReact() ||
-                rulesetDefender.GetRemainingPowerUses(powerShadowSanctuary) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "ShadowySanctuary",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            var usablePower = PowerProvider.Get(powerShadowSanctuary, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "ShadowySanctuary",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
+            yield break;
 
-            actionService.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!actionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                var delta = -action.AttackSuccessDelta - 1;
+
+                action.AttackRollOutcome = RollOutcome.Failure;
+                action.AttackSuccessDelta = -1;
+                action.AttackRoll += delta;
             }
-
-            var delta = -action.AttackSuccessDelta - 1;
-
-            action.AttackRollOutcome = RollOutcome.Failure;
-            action.AttackSuccessDelta = -1;
-            action.AttackRoll += delta;
         }
     }
 }

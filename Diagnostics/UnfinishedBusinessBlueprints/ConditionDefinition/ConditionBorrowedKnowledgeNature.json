@@ -131,7 +131,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Skill/&NatureTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "-",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e058de2206b3f74881faf121820130b",

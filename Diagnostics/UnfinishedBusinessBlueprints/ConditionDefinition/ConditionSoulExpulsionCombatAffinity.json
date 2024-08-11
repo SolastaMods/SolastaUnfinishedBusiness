@@ -131,7 +131,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionSoulExpulsionCombatAffinityTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "-",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "53a1d33b98088644f8c549fcdb63404f",

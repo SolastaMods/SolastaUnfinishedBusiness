@@ -864,7 +864,7 @@ When you enter your rage, roll on the Wild Magic table to determine the magical 
 Wild Magic Table:
 - Each creature within 30 feet of you must succeed on a Constitution saving throw or take 1d12 necrotic damage. You also gain 1d12 temporary hit points.
 - You teleport up to 30 feet to an unoccupied space you can see. Until your rage ends, you can use this effect again on each of your turns as a bonus action.
-- An intangible spirit appears an unoccupied space that you can see within 30 feet of you. At the end of the current turn, the spirit explodes, and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 1d6 force damage. Until your rage ends, you can use this effect again, summoning another spirit, on each of your turns as a bonus action.
+- Choose a point you can see within 30 feet of you. A burst of spiritual energy erupts from the point and each creature within a 15-foot cube centered on the point must make a Dexterity saving throw. On a failed save, the creature takes 1d6 force damage. This damage increases to 2d6 at 11th level, and 3d6 at 17th level. Until your rage ends, you can use this effect again on each of your turns as a bonus action.
 - Magic infuses the weapon that you are holding. Until your rage ends, the weapon's damage type changes to force, and it gains the thrown properties, with a normal range of 20 feet and a long range of 60 feet. If the weapon leaves your hand, the weapon reappears in your hand. Your rage damage bonus will also apply on this thrown weapon.
 - Whenever a creature hits you with an attack roll before your rage ends, that creature takes 1d6 force damage.
 - Until your rage ends, you gain a +1 bonus to AC, and while within 10 feet of you, your allies gain the same bonus.
@@ -1168,7 +1168,7 @@ Bards of the College of Swords entertain through daring feats of weapon prowess.
 
 * Blade Flourish
 
-Whenever you take the Attack action on your turn, your walking speed increases by 10 feet until the end of the turn, and if a melee weapon attack that you make as part of this action hits a creature, you can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also choose a particular maneuver:
+Whenever you take the Attack action on your turn, your walking speed increases by 10 feet until the end of the turn, and if a weapon attack that you make as part of this action hits a creature, you can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also choose a particular maneuver:
 • Defensive Flourish: You add the Bardic Inspiration die roll to your AC until the start of your next turn.
 • Slashing Flourish: You deal the extra damage to all other enemy creatures within 5 feet of you.
 • Mobile Flourish: You gain benefits of disengage until the end of your turn.
@@ -1455,6 +1455,13 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 You learn Circle of Death and Finger of Death spells, and it is added to the list of spells known. They are always prepared, don't count towards your prepared spells limit, and are treated as cleric spells for you. Whenever you deal necrotic damage, you can deal maximum damage instead of rolling. You can use this feature once per long rest.
 
 
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
 
 ## 3. Elemental (Fire) [SOL]
 
@@ -1728,7 +1735,7 @@ Once per short rest, you may reinforce a non-magical piece of armor or shield. T
 
 * Divine Strike
 
-Once per turn, deal +1d8 fire damage on weapon attacks. This damage increases to 2d8 at 14th level.
+Once during your turn, deal +1d8 fire damage on weapon attacks. This damage increases to 2d8 at 14th level.
 
 
 ### Level 10
@@ -1759,6 +1766,13 @@ Once per short rest, you may reinforce a non-magical piece of armor or shield. T
 Your blessed affinity with fire and metal becomes more powerful. While wearing armor, you gain the following benefits:
 • You gain immunity to fire damage.
 • You have resistance to bludgeoning, piercing, and slashing damage from non-magical attacks.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -2139,6 +2153,13 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 As an action, you present your holy symbol and invoke the name of your deity. Each beast or plant creature that can see you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is mind controlled by you for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
 
 
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
 
 ## 12. Oblivion [SOL]
 
@@ -2365,6 +2386,13 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 * Stormborn
 
 You can use your bonus action to gain flying speed equal to your walking speed for one hour.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -3025,6 +3053,10 @@ You can replace one maneuver you know with a new one.
 
 ### Level 10
 
+* Additional Superiority Dice
+
+You gain two additional superiority dice.
+
 * Replace Maneuver
 
 You can replace one maneuver you know with a new one.
@@ -3032,10 +3064,6 @@ You can replace one maneuver you know with a new one.
 * Superiority Die Size (d10)
 
 Your superiority die is upgraded to D10.
-
-* Two Additional Superiority Dice
-
-You gain two additional superiority dice.
 
 
 ### Level 15

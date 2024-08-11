@@ -579,8 +579,8 @@ internal static partial class SpellBuilders
                             EffectFormBuilder.ConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{NAME}{skill.Name}")
-                                    .SetGuiPresentation(skill.GuiPresentation.Title, Gui.NoLocalization,
-                                        ConditionBullsStrength)
+                                    .SetGuiPresentation(
+                                        skill.GuiPresentation.Title, Gui.EmptyContent, ConditionBullsStrength)
                                     .SetPossessive()
                                     .SetFeatures(
                                         FeatureDefinitionProficiencyBuilder
@@ -630,11 +630,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!actionManager || !battleManager || action.Countered)
+            if (action.Countered)
             {
                 yield break;
             }
@@ -679,45 +675,35 @@ internal static partial class SpellBuilders
                 rulesetCharacter.UsablePowers.Add(up);
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerPool, rulesetCharacter);
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
-            {
-                StringParameter = "BorrowedKnowledge",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { actingCharacter }
-            };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
 
             rulesetCharacter.UsablePowers.Remove(usablePower);
             usablePowers.ForEach(x => rulesetCharacter.UsablePowers.Remove(x));
 
-            if (!actionParams.ReactionValidated)
+            yield return actingCharacter.MyReactToSpendPowerBundle(
+                usablePower,
+                [actingCharacter],
+                actingCharacter,
+                "BorrowedKnowledge",
+                ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                yield break;
-            }
+                var selectedPower = powers[reactionRequest.SelectedSubOption];
 
-            var selectedPower = powers[reactionRequest.SelectedSubOption];
-
-            foreach (var skill in skillsDb)
-            {
-                var conditionName = $"ConditionBorrowedKnowledge{skill.Name}";
-
-                if (rulesetCharacter.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
-                    activeCondition.SourceGuid == actingCharacter.Guid &&
-                    !selectedPower.Name.Contains(skill.Name))
+                foreach (var skill in skillsDb)
                 {
-                    rulesetCharacter.RemoveCondition(activeCondition);
+                    var conditionName = $"ConditionBorrowedKnowledge{skill.Name}";
+
+                    if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
+                        activeCondition.SourceGuid == actingCharacter.Guid &&
+                        !selectedPower.Name.Contains(skill.Name))
+                    {
+                        rulesetCharacter.RemoveCondition(activeCondition);
+                    }
                 }
             }
         }
@@ -1178,12 +1164,7 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!actionManager || !battleManager || action.Countered)
+            if (action.Countered)
             {
                 yield break;
             }
@@ -1204,6 +1185,7 @@ internal static partial class SpellBuilders
             var attacker = action.ActingCharacter;
             var hasHealed = false;
             var effectLevel = rulesetEffectSpell.EffectLevel;
+            var passed = false;
 
             rulesetTarget.HitDieRolled += HitDieRolled;
 
@@ -1213,28 +1195,21 @@ internal static partial class SpellBuilders
             {
                 var maxHitPoints = rulesetTarget.TryGetAttributeValue(AttributeDefinitions.HitPoints);
                 var remainingHitPoints = maxHitPoints - rulesetTarget.MissingHitPoints;
-                var reactionParams =
-                    new CharacterActionParams(_target, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-                    {
-                        StringParameter = Gui.Format(
-                            "Reaction/&CustomReactionWitherAndBloomDescription",
-                            remainingHitPoints.ToString(), maxHitPoints.ToString(), attacker.Name,
-                            _spellCastingAbilityModifier.ToString())
-                    };
-                var reactionRequest = new ReactionRequestCustom("WitherAndBloom", reactionParams);
-                var count = actionManager.PendingReactionRequestGroups.Count;
 
-                actionManager.AddInterruptRequest(reactionRequest);
+                yield return _target.MyReactToDoNothing(
+                    ExtraActionId.DoNothingFree,
+                    attacker,
+                    "WitherAndBloom",
+                    "CustomReactionWitherAndBloomDescription".Formatted(Category.Reaction,
+                        remainingHitPoints.ToString(), maxHitPoints.ToString(), attacker.Name,
+                        _spellCastingAbilityModifier.ToString()),
+                    ReactionValidated,
+                    ReactionNotValidated);
 
-                yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-                if (!reactionParams.ReactionValidated)
+                if (passed)
                 {
                     break;
                 }
-
-                hasHealed = true;
-                rulesetTarget.RollHitDie();
             }
 
             rulesetTarget.HitDieRolled -= HitDieRolled;
@@ -1242,6 +1217,19 @@ internal static partial class SpellBuilders
             if (hasHealed)
             {
                 EffectHelpers.StartVisualEffect(attacker, _target, CureWounds, EffectHelpers.EffectType.Effect);
+            }
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                hasHealed = true;
+                rulesetTarget.RollHitDie();
+            }
+
+            void ReactionNotValidated()
+            {
+                passed = true;
             }
         }
 

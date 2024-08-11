@@ -725,6 +725,15 @@ internal static class LevelUpContext
                             hero.TrainedFightingStyles
                                 .Add(DatabaseHelper.GetDefinition<FightingStyleDefinition>(prof)));
                     break;
+                case FeatureDefinitionProficiency
+                {
+                    ProficiencyType: ProficiencyType.Feat
+                } featureDefinitionProficiency:
+                    featureDefinitionProficiency.Proficiencies
+                        .ForEach(prof =>
+                            hero.TrainedFeats
+                                .Add(DatabaseHelper.GetDefinition<FeatDefinition>(prof)));
+                    break;
             }
         }
     }
@@ -759,6 +768,15 @@ internal static class LevelUpContext
                         .ForEach(prof =>
                             hero.TrainedFightingStyles
                                 .Remove(DatabaseHelper.GetDefinition<FightingStyleDefinition>(prof)));
+                    break;
+                case FeatureDefinitionProficiency
+                {
+                    ProficiencyType: ProficiencyType.Feat
+                } featureDefinitionProficiency:
+                    featureDefinitionProficiency.Proficiencies
+                        .ForEach(prof =>
+                            hero.TrainedFeats
+                                .Remove(DatabaseHelper.GetDefinition<FeatDefinition>(prof)));
                     break;
             }
         }

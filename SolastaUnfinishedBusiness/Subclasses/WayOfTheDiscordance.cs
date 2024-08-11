@@ -426,23 +426,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             FeatureDefinitionPower featureDefinitionPower)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
 
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower,
+                [defender]);
         }
     }
 
@@ -497,30 +484,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParamsDiscordance = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false),
-                UsablePower = usablePowerDiscordance,
-                targetCharacters = targets
-            };
-
-            // must enqueue actions
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParamsDiscordance, null, true);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePowerDiscordance, targets);
 
             // Turmoil
             var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
@@ -539,26 +505,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
-            actionModifiers = [];
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
-            var actionParamsTurmoil = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false),
-                UsablePower = usablePowerTurmoil,
-                targetCharacters = targets
-            };
 
-            // must enqueue actions
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParamsTurmoil, null, true);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePowerTurmoil, targets);
         }
     }
 
@@ -627,22 +576,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
-            var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAlly, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { ally }
-            };
 
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
+            ally.MyExecuteActionPowerNoCost(usablePower, [ally]);
         }
     }
 }

@@ -282,7 +282,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                 //Bonuses from Inventor's spell attack
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderSpellAttack")
-                    .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation(Category.Condition, Gui.EmptyContent)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
@@ -291,7 +291,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                 //Bonuses from Inventor's Proficiency Bonus
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderProficiencyBonus")
-                    .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation(Category.Condition, Gui.EmptyContent)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
                     .SetFeatures(toDamage)
@@ -386,8 +386,10 @@ public sealed class InnovationWeapon : AbstractSubclass
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinitySteelDefenderBasic")
                     .SetGuiPresentationNoContent()
-                    .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
-                        Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
+                    .SetForbiddenActions(
+                        Id.AttackMain, Id.AttackOff, Id.AttackFree, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
+                        Id.PowerMain, Id.PowerBonus, Id.PowerNoCost, Id.PowerReaction, Id.SpendPower,
+                        Id.Shove, Id.ShoveBonus, Id.ShoveFree)
                     .AddCustomSubFeatures(new SummonerHasConditionOrKOd())
                     .AddToDB(),
                 FeatureDefinitionActionAffinitys.ActionAffinityFightingStyleProtection,

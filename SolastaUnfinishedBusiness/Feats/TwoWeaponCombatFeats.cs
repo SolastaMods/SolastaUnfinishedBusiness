@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -81,20 +82,11 @@ internal static class TwoWeaponCombatFeats
                 yield break;
             }
 
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.AttackFree)
-            {
-                AttackMode = attackModeCopy,
-                TargetCharacters = { defender },
-                ActionModifiers = { new ActionModifier() }
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionAttack(
+                ActionDefinitions.Id.AttackFree,
+                defender,
+                attackMode,
+                action.ActionParams.ActionModifiers[0]);
         }
     }
 }

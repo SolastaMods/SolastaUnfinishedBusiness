@@ -59,7 +59,8 @@ internal static class Tooltips
 
         var usablePower = PowerProvider.Get(power, character);
         var maxUses = character.GetMaxUsesOfPower(usablePower);
-        var remainingUses = character.GetRemainingUsesOfPower(usablePower);
+        // must use GetRemainingPowerUses as power could be a Shared Pool
+        var remainingUses = character.GetRemainingPowerUses(power);
 
         return $"{remainingUses}/{maxUses}";
     }

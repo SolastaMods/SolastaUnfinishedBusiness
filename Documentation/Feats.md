@@ -79,7 +79,9 @@ You master the dagger, shortsword, longsword, scimitar, rapier, and greatsword. 
 
 # 16. - Bladestorm [UB]
 
-Once during your turn when you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Bladestorm attack. Bladestorm makes one attack roll against all enemy creatures within 5ft of you but doesn't add your attribute modifier to damage dealt (unless that modifier is negative).
+You become a master of whirling death, gaining the following benefits while wielding a greatsword, greataxe or maul:
+• When you take the Attack action and attack with the weapon, you can use a bonus action to make a quick melee attack with the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 damage of the same type as the wielded weapon.
+• Once during your turn when you take the Attack action with the weapon, you can replace one attack to instead attack all enemy creatures within 5ft of you.
 
 # 17. - Blessed Soul [UB]
 

@@ -97,6 +97,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
             return false;
         }
 
+        // must use GetRemainingPowerUses as power could be a Shared Pool
         return character.GetRemainingPowerUses(power) > 0;
     }
 

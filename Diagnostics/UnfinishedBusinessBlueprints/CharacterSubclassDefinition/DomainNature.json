@@ -40,6 +40,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetDomainNatureMasterOfNature:00bb2bae-2f33-5351-b3df-e071fd77d075",
       "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerClericDivineInterventionImprovementCleric:d463d058-27db-559b-bf57-65c39d3150bb",
+      "level": 20
     }
   ],
   "personalityFlagOccurences": [],

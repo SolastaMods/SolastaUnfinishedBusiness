@@ -145,7 +145,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&FeatDungeonDelverTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "-",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

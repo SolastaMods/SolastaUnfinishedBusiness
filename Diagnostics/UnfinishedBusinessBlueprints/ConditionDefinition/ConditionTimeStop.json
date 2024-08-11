@@ -1,8 +1,8 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionIncapacitated:24d96cfe3b77b9a4b951bfb0e02fc018",
-  "conditionType": "Neutral",
+  "parentCondition": null,
+  "conditionType": "Beneficial",
   "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -15,14 +15,11 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Attacked",
-    "Damaged"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
-  "interruptionDamageThreshold": 1,
+  "interruptionDamageThreshold": 0,
   "keepConditionIfSavingThrowSucceeds": false,
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
@@ -41,171 +38,36 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "7f0a50ea30efd4649814b6835e355979",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "e8d0757735b7f844c8d98c2057c191a9",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "a9408ae01a2f9424da0625ba252978a6",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
-  "recurrentEffectParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "cffbfc5e74b6d334d812b9a32eca7bad",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
-  "acidParticleParameters": {
-    "$type": "ConditionParticleParameters, Assembly-CSharp",
-    "startParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "particleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "endParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "recurrentEffectParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    }
-  },
-  "coldParticleParameters": {
-    "$type": "ConditionParticleParameters, Assembly-CSharp",
-    "startParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "particleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "endParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "recurrentEffectParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    }
-  },
-  "fireParticleParameters": {
-    "$type": "ConditionParticleParameters, Assembly-CSharp",
-    "startParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "particleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "endParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "recurrentEffectParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    }
-  },
-  "lightningParticleParameters": {
-    "$type": "ConditionParticleParameters, Assembly-CSharp",
-    "startParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "particleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "endParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "recurrentEffectParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    }
-  },
-  "poisonParticleParameters": {
-    "$type": "ConditionParticleParameters, Assembly-CSharp",
-    "startParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "particleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "endParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "recurrentEffectParticleReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    }
-  },
+  "acidParticleParameters": null,
+  "coldParticleParameters": null,
+  "fireParticleParameters": null,
+  "lightningParticleParameters": null,
+  "poisonParticleParameters": null,
   "overrideCharacterShaderColors": false,
   "firstCharacterShaderColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -223,7 +85,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -270,9 +132,9 @@
     "description": "Condition/&ConditionTimeStopDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cfdf2152d04bcff41aab30fd13412ad6",
-      "m_SubObjectName": "ConditionIncapacitated",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "6eb5f89a-1722-57b5-bc21-d9e9ec17446c",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

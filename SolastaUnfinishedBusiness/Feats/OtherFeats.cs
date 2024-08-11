@@ -970,16 +970,15 @@ internal static class OtherFeats
         private IEnumerator HandleBalefulScion(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
 
             if (!attacker.IsWithinRange(defender, 12) ||
                 !attacker.OncePerTurnIsValid(powerBalefulScion.Name) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) ||
-                rulesetAttacker.GetRemainingPowerUses(powerBalefulScion) == 0)
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
-
-            var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
 
             attacker.UsedSpecialFeatures.TryAdd(powerBalefulScion.Name, 0);
             usablePower.Consume();
@@ -1025,7 +1024,7 @@ internal static class OtherFeats
                         new CustomBehaviorDungeonDelver(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{Name}")
-                                .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                                .SetGuiPresentation(Name, Category.Feat, Gui.EmptyContent)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetFeatures(
                                     DamageAffinityAcidResistance,
@@ -1760,58 +1759,47 @@ internal static class OtherFeats
             }
 
             var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerReactiveResistance, rulesetDefender);
 
             if (!defender.CanReact() ||
-                rulesetDefender.GetRemainingPowerUses(powerReactiveResistance) == 0)
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var damageType = effectForm.DamageForm.DamageType;
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
-            var usablePower = PowerProvider.Get(powerReactiveResistance, rulesetDefender);
-            var reactionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "ReactiveResistance",
-                    StringParameter2 = "UseReactiveResistanceDescription".Formatted(
-                        Category.Reaction, attacker.Name, damageTitle),
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
+            yield return defender.MyReactToUsePower(
+                ActionDefinitions.Id.PowerReaction,
+                usablePower,
+                [defender],
+                attacker,
+                "ReactiveResistance",
+                "UseReactiveResistanceDescription".Formatted(Category.Reaction, attacker.Name, damageTitle),
+                ReactionValidated,
+                battleManager);
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield break;
 
-            if (!reactionParams.ReactionValidated)
+            void ReactionValidated()
             {
-                yield break;
+                var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
+
+                rulesetDefender.InflictCondition(
+                    conditionName,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetDefender.guid,
+                    rulesetDefender.CurrentFaction.Name,
+                    1,
+                    conditionName,
+                    0,
+                    0,
+                    0);
             }
-
-            var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
-
-            rulesetDefender.InflictCondition(
-                conditionName,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetDefender.guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                conditionName,
-                0,
-                0,
-                0);
         }
     }
 
@@ -2015,82 +2003,72 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return helper.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [helper],
+                attacker,
+                stringParameter,
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+            yield break;
+
+            void ReactionValidated()
+            {
+                var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
+                    out _);
+                var previousRoll = action.AttackRoll;
+
+                switch (stringParameter)
                 {
-                    StringParameter = stringParameter,
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { helper }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                    case "LuckyAttack" when dieRoll <= action.AttackRoll:
+                        rulesetHelper.LogCharacterActivatesAbility(
+                            "Feat/&FeatLuckyTitle",
+                            "Feedback/&IsNotLuckyLower",
+                            extra:
+                            [
+                                (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                                (ConsoleStyleDuplet.ParameterType.Positive, action.AttackRoll.ToString())
+                            ]);
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", helper);
+                        return;
+                    case "LuckyEnemyAttack" when dieRoll >= action.AttackRoll:
+                        rulesetHelper.LogCharacterActivatesAbility(
+                            "Feat/&FeatLuckyTitle",
+                            "Feedback/&IsNotLuckyHigher",
+                            extra:
+                            [
+                                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                                (ConsoleStyleDuplet.ParameterType.Negative, action.AttackRoll.ToString())
+                            ]);
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+                        return;
+                }
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                action.AttackSuccessDelta += dieRoll - action.AttackRoll;
+                action.AttackRoll = dieRoll;
+
+                if (action.AttackSuccessDelta >= 0)
+                {
+                    action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
+                }
+                else
+                {
+                    action.AttackRollOutcome = dieRoll == 1 ? RollOutcome.CriticalFailure : RollOutcome.Failure;
+                }
+
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feat/&FeatLuckyTitle",
+                    "Feedback/&LuckyAttackToHitRoll",
+                    extra:
+                    [
+                        (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            dieRoll.ToString()),
+                        (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            previousRoll.ToString())
+                    ]);
             }
-
-            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            var previousRoll = action.AttackRoll;
-
-            switch (stringParameter)
-            {
-                case "LuckyAttack" when dieRoll <= action.AttackRoll:
-                    rulesetHelper.LogCharacterActivatesAbility(
-                        "Feat/&FeatLuckyTitle",
-                        "Feedback/&IsNotLuckyLower",
-                        extra:
-                        [
-                            (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
-                            (ConsoleStyleDuplet.ParameterType.Positive, action.AttackRoll.ToString())
-                        ]);
-
-                    yield break;
-                case "LuckyEnemyAttack" when dieRoll >= action.AttackRoll:
-                    rulesetHelper.LogCharacterActivatesAbility(
-                        "Feat/&FeatLuckyTitle",
-                        "Feedback/&IsNotLuckyHigher",
-                        extra:
-                        [
-                            (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
-                            (ConsoleStyleDuplet.ParameterType.Negative, action.AttackRoll.ToString())
-                        ]);
-
-                    yield break;
-            }
-
-            action.AttackSuccessDelta += dieRoll - action.AttackRoll;
-            action.AttackRoll = dieRoll;
-
-            if (action.AttackSuccessDelta >= 0)
-            {
-                action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
-            }
-            else
-            {
-                action.AttackRollOutcome = dieRoll == 1 ? RollOutcome.CriticalFailure : RollOutcome.Failure;
-            }
-
-            rulesetHelper.LogCharacterActivatesAbility(
-                "Feat/&FeatLuckyTitle",
-                "Feedback/&LuckyAttackToHitRoll",
-                extra:
-                [
-                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        dieRoll.ToString()),
-                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        previousRoll.ToString())
-                ]);
         }
 
         public IEnumerator OnTryAlterAttributeCheck(
@@ -2111,64 +2089,54 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return helper.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [helper],
+                defender,
+                "LuckyCheck",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
-            var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+            yield break;
+
+            void ReactionValidated()
+            {
+                var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
+                    out _);
+                var previousRoll = abilityCheckData.AbilityCheckRoll;
+
+                if (dieRoll <= abilityCheckData.AbilityCheckRoll)
                 {
-                    StringParameter = "LuckyCheck",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { helper }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        "Feat/&FeatLuckyTitle",
+                        "Feedback/&IsNotLuckyLower",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                            (ConsoleStyleDuplet.ParameterType.Positive, abilityCheckData.AbilityCheckRoll.ToString())
+                        ]);
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", helper);
+                    return;
+                }
 
-            yield return battleManager.WaitForReactions(defender, actionService, count);
+                abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
+                abilityCheckData.AbilityCheckRoll = dieRoll;
+                abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                    ? RollOutcome.Success
+                    : RollOutcome.Failure;
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            var previousRoll = abilityCheckData.AbilityCheckRoll;
-
-            if (dieRoll <= abilityCheckData.AbilityCheckRoll)
-            {
                 rulesetHelper.LogCharacterActivatesAbility(
                     "Feat/&FeatLuckyTitle",
-                    "Feedback/&IsNotLuckyLower",
+                    "Feedback/&LuckyCheckToHitRoll",
                     extra:
                     [
-                        (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
-                        (ConsoleStyleDuplet.ParameterType.Positive, abilityCheckData.AbilityCheckRoll.ToString())
+                        (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            dieRoll.ToString()),
+                        (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            previousRoll.ToString())
                     ]);
-
-                yield break;
             }
-
-            abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
-            abilityCheckData.AbilityCheckRoll = dieRoll;
-            abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
-                ? RollOutcome.Success
-                : RollOutcome.Failure;
-
-            rulesetHelper.LogCharacterActivatesAbility(
-                "Feat/&FeatLuckyTitle",
-                "Feedback/&LuckyCheckToHitRoll",
-                extra:
-                [
-                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        dieRoll.ToString()),
-                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        previousRoll.ToString())
-                ]);
         }
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
@@ -2194,63 +2162,52 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            yield return helper.MyReactToUsePower(
+                ActionDefinitions.Id.PowerNoCost,
+                usablePower,
+                [helper],
+                attacker,
+                "LuckySaving",
+                "UseLuckySavingDescription".Formatted(Category.Reaction, defender.Name, attacker.Name, helper.Name),
+                ReactionValidated,
+                battleManager);
 
-            var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+            yield break;
+
+            void ReactionValidated()
+            {
+                var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
+                    out _);
+                var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
+
+                if (dieRoll <= savingRoll)
                 {
-                    StringParameter = "LuckySaving",
-                    StringParameter2 = "UseLuckySavingDescription".Formatted(
-                        Category.Reaction, defender.Name, attacker.Name, helper.Name),
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { attacker }
-                };
-            var count = actionService.PendingReactionRequestGroups.Count;
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        "Feat/&FeatLuckyTitle",
+                        "Feedback/&IsNotLuckyLower",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                            (ConsoleStyleDuplet.ParameterType.Positive, savingRoll.ToString())
+                        ]);
 
-            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
+                    return;
+                }
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+                action.SaveOutcomeDelta += dieRoll - savingRoll;
+                action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
-
-            if (dieRoll <= savingRoll)
-            {
                 rulesetHelper.LogCharacterActivatesAbility(
                     "Feat/&FeatLuckyTitle",
-                    "Feedback/&IsNotLuckyLower",
+                    "Feedback/&LuckySavingToHitRoll",
                     extra:
                     [
-                        (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
-                        (ConsoleStyleDuplet.ParameterType.Positive, savingRoll.ToString())
+                        (dieRoll > savingRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            dieRoll.ToString()),
+                        (savingRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            savingRoll.ToString())
                     ]);
-
-                yield break;
             }
-
-            action.SaveOutcomeDelta += dieRoll - savingRoll;
-            action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
-
-            rulesetHelper.LogCharacterActivatesAbility(
-                "Feat/&FeatLuckyTitle",
-                "Feedback/&LuckySavingToHitRoll",
-                extra:
-                [
-                    (dieRoll > savingRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        dieRoll.ToString()),
-                    (savingRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                        savingRoll.ToString())
-                ]);
         }
     }
 
@@ -2277,7 +2234,7 @@ internal static class OtherFeats
                 .AddCustomSubFeatures(new CustomBehaviorMageSlayer(
                     ConditionDefinitionBuilder
                         .Create($"Condition{FeatMageSlayerName}")
-                        .SetGuiPresentation(FeatMageSlayerName, Category.Feat, Gui.NoLocalization)
+                        .SetGuiPresentation(FeatMageSlayerName, Category.Feat, Gui.EmptyContent)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .AddFeatures(
                             FeatureDefinitionMagicAffinityBuilder
@@ -2365,85 +2322,67 @@ internal static class OtherFeats
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetHelper);
 
-            var rulesetDefender = defender.RulesetCharacter;
             var effectDescription = action.ActionParams.AttackMode?.EffectDescription ??
                                     action.ActionParams.RulesetEffect?.EffectDescription;
 
-            if (!actionManager ||
-                helper != defender ||
+            if (helper != defender ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
-                rulesetDefender.GetRemainingPowerUses(PowerMageSlayerSaving) == 0 ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 effectDescription?.savingThrowAbility is not
                     (AttributeDefinitions.Intelligence or AttributeDefinitions.Wisdom or AttributeDefinitions.Charisma))
             {
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetDefender);
-            var reactionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            yield return defender.MyReactToSpendPower(
+                usablePower,
+                attacker,
+                "MageSlayer",
+                "CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
+                ReactionValidated,
+                battleManager);
+
+            yield break;
+
+            void ReactionValidated()
             {
-                StringParameter =
-                    "CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
-                UsablePower = usablePower
-            };
-            var reactionRequest = new ReactionRequestCustom("MageSlayer", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+                rulesetHelper.UsePower(usablePower);
 
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
+                action.SaveOutcomeDelta = 0;
+                action.SaveOutcome = RollOutcome.Success;
             }
-
-            action.SaveOutcomeDelta = 0;
-            action.SaveOutcome = RollOutcome.Success;
-
-            rulesetDefender.UsePower(usablePower);
-            rulesetDefender.LogCharacterUsedPower(PowerMageSlayerSaving);
         }
 
         internal static IEnumerator HandleEnemyCastSpellWithin5Ft(
             GameLocationCharacter caster,
             GameLocationCharacter defender)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager || !battleManager)
+            if (!battleManager)
             {
                 yield break;
             }
 
             var (attackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(caster, battleManager);
 
-            if (attackMode == null ||
-                !defender.CanReact())
+            if (attackMode == null || !defender.CanReact())
             {
                 yield break;
             }
 
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.AttackOpportunity)
-            {
-                StringParameter = defender.Name,
-                ActionModifiers = { actionModifier },
-                AttackMode = attackMode,
-                TargetCharacters = { caster }
-            };
-            var reactionRequest = new ReactionRequestReactionAttack("MageSlayer", actionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(caster, actionManager, count);
+            yield return defender.MyReactForOpportunityAttack(
+                caster,
+                caster,
+                attackMode,
+                actionModifier,
+                "MageSlayer",
+                battleManager: battleManager);
         }
     }
 
@@ -2611,22 +2550,9 @@ internal static class OtherFeats
             yield break;
         }
 
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
         var usablePower = PowerProvider.Get(PowerFeatPoisonousSkin, rulesetMe);
-        var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
-        {
-            ActionModifiers = { new ActionModifier() },
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetMe, usablePower, false),
-            UsablePower = usablePower,
-            TargetCharacters = { target }
-        };
 
-        // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-        ServiceRepository.GetService<IGameLocationActionService>()?
-            .ExecuteAction(actionParams, null, true);
+        me.MyExecuteActionPowerNoCost(usablePower, [target]);
     }
 
     //Poison character that shoves me
@@ -2933,42 +2859,22 @@ internal static class OtherFeats
                 yield break;
             }
 
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
+            if (!ValidatorsWeapon.IsMelee(attackMode) &&
+                !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerMerciless, rulesetAttacker);
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var distance = attacker.UsedSpecialFeatures.TryGetValue(MercilessName, out var value) && value == 1
                 ? proficiencyBonus
                 : (proficiencyBonus + 1) / 2;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerMerciless, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(
                 downedCreature, attacker, isOppositeSide: false, hasToPerceivePerceiver: true, withinRange: distance);
-            var actionModifiers = new List<ActionModifier>();
 
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
