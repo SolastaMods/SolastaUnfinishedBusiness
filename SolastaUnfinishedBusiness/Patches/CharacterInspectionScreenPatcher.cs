@@ -66,12 +66,6 @@ public static class CharacterInspectionScreenPatcher
         {
             //PATCH: resets the inspection context for MC heroes
             Global.InspectedHero = null;
-
-            //PATCH: enables Inventory Filtering and Sorting
-            if (Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer)
-            {
-                InventoryManagementContext.ResetControls();
-            }
         }
     }
 
