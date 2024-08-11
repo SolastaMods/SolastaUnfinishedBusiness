@@ -495,6 +495,11 @@ public sealed class InnovationVitriolist : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
+            if (action.ActionParams.RulesetEffect.SourceDefinition == powerVitriolicInfusion)
+            {
+                yield break;
+            }
+
             var damagedTargets = new List<GameLocationCharacter>();
 
             foreach (var target in targets)
@@ -514,8 +519,6 @@ public sealed class InnovationVitriolist : AbstractSubclass
             {
                 InflictDamage(attacker, damagedTargets);
             }
-
-            yield break;
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(
