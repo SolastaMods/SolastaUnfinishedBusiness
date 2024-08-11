@@ -631,6 +631,18 @@ public static class GameLocationCharacterExtensions
         instance.UsedSpecialFeatures.AddOrReplace(key, instance.UsedSpecialFeatures.GetValueOrDefault(key) + 1);
     }
 
+    internal static void SetSpecialFeatureUses(this GameLocationCharacter instance, string key, int value)
+    {
+        instance.UsedSpecialFeatures.AddOrReplace(key, value);
+    }
+
+    internal static int GetSpecialFeatureUses(this GameLocationCharacter instance, string key, int def = -1)
+    {
+        return instance.UsedSpecialFeatures.TryGetValue(key, out var value)
+            ? value
+            : def;
+    }
+
     internal static bool OncePerTurnIsValid(this GameLocationCharacter instance, string key)
     {
         return !instance.UsedSpecialFeatures.ContainsKey(key);
