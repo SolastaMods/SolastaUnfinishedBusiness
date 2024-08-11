@@ -150,7 +150,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
 
         var originalHero = character.GetOriginalHero();
         var mainHandItem = hero.GetMainWeapon();
-        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmed(mainHandItem.ItemDefinition, null);
+        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmed(mainHandItem.ItemDefinition);
         var strikeDefinition = isUnarmedWeapon
             ? mainHandItem.ItemDefinition
             : originalHero != null
@@ -275,7 +275,7 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 
         attackMode.Reach = false;
         attackMode.Ranged = true;
-        attackMode.Thrown = ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagThrown);
+        attackMode.Thrown = ValidatorsWeapon.HasAnyWeaponTag(item.ItemDefinition, TagsDefinitions.WeaponTagThrown);
         attackMode.AttackTags.Remove(TagsDefinitions.WeaponTagMelee);
 
         attackModes.Add(attackMode);
