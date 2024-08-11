@@ -1679,11 +1679,7 @@ internal static class OtherFeats
             .Create($"Power{Name}ReactiveResistance")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetCasterEffectParameters(PowerDispelEvilBreakEnchantment)
-                    .Build())
+            .SetShowCasting(false)
             .AddToDB();
 
         powerReactiveResistance.AddCustomSubFeatures(new CustomBehaviorReactiveResistance(powerReactiveResistance));
@@ -1770,10 +1766,8 @@ internal static class OtherFeats
             var damageType = effectForm.DamageForm.DamageType;
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
 
-            yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerReaction,
+            yield return defender.MyReactToSpendPower(
                 usablePower,
-                [defender],
                 attacker,
                 "ReactiveResistance",
                 "UseReactiveResistanceDescription".Formatted(Category.Reaction, attacker.Name, damageTitle),
@@ -1784,8 +1778,10 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
-                var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
+                defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
 
+                var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
+                
                 rulesetDefender.InflictCondition(
                     conditionName,
                     DurationType.Round,
