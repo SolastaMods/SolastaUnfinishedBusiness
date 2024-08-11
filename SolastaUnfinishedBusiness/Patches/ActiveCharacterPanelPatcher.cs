@@ -30,6 +30,11 @@ public static class ActiveCharacterPanelPatcher
         }
     }
 
+    private static void OnCharacterPowerActivated(RulesetCharacter character, RulesetUsablePower power, int level)
+    {
+        character.RefreshAll();
+    }
+
     [HarmonyPatch(typeof(ActiveCharacterPanel), nameof(ActiveCharacterPanel.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -38,6 +43,14 @@ public static class ActiveCharacterPanelPatcher
         [UsedImplicitly]
         public static void Postfix(ActiveCharacterPanel __instance)
         {
+            //PATCH: properly update IconsOnPortrait
+            var character = __instance.GuiCharacter.RulesetCharacter;
+            if (character != null && character is not RulesetCharacterEffectProxy)
+            {
+                character.CharacterRefreshed += __instance.ConcentrationChanged;
+                character.PowerActivated += OnCharacterPowerActivated;
+            }
+
             //PATCH: support a better ratio with custom portraits
             if (Main.Settings.EnableCustomPortraits &&
                 PortraitsContext.HasCustomPortrait(__instance.GuiCharacter.RulesetCharacter))
@@ -67,6 +80,18 @@ public static class ActiveCharacterPanelPatcher
     [UsedImplicitly]
     public static class Unbind_Patch
     {
+        [UsedImplicitly]
+        public static void Prefix(ActiveCharacterPanel __instance)
+        {
+            //PATCH: properly update IconsOnPortrait
+            var character = __instance.GuiCharacter.RulesetCharacter;
+            if (character != null && character is not RulesetCharacterEffectProxy)
+            {
+                character.CharacterRefreshed -= __instance.ConcentrationChanged;
+                character.PowerActivated -= OnCharacterPowerActivated;
+            }
+        }
+
         [UsedImplicitly]
         public static void Postfix()
         {
