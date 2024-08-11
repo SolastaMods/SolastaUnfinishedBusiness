@@ -359,36 +359,21 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(Disintegrate)
                     .SetEffectEffectParameters(Disintegrate)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellInitiatedByMeCorruptingBolt())
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class PowerOrSpellInitiatedByMeCorruptingBolt : IPowerOrSpellInitiatedByMe
-    {
-        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            action.ActingCharacter.UsedSpecialFeatures.TryAdd("CorruptingBolt", 0);
-
-            yield break;
-        }
-    }
-
     private sealed class CustomBehaviorCorruptingBolt : IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe
     {
+        private const string ConditionCorruptingBoltName = "ConditionCorruptingBolt";
+
         public IEnumerator OnMagicEffectFinishedOnMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             List<GameLocationCharacter> targets)
         {
-            // finishing corrupting bolt cast
-            if (attacker.UsedSpecialFeatures.Remove("CorruptingBolt"))
-            {
-                yield break;
-            }
-
             var rulesetEffect = action.ActionParams.RulesetEffect;
 
             if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
@@ -396,10 +381,16 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            rulesetDefender.RemoveAllConditionsOfCategoryAndType(
-                AttributeDefinitions.TagEffect, "ConditionCorruptingBolt");
+            if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition) &&
+                !rulesetAttacker.SpellsCastByMe.Any(x => x.TrackedConditionGuids.Contains(activeCondition.Guid)))
+            {
+                rulesetDefender.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
+            }
         }
 
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -414,7 +405,7 @@ internal static partial class SpellBuilders
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.RemoveAllConditionsOfCategoryAndType(
-                AttributeDefinitions.TagEffect, "ConditionCorruptingBolt");
+                AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
 
             yield break;
         }
