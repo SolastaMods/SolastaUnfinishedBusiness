@@ -813,12 +813,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            yield return helper.MyReactToUsePower(ActionDefinitions.Id.PowerReaction,
+            yield return helper.MyReactToSpendPower(
                 usablePower,
-                [helper],
                 attacker,
                 stringParameter,
-                $"Use{stringParameter}Description".Formatted(Category.Reaction, attacker.Name),
+                $"SpendPower{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
                 battleManager);
 
@@ -924,12 +923,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            yield return helper.MyReactToUsePower(ActionDefinitions.Id.PowerReaction,
+            yield return helper.MyReactToSpendPower(
                 usablePower,
-                [helper],
                 defender,
                 stringParameter,
-                $"Use{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
+                $"SpendPower{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
                 battleManager);
 
@@ -1040,12 +1038,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            yield return helper.MyReactToUsePower(ActionDefinitions.Id.PowerReaction,
+            yield return helper.MyReactToSpendPower(
                 usablePower,
-                [helper],
                 attacker,
                 stringParameter,
-                $"Use{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
+                $"SpendPower{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
                 battleManager);
 
