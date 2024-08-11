@@ -27,16 +27,13 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
         }
 
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
+        var usablePower = PowerProvider.Get(StopPower, character);
 
-        if (locationCharacter == null)
-        {
-            return;
-        }
-
+#if false
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-        var usablePower = PowerProvider.Get(StopPower, character);
+
         var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.PowerNoCost)
         {
             ActionModifiers = { new ActionModifier() },
@@ -48,5 +45,8 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
 
         ServiceRepository.GetService<ICommandService>()?
             .ExecuteAction(actionParams, _ => { }, false);
+#endif
+
+        locationCharacter.MyExecuteActionPowerNoCost(usablePower, [locationCharacter]);
     }
 }
