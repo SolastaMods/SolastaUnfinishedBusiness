@@ -35,17 +35,19 @@ public static class ContainerPanelPatcher
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var oldMethod = typeof(RectTransform).GetProperty(nameof(RectTransform.anchoredPosition))!.GetSetMethod();
-            var newMethod = new Action<RectTransform, Vector2>(Noop).Method;
+            var newMethod = new Action<RectTransform, Vector2>(SetAnchor).Method;
 
             return ReplaceSlotsGetter(instructions, "ContainerPanel.RefreshVisibleSlots.1")
                 .ReplaceCall(oldMethod, 1, "ContainerPanel.RefreshVisibleSlots.2",
                     new CodeInstruction(OpCodes.Call, newMethod));
         }
 
-        [UsedImplicitly]
-        internal static void Prefix(ContainerPanel __instance)
+        private static void SetAnchor(RectTransform instance, Vector2 c)
         {
-            __instance.slotsTable.anchoredPosition = new Vector2(__instance.slotsTable.anchoredPosition.x, 0);
+            if (!InventoryManagementContext.Enabled)
+            {
+                instance.anchoredPosition = c;
+            }
         }
     }
 
@@ -60,10 +62,5 @@ public static class ContainerPanelPatcher
         {
             return ReplaceSlotsGetter(instructions, "ContainerPanel.ComputeTableHeight");
         }
-    }
-
-    private static void Noop(RectTransform instance, Vector2 c)
-    {
-        //Do nothing
     }
 }
