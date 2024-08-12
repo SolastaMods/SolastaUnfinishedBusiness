@@ -381,13 +381,14 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         private static WildSurgeEffect BuildWildSurgeWeapon()
         {
+            // Use rangedAttack, as Ranged: true is false on thrown weapons
             var featureWildSurgeWeapon = FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{Name}Weapon")
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
-                .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
-                    (OperationType.Set, mode is { Ranged: true, Thrown: true })))
+                .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, rangedAttack, mode, _) =>
+                    (OperationType.Set, rangedAttack && mode is { Thrown: true })))
                 .AddToDB();
 
             featureWildSurgeWeapon.AddCustomSubFeatures(
