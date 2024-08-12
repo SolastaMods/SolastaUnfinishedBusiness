@@ -393,12 +393,12 @@ public sealed class DomainTempest : AbstractSubclass
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             var actingCharacter = action.ActingCharacter;
-            var hasTag = actingCharacter.UsedSpecialFeatures.TryGetValue(powerDestructiveWrath.Name, out var value);
+            var hasTag = actingCharacter.GetSpecialFeatureUses(powerDestructiveWrath.Name) == 1;
 
-            actingCharacter.UsedSpecialFeatures.TryAdd(powerDestructiveWrath.Name, 0);
+            actingCharacter.SetSpecialFeatureUses(powerDestructiveWrath.Name, 0);
 
             if (action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower) ||
-                !hasTag || value == 0)
+                !hasTag)
             {
                 yield break;
             }
@@ -425,13 +425,12 @@ public sealed class DomainTempest : AbstractSubclass
                 rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
                 damageForm.DamageType is DamageTypeLightning or DamageTypeThunder;
 
-            if (attacker.UsedSpecialFeatures.TryGetValue(powerDestructiveWrath.Name, out var value) && value == 1)
+            if (attacker.GetSpecialFeatureUses(powerDestructiveWrath.Name) == 1)
             {
                 return isValid;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(powerDestructiveWrath.Name, 0);
-            attacker.UsedSpecialFeatures[powerDestructiveWrath.Name] = isValid ? 1 : 0;
+            attacker.SetSpecialFeatureUses(powerDestructiveWrath.Name, isValid ? 1 : 0);
 
             return isValid;
         }
