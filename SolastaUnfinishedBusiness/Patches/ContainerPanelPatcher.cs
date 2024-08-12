@@ -63,4 +63,56 @@ public static class ContainerPanelPatcher
             return ReplaceSlotsGetter(instructions, "ContainerPanel.ComputeTableHeight");
         }
     }
+
+    [HarmonyPatch(typeof(ContainerPanel), nameof(ContainerPanel.ContainerContentModified))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ContainerContentModified_Patch
+    {
+        [UsedImplicitly]
+        internal static void Postfix(ContainerPanel __instance)
+        {
+            //PATCH: Enable Inventory Filtering and Sorting
+            InventoryManagementContext.Refresh(__instance, true);
+        }
+    }
+
+    [HarmonyPatch(typeof(ContainerPanel), nameof(ContainerPanel.ItemCreated))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ItemCreated_Patch
+    {
+        [UsedImplicitly]
+        internal static void Postfix(ContainerPanel __instance)
+        {
+            //PATCH: Enable Inventory Filtering and Sorting
+            InventoryManagementContext.Refresh(__instance, true);
+        }
+    }
+
+    [HarmonyPatch(typeof(ContainerPanel), nameof(ContainerPanel.ItemDestroyed))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ItemDestroyed_Patch
+    {
+        [UsedImplicitly]
+        internal static void Postfix(ContainerPanel __instance)
+        {
+            //PATCH: Enable Inventory Filtering and Sorting
+            InventoryManagementContext.Refresh(__instance, true);
+        }
+    }
+
+    [HarmonyPatch(typeof(ContainerPanel), nameof(ContainerPanel.ItemUnequiped))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ItemUnequiped_Patch
+    {
+        [UsedImplicitly]
+        internal static void Postfix(ContainerPanel __instance)
+        {
+            //PATCH: Enable Inventory Filtering and Sorting
+            InventoryManagementContext.Refresh(__instance, true);
+        }
+    }
 }
