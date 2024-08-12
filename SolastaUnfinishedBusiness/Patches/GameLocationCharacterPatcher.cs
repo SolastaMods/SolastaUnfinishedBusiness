@@ -387,6 +387,26 @@ public static class GameLocationCharacterPatcher
                     __result = ActionDefinitions.ActionStatus.Unavailable;
                     break;
             }
+
+            //BUGFIX: if character can use only 1 of Main or Bonus - auto fail status if another type is used
+            //Fixes Slow in various cases where we add extra attacks or other actions that manually consume main or bonus action
+            var either = __instance.RulesetCharacter.GetSubFeaturesByType<IActionPerformanceProvider>()
+                .Any(provider => provider.EitherMainOrBonus);
+            if (either)
+            {
+                var action = ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions[actionId];
+                var actionType = action.actionType;
+                var mainRanks = __instance.currentActionRankByType[ActionDefinitions.ActionType.Main];
+                var bonusRanks = __instance.currentActionRankByType[ActionDefinitions.ActionType.Bonus];
+                
+                switch (actionType)
+                {
+                    case ActionDefinitions.ActionType.Bonus when mainRanks > 0:
+                    case ActionDefinitions.ActionType.Main when bonusRanks > 0:
+                        __result = ActionDefinitions.ActionStatus.Unavailable;
+                        break;
+                }
+            }
         }
     }
 
