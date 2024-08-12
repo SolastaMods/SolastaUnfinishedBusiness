@@ -253,6 +253,7 @@ ModUi/&Patches=<color=#F0DAA0>Патчи:</color>
 ModUi/&PortraitsOpenFolder=Открыть папку с портретами
 ModUi/&PrimedItems=Подготовленные предметы
 ModUi/&Progression=<color=#F0DAA0>Развитие:</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst=Быстрое наложение заговора Свет в первую очередь выбирает экипировку, надетую на голову, шею или торс
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Включить срабатывание <color=#D89555>Чувствительности к свету</color> для рас <color=#D89555>Тёмных эльфов</color>, <color=#D89555>Тёмных кобольдов</color> и <color=#D89555>Серых дварфов</color> только вне помещений\n<i><color=#F0DAA0>[помещения в открытых локациях, доступные без экрана загрузки, считаются открытыми с точки зрения движка игры]</color></i>
 ModUi/&Races=<color=#F0DAA0>Расы</color>
 ModUi/&RecipeCost=<color=white>Стоимость рецепта</color>
