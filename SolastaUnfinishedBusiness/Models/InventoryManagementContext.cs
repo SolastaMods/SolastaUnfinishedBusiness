@@ -372,9 +372,10 @@ internal static class InventoryManagementContext
         Reset();
     }
 
-    public static void Refresh(ContainerPanel panel)
+    public static void Refresh(ContainerPanel panel, bool light = false)
     {
         Reset();
+        if (light) { return;}
 
         var container = panel.Container;
         var character = panel.InspectedCharacter;

@@ -782,6 +782,22 @@ public static class GameLocationCharacterExtensions
         ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
     }
 
+    internal static int GetAllowedMainAttacks(this GameLocationCharacter instance)
+    {
+        var performanceFilters = instance.actionPerformancesByType[ActionType.Main];
+        int index = instance.currentActionRankByType[ActionType.Main];
+        
+        if (index >= performanceFilters.Count) { return -1;}
+
+        var maxAllowedAttacks = performanceFilters[index].MaxAttacksNumber;
+        var maxAttacks = instance.RulesetCharacter.AttackModes
+            .Where(mode => mode.ActionType == ActionType.Main)
+            .Max(mode => mode.AttacksNumber);
+
+        return Math.Min(maxAllowedAttacks, maxAttacks);
+    }
+
+
     internal static void BurnOneMainAttack(this GameLocationCharacter instance)
     {
         if (Gui.Battle == null)
@@ -799,10 +815,7 @@ public static class GameLocationCharacterExtensions
         rulesetCharacter.ExecutedAttacks++;
         rulesetCharacter.RefreshAttackModes();
 
-        var maxAttacks = rulesetCharacter.AttackModes
-            .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
-
-        if (instance.UsedMainAttacks < maxAttacks)
+        if (instance.UsedMainAttacks < instance.GetAllowedMainAttacks())
         {
             return;
         }

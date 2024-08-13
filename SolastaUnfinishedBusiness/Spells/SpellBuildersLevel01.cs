@@ -1043,22 +1043,8 @@ internal static partial class SpellBuilders
                 0,
                 0);
 
-            var hasEmpowered = rulesetEffect.MetamagicOption == MetamagicOptionDefinitions.MetamagicEmpoweredSpell;
             var firstRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
             var secondRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
-
-            if (hasEmpowered)
-            {
-                while (firstRoll <= 2)
-                {
-                    firstRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
-                }
-
-                while (secondRoll <= 2)
-                {
-                    secondRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
-                }
-            }
 
             _rolls.AddRange(firstRoll, secondRoll);
 

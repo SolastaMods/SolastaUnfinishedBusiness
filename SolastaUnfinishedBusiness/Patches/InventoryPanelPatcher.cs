@@ -22,7 +22,7 @@ public static class InventoryPanelPatcher
 
             if (InventoryManagementContext.Enabled && __instance.MainContainerPanel)
             {
-                InventoryManagementContext.Refresh(__instance.MainContainerPanel);
+                InventoryManagementContext.Refresh(__instance.MainContainerPanel, true);
             }
         }
     }
