@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -720,6 +721,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         spell.AddCustomSubFeatures(
+            SrdAndHouseRulesContext.NoTwinned.Mark,
             new AttackAfterMagicEffect(),
             new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
@@ -993,6 +995,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         spell.AddCustomSubFeatures(
+            SrdAndHouseRulesContext.NoTwinned.Mark,
             new AttackAfterMagicEffect(),
             new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
@@ -1147,6 +1150,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         spell.AddCustomSubFeatures(
+            SrdAndHouseRulesContext.NoTwinned.Mark,
             // order matters here as below also implements IFilterTargetingCharacter
             new CustomBehaviorResonatingStrike(),
             new AttackAfterMagicEffect(),
