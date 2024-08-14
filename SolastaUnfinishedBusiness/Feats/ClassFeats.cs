@@ -820,7 +820,7 @@ internal static class ClassFeats
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
-                .AddCustomSubFeatures(new ModifyEffectDescriptionFeatPotentSpellcaster())
+                .AddCustomSubFeatures(new ModifyEffectDescriptionFeatPotentSpellcaster(classes[i]))
                 .SetValidators(validator)
                 .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
@@ -837,7 +837,7 @@ internal static class ClassFeats
         return potentSpellcasterGroup;
     }
 
-    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster
+    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster(CharacterClassDefinition castingClass)
         : IModifyEffectDescription, IModifyWeaponAttackMode
     {
         public bool IsValid(
@@ -845,7 +845,12 @@ internal static class ClassFeats
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition is SpellDefinition { SpellLevel: 0 };
+            if (definition is not SpellDefinition {SpellLevel: 0} spell) { return false; }
+
+            var repertoires = new List<RulesetSpellRepertoire>();
+            character.GetSpellRepertoireFromDefinition(spell, allMatchingRepertoires: repertoires);
+
+            return repertoires.Any(r => r.SpellCastingClass == castingClass);
         }
 
         public EffectDescription GetEffectDescription(
