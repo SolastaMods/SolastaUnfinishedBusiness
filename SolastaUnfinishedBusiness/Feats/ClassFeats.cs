@@ -850,7 +850,7 @@ internal static class ClassFeats
             var repertoires = new List<RulesetSpellRepertoire>();
             character.GetSpellRepertoireFromDefinition(spell, allMatchingRepertoires: repertoires);
 
-            return repertoires.Any(r => r.SpellCastingClass == castingClass);
+            return repertoires.Any(r => r.GetCastingClass() == castingClass);
         }
 
         public EffectDescription GetEffectDescription(
