@@ -510,7 +510,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetDamageDice(DieType.D8, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10, 5)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
-            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelInventor.Instance)
+            .AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 
         var featureSetArcaneFirearm = FeatureDefinitionFeatureSetBuilder

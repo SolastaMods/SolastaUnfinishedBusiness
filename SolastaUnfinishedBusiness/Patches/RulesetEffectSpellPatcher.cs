@@ -6,8 +6,8 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
-using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
@@ -55,7 +55,7 @@ public static class RulesetEffectSpellPatcher
                 caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
             }
 
-            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<ClassHolder>();
 
             __result = EffectHelpers.CalculateSaveDc(
                 caster, __instance.spellDefinition.effectDescription, classHolder?.Class);
@@ -86,7 +86,7 @@ public static class RulesetEffectSpellPatcher
                 caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
             }
 
-            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<ClassHolder>();
 
             if (classHolder != null)
             {
@@ -126,7 +126,7 @@ public static class RulesetEffectSpellPatcher
                 caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
             }
 
-            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<ClassHolder>();
 
             if (classHolder != null)
             {
@@ -163,7 +163,7 @@ public static class RulesetEffectSpellPatcher
             }
 
             //PATCH: support for `IClassHoldingFeature`
-            var holder = __instance.SpellDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
+            var holder = __instance.SpellDefinition.GetFirstSubFeatureOfType<ClassHolder>();
 
             if (holder == null)
             {

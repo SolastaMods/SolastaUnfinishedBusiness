@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -88,7 +89,7 @@ public sealed class PathOfTheLight : AbstractSubclass
                 ConditionOperationDescription.ConditionOperation.Add, conditionPathOfTheLightIlluminated)
             .SetAddLightSource(true)
             .SetLightSourceForm(lightSourceForm)
-            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelBarbarian.Instance)
+            .AddCustomSubFeatures(ClassHolder.Barbarian)
             .AddToDB();
 
         additionalDamagePathOfTheLightIlluminatingStrike.DiceByRankTable[9].diceNumber = 2;

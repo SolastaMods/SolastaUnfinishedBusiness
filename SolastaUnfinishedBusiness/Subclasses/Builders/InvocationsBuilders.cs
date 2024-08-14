@@ -48,7 +48,7 @@ internal static class InvocationsBuilders
                     .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 2)
                     .SetImpactParticleReference(EldritchBlast)
                     .AddCustomSubFeatures(
-                        ModifyAdditionalDamageClassLevelWarlock.Instance,
+                        ClassHolder.Warlock,
                         new AdditionalEffectFormOnDamageHandler(HandleEldritchSmiteKnockProne))
                     .AddToDB())
             .AddToDB();

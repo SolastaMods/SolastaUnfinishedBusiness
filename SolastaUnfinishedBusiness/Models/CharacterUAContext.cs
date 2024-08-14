@@ -133,7 +133,7 @@ internal static partial class CharacterContext
                 .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 9)
                 .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                 .AddCustomSubFeatures(
-                    ModifyAdditionalDamageClassLevelBarbarian.Instance,
+                    ClassHolder.Barbarian,
                     new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, _, _) => (OperationType.Set,
                         character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BrutalStrikeToggle))))
                 .AddToDB();
