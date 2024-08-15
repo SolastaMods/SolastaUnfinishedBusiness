@@ -102,6 +102,7 @@ internal static class SrdAndHouseRulesContext
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
+        NoTwinnedBladeCantrips();
     }
 
     private static void LoadSenseNormalVisionRangeMultiplier()
@@ -905,6 +906,11 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    internal static void NoTwinnedBladeCantrips()
+    {
+        MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
+    }
+
     private sealed class FilterTargetingCharacterChainLightning : IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
@@ -964,5 +970,21 @@ internal static class SrdAndHouseRulesContext
         {
             // empty
         }
+    }
+
+    internal sealed class NoTwinned
+    {
+        public static NoTwinned Mark { get; } = new();
+
+        public static readonly ValidateMetamagicApplication Validator =
+            (RulesetCharacter _, RulesetEffectSpell spell, MetamagicOptionDefinition _, ref bool result,
+                ref string failure) =>
+            {
+                if (spell.SpellDefinition.HasSubFeatureOfType<NoTwinned>())
+                {
+                    result = false;
+                    failure = "Failure/&FailureFlagInvalidSingleTarget";
+                }
+            };
     }
 }

@@ -292,18 +292,18 @@ internal static class OtherFeats
         const string NAME = "FeatMagicInitiate";
 
         var magicInitiateFeats = new List<FeatDefinition>();
-        var castSpells = new List<FeatureDefinitionCastSpell>
+        var castSpells = new List<(FeatureDefinitionCastSpell feature, CharacterClassDefinition clazz)>
         {
-            CastSpellBard,
-            CastSpellCleric,
-            CastSpellDruid,
-            CastSpellSorcerer,
-            CastSpellWarlock,
-            CastSpellWizard
+            (CastSpellBard, CharacterClassDefinitions.Bard),
+            (CastSpellCleric, CharacterClassDefinitions.Cleric),
+            (CastSpellDruid, CharacterClassDefinitions.Druid),
+            (CastSpellSorcerer, CharacterClassDefinitions.Sorcerer),
+            (CastSpellWarlock, CharacterClassDefinitions.Warlock),
+            (CastSpellWizard, CharacterClassDefinitions.Wizard)
         };
 
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var castSpell in castSpells)
+        foreach (var (castSpell, clazz) in castSpells)
         {
             var spellList = castSpell.SpellListDefinition;
             var className = spellList.Name.Replace("SpellList", "");
@@ -329,7 +329,7 @@ internal static class OtherFeats
                         .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
-                        .AddCustomSubFeatures(new FeatHelpers.SpellTag(FeatMagicInitiateTag))
+                        .AddCustomSubFeatures(new FeatHelpers.SpellTag(FeatMagicInitiateTag), new ClassHolder(clazz))
                         .AddToDB(),
                     FeatureDefinitionPointPoolBuilder
                         .Create($"PointPool{NAME}{className}Cantrip")

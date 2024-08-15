@@ -836,7 +836,7 @@ internal static class InventorClass
             .SetOrUpdateGuiPresentation(title, description)
             .SetRequiresIdentification(false)
             .HideFromDungeonEditor()
-            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelInventor.Instance)
+            .AddCustomSubFeatures(ClassHolder.Inventor)
             .SetCosts(Costs)
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)

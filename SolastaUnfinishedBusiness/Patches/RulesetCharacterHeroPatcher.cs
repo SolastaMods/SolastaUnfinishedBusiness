@@ -172,7 +172,7 @@ public static class RulesetCharacterHeroPatcher
         {
             //PATCH: replaces feature holding class with one provided by custom interface
             //used for features that are not granted directly through class but need to scale with class levels
-            var classHolder = featureDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>()?.Class;
+            var classHolder = featureDefinition.GetFirstSubFeatureOfType<ClassHolder>()?.Class;
 
             if (!classHolder)
             {

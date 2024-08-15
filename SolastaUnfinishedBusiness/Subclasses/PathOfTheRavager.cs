@@ -37,7 +37,7 @@ public sealed class PathOfTheRavager : AbstractSubclass
                 .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                 .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                 .AddCustomSubFeatures(
-                    ModifyAdditionalDamageClassLevelBarbarian.Instance,
+                    ClassHolder.Barbarian,
                     new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) => (
                         OperationType.Set,
                         mode is { AbilityScore: AttributeDefinitions.Strength } &&
