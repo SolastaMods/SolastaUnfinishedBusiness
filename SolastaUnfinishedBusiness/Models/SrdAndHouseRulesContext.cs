@@ -906,7 +906,7 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void NoTwinnedBladeCantrips()
+    private static void NoTwinnedBladeCantrips()
     {
         MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
     }

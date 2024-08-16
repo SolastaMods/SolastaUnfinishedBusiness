@@ -1796,9 +1796,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDefilerMistyFormEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDefilerMistyFormEscape");
 
-        internal static FeatureDefinitionPower PowerDispelEvilBreakEnchantment { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDispelEvilBreakEnchantment");
-
         internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
 
@@ -3153,9 +3150,6 @@ internal static partial class DatabaseHelper
 
     internal static class MetamagicOptionDefinitions
     {
-        internal static MetamagicOptionDefinition MetamagicEmpoweredSpell { get; } =
-            GetDefinition<MetamagicOptionDefinition>("MetamagicEmpoweredSpell");
-
         internal static MetamagicOptionDefinition MetamagicQuickenedSpell { get; } =
             GetDefinition<MetamagicOptionDefinition>("MetamagicQuickenedSpell");
 

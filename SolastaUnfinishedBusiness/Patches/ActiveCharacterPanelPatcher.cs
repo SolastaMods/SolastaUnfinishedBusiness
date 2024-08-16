@@ -85,11 +85,14 @@ public static class ActiveCharacterPanelPatcher
         {
             //PATCH: properly update IconsOnPortrait
             var character = __instance.GuiCharacter.RulesetCharacter;
-            if (character != null && character is not RulesetCharacterEffectProxy)
+            
+            if (character is null or RulesetCharacterEffectProxy)
             {
-                character.CharacterRefreshed -= __instance.ConcentrationChanged;
-                character.PowerActivated -= OnCharacterPowerActivated;
+                return;
             }
+
+            character.CharacterRefreshed -= __instance.ConcentrationChanged;
+            character.PowerActivated -= OnCharacterPowerActivated;
         }
 
         [UsedImplicitly]

@@ -94,11 +94,13 @@ internal static class InventoryManagementContext
         {
             containerPanel.OnReorderCb();
 
-            if (Enabled)
+            if (!Enabled)
             {
-                ResetControls();
-                Refresh(containerPanel);
+                return;
             }
+
+            ResetControls();
+            Refresh(containerPanel);
         });
 
         // creates the categories in alphabetical sort order
@@ -304,12 +306,7 @@ internal static class InventoryManagementContext
         var bcpw = EquipmentDefinitions.GetApproximateCostInGold(itemB.ItemDefinition.Costs) /
                    Math.Max(itemB.ComputeWeight(), 0.01f);
 
-        if (Mathf.Abs(acpw - bcpw) < .0E-5f)
-        {
-            return SortByName(itemA, itemB);
-        }
-
-        return acpw.CompareTo(bcpw);
+        return Mathf.Abs(acpw - bcpw) < .0E-5f ? SortByName(itemA, itemB) : acpw.CompareTo(bcpw);
     }
 
 
@@ -344,6 +341,7 @@ internal static class InventoryManagementContext
     }
 
     //`container` parameter is required for the transpile patch
+    // ReSharper disable once UnusedParameter.Global
     public static List<RulesetInventorySlot> GetFilteredSlots(RulesetContainer container, ContainerPanel panel)
     {
         return GetFilteredAndSorted(panel);

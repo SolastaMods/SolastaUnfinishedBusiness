@@ -1,6 +1,5 @@
 1.5.97.27:
 
-- added hidden setting to allow inventory filtering and sorting in multiplayer
 - added Path of Wild Magic wild surge reroll power
 - fixed blade cantrips getting offered twinned metamagic, and not scaling 2nd target damage
 - fixed Domain Tempest destructive wrath sometimes triggering when out of charges
@@ -9,7 +8,7 @@
 - fixed RESPEC not registering new hero correctly
 - fixed Slow condition interaction with custom actions that spend bonus or main
 - fixed Way of Weal and Woe missing 11 and 17 descriptions on level up
-- improved inventory filtering and sorting
+- improved inventory filtering and sorting, and added beta hidden setting to allow it in MP
 
 1.5.97.26:
 
