@@ -253,7 +253,7 @@ ModUi/&Patches=<color=#F0DAA0>パッチ:</color>
 ModUi/&PortraitsOpenFolder=ポートレートフォルダーを開く
 ModUi/&PrimedItems=プライムアイテム
 ModUi/&Progression=<color=#F0DAA0>進行状況:</color>
-ModUi/&QuickCastLightCantripOnWornItemsFirst=クイックキャストの軽いキャントリップを行うには、まず頭、首、または胴体に装備したアイテムを使用する
+ModUi/&QuickCastLightCantripOnWornItemsFirst=クイックキャスト<color=#D89555>ライトカントリップ</color>を有効にすると、頭、首、または胴体に装備したアイテムを最初に使用できます。
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>光感度</color>を有効にするcolor> 屋外のみをトリガーする\n<i><color=#F0DAA0>[ロード画面なしでアクセスできる屋外の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
 ModUi/&RecipeCost=<color=white>レシピのコスト</color>

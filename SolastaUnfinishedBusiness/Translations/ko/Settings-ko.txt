@@ -253,7 +253,7 @@ ModUi/&Patches=<color=#F0DAA0>패치:</color>
 ModUi/&PortraitsOpenFolder=인물 사진 폴더 열기
 ModUi/&PrimedItems=프라임 아이템
 ModUi/&Progression=<color=#F0DAA0>진행 상황:</color>
-ModUi/&QuickCastLightCantripOnWornItemsFirst=빠른 캐스트 라이트 캔트립을 하려면 먼저 머리, 목 또는 몸통에 착용한 아이템을 사용하십시오.
+ModUi/&QuickCastLightCantripOnWornItemsFirst=머리, 목 또는 몸통에 착용한 아이템을 먼저 사용하려면 빠른 시전 <color=#D89555>Light Cantrip</color>을 활성화하세요.
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>빛 감도</color>를 활성화합니다. color>는 실외에서만 실행됩니다.\n<i><color=#F0DAA0>[로드 화면 없이 접근 가능한 실외 위치의 실내 영역은 게임 엔진에 의해 실외로 간주됩니다.]</color></i>
 ModUi/&Races=<color=#F0DAA0>경주</color>
 ModUi/&RecipeCost=<color=white>레시피 비용</color>

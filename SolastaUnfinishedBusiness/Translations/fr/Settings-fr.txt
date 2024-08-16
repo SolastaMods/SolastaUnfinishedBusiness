@@ -253,7 +253,7 @@ ModUi/&Patches=<color=#F0DAA0>Corrections :</color>
 ModUi/&PortraitsOpenFolder=Ouvrir le dossier des portraits
 ModUi/&PrimedItems=Articles préparés
 ModUi/&Progression=<color=#F0DAA0>Progression :</color>
-ModUi/&QuickCastLightCantripOnWornItemsFirst=Lancez rapidement un sort léger en utilisant d'abord les objets portés sur la tête, le cou ou le torse.
+ModUi/&QuickCastLightCantripOnWornItemsFirst=Activez l'incantation rapide <color=#D89555>Cantrip léger</color> pour utiliser d'abord les objets portés sur la tête, le cou ou le torse
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Activez la <color=#D89555>Sensibilité à la lumière</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Grey Dwarf</color> pour déclencher uniquement en extérieur\n<i><color=#F0DAA0>[les zones intérieures des emplacements extérieurs accessibles sans écran de chargement sont considérées comme extérieures par le moteur de jeu]</color></i>
 ModUi/&Races=<color=#F0DAA0>Courses</color>
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>

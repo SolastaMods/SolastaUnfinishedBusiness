@@ -27,8 +27,9 @@ internal static class InventoryManagementContext
 
     private static readonly List<RulesetInventorySlot> Filtered = [];
     private static bool _dirty = true;
-    public static bool Enabled => Main.Settings.EnableInventoryFilteringAndSorting
-                                  && (!Global.IsMultiplayer || Main.Settings.AllowSortingInMultiplayer);
+
+    public static bool Enabled => Main.Settings.EnableInventoryFilteringAndSorting;
+    // && (!Global.IsMultiplayer || Main.Settings.AllowSortingInMultiplayer);
 
     private static GuiDropdown FilterGuiDropdown { get; set; }
 
