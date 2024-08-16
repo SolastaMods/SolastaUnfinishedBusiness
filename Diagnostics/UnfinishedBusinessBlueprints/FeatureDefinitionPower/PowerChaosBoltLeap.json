@@ -13,7 +13,7 @@
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
+    "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
@@ -32,7 +32,7 @@
     "targetConditionAsset": null,
     "targetSide": "Enemy",
     "durationType": "Instantaneous",
-    "durationParameter": 0,
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -149,8 +149,8 @@
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
     },
-    "speedType": "CellsPerSeconds",
-    "speedParameter": 9.5,
+    "speedType": "Instant",
+    "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -323,10 +323,10 @@
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 2,
+      "cooldownForCaster": 0,
       "cooldownForBattle": 0,
       "sortingScoreMultiplier": 1.0,
-      "dynamicCooldown": true
+      "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false,
