@@ -963,6 +963,12 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Item, ItemDefinitions.Enchanted_Dagger_Souldrinker)
             .SetItemTags(TagsDefinitions.ItemTagConjured)
             .MakeMagical()
+            .SetStaticProperties(ItemPropertyDescriptionBuilder.From(FeatureDefinitionBuilder
+                        .Create($"Feature{NAME}")
+                        .SetGuiPresentation($"Feature{NAME}", Category.Feature)
+                        .AddToDB(),
+                    knowledgeAffinity: EquipmentDefinitions.KnowledgeAffinity.ActiveAndVisible)
+                .Build())
             .HideFromDungeonEditor()
             .AddToDB();
 
@@ -1021,7 +1027,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionShadowBlade.AddCustomSubFeatures(
-            new ModifyAttackActionModifierShadowBlade(itemShadowBlade, conditionShadowBlade));
+            new ModifyAttackActionModifierShadowBlade(itemShadowBlade));
 
         spell.EffectDescription.EffectForms.Add(
             EffectFormBuilder
@@ -1051,8 +1057,7 @@ internal static partial class SpellBuilders
 
     private sealed class ModifyAttackActionModifierShadowBlade(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ItemDefinition itemShadowBlade,
-        BaseDefinition featureAdvantage)
+        [NotNull] ItemDefinition itemShadowBlade)
         : IModifyAttackActionModifier
     {
         public void OnAttackComputeModifier(
@@ -1080,7 +1085,7 @@ internal static partial class SpellBuilders
             }
 
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Condition, featureAdvantage.Name, featureAdvantage));
+                new TrendInfo(1, FeatureSourceType.Equipment, itemShadowBlade.Name, itemShadowBlade));
         }
     }
 
