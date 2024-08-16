@@ -772,10 +772,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 .Where(x => x.FormType == EffectForm.EffectFormType.Condition)
                 .Select(effectForm => effectForm.ConditionForm.ConditionDefinition)
                 .Any(condition =>
-                    condition == ConditionDefinitions.ConditionCharmed ||
-                    condition.parentCondition == ConditionDefinitions.ConditionCharmed ||
-                    condition == ConditionDefinitions.ConditionFrightened ||
-                    condition.parentCondition == ConditionDefinitions.ConditionFrightened);
+                    condition.IsSubtypeOf(ConditionCharmed) || condition.IsSubtypeOf(ConditionFrightened));
 
             if (!hasCharmedOrFrightened)
             {
