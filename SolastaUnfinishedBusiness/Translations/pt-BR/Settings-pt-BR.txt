@@ -253,7 +253,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Abra a pasta de retratos
 ModUi/&PrimedItems=Itens preparados
 ModUi/&Progression=<color=#F0DAA0>Progressão:</color>
-ModUi/&QuickCastLightCantripOnWornItemsFirst=Faça um cantrip de luz de lançamento rápido usando itens usados ​​na cabeça, pescoço ou tronco primeiro
+ModUi/&QuickCastLightCantripOnWornItemsFirst=Faça um cantrip de luz de lançamento rápido usando itens usados na cabeça, pescoço ou tronco primeiro
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Ative a <color=#D89555>Sensibilidade à Luz</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</color> para acionar apenas em ambientes externos\n<i><color=#F0DAA0>[áreas internas em locais externos acessíveis sem uma tela de carregamento são consideradas externas pelo mecanismo de jogo]</color></i>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
 ModUi/&RecipeCost=<color=white>Custo da receita</color>
