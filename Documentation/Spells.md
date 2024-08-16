@@ -610,7 +610,7 @@ You can see invisible creatures.
 
 # 148. - *Shadow Blade* © (V,S) level 2 Illusion [Concentration] [UB]
 
-You weave together threads of shadow to create a sword of solidified gloom in your hand.
+You weave together threads of shadow to create a dagger of solidified gloom in your hand. It deals 2d8 psychic damage on a hit and has the finesse, light, and thrown properties. In addition, when you use it to attack a target that is in dim light or darkness, you make the attack roll with advantage.
 
 # 149. - Shatter (V,S) level 2 Evocation [SOL]
 

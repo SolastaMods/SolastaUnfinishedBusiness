@@ -2232,7 +2232,7 @@ This unique weapon is an Anfarel family treasure. A powerful relic able to infli
 
 # 559. - Shadow Blade [UB]
 
-It deals 2d8 psychic damage on a hit and has the finesse, light, and thrown properties.
+A dagger of solidified gloom.
 
 # 560. - Shield [SOL]
 
