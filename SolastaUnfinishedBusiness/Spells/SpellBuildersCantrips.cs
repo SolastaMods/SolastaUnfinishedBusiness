@@ -926,9 +926,6 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        powerBoomingBladeDamage.AddCustomSubFeatures(
-            new ModifyEffectDescriptionBoomingBladeDamage(powerBoomingBladeDamage));
-
         var conditionMarked = ConditionDefinitionBuilder
             .Create("ConditionBoomingBladeMarked")
             .SetGuiPresentationNoContent(true)
@@ -964,6 +961,7 @@ internal static partial class SpellBuilders
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
                     .SetImpactParticleReference(Shatter)
                     .AddToDB())
+            .AddCustomSubFeatures(new ModifyEffectDescriptionBoomingBladeDamage(powerBoomingBladeDamage))
             .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
 
@@ -1094,9 +1092,6 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        powerResonatingStrike.AddCustomSubFeatures(
-            new ModifyEffectDescriptionResonatingStrikeDamage(powerResonatingStrike));
-
         var additionalDamageResonatingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageResonatingStrike")
             .SetGuiPresentationNoContent(true)
@@ -1118,8 +1113,8 @@ internal static partial class SpellBuilders
             .SetFeatures(additionalDamageResonatingStrike)
             .AddToDB();
 
-        additionalDamageResonatingStrike.AddCustomSubFeatures(
-            new PhysicalAttackFinishedByMeResonatingStrike(powerResonatingStrike, conditionResonatingStrike));
+        conditionResonatingStrike.AddCustomSubFeatures(
+            new CustomBehaviorConditionResonatingStrike(powerResonatingStrike, conditionResonatingStrike));
 
         var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")
@@ -1219,8 +1214,9 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class ModifyEffectDescriptionResonatingStrikeDamage(
-        FeatureDefinitionPower powerResonatingStrikeDamage) : IModifyEffectDescription
+    private sealed class CustomBehaviorConditionResonatingStrike(
+        FeatureDefinitionPower powerResonatingStrikeDamage,
+        ConditionDefinition conditionResonatingStrike) : IPhysicalAttackFinishedByMe, IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
@@ -1248,12 +1244,7 @@ internal static partial class SpellBuilders
 
             return effectDescription;
         }
-    }
 
-    private sealed class PhysicalAttackFinishedByMeResonatingStrike(
-        FeatureDefinitionPower powerResonatingStrikeDamage,
-        ConditionDefinition conditionResonatingStrike) : IPhysicalAttackFinishedByMe
-    {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
