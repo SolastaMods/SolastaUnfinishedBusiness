@@ -333,6 +333,7 @@ UI/&InventoryFilterCategory=カテゴリー
 UI/&InventoryFilterCost=料金
 UI/&InventoryFilterCostPerWeight=重量あたりのコスト
 UI/&InventoryFilterName=名前
+UI/&InventoryFilterNone=ソートなし
 UI/&InventoryFilterUnidentifiedMagical=未確認の魔法
 UI/&InventoryFilterWeight=重さ
 UI/&RecipeFilterAll=All

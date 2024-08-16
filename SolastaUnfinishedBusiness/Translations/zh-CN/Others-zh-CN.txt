@@ -333,6 +333,7 @@ UI/&InventoryFilterCategory=类别
 UI/&InventoryFilterCost=成本
 UI/&InventoryFilterCostPerWeight=每重量成本
 UI/&InventoryFilterName=姓名
+UI/&InventoryFilterNone=无排序
 UI/&InventoryFilterUnidentifiedMagical=不明魔法
 UI/&InventoryFilterWeight=重量
 UI/&RecipeFilterAll=所有

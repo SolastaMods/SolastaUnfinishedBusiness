@@ -253,6 +253,7 @@ ModUi/&Patches=<color=#F0DAA0>补丁：</color>
 ModUi/&PortraitsOpenFolder=打开肖像文件夹
 ModUi/&PrimedItems=制备好的物品
 ModUi/&Progression=<color=#F0DAA0>进度：</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst=先使用头部、颈部或躯干穿戴的物品进行快速施展轻型戏法
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=对<color=#D89555>黑暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>光照敏感</color>仅在室外触发\n<i><color=#F0DAA0>[无需加载屏幕即可访问的室外位置的室内区域被游戏引擎视为室外]</color></i>
 ModUi/&Races=<color=#F0DAA0>种族</color>
 ModUi/&RecipeCost=<color=white>配方成本</color>

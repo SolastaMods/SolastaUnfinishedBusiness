@@ -253,6 +253,7 @@ ModUi/&Patches=<color=#F0DAA0>Patch:</color>
 ModUi/&PortraitsOpenFolder=Apri la cartella dei ritratti
 ModUi/&PrimedItems=Articoli innescati
 ModUi/&Progression=<color=#F0DAA0>Progressione:</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst=Crea un trucchetto leggero con lancio rapido, usa prima gli oggetti indossati sulla testa, sul collo o sul busto
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Abilita <color=#D89555> Sensibilità alla luce</color> su <color=#D89555> Elfo scuro</color>, <color=#D89555> Coboldo scuro</color> e <color=#D89555> Nano grigio</color> per attivarsi solo all'aperto\n<i><color=#F0DAA0>[le aree interne in luoghi esterni accessibili senza schermata di caricamento sono considerate esterne dal motore di gioco]</color></i>
 ModUi/&Races=<color=#F0DAA0>Razze</color>
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>

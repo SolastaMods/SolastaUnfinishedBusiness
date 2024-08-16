@@ -333,6 +333,7 @@ UI/&InventoryFilterCategory=Catégorie
 UI/&InventoryFilterCost=Coût
 UI/&InventoryFilterCostPerWeight=Coût par poids
 UI/&InventoryFilterName=Nom
+UI/&InventoryFilterNone=Pas de tri
 UI/&InventoryFilterUnidentifiedMagical=Magique non identifié
 UI/&InventoryFilterWeight=Poids
 UI/&RecipeFilterAll=All

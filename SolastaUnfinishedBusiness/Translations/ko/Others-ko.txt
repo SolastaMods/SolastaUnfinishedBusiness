@@ -333,6 +333,7 @@ UI/&InventoryFilterCategory=범주
 UI/&InventoryFilterCost=비용
 UI/&InventoryFilterCostPerWeight=무게당 비용
 UI/&InventoryFilterName=이름
+UI/&InventoryFilterNone=정렬 없음
 UI/&InventoryFilterUnidentifiedMagical=미확인 마법
 UI/&InventoryFilterWeight=무게
 UI/&RecipeFilterAll=All
