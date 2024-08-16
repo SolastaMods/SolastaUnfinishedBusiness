@@ -1,14 +1,17 @@
 1.5.97.27:
 
+- added Gameplay > Rules > 'Enable quick cast Light Cantrip to use head, neck or torso worn items first' setting
 - added Path of Wild Magic wild surge reroll power
 - fixed blade cantrips getting offered twinned metamagic, and not scaling 2nd target damage
 - fixed Domain Tempest destructive wrath sometimes triggering when out of charges
+- fixed inventory filtering and sorting to also work under multiplayer
+- fixed Paladin aura powers, modded and vanilla, to not clutter the action bar
 - fixed Path of Wild Magic rage damage not applying to thrown weapons
 - fixed Potent Spellcaster feat affecting all cantrips regardless of source
 - fixed RESPEC not registering new hero correctly
+- fixed Spend Power action not triggering DamageReceived, ReactionToDamageShare, and TargetReducedToZeroHP [VANILLA]
 - fixed Slow condition interaction with custom actions that spend bonus or main
 - fixed Way of Weal and Woe missing 11 and 17 descriptions on level up
-- improved inventory filtering and sorting, and added beta hidden setting to allow it in MP
 
 1.5.97.26:
 

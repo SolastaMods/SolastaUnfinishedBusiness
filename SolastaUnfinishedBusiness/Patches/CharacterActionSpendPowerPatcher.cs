@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -19,6 +20,37 @@ public static class CharacterActionSpendPowerPatcher
     [UsedImplicitly]
     public static class ExecuteImpl_Patch
     {
+        private static IEnumerator HandlePostApplyMagicEffectOnZoneOrTargets(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter target,
+            RulesetEffect effect,
+            bool targetWasDeadOrDyingOrUnconscious,
+            int damageReceived,
+            bool damageAbsorbedByTemporaryHitPoints,
+            List<string> effectiveDamageTypes)
+        {
+            if (damageReceived <= 0 && !damageAbsorbedByTemporaryHitPoints)
+            {
+                yield break;
+            }
+
+            yield return battleManager.HandleDefenderOnDamageReceived(
+                attacker, target, damageReceived, effect, effectiveDamageTypes);
+            yield return battleManager.HandleAttackerOnDefenderDamageReceived(
+                attacker, target, damageReceived, effect, effectiveDamageTypes);
+
+            if (!damageAbsorbedByTemporaryHitPoints)
+            {
+                yield return battleManager.HandleReactionToDamageShare(target, damageReceived);
+            }
+
+            if (!targetWasDeadOrDyingOrUnconscious && target.RulesetActor.IsDeadOrDyingOrUnconscious)
+            {
+                yield return battleManager.HandleTargetReducedToZeroHP(attacker, target, null, effect);
+            }
+        }
+
         [UsedImplicitly]
         public static bool Prefix(
             out IEnumerator __result,
@@ -41,7 +73,6 @@ public static class CharacterActionSpendPowerPatcher
             // Retrieve the target
             __instance.targets.Clear();
             __instance.targets.AddRange(actionParams.TargetCharacters);
-
 
             // BEGIN PATCH
 
@@ -198,14 +229,39 @@ public static class CharacterActionSpendPowerPatcher
 
                     // END PATCH
 
+                    //BUGFIX: vanilla doesn't handle triggers on enemy death
+                    var effectDamageForm =
+                        effectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+                    var targetWasDeadOrDyingOrUnconscious = 
+                        target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: true };
+                    var targetCurrentHitPoints = target.RulesetCharacter.CurrentHitPoints;
+                    //END BUGFIX
+                    
                     implementationService.ApplyEffectForms(
                         effectForms,
                         applyFormsParams,
                         null,
                         effectApplication: effectDescription.EffectApplication,
                         filters: effectDescription.EffectFormFilters,
-                        damageAbsorbedByTemporaryHitPoints: out _,
+                        damageAbsorbedByTemporaryHitPoints: out var damageAbsorbedByTemporaryHitPoints,
                         terminateEffectOnTarget: out _);
+
+                    //BUGFIX: vanilla doesn't handle triggers on enemy death
+                    if (effectDamageForm != null)
+                    {
+                        var effectDamageTypes = new List<string> { effectDamageForm.DamageForm.DamageType };
+
+                        yield return HandlePostApplyMagicEffectOnZoneOrTargets(
+                            battleManager,
+                            actingCharacter,
+                            target,
+                            rulesetEffect,
+                            targetWasDeadOrDyingOrUnconscious,
+                            targetCurrentHitPoints - target.RulesetCharacter.CurrentHitPoints,
+                            damageAbsorbedByTemporaryHitPoints,
+                            effectDamageTypes);
+                    }
+                    //END BUGFIX
 
                     // Impact particles
                     var positioningService =
