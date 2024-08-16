@@ -13,9 +13,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class InventoryManagementContext
 {
-    public static bool Enabled => Main.Settings.EnableInventoryFilteringAndSorting
-                                  && (!Global.IsMultiplayer || Main.Settings.AllowSortingInMultiplayer);
-
     private static readonly List<string> SortCategories =
     [
         "UI/&InventoryFilterNone",
@@ -28,6 +25,11 @@ internal static class InventoryManagementContext
 
     private static readonly List<MerchantCategoryDefinition> ItemCategories = [];
 
+    private static readonly List<RulesetInventorySlot> Filtered = [];
+    private static bool _dirty = true;
+    public static bool Enabled => Main.Settings.EnableInventoryFilteringAndSorting
+                                  && (!Global.IsMultiplayer || Main.Settings.AllowSortingInMultiplayer);
+
     private static GuiDropdown FilterGuiDropdown { get; set; }
 
     private static SortGroup BySortGroup { get; set; }
@@ -38,9 +40,6 @@ internal static class InventoryManagementContext
 
     private static Toggle UnidentifiedToggle { get; set; }
     private static GameObject UnidentifiedText { get; set; }
-    
-    private static readonly List<RulesetInventorySlot> Filtered = new();
-    private static bool dirty = true;
 
     internal static void Load()
     {
@@ -123,7 +122,7 @@ internal static class InventoryManagementContext
         FilterGuiDropdown.ClearOptions();
         FilterGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
 
-        ItemCategories.ForEach(x => filterOptions.Add(new OptionDataAdvanced {text = x.FormatTitle()}));
+        ItemCategories.ForEach(x => filterOptions.Add(new OptionDataAdvanced { text = x.FormatTitle() }));
 
         FilterGuiDropdown.AddOptions(filterOptions);
         FilterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
@@ -156,7 +155,7 @@ internal static class InventoryManagementContext
         SortGuiDropdown.ClearOptions();
         SortGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
 
-        SortCategories.ForEach(x => sortOptions.Add(new OptionDataAdvanced {text = Gui.Localize(x)}));
+        SortCategories.ForEach(x => sortOptions.Add(new OptionDataAdvanced { text = Gui.Localize(x) }));
 
         SortGuiDropdown.AddOptions(sortOptions);
         SortGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
@@ -172,21 +171,21 @@ internal static class InventoryManagementContext
         TaggedGuiDropdown.ClearOptions();
         taggedOptions.AddRange(new OptionDataAdvanced[]
         {
-            new() {text = TagsDefinitions.Document}, new() {text = TagsDefinitions.SpellFocus},
-            new() {text = TagsDefinitions.Food}, new() {text = TagsDefinitions.CarryingCapacity},
-            new() {text = TagsDefinitions.ItemTagMetal}, new() {text = TagsDefinitions.ItemTagSilver},
-            new() {text = TagsDefinitions.ItemTagGold}, new() {text = TagsDefinitions.ItemTagWood},
-            new() {text = TagsDefinitions.ItemTagLeather}, new() {text = TagsDefinitions.ItemTagGlass},
-            new() {text = TagsDefinitions.ItemTagPaper}, new() {text = TagsDefinitions.ItemTagFlamable},
-            new() {text = TagsDefinitions.ItemTagQuest}, new() {text = TagsDefinitions.ItemTagIngredient},
-            new() {text = TagsDefinitions.ItemTagGem}, new() {text = TagsDefinitions.ArcaneFocus},
-            new() {text = TagsDefinitions.DruidicFocus}, new() {text = TagsDefinitions.ItemTagMonk},
-            new() {text = TagsDefinitions.MusicalInstrument}, new() {text = TagsDefinitions.LightSource},
-            new() {text = TagsDefinitions.WeaponTagAmmunition}, new() {text = CeContentPackContext.CeTag}
+            new() { text = TagsDefinitions.Document }, new() { text = TagsDefinitions.SpellFocus },
+            new() { text = TagsDefinitions.Food }, new() { text = TagsDefinitions.CarryingCapacity },
+            new() { text = TagsDefinitions.ItemTagMetal }, new() { text = TagsDefinitions.ItemTagSilver },
+            new() { text = TagsDefinitions.ItemTagGold }, new() { text = TagsDefinitions.ItemTagWood },
+            new() { text = TagsDefinitions.ItemTagLeather }, new() { text = TagsDefinitions.ItemTagGlass },
+            new() { text = TagsDefinitions.ItemTagPaper }, new() { text = TagsDefinitions.ItemTagFlamable },
+            new() { text = TagsDefinitions.ItemTagQuest }, new() { text = TagsDefinitions.ItemTagIngredient },
+            new() { text = TagsDefinitions.ItemTagGem }, new() { text = TagsDefinitions.ArcaneFocus },
+            new() { text = TagsDefinitions.DruidicFocus }, new() { text = TagsDefinitions.ItemTagMonk },
+            new() { text = TagsDefinitions.MusicalInstrument }, new() { text = TagsDefinitions.LightSource },
+            new() { text = TagsDefinitions.WeaponTagAmmunition }, new() { text = CeContentPackContext.CeTag }
         });
 
         taggedOptions.Sort((x, y) => String.Compare(x.text, y.text, StringComparison.Ordinal));
-        taggedOptions.Insert(0, new OptionDataAdvanced {text = Gui.Localize("UI/&InventoryFilterAnyTags")});
+        taggedOptions.Insert(0, new OptionDataAdvanced { text = Gui.Localize("UI/&InventoryFilterAnyTags") });
 
         TaggedGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
         TaggedGuiDropdown.AddOptions(taggedOptions);
@@ -254,7 +253,7 @@ internal static class InventoryManagementContext
         return BySortGroup.Inverted ? -result : result;
     }
 
-    static int SortByName([NotNull] RulesetItem a, [NotNull] RulesetItem b)
+    private static int SortByName([NotNull] RulesetItem a, [NotNull] RulesetItem b)
     {
         var at = Gui.Localize(a.ItemDefinition.GuiPresentation.Title);
         var bt = Gui.Localize(b.ItemDefinition.GuiPresentation.Title);
@@ -264,7 +263,7 @@ internal static class InventoryManagementContext
             : string.Compare(at, bt, StringComparison.CurrentCultureIgnoreCase);
     }
 
-    static int SortByCategory([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
+    private static int SortByCategory([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
     {
         var categoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
 
@@ -276,7 +275,7 @@ internal static class InventoryManagementContext
             : string.Compare(categoryB, categoryB, StringComparison.CurrentCultureIgnoreCase);
     }
 
-    static int SortByCost([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
+    private static int SortByCost([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
     {
         var ac = itemA.ComputeCost();
         var bc = itemB.ComputeCost();
@@ -286,7 +285,7 @@ internal static class InventoryManagementContext
             : EquipmentDefinitions.CompareCosts(ac, bc);
     }
 
-    static int SortByWeight([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
+    private static int SortByWeight([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
     {
         var aw = itemA.ComputeWeight();
         var bw = itemB.ComputeWeight();
@@ -296,7 +295,7 @@ internal static class InventoryManagementContext
             : aw.CompareTo(bw);
     }
 
-    static int SortByCostPerWeight([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
+    private static int SortByCostPerWeight([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
     {
         // ReSharper disable once IdentifierTypo
         var acpw = EquipmentDefinitions.GetApproximateCostInGold(itemA.ItemDefinition.Costs) /
@@ -375,7 +374,7 @@ internal static class InventoryManagementContext
     public static void Refresh(ContainerPanel panel, bool light = false)
     {
         Reset();
-        if (light) { return;}
+        if (light) { return; }
 
         var container = panel.Container;
         var character = panel.InspectedCharacter;
@@ -388,7 +387,7 @@ internal static class InventoryManagementContext
 
     private static void Reset()
     {
-        dirty = true;
+        _dirty = true;
         Filtered.Clear();
     }
 
@@ -401,7 +400,7 @@ internal static class InventoryManagementContext
 
     private static List<RulesetInventorySlot> FilterAndSort(RulesetContainer container)
     {
-        if (!dirty)
+        if (!_dirty)
         {
             return Filtered;
         }
@@ -414,7 +413,7 @@ internal static class InventoryManagementContext
             Filtered.Sort(ItemSort);
         }
 
-        dirty = false;
+        _dirty = false;
 
         return Filtered;
     }

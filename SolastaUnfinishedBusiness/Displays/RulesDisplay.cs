@@ -538,14 +538,14 @@ internal static class RulesDisplay
         }
 
         UI.Label();
-        
+
         toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
         if (UI.Toggle(Gui.Localize("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
         }
 
-        UI.Label("");
+        UI.Label();
 
         intValue = Main.Settings.SenseNormalVisionRangeMultiplier;
 

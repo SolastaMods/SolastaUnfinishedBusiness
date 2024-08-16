@@ -17,8 +17,8 @@ public static class RulesetContainerPatcher
         [UsedImplicitly]
         internal static bool Prefix(RulesetContainer __instance)
         {
-            int lastItem = __instance.inventorySlots.FindLastIndex(x => x.EquipedItem != null);
-            var count = ((lastItem + 1) / RulesetContainer.SlotsPerRow + 1) * RulesetContainer.SlotsPerRow;
+            var lastItem = __instance.inventorySlots.FindLastIndex(x => x.EquipedItem != null);
+            var count = (((lastItem + 1) / RulesetContainer.SlotsPerRow) + 1) * RulesetContainer.SlotsPerRow;
 
             __instance.ReserveSlots(Mathf.Max(__instance.minSlotsNumber, count));
 

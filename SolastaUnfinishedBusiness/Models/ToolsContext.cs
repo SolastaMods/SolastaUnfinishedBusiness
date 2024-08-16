@@ -160,7 +160,7 @@ internal static class ToolsContext
             var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
             var oldHero = functorParameters.RestingHero;
             var newHero = characterBuildingService.CreateNewCharacter().HeroCharacter;
-            newHero.Register(true);//register generating new guid
+            newHero.Register(true); //register generating new guid
 
             OldHeroName = oldHero.Name;
 
@@ -220,11 +220,11 @@ internal static class ToolsContext
                 EffectHelpers.GetAllEffectsBySourceGuid(newGuid).ForEach(e => e.SetGuid(oldGuid));
                 //Replace source for all conditions of new character
                 EffectHelpers.GetAllConditionsBySourceGuid(newGuid).ForEach(c => c.sourceGuid = oldGuid);
-                
-                newHero.Unregister();//unregister under new guid
+
+                newHero.Unregister(); //unregister under new guid
                 //Replace old character with new
                 ServiceRepository.GetService<IRulesetEntityService>().SwapEntities(oldHero, newHero);
-                newHero.Register(false);//register again under old guid
+                newHero.Register(false); //register again under old guid
 
                 newHero.Tags.AddRange(tags);
                 newHero.Attributes[AttributeDefinitions.Experience] = experience;

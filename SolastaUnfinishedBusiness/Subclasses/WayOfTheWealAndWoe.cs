@@ -56,7 +56,9 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        featureWoe.AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new ModifyEffectDescription(featureWoe));
+        featureWoe.AddCustomSubFeatures(
+            new ModifyEffectDescription(featureWoe),
+            ModifyPowerVisibility.Hidden);
 
         var featureSelfPropelledWeal = FeatureDefinitionBuilder
             .Create($"Feature{Name}SelfPropelledWeal")
@@ -77,7 +79,9 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        featureBrutalWeal.AddCustomSubFeatures(new ModifyEffectDescription(featureBrutalWeal), ModifyPowerVisibility.Hidden);
+        featureBrutalWeal.AddCustomSubFeatures(
+            new ModifyEffectDescription(featureBrutalWeal),
+            ModifyPowerVisibility.Hidden);
 
         // kept name for backward compatibility
         var featureTheirWoe = FeatureDefinitionPowerBuilder
@@ -93,7 +97,9 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        featureTheirWoe.AddCustomSubFeatures(new ModifyEffectDescription(featureTheirWoe), ModifyPowerVisibility.Hidden);
+        featureTheirWoe.AddCustomSubFeatures(
+            new ModifyEffectDescription(featureTheirWoe),
+            ModifyPowerVisibility.Hidden);
 
         featureWeal.AddCustomSubFeatures(new CustomBehaviorWealAndWoe(
             conditionWeal,

@@ -782,12 +782,12 @@ public static class GameLocationCharacterExtensions
         ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
     }
 
-    internal static int GetAllowedMainAttacks(this GameLocationCharacter instance)
+    private static int GetAllowedMainAttacks(this GameLocationCharacter instance)
     {
         var performanceFilters = instance.actionPerformancesByType[ActionType.Main];
-        int index = instance.currentActionRankByType[ActionType.Main];
-        
-        if (index >= performanceFilters.Count) { return -1;}
+        var index = instance.currentActionRankByType[ActionType.Main];
+
+        if (index >= performanceFilters.Count) { return -1; }
 
         var maxAllowedAttacks = performanceFilters[index].MaxAttacksNumber;
         var maxAttacks = instance.RulesetCharacter.AttackModes

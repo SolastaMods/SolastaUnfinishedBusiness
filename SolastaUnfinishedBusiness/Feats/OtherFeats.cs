@@ -1781,7 +1781,7 @@ internal static class OtherFeats
                 defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
 
                 var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
-                
+
                 rulesetDefender.InflictCondition(
                     conditionName,
                     DurationType.Round,

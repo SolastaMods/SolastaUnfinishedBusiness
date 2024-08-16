@@ -845,7 +845,7 @@ internal static class ClassFeats
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            if (definition is not SpellDefinition {SpellLevel: 0} spell) { return false; }
+            if (definition is not SpellDefinition { SpellLevel: 0 } spell) { return false; }
 
             var repertoires = new List<RulesetSpellRepertoire>();
             character.GetSpellRepertoireFromDefinition(spell, allMatchingRepertoires: repertoires);

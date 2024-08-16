@@ -974,17 +974,19 @@ internal static class SrdAndHouseRulesContext
 
     internal sealed class NoTwinned
     {
-        public static NoTwinned Mark { get; } = new();
-
         public static readonly ValidateMetamagicApplication Validator =
             (RulesetCharacter _, RulesetEffectSpell spell, MetamagicOptionDefinition _, ref bool result,
                 ref string failure) =>
             {
-                if (spell.SpellDefinition.HasSubFeatureOfType<NoTwinned>())
+                if (!spell.SpellDefinition.HasSubFeatureOfType<NoTwinned>())
                 {
-                    result = false;
-                    failure = "Failure/&FailureFlagInvalidSingleTarget";
+                    return;
                 }
+
+                result = false;
+                failure = "Failure/&FailureFlagInvalidSingleTarget";
             };
+
+        public static NoTwinned Mark { get; } = new();
     }
 }

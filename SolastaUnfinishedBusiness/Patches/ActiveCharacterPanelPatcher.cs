@@ -10,6 +10,11 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class ActiveCharacterPanelPatcher
 {
+    private static void OnCharacterPowerActivated(RulesetCharacter character, RulesetUsablePower power, int level)
+    {
+        character.RefreshAll();
+    }
+
     [HarmonyPatch(typeof(ActiveCharacterPanel), nameof(ActiveCharacterPanel.Refresh))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -28,11 +33,6 @@ public static class ActiveCharacterPanelPatcher
                 CustomCharacterStatsPanel.Instance.Refresh();
             }
         }
-    }
-
-    private static void OnCharacterPowerActivated(RulesetCharacter character, RulesetUsablePower power, int level)
-    {
-        character.RefreshAll();
     }
 
     [HarmonyPatch(typeof(ActiveCharacterPanel), nameof(ActiveCharacterPanel.Bind))]

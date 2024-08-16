@@ -82,8 +82,9 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             .AddToDB();
 
         featureWildSurge.AddCustomSubFeatures(new WildSurgeAfterRage(wildSurgeHandler, conditionWildSurgeReroll));
-        powerWildSurgeReroll.AddCustomSubFeatures(new WildSurgeRerollHandler(wildSurgeHandler, conditionWildSurgeReroll));
-        
+        powerWildSurgeReroll.AddCustomSubFeatures(
+            new WildSurgeRerollHandler(wildSurgeHandler, conditionWildSurgeReroll));
+
         var effectMagicAwareness = SpellDefinitions.DetectMagic.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Divination)
             .DeepCopy();
@@ -130,36 +131,42 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
     #region Wild Surge
 
-    private class WildSurgeAfterRage(WildSurgeHandler handler, ConditionDefinition conditionWildSurgeReroll) : IActionFinishedByMe
+    private class WildSurgeAfterRage(WildSurgeHandler handler, ConditionDefinition conditionWildSurgeReroll)
+        : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            if (characterAction.ActionId == Id.RageStart)
+            if (characterAction.ActionId != Id.RageStart)
             {
-                characterAction.ActingCharacter.RulesetCharacter.InflictCondition(
-                    conditionWildSurgeReroll.Name,
-                    DurationType.Minute,
-                    1,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    characterAction.ActingCharacter.RulesetCharacter.Guid,
-                    characterAction.ActingCharacter.RulesetCharacter.CurrentFaction.Name,
-                    1,
-                    conditionWildSurgeReroll.Name,
-                    0,
-                    0,
-                    0);
-
-                yield return handler.HandleWildSurge(characterAction.ActingCharacter);
+                yield break;
             }
+
+            characterAction.ActingCharacter.RulesetCharacter.InflictCondition(
+                conditionWildSurgeReroll.Name,
+                DurationType.Minute,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                characterAction.ActingCharacter.RulesetCharacter.Guid,
+                characterAction.ActingCharacter.RulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionWildSurgeReroll.Name,
+                0,
+                0,
+                0);
+
+            yield return handler.HandleWildSurge(characterAction.ActingCharacter);
         }
     }
 
-    private class WildSurgeRerollHandler(WildSurgeHandler wildSurgeHandler, ConditionDefinition conditionWildSurgeReroll) : IPowerOrSpellFinishedByMe
+    private class WildSurgeRerollHandler(
+        WildSurgeHandler wildSurgeHandler,
+        ConditionDefinition conditionWildSurgeReroll) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect, conditionWildSurgeReroll.Name);
+            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
+                conditionWildSurgeReroll.Name);
             yield return wildSurgeHandler.HandleWildSurge(action.ActingCharacter);
         }
     }
@@ -451,8 +458,9 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
-                .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, rangedAttack, mode, _) =>
-                    (OperationType.Set, rangedAttack && mode is { Thrown: true })))
+                .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty(
+                    (_, _, _, _, rangedAttack, mode, _) =>
+                        (OperationType.Set, rangedAttack && mode is { Thrown: true })))
                 .AddToDB();
 
             featureWildSurgeWeapon.AddCustomSubFeatures(
