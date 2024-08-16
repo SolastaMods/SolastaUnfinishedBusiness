@@ -1116,6 +1116,9 @@ internal static partial class SpellBuilders
         conditionResonatingStrike.AddCustomSubFeatures(
             new CustomBehaviorConditionResonatingStrike(powerResonatingStrike, conditionResonatingStrike));
 
+        powerResonatingStrike.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMeResonationStrikeDamage(conditionResonatingStrike));
+
         var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")
             .SetGuiPresentation(Category.Spell,
@@ -1131,7 +1134,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
@@ -1255,6 +1258,32 @@ internal static partial class SpellBuilders
             int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var secondDefender = CustomBehaviorResonatingStrike.SecondTarget;
+
+            if (secondDefender == null ||
+                rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionResonatingStrike.Name, out var activeCondition))
+                {
+                    rulesetAttacker.RemoveCondition(activeCondition);
+                }
+
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(powerResonatingStrikeDamage, rulesetAttacker);
+
+            attacker.MyExecuteActionPowerNoCost(usablePower, [secondDefender]);
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeResonationStrikeDamage(ConditionDefinition conditionResonatingStrike)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
             if (rulesetAttacker.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionResonatingStrike.Name, out var activeCondition))
@@ -1262,17 +1291,7 @@ internal static partial class SpellBuilders
                 rulesetAttacker.RemoveCondition(activeCondition);
             }
 
-            var secondDefender = CustomBehaviorResonatingStrike.SecondTarget;
-
-            if (secondDefender == null ||
-                rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            var usablePower = PowerProvider.Get(powerResonatingStrikeDamage, rulesetAttacker);
-
-            attacker.MyExecuteActionPowerNoCost(usablePower, [secondDefender]);
+            yield break;
         }
     }
 
