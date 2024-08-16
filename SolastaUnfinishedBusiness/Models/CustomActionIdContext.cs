@@ -492,6 +492,14 @@ public static class CustomActionIdContext
                     : ActionStatus.Unavailable;
                 return;
             }
+            case (Id)ExtraActionId.Quickened:
+            {
+                result = Main.Settings.EnableSorcererQuickenedAction
+                         && CharacterContext.CanUseActionQuickened(character)
+                    ? ActionStatus.Available
+                    : ActionStatus.Unavailable;
+                return;
+            }
         }
 
         var isInvocationAction = IsInvocationActionId(actionId);

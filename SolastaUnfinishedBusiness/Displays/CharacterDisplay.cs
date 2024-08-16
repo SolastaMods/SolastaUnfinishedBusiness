@@ -222,7 +222,6 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererQuickenedAction"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSorcererQuickenedAction = toggle;
-            CharacterContext.SwitchSorcererQuickenedAction();
         }
 
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
