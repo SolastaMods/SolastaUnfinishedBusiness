@@ -64,6 +64,7 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
+        FixPaladinAurasDisplayOnActionBar();
 
         // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
@@ -616,6 +617,15 @@ internal static class FixesContext
         ActionAffinityUncannyDodge.AddCustomSubFeatures(new ValidateDefinitionApplication(
             character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParryName)));
+    }
+
+    private static void FixPaladinAurasDisplayOnActionBar()
+    {
+        foreach (var power in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+                     .Where(x => x.Name.StartsWith("PowerOath") || x.Name.StartsWith("PowerPaladin")))
+        {
+            power.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        }
     }
 
     private static void FixAdditionalDamageRogueSneakAttack()
