@@ -166,6 +166,7 @@ ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de recursos e
 ModUi/&EnableStatsOnHeroTooltip=Muestra estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir: golpes críticos, fallos críticos, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe agrega una tirada D20 al peso para darle un poco de aleatoriedad <color=#F0DAA0>[peso elegido = votos * modificador de carisma del héroe + tirada D20]</color></i>
 ModUi/&EnableTeleportParty=Activa <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar al grupo <i><color=#F0DAA0>[podrías interrumpir las misiones si te teletransportas a un lugar desconocido]</color></i>
+ModUi/&EnableTeleportToRemoveRestrained=Habilite <color=#D89555>Teletransporte</color> para eliminar todas las condiciones <color=#D89555>restringidas</color> del objetivo
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los cambios en el grupo de personajes para configurar su grupo de prueba y juego predeterminado
 ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas al pasar el cursor sobre un personaje en combate.
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar transmisión ascendente de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>

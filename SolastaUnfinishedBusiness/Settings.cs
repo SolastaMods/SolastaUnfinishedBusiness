@@ -305,6 +305,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCharactersOnFireToEmitLight { get; set; }
     public bool EnableHigherGroundRules { get; set; }
     public bool FullyControlConjurations { get; set; }
+    public bool EnableTeleportToRemoveRestrained { get; set; }
     public bool ColdResistanceAlsoGrantsImmunityToChilledCondition { get; set; }
     public bool ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition { get; set; }
     public bool AddDarknessPerceptiveToDarkRaces { get; set; }

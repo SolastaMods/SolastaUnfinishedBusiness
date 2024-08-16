@@ -1,6 +1,7 @@
 1.5.97.27:
 
 - added Gameplay > Rules > 'Enable quick cast Light Cantrip to use head, neck or torso worn items first' setting
+- added Gameplay > Rules > 'Enable Teleport to remove all restrained conditions from target' setting
 - added Path of Wild Magic wild surge reroll power
 - fixed blade cantrips getting offered twinned metamagic, and not scaling 2nd target damage
 - fixed Domain Tempest destructive wrath sometimes triggering when out of charges

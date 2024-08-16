@@ -12,6 +12,8 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -108,6 +110,42 @@ public static class RulesetImplementationManagerLocationPatcher
     [UsedImplicitly]
     public static class ApplyMotionForm_Patch
     {
+        private static void TeleportCharacter(
+            IGameLocationPositioningService __instance,
+            GameLocationCharacter character,
+            int3 newPosition,
+            LocationDefinitions.Orientation orientation)
+        {
+            if (Main.Settings.EnableTeleportToRemoveRestrained)
+            {
+                var rulesetCharacter = character.RulesetCharacter;
+                var conditionsToRemove = rulesetCharacter.AllConditions
+                    .Where(x => x.ConditionDefinition.IsSubtypeOf(ConditionRestrained))
+                    .ToList();
+
+                foreach (var activeCondition in conditionsToRemove)
+                {
+                    rulesetCharacter.RemoveCondition(activeCondition);
+                }
+            }
+            
+            __instance.TeleportCharacter(character, newPosition, orientation);
+        }
+
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var teleportCharacterMethod = typeof(IGameLocationPositioningService).GetMethod("TeleportCharacter");
+            var myTeleportCharacterMethod =
+                new Action<IGameLocationPositioningService, GameLocationCharacter, int3,
+                    LocationDefinitions.Orientation>(TeleportCharacter).Method;
+
+            return instructions.ReplaceCalls(teleportCharacterMethod,
+                "CharacterStageClassSelectionPanel.Refresh",
+                new CodeInstruction(OpCodes.Call, myTeleportCharacterMethod)); // checked for Call vs CallVirtual
+        }
+
         [UsedImplicitly]
         public static bool Prefix(EffectForm effectForm, RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
@@ -201,7 +239,7 @@ public static class RulesetImplementationManagerLocationPatcher
         private static ConditionDefinition MyConditionDefinition(ConditionForm conditionForm)
         {
             return conditionForm.ConditionDefinition.Name
-                is RuleDefinitions.ConditionDarkness
+                is ConditionDarkness
                 or "ConditionBlindedByDarkness"
                 ? DatabaseHelper.ConditionDefinitions.ConditionDarkness
                 : conditionForm.ConditionDefinition;

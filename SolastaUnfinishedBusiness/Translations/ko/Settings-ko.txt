@@ -166,6 +166,7 @@ ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정�
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 또한 각 영웅은 약간의 무작위성을 위해 가중치에 D20 롤을 추가합니다. <color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정자 + D20 롤]</color></i>
 ModUi/&EnableTeleportParty=파티를 순간이동하려면 <color=#1E81B0>CTRL-SHIFT-(T)</color>를 활성화하세요. <i><color=#F0DAA0>[발견되지 않은 장소로 순간이동하면 퀘스트가 중단될 수 있습니다]</color></color> 나>
+ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>텔레포트</color>를 활성화하여 대상의 <color=#D89555>제한</color> 조건을 모두 제거하세요.
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=기본 플레이 및 테스트 파티를 설정하려면 캐릭터 풀의 토글을 활성화하세요.
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위로 마우스를 가져갈 때 툴팁에 거리 표시 활성화
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 창조</color> 및 <color=#D89555>페이 창조</color>의 업캐스트를 활성화합니다.
