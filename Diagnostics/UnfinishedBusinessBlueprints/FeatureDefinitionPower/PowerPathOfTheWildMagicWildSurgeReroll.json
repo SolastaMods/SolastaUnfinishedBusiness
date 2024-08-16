@@ -136,10 +136,10 @@
     "lightCounterDispellsEffect": false,
     "hideSavingThrowAnimation": false
   },
-  "delegatedToAction": false,
+  "delegatedToAction": true,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -155,7 +155,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -168,15 +168,15 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": false,
+  "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCircleOfTheWildfireBlazingRevivalTitle",
-    "description": "Feature/&PowerCircleOfTheWildfireBlazingRevivalDescription",
+    "title": "Feature/&PowerPathOfTheWildMagicWildSurgeRerollTitle",
+    "description": "Feature/&PowerPathOfTheWildMagicWildSurgeRerollDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -196,7 +196,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7b74d9c6-be59-51ca-a94b-a72a5ea83b8c",
+  "guid": "011775eb-afc7-5751-bc38-e62ce6abfbc5",
   "contentPack": 9999,
-  "name": "PowerCircleOfTheWildfireBlazingRevival"
+  "name": "PowerPathOfTheWildMagicWildSurgeReroll"
 }

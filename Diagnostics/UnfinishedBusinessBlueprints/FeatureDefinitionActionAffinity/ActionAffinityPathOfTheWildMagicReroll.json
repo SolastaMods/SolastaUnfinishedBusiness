@@ -12,7 +12,7 @@
   "maxAttacksNumber": -1,
   "forbiddenActions": [],
   "authorizedActions": [
-    9069
+    9068
   ],
   "restrictedActions": [],
   "actionExecutionModifiers": [],
@@ -44,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "38bb8988-a558-5c0c-8145-02d893f70586",
+  "guid": "6a0d4f99-9615-555d-85a4-630bfc0562eb",
   "contentPack": 9999,
-  "name": "ActionAffinitySorcererQuickened"
+  "name": "ActionAffinityPathOfTheWildMagicReroll"
 }

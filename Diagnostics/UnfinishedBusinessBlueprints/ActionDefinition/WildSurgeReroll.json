@@ -1,11 +1,11 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9070,
-  "actionType": "NoCost",
+  "id": 9068,
+  "actionType": "Bonus",
   "actionScope": "All",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
-  "classNameOverride": "Toggle",
+  "classNameOverride": "UsePower",
   "requiresAuthorization": true,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",
@@ -20,7 +20,7 @@
   "removedConditionName": "",
   "preventsSerialization": false,
   "baseActionForFailureTooltips": null,
-  "activatedPower": "Definition:PowerWayOfZenArcheryZenShot:382fe60d-e23a-5974-a564-ac8eb0db7b6a",
+  "activatedPower": "Definition:PowerPathOfTheWildMagicWildSurgeReroll:011775eb-afc7-5751-bc38-e62ce6abfbc5",
   "displayPowerTooltip": true,
   "dieType": "D10",
   "abilityScore": "Dexterity",
@@ -47,8 +47,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerWayOfZenArcheryZenShotTitle",
-    "description": "Feature/&PowerWayOfZenArcheryZenShotDescription",
+    "title": "Feature/&PowerPathOfTheWildMagicWildSurgeRerollTitle",
+    "description": "Feature/&PowerPathOfTheWildMagicWildSurgeRerollDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f039effbc135454c9bb55de2851472b1",
@@ -68,7 +68,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "39fe6c96-92a6-510d-9443-551ecf08d202",
+  "guid": "561cfafb-7363-5e70-b035-ced4429fdebd",
   "contentPack": 9999,
-  "name": "ZenShotToggle"
+  "name": "WildSurgeReroll"
 }
