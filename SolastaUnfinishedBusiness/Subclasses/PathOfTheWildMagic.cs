@@ -851,7 +851,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                             PreventEnemyAction(attacker, rulesetCharacter);
                         }
 
-                        cursorService.ActivateCursor<CursorLocationGeometricShape>([actionParams]);
+                        cursorService.ActivateCursor<CursorLocationGeometricShape>(actionParams);
 
                         while (reactingOutOfTurn && cursorService.CurrentCursor is CursorLocationGeometricShape)
                         {
@@ -924,7 +924,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 GameUiContext.ResetCamera();
                 PreventEnemyAction(attacker, rulesetCharacter);
 
-                cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
+                cursorService.ActivateCursor<CursorLocationSelectPosition>(actionParams);
 
                 while (cursorService.CurrentCursor is CursorLocationSelectPosition)
                 {

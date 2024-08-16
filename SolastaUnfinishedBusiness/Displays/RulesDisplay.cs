@@ -517,14 +517,14 @@ internal static class RulesDisplay
         {
             Main.Settings.EnableTeleportToRemoveRestrained = toggle;
         }
-        
+
         toggle = Main.Settings.FullyControlConjurations;
         if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.FullyControlConjurations = toggle;
             SrdAndHouseRulesContext.SwitchFullyControlConjurations();
         }
-        
+
         UI.Label();
 
         toggle = Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition;

@@ -128,7 +128,7 @@ public static class RulesetImplementationManagerLocationPatcher
                     rulesetCharacter.RemoveCondition(activeCondition);
                 }
             }
-            
+
             __instance.TeleportCharacter(character, newPosition, orientation);
         }
 

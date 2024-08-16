@@ -242,14 +242,12 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.Disadvantage,
-                        [
-                            AttributeDefinitions.Strength,
-                            AttributeDefinitions.Dexterity,
-                            AttributeDefinitions.Constitution,
-                            AttributeDefinitions.Intelligence,
-                            AttributeDefinitions.Wisdom,
-                            AttributeDefinitions.Charisma
-                        ])
+                        AttributeDefinitions.Strength,
+                        AttributeDefinitions.Dexterity,
+                        AttributeDefinitions.Constitution,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Charisma)
                     .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{NAME}")

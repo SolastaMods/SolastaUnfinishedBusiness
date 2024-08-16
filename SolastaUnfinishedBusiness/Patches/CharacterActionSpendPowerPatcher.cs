@@ -232,11 +232,11 @@ public static class CharacterActionSpendPowerPatcher
                     //BUGFIX: vanilla doesn't handle triggers on enemy death
                     var effectDamageForm =
                         effectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
-                    var targetWasDeadOrDyingOrUnconscious = 
+                    var targetWasDeadOrDyingOrUnconscious =
                         target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: true };
                     var targetCurrentHitPoints = target.RulesetCharacter.CurrentHitPoints;
                     //END BUGFIX
-                    
+
                     implementationService.ApplyEffectForms(
                         effectForms,
                         applyFormsParams,
