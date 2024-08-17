@@ -20,6 +20,7 @@ ModUi/&AllRecipesInDm=すべてのレシピはDMにあります
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ すべてのプレイヤーに物語シーケンスを許可</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=どのクラスも<color=#D89555>森の鎧</color>または<color=#D89555>ライトブリンガーの服</color>を着用できるようにする
 ModUi/&AllowBeardlessDwarves=ひげのない<color=#D89555>ドワーフ</color>を許可する
+ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>ブレード・カントリップ</color>が5フィートではなくリーチを使用できるようにする
 ModUi/&AllowClubsToBeThrown=<color=#D89555>こん棒</color>を<color=#D89555>短剣</color>や<color=#D89555>手斧</color>のように投げられるようにする
 ModUi/&AllowDisplayingNonSuggestedSpells=各リストで MOD 非推奨呪文を許可する
 ModUi/&AllowDisplayingOfficialSpells=各リストでゲームの公式呪文を許可する

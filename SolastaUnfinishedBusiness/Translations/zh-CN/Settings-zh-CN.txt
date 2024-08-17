@@ -20,6 +20,7 @@ ModUi/&AllRecipesInDm=冒险中的所有配方
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序列</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿<color=#D89555>森林之甲</color>或<color=#D89555>光明使者之衣</color>
 ModUi/&AllowBeardlessDwarves=允许无须<color=#D89555>矮人</color>
+ModUi/&AllowBladeCantripsToUseReach=允许<color=#D89555>剑术戏法</color>使用触及范围，而不是 5 英尺
 ModUi/&AllowClubsToBeThrown=允许<color=#D89555>短棒</color>像<color=#D89555>匕首</color>或<color=#D89555>手斧</color>一样投掷
 ModUi/&AllowDisplayingNonSuggestedSpells=允许在每个列表上使用 mod 非建议的法术
 ModUi/&AllowDisplayingOfficialSpells=允许每个列表中使用游戏官方法术

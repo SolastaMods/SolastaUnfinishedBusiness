@@ -20,6 +20,7 @@ ModUi/&AllRecipesInDm=모든 레시피는 DM에 있어요
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 내러티브 시퀀스에서 모든 플레이어 허용</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=모든 클래스가 <color=#D89555>실반 갑옷</color> 또는 <color=#D89555>빛의 인도자 옷</color>을 착용할 수 있도록 허용합니다.
 ModUi/&AllowBeardlessDwarves=수염이 없는 <color=#D89555>드워프</color> 허용
+ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>블레이드 캔트립</color>이 5피트 대신 리치를 사용하도록 허용
 ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color> 또는 <color=#D89555>손도끼</color>처럼 던질 수 있도록 허용
 ModUi/&AllowDisplayingNonSuggestedSpells=각 목록에서 Mod가 제안하지 않은 주문을 허용합니다.
 ModUi/&AllowDisplayingOfficialSpells=각 목록에 게임 공식 주문을 허용합니다.

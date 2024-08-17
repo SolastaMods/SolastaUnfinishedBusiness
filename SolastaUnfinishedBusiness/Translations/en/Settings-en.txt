@@ -20,6 +20,7 @@ ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
 ModUi/&AllowBeardlessDwarves=Allow beardless <color=#D89555>Dwarves</color>
+ModUi/&AllowBladeCantripsToUseReach=Allow <color=#D89555>Blade Cantrips</color> to use reach instead of 5 ft
 ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>clubs</color> to be thrown like <color=#D89555>daggers</color> or <color=#D89555>hand axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each list
 ModUi/&AllowDisplayingOfficialSpells=Allow game official spells on each list

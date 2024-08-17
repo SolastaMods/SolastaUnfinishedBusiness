@@ -20,6 +20,7 @@ ModUi/&AllRecipesInDm=Todas las recetas en DM.
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir a todos los jugadores en secuencias narrativas</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que cualquier clase use <color=#D89555>Armadura Sylvan</color> o <color=#D89555>Ropa de Iluminador</color>
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Enanos</color> imberbes
+ModUi/&AllowBladeCantripsToUseReach=Permitir que los <color=#D89555>trucos de espada</color> utilicen alcance en lugar de 5 pies
 ModUi/&AllowClubsToBeThrown=Permitir que se lancen <color=#D89555>garrotes</color> como <color=#D89555>dagas</color> o <color=#D89555>hachas de mano</color>.
 ModUi/&AllowDisplayingNonSuggestedSpells=Permitir hechizos mod no sugeridos en cada lista
 ModUi/&AllowDisplayingOfficialSpells=Permitir hechizos oficiales del juego en cada lista.

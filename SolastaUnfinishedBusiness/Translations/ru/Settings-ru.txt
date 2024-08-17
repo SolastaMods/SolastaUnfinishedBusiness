@@ -20,6 +20,7 @@ ModUi/&AllRecipesInDm=Все рецепты в СП
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Позволить всем игрокам участвовать в нарративных последовательностях</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Позволить всем классам носить <color=#D89555>Доспехи Сильвана</color> или <color=#D89555>Одежды Несущего свет</color>
 ModUi/&AllowBeardlessDwarves=Разрешить безбородых <color=#D89555>Дварфов</color> <i><color=#F0DAA0>[как, вообще, можно подумать о чём-то столь противоестественном?]</color></i>
+ModUi/&AllowBladeCantripsToUseReach=Разрешить <color=#D89555>Blade Cantrips</color> использовать радиус действия вместо 5 футов
 ModUi/&AllowClubsToBeThrown=Позволить метать <color=#D89555>дубинки</color>, как <color=#D89555>кинжалы</color> или <color=#D89555>топорики</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Отображать не рекомендуемые заклинания модификации в каждом списке
 ModUi/&AllowDisplayingOfficialSpells=Отображать официальные заклинания игры в каждом списке
