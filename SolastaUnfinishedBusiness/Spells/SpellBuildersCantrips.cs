@@ -598,7 +598,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetEffectForms(
@@ -803,7 +803,6 @@ internal static partial class SpellBuilders
     {
         var powerBoomingBladeDamage = FeatureDefinitionPowerBuilder
             .Create("PowerBoomingBladeDamage")
-            .SetGuiPresentation("BoomingBlade", Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -869,7 +868,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetEffectForms(
@@ -880,7 +879,13 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        spell.AddCustomSubFeatures(SrdAndHouseRulesContext.NoTwinned.Mark, new AttackAfterMagicEffect());
+        // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
+        powerBoomingBladeDamage.GuiPresentation = spell.GuiPresentation;
+
+        spell.AddCustomSubFeatures(
+            SrdAndHouseRulesContext.NoTwinned.Mark,
+            new AttackAfterMagicEffect(),
+            new UpgradeEffectRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
@@ -923,7 +928,6 @@ internal static partial class SpellBuilders
     {
         var powerResonatingStrikeDamage = FeatureDefinitionPowerBuilder
             .Create("PowerResonatingStrike")
-            .SetGuiPresentation("ResonatingStrike", Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -953,12 +957,11 @@ internal static partial class SpellBuilders
             .Create("ConditionResonatingStrike")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(powerResonatingStrikeDamage, additionalDamageResonatingStrike)
+            .SetFeatures(additionalDamageResonatingStrike)
             .SetSpecialInterruptions(ConditionInterruption.UsePowerExecuted)
             .AddToDB();
 
         conditionResonatingStrike.AddCustomSubFeatures(
-            AddUsablePowersFromCondition.Marker,
             new CustomBehaviorConditionResonatingStrike(conditionResonatingStrike, powerResonatingStrikeDamage));
 
         var spell = SpellDefinitionBuilder
@@ -977,7 +980,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique, 2)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetEffectForms(
@@ -989,11 +992,16 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
+        powerResonatingStrikeDamage.GuiPresentation = spell.GuiPresentation;
+
         spell.AddCustomSubFeatures(
             SrdAndHouseRulesContext.NoTwinned.Mark,
             // order matters here as CustomBehaviorResonatingStrike also implements IFilterTargetingCharacter
             // which should take precedence over one implemented at AttackAfterMagicEffect
-            new CustomBehaviorResonatingStrike(), new AttackAfterMagicEffect());
+            new CustomBehaviorResonatingStrike(),
+            new AttackAfterMagicEffect(),
+            new UpgradeEffectRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
@@ -1012,14 +1020,20 @@ internal static partial class SpellBuilders
             // this is same implementation in AttackAfterMagicEffect()
             if (__instance.SelectionService.SelectedTargets.Count == 0)
             {
-                isValid = AttackAfterMagicEffect.CanAttack(__instance.ActionParams.ActingCharacter, target);
+                var actingCharacter = __instance.ActionParams.ActingCharacter;
+                isValid = AttackAfterMagicEffect.CanAttack(actingCharacter, target) &&
+                          (Main.Settings.AllowBladeCantripsToUseReach || actingCharacter.IsWithinRange(target, 1));
 
-                if (!isValid)
+                if (isValid)
                 {
-                    __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMeleeWeaponError");
+                    return true;
                 }
 
-                return isValid;
+                var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5ft";
+
+                __instance.actionModifier.FailureFlags.Add(Gui.Format("Tooltip/&TargetMeleeWeaponError", text));
+
+                return false;
             }
 
             // this is the custom piece to enforce second target to be closer to first
