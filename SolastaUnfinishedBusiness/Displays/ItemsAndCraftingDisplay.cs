@@ -92,6 +92,13 @@ internal static class ItemsAndCraftingDisplay
         {
             Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
         }
+        
+        toggle = Main.Settings.MakeHandwrapsUseGauntletSlot;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&MakeHandwrapsUseGauntletSlot")), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.MakeHandwrapsUseGauntletSlot = toggle;
+            CustomWeaponsContext.UpdateHandWrapsUseGauntletSlot();
+        }
 
         toggle = Main.Settings.AddPickPocketableLoot;
         if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
