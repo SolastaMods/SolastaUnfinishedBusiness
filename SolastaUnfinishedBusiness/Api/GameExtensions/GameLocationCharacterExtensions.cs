@@ -783,12 +783,14 @@ public static class GameLocationCharacterExtensions
         var performanceFilters = instance.actionPerformancesByType[ActionType.Main];
         var index = instance.currentActionRankByType[ActionType.Main];
 
-        if (index >= performanceFilters.Count) { return -1; }
-
-        var maxAllowedAttacks = performanceFilters[index].MaxAttacksNumber;
         var maxAttacks = instance.RulesetCharacter.AttackModes
             .Where(mode => mode.ActionType == ActionType.Main)
             .Max(mode => mode.AttacksNumber);
+
+        if (index >= performanceFilters.Count) { return maxAttacks; }
+
+        var maxAllowedAttacks = performanceFilters[index].MaxAttacksNumber;
+
 
         return Math.Min(maxAllowedAttacks, maxAttacks);
     }
@@ -811,7 +813,9 @@ public static class GameLocationCharacterExtensions
         rulesetCharacter.ExecutedAttacks++;
         rulesetCharacter.RefreshAttackModes();
 
-        if (instance.UsedMainAttacks < instance.GetAllowedMainAttacks())
+        var allowedMainAttacks = instance.GetAllowedMainAttacks();
+        Main.Log2($"[{instance.Name}] BurnOneMainAttack allowed: {allowedMainAttacks} used: {instance.UsedMainAttacks}", true);
+        if (instance.UsedMainAttacks < allowedMainAttacks)
         {
             return;
         }
