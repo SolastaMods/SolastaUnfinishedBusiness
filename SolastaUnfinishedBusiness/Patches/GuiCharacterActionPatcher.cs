@@ -32,14 +32,15 @@ public static class GuiCharacterActionPatcher
     [UsedImplicitly]
     public static class SetupSprite_Patch
     {
-        private static bool wasCastQuickened;
+        private static bool _wasCastQuickened;
 
         [UsedImplicitly]
         public static void Prefix(GuiCharacterAction __instance)
         {
             //PATCH: make CastQuickened action have larger icon, same as CastBonus or CastMain
-            wasCastQuickened = __instance.actionId == (ActionDefinitions.Id)ExtraActionId.CastQuickened;
-            if (wasCastQuickened)
+            _wasCastQuickened = __instance.actionId == (ActionDefinitions.Id)ExtraActionId.CastQuickened;
+
+            if (_wasCastQuickened)
             {
                 __instance.actionId = ActionDefinitions.Id.CastBonus;
             }
@@ -49,7 +50,7 @@ public static class GuiCharacterActionPatcher
         public static void Postfix(GuiCharacterAction __instance)
         {
             //PATCH: make CastQuickened action have larger icon, same as CastBonus or CastMain
-            if (wasCastQuickened)
+            if (_wasCastQuickened)
             {
                 __instance.actionId = (ActionDefinitions.Id)ExtraActionId.CastQuickened;
             }

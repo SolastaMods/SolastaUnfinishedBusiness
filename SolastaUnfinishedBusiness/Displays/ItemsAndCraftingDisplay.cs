@@ -92,13 +92,6 @@ internal static class ItemsAndCraftingDisplay
         {
             Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
         }
-        
-        toggle = Main.Settings.MakeHandwrapsUseGauntletSlot;
-        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&MakeHandwrapsUseGauntletSlot")), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.MakeHandwrapsUseGauntletSlot = toggle;
-            CustomWeaponsContext.UpdateHandWrapsUseGauntletSlot();
-        }
 
         toggle = Main.Settings.AddPickPocketableLoot;
         if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
@@ -108,6 +101,14 @@ internal static class ItemsAndCraftingDisplay
             {
                 PickPocketContext.Load();
             }
+        }
+
+        toggle = Main.Settings.EnableMonkHandwrapsUseGauntletSlot;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableMonkHandwrapsUseGauntletSlot")), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkHandwrapsUseGauntletSlot = toggle;
+            CustomWeaponsContext.UpdateHandWrapsUseGauntletSlot();
         }
 
         UI.Label();

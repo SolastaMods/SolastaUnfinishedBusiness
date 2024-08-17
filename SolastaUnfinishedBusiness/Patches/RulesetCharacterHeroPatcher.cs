@@ -382,20 +382,20 @@ public static class RulesetCharacterHeroPatcher
             ref RulesetItem weapon)
         {
             //PATCH: allow hand wraps to be put into gauntlet slot
-            if (Main.Settings.MakeHandwrapsUseGauntletSlot
+            if (Main.Settings.EnableMonkHandwrapsUseGauntletSlot
                 && weapon == null && itemDefinition == DatabaseHelper.ItemDefinitions.UnarmedStrikeBase)
             {
                 var slot = __instance.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0];
                 var item = slot?.EquipedItem;
 
-                if (item is {ItemDefinition.WeaponDescription.WeaponType: "UnarmedStrikeType"})
+                if (item is { ItemDefinition.WeaponDescription.WeaponType: "UnarmedStrikeType" })
                 {
                     itemDefinition = item.ItemDefinition;
                     weaponDescription = itemDefinition.WeaponDescription;
                     weapon = item;
                 }
             }
-            
+
             //PATCH: validate damage features
             attackModifiers.RemoveAll(provider =>
                 provider is BaseDefinition feature

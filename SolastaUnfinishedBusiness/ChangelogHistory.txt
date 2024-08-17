@@ -1,5 +1,6 @@
 1.5.97.27:
 
+- added Gameplay > Items & Crafting > 'Make Monk handwraps and gauntlets work in gauntlet slot' setting
 - added Gameplay > Rules > 'Allow Blade Cantrips to use reach instead of 5 ft' setting
 - added Gameplay > Rules > 'Enable quick cast Light Cantrip to use head, neck or torso worn items first' setting
 - added Gameplay > Rules > 'Enable Teleport to remove all restrained conditions from target' setting

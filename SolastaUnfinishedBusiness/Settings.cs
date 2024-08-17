@@ -319,10 +319,9 @@ public class Settings : UnityModManager.ModSettings
     //
     // Gameplay - Items, Crafting & Merchants
     //
-    public bool MakeHandwrapsUseGauntletSlot { get; set; } = true;
-
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
+    public bool EnableMonkHandwrapsUseGauntletSlot { get; set; }
     public bool AddPickPocketableLoot { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int TotalCraftingTimeModifier { get; set; }
