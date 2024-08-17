@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -117,9 +116,7 @@ internal static class SpellPointsContext
         RectTransform useSlotsTable,
         GuiLabel highSlotNumber)
     {
-        if (!Main.Settings.UseAlternateSpellPointsSystem ||
-            (guiCharacterAction.ActionDefinition != DatabaseHelper.ActionDefinitions.CastMain &&
-             guiCharacterAction.ActionDefinition != DatabaseHelper.ActionDefinitions.CastBonus))
+        if (!Main.Settings.UseAlternateSpellPointsSystem || !guiCharacterAction.ActionDefinition.IsCastSpellAction())
         {
             return;
         }
@@ -297,10 +294,7 @@ internal static class SpellPointsContext
             {
                 foreach (var characterActionItem in
                          panel.actionItems.Where(x =>
-                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
-                             DatabaseHelper.ActionDefinitions.CastMain ||
-                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
-                             DatabaseHelper.ActionDefinitions.CastBonus))
+                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition.IsCastSpellAction()))
                 {
                     characterActionItem.CurrentItemForm.Refresh();
                 }
@@ -319,10 +313,7 @@ internal static class SpellPointsContext
             {
                 foreach (var characterActionItem in
                          panel.actionItems.Where(x =>
-                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
-                             DatabaseHelper.ActionDefinitions.CastMain ||
-                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
-                             DatabaseHelper.ActionDefinitions.CastBonus))
+                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition.IsCastSpellAction()))
                 {
                     characterActionItem.CurrentItemForm.Refresh();
                 }

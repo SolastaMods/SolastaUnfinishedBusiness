@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -132,6 +133,59 @@ public static class CharacterActionPanelPatcher
             return instructions.ReplaceCalls(findAttacks, "CharacterActionPanel.OnActivateAction",
                 new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Call, method));
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.SelectSpell))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SelectSpell_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: Support for Quickened Spell action
+            //replaces calls to ActionType to custom method which returns Main for Quickened action
+            var getActionType = typeof(CharacterActionPanel).GetProperty(nameof(CharacterActionPanel.ActionType))!
+                .GetGetMethod();
+            var method = new Func<
+                CharacterActionPanel,
+                ActionDefinitions.ActionType
+            >(GetActionType).Method;
+
+            return instructions.ReplaceCalls(getActionType, "CharacterActionPanel.SelectSpell",
+                new CodeInstruction(OpCodes.Call, method));
+        }
+
+        private static ActionDefinitions.ActionType GetActionType(CharacterActionPanel panel)
+        {
+            return panel.actionId == (ActionDefinitions.Id)ExtraActionId.CastQuickened
+                ? ActionDefinitions.ActionType.Main
+                : panel.ActionType;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.SpellCastConfirmed))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SpellCastConfirmed_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(CharacterActionPanel __instance)
+        {
+            //PATCH: Support for Quickened Spell action
+            if (__instance.actionId != (ActionDefinitions.Id)ExtraActionId.CastQuickened)
+            {
+                return true;
+            }
+
+            __instance.MetamagicSelected(
+                __instance.GuiCharacter.GameLocationCharacter,
+                (RulesetEffectSpell)__instance.actionParams.activeEffect,
+                DatabaseHelper.MetamagicOptionDefinitions.MetamagicQuickenedSpell
+            );
+            return false;
+
         }
     }
 

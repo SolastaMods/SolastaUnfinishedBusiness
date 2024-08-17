@@ -29,7 +29,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPoint
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -192,17 +191,6 @@ internal static partial class CharacterContext
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
 
-    internal static bool CanUseActionQuickened(RulesetCharacter rulesetCharacter)
-    {
-        var glc = GameLocationCharacter.GetFromActor(rulesetCharacter);
-        var hero = rulesetCharacter.GetOriginalHero();
-
-        return glc is { UsedMainSpell: false } &&
-               glc.GetActionTypeStatus(ActionType.Bonus) == ActionStatus.Available &&
-               hero is { RemainingSorceryPoints: > 1 } &&
-               hero.TrainedMetamagicOptions.Contains(MetamagicQuickenedSpell);
-    }
-
     internal static void LateLoad()
     {
         FlexibleBackgroundsContext.Load();
@@ -363,26 +351,23 @@ internal static partial class CharacterContext
     private static void LoadSorcererQuickened()
     {
         _ = ActionDefinitionBuilder
-            .Create("Quickened")
-            .SetGuiPresentation("MetamagicOptionQuickenedSpell", Category.Rules, CastMain)
+            .Create("CastQuickened")
+            .SetGuiPresentation("Rules/&MetamagicOptionQuickenedSpellTitle", "Action/&CastQuickenedDescription", CastMain)
             // .RequiresAuthorization()
             .SetActionType(ActionType.Bonus)
-            .SetActionId(ExtraActionId.Quickened)
+            .SetActionId(ExtraActionId.CastQuickened)
             .SetFormType(ActionFormType.Large)
             .SetActionScope(ActionScope.Battle)
+            .OverrideClassName("CastSpell")
+            .SetParameter(ActionParameter.SelectSpell)
             .AddToDB();
 
+        //leaving for compatibility?
+        //needed for characters who saved while affected by this
         _ = ConditionDefinitionBuilder
             .Create("ConditionSorcererQuickenedCastMain")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(
-                FeatureDefinitionAdditionalActionBuilder
-                    .Create("AdditionalActionSorcererQuickenedCastMain")
-                    .SetGuiPresentationNoContent(true)
-                    .SetActionType(ActionType.Main)
-                    .SetRestrictedActions(Id.CastMain)
-                    .AddToDB())
             .AddToDB();
     }
 

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -12,6 +11,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using static ActionDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -364,7 +364,7 @@ public static class CustomActionIdContext
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                             .Build())
-                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MistyStep)
+                    .SetParticleEffectParameters(SpellDefinitions.MistyStep)
                     .UseQuickAnimations()
                     .Build())
             .AddToDB();
@@ -432,7 +432,7 @@ public static class CustomActionIdContext
             case (Id)ExtraActionId.CombatWildShape:
             {
                 var power = character.GetPowerFromDefinition(action.ActivatedPower);
-                if (power is not { RemainingUses: > 0 } ||
+                if (power is not {RemainingUses: > 0} ||
                     (character is RulesetCharacterMonster monster &&
                      monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
                 {
@@ -492,12 +492,9 @@ public static class CustomActionIdContext
                     : ActionStatus.Unavailable;
                 return;
             }
-            case (Id)ExtraActionId.Quickened:
+            case (Id)ExtraActionId.CastQuickened:
             {
-                result = Main.Settings.EnableSorcererQuickenedAction
-                         && CharacterContext.CanUseActionQuickened(character)
-                    ? ActionStatus.Available
-                    : ActionStatus.Unavailable;
+                result = CanUseActionQuickened(locationCharacter, scope);
                 return;
             }
         }
@@ -649,5 +646,34 @@ public static class CustomActionIdContext
 
         return extra is ExtraActionId.BondOfTheTalismanTeleport
             or ExtraActionId.FarStep;
+    }
+
+    private static ActionStatus CanUseActionQuickened(GameLocationCharacter glc, ActionScope scope)
+    {
+        if (!Main.Settings.EnableSorcererQuickenedAction || scope != ActionScope.Battle)
+        {
+            return ActionStatus.Unavailable;
+        }
+
+        var hero = glc.RulesetCharacter.GetOriginalHero();
+        if (hero is null) { return ActionStatus.Unavailable; }
+
+        var quickenedSpell = MetamagicOptionDefinitions.MetamagicQuickenedSpell;
+        if (!hero.TrainedMetamagicOptions.Contains(quickenedSpell)
+            || !glc.RulesetCharacter.CanCastSpellOfActionType(ActionType.Main, glc.CanOnlyUseCantrips)
+            || glc.GetActionTypeStatus(ActionType.Bonus) != ActionStatus.Available)
+        {
+            return ActionStatus.Unavailable;
+        }
+
+        //TODO: modify error tooltip to mention sorcery points
+        return hero.RemainingSorceryPoints < quickenedSpell.SorceryPointsCost
+            ? ActionStatus.OutOfUses
+            : ActionStatus.Available;
+    }
+
+    internal static bool IsCastSpellAction(this ActionDefinition action)
+    {
+        return action.Id is Id.CastMain or Id.CastBonus or (Id)ExtraActionId.CastQuickened;
     }
 }
