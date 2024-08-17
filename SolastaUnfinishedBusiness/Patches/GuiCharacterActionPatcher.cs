@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -22,6 +23,26 @@ public static class GuiCharacterActionPatcher
             }
 
             __result = __instance.ActingCharacter.RulesetCharacter.GetRemainingAttackUses(__instance.forcedAttackMode);
+        }
+    }
+
+    [HarmonyPatch(typeof(GuiCharacterAction), nameof(GuiCharacterAction.SetupTooltip))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SetupTooltip_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(GuiCharacterAction __instance,
+            ActionDefinitions.ActionStatus actionStatus,
+            GuiTooltip guiTooltip,
+            RulesetAttackMode currentAttackMode,
+            ref int currentEffectFormCount,
+            ref string currentFailureString,
+            ref string currentTooltip,
+            ref ActionDefinitions.ActionStatus currentActionStatus)
+        {
+            //PATCH: Get custom error message for CastQuickened action
+            CustomActionIdContext.CheckQuickenedStatus(__instance, actionStatus, guiTooltip, ref currentFailureString);
         }
     }
 }

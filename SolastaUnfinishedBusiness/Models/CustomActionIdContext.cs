@@ -666,10 +666,21 @@ public static class CustomActionIdContext
             return ActionStatus.Unavailable;
         }
 
-        //TODO: modify error tooltip to mention sorcery points
         return hero.RemainingSorceryPoints < quickenedSpell.SorceryPointsCost
             ? ActionStatus.OutOfUses
             : ActionStatus.Available;
+    }
+
+    internal static void CheckQuickenedStatus(GuiCharacterAction action, ActionStatus status, GuiTooltip tooltip,
+        ref string fail)
+    {
+        if (action.ActionId != (Id)ExtraActionId.CastQuickened) { return; }
+
+        if (status != ActionStatus.OutOfUses) { return; }
+
+        tooltip.Content = tooltip.Content.Substring(0, tooltip.Content.Length - fail.Length);
+        fail = "\n" + Gui.Colorize(Gui.Format(FailureFlagInsufficientSorceryPoints), Gui.ColorFailure);
+        tooltip.Content += fail;
     }
 
     internal static bool IsCastSpellAction(this ActionDefinition action)
