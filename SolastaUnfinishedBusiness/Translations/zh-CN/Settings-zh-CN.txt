@@ -144,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=20 级时启用<color=#D89555>�
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=启用<color=#D89555>武僧</color><b>武术 - 额外徒手攻击</b>，在使用前不需要进行攻击动作
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=启用<color=#D89555>武僧</color><b>疾风连击</b>，在使用前不需要进行攻击动作
 ModUi/&EnableMonkFightingStyle=在<color=#D89555>武僧</color> 2 级启用<b>战斗风格</b>选择
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=使<color=#D89555>Monk</color> <b>手套</b>和<b>护手</b>能够在护手槽中发挥作用
 ModUi/&EnableMonkHeightenedMetabolism=在 10 级时启用<color=#D89555>武僧</color> <b>气通周天</b> <i><color=#F0DAA0>[<b>疾风连击</b>、<b>坚强防御</b>和<b>飞檐走壁</b>获得额外好处]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>武僧</color><b>精通无甲移动</b>沿垂直表面移动而不会掉落
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=18 级时启用<color=#D89555>武僧</color><b>无懈可击</b>取代<b>空灵体</b>
@@ -162,7 +163,7 @@ ModUi/&EnableRogueStrSaving=启用<color=#D89555>游荡者</color>在<b>诡诈/�
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSignatureSpellsRelearn=启用<color=#D89555>法师</color>招牌法术，以便在每次长休时准备<i><color=#F0DAA0>[而不是在 20 级时一次]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=在第 5 级启用<color=#D89555>术士</color><b>魔法指引</b>
-ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>巫师</color><b>加快行动</b>以允许在最后施放等级主技能
+ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=。此外，每个英雄都增加了 D20 骰子重量以获得一点随机性

@@ -144,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Включить <color=#D89555
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Позволить <color=#D89555>Монаху</color> использовать <b>Боевые искусства - бонусный безоружный удар</b> без требования тратить действие на атаку
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Позволить <color=#D89555>Монаху</color> использовать <b>Шквал ударов</b> без требования тратить действие на атаку
 ModUi/&EnableMonkFightingStyle=Включить <color=#D89555>Монахам</color> выбор <b>Боевого стиля</b> на уровне 2
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Разрешить <color=#D89555>Monk</color> <b>бинты</b> и <b>перчатки</b> работать в слоте перчаток
 ModUi/&EnableMonkHeightenedMetabolism=Включить <color=#D89555>Монахам</color> <b>Повышенный метаболизм</b> на уровне 10 <i><color=#F0DAA0>[<b>Шквал ударов</b>, <b>Терпеливая оборона</b> и <b>Поступь ветра</b> получают дополнительные преимущества]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Позволить <color=#D89555>Монаху</color> использовать <b>Улучшенное движение без доспехов</b> для перемещения по вертикальным поверхностям, не падая во время движения
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Включить <color=#D89555>Монахам</color> <b>Превосходную защиту</b> вместо <b>Пустого тела</b> на уровне 18
@@ -162,7 +163,7 @@ ModUi/&EnableRogueStrSaving=Включить <color=#D89555>Плутам</color>
 ModUi/&EnableSaveByLocation=Включить сохранения по кампаниям/локациям
 ModUi/&EnableSignatureSpellsRelearn=Включить <color=#D89555>Волшебникам</color> подготовку фирменных заклинаний после каждого продолжительного отдыха <i><color=#F0DAA0>[вместо того, чтобы выбирать их один раз на 20-м уровне]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Включить <color=#D89555>Чародеям</color> <b>Волшебное указание</b> на уровне 5
-ModUi/&EnableSorcererQuickenedAction=Включить <color=#D89555>Чародеям</color> <b>ускоренное действие</b>, чтобы позволить накладывать заклинание 1-го уровня и выше в конце хода
+ModUi/&EnableSorcererQuickenedAction=Включите действие <color=#D89555>Ускоренное заклинание</color>, чтобы разрешить использовать заклинание основного действия с примененной ускоренной метамагией.
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ассетов в редакторе Создателя Подземелий
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику на всплывающей подсказке о герое <i><color=#F0DAA0>[например: критические удары, критические промахи и т.д.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Также каждый герой добавляет к весомости результат броска D20 для привнесения элемента случайности <color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя + бросок D20]</color></i>

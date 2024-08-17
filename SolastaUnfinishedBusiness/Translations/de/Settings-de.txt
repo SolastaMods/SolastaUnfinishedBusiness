@@ -144,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Aktiviere <color=#D89555>Mönch
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Aktivieren Sie <color=#D89555>Mönch</color> <b>Kampfkunst – Bonus für unbewaffnete Schläge</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Aktivieren Sie <color=#D89555>Mönch</color> <b>Flurry of Blows</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist
 ModUi/&EnableMonkFightingStyle=Aktiviere die Wahl des <color=#D89555>Mönchs</color> <b>Kampfstils</b> auf Stufe 2
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Aktivieren Sie <color=#D89555>Mönchs</color>-<b>Handwickel</b> und <b>Stulpen</b>, damit diese im Stulpenschlitz funktionieren
 ModUi/&EnableMonkHeightenedMetabolism=Aktiviere <color=#D89555>Mönch</color> <b>Erhöhter Stoffwechsel</b> auf Stufe 10 <i><color=#F0DAA0>[<b>Schlaghagel</b>, <b>Geduldige Verteidigung </b> und <b>Schritt des Windes</b> erhalten zusätzliche Vorteile]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Aktivieren Sie <color=#D89555>Mönch</color> <b>Verbesserte ungepanzerte Bewegung</b>, um sich entlang vertikaler Flächen zu bewegen, ohne zu fallen
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Aktivieren Sie <color=#D89555>Mönch</color> <b>Überlegene Verteidigung</b>, um <b>Leeren Körper</b> auf Stufe 18 zu ersetzen
@@ -162,7 +163,7 @@ ModUi/&EnableRogueStrSaving=Aktivieren Sie <color=#D89555>Schurke</color>, um DE
 ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Standorten
 ModUi/&EnableSignatureSpellsRelearn=Aktivieren Sie <color=#D89555>Zauberer</color>-Signaturzauber, die bei jeder langen Pause <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i> vorbereitet werden
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Zauberer</color> <b>magische Führung</b> auf Stufe 5
-ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie <color=#D89555>Sorcerer</color> <b>Quick Action</b>, um am Ende das Casting des gelevelten Mains zu ermöglichen
+ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Außerdem fügt jeder Held für ein wenig Zufälligkeit einen D20-Wurf zum Gewicht hinzu <color=#F0DAA0>[Auswahlgewicht = Stimmen * Helden-Charisma-Modifikator + D20-Wurf]</color></i>

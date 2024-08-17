@@ -144,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=<color=#D89555>수도사</color
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>몽크</color> <b>무술 - 보너스 비무장 공격</b>을 활성화하여 사용 전에 공격 조치가 필요하지 않도록 하세요.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>몽크</color> <b>Flurry of Blows</b>를 활성화하면 사용 전에 공격 조치가 필요하지 않습니다.
 ModUi/&EnableMonkFightingStyle=레벨 2에서 <color=#D89555>몽크</color> <b>격투 스타일</b> 선택 활성화
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=<color=#D89555>몽크</color> <b>핸드랩</b>과 <b>건틀릿</b>이 건틀릿 슬롯에서 작동하도록 활성화합니다.
 ModUi/&EnableMonkHeightenedMetabolism=레벨 10 <i><color=#F0DAA0>[<b>폭풍의 타격</b>, <b>환자 방어에서 <color=#D89555>몽크</color> <b>신진대사 강화</b> 활성화 </b> 및 <b>바람의 발걸음</b>은 추가 혜택을 얻습니다.]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=추락하지 않고 수직 표면을 따라 이동하려면 <color=#D89555>몽크</color> <b>향상된 비무장 이동</b>을 활성화하세요.
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=레벨 18에서 <b>Empty Body</b>를 대체하려면 <color=#D89555>몽크</color> <b>우수 방어</b>를 활성화하세요.
@@ -162,7 +163,7 @@ ModUi/&EnableRogueStrSaving=<color=#D89555>도적</color>을 활성화하여 <b>
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
 ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 준비되도록 <color=#D89555>마법사</color> 시그니처 주문을 활성화하세요. <i><color=#F0DAA0>[레벨 20에 한 번이 아닌]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 <color=#D89555>소서러</color> <b>마법의 인도</b> 활성화
-ModUi/&EnableSorcererQuickenedAction=<color=#D89555>마법사</color>의 <b>빠른 동작</b>을 활성화하여 마지막에 레벨업된 메인을 시전할 수 있도록 합니다.
+ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작을 활성화하여 빠른 메타매직이 적용된 주요 동작 주문을 시전할 수 있습니다.
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 또한 각 영웅은 약간의 무작위성을 위해 가중치에 D20 롤을 추가합니다. <color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정자 + D20 롤]</color></i>

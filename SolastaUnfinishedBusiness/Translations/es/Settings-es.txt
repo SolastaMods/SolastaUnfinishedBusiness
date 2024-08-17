@@ -144,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Habilita <color=#D89555>Monje</
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Habilite <color=#D89555>Monje</color> <b>Artes marciales: ataques extra sin armas</b> para que no requiera una acción de ataque antes de su uso.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Habilite <color=#D89555>Monje</color> <b>Ráfaga de golpes</b> para que no requiera una acción de ataque antes de su uso.
 ModUi/&EnableMonkFightingStyle=Habilita la elección de <color=#D89555>Monje</color> <b>Estilo de lucha</b> en el nivel 2.
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Habilitar las <b>vendas</b> y los <b>guanteletes</b> de <color=#D89555>Monje</color> para que funcionen en la ranura de guantelete
 ModUi/&EnableMonkHeightenedMetabolism=Activa <color=#D89555>Monje</color> <b>Metabolismo intensificado</b> en el nivel 10 <i><color=#F0DAA0>[<b>Ráfaga de golpes</b>, <b>Defensa del paciente. </b> y <b>El Paso del Viento</b> obtienen beneficios adicionales]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D89555>Monje</color> <b>Movimiento sin armadura mejorado</b> para moverse a lo largo de superficies verticales sin caerse.
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilite <color=#D89555>Monje</color> <b>Defensa superior</b> para reemplazar <b>Cuerpo vacío</b> en el nivel 18.
@@ -162,7 +163,7 @@ ModUi/&EnableRogueStrSaving=Habilite a <color=#D89555>Pícaro</color> para que u
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSignatureSpellsRelearn=Habilite los hechizos característicos del <color=#D89555>Mago</color> para que se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Habilita <color=#D89555>Hechicero</color> <b>guía mágica</b> en el nivel 5.
-ModUi/&EnableSorcererQuickenedAction=Habilitar la <b>acción rápida</b> del <color=#D89555>Hechicero</color> para permitir lanzar el personaje principal nivelado al final
+ModUi/&EnableSorcererQuickenedAction=Habilitar la acción <color=#D89555>Hechizo acelerado</color> para permitir lanzar un hechizo de acción principal con metamagia acelerada aplicada
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de recursos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Muestra estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir: golpes críticos, fallos críticos, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe agrega una tirada D20 al peso para darle un poco de aleatoriedad <color=#F0DAA0>[peso elegido = votos * modificador de carisma del héroe + tirada D20]</color></i>

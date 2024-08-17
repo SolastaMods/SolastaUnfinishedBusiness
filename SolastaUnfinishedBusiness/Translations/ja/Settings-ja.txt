@@ -144,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=レベル 20 で<color=#D89555>
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>モンク</color>の<b>格闘技 - ボーナス素手攻撃</b>を有効にすると、使用前に攻撃アクションが不要になります。
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>モンク</color> の<b>連打</b>を有効にして、使用前に攻撃アクションを必要としないようにします
 ModUi/&EnableMonkFightingStyle=レベル 2 で<color=#D89555>モンク</color>の<b>戦闘スタイル</b>の選択が可能になります
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=<color=#D89555>モンク</color>の<b>ハンドラップ</b>と<b>ガントレット</b>をガントレットスロットで機能させる
 ModUi/&EnableMonkHeightenedMetabolism=<color=#D89555>モンク</color> の<b>新陳代謝の向上</b>をレベル 10 で有効にします。 <i><color=#F0DAA0>[<b>連打</b>、<b>患者の防御力] </b> と <b>風のステップ</b> には追加のメリットが得られます]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>モンク</color> の<b>非武装での移動の改善</b>が可能になり、落下せずに垂直面に沿って移動できるようになります
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>モンク</color>の<b>優れた防御力</b>を有効にして<b>空の体</b>を置き換えます。
@@ -162,7 +163,7 @@ ModUi/&EnableRogueStrSaving=<color=#D89555>ローグ</color>が<b>狡猾/邪悪�
 ModUi/&EnableSaveByLocation=キャンペーン/地域ごとの保存を有効にする
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>ウィザード</color>の特徴的な呪文を<i><color=#F0DAA0>[レベル20で1回ではなく]長い休憩ごとに準備できるようにする</color></i>
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>ソーサラー</color>の<b>魔法の導き</b>を有効にする
-ModUi/&EnableSorcererQuickenedAction=<color=#D89555>ソーサラー</color>の<b>クイックアクション</b>を有効にすると、最後にレベルアップしたメインをキャストできるようになります。
+ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセットのソートを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローは、ランダム性を高めるためにウェイトに D20 ロールを追加します<color=#F0DAA0>[ウェイトの選択 = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>

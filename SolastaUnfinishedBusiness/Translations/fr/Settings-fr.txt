@@ -144,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Activez <color=#D89555>Moine</c
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Activez <color=#D89555>Moine</color> <b>Arts martiaux - Bonus de frappes à mains nues</b> pour ne pas nécessiter d'action d'attaque avant utilisation.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Activez <color=#D89555>Moine</color> <b>Flurry of Blows</b> pour ne pas nécessiter d'action d'attaque avant utilisation.
 ModUi/&EnableMonkFightingStyle=Activer le choix <color=#D89555>Moine</color> <b>Style de combat</b> au niveau 2
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Activer les <b>bandages</b> et les <b>gantelets</b> de <color=#D89555>moine</color> pour qu'ils fonctionnent dans l'emplacement du gantelet
 ModUi/&EnableMonkHeightenedMetabolism=Activer <color=#D89555>Moine</color> <b>Métabolisme accru</b> au niveau 10 <i><color=#F0DAA0>[<b>Rafale de coups</b>, <b>Défense du patient </b> et <b>Pas du Vent</b> gagnent des avantages supplémentaires]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Permet au <color=#D89555>Moine</color> <b>Mouvement sans armure amélioré</b> de se déplacer le long des surfaces verticales sans tomber.
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Activez <color=#D89555>Moine</color> <b>Défense supérieure</b> pour remplacer <b>Corps vide</b> au niveau 18
@@ -162,7 +163,7 @@ ModUi/&EnableRogueStrSaving=Activez <color=#D89555>Rogue</color> pour utiliser l
 ModUi/&EnableSaveByLocation=Activer la sauvegarde par campagnes/emplacements
 ModUi/&EnableSignatureSpellsRelearn=Activer la préparation des sorts de signature de <color=#D89555>Assistant</color> à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Activer <color=#D89555>Sorcier</color> <b>conseils magiques</b> au niveau 5
-ModUi/&EnableSorcererQuickenedAction=Activez l'action rapide du <color=#D89555>Sorcier</color> pour permettre le lancement du niveau principal à la fin
+ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des actifs sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ De plus, chaque héros ajoute un jet de D20 au poids pour un peu de hasard <color=#F0DAA0>[poids du choix = votes * modificateur de Charisme du héros + jet de D20]</color></i>
