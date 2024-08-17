@@ -787,12 +787,9 @@ public static class GameLocationCharacterExtensions
             .Where(mode => mode.ActionType == ActionType.Main)
             .Max(mode => mode.AttacksNumber);
 
-        if (index >= performanceFilters.Count) { return maxAttacks; }
+        var maxAllowedAttacks = index >= performanceFilters.Count ? -1 : performanceFilters[index].MaxAttacksNumber;
 
-        var maxAllowedAttacks = performanceFilters[index].MaxAttacksNumber;
-
-
-        return Math.Min(maxAllowedAttacks, maxAttacks);
+        return maxAllowedAttacks < 0 || maxAllowedAttacks > maxAttacks ? maxAttacks : maxAllowedAttacks;
     }
 
 
