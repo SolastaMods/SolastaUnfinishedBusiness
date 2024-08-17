@@ -161,7 +161,7 @@ ModUi/&EnableRogueStrSaving=Enable <color=#D89555>Rogue</color> to use DEX or ST
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Wizard</color> signature spells to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Sorcerer</color> <b>magical guidance</b> at level 5
-ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Sorcerer</color> <b>quicken action</b> to allow cast leveled main in the end
+ModUi/&EnableSorcererQuickenedAction=Enable <b>Quickened Spell</b> action to allow cast main action spell with Quickened Spell metamagic applied.
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>

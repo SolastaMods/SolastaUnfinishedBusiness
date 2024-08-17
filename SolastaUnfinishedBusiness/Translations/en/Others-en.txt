@@ -2,6 +2,7 @@ Action/&BrutalStrikeToggleDescription=Activate/deactivate Brutal Strike
 Action/&BrutalStrikeToggleTitle=Brutal Strike
 Action/&CastPlaneMagicDescription=Cast one of the spells you got from Plane Touched feats
 Action/&CastPlaneMagicTitle=Channel Plane Magic
+Action/&CastQuickenedDescription=Cast main action spell using bonus action by applying Quickened Spell metamagic. 
 Action/&CunningStrikeToggleDescription=Activate/deactivate Cunning Strike
 Action/&CunningStrikeToggleTitle=Cunning Strike
 Action/&DragonHideToggleDescription=Activate/deactivate Dragon Hide

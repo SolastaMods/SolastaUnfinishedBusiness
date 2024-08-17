@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using TA.AddressableAssets;
+using TMPro;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
@@ -22,6 +23,17 @@ public static class CharacterActionItemFormPatcher
         [UsedImplicitly]
         public static void Postfix(CharacterActionItemForm __instance)
         {
+            //PATCH: make caption on small form wrap, instead of truncating
+            //TODO: do we need a setting to control this?
+            if (__instance.highSlotNumber == null)
+            {
+                var tmpText = __instance.captionLabel.tmpText;
+
+                tmpText.enableWordWrapping = true;
+                tmpText.alignment = TextAlignmentOptions.Bottom;
+                tmpText.overflowMode = TextOverflowModes.Overflow;
+            }
+
             //PATCH: Get dynamic properties from forced attack
             if (__instance.guiCharacterAction.forcedAttackMode == null)
             {
@@ -50,8 +62,8 @@ public static class CharacterActionItemFormPatcher
             }
 
             //PATCH: support display remaining spell points on cast actions (SPELL_POINTS)
-            SpellPointsContext.DisplayRemainingSpellPointsOnCastActions(
-                __instance.GuiCharacterAction, __instance.useSlotsTable, __instance.highSlotNumber);
+            SpellPointsContext.DisplayRemainingSpellPointsOnCastActions(__instance.GuiCharacterAction,
+                __instance.useSlotsTable, __instance.highSlotNumber, __instance.attacksNumberValue);
 
             //PATCH: support for `IActionItemDiceBox` showing custom dice number/size
             var action = __instance.guiCharacterAction.ActionDefinition;

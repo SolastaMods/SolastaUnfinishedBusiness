@@ -50,15 +50,6 @@ public static class RulesetImplementationManagerLocationPatcher
             MetamagicOptionDefinition metamagicOption,
             ref string failure)
         {
-            //PATCH: cannot use MM if quickened action was used
-            if (caster.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, "ConditionSorcererQuickenedCastMain"))
-            {
-                __result = false;
-
-                return;
-            }
-
             //PATCH: support for custom metamagic
             var validator = metamagicOption.GetFirstSubFeatureOfType<ValidateMetamagicApplication>();
             validator?.Invoke(caster, rulesetEffectSpell, metamagicOption, ref __result, ref failure);
