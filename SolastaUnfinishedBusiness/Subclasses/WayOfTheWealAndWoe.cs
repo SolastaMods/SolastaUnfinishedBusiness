@@ -299,10 +299,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
-            var dieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
-                .DieTypeByRankTable
-                .Find(x => x.Rank == monkLevel).DieType;
+            var dieType = character.GetMonkDieType();
 
             effectDescription.EffectForms[0].DamageForm.DieType = dieType;
 

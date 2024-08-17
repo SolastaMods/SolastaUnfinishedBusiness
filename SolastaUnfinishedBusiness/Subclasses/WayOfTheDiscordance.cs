@@ -350,13 +350,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         {
             var damageForm = effectDescription.FindFirstDamageForm();
 
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
-            damageForm.BonusDamage = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
             damageForm.DieType = character.GetMonkDieType();
+            damageForm.BonusDamage = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
 
             return effectDescription;
         }

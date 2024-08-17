@@ -89,8 +89,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(PowerDragonbornBreathWeaponBlack.EffectDescription)
-                    .SetParticleEffectParameters(PowerDragonbornBreathWeaponBlack)
+                    .Create(PowerDragonbornBreathWeaponBlack)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Dexterity,
                         false,
@@ -127,8 +126,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlue)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(PowerDragonbornBreathWeaponBlue.EffectDescription)
-                    .SetParticleEffectParameters(PowerDragonbornBreathWeaponBlue)
+                    .Create(PowerDragonbornBreathWeaponBlue)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Dexterity,
                         false,
@@ -165,8 +163,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(PowerDragonbornBreathWeaponGreen.EffectDescription)
-                    .SetParticleEffectParameters(StinkingCloud)
+                    .Create(PowerDragonbornBreathWeaponGreen)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
                     .SetDurationData(DurationType.Round, 3)
                     .SetSavingThrowData(false,
@@ -216,8 +213,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGold)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(PowerDragonbornBreathWeaponGold.EffectDescription)
-                    .SetParticleEffectParameters(PowerDragonbornBreathWeaponGold)
+                    .Create(PowerDragonbornBreathWeaponGold)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Dexterity,
                         false,
@@ -642,11 +638,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
         {
             var damageForm = effectDescription.FindFirstDamageForm();
 
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
             if (character.GetClassLevel(CharacterClassDefinitions.Monk) >= 17)
             {
                 damageForm.DiceNumber = 4;
@@ -702,11 +693,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
 
             if (character.GetClassLevel(CharacterClassDefinitions.Monk) >= 17)
             {
