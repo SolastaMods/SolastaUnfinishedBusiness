@@ -457,6 +457,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             if (duelingTrend.sourceName == "Dueling")
             {
                 damageForm.BonusDamage -= 2;
+                // ReSharper disable once UsageOfDefaultStructEquality
                 damageForm.DamageBonusTrends.Remove(duelingTrend);
             }
 

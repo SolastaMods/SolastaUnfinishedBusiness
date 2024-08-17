@@ -14,7 +14,7 @@ internal static class PowerProvider
     [NotNull]
     internal static RulesetUsablePower Get(FeatureDefinitionPower power, [CanBeNull] RulesetCharacter actor = null)
     {
-        var result = (RulesetUsablePower)null;
+        RulesetUsablePower result = null;
 
         if (actor != null)
         {

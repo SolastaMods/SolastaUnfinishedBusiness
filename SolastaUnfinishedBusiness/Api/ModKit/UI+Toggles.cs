@@ -67,8 +67,6 @@ internal static partial class UI
             {
                 return false;
             }
-
-            value = !value;
         }
         else
         {
@@ -76,9 +74,9 @@ internal static partial class UI
             {
                 return false;
             }
-
-            value = !value;
         }
+
+        value = !value;
 
         return true;
     }

@@ -68,7 +68,7 @@ internal static class PowerBundleContext
                         SkipAnimationsAndVFX = true
                     };
 
-                    ServiceRepository.GetService<ICommandService>()?
+                    ServiceRepository.GetService<ICommandService>()
                         .ExecuteAction(actionParams, functor.ActionExecuted, false);
 
                     while (!functor._powerUsed)

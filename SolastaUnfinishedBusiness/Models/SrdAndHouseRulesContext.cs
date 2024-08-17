@@ -448,15 +448,15 @@ internal static class SrdAndHouseRulesContext
             ringDefinition.tickType = DurationType.Minute;
             ringDefinition.tickNumber = 3;
             ringDefinition.diceNumber = 1;
-            ringDefinition.dieType = DieType.D1;
         }
         else
         {
             ringDefinition.tickType = DurationType.Round;
             ringDefinition.tickNumber = 1;
             ringDefinition.diceNumber = 2;
-            ringDefinition.dieType = DieType.D1;
         }
+
+        ringDefinition.dieType = DieType.D1;
     }
 
     internal static void SwitchUseHeightOneCylinderEffect()

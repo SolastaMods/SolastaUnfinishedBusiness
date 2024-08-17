@@ -503,7 +503,7 @@ public static class RulesetImplementationManagerPatcher
 
                 foreach (var trackedLightSourceGuid in activeEffect.TrackedLightSourceGuids.ToList())
                 {
-                    var rulesetLightSource = (RulesetLightSource)null;
+                    RulesetLightSource rulesetLightSource = null;
                     ref var local = ref rulesetLightSource;
 
                     if (!RulesetEntity.TryGetEntity(trackedLightSourceGuid, out local) || rulesetLightSource == null)
@@ -569,7 +569,7 @@ public static class RulesetImplementationManagerPatcher
 
             foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids.ToList())
             {
-                var rulesetItemProperty = (RulesetItemProperty)null;
+                RulesetItemProperty rulesetItemProperty = null;
                 ref var local = ref rulesetItemProperty;
 
                 if (!RulesetEntity.TryGetEntity(itemPropertyGuid, out local) || rulesetItemProperty == null)
