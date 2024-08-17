@@ -683,6 +683,22 @@ public static class CustomActionIdContext
         tooltip.Content += fail;
     }
 
+    internal static void UpdateCastActionForm(GuiCharacterAction action, List<Id> actions)
+    {
+        if (action.ActionId == Id.CastBonus)
+        {
+            action.actionDefinition.formType = actions.Contains((Id)ExtraActionId.CastQuickened)
+                ? ActionFormType.Small
+                : ActionFormType.Large;
+        }
+        else if (action.actionId == (Id)ExtraActionId.CastQuickened)
+        {
+            action.actionDefinition.formType = actions.Contains(Id.CastBonus)
+                ? ActionFormType.Small
+                : ActionFormType.Large;
+        }
+    }
+
     internal static bool IsCastSpellAction(this ActionDefinition action)
     {
         return action.Id is Id.CastMain or Id.CastBonus or (Id)ExtraActionId.CastQuickened;

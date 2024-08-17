@@ -50,8 +50,8 @@ public static class CharacterActionItemFormPatcher
             }
 
             //PATCH: support display remaining spell points on cast actions (SPELL_POINTS)
-            SpellPointsContext.DisplayRemainingSpellPointsOnCastActions(
-                __instance.GuiCharacterAction, __instance.useSlotsTable, __instance.highSlotNumber);
+            SpellPointsContext.DisplayRemainingSpellPointsOnCastActions(__instance.GuiCharacterAction,
+                __instance.useSlotsTable, __instance.highSlotNumber, __instance.attacksNumberValue);
 
             //PATCH: support for `IActionItemDiceBox` showing custom dice number/size
             var action = __instance.guiCharacterAction.ActionDefinition;

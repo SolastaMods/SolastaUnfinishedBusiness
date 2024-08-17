@@ -111,10 +111,8 @@ internal static class SpellPointsContext
         }
     }
 
-    internal static void DisplayRemainingSpellPointsOnCastActions(
-        GuiCharacterAction guiCharacterAction,
-        RectTransform useSlotsTable,
-        GuiLabel highSlotNumber)
+    internal static void DisplayRemainingSpellPointsOnCastActions(GuiCharacterAction guiCharacterAction,
+        RectTransform useSlotsTable, GuiLabel highSlotNumber, GuiLabel attackNumber)
     {
         if (!Main.Settings.UseAlternateSpellPointsSystem || !guiCharacterAction.ActionDefinition.IsCastSpellAction())
         {
@@ -123,6 +121,13 @@ internal static class SpellPointsContext
 
         var rulesetCharacter = guiCharacterAction.ActingCharacter.RulesetCharacter;
         var remainingSpellPoints = GetRemainingSpellPoints(rulesetCharacter).ToString();
+
+        if (highSlotNumber == null)
+        {
+            attackNumber.Text = remainingSpellPoints;
+            attackNumber.transform.parent.gameObject.SetActive(true);
+            return;
+        }
 
         highSlotNumber.gameObject.SetActive(true);
         useSlotsTable.gameObject.SetActive(false);

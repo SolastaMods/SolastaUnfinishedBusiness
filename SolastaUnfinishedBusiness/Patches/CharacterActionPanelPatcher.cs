@@ -40,6 +40,19 @@ public static class CharacterActionPanelPatcher
             CustomReactionsContext.SaveReadyActionPreferredCantrip(__instance.actionParams, readyActionType);
         }
     }
+    
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.BindCharacterActionItem))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class BindCharacterActionItem_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(CharacterActionPanel __instance, GuiCharacterAction guiCharacterAction)
+        {
+            //PATCH: allow cast Quickened and Bonus spell to be small if both present
+            CustomActionIdContext.UpdateCastActionForm(guiCharacterAction, __instance.filteredActions);
+        }
+    }
 
     [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.ComputeMultipleGuiCharacterActions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
