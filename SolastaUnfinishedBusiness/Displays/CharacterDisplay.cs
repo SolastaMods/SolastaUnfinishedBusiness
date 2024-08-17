@@ -173,12 +173,6 @@ internal static class CharacterDisplay
             UI.Label();
         }
 
-        toggle = Main.Settings.EnableRelearnSpells;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRelearnSpells = toggle;
-        }
-
         UI.Label();
 
         toggle = Main.Settings.EnablesAsiAndFeat;

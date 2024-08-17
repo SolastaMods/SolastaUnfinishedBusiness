@@ -408,6 +408,12 @@ internal static class RulesDisplay
             Main.Settings.EnableCantripsTriggeringOnWarMagic = toggle;
         }
 
+        toggle = Main.Settings.EnableRelearnSpells;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRelearnSpells = toggle;
+        }
+
         toggle = Main.Settings.RemoveSchoolRestrictionsFromShadowCaster;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromShadowCaster"), ref toggle, UI.AutoWidth()))
         {
@@ -475,6 +481,12 @@ internal static class RulesDisplay
         {
             Main.Settings.ChangeDragonbornElementalBreathUsages = toggle;
             CharacterContext.SwitchDragonbornElementalBreathUsages();
+        }
+
+        toggle = Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAttributeCheckHelpersToWorkOffCombat"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat = toggle;
         }
 
         toggle = Main.Settings.EnableSignatureSpellsRelearn;

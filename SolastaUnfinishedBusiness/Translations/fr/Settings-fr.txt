@@ -4,7 +4,7 @@ ModUi/&AddAllToStore=Tout ajouter au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> à celles supprimées par la <color=#D89555>Grande</color> et la <color=#D89555>Restauration moindre</color>
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux objets officiels du jeu <i><color=#F0DAA0>[munitions, recettes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Activez <color=#D89555>Darkness Perceptive</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Grey Dwarf</color> <i><color=#F0DAA0>\n[accorde un avantage sur les tests de perception lorsqu'il n'est pas éclairé ou dans l'obscurité magique]</color></i>
-ModUi/&AddDexModifierToEnemiesInitiativeRoll=Ajoutez un <color=#D89555>Modificateur de dextérité</color> aux ennemis un <color=#D89555>Jet d'initiative</color>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=Ajoutez un modificateur DEX aux ennemis <color=#D89555>Initiative Roll</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Activez <color=#D89555>Combattant</color> pour ajouter le niveau de classe en bonus à la relance du jet de sauvegarde de la <color=#D89555>Résistance indomptable</color>.
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature amie à attaquer une créature à moins d'une cellule de vous]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Activer les ennemis préférés humanoïdes <color=#D89555>Ranger</color>
@@ -21,7 +21,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur l
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser n'importe quelle classe à porter une <color=#D89555>armure sylvestre</color> ou des <color=#D89555>vêtements de porteur de lumière</color>
 ModUi/&AllowBeardlessDwarves=Autoriser les <color=#D89555>Nains</color> imberbes
 ModUi/&AllowBladeCantripsToUseReach=Autoriser les <color=#D89555>sorties de lame</color> à utiliser la portée au lieu de 1,50 m
-ModUi/&AllowClubsToBeThrown=Autoriser le lancement de <color=#D89555>clubs</color> comme des <color=#D89555>poignards</color> ou des <color=#D89555>haches</color>
+ModUi/&AllowClubsToBeThrown=Autoriser les <color=#D89555>matraques</color> à être lancées comme des <color=#D89555>dagues</color> ou des <color=#D89555>haches à main</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Autoriser les sorts mod non suggérés sur chaque liste
 ModUi/&AllowDisplayingOfficialSpells=Autoriser les sorts officiels du jeu sur chaque liste
 ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure métallique
@@ -90,7 +90,7 @@ ModUi/&DocsSubraces=Sous-races
 ModUi/&DocsVersatilities=Polyvalences
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Ne pas afficher les casques sur les personnages graphiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&DontEndTurnAfterReady=Ne terminez pas votre tour après avoir utilisé l'<color=#D89555>action prête</color> <i><color=#F0DAA0>[permet d'utiliser l'action bonus ou toute action principale supplémentaire provenant de la hâte ou d'autres sources]</color></i>
+ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir utilisé <color=#D89555>Action Prête</color> <i><color=#F0DAA0>[permet d'utiliser une Action Bonus ou toute action Principale supplémentaire à partir de la Hâte ou d'autres sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à % du bord de l'écran</color></i>
 ModUi/&DungeonMakerBasicHelp=• Ces paramètres ne nécessiteront pas que le joueur ait ce mod installé
@@ -107,16 +107,16 @@ ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Activez <color=#D89555>Inspira
 ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Barbare</color> <b>Frappe brutale</b> et <b>Amélioration de la frappe brutale</b> aux niveaux 9, 13 et 17.
 ModUi/&EnableBarbarianFightingStyle=Activer le choix <color=#D89555>Barbare</color> <b>Style de combat</b> au niveau 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Activez le buff et le débuff <color=#D89555>Barbare</color> <b>Attaque téméraire</b> pour terminer au début du prochain tour.
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permet au <color=#D89555>Barbare</color> de récupérer une utilisation de rage pendant un court repos au niveau 7.
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permet au <color=#D89555>Barbare</color> de récupérer une utilisation de <b>Rage</b> sur un repos court au niveau 7
 ModUi/&EnableBardHealingBalladOnLongRest=Activer le <color=#D89555>Bard College of Hope</color> <b>Healing Ballad</b> en cas de repos long.
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCantripsTriggeringOnWarMagic=Activer les cantrips pour déclencher une attaque bonus supplémentaire de <color=#D89555>Magie de guerre</color>
 ModUi/&EnableCharacterChecker=Activez le bouton Vérificateur de caractères sur l'écran principal > Personnages
 ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour exporter le caractère
-ModUi/&EnableCharactersOnFireToEmitLight=Les personnages en feu doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Jester de feu, Balbuzard de feu, Araignée de feu et famille de conditions en feu]</color></i>
+ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</color> doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Bouffon de feu, Balbuzard pêcheur de feu, Araignée de feu et famille de conditions en feu]</color></i>
 ModUi/&EnableCheatMenu=Activer le menu des astuces
-ModUi/&EnableCustomPortraits=Activer les portraits personnalisés
+ModUi/&EnableCustomPortraits=Activer les <color=#D89555>portraits personnalisés</color>
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personnel</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>. </b></i>, nommé d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utiliser PNG images, d'une taille de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclut des salles plates, des donjons de 150 x 150 et 200 x 200 et un mélange sans fioritures des ressources de tous les environnements]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Activez la caméra d'élévation pendant la bataille pour rester en position après avoir été désactivée et tripler sa portée</i>
@@ -155,14 +155,14 @@ ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire
 ModUi/&EnableRangerNatureShroudAt10=Activez la fonctionnalité <color=#D89555>Ranger</color> <b>Voile de la nature</b> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour. ]</color></i>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 personnes ]</color></i>
 ModUi/&EnableRelearnSpells=Activer la sélection de cantrips ou de sorts déjà appris à partir d'autres sources
-ModUi/&EnableRespec=Activer l'action RESPEC après repos <i><color=#F0DAA0>[ne pas utiliser RESPEC pendant une session multijoueur]</color></i>
+ModUi/&EnableRespec=Activer l'action <color=#D89555>RESPEC</color> après le repos <i><color=#F0DAA0>[ne pas utiliser RESPEC pendant une session multijoueur]</color></i>
 ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Rogue</color> <b>Cunning Strike</b> et <b>Devious Strike</b> aux niveaux 5 et 14 <i><color=#F0DAA0>[vous laissez renoncer à 1 dés d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix <color=#D89555>Voleur</color> <b>Style de combat</b> au niveau 2
 ModUi/&EnableRogueSteadyAim=Activez <color=#D89555>Rogue</color> <b>Steady Aim</b> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage lors de votre prochain jet d'attaque dans le tour en cours si vous l'avez fait. il n'a pas encore bougé]</color></i>
 ModUi/&EnableRogueStrSaving=Activez <color=#D89555>Rogue</color> pour utiliser les modificateurs DEX ou STR sur <b>Frappe rusée/sournoise</b>, <b>Frappe débilitante/améliorée</b> et <b>Grêle de lames. </b>
 ModUi/&EnableSaveByLocation=Activer la sauvegarde par campagnes/emplacements
 ModUi/&EnableSignatureSpellsRelearn=Activer la préparation des sorts de signature de <color=#D89555>Assistant</color> à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
-ModUi/&EnableSorcererMagicalGuidance=Activer <color=#D89555>Sorcier</color> <b>conseils magiques</b> au niveau 5
+ModUi/&EnableSorcererMagicalGuidance=Activer <color=#D89555>Sorcier</color> <b>Conseil magique</b> au niveau 5
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des actifs sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
@@ -215,7 +215,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas d'avoir les mains li
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Les sorts d'illusion échouent automatiquement contre les cibles avec <color=#D89555>TrueSight</color> à portée.
 ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color=#D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Bête vampire, <color=#D89555>Barbare</color> Voie des éléments et sous-classes Choix draconiques]</color></i>
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
-ModUi/&IncreaseMaxAttunedItems=Augmente le nombre maximum d'objets adaptés à 4 au niveau 10 et 5 au niveau 18.
+ModUi/&IncreaseMaxAttunedItems=Augmentez le nombre maximum d'<color=#D89555>objets adaptés</color> à 4 au niveau 10 et 5 au niveau 18.
 ModUi/&InitialChoices=<color=#F0DAA0>Création :</color>
 ModUi/&Input=<color=#F0DAA0>Entrée :</color>
 ModUi/&Interface=Interface
@@ -299,10 +299,10 @@ ModUi/&SpellLevelFilter=<b><i><color=white>Filtre de niveau de sort</color> <col
 ModUi/&SpellsMenu=Sorts
 ModUi/&StealthBreaksWhenAttackHits=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort frappe
 ModUi/&StealthBreaksWhenAttackMisses=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort échoue
-ModUi/&StealthBreaksWhenCastingMaterial=Activer la perte de furtivité lors du lancement de <color=#D89555>matériel</color> <i><color=#F0DAA0>[tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
-ModUi/&StealthBreaksWhenCastingSomatic=Activer la perte de furtivité lors du lancement de <color=#D89555>somatique</color> <i><color=#F0DAA0>[tout sort non-attaque avec cible TOUS ou ENNEMI]</color></i>
-ModUi/&StealthBreaksWhenCastingVerbose=Activer la perte de furtivité lors du lancement de <color=#D89555>verbal</color> <i><color=#F0DAA0>[tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
-ModUi/&StealthDoesNotBreakWithSubtle=Activer la furtivité sans rouler si <color=#D89555>Métamagie subtile</color> et aucun composant <color=#D89555>matériel</color>
+ModUi/&StealthBreaksWhenCastingMaterial=Activer la perte de furtivité lors du lancement de <color=#D89555>Matériel</color> <i><color=#F0DAA0>[tout sort non offensif avec pour cible TOUS ou ENNEMI]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Activer la perte de furtivité lors du lancement de <color=#D89555>Somatique</color> <i><color=#F0DAA0>[tout sort non offensif avec pour cible TOUS ou ENNEMI]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Activer la perte de furtivité lors du lancement de <color=#D89555>Verbal</color> <i><color=#F0DAA0>[tout sort non offensif avec pour cible TOUS ou ENNEMI]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Activer la furtivité sans lancer de dés si <color=#D89555>Métamagie subtile</color> et aucun composant <b>Matériel</b>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stockez le magasin de Gorim avec tous les vêtements non magiques <b><i><color=#C04040E0>[Redémarrage nécessaire]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stockez le magasin de Gorim avec tous les instruments de musique non magiques <b><i><color=#C04040E0>[Redémarrage nécessaire]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stockez le magasin Hugo avec le <color=#D89555>Bâton des Arcanes</color>, le <color=#D89555>Druid Neck</color>, le <color=#D89555>Bâton</color> et le <color=#D89555>Club</color> défini comme éléments de focus
