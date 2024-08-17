@@ -192,6 +192,7 @@ public static class CharacterActionPanelPatcher
                 return true;
             }
 
+            __instance.actionId = ActionDefinitions.Id.CastBonus;
             __instance.MetamagicSelected(
                 __instance.GuiCharacter.GameLocationCharacter,
                 (RulesetEffectSpell)__instance.actionParams.activeEffect,
