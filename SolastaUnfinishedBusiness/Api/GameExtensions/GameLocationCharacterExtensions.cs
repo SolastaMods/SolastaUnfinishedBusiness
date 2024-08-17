@@ -814,7 +814,7 @@ public static class GameLocationCharacterExtensions
         rulesetCharacter.RefreshAttackModes();
 
         var allowedMainAttacks = instance.GetAllowedMainAttacks();
-        Main.Log2($"[{instance.Name}] BurnOneMainAttack allowed: {allowedMainAttacks} used: {instance.UsedMainAttacks}", true);
+
         if (instance.UsedMainAttacks < allowedMainAttacks)
         {
             return;
