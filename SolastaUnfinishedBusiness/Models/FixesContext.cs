@@ -622,7 +622,9 @@ internal static class FixesContext
     private static void FixPaladinAurasDisplayOnActionBar()
     {
         foreach (var power in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
-                     .Where(x => x.Name.StartsWith("PowerOath") || x.Name.StartsWith("PowerPaladin")))
+                     .Where(x =>
+                         x.ActivationTime == ActivationTime.PermanentUnlessIncapacitated &&
+                         (x.Name.StartsWith("PowerOath") || x.Name.StartsWith("PowerPaladin"))))
         {
             power.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
         }
