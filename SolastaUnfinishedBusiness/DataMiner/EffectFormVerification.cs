@@ -53,7 +53,7 @@ internal static class EffectFormVerification
             File.AppendAllLines(path,
             [
                 $"{Environment.NewLine}",
-                    "------------------------------------------------------------------------------------", msg
+                "------------------------------------------------------------------------------------", msg
             ]);
             File.AppendAllText(path, Environment.StackTrace);
         }

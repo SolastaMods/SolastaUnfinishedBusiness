@@ -65,12 +65,12 @@ internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, Act
         return SetParameter(ActionDefinitions.ActionParameter.ActivatePower);
     }
 
-    
     internal ActionDefinitionBuilder SetParameter(ActionDefinitions.ActionParameter parameter)
     {
         Definition.parameter = parameter;
         return this;
     }
+
     #region Constructors
 
     internal ActionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

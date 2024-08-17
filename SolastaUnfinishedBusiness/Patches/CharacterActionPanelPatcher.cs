@@ -40,7 +40,7 @@ public static class CharacterActionPanelPatcher
             CustomReactionsContext.SaveReadyActionPreferredCantrip(__instance.actionParams, readyActionType);
         }
     }
-    
+
     [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.BindCharacterActionItem))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -199,7 +199,6 @@ public static class CharacterActionPanelPatcher
                 DatabaseHelper.MetamagicOptionDefinitions.MetamagicQuickenedSpell
             );
             return false;
-
         }
     }
 

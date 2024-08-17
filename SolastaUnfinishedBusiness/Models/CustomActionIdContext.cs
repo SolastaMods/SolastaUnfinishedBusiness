@@ -432,7 +432,8 @@ public static class CustomActionIdContext
             case (Id)ExtraActionId.CombatWildShape:
             {
                 var power = character.GetPowerFromDefinition(action.ActivatedPower);
-                if (power is not {RemainingUses: > 0} ||
+
+                if (power is not { RemainingUses: > 0 } ||
                     (character is RulesetCharacterMonster monster &&
                      monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
                 {

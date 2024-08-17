@@ -351,7 +351,8 @@ internal static partial class CharacterContext
     {
         _ = ActionDefinitionBuilder
             .Create(CastBonus, "CastQuickened")
-            .SetGuiPresentation("Rules/&MetamagicOptionQuickenedSpellTitle", "Action/&CastQuickenedDescription", CastMain)
+            .SetGuiPresentation(
+                "Rules/&MetamagicOptionQuickenedSpellTitle", "Action/&CastQuickenedDescription", CastMain)
             .SetActionId(ExtraActionId.CastQuickened)
             .AddToDB();
 

@@ -85,7 +85,7 @@ public static class ActiveCharacterPanelPatcher
         {
             //PATCH: properly update IconsOnPortrait
             var character = __instance.GuiCharacter.RulesetCharacter;
- 
+
             if (character is null or RulesetCharacterEffectProxy)
             {
                 return;
