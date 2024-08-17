@@ -20,6 +20,12 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 
     public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
     {
+        // allows CustomBehaviorResonatingStrike to take over on checks
+        if (__instance.SelectionService.SelectedTargets.Count != 0)
+        {
+            return true;
+        }
+
         var actingCharacter = __instance.ActionParams.ActingCharacter;
         var isValid = CanAttack(actingCharacter, target) &&
                       (Main.Settings.AllowBladeCantripsToUseReach || actingCharacter.IsWithinRange(target, 1));

@@ -997,8 +997,6 @@ internal static partial class SpellBuilders
 
         spell.AddCustomSubFeatures(
             SrdAndHouseRulesContext.NoTwinned.Mark,
-            // order matters here as CustomBehaviorResonatingStrike also implements IFilterTargetingCharacter
-            // which should take precedence over one implemented at AttackAfterMagicEffect
             new CustomBehaviorResonatingStrike(),
             new AttackAfterMagicEffect(),
             new UpgradeEffectRangeBasedOnWeaponReach(spell));
@@ -1016,20 +1014,20 @@ internal static partial class SpellBuilders
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             bool isValid;
-
+            
             // this is same implementation in AttackAfterMagicEffect()
             if (__instance.SelectionService.SelectedTargets.Count == 0)
             {
                 var actingCharacter = __instance.ActionParams.ActingCharacter;
-                isValid = AttackAfterMagicEffect.CanAttack(actingCharacter, target) &&
-                          (Main.Settings.AllowBladeCantripsToUseReach || actingCharacter.IsWithinRange(target, 1));
+                isValid = AttackAfterMagicEffect. CanAttack(actingCharacter, target) &&
+                              (Main.Settings.AllowBladeCantripsToUseReach || actingCharacter.IsWithinRange(target, 1));
 
                 if (isValid)
                 {
                     return true;
                 }
 
-                var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5ft";
+                var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
 
                 __instance.actionModifier.FailureFlags.Add(Gui.Format("Tooltip/&TargetMeleeWeaponError", text));
 
