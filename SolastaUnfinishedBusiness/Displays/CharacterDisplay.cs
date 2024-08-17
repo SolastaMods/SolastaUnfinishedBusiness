@@ -218,12 +218,6 @@ internal static class CharacterDisplay
             CharacterContext.SwitchSorcererMagicalGuidance();
         }
 
-        toggle = Main.Settings.EnableSorcererQuickenedAction;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererQuickenedAction"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableSorcererQuickenedAction = toggle;
-        }
-
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {

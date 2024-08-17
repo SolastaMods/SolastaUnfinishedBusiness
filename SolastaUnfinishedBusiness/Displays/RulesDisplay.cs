@@ -201,6 +201,12 @@ internal static class RulesDisplay
             Main.Settings.DontEndTurnAfterReady = toggle;
         }
 
+        toggle = Main.Settings.EnableSorcererQuickenedAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererQuickenedAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererQuickenedAction = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
