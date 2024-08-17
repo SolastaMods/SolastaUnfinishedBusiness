@@ -350,12 +350,6 @@ public sealed class DomainDefiler : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
             var classLevel = character.GetClassLevel(CharacterClassDefinitions.Cleric);
 
             damageForm.bonusDamage = classLevel;
@@ -391,12 +385,12 @@ public sealed class DomainDefiler : AbstractSubclass
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             var actingCharacter = action.ActingCharacter;
-            var hasTag = actingCharacter.UsedSpecialFeatures.TryGetValue(powerDyingLight.Name, out var value);
+            var hasTag = actingCharacter.GetSpecialFeatureUses(powerDyingLight.Name) == 1;
 
-            actingCharacter.UsedSpecialFeatures.TryAdd(powerDyingLight.Name, 0);
+            actingCharacter.SetSpecialFeatureUses(powerDyingLight.Name, 0);
 
             if (action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower) ||
-                !hasTag || value == 0)
+                !hasTag)
             {
                 yield break;
             }
@@ -449,13 +443,12 @@ public sealed class DomainDefiler : AbstractSubclass
                 rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DyingLightToggle) &&
                 damageType is DamageTypeNecrotic;
 
-            if (!isValid)
+            if (attacker.GetSpecialFeatureUses(powerDyingLight.Name) == 1)
             {
                 return;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(powerDyingLight.Name, 0);
-            attacker.UsedSpecialFeatures[powerDyingLight.Name] = 1;
+            attacker.SetSpecialFeatureUses(powerDyingLight.Name, isValid ? 1 : 0);
             rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
 
@@ -490,12 +483,12 @@ public sealed class DomainDefiler : AbstractSubclass
 
             attacker.UsedSpecialFeatures.TryAdd(powerDyingLight.Name, 0);
 
-            if (!isValid)
+            if (attacker.GetSpecialFeatureUses(powerDyingLight.Name) == 1)
             {
                 return;
             }
 
-            attacker.UsedSpecialFeatures[powerDyingLight.Name] = 1;
+            attacker.SetSpecialFeatureUses(powerDyingLight.Name, isValid ? 1 : 0);
             rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
     }
