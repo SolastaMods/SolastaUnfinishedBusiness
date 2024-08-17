@@ -671,7 +671,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             var usablePower = PowerProvider.Get(powerBurstingArrowDamage, rulesetAttacker);
             var targets = Gui.Battle.AllContenders
                 .Where(x => x.IsWithinRange(defender, 3) && x != defender)
-                .ToList();
+                .ToArray();
 
             EffectHelpers
                 .StartVisualEffect(attacker, defender, SpellDefinitions.Shatter, EffectHelpers.EffectType.Zone);

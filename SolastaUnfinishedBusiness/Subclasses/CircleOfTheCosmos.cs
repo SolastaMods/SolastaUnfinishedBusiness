@@ -1259,7 +1259,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             effectPower.remainingRounds = remainingRounds;
 
-            actingCharacter.MyExecuteActionPowerNoCost(usablePower, [actingCharacter]);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePower, actingCharacter);
 
             usablePower.RepayUse();
         }

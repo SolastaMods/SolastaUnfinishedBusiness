@@ -43,10 +43,10 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
             SkipAnimationsAndVFX = true
         };
 
-        ServiceRepository.GetService<ICommandService>()?
+        ServiceRepository.GetService<ICommandService>()
             .ExecuteAction(actionParams, _ => { }, false);
 #endif
 
-        locationCharacter.MyExecuteActionPowerNoCost(usablePower, [locationCharacter]);
+        locationCharacter.MyExecuteActionPowerNoCost(usablePower, locationCharacter);
     }
 }

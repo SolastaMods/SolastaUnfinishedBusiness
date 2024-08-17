@@ -738,7 +738,7 @@ internal static class FixesContext
                 yield break;
             }
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
+            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)

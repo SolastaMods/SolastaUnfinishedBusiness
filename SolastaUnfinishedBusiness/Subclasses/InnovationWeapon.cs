@@ -511,7 +511,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                 return;
             }
 
-            ServiceRepository.GetService<ICommandService>()?
+            ServiceRepository.GetService<ICommandService>()
                 .ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
         }
 

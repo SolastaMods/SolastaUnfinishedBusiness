@@ -246,7 +246,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
-            var targets = Gui.Battle.GetContenders(attacker, withinRange: 2);
+            var targets = Gui.Battle.GetContenders(attacker, withinRange: 2).ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

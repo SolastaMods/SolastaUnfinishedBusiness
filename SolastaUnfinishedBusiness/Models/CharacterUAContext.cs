@@ -1624,7 +1624,7 @@ internal static partial class CharacterContext
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerKnockOutApply, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
+            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
         }
     }
 

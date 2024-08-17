@@ -387,7 +387,8 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             }
 
             var targets = Gui.Battle
-                .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 1);
+                .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 1)
+                .ToArray();
 
             if (criticalHit)
             {

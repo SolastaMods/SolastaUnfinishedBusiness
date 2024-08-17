@@ -832,14 +832,14 @@ internal static partial class SpellBuilders
             .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(GuidingBolt)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 2, DieType.D8),
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 1, DieType.D6))
+                    .SetParticleEffectParameters(GuidingBolt)
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -874,14 +874,14 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(GuidingBolt)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 2, DieType.D8),
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 1, DieType.D6))
+                    .SetParticleEffectParameters(GuidingBolt)
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -1337,7 +1337,7 @@ internal static partial class SpellBuilders
                     .Where(x =>
                         x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                         x.IsWithinRange(target, 1))
-                    .ToList();
+                    .ToArray();
 
                 var usablePower = PowerProvider.Get(powerIceBlade, rulesetCaster);
 
@@ -2299,13 +2299,7 @@ internal static partial class SpellBuilders
             var targets = Gui.Battle.AllContenders
                 .Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && x.IsWithinRange(defender, 1))
-                .ToList();
-
-            if (targets.Count == 0)
-            {
-                yield break;
-            }
-
+                .ToArray();
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
 

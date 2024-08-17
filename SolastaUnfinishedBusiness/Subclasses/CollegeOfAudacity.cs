@@ -282,7 +282,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSlashingWhirlDamage, rulesetAttacker);
-            var targets = Gui.Battle.GetContenders(attacker, withinRange: 1).Where(x => x != defender).ToList();
+            var targets = Gui.Battle.GetContenders(attacker, withinRange: 1).Where(x => x != defender).ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

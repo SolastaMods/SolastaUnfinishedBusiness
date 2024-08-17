@@ -1541,7 +1541,7 @@ internal static class MeleeCombatFeats
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
+            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
         }
     }
 

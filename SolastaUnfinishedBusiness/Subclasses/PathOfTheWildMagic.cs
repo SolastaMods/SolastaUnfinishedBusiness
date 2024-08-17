@@ -870,7 +870,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                                 }
 
                                 PreventEnemyAction(attacker, rulesetCharacter);
-                                character.MyExecuteActionPowerNoCost(usablePower, []);
+                                character.MyExecuteActionPowerNoCost(usablePower);
                             }
                             else
                             {
@@ -885,7 +885,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         }
                         else
                         {
-                            character.MyExecuteActionPowerNoCost(usablePower, []);
+                            character.MyExecuteActionPowerNoCost(usablePower);
                         }
                     }
                 }
@@ -1070,7 +1070,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     .InstantiateEffectPower(rulesetCharacter, usablePower, false);
                 actionParams.SkipAnimationsAndVFX = true;
 
-                ServiceRepository.GetService<ICommandService>()?.ExecuteInstantSingleAction(actionParams);
+                ServiceRepository.GetService<ICommandService>().ExecuteInstantSingleAction(actionParams);
             }
         }
 

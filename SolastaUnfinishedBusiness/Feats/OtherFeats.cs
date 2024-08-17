@@ -2541,7 +2541,7 @@ internal static class OtherFeats
 
         var usablePower = PowerProvider.Get(PowerFeatPoisonousSkin, rulesetMe);
 
-        me.MyExecuteActionPowerNoCost(usablePower, [target]);
+        me.MyExecuteActionPowerNoCost(usablePower, target);
     }
 
     //Poison character that shoves me
@@ -2860,8 +2860,11 @@ internal static class OtherFeats
             var distance = attacker.UsedSpecialFeatures.TryGetValue(MercilessName, out var value) && value == 1
                 ? proficiencyBonus
                 : (proficiencyBonus + 1) / 2;
-            var targets = Gui.Battle.GetContenders(
-                downedCreature, attacker, isOppositeSide: false, hasToPerceivePerceiver: true, withinRange: distance);
+            var targets =
+                Gui.Battle.GetContenders(
+                        downedCreature, attacker, isOppositeSide: false, hasToPerceivePerceiver: true,
+                        withinRange: distance)
+                    .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

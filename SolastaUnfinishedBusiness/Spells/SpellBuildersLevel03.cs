@@ -545,7 +545,7 @@ internal static partial class SpellBuilders
                             x != mover &&
                             !x.RulesetCharacter.HasConditionOfCategoryAndType(
                                 AttributeDefinitions.TagEffect, conditionMark.Name))
-                .ToList();
+                .ToArray();
 
             var rulesetAttacker = mover.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
@@ -785,7 +785,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, _targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [.. _targets]);
         }
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1219,7 +1219,7 @@ internal static partial class SpellBuilders
 
             usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
 
-            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
+            caster.MyExecuteActionPowerNoCost(usablePower, character);
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter character)
@@ -1238,7 +1238,7 @@ internal static partial class SpellBuilders
 
             usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
 
-            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
+            caster.MyExecuteActionPowerNoCost(usablePower, character);
         }
     }
 
@@ -1456,7 +1456,8 @@ internal static partial class SpellBuilders
             // leap damage on enemies within 10 ft from target
             var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
             var targets = battleManager.Battle
-                .GetContenders(defender, isOppositeSide: false, withinRange: 2);
+                .GetContenders(defender, isOppositeSide: false, withinRange: 2)
+                .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

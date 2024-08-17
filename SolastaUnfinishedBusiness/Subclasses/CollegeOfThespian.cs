@@ -282,12 +282,8 @@ public sealed class CollegeOfThespian : AbstractSubclass
             }
 
             var targets = Gui.Battle
-                .GetContenders(attacker, hasToPerceivePerceiver: true, withinRange: 3);
-
-            if (targets.Count == 0)
-            {
-                yield break;
-            }
+                .GetContenders(attacker, hasToPerceivePerceiver: true, withinRange: 3)
+                .ToArray();
 
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = classLevel < 14 ? powerTerrificPerformance : powerImprovedTerrificPerformance;

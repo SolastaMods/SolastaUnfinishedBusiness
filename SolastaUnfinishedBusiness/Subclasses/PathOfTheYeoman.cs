@@ -331,7 +331,8 @@ public sealed class PathOfTheYeoman : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerMightyShot, rulesetAttacker);
             var targets = battleManager.Battle
-                .GetContenders(defender, isOppositeSide: false, withinRange: 3);
+                .GetContenders(defender, isOppositeSide: false, withinRange: 3)
+                .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

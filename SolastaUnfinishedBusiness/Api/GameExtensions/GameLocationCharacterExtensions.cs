@@ -70,9 +70,9 @@ public static class GameLocationCharacterExtensions
     internal static void MyExecuteActionPowerNoCost(
         this GameLocationCharacter character,
         RulesetUsablePower usablePower,
-        List<GameLocationCharacter> targets)
+        params GameLocationCharacter[] targets)
     {
-        var actionModifiers = GetActionModifiers(targets.Count);
+        var actionModifiers = GetActionModifiers(targets.Length);
         var rulesetCharacter = character.RulesetCharacter;
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
@@ -82,10 +82,10 @@ public static class GameLocationCharacterExtensions
             ActionModifiers = actionModifiers,
             RulesetEffect = implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets
+            targetCharacters = [.. targets]
         };
 
-        ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+        ServiceRepository.GetService<ICommandService>().ExecuteAction(actionParams, null, true);
     }
 
     internal static void MyExecuteActionStabilizeAndStandUp(
@@ -154,8 +154,7 @@ public static class GameLocationCharacterExtensions
         GameLocationCharacter target,
         GameLocationCharacter waiter,
         Action<CharacterActionParams> reactionValidated = null,
-        GameLocationBattleManager battleManager = null,
-        bool isReactionEffect = false)
+        GameLocationBattleManager battleManager = null)
     {
         battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
@@ -181,8 +180,7 @@ public static class GameLocationCharacterExtensions
             RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(ruleCaster, repertoire, spell, slotLevel, false),
             SpellRepertoire = repertoire,
-            TargetCharacters = { target },
-            IsReactionEffect = isReactionEffect
+            TargetCharacters = { target }
         };
         var count = actionService.PendingReactionRequestGroups.Count;
 
@@ -241,8 +239,7 @@ public static class GameLocationCharacterExtensions
         string stringParameter,
         string stringParameter2 = "",
         Action reactionValidated = null,
-        GameLocationBattleManager battleManager = null,
-        bool isReactionEffect = false)
+        GameLocationBattleManager battleManager = null)
     {
         battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
@@ -262,8 +259,7 @@ public static class GameLocationCharacterExtensions
             StringParameter2 = stringParameter2,
             RulesetEffect =
                 implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
-            UsablePower = usablePower,
-            IsReactionEffect = isReactionEffect
+            UsablePower = usablePower
         };
 
         actionService.ReactToSpendPower(actionParams);
@@ -284,8 +280,7 @@ public static class GameLocationCharacterExtensions
         string stringParameter,
         Action<ReactionRequestSpendBundlePower> reactionValidated = null,
         Action<ReactionRequestSpendBundlePower> reactionNotValidated = null,
-        GameLocationBattleManager battleManager = null,
-        bool isReactionEffect = false)
+        GameLocationBattleManager battleManager = null)
     {
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
@@ -308,8 +303,7 @@ public static class GameLocationCharacterExtensions
             RulesetEffect =
                 implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets,
-            IsReactionEffect = isReactionEffect
+            targetCharacters = targets
         };
         var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
 
@@ -336,8 +330,7 @@ public static class GameLocationCharacterExtensions
         string stringParameter,
         string stringParameter2 = "",
         Action reactionValidated = null,
-        GameLocationBattleManager battleManager = null,
-        bool isReactionEffect = false)
+        GameLocationBattleManager battleManager = null)
     {
         battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
@@ -360,8 +353,7 @@ public static class GameLocationCharacterExtensions
             RulesetEffect =
                 implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets,
-            IsReactionEffect = isReactionEffect
+            targetCharacters = targets
         };
 
         actionService.ReactToUsePower(actionParams, "UsePower", character);
@@ -783,7 +775,7 @@ public static class GameLocationCharacterExtensions
             UsablePower = usablePower
         };
 
-        ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+        ServiceRepository.GetService<ICommandService>().ExecuteAction(actionParams, null, true);
     }
 
     private static int GetAllowedMainAttacks(this GameLocationCharacter instance)

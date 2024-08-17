@@ -315,7 +315,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             var usablePower = PowerProvider.Get(powerArcaneBackslash, rulesetAttacker);
 
             attacker.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [.. targets]);
         }
     }
 

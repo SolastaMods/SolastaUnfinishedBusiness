@@ -340,8 +340,10 @@ internal static partial class SpellBuilders
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var target = action.actionParams.TargetCharacters[0];
-            var targets = Gui.Battle.GetContenders(
-                target, actingCharacter, isOppositeSide: false, hasToPerceiveTarget: true, withinRange: 12);
+            var targets =
+                Gui.Battle.GetContenders(
+                        target, actingCharacter, isOppositeSide: false, hasToPerceiveTarget: true, withinRange: 12)
+                    .ToArray();
 
             actingCharacter.UsedSpecialFeatures.TryAdd("SoulExpulsion", action.ActionParams.RulesetEffect.EffectLevel);
             actingCharacter.MyExecuteActionPowerNoCost(usablePower, targets);

@@ -377,7 +377,8 @@ public sealed class OathOfThunder : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBifrostDamage, rulesetAttacker);
             var targets = Gui.Battle
-                .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2);
+                .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2)
+                .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

@@ -328,7 +328,7 @@ internal static class RaceMalakhBuilder
 
             var rulesetAttacker = locationCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerAngelicRadianceDamage, rulesetAttacker);
-            var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 3);
+            var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 3).ToArray();
 
             locationCharacter.MyExecuteActionPowerNoCost(usablePower, targets);
         }

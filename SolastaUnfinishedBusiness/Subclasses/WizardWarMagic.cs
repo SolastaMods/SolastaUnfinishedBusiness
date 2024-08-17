@@ -317,7 +317,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 .GetContenders(helper, withinRange: 12)
                 .OrderBy(x => DistanceCalculation.GetDistanceFromCharacters(helper, x))
                 .Take(3)
-                .ToList();
+                .ToArray();
 
             helper.MyExecuteActionPowerNoCost(usablePower, targets);
         }

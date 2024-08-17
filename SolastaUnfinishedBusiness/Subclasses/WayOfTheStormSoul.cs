@@ -359,7 +359,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                     x.RulesetActor.AllConditions
                         .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
                                   y.SourceGuid == rulesetAttacker.Guid))
-                .ToList();
+                .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

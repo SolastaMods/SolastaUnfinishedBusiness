@@ -250,7 +250,7 @@ public static class CharacterActionPanelPatcher
 
             __instance.actionParams.BreakFreeMode = ActionDefinitions.BreakFreeMode.Athletics;
 
-            ServiceRepository.GetService<ICommandService>()?
+            ServiceRepository.GetService<ICommandService>()
                 .ExecuteAction(__instance.actionParams.Clone(), __instance.ActionExecuted, false);
 
             return false;

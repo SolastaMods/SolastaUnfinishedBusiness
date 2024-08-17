@@ -1350,7 +1350,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         var targets = new List<GameLocationCharacter>();
 
         EnumerateTargetsWithinRange(caster, range, targets, includeCaster);
-        caster.MyExecuteActionPowerNoCost(usablePower, targets);
+        caster.MyExecuteActionPowerNoCost(usablePower, [.. targets]);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

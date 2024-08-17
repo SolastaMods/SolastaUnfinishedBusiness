@@ -386,7 +386,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
             var usablePowerEnemy = PowerProvider.Get(powerAmazingDisplayEnemy, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePowerEnemy, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePowerEnemy, [.. targets]);
         }
     }
 }

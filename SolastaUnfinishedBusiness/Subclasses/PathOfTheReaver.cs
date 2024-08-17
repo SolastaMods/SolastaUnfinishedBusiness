@@ -281,7 +281,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerCorruptedBlood, rulesetDefender);
 
-            defender.MyExecuteActionPowerNoCost(usablePower, [attacker]);
+            defender.MyExecuteActionPowerNoCost(usablePower, attacker);
         }
     }
 }
