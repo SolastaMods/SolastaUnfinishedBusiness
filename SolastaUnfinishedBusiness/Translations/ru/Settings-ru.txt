@@ -20,7 +20,7 @@ ModUi/&AllRecipesInDm=Все рецепты в СП
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Позволить всем игрокам участвовать в нарративных последовательностях</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Позволить всем классам носить <color=#D89555>Доспехи Сильвана</color> или <color=#D89555>Одежды Несущего свет</color>
 ModUi/&AllowBeardlessDwarves=Разрешить безбородых <color=#D89555>Дварфов</color> <i><color=#F0DAA0>[как, вообще, можно подумать о чём-то столь противоестественном?]</color></i>
-ModUi/&AllowBladeCantripsToUseReach=Разрешить <color=#D89555>Blade Cantrips</color> использовать радиус действия вместо 5 футов
+ModUi/&AllowBladeCantripsToUseReach=Позволить <color=#D89555>Заговорам клинков</color> использовать досягаемость персонажа вместо обычных 5 футов
 ModUi/&AllowClubsToBeThrown=Позволить метать <color=#D89555>дубинки</color>, как <color=#D89555>кинжалы</color> или <color=#D89555>топорики</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Отображать не рекомендуемые заклинания модификации в каждом списке
 ModUi/&AllowDisplayingOfficialSpells=Отображать официальные заклинания игры в каждом списке
@@ -144,7 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Включить <color=#D89555
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Позволить <color=#D89555>Монаху</color> использовать <b>Боевые искусства - бонусный безоружный удар</b> без требования тратить действие на атаку
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Позволить <color=#D89555>Монаху</color> использовать <b>Шквал ударов</b> без требования тратить действие на атаку
 ModUi/&EnableMonkFightingStyle=Включить <color=#D89555>Монахам</color> выбор <b>Боевого стиля</b> на уровне 2
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=Разрешить <color=#D89555>Monk</color> <b>бинты</b> и <b>перчатки</b> работать в слоте перчаток
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Позволить <b>обмоткам</b> и <b>перчаткам</b> <color=#D89555>Монахов</color> работать в слоте экипировки перчаток
 ModUi/&EnableMonkHeightenedMetabolism=Включить <color=#D89555>Монахам</color> <b>Повышенный метаболизм</b> на уровне 10 <i><color=#F0DAA0>[<b>Шквал ударов</b>, <b>Терпеливая оборона</b> и <b>Поступь ветра</b> получают дополнительные преимущества]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Позволить <color=#D89555>Монаху</color> использовать <b>Улучшенное движение без доспехов</b> для перемещения по вертикальным поверхностям, не падая во время движения
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Включить <color=#D89555>Монахам</color> <b>Превосходную защиту</b> вместо <b>Пустого тела</b> на уровне 18
@@ -163,12 +163,12 @@ ModUi/&EnableRogueStrSaving=Включить <color=#D89555>Плутам</color>
 ModUi/&EnableSaveByLocation=Включить сохранения по кампаниям/локациям
 ModUi/&EnableSignatureSpellsRelearn=Включить <color=#D89555>Волшебникам</color> подготовку фирменных заклинаний после каждого продолжительного отдыха <i><color=#F0DAA0>[вместо того, чтобы выбирать их один раз на 20-м уровне]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Включить <color=#D89555>Чародеям</color> <b>Волшебное указание</b> на уровне 5
-ModUi/&EnableSorcererQuickenedAction=Включите действие <color=#D89555>Ускоренное заклинание</color>, чтобы разрешить использовать заклинание основного действия с примененной ускоренной метамагией.
+ModUi/&EnableSorcererQuickenedAction=Включить действие <color=#D89555>Ускоренное заклинание</color>, позволяющее накладывать заклинание основного действия с применением метамагии Ускоренного заклинания.
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ассетов в редакторе Создателя Подземелий
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику на всплывающей подсказке о герое <i><color=#F0DAA0>[например: критические удары, критические промахи и т.д.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Также каждый герой добавляет к весомости результат броска D20 для привнесения элемента случайности <color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя + бросок D20]</color></i>
 ModUi/&EnableTeleportParty=Включить телепорт группы по нажатию <color=#1E81B0>CTRL-SHIFT-(T)</color> <i><color=#F0DAA0>[вы можете сломать квесты, если телепортируетесь в ещё не открытую область]</color></i>
-ModUi/&EnableTeleportToRemoveRestrained=Включите <color=#D89555>Телепорт</color>, чтобы удалить все <color=#D89555>ограниченные</color> состояния с цели.
+ModUi/&EnableTeleportToRemoveRestrained=Включить возможность <color=#D89555>Телепортации</color> снимать все состояния <color=#D89555>задержки</color> с цели
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Включить в списке персонажей возможность выбирать группу по умолчанию
 ModUi/&EnableTooltipDistance=Включить отображение расстояния во всплывающей подсказке панели при наведении курсора на персонажа в бою
 ModUi/&EnableUpcastConjureElementalAndFey=Включить возможность накладывать на высоких уровнях <color=#D89555>Призыв элементаля</color> и <color=#D89555>Призыв феи</color>
