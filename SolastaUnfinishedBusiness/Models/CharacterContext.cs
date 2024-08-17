@@ -16,7 +16,6 @@ using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
-using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -351,15 +350,9 @@ internal static partial class CharacterContext
     private static void LoadSorcererQuickened()
     {
         _ = ActionDefinitionBuilder
-            .Create("CastQuickened")
+            .Create(CastBonus, "CastQuickened")
             .SetGuiPresentation("Rules/&MetamagicOptionQuickenedSpellTitle", "Action/&CastQuickenedDescription", CastMain)
-            // .RequiresAuthorization()
-            .SetActionType(ActionType.Bonus)
             .SetActionId(ExtraActionId.CastQuickened)
-            .SetFormType(ActionFormType.Large)
-            .SetActionScope(ActionScope.Battle)
-            .OverrideClassName("CastSpell")
-            .SetParameter(ActionParameter.SelectSpell)
             .AddToDB();
 
         //leaving for compatibility?
