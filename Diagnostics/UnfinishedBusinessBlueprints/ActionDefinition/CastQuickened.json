@@ -3,22 +3,22 @@
   "id": 9069,
   "actionType": "Bonus",
   "actionScope": "Battle",
-  "pairedActionId": "NoAction",
+  "pairedActionId": "CastMain",
   "usesPerTurn": -1,
-  "classNameOverride": "",
+  "classNameOverride": "CastSpell",
   "requiresAuthorization": false,
-  "stealthBreakerBehavior": "None",
-  "feedbackOnHoverType": "None",
+  "stealthBreakerBehavior": "RollIfTargets",
+  "feedbackOnHoverType": "LineOfSight",
   "iterativeTargeting": false,
   "canTriggerBattle": false,
-  "parameter": "None",
+  "parameter": "SelectSpell",
   "formType": "Large",
   "overrideGuiActionType": false,
   "overridenGuiActionType": "Main",
   "focusCameraOnAction": true,
   "addedConditionName": "",
   "removedConditionName": "",
-  "preventsSerialization": false,
+  "preventsSerialization": true,
   "baseActionForFailureTooltips": null,
   "activatedPower": null,
   "displayPowerTooltip": false,
@@ -29,13 +29,26 @@
   "targetType": "Sphere",
   "targetParameter": 1,
   "matchingCondition": "",
-  "particlePrefab": null,
-  "soundEvent": null,
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Rules/&MetamagicOptionQuickenedSpellTitle",
-    "description": "Rules/&MetamagicOptionQuickenedSpellDescription",
+    "description": "Action/&CastQuickenedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "944eb32f28b68144283fab27de377493",
@@ -55,7 +68,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "eb19933b-6209-5087-a127-16978d24656d",
+  "guid": "f49577d4-6ad5-543c-874a-e7b9177150f0",
   "contentPack": 9999,
-  "name": "Quickened"
+  "name": "CastQuickened"
 }

@@ -16,7 +16,7 @@ You extend your hand and trace a sigil of warding in the air. Until the end of y
 
 # 5. - *Booming Blade* © (M,S) level 0 Evocation [UB]
 
-You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within reach distance. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th and 17th levels.
+You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 ft or more before then, the target takes 1d8 thunder damage, and the spell ends. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th and 17th levels.
 
 # 6. - Chill Touch (V,S) level 0 Necromancy [SOL]
 
@@ -40,7 +40,7 @@ Launch a fire bolt.
 
 # 11. - *Green-Flame Blade* © (M,S) level 0 Evocation [UB]
 
-You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within reach distance. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
+You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 ft of it. The second creature takes fire damage equal to your spellcasting ability modifier. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
 
 # 12. - Guidance (V,S) level 0 Divination [Concentration] [SOL]
 
@@ -56,7 +56,7 @@ Causes light sources such as torches and mana lamps in the area of effect to lig
 
 # 15. - *Infestation* © (V,S) level 0 Conjuration [UB]
 
-You cause a cloud of mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw, or it takes 1d6 poison damage and moves 5 feet in a random direction. The spell's damage increases by an additional die at 5th, 11th and 17th level.
+You cause a cloud of mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw, or it takes 1d6 poison damage and moves 5 ft in a random direction. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
 # 16. - Light (V) level 0 Evocation [SOL]
 
@@ -68,7 +68,7 @@ An object you can touch emits a powerful light for a limited time.
 
 # 18. - *Lightning Lure* © (V) level 0 Evocation [UB]
 
-You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 feet of you. The target must succeed on a Strength saving throw or be pulled up to 10 feet in a straight line toward you and then take 1d8 lightning damage. The spell's damage increases by an additional die at 5th, 11th and 17th level.
+You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 ft of you. The target must succeed on a Strength saving throw or be pulled up to 10 ft in a straight line toward you and then take 1d8 lightning damage. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
 # 19. - *Mind Sliver* © (V) level 0 Enchantment [UB]
 
@@ -76,7 +76,7 @@ You drive a disorienting spike of psychic energy into the mind of one creature y
 
 # 20. - Minor Lifesteal (V,S) level 0 Necromancy [UB]
 
-You drain vital energy from a nearby enemy creature. Make a melee spell attack against a creature within 5 feet of you. On a hit, the creature takes 1d6 necrotic damage, and you heal for half the damage dealt (rounded down). This spell has no effect on undead and constructs. The spell's damage increases by an additional die at 5th, 11th and 17th level.
+You drain vital energy from a nearby enemy creature. Make a melee spell attack against a creature within 5 ft of you. On a hit, the creature takes 1d6 necrotic damage, and you heal for half the damage dealt (rounded down). This spell has no effect on undead and constructs. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
 # 21. - Poison Spray (V,S) level 0 Conjuration [SOL]
 
@@ -84,7 +84,7 @@ Fire a poison spray at an enemy you can see, within range.
 
 # 22. - *Primal Savagery* © (S) level 0 Transmutation [UB]
 
-You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 feet of you. On a hit, the target takes 1d10 acid damage. The spell's damage increases by an additional die at 5th, 11th and 17th level.
+You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 ft of you. On a hit, the target takes 1d10 acid damage. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
 # 23. - Produce Flame (V,S) level 0 Conjuration [SOL]
 
@@ -140,7 +140,7 @@ You launch a mote of light at one creature or object within range. Make a ranged
 
 # 36. - Sunlit Blade (M,S) level 0 Evocation [UB]
 
-You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within reach distance. On a hit, the target suffers the weapon attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage. At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th and 17th levels.
+You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage. At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th and 17th levels.
 
 # 37. - *Sword Burst* © (V,S) level 0 Enchantment [UB]
 
