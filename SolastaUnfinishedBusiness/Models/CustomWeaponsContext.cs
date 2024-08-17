@@ -63,6 +63,7 @@ internal static class CustomWeaponsContext
         BuildThunderGauntlet();
         BuildLightningLauncher();
         BuildUnarmedStrikeClaws();
+        UpdateHandWrapsUseGauntletSlot();
     }
 
     [NotNull]
@@ -934,6 +935,27 @@ internal static class CustomWeaponsContext
         Sprites.GetSprite("ProducedFlameThrow", Resources.ProducedFlameThrow, 128);
 
     #endregion
+
+    internal static void UpdateHandWrapsUseGauntletSlot()
+    {
+        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
+        {
+            if (item is not {WeaponDescription.weaponType: "UnarmedStrikeType"}) { continue; }
+
+            if (item == ItemDefinitions.UnarmedStrikeBase) { continue; }
+
+            if (Main.Settings.MakeHandwrapsUseGauntletSlot)
+            {
+                item.SlotTypes.Add(EquipmentDefinitions.SlotTypeGloves);
+                item.SlotsWhereActive.Add(EquipmentDefinitions.SlotTypeGloves);
+            }
+            else
+            {
+                item.SlotTypes.Remove(EquipmentDefinitions.SlotTypeGloves);
+                item.SlotsWhereActive.Remove(EquipmentDefinitions.SlotTypeGloves);
+            }
+        }
+    }
 }
 
 internal sealed class ModifyWeaponProducedFlameDice : ModifyWeaponAttackModeBase

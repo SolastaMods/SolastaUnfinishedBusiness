@@ -229,6 +229,7 @@ ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Enable item usage not breaking <color=#D89555>Invisibility</color>
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Update stealth on hero after attack if perceived on surprise round <i><color=#F0DAA0>[first hero only]</color></i>
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i>
+ModUi/&MakeHandwrapsUseGauntletSlot=Make monk handwraps and gauntlets work in gauntlet slot.
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
