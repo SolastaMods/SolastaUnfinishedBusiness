@@ -557,7 +557,7 @@ internal static class GambitsBuilders
 
         power.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.HasMainAttackAvailable,
-            new UpgradeSpellRangeBasedOnWeaponReach(power),
+            new UpgradeEffectRangeBasedOnWeaponReach(power),
             new OverwhelmingAttack());
 
         BuildFeatureInvocation(name, sprite, power);
