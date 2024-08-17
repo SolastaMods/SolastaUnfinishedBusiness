@@ -376,6 +376,13 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AllowBladeCantripsToUseReach;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowBladeCantripsToUseReach"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowBladeCantripsToUseReach = toggle;
+            SrdAndHouseRulesContext.SwitchAllowBladeCantripsToUseReach();
+        }
+
         toggle = Main.Settings.AllowHasteCasting;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
         {

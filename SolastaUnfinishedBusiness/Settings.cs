@@ -285,6 +285,7 @@ public class Settings : UnityModManager.ModSettings
     public bool StealthBreaksWhenCastingSomatic { get; set; }
     public bool StealthDoesNotBreakWithSubtle { get; set; }
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
+    public bool AllowBladeCantripsToUseReach { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool EnableCantripsTriggeringOnWarMagic { get; set; }

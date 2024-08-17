@@ -91,6 +91,7 @@ internal static class SrdAndHouseRulesContext
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFilterOnHideousLaughter();
         SwitchFullyControlConjurations();
+        SwitchAllowBladeCantripsToUseReach();
         SwitchHastedCasing();
         SwitchMagicStaffFoci();
         SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
@@ -528,6 +529,19 @@ internal static class SrdAndHouseRulesContext
                 // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.
                 sd.EffectDescription.targetParameter2 = 0;
             }
+        }
+    }
+
+    internal static void SwitchAllowBladeCantripsToUseReach()
+    {
+        var db = DatabaseRepository.GetDatabase<SpellDefinition>();
+        var cantrips = new List<string> { "BoomingBlade", "ResonatingStrike", "SunlightBlade" };
+
+        foreach (var bladeCantrip in db.Where(x => cantrips.Contains(x.Name)))
+        {
+            var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
+
+            bladeCantrip.GuiPresentation.Description = Gui.Format($"Spell/&{bladeCantrip.Name}Description", text);
         }
     }
 

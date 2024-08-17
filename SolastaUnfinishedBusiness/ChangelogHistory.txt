@@ -1,5 +1,6 @@
 1.5.97.27:
 
+- added Gameplay > Rules > 'Allow Blade Cantrips to use reach instead of 5 ft' setting
 - added Gameplay > Rules > 'Enable quick cast Light Cantrip to use head, neck or torso worn items first' setting
 - added Gameplay > Rules > 'Enable Teleport to remove all restrained conditions from target' setting
 - added Path of Wild Magic wild surge reroll power
@@ -13,8 +14,8 @@
 - fixed Spend Power action not triggering DamageReceived, ReactionToDamageShare, and TargetReducedToZeroHP [VANILLA]
 - fixed Slow condition interaction with custom actions that spend bonus or main
 - fixed Way of Weal and Woe missing 11 and 17 descriptions on level up
+- improved Quickened action to show spell selection panel, and cast main spell with quickened metamagic applied
 - improved Shadow Blade spell to name ADV as 'Shadow Blade', and show ADV feature on dagger and spell descriptions
-- improved Sorcerer quickened action setting to not require a new hero or RESPEC
 
 KNOWN ISSUES:
 

@@ -103,9 +103,6 @@ internal static class BootContext
             // Custom metamagic
             MetamagicContext.LateLoad();
 
-            // SRD rules switches
-            SrdAndHouseRulesContext.LateLoad();
-
             // Action Switching
             ActionSwitching.LateLoad();
 
@@ -125,6 +122,7 @@ internal static class BootContext
             SharedSpellsContext.LateLoad();
 
             // Set anything on subs that depends on spells and others
+            SrdAndHouseRulesContext.LateLoad();
             SubclassesContext.LateLoad();
             InventorClass.LateLoadSpellStoringItem();
             LightingAndObscurementContext.LateLoad();

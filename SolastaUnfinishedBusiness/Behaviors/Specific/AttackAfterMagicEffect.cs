@@ -20,14 +20,20 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 
     public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
     {
-        var isValid = CanAttack(__instance.ActionParams.ActingCharacter, target);
+        var actingCharacter = __instance.ActionParams.ActingCharacter;
+        var isValid = CanAttack(actingCharacter, target) &&
+                      (Main.Settings.AllowBladeCantripsToUseReach || actingCharacter.IsWithinRange(target, 1));
 
-        if (!isValid)
+        if (isValid)
         {
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMeleeWeaponError");
+            return true;
         }
 
-        return isValid;
+        var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
+
+        __instance.actionModifier.FailureFlags.Add(Gui.Format("Tooltip/&TargetMeleeWeaponError", text));
+
+        return false;
     }
 
     internal static void HandleAttackAfterMagicEffect(GameLocationCharacter character,
