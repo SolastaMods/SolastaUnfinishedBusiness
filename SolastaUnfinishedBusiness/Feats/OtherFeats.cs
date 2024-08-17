@@ -1770,7 +1770,7 @@ internal static class OtherFeats
                 usablePower,
                 attacker,
                 "ReactiveResistance",
-                "UseReactiveResistanceDescription".Formatted(Category.Reaction, attacker.Name, damageTitle),
+                "SpendPowerReactiveResistanceDescription".Formatted(Category.Reaction, attacker.Name, damageTitle),
                 ReactionValidated,
                 battleManager);
 
