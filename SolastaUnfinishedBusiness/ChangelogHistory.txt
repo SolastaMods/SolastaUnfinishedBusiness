@@ -13,6 +13,13 @@
 - fixed Spend Power action not triggering DamageReceived, ReactionToDamageShare, and TargetReducedToZeroHP [VANILLA]
 - fixed Slow condition interaction with custom actions that spend bonus or main
 - fixed Way of Weal and Woe missing 11 and 17 descriptions on level up
+- improved Shadow Blade spell to name ADV as 'Shadow Blade', and show ADV feature on dagger and spell descriptions
+- improved Sorcerer quickened action setting to not require a new hero or RESPEC
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
 
 1.5.97.26:
 
@@ -31,11 +38,6 @@
 - improved Bladestorm feat with an additional 1d4 BA attack, and mod damage on whirlwind attack
 - improved Chaos Bolt spell tooltip to present damage symbols, and correct 1d6 damage progression
 - improved Time Stop spell to behave as in tabletop, and grant 1d4+1 additional turns during combat
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
 
 1.5.97.25:
 

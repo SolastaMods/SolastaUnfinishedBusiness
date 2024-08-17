@@ -271,7 +271,6 @@ ConditionRangerWildMasterBeastCompanionAttackRoll	Description='-'.
 ConditionRangerWildMasterBeastCompanionDamageRoll	Description='-'.
 ConditionRangerWildMasterBeastCompanionHitPoints	Description='-'.
 ConditionRescueTheDying	Description='-'.
-ConditionResonatingStrike	Description='-'.
 ConditionRingOfBlades	Description='-'.
 ConditionRogueCunningStrikeDisarmed	Description='-'.
 ConditionRogueDeviousStrikeKnockOut	Description='-'.
