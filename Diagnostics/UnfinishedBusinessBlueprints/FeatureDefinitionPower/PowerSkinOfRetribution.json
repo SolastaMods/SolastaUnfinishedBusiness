@@ -83,7 +83,7 @@
           "dieType": "D1",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
-          "bonusDamage": 5,
+          "bonusDamage": 0,
           "damageType": "DamageCold",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",

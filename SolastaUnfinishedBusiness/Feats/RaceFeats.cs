@@ -1427,12 +1427,10 @@ internal static class RaceFeats
         {
             var glc = GameLocationCharacter.GetFromActor(character);
 
-            if (glc == null)
+            if (glc != null)
             {
-                return effectDescription;
+                effectDescription.rangeParameter = glc.MaxTacticalMoves;
             }
-
-            effectDescription.rangeParameter = glc.MaxTacticalMoves;
 
             return effectDescription;
         }
