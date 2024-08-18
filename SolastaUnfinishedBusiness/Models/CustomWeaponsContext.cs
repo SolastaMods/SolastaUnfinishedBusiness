@@ -804,6 +804,27 @@ internal static class CustomWeaponsContext
         }
     }
 
+    internal static void ModifyUnarmedAttackWithGauntlet(RulesetCharacterHero hero, ref ItemDefinition itemDefinition,
+        ref WeaponDescription weaponDescription, ref RulesetItem weapon)
+    {
+        if (!Main.Settings.EnableMonkHandwrapsUseGauntletSlot
+            || weapon != null || itemDefinition != ItemDefinitions.UnarmedStrikeBase)
+        {
+            return;
+        }
+
+        var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
+
+        if (item is not {ItemDefinition.WeaponDescription.WeaponType: "UnarmedStrikeType"})
+        {
+            return;
+        }
+
+        itemDefinition = item.ItemDefinition;
+        weaponDescription = itemDefinition.WeaponDescription;
+        weapon = item;
+    }
+
     #region Halberd Icons
 
     private static AssetReferenceSprite
