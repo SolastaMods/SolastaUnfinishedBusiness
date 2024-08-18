@@ -537,6 +537,9 @@ public static class RulesetCharacterHeroPatcher
                     modifier.ModifyAttackMode(__instance, attackMode);
                 }
             }
+            
+            //PATCH: add Main Action gauntlet attacks if needed
+            CustomWeaponsContext.TryAddMainActionUnarmedAttacks(__instance);
 
             //PATCH: remove invalid attacks
             //used to prevent hand crossbows use with no free hand

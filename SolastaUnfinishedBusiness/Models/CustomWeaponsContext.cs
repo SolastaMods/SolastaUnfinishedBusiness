@@ -825,6 +825,52 @@ internal static class CustomWeaponsContext
         weapon = item;
     }
 
+    
+    //TODO: not sure this is the best place for this method
+    internal static void TryAddMainActionUnarmedAttacks(RulesetCharacterHero hero)
+    {
+        if (!Main.Settings.EnableGauntletMainAttacks)
+        {
+            return;
+        }
+
+        //skip if we already have main unarmed attack
+        if (hero.AttackModes.Any(m => m is
+                {
+                    ActionType: ActionDefinitions.ActionType.Main,
+                    SourceDefinition: ItemDefinition
+                    {
+                        WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike
+                    }
+                }
+            ))
+        {
+            return;
+        }
+        
+        //checkin only extra glove slot, because gauntlets in main hand slot would already add attack
+        var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
+        var definition = item?.ItemDefinition;
+
+        if (item is not {ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike})
+        {
+            item = null;
+            definition = null;
+        }
+
+        definition ??= ItemDefinitions.UnarmedStrikeBase;
+
+        if (hero.GetClassLevel(CharacterClassDefinitions.Monk) == 0 && item == null)
+        {
+            return;
+        }
+
+        hero.AttackModes.Add(hero.RefreshAttackMode(ActionDefinitions.ActionType.Main, definition,
+            definition.WeaponDescription, hero.HasFreeHandSlot(), true, EquipmentDefinitions.SlotTypeMainHand,
+            hero.attackModifiers, hero.FeaturesOrigin, item));
+    }
+
+
     #region Halberd Icons
 
     private static AssetReferenceSprite

@@ -111,6 +111,13 @@ internal static class ItemsAndCraftingDisplay
             CustomWeaponsContext.UpdateHandWrapsUseGauntletSlot();
         }
 
+        toggle = Main.Settings.EnableGauntletMainAttacks;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableGauntletMainAttacks")), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableGauntletMainAttacks = toggle;
+        }
+
         UI.Label();
 
         var intValue = Main.Settings.RecipeCost;
