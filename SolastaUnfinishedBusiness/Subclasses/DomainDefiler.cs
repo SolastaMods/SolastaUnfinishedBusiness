@@ -97,7 +97,8 @@ public sealed class DomainDefiler : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerDefileLife.AddCustomSubFeatures(new ModifyEffectDescriptionDefileLife(powerDefileLife));
+        powerDefileLife.AddCustomSubFeatures(
+            new UpgradeEffectDamageBonusBasedOnClassLevel(powerDefileLife, CharacterClassDefinitions.Cleric));
 
         var featureSetDefileLife = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{NAME}DefileLife")
@@ -325,36 +326,6 @@ public sealed class DomainDefiler : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-    }
-
-    //
-    // Defile Life
-    //
-
-    private sealed class ModifyEffectDescriptionDefileLife(FeatureDefinitionPower baseDefinition)
-        : IModifyEffectDescription
-    {
-        public bool IsValid(
-            BaseDefinition definition,
-            RulesetCharacter character,
-            EffectDescription effectDescription)
-        {
-            return definition == baseDefinition;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var damageForm = effectDescription.FindFirstDamageForm();
-            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Cleric);
-
-            damageForm.bonusDamage = classLevel;
-
-            return effectDescription;
         }
     }
 

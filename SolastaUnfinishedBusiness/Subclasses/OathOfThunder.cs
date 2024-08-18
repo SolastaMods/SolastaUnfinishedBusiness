@@ -97,7 +97,7 @@ public sealed class OathOfThunder : AbstractSubclass
 
         powerThunderousRebuke.AddCustomSubFeatures(
             ForcePowerUseInSpendPowerAction.Marker,
-            new ModifyEffectDescriptionThunderousRebuke(powerThunderousRebuke));
+            new UpgradeEffectDamageBonusBasedOnClassLevel(powerThunderousRebuke, CharacterClassDefinitions.Paladin));
 
         // Divine Bolt
 
@@ -310,33 +310,6 @@ public sealed class OathOfThunder : AbstractSubclass
             attackMode.thrown = true;
             attackMode.closeRange = 4;
             attackMode.maxRange = 12;
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionThunderousRebuke(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerThunderousRebuke)
-        : IModifyEffectDescription
-    {
-        public bool IsValid(
-            BaseDefinition definition,
-            RulesetCharacter character,
-            EffectDescription effectDescription)
-        {
-            return definition == powerThunderousRebuke;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var damage = effectDescription.FindFirstDamageForm();
-
-            damage.bonusDamage = character.GetClassLevel(CharacterClassDefinitions.Paladin);
-
-            return effectDescription;
         }
     }
 

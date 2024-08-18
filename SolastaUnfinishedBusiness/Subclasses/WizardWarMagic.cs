@@ -133,7 +133,8 @@ public sealed class WizardWarMagic : AbstractSubclass
 
         powerDeflectionShroud.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new ModifyEffectDescriptionDeflectionShroud(powerDeflectionShroud));
+            new UpgradeEffectDamageBonusBasedOnClassLevel(
+                powerDeflectionShroud, CharacterClassDefinitions.Wizard, 0.5));
         featureArcaneDeflection.AddCustomSubFeatures(
             new CustomBehaviorArcaneDeflection(
                 featureArcaneDeflection, conditionArcaneDeflection, powerDeflectionShroud));
@@ -477,28 +478,6 @@ public sealed class WizardWarMagic : AbstractSubclass
             rollModifier += 2;
             modifierTrends.Add(
                 new TrendInfo(2, FeatureSourceType.CharacterFeature, featureDurableMagic.Name, featureDurableMagic));
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionDeflectionShroud(
-        FeatureDefinitionPower powerDeflectionShroud) : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerDeflectionShroud;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var halfClassLevel = (character.GetClassLevel(CharacterClassDefinitions.Wizard) + 1) / 2;
-
-            effectDescription.EffectForms[0].damageForm.BonusDamage = halfClassLevel;
-
-            return effectDescription;
         }
     }
 }
