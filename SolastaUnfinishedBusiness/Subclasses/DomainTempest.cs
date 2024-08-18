@@ -500,10 +500,12 @@ public sealed class DomainTempest : AbstractSubclass
         private static void MaybeAddPushForm(
             // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter attacker,
-            RulesetCharacter rulesetDefender,
+            [CanBeNull] RulesetCharacter rulesetDefender,
             // ReSharper disable once SuggestBaseTypeForParameter
             List<EffectForm> actualEffectForms)
         {
+            if (rulesetDefender == null) { return; }
+
             if (attacker.IsMyTurn() &&
                 actualEffectForms
                     .Any(x =>
