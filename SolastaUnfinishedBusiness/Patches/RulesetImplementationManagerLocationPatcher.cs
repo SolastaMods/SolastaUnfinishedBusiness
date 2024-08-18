@@ -51,8 +51,10 @@ public static class RulesetImplementationManagerLocationPatcher
             ref string failure)
         {
             //PATCH: support for custom metamagic
-            var validator = metamagicOption.GetFirstSubFeatureOfType<ValidateMetamagicApplication>();
-            validator?.Invoke(caster, rulesetEffectSpell, metamagicOption, ref __result, ref failure);
+            foreach (var validator in metamagicOption.GetAllSubFeaturesOfType<ValidateMetamagicApplication>())
+            {
+                validator.Invoke(caster, rulesetEffectSpell, metamagicOption, ref __result, ref failure);
+            }
         }
     }
 

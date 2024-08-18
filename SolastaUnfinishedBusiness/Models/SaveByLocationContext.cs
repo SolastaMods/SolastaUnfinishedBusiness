@@ -133,7 +133,7 @@ internal static class SaveByLocationContext
                     (
                         d,
                         Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                        LocationType.UserLocation
+                        LocationType.CustomCampaign
                     ))
             .Concat(
                 Directory.EnumerateDirectories(OfficialSaveGameDirectory)
@@ -141,7 +141,7 @@ internal static class SaveByLocationContext
                     (
                         d,
                         Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                        LocationType.UserLocation
+                        LocationType.StandardCampaign
                     ))
             .Concat(
                 Enumerable.Repeat(
@@ -171,6 +171,7 @@ internal static class SaveByLocationContext
 
         // Find the most recently touched save file and select the correct location/campaign for that save
         var (path, locationType) = GetMostRecent();
+        Main.Log2($"SaveByLocation: most recent: {locationType} at '{path}'");
 
         ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>()
             .SetCampaignLocation(locationType, Path.GetFileName(path));
