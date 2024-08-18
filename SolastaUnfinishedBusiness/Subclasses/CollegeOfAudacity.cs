@@ -187,8 +187,8 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.AudaciousWhirlToggle)
-            .OverrideClassName("Toggle")
             .SetActivatedPower(powerAudaciousWhirl, false)
+            .OverrideClassName("Toggle")
             .AddToDB();
 
         var featureSetAudaciousWhirl = FeatureDefinitionFeatureSetBuilder
