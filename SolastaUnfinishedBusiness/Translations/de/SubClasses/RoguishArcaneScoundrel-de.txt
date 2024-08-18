@@ -16,7 +16,7 @@ Feature/&PowerRoguishArcaneScoundrelEssenceTheftDescription=Sie können einer Kr
 Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=Essenzbruch
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Sie erlangen Kenntnisse in der Fertigkeit Arcana.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Arkane Affinität
-Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={1}={0} spricht einen Zauber! Du kannst reagieren, um den Zauber zu neutralisieren, ohne einen Zauberplatz zu verbrauchen.
+Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={0} spricht einen Zauber! Du kannst reagieren, um den Zauber zu neutralisieren, ohne einen Zauberplatz zu verbrauchen.
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactDescription=Wirke einen Gegenzauber und kontere den gegnerischen Zauber.
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactTitle=Schalter
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Feindliches Zaubern

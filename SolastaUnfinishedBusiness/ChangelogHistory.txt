@@ -1,3 +1,7 @@
+1.5.97.28:
+
+- fixed Roguish Arcane Scoundrel arcane backslash reaction description causing a crash
+
 1.5.97.27:
 
 - added Gameplay > Crafting, Items & Merchants > 'Enable Monk handwraps and gauntlets to work in gauntlet slot' setting
