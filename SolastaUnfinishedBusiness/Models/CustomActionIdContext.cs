@@ -657,12 +657,14 @@ public static class CustomActionIdContext
         }
 
         var hero = glc.RulesetCharacter.GetOriginalHero();
-        if (hero is null) { return ActionStatus.Unavailable; }
-
         var quickenedSpell = MetamagicOptionDefinitions.MetamagicQuickenedSpell;
-        if (!hero.TrainedMetamagicOptions.Contains(quickenedSpell)
-            || !glc.RulesetCharacter.CanCastSpellOfActionType(ActionType.Main, glc.CanOnlyUseCantrips)
-            || glc.GetActionTypeStatus(ActionType.Bonus) != ActionStatus.Available)
+
+        // more or less in order of cost
+        if (hero == null ||
+            !hero.TrainedMetamagicOptions.Contains(quickenedSpell) ||
+            !glc.IsActionOnGoing(Id.MetamagicToggle) ||
+            glc.GetActionTypeStatus(ActionType.Bonus) != ActionStatus.Available ||
+            !glc.RulesetCharacter.CanCastSpellOfActionType(ActionType.Main, glc.CanOnlyUseCantrips))
         {
             return ActionStatus.Unavailable;
         }
