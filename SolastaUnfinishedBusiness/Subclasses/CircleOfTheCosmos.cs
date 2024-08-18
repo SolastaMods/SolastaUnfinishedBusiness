@@ -690,12 +690,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 x.FormType == EffectForm.EffectFormType.Condition &&
                 x.ConditionForm.ConditionDefinition == conditionConstellationForm);
 
-            if (conditionForm == null)
-            {
-                return effectDescription;
-            }
-
-            conditionForm.ConditionForm.conditionDefinition = levels < 14
+            conditionForm!.ConditionForm.conditionDefinition = levels < 14
                 ? conditionConstellationForm10
                 : conditionConstellationForm14;
 
