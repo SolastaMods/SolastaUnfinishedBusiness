@@ -127,6 +127,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Ative a seleção de <color=#D89555>talento
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Fighter</color> <b>Especialização em Armas</b> nos níveis 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas tenha desvantagem com qualquer outra arma tipo]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite planos de fundo flexíveis <i><color=#F0DAA0>[selecione habilidades e proficiências em ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Habilite corridas flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
+ModUi/&EnableGauntletMainAttacks=Permitir <b>Ataque Desarmado</b> com ação principal para o personagem se um <color=#D89555>Monge</color> ou tiver <b>Manoplas</b> ou <b>Manopla</b> equipada
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permita que o herói com melhor proficiência faça escolhas de diálogo
 ModUi/&EnableHigherGroundRules=Habilite regras de terreno mais alto <i><color=#F0DAA0>[+1 para acertar se estiver atacando de um terreno mais alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Ative <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração

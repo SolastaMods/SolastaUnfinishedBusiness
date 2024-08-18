@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=더 높은 땅
 Feedback/&MagicalGuidanceCheckToHitRoll={0}은(는) {1}을(를) 사용했고 수표 판정의 {3}을(를) 대체하기 위해 {2}를 굴렸습니다.
 Feedback/&MetamagicActivatedShortLine={0}은 {1} 메타매직을 활성화합니다.
 Feedback/&NarrativeChoiceRoll={0}는 {2} 결과와 함께 {1} 설명 선택을 굴립니다.
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=여행 중에는 휴식 후 식별 전원을 사용할 수 없습니다.
 Feedback/&ReturningWeaponActivates={1}이(가) {0}(으)로 돌아갑니다!
 Feedback/&SmallRace=소규모 경주
 Feedback/&TriggerFeatureLine={0}은 {1}을 트리거합니다.

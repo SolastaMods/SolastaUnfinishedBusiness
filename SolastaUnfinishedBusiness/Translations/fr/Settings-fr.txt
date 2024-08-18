@@ -127,6 +127,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des <color=#D89555>ex
 ModUi/&EnableFighterWeaponSpecialization=Activer <color=#D89555>Combattant</color> <b>Spécialisation d'arme</b> aux niveaux 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et infliger des dégâts mais désavantagez avec toute autre arme tapez]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionner les compétences et les outils à partir des arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs raciales par défaut]</color></i>
+ModUi/&EnableGauntletMainAttacks=Autoriser une <b>attaque à mains nues</b> avec l'action principale du personnage s'il est un <color=#D89555>moine</color> ou s'il a des <b>bandages</b> ou un <b>gantelet</b> équipés
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permettre au héros le plus compétent de lancer les choix de dialogue
 ModUi/&EnableHigherGroundRules=Activer les règles de terrain plus élevées <i><color=#F0DAA0>[+1 pour toucher si vous attaquez depuis un terrain plus élevé]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la superposition de débogage

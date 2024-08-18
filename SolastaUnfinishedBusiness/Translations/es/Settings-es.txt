@@ -127,6 +127,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de <color=#D89555>d
 ModUi/&EnableFighterWeaponSpecialization=Habilita <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles 8 y 16 <i><color=#F0DAA0>[obtiene +1 para golpear y dañar, pero está en desventaja con cualquier otra arma tipo]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione habilidades y conocimientos de herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntuación de habilidad en lugar de los valores raciales predeterminados]</color></i>
+ModUi/&EnableGauntletMainAttacks=Permitir <b>Ataque sin armas</b> con acción principal para el personaje si es un <color=#D89555>Monje</color> o tiene <b>Manos</b> o <b>Guantelete</b> equipados
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permitir que el héroe con mayor competencia realice opciones de diálogo.
 ModUi/&EnableHigherGroundRules=Habilite reglas básicas más altas <i><color=#F0DAA0>[+1 para golpear si ataca desde un terreno más alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración

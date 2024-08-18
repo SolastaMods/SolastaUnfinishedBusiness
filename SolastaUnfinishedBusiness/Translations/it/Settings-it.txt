@@ -127,6 +127,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione dei <color=#D89555>tal
 ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Combattente</color> <b>specializzazione arma</b> ai livelli 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altra arma tipo]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona abilità e competenze negli strumenti dagli sfondi]</color></i>
 ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti di abilità invece delle impostazioni razziali predefinite]</color></i>
+ModUi/&EnableGauntletMainAttacks=Consenti <b>Attacco disarmato</b> con azione principale per il personaggio se è un <color=#D89555>monaco</color> o ha <b>fasce</b> o <b>guanto</b> equipaggiati
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Consenti all'eroe con la migliore competenza di effettuare scelte di dialogo
 ModUi/&EnableHigherGroundRules=Abilita le regole per i terreni più elevati <i><color=#F0DAA0>[+1 per colpire se attacchi da un terreno più elevato]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Abilita <color=#1E81B0>CTRL-MAIUSC-(D)</color> per visualizzare l'overlay di debug

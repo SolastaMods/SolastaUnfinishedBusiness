@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=高处攻击
 Feedback/&MagicalGuidanceCheckToHitRoll={0} 使用了 {1} 并投掷了 {2} 以替换检定掷骰上的 {3}
 Feedback/&MetamagicActivatedShortLine={0} 激活 {1} 超魔法
 Feedback/&NarrativeChoiceRoll={0} 投掷 {1} 个叙述选项，结果为 {2}。
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=旅行途中休息后无法使用识别能力
 Feedback/&ReturningWeaponActivates={1} 返回 {0}！
 Feedback/&SmallRace=小体型种族
 Feedback/&TriggerFeatureLine={0} 触发 {1}

@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=Terreno mais elevado
 Feedback/&MagicalGuidanceCheckToHitRoll={0} usou {1} e rola um {2} para substituir {3} no teste
 Feedback/&MetamagicActivatedShortLine={0} ativa a metamagia {1}
 Feedback/&NarrativeChoiceRoll={0} rola uma escolha narrativa {1} com um resultado {2}.
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Você não pode usar o poder de identificação após o descanso enquanto viaja
 Feedback/&ReturningWeaponActivates={1} retorna para {0}!
 Feedback/&SmallRace=Raça pequena
 Feedback/&TriggerFeatureLine={0} gatilhos {1}

@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=Un terrain plus élevé
 Feedback/&MagicalGuidanceCheckToHitRoll={0} a utilisé {1} et lance un {2} pour remplacer {3} sur le jet de contrôle
 Feedback/&MetamagicActivatedShortLine={0} active la métamagie {1}
 Feedback/&NarrativeChoiceRoll={0} lance un choix narratif {1} avec un résultat {2}.
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Vous ne pouvez pas utiliser la fonction d'identification après le repos pendant le voyage
 Feedback/&ReturningWeaponActivates={1} revient à {0} !
 Feedback/&SmallRace=Petite course
 Feedback/&TriggerFeatureLine={0} déclenche {1}

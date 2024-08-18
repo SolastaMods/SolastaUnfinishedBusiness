@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=Higher Ground
 Feedback/&MagicalGuidanceCheckToHitRoll={0} used {1} and rolls a {2} to replace {3} on the check roll
 Feedback/&MetamagicActivatedShortLine={0} activates the {1} metamagic
 Feedback/&NarrativeChoiceRoll={0} rolls a {1} narrative choice with a {2} result.
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=You can't use after rest identify power while travelling
 Feedback/&ReturningWeaponActivates={1} returns to {0}!
 Feedback/&SmallRace=Small Race
 Feedback/&TriggerFeatureLine={0} triggers {1}

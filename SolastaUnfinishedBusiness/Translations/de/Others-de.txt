@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=Eine höhere Ebene
 Feedback/&MagicalGuidanceCheckToHitRoll={0} hat {1} verwendet und würfelt eine {2}, um {3} beim Kontrollwurf zu ersetzen.
 Feedback/&MetamagicActivatedShortLine={0} aktiviert die {1} Metamagie
 Feedback/&NarrativeChoiceRoll={0} würfelt eine {1} narrative Wahl mit einem {2} Ergebnis.
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Sie können nach der Ruhezeit die Energie während der Reise nicht nutzen
 Feedback/&ReturningWeaponActivates={1} kehrt zu {0} zurück!
 Feedback/&SmallRace=Kleines Rennen
 Feedback/&TriggerFeatureLine={0} löst {1} aus

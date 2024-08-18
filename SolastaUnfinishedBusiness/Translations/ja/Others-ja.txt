@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=高いところ
 Feedback/&MagicalGuidanceCheckToHitRoll={0}は{1}を使用し、チェックロールで{3}の代わりに{2}をロールします
 Feedback/&MetamagicActivatedShortLine={0}は{1}メタマジックを発動します
 Feedback/&NarrativeChoiceRoll={0} は、{1} の物語の選択肢をロールして、{2} の結果をもたらします。
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=旅行中は休憩後にパワーを識別できません
 Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
 Feedback/&SmallRace=スモールレース
 Feedback/&TriggerFeatureLine={0} が {1} をトリガーします

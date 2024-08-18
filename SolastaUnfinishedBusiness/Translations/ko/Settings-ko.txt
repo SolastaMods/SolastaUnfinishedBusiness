@@ -127,6 +127,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=레벨 6과 14에서 <color=#D89555>재능<
 ModUi/&EnableFighterWeaponSpecialization=레벨 8과 16에서 <color=#D89555>전투기</color> <b>무기 전문화</b> 활성화 <i><color=#F0DAA0>[적중 및 피해에 +1을 주지만 다른 무기에 대해서는 불리함을 얻습니다. 유형]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[인종 기본값 대신 능력 점수 포인트 할당]</color></i>
+ModUi/&EnableGauntletMainAttacks=<color=#D89555>수도사</color> 또는 <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우 캐릭터가 주요 행동으로 <b>비무장 공격</b>을 허용합니다.
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=최고의 능력을 갖춘 영웅이 대화 선택을 할 수 있도록 활성화
 ModUi/&EnableHigherGroundRules=더 높은 지대 규칙 활성화 <i><color=#F0DAA0>[더 높은 지대에서 공격할 경우 적중률 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 표시하려면 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 활성화하세요.

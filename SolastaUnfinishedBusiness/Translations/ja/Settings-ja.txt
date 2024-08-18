@@ -127,6 +127,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=レベル6と14で<color=#D89555>特技</co
 ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <color=#D89555>ファイター</color> の<b>武器スペシャライゼーション</b>を有効にします<i><color=#F0DAA0>[攻撃力とダメージ力が +1 されますが、他の武器では不利になります。タイプ]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[スキルとツールの習熟度を背景から選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトの代わりに能力スコア ポイントを割り当てる]</color></i>
+ModUi/&EnableGauntletMainAttacks=<color=#D89555>モンク</color>または<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合、キャラクターのメインアクションで<b>素手攻撃</b>が可能になります
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=最も熟練したヒーローが会話の選択肢をロールできるようにします
 ModUi/&EnableHigherGroundRules=高地ルールを有効にする <i><color=#F0DAA0>[高地から攻撃する場合、ヒット数 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=<color=#1E81B0>CTRL-SHIFT-(D)</color> を有効にしてデバッグ オーバーレイを表示します
