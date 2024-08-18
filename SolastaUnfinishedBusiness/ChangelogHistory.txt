@@ -1,7 +1,11 @@
 1.5.97.28:
 
-- fixed save by location/campaign setting using a wrong path on custom campaigns random encounters or maps 
+- added 'Allow Unarmed Attack with main action for character if a Monk or has Handwraps or Gauntlet equipped' setting
+- fixed Domain Tempest thunderous strike causing a crash when a gadget gets hit
+- fixed Green-Flame Blade cantrip first target selection rules if reach, and reach setting disabled
+- fixed Martial Psi-Warrior kinetic barrier getting offered on a critical hit
 - fixed Roguish Arcane Scoundrel arcane backslash reaction description causing a crash
+- fixed save by location/campaign setting using a wrong path on custom campaigns random encounters or maps 
 
 1.5.97.27:
 
