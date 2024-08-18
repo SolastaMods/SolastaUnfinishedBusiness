@@ -607,12 +607,8 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(DivineFavor)
                     .Build())
+            .AddCustomSubFeatures(SrdAndHouseRulesContext.NoTwinned.Mark, new AttackAfterMagicEffect())
             .AddToDB();
-
-        spell.AddCustomSubFeatures(
-            SrdAndHouseRulesContext.NoTwinned.Mark,
-            new AttackAfterMagicEffect(),
-            new UpgradeEffectRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
@@ -877,15 +873,11 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(Shatter)
                     .Build())
+            .AddCustomSubFeatures(SrdAndHouseRulesContext.NoTwinned.Mark, new AttackAfterMagicEffect())
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
         powerBoomingBladeDamage.GuiPresentation = spell.GuiPresentation;
-
-        spell.AddCustomSubFeatures(
-            SrdAndHouseRulesContext.NoTwinned.Mark,
-            new AttackAfterMagicEffect(),
-            new UpgradeEffectRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
@@ -990,16 +982,16 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(BurningHands_B)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
+            .AddCustomSubFeatures(
+                SrdAndHouseRulesContext.NoTwinned.Mark,
+                // order matters here as CustomBehaviorResonatingStrike.IFilterTargetingCharacter
+                // should trigger before AttackAfterMagicEffect.IFilterTargetingCharacter
+                new CustomBehaviorResonatingStrike(),
+                new AttackAfterMagicEffect())
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
         powerResonatingStrikeDamage.GuiPresentation = spell.GuiPresentation;
-
-        spell.AddCustomSubFeatures(
-            SrdAndHouseRulesContext.NoTwinned.Mark,
-            new CustomBehaviorResonatingStrike(),
-            new AttackAfterMagicEffect(),
-            new UpgradeEffectRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
@@ -1013,38 +1005,20 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            bool isValid;
-            
-            // this is same implementation in AttackAfterMagicEffect()
+            // let AttackAfterMagicEffect handle first target
             if (__instance.SelectionService.SelectedTargets.Count == 0)
             {
-                var actingCharacter = __instance.ActionParams.ActingCharacter;
-                isValid = AttackAfterMagicEffect. CanAttack(actingCharacter, target) &&
-                              (Main.Settings.AllowBladeCantripsToUseReach || actingCharacter.IsWithinRange(target, 1));
-
-                if (isValid)
-                {
-                    return true;
-                }
-
-                var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
-
-                __instance.actionModifier.FailureFlags.Add(Gui.Format("Tooltip/&TargetMeleeWeaponError", text));
-
-                return false;
+                return true;
             }
 
-            // this is the custom piece to enforce second target to be closer to first
-            var firstTarget = __instance.SelectionService.SelectedTargets[0];
-
-            isValid = firstTarget.IsWithinRange(target, 1);
-
-            if (!isValid)
+            if (__instance.SelectionService.SelectedTargets[0].IsWithinRange(target, 1))
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&SecondTargetNotWithinRange");
+                return true;
             }
 
-            return isValid;
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&SecondTargetNotWithinRange");
+
+            return false;
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)
