@@ -40,8 +40,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityArcaneArcherToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(ArcaneArcherToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerArcaneShot)))
             .AddToDB();
 
     internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice2 =

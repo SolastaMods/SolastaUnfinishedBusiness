@@ -722,8 +722,8 @@ internal static class Level20SubclassesContext
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.QuiveringPalmToggle)
             .SetActivatedPower(powerTraditionOpenHandQuiveringPalm, false)
-            .SetParameter(ActionDefinitions.ActionParameter.TogglePower)
             .OverrideClassName("Toggle")
+            .SetParameter(ActionDefinitions.ActionParameter.TogglePower)
             .AddToDB();
 
         _ = DamageDefinitionBuilder

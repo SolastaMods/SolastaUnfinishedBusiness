@@ -48,6 +48,24 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.ZenShotToggle
     ];
 
+    private static readonly List<Id> ExtraActionIdPowers =
+    [
+        (Id)ExtraActionId.AmazingDisplayToggle,
+        (Id)ExtraActionId.ArcaneArcherToggle,
+        (Id)ExtraActionId.AudaciousWhirlToggle,
+        (Id)ExtraActionId.BalefulScionToggle,
+        (Id)ExtraActionId.BondOfTheTalismanTeleport,
+        (Id)ExtraActionId.CoordinatedAssaultToggle,
+        (Id)ExtraActionId.DestructiveWrathToggle,
+        (Id)ExtraActionId.FarStep,
+        (Id)ExtraActionId.ForcePoweredStrikeToggle,
+        (Id)ExtraActionId.ImpishWrathToggle,
+        (Id)ExtraActionId.OrcishFuryToggle,
+        (Id)ExtraActionId.PowerSurgeToggle,
+        (Id)ExtraActionId.QuiveringPalmToggle,
+        (Id)ExtraActionId.ZenShotToggle
+    ];
+
     internal static FeatureDefinitionPower FarStep { get; private set; }
 
     internal static void Load()
@@ -200,11 +218,6 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.NoCost)
             .SetActivatedPower(PathOfTheSavagery.PowerPrimalInstinct)
             .AddToDB();
-    }
-
-    internal static bool IsCustomActionIdToggle(Id action)
-    {
-        return ExtraActionIdToggles.Contains(action);
     }
 
     internal static void ReorderToggles(List<Id> actions)
@@ -608,26 +621,12 @@ public static class CustomActionIdContext
             : ActionStatus.Unavailable;
     }
 
-    internal static bool IsInvocationActionId(Id id)
-    {
-        var extra = (ExtraActionId)id;
-
-        return id is Id.CastInvocation
-               || extra is ExtraActionId.CastInvocationBonus
-                   or ExtraActionId.CastInvocationNoCost
-                   or ExtraActionId.InventorInfusion
-                   or ExtraActionId.CastPlaneMagicMain
-                   or ExtraActionId.CastPlaneMagicBonus
-               || IsGambitActionId(id)
-               || IsEldritchVersatilityId(id)
-               || IsEldritchVersatilityId(id);
-    }
-
     private static bool IsEldritchVersatilityId(Id id)
     {
         var extra = (ExtraActionId)id;
 
-        return extra is ExtraActionId.EldritchVersatilityMain
+        return extra
+            is ExtraActionId.EldritchVersatilityMain
             or ExtraActionId.EldritchVersatilityBonus
             or ExtraActionId.EldritchVersatilityNoCost;
     }
@@ -636,17 +635,36 @@ public static class CustomActionIdContext
     {
         var extra = (ExtraActionId)id;
 
-        return extra is ExtraActionId.TacticianGambitMain
+        return extra
+            is ExtraActionId.TacticianGambitMain
             or ExtraActionId.TacticianGambitBonus
             or ExtraActionId.TacticianGambitNoCost;
     }
 
-    private static bool IsPowerUseActionId(Id id)
+    internal static bool IsInvocationActionId(Id id)
     {
         var extra = (ExtraActionId)id;
 
-        return extra is ExtraActionId.BondOfTheTalismanTeleport
-            or ExtraActionId.FarStep;
+        return id is Id.CastInvocation ||
+               extra
+                   is ExtraActionId.CastInvocationBonus
+                   or ExtraActionId.CastInvocationNoCost
+                   or ExtraActionId.InventorInfusion
+                   or ExtraActionId.CastPlaneMagicMain
+                   or ExtraActionId.CastPlaneMagicBonus ||
+               IsGambitActionId(id) ||
+               IsEldritchVersatilityId(id) ||
+               IsEldritchVersatilityId(id);
+    }
+
+    private static bool IsPowerUseActionId(Id id)
+    {
+        return ExtraActionIdPowers.Contains(id);
+    }
+
+    internal static bool IsToggleId(Id id)
+    {
+        return ExtraActionIdToggles.Contains(id);
     }
 
     private static ActionStatus CanUseActionQuickened(GameLocationCharacter glc, ActionScope scope)

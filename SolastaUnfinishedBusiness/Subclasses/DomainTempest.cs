@@ -164,8 +164,6 @@ public sealed class DomainTempest : AbstractSubclass
                 "ActionAffinityDestructiveWrathToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerDestructiveWrath)))
             .AddToDB();
 
         var featureSetDestructiveWrath = FeatureDefinitionFeatureSetBuilder

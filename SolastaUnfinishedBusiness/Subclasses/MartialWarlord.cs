@@ -250,8 +250,6 @@ public sealed class MartialWarlord : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityCoordinatedAssaultToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(CoordinatedAssaultToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerCoordinatedAssault)))
             .AddToDB();
 
         var featureSetCoordinatedAssault = FeatureDefinitionFeatureSetBuilder

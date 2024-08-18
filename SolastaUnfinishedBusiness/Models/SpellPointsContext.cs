@@ -122,7 +122,7 @@ internal static class SpellPointsContext
         var rulesetCharacter = guiCharacterAction.ActingCharacter.RulesetCharacter;
         var remainingSpellPoints = GetRemainingSpellPoints(rulesetCharacter).ToString();
 
-        if (highSlotNumber == null)
+        if (!highSlotNumber)
         {
             attackNumber.Text = remainingSpellPoints;
             attackNumber.transform.parent.gameObject.SetActive(true);

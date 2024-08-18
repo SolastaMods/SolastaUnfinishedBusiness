@@ -78,8 +78,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 "ActionAffinityZenShotToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(ZenShotToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerZenShot)))
             .AddToDB();
 
         powerZenShot.AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyZenShot(powerZenShot));

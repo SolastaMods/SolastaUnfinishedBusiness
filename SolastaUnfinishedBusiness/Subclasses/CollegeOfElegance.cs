@@ -205,8 +205,6 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityAmazingDisplayToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(AmazingDisplayToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerAmazingDisplay)))
             .AddToDB();
 
         var featureSetAmazingDisplay = FeatureDefinitionFeatureSetBuilder

@@ -561,7 +561,7 @@ public static class GameLocationCharacterPatcher
         public static bool Prefix(GameLocationCharacter __instance, ref bool __result,
             ActionDefinitions.Id actionId)
         {
-            if (!CustomActionIdContext.IsCustomActionIdToggle(actionId))
+            if (!CustomActionIdContext.IsToggleId(actionId))
             {
                 return true;
             }

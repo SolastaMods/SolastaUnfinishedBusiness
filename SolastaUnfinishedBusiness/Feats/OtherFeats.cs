@@ -850,9 +850,7 @@ internal static class OtherFeats
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityBalefulScionToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle)
-            .AddCustomSubFeatures(
-                new CustomBehaviorBalefulScion(conditionBalefulScion, powerBalefulScion),
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerBalefulScion)))
+            .AddCustomSubFeatures(new CustomBehaviorBalefulScion(conditionBalefulScion, powerBalefulScion))
             .AddToDB();
 
         var attributeIncreases = new List<(FeatureDefinition, string)>

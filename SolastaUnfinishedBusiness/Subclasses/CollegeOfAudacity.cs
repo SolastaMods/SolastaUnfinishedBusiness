@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -189,8 +188,6 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.AudaciousWhirlToggle)
             .OverrideClassName("Toggle")
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerAudaciousWhirl)))
             .AddToDB();
 
         var featureSetAudaciousWhirl = FeatureDefinitionFeatureSetBuilder

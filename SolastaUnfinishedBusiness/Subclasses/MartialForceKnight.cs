@@ -238,7 +238,6 @@ public sealed class MartialForceKnight : AbstractSubclass
             powerPsionicAdeptProne, powerPsionicAdeptPush);
 
         actionAffinityForcePoweredStrikeToggle.AddCustomSubFeatures(
-            new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerPsionicInitiate)),
             new CustomBehaviorForcePoweredStrike(conditionForcePoweredStrike, powerPsionicAdept));
 
         var featureSetPsionicAdept = FeatureDefinitionFeatureSetBuilder

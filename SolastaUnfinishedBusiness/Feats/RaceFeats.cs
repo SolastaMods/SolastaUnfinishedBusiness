@@ -1550,8 +1550,6 @@ internal static class RaceFeats
                 "ActionAffinityOrcishFuryToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(power)))
             .AddToDB();
 
         var orcishFuryStr = FeatDefinitionWithPrerequisitesBuilder
