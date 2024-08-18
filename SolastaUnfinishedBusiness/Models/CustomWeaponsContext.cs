@@ -787,7 +787,7 @@ internal static class CustomWeaponsContext
     {
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
         {
-            if (item is not { WeaponDescription.weaponType: "UnarmedStrikeType" }) { continue; }
+            if (item is not { WeaponDescription.weaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike }) { continue; }
 
             if (item == ItemDefinitions.UnarmedStrikeBase) { continue; }
 
@@ -815,7 +815,7 @@ internal static class CustomWeaponsContext
 
         var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
 
-        if (item is not {ItemDefinition.WeaponDescription.WeaponType: "UnarmedStrikeType"})
+        if (item is not {ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike})
         {
             return;
         }
