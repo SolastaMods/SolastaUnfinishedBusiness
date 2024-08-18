@@ -525,7 +525,7 @@ internal static partial class SpellBuilders
                 return effectDescription;
             }
 
-            effectDescription.EffectForms[0].DamageForm.DiceNumber = character.ConcentratedSpell.EffectLevel - 2;
+            effectDescription.FindFirstDamageForm().DiceNumber = character.ConcentratedSpell.EffectLevel - 2;
 
             return effectDescription;
         }
@@ -831,12 +831,7 @@ internal static partial class SpellBuilders
                 return effectDescription;
             }
 
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm != null)
-            {
-                damageForm.diceNumber = activeCondition.EffectLevel;
-            }
+            effectDescription.FindFirstDamageForm().DiceNumber = activeCondition.EffectLevel;
 
             return effectDescription;
         }
@@ -1328,14 +1323,12 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var damageForm = effectDescription.FindFirstDamageForm();
             var glc = GameLocationCharacter.GetFromActor(character);
 
-            if (damageForm != null
-                && glc != null
-                && glc.UsedSpecialFeatures.TryGetValue(conditionDefinition.Name, out var additionalDice))
+            if (glc != null &&
+                glc.UsedSpecialFeatures.TryGetValue(conditionDefinition.Name, out var additionalDice))
             {
-                damageForm.diceNumber = 2 + additionalDice;
+                effectDescription.FindFirstDamageForm().diceNumber = 2 + additionalDice;
             }
 
             return effectDescription;

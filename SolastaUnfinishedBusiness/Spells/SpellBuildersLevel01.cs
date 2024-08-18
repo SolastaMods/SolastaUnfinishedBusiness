@@ -1301,8 +1301,7 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            effectDescription.EffectForms[0].DamageForm.DiceNumber =
-                2 + (PowerOrSpellFinishedByMeIceBlade.EffectLevel - 1);
+            effectDescription.FindFirstDamageForm().DiceNumber = 2 + (PowerOrSpellFinishedByMeIceBlade.EffectLevel - 1);
 
             return effectDescription;
         }
@@ -1722,10 +1721,11 @@ internal static partial class SpellBuilders
 
     #region Skin of Retribution
 
+    private const int TempHpPerLevelSkinOfRetribution = 5;
+
     internal static SpellDefinition BuildSkinOfRetribution()
     {
         const string NAME = "SkinOfRetribution";
-        const int TEMP_HP_PER_LEVEL = 5;
 
         var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
@@ -1734,7 +1734,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeCold, bonusDamage: TEMP_HP_PER_LEVEL))
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeCold))
                     .SetParticleEffectParameters(ConeOfCold)
                     .Build())
             .AddToDB();
@@ -1778,12 +1778,12 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetTempHpForm(TEMP_HP_PER_LEVEL)
+                            .SetTempHpForm(TempHpPerLevelSkinOfRetribution)
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionSkinOfRetribution))
                     .SetEffectAdvancement(
                         EffectIncrementMethod.PerAdditionalSlotLevel,
-                        additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
+                        additionalTempHpPerIncrement: TempHpPerLevelSkinOfRetribution)
                     .SetParticleEffectParameters(ConeOfCold)
                     .Build())
             .AddToDB();
@@ -1850,7 +1850,7 @@ internal static partial class SpellBuilders
 
             var damageForm = effectDescription.FindFirstDamageForm();
 
-            damageForm.bonusDamage *= effectLevel;
+            damageForm.BonusDamage = TempHpPerLevelSkinOfRetribution * effectLevel;
 
             return effectDescription;
         }
@@ -2269,10 +2269,7 @@ internal static partial class SpellBuilders
 
             var damageForm = effectDescription.FindFirstDamageForm();
 
-            if (damageForm != null)
-            {
-                damageForm.diceNumber = activeCondition.EffectLevel;
-            }
+            damageForm.DiceNumber = activeCondition.EffectLevel;
 
             return effectDescription;
         }
@@ -2433,7 +2430,7 @@ internal static partial class SpellBuilders
 
             var effectLevel = rulesetSpell.EffectLevel;
 
-            effectDescription.EffectForms[0].DamageForm.DiceNumber = effectLevel;
+            effectDescription.FindFirstDamageForm().DiceNumber = effectLevel;
 
             return effectDescription;
         }

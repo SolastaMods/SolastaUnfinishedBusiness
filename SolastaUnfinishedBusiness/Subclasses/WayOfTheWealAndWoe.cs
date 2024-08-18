@@ -301,7 +301,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
         {
             var dieType = character.GetMonkDieType();
 
-            effectDescription.EffectForms[0].DamageForm.DieType = dieType;
+            effectDescription.FindFirstDamageForm().DieType = dieType;
 
             return effectDescription;
         }

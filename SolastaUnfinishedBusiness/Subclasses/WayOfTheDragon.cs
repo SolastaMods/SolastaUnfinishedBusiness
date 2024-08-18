@@ -751,7 +751,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 return effectDescription;
             }
 
-            var damageForm = effectDescription.EffectForms[0].DamageForm;
+            var damageForm = effectDescription.FindFirstDamageForm();
             var dieType = character.GetMonkDieType();
 
             damageForm.DamageType = damageType;

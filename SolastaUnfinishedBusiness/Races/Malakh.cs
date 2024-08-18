@@ -310,7 +310,7 @@ internal static class RaceMalakhBuilder
                 _ => DieType.D12
             };
 
-            effectDescription.EffectForms[0].DamageForm.DieType = dieType;
+            effectDescription.FindFirstDamageForm().DieType = dieType;
 
             return effectDescription;
         }

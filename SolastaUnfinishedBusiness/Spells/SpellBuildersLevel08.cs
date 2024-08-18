@@ -318,7 +318,7 @@ internal static partial class SpellBuilders
             if (glc != null &&
                 glc.UsedSpecialFeatures.TryGetValue("SoulExpulsion", out var effectLevel))
             {
-                effectDescription.EffectForms[0].DamageForm.DiceNumber = 7 + (2 * (effectLevel - 8));
+                effectDescription.FindFirstDamageForm().DiceNumber = 7 + (2 * (effectLevel - 8));
             }
 
             return effectDescription;

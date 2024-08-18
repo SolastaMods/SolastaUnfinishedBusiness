@@ -305,17 +305,19 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 return effectDescription;
             }
 
+            var damageForm = effectDescription.FindFirstDamageForm();
+
             if (character.UsedSpecialFeatures.TryGetValue(WhirlDamageType, out var damageIndex))
             {
                 var damageTypeDefinition =
                     DatabaseRepository.GetDatabase<DamageDefinition>().ToList().ElementAt(damageIndex);
 
-                effectDescription.EffectForms[0].DamageForm.DamageType = damageTypeDefinition.Name;
+                damageForm.DamageType = damageTypeDefinition.Name;
             }
 
             var isMasterfulWhirl = rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle);
 
-            effectDescription.EffectForms[0].DamageForm.OverrideWithBardicInspirationDie = !isMasterfulWhirl;
+            damageForm.OverrideWithBardicInspirationDie = !isMasterfulWhirl;
 
             return effectDescription;
         }
