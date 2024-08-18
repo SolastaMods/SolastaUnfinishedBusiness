@@ -171,7 +171,6 @@ internal static class SaveByLocationContext
 
         // Find the most recently touched save file and select the correct location/campaign for that save
         var (path, locationType) = GetMostRecent();
-        Main.Log2($"SaveByLocation: most recent: {locationType} at '{path}'");
 
         ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>()
             .SetCampaignLocation(locationType, Path.GetFileName(path));
