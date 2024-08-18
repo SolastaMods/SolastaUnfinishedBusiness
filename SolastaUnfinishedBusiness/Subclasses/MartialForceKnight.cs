@@ -745,10 +745,6 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
             var attackRoll = action.AttackRoll;
-
-            //auto hit - skip
-            if (attackMode?.AutomaticHit == true && attackRoll == DiceMaxValue[(int)DieType.D20]) { yield break; }
-
             var totalAttack =
                 attackRoll +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
