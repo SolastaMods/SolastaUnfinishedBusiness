@@ -1005,10 +1005,19 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            // let AttackAfterMagicEffect handle first target
+            // handle first target like AttackAfterMagicEffect
             if (__instance.SelectionService.SelectedTargets.Count == 0)
             {
-                return true;
+                if (AttackAfterMagicEffect.CanAttack(__instance.ActionParams.ActingCharacter, target))
+                {
+                    return true;
+                }
+
+                var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
+
+                __instance.actionModifier.FailureFlags.Add(Gui.Format("Tooltip/&TargetMeleeWeaponError", text));
+
+                return false;
             }
 
             if (__instance.SelectionService.SelectedTargets[0].IsWithinRange(target, 1))
