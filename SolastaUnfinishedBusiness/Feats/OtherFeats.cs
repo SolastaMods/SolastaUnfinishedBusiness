@@ -2328,7 +2328,7 @@ internal static class OtherFeats
                 usablePower,
                 attacker,
                 "MageSlayer",
-                "CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
+                "SpendPowerMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
                 ReactionValidated,
                 battleManager);
 
