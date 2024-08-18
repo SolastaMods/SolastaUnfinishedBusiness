@@ -537,7 +537,7 @@ public static class RulesetCharacterHeroPatcher
                     modifier.ModifyAttackMode(__instance, attackMode);
                 }
             }
-            
+
             //PATCH: add Main Action gauntlet attacks if needed
             CustomWeaponsContext.TryAddMainActionUnarmedAttacks(__instance);
 

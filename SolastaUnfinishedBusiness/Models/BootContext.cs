@@ -225,7 +225,8 @@ internal static class BootContext
                 {
                     var referenceDefinition = userItem["referenceDefinition"]!.Value<string>();
 
-                    if (DatabaseRepository.GetDatabase<ItemDefinition>().TryGetElement(referenceDefinition, out var element) &&
+                     if (DatabaseRepository.GetDatabase<ItemDefinition>()
+                            .TryGetElement(referenceDefinition, out var element) &&
                         element.ContentPack != CeContentPackContext.CeContentPack)
                     {
                         continue;
@@ -239,7 +240,8 @@ internal static class BootContext
                 {
                     var referenceDefinition = userMonster["referenceDefinition"]!.Value<string>();
 
-                    if (DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(referenceDefinition, out var element) &&
+                    if (DatabaseRepository.GetDatabase<MonsterDefinition>()
+                            .TryGetElement(referenceDefinition, out var element) &&
                         element.ContentPack != CeContentPackContext.CeContentPack)
                     {
                         continue;

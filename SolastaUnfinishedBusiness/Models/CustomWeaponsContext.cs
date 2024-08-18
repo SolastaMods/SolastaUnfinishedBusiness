@@ -787,7 +787,10 @@ internal static class CustomWeaponsContext
     {
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
         {
-            if (item is not { WeaponDescription.weaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike }) { continue; }
+            if (item is not { WeaponDescription.weaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
+            {
+                continue;
+            }
 
             if (item == ItemDefinitions.UnarmedStrikeBase) { continue; }
 
@@ -815,7 +818,7 @@ internal static class CustomWeaponsContext
 
         var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
 
-        if (item is not {ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike})
+        if (item is not { ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
         {
             return;
         }
@@ -825,7 +828,6 @@ internal static class CustomWeaponsContext
         weapon = item;
     }
 
-    
     //TODO: not sure this is the best place for this method
     internal static void TryAddMainActionUnarmedAttacks(RulesetCharacterHero hero)
     {
@@ -847,12 +849,12 @@ internal static class CustomWeaponsContext
         {
             return;
         }
-        
+
         //checkin only extra glove slot, because gauntlets in main hand slot would already add attack
         var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
         var definition = item?.ItemDefinition;
 
-        if (item is not {ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike})
+        if (item is not { ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
         {
             item = null;
             definition = null;

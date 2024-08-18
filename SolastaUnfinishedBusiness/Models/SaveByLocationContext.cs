@@ -135,28 +135,29 @@ internal static class SaveByLocationContext
                         Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
                         LocationType.CustomCampaign
                     ))
-            .Concat(
-                Directory.EnumerateDirectories(OfficialSaveGameDirectory)
-                    .Select(d =>
-                    (
-                        d,
-                        Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                        LocationType.StandardCampaign
-                    ))
-            .Concat(
-                Enumerable.Repeat(
-                    (
-                        DefaultSaveGameDirectory,
-                        Directory.EnumerateFiles(DefaultSaveGameDirectory, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                        LocationType.Default
-                    ), 1))))
+                    .Concat(
+                        Directory.EnumerateDirectories(OfficialSaveGameDirectory)
+                            .Select(d =>
+                            (
+                                d,
+                                Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                                LocationType.StandardCampaign
+                            ))
+                            .Concat(
+                                Enumerable.Repeat(
+                                    (
+                                        DefaultSaveGameDirectory,
+                                        Directory.EnumerateFiles(DefaultSaveGameDirectory, "*.sav")
+                                            .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                                        LocationType.Default
+                                    ), 1))))
             .Where(d => d.Item2.HasValue)
             .OrderByDescending(d => d.Item2)
             .FirstOrDefault();
 
         return (mostRecent.Item1 ?? DefaultSaveGameDirectory, mostRecent.Item3);
     }
-    
+
     internal static void LateLoad()
     {
         if (!Main.Settings.EnableSaveByLocation)
