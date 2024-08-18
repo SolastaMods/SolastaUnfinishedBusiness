@@ -64,6 +64,7 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
+        FixPaladinAurasDisplayOnActionBar();
 
         // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
@@ -618,6 +619,17 @@ internal static class FixesContext
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParryName)));
     }
 
+    private static void FixPaladinAurasDisplayOnActionBar()
+    {
+        foreach (var power in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+                     .Where(x =>
+                         x.ActivationTime == ActivationTime.PermanentUnlessIncapacitated &&
+                         (x.Name.StartsWith("PowerOath") || x.Name.StartsWith("PowerPaladin"))))
+        {
+            power.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        }
+    }
+
     private static void FixAdditionalDamageRogueSneakAttack()
     {
         AdditionalDamageRogueSneakAttack.AddCustomSubFeatures(
@@ -728,7 +740,7 @@ internal static class FixesContext
                 yield break;
             }
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
+            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)

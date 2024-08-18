@@ -48,7 +48,7 @@ internal static class InvocationsBuilders
                     .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 2)
                     .SetImpactParticleReference(EldritchBlast)
                     .AddCustomSubFeatures(
-                        ModifyAdditionalDamageClassLevelWarlock.Instance,
+                        ClassHolder.Warlock,
                         new AdditionalEffectFormOnDamageHandler(HandleEldritchSmiteKnockProne))
                     .AddToDB())
             .AddToDB();
@@ -771,8 +771,7 @@ internal static class InvocationsBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerPerniciousCloakDamage, rulesetCaster);
 
-            caster.MyExecuteActionPowerNoCost(usablePower,
-                [character]);
+            caster.MyExecuteActionPowerNoCost(usablePower, character);
         }
     }
 
@@ -1111,7 +1110,7 @@ internal static class InvocationsBuilders
             var defender = action.ActionParams.TargetCharacters[0];
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerChillingHexDamage, rulesetAttacker);
-            var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1);
+            var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1).ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
@@ -1296,7 +1295,7 @@ internal static class InvocationsBuilders
             var defender = action.ActionParams.TargetCharacters[0];
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerVexingHexDamage, rulesetAttacker);
-            var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1);
+            var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1).ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

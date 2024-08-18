@@ -1427,12 +1427,10 @@ internal static class RaceFeats
         {
             var glc = GameLocationCharacter.GetFromActor(character);
 
-            if (glc == null)
+            if (glc != null)
             {
-                return effectDescription;
+                effectDescription.rangeParameter = glc.MaxTacticalMoves;
             }
-
-            effectDescription.rangeParameter = glc.MaxTacticalMoves;
 
             return effectDescription;
         }
@@ -1552,8 +1550,6 @@ internal static class RaceFeats
                 "ActionAffinityOrcishFuryToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(power)))
             .AddToDB();
 
         var orcishFuryStr = FeatDefinitionWithPrerequisitesBuilder

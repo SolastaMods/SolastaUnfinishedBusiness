@@ -174,10 +174,8 @@ internal static class ArmorFeats
 
             var usablePower = PowerProvider.Get(powerShieldTechniques, rulesetDefender);
 
-            yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return defender.MyReactToSpendPower(
                 usablePower,
-                [defender],
                 attacker,
                 "ShieldTechniques",
                 reactionValidated: ReactionValidated,

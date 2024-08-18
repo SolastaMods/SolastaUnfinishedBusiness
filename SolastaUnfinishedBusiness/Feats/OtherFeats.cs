@@ -292,18 +292,18 @@ internal static class OtherFeats
         const string NAME = "FeatMagicInitiate";
 
         var magicInitiateFeats = new List<FeatDefinition>();
-        var castSpells = new List<FeatureDefinitionCastSpell>
+        var castSpells = new List<(FeatureDefinitionCastSpell feature, ClassHolder clazz)>
         {
-            CastSpellBard,
-            CastSpellCleric,
-            CastSpellDruid,
-            CastSpellSorcerer,
-            CastSpellWarlock,
-            CastSpellWizard
+            (CastSpellBard, ClassHolder.Bard),
+            (CastSpellCleric, ClassHolder.Cleric),
+            (CastSpellDruid, ClassHolder.Druid),
+            (CastSpellSorcerer, ClassHolder.Sorcerer),
+            (CastSpellWarlock, ClassHolder.Warlock),
+            (CastSpellWizard, ClassHolder.Wizard)
         };
 
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var castSpell in castSpells)
+        foreach (var (castSpell, clazz) in castSpells)
         {
             var spellList = castSpell.SpellListDefinition;
             var className = spellList.Name.Replace("SpellList", "");
@@ -329,7 +329,7 @@ internal static class OtherFeats
                         .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
-                        .AddCustomSubFeatures(new FeatHelpers.SpellTag(FeatMagicInitiateTag))
+                        .AddCustomSubFeatures(new FeatHelpers.SpellTag(FeatMagicInitiateTag), clazz)
                         .AddToDB(),
                     FeatureDefinitionPointPoolBuilder
                         .Create($"PointPool{NAME}{className}Cantrip")
@@ -850,9 +850,7 @@ internal static class OtherFeats
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityBalefulScionToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle)
-            .AddCustomSubFeatures(
-                new CustomBehaviorBalefulScion(conditionBalefulScion, powerBalefulScion),
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerBalefulScion)))
+            .AddCustomSubFeatures(new CustomBehaviorBalefulScion(conditionBalefulScion, powerBalefulScion))
             .AddToDB();
 
         var attributeIncreases = new List<(FeatureDefinition, string)>
@@ -1679,11 +1677,7 @@ internal static class OtherFeats
             .Create($"Power{Name}ReactiveResistance")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetCasterEffectParameters(PowerDispelEvilBreakEnchantment)
-                    .Build())
+            .SetShowCasting(false)
             .AddToDB();
 
         powerReactiveResistance.AddCustomSubFeatures(new CustomBehaviorReactiveResistance(powerReactiveResistance));
@@ -1770,13 +1764,11 @@ internal static class OtherFeats
             var damageType = effectForm.DamageForm.DamageType;
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
 
-            yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerReaction,
+            yield return defender.MyReactToSpendPower(
                 usablePower,
-                [defender],
                 attacker,
                 "ReactiveResistance",
-                "UseReactiveResistanceDescription".Formatted(Category.Reaction, attacker.Name, damageTitle),
+                "SpendPowerReactiveResistanceDescription".Formatted(Category.Reaction, attacker.Name, damageTitle),
                 ReactionValidated,
                 battleManager);
 
@@ -1784,6 +1776,8 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
+                defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
 
                 rulesetDefender.InflictCondition(
@@ -1899,9 +1893,8 @@ internal static class OtherFeats
             RulesetEffect rulesetEffect)
         {
             var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-            var medicineBonus = character
-                .ComputeBaseAbilityCheckBonus(
-                    AttributeDefinitions.Wisdom, rulesetEffect?.MagicAttackTrends, "Medicine");
+            var medicineBonus = character.ComputeBaseAbilityCheckBonus(
+                AttributeDefinitions.Wisdom, rulesetEffect?.MagicAttackTrends, "Medicine");
 
             effectDescription.EffectForms[0].HealingForm.bonusHealing = characterLevel + medicineBonus;
 
@@ -2003,10 +1996,8 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return helper.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return helper.MyReactToSpendPower(
                 usablePower,
-                [helper],
                 attacker,
                 stringParameter,
                 reactionValidated: ReactionValidated,
@@ -2089,10 +2080,8 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return helper.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return helper.MyReactToSpendPower(
                 usablePower,
-                [helper],
                 defender,
                 "LuckyCheck",
                 reactionValidated: ReactionValidated,
@@ -2162,15 +2151,12 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return helper.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return helper.MyReactToSpendPower(
                 usablePower,
-                [helper],
                 attacker,
                 "LuckySaving",
-                "UseLuckySavingDescription".Formatted(Category.Reaction, defender.Name, attacker.Name, helper.Name),
-                ReactionValidated,
-                battleManager);
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
 
             yield break;
 
@@ -2342,7 +2328,7 @@ internal static class OtherFeats
                 usablePower,
                 attacker,
                 "MageSlayer",
-                "CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
+                "SpendPowerMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
                 ReactionValidated,
                 battleManager);
 
@@ -2552,7 +2538,7 @@ internal static class OtherFeats
 
         var usablePower = PowerProvider.Get(PowerFeatPoisonousSkin, rulesetMe);
 
-        me.MyExecuteActionPowerNoCost(usablePower, [target]);
+        me.MyExecuteActionPowerNoCost(usablePower, target);
     }
 
     //Poison character that shoves me
@@ -2871,8 +2857,11 @@ internal static class OtherFeats
             var distance = attacker.UsedSpecialFeatures.TryGetValue(MercilessName, out var value) && value == 1
                 ? proficiencyBonus
                 : (proficiencyBonus + 1) / 2;
-            var targets = Gui.Battle.GetContenders(
-                downedCreature, attacker, isOppositeSide: false, hasToPerceivePerceiver: true, withinRange: distance);
+            var targets =
+                Gui.Battle.GetContenders(
+                        downedCreature, attacker, isOppositeSide: false, hasToPerceivePerceiver: true,
+                        withinRange: distance)
+                    .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

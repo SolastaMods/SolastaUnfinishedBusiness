@@ -20,14 +20,22 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 
     public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
     {
-        var isValid = CanAttack(__instance.ActionParams.ActingCharacter, target);
-
-        if (!isValid)
+        // only enforce weapon reach or 5 ft on first target
+        if (__instance.SelectionService.SelectedTargets.Count != 0)
         {
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMeleeWeaponError");
+            return true;
         }
 
-        return isValid;
+        if (CanAttack(__instance.ActionParams.ActingCharacter, target))
+        {
+            return true;
+        }
+
+        var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
+
+        __instance.actionModifier.FailureFlags.Add(Gui.Format("Tooltip/&TargetMeleeWeaponError", text));
+
+        return false;
     }
 
     internal static void HandleAttackAfterMagicEffect(GameLocationCharacter character,
@@ -87,7 +95,8 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         evalParams.FillForPhysicalReachAttack(
             caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
-        return battleService.CanAttack(evalParams);
+        return battleService.CanAttack(evalParams) &&
+               (Main.Settings.AllowBladeCantripsToUseReach || caster.IsWithinRange(target, 1));
     }
 
     internal static List<CharacterActionParams> PerformAttackAfterUse(CharacterActionMagicEffect actionMagicEffect)
@@ -154,12 +163,8 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
             attackMode.AttackTags.TryAdd(ReplaceAttackCantrip);
         }
 
-        var twinned = false;
-
         if (actionMagicEffect is CharacterActionCastSpell actionCastSpell)
         {
-            twinned = actionCastSpell.ActiveSpell.MetamagicOption == MetamagicTwinnedSpell;
-
             //mark this attack for proper integration with Quickened
             if (actionCastSpell.ActiveSpell.MetamagicOption == MetamagicQuickenedSpell)
             {
@@ -167,27 +172,17 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
             }
         }
 
-        var maxAttacks = 1 + (twinned ? 1 : 0);
-
         // this is required to support reaction scenarios where AttackMain won't work
         var actionId = attackMode.ActionType == ActionDefinitions.ActionType.Main
             ? ActionDefinitions.Id.AttackMain
             : ActionDefinitions.Id.AttackFree;
 
-        foreach (var target in targets)
-        {
-            var attackActionParams =
-                new CharacterActionParams(caster, actionId) { AttackMode = attackMode };
+        var attackActionParams =
+            new CharacterActionParams(caster, actionId) { AttackMode = attackMode };
 
-            attackActionParams.TargetCharacters.Add(target);
-            attackActionParams.ActionModifiers.Add(new ActionModifier());
-            attacks.Add(attackActionParams);
-
-            if (attackActionParams.TargetCharacters.Count >= maxAttacks)
-            {
-                break;
-            }
-        }
+        attackActionParams.TargetCharacters.Add(targets[0]);
+        attackActionParams.ActionModifiers.Add(new ActionModifier());
+        attacks.Add(attackActionParams);
 
         return attacks;
     }

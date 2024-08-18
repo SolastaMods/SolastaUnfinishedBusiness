@@ -1,27 +1,27 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
   "id": 9068,
-  "actionType": "NoCost",
-  "actionScope": "Battle",
+  "actionType": "Bonus",
+  "actionScope": "All",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
-  "classNameOverride": "",
+  "classNameOverride": "UsePower",
   "requiresAuthorization": true,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",
   "iterativeTargeting": false,
   "canTriggerBattle": false,
-  "parameter": "None",
+  "parameter": "ActivatePower",
   "formType": "Large",
   "overrideGuiActionType": false,
   "overridenGuiActionType": "Main",
-  "focusCameraOnAction": true,
+  "focusCameraOnAction": false,
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
   "baseActionForFailureTooltips": null,
-  "activatedPower": null,
-  "displayPowerTooltip": false,
+  "activatedPower": "Definition:PowerPathOfTheWildMagicWildSurgeReroll:011775eb-afc7-5751-bc38-e62ce6abfbc5",
+  "displayPowerTooltip": true,
   "dieType": "D10",
   "abilityScore": "Dexterity",
   "addLevel": false,
@@ -29,17 +29,30 @@
   "targetType": "Sphere",
   "targetParameter": 1,
   "matchingCondition": "",
-  "particlePrefab": null,
-  "soundEvent": null,
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&MetamagicOptionQuickenedSpellTitle",
-    "description": "Rules/&MetamagicOptionQuickenedSpellDescription",
+    "title": "Feature/&PowerPathOfTheWildMagicWildSurgeRerollTitle",
+    "description": "Feature/&PowerPathOfTheWildMagicWildSurgeRerollDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "944eb32f28b68144283fab27de377493",
-      "m_SubObjectName": "CastSpell",
+      "m_AssetGUID": "f039effbc135454c9bb55de2851472b1",
+      "m_SubObjectName": "MetamagicToggle",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -55,7 +68,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "eb19933b-6209-5087-a127-16978d24656d",
+  "guid": "561cfafb-7363-5e70-b035-ced4429fdebd",
   "contentPack": 9999,
-  "name": "Quickened"
+  "name": "WildSurgeReroll"
 }

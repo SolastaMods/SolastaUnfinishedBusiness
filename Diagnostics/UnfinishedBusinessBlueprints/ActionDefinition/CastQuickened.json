@@ -1,0 +1,74 @@
+{
+  "$type": "ActionDefinition, Assembly-CSharp",
+  "id": 9069,
+  "actionType": "Bonus",
+  "actionScope": "Battle",
+  "pairedActionId": "CastMain",
+  "usesPerTurn": -1,
+  "classNameOverride": "CastSpell",
+  "requiresAuthorization": false,
+  "stealthBreakerBehavior": "RollIfTargets",
+  "feedbackOnHoverType": "LineOfSight",
+  "iterativeTargeting": false,
+  "canTriggerBattle": false,
+  "parameter": "SelectSpell",
+  "formType": "Large",
+  "overrideGuiActionType": false,
+  "overridenGuiActionType": "Main",
+  "focusCameraOnAction": true,
+  "addedConditionName": "",
+  "removedConditionName": "",
+  "preventsSerialization": true,
+  "baseActionForFailureTooltips": null,
+  "activatedPower": null,
+  "displayPowerTooltip": false,
+  "dieType": "D10",
+  "abilityScore": "Dexterity",
+  "addLevel": false,
+  "maxCells": 1,
+  "targetType": "Sphere",
+  "targetParameter": 1,
+  "matchingCondition": "",
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Rules/&MetamagicOptionQuickenedSpellTitle",
+    "description": "Action/&CastQuickenedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "944eb32f28b68144283fab27de377493",
+      "m_SubObjectName": "CastSpell",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f49577d4-6ad5-543c-874a-e7b9177150f0",
+  "contentPack": 9999,
+  "name": "CastQuickened"
+}

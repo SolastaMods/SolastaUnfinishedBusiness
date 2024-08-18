@@ -269,10 +269,13 @@ internal static class MetamagicBuilders
                 yield break;
             }
 
-            foreach (var effectForm in actualEffectForms
-                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
+            var damageForm = actualEffectForms
+                .FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage)
+                ?.DamageForm;
+
+            if (damageForm != null)
             {
-                effectForm.DamageForm.diceNumber += 1;
+                damageForm.diceNumber += 1;
             }
         }
     }

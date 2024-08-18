@@ -4,7 +4,7 @@ ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Restauração Menor</color>
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munições, receitas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Ative <color=#D89555>Darkness Perceptive</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
-ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicionado <color=#D89555>Modificador de Destreza</color> aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicionado modificador de DES aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Habilite <color=#D89555>Lutador</color> para adicionar o nível de classe como um bônus na nova rolagem do teste de resistência de <color=#D89555>Resistência Indomável</color>
 ModUi/&AddHelpActionToAllRaces=Adicionada a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1 espaço de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ativar inimigos humanóides preferidos do <color=#D89555>Ranger</color>
@@ -20,7 +20,8 @@ ModUi/&AllRecipesInDm=Todas as receitas em DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que qualquer classe use <color=#D89555>Armadura Sylvan</color> ou <color=#D89555>Roupas Lightbringer</color>
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Anões</color> sem barba
-ModUi/&AllowClubsToBeThrown=Permitir que <color=#D89555>maças</color> sejam lançadas como <color=#D89555>punhais</color> ou <color=#D89555>machados de mão</color>
+ModUi/&AllowBladeCantripsToUseReach=Permitir que <color=#D89555>Blade Cantrips</color> usem alcance em vez de 5 pés
+ModUi/&AllowClubsToBeThrown=Permitir que <color=#D89555>Clubs</color> sejam lançados como <color=#D89555>Daggers</color> ou <color=#D89555>Hand Axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Permitir mods de feitiços não sugeridos em cada lista
 ModUi/&AllowDisplayingOfficialSpells=Permitir feitiços oficiais do jogo em cada lista
 ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use armadura de metal
@@ -89,7 +90,7 @@ ModUi/&DocsSubraces=Sub-raças
 ModUi/&DocsVersatilities=Versatilidades
 ModUi/&Donate=<b><color=#D89555>Doe:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Não exiba capacetes em caracteres gráficos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&DontEndTurnAfterReady=Não termine o turno após usar <color=#D89555>ação pronta</color> <i><color=#F0DAA0>[permite usar ação bônus ou qualquer ação principal extra de aceleração ou outras fontes]</color></i>
+ModUi/&DontEndTurnAfterReady=Não termine o turno após usar <color=#D89555>Ação Pronta</color> <i><color=#F0DAA0>[permite usar Ação Bônus ou quaisquer ações Principais extras de Aceleração ou outras fontes]</color></i>
 ModUi/&DontFollowCharacterInBattle=A câmera de batalha não segue quando o personagem já está na tela
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que o herói esteja desligado ou dentro de % da borda da tela</color></i>
 ModUi/&DungeonMakerBasicHelp=• Essas configurações não exigirão que o jogador tenha este mod instalado
@@ -106,16 +107,16 @@ ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Ative <color=#D89555>Inspiraç
 ModUi/&EnableBarbarianBrutalStrike=Habilite <color=#D89555>Bárbaro</color> <b>Golpe Brutal</b> e <b>Melhoria de Ataque Brutal</b> nos níveis 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Habilite a escolha do <color=#D89555>Bárbaro</color> <b>Estilo de Luta</b> no nível 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Ative o buff e o debuff do <color=#D89555>Bárbaro</color> <b>Ataque Imprudente</b> para terminar no início do próximo turno
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Habilite a recuperação de <color=#D89555>Bárbaro</color> em um uso de fúria durante um breve descanso no nível 7
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Habilitar <color=#D89555>Bárbaro</color> para recuperar um uso de <b>Fúria</b> durante um descanso curto no nível 7
 ModUi/&EnableBardHealingBalladOnLongRest=Ative a <color=#D89555>Bard College of Hope</color> <b>Healing Ballad</b> no descanso longo
 ModUi/&EnableBetaContent=Ativar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite ações de cancelamento com clique direito do mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Habilite truques para acionar ataque bônus extra de <color=#D89555>War Magic</color>
 ModUi/&EnableCharacterChecker=Habilite o botão Verificador de Caracteres na Tela Principal > Caracteres
 ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar o caractere
-ModUi/&EnableCharactersOnFireToEmitLight=Personagens em chamas devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Elemental de Fogo, Jester de Fogo, Águia-pescadora de Fogo, Aranha de Fogo e família em condição de fogo]</color></i>
+ModUi/&EnableCharactersOnFireToEmitLight=Personagens <color=#D89555>Em Chamas</color> devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Elemental de Fogo, Bobo da Corte de Fogo, Águia Pescadora de Fogo, Aranha de Fogo e família de condição em chamas]</color></i>
 ModUi/&EnableCheatMenu=Habilite o menu de cheats
-ModUi/&EnableCustomPortraits=Habilite retratos personalizados
+ModUi/&EnableCustomPortraits=Habilitar <color=#D89555>Retratos personalizados</color>
 ModUi/&EnableCustomPortraitsHelp=• Coloque seus retratos personalizados nas subpastas <i><b><color=#F0DAA0>Pessoal</color></b></i> ou <i><b><color=#F0DAA0>Pré-geração</color> </b></i>, nomeado após o nome do herói <i><color=#F0DAA0>[ou seja: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG imagens, tamanho 256 x 384 pixels, com uma camada de transparência <i><color=#F0DAA0>[use o GIMP para obter melhores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura simples de recursos de todos os ambientes]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Habilitar câmera de elevação durante a batalha para permanecer na posição após desabilitada e triplicar seu alcance</i>
@@ -143,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Habilite <color=#D89555>Monge</
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Ative <color=#D89555>Monk</color> <b>Artes Marciais - Ataques Desarmados Bônus</b> para não exigir uma ação de ataque antes do uso
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Ative <color=#D89555>Monk</color> <b>Flurry of Blows</b> para não exigir uma ação de ataque antes do uso
 ModUi/&EnableMonkFightingStyle=Habilite a escolha de <color=#D89555>Monk</color> <b>Estilo de Luta</b> no nível 2
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Habilitar <b>handwraps</b> e <b>manoplas</b> de <color=#D89555>Monge</color> para funcionar no slot de manopla
 ModUi/&EnableMonkHeightenedMetabolism=Ativar <color=#D89555>Monk</color> <b>Metabolismo Acelerado</b> no nível 10 <i><color=#F0DAA0>[<b>Rajada de Golpes</b>, <b>Defesa do Paciente </b> e <b>Passo do Vento</b> ganham benefícios adicionais]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Ative o <color=#D89555>Monk</color> <b>Movimento sem armadura aprimorado</b> para se mover em superfícies verticais sem cair
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilite <color=#D89555>Monk</color> <b>Defesa Superior</b> para substituir <b>Corpo Vazio</b> no nível 18
@@ -153,19 +155,20 @@ ModUi/&EnablePcgRandom=Habilite um algoritmo gerador aleatório melhor <i><color
 ModUi/&EnableRangerNatureShroudAt10=Habilite o recurso <color=#D89555>Ranger</color> <b>Nature's Veil</b> no nível 10 <i><color=#F0DAA0>[como uma ação bônus, você pode ficar invisível magicamente até o início do próximo turno ]</color></i>
 ModUi/&EnableRejoinParty=Ative <color=#1E81B0>CTRL-SHIFT-(R)</color> para voltar ao grupo em torno do herói ou líder selecionado se nenhum estiver selecionado <i><color=#F0DAA0>[útil com grupos de 5 ou 6 ]</color></i>
 ModUi/&EnableRelearnSpells=Habilite a seleção de truques ou feitiços já aprendidos de outras fontes
-ModUi/&EnableRespec=Ative a ação RESPEC após descanso <i><color=#F0DAA0>[não use RESPEC durante uma sessão multijogador]</color></i>
+ModUi/&EnableRespec=Ative a ação <color=#D89555>RESPEC</color> após descanso <i><color=#F0DAA0>[não use RESPEC durante uma sessão multijogador]</color></i>
 ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Rogue</color> <b>Cunning Strike</b> e <b>Devious Strike</b> nos níveis 5 e 14 <i><color=#F0DAA0>[você deixou de lado 1 dados de ataque furtivo para efeitos de acerto adicionais]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilite a escolha de <color=#D89555>Rogue</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Rogue</color> <b>Steady Aim</b> no nível 3 <i><color=#F0DAA0>[a ação bônus dá vantagem em sua próxima jogada de ataque no turno atual se você não tiver ainda não mudei]</color></i>
 ModUi/&EnableRogueStrSaving=Habilite <color=#D89555>Rogue</color> para usar modificadores de DES ou FOR em <b>Ataque Astuto/Tortuoso</b>, <b>Ataque Debilitante/Aprimorado</b> e <b>Golpe de Lâminas </b>
 ModUi/&EnableSaveByLocation=Ativar salvar por campanhas/locais
 ModUi/&EnableSignatureSpellsRelearn=Habilite que os feitiços característicos do <color=#D89555>Assistente</color> sejam preparados a cada descanso longo <i><color=#F0DAA0>[em vez de uma vez no nível 20]</color></i>
-ModUi/&EnableSorcererMagicalGuidance=Ative a <color=#D89555>Feiticeira</color> <b>orientação mágica</b> no nível 5
-ModUi/&EnableSorcererQuickenedAction=Habilitar <color=#D89555>Ação rápida</color> do <b>Feiticeiro</b> para permitir o lançamento de um personagem principal nivelado no final
+ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> <b>do Feiticeiro</b> no nível 5
+ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada
 ModUi/&EnableSortingDungeonMakerAssets=Habilite a classificação de ativos no editor Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Além disso, cada herói adiciona um teste D20 ao peso para um pouco de aleatoriedade <color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói + teste D20]</color></i>
 ModUi/&EnableTeleportParty=Ative <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper as missões se se teletransportar para um lugar desconhecido]</color></i>
+ModUi/&EnableTeleportToRemoveRestrained=Habilitar <color=#D89555>Teletransporte</color> para remover todas as condições <color=#D89555>restritas</color> do alvo
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative o conjunto de personagens para definir seu grupo de jogo e teste padrão
 ModUi/&EnableTooltipDistance=Ativar a exibição da distância nas dicas de ferramentas ao passar o mouse sobre um personagem em combate
 ModUi/&EnableUpcastConjureElementalAndFey=Ativar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
@@ -212,7 +215,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Não é necessário ter mão livre par
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Feitiços de ilusão falham automaticamente contra alvos com <color=#D89555>TrueSight</color> ao alcance
 ModUi/&ImproveLevelUpFeaturesSelection=Melhorar a seleção de recursos para subir de nível <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[impactos <color=#D89555>Ranger</color> Inimigo Preferido e Afinidade com Terreno, <color=#D89555>Druida</color> Besta Membro, <color=#D89555>Bárbaro</color> Caminho dos Elementos e subclasses Escolhas Dracônicas]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
-ModUi/&IncreaseMaxAttunedItems=Aumente o máximo de itens sintonizados para 4 no nível 10 e 5 no nível 18
+ModUi/&IncreaseMaxAttunedItems=Aumentar o máximo de <color=#D89555>Itens Sintonizados</color> para 4 no nível 10 e 5 no nível 18
 ModUi/&InitialChoices=<color=#F0DAA0>Criação:</color>
 ModUi/&Input=<color=#F0DAA0>Entrada:</color>
 ModUi/&Interface=Interface
@@ -253,6 +256,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Abra a pasta de retratos
 ModUi/&PrimedItems=Itens preparados
 ModUi/&Progression=<color=#F0DAA0>Progressão:</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst=Habilite o lançamento rápido <color=#D89555>Light Cantrip</color> para usar itens usados na cabeça, pescoço ou tronco primeiro
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Ative a <color=#D89555>Sensibilidade à Luz</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</color> para acionar apenas em ambientes externos\n<i><color=#F0DAA0>[áreas internas em locais externos acessíveis sem uma tela de carregamento são consideradas externas pelo mecanismo de jogo]</color></i>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
 ModUi/&RecipeCost=<color=white>Custo da receita</color>
@@ -295,10 +299,10 @@ ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> 
 ModUi/&SpellsMenu=Feitiços
 ModUi/&StealthBreaksWhenAttackHits=Ative a perda furtiva quando o ataque de arma ou feitiço atingir
 ModUi/&StealthBreaksWhenAttackMisses=Habilite a perda furtiva quando o ataque de arma ou feitiço erra
-ModUi/&StealthBreaksWhenCastingMaterial=Habilite a perda furtiva ao lançar <color=#D89555>material</color> <i><color=#F0DAA0>[qualquer feitiço sem ataque com alvo TODOS ou INIMIGO]</color></i>
-ModUi/&StealthBreaksWhenCastingSomatic=Habilite a perda furtiva ao lançar <color=#D89555>somático</color> <i><color=#F0DAA0>[qualquer feitiço sem ataque com alvo TODOS ou INIMIGO]</color></i>
-ModUi/&StealthBreaksWhenCastingVerbose=Habilite a perda furtiva ao lançar <color=#D89555>verbal</color> <i><color=#F0DAA0>[qualquer feitiço sem ataque com alvo TODOS ou INIMIGO]</color></i>
-ModUi/&StealthDoesNotBreakWithSubtle=Habilite furtividade sem rolagem se <color=#D89555>Subtle Metamagic</color> e nenhum componente <color=#D89555>material</color>
+ModUi/&StealthBreaksWhenCastingMaterial=Habilitar perda de furtividade ao conjurar <color=#D89555>Material</color> <i><color=#F0DAA0>[qualquer magia que não seja de ataque com alvo TODOS ou INIMIGO]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Habilitar perda de furtividade ao conjurar <color=#D89555>Somático</color> <i><color=#F0DAA0>[qualquer magia que não seja de ataque com alvo TODOS ou INIMIGO]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Habilitar perda de furtividade ao conjurar <color=#D89555>Verbal</color> <i><color=#F0DAA0>[qualquer magia que não seja de ataque com alvo TODOS ou INIMIGO]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Habilitar stealth sem rolagem se <color=#D89555>Subtle Metamagic</color> e nenhum componente <b>Material</b>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Abasteça a loja de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Abasteça a loja de Gorim com todos os instrumentos musicais não mágicos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Abasteça a loja de Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Clube</color> definido como itens de foco

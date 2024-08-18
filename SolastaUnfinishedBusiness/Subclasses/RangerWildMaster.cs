@@ -331,12 +331,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             var summonForm =
                 effectDescription.EffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Summon);
 
-            if (summonForm == null)
-            {
-                return effectDescription;
-            }
-
-            summonForm.SummonForm.monsterDefinitionName = level switch
+            summonForm!.SummonForm.monsterDefinitionName = level switch
             {
                 >= 11 => beastCompanion11.Name,
                 _ => beastCompanion03.Name

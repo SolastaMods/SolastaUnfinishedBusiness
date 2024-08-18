@@ -16,7 +16,6 @@ using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
-using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -29,7 +28,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPoint
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -51,15 +49,6 @@ internal static partial class CharacterContext
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(new TryAlterOutcomeAttributeCheckSorcererMagicalGuidance())
         .AddToDB();
-
-    private static readonly FeatureDefinitionActionAffinity ActionAffinitySorcererQuickened =
-        FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinitySorcererQuickened")
-            .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes()
-            .SetAuthorizedActions((Id)ExtraActionId.Quickened)
-            .AddCustomSubFeatures(new ValidateDefinitionApplication(CanUseActionQuickened))
-            .AddToDB();
 
     internal static readonly ConditionDefinition ConditionIndomitableSaving = ConditionDefinitionBuilder
         .Create("ConditionIndomitableSaving")
@@ -201,17 +190,6 @@ internal static partial class CharacterContext
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
 
-    private static bool CanUseActionQuickened(RulesetCharacter rulesetCharacter)
-    {
-        var glc = GameLocationCharacter.GetFromActor(rulesetCharacter);
-        var hero = rulesetCharacter.GetOriginalHero();
-
-        return glc is { UsedMainSpell: false } &&
-               glc.GetActionTypeStatus(ActionType.Bonus) == ActionStatus.Available &&
-               hero is { RemainingSorceryPoints: > 1 } &&
-               hero.TrainedMetamagicOptions.Contains(MetamagicQuickenedSpell);
-    }
-
     internal static void LateLoad()
     {
         FlexibleBackgroundsContext.Load();
@@ -260,7 +238,6 @@ internal static partial class CharacterContext
         SwitchRogueSteadyAim();
         SwitchRogueStrSaving();
         SwitchSorcererMagicalGuidance();
-        SwitchSorcererQuickenedAction();
         SwitchScimitarWeaponSpecialization();
         SwitchBardHealingBalladOnLongRest();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
@@ -271,6 +248,12 @@ internal static partial class CharacterContext
             "Sorcerer", SorcerousDraconicBloodline,
             FeatureSetSorcererDraconicChoice, InvocationPoolSorcererDraconicChoice,
             InvocationPoolTypeCustom.Pools.SorcererDraconicChoice);
+
+        //keeping for compatibility
+        _ = FeatureDefinitionBuilder
+            .Create("ActionAffinitySorcererQuickened")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
     }
 
     private static void AddNameToRace(CharacterRaceDefinition raceDefinition, string gender, string name)
@@ -367,26 +350,18 @@ internal static partial class CharacterContext
     private static void LoadSorcererQuickened()
     {
         _ = ActionDefinitionBuilder
-            .Create("Quickened")
-            .SetGuiPresentation("MetamagicOptionQuickenedSpell", Category.Rules, CastMain)
-            .RequiresAuthorization()
-            .SetActionType(ActionType.NoCost)
-            .SetActionId(ExtraActionId.Quickened)
-            .SetFormType(ActionFormType.Large)
-            .SetActionScope(ActionScope.Battle)
+            .Create(CastBonus, "CastQuickened")
+            .SetGuiPresentation(
+                "Rules/&MetamagicOptionQuickenedSpellTitle", "Action/&CastQuickenedDescription", CastMain)
+            .SetActionId(ExtraActionId.CastQuickened)
             .AddToDB();
 
+        //leaving for compatibility?
+        //needed for characters who saved while affected by this
         _ = ConditionDefinitionBuilder
             .Create("ConditionSorcererQuickenedCastMain")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(
-                FeatureDefinitionAdditionalActionBuilder
-                    .Create("AdditionalActionSorcererQuickenedCastMain")
-                    .SetGuiPresentationNoContent(true)
-                    .SetActionType(ActionType.Main)
-                    .SetRestrictedActions(Id.CastMain)
-                    .AddToDB())
             .AddToDB();
     }
 
@@ -967,25 +942,6 @@ internal static partial class CharacterContext
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
-    }
-
-    internal static void SwitchSorcererQuickenedAction()
-    {
-        if (Main.Settings.EnableSorcererQuickenedAction)
-        {
-            Sorcerer.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(ActionAffinitySorcererQuickened, 3));
-        }
-        else
-        {
-            Sorcerer.FeatureUnlocks
-                .RemoveAll(x => x.level == 3 &&
-                                x.FeatureDefinition == ActionAffinitySorcererQuickened);
-        }
-
-        if (Main.Settings.EnableSorcererQuickenedAction)
         {
             Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }

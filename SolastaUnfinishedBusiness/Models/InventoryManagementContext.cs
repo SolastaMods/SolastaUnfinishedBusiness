@@ -15,6 +15,7 @@ internal static class InventoryManagementContext
 {
     private static readonly List<string> SortCategories =
     [
+        "UI/&InventoryFilterNone",
         "UI/&InventoryFilterName",
         "UI/&InventoryFilterCategory",
         "UI/&InventoryFilterCost",
@@ -22,9 +23,13 @@ internal static class InventoryManagementContext
         "UI/&InventoryFilterCostPerWeight"
     ];
 
-    private static readonly List<RulesetItem> FilteredItems = [];
-
     private static readonly List<MerchantCategoryDefinition> ItemCategories = [];
+
+    private static readonly List<RulesetInventorySlot> Filtered = [];
+    private static bool _dirty = true;
+
+    public static bool Enabled => Main.Settings.EnableInventoryFilteringAndSorting;
+    // && (!Global.IsMultiplayer || Main.Settings.AllowSortingInMultiplayer);
 
     private static GuiDropdown FilterGuiDropdown { get; set; }
 
@@ -36,8 +41,6 @@ internal static class InventoryManagementContext
 
     private static Toggle UnidentifiedToggle { get; set; }
     private static GameObject UnidentifiedText { get; set; }
-
-    internal static Action SelectionChanged { get; private set; }
 
     internal static void Load()
     {
@@ -81,50 +84,24 @@ internal static class InventoryManagementContext
         UnidentifiedToggle.onValueChanged.RemoveAllListeners();
         UnidentifiedText = Object.Instantiate(byTextMesh.gameObject, rightGroup);
 
-        //
-        // on any control change we need to unbind / bind the entire panel to refresh all the additional items gizmos
-        //
+        // repositions the reorder button and refactor the listener
 
-        SelectionChanged = () =>
+        var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
+        var reorderButton = reorder.GetComponent<Button>();
+
+        reorder.localPosition = new Vector3(-10f, 358f, 0f);
+        reorderButton.onClick.RemoveAllListeners();
+        reorderButton.onClick.AddListener(delegate
         {
-            var container = containerPanel.Container;
+            containerPanel.OnReorderCb();
 
-            if (container == null)
+            if (!Enabled)
             {
                 return;
             }
 
-            var inspectedCharacter = containerPanel.InspectedCharacter;
-            var dropAreaClicked = containerPanel.DropAreaClicked;
-            var visibleSlotsRefreshed = containerPanel.VisibleSlotsRefreshed;
-
-            containerPanel.Unbind();
-            Flush(container);
-            SortAndFilter(container);
-            containerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
-            containerPanel.RefreshNow();
-        };
-
-        // changes the reorder button label and refactor the listener
-
-        var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
-        var reorderButton = reorder.GetComponent<Button>();
-        var reorderTextMesh = reorder.GetComponentInChildren<TextMeshProUGUI>();
-
-        reorder.localPosition = new Vector3(-32f, 358f, 0f);
-        reorderTextMesh.text = "Reset";
-        reorderButton.onClick.RemoveAllListeners();
-        reorderButton.onClick.AddListener(delegate
-        {
-            if (Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer)
-            {
-                ResetControls();
-                SelectionChanged();
-            }
-            else
-            {
-                containerPanel.OnReorderCb();
-            }
+            ResetControls();
+            Refresh(containerPanel);
         });
 
         // creates the categories in alphabetical sort order
@@ -146,7 +123,7 @@ internal static class InventoryManagementContext
         filterRect.sizeDelta = new Vector2(150f, 28f);
 
         FilterGuiDropdown.ClearOptions();
-        FilterGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
+        FilterGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
 
         ItemCategories.ForEach(x => filterOptions.Add(new OptionDataAdvanced { text = x.FormatTitle() }));
 
@@ -164,7 +141,7 @@ internal static class InventoryManagementContext
         {
             BySortGroup.Inverted = inverted;
             BySortGroup.Refresh();
-            SelectionChanged();
+            Refresh(containerPanel);
         };
 
         byTextMesh.SetText(Gui.Localize("UI/&InventoryFilterBy"));
@@ -179,7 +156,7 @@ internal static class InventoryManagementContext
         sortRect.sizeDelta = new Vector2(150f, 28f);
 
         SortGuiDropdown.ClearOptions();
-        SortGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
+        SortGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
 
         SortCategories.ForEach(x => sortOptions.Add(new OptionDataAdvanced { text = Gui.Localize(x) }));
 
@@ -213,21 +190,21 @@ internal static class InventoryManagementContext
         taggedOptions.Sort((x, y) => String.Compare(x.text, y.text, StringComparison.Ordinal));
         taggedOptions.Insert(0, new OptionDataAdvanced { text = Gui.Localize("UI/&InventoryFilterAnyTags") });
 
-        TaggedGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
+        TaggedGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
         TaggedGuiDropdown.AddOptions(taggedOptions);
         TaggedGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
 
         UnidentifiedToggle.transform.localPosition = new Vector3(-162f, 330f, 0f);
         UnidentifiedToggle.onValueChanged = new Toggle.ToggleEvent();
         UnidentifiedToggle.isOn = false;
-        UnidentifiedToggle.onValueChanged.AddListener(delegate { SelectionChanged(); });
+        UnidentifiedToggle.onValueChanged.AddListener(delegate { Refresh(containerPanel); });
 
         UnidentifiedText.GetComponentInChildren<TextMeshProUGUI>()
             .SetText(Gui.Localize("UI/&InventoryFilterUnidentifiedMagical"));
         UnidentifiedText.transform.localPosition = new Vector3(-332f, 340f, 0f);
     }
 
-    internal static void ResetControls()
+    private static void ResetControls()
     {
         if (!BySortGroup)
         {
@@ -244,147 +221,100 @@ internal static class InventoryManagementContext
 
     internal static void RefreshControlsVisibility()
     {
-        var active = Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer;
-
-        FilterGuiDropdown.gameObject.SetActive(active);
-        BySortGroup.gameObject.SetActive(active);
-        SortGuiDropdown.gameObject.SetActive(active);
-        TaggedGuiDropdown.gameObject.SetActive(active);
-        UnidentifiedToggle.gameObject.SetActive(active);
-        UnidentifiedText.gameObject.SetActive(active);
+        FilterGuiDropdown.gameObject.SetActive(Enabled);
+        BySortGroup.gameObject.SetActive(Enabled);
+        SortGuiDropdown.gameObject.SetActive(Enabled);
+        TaggedGuiDropdown.gameObject.SetActive(Enabled);
+        UnidentifiedToggle.gameObject.SetActive(Enabled);
+        UnidentifiedText.gameObject.SetActive(Enabled);
     }
 
-    private static void Sort(List<RulesetItem> items)
+    private static int ItemSort(RulesetInventorySlot slotA, RulesetInventorySlot slotB)
     {
-        var sortOrder = BySortGroup.Inverted ? -1 : 1;
+        var itemA = slotA.EquipedItem;
+        var itemB = slotB.EquipedItem;
 
-        switch (SortGuiDropdown.value)
+        if (itemA == null)
         {
-            case 0: // Name
-                items.Sort(SortByName);
-
-                break;
-
-            case 1: // Category
-                items.Sort((a, b) =>
-                {
-                    var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
-
-                    // ReSharper disable once IdentifierTypo
-                    var amct = Gui.Localize(merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory)
-                        .GuiPresentation.Title);
-                    // ReSharper disable once IdentifierTypo
-                    var bmct = Gui.Localize(merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory)
-                        .GuiPresentation.Title);
-
-                    if (amct == bmct)
-                    {
-                        return SortByName(a, b);
-                    }
-
-                    return sortOrder * String.Compare(bmct, bmct, StringComparison.CurrentCultureIgnoreCase);
-                });
-
-                break;
-
-            case 2: // Cost
-                items.Sort((a, b) =>
-                {
-                    var ac = a.ComputeCost();
-                    var bc = b.ComputeCost();
-
-                    if (ac == bc)
-                    {
-                        return SortByName(a, b);
-                    }
-
-                    return sortOrder * EquipmentDefinitions.CompareCosts(ac, bc);
-                });
-
-                break;
-
-            case 3: // Weight
-                items.Sort((a, b) =>
-                {
-                    var aw = a.ComputeWeight();
-                    var bw = b.ComputeWeight();
-
-                    if (Mathf.Abs(aw - bw) < .0E-5f)
-                    {
-                        return SortByName(a, b);
-                    }
-
-                    return sortOrder * aw.CompareTo(bw);
-                });
-
-                break;
-
-            case 4: // Cost per Weight
-                items.Sort((a, b) =>
-                {
-                    // ReSharper disable once IdentifierTypo
-                    var acpw = EquipmentDefinitions.GetApproximateCostInGold(a.ItemDefinition.Costs) /
-                               a.ComputeWeight();
-                    // ReSharper disable once IdentifierTypo
-                    var bcpw = EquipmentDefinitions.GetApproximateCostInGold(b.ItemDefinition.Costs) /
-                               b.ComputeWeight();
-
-                    if (Mathf.Abs(acpw - bcpw) < .0E-5f)
-                    {
-                        return SortByName(a, b);
-                    }
-
-                    return sortOrder * acpw.CompareTo(bcpw);
-                });
-
-                break;
+            return itemB == null ? 0 : 1;
         }
 
-        return;
-
-        int SortByName([NotNull] RulesetItem a, [NotNull] RulesetItem b)
+        if (itemB == null)
         {
-            var at = Gui.Localize(a.ItemDefinition.GuiPresentation.Title);
-            var bt = Gui.Localize(b.ItemDefinition.GuiPresentation.Title);
-
-            if (at == bt)
-            {
-                return sortOrder * (a.StackCount - b.StackCount);
-            }
-
-            return sortOrder * String.Compare(at, bt, StringComparison.CurrentCultureIgnoreCase);
+            return -1;
         }
+
+        var result = SortGuiDropdown.value switch
+        {
+            1 => SortByName(itemA, itemB),
+            2 => SortByCategory(itemA, itemB),
+            3 => SortByCost(itemA, itemB),
+            4 => SortByWeight(itemA, itemB),
+            5 => SortByCostPerWeight(itemA, itemB),
+            _ => SortByName(itemA, itemB) //we shouldn't get here
+        };
+        return BySortGroup.Inverted ? -result : result;
     }
 
-    internal static void SortAndFilter([CanBeNull] RulesetContainer container)
+    private static int SortByName([NotNull] RulesetItem a, [NotNull] RulesetItem b)
     {
-        if (container == null)
-        {
-            return;
-        }
+        var at = Gui.Localize(a.ItemDefinition.GuiPresentation.Title);
+        var bt = Gui.Localize(b.ItemDefinition.GuiPresentation.Title);
 
-        var allItems = new List<RulesetItem>();
-
-        container.EnumerateAllItems(allItems);
-        container.InventorySlots.ForEach(slot => slot.UnequipItem(silent: true));
-
-        Sort(allItems);
-
-        allItems.ForEach(item =>
-        {
-            if (FilterItem(item, container))
-            {
-                container.AddSubItem(item, true);
-            }
-            else
-            {
-                FilteredItems.Add(item);
-            }
-        });
+        return at == bt
+            ? a.StackCount.CompareTo(b.StackCount)
+            : string.Compare(at, bt, StringComparison.CurrentCultureIgnoreCase);
     }
+
+    private static int SortByCategory([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
+    {
+        var categoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
+
+        var categoryA = categoryDefinitions.GetElement(itemA.ItemDefinition.MerchantCategory).FormatTitle();
+        var categoryB = categoryDefinitions.GetElement(itemB.ItemDefinition.MerchantCategory).FormatTitle();
+
+        return categoryA == categoryB
+            ? SortByName(itemA, itemB)
+            : string.Compare(categoryB, categoryB, StringComparison.CurrentCultureIgnoreCase);
+    }
+
+    private static int SortByCost([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
+    {
+        var ac = itemA.ComputeCost();
+        var bc = itemB.ComputeCost();
+
+        return ac == bc
+            ? SortByName(itemA, itemB)
+            : EquipmentDefinitions.CompareCosts(ac, bc);
+    }
+
+    private static int SortByWeight([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
+    {
+        var aw = itemA.ComputeWeight();
+        var bw = itemB.ComputeWeight();
+
+        return Mathf.Abs(aw - bw) < .0E-5f
+            ? SortByName(itemA, itemB)
+            : aw.CompareTo(bw);
+    }
+
+    private static int SortByCostPerWeight([NotNull] RulesetItem itemA, [NotNull] RulesetItem itemB)
+    {
+        // ReSharper disable once IdentifierTypo
+        var acpw = EquipmentDefinitions.GetApproximateCostInGold(itemA.ItemDefinition.Costs) /
+                   Math.Max(itemA.ComputeWeight(), 0.01f);
+        // ReSharper disable once IdentifierTypo
+        var bcpw = EquipmentDefinitions.GetApproximateCostInGold(itemB.ItemDefinition.Costs) /
+                   Math.Max(itemB.ComputeWeight(), 0.01f);
+
+        return Mathf.Abs(acpw - bcpw) < .0E-5f ? SortByName(itemA, itemB) : acpw.CompareTo(bcpw);
+    }
+
 
     private static bool FilterItem(RulesetItem item, [CanBeNull] ISerializable container)
     {
+        if (item == null) { return true; }
+
         if (UnidentifiedToggle.isOn && item.KnowledgeLevel != EquipmentDefinitions.ItemKnowledge.MagicDetected)
         {
             return false;
@@ -411,14 +341,81 @@ internal static class InventoryManagementContext
         return tagsMap.Keys.ToArray().Contains(TaggedGuiDropdown.options[taggedIndex].text);
     }
 
-    internal static void Flush([CanBeNull] RulesetContainer container)
+    //`container` parameter is required for the transpile patch
+    // ReSharper disable once UnusedParameter.Global
+    public static List<RulesetInventorySlot> GetFilteredSlots(RulesetContainer container, ContainerPanel panel)
     {
-        if (container == null)
+        return GetFilteredAndSorted(panel);
+    }
+
+    public static void BindInventory(ContainerPanel panel)
+    {
+        if (!panel.TryGetComponent<InventoryContainerPanelMarker>(out _))
         {
-            return;
+            panel.gameObject.AddComponent<InventoryContainerPanelMarker>();
         }
 
-        FilteredItems.ForEach(item => container.AddSubItem(item, true));
-        FilteredItems.Clear();
+        Reset();
+    }
+
+    public static void UnbindInventory(ContainerPanel panel)
+    {
+        if (panel.Container == null) { return; }
+
+        if (panel.TryGetComponent<InventoryContainerPanelMarker>(out var marker))
+        {
+            Object.DestroyImmediate(marker);
+        }
+
+        Reset();
+    }
+
+    public static void Refresh(ContainerPanel panel, bool light = false)
+    {
+        Reset();
+        if (light) { return; }
+
+        var container = panel.Container;
+        var character = panel.InspectedCharacter;
+        var dropHandler = panel.DropAreaClicked;
+        var slotsRefreshed = panel.VisibleSlotsRefreshed;
+
+        panel.Unbind();
+        panel.Bind(container, character, dropHandler, slotsRefreshed);
+    }
+
+    private static void Reset()
+    {
+        _dirty = true;
+        Filtered.Clear();
+    }
+
+    private static List<RulesetInventorySlot> GetFilteredAndSorted(ContainerPanel panel)
+    {
+        return panel.TryGetComponent<InventoryContainerPanelMarker>(out _)
+            ? FilterAndSort(panel.Container)
+            : panel.Container.InventorySlots;
+    }
+
+    private static List<RulesetInventorySlot> FilterAndSort(RulesetContainer container)
+    {
+        if (!_dirty)
+        {
+            return Filtered;
+        }
+
+        Filtered.Clear();
+        Filtered.AddRange(container.InventorySlots.Where(slot => FilterItem(slot.EquipedItem, container)));
+
+        if (SortGuiDropdown.value > 0)
+        {
+            Filtered.Sort(ItemSort);
+        }
+
+        _dirty = false;
+
+        return Filtered;
     }
 }
+
+public class InventoryContainerPanelMarker : MonoBehaviour;

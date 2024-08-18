@@ -40,8 +40,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityArcaneArcherToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(ArcaneArcherToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerArcaneShot)))
             .AddToDB();
 
     internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice2 =
@@ -671,7 +669,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             var usablePower = PowerProvider.Get(powerBurstingArrowDamage, rulesetAttacker);
             var targets = Gui.Battle.AllContenders
                 .Where(x => x.IsWithinRange(defender, 3) && x != defender)
-                .ToList();
+                .ToArray();
 
             EffectHelpers
                 .StartVisualEffect(attacker, defender, SpellDefinitions.Shatter, EffectHelpers.EffectType.Zone);

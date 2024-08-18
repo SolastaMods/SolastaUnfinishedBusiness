@@ -103,9 +103,6 @@ internal static class BootContext
             // Custom metamagic
             MetamagicContext.LateLoad();
 
-            // SRD rules switches
-            SrdAndHouseRulesContext.LateLoad();
-
             // Action Switching
             ActionSwitching.LateLoad();
 
@@ -125,6 +122,7 @@ internal static class BootContext
             SharedSpellsContext.LateLoad();
 
             // Set anything on subs that depends on spells and others
+            SrdAndHouseRulesContext.LateLoad();
             SubclassesContext.LateLoad();
             InventorClass.LateLoadSpellStoringItem();
             LightingAndObscurementContext.LateLoad();
@@ -227,7 +225,8 @@ internal static class BootContext
                 {
                     var referenceDefinition = userItem["referenceDefinition"]!.Value<string>();
 
-                    if (DatabaseRepository.GetDatabase<ItemDefinition>().TryGetElement(referenceDefinition, out _))
+                    if (DatabaseRepository.GetDatabase<ItemDefinition>().TryGetElement(referenceDefinition, out var element) &&
+                        element.ContentPack != CeContentPackContext.CeContentPack)
                     {
                         continue;
                     }
@@ -240,7 +239,8 @@ internal static class BootContext
                 {
                     var referenceDefinition = userMonster["referenceDefinition"]!.Value<string>();
 
-                    if (DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(referenceDefinition, out _))
+                    if (DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(referenceDefinition, out var element) &&
+                        element.ContentPack != CeContentPackContext.CeContentPack)
                     {
                         continue;
                     }

@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using UnityEngine;
@@ -174,7 +173,7 @@ public sealed class InnovationArmor : AbstractSubclass
                 Sprites.GetSprite("PowerDefensiveField", Resources.PowerDefensiveField, 256, 128))
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(InGuardianMode),
-                ModifyAdditionalDamageClassLevelInventor.Instance,
+                ClassHolder.Inventor,
                 RestrictRecurrentEffectsOnSelfTurnOnly.Mark)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(

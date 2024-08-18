@@ -408,6 +408,8 @@
     <StealthBreaksWhenCastingVerbose>false</StealthBreaksWhenCastingVerbose>
     <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
     <StealthDoesNotBreakWithSubtle>false</StealthDoesNotBreakWithSubtle>
+    <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
+    <AllowBladeCantripsToUseReach>false</AllowBladeCantripsToUseReach>
     <AllowHasteCasting>false</AllowHasteCasting>
     <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
     <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
@@ -428,6 +430,7 @@
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <EnableHigherGroundRules>false</EnableHigherGroundRules>
     <FullyControlConjurations>false</FullyControlConjurations>
+    <EnableTeleportToRemoveRestrained>false</EnableTeleportToRemoveRestrained>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>false</ColdResistanceAlsoGrantsImmunityToChilledCondition>
     <ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>false
     </ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>
@@ -439,6 +442,7 @@
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
     <AddNewWeaponsAndRecipesToShops>false</AddNewWeaponsAndRecipesToShops>
     <AddNewWeaponsAndRecipesToEditor>false</AddNewWeaponsAndRecipesToEditor>
+    <EnableMonkHandwrapsUseGauntletSlot>false</EnableMonkHandwrapsUseGauntletSlot>
     <AddPickPocketableLoot>false</AddPickPocketableLoot>
     <RecipeCost>200</RecipeCost>
     <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>

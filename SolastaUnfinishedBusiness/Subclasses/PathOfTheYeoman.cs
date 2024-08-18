@@ -287,12 +287,8 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
+            var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
+            var strMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
             var levels = character.GetClassLevel(CharacterClassDefinitions.Barbarian);
             var rageBonus = levels switch
             {
@@ -301,10 +297,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 _ => 2
             };
 
-            damageForm.BonusDamage = AttributeDefinitions
-                                         .ComputeAbilityScoreModifier(
-                                             character.TryGetAttributeValue(AttributeDefinitions.Strength))
-                                     + rageBonus;
+            damageForm.BonusDamage = strMod + rageBonus;
 
             return effectDescription;
         }
@@ -331,7 +324,8 @@ public sealed class PathOfTheYeoman : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerMightyShot, rulesetAttacker);
             var targets = battleManager.Battle
-                .GetContenders(defender, isOppositeSide: false, withinRange: 3);
+                .GetContenders(defender, isOppositeSide: false, withinRange: 3)
+                .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

@@ -97,7 +97,7 @@ public sealed class OathOfThunder : AbstractSubclass
 
         powerThunderousRebuke.AddCustomSubFeatures(
             ForcePowerUseInSpendPowerAction.Marker,
-            new ModifyEffectDescriptionThunderousRebuke(powerThunderousRebuke));
+            new UpgradeEffectDamageBonusBasedOnClassLevel(powerThunderousRebuke, CharacterClassDefinitions.Paladin));
 
         // Divine Bolt
 
@@ -313,33 +313,6 @@ public sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class ModifyEffectDescriptionThunderousRebuke(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerThunderousRebuke)
-        : IModifyEffectDescription
-    {
-        public bool IsValid(
-            BaseDefinition definition,
-            RulesetCharacter character,
-            EffectDescription effectDescription)
-        {
-            return definition == powerThunderousRebuke;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var damage = effectDescription.FindFirstDamageForm();
-
-            damage.bonusDamage = character.GetClassLevel(CharacterClassDefinitions.Paladin);
-
-            return effectDescription;
-        }
-    }
-
     private sealed class CustomAdditionalDamageGodOfThunder(IAdditionalDamageProvider provider)
         : CustomAdditionalDamage(provider)
     {
@@ -377,7 +350,8 @@ public sealed class OathOfThunder : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBifrostDamage, rulesetAttacker);
             var targets = Gui.Battle
-                .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2);
+                .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2)
+                .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

@@ -130,14 +130,12 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.None, DieType.D6, 1,
                         AbilityCheckGroupOperation.SubstractDie,
-                        [
-                            (AttributeDefinitions.Strength, string.Empty),
-                            (AttributeDefinitions.Dexterity, string.Empty),
-                            (AttributeDefinitions.Constitution, string.Empty),
-                            (AttributeDefinitions.Intelligence, string.Empty),
-                            (AttributeDefinitions.Wisdom, string.Empty),
-                            (AttributeDefinitions.Charisma, string.Empty)
-                        ])
+                        (AttributeDefinitions.Strength, string.Empty),
+                        (AttributeDefinitions.Dexterity, string.Empty),
+                        (AttributeDefinitions.Constitution, string.Empty),
+                        (AttributeDefinitions.Intelligence, string.Empty),
+                        (AttributeDefinitions.Wisdom, string.Empty),
+                        (AttributeDefinitions.Charisma, string.Empty))
                     .AddToDB())
             .SetConditionParticleReference(ConditionFeebleMinded)
             .AddToDB();

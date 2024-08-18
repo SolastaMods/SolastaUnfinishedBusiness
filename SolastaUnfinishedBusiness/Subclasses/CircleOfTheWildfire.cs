@@ -432,6 +432,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .Create($"Power{Name}BlazingRevival")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerBlazingRevival.AddCustomSubFeatures(
@@ -538,7 +539,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         : PowerCauterizingFlamesHeal,
                     rulesetSource);
 
-                source.MyExecuteActionPowerNoCost(usablePower, [character]);
+                source.MyExecuteActionPowerNoCost(usablePower, character);
             }
         }
     }
@@ -559,7 +560,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             locationCharacter.usedTacticalMoves = locationCharacter.MaxTacticalMoves;
 
             // or use powers so force the dodge action
-            ServiceRepository.GetService<ICommandService>()?
+            ServiceRepository.GetService<ICommandService>()
                 .ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
         }
 
@@ -651,7 +652,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     attacker != x &&
                     spirit != x &&
                     spirit.IsWithinRange(x, 2))
-                .ToList();
+                .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
 
@@ -702,7 +703,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, _targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [.. _targets]);
 
             yield break;
         }
@@ -910,10 +911,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            yield return defender.MyReactToUsePower(
-                Id.PowerNoCost,
+            yield return defender.MyReactToSpendPower(
                 usablePower,
-                [defender],
                 attacker,
                 "BlazingRevival",
                 reactionValidated: ReactionValidated);

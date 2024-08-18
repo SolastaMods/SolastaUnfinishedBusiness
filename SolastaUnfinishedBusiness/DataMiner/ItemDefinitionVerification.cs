@@ -56,11 +56,10 @@ internal static class ItemDefinitionVerification
 
         var path = Path.Combine(DiagnosticsContext.DiagnosticsFolder, LogName);
         File.AppendAllLines(path,
-            new[]
-            {
-                $"{Environment.NewLine}",
-                "------------------------------------------------------------------------------------", msg
-            });
+        [
+            $"{Environment.NewLine}",
+            "------------------------------------------------------------------------------------", msg
+        ]);
         File.AppendAllText(path, Environment.StackTrace);
 
         if (Mode.HasFlag(Verification.ReturnNull))

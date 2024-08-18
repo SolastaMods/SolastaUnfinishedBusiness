@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -726,9 +725,6 @@ internal static class RaceImpBuilder
                 "ActionAffinityImpishWrathToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(ImpishWrathToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(
-                    ValidatorsCharacter.HasAvailablePowerUsage(powerImpForestImpishWrath)))
             .AddToDB();
 
         var featureSetImpForestImpishWrath = FeatureDefinitionFeatureSetBuilder

@@ -172,7 +172,7 @@ public static class RulesetCharacterHeroPatcher
         {
             //PATCH: replaces feature holding class with one provided by custom interface
             //used for features that are not granted directly through class but need to scale with class levels
-            var classHolder = featureDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>()?.Class;
+            var classHolder = featureDefinition.GetFirstSubFeatureOfType<ClassHolder>()?.Class;
 
             if (!classHolder)
             {
@@ -376,8 +376,26 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static void Prefix(
             RulesetCharacterHero __instance,
-            List<IAttackModificationProvider> attackModifiers)
+            ref ItemDefinition itemDefinition,
+            ref WeaponDescription weaponDescription,
+            List<IAttackModificationProvider> attackModifiers,
+            ref RulesetItem weapon)
         {
+            //PATCH: allow hand wraps to be put into gauntlet slot
+            if (Main.Settings.EnableMonkHandwrapsUseGauntletSlot
+                && weapon == null && itemDefinition == DatabaseHelper.ItemDefinitions.UnarmedStrikeBase)
+            {
+                var slot = __instance.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0];
+                var item = slot?.EquipedItem;
+
+                if (item is { ItemDefinition.WeaponDescription.WeaponType: "UnarmedStrikeType" })
+                {
+                    itemDefinition = item.ItemDefinition;
+                    weaponDescription = itemDefinition.WeaponDescription;
+                    weapon = item;
+                }
+            }
+
             //PATCH: validate damage features
             attackModifiers.RemoveAll(provider =>
                 provider is BaseDefinition feature

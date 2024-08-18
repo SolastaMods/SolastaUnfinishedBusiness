@@ -14,7 +14,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -90,8 +89,6 @@ public sealed class WizardWarMagic : AbstractSubclass
                 "ActionAffinityPowerSurgeToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.PowerSurgeToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerSurge)))
             .AddToDB();
 
         var featureSetPowerSurge = FeatureDefinitionFeatureSetBuilder
@@ -133,7 +130,8 @@ public sealed class WizardWarMagic : AbstractSubclass
 
         powerDeflectionShroud.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new ModifyEffectDescriptionDeflectionShroud(powerDeflectionShroud));
+            new UpgradeEffectDamageBonusBasedOnClassLevel(
+                powerDeflectionShroud, CharacterClassDefinitions.Wizard, 0.5));
         featureArcaneDeflection.AddCustomSubFeatures(
             new CustomBehaviorArcaneDeflection(
                 featureArcaneDeflection, conditionArcaneDeflection, powerDeflectionShroud));
@@ -317,7 +315,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 .GetContenders(helper, withinRange: 12)
                 .OrderBy(x => DistanceCalculation.GetDistanceFromCharacters(helper, x))
                 .Take(3)
-                .ToList();
+                .ToArray();
 
             helper.MyExecuteActionPowerNoCost(usablePower, targets);
         }
@@ -477,28 +475,6 @@ public sealed class WizardWarMagic : AbstractSubclass
             rollModifier += 2;
             modifierTrends.Add(
                 new TrendInfo(2, FeatureSourceType.CharacterFeature, featureDurableMagic.Name, featureDurableMagic));
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionDeflectionShroud(
-        FeatureDefinitionPower powerDeflectionShroud) : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerDeflectionShroud;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var halfClassLevel = (character.GetClassLevel(CharacterClassDefinitions.Wizard) + 1) / 2;
-
-            effectDescription.EffectForms[0].damageForm.BonusDamage = halfClassLevel;
-
-            return effectDescription;
         }
     }
 }

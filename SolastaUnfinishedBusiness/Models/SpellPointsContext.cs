@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -112,20 +111,23 @@ internal static class SpellPointsContext
         }
     }
 
-    internal static void DisplayRemainingSpellPointsOnCastActions(
-        GuiCharacterAction guiCharacterAction,
-        RectTransform useSlotsTable,
-        GuiLabel highSlotNumber)
+    internal static void DisplayRemainingSpellPointsOnCastActions(GuiCharacterAction guiCharacterAction,
+        RectTransform useSlotsTable, GuiLabel highSlotNumber, GuiLabel attackNumber)
     {
-        if (!Main.Settings.UseAlternateSpellPointsSystem ||
-            (guiCharacterAction.ActionDefinition != DatabaseHelper.ActionDefinitions.CastMain &&
-             guiCharacterAction.ActionDefinition != DatabaseHelper.ActionDefinitions.CastBonus))
+        if (!Main.Settings.UseAlternateSpellPointsSystem || !guiCharacterAction.ActionDefinition.IsCastSpellAction())
         {
             return;
         }
 
         var rulesetCharacter = guiCharacterAction.ActingCharacter.RulesetCharacter;
         var remainingSpellPoints = GetRemainingSpellPoints(rulesetCharacter).ToString();
+
+        if (!highSlotNumber)
+        {
+            attackNumber.Text = remainingSpellPoints;
+            attackNumber.transform.parent.gameObject.SetActive(true);
+            return;
+        }
 
         highSlotNumber.gameObject.SetActive(true);
         useSlotsTable.gameObject.SetActive(false);
@@ -297,10 +299,7 @@ internal static class SpellPointsContext
             {
                 foreach (var characterActionItem in
                          panel.actionItems.Where(x =>
-                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
-                             DatabaseHelper.ActionDefinitions.CastMain ||
-                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
-                             DatabaseHelper.ActionDefinitions.CastBonus))
+                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition.IsCastSpellAction()))
                 {
                     characterActionItem.CurrentItemForm.Refresh();
                 }
@@ -319,10 +318,7 @@ internal static class SpellPointsContext
             {
                 foreach (var characterActionItem in
                          panel.actionItems.Where(x =>
-                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
-                             DatabaseHelper.ActionDefinitions.CastMain ||
-                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
-                             DatabaseHelper.ActionDefinitions.CastBonus))
+                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition.IsCastSpellAction()))
                 {
                     characterActionItem.CurrentItemForm.Refresh();
                 }

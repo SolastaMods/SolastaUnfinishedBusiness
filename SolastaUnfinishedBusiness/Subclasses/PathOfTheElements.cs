@@ -420,7 +420,9 @@ public sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         powerElementalConduitWildfire.AddCustomSubFeatures(
-            new CustomBehaviorElementalConduitWildfire(powerElementalConduitWildfire));
+            new PhysicalAttackFinishedOnMeElementalConduitWildfire(powerElementalConduitWildfire),
+            new UpgradeEffectDamageBonusBasedOnClassLevel(
+                powerElementalConduitWildfire, CharacterClassDefinitions.Barbarian));
 
         // Elemental Conduit
 
@@ -506,8 +508,10 @@ public sealed class PathOfTheElements : AbstractSubclass
                     break;
             }
 
-            effectDescription.EffectForms[0].DamageForm.DiceNumber = diceNumber;
-            effectDescription.EffectForms[0].DamageForm.DieType = dieType;
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            damageForm.DiceNumber = diceNumber;
+            damageForm.DieType = dieType;
 
             return effectDescription;
         }
@@ -530,8 +534,8 @@ public sealed class PathOfTheElements : AbstractSubclass
                 return;
             }
 
-            var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 1);
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
+            var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 1).ToArray();
 
             locationCharacter.MyExecuteActionPowerNoCost(usablePower, targets);
         }
@@ -608,28 +612,9 @@ public sealed class PathOfTheElements : AbstractSubclass
     // Elemental Conduit - Wildfire
     //
 
-    private sealed class CustomBehaviorElementalConduitWildfire(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerElementalConduitWildfire) : IPhysicalAttackFinishedOnMe, IModifyEffectDescription
+    private sealed class PhysicalAttackFinishedOnMeElementalConduitWildfire(
+        FeatureDefinitionPower powerElementalConduitWildfire) : IPhysicalAttackFinishedOnMe
     {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerElementalConduitWildfire;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Barbarian);
-
-            effectDescription.EffectForms[0].DamageForm.BonusDamage = classLevel;
-
-            return effectDescription;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,

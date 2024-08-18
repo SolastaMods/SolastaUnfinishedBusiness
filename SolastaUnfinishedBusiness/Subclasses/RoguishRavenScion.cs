@@ -60,7 +60,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
-                ModifyAdditionalDamageClassLevelRogue.Instance,
+                ClassHolder.Rogue,
                 new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, _, _, _, mode, _) => (OperationType.Set, ValidatorsWeapon.IsTwoHandedRanged(mode))))
             .AddToDB();

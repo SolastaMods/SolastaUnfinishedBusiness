@@ -264,11 +264,13 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
         {
             if (character.GetClassLevel(CharacterClassDefinitions.Monk) >= 17)
             {
-                effectDescription.EffectForms.Add(_effectFormEyeOfTheStorm);
+                effectDescription.EffectForms.TryAdd(_effectFormEyeOfTheStorm);
             }
 
-            effectDescription.EffectForms[1].DamageForm.DieType = character.GetMonkDieType();
-            effectDescription.EffectForms[1].DamageForm.BonusDamage = AttributeDefinitions.ComputeAbilityScoreModifier(
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            damageForm.DieType = character.GetMonkDieType();
+            damageForm.BonusDamage = AttributeDefinitions.ComputeAbilityScoreModifier(
                 character.TryGetAttributeValue(AttributeDefinitions.Dexterity));
 
             return effectDescription;
@@ -359,7 +361,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                     x.RulesetActor.AllConditions
                         .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
                                   y.SourceGuid == rulesetAttacker.Guid))
-                .ToList();
+                .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

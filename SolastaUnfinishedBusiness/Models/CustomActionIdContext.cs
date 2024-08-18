@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -12,6 +11,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using static ActionDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -45,6 +45,24 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.QuiveringPalmToggle,
         (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.SupremeWillToggle,
+        (Id)ExtraActionId.ZenShotToggle
+    ];
+
+    private static readonly List<Id> ExtraActionIdPowers =
+    [
+        (Id)ExtraActionId.AmazingDisplayToggle,
+        (Id)ExtraActionId.ArcaneArcherToggle,
+        (Id)ExtraActionId.AudaciousWhirlToggle,
+        (Id)ExtraActionId.BalefulScionToggle,
+        (Id)ExtraActionId.BondOfTheTalismanTeleport,
+        (Id)ExtraActionId.CoordinatedAssaultToggle,
+        (Id)ExtraActionId.DestructiveWrathToggle,
+        (Id)ExtraActionId.FarStep,
+        (Id)ExtraActionId.ForcePoweredStrikeToggle,
+        (Id)ExtraActionId.ImpishWrathToggle,
+        (Id)ExtraActionId.OrcishFuryToggle,
+        (Id)ExtraActionId.PowerSurgeToggle,
+        (Id)ExtraActionId.QuiveringPalmToggle,
         (Id)ExtraActionId.ZenShotToggle
     ];
 
@@ -200,11 +218,6 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.NoCost)
             .SetActivatedPower(PathOfTheSavagery.PowerPrimalInstinct)
             .AddToDB();
-    }
-
-    internal static bool IsCustomActionIdToggle(Id action)
-    {
-        return ExtraActionIdToggles.Contains(action);
     }
 
     internal static void ReorderToggles(List<Id> actions)
@@ -364,7 +377,7 @@ public static class CustomActionIdContext
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                             .Build())
-                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MistyStep)
+                    .SetParticleEffectParameters(SpellDefinitions.MistyStep)
                     .UseQuickAnimations()
                     .Build())
             .AddToDB();
@@ -432,6 +445,7 @@ public static class CustomActionIdContext
             case (Id)ExtraActionId.CombatWildShape:
             {
                 var power = character.GetPowerFromDefinition(action.ActivatedPower);
+
                 if (power is not { RemainingUses: > 0 } ||
                     (character is RulesetCharacterMonster monster &&
                      monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
@@ -490,6 +504,11 @@ public static class CustomActionIdContext
                     x.EffectProxyDefinition.Name == "ProxyFaithfulHound" && x.ExecutedAttacks == 0)
                     ? ActionStatus.Available
                     : ActionStatus.Unavailable;
+                return;
+            }
+            case (Id)ExtraActionId.CastQuickened:
+            {
+                result = CanUseActionQuickened(locationCharacter, scope);
                 return;
             }
         }
@@ -602,26 +621,12 @@ public static class CustomActionIdContext
             : ActionStatus.Unavailable;
     }
 
-    internal static bool IsInvocationActionId(Id id)
-    {
-        var extra = (ExtraActionId)id;
-
-        return id is Id.CastInvocation
-               || extra is ExtraActionId.CastInvocationBonus
-                   or ExtraActionId.CastInvocationNoCost
-                   or ExtraActionId.InventorInfusion
-                   or ExtraActionId.CastPlaneMagicMain
-                   or ExtraActionId.CastPlaneMagicBonus
-               || IsGambitActionId(id)
-               || IsEldritchVersatilityId(id)
-               || IsEldritchVersatilityId(id);
-    }
-
     private static bool IsEldritchVersatilityId(Id id)
     {
         var extra = (ExtraActionId)id;
 
-        return extra is ExtraActionId.EldritchVersatilityMain
+        return extra
+            is ExtraActionId.EldritchVersatilityMain
             or ExtraActionId.EldritchVersatilityBonus
             or ExtraActionId.EldritchVersatilityNoCost;
     }
@@ -630,16 +635,93 @@ public static class CustomActionIdContext
     {
         var extra = (ExtraActionId)id;
 
-        return extra is ExtraActionId.TacticianGambitMain
+        return extra
+            is ExtraActionId.TacticianGambitMain
             or ExtraActionId.TacticianGambitBonus
             or ExtraActionId.TacticianGambitNoCost;
     }
 
-    private static bool IsPowerUseActionId(Id id)
+    internal static bool IsInvocationActionId(Id id)
     {
         var extra = (ExtraActionId)id;
 
-        return extra is ExtraActionId.BondOfTheTalismanTeleport
-            or ExtraActionId.FarStep;
+        return id is Id.CastInvocation ||
+               extra
+                   is ExtraActionId.CastInvocationBonus
+                   or ExtraActionId.CastInvocationNoCost
+                   or ExtraActionId.InventorInfusion
+                   or ExtraActionId.CastPlaneMagicMain
+                   or ExtraActionId.CastPlaneMagicBonus ||
+               IsGambitActionId(id) ||
+               IsEldritchVersatilityId(id) ||
+               IsEldritchVersatilityId(id);
+    }
+
+    private static bool IsPowerUseActionId(Id id)
+    {
+        return ExtraActionIdPowers.Contains(id);
+    }
+
+    internal static bool IsToggleId(Id id)
+    {
+        return ExtraActionIdToggles.Contains(id);
+    }
+
+    private static ActionStatus CanUseActionQuickened(GameLocationCharacter glc, ActionScope scope)
+    {
+        if (!Main.Settings.EnableSorcererQuickenedAction || scope != ActionScope.Battle)
+        {
+            return ActionStatus.Unavailable;
+        }
+
+        var hero = glc.RulesetCharacter.GetOriginalHero();
+        var quickenedSpell = MetamagicOptionDefinitions.MetamagicQuickenedSpell;
+
+        // more or less in order of cost
+        if (hero == null ||
+            !hero.TrainedMetamagicOptions.Contains(quickenedSpell) ||
+            !glc.IsActionOnGoing(Id.MetamagicToggle) ||
+            glc.GetActionTypeStatus(ActionType.Bonus) != ActionStatus.Available ||
+            !glc.RulesetCharacter.CanCastSpellOfActionType(ActionType.Main, glc.CanOnlyUseCantrips))
+        {
+            return ActionStatus.Unavailable;
+        }
+
+        return hero.RemainingSorceryPoints < quickenedSpell.SorceryPointsCost
+            ? ActionStatus.OutOfUses
+            : ActionStatus.Available;
+    }
+
+    internal static void CheckQuickenedStatus(GuiCharacterAction action, ActionStatus status, GuiTooltip tooltip,
+        ref string fail)
+    {
+        if (action.ActionId != (Id)ExtraActionId.CastQuickened) { return; }
+
+        if (status != ActionStatus.OutOfUses) { return; }
+
+        tooltip.Content = tooltip.Content.Substring(0, tooltip.Content.Length - fail.Length);
+        fail = "\n" + Gui.Colorize(Gui.Format(FailureFlagInsufficientSorceryPoints), Gui.ColorFailure);
+        tooltip.Content += fail;
+    }
+
+    internal static void UpdateCastActionForm(GuiCharacterAction action, List<Id> actions)
+    {
+        if (action.ActionId == Id.CastBonus)
+        {
+            action.actionDefinition.formType = actions.Contains((Id)ExtraActionId.CastQuickened)
+                ? ActionFormType.Small
+                : ActionFormType.Large;
+        }
+        else if (action.actionId == (Id)ExtraActionId.CastQuickened)
+        {
+            action.actionDefinition.formType = actions.Contains(Id.CastBonus)
+                ? ActionFormType.Small
+                : ActionFormType.Large;
+        }
+    }
+
+    internal static bool IsCastSpellAction(this ActionDefinition action)
+    {
+        return action.Id is Id.CastMain or Id.CastBonus or (Id)ExtraActionId.CastQuickened;
     }
 }

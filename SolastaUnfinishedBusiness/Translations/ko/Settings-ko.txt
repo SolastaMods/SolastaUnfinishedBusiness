@@ -4,7 +4,7 @@ ModUi/&AddAllToStore=스토어에 모두 추가
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상급</color> 및 <color=#D89555>하급 복원</color>으로 제거된 상태에 <color=#D89555>출혈</color> 상태를 추가합니다.
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 사용자 정의 아이콘 추가 <i><color=#F0DAA0>[탄약, 조리법, 키트 등]</color></i> <b><i><color=#C04040E0>[다시 시작해야 함] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>Darkness Perceptive</color>를 활성화하세요. color> <i><color=#F0DAA0>\n[빛이 없거나 마법의 어둠 속에서 인지 검사에 이점을 부여합니다.]</color></i>
-ModUi/&AddDexModifierToEnemiesInitiativeRoll=적 <color=#D89555>선제 굴림</color>에 <color=#D89555>민첩 수정치</color> 추가
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=적에게 DEX 수정치를 추가합니다 <color=#D89555>이니셔티브 롤</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>파이터</color>를 활성화하여 클래스 레벨을 <color=#D89555>불굴의 저항</color> 저장 던지기 재굴림에 보너스로 추가하세요.
 ModUi/&AddHelpActionToAllRaces=플레이 가능한 모든 종족에 <color=#D89555>도움말</color> 액션을 추가하세요. <i><color=#F0DAA0>[당신은 1셀 내의 생물을 공격하는 아군 생물을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 인간형 선호 적 활성화
@@ -20,7 +20,8 @@ ModUi/&AllRecipesInDm=모든 레시피는 DM에 있어요
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 내러티브 시퀀스에서 모든 플레이어 허용</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=모든 클래스가 <color=#D89555>실반 갑옷</color> 또는 <color=#D89555>빛의 인도자 옷</color>을 착용할 수 있도록 허용합니다.
 ModUi/&AllowBeardlessDwarves=수염이 없는 <color=#D89555>드워프</color> 허용
-ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color> 또는 <color=#D89555>손도끼</color>처럼 던질 수 있도록 허용
+ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>블레이드 캔트립</color>이 5피트 대신 리치를 사용하도록 허용
+ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color>이나 <color=#D89555>손도끼</color>처럼 던질 수 있도록 허용합니다.
 ModUi/&AllowDisplayingNonSuggestedSpells=각 목록에서 Mod가 제안하지 않은 주문을 허용합니다.
 ModUi/&AllowDisplayingOfficialSpells=각 목록에 게임 공식 주문을 허용합니다.
 ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>가 금속 방어구를 착용하도록 허용
@@ -89,7 +90,7 @@ ModUi/&DocsSubraces=하위 경주
 ModUi/&DocsVersatilities=다양성
 ModUi/&Donate=<b><color=#D89555>기부:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=그래픽 문자에 헬멧을 표시하지 마세요. <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
-ModUi/&DontEndTurnAfterReady=<color=#D89555>준비된 행동</color>을 사용한 후 턴을 끝내지 마세요 <i><color=#F0DAA0>[보너스 행동이나 가속이나 다른 소스의 추가 기본 행동을 사용할 수 있습니다]</color></i>
+ModUi/&DontEndTurnAfterReady=<color=#D89555>준비 행동</color>을 사용한 후에 턴을 끝내지 마세요 <i><color=#F0DAA0>[서둘러서 또는 다른 출처에서 보너스 행동이나 추가 주요 행동을 사용할 수 있음]</color></i>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있으면 전투 카메라가 따라오지 않습니다.
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 꺼져 있거나 화면 가장자리의 % 내에 있지 않은 경우</color></i>
 ModUi/&DungeonMakerBasicHelp=• 이 설정에서는 플레이어에 이 모드를 설치할 필요가 없습니다.
@@ -106,16 +107,16 @@ ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>음유시인의
 ModUi/&EnableBarbarianBrutalStrike=레벨 9, 13, 17에서 <color=#D89555>야만인</color> <b>잔혹한 일격</b> 및 <b>잔혹한 일격 개선</b>을 활성화하세요.
 ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>야만인</color> <b>격투 스타일</b> 선택 활성화
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>야만인</color> <b>무모한 공격</b> 버프 및 디버프를 활성화하여 다음 턴 시작 시 완료
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=<color=#D89555>야만인</color>을 활성화하고 레벨 7에서 짧은 휴식을 통해 분노 사용 1회 회복
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=레벨 7에서 <color=#D89555>야만인</color>이 짧은 휴식 시간 동안 <b>분노</b>를 한 번 회복할 수 있도록 합니다.
 ModUi/&EnableBardHealingBalladOnLongRest=장기 휴식 시 <color=#D89555>Bard College of Hope</color> <b>힐링 발라드</b> 활성화
 ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 버튼 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=<color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하려면 캔트립을 활성화하세요.
 ModUi/&EnableCharacterChecker=메인 화면 > 캐릭터에서 문자 검사기 버튼을 활성화하세요.
 ModUi/&EnableCharacterExport=캐릭터를 내보내려면 <color=#1E81B0>CTRL-SHIFT-(E)</color>를 활성화하세요.
-ModUi/&EnableCharactersOnFireToEmitLight=불붙은 캐릭터는 빛을 발산해야 합니다 <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider 및 on Fire Condition 계열]</color></i>
+ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태의 종족]</color></i>
 ModUi/&EnableCheatMenu=치트 메뉴 활성화
-ModUi/&EnableCustomPortraits=맞춤 인물 사진 활성화
+ModUi/&EnableCustomPortraits=<color=#D89555>맞춤 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 사용자 정의 초상화를 하위 폴더 <i><b><color=#F0DAA0>개인</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color> 아래에 배치하세요. </b></i>, 영웅의 이름을 따서 명명됨 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• PNG 사용 투명 레이어가 있는 256 x 384 픽셀 크기의 이미지 <i><color=#F0DAA0>[최상의 결과를 얻으려면 김프 사용]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 활성화\n<i><color=#F0DAA0>[플랫 룸, 150x150 및 200x200 던전 크기 및 모든 환경의 자산을 혼합하는 장식 없음]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 전투 중 고도 카메라를 활성화하여 비활성화 후에도 위치를 유지하고 범위를 3배로 늘립니다.</i>
@@ -143,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=<color=#D89555>수도사</color
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>몽크</color> <b>무술 - 보너스 비무장 공격</b>을 활성화하여 사용 전에 공격 조치가 필요하지 않도록 하세요.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>몽크</color> <b>Flurry of Blows</b>를 활성화하면 사용 전에 공격 조치가 필요하지 않습니다.
 ModUi/&EnableMonkFightingStyle=레벨 2에서 <color=#D89555>몽크</color> <b>격투 스타일</b> 선택 활성화
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=<color=#D89555>몽크</color> <b>핸드랩</b>과 <b>건틀릿</b>이 건틀릿 슬롯에서 작동하도록 활성화합니다.
 ModUi/&EnableMonkHeightenedMetabolism=레벨 10 <i><color=#F0DAA0>[<b>폭풍의 타격</b>, <b>환자 방어에서 <color=#D89555>몽크</color> <b>신진대사 강화</b> 활성화 </b> 및 <b>바람의 발걸음</b>은 추가 혜택을 얻습니다.]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=추락하지 않고 수직 표면을 따라 이동하려면 <color=#D89555>몽크</color> <b>향상된 비무장 이동</b>을 활성화하세요.
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=레벨 18에서 <b>Empty Body</b>를 대체하려면 <color=#D89555>몽크</color> <b>우수 방어</b>를 활성화하세요.
@@ -153,19 +155,20 @@ ModUi/&EnablePcgRandom=더 나은 무작위 생성기 알고리즘 활성화 <i>
 ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>레인저</color> <b>자연의 장막</b> 기능을 활성화하세요. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법처럼 투명해질 수 있습니다 ]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color>을 활성화하면 선택한 영웅이나 리더를 중심으로 파티에 다시 합류할 수 있습니다. <i><color=#F0DAA0>[5인 또는 6인 파티에 유용합니다. ]</color></i>
 ModUi/&EnableRelearnSpells=다른 소스에서 이미 배운 캔트립이나 주문 선택 활성화
-ModUi/&EnableRespec=휴식 작업 후 RESPEC 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 중에는 RESPEC를 사용하지 마세요]</color></i>
+ModUi/&EnableRespec=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
 ModUi/&EnableRogueCunningStrike=레벨 5와 14에서 <color=#D89555>도적</color> <b>교활한 일격</b> 및 <b>악랄한 일격</b>을 활성화하세요. <i><color=#F0DAA0>[1은 포기하세요. 추가 적중 효과를 위한 몰래 공격 주사위]</color></i>
 ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>도적</color> <b>격투 스타일</b> 선택 활성화
 ModUi/&EnableRogueSteadyAim=레벨 3에서 <color=#D89555>도적</color> <b>고정 조준</b>을 활성화하세요. <i><color=#F0DAA0>[보너스 액션은 다음 공격 굴림에 이점을 제공합니다. 아직 움직이지 않았습니다]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>도적</color>을 활성화하여 <b>교활한/악랄한 일격</b>, <b>약화/개선된 일격</b> 및 <b>칼날비에 DEX 또는 STR 수정자를 사용하세요. </b>
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
 ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 준비되도록 <color=#D89555>마법사</color> 시그니처 주문을 활성화하세요. <i><color=#F0DAA0>[레벨 20에 한 번이 아닌]</color></i>
-ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 <color=#D89555>소서러</color> <b>마법의 인도</b> 활성화
-ModUi/&EnableSorcererQuickenedAction=<color=#D89555>마법사</color>의 <b>빠른 동작</b>을 활성화하여 마지막에 레벨업된 메인을 시전할 수 있도록 합니다.
+ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 ​​<color=#D89555>마법사</color> <b>마법의 인도</b>를 활성화합니다.
+ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작을 활성화하여 빠른 메타매직이 적용된 주요 동작 주문을 시전할 수 있습니다.
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 또한 각 영웅은 약간의 무작위성을 위해 가중치에 D20 롤을 추가합니다. <color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정자 + D20 롤]</color></i>
 ModUi/&EnableTeleportParty=파티를 순간이동하려면 <color=#1E81B0>CTRL-SHIFT-(T)</color>를 활성화하세요. <i><color=#F0DAA0>[발견되지 않은 장소로 순간이동하면 퀘스트가 중단될 수 있습니다]</color></color> 나>
+ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>텔레포트</color>를 활성화하여 대상의 <color=#D89555>제한</color> 조건을 모두 제거하세요.
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=기본 플레이 및 테스트 파티를 설정하려면 캐릭터 풀의 토글을 활성화하세요.
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위로 마우스를 가져갈 때 툴팁에 거리 표시 활성화
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 창조</color> 및 <color=#D89555>페이 창조</color>의 업캐스트를 활성화합니다.
@@ -212,7 +215,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>손석궁</color>을 �
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=환영 주문은 범위 내에 <color=#D89555>TrueSight</color>가 있는 대상에게는 자동으로 실패합니다.
 ModUi/&ImproveLevelUpFeaturesSelection=레벨 업 기능 선택 개선 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>\n<i><color=#F0DAA0>[영향 <color=#D89555>레인저</color> 선호하는 적 및 지형 친화력, <color=#D89555>드루이드</color> 혈통 야수, <color=#D89555>야만인</color> 원소의 길 및 하위클래스 드라코닉 선택]</b></i>
 ModUi/&IncreaseGameTimeBy=게임 시간을 늘립니다.
-ModUi/&IncreaseMaxAttunedItems=최대 조율 아이템이 레벨 10에서 4, 레벨 18에서 5로 증가됩니다.
+ModUi/&IncreaseMaxAttunedItems=레벨 10에서 최대 <color=#D89555>조정 아이템</color>을 4개로, 레벨 18에서 5개로 증가시킵니다.
 ModUi/&InitialChoices=<color=#F0DAA0>생성:</color>
 ModUi/&Input=<color=#F0DAA0>입력:</color>
 ModUi/&Interface=상호 작용
@@ -253,6 +256,7 @@ ModUi/&Patches=<color=#F0DAA0>패치:</color>
 ModUi/&PortraitsOpenFolder=인물 사진 폴더 열기
 ModUi/&PrimedItems=프라임 아이템
 ModUi/&Progression=<color=#F0DAA0>진행 상황:</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst=머리, 목 또는 몸통에 착용한 아이템을 먼저 사용하려면 빠른 시전 <color=#D89555>Light Cantrip</color>을 활성화하세요.
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>빛 감도</color>를 활성화합니다. color>는 실외에서만 실행됩니다.\n<i><color=#F0DAA0>[로드 화면 없이 접근 가능한 실외 위치의 실내 영역은 게임 엔진에 의해 실외로 간주됩니다.]</color></i>
 ModUi/&Races=<color=#F0DAA0>경주</color>
 ModUi/&RecipeCost=<color=white>레시피 비용</color>
@@ -295,10 +299,10 @@ ModUi/&SpellLevelFilter=<b><i><color=white>주문 수준 필터</color> <color=#
 ModUi/&SpellsMenu=주문
 ModUi/&StealthBreaksWhenAttackHits=무기나 주문 공격이 적중할 때 스텔스 손실 활성화
 ModUi/&StealthBreaksWhenAttackMisses=무기나 주문 공격이 빗나갔을 때 스텔스 손실 활성화
-ModUi/&StealthBreaksWhenCastingMaterial=<color=#D89555>재료</color> <i><color=#F0DAA0>[대상 ALL 또는 ENEMY를 사용한 모든 비공격 주문]</color></i> 시전 시 스텔스 손실 활성화
-ModUi/&StealthBreaksWhenCastingSomatic=<color=#D89555>신체</color> <i><color=#F0DAA0>[대상 ALL 또는 ENEMY를 사용한 모든 비공격 주문]</color></i> 시전 시 스텔스 손실 활성화
-ModUi/&StealthBreaksWhenCastingVerbose=<color=#D89555>언어</color> <i><color=#F0DAA0>[대상 ALL 또는 ENEMY를 사용한 모든 비공격 주문]</color></i> 시전 시 스텔스 손실 활성화
-ModUi/&StealthDoesNotBreakWithSubtle=<color=#D89555>미묘한 Metamagic</color>이고 <color=#D89555>재료</color> 구성 요소가 없는 경우 스텔스가 롤링되지 않도록 활성화합니다.
+ModUi/&StealthBreaksWhenCastingMaterial=<color=#D89555>재료</color>를 시전할 때 은신 해제를 활성화합니다. <i><color=#F0DAA0>[대상이 모두 또는 적인 모든 비공격 주문]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=<color=#D89555>체학</color> <i><color=#F0DAA0>[대상이 전체 또는 적인 모든 비공격 주문]</color></i>인 경우 은신 해제를 활성화합니다.
+ModUi/&StealthBreaksWhenCastingVerbose=<color=#D89555>구두</color> 시전 시 은신 해제 활성화 <i><color=#F0DAA0>[대상이 전체 또는 적인 모든 비공격 주문]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=<color=#D89555>미묘한 메타매직</color>과 <b>재료</b> 구성 요소가 없는 경우 스텔스 활성화 굴리기
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=마법이 아닌 모든 의류를 갖춘 고림의 상점 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=마법이 아닌 악기를 모두 갖춘 고림의 상점 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=<color=#D89555>아케인 스태프</color>, <color=#D89555>드루이드 넥</color>, <color=#D89555>스태프</color> 및 <color=#D89555>클럽<으로 Hugo의 상점을 구입하세요. /color> 초점 항목으로 설정

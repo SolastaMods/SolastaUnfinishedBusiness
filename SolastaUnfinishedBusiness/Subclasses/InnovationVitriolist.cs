@@ -354,6 +354,14 @@ public sealed class InnovationVitriolist : AbstractSubclass
         ConditionDefinition conditionParagon,
         params FeatureDefinition[] mixturePowers) : IModifyEffectDescription
     {
+        private readonly EffectForm _effectConditionArsenal = EffectFormBuilder.ConditionForm(conditionArsenal);
+
+        private readonly EffectForm _effectConditionParagon = EffectFormBuilder
+            .Create()
+            .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetConditionForm(conditionParagon, ConditionForm.ConditionOperation.Add)
+            .Build();
+
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
@@ -373,18 +381,13 @@ public sealed class InnovationVitriolist : AbstractSubclass
             // Arsenal - add shocked at 9
             if (levels >= 9 && mixturePowers.Contains(definition))
             {
-                effectDescription.EffectForms.Add(EffectFormBuilder.ConditionForm(conditionArsenal));
+                effectDescription.EffectForms.TryAdd(_effectConditionArsenal);
             }
 
             // Paragon - add paralyzed at 15
             if (levels >= 15 && mixturePowers.Contains(definition))
             {
-                effectDescription.EffectForms.Add(
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(conditionParagon, ConditionForm.ConditionOperation.Add)
-                        .Build());
+                effectDescription.EffectForms.TryAdd(_effectConditionParagon);
             }
 
             return effectDescription;
@@ -611,7 +614,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerVitriolicInfusion, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [.. targets]);
         }
     }
 }

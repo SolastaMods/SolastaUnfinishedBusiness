@@ -836,7 +836,7 @@ internal static class InventorClass
             .SetOrUpdateGuiPresentation(title, description)
             .SetRequiresIdentification(false)
             .HideFromDungeonEditor()
-            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelInventor.Instance)
+            .AddCustomSubFeatures(ClassHolder.Inventor)
             .SetCosts(Costs)
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
@@ -910,10 +910,8 @@ internal static class InventorClass
                 yield break;
             }
 
-            yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return defender.MyReactToSpendPower(
                 usablePower,
-                [defender],
                 attacker,
                 "SoulOfArtifice",
                 reactionValidated: ReactionValidated);
@@ -1076,10 +1074,8 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             yield break;
         }
 
-        yield return helper.MyReactToUsePower(
-            ActionDefinitions.Id.PowerReaction,
+        yield return helper.MyReactToSpendPower(
             usablePower,
-            [helper],
             attacker,
             "InventorFlashOfGenius",
             FormatReactionDescription(action, attacker, defender, helper),

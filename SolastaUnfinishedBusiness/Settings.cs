@@ -284,6 +284,8 @@ public class Settings : UnityModManager.ModSettings
     public bool StealthBreaksWhenCastingVerbose { get; set; }
     public bool StealthBreaksWhenCastingSomatic { get; set; }
     public bool StealthDoesNotBreakWithSubtle { get; set; }
+    public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
+    public bool AllowBladeCantripsToUseReach { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool EnableCantripsTriggeringOnWarMagic { get; set; }
@@ -304,6 +306,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCharactersOnFireToEmitLight { get; set; }
     public bool EnableHigherGroundRules { get; set; }
     public bool FullyControlConjurations { get; set; }
+    public bool EnableTeleportToRemoveRestrained { get; set; }
     public bool ColdResistanceAlsoGrantsImmunityToChilledCondition { get; set; }
     public bool ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition { get; set; }
     public bool AddDarknessPerceptiveToDarkRaces { get; set; }
@@ -316,9 +319,9 @@ public class Settings : UnityModManager.ModSettings
     //
     // Gameplay - Items, Crafting & Merchants
     //
-
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
+    public bool EnableMonkHandwrapsUseGauntletSlot { get; set; }
     public bool AddPickPocketableLoot { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int TotalCraftingTimeModifier { get; set; }

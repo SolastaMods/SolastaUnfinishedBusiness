@@ -20,6 +20,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IX
     {
         if (from is SerializableDictionary<TKey, TValue> fromDict)
         {
+            // ReSharper disable once UsageOfDefaultStructEquality
             _ = this.Union(fromDict.Where(k => !ContainsKey(k.Key))).ToDictionary(k => k.Key, v => v.Value);
         }
     }

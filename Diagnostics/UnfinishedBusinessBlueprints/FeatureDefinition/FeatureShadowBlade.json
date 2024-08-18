@@ -1,18 +1,10 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Main",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [
-    "CastMain"
-  ],
-  "maxAttacksNumber": -1,
-  "triggerCondition": "None",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureShadowBladeTitle",
+    "description": "Feature/&FeatureShadowBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5aaab60e-6ab6-5d5d-b47d-f3a265133a7c",
+  "guid": "aa9a0c6a-22d4-5f5a-b9c6-0bc354dd70f3",
   "contentPack": 9999,
-  "name": "AdditionalActionSorcererQuickenedCastMain"
+  "name": "FeatureShadowBlade"
 }

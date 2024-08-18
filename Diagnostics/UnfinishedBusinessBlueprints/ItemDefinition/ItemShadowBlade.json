@@ -34,7 +34,16 @@
   "requiredAttunementClasses": [],
   "itemRarity": "Common",
   "incompatibleWithMonkReturnMissile": false,
-  "staticProperties": [],
+  "staticProperties": [
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": true,
+      "type": "Feature",
+      "featureDefinition": "Definition:FeatureShadowBlade:aa9a0c6a-22d4-5f5a-b9c6-0bc354dd70f3",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "ActiveAndVisible"
+    }
+  ],
   "isArmor": false,
   "isWeapon": true,
   "weaponDefinition": {

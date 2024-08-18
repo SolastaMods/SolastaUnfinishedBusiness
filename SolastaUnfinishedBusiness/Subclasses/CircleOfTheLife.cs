@@ -282,7 +282,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             var levels = character.GetClassLevel(Druid);
             var effectForm = levels >= 14 ? _verdancy14 : _verdancy;
 
-            effectDescription.EffectForms.Add(effectForm);
+            effectDescription.EffectForms.TryAdd(effectForm);
 
             return effectDescription;
         }
@@ -358,7 +358,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            effectDescription.EffectForms.Add(_revitalizingBoon);
+            effectDescription.EffectForms.TryAdd(_revitalizingBoon);
 
             return effectDescription;
         }

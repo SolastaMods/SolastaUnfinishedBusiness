@@ -310,7 +310,7 @@ internal static class RaceMalakhBuilder
                 _ => DieType.D12
             };
 
-            effectDescription.EffectForms[0].DamageForm.DieType = dieType;
+            effectDescription.FindFirstDamageForm().DieType = dieType;
 
             return effectDescription;
         }
@@ -328,7 +328,7 @@ internal static class RaceMalakhBuilder
 
             var rulesetAttacker = locationCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerAngelicRadianceDamage, rulesetAttacker);
-            var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 3);
+            var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 3).ToArray();
 
             locationCharacter.MyExecuteActionPowerNoCost(usablePower, targets);
         }

@@ -201,6 +201,12 @@ internal static class RulesDisplay
             Main.Settings.DontEndTurnAfterReady = toggle;
         }
 
+        toggle = Main.Settings.EnableSorcererQuickenedAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererQuickenedAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererQuickenedAction = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
@@ -376,6 +382,13 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AllowBladeCantripsToUseReach;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowBladeCantripsToUseReach"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowBladeCantripsToUseReach = toggle;
+            SrdAndHouseRulesContext.SwitchAllowBladeCantripsToUseReach();
+        }
+
         toggle = Main.Settings.AllowHasteCasting;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
         {
@@ -393,6 +406,12 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableCantripsTriggeringOnWarMagic = toggle;
+        }
+
+        toggle = Main.Settings.EnableRelearnSpells;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRelearnSpells = toggle;
         }
 
         toggle = Main.Settings.RemoveSchoolRestrictionsFromShadowCaster;
@@ -464,6 +483,12 @@ internal static class RulesDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
+        toggle = Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAttributeCheckHelpersToWorkOffCombat"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat = toggle;
+        }
+
         toggle = Main.Settings.EnableSignatureSpellsRelearn;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
         {
@@ -512,6 +537,12 @@ internal static class RulesDisplay
             Main.Settings.EnableHigherGroundRules = toggle;
         }
 
+        toggle = Main.Settings.EnableTeleportToRemoveRestrained;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableTeleportToRemoveRestrained"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableTeleportToRemoveRestrained = toggle;
+        }
+
         toggle = Main.Settings.FullyControlConjurations;
         if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
         {
@@ -535,6 +566,14 @@ internal static class RulesDisplay
         {
             Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition = toggle;
             SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
+        if (UI.Toggle(Gui.Localize("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
         }
 
         UI.Label();

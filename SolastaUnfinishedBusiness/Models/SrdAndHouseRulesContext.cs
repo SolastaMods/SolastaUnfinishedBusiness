@@ -91,6 +91,7 @@ internal static class SrdAndHouseRulesContext
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFilterOnHideousLaughter();
         SwitchFullyControlConjurations();
+        SwitchAllowBladeCantripsToUseReach();
         SwitchHastedCasing();
         SwitchMagicStaffFoci();
         SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
@@ -102,6 +103,7 @@ internal static class SrdAndHouseRulesContext
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
+        NoTwinnedBladeCantrips();
     }
 
     private static void LoadSenseNormalVisionRangeMultiplier()
@@ -447,15 +449,15 @@ internal static class SrdAndHouseRulesContext
             ringDefinition.tickType = DurationType.Minute;
             ringDefinition.tickNumber = 3;
             ringDefinition.diceNumber = 1;
-            ringDefinition.dieType = DieType.D1;
         }
         else
         {
             ringDefinition.tickType = DurationType.Round;
             ringDefinition.tickNumber = 1;
             ringDefinition.diceNumber = 2;
-            ringDefinition.dieType = DieType.D1;
         }
+
+        ringDefinition.dieType = DieType.D1;
     }
 
     internal static void SwitchUseHeightOneCylinderEffect()
@@ -527,6 +529,19 @@ internal static class SrdAndHouseRulesContext
                 // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.
                 sd.EffectDescription.targetParameter2 = 0;
             }
+        }
+    }
+
+    internal static void SwitchAllowBladeCantripsToUseReach()
+    {
+        var db = DatabaseRepository.GetDatabase<SpellDefinition>();
+        var cantrips = new List<string> { "BoomingBlade", "ResonatingStrike", "SunlightBlade" };
+
+        foreach (var bladeCantrip in db.Where(x => cantrips.Contains(x.Name)))
+        {
+            var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
+
+            bladeCantrip.GuiPresentation.Description = Gui.Format($"Spell/&{bladeCantrip.Name}Description", text);
         }
     }
 
@@ -905,6 +920,11 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    private static void NoTwinnedBladeCantrips()
+    {
+        MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
+    }
+
     private sealed class FilterTargetingCharacterChainLightning : IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
@@ -964,5 +984,23 @@ internal static class SrdAndHouseRulesContext
         {
             // empty
         }
+    }
+
+    internal sealed class NoTwinned
+    {
+        public static readonly ValidateMetamagicApplication Validator =
+            (RulesetCharacter _, RulesetEffectSpell spell, MetamagicOptionDefinition _, ref bool result,
+                ref string failure) =>
+            {
+                if (!spell.SpellDefinition.HasSubFeatureOfType<NoTwinned>())
+                {
+                    return;
+                }
+
+                result = false;
+                failure = "Failure/&FailureFlagInvalidSingleTarget";
+            };
+
+        public static NoTwinned Mark { get; } = new();
     }
 }

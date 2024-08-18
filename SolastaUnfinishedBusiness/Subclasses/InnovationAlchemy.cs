@@ -141,7 +141,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                 ItemDefinitions.ScrollFly.itemPresentation))
             .SetUsableDeviceDescription(deviceDescription)
             // required for multiclass use cases
-            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelInventor.Instance)
+            .AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 
         return FeatureDefinitionBuilder
@@ -668,7 +668,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             ModifyPowerVisibility.Visible,
             new Overcharge(),
             validator,
-            ModifyAdditionalDamageClassLevelInventor.Instance);
+            ClassHolder.Inventor);
 
         return power;
     }
@@ -715,7 +715,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             ModifyPowerVisibility.Visible,
             new Overcharge(),
             validator,
-            ModifyAdditionalDamageClassLevelInventor.Instance);
+            ClassHolder.Inventor);
 
         return power;
     }
@@ -762,7 +762,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             ModifyPowerVisibility.Visible,
             new Overcharge(),
             validator,
-            ModifyAdditionalDamageClassLevelInventor.Instance);
+            ClassHolder.Inventor);
 
         return power;
     }

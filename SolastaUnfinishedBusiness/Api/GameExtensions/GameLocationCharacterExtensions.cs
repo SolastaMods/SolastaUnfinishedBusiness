@@ -70,9 +70,9 @@ public static class GameLocationCharacterExtensions
     internal static void MyExecuteActionPowerNoCost(
         this GameLocationCharacter character,
         RulesetUsablePower usablePower,
-        List<GameLocationCharacter> targets)
+        params GameLocationCharacter[] targets)
     {
-        var actionModifiers = GetActionModifiers(targets.Count);
+        var actionModifiers = GetActionModifiers(targets.Length);
         var rulesetCharacter = character.RulesetCharacter;
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
@@ -82,10 +82,10 @@ public static class GameLocationCharacterExtensions
             ActionModifiers = actionModifiers,
             RulesetEffect = implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets
+            targetCharacters = [.. targets]
         };
 
-        ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+        ServiceRepository.GetService<ICommandService>().ExecuteAction(actionParams, null, true);
     }
 
     internal static void MyExecuteActionStabilizeAndStandUp(
@@ -180,8 +180,7 @@ public static class GameLocationCharacterExtensions
             RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(ruleCaster, repertoire, spell, slotLevel, false),
             SpellRepertoire = repertoire,
-            TargetCharacters = { target },
-            IsReactionEffect = true
+            TargetCharacters = { target }
         };
         var count = actionService.PendingReactionRequestGroups.Count;
 
@@ -260,8 +259,7 @@ public static class GameLocationCharacterExtensions
             StringParameter2 = stringParameter2,
             RulesetEffect =
                 implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
-            UsablePower = usablePower,
-            IsReactionEffect = true
+            UsablePower = usablePower
         };
 
         actionService.ReactToSpendPower(actionParams);
@@ -305,8 +303,7 @@ public static class GameLocationCharacterExtensions
             RulesetEffect =
                 implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets,
-            IsReactionEffect = true
+            targetCharacters = targets
         };
         var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
 
@@ -356,8 +353,7 @@ public static class GameLocationCharacterExtensions
             RulesetEffect =
                 implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets,
-            IsReactionEffect = true
+            targetCharacters = targets
         };
 
         actionService.ReactToUsePower(actionParams, "UsePower", character);
@@ -631,6 +627,18 @@ public static class GameLocationCharacterExtensions
         instance.UsedSpecialFeatures.AddOrReplace(key, instance.UsedSpecialFeatures.GetValueOrDefault(key) + 1);
     }
 
+    internal static void SetSpecialFeatureUses(this GameLocationCharacter instance, string key, int value)
+    {
+        instance.UsedSpecialFeatures.AddOrReplace(key, value);
+    }
+
+    internal static int GetSpecialFeatureUses(this GameLocationCharacter instance, string key, int def = -1)
+    {
+        return instance.UsedSpecialFeatures.TryGetValue(key, out var value)
+            ? value
+            : def;
+    }
+
     internal static bool OncePerTurnIsValid(this GameLocationCharacter instance, string key)
     {
         return !instance.UsedSpecialFeatures.ContainsKey(key);
@@ -767,8 +775,23 @@ public static class GameLocationCharacterExtensions
             UsablePower = usablePower
         };
 
-        ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+        ServiceRepository.GetService<ICommandService>().ExecuteAction(actionParams, null, true);
     }
+
+    private static int GetAllowedMainAttacks(this GameLocationCharacter instance)
+    {
+        var performanceFilters = instance.actionPerformancesByType[ActionType.Main];
+        var index = instance.currentActionRankByType[ActionType.Main];
+
+        var maxAttacks = instance.RulesetCharacter.AttackModes
+            .Where(mode => mode.ActionType == ActionType.Main)
+            .Max(mode => mode.AttacksNumber);
+
+        var maxAllowedAttacks = index >= performanceFilters.Count ? -1 : performanceFilters[index].MaxAttacksNumber;
+
+        return maxAllowedAttacks < 0 || maxAllowedAttacks > maxAttacks ? maxAttacks : maxAllowedAttacks;
+    }
+
 
     internal static void BurnOneMainAttack(this GameLocationCharacter instance)
     {
@@ -787,10 +810,9 @@ public static class GameLocationCharacterExtensions
         rulesetCharacter.ExecutedAttacks++;
         rulesetCharacter.RefreshAttackModes();
 
-        var maxAttacks = rulesetCharacter.AttackModes
-            .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
+        var allowedMainAttacks = instance.GetAllowedMainAttacks();
 
-        if (instance.UsedMainAttacks < maxAttacks)
+        if (instance.UsedMainAttacks < allowedMainAttacks)
         {
             return;
         }

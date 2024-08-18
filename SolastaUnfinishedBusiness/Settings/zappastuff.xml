@@ -446,6 +446,7 @@
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
     <EnableRogueStrSaving>true</EnableRogueStrSaving>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
+    <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <OfferAdditionalLoreFriendlyNames>true</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>true</UnlockAllNpcFaces>
     <AllowUnmarkedSorcerers>true</AllowUnmarkedSorcerers>
@@ -504,6 +505,8 @@
     <StealthBreaksWhenCastingVerbose>false</StealthBreaksWhenCastingVerbose>
     <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
     <StealthDoesNotBreakWithSubtle>true</StealthDoesNotBreakWithSubtle>
+    <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
+    <AllowBladeCantripsToUseReach>false</AllowBladeCantripsToUseReach>
     <AllowHasteCasting>true</AllowHasteCasting>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
     <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
@@ -524,6 +527,7 @@
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <EnableHigherGroundRules>true</EnableHigherGroundRules>
     <FullyControlConjurations>true</FullyControlConjurations>
+    <EnableTeleportToRemoveRestrained>false</EnableTeleportToRemoveRestrained>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>true</ColdResistanceAlsoGrantsImmunityToChilledCondition>
     <ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>true
     </ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>
@@ -535,6 +539,7 @@
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
     <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
     <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
+    <EnableMonkHandwrapsUseGauntletSlot>true</EnableMonkHandwrapsUseGauntletSlot>
     <AddPickPocketableLoot>true</AddPickPocketableLoot>
     <RecipeCost>200</RecipeCost>
     <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
@@ -1050,7 +1055,6 @@
         <string>FeatGroupChef</string>
         <string>FeatGroupCloseQuarters</string>
         <string>FeatRangedExpert</string>
-        <string>FeatCrossbowMastery</string>
         <string>FeatGroupCrusher</string>
         <string>FeatCunningEscape</string>
         <string>FeatDarkElfMagic</string>

@@ -242,14 +242,12 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.Disadvantage,
-                        [
-                            AttributeDefinitions.Strength,
-                            AttributeDefinitions.Dexterity,
-                            AttributeDefinitions.Constitution,
-                            AttributeDefinitions.Intelligence,
-                            AttributeDefinitions.Wisdom,
-                            AttributeDefinitions.Charisma
-                        ])
+                        AttributeDefinitions.Strength,
+                        AttributeDefinitions.Dexterity,
+                        AttributeDefinitions.Constitution,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Charisma)
                     .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{NAME}")
@@ -832,7 +830,7 @@ internal static partial class SpellBuilders
 
             usablePower.SaveDC = 8 + rulesetCondition.SourceAbilityBonus + rulesetCondition.SourceProficiencyBonus;
 
-            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
+            caster.MyExecuteActionPowerNoCost(usablePower, character);
         }
     }
 
@@ -1295,7 +1293,7 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerElementalBane, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [defender]);
+            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
         }
     }
 

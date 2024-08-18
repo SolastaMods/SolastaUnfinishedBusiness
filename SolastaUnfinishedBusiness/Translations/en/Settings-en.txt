@@ -4,7 +4,7 @@ ModUi/&AddAllToStore=Add all to store
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
 ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
-ModUi/&AddDexModifierToEnemiesInitiativeRoll=Add <color=#D89555>Dexterity Modifier</color> to enemies <color=#D89555>Initiative Roll</color>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=Add DEX modifier to enemies <color=#D89555>Initiative Roll</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Enable <color=#D89555>Fighter</color> to add the class level as a bonus to <color=#D89555>Indomitable Resistance</color> saving throw reroll
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Ranger</color> humanoid preferred enemies
@@ -20,7 +20,8 @@ ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
 ModUi/&AllowBeardlessDwarves=Allow beardless <color=#D89555>Dwarves</color>
-ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>clubs</color> to be thrown like <color=#D89555>daggers</color> or <color=#D89555>hand axes</color>
+ModUi/&AllowBladeCantripsToUseReach=Allow <color=#D89555>Blade Cantrips</color> to use reach instead of 5 ft
+ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>Clubs</color> to be thrown like <color=#D89555>Daggers</color> or <color=#D89555>Hand Axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each list
 ModUi/&AllowDisplayingOfficialSpells=Allow game official spells on each list
 ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
@@ -89,7 +90,7 @@ ModUi/&DocsSubraces=Subraces
 ModUi/&DocsVersatilities=Versatilities
 ModUi/&Donate=<b><color=#D89555>Donate:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Don't display helmets on graphic characters <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>ready action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
+ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>Ready Action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMakerBasicHelp=• These settings won't require the player to have this mod installed
@@ -106,16 +107,16 @@ ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Enable <color=#D89555>Bardic I
 ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Barbarian</color> <b>Brutal Strike</b> and <b>Brutal Strike Improvement</b> at levels 9, 13 and 17
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Barbarian</color> <b>Fighting Style</b> choice at level 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Barbarian</color> <b>Reckless Attack</b> buff and debuff to finish at start of next turn
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable <color=#D89555>Barbarian</color> regain one rage use over a short rest at level 7
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable <color=#D89555>Barbarian</color> regain one <b>Rage</b> use over a short rest at level 7
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <color=#D89555>Bard College of Hope</color> <b>Healing Ballad</b> on long rest
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Enable cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
 ModUi/&EnableCharacterChecker=Enable the Character Checker button on Main Screen > Characters
 ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to export the character
-ModUi/&EnableCharactersOnFireToEmitLight=Characters on fire should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
+ModUi/&EnableCharactersOnFireToEmitLight=Characters <color=#D89555>On Fire</color> should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=Enable the cheats menu
-ModUi/&EnableCustomPortraits=Enable custom portraits
+ModUi/&EnableCustomPortraits=Enable <color=#D89555>Custom Portraits</color>
 ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Enable elevation camera during battle to stay at position after disabled and triple its range</i>
@@ -143,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Enable <color=#D89555>Monk</col
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Enable <color=#D89555>Monk</color> <b>Martial Arts - Bonus Unarmed Strikes</b> to not require an attack action before usage
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Enable <color=#D89555>Monk</color> <b>Flurry of Blows</b> to not require an attack action before usage
 ModUi/&EnableMonkFightingStyle=Enable <color=#D89555>Monk</color> <b>Fighting Style</b> choice at level 2
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Enable <color=#D89555>Monk</color> <b>handwraps</b> and <b>gauntlets</b> to work in gauntlet slot
 ModUi/&EnableMonkHeightenedMetabolism=Enable <color=#D89555>Monk</color> <b>Heightened Metabolism</b> at level 10 <i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional benefits]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>Monk</color> <b>Improved Unarmored Movement</b> to move along vertical surfaces without falling
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <color=#D89555>Monk</color> <b>Superior Defense</b> to replace <b>Empty Body</b> at level 18
@@ -153,19 +155,20 @@ ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0D
 ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Ranger</color> <b>Nature's Veil</b> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party around the selected hero or the leader if none is selected <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
-ModUi/&EnableRespec=Enable the RESPEC after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
+ModUi/&EnableRespec=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
 ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Rogue</color> <b>Cunning Strike</b> and <b>Devious Strike</b> at levels 5 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
 ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Rogue</color> <b>Fighting Style</b> choice at level 2
 ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Rogue</color> <b>Steady Aim</b> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <color=#D89555>Rogue</color> to use DEX or STR modifiers on <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b>, and <b>Hail of Blades</b>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Wizard</color> signature spells to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
-ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Sorcerer</color> <b>magical guidance</b> at level 5
-ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Sorcerer</color> <b>quicken action</b> to allow cast leveled main in the end
+ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Sorcerer</color> <b>Magical Guidance</b> at level 5
+ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>
 ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color> to teleport the party <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
+ModUi/&EnableTeleportToRemoveRestrained=Enable <color=#D89555>Teleport</color> to remove all <color=#D89555>restrained</color> conditions from target
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
 ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
@@ -212,7 +215,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use <color
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusion spells automatically fail against targets with <color=#D89555>TrueSight</color> in range
 ModUi/&ImproveLevelUpFeaturesSelection=Improve level up features selection <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[impacts <color=#D89555>Ranger</color> Preferred Enemy and Terrain Affinity, <color=#D89555>Druid</color> Kindred Beast, <color=#D89555>Barbarian</color> Path of the Elements and subclasses Draconic choices]</color></i>
 ModUi/&IncreaseGameTimeBy=Increase game time by
-ModUi/&IncreaseMaxAttunedItems=Increase max attuned items to 4 at level 10th and 5 at level 18th
+ModUi/&IncreaseMaxAttunedItems=Increase max <color=#D89555>Attuned Items</color> to 4 at level 10th and 5 at level 18th
 ModUi/&InitialChoices=<color=#F0DAA0>Creation:</color>
 ModUi/&Input=<color=#F0DAA0>Input:</color>
 ModUi/&Interface=Interface
@@ -253,6 +256,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Open portraits folder
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst=Enable quick cast <color=#D89555>Light Cantrip</color> to use head, neck or torso worn items first
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Enable <color=#D89555>Light Sensitivity</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> to only trigger outdoors\n<i><color=#F0DAA0>[indoor areas in outdoor locations accessible without a load screen are considered outdoor by the game engine]</color></i>
 ModUi/&Races=<color=#F0DAA0>Races</color>
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
@@ -295,10 +299,10 @@ ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0
 ModUi/&SpellsMenu=Spells
 ModUi/&StealthBreaksWhenAttackHits=Enable stealth loss when weapon or spell attack hits
 ModUi/&StealthBreaksWhenAttackMisses=Enable stealth loss when weapon or spell attack misses
-ModUi/&StealthBreaksWhenCastingMaterial=Enable stealth loss when casting <color=#D89555>material</color> <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
-ModUi/&StealthBreaksWhenCastingSomatic=Enable stealth loss when casting <color=#D89555>somatic</color> <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
-ModUi/&StealthBreaksWhenCastingVerbose=Enable stealth loss when casting <color=#D89555>verbal</color> <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
-ModUi/&StealthDoesNotBreakWithSubtle=Enable stealth not rolling if <color=#D89555>Subtle Metamagic</color> and no <color=#D89555>material</color> component
+ModUi/&StealthBreaksWhenCastingMaterial=Enable stealth loss when casting <color=#D89555>Material</color> <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Enable stealth loss when casting <color=#D89555>Somatic</color> <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Enable stealth loss when casting <color=#D89555>Verbal</color> <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Enable stealth not rolling if <color=#D89555>Subtle Metamagic</color> and no <b>Material</b> component
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stock Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stock Gorim's store with all non-magical musical instruments <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items

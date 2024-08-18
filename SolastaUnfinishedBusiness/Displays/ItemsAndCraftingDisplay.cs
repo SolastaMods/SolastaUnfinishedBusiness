@@ -103,6 +103,14 @@ internal static class ItemsAndCraftingDisplay
             }
         }
 
+        toggle = Main.Settings.EnableMonkHandwrapsUseGauntletSlot;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableMonkHandwrapsUseGauntletSlot")), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkHandwrapsUseGauntletSlot = toggle;
+            CustomWeaponsContext.UpdateHandWrapsUseGauntletSlot();
+        }
+
         UI.Label();
 
         var intValue = Main.Settings.RecipeCost;

@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
-using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -39,7 +38,7 @@ public static class RulesetEffectPowerPatcher
                 user = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? user;
             }
 
-            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<ClassHolder>();
 
             if (classHolder != null)
             {
@@ -67,7 +66,7 @@ public static class RulesetEffectPowerPatcher
             }
 
             //PATCH: support for `IClassHoldingFeature`
-            var holder = __instance.PowerDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
+            var holder = __instance.PowerDefinition.GetFirstSubFeatureOfType<ClassHolder>();
 
             if (holder == null)
             {

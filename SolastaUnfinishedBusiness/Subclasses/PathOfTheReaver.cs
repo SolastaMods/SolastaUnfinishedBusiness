@@ -67,6 +67,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             .Create($"Power{Name}Bloodbath")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerBloodbath.AddCustomSubFeatures(
@@ -236,13 +237,11 @@ public sealed class PathOfTheReaver : AbstractSubclass
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
             var totalHealing = 2 * classLevel;
 
-            yield return attacker.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return attacker.MyReactToSpendPower(
                 usablePower,
-                [attacker],
                 attacker,
                 "Bloodbath",
-                "UseBloodbathDescription".Formatted(Category.Reaction, totalHealing.ToString()),
+                "SpendPowerBloodbathDescription".Formatted(Category.Reaction, totalHealing.ToString()),
                 ReactionValidated);
 
             yield break;
@@ -282,7 +281,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerCorruptedBlood, rulesetDefender);
 
-            defender.MyExecuteActionPowerNoCost(usablePower, [attacker]);
+            defender.MyExecuteActionPowerNoCost(usablePower, attacker);
         }
     }
 }

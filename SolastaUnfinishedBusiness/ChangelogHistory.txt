@@ -1,3 +1,28 @@
+1.5.97.27:
+
+- added Gameplay > Crafting, Items & Merchants > 'Enable Monk handwraps and gauntlets to work in gauntlet slot' setting
+- added Gameplay > Rules > 'Allow Blade Cantrips to use reach instead of 5 ft' setting
+- added Gameplay > Rules > 'Enable quick cast Light Cantrip to use head, neck or torso worn items first' setting
+- added Gameplay > Rules > 'Enable Teleport to remove all restrained conditions from target' setting
+- added Path of Wild Magic wild surge reroll power
+- fixed blade cantrips getting offered twinned metamagic, and not scaling 2nd target damage
+- fixed Domain Tempest destructive wrath sometimes triggering when out of charges
+- fixed inventory filtering and sorting to also work under multiplayer
+- fixed Paladin aura powers, modded and vanilla, to not clutter the action bar
+- fixed Path of Wild Magic rage damage not applying to thrown weapons
+- fixed Potent Spellcaster feat affecting all cantrips regardless of source
+- fixed RESPEC not registering new hero correctly
+- fixed Spend Power action not triggering DamageReceived, ReactionToDamageShare, and TargetReducedToZeroHP [VANILLA]
+- fixed Slow condition interaction with custom actions that spend bonus or main
+- fixed Way of Weal and Woe missing 11 and 17 descriptions on level up
+- improved Quickened action to show spell selection panel, and cast main spell with quickened metamagic applied
+- improved Shadow Blade spell to name ADV as 'Shadow Blade', and show ADV feature on dagger and spell descriptions
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
+
 1.5.97.26:
 
 - fixed Absorb Elements spell triggering behavior
@@ -15,11 +40,6 @@
 - improved Bladestorm feat with an additional 1d4 BA attack, and mod damage on whirlwind attack
 - improved Chaos Bolt spell tooltip to present damage symbols, and correct 1d6 damage progression
 - improved Time Stop spell to behave as in tabletop, and grant 1d4+1 additional turns during combat
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
 
 1.5.97.25:
 

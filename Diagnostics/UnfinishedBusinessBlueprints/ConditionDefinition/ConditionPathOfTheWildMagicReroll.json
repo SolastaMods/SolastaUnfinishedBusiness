@@ -3,10 +3,13 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityPathOfTheWildMagicReroll:6a0d4f99-9615-555d-85a4-630bfc0562eb",
+    "Definition:PowerPathOfTheWildMagicWildSurgeReroll:011775eb-afc7-5751-bc38-e62ce6abfbc5"
+  ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -16,7 +19,9 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    9000
+    "BattleEnd",
+    "NoAttackOrDamagedInTurn",
+    "RageStop"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -151,7 +156,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "69813f6c-ceca-5c5a-a7ef-7975ff227b50",
+  "guid": "399723d2-af57-507b-8b51-1906c61182d5",
   "contentPack": 9999,
-  "name": "ConditionBoomingBladeMarked"
+  "name": "ConditionPathOfTheWildMagicReroll"
 }

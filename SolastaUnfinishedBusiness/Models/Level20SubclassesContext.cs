@@ -721,9 +721,9 @@ internal static class Level20SubclassesContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.QuiveringPalmToggle)
-            .SetActivatedPower(
-                powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower, false)
+            .SetActivatedPower(powerTraditionOpenHandQuiveringPalm, false)
             .OverrideClassName("Toggle")
+            .SetParameter(ActionDefinitions.ActionParameter.TogglePower)
             .AddToDB();
 
         _ = DamageDefinitionBuilder
@@ -1512,7 +1512,7 @@ internal static class Level20SubclassesContext
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
 
-            actingCharacter.MyExecuteActionPowerNoCost(usablePower, [actingCharacter]);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePower, actingCharacter);
 
             yield break;
         }
@@ -1850,12 +1850,10 @@ internal static class Level20SubclassesContext
             var rulesetCharacter = defender.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
 
-            yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return defender.MyReactToSpendPower(
                 usablePower,
-                [defender],
                 attacker,
-                "StoneEndurance",
+                "PhysicalPerfection",
                 reactionValidated: ReactionValidated);
 
             yield break;
@@ -1985,7 +1983,7 @@ internal static class Level20SubclassesContext
             {
                 var usablePower = PowerProvider.Get(powerQuiveringPalmDamage, rulesetAttacker);
 
-                attacker.MyExecuteActionPowerNoCost(usablePower, [target]);
+                attacker.MyExecuteActionPowerNoCost(usablePower, target);
 
                 yield break;
             }

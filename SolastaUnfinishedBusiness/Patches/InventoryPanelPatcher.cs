@@ -16,13 +16,13 @@ public static class InventoryPanelPatcher
     public static class OnBeginShow_Patch
     {
         [UsedImplicitly]
-        public static void Postfix()
+        public static void Prefix(InventoryPanel __instance)
         {
             InventoryManagementContext.RefreshControlsVisibility();
 
-            if (Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer)
+            if (InventoryManagementContext.Enabled && __instance.MainContainerPanel)
             {
-                InventoryManagementContext.SelectionChanged();
+                InventoryManagementContext.Refresh(__instance.MainContainerPanel, true);
             }
         }
     }
@@ -34,13 +34,12 @@ public static class InventoryPanelPatcher
     public static class Bind_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(InventoryPanel __instance)
+        public static void Prefix(InventoryPanel __instance)
         {
             // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
-            if (Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer &&
-                __instance.MainContainerPanel)
+            if (InventoryManagementContext.Enabled && __instance.MainContainerPanel)
             {
-                InventoryManagementContext.SortAndFilter(__instance.MainContainerPanel.Container);
+                InventoryManagementContext.BindInventory(__instance.MainContainerPanel);
             }
         }
     }
@@ -56,8 +55,7 @@ public static class InventoryPanelPatcher
         {
             if (__instance.MainContainerPanel)
             {
-                // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
-                InventoryManagementContext.Flush(__instance.MainContainerPanel.Container);
+                InventoryManagementContext.UnbindInventory(__instance.MainContainerPanel);
             }
         }
     }

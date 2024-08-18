@@ -99,33 +99,6 @@
         },
         "hasFilterId": false,
         "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionSunlightBladeMarked",
-          "conditionDefinition": "Definition:ConditionSunlightBladeMarked:7f19eac4-e539-5805-ae41-40dcda6d3b23",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
       }
     ],
     "specialFormsDescription": "",
@@ -347,7 +320,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Spell/&SunlightBladeTitle",
-    "description": "Spell/&SunlightBladeDescription",
+    "description": "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage. At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th and 17th levels.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "be056650-f9ad-5dc3-98e9-acd10c9c362d",

@@ -350,13 +350,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         {
             var damageForm = effectDescription.FindFirstDamageForm();
 
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
-            damageForm.BonusDamage = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
             damageForm.DieType = character.GetMonkDieType();
+            damageForm.BonusDamage = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
 
             return effectDescription;
         }
@@ -428,8 +423,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower,
-                [defender]);
+            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
         }
     }
 
@@ -477,16 +471,11 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                         y.ConditionDefinition == conditionDiscordance) > 1)
                 .ToList();
 
-            if (targets.Count == 0)
-            {
-                yield break;
-            }
-
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
 
-            actingCharacter.MyExecuteActionPowerNoCost(usablePowerDiscordance, targets);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePowerDiscordance, [.. targets]);
 
             // Turmoil
             var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
@@ -507,7 +496,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
 
-            actingCharacter.MyExecuteActionPowerNoCost(usablePowerTurmoil, targets);
+            actingCharacter.MyExecuteActionPowerNoCost(usablePowerTurmoil, [.. targets]);
         }
     }
 
@@ -578,7 +567,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
 
-            ally.MyExecuteActionPowerNoCost(usablePower, [ally]);
+            ally.MyExecuteActionPowerNoCost(usablePower, ally);
         }
     }
 }

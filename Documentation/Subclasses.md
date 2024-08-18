@@ -861,6 +861,8 @@ As an action, you can open your awareness to the presence of concentrated magic.
 
 When you enter your rage, roll on the Wild Magic table to determine the magical effect produced. If the effect requires a saving throw, the DC equals 8 + your proficiency bonus + your Constitution modifier.
 
+Once per rage, you can use your bonus action to reroll on the Wild Magic table. The new effect will replace your current Wild Magic effect.
+
 Wild Magic Table:
 - Each creature within 30 feet of you must succeed on a Constitution saving throw or take 1d12 necrotic damage. You also gain 1d12 temporary hit points.
 - You teleport up to 30 feet to an unoccupied space you can see. Until your rage ends, you can use this effect again on each of your turns as a bonus action.
@@ -3840,6 +3842,20 @@ After you make an attack roll with a monk weapon or an unarmed attack, and criti
 * Propelled Weal
 
 After you make an attack roll with a monk weapon or an unarmed attack, and critically hit, you refund 1 Ki point.
+
+
+### Level 11
+
+* Brutal Weal
+
+After you make an attack roll with a monk weapon or an unarmed attack, and critically hit, you deal additional damage equal to one roll of your martial arts die.
+
+
+### Level 17
+
+* Their Woe
+
+After you make an attack roll with a monk weapon or an unarmed attack, and critically miss, you instead deal the Woe damage to the target instead of yourself.
 
 
 

@@ -789,15 +789,8 @@ internal static partial class SpellBuilders
         {
             var damageForm = effectDescription.FindFirstDamageForm();
 
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
             if (!character.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionRingOfBlades.Name,
-                    out var activeCondition))
+                    AttributeDefinitions.TagEffect, conditionRingOfBlades.Name, out var activeCondition))
             {
                 return effectDescription;
             }

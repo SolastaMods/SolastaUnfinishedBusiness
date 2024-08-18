@@ -318,7 +318,7 @@ internal static partial class SpellBuilders
             if (glc != null &&
                 glc.UsedSpecialFeatures.TryGetValue("SoulExpulsion", out var effectLevel))
             {
-                effectDescription.EffectForms[0].DamageForm.DiceNumber = 7 + (2 * (effectLevel - 8));
+                effectDescription.FindFirstDamageForm().DiceNumber = 7 + (2 * (effectLevel - 8));
             }
 
             return effectDescription;
@@ -340,8 +340,10 @@ internal static partial class SpellBuilders
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var target = action.actionParams.TargetCharacters[0];
-            var targets = Gui.Battle.GetContenders(
-                target, actingCharacter, isOppositeSide: false, hasToPerceiveTarget: true, withinRange: 12);
+            var targets =
+                Gui.Battle.GetContenders(
+                        target, actingCharacter, isOppositeSide: false, hasToPerceiveTarget: true, withinRange: 12)
+                    .ToArray();
 
             actingCharacter.UsedSpecialFeatures.TryAdd("SoulExpulsion", action.ActionParams.RulesetEffect.EffectLevel);
             actingCharacter.MyExecuteActionPowerNoCost(usablePower, targets);

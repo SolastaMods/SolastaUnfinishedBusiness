@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -189,8 +188,6 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.AudaciousWhirlToggle)
             .OverrideClassName("Toggle")
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerAudaciousWhirl)))
             .AddToDB();
 
         var featureSetAudaciousWhirl = FeatureDefinitionFeatureSetBuilder
@@ -282,7 +279,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSlashingWhirlDamage, rulesetAttacker);
-            var targets = Gui.Battle.GetContenders(attacker, withinRange: 1).Where(x => x != defender).ToList();
+            var targets = Gui.Battle.GetContenders(attacker, withinRange: 1).Where(x => x != defender).ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
@@ -305,17 +302,19 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 return effectDescription;
             }
 
+            var damageForm = effectDescription.FindFirstDamageForm();
+
             if (character.UsedSpecialFeatures.TryGetValue(WhirlDamageType, out var damageIndex))
             {
                 var damageTypeDefinition =
                     DatabaseRepository.GetDatabase<DamageDefinition>().ToList().ElementAt(damageIndex);
 
-                effectDescription.EffectForms[0].DamageForm.DamageType = damageTypeDefinition.Name;
+                damageForm.DamageType = damageTypeDefinition.Name;
             }
 
             var isMasterfulWhirl = rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle);
 
-            effectDescription.EffectForms[0].DamageForm.OverrideWithBardicInspirationDie = !isMasterfulWhirl;
+            damageForm.OverrideWithBardicInspirationDie = !isMasterfulWhirl;
 
             return effectDescription;
         }

@@ -155,7 +155,7 @@ internal static class GameUiContext
         var cursorService = ServiceRepository.GetService<ICursorService>();
 
         ResetCamera();
-        cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
+        cursorService.ActivateCursor<CursorLocationSelectPosition>(actionParams);
 
         var position = int3.zero;
 

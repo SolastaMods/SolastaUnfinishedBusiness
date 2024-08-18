@@ -832,14 +832,14 @@ internal static partial class SpellBuilders
             .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(GuidingBolt)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 2, DieType.D8),
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 1, DieType.D6))
+                    .SetParticleEffectParameters(GuidingBolt)
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -874,14 +874,14 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(GuidingBolt)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 2, DieType.D8),
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 1, DieType.D6))
+                    .SetParticleEffectParameters(GuidingBolt)
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -1043,22 +1043,8 @@ internal static partial class SpellBuilders
                 0,
                 0);
 
-            var hasEmpowered = rulesetEffect.MetamagicOption == MetamagicOptionDefinitions.MetamagicEmpoweredSpell;
             var firstRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
             var secondRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
-
-            if (hasEmpowered)
-            {
-                while (firstRoll <= 2)
-                {
-                    firstRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
-                }
-
-                while (secondRoll <= 2)
-                {
-                    secondRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
-                }
-            }
 
             _rolls.AddRange(firstRoll, secondRoll);
 
@@ -1315,8 +1301,7 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            effectDescription.EffectForms[0].DamageForm.DiceNumber =
-                2 + (PowerOrSpellFinishedByMeIceBlade.EffectLevel - 1);
+            effectDescription.FindFirstDamageForm().DiceNumber = 2 + (PowerOrSpellFinishedByMeIceBlade.EffectLevel - 1);
 
             return effectDescription;
         }
@@ -1351,7 +1336,7 @@ internal static partial class SpellBuilders
                     .Where(x =>
                         x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                         x.IsWithinRange(target, 1))
-                    .ToList();
+                    .ToArray();
 
                 var usablePower = PowerProvider.Get(powerIceBlade, rulesetCaster);
 
@@ -1736,10 +1721,11 @@ internal static partial class SpellBuilders
 
     #region Skin of Retribution
 
+    private const int TempHpPerLevelSkinOfRetribution = 5;
+
     internal static SpellDefinition BuildSkinOfRetribution()
     {
         const string NAME = "SkinOfRetribution";
-        const int TEMP_HP_PER_LEVEL = 5;
 
         var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
@@ -1748,7 +1734,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeCold, bonusDamage: TEMP_HP_PER_LEVEL))
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeCold))
                     .SetParticleEffectParameters(ConeOfCold)
                     .Build())
             .AddToDB();
@@ -1792,12 +1778,12 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetTempHpForm(TEMP_HP_PER_LEVEL)
+                            .SetTempHpForm(TempHpPerLevelSkinOfRetribution)
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionSkinOfRetribution))
                     .SetEffectAdvancement(
                         EffectIncrementMethod.PerAdditionalSlotLevel,
-                        additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
+                        additionalTempHpPerIncrement: TempHpPerLevelSkinOfRetribution)
                     .SetParticleEffectParameters(ConeOfCold)
                     .Build())
             .AddToDB();
@@ -1864,7 +1850,7 @@ internal static partial class SpellBuilders
 
             var damageForm = effectDescription.FindFirstDamageForm();
 
-            damageForm.bonusDamage *= effectLevel;
+            damageForm.BonusDamage = TempHpPerLevelSkinOfRetribution * effectLevel;
 
             return effectDescription;
         }
@@ -2283,10 +2269,7 @@ internal static partial class SpellBuilders
 
             var damageForm = effectDescription.FindFirstDamageForm();
 
-            if (damageForm != null)
-            {
-                damageForm.diceNumber = activeCondition.EffectLevel;
-            }
+            damageForm.DiceNumber = activeCondition.EffectLevel;
 
             return effectDescription;
         }
@@ -2313,13 +2296,7 @@ internal static partial class SpellBuilders
             var targets = Gui.Battle.AllContenders
                 .Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && x.IsWithinRange(defender, 1))
-                .ToList();
-
-            if (targets.Count == 0)
-            {
-                yield break;
-            }
-
+                .ToArray();
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
 
@@ -2453,7 +2430,7 @@ internal static partial class SpellBuilders
 
             var effectLevel = rulesetSpell.EffectLevel;
 
-            effectDescription.EffectForms[0].DamageForm.DiceNumber = effectLevel;
+            effectDescription.FindFirstDamageForm().DiceNumber = effectLevel;
 
             return effectDescription;
         }

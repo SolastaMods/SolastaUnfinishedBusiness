@@ -56,7 +56,9 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        featureWoe.AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new ModifyEffectDescription(featureWoe));
+        featureWoe.AddCustomSubFeatures(
+            new ModifyEffectDescription(featureWoe),
+            ModifyPowerVisibility.Hidden);
 
         var featureSelfPropelledWeal = FeatureDefinitionBuilder
             .Create($"Feature{Name}SelfPropelledWeal")
@@ -66,7 +68,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
         // kept name for backward compatibility
         var featureBrutalWeal = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}BrutalWeal")
-            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -77,12 +79,14 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        featureBrutalWeal.AddCustomSubFeatures(new ModifyEffectDescription(featureBrutalWeal));
+        featureBrutalWeal.AddCustomSubFeatures(
+            new ModifyEffectDescription(featureBrutalWeal),
+            ModifyPowerVisibility.Hidden);
 
         // kept name for backward compatibility
         var featureTheirWoe = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}TheirWoe")
-            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -93,7 +97,9 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        featureTheirWoe.AddCustomSubFeatures(new ModifyEffectDescription(featureTheirWoe));
+        featureTheirWoe.AddCustomSubFeatures(
+            new ModifyEffectDescription(featureTheirWoe),
+            ModifyPowerVisibility.Hidden);
 
         featureWeal.AddCustomSubFeatures(new CustomBehaviorWealAndWoe(
             conditionWeal,
@@ -276,7 +282,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
 
-            defender.MyExecuteActionPowerNoCost(usablePower, [defender]);
+            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
         }
     }
 
@@ -293,12 +299,9 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
-            var dieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
-                .DieTypeByRankTable
-                .Find(x => x.Rank == monkLevel).DieType;
+            var dieType = character.GetMonkDieType();
 
-            effectDescription.EffectForms[0].DamageForm.DieType = dieType;
+            effectDescription.FindFirstDamageForm().DieType = dieType;
 
             return effectDescription;
         }

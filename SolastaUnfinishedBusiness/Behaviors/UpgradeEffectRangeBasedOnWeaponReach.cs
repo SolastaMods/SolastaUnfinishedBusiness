@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.Behaviors;
 
-internal sealed class UpgradeSpellRangeBasedOnWeaponReach(BaseDefinition baseDefinition) : IModifyEffectDescription
+internal sealed class UpgradeEffectRangeBasedOnWeaponReach(BaseDefinition baseDefinition) : IModifyEffectDescription
 {
     public bool IsValid(
         BaseDefinition definition,
@@ -17,38 +17,25 @@ internal sealed class UpgradeSpellRangeBasedOnWeaponReach(BaseDefinition baseDef
         var caster = GameLocationCharacter.GetFromActor(character);
         var attackMode = caster?.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
-        if (caster == null || attackMode is not { SourceObject: RulesetItem })
-        {
-            return false;
-        }
-
-        if (attackMode.Ranged || !attackMode.Reach)
-        {
-            return false;
-        }
-
-        var reach = attackMode.reachRange;
-
-        return reach > 1;
+        return attackMode is { SourceObject: RulesetItem, Ranged: false, Reach: true, ReachRange: > 1 };
     }
 
     public EffectDescription GetEffectDescription(
         BaseDefinition definition,
         EffectDescription effectDescription,
-        RulesetCharacter character,
+        RulesetCharacter rulesetCharacter,
         RulesetEffect rulesetEffect)
     {
-        var caster = GameLocationCharacter.GetFromActor(character);
+        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-        if (caster == null)
+        if (character == null)
         {
             return effectDescription;
         }
 
-        var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-        var reach = attackMode.reachRange;
+        var attackMode = character.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
-        effectDescription.rangeParameter = reach;
+        effectDescription.rangeParameter = attackMode.ReachRange;
 
         return effectDescription;
     }

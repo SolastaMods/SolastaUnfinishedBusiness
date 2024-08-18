@@ -50,7 +50,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceOrTargetAreNotBright)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
+            .AddCustomSubFeatures(ClassHolder.Rogue)
             .AddToDB();
 
         var featureSetDeadlyShadows = FeatureDefinitionFeatureSetBuilder
@@ -435,10 +435,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 yield break;
             }
 
-            yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
+            yield return defender.MyReactToSpendPower(
                 usablePower,
-                [defender],
                 attacker,
                 "UmbralSoul",
                 reactionValidated: ReactionValidated);

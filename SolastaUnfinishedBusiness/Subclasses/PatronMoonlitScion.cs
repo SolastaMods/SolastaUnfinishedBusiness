@@ -460,12 +460,9 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 x.FormType == EffectForm.EffectFormType.Condition &&
                 x.ConditionForm.ConditionDefinition == conditionToReplace);
 
-            if (effectForm != null)
-            {
-                effectForm.ConditionForm.conditionDefinition = levels < 10
-                    ? conditionMidnightBlessing
-                    : conditionLunarEmbrace;
-            }
+            effectForm!.ConditionForm.conditionDefinition = levels < 10
+                ? conditionMidnightBlessing
+                : conditionLunarEmbrace;
 
             return effectDescription;
         }

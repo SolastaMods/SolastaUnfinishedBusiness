@@ -88,9 +88,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(FlameStrike)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .Create()
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
+                    .SetParticleEffectParameters(FlameStrike)
                     .ExcludeCaster()
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.FixedValue)
@@ -119,8 +119,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(EldritchBlast)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(EldritchBlast)
                     .SetEffectForms(
@@ -510,7 +509,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetDamageDice(DieType.D8, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10, 5)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
-            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelInventor.Instance)
+            .AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 
         var featureSetArcaneFirearm = FeatureDefinitionFeatureSetBuilder
@@ -535,12 +534,12 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Fireball)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .Create()
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 4)
                     .SetParticleEffectParameters(Fireball)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.FixedValue)
+                    .SetParticleEffectParameters(Fireball)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -568,12 +567,12 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Fireball)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 4)
                     .SetParticleEffectParameters(Fireball)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.FixedValue)
+                    .SetParticleEffectParameters(Fireball)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1073,7 +1072,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     x != selectedTarget &&
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x.IsWithinRange(selectedTarget, 4))
-                .ToList();
+                .ToArray();
 
             selectedTarget.MyExecuteActionPowerNoCost(usablePower, targets);
 
@@ -1126,7 +1125,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             locationCharacter.usedTacticalMoves = locationCharacter.MaxTacticalMoves;
 
             // or use powers so force the dodge action
-            ServiceRepository.GetService<ICommandService>()?
+            ServiceRepository.GetService<ICommandService>()
                 .ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
         }
 

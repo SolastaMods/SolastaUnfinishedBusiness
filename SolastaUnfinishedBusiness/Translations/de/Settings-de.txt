@@ -4,7 +4,7 @@ ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blutung</color> zu den Zuständen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness Perceptive</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> und <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[Gewährt Vorteil bei Wahrnehmungsprüfungen, wenn es nicht beleuchtet ist oder sich in magischer Dunkelheit befindet]</color></i>
-ModUi/&AddDexModifierToEnemiesInitiativeRoll=Füge den <color=#D89555>Geschicklichkeitsmodifikator</color> zum <color=#D89555>Initiativwurf</color> der Feinde hinzu
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=DEX-Modifikator zu Feinden hinzufügen <color=#D89555>Initiative Roll</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Aktivieren Sie <color=#D89555>Kämpfer</color>, um die Klassenstufe als Bonus zur Wiederholung des <color=#D89555>Unbezwingbaren Widerstands</color>-Rettungswurfs hinzuzufügen
 ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur innerhalb einer Zelle um dich anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Ranger</color> humanoide bevorzugte Feinde
@@ -20,7 +20,8 @@ ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Alle Spieler in Erzählsequenzen zulassen</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Sylvan-Rüstung</color> oder <color=#D89555>Lichtbringer-Kleidung</color> zu tragen
 ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
-ModUi/&AllowClubsToBeThrown=Ermöglichen Sie das Werfen von <color=#D89555>Keulen</color> wie <color=#D89555>Dolchen</color> oder <color=#D89555>Handäxten</color>
+ModUi/&AllowBladeCantripsToUseReach=Erlaube <color=#D89555>Blade Cantrips</color>, eine Reichweite statt 5 Fuß zu verwenden.
+ModUi/&AllowClubsToBeThrown=Ermöglicht das Werfen von <color=#D89555>Keulen</color> wie <color=#D89555>Dolche</color> oder <color=#D89555>Faustäxte</color>.
 ModUi/&AllowDisplayingNonSuggestedSpells=Erlaube nicht vom Mod vorgeschlagene Zauber auf jeder Liste
 ModUi/&AllowDisplayingOfficialSpells=Lassen Sie in jeder Liste spieloffizielle Zaubersprüche zu
 ModUi/&AllowDruidToWearMetalArmor=Erlaube <color=#D89555>Druiden</color>, Metallrüstungen zu tragen
@@ -89,7 +90,7 @@ ModUi/&DocsSubraces=Subraces
 ModUi/&DocsVersatilities=Vielseitigkeit
 ModUi/&Donate=<b><color=#D89555>Spenden:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Helme nicht auf grafischen Charakteren anzeigen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht, nachdem Sie die <color=#D89555>Bereitschaftsaktion</color> verwendet haben <i><color=#F0DAA0>[ermöglicht die Verwendung der Bonusaktion oder zusätzlicher Hauptaktionen aus Tempo oder anderen Quellen]</color></i>
+ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht nach der Verwendung von <color=#D89555>Bereitschaftsaktion</color> <i><color=#F0DAA0>[ermöglicht die Verwendung von Bonusaktionen oder zusätzlichen Hauptaktionen aus Eile oder anderen Quellen]</color></i>
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
 ModUi/&DontFollowMargin=<i><color=white>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</color></i>
 ModUi/&DungeonMakerBasicHelp=• Für diese Einstellungen ist es nicht erforderlich, dass der Player diesen Mod installiert hat
@@ -106,16 +107,16 @@ ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Aktivieren Sie <color=#D89555>
 ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Barbar</color> <b>Brutal Strike</b> und <b>Brutal Strike Improvement</b> auf den Stufen 9, 13 und 17
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie die Stärkung und Schwächung von <color=#D89555>Barbar</color> <b>Rücksichtsloser Angriff</b>, damit sie zu Beginn der nächsten Runde endet
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Ermöglichen Sie <color=#D89555>Barbar</color>, bei einer kurzen Pause auf Stufe 7 einen Wuteinsatz zurückzugewinnen
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Aktivieren Sie <color=#D89555>Barbaren</color>, um auf Stufe 7 während einer kurzen Pause eine <b>Wut</b>-Anwendung zurückzugewinnen
 ModUi/&EnableBardHealingBalladOnLongRest=Aktiviere <color=#D89555>Bard College of Hope</color> <b>Heilende Ballade</b> bei langer Pause
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen per Rechtsklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Aktivieren Sie Cantrips, um einen zusätzlichen <color=#D89555>Kriegsmagie</color>-Bonusangriff auszulösen
 ModUi/&EnableCharacterChecker=Aktivieren Sie die Schaltfläche „Charakterprüfung“ auf dem Hauptbildschirm > Charaktere
 ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(E)</color>, um das Zeichen zu exportieren
-ModUi/&EnableCharactersOnFireToEmitLight=Brennende Charaktere sollten Licht ausstrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und Familie im Brandzustand]</color></i>
+ModUi/&EnableCharactersOnFireToEmitLight=Charaktere, die <color=#D89555>in Flammen stehen</color>, sollten Licht ausstrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und Familie der in Flammen stehenden Personen]</color></i>
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheats-Menü
-ModUi/&EnableCustomPortraits=Aktivieren Sie benutzerdefinierte Porträts
+ModUi/&EnableCustomPortraits=Aktivieren Sie <color=#D89555>Benutzerdefinierte Porträts</color>
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color> </b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[d. h.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG Bilder, 256 x 384 Pixel groß, mit einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und ohne Schnickschnack, bei dem Assets aus allen Umgebungen gemischt werden]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Aktivieren Sie die Höhenkamera während des Gefechts, damit sie nach der Deaktivierung an ihrer Position bleibt und ihre Reichweite verdreifacht.</i>
@@ -143,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Aktiviere <color=#D89555>Mönch
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Aktivieren Sie <color=#D89555>Mönch</color> <b>Kampfkunst – Bonus für unbewaffnete Schläge</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Aktivieren Sie <color=#D89555>Mönch</color> <b>Flurry of Blows</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist
 ModUi/&EnableMonkFightingStyle=Aktiviere die Wahl des <color=#D89555>Mönchs</color> <b>Kampfstils</b> auf Stufe 2
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Aktivieren Sie <color=#D89555>Mönchs</color>-<b>Handwickel</b> und <b>Stulpen</b>, damit diese im Stulpenschlitz funktionieren
 ModUi/&EnableMonkHeightenedMetabolism=Aktiviere <color=#D89555>Mönch</color> <b>Erhöhter Stoffwechsel</b> auf Stufe 10 <i><color=#F0DAA0>[<b>Schlaghagel</b>, <b>Geduldige Verteidigung </b> und <b>Schritt des Windes</b> erhalten zusätzliche Vorteile]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Aktivieren Sie <color=#D89555>Mönch</color> <b>Verbesserte ungepanzerte Bewegung</b>, um sich entlang vertikaler Flächen zu bewegen, ohne zu fallen
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Aktivieren Sie <color=#D89555>Mönch</color> <b>Überlegene Verteidigung</b>, um <b>Leeren Körper</b> auf Stufe 18 zu ersetzen
@@ -153,19 +155,20 @@ ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmu
 ModUi/&EnableRangerNatureShroudAt10=Aktiviere die Funktion <color=#D89555>Waldläufer</color> <b>Naturschleier</b> auf Stufe 10 <i><color=#F0DAA0>[als Bonusaktion kannst du bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden ]</color></i>
 ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen von 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=Aktivieren Sie die Auswahl von Cantrips oder Zaubersprüchen, die bereits aus anderen Quellen gelernt wurden
-ModUi/&EnableRespec=Aktivieren Sie die RESPEC-Nach-Ruhe-Aktion <i><color=#F0DAA0>[verwenden Sie RESPEC nicht während einer Mehrspielersitzung]</color></i>
+ModUi/&EnableRespec=Aktivieren Sie <color=#D89555>RESPEC</color> nach der Rest-Aktion <i><color=#F0DAA0>[RESPEC nicht während einer Multiplayer-Sitzung verwenden]</color></i>
 ModUi/&EnableRogueCunningStrike=Aktivieren Sie <color=#D89555>Rogue</color> <b>Cunning Strike</b> und <b>Devious Strike</b> auf Level 5 und 14 <i><color=#F0DAA0>[Sie lassen auf 1 verzichten Schleichangriffswürfel für zusätzliche Treffereffekte]</color></i>
 ModUi/&EnableRogueFightingStyle=Aktivieren Sie die Wahl des <color=#D89555>Schurken</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Rogue</color> <b>Steady Aim</b> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft Ihnen einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie Haven haben Noch nicht verschoben]</color></i>
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <color=#D89555>Schurke</color>, um DEX- oder STR-Modifikatoren für <b>Listiger/hinterhältiger Schlag</b>, <b>Schwächender/verbesserter Schlag</b> und <b>Klingenhagel zu verwenden </b>
 ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Standorten
 ModUi/&EnableSignatureSpellsRelearn=Aktivieren Sie <color=#D89555>Zauberer</color>-Signaturzauber, die bei jeder langen Pause <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i> vorbereitet werden
-ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Zauberer</color> <b>magische Führung</b> auf Stufe 5
-ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie <color=#D89555>Sorcerer</color> <b>Quick Action</b>, um am Ende das Casting des gelevelten Mains zu ermöglichen
+ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Zauberer</color> <b>Magische Führung</b> auf Stufe 5
+ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Außerdem fügt jeder Held für ein wenig Zufälligkeit einen D20-Wurf zum Gewicht hinzu <color=#F0DAA0>[Auswahlgewicht = Stimmen * Helden-Charisma-Modifikator + D20-Wurf]</color></i>
 ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
+ModUi/&EnableTeleportToRemoveRestrained=Aktivieren Sie <color=#D89555>Teleportieren</color>, um alle <color=#D89555>eingeschränkten</color> Bedingungen vom Ziel zu entfernen
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie die Schalter für den Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Entfernung in Tooltips, wenn Sie im Kampf mit der Maus über einen Charakter fahren
 ModUi/&EnableUpcastConjureElementalAndFey=Aktivieren Sie die Übertragung von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Fee beschwören</color>
@@ -212,7 +215,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Für die Verwendung von <color=#D89555
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusionszauber schlagen automatisch fehl, wenn Ziele mit <color=#D89555>TrueSight</color> in Reichweite sind.
 ModUi/&ImproveLevelUpFeaturesSelection=Verbesserung der Auswahl der Levelaufstiegsfunktionen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[Auswirkungen auf <color=#D89555>Waldläufer</color> Bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> Verwandtes Biest, <color=#D89555>Barbar</color> Pfad der Elemente und Unterklassen Drakonische Entscheidungen]</color></i>
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
-ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl an abgestimmten Gegenständen auf Stufe 10 auf 4 und auf Stufe 18 auf 5
+ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximalen <color=#D89555>abgestimmten Gegenstände</color> auf 4 auf Level 10 und auf 5 auf Level 18.
 ModUi/&InitialChoices=<color=#F0DAA0>Erstellung:</color>
 ModUi/&Input=<color=#F0DAA0>Eingabe:</color>
 ModUi/&Interface=Schnittstelle
@@ -253,6 +256,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Öffnen Sie den Ordner „Porträts“.
 ModUi/&PrimedItems=Vorbereitete Gegenstände
 ModUi/&Progression=<color=#F0DAA0>Fortschritt:</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst=Aktivieren Sie den Schnellzauber <color=#D89555>Light Cantrip</color>, um zuerst am Kopf, Hals oder Rumpf getragene Gegenstände zu verwenden.
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Aktivieren Sie <color=#D89555>Lichtempfindlichkeit</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> und <color=#D89555>Gray Dwarf</color> soll nur im Freien ausgelöst werden\n<i><color=#F0DAA0>[Innenbereiche an Orten im Freien, die ohne Ladebildschirm zugänglich sind, werden von der Spiel-Engine als im Freien betrachtet]</color></i>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
 ModUi/&RecipeCost=<color=white>Kosten des Rezepts</color>
@@ -295,10 +299,10 @@ ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0
 ModUi/&SpellsMenu=Zauber
 ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie den Verlust der Tarnung, wenn ein Waffen- oder Zauberangriff trifft
 ModUi/&StealthBreaksWhenAttackMisses=Aktivieren Sie den Stealth-Verlust, wenn ein Waffen- oder Zauberangriff fehlschlägt
-ModUi/&StealthBreaksWhenCastingMaterial=Aktivieren Sie Tarnverlust beim Wirken von <color=#D89555>Material</color> <i><color=#F0DAA0>[jedem Nicht-Angriffszauber mit dem Ziel ALLES oder FEIND]</color></i>
-ModUi/&StealthBreaksWhenCastingSomatic=Aktivieren Sie Stealth-Verlust, wenn Sie <color=#D89555>somatisch</color> <i><color=#F0DAA0>[jeden nicht angreifenden Zauber mit dem Ziel ALLES oder FEIND]</color></i> wirken
-ModUi/&StealthBreaksWhenCastingVerbose=Aktivieren Sie Stealth-Verlust, wenn Sie <color=#D89555>verbal</color> <i><color=#F0DAA0>[jeden nicht angreifenden Zauber mit dem Ziel ALLES oder FEIND]</color></i> wirken
-ModUi/&StealthDoesNotBreakWithSubtle=Aktivieren Sie Stealth, das nicht rollt, wenn <color=#D89555>Subtile Metamagie</color> und keine <color=#D89555>Material</color>-Komponente vorhanden ist
+ModUi/&StealthBreaksWhenCastingMaterial=Aktiviere Tarnverlust beim Wirken von <color=#D89555>Material</color> <i><color=#F0DAA0>[jeder Nichtangriffszauber mit Ziel ALLE oder FEIND]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Aktiviere den Verlust der Tarnung beim Wirken von <color=#D89555>Somatic</color> <i><color=#F0DAA0>[jeder Nichtangriffszauber mit Ziel ALLE oder FEINDE]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Aktivieren Sie den Verlust der Tarnung beim Wirken von <color=#D89555>Verbal</color> <i><color=#F0DAA0>[jeder Nichtangriffszauber mit Ziel ALLE oder FEIND]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Aktivieren Sie Tarnung ohne Rollen, wenn <color=#D89555>Subtile Metamagie</color> und keine <b>materielle</b> Komponente vorhanden ist.
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Lagern Sie Gorims Laden mit aller nicht-magischen Kleidung <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Lagern Sie Gorims Laden mit allen nicht-magischen Musikinstrumenten <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Lagern Sie Hugos Laden mit <color=#D89555>Arkanstab</color>, <color=#D89555>Druidenhals</color>, <color=#D89555>Stab</color> und <color=#D89555>Keule</color> als Fokuselemente festlegen

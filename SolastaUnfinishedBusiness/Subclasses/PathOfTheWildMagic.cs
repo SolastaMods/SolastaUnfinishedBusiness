@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -40,8 +41,49 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         var featureWildSurge = FeatureDefinitionBuilder
             .Create($"Feature{Name}WildSurge")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new WildSurgeAfterRage(wildSurgeHandler))
             .AddToDB();
+
+        var powerWildSurgeReroll = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}WildSurgeReroll")
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .DelegatedToAction()
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "WildSurgeReroll")
+            .SetOrUpdateGuiPresentation(powerWildSurgeReroll.Name, Category.Feature)
+            .SetActionId(ExtraActionId.WildSurgeReroll)
+            .SetActionType(ActionType.Bonus)
+            .SetFormType(ActionFormType.Large)
+            .SetActionScope(ActionScope.All)
+            .RequiresAuthorization()
+            .OverrideClassName("UsePower")
+            .SetActivatedPower(powerWildSurgeReroll)
+            .AddToDB();
+
+        var actionAffinityReroll = FeatureDefinitionActionAffinityBuilder
+            .Create(FeatureDefinitionActionAffinitys.ActionAffinityBarbarianRecklessAttack,
+                $"ActionAffinity{Name}Reroll")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes()
+            .SetAuthorizedActions((Id)ExtraActionId.WildSurgeReroll)
+            .AddToDB();
+
+        var conditionWildSurgeReroll = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Reroll")
+            .SetGuiPresentationNoContent(true)
+            .SetSpecialInterruptions(
+                ConditionInterruption.BattleEnd,
+                ConditionInterruption.NoAttackOrDamagedInTurn,
+                ConditionInterruption.RageStop)
+            .SetFeatures(actionAffinityReroll, powerWildSurgeReroll)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddToDB();
+
+        featureWildSurge.AddCustomSubFeatures(new WildSurgeAfterRage(wildSurgeHandler, conditionWildSurgeReroll));
+        powerWildSurgeReroll.AddCustomSubFeatures(
+            new WildSurgeRerollHandler(wildSurgeHandler, conditionWildSurgeReroll));
 
         var effectMagicAwareness = SpellDefinitions.DetectMagic.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.Divination)
@@ -89,14 +131,43 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
     #region Wild Surge
 
-    private class WildSurgeAfterRage(WildSurgeHandler handler) : IActionFinishedByMe
+    private class WildSurgeAfterRage(WildSurgeHandler handler, ConditionDefinition conditionWildSurgeReroll)
+        : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            if (characterAction.ActionId == Id.RageStart)
+            if (characterAction.ActionId != Id.RageStart)
             {
-                yield return handler.HandleWildSurge(characterAction.ActingCharacter);
+                yield break;
             }
+
+            characterAction.ActingCharacter.RulesetCharacter.InflictCondition(
+                conditionWildSurgeReroll.Name,
+                DurationType.Minute,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                characterAction.ActingCharacter.RulesetCharacter.Guid,
+                characterAction.ActingCharacter.RulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionWildSurgeReroll.Name,
+                0,
+                0,
+                0);
+
+            yield return handler.HandleWildSurge(characterAction.ActingCharacter);
+        }
+    }
+
+    private class WildSurgeRerollHandler(
+        WildSurgeHandler wildSurgeHandler,
+        ConditionDefinition conditionWildSurgeReroll) : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
+                conditionWildSurgeReroll.Name);
+            yield return wildSurgeHandler.HandleWildSurge(action.ActingCharacter);
         }
     }
 
@@ -381,13 +452,15 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         private static WildSurgeEffect BuildWildSurgeWeapon()
         {
+            // Use rangedAttack, as Ranged: true is false on thrown weapons
             var featureWildSurgeWeapon = FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{Name}Weapon")
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
-                .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
-                    (OperationType.Set, mode is { Ranged: true, Thrown: true })))
+                .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty(
+                    (_, _, _, _, rangedAttack, mode, _) =>
+                        (OperationType.Set, rangedAttack && mode is { Thrown: true })))
                 .AddToDB();
 
             featureWildSurgeWeapon.AddCustomSubFeatures(
@@ -778,7 +851,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                             PreventEnemyAction(attacker, rulesetCharacter);
                         }
 
-                        cursorService.ActivateCursor<CursorLocationGeometricShape>([actionParams]);
+                        cursorService.ActivateCursor<CursorLocationGeometricShape>(actionParams);
 
                         while (reactingOutOfTurn && cursorService.CurrentCursor is CursorLocationGeometricShape)
                         {
@@ -797,7 +870,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                                 }
 
                                 PreventEnemyAction(attacker, rulesetCharacter);
-                                character.MyExecuteActionPowerNoCost(usablePower, []);
+                                character.MyExecuteActionPowerNoCost(usablePower);
                             }
                             else
                             {
@@ -812,7 +885,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         }
                         else
                         {
-                            character.MyExecuteActionPowerNoCost(usablePower, []);
+                            character.MyExecuteActionPowerNoCost(usablePower);
                         }
                     }
                 }
@@ -851,7 +924,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 GameUiContext.ResetCamera();
                 PreventEnemyAction(attacker, rulesetCharacter);
 
-                cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
+                cursorService.ActivateCursor<CursorLocationSelectPosition>(actionParams);
 
                 while (cursorService.CurrentCursor is CursorLocationSelectPosition)
                 {
@@ -997,7 +1070,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     .InstantiateEffectPower(rulesetCharacter, usablePower, false);
                 actionParams.SkipAnimationsAndVFX = true;
 
-                ServiceRepository.GetService<ICommandService>()?.ExecuteInstantSingleAction(actionParams);
+                ServiceRepository.GetService<ICommandService>().ExecuteInstantSingleAction(actionParams);
             }
         }
 

@@ -525,7 +525,7 @@ internal static partial class SpellBuilders
                 return effectDescription;
             }
 
-            effectDescription.EffectForms[0].DamageForm.DiceNumber = character.ConcentratedSpell.EffectLevel - 2;
+            effectDescription.FindFirstDamageForm().DiceNumber = character.ConcentratedSpell.EffectLevel - 2;
 
             return effectDescription;
         }
@@ -545,7 +545,7 @@ internal static partial class SpellBuilders
                             x != mover &&
                             !x.RulesetCharacter.HasConditionOfCategoryAndType(
                                 AttributeDefinitions.TagEffect, conditionMark.Name))
-                .ToList();
+                .ToArray();
 
             var rulesetAttacker = mover.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
@@ -785,7 +785,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, _targets);
+            attacker.MyExecuteActionPowerNoCost(usablePower, [.. _targets]);
         }
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -831,12 +831,7 @@ internal static partial class SpellBuilders
                 return effectDescription;
             }
 
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm != null)
-            {
-                damageForm.diceNumber = activeCondition.EffectLevel;
-            }
+            effectDescription.FindFirstDamageForm().DiceNumber = activeCondition.EffectLevel;
 
             return effectDescription;
         }
@@ -1219,7 +1214,7 @@ internal static partial class SpellBuilders
 
             usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
 
-            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
+            caster.MyExecuteActionPowerNoCost(usablePower, character);
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter character)
@@ -1238,7 +1233,7 @@ internal static partial class SpellBuilders
 
             usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
 
-            caster.MyExecuteActionPowerNoCost(usablePower, [character]);
+            caster.MyExecuteActionPowerNoCost(usablePower, character);
         }
     }
 
@@ -1328,14 +1323,12 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var damageForm = effectDescription.FindFirstDamageForm();
             var glc = GameLocationCharacter.GetFromActor(character);
 
-            if (damageForm != null
-                && glc != null
-                && glc.UsedSpecialFeatures.TryGetValue(conditionDefinition.Name, out var additionalDice))
+            if (glc != null &&
+                glc.UsedSpecialFeatures.TryGetValue(conditionDefinition.Name, out var additionalDice))
             {
-                damageForm.diceNumber = 2 + additionalDice;
+                effectDescription.FindFirstDamageForm().diceNumber = 2 + additionalDice;
             }
 
             return effectDescription;
@@ -1456,7 +1449,8 @@ internal static partial class SpellBuilders
             // leap damage on enemies within 10 ft from target
             var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
             var targets = battleManager.Battle
-                .GetContenders(defender, isOppositeSide: false, withinRange: 2);
+                .GetContenders(defender, isOppositeSide: false, withinRange: 2)
+                .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }

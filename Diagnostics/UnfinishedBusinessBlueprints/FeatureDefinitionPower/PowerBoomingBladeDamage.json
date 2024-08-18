@@ -65,10 +65,111 @@
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
         "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
+        "applyLevel": "DiceNumberByLevelTable",
+        "levelType": "CharacterLevel",
         "levelMultiplier": 1,
-        "diceByLevelTable": [],
+        "diceByLevelTable": [
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 1,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 2,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 3,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 4,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 5,
+            "diceNumber": 2
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 6,
+            "diceNumber": 2
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 7,
+            "diceNumber": 2
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 8,
+            "diceNumber": 2
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 9,
+            "diceNumber": 2
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 10,
+            "diceNumber": 2
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 11,
+            "diceNumber": 3
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 12,
+            "diceNumber": 3
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 13,
+            "diceNumber": 3
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 14,
+            "diceNumber": 3
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 15,
+            "diceNumber": 3
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 16,
+            "diceNumber": 3
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 17,
+            "diceNumber": 4
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 18,
+            "diceNumber": 4
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 19,
+            "diceNumber": 4
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 20,
+            "diceNumber": 4
+          }
+        ],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -335,14 +436,14 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Spell/&BoomingBladeTitle",
-    "description": "Spell/&BoomingBladeDescription",
+    "description": "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 ft or more before then, the target takes 1d8 thunder damage, and the spell ends. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th and 17th levels.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "df2faaa7db39d064b913d8578da6d3e8",
+      "m_SubObjectName": "DivineBlade",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

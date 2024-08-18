@@ -174,7 +174,9 @@ public sealed class OathOfDread : AbstractSubclass
             .AddToDB();
 
         powerAuraOfDominationDamage.AddCustomSubFeatures(
-            new CharacterTurnStartListenerAuraOfDomination(powerAuraOfDominationDamage, conditionAuraOfDomination));
+            new CharacterTurnStartListenerAuraOfDomination(powerAuraOfDominationDamage, conditionAuraOfDomination),
+            new UpgradeEffectDamageBonusBasedOnClassLevel(
+                powerAuraOfDominationDamage, CharacterClassDefinitions.Paladin, 0.5));
 
         var powerAuraOfDomination = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfProtection, $"Power{Name}{AURA_DOMINATION}")
@@ -302,7 +304,7 @@ public sealed class OathOfDread : AbstractSubclass
 
     private sealed class CharacterTurnStartListenerAuraOfDomination(
         FeatureDefinitionPower powerAuraOfDominationDamage,
-        ConditionDefinition conditionAuraOfDomination) : ICharacterTurnStartListener, IModifyEffectDescription
+        ConditionDefinition conditionAuraOfDomination) : ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter character)
         {
@@ -335,25 +337,7 @@ public sealed class OathOfDread : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerAuraOfDominationDamage, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [character]);
-        }
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerAuraOfDominationDamage;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var bonusDamage = character.GetClassLevel(CharacterClassDefinitions.Paladin) / 2;
-
-            effectDescription.EffectForms[0].DamageForm.BonusDamage = bonusDamage;
-
-            return effectDescription;
+            attacker.MyExecuteActionPowerNoCost(usablePower, character);
         }
     }
 

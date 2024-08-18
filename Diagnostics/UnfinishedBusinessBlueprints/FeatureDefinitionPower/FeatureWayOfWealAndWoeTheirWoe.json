@@ -335,7 +335,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&FeatureWayOfWealAndWoeTheirWoeTitle",
     "description": "Feature/&FeatureWayOfWealAndWoeTheirWoeDescription",
     "spriteReference": {

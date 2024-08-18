@@ -173,12 +173,6 @@ internal static class CharacterDisplay
             UI.Label();
         }
 
-        toggle = Main.Settings.EnableRelearnSpells;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRelearnSpells = toggle;
-        }
-
         UI.Label();
 
         toggle = Main.Settings.EnablesAsiAndFeat;
@@ -216,13 +210,6 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableSorcererMagicalGuidance = toggle;
             CharacterContext.SwitchSorcererMagicalGuidance();
-        }
-
-        toggle = Main.Settings.EnableSorcererQuickenedAction;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererQuickenedAction"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableSorcererQuickenedAction = toggle;
-            CharacterContext.SwitchSorcererQuickenedAction();
         }
 
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;

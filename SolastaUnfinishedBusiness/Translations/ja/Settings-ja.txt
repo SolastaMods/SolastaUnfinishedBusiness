@@ -4,7 +4,7 @@ ModUi/&AddAllToStore=すべてをストアに追加
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<color=#D89555>より大きな修復</color>と<color=#D89555>小さな修復</color>によって除去された状態に追加します。
 ModUi/&AddCustomIconsToOfficialItems=公式ゲーム アイテム <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要] にカスタム アイコンを追加します。 </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>闇の知覚</color>を有効にするcolor> <i><color=#F0DAA0>\n[照明が当たっていないとき、または魔法の暗闇の下で知覚チェックで有利になる]</color></i>
-ModUi/&AddDexModifierToEnemiesInitiativeRoll=敵の<color=#D89555>イニシアチブロール</color>に<color=#D89555>器用さ修正</color>を追加する
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=敵に DEX 修飾子を追加する <color=#D89555>イニシアティブ ロール</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>ファイター</color>を有効にして、<color=#D89555>不屈の抵抗</color>セービングスローのリロールにボーナスとしてクラスレベルを追加します
 ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加します<i><color=#F0DAA0>[味方のクリーチャーが自分の1マス以内にいるクリーチャーを攻撃するのを助けることができます]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color> が好む人型の敵を有効にする
@@ -20,7 +20,8 @@ ModUi/&AllRecipesInDm=すべてのレシピはDMにあります
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ すべてのプレイヤーに物語シーケンスを許可</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=どのクラスも<color=#D89555>森の鎧</color>または<color=#D89555>ライトブリンガーの服</color>を着用できるようにする
 ModUi/&AllowBeardlessDwarves=ひげのない<color=#D89555>ドワーフ</color>を許可する
-ModUi/&AllowClubsToBeThrown=<color=#D89555>こん棒</color>を<color=#D89555>短剣</color>や<color=#D89555>手斧</color>のように投げられるようにする
+ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>ブレード・カントリップ</color>が5フィートではなくリーチを使用できるようにする
+ModUi/&AllowClubsToBeThrown=<color=#D89555>クラブ</color>を<color=#D89555>ダガー</color>や<color=#D89555>ハンドアックス</color>のように投げられるようになります
 ModUi/&AllowDisplayingNonSuggestedSpells=各リストで MOD 非推奨呪文を許可する
 ModUi/&AllowDisplayingOfficialSpells=各リストでゲームの公式呪文を許可する
 ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>ドルイド</color>が金属鎧を着用できるようにする
@@ -89,7 +90,7 @@ ModUi/&DocsSubraces=サブレース
 ModUi/&DocsVersatilities=多用途性
 ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=グラフィック キャラクターにヘルメットを表示しない<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
-ModUi/&DontEndTurnAfterReady=<color=#D89555>準備完了アクション</color>を使用した後にターンを終了しないでください。 <i><color=#F0DAA0>[ボーナス アクション、またはヘイストやその他のソースからの追加のメイン アクションを使用できます]</color></i>
+ModUi/&DontEndTurnAfterReady=<color=#D89555>準備アクション</color>を使用した後にターンを終了しない <i><color=#F0DAA0>[ボーナスアクションまたはヘイストやその他のソースからの追加のメインアクションの使用を許可する]</color></i>
 ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にある場合、戦闘カメラが追従しない
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローがオフまたは画面端の % 以内でない場合</color></i>
 ModUi/&DungeonMakerBasicHelp=• これらの設定では、プレーヤーがこの MOD をインストールする必要はありません
@@ -106,16 +107,16 @@ ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>吟遊詩人の
 ModUi/&EnableBarbarianBrutalStrike=レベル9、13、17で<color=#D89555>バーバリアン</color>の<b>ブルータルストライク</b>と<b>ブルータルストライクの改善</b>を有効にします
 ModUi/&EnableBarbarianFightingStyle=レベル 2 で<color=#D89555>野蛮人</color>の<b>戦闘スタイル</b>の選択が可能になります
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>野蛮人</color> の<b>無謀な攻撃</b>のバフとデバフを有効にし、次のターンの開始時に終了します
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル7で<color=#D89555>バーバリアン</color>が短時間の休憩で怒りの使用を1回回復できるようにする
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 7 で、<color=#D89555>バーバリアン</color> が短い休憩中に 1 回の <b>怒り</b> 使用を回復できるようになります。
 ModUi/&EnableBardHealingBalladOnLongRest=長い休憩時に<color=#D89555>希望の吟遊詩人大学</color>の<b>癒しのバラード</b>を有効にする
 ModUi/&EnableBetaContent=ベータ コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックによるキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=キャントリップを有効にして<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動
 ModUi/&EnableCharacterChecker=メイン画面 > キャラクターでキャラクターチェッカーボタンを有効にします
 ModUi/&EnableCharacterExport=<color=#1E81B0>CTRL-SHIFT-(E)</color> を有効にして文字をエクスポートします
-ModUi/&EnableCharactersOnFireToEmitLight=炎上のキャラクターは光を発する必要があります<i><color=#F0DAA0>[キューブ オブ ライト、ファイア エレメンタル、ファイア ジェスター、ファイア オスプレイ、ファイア スパイダー、および炎の条件ファミリー]</color></i>
+ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
 ModUi/&EnableCheatMenu=チートメニューを有効にする
-ModUi/&EnableCustomPortraits=カスタムポートレートを有効にする
+ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタム ポートレートをサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color> に配置します。 </b></i>、主人公の名前にちなんで名付けられました <i><color=#F0DAA0>[例: アントン、セリア、ニアラなど]</color></i>\n• PNG を使用します画像、サイズ 256 x 384 ピクセル、透明レイヤーあり <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にする\n<i><color=#F0DAA0>[フラット ルーム、150x150 および 200x200 のダンジョン サイズ、あらゆる環境のアセットを簡単に混合する機能が含まれます]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 戦闘中に高度カメラを有効にすると、無効になった後もその位置に留まり、範囲が 3 倍になります</i>
@@ -143,6 +144,7 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=レベル 20 で<color=#D89555>
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>モンク</color>の<b>格闘技 - ボーナス素手攻撃</b>を有効にすると、使用前に攻撃アクションが不要になります。
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>モンク</color> の<b>連打</b>を有効にして、使用前に攻撃アクションを必要としないようにします
 ModUi/&EnableMonkFightingStyle=レベル 2 で<color=#D89555>モンク</color>の<b>戦闘スタイル</b>の選択が可能になります
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=<color=#D89555>モンク</color>の<b>ハンドラップ</b>と<b>ガントレット</b>をガントレットスロットで機能させる
 ModUi/&EnableMonkHeightenedMetabolism=<color=#D89555>モンク</color> の<b>新陳代謝の向上</b>をレベル 10 で有効にします。 <i><color=#F0DAA0>[<b>連打</b>、<b>患者の防御力] </b> と <b>風のステップ</b> には追加のメリットが得られます]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>モンク</color> の<b>非武装での移動の改善</b>が可能になり、落下せずに垂直面に沿って移動できるようになります
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>モンク</color>の<b>優れた防御力</b>を有効にして<b>空の体</b>を置き換えます。
@@ -153,19 +155,20 @@ ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有
 ModUi/&EnableRangerNatureShroudAt10=<color=#D89555>レンジャー</color> の<b>自然のベール</b>機能をレベル 10 で有効にします<i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法のように透明になることができます。 ]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color> を有効にすると、何も選択されていない場合、選択したヒーローまたはリーダーを中心としたパーティーに再参加できます<i><color=#F0DAA0>[5 人または 6 人のパーティーで便利です] ]</color></i>
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップまたは呪文の選択を有効にする
-ModUi/&EnableRespec=休憩後の RESPEC アクションを有効にする<i><color=#F0DAA0>[マルチプレイヤー セッション中は RESPEC を使用しない]</color></i>
+ModUi/&EnableRespec=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
 ModUi/&EnableRogueCunningStrike=<color=#D89555>ローグ</color> の<b>狡猾な攻撃</b>と<b>邪悪な攻撃</b>をレベル5とレベル14で有効にします<i><color=#F0DAA0>[1を省略します]追加のヒット効果のための急所攻撃ダイス]</color></i>
 ModUi/&EnableRogueFightingStyle=レベル 2 で<color=#D89555>ローグ</color>の<b>戦闘スタイル</b>の選択が可能になります
 ModUi/&EnableRogueSteadyAim=<color=#D89555>ローグ</color> の<b>ステディエイム</b>をレベル 3 で有効にします。<i><color=#F0DAA0>[ボーナスアクションにより、現在のターンの次の攻撃ロールで有利になります。まだ移動していません]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>ローグ</color>が<b>狡猾/邪悪な一撃</b>、<b>衰弱/改善された一撃</b>、<b>刃の雹でDEXまたはSTR修正を使用できるようにします</b>
 ModUi/&EnableSaveByLocation=キャンペーン/地域ごとの保存を有効にする
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>ウィザード</color>の特徴的な呪文を<i><color=#F0DAA0>[レベル20で1回ではなく]長い休憩ごとに準備できるようにする</color></i>
-ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>ソーサラー</color>の<b>魔法の導き</b>を有効にする
-ModUi/&EnableSorcererQuickenedAction=<color=#D89555>ソーサラー</color>の<b>クイックアクション</b>を有効にすると、最後にレベルアップしたメインをキャストできるようになります。
+ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>ソーサラー</color>の<b>魔法のガイダンス</b>を有効にする
+ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセットのソートを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローは、ランダム性を高めるためにウェイトに D20 ロールを追加します<color=#F0DAA0>[ウェイトの選択 = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color> を有効にしてパーティをテレポートします。<i><color=#F0DAA0>[未発見の場所にテレポートするとクエストが中断される可能性があります]</color></i>
+ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>テレポート</color>を有効にすると、ターゲットからすべての<color=#D89555>拘束</color>状態が解除されます。
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=キャラクタープールの切り替えを有効にして、デフォルトのプレイおよびテストパーティーを設定します
 ModUi/&EnableTooltipDistance=戦闘中にキャラクターの上にマウスを置いたときにツールチップに距離を表示できるようになります
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>コンジュア・エレメンタル</color>と<color=#D89555>コンジュア・フェイ</color>のアップキャストを有効にする
@@ -212,7 +215,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>ハンドクロスボ�
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=イリュージョン呪文は範囲内に<color=#D89555>トゥルーサイト</color>があるターゲットに対して自動的に失敗します。
 ModUi/&ImproveLevelUpFeaturesSelection=レベルアップ機能の選択を改善 <b><i><color=#C04040E0>[再起動が必要]</color></i></b>\n<i><color=#F0DAA0>[影響 <color=#D89555>レンジャー</color> 優先敵と地形親和性、<color=#D89555>ドルイド</color> 同族の獣、<color=#D89555>バーバリアン</color> エレメントとサブクラスのパス ドラコニックの選択]</b></i>
 ModUi/&IncreaseGameTimeBy=ゲーム時間を延長する
-ModUi/&IncreaseMaxAttunedItems=最大同調アイテムがレベル10で4個、レベル18で5個に増加します
+ModUi/&IncreaseMaxAttunedItems=レベル 10 で最大 <color=#D89555>調整アイテム</color> を 4 個、レベル 18 で 5 個に増加
 ModUi/&InitialChoices=<color=#F0DAA0>作成:</color>
 ModUi/&Input=<color=#F0DAA0>入力:</color>
 ModUi/&Interface=インターフェース
@@ -253,6 +256,7 @@ ModUi/&Patches=<color=#F0DAA0>パッチ:</color>
 ModUi/&PortraitsOpenFolder=ポートレートフォルダーを開く
 ModUi/&PrimedItems=プライムアイテム
 ModUi/&Progression=<color=#F0DAA0>進行状況:</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst=クイックキャスト<color=#D89555>ライトカントリップ</color>を有効にすると、頭、首、または胴体に装備したアイテムを最初に使用できます。
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>光感度</color>を有効にするcolor> 屋外のみをトリガーする\n<i><color=#F0DAA0>[ロード画面なしでアクセスできる屋外の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
 ModUi/&RecipeCost=<color=white>レシピのコスト</color>
@@ -295,10 +299,10 @@ ModUi/&SpellLevelFilter=<b><i><color=white>スペル レベル フィルタ</col
 ModUi/&SpellsMenu=呪文
 ModUi/&StealthBreaksWhenAttackHits=武器または呪文攻撃がヒットしたときにステルス喪失を有効にする
 ModUi/&StealthBreaksWhenAttackMisses=武器または呪文の攻撃が失敗した場合のステルス損失を有効にする
-ModUi/&StealthBreaksWhenCastingMaterial=<color=#D89555>マテリアル</color> <i><color=#F0DAA0>[全員または敵を対象とする非攻撃呪文]</color></i> をキャストするときにステルス損失を有効にします
-ModUi/&StealthBreaksWhenCastingSomatic=<color=#D89555>ソマティック</color> <i><color=#F0DAA0>[全員または敵を対象とする非攻撃呪文]</color></i> を唱えるときにステルス損失を有効にします
-ModUi/&StealthBreaksWhenCastingVerbose=<color=#D89555>口頭</color><i><color=#F0DAA0>[全員または敵を対象とする非攻撃呪文]</color></i>を唱えるときにステルス損失を有効にします
-ModUi/&StealthDoesNotBreakWithSubtle=<color=#D89555>微妙なメタマジック</color>で<color=#D89555>マテリアル</color>コンポーネントがない場合、ステルスがローリングしないことを有効にする
+ModUi/&StealthBreaksWhenCastingMaterial=<color=#D89555>マテリアル</color> <i><color=#F0DAA0>[ALL または ENEMY をターゲットとする非攻撃呪文]</color></i> をキャストするときにステルスを失うようにします。
+ModUi/&StealthBreaksWhenCastingSomatic=<color=#D89555>Somatic</color> <i><color=#F0DAA0>[ALL または ENEMY をターゲットとする非攻撃呪文]</color></i> をキャストするときにステルスを失うようにします。
+ModUi/&StealthBreaksWhenCastingVerbose=<color=#D89555>Verbal</color> <i><color=#F0DAA0>[ALL または ENEMY をターゲットとする非攻撃呪文]</color></i> をキャストするときにステルスを失うことを有効にします。
+ModUi/&StealthDoesNotBreakWithSubtle=<color=#D89555>微妙なメタマジック</color>と<b>マテリアル</b>コンポーネントがない場合、ステルスをロールしないようにする
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=ゴリムのストアに魔法以外の衣類をすべて揃える<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=ゴリムの店に魔法以外の楽器をすべて揃える <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴのストアに<color=#D89555>秘術のスタッフ</color>、<color=#D89555>ドルイドの首</color>、<color=#D89555>スタッフ</color>、<color=#D89555>クラブ</color> フォーカスアイテムとして設定

@@ -205,8 +205,6 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityAmazingDisplayToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(AmazingDisplayToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerAmazingDisplay)))
             .AddToDB();
 
         var featureSetAmazingDisplay = FeatureDefinitionFeatureSetBuilder
@@ -386,7 +384,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
             var usablePowerEnemy = PowerProvider.Get(powerAmazingDisplayEnemy, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePowerEnemy, targets);
+            attacker.MyExecuteActionPowerNoCost(usablePowerEnemy, [.. targets]);
         }
     }
 }
