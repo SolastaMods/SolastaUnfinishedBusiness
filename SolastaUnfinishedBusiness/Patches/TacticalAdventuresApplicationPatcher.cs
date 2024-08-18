@@ -25,8 +25,16 @@ public static class TacticalAdventuresApplicationPatcher
 
             // Modify the value returned by TacticalAdventuresApplication.SaveGameDirectory so that saves
             // end up where we want them (by location/campaign)
-
             var selectedCampaignService = ServiceRepository.GetService<SelectedCampaignService>();
+
+            // handle exception when saving from world map or encounters on a user campaign
+            if (Gui.GameCampaign?.campaignDefinition?.IsUserCampaign == true &&
+                selectedCampaignService is { LocationType: LocationType.StandardCampaign })
+            {
+                (__result, _) = GetMostRecent();
+
+                return false;
+            }
 
             __result = selectedCampaignService?.SaveGameDirectory ?? DefaultSaveGameDirectory;
 

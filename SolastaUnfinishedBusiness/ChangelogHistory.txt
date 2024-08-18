@@ -1,5 +1,6 @@
 1.5.97.28:
 
+- fixed save by location/campaign setting using a wrong path on custom campaigns random encounters or maps 
 - fixed Roguish Arcane Scoundrel arcane backslash reaction description causing a crash
 
 1.5.97.27:
