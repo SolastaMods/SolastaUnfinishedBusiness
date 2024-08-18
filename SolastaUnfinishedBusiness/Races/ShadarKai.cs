@@ -129,7 +129,7 @@ internal static class SubraceShadarKaiBuilder
         {
             if (character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel) >= 3)
             {
-                effectDescription.EffectForms.Add(effectFormTeleport);
+                effectDescription.EffectForms.TryAdd(effectFormTeleport);
             }
 
             return effectDescription;
