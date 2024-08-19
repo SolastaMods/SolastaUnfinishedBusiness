@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -30,15 +31,14 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     public PathOfTheWildMagic()
     {
         // Controlled Surge
-        var featureControlledSurge = FeatureDefinitionBuilder
+        var featureControlledSurge = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}ControlledSurge")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var wildSurgeHandler = new WildSurgeHandler(featureControlledSurge);
 
         // LEVEL 03
-        var featureWildSurge = FeatureDefinitionBuilder
+        var featureWildSurge = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}WildSurge")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
@@ -49,6 +49,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             .DelegatedToAction()
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
+        var wildSurgeHandler = new WildSurgeHandler(featureWildSurge, featureControlledSurge);
 
         ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "WildSurgeReroll")
@@ -73,6 +75,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         var conditionWildSurgeReroll = ConditionDefinitionBuilder
             .Create($"Condition{Name}Reroll")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(
                 ConditionInterruption.BattleEnd,
                 ConditionInterruption.NoAttackOrDamagedInTurn,
@@ -184,12 +187,14 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     {
         private readonly ConditionDefinition _conditionPreventAction;
         private readonly FeatureDefinition _featureControlledSurge;
+        private readonly FeatureDefinition _featureWildSurge;
         private readonly FeatureDefinitionPower _powerPool;
         private readonly List<FeatureDefinitionPower> _powers;
         private readonly List<WildSurgeEffect> _wildSurgeEffects = [];
 
-        public WildSurgeHandler(FeatureDefinition featureControlledSurge)
+        public WildSurgeHandler(FeatureDefinition featureWildSurge, FeatureDefinition featureControlledSurge)
         {
+            _featureWildSurge = featureWildSurge;
             _featureControlledSurge = featureControlledSurge;
             _wildSurgeEffects.AddRange(
                 BuildWildSurgeDrain(),
@@ -759,18 +764,35 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var reactingOutOfTurn = battleManager?.Battle?.ActiveContender != character && attacker != null;
 
+            string feedback = "Feedback/&WidSurgeDieRoll";
+            string title = _featureWildSurge.FormatTitle();
             if (rulesetCharacter.HasAnyFeature(_featureControlledSurge))
             {
                 yield return HandleControlledSurge(character, dieRoll);
+                feedback = "Feedback/&ControlledChaosDieChoice";
+                title = _featureControlledSurge.FormatTitle();
             }
             else
             {
                 dieRoll[0] =
                     rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
+                rulesetCharacter.ShowDieRoll(DieType.D8, dieRoll[0], title: "Feature/&FeaturePathOfTheWildMagicWildSurgeTitle");
             }
 
             var wildSurgeEffect = _wildSurgeEffects.ElementAt(dieRoll[0] - 1);
 
+            rulesetCharacter.LogCharacterActivatesPower(
+                title,
+                feedback,
+                tooltipContent: _featureControlledSurge.Name,
+                tooltipClass: "PowerDefinition",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll[0].ToString(), string.Empty, string.Empty),
+                    (ConsoleStyleDuplet.ParameterType.Positive, 
+                        Gui.Localize($"Condition/&{ConditionWildSurgePrefix}{wildSurgeEffect.EffectName}Title"),
+                        $"Power{Name}WildSurge{wildSurgeEffect.EffectName}", "PowerDefinition")
+                ]);
             if (wildSurgeEffect.Condition)
             {
                 var existingCondition = GetExistingWildSurgeCondition(rulesetCharacter);
@@ -961,6 +983,17 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 rulesetAttacker.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
             var myUsablePowers = new List<RulesetUsablePower>();
             var usablePowerPool = PowerProvider.Get(_powerPool, rulesetAttacker);
+
+            rulesetAttacker.ShowDieRoll(DieType.D8, firstRoll, secondRoll, title: _featureControlledSurge.GuiPresentation.Title);
+            rulesetAttacker.ShowDieRoll(DieType.D8, secondRoll, title: _featureControlledSurge.GuiPresentation.Title);
+            rulesetAttacker.LogCharacterUsedFeature(
+                _featureControlledSurge,
+                "Feedback/&ControlledChaosDieRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, firstRoll.ToString()),
+                            (ConsoleStyleDuplet.ParameterType.Positive, secondRoll.ToString())
+                ]);
 
             myUsablePowers.Add(usablePowerPool);
 
