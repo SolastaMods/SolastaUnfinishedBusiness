@@ -1113,6 +1113,7 @@ public static class GameLocationBattleManagerPatcher
             foreach (var allyCharacter in allyCharacters.Where(x => x is { IsDeadOrDyingOrUnconscious: false }))
             {
                 var magicalAttackCastedSpells = allyCharacter.GetSubFeaturesByType<IOnSpellCasted>();
+                magicalAttackCastedSpells.Sort((x, y) => x.Priority - y.Priority);
 
                 foreach (var magicalAttackCastedSpell in magicalAttackCastedSpells)
                 {
