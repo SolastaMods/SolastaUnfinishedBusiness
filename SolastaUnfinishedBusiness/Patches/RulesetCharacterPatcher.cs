@@ -1871,9 +1871,8 @@ public static class RulesetCharacterPatcher
     public static class TerminateSpell_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(RulesetCharacter __instance,RulesetEffectSpell activeSpell)
+        public static bool Prefix(RulesetCharacter __instance)
         {
-            Main.Log2($"[{__instance.Name}] Terminate '{activeSpell.Name}'", true, true);
             return !CharacterActionExtensions
                 .ShouldKeepConcentrationOnPowerUseOrSpend(__instance); // abort if should keep
         }
