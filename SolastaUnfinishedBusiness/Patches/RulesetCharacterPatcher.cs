@@ -1843,6 +1843,27 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshEffectsForRealTimeLapse))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshEffectsForRealTimeLapse_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetCharacter __instance, int roundsNumber)
+        {
+            //PATCH: fix Ice Storm not ending sometimes on Battle End
+            //Noticed on Ice Storm spell, but it may affect other spells or even powers
+            //caused by RemainingRounds being decremented on battle end in GameLocationCharacter.RefreshEffectsForBattleRoundEnd, without termination - not sure why
+            //and then this method terminates only spells that RemainingRounds > 0, so set it to 1 in order to make them terminate
+            //This method also has same RemainingRounds > 0 check for powers - maybe they need same treatment?
+            //Or maybe there's reason for this check and broken part is somewhere else?
+            foreach (RulesetEffectSpell spell in __instance.spellsCastByMe)
+            {
+                if (roundsNumber > 0 && spell.RemainingRounds == 0) { spell.RemainingRounds = 1; }
+            }
+        }
+    }
+
     //PATCH: implement IPreventRemoveConcentrationOnPowerUse
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.TerminateSpell))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
