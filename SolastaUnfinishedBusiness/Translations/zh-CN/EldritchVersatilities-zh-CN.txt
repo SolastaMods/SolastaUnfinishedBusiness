@@ -6,9 +6,9 @@ Condition/&ConditionEldritchWardAddSaveDescription=被魔能守御庇护中
 Condition/&ConditionEldritchWardAddSaveTitle=魔能守御
 Feat/&FeatEldritchVersatilityAdeptDescription=你的魔能点池上限提高熟练加值，你获得<b>魔能多才</b>，<b>多才切换</b>并立刻学习一种才能。\n<b>魔能多才</b>：你获得一个魔能点池，其上限为你的邪术师等级，每次魔能爆命中敌方，获得 1 点魔能点。长休后你的点池重置为 0。\n<b>多才切换</b>：每回合一次，你可以在力量/智力/感知/通才中切换状态。若你选择一种属性，则在使用才能时，你所选择的属性值视为提升至 10+2*熟练加值；若你选择通才，则你的力量、智力、感知获得你所掌握才能数量的加值。
 Feat/&FeatEldritchVersatilityAdeptTitle=多才多艺
-Feature/&BattlefieldConversionDescription=消耗：2*你的契约法术环位，失败则返还一半的点数。\n战斗中，如果你已经消耗了契约法术位，则可以一个附赠动作，进行一次智力（奥秘）检定，DC为 8+熟练加值。若成功，你回复一个契约法术位。然后视成功/失败，该能力DC提高/降低契约法术环位的数值（不低于初始DC）。长休后，DC重置。
+Feature/&BattlefieldConversionDescription=消耗：2*你的契约法术环位，失败则返还一半的点数。\n如果你已经消耗了契约法术位，则可以一个附赠动作，进行一次智力（奥秘）检定，DC为 8 + 熟练加值 + 2 * 契约法术环位。若成功，你回复一个契约法术位。
 Feature/&BattlefieldConversionTitle=战场易变【智力】
-Feature/&BattlefieldShorthandDescription=消耗：无。\n60尺内，当你视线内的队友或敌人施法<b>后</b>，如果该法术能被鉴别，且你的邪术师施法者等级足够施展该法术。则你再进行一次智力（奥秘）检定，DC为 15 + 2 * 法术环位，你每有 1 点魔能点，便可以降低 1 点DC，至少不低于 15+法术环位。如果成功，你将该法术加入邪术师法术书。再次施法<b>时</b>或长休后，移除速记的法术。
+Feature/&BattlefieldShorthandDescription=消耗：无。\n60尺内，当你视线内的队友或敌人施法<b>后</b>，如果该法术能被鉴别，且你的邪术师施法者等级足够施展该法术。则你再进行一次智力（奥秘）检定，DC为 14 + 2 * 法术环位，你每有 1 点魔能点，便可以降低 1 点DC，至少不低于 8 + 法术环位。如果成功，你将该法术加入邪术师法术书。再次施法<b>时</b>或长休后，移除速记的法术。
 Feature/&BattlefieldShorthandTitle=战场速记【智力】
 Feature/&BlastBreakthroughDescription=消耗：每射线 1 点。\n依据你的力量调整值，你施展魔能爆获得以下增益：\n>=1：攻击掷骰获得力量调整值的加值。\n>=2：忽略受威胁时的劣势。\n>=3：忽略目标伤害抗性。\n>=4：忽略目标伤害免疫。\n>=5：忽略目标法术免疫。
 Feature/&BlastBreakthroughTitle=魔爆突破【力量】

@@ -433,7 +433,7 @@ internal static class EldritchVersatilityBuilders
 
             CurrentPoints = 0;
             SlotLevel = SharedSpellsContext.GetWarlockSpellLevel(ownerHero);
-            CreateSlotDC = 8 + proficiencyBonus;
+            CreateSlotDC = 8 + proficiencyBonus + 2 * SlotLevel;
             IsValidBlastBreakthrough = false;
             IsOverload = false;
             HasBlastPursuit = ownerHero.HasAnyFeature(FeatureBlastReload);
@@ -471,20 +471,6 @@ internal static class EldritchVersatilityBuilders
                     y => y.Value.ActiveModifiers.TryAdd(
                         RulesetAttributeModifier
                             .BuildAttributeModifier(AttributeModifierOperation.Additive, LearntAmount, Name)));
-            }
-        }
-
-        public void ModifySlotDC(bool createSuccess, RulesetCharacter rulesetCharacter)
-        {
-            if (createSuccess)
-            {
-                CreateSlotDC += SlotLevel;
-            }
-            else
-            {
-                CreateSlotDC = Math.Max(
-                    CreateSlotDC - SlotLevel,
-                    8 + rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus));
             }
         }
 
@@ -869,7 +855,7 @@ internal static class EldritchVersatilityBuilders
                 {
                     glc.RollAbilityCheck(AttributeDefinitions.Intelligence,
                         SkillDefinitions.Arcana,
-                        15 + spellLevel + Math.Max(0, spellLevel - supportCondition.CurrentPoints),
+                        14 + spellLevel + Math.Max(-6, spellLevel - supportCondition.CurrentPoints),
                         AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
                         out _, true);
 
@@ -926,8 +912,6 @@ internal static class EldritchVersatilityBuilders
 
                 // If success increase DC, other wise decrease DC
                 var createSuccess = abilityCheckRollOutcome <= RollOutcome.Success;
-
-                supportCondition.ModifySlotDC(createSuccess, featureOwner);
 
                 // Log to notify outcome and new DC
                 var console = Gui.Game.GameConsole;
