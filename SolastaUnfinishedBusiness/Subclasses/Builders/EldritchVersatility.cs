@@ -21,7 +21,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.PatronEldritchSurge;
-using static UnityEngine.UI.GridLayoutGroup;
 
 namespace SolastaUnfinishedBusiness.Subclasses.Builders;
 
@@ -433,7 +432,7 @@ internal static class EldritchVersatilityBuilders
 
             CurrentPoints = 0;
             SlotLevel = SharedSpellsContext.GetWarlockSpellLevel(ownerHero);
-            CreateSlotDC = 8 + proficiencyBonus + 2 * SlotLevel;
+            CreateSlotDC = 8 + proficiencyBonus + (2 * SlotLevel);
             IsValidBlastBreakthrough = false;
             IsOverload = false;
             HasBlastPursuit = ownerHero.HasAnyFeature(FeatureBlastReload);
@@ -547,6 +546,18 @@ internal static class EldritchVersatilityBuilders
         private sealed class OnConditionAddedOrRemovedVersatility :
             IOnConditionAddedOrRemoved, IMagicEffectBeforeHitConfirmedOnEnemy, ICharacterTurnStartListener
         {
+            public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+            {
+                var rulesetCharacter = locationCharacter.RulesetCharacter;
+                if (!rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition) ||
+                    !rulesetCharacter.HasAnyFeature(FeatureBlastPursuit))
+                {
+                    return;
+                }
+
+                supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints,
+                    supportCondition.BeamNumber);
+            }
 
             public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
                 GameLocationBattleManager battleManager,
@@ -566,7 +577,8 @@ internal static class EldritchVersatilityBuilders
                     yield break;
                 }
 
-                supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints,characterAttacker.HasAnyFeature(FeatureBlastPursuit)? 2 : 1);
+                supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints,
+                    characterAttacker.HasAnyFeature(FeatureBlastPursuit) ? 2 : 1);
             }
 
             // Do first time init
@@ -600,17 +612,6 @@ internal static class EldritchVersatilityBuilders
                 warlockRepertoire.ExtraSpellsByTag.Remove("BattlefieldShorthand");
                 target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
             }
-
-            public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-            {
-                var rulesetCharacter = locationCharacter.RulesetCharacter;
-                if (!rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition) ||
-                    !rulesetCharacter.HasAnyFeature(FeatureBlastPursuit))
-                {
-                    return;
-                }
-                supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints, supportCondition.BeamNumber);
-            }
         }
     }
 
@@ -622,7 +623,7 @@ internal static class EldritchVersatilityBuilders
                 .SetGuiPresentationNoContent(true)
                 .AddCustomSubFeatures(new BlastBreakthroughRemoveImmunityCustom())
                 .AddToDB();
-        public int Priority => 1;
+
         public BlastBreakthroughCustom(string invocationName)
         {
             InvocationName = invocationName;
@@ -681,6 +682,8 @@ internal static class EldritchVersatilityBuilders
 
             features.RemoveAll(x => x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity });
         }
+
+        public int Priority => 1;
 
         // Spend reserved points on cast EB if success
         public IEnumerator OnSpellCasted(RulesetCharacter featureOwner, GameLocationCharacter caster,
@@ -772,6 +775,7 @@ internal static class EldritchVersatilityBuilders
     private sealed class BattlefieldShorthandCopy : IOnSpellCasted
     {
         public int Priority => 3;
+
         public IEnumerator OnSpellCasted(
             RulesetCharacter featureOwner,
             GameLocationCharacter caster,
@@ -873,8 +877,7 @@ internal static class EldritchVersatilityBuilders
 
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/BattlefieldShorthandCopySpellSuccess",
-                console.consoleTableDefinition)
-            { Indent = true };
+                console.consoleTableDefinition) { Indent = true };
 
             console.AddCharacterEntry(featureOwner, entry);
             entry.AddParameter(
@@ -917,11 +920,9 @@ internal static class EldritchVersatilityBuilders
                 var console = Gui.Game.GameConsole;
                 var entry = createSuccess
                     ? new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotSuccess",
-                        console.consoleTableDefinition)
-                    { Indent = true }
+                        console.consoleTableDefinition) { Indent = true }
                     : new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotFailure",
-                        console.consoleTableDefinition)
-                    { Indent = true };
+                        console.consoleTableDefinition) { Indent = true };
 
                 console.AddCharacterEntry(featureOwner, entry);
                 entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo,
@@ -1004,7 +1005,7 @@ internal static class EldritchVersatilityBuilders
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 helper.IsOppositeSide(defender.Side) ||
-                (!(alreadyBlocked && eldritchAegisSupportCondition.SourceGuid == helperCharacter.Guid)&&
+                (!(alreadyBlocked && eldritchAegisSupportCondition.SourceGuid == helperCharacter.Guid) &&
                  (!defender.IsWithinRange(helper, 7) || !helper.CanPerceiveTarget(defender))))
             {
                 yield break;
@@ -1206,20 +1207,23 @@ internal static class EldritchVersatilityBuilders
             {
                 yield break;
             }
+
             var defenderCharacter = defender.RulesetCharacter;
             var helperCharacter = helper.RulesetCharacter;
             var alreadyWarded = EldritchWardSupportRulesetCondition.GetCustomConditionFromCharacter(
                 defenderCharacter, out var eldritchWardSupportCondition);
-            if ((!(alreadyWarded && eldritchWardSupportCondition.SourceGuid == helperCharacter.Guid) &&
-                 (!defender.IsWithinRange(helper, 7) || !helper.CanPerceiveTarget(defender))))
+            if (!(alreadyWarded && eldritchWardSupportCondition.SourceGuid == helperCharacter.Guid) &&
+                (!defender.IsWithinRange(helper, 7) || !helper.CanPerceiveTarget(defender)))
             {
                 yield break;
             }
+
             if ((!helper.CanReact() && !alreadyWarded) ||
                 !helper.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
+
             var requiredSaveAddition = -action.SaveOutcomeDelta;
             var modifier = GetAbilityScoreModifier(helperCharacter, AttributeDefinitions.Wisdom, supportCondition);
             var console = Gui.Game.GameConsole;
@@ -1257,7 +1261,7 @@ internal static class EldritchVersatilityBuilders
 
             if (requiredSaveAddition > modifier ||
                 !supportCondition.TryEarnOrSpendPoints(
-                PointAction.Require, PointUsage.EldritchWard, requiredSaveAddition))
+                    PointAction.Require, PointUsage.EldritchWard, requiredSaveAddition))
             {
                 yield break;
             }
@@ -1279,7 +1283,7 @@ internal static class EldritchVersatilityBuilders
                     PointAction.Modify, PointUsage.EldritchWard, requiredSaveAddition);
 
                 InflictCondition(
-    EldritchWardSupportRulesetCondition.BindingDefinition, helperCharacter, defenderCharacter);
+                    EldritchWardSupportRulesetCondition.BindingDefinition, helperCharacter, defenderCharacter);
                 EldritchWardSupportRulesetCondition.GetCustomConditionFromCharacter(
                     defenderCharacter, out eldritchWardSupportCondition);
                 eldritchWardSupportCondition.SaveBonus = requiredSaveAddition;
@@ -1289,8 +1293,9 @@ internal static class EldritchVersatilityBuilders
                 console.AddEntry(entry);
             }
         }
+
         private sealed class EldritchWardSupportRulesetCondition :
-    RulesetConditionCustom<EldritchWardSupportRulesetCondition>, IBindToRulesetConditionCustom
+            RulesetConditionCustom<EldritchWardSupportRulesetCondition>, IBindToRulesetConditionCustom
         {
             static EldritchWardSupportRulesetCondition()
             {
@@ -1335,12 +1340,17 @@ internal static class EldritchVersatilityBuilders
 
             private sealed class EldritchWardSaveBonus : IRollSavingThrowInitiated
             {
-                public void OnSavingThrowInitiated(RulesetCharacter caster, RulesetCharacter defender, ref int saveBonus, ref string abilityScoreName, BaseDefinition sourceDefinition, List<TrendInfo> modifierTrends, List<TrendInfo> advantageTrends, ref int rollModifier, ref int saveDC, ref bool hasHitVisual, RollOutcome outcome, int outcomeDelta, List<EffectForm> effectForms)
+                public void OnSavingThrowInitiated(RulesetCharacter caster, RulesetCharacter defender,
+                    ref int saveBonus, ref string abilityScoreName, BaseDefinition sourceDefinition,
+                    List<TrendInfo> modifierTrends, List<TrendInfo> advantageTrends, ref int rollModifier,
+                    ref int saveDC, ref bool hasHitVisual, RollOutcome outcome, int outcomeDelta,
+                    List<EffectForm> effectForms)
                 {
                     GetCustomConditionFromCharacter(defender, out var supportCondition);
                     var acBonus = supportCondition.SaveBonus;
                     rollModifier += acBonus;
-                    modifierTrends.Add(new TrendInfo(acBonus, FeatureSourceType.Condition, BindingDefinition.Name, BindingDefinition));
+                    modifierTrends.Add(new TrendInfo(acBonus, FeatureSourceType.Condition, BindingDefinition.Name,
+                        BindingDefinition));
                 }
             }
         }
@@ -1429,7 +1439,6 @@ internal static class EldritchVersatilityBuilders
 
     private class BlastEmpowerActiveSwitch(string invocationName) : IActionFinishedByMe, IOnSpellCasted
     {
-        public int Priority => 1;
         private string InvocationName { get; } = invocationName;
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
@@ -1454,6 +1463,8 @@ internal static class EldritchVersatilityBuilders
                 invocation.Toggle();
             }
         }
+
+        public int Priority => 1;
 
         // Spend reserved points on cast EB
         public IEnumerator OnSpellCasted(RulesetCharacter featureOwner, GameLocationCharacter caster,
@@ -1480,6 +1491,7 @@ internal static class EldritchVersatilityBuilders
     private class BattlefieldShorthandRemoveCopied : IOnSpellCasted
     {
         public int Priority => 2;
+
         public IEnumerator OnSpellCasted(RulesetCharacter featureOwner, GameLocationCharacter caster,
             CharacterActionCastSpell castAction, [UsedImplicitly] RulesetEffectSpell selectEffectSpell,
             [UsedImplicitly] RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)

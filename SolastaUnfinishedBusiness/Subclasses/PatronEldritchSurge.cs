@@ -18,7 +18,6 @@ using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.Builders.EldritchVersatilityBuilders;
-using AwesomeTechnologies.VegetationSystem;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -299,7 +298,7 @@ public class PatronEldritchSurge : AbstractSubclass
                 || actionType != ActionType.Main
                 || !BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
                     rulesetCharacter, out var supportCondition)
-                )
+               )
             {
                 yield break;
             }
@@ -313,7 +312,6 @@ public class PatronEldritchSurge : AbstractSubclass
             {
                 supportCondition.SpellAsMain = true;
             }
-
         }
 
         public void QualifySpells(
@@ -321,30 +319,32 @@ public class PatronEldritchSurge : AbstractSubclass
             SpellRepertoireLine spellRepertoireLine,
             List<SpellDefinition> spells)
         {
-
             if (spellRepertoireLine.actionType != ActionType.Bonus
                 || !BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
                     rulesetCharacter, out var supportCondition))
             {
                 return;
             }
-            if(supportCondition.SpellAsMain)
+
+            if (supportCondition.SpellAsMain)
             {
-                spellRepertoireLine.relevantSpells.AddRange(spells.FindAll(x => x.ActivationTime == ActivationTime.Action && x.SpellLevel == 0));
-            }
-            if(supportCondition.CantripAsMain)
-            {
-                spellRepertoireLine.relevantSpells.AddRange(spells.FindAll(x => x.ActivationTime == ActivationTime.Action && x.SpellLevel > 0));
+                spellRepertoireLine.relevantSpells.AddRange(spells.FindAll(x =>
+                    x.ActivationTime == ActivationTime.Action && x.SpellLevel == 0));
             }
 
+            if (supportCondition.CantripAsMain)
+            {
+                spellRepertoireLine.relevantSpells.AddRange(spells.FindAll(x =>
+                    x.ActivationTime == ActivationTime.Action && x.SpellLevel > 0));
+            }
         }
     }
 
     private class BlastReloadSupportRulesetCondition :
         RulesetConditionCustom<BlastReloadSupportRulesetCondition>, IBindToRulesetConditionCustom
     {
-        public bool CantripAsMain = false;
-        public bool SpellAsMain = false;
+        public bool CantripAsMain;
+        public bool SpellAsMain;
 
         static BlastReloadSupportRulesetCondition()
         {
@@ -372,7 +372,7 @@ public class PatronEldritchSurge : AbstractSubclass
             try
             {
                 CantripAsMain = serializer.SerializeAttribute("CantripAsMain", CantripAsMain);
-;               SpellAsMain = serializer.SerializeAttribute("SpellAsMain", SpellAsMain);
+                SpellAsMain = serializer.SerializeAttribute("SpellAsMain", SpellAsMain);
             }
             catch (Exception ex)
             {

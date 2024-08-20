@@ -764,8 +764,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var reactingOutOfTurn = battleManager?.Battle?.ActiveContender != character && attacker != null;
 
-            string feedback = "Feedback/&WidSurgeDieRoll";
-            string title = _featureWildSurge.FormatTitle();
+            var feedback = "Feedback/&WidSurgeDieRoll";
+            var title = _featureWildSurge.FormatTitle();
             if (rulesetCharacter.HasAnyFeature(_featureControlledSurge))
             {
                 yield return HandleControlledSurge(character, dieRoll);
@@ -776,7 +776,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             {
                 dieRoll[0] =
                     rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
-                rulesetCharacter.ShowDieRoll(DieType.D8, dieRoll[0], title: "Feature/&FeaturePathOfTheWildMagicWildSurgeTitle");
+                rulesetCharacter.ShowDieRoll(DieType.D8, dieRoll[0],
+                    title: "Feature/&FeaturePathOfTheWildMagicWildSurgeTitle");
             }
 
             var wildSurgeEffect = _wildSurgeEffects.ElementAt(dieRoll[0] - 1);
@@ -789,7 +790,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll[0].ToString(), string.Empty, string.Empty),
-                    (ConsoleStyleDuplet.ParameterType.Positive, 
+                    (ConsoleStyleDuplet.ParameterType.Positive,
                         Gui.Localize($"Condition/&{ConditionWildSurgePrefix}{wildSurgeEffect.EffectName}Title"),
                         $"Power{Name}WildSurge{wildSurgeEffect.EffectName}", "PowerDefinition")
                 ]);
@@ -984,7 +985,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var myUsablePowers = new List<RulesetUsablePower>();
             var usablePowerPool = PowerProvider.Get(_powerPool, rulesetAttacker);
 
-            rulesetAttacker.ShowDieRoll(DieType.D8, firstRoll, secondRoll, title: _featureControlledSurge.GuiPresentation.Title);
+            rulesetAttacker.ShowDieRoll(DieType.D8, firstRoll, secondRoll,
+                _featureControlledSurge.GuiPresentation.Title);
             rulesetAttacker.ShowDieRoll(DieType.D8, secondRoll, title: _featureControlledSurge.GuiPresentation.Title);
             rulesetAttacker.LogCharacterUsedFeature(
                 _featureControlledSurge,
@@ -992,7 +994,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.Positive, firstRoll.ToString()),
-                            (ConsoleStyleDuplet.ParameterType.Positive, secondRoll.ToString())
+                    (ConsoleStyleDuplet.ParameterType.Positive, secondRoll.ToString())
                 ]);
 
             myUsablePowers.Add(usablePowerPool);

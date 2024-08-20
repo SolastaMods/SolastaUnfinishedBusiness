@@ -658,7 +658,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             if (!attacker.UsedSpecialFeatures.TryGetValue(powerPsionicAdept.Name, out var value) || value == 0 ||
                 defender.RulesetActor is not { IsDeadOrDyingOrUnconscious: false } ||
-                (rollOutcome != RollOutcome.Success && rollOutcome != RollOutcome.CriticalSuccess) || 
+                (rollOutcome != RollOutcome.Success && rollOutcome != RollOutcome.CriticalSuccess) ||
                 levels < 7)
             {
                 yield break;

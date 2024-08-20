@@ -595,7 +595,7 @@ internal static class RaceImpBuilder
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetHelper);
 
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+            if (action.AttackRollOutcome is not RollOutcome.Failure ||
                 helper != attacker ||
                 action.AttackSuccessDelta < -InspirationValue ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)

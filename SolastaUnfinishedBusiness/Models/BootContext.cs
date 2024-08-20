@@ -225,7 +225,7 @@ internal static class BootContext
                 {
                     var referenceDefinition = userItem["referenceDefinition"]!.Value<string>();
 
-                     if (DatabaseRepository.GetDatabase<ItemDefinition>()
+                    if (DatabaseRepository.GetDatabase<ItemDefinition>()
                             .TryGetElement(referenceDefinition, out var element) &&
                         element.ContentPack != CeContentPackContext.CeContentPack)
                     {
