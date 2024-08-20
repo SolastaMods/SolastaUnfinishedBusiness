@@ -566,7 +566,7 @@ internal static class EldritchVersatilityBuilders
                     yield break;
                 }
 
-                supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints, 1);
+                supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints,characterAttacker.HasAnyFeature(FeatureBlastPursuit)? 2 : 1);
             }
 
             // Do first time init
