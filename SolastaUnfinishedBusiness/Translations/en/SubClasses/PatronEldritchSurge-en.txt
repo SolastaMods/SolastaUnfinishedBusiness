@@ -2,11 +2,11 @@ Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=You gain an extr
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Blast Overload
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=You gain <b>Eldritch Blast</b> as a bonus cantrip. The number of beams is derived by your determination calculated as: [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams when your determination >= 3, 3 when >= 8, 4 when >= 13 and 5 when >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Blast Exclusive
-Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Gain an additional Eldritch Point when you hit an enemy within 30 feet. When you kill an enemy, gain additional Eldritch Points equal to the number of beams per cast of Eldritch Blast.
+Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=In combat when your turn start, gain additional Eldritch Points equal to the number of beams per cast of <b>Eldritch Blast</b>.You also gain 1 additional Eldritch Point when you hit an enemy with <b>Eldritch Blast</b>.
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Blast Pursuit
 Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Once per long rest, you can use a free action to enter Overload. Until the start of your next turn, you gain an extra action, and you can use all your versatilities without checks or points consumption.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Blast Overload
-Feature/&PowerPatronEldritchSurgeBlastReloadDescription=You can cast cantrips you have cast this turn with your main action as a bonus action.
+Feature/&PowerPatronEldritchSurgeBlastReloadDescription=If you have cast a leveled spell as a main action, you can cast a cantrip as a bonus action and vice versa.
 Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Blast Reload
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=When using versatilities, treat your Intelligence as 10 + 2 * Proficiency Bonus.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntTitle=Int
