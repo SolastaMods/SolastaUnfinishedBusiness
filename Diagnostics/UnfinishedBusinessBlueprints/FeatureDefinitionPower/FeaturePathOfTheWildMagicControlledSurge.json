@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -139,7 +139,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -175,8 +175,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Wild Surge: Drain",
-    "description": "Each hostile creature within 30 feet of you must succeed on a Constitution saving throw or take 1d12 necrotic damage. You also gain 1d12 temporary hit points.",
+    "title": "Feature/&FeaturePathOfTheWildMagicControlledSurgeTitle",
+    "description": "Feature/&FeaturePathOfTheWildMagicControlledSurgeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -196,7 +196,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3407693e-4bb3-5c3a-be53-b3c2e3fd4c65",
+  "guid": "ce160461-16f1-5bca-9c70-8e0dbbcb4111",
   "contentPack": 9999,
-  "name": "PowerPathOfTheWildMagicWildSurgeDrain"
+  "name": "FeaturePathOfTheWildMagicControlledSurge"
 }
