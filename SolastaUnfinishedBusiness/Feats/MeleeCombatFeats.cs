@@ -1056,7 +1056,6 @@ internal static class MeleeCombatFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1676,7 +1675,6 @@ internal static class MeleeCombatFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

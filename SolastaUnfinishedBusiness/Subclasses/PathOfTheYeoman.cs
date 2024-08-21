@@ -135,7 +135,6 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
