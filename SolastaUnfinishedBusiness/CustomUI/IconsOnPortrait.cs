@@ -11,7 +11,7 @@ internal static class IconsOnPortrait
     {
         var character = panel.GuiCharacter?.RulesetCharacter;
 
-        if (character == null)
+        if (character is null or {IsDeadOrDyingOrUnconscious: true})
         {
             return;
         }
