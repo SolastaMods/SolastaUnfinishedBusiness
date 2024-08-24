@@ -161,12 +161,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .Create($"Power{Name}AudaciousWhirl")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
-                    .Build())
+            .DelegatedToAction()
             .AddToDB();
 
         powerAudaciousWhirl.AddCustomSubFeatures(
