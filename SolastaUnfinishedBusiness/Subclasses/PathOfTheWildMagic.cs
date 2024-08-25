@@ -608,12 +608,12 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .Create($"Power{Name}Growth")
                 .SetGuiPresentationNoContent(true)
                 .SetUsesFixed(ActivationTime.NoCost)
+                .SetShowCasting(false)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create(SpellDefinitions.Entangle)
-                        .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
                         .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                        .UseQuickAnimations()
+                        .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
                         .SetNoSavingThrow()
                         .SetEffectForms(
                             EffectFormBuilder
@@ -852,7 +852,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             }
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
-            var commandService = ServiceRepository.GetService<ICommandService>();
 
             if (power.EffectDescription.TargetType != TargetType.Position)
             {
@@ -864,8 +863,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
                         {
                             RulesetEffect = implementationManager
-                                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                            IsReactionEffect = true
+                                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false)
                         };
 
                         if (reactingOutOfTurn)
@@ -883,52 +881,28 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     }
                     else
                     {
-                        if (reactingOutOfTurn)
+                        if (!reactingOutOfTurn)
                         {
-                            if (power.ActivationTime == ActivationTime.Permanent)
-                            {
-                                if (rulesetCharacter.IsPowerActive(usablePower))
-                                {
-                                    yield break;
-                                }
+                            yield break;
+                        }
 
-                                PreventEnemyAction(attacker, rulesetCharacter);
-                                character.MyExecuteActionPowerNoCost(usablePower);
-                            }
-                            else
-                            {
-                                var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
-                                {
-                                    RulesetEffect = implementationManager
-                                        .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                                    IsReactionEffect = true
-                                };
-                                commandService.ExecuteInstantSingleAction(actionParams);
-                            }
-                        }
-                        else
+                        if (power.ActivationTime == ActivationTime.Permanent)
                         {
-                            character.MyExecuteActionPowerNoCost(usablePower);
+                            if (rulesetCharacter.IsPowerActive(usablePower))
+                            {
+                                yield break;
+                            }
+
+                            GameUiContext.ResetCamera();
+                            PreventEnemyAction(attacker, rulesetCharacter);
                         }
+
+                        character.MyExecuteActionPowerNoCost(usablePower);
                     }
                 }
-                else
+                else if (reactingOutOfTurn)
                 {
-                    if (!reactingOutOfTurn)
-                    {
-                        yield break;
-                    }
-
-                    var actionParams = new CharacterActionParams(character, Id.SpendPower)
-                    {
-                        RulesetEffect =
-                            implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                        IsReactionEffect = true
-                    };
-
-                    actionParams.TargetCharacters.Add(attacker);
-                    actionParams.ActionModifiers.Add(new ActionModifier());
-                    commandService.ExecuteInstantSingleAction(actionParams);
+                    character.MyExecuteActionSpendPower(usablePower, attacker);
                 }
             }
             else
@@ -1098,14 +1072,9 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
             {
                 var rulesetCharacter = locationCharacter.RulesetCharacter;
-                var actionParams = new CharacterActionParams(locationCharacter, Id.PowerNoCost);
                 var usablePower = PowerProvider.Get(power, rulesetCharacter);
 
-                actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                    .InstantiateEffectPower(rulesetCharacter, usablePower, false);
-                actionParams.SkipAnimationsAndVFX = true;
-
-                ServiceRepository.GetService<ICommandService>().ExecuteInstantSingleAction(actionParams);
+                locationCharacter.MyExecuteActionPowerNoCost(usablePower);
             }
         }
 
