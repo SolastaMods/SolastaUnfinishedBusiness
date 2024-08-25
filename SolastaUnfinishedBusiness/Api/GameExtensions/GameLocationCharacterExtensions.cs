@@ -112,7 +112,7 @@ public static class GameLocationCharacterExtensions
     internal static void MyExecuteActionStabilizeAndStandUp(
         this GameLocationCharacter character, int hitPoints, IMagicEffect magicEffect = null)
     {
-        var commandService = ServiceRepository.GetService<ICommandService>();
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var rulesetCharacter = character.RulesetCharacter;
 
         rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
@@ -122,7 +122,7 @@ public static class GameLocationCharacterExtensions
             EffectHelpers.StartVisualEffect(character, character, magicEffect, EffectHelpers.EffectType.Caster);
         }
 
-        commandService.ExecuteInstantSingleAction(new CharacterActionParams(character, Id.StandUp));
+        actionService.ExecuteInstantSingleAction(new CharacterActionParams(character, Id.StandUp));
     }
 
     //
@@ -785,18 +785,9 @@ public static class GameLocationCharacterExtensions
             return;
         }
 
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
         var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
-        var actionParams = new CharacterActionParams(instance, Id.SpendPower)
-        {
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-            UsablePower = usablePower
-        };
 
-        ServiceRepository.GetService<ICommandService>().ExecuteAction(actionParams, null, true);
+        instance.MyExecuteActionSpendPower(usablePower);
     }
 
     private static int GetAllowedMainAttacks(this GameLocationCharacter instance)
