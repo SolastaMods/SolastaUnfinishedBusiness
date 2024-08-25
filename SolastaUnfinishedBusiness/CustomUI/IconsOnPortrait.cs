@@ -1,6 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -11,7 +10,7 @@ internal static class IconsOnPortrait
     {
         var character = panel.GuiCharacter?.RulesetCharacter;
 
-        if (character is null or {IsDeadOrDyingOrUnconscious: true})
+        if (character is null or { IsDeadOrDyingOrUnconscious: true })
         {
             return;
         }
@@ -41,11 +40,6 @@ internal static class IconsOnPortrait
         if (character.HasAnyFeature(EldritchVersatilityBuilders.PowerEldritchVersatilityPointPool))
         {
             pools.Add(PortraitPointEldritchVersatility.Instance);
-        }
-
-        if (character.HasAnyFeature(MartialForceKnight.PowerPsionicInitiate))
-        {
-            pools.Add(PortraitPointForcePoints.Instance);
         }
 
         foreach (var provider in pools)
