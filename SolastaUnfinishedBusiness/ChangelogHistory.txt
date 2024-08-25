@@ -3,10 +3,10 @@
 - added 'Allow Unarmed Attack with main action for character if a Monk or has Handwraps or Gauntlet equipped' setting
 - fixed Action Surge not allowing casting 2 main levelled spells
 - fixed College of Swords flourish, and Martial Psi-Warrior force drive toggles
-- fixed death saving throw causing a crash under certain scenarios
-- fixed Domain Tempest thunderous strike causing a crash when a gadget gets hit
+- fixed death saving throw causing a crash when trying a third time
+- fixed Domain Tempest thunderous strike causing a crash when hitting a gadget
 - fixed Green-Flame Blade cantrip first target selection rules if reach, and reach setting disabled
-- fixed Green-Flame blade cantrip, Thunderstep spell, and many other features to behave correctly under MP
+- fixed Green-Flame blade cantrip, Thunderstep spell, and many other features to behave correctly under multiplayer
 - fixed Hand Cross Bow weapon type to martial weapon category
 - fixed Imp Badland draw inspiration getting offered on a critical failure
 - fixed Martial Psi-Warrior kinetic barrier getting offered on a critical hit
@@ -14,8 +14,9 @@
 - fixed multiclass level up interaction with whole casters [Cleric, Druid, Paladin]
 - fixed Oath of Ancients turn faithless to be 1 minute duration and don't recheck saving every turn
 - fixed Precise maneuver integration with Brace, Return Fire, and Riposte maneuvers when only 1 die left
-- fixed Roguish Arcane Scoundrel arcane backslash reaction description causing a crash
-- fixed save by location/campaign setting using a wrong path on custom campaigns random encounters or maps 
+- fixed Roguish Arcane Scoundrel arcane backslash reaction description causing a crash when displaying
+- fixed save by location/campaign setting using a wrong path on custom campaigns random encounters or maps
+- fixed Telekinesis spell range calculation
 - refactored Patron Eldritch Surge [RESPEC required]
 
 1.5.97.27:

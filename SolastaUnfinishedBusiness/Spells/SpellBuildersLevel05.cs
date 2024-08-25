@@ -1145,7 +1145,7 @@ internal static partial class SpellBuilders
             const int RANGE = TelekinesisRange / 2;
             var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
 
-            boxInt.Inflate(RANGE);
+            boxInt.Inflate(TelekinesisRange);
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
@@ -1157,8 +1157,7 @@ internal static partial class SpellBuilders
                     !positioningService.CanPlaceCharacter(targetCharacter, position,
                         CellHelpers.PlacementMode.Station) ||
                     !positioningService.CanCharacterStayAtPosition_Floor(targetCharacter, position,
-                        onlyCheckCellsWithRealGround: true) ||
-                    !visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter))
+                        onlyCheckCellsWithRealGround: true))
                 {
                     continue;
                 }
