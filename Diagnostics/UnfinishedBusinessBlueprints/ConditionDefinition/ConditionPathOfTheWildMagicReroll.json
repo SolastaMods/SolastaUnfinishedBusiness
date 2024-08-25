@@ -8,8 +8,8 @@
     "Definition:PowerPathOfTheWildMagicWildSurgeReroll:011775eb-afc7-5751-bc38-e62ce6abfbc5"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
