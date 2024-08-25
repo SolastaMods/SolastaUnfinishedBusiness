@@ -1,11 +1,16 @@
 1.5.97.28:
 
 - added 'Allow Unarmed Attack with main action for character if a Monk or has Handwraps or Gauntlet equipped' setting
+- fixed College of Swords flourish, and Martial Psi-Warrior force drive toggles
 - fixed Domain Tempest thunderous strike causing a crash when a gadget gets hit
 - fixed Green-Flame Blade cantrip first target selection rules if reach, and reach setting disabled
+- fixed Hand Cross Bow weapon type to martial weapon category
+- fixed Imp Badland draw inspiration getting offered on a critical failure
 - fixed Martial Psi-Warrior kinetic barrier getting offered on a critical hit
+- fixed Martial Psi-Warrior psionic adept push/prone reactions getting offered on a miss
 - fixed Roguish Arcane Scoundrel arcane backslash reaction description causing a crash
 - fixed save by location/campaign setting using a wrong path on custom campaigns random encounters or maps 
+- refactored Patron Eldritch Surge [RESPEC required]
 
 1.5.97.27:
 

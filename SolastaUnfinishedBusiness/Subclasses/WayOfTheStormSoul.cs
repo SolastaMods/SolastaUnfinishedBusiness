@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -131,7 +132,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 0, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -307,7 +308,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                 yield break;
             }
 
-            var attackModeOff = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+            var attackModeOff = actingCharacter.FindActionAttackMode(Id.AttackOff);
 
             if (attackModeOff == null)
             {
@@ -318,7 +319,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             var attackMode = RulesetAttackMode.AttackModesPool.Get();
 
             attackMode.Copy(attackModeOff);
-            attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
+            attackMode.ActionType = ActionType.NoCost;
 
             actingCharacter.BurnOneBonusAttack();
             actingCharacter.UsedSpecialFeatures.TryAdd("PowerTempestFury", 0);
@@ -329,7 +330,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                 var attackModifier = new ActionModifier();
 
                 actingCharacter.MyExecuteActionAttack(
-                    ActionDefinitions.Id.AttackFree,
+                    Id.AttackFree,
                     target,
                     attackMode,
                     attackModifier);

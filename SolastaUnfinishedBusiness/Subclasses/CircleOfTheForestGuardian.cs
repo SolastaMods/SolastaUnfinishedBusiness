@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -45,10 +46,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
-                    (OperationType.Set, (mode is { ActionType: ActionDefinitions.ActionType.Main } &&
+                    (OperationType.Set, (mode is { ActionType: ActionType.Main } &&
                                          ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(character) &&
                                          ValidatorsCharacter.HasMeleeWeaponInMainHand(character)) ||
-                                        (mode is { ActionType: ActionDefinitions.ActionType.Bonus } &&
+                                        (mode is { ActionType: ActionType.Bonus } &&
                                          character.GetOriginalHero() is { } hero &&
                                          hero.ActiveFightingStyles.Contains(FightingStyleDefinitions.TwoWeapon) &&
                                          ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character)))),
@@ -236,7 +237,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerImprovedBarkWardDamage, rulesetDefender);
 
-            defender.MyExecuteActionPowerNoCost(usablePower, attacker);
+            defender.MyExecuteActionSpendPower(usablePower, attacker);
         }
     }
 }

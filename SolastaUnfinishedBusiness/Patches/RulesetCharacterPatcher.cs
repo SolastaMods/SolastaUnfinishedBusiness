@@ -1857,9 +1857,10 @@ public static class RulesetCharacterPatcher
             //and then this method terminates only spells that RemainingRounds > 0, so set it to 1 in order to make them terminate
             //This method also has same RemainingRounds > 0 check for powers - maybe they need same treatment?
             //Or maybe there's reason for this check and broken part is somewhere else?
-            foreach (var spell in __instance.spellsCastByMe)
+            foreach (var spell in __instance.SpellsCastByMe
+                         .Where(spell => roundsNumber > 0 && spell.RemainingRounds == 0))
             {
-                if (roundsNumber > 0 && spell.RemainingRounds == 0) { spell.RemainingRounds = 1; }
+                spell.RemainingRounds = 1;
             }
         }
     }

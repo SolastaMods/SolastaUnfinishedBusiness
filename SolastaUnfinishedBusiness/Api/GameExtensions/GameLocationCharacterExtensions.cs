@@ -73,9 +73,10 @@ public static class GameLocationCharacterExtensions
         params GameLocationCharacter[] targets)
     {
         var actionModifiers = GetActionModifiers(targets.Length);
-        var rulesetCharacter = character.RulesetCharacter;
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+        var rulesetCharacter = character.RulesetCharacter;
 
         var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
         {
@@ -85,7 +86,27 @@ public static class GameLocationCharacterExtensions
             targetCharacters = [.. targets]
         };
 
-        ServiceRepository.GetService<ICommandService>().ExecuteAction(actionParams, null, true);
+        actionService.ExecuteAction(actionParams, null, true);
+    }
+
+    internal static void MyExecuteActionSpendPower(
+        this GameLocationCharacter character,
+        RulesetUsablePower usablePower,
+        params GameLocationCharacter[] targets)
+    {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+        var rulesetCharacter = character.RulesetCharacter;
+
+        var actionParams = new CharacterActionParams(character, Id.SpendPower)
+        {
+            RulesetEffect = implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+            UsablePower = usablePower,
+            targetCharacters = [.. targets]
+        };
+
+        actionService.ExecuteInstantSingleAction(actionParams);
     }
 
     internal static void MyExecuteActionStabilizeAndStandUp(

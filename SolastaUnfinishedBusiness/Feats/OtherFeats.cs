@@ -19,6 +19,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -768,7 +769,7 @@ internal static class OtherFeats
             {
                 foreach (var executionModifier in key.ActionExecutionModifiers)
                 {
-                    if (executionModifier.actionId != ActionDefinitions.Id.PowerNoCost ||
+                    if (executionModifier.actionId != Id.PowerNoCost ||
                         !actor.RulesetCharacter.IsMatchingEquipementCondition(executionModifier.equipmentContext) ||
                         executionModifier.advantageType == AdvantageType.None)
                     {
@@ -849,7 +850,7 @@ internal static class OtherFeats
         var actionAffinityBalefulScion = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityBalefulScionToggle")
             .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle)
+            .SetAuthorizedActions((Id)ExtraActionId.BalefulScionToggle)
             .AddCustomSubFeatures(new CustomBehaviorBalefulScion(conditionBalefulScion, powerBalefulScion))
             .AddToDB();
 
@@ -972,7 +973,7 @@ internal static class OtherFeats
 
             if (!attacker.IsWithinRange(defender, 12) ||
                 !attacker.OncePerTurnIsValid(powerBalefulScion.Name) ||
-                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) ||
+                !rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.BalefulScionToggle) ||
                 rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
@@ -1611,7 +1612,7 @@ internal static class OtherFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
-                        itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
+                        itemSelectionType: ItemSelectionType.Weapon)
                     .SetDurationData(DurationType.Minute, 1)
                     .Build())
             .AddToDB();
@@ -1629,7 +1630,7 @@ internal static class OtherFeats
                 .SetSharedPool(ActivationTime.BonusAction, powerChromaticInfusion)
                 .SetEffectDescription(EffectDescriptionBuilder.Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
-                        itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
+                        itemSelectionType: ItemSelectionType.Weapon)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -1776,7 +1777,7 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
-                defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
+                defender.SpendActionType(ActionType.Reaction);
 
                 var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
 
@@ -2507,7 +2508,7 @@ internal static class OtherFeats
                 .SetSavingThrowData(false,
                     AttributeDefinitions.Constitution, false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Constitution)
+                    AttributeDefinitions.Constitution, 8)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -2806,7 +2807,7 @@ internal static class OtherFeats
                         AttributeDefinitions.Wisdom,
                         true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Strength)
+                        AttributeDefinitions.Strength, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -2968,7 +2969,7 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode.ActionType != ActionDefinitions.ActionType.Reaction ||
+            if (attackMode.ActionType != ActionType.Reaction ||
                 attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
             {
                 yield break;

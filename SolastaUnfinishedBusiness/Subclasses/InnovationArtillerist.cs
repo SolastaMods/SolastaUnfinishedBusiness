@@ -569,16 +569,15 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 4)
-                    .SetParticleEffectParameters(Fireball)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.FixedValue)
-                    .SetParticleEffectParameters(Fireball)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeForce, 3, DieType.D8)
                             .Build())
+                    .SetParticleEffectParameters(Fireball)
                     .Build())
             .AddCustomSubFeatures(new ValidatorsValidatePowerUse(HasTinyCannon))
             .AddToDB();

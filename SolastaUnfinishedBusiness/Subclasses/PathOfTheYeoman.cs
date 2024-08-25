@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -58,7 +59,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
         var actionAffinityStaggeringBlow = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}StaggeringBlow")
             .SetGuiPresentation(Category.Feature)
-            .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
+            .SetAuthorizedActions(Id.ShoveBonus)
             .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(
                     ValidatorsCharacter.HasLongbow,
@@ -147,7 +148,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
         movementAffinityBulwark.AddCustomSubFeatures(new StopPowerConcentrationProvider(
             "Bulwark",
             "Tooltip/&BulwarkConcentration",
-            Sprites.GetSprite("DeadeyeConcentrationIcon", Resources.DeadeyeConcentrationIcon, 64, 64))
+            Sprites.GetSprite("FeatDeadeye", Resources.DeadeyeConcentrationIcon, 64, 64))
         {
             StopPower = powerBulwarkTurnOff
         });

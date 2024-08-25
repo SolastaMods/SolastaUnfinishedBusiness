@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -1242,7 +1243,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.FixedValue)
                     .SetEffectForms(
@@ -2192,7 +2193,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(EffectFormBuilder
@@ -2468,11 +2469,11 @@ internal static partial class SpellBuilders
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (action.ActionType
-                is ActionDefinitions.ActionType.Move
+                is ActionType.Move
                 // these although allowed could potentially move both contenders off range
-                or ActionDefinitions.ActionType.Bonus
-                or ActionDefinitions.ActionType.Reaction
-                or ActionDefinitions.ActionType.NoCost)
+                or ActionType.Bonus
+                or ActionType.Reaction
+                or ActionType.NoCost)
             {
                 if (Gui.Battle == null)
                 {

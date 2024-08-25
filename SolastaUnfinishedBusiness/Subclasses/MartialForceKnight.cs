@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +38,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         .Create($"Power{Name}PsionicInitiate")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 3)
+        .DelegatedToAction()
         .AddCustomSubFeatures(HasModifiedUses.Marker, ModifyPowerVisibility.Hidden)
         .AddToDB();
 

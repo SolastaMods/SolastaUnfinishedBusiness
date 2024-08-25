@@ -303,14 +303,14 @@ public class PatronEldritchSurge : AbstractSubclass
                 yield break;
             }
 
-
-            if (rulesetEffectSpell.SpellDefinition.SpellLevel == 0)
+            switch (rulesetEffectSpell.SpellDefinition.SpellLevel)
             {
-                supportCondition.CantripAsMain = true;
-            }
-            else if (rulesetEffectSpell.SpellDefinition.SpellLevel > 0)
-            {
-                supportCondition.SpellAsMain = true;
+                case 0:
+                    supportCondition.CantripAsMain = true;
+                    break;
+                case > 0:
+                    supportCondition.SpellAsMain = true;
+                    break;
             }
         }
 

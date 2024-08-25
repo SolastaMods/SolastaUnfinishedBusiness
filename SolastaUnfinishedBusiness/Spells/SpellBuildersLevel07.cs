@@ -274,7 +274,7 @@ internal static partial class SpellBuilders
             foreach (var contender in contenders)
             {
                 yield return contender
-                    .MyReactToCastSpell(_rescueTheDying, waiter, defender, battleManager: battleManager);
+                    .MyReactToCastSpell(_rescueTheDying, defender, waiter, battleManager: battleManager);
             }
         }
 
