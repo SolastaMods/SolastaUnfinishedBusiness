@@ -106,7 +106,7 @@ public sealed class OathOfAncients : AbstractSubclass
                     .SetParticleEffectParameters(PowerWindShelteringBreeze)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetDurationData(DurationType.Round, 5)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetRestrictedCreatureFamilies("Fey", "Fiend", "Elemental")
                     .SetSavingThrowData(
                         false,
@@ -118,7 +118,7 @@ public sealed class OathOfAncients : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionTurned,
                                 ConditionForm.ConditionOperation.Add)
