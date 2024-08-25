@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -743,10 +744,10 @@ internal static partial class SpellBuilders
                     .Create($"ActionAffinity{NAME}")
                     .SetGuiPresentationNoContent(true)
                     .SetForbiddenActions(
-                        ActionDefinitions.Id.DisengageMain,
-                        ActionDefinitions.Id.DisengageBonus,
-                        ActionDefinitions.Id.DashMain,
-                        ActionDefinitions.Id.DashBonus)
+                        Id.DisengageMain,
+                        Id.DisengageBonus,
+                        Id.DashMain,
+                        Id.DashBonus)
                     .AddToDB())
             .AddToDB();
 
@@ -888,7 +889,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action.ActionId != ActionDefinitions.Id.TacticalMove)
+            if (action.ActionId != Id.TacticalMove)
             {
                 yield break;
             }
@@ -908,7 +909,7 @@ internal static partial class SpellBuilders
             var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
             var usablePower = PowerProvider.Get(powerBoomingBladeDamage, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
 
@@ -1112,7 +1113,7 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerResonatingStrikeDamage, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, secondDefender);
+            attacker.MyExecuteActionSpendPower(usablePower, secondDefender);
         }
     }
 

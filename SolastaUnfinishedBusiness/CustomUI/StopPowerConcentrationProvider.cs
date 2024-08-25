@@ -47,6 +47,6 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
             .ExecuteAction(actionParams, _ => { }, false);
 #endif
 
-        locationCharacter.MyExecuteActionPowerNoCost(usablePower, locationCharacter);
+        locationCharacter.MyExecuteActionSpendPower(usablePower, locationCharacter);
     }
 }

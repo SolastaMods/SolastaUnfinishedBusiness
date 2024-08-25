@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -26,8 +27,8 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 {
     private const string Name = "CollegeOfAudacity";
     private const string ConditionDefensiveWhirl = $"Condition{Name}DefensiveWhirl";
-    private const ActionDefinitions.Id AudaciousWhirlToggle = (ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle;
-    private const ActionDefinitions.Id MasterfulWhirlToggle = (ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle;
+    private const Id AudaciousWhirlToggle = (Id)ExtraActionId.AudaciousWhirlToggle;
+    private const Id MasterfulWhirlToggle = (Id)ExtraActionId.MasterfulWhirlToggle;
     private const string WhirlDamage = "WhirlDamage";
 
     public CollegeOfAudacity()
@@ -120,7 +121,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
                     .Build())
             .AddToDB();
@@ -277,7 +278,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             var usablePower = PowerProvider.Get(powerSlashingWhirlDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker, withinRange: 1).Where(x => x != defender).ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)

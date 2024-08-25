@@ -52,6 +52,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         .Create($"Power{Name}CauterizingFlamesDamage")
         .SetGuiPresentation(PowerSummonCauterizingFlamesName, Category.Feature, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -63,7 +64,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         .SetBonusMode(AddBonusMode.AbilityBonus)
                         .SetDamageForm(DamageTypeFire, 2, DieType.D10)
                         .Build())
-                .SetCasterEffectParameters(HeatMetal)
+                //.SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(FireBolt)
                 .Build())
         .AddToDB();
@@ -72,6 +73,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         .Create($"Power{Name}CauterizingFlamesHeal")
         .SetGuiPresentation(PowerSummonCauterizingFlamesName, Category.Feature, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -85,7 +87,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             HealingComputation.Dice, 0, DieType.D10, 1, false,
                             HealingCap.HalfMaximumHitPoints)
                         .Build())
-                .SetCasterEffectParameters(HeatMetal)
+                //.SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(CureWounds)
                 .Build())
         .AddToDB();
@@ -539,7 +541,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         : PowerCauterizingFlamesHeal,
                     rulesetSource);
 
-                source.MyExecuteActionPowerNoCost(usablePower, character);
+                source.MyExecuteActionSpendPower(usablePower, character);
             }
         }
     }

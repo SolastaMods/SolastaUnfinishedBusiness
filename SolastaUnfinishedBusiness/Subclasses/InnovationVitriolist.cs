@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -434,7 +435,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendSpellSlot)
+            var reactionParams = new CharacterActionParams(actingCharacter, Id.SpendSpellSlot)
             {
                 ActionModifiers = { new ActionModifier() }
             };
@@ -614,7 +615,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerVitriolicInfusion, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [.. targets]);
+            attacker.MyExecuteActionSpendPower(usablePower, [.. targets]);
         }
     }
 }

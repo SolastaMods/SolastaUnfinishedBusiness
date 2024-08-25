@@ -550,7 +550,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = mover.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
 
-            mover.MyExecuteActionPowerNoCost(usablePower, targets);
+            mover.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 
@@ -1126,7 +1126,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                        EffectDifficultyClassComputation.FixedValue)
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1212,8 +1212,6 @@ internal static partial class SpellBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageAcid, rulesetCaster);
 
-            usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
-
             caster.MyExecuteActionPowerNoCost(usablePower, character);
         }
 
@@ -1231,9 +1229,7 @@ internal static partial class SpellBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageCold, rulesetCaster);
 
-            usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
-
-            caster.MyExecuteActionPowerNoCost(usablePower, character);
+            caster.MyExecuteActionSpendPower(usablePower, character);
         }
     }
 

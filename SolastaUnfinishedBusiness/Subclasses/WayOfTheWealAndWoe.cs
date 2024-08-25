@@ -231,12 +231,12 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     {
                         if (rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                         {
-                            InflictMartialArtDieDamage(featureTheirWoe, attacker, defender, attackMode);
+                            InflictMartialArtDieDamage(featureTheirWoe, attacker, defender);
                         }
                     }
                     else
                     {
-                        InflictMartialArtDieDamage(featureWoe, attacker, attacker, attackMode);
+                        InflictMartialArtDieDamage(featureWoe, attacker, attacker);
                     }
 
                     // Weal (RESET)
@@ -256,7 +256,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     // Brutal Weal
                     if (level >= 11 && rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                     {
-                        InflictMartialArtDieDamage(featureBrutalWeal, attacker, defender, attackMode);
+                        InflictMartialArtDieDamage(featureBrutalWeal, attacker, defender);
                     }
 
                     // Weal (RESET)
@@ -269,20 +269,12 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
         private static void InflictMartialArtDieDamage(
             FeatureDefinitionPower power,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode)
+            GameLocationCharacter defender)
         {
-            var originalDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
-
-            if (originalDamageForm == null)
-            {
-                return;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
 

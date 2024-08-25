@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -537,7 +538,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 1).ToArray();
 
-            locationCharacter.MyExecuteActionPowerNoCost(usablePower, targets);
+            locationCharacter.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 
@@ -639,7 +640,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             var usablePower = PowerProvider.Get(powerElementalConduitWildfire, rulesetDefender);
 
             yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerReaction,
+                Id.PowerReaction,
                 usablePower,
                 [attacker],
                 attacker,

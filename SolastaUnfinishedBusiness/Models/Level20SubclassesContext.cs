@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -319,11 +320,12 @@ internal static class Level20SubclassesContext
             .Create("PowerDomainMischiefFortuneFavorTheBold")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -723,7 +725,7 @@ internal static class Level20SubclassesContext
             .SetActionId(ExtraActionId.QuiveringPalmToggle)
             .SetActivatedPower(powerTraditionOpenHandQuiveringPalm, false)
             .OverrideClassName("Toggle")
-            .SetParameter(ActionDefinitions.ActionParameter.TogglePower)
+            .SetParameter(ActionParameter.TogglePower)
             .AddToDB();
 
         _ = DamageDefinitionBuilder
@@ -734,7 +736,7 @@ internal static class Level20SubclassesContext
         var actionAffinityTraditionOpenHandQuiveringPalm = FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.QuiveringPalmToggle)
+            .SetAuthorizedActions((Id)ExtraActionId.QuiveringPalmToggle)
             .AddToDB();
 
         var featureSetTraditionOpenHandQuiveringPalm = FeatureDefinitionFeatureSetBuilder
@@ -1068,8 +1070,8 @@ internal static class Level20SubclassesContext
         var additionalActionRoguishDarkweaverDarkAssault = FeatureDefinitionAdditionalActionBuilder
             .Create("AdditionalActionRoguishDarkweaverDarkAssault")
             .SetGuiPresentationNoContent(true)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+            .SetActionType(ActionType.Main)
+            .SetRestrictedActions(Id.AttackMain)
             .SetMaxAttacksNumber(1)
             .AddToDB();
 
@@ -1512,7 +1514,7 @@ internal static class Level20SubclassesContext
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
 
-            actingCharacter.MyExecuteActionPowerNoCost(usablePower, actingCharacter);
+            actingCharacter.MyExecuteActionSpendPower(usablePower, actingCharacter);
 
             yield break;
         }
@@ -1983,7 +1985,7 @@ internal static class Level20SubclassesContext
             {
                 var usablePower = PowerProvider.Get(powerQuiveringPalmDamage, rulesetAttacker);
 
-                attacker.MyExecuteActionPowerNoCost(usablePower, target);
+                attacker.MyExecuteActionSpendPower(usablePower, target);
 
                 yield break;
             }
@@ -2067,7 +2069,7 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var attackModeMain = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeMain = actingCharacter.FindActionAttackMode(Id.AttackMain);
 
             if (attackModeMain == null)
             {
@@ -2078,7 +2080,7 @@ internal static class Level20SubclassesContext
             var attackMode = RulesetAttackMode.AttackModesPool.Get();
 
             attackMode.Copy(attackModeMain);
-            attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
+            attackMode.ActionType = ActionType.NoCost;
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
@@ -2086,7 +2088,7 @@ internal static class Level20SubclassesContext
                 var attackModifier = new ActionModifier();
 
                 actingCharacter.MyExecuteActionAttack(
-                    ActionDefinitions.Id.AttackFree,
+                    Id.AttackFree,
                     target,
                     attackMode,
                     attackModifier);
