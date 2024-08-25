@@ -495,7 +495,7 @@ internal static class CustomWeaponsContext
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
             .Create(LightCrossbowType, CeHandXbowType)
             .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
-            .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
+            .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddCustomSubFeatures(new CustomScale(0.5f))
             .SetAnimationTag("Rapier")
             .AddToDB();
