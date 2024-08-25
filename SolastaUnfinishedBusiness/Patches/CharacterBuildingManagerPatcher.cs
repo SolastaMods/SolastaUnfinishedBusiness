@@ -188,7 +188,7 @@ public static class CharacterBuildingManagerPatcher
             LevelUpContext.SortHeroRepertoires(hero);
 
             //PATCH: adds whole list caster spells to KnownSpells collection to improve the MC spell selection UI
-            LevelUpContext.UpdateKnownSpellsForWholeCasters(hero);
+            // LevelUpContext.UpdateKnownSpellsForWholeCasters(hero);
 
             //PATCH: unregisters the hero leveling up
             LevelUpContext.UnregisterHero(hero);
