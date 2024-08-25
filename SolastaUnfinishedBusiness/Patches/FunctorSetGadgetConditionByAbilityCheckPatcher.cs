@@ -4,7 +4,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 
@@ -168,100 +167,18 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                     !functorParameters.AbilityCheck.Silent,
                     !functorParameters.AbilityCheck.Silent);
 
-                //BEGIN PATCH
-                var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-                var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
-                    as GameLocationBattleManager;
-
-                if (Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat &&
-                    rollOutcome == RuleDefinitions.RollOutcome.Failure)
+                //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+                var abilityCheckData = new AbilityCheckData
                 {
-                    battleManager!.GetBestParametersForBardicDieRoll(
-                        actingCharacter,
-                        out var bestDie,
-                        out _,
-                        out var sourceCondition,
-                        out var forceMaxRoll,
-                        out var advantage);
+                    AbilityCheckRoll = abilityCheckRoll,
+                    AbilityCheckRollOutcome = rollOutcome,
+                    AbilityCheckSuccessDelta = successDelta
+                };
 
-                    if (bestDie > RuleDefinitions.DieType.D1 &&
-                        actingCharacter.RulesetCharacter != null)
-                    {
-                        // Is the die enough to overcome the failure?
-                        if (RuleDefinitions.DiceMaxValue[(int)bestDie] >= Mathf.Abs(successDelta))
-                        {
-                            var reactionParams =
-                                new CharacterActionParams(actingCharacter,
-                                    ActionDefinitions.Id.UseBardicInspiration)
-                                {
-                                    IntParameter = (int)bestDie,
-                                    IntParameter2 = (int)RuleDefinitions.BardicInspirationUsageType.AbilityCheck
-                                };
+                yield return TryAlterOutcomeAttributeCheck
+                    .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData, actionModifier);
 
-
-                            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
-
-                            actionService.ReactToUseBardicInspiration(reactionParams);
-
-                            yield return battleManager.WaitForReactions(actingCharacter, actionService,
-                                previousReactionCount);
-
-                            if (reactionParams.ReactionValidated)
-                            {
-                                // Now we have a shot at succeeding on the ability check
-                                var roll = actingCharacter.RulesetCharacter.RollBardicInspirationDie(
-                                    sourceCondition, successDelta, forceMaxRoll, advantage);
-
-                                if (roll >= Mathf.Abs(successDelta))
-                                {
-                                    // The roll is now a success!
-                                    rollOutcome = RuleDefinitions.RollOutcome.Success;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                //PATCH: support for `ITryAlterOutcomeAttributeCheck`
-                var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-                var contenders =
-                    Gui.Battle?.AllContenders ??
-                    locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-
-                foreach (var unit in contenders
-                             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList())
-                {
-                    var hasUnit =
-                        actionService.PendingReactionRequestGroups.Count > 0 &&
-                        actionService.PendingReactionRequestGroups.Peek().Requests
-                            .Any(x => x.Character == unit);
-
-                    if (hasUnit)
-                    {
-                        continue;
-                    }
-
-                    foreach (var feature in unit.RulesetCharacter
-                                 .GetSubFeaturesByType<ITryAlterOutcomeAttributeCheck>())
-                    {
-                        var abilityCheckData = new AbilityCheckData
-                        {
-                            AbilityCheckRoll = abilityCheckRoll,
-                            AbilityCheckRollOutcome = rollOutcome,
-                            AbilityCheckSuccessDelta = successDelta
-                        };
-
-                        yield return feature
-                            .OnTryAlterAttributeCheck(battleManager, abilityCheckData, actingCharacter, unit,
-                                actionModifier);
-
-                        abilityCheckRoll = abilityCheckData.AbilityCheckRoll;
-                        rollOutcome = abilityCheckData.AbilityCheckRollOutcome;
-                        successDelta = abilityCheckData.AbilityCheckSuccessDelta;
-                    }
-                }
-                //END PATCH
+                rollOutcome = abilityCheckData.AbilityCheckRollOutcome;
             }
 
             var worldGadget = !functorParameters.BoolParameter

@@ -483,12 +483,6 @@ internal static class RulesDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
-        toggle = Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableAttributeCheckHelpersToWorkOffCombat"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat = toggle;
-        }
-
         toggle = Main.Settings.EnableSignatureSpellsRelearn;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
         {

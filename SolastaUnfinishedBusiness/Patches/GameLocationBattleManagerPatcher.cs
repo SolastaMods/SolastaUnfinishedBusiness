@@ -216,24 +216,37 @@ public static class GameLocationBattleManagerPatcher
     public static class HandleFailedAbilityCheck_Patch
     {
         [UsedImplicitly]
-        public static IEnumerator Postfix(
-            IEnumerator values,
-            GameLocationBattleManager __instance,
+        public static bool Prefix(
+            ref IEnumerator __result,
             CharacterAction action,
             GameLocationCharacter checker,
             ActionModifier abilityCheckModifier)
         {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
+            __result = Process(action, checker, abilityCheckModifier);
 
-            //PATCH: support for `ITryAlterOutcomeAttributeCheck`
-            foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttributeCheck.Handler(
-                         __instance, action, checker, abilityCheckModifier))
+            return false;
+        }
+
+        //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+        [UsedImplicitly]
+        public static IEnumerator Process(
+            CharacterAction action,
+            GameLocationCharacter checker,
+            ActionModifier abilityCheckModifier)
+        {
+            var abilityCheckData = new AbilityCheckData
             {
-                yield return tryAlterOutcomeSavingThrow;
-            }
+                AbilityCheckRoll = action.AbilityCheckRoll,
+                AbilityCheckRollOutcome = action.AbilityCheckRollOutcome,
+                AbilityCheckSuccessDelta = action.AbilityCheckSuccessDelta
+            };
+
+            yield return TryAlterOutcomeAttributeCheck
+                .HandleITryAlterOutcomeAttributeCheck(checker, abilityCheckData, abilityCheckModifier);
+
+            action.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+            action.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+            action.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
         }
     }
 

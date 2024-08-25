@@ -1165,18 +1165,24 @@ internal static class OtherFeats
             actingCharacter.ComputeAbilityCheckActionModifier(
                 AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, actionModifier);
 
-            actingCharacter.RollAbilityCheck(
+            var abilityCheckRoll = actingCharacter.RollAbilityCheck(
                 AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, 15,
-                AdvantageType.None, actionModifier, false, -1, out var outcome, out _, true);
+                AdvantageType.None, actionModifier, false, -1, out var rollOutcome, out var successDelta, true);
 
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+            var abilityCheckData = new AbilityCheckData
             {
-                var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+                AbilityCheckRoll = abilityCheckRoll,
+                AbilityCheckRollOutcome = rollOutcome,
+                AbilityCheckSuccessDelta = successDelta
+            };
 
-                yield return battleService.HandleFailedAbilityCheck(action, actingCharacter, actionModifier);
-            }
+            yield return TryAlterOutcomeAttributeCheck
+                .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData, actionModifier);
 
-            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            rollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+
+            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 rulesetCharacter.InflictCondition(
                     conditionAcrobat.Name,
