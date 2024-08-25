@@ -496,11 +496,11 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            //PATCH: ensure we can only cast one levelled spell per turn (required by action surge)
-            if (__instance.UsedSpecialFeatures.TryGetValue("LevelledSpell", out _))
+            //BUGFIX: ensure you can cast 2 levelled spells with action surge if no bonus spell was casted
+            if (actionParams.ActionDefinition == DatabaseHelper.ActionDefinitions.ActionSurge &&
+                !__instance.UsedBonusSpell)
             {
-                __instance.UsedBonusSpell = true;
-                __instance.UsedMainSpell = true;
+                __instance.UsedMainSpell = false;
             }
 
             //PATCH: support for `AttackAfterMagicEffect`
