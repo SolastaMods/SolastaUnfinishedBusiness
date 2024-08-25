@@ -29,24 +29,6 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
         var usablePower = PowerProvider.Get(StopPower, character);
 
-#if false
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-
-        var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.PowerNoCost)
-        {
-            ActionModifiers = { new ActionModifier() },
-            RulesetEffect = implementationManager.MyInstantiateEffectPower(character, usablePower, true),
-            UsablePower = usablePower,
-            TargetCharacters = { locationCharacter },
-            SkipAnimationsAndVFX = true
-        };
-
-        ServiceRepository.GetService<ICommandService>()
-            .ExecuteAction(actionParams, _ => { }, false);
-#endif
-
         locationCharacter.MyExecuteActionSpendPower(usablePower, locationCharacter);
     }
 }

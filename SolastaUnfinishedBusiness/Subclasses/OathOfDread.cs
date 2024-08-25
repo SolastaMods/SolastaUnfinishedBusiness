@@ -358,14 +358,6 @@ public sealed class OathOfDread : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             if (helper.IsMyTurn())
             {
                 yield break;

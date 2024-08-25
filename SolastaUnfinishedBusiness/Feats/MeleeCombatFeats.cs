@@ -809,12 +809,10 @@ internal static class MeleeCombatFeats
 
     internal static IEnumerator HandleFeatOldTactics(CharacterAction characterAction, GameLocationCharacter target)
     {
-        var actionManager =
-            ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
         var battleManager =
             ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-        if (!actionManager || !battleManager)
+        if (!battleManager)
         {
             yield break;
         }
