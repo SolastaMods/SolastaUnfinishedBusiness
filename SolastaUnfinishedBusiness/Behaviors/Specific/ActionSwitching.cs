@@ -9,7 +9,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
@@ -269,14 +268,10 @@ public static class ActionSwitching
             return;
         }
 
-        if (actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell)
+        //you can only cast cantrips after casting a bonus spell
+        if (actionParams.activeEffect is RulesetEffectSpell { ActionType: ActionDefinitions.ActionType.Bonus })
         {
-            //supports for action switching interaction with MetamagicQuickenedSpell
-            //you can only cast cantrips after quicken a spell
-            if (rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
-            {
-                character.UsedMainSpell = true;
-            }
+            character.UsedMainSpell = true;
         }
 
         var type = actionParams.ActionDefinition.ActionType;
@@ -288,7 +283,9 @@ public static class ActionSwitching
             _ => false
         };
 
-        if (switched)
+        if (switched &&
+            // this is handled on main patch
+            actionParams.ActionDefinition.Id != ActionDefinitions.Id.AttackFree)
         {
             character.RulesetCharacter.RefreshAttackModes();
         }
