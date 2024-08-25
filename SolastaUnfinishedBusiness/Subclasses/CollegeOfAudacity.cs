@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -143,6 +144,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityAudaciousWhirlToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(AudaciousWhirlToggle)
+            .AddCustomSubFeatures(new ValidateDefinitionApplication(c => !c.IsToggleEnabled(MasterfulWhirlToggle)))
             .AddToDB();
 
         var movementAffinityAudaciousWhirl = FeatureDefinitionMovementAffinityBuilder
@@ -162,7 +164,6 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .Create($"Power{Name}AudaciousWhirl")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
-            .DelegatedToAction()
             .AddToDB();
 
         powerAudaciousWhirl.AddCustomSubFeatures(
@@ -171,21 +172,22 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 powerAudaciousWhirl, powerSlashingWhirl, powerSlashingWhirlDamage,
                 conditionAudaciousWhirlExtraMovement));
 
+        _ = ActionDefinitionBuilder
+            .Create(MetamagicToggle, "AudaciousWhirlToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.AudaciousWhirlToggle)
+            .SetActivatedPower(powerAudaciousWhirl)
+            .OverrideClassName("Toggle")
+            .AddCustomSubFeatures(new ActionItemDiceBoxAudaciousWhirl(powerAudaciousWhirl))
+            .AddToDB();
+
         PowerBundle.RegisterPowerBundle(
             powerAudaciousWhirl,
             false,
             powerDefensiveWhirl,
             powerSlashingWhirl,
             powerMobileWhirl);
-
-        _ = ActionDefinitionBuilder
-            .Create(MetamagicToggle, "AudaciousWhirlToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.AudaciousWhirlToggle)
-            .SetActivatedPower(powerAudaciousWhirl, false)
-            .OverrideClassName("Toggle")
-            .AddToDB();
 
         var featureSetAudaciousWhirl = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AudaciousWhirl")
@@ -206,6 +208,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityMasterfulWhirlToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(MasterfulWhirlToggle)
+            .AddCustomSubFeatures(new ValidateDefinitionApplication(c => !c.IsToggleEnabled(AudaciousWhirlToggle)))
             .AddToDB();
 
         var featureSetMasterfulWhirl = FeatureDefinitionFeatureSetBuilder
@@ -245,6 +248,16 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
         character.UsedSpecialFeatures.TryAdd(WhirlDamage, 0);
         character.UsedSpecialFeatures[WhirlDamage] = damage;
+    }
+
+    private sealed class ActionItemDiceBoxAudaciousWhirl(FeatureDefinitionPower powerAudaciousWhirl)
+        : IActionItemDiceBox
+    {
+        public (DieType type, int number, string format) GetDiceInfo(RulesetCharacter character)
+        {
+            return (character.GetBardicInspirationDieValue(), character.GetRemainingPowerUses(powerAudaciousWhirl),
+                "Screen/&BardicInspirationDieDescription");
+        }
     }
 
     private sealed class CustomBehaviorAudaciousWhirl(
