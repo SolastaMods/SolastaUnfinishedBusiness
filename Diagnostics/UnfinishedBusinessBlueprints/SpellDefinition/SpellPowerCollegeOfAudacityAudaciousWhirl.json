@@ -169,9 +169,9 @@
   "vocalSpellSemeType": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlTitle",
+    "description": "Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

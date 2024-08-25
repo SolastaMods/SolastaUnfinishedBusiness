@@ -800,6 +800,7 @@ internal static partial class SpellBuilders
     {
         var powerBoomingBladeDamage = FeatureDefinitionPowerBuilder
             .Create("PowerBoomingBladeDamage")
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -921,6 +922,7 @@ internal static partial class SpellBuilders
     {
         var powerResonatingStrikeDamage = FeatureDefinitionPowerBuilder
             .Create("PowerResonatingStrike")
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
