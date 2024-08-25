@@ -134,7 +134,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         var powerForceDriveOncePerShort = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForceDriveOncePerShort")
-            .SetGuiPresentation($"Power{Name}ForceDrive", Category.Feature, forceDriveSprite, hidden: true)
+            .SetGuiPresentation($"Power{Name}ForceDrive", Category.Feature, forceDriveSprite)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -151,7 +151,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         var powerForceDrive = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ForceDrive")
-            .SetGuiPresentation(Category.Feature, forceDriveSprite, hidden: true)
+            .SetGuiPresentation(Category.Feature, forceDriveSprite)
             .SetSharedPool(ActivationTime.NoCost, PowerPsionicInitiate)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -164,7 +164,9 @@ public sealed class MartialForceKnight : AbstractSubclass
             .AddToDB();
 
         powerForceDrive.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForceDriveOncePerShort) == 0));
+            new ValidatorsValidatePowerUse(c =>
+                c.GetRemainingPowerUses(powerForceDriveOncePerShort) == 0 &&
+                !c.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, conditionForceDrive.Name)));
 
         // Psionic Initiate
 
