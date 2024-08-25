@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,11 +34,10 @@ public sealed class MartialForceKnight : AbstractSubclass
     private const ActionDefinitions.Id ForcePoweredStrikeToggle =
         (ActionDefinitions.Id)ExtraActionId.ForcePoweredStrikeToggle;
 
-    internal static readonly FeatureDefinitionPower PowerPsionicInitiate = FeatureDefinitionPowerBuilder
+    private static readonly FeatureDefinitionPower PowerPsionicInitiate = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}PsionicInitiate")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 3)
-        .DelegatedToAction()
         .AddCustomSubFeatures(HasModifiedUses.Marker, ModifyPowerVisibility.Hidden)
         .AddToDB();
 
@@ -106,7 +105,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         var powerKineticBarrier = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}KineticBarrier")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, PowerPsionicInitiate)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -120,7 +119,6 @@ public sealed class MartialForceKnight : AbstractSubclass
             .AddToDB();
 
         powerKineticBarrier.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitPossibleOnMeOrAllyKineticBarrier(powerKineticBarrier));
 
         // Force Drive
@@ -136,7 +134,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         var powerForceDriveOncePerShort = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForceDriveOncePerShort")
-            .SetGuiPresentation($"Power{Name}ForceDrive", Category.Feature, forceDriveSprite)
+            .SetGuiPresentation($"Power{Name}ForceDrive", Category.Feature, forceDriveSprite, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -153,7 +151,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         var powerForceDrive = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ForceDrive")
-            .SetGuiPresentation(Category.Feature, forceDriveSprite)
+            .SetGuiPresentation(Category.Feature, forceDriveSprite, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, PowerPsionicInitiate)
             .SetEffectDescription(
                 EffectDescriptionBuilder
