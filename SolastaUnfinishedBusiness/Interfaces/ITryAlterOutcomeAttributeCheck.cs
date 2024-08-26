@@ -126,14 +126,12 @@ internal static class TryAlterOutcomeAttributeCheck
             abilityCheckData);
     }
 
-    public static int ExtendedRollDie(
+    private static int ExtendedRollDie(
         [NotNull] RulesetCharacter rulesetCharacter,
         RuleDefinitions.DieType dieType,
         RuleDefinitions.RollContext rollContext,
         bool isProficient,
         RuleDefinitions.AdvantageType advantageType,
-        out int firstRoll,
-        out int secondRoll,
         bool enumerateFeatures,
         bool canRerollDice,
         string skill,
@@ -154,8 +152,8 @@ internal static class TryAlterOutcomeAttributeCheck
         }
 
         var roll = rulesetCharacter.RollDie(
-            dieType, rollContext, isProficient, advantageType,
-            out firstRoll, out secondRoll, enumerateFeatures, canRerollDice, skill);
+            dieType, rollContext, isProficient, advantageType, out _, out _,
+            enumerateFeatures, canRerollDice, skill);
 
         return Math.Max(minRoll, roll);
     }
@@ -198,7 +196,8 @@ internal static class TryAlterOutcomeAttributeCheck
         var rawRoll = ExtendedRollDie(
             rulesetCharacter,
             RuleDefinitions.DieType.D20, RuleDefinitions.RollContext.AbilityCheck,
-            isProficientActor, advantageActor, out _, out _,
+            isProficientActor,
+            advantageActor,
             true,
             true,
             proficiencyName,
@@ -228,7 +227,8 @@ internal static class TryAlterOutcomeAttributeCheck
         var opponentRawRoll = ExtendedRollDie(
             opponent,
             RuleDefinitions.DieType.D20, RuleDefinitions.RollContext.AbilityCheck,
-            isProficientOpponent, advantageOpponent, out _, out _,
+            isProficientOpponent,
+            advantageOpponent,
             true,
             true,
             proficiencyName,

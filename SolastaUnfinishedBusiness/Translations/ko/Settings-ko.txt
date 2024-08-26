@@ -162,7 +162,7 @@ ModUi/&EnableRogueSteadyAim=레벨 3에서 <color=#D89555>도적</color> <b>고�
 ModUi/&EnableRogueStrSaving=<color=#D89555>도적</color>을 활성화하여 <b>교활한/악랄한 일격</b>, <b>약화/개선된 일격</b> 및 <b>칼날비에 DEX 또는 STR 수정자를 사용하세요. </b>
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
 ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 준비되도록 <color=#D89555>마법사</color> 시그니처 주문을 활성화하세요. <i><color=#F0DAA0>[레벨 20에 한 번이 아닌]</color></i>
-ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 ​​<color=#D89555>마법사</color> <b>마법의 인도</b>를 활성화합니다.
+ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 <color=#D89555>마법사</color> <b>마법의 인도</b>를 활성화합니다.
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작을 활성화하여 빠른 메타매직이 적용된 주요 동작 주문을 시전할 수 있습니다.
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>

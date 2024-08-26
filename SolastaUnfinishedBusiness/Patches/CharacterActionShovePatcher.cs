@@ -31,15 +31,22 @@ public static class CharacterActionShovePatcher
             var isIncapacitated = target.RulesetCharacter.IsIncapacitated;
             var abilityCheckData = new AbilityCheckData();
 
+            //BEGIN PATCH
+            // original code
+#if false
+            bool success =
+ isSameSide || isIncapacitated || CharacterActionShove.ResolveRolls(characterActionShove.ActingCharacter, target, characterActionShove.ActionId);
+#endif
             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
                 actingCharacter, target, characterActionShove.ActionId, abilityCheckData);
 
             var success =
                 isSameSide ||
                 isIncapacitated ||
-                abilityCheckData.AbilityCheckRollOutcome 
+                abilityCheckData.AbilityCheckRollOutcome
                     is RuleDefinitions.RollOutcome.Success
                     or RuleDefinitions.RollOutcome.CriticalSuccess;
+            //END PATCH
 
             if (isIncapacitated)
             {
@@ -99,8 +106,10 @@ public static class CharacterActionShovePatcher
                 }
 
                 var rulesetCharacter = actingCharacter.RulesetCharacter;
+
                 if (rulesetCharacter.UsablePowers.Count > 0)
                 {
+                    // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
                     foreach (var usablePower in rulesetCharacter.UsablePowers)
                     {
                         if (rulesetCharacter.IsPowerOverriden(usablePower) ||
@@ -124,12 +133,16 @@ public static class CharacterActionShovePatcher
                 }
             }
 
-            yield return actingCharacter.EventSystem.WaitForEvent(GameLocationCharacterEventSystem.Event
-                .ShoveAnimationEnd);
+            yield return actingCharacter.EventSystem.WaitForEvent(
+                GameLocationCharacterEventSystem.Event.ShoveAnimationEnd);
+
             actingCharacter.TurnTowards(target);
+
             yield return actingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(
                 GameLocationCharacterEventSystem.Event.RotationEnd);
+
             var guard = 1000;
+
             while (actionService.IsActionInCurrentChains(ActionDefinitions.Id.FreeFall) && guard > 0)
             {
                 --guard;
