@@ -192,7 +192,7 @@ Message/&CharacterExportModalContentDescription=Introduzca el nombre del héroe 
 Message/&CharacterExportModalTitleDescription=Exportar {0}
 Message/&MessageModWelcomeDescription=El mod Unfinished Business está repleto de funciones interesantes, pero ninguna está habilitada de forma predeterminada. Presiona <color=#F0DAA0>Ctrl-F10</color> para abrir la interfaz de usuario de Unity Mod Manager [UMM] y luego haz clic en el ícono de configuración junto a "Unfinished Business" para abrir las páginas de configuración. Explora las opciones y selecciona las que te gusten.
 Message/&MessageModWelcomeTitle=Mod Asuntos pendientes
-Message/&ModErrorWarningDescription=Solasta ha detectado una inestabilidad. Pide a todos los jugadores que cierren el juego, descarguen el archivo <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> y compartan estos registros y el archivo de guardado con la comunidad de mods de Unfinished Business.
+Message/&ModErrorWarningDescription=Solasta ha detectado una inestabilidad. Pide a todos los jugadores que cierren el juego, descarguen el archivo <b>%APPDATA%\..\LocalLow\Tactical Adventures\Player.log</b> y compartan estos registros y el archivo de guardado con la comunidad de mods de Unfinished Business.
 Message/&ModErrorWarningTitle=¡Advertencia del juego!
 Message/&RespecMultiplayerAbortDescription=No se puede cambiar de especialización en un juego o mapa multijugador...
 Message/&RespecSuccessfulDescription=RESPEC se ha realizado correctamente. No olvides recoger tus objetos del suelo.

@@ -192,7 +192,7 @@ Message/&CharacterExportModalContentDescription=Geben Sie den zu exportierenden 
 Message/&CharacterExportModalTitleDescription=Exportieren {0}
 Message/&MessageModWelcomeDescription=Der Unfinished Business Mod ist vollgepackt mit spannenden Features, aber standardmäßig ist keine davon aktiviert. Drücken Sie <color=#F0DAA0>Strg-F10</color>, um die Unity Mod Manager-Benutzeroberfläche [UMM] zu öffnen, und klicken Sie dann auf das Einstellungssymbol neben „Unfinished Business“, um die Einstellungsseiten zu öffnen. Sehen Sie sich die Optionen an und wählen Sie die aus, die Ihnen gefallen.
 Message/&MessageModWelcomeTitle=Mod für „Unerledigte Geschäfte“
-Message/&ModErrorWarningDescription=Solasta hat eine Instabilität festgestellt. Bitten Sie alle Spieler, das Spiel zu schließen, die Datei <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> abzurufen und diese Protokolle sowie die Sicherungsdatei mit der Unfinished Business-Mod-Community zu teilen.
+Message/&ModErrorWarningDescription=Solasta hat eine Instabilität festgestellt. Bitten Sie alle Spieler, das Spiel zu schließen, die Datei <b>%APPDATA%\..\LocalLow\Tactical Adventures\Player.log</b> abzurufen und diese Protokolle sowie die Sicherungsdatei mit der Unfinished Business-Mod-Community zu teilen.
 Message/&ModErrorWarningTitle=Spielwarnung!
 Message/&RespecMultiplayerAbortDescription=Bei einem Multiplayer-Spiel oder einer Multiplayer-Karte ist keine Neuverteilung möglich ...
 Message/&RespecSuccessfulDescription=RESPEC war erfolgreich. Vergessen Sie nicht, Ihre Gegenstände vom Boden aufzuheben.

@@ -192,7 +192,7 @@ Message/&CharacterExportModalContentDescription=Entrez le nom du héros à expor
 Message/&CharacterExportModalTitleDescription=Exporter {0}
 Message/&MessageModWelcomeDescription=Le module Unfinished Business regorge de fonctionnalités intéressantes, mais par défaut, aucune n'est activée. Appuyez sur <color=#F0DAA0>Ctrl-F10</color> pour ouvrir l'interface utilisateur de Unity Mod Manager [UMM], puis cliquez sur l'icône des paramètres à côté de « Tâches inachevées » pour ouvrir les pages de paramètres. Explorez les options et sélectionnez celles que vous aimez.
 Message/&MessageModWelcomeTitle=Mod Affaires inachevées
-Message/&ModErrorWarningDescription=Solasta a détecté une instabilité. Veuillez demander à chaque joueur de fermer le jeu, de récupérer le fichier <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> et de partager ces journaux et le fichier de sauvegarde avec la communauté des modérateurs d'Unfinished Business.
+Message/&ModErrorWarningDescription=Solasta a détecté une instabilité. Veuillez demander à chaque joueur de fermer le jeu, de récupérer le fichier <b>%APPDATA%\..\LocalLow\Tactical Adventures\Player.log</b> et de partager ces journaux et le fichier de sauvegarde avec la communauté des modérateurs d'Unfinished Business.
 Message/&ModErrorWarningTitle=Attention au jeu !
 Message/&RespecMultiplayerAbortDescription=Impossible de se spécialiser dans une partie ou une carte multijoueur...
 Message/&RespecSuccessfulDescription=RESPEC a été un succès. N'oubliez pas de récupérer vos affaires au sol.

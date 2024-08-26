@@ -192,7 +192,7 @@ Message/&CharacterExportModalContentDescription=Введите имя героя
 Message/&CharacterExportModalTitleDescription=Экспортировать {0}
 Message/&MessageModWelcomeDescription=Мод Неоконченное Дело напичкан множеством захватывающих функций, однако по умолчанию ни одна из них не активирована. Нажмите <color=#F0DAA0>Ctrl-F10</color>, чтобы открыть интерфейс Unity Mod Manager [UMM], затем кликните на значок настроек рядом с 'Неоконченным Делом', чтобы открыть окно настроек. Изучите опции и выберите те, что вам нравятся.
 Message/&MessageModWelcomeTitle=Мод Неоконченное Дело
-Message/&ModErrorWarningDescription=В Solasta обнаружена нестабильность. Попросите каждого игрока закрыть игру, найти файл <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> и поделиться этими логами и файлом сохранения с сообществом разработчиков мода Unfinished Business.
+Message/&ModErrorWarningDescription=В Solasta обнаружена нестабильность. Попросите каждого игрока закрыть игру, найти файл <b>%APPDATA%\..\LocalLow\Tactical Adventures\Player.log</b> и поделиться этими логами и файлом сохранения с сообществом разработчиков мода Unfinished Business.
 Message/&ModErrorWarningTitle=ПРЕДУПРЕЖДЕНИЕ!
 Message/&RespecMultiplayerAbortDescription=Невозможно сбросить персонажа в многопользовательской игре...
 Message/&RespecSuccessfulDescription=Сброс персонажа был успешным. Не забудьте поднять все предметы на земле.
