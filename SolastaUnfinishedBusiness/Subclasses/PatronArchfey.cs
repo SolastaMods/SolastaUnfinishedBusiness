@@ -410,12 +410,10 @@ public class PatronArchfey : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
             var cursorManager = ServiceRepository.GetService<ICursorService>() as CursorManager;
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var usablePower = PowerProvider.Get(powerMistyEscape, rulesetDefender);
-            var rulesetEffect = implementationManager
-                .MyInstantiateEffectPower(defender.RulesetCharacter, usablePower, false);
+            var rulesetEffect = implementationService
+                .InstantiateEffectPower(defender.RulesetCharacter, usablePower, false);
 
             var actionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {

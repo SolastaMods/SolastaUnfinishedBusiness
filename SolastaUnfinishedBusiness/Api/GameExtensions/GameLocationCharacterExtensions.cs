@@ -74,14 +74,12 @@ public static class GameLocationCharacterExtensions
     {
         var actionModifiers = GetActionModifiers(targets.Length);
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+        var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
         var rulesetCharacter = character.RulesetCharacter;
-
         var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
         {
             ActionModifiers = actionModifiers,
-            RulesetEffect = implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+            RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
             targetCharacters = [.. targets]
         };
@@ -95,13 +93,12 @@ public static class GameLocationCharacterExtensions
         params GameLocationCharacter[] targets)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+        var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
         var rulesetCharacter = character.RulesetCharacter;
-
         var actionParams = new CharacterActionParams(character, Id.SpendPower)
         {
-            RulesetEffect = implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+            StringParameter = usablePower.PowerDefinition.Name,
+            RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
             targetCharacters = [.. targets]
         };
@@ -271,15 +268,13 @@ public static class GameLocationCharacterExtensions
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
+        var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
         var actionParams = new CharacterActionParams(character, Id.SpendPower)
         {
             StringParameter = stringParameter,
             StringParameter2 = stringParameter2,
             RulesetEffect =
-                implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
+                implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower
         };
 
@@ -314,15 +309,13 @@ public static class GameLocationCharacterExtensions
 
         var count = actionManager.PendingReactionRequestGroups.Count;
         var actionModifiers = GetActionModifiers(targets.Count);
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
+        var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
         var actionParams = new CharacterActionParams(character, Id.SpendPower)
         {
             StringParameter = stringParameter,
             ActionModifiers = actionModifiers,
             RulesetEffect =
-                implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
+                implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
             targetCharacters = targets
         };
@@ -363,8 +356,7 @@ public static class GameLocationCharacterExtensions
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
         var actionModifiers = GetActionModifiers(targets.Count);
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+        var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
         var actionParams = new CharacterActionParams(character, actionId)
         {
@@ -372,7 +364,7 @@ public static class GameLocationCharacterExtensions
             StringParameter2 = stringParameter2,
             ActionModifiers = actionModifiers,
             RulesetEffect =
-                implementationManager.MyInstantiateEffectPower(character.RulesetCharacter, usablePower, false),
+                implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
             targetCharacters = targets
         };

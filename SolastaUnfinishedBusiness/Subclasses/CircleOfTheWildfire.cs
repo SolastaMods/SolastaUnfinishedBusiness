@@ -876,14 +876,12 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var usablePower = PowerProvider.Get(powerSummonCauterizingFlames, rulesetAlly);
             var actionParams = new CharacterActionParams(ally, Id.PowerNoCost)
             {
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAlly, usablePower, false),
+                RulesetEffect = implementationService
+                    .InstantiateEffectPower(rulesetAlly, usablePower, false),
                 UsablePower = usablePower,
                 Positions = { downedCreature.LocationPosition }
             };

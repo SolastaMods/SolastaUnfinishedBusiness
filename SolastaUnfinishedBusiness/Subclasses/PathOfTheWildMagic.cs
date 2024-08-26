@@ -757,8 +757,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var rulesetCharacter = character.RulesetCharacter;
 
             var cursorService = ServiceRepository.GetService<ICursorService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
             var dieRoll = new List<int> { 1 };
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -862,8 +861,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     {
                         var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
                         {
-                            RulesetEffect = implementationManager
-                                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false)
+                            RulesetEffect = implementationService
+                                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
                         };
 
                         if (reactingOutOfTurn)
@@ -910,7 +909,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
                 {
                     RulesetEffect =
-                        implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, true)
+                        implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, true)
                 };
 
                 if (!reactingOutOfTurn)
