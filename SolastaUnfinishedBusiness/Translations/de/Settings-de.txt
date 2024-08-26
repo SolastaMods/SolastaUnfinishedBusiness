@@ -127,7 +127,7 @@ ModUi/&EnableFighterWeaponSpecialization=Aktivieren Sie <color=#D89555>Kämpfer<
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[wählen Sie Fähigkeiten und Werkzeugkenntnisse aus Hintergründen aus]</color></i>
 ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[Weisen Sie Fähigkeitspunktepunkte anstelle der Rassenstandards zu]</color></i>
 ModUi/&EnableGauntletMainAttacks=Erlaube <b>Unbewaffneten Angriff</b> mit Hauptaktion für den Charakter, wenn dieser ein <color=#D89555>Mönch</color> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet hat
-ModUi/&EnableHeroWithBestProficiencyToRollChoice=Ermöglichen Sie dem Helden mit den besten Fähigkeiten, Dialogentscheidungen zu treffen
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Ermöglichen Sie dem Helden mit der besten Fertigkeit, Dialogoptionen zu würfeln <i><color=#F0DAA0>[es funktioniert, aber die Erzählungen sehen bei offiziellen Kampagnen seltsam aus]</color></i>
 ModUi/&EnableHigherGroundRules=Aktivieren Sie höhere Bodenregeln <i><color=#F0DAA0>[+1 für Treffer, wenn Sie von einem höheren Boden aus angreifen]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(D)</color>, um das Debug-Overlay anzuzeigen
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(H)</color>, um die HUD-Anzeige umzuschalten

@@ -127,7 +127,7 @@ ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Combattente</col
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona abilità e competenze negli strumenti dagli sfondi]</color></i>
 ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti di abilità invece delle impostazioni razziali predefinite]</color></i>
 ModUi/&EnableGauntletMainAttacks=Consenti <b>Attacco disarmato</b> con azione principale per il personaggio se è un <color=#D89555>monaco</color> o ha <b>fasce</b> o <b>guanto</b> equipaggiati
-ModUi/&EnableHeroWithBestProficiencyToRollChoice=Consenti all'eroe con la migliore competenza di effettuare scelte di dialogo
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Abilita l'eroe con la migliore competenza a effettuare scelte di dialogo <i><color=#F0DAA0>[funziona ma le narrazioni sembrano strane nelle campagne ufficiali]</color></i>
 ModUi/&EnableHigherGroundRules=Abilita le regole per i terreni più elevati <i><color=#F0DAA0>[+1 per colpire se attacchi da un terreno più elevato]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Abilita <color=#1E81B0>CTRL-MAIUSC-(D)</color> per visualizzare l'overlay di debug
 ModUi/&EnableHotkeyToggleHud=Abilita <color=#1E81B0>CTRL-MAIUSC-(H)</color> per attivare/disattivare la visualizzazione dell'HUD

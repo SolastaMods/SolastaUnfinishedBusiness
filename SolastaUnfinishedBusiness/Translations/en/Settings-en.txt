@@ -127,7 +127,7 @@ ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Fighter</color> <
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
 ModUi/&EnableGauntletMainAttacks=Allow <b>Unarmed Attack</b> with main action for character if a <color=#D89555>Monk</color> or has <b>Handwraps</b> or <b>Gauntlet</b> equipped
-ModUi/&EnableHeroWithBestProficiencyToRollChoice=Enable the hero with best proficiency to roll dialogue choices
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Enable the hero with best proficiency to roll dialogue choices <i><color=#F0DAA0>[it works but narrations look odd on official campaigns]</color></i>
 ModUi/&EnableHigherGroundRules=Enable higher ground rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Enable <color=#1E81B0>CTRL-SHIFT-(D)</color> to display the debug overlay
 ModUi/&EnableHotkeyToggleHud=Enable <color=#1E81B0>CTRL-SHIFT-(H)</color> to toggle the HUD display

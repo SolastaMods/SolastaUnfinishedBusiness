@@ -127,7 +127,7 @@ ModUi/&EnableFighterWeaponSpecialization=Activer <color=#D89555>Combattant</colo
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionner les compétences et les outils à partir des arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs raciales par défaut]</color></i>
 ModUi/&EnableGauntletMainAttacks=Autoriser une <b>attaque à mains nues</b> avec l'action principale du personnage s'il est un <color=#D89555>moine</color> ou s'il a des <b>bandages</b> ou un <b>gantelet</b> équipés
-ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permettre au héros le plus compétent de lancer les choix de dialogue
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permettre au héros le plus compétent de faire des choix de dialogue <i><color=#F0DAA0>[ça marche mais les narrations semblent étranges dans les campagnes officielles]</color></i>
 ModUi/&EnableHigherGroundRules=Activer les règles de terrain plus élevées <i><color=#F0DAA0>[+1 pour toucher si vous attaquez depuis un terrain plus élevé]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la superposition de débogage
 ModUi/&EnableHotkeyToggleHud=Activez <color=#1E81B0>CTRL-SHIFT-(H)</color> pour basculer l'affichage du HUD.

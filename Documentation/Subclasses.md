@@ -864,7 +864,7 @@ When you enter your rage, roll on the Wild Magic table to determine the magical 
 Once per rage, you can use your bonus action to reroll on the Wild Magic table. The new effect will replace your current Wild Magic effect.
 
 Wild Magic Table:
-- Each creature within 30 feet of you must succeed on a Constitution saving throw or take 1d12 necrotic damage. You also gain 1d12 temporary hit points.
+- Each hostile creature within 30 feet of you must succeed on a Constitution saving throw or take 1d12 necrotic damage. You also gain 1d12 temporary hit points.
 - You teleport up to 30 feet to an unoccupied space you can see. Until your rage ends, you can use this effect again on each of your turns as a bonus action.
 - Choose a point you can see within 30 feet of you. A burst of spiritual energy erupts from the point and each creature within a 15-foot cube centered on the point must make a Dexterity saving throw. On a failed save, the creature takes 1d6 force damage. This damage increases to 2d6 at 11th level, and 3d6 at 17th level. Until your rage ends, you can use this effect again on each of your turns as a bonus action.
 - Magic infuses the weapon that you are holding. Until your rage ends, the weapon's damage type changes to force, and it gains the thrown properties, with a normal range of 20 feet and a long range of 60 feet. If the weapon leaves your hand, the weapon reappears in your hand. Your rage damage bonus will also apply on this thrown weapon.
@@ -6252,7 +6252,7 @@ Each turn, you can switch among Strength, Intelligence, Wisdom or Versatile. If 
 
 * Blast Pursuit
 
-Gain an additional Eldritch Point when you hit an enemy within 30 feet. When you kill an enemy, gain additional Eldritch Points equal to the number of beams per cast of Eldritch Blast.
+In combat when your turn start, gain additional Eldritch Points equal to the number of beams per cast of Eldritch Blast.You also gain 1 additional Eldritch Point when you hit an enemy with Eldritch Blast.
 
 * Learn Versatility (1)
 
@@ -6263,7 +6263,7 @@ You learn one Versatility.
 
 * Blast Reload
 
-You can cast cantrips you have cast this turn with your main action as a bonus action.
+If you have cast a leveled spell as a main action, you can cast a cantrip as a bonus action and vice versa.
 
 * Learn Versatility (1)
 

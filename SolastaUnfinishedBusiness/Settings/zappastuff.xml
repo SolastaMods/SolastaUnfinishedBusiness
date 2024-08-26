@@ -506,7 +506,7 @@
     <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
     <StealthDoesNotBreakWithSubtle>true</StealthDoesNotBreakWithSubtle>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
-    <AllowBladeCantripsToUseReach>false</AllowBladeCantripsToUseReach>
+    <AllowBladeCantripsToUseReach>true</AllowBladeCantripsToUseReach>
     <AllowHasteCasting>true</AllowHasteCasting>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
     <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
@@ -540,6 +540,7 @@
     <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
     <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
     <EnableMonkHandwrapsUseGauntletSlot>true</EnableMonkHandwrapsUseGauntletSlot>
+    <EnableGauntletMainAttacks>false</EnableGauntletMainAttacks>
     <AddPickPocketableLoot>true</AddPickPocketableLoot>
     <RecipeCost>200</RecipeCost>
     <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
@@ -1733,7 +1734,6 @@
     </SpellListSpellEnabled>
     <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
-    <EnableAttributeCheckHelpersToWorkOffCombat>true</EnableAttributeCheckHelpersToWorkOffCombat>
     <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
     <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
     <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
