@@ -1154,7 +1154,9 @@ public static class RulesetCharacterPatcher
         }
     }
 
+#if false
     //PATCH: IModifyAbilityCheck
+    // this is now handled inside ITryAlterOutcomeAttributeCheck
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ResolveContestCheck))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1229,6 +1231,7 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Call, extendedRollDieMethod));
         }
     }
+#endif
 
     //PATCH: logic to correctly calculate spell slots under MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshSpellRepertoires))]

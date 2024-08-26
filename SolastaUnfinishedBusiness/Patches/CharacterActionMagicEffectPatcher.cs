@@ -1268,11 +1268,28 @@ public static class CharacterActionMagicEffectPatcher
                     (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
             }
 
+            //PATCH: allows ITryAlterOutcomeAttributeCheck to interact with context checks
+            //BEGIN - ORIGINAL CODE
+#if false
             if (!__instance.RolledSaveThrow && rulesetEffect.EffectDescription.HasShoveRoll)
             {
                 __instance.successfulShove =
                     CharacterActionShove.ResolveRolls(actingCharacter, target, ActionDefinitions.Id.Shove);
             }
+#endif
+            //END - ORIGINAL CODE
+            if (__instance.RolledSaveThrow || !rulesetEffect.EffectDescription.HasShoveRoll)
+            {
+                yield break;
+            }
+
+            var abilityCheckData = new AbilityCheckData();
+
+            yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
+                actingCharacter, target, ActionDefinitions.Id.Shove, abilityCheckData);
+
+            __instance.successfulShove =
+                abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
         }
     }
 

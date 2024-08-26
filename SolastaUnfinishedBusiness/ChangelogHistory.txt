@@ -19,6 +19,7 @@
 - fixed Roguish Arcane Scoundrel arcane backslash reaction description causing a crash when displaying
 - fixed save by location/campaign setting using a wrong path on custom campaigns random encounters or maps
 - fixed Telekinesis spell range calculation
+- improved contest checks to allow reactions from bardic inspiration, bend luck, bountiful luck, lucky, etc. [VANILLA]
 - improved Path of the Wild Magic combat log when rolling wild magic die, and drain description 
 - improved Patron Eldritch Surge [RESPEC required]
 

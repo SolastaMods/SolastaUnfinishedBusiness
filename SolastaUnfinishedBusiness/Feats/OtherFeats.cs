@@ -712,7 +712,12 @@ internal static class OtherFeats
 
             attacker.BurnOneMainAttack();
 
-            if (!ResolveContest(attacker, defender))
+            var abilityCheckData = new AbilityCheckData();
+
+            yield return ResolveContest(attacker, defender, abilityCheckData);
+
+            // cannot be Frightened anymore
+            if (abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 rulesetDefender.InflictCondition(
                     conditionMark.Name,
@@ -746,7 +751,8 @@ internal static class OtherFeats
                 0);
         }
 
-        private static bool ResolveContest(GameLocationCharacter actor, GameLocationCharacter opponent)
+        private static IEnumerator ResolveContest(
+            GameLocationCharacter actor, GameLocationCharacter opponent, AbilityCheckData abilityCheckData)
         {
             var actionModifierActor = new ActionModifier();
             var actionModifierOpponent = new ActionModifier();
@@ -784,23 +790,22 @@ internal static class OtherFeats
                 }
             }
 
-            actor.RulesetCharacter.ResolveContestCheck(
+            yield return TryAlterOutcomeAttributeCheck.ResolveContestCheck(
+                actor.RulesetCharacter,
                 abilityCheckBonusActor,
                 actionModifierActor.AbilityCheckModifier,
                 AttributeDefinitions.Charisma,
                 SkillDefinitions.Intimidation,
                 actionModifierActor.AbilityCheckAdvantageTrends,
                 actionModifierActor.AbilityCheckModifierTrends,
+                opponent.RulesetCharacter,
                 abilityCheckBonusOpponent,
                 actionModifierOpponent.AbilityCheckModifier,
                 AttributeDefinitions.Wisdom,
                 SkillDefinitions.Insight,
                 actionModifierOpponent.AbilityCheckAdvantageTrends,
                 actionModifierOpponent.AbilityCheckModifierTrends,
-                opponent.RulesetCharacter,
-                out var outcome);
-
-            return outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+                abilityCheckData);
         }
     }
 
