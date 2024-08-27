@@ -358,6 +358,8 @@ public static class GameLocationCharacterPatcher
                 actionTypeStatus,
                 ignoreMovePoints);
 
+            ActionSwitching.CheckSpellcastingAvailability(__instance, actionId, scope, ref __result);
+
             //PATCH: support `EnableMonkDoNotRequireAttackActionForFlurry`
             if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry &&
                 actionId
