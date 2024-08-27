@@ -151,7 +151,9 @@ public static class RulesetCharacterHeroPatcher
             List<TrendInfo> modifierTrends,
             bool checkFeatures)
         {
-            if (!checkFeatures || modifierTrends.Any(x => x.sourceType == FeatureSourceType.Proficiency))
+            if (!checkFeatures ||
+                modifierTrends == null ||
+                modifierTrends.Any(x => x.sourceType == FeatureSourceType.Proficiency))
             {
                 return;
             }
