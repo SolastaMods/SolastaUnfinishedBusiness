@@ -334,7 +334,7 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
     private sealed class MagicEffectFinishedByMeAncientForestLifeSap : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {

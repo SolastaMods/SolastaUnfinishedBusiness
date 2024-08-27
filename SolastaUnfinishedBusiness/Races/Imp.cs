@@ -281,7 +281,7 @@ internal static class RaceImpBuilder
         : IPhysicalAttackInitiatedByMe, IMagicEffectInitiatedByMe, IModifyAttackActionModifier
     {
         public IEnumerator OnMagicEffectInitiatedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

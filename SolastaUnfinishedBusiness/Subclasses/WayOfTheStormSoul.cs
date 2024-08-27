@@ -209,7 +209,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
     private sealed class MagicEffectFinishedByMeDiscipleOfStorms : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {

@@ -326,7 +326,7 @@ public sealed class DomainTempest : AbstractSubclass
         : IMagicEffectFinishedOnMe, IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnMagicEffectFinishedOnMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             List<GameLocationCharacter> targets)

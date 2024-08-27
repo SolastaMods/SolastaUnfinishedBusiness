@@ -622,7 +622,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -732,7 +732,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         ConditionDefinition conditionChaliceHealing) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {

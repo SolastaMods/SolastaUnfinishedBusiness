@@ -123,7 +123,7 @@ public sealed class PathOfTheRavager : AbstractSubclass
         FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             // ReSharper disable once InconsistentNaming
             List<GameLocationCharacter> _targets)

@@ -1419,7 +1419,7 @@ internal static class Level20SubclassesContext
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -1514,7 +1514,8 @@ internal static class Level20SubclassesContext
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
 
-            actingCharacter.MyExecuteActionSpendPower(usablePower, actingCharacter);
+            //TODO: check if MyExecuteActionSpendPower works here
+            actingCharacter.MyExecuteActionPowerNoCost(usablePower, actingCharacter);
 
             yield break;
         }

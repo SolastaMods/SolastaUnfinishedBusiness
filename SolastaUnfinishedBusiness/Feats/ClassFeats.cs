@@ -366,7 +366,7 @@ internal static class ClassFeats
     {
         public IEnumerator OnMagicEffectFinishedByMeOrAlly(
             GameLocationBattleManager battleManager,
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter helper,
             List<GameLocationCharacter> targets)
@@ -601,7 +601,7 @@ internal static class ClassFeats
     private sealed class UsePowerFinishedByMeFeatHardy : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {

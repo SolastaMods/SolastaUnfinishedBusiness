@@ -890,7 +890,7 @@ internal static class Level20Context
     private sealed class ActionFinishedByMeArchDruid(FeatureDefinition featureDefinition) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {

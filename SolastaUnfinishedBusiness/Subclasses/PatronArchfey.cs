@@ -354,8 +354,7 @@ public class PatronArchfey : AbstractSubclass
             yield return HandleReaction(battleManager, attacker, defender);
         }
 
-        public IEnumerator OnMagicEffectFinishedOnMe(
-            CharacterActionMagicEffect action,
+        public IEnumerator OnMagicEffectFinishedOnMe(CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             List<GameLocationCharacter> targets)

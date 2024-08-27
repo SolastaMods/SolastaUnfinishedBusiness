@@ -335,7 +335,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMeOrAlly(
             GameLocationBattleManager battleManager,
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter helper,
             List<GameLocationCharacter> targets)

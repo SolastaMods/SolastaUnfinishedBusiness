@@ -337,7 +337,8 @@ public sealed class OathOfDread : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerAuraOfDominationDamage, rulesetAttacker);
 
-            attacker.MyExecuteActionSpendPower(usablePower, character);
+            //TODO: check if MyExecuteActionSpendPower works here
+            attacker.MyExecuteActionPowerNoCost(usablePower, character);
         }
     }
 

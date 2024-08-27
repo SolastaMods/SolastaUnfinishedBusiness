@@ -8,7 +8,7 @@ public interface IMagicEffectFinishedOnMe
 {
     [UsedImplicitly]
     IEnumerator OnMagicEffectFinishedOnMe(
-        CharacterActionMagicEffect action,
+        CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         List<GameLocationCharacter> targets);

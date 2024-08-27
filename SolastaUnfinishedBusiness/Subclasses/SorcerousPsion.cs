@@ -316,7 +316,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -387,7 +387,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         : IModifyConcentrationRequirement, IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {

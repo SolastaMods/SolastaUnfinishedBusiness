@@ -182,12 +182,10 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetDurationData(DurationType.Minute, 1)
-                    //.SetParticleEffectParameters(DivineFavor)
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation |
-                                        RecurrentEffect.OnTurnStart |
-                                        RecurrentEffect.OnEnter)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -369,7 +367,7 @@ internal static partial class SpellBuilders
         private const string ConditionCorruptingBoltName = "ConditionCorruptingBolt";
 
         public IEnumerator OnMagicEffectFinishedOnMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             List<GameLocationCharacter> targets)
@@ -550,7 +548,8 @@ internal static partial class SpellBuilders
             var rulesetAttacker = mover.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
 
-            mover.MyExecuteActionSpendPower(usablePower, targets);
+            //TODO: check if MyExecuteActionSpendPower works here
+            mover.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 

@@ -8,7 +8,7 @@ public interface IMagicEffectInitiatedByMe
 {
     [UsedImplicitly]
     IEnumerator OnMagicEffectInitiatedByMe(
-        CharacterActionMagicEffect action,
+        CharacterAction action,
         RulesetEffect activeEffect,
         GameLocationCharacter attacker,
         List<GameLocationCharacter> targets);

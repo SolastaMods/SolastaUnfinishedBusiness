@@ -297,7 +297,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         FeatureDefinitionPower powerCounterSpell) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -315,7 +315,9 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             var usablePower = PowerProvider.Get(powerArcaneBackslash, rulesetAttacker);
 
             attacker.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
-            attacker.MyExecuteActionSpendPower(usablePower, [.. targets]);
+
+            //TODO: check if MyExecuteActionSpendPower works here
+            attacker.MyExecuteActionPowerNoCost(usablePower, [.. targets]);
         }
     }
 

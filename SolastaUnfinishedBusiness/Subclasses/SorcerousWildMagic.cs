@@ -536,7 +536,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private sealed class CustomBehaviorWildMagicSurge : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var hasUsedWildMarkThisTurn = rulesetAttacker.HasConditionOfCategoryAndType(
@@ -1117,7 +1119,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private sealed class CustomBehaviorSpellBombardment : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -1127,7 +1129,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -1480,7 +1482,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -1497,7 +1499,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

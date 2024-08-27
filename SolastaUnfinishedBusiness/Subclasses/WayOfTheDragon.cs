@@ -334,6 +334,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeAcid, 1))
+                    .SetImpactEffectParameters(AcidArrow)
                     .Build())
             .AddToDB();
 
