@@ -1192,6 +1192,8 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
+            RemoveExistingRestrainedInstances(actingRulesetCharacter);
+
             var targetCharacter = action.ActionParams.TargetCharacters[0];
 
             yield return RollAbilityCheckAndTryMoveApplyRestrained(
@@ -1322,8 +1324,6 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IGameLocationActionService>()?
                     .ExecuteAction(actionParams, null, true);
             }
-            
-            RemoveExistingRestrainedInstances(actingRulesetCharacter);
 
             if (!isEnemy)
             {
