@@ -29,7 +29,6 @@ public static class ActionSwitching
         DatabaseHelper.ActionDefinitions.GrantBardicInspiration.classNameOverride = "UsePower";
 
         //Mark Action Surge to track spell flags separately
-        
         FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain
             .AddCustomSubFeatures(ActionWithCustomSpellTracking.Mark);
 
@@ -446,6 +445,7 @@ public static class ActionSwitching
         if (rank < sorted.Count)
         {
             var data = PerformanceFilterExtraData.GetData(sorted[rank]);
+
             data?.LoadSpellcasting(character, type, false);
         }
 
@@ -658,8 +658,10 @@ public static class ActionSwitching
         data.LoadSpellcasting(character, type, true);
     }
 
-    internal static void CheckSpellcastingAvailability(GameLocationCharacter character,
-        ActionDefinitions.Id actionId, ActionDefinitions.ActionScope scope,
+    internal static void CheckSpellcastingAvailability(
+        GameLocationCharacter character,
+        ActionDefinitions.Id actionId,
+        ActionDefinitions.ActionScope scope,
         ref ActionDefinitions.ActionStatus result)
     {
         if (scope != ActionDefinitions.ActionScope.Battle || result != ActionDefinitions.ActionStatus.Available)
@@ -669,6 +671,7 @@ public static class ActionSwitching
 
         ActionDefinitions.ActionType type;
 
+        // ReSharper disable once ConvertIfStatementToSwitchStatement
         if (actionId == ActionDefinitions.Id.CastMain)
         {
             type = ActionDefinitions.ActionType.Main;
@@ -682,28 +685,37 @@ public static class ActionSwitching
             return;
         }
 
-        var filters = character.actionPerformancesByType[type];
-        bool onlyCantrips = filters.Select(PerformanceFilterExtraData.GetData)
-            .Any(d => d.CantripsOnly(character, type));
+        if (!character.actionPerformancesByType.TryGetValue(type, out var filters))
+        {
+            return;
+        }
+
+        var onlyCantrips = filters
+            .Select(PerformanceFilterExtraData.GetData)
+            .Any(filter => filter != null && filter.CantripsOnly(character, type));
+
         var rulesetCharacter = character.RulesetCharacter;
+
         if (!rulesetCharacter.CanCastSpellOfActionType(type, onlyCantrips))
         {
             result = ActionDefinitions.ActionStatus.Unavailable;
         }
     }
 
-    public static void CheckSpellcastingCantrips(GameLocationCharacter character,
-        ActionDefinitions.ActionType actionType, ref bool cantripsOnly)
+    public static void CheckSpellcastingCantrips(
+        GameLocationCharacter character,
+        ActionDefinitions.ActionType actionType,
+        ref bool cantripsOnly)
     {
-        if (Gui.Battle == null
-            || actionType is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus))
+        if (Gui.Battle == null ||
+            actionType is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus) ||
+            !character.actionPerformancesByType.TryGetValue(actionType, out var filters))
         {
             return;
         }
-        
-        var filters = character.actionPerformancesByType[actionType];
+
         cantripsOnly = cantripsOnly || filters.Select(PerformanceFilterExtraData.GetData)
-            .Any(d => d.CantripsOnly(character, actionType));
+            .Any(filter => filter != null && filter.CantripsOnly(character, actionType));
     }
 
     private sealed class OnReducedToZeroHpByMeHordeBreaker(
