@@ -1035,7 +1035,7 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)
         {
-            if (action is not CharacterActionCastSpell actionCastSpell)
+            if (action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell)
             {
                 yield break;
             }
@@ -1048,10 +1048,10 @@ internal static partial class SpellBuilders
             }
             else
             {
-                var rulesetCaster = actionCastSpell.ActionParams.ActingCharacter.RulesetCharacter;
-                var spellCastingAbility = actionCastSpell.ActiveSpell.SpellRepertoire.SpellCastingAbility;
+                var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+                var spellCastingAbility = rulesetEffectSpell.SpellRepertoire.SpellCastingAbility;
 
-                SecondTarget = actionCastSpell.ActionParams.TargetCharacters[1];
+                SecondTarget = action.ActionParams.TargetCharacters[1];
                 SpellCastingModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                     rulesetCaster.TryGetAttributeValue(spellCastingAbility));
             }

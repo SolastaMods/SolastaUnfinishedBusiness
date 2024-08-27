@@ -1250,8 +1250,6 @@ internal static partial class SpellBuilders
 
             _target = action.ActionParams.TargetCharacters[0];
 
-            var attacker = action.ActingCharacter;
-
             action.ActionParams.TargetCharacters.SetRange(
                 (Gui.Battle?.AllContenders ?? [])
                 .Where(x =>
@@ -1265,10 +1263,11 @@ internal static partial class SpellBuilders
                 action.ActionParams.ActionModifiers.Add(new ActionModifier());
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var spellCastingAbility = rulesetEffectSpell.SpellRepertoire.SpellCastingAbility;
 
             _spellCastingAbilityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetAttacker.TryGetAttributeValue(rulesetEffectSpell.spellRepertoire.SpellCastingAbility));
+                rulesetAttacker.TryGetAttributeValue(spellCastingAbility));
 
             var rulesetTarget = _target.RulesetCharacter;
 

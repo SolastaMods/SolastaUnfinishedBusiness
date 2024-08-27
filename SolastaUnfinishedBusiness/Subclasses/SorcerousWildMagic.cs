@@ -549,7 +549,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             if (hasUsedWildMarkThisTurn ||
                 action is not CharacterActionCastSpell actionCastSell ||
                 (actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 && !hasChaos) ||
-                actionCastSell.ActiveSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer)
+                actionCastSell.ActiveSpell.SpellRepertoire?.SpellCastingClass != CharacterClassDefinitions.Sorcerer)
             {
                 yield break;
             }
@@ -1141,7 +1141,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             if (levels < 18 ||
                 ((activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                  rulesetEffectSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer) &&
+                  rulesetEffectSpell.SpellRepertoire?.SpellCastingClass != CharacterClassDefinitions.Sorcerer) &&
                  activeEffect.SourceDefinition != PowerFireball))
             {
                 yield break;
