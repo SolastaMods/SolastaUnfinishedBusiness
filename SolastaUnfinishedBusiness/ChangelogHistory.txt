@@ -11,6 +11,7 @@
 - fixed Imp Badland draw inspiration getting offered on a critical failure
 - fixed Innovation Armorer perfected armorer messing up thunder gauntlet and lightning launcher debuffs
 - fixed Innovation Grenadier alchemy initial pool amount to 6
+- fixed Bard jack of all trades, and Martial Champion remarkable athlete not working at all [VANILLA]
 - fixed Martial Psi-Warrior kinetic barrier getting offered on a critical hit
 - fixed Martial Psi-Warrior psionic adept push/prone reactions getting offered on a miss
 - fixed multiclass level up interaction with whole casters [Cleric, Druid, Paladin]
