@@ -15,7 +15,9 @@ internal enum Silent
     None,
     WhenAdded = 1,
     WhenRemoved = 2,
-    WhenAddedOrRemoved = WhenAdded | WhenRemoved
+    WhenRefreshed = 4,
+    WhenAddedOrRemoved = WhenAdded | WhenRemoved,
+    WhenRefreshedOrRemoved = WhenRefreshed | WhenRemoved
 }
 
 [UsedImplicitly]
@@ -214,6 +216,7 @@ internal class ConditionDefinitionBuilder
     {
         Definition.silentWhenAdded = silent.HasFlag(Silent.WhenAdded);
         Definition.silentWhenRemoved = silent.HasFlag(Silent.WhenRemoved);
+        Definition.silentWhenRefreshed = silent.HasFlag(Silent.WhenRefreshed);
         return this;
     }
 

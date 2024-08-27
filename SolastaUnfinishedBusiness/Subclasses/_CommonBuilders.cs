@@ -96,7 +96,7 @@ internal static class CommonBuilders
                 ConditionDefinitionBuilder
                     .Create("ConditionCasterFightingWarMagic")
                     .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
-                    .SetSilent(Silent.WhenRemoved)
+                    .SetSilent(Silent.WhenRefreshedOrRemoved)
                     .SetPossessive()
                     .AddFeatures(
                         FeatureDefinitionAttackModifierBuilder
