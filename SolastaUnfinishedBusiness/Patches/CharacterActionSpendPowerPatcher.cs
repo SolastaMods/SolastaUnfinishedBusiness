@@ -339,12 +339,12 @@ public static class CharacterActionSpendPowerPatcher
                         __instance, actingCharacter, target, __instance.targets);
                 }
             }
-            
+
             //PATCH: support for `IMagicEffectFinishedByMeOrAlly`
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-            
+
             foreach (var ally in contenders
                          .Where(x => x.Side == actingCharacter.Side
                                      && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })

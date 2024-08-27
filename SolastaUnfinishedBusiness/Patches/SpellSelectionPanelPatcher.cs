@@ -35,7 +35,7 @@ public static class SpellSelectionPanelPatcher
             {
                 cantripOnly = true;
             }
-            
+
             ActionSwitching.CheckSpellcastingCantrips(caster.GameLocationCharacter, actionType, ref cantripOnly);
         }
 
