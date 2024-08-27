@@ -603,6 +603,13 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .Create(EffectProxyDefinitions.ProxySpikeGrowth, $"Proxy{Name}Growth")
                 .SetOrUpdateGuiPresentation($"{ConditionWildSurgePrefix}Growth", Category.Condition)
                 .AddToDB();
+            var conditionGrowthImmunity = ConditionDefinitionBuilder
+                .Create($"Condition{Name}GrowthImmunity")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                .AddToDB();
+            conditionGrowthImmunity.forceTurnOccurence = true;
 
             var powerGrowth = FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}Growth")
@@ -613,12 +620,18 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     EffectDescriptionBuilder
                         .Create(SpellDefinitions.Entangle)
                         .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                        .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
                         .SetNoSavingThrow()
+                        .SetRecurrentEffect(
+                            RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                         .SetEffectForms(
                             EffectFormBuilder
                                 .Create()
                                 .SetSummonEffectProxyForm(proxyGrowth)
+                                .Build(),
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(conditionGrowthImmunity, ConditionForm.ConditionOperation.Add)
                                 .Build(),
                             EffectFormBuilder
                                 .CreateTopologyForm(TopologyForm.Type.DifficultThrough, false)
