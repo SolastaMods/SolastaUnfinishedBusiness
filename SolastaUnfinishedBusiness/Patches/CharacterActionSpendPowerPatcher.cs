@@ -86,6 +86,17 @@ public static class CharacterActionSpendPowerPatcher
             // Create an active power
             __instance.activePower = activePower;
 
+            //PATCH: supports `IMagicEffectInitiatedByMe`
+            foreach (var magicEffectInitiatedByMe in actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicEffectInitiatedByMe>())
+            {
+                yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(
+                    __instance,
+                    rulesetEffect,
+                    actingCharacter,
+                    __instance.targets);
+            }
+
             var actionModifier = new ActionModifier();
 
             // Spend the power, if this does not come from an item
@@ -303,8 +314,52 @@ public static class CharacterActionSpendPowerPatcher
                 }
             }
 
-            __instance.PersistantEffectAction();
+            //PATCH: support for `IMagicEffectFinishedByMe`
+            foreach (var magicEffectFinishedByMe in actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicEffectFinishedByMe>())
+            {
+                yield return
+                    magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, __instance.targets);
+            }
 
+            //PATCH: support for `IMagicEffectFinishedOnMe`
+            foreach (var target in __instance.targets)
+            {
+                var rulesetTarget = target.RulesetCharacter;
+
+                if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
+                {
+                    continue;
+                }
+
+                foreach (var magicEffectFinishedOnMe in rulesetTarget
+                             .GetSubFeaturesByType<IMagicEffectFinishedOnMe>())
+                {
+                    yield return magicEffectFinishedOnMe.OnMagicEffectFinishedOnMe(
+                        __instance, actingCharacter, target, __instance.targets);
+                }
+            }
+            
+            //PATCH: support for `IMagicEffectFinishedByMeOrAlly`
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
+            
+            foreach (var ally in contenders
+                         .Where(x => x.Side == actingCharacter.Side
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .ToList())
+            {
+                foreach (var magicEffectFinishedByMeOrAlly in ally.RulesetCharacter
+                             .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAlly>())
+                {
+                    yield return magicEffectFinishedByMeOrAlly
+                        .OnMagicEffectFinishedByMeOrAlly(
+                            null, __instance, actingCharacter, ally, __instance.targets);
+                }
+            }
+
+            __instance.PersistantEffectAction();
 
             yield return null;
         }
