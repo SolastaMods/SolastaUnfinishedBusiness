@@ -882,6 +882,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     {
                         if (!reactingOutOfTurn)
                         {
+                            character.MyExecuteActionPowerNoCost(usablePower);
                             yield break;
                         }
 
