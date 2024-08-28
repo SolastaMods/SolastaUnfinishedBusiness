@@ -4,6 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using TA.AI;
 using TA.AI.Activities;
@@ -24,8 +25,7 @@ public static class ActivitiesBreakFreePatcher
             [NotNull] IEnumerator values,
             [NotNull] BreakFree __instance,
             AiLocationCharacter character,
-            DecisionDefinition decisionDefinition,
-            DecisionContext context)
+            DecisionDefinition decisionDefinition)
         {
             RulesetCondition restrainingCondition = null;
 
@@ -69,19 +69,31 @@ public static class ActivitiesBreakFreePatcher
                             .Max();
                     }
 
-                    var actionMod = new ActionModifier();
+                    var actionModifier = new ActionModifier();
 
                     rulesetCharacter.ComputeBaseAbilityCheckBonus(
-                        AttributeDefinitions.Strength, actionMod.AbilityCheckModifierTrends, string.Empty);
-
+                        AttributeDefinitions.Strength, actionModifier.AbilityCheckModifierTrends, string.Empty);
                     gameLocationCharacter.ComputeAbilityCheckActionModifier(
-                        AttributeDefinitions.Strength, string.Empty, actionMod);
+                        AttributeDefinitions.Strength, string.Empty, actionModifier);
 
-                    gameLocationCharacter.RollAbilityCheck(
-                        AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, actionMod,
-                        false, -1, out var outcome, out _, true);
+                    var abilityCheckRoll = gameLocationCharacter.RollAbilityCheck(
+                        AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, actionModifier,
+                        false, -1, out var rollOutcome, out var successDelta, true);
 
-                    success = outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+                    //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+                    var abilityCheckData = new AbilityCheckData
+                    {
+                        AbilityCheckRoll = abilityCheckRoll,
+                        AbilityCheckRollOutcome = rollOutcome,
+                        AbilityCheckSuccessDelta = successDelta
+                    };
+
+                    yield return TryAlterOutcomeAttributeCheck
+                        .HandleITryAlterOutcomeAttributeCheck(
+                            gameLocationCharacter, abilityCheckData, __instance.actionModifier);
+
+                    rollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                    success = rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
 
                     if (success)
                     {

@@ -182,12 +182,10 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetDurationData(DurationType.Minute, 1)
-                    //.SetParticleEffectParameters(DivineFavor)
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation |
-                                        RecurrentEffect.OnTurnStart |
-                                        RecurrentEffect.OnEnter)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -369,7 +367,7 @@ internal static partial class SpellBuilders
         private const string ConditionCorruptingBoltName = "ConditionCorruptingBolt";
 
         public IEnumerator OnMagicEffectFinishedOnMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             List<GameLocationCharacter> targets)
@@ -550,6 +548,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = mover.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
 
+            //TODO: check if MyExecuteActionSpendPower works here
             mover.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
@@ -776,7 +775,7 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.Countered)
+            if (action.Countered || action.ExecutionFailed)
             {
                 yield break;
             }
@@ -1126,7 +1125,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                        EffectDifficultyClassComputation.FixedValue)
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1212,8 +1211,6 @@ internal static partial class SpellBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageAcid, rulesetCaster);
 
-            usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
-
             caster.MyExecuteActionPowerNoCost(usablePower, character);
         }
 
@@ -1231,9 +1228,7 @@ internal static partial class SpellBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageCold, rulesetCaster);
 
-            usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
-
-            caster.MyExecuteActionPowerNoCost(usablePower, character);
+            caster.MyExecuteActionSpendPower(usablePower, character);
         }
     }
 
@@ -1770,7 +1765,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action is not CharacterActionCastSpell actionCastSpell || action.Countered)
+            if (action is not CharacterActionCastSpell actionCastSpell || action.Countered || action.ExecutionFailed)
             {
                 yield break;
             }

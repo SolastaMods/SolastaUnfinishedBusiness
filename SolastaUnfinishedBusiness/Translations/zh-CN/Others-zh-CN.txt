@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=高处攻击
 Feedback/&MagicalGuidanceCheckToHitRoll={0} 使用了 {1} 并投掷了 {2} 以替换检定掷骰上的 {3}
 Feedback/&MetamagicActivatedShortLine={0} 激活 {1} 超魔法
 Feedback/&NarrativeChoiceRoll={0} 投掷 {1} 个叙述选项，结果为 {2}。
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=旅行途中休息后无法使用识别能力
 Feedback/&ReturningWeaponActivates={1} 返回 {0}！
 Feedback/&SmallRace=小体型种族
 Feedback/&TriggerFeatureLine={0} 触发 {1}
@@ -191,7 +192,7 @@ Message/&CharacterExportModalContentDescription=输入要导出的英雄名称�
 Message/&CharacterExportModalTitleDescription=导出 {0}
 Message/&MessageModWelcomeDescription=未竟之业Mod具有许多激动人心的功能，但默认情况下没有启用。按 <color=#F0DAA0>Ctrl-F10</color> 打开 Unity Mod Manager UI [UMM]，然后单击“Unfinished Business”旁边的设置图标以打开设置页面。探索并选用你喜欢的功能。
 Message/&MessageModWelcomeTitle=未竟之业模式
-Message/&ModErrorWarningDescription=Solasta 检测到不稳定情况。请要求每个玩家关闭游戏，获取文件 <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b>，并与 Unfinished Business mod 社区分享这些日志和保存文件。
+Message/&ModErrorWarningDescription=Solasta 检测到不稳定情况。请要求每个玩家关闭游戏，获取文件 <b>%APPDATA%\..\LocalLow\Tactical Adventures\Player.log</b>，并与 Unfinished Business mod 社区分享这些日志和保存文件。
 Message/&ModErrorWarningTitle=游戏警告！
 Message/&RespecMultiplayerAbortDescription=无法在多人游戏或地图上洗点......
 Message/&RespecSuccessfulDescription=洗点成功。不要忘记捡起地上的物品。

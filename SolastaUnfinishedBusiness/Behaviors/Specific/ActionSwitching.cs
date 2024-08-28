@@ -9,7 +9,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
@@ -35,6 +34,7 @@ public static class ActionSwitching
 
         //Make Horde Breaker add condition instead of using trigger
         var hordeBreaker = FeatureDefinitionAdditionalActions.AdditionalActionHunterHordeBreaker;
+
         hordeBreaker.AddCustomSubFeatures(
             new OnReducedToZeroHpByMeHordeBreaker(
                 ConditionDefinitionBuilder
@@ -142,6 +142,7 @@ public static class ActionSwitching
         {
             hero.GetAllConditions(hero.AllConditionsForEnumeration);
             hero.AllConditionsForEnumeration.Sort((a, b) => a.Guid.CompareTo(b.Guid));
+
             foreach (var rulesetCondition in hero.AllConditionsForEnumeration)
             {
                 EnumerateFeaturesHierarchically<T>(features,
@@ -161,6 +162,7 @@ public static class ActionSwitching
             }
 
             var grantedFeature = invocation.InvocationDefinition.GrantedFeature;
+
             if (grantedFeature && grantedFeature is T)
             {
                 features.Add((grantedFeature, invocation.InvocationDefinition.Name));
@@ -192,6 +194,7 @@ public static class ActionSwitching
         //Conditions
         monster.GetAllConditions(monster.AllConditionsForEnumeration);
         monster.AllConditionsForEnumeration.Sort((a, b) => a.Guid.CompareTo(b.Guid));
+
         foreach (var rulesetCondition in monster.AllConditionsForEnumeration)
         {
             EnumerateFeaturesHierarchically<T>(features, GetConditionFeatures<T>(rulesetCondition.ConditionDefinition),
@@ -212,7 +215,9 @@ public static class ActionSwitching
             .ExecuteAction(actionParams, null, true);
     }
 
-    internal static void DoPrioritizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type,
+    internal static void DoPrioritizeAction(
+        GameLocationCharacter character,
+        ActionDefinitions.ActionType type,
         int index)
     {
         var rank = character.CurrentActionRankByType[type];
@@ -225,7 +230,6 @@ public static class ActionSwitching
         var map = character.UsedSpecialFeatures;
         var filters = character.ActionPerformancesByType[type];
         var list = LoadIndexes(map, type, filters.Count);
-
         var k = list[index];
 
         //Store current action attacks
@@ -243,7 +247,7 @@ public static class ActionSwitching
 
         data = PerformanceFilterExtraData.GetData(filters[rank]);
         data?.LoadAttacks(character, type);
-        data?.LoadSpellcasting(character, type);
+        data?.LoadSpellcasting(character, type, true);
 
         character.RulesetCharacter?.RefreshAttackModes();
     }
@@ -269,32 +273,22 @@ public static class ActionSwitching
             return;
         }
 
-        if (actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell)
-        {
-            //supports for action switching interaction with MetamagicQuickenedSpell
-            //you can only cast cantrips after quicken a spell
-            if (rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
-            {
-                character.UsedMainSpell = true;
-            }
-        }
-
         var type = actionParams.ActionDefinition.ActionType;
 
-        var switched = type switch
+        // ReSharper disable once ConvertIfStatementToSwitchStatement
+        if (type == ActionDefinitions.ActionType.Main)
         {
-            ActionDefinitions.ActionType.Main => CheckIfActionSwitched(character, type, mainRank, mainAttacks),
-            ActionDefinitions.ActionType.Bonus => CheckIfActionSwitched(character, type, bonusRank, bonusAttacks),
-            _ => false
-        };
-
-        if (switched)
+            CheckIfActionSwitched(character, type, mainRank, mainAttacks);
+        }
+        else if (type == ActionDefinitions.ActionType.Bonus)
         {
-            character.RulesetCharacter.RefreshAttackModes();
+            CheckIfActionSwitched(character, type, bonusRank, bonusAttacks);
         }
     }
 
-    private static bool CheckIfActionSwitched(GameLocationCharacter character, ActionDefinitions.ActionType type,
+    private static void CheckIfActionSwitched(
+        GameLocationCharacter character,
+        ActionDefinitions.ActionType type,
         int wasRank, int wasAttacks)
     {
         var rank = character.CurrentActionRankByType[type];
@@ -308,7 +302,7 @@ public static class ActionSwitching
             newData?.StoreAttacks(character, type);
             newData?.StoreSpellcasting(character, type);
 
-            return false;
+            return;
         }
 
         // ReSharper disable once InvocationIsSkipped
@@ -316,7 +310,7 @@ public static class ActionSwitching
 
         if (wasRank >= filters.Count)
         {
-            return false;
+            return;
         }
 
         var wasData = PerformanceFilterExtraData.GetData(filters[wasRank]);
@@ -325,9 +319,7 @@ public static class ActionSwitching
         wasData?.StoreAttacks(character, type, wasAttacks + 1);
         wasData?.StoreSpellcasting(character, type);
         newData?.LoadAttacks(character, type);
-        newData?.LoadSpellcasting(character, type);
-
-        return true;
+        newData?.LoadSpellcasting(character, type, true);
     }
 
     // ReSharper disable once SuggestBaseTypeForParameter
@@ -433,6 +425,7 @@ public static class ActionSwitching
             else
             {
                 var (feature, origin) = features[i - 1];
+
                 PerformanceFilterExtraData.AddData(filters[i], feature, origin);
             }
         }
@@ -448,7 +441,8 @@ public static class ActionSwitching
         if (rank < sorted.Count)
         {
             var data = PerformanceFilterExtraData.GetData(sorted[rank]);
-            data?.LoadSpellcasting(character, type);
+
+            data?.LoadSpellcasting(character, type, false);
         }
 
         filters.SetRange(sorted);
@@ -605,7 +599,7 @@ public static class ActionSwitching
         }
 
         data.LoadAttacks(character, type);
-        data.LoadSpellcasting(character, type);
+        data.LoadSpellcasting(character, type, true);
     }
 
     public static void RefundActionUse(GameLocationCharacter character, ActionDefinitions.ActionType type)
@@ -657,7 +651,67 @@ public static class ActionSwitching
         }
 
         data.LoadAttacks(character, type);
-        data.LoadSpellcasting(character, type);
+        data.LoadSpellcasting(character, type, true);
+    }
+
+    internal static void CheckSpellcastingAvailability(
+        GameLocationCharacter character,
+        ActionDefinitions.Id actionId,
+        ActionDefinitions.ActionScope scope,
+        ref ActionDefinitions.ActionStatus result)
+    {
+        if (scope != ActionDefinitions.ActionScope.Battle || result != ActionDefinitions.ActionStatus.Available)
+        {
+            return;
+        }
+
+        ActionDefinitions.ActionType type;
+
+        // ReSharper disable once ConvertIfStatementToSwitchStatement
+        if (actionId == ActionDefinitions.Id.CastMain)
+        {
+            type = ActionDefinitions.ActionType.Main;
+        }
+        else if (actionId == ActionDefinitions.Id.CastBonus)
+        {
+            type = ActionDefinitions.ActionType.Bonus;
+        }
+        else
+        {
+            return;
+        }
+
+        if (!character.actionPerformancesByType.TryGetValue(type, out var filters))
+        {
+            return;
+        }
+
+        var onlyCantrips = filters
+            .Select(PerformanceFilterExtraData.GetData)
+            .Any(filter => filter != null && filter.CantripsOnly(character, type));
+
+        var rulesetCharacter = character.RulesetCharacter;
+
+        if (!rulesetCharacter.CanCastSpellOfActionType(type, onlyCantrips))
+        {
+            result = ActionDefinitions.ActionStatus.Unavailable;
+        }
+    }
+
+    public static void CheckSpellcastingCantrips(
+        GameLocationCharacter character,
+        ActionDefinitions.ActionType actionType,
+        ref bool cantripsOnly)
+    {
+        if (Gui.Battle == null ||
+            actionType is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus) ||
+            !character.actionPerformancesByType.TryGetValue(actionType, out var filters))
+        {
+            return;
+        }
+
+        cantripsOnly = cantripsOnly || filters.Select(PerformanceFilterExtraData.GetData)
+            .Any(filter => filter != null && filter.CantripsOnly(character, actionType));
     }
 
     private sealed class OnReducedToZeroHpByMeHordeBreaker(

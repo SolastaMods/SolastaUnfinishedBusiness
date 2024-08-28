@@ -185,7 +185,7 @@ internal static class MetamagicBuilders
         : IMagicEffectInitiatedByMe
     {
         public IEnumerator OnMagicEffectInitiatedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             RulesetEffect rulesetEffect,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

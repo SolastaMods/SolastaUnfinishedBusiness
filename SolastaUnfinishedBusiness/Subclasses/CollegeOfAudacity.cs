@@ -11,6 +11,8 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -26,8 +28,8 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 {
     private const string Name = "CollegeOfAudacity";
     private const string ConditionDefensiveWhirl = $"Condition{Name}DefensiveWhirl";
-    private const ActionDefinitions.Id AudaciousWhirlToggle = (ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle;
-    private const ActionDefinitions.Id MasterfulWhirlToggle = (ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle;
+    private const Id AudaciousWhirlToggle = (Id)ExtraActionId.AudaciousWhirlToggle;
+    private const Id MasterfulWhirlToggle = (Id)ExtraActionId.MasterfulWhirlToggle;
     private const string WhirlDamage = "WhirlDamage";
 
     public CollegeOfAudacity()
@@ -120,7 +122,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
                     .Build())
             .AddToDB();
@@ -142,6 +144,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityAudaciousWhirlToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(AudaciousWhirlToggle)
+            .AddCustomSubFeatures(new ValidateDefinitionApplication(c => !c.IsToggleEnabled(MasterfulWhirlToggle)))
             .AddToDB();
 
         var movementAffinityAudaciousWhirl = FeatureDefinitionMovementAffinityBuilder
@@ -159,14 +162,8 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
         var powerAudaciousWhirl = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AudaciousWhirl")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"FeatureSet{Name}AudaciousWhirl", Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
-                    .Build())
             .AddToDB();
 
         powerAudaciousWhirl.AddCustomSubFeatures(
@@ -175,20 +172,22 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 powerAudaciousWhirl, powerSlashingWhirl, powerSlashingWhirlDamage,
                 conditionAudaciousWhirlExtraMovement));
 
+        _ = ActionDefinitionBuilder
+            .Create(MetamagicToggle, "AudaciousWhirlToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.AudaciousWhirlToggle)
+            .SetActivatedPower(powerAudaciousWhirl)
+            .OverrideClassName("Toggle")
+            .AddCustomSubFeatures(new ActionItemDiceBoxAudaciousWhirl(powerAudaciousWhirl))
+            .AddToDB();
+
         PowerBundle.RegisterPowerBundle(
             powerAudaciousWhirl,
             false,
             powerDefensiveWhirl,
             powerSlashingWhirl,
             powerMobileWhirl);
-
-        _ = ActionDefinitionBuilder
-            .Create(MetamagicToggle, "AudaciousWhirlToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.AudaciousWhirlToggle)
-            .OverrideClassName("Toggle")
-            .AddToDB();
 
         var featureSetAudaciousWhirl = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AudaciousWhirl")
@@ -209,6 +208,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityMasterfulWhirlToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(MasterfulWhirlToggle)
+            .AddCustomSubFeatures(new ValidateDefinitionApplication(c => !c.IsToggleEnabled(AudaciousWhirlToggle)))
             .AddToDB();
 
         var featureSetMasterfulWhirl = FeatureDefinitionFeatureSetBuilder
@@ -250,6 +250,16 @@ public sealed class CollegeOfAudacity : AbstractSubclass
         character.UsedSpecialFeatures[WhirlDamage] = damage;
     }
 
+    private sealed class ActionItemDiceBoxAudaciousWhirl(FeatureDefinitionPower powerAudaciousWhirl)
+        : IActionItemDiceBox
+    {
+        public (DieType type, int number, string format) GetDiceInfo(RulesetCharacter character)
+        {
+            return (character.GetBardicInspirationDieValue(), character.GetRemainingPowerUses(powerAudaciousWhirl),
+                "Screen/&BardicInspirationDieDescription");
+        }
+    }
+
     private sealed class CustomBehaviorAudaciousWhirl(
         FeatureDefinitionPower powerAudaciousWhirl,
         FeatureDefinitionPower powerSlashingWhirl,
@@ -281,7 +291,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             var usablePower = PowerProvider.Get(powerSlashingWhirlDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker, withinRange: 1).Where(x => x != defender).ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)

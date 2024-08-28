@@ -257,7 +257,7 @@ public class PatronEldritchSurge : AbstractSubclass
 
     internal interface IQualifySpellToRepertoireLine
     {
-        void QualifySpells(RulesetCharacter character, SpellRepertoireLine line, IEnumerable<SpellDefinition> spells);
+        void QualifySpells(RulesetCharacter character, SpellRepertoireLine line, List<SpellDefinition> spells);
     }
 
     private sealed class BlastReloadCustom :
@@ -280,40 +280,45 @@ public class PatronEldritchSurge : AbstractSubclass
                 return;
             }
 
-            supportCondition.CantripsUsedThisTurn.Clear();
+            supportCondition.CantripAsMain = false;
+            supportCondition.SpellAsMain = false;
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
             var actionParams = action.ActionParams;
+            var actionType = action.ActionType;
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            // only collect cantrips
             if (Gui.Battle == null ||
-                actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                rulesetEffectSpell.SpellDefinition.SpellLevel != 0)
+                actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
+                || actionType != ActionType.Main
+                || !BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
+                    rulesetCharacter, out var supportCondition)
+               )
             {
                 yield break;
             }
 
-            if (!BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
-                    rulesetCharacter, out var supportCondition))
+            switch (rulesetEffectSpell.SpellDefinition.SpellLevel)
             {
-                yield break;
+                case 0:
+                    supportCondition.CantripAsMain = true;
+                    break;
+                case > 0:
+                    supportCondition.SpellAsMain = true;
+                    break;
             }
-
-            supportCondition.CantripsUsedThisTurn.TryAdd(rulesetEffectSpell.SpellDefinition);
         }
 
         public void QualifySpells(
             RulesetCharacter rulesetCharacter,
             SpellRepertoireLine spellRepertoireLine,
-            IEnumerable<SpellDefinition> spells)
+            List<SpellDefinition> spells)
         {
-            // _cantripsUsedThisTurn only has entries for Eldritch Surge of at least level 14
             if (spellRepertoireLine.actionType != ActionType.Bonus
                 || !BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
                     rulesetCharacter, out var supportCondition))
@@ -321,14 +326,25 @@ public class PatronEldritchSurge : AbstractSubclass
                 return;
             }
 
-            spellRepertoireLine.relevantSpells.AddRange(supportCondition.CantripsUsedThisTurn.Intersect(spells));
+            if (supportCondition.SpellAsMain)
+            {
+                spellRepertoireLine.relevantSpells.AddRange(spells.FindAll(x =>
+                    x.ActivationTime == ActivationTime.Action && x.SpellLevel == 0));
+            }
+
+            if (supportCondition.CantripAsMain)
+            {
+                spellRepertoireLine.relevantSpells.AddRange(spells.FindAll(x =>
+                    x.ActivationTime == ActivationTime.Action && x.SpellLevel > 0));
+            }
         }
     }
 
     private class BlastReloadSupportRulesetCondition :
         RulesetConditionCustom<BlastReloadSupportRulesetCondition>, IBindToRulesetConditionCustom
     {
-        public readonly List<SpellDefinition> CantripsUsedThisTurn = [];
+        public bool CantripAsMain;
+        public bool SpellAsMain;
 
         static BlastReloadSupportRulesetCondition()
         {
@@ -348,30 +364,28 @@ public class PatronEldritchSurge : AbstractSubclass
             replacedRulesetCondition = GetFromPoolAndCopyOriginalRulesetCondition(originalRulesetCondition);
         }
 
-        public override void SerializeElements(IElementsSerializer serializer, IVersionProvider versionProvider)
+        [UsedImplicitly]
+        public override void SerializeAttributes(IAttributesSerializer serializer, IVersionProvider versionProvider)
         {
-            base.SerializeElements(serializer, versionProvider);
+            base.SerializeAttributes(serializer, versionProvider);
 
             try
             {
-                BaseDefinition.SerializeDatabaseReferenceList(
-                    serializer, "CantripsUsedThisTurn", "SpellDefinition", CantripsUsedThisTurn);
-
-                if (serializer.Mode == Serializer.SerializationMode.Read)
-                {
-                    CantripsUsedThisTurn.RemoveAll(x => x is null);
-                }
+                CantripAsMain = serializer.SerializeAttribute("CantripAsMain", CantripAsMain);
+                SpellAsMain = serializer.SerializeAttribute("SpellAsMain", SpellAsMain);
             }
             catch (Exception ex)
             {
-                Trace.LogException(
-                    new Exception("Error with EldritchSurgeSupportCondition serialization" + ex.Message, ex));
+                Trace.LogException(new Exception(
+                    "[TACTICAL INVISIBLE FOR PLAYERS] error with BlastReloadSupportRulesetCondition serialization (may be caused by mods or bad versioning implementation) " +
+                    ex.Message, ex));
             }
         }
 
         protected override void ClearCustomStates()
         {
-            CantripsUsedThisTurn.Clear();
+            CantripAsMain = false;
+            SpellAsMain = false;
         }
     }
 

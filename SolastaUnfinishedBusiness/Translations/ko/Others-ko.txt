@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=더 높은 땅
 Feedback/&MagicalGuidanceCheckToHitRoll={0}은(는) {1}을(를) 사용했고 수표 판정의 {3}을(를) 대체하기 위해 {2}를 굴렸습니다.
 Feedback/&MetamagicActivatedShortLine={0}은 {1} 메타매직을 활성화합니다.
 Feedback/&NarrativeChoiceRoll={0}는 {2} 결과와 함께 {1} 설명 선택을 굴립니다.
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=여행 중에는 휴식 후 식별 전원을 사용할 수 없습니다.
 Feedback/&ReturningWeaponActivates={1}이(가) {0}(으)로 돌아갑니다!
 Feedback/&SmallRace=소규모 경주
 Feedback/&TriggerFeatureLine={0}은 {1}을 트리거합니다.
@@ -191,7 +192,7 @@ Message/&CharacterExportModalContentDescription=내보낼 영웅 이름을 입�
 Message/&CharacterExportModalTitleDescription={0} 내보내기
 Message/&MessageModWelcomeDescription=미완성 비즈니스 모드는 흥미로운 기능으로 가득 차 있지만 기본적으로 활성화된 기능은 없습니다. <color=#F0DAA0>Ctrl-F10</color>을 눌러 Unity Mod Manager UI[UMM]를 연 다음 '미완성 비즈니스' 옆에 있는 설정 아이콘을 클릭하여 설정 페이지를 엽니다. 옵션을 살펴보고 마음에 드는 것을 선택하세요.
 Message/&MessageModWelcomeTitle=미완성 비즈니스 모드
-Message/&ModErrorWarningDescription=Solasta가 불안정함을 감지했습니다. 모든 플레이어에게 게임을 닫고 <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> 파일을 가져와 이 로그와 저장 파일을 Unfinished Business 모드 커뮤니티와 공유하도록 요청하세요.
+Message/&ModErrorWarningDescription=Solasta가 불안정함을 감지했습니다. 모든 플레이어에게 게임을 닫고 <b>%APPDATA%\..\LocalLow\Tactical Adventures\Player.log</b> 파일을 가져와 이 로그와 저장 파일을 Unfinished Business 모드 커뮤니티와 공유하도록 요청하세요.
 Message/&ModErrorWarningTitle=게임 경고!
 Message/&RespecMultiplayerAbortDescription=멀티플레이어 게임이나 맵에서는 다시 지정할 수 없습니다...
 Message/&RespecSuccessfulDescription=RESPEC이 성공했습니다. 땅에서 물건을 줍는 것을 잊지 마세요.

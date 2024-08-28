@@ -1290,7 +1290,7 @@ internal static class RaceFeats
         : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -1649,7 +1649,7 @@ internal static class RaceFeats
         }
 
         public IEnumerator OnMagicEffectFinishedOnMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             List<GameLocationCharacter> targets)

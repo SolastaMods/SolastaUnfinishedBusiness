@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=Terreno mais elevado
 Feedback/&MagicalGuidanceCheckToHitRoll={0} usou {1} e rola um {2} para substituir {3} no teste
 Feedback/&MetamagicActivatedShortLine={0} ativa a metamagia {1}
 Feedback/&NarrativeChoiceRoll={0} rola uma escolha narrativa {1} com um resultado {2}.
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Você não pode usar o poder de identificação após o descanso enquanto viaja
 Feedback/&ReturningWeaponActivates={1} retorna para {0}!
 Feedback/&SmallRace=Raça pequena
 Feedback/&TriggerFeatureLine={0} gatilhos {1}
@@ -191,7 +192,7 @@ Message/&CharacterExportModalContentDescription=Digite o nome do herói para exp
 Message/&CharacterExportModalTitleDescription=Exportar {0}
 Message/&MessageModWelcomeDescription=O Unfinished Business Mod está repleto de recursos interessantes, mas por padrão nenhum está habilitado. Pressione <color=#F0DAA0>Ctrl-F10</color> para abrir a interface do Unity Mod Manager [UMM], depois clique no ícone de configurações ao lado de 'Unfinished Business' para abrir as páginas de configurações. Explore as opções e selecione as que você gosta.
 Message/&MessageModWelcomeTitle=Mod de negócios inacabados
-Message/&ModErrorWarningDescription=Solasta detectou uma instabilidade. Por favor, peça a todos os jogadores para fechar o jogo, pegar o arquivo <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> e compartilhar esses logs e o arquivo salvo com a comunidade de mods Unfinished Business.
+Message/&ModErrorWarningDescription=Solasta detectou uma instabilidade. Por favor, peça a todos os jogadores para fechar o jogo, pegar o arquivo <b>%APPDATA%\..\LocalLow\Tactical Adventures\Player.log</b> e compartilhar esses logs e o arquivo salvo com a comunidade de mods Unfinished Business.
 Message/&ModErrorWarningTitle=Aviso de jogo!
 Message/&RespecMultiplayerAbortDescription=Não é possível especificar um jogo ou mapa multijogador...
 Message/&RespecSuccessfulDescription=RESPEC foi bem-sucedido. Não esqueça de pegar seus itens no chão.

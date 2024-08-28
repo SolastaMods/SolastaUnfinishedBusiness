@@ -511,8 +511,9 @@ public sealed class InnovationWeapon : AbstractSubclass
                 return;
             }
 
-            ServiceRepository.GetService<ICommandService>()
-                .ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            actionService.ExecuteInstantSingleAction(new CharacterActionParams(locationCharacter, Id.Dodge));
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)

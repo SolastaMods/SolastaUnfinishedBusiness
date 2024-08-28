@@ -67,38 +67,37 @@ public static class CharacterActionSpendPowerPatcher
             var actionParams = __instance.ActionParams;
             var rulesetEffect = actionParams.RulesetEffect;
             var effectDescription = rulesetEffect.EffectDescription;
-
+            var targets = actionParams.TargetCharacters;
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var activePower = __instance.ActionParams.RulesetEffect as RulesetEffectPower;
 
             // Retrieve the target
-            __instance.targets.Clear();
-            __instance.targets.AddRange(actionParams.TargetCharacters);
-
-            // BEGIN PATCH
-
-            if (rulesetEffect is not RulesetEffectPower { OriginItem: null } activePower)
-            {
-                yield break;
-            }
-
-            // END PATCH
+            __instance.targets.SetRange(targets);
 
             // Create an active power
             __instance.activePower = activePower;
 
+            //PATCH: supports `IMagicEffectInitiatedByMe`
+            foreach (var magicEffectInitiatedByMe in actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicEffectInitiatedByMe>())
+            {
+                yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(
+                    __instance, rulesetEffect, actingCharacter, targets);
+            }
+
             var actionModifier = new ActionModifier();
 
             // Spend the power, if this does not come from an item
-            if (__instance.activePower is { OriginItem: null })
+            if (activePower is { OriginItem: null })
             {
                 // Fire shield retaliation has no class or race origin
-                if (__instance.activePower.UsablePower.OriginClass)
+                if (activePower.UsablePower.OriginClass)
                 {
-                    actingCharacter.RulesetCharacter.UsePower(__instance.activePower.UsablePower);
+                    actingCharacter.RulesetCharacter.UsePower(activePower.UsablePower);
                 }
-                else if (__instance.activePower.UsablePower.OriginRace)
+                else if (activePower.UsablePower.OriginRace)
                 {
-                    actingCharacter.RulesetCharacter.UsePower(__instance.activePower.UsablePower);
+                    actingCharacter.RulesetCharacter.UsePower(activePower.UsablePower);
                 }
 
                 // BEGIN PATCH
@@ -113,28 +112,24 @@ public static class CharacterActionSpendPowerPatcher
             }
             else
             {
-                if (__instance.activePower != null)
-                {
-                    actingCharacter.RulesetCharacter.UseDevicePower(
-                        __instance.activePower.OriginItem, __instance.activePower.PowerDefinition);
-                }
+                actingCharacter.RulesetCharacter.UseDevicePower(activePower.OriginItem, activePower.PowerDefinition);
             }
 
-            for (var i = 0; i < __instance.targets.Count; i++)
+            for (var i = 0; i < targets.Count; i++)
             {
-                var target = __instance.targets[i];
+                var target = targets[i];
 
                 // These bool information must be store as a class member, as it is passed to HandleFailedSavingThrow
                 var hasBorrowedLuck =
                     target.RulesetActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBorrowedLuck);
 
-                if (__instance.activePower != null)
+                if (activePower != null)
                 {
-                    __instance.RolledSaveThrow = __instance.activePower.TryRollSavingThrow(
+                    __instance.RolledSaveThrow = activePower.TryRollSavingThrow(
                         actingCharacter.RulesetCharacter, actingCharacter.Side,
                         target.RulesetActor,
                         actionModifier,
-                        __instance.activePower.EffectDescription.EffectForms,
+                        activePower.EffectDescription.EffectForms,
                         false,
                         out var saveOutcome,
                         out var saveOutcomeDelta);
@@ -166,7 +161,7 @@ public static class CharacterActionSpendPowerPatcher
                     var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
 
                     applyFormsParams.FillSourceAndTarget(actingCharacter.RulesetCharacter, target.RulesetCharacter);
-                    applyFormsParams.FillFromActiveEffect(__instance.activePower);
+                    applyFormsParams.FillFromActiveEffect(activePower);
                     applyFormsParams.FillSpecialParameters(
                         __instance.RolledSaveThrow,
                         0, 0, 0, 0,
@@ -275,10 +270,10 @@ public static class CharacterActionSpendPowerPatcher
                     var impactPlanePoint = positioningService.GetImpactPlanePosition(impactPoint);
                     var impactTarget = new ActionDefinitions.MagicEffectCastData
                     {
-                        Source = __instance.activePower.Name,
+                        Source = activePower.Name,
                         EffectDescription = effectDescription,
                         Caster = actingCharacter,
-                        Targets = __instance.targets,
+                        Targets = targets,
                         TargetIndex = i,
                         SubTargets = actionParams.SubTargets,
                         SubTargetIndex = 0,
@@ -288,7 +283,7 @@ public static class CharacterActionSpendPowerPatcher
                         ActionType = __instance.ActionType,
                         ActionId = __instance.ActionId,
                         IsDivertHit = false,
-                        ComputedTargetParameter = __instance.activePower.ComputeTargetParameter()
+                        ComputedTargetParameter = activePower.ComputeTargetParameter()
                     };
 
                     ServiceRepository.GetService<IGameLocationActionService>()?
@@ -303,8 +298,52 @@ public static class CharacterActionSpendPowerPatcher
                 }
             }
 
-            __instance.PersistantEffectAction();
+            //PATCH: support for `IMagicEffectFinishedByMe`
+            foreach (var magicEffectFinishedByMe in actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicEffectFinishedByMe>())
+            {
+                yield return
+                    magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
+            }
 
+            //PATCH: support for `IMagicEffectFinishedOnMe`
+            foreach (var target in targets)
+            {
+                var rulesetTarget = target.RulesetCharacter;
+
+                if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
+                {
+                    continue;
+                }
+
+                foreach (var magicEffectFinishedOnMe in rulesetTarget
+                             .GetSubFeaturesByType<IMagicEffectFinishedOnMe>())
+                {
+                    yield return magicEffectFinishedOnMe.OnMagicEffectFinishedOnMe(
+                        __instance, actingCharacter, target, targets);
+                }
+            }
+
+            //PATCH: support for `IMagicEffectFinishedByMeOrAlly`
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
+
+            foreach (var ally in contenders
+                         .Where(x => x.Side == actingCharacter.Side
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .ToList())
+            {
+                foreach (var magicEffectFinishedByMeOrAlly in ally.RulesetCharacter
+                             .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAlly>())
+                {
+                    yield return magicEffectFinishedByMeOrAlly
+                        .OnMagicEffectFinishedByMeOrAlly(
+                            null, __instance, actingCharacter, ally, targets);
+                }
+            }
+
+            __instance.PersistantEffectAction();
 
             yield return null;
         }

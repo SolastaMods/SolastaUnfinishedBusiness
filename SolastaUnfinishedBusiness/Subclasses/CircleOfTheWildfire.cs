@@ -52,6 +52,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         .Create($"Power{Name}CauterizingFlamesDamage")
         .SetGuiPresentation(PowerSummonCauterizingFlamesName, Category.Feature, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -63,7 +64,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         .SetBonusMode(AddBonusMode.AbilityBonus)
                         .SetDamageForm(DamageTypeFire, 2, DieType.D10)
                         .Build())
-                .SetCasterEffectParameters(HeatMetal)
+                //.SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(FireBolt)
                 .Build())
         .AddToDB();
@@ -72,6 +73,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         .Create($"Power{Name}CauterizingFlamesHeal")
         .SetGuiPresentation(PowerSummonCauterizingFlamesName, Category.Feature, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -85,7 +87,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             HealingComputation.Dice, 0, DieType.D10, 1, false,
                             HealingCap.HalfMaximumHitPoints)
                         .Build())
-                .SetCasterEffectParameters(HeatMetal)
+                //.SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(CureWounds)
                 .Build())
         .AddToDB();
@@ -539,7 +541,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         : PowerCauterizingFlamesHeal,
                     rulesetSource);
 
-                source.MyExecuteActionPowerNoCost(usablePower, character);
+                source.MyExecuteActionSpendPower(usablePower, character);
             }
         }
     }
@@ -560,8 +562,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             locationCharacter.usedTacticalMoves = locationCharacter.MaxTacticalMoves;
 
             // or use powers so force the dodge action
-            ServiceRepository.GetService<ICommandService>()
-                .ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            actionService.ExecuteInstantSingleAction(new CharacterActionParams(locationCharacter, Id.Dodge));
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)
@@ -765,7 +768,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -786,7 +789,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -873,14 +876,12 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var usablePower = PowerProvider.Get(powerSummonCauterizingFlames, rulesetAlly);
             var actionParams = new CharacterActionParams(ally, Id.PowerNoCost)
             {
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAlly, usablePower, false),
+                RulesetEffect = implementationService
+                    .InstantiateEffectPower(rulesetAlly, usablePower, false),
                 UsablePower = usablePower,
                 Positions = { downedCreature.LocationPosition }
             };

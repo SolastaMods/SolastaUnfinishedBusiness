@@ -968,7 +968,7 @@ internal static partial class CharacterContext
             EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsFreedomHeightenedMetabolism);
 
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {

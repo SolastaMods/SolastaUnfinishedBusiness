@@ -16,7 +16,7 @@ Feature/&PowerRoguishArcaneScoundrelEssenceTheftDescription=Você pode roubar a 
 Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=Ruptura da Essência
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Você ganha proficiência na habilidade Arcana.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Afinidade Arcana
-Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={1}={0} está lançando uma magia! Você pode reagir para anular a magia sem gastar um espaço de magia.
+Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={0} está lançando uma magia! Você pode reagir para anular a magia sem gastar um espaço de magia.
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactDescription=Lance contrafeitiço e anule o feitiço inimigo.
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactTitle=Contador
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Lançamento de feitiços hostis

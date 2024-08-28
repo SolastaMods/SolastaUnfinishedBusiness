@@ -358,6 +358,8 @@ public static class GameLocationCharacterPatcher
                 actionTypeStatus,
                 ignoreMovePoints);
 
+            ActionSwitching.CheckSpellcastingAvailability(__instance, actionId, scope, ref __result);
+
             //PATCH: support `EnableMonkDoNotRequireAttackActionForFlurry`
             if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry &&
                 actionId
@@ -496,16 +498,6 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            //PATCH: ensure we can only cast one levelled spell per turn (required by action surge)
-            if (__instance.UsedSpecialFeatures.TryGetValue("LevelledSpell", out _))
-            {
-                __instance.UsedBonusSpell = true;
-                __instance.UsedMainSpell = true;
-            }
-
-            //PATCH: support for `AttackAfterMagicEffect`
-            AttackAfterMagicEffect.HandleAttackAfterMagicEffect(__instance, actionParams);
-
             //PATCH: support for `IReplaceAttackWithCantrip`
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
 
@@ -513,9 +505,13 @@ public static class GameLocationCharacterPatcher
             ActionSwitching.CheckIfActionSwitched(
                 __instance, actionParams, scope, _mainRank, _mainAttacks, _bonusRank, _bonusAttacks);
 
-            //PATCH: vanilla doesn't refresh attack modes on free attacks
+            //PATCH: only call refresh once after above methods are called
+            //BUGFIX: vanilla doesn't refresh attack modes on free attacks
             if (scope == ActionDefinitions.ActionScope.Battle &&
-                actionParams.ActionDefinition.Id == ActionDefinitions.Id.AttackFree)
+                actionParams.ActionDefinition.Id
+                    is ActionDefinitions.Id.AttackFree
+                    or ActionDefinitions.Id.AttackMain
+                    or ActionDefinitions.Id.AttackOff)
             {
                 __instance.RulesetCharacter.RefreshAttackModes();
             }

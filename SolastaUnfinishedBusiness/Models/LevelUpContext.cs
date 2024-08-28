@@ -663,6 +663,7 @@ internal static class LevelUpContext
         });
     }
 
+#if false
     internal static void UpdateKnownSpellsForWholeCasters(RulesetCharacterHero hero)
     {
         var spellRepertoire = GetSelectedClassOrSubclassRepertoire(hero);
@@ -694,6 +695,7 @@ internal static class LevelUpContext
             spellRepertoire.KnownSpells.TryAdd(spell);
         }
     }
+#endif
 
     internal static void RecursiveGrantCustomFeatures(
         RulesetCharacterHero hero,

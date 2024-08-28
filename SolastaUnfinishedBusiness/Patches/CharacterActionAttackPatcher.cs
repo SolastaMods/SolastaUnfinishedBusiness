@@ -645,7 +645,15 @@ public static class CharacterActionAttackPatcher
                 yield return target.WaitForHitAnimation();
             }
 
-            actingCharacter.HasAttackedSinceLastTurn = true;
+            // BEGIN PATCH
+            // only mark has attacked if not an attack after magic effect
+            if (!attackMode.AttackTags.Contains(AttackAfterMagicEffect.AttackAfterMagicEffectTag))
+            {
+                actingCharacter.HasAttackedSinceLastTurn = true;
+            }
+            //actingCharacter.HasAttackedSinceLastTurn = true;
+            // END PATCH
+
             rulesetCharacter.AcknowledgeAttackUse(
                 attackMode, attackModifier.Proximity, hit, out var droppedItem, out var needToRefresh);
             rulesetCharacter.AcknowledgeAttackedCharacter(
@@ -680,6 +688,9 @@ public static class CharacterActionAttackPatcher
                 rulesetCharacter.ProcessConditionsMatchingInterruption(
                     ConditionInterruption.AttacksWithBow);
             }
+
+            rulesetCharacter.ProcessConditionsMatchingInterruption(
+                (ConditionInterruption)ExtraConditionInterruption.AttacksWithWeaponOrUnarmed);
 
             // Handle specific reactions after the attack has been executed
             yield return battleManager.HandleCharacterPhysicalAttackFinished(

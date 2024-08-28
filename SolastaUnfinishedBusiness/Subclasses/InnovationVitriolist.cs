@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -434,7 +435,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendSpellSlot)
+            var reactionParams = new CharacterActionParams(actingCharacter, Id.SpendSpellSlot)
             {
                 ActionModifiers = { new ActionModifier() }
             };
@@ -494,7 +495,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
         : IMagicEffectInitiatedByMe, IPhysicalAttackInitiatedByMe, IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -525,7 +526,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -614,7 +615,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerVitriolicInfusion, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [.. targets]);
+            attacker.MyExecuteActionSpendPower(usablePower, [.. targets]);
         }
     }
 }

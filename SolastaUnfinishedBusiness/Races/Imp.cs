@@ -281,7 +281,7 @@ internal static class RaceImpBuilder
         : IPhysicalAttackInitiatedByMe, IMagicEffectInitiatedByMe, IModifyAttackActionModifier
     {
         public IEnumerator OnMagicEffectInitiatedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -595,7 +595,7 @@ internal static class RaceImpBuilder
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetHelper);
 
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+            if (action.AttackRollOutcome is not RollOutcome.Failure ||
                 helper != attacker ||
                 action.AttackSuccessDelta < -InspirationValue ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)

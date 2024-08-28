@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -30,15 +31,14 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     public PathOfTheWildMagic()
     {
         // Controlled Surge
-        var featureControlledSurge = FeatureDefinitionBuilder
+        var featureControlledSurge = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}ControlledSurge")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var wildSurgeHandler = new WildSurgeHandler(featureControlledSurge);
 
         // LEVEL 03
-        var featureWildSurge = FeatureDefinitionBuilder
+        var featureWildSurge = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}WildSurge")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
@@ -49,6 +49,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             .DelegatedToAction()
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
+        var wildSurgeHandler = new WildSurgeHandler(featureWildSurge, featureControlledSurge);
 
         ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "WildSurgeReroll")
@@ -73,6 +75,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         var conditionWildSurgeReroll = ConditionDefinitionBuilder
             .Create($"Condition{Name}Reroll")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(
                 ConditionInterruption.BattleEnd,
                 ConditionInterruption.NoAttackOrDamagedInTurn,
@@ -184,12 +187,14 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     {
         private readonly ConditionDefinition _conditionPreventAction;
         private readonly FeatureDefinition _featureControlledSurge;
+        private readonly FeatureDefinition _featureWildSurge;
         private readonly FeatureDefinitionPower _powerPool;
         private readonly List<FeatureDefinitionPower> _powers;
         private readonly List<WildSurgeEffect> _wildSurgeEffects = [];
 
-        public WildSurgeHandler(FeatureDefinition featureControlledSurge)
+        public WildSurgeHandler(FeatureDefinition featureWildSurge, FeatureDefinition featureControlledSurge)
         {
+            _featureWildSurge = featureWildSurge;
             _featureControlledSurge = featureControlledSurge;
             _wildSurgeEffects.AddRange(
                 BuildWildSurgeDrain(),
@@ -598,22 +603,35 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .Create(EffectProxyDefinitions.ProxySpikeGrowth, $"Proxy{Name}Growth")
                 .SetOrUpdateGuiPresentation($"{ConditionWildSurgePrefix}Growth", Category.Condition)
                 .AddToDB();
+            var conditionGrowthImmunity = ConditionDefinitionBuilder
+                .Create($"Condition{Name}GrowthImmunity")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                .AddToDB();
+            conditionGrowthImmunity.forceTurnOccurence = true;
 
             var powerGrowth = FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}Growth")
                 .SetGuiPresentationNoContent(true)
                 .SetUsesFixed(ActivationTime.NoCost)
+                .SetShowCasting(false)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create(SpellDefinitions.Entangle)
-                        .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
                         .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                        .UseQuickAnimations()
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
                         .SetNoSavingThrow()
+                        .SetRecurrentEffect(
+                            RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                         .SetEffectForms(
                             EffectFormBuilder
                                 .Create()
                                 .SetSummonEffectProxyForm(proxyGrowth)
+                                .Build(),
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(conditionGrowthImmunity, ConditionForm.ConditionOperation.Add)
                                 .Build(),
                             EffectFormBuilder
                                 .CreateTopologyForm(TopologyForm.Type.DifficultThrough, false)
@@ -752,25 +770,42 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var rulesetCharacter = character.RulesetCharacter;
 
             var cursorService = ServiceRepository.GetService<ICursorService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
             var dieRoll = new List<int> { 1 };
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var reactingOutOfTurn = battleManager?.Battle?.ActiveContender != character && attacker != null;
 
+            var feedback = "Feedback/&WidSurgeDieRoll";
+            var title = _featureWildSurge.FormatTitle();
             if (rulesetCharacter.HasAnyFeature(_featureControlledSurge))
             {
                 yield return HandleControlledSurge(character, dieRoll);
+                feedback = "Feedback/&ControlledChaosDieChoice";
+                title = _featureControlledSurge.FormatTitle();
             }
             else
             {
                 dieRoll[0] =
                     rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
+                rulesetCharacter.ShowDieRoll(DieType.D8, dieRoll[0],
+                    title: "Feature/&FeaturePathOfTheWildMagicWildSurgeTitle");
             }
 
             var wildSurgeEffect = _wildSurgeEffects.ElementAt(dieRoll[0] - 1);
 
+            rulesetCharacter.LogCharacterActivatesPower(
+                title,
+                feedback,
+                tooltipContent: _featureControlledSurge.Name,
+                tooltipClass: "PowerDefinition",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll[0].ToString(), string.Empty, string.Empty),
+                    (ConsoleStyleDuplet.ParameterType.Positive,
+                        Gui.Localize($"Condition/&{ConditionWildSurgePrefix}{wildSurgeEffect.EffectName}Title"),
+                        $"Power{Name}WildSurge{wildSurgeEffect.EffectName}", "PowerDefinition")
+                ]);
             if (wildSurgeEffect.Condition)
             {
                 var existingCondition = GetExistingWildSurgeCondition(rulesetCharacter);
@@ -829,7 +864,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             }
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
-            var commandService = ServiceRepository.GetService<ICommandService>();
 
             if (power.EffectDescription.TargetType != TargetType.Position)
             {
@@ -840,9 +874,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     {
                         var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
                         {
-                            RulesetEffect = implementationManager
-                                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                            IsReactionEffect = true
+                            RulesetEffect = implementationService
+                                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
                         };
 
                         if (reactingOutOfTurn)
@@ -860,52 +893,29 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     }
                     else
                     {
-                        if (reactingOutOfTurn)
-                        {
-                            if (power.ActivationTime == ActivationTime.Permanent)
-                            {
-                                if (rulesetCharacter.IsPowerActive(usablePower))
-                                {
-                                    yield break;
-                                }
-
-                                PreventEnemyAction(attacker, rulesetCharacter);
-                                character.MyExecuteActionPowerNoCost(usablePower);
-                            }
-                            else
-                            {
-                                var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
-                                {
-                                    RulesetEffect = implementationManager
-                                        .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                                    IsReactionEffect = true
-                                };
-                                commandService.ExecuteInstantSingleAction(actionParams);
-                            }
-                        }
-                        else
+                        if (!reactingOutOfTurn)
                         {
                             character.MyExecuteActionPowerNoCost(usablePower);
+                            yield break;
                         }
+
+                        if (power.ActivationTime == ActivationTime.Permanent)
+                        {
+                            if (rulesetCharacter.IsPowerActive(usablePower))
+                            {
+                                yield break;
+                            }
+
+                            GameUiContext.ResetCamera();
+                            PreventEnemyAction(attacker, rulesetCharacter);
+                        }
+
+                        character.MyExecuteActionPowerNoCost(usablePower);
                     }
                 }
-                else
+                else if (reactingOutOfTurn)
                 {
-                    if (!reactingOutOfTurn)
-                    {
-                        yield break;
-                    }
-
-                    var actionParams = new CharacterActionParams(character, Id.SpendPower)
-                    {
-                        RulesetEffect =
-                            implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                        IsReactionEffect = true
-                    };
-
-                    actionParams.TargetCharacters.Add(attacker);
-                    actionParams.ActionModifiers.Add(new ActionModifier());
-                    commandService.ExecuteInstantSingleAction(actionParams);
+                    character.MyExecuteActionSpendPower(usablePower, attacker);
                 }
             }
             else
@@ -913,7 +923,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 var actionParams = new CharacterActionParams(character, Id.PowerNoCost)
                 {
                     RulesetEffect =
-                        implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, true)
+                        implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, true)
                 };
 
                 if (!reactingOutOfTurn)
@@ -961,6 +971,18 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 rulesetAttacker.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
             var myUsablePowers = new List<RulesetUsablePower>();
             var usablePowerPool = PowerProvider.Get(_powerPool, rulesetAttacker);
+
+            rulesetAttacker.ShowDieRoll(DieType.D8, firstRoll, secondRoll,
+                _featureControlledSurge.GuiPresentation.Title);
+            rulesetAttacker.ShowDieRoll(DieType.D8, secondRoll, title: _featureControlledSurge.GuiPresentation.Title);
+            rulesetAttacker.LogCharacterUsedFeature(
+                _featureControlledSurge,
+                "Feedback/&ControlledChaosDieRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, firstRoll.ToString()),
+                    (ConsoleStyleDuplet.ParameterType.Positive, secondRoll.ToString())
+                ]);
 
             myUsablePowers.Add(usablePowerPool);
 
@@ -1063,14 +1085,9 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
             {
                 var rulesetCharacter = locationCharacter.RulesetCharacter;
-                var actionParams = new CharacterActionParams(locationCharacter, Id.PowerNoCost);
                 var usablePower = PowerProvider.Get(power, rulesetCharacter);
 
-                actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                    .InstantiateEffectPower(rulesetCharacter, usablePower, false);
-                actionParams.SkipAnimationsAndVFX = true;
-
-                ServiceRepository.GetService<ICommandService>().ExecuteInstantSingleAction(actionParams);
+                locationCharacter.MyExecuteActionPowerNoCost(usablePower);
             }
         }
 
@@ -1306,8 +1323,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     {
         private const string TagUnstableBacklash = "UnstableBacklash";
 
-        public IEnumerator OnMagicEffectFinishedOnMe(
-            CharacterActionMagicEffect action,
+        public IEnumerator OnMagicEffectFinishedOnMe(CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             List<GameLocationCharacter> targets)

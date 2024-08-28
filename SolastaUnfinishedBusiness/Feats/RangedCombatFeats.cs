@@ -124,7 +124,7 @@ internal static class RangedCombatFeats
         var concentrationProvider = new StopPowerConcentrationProvider(
             "Deadeye",
             "Tooltip/&DeadeyeConcentration",
-            Sprites.GetSprite("DeadeyeConcentrationIcon", Resources.DeadeyeConcentrationIcon, 64, 64));
+            Sprites.GetSprite(Name, Resources.DeadeyeConcentrationIcon, 64, 64));
 
         var conditionDeadeye = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
@@ -164,7 +164,6 @@ internal static class RangedCombatFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

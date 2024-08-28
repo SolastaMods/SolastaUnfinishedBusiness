@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -26,7 +27,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 {
     private const string Name = "MartialArcaneArcher";
     private const string FeatureSetArcaneShotName = $"FeatureSet{Name}ArcaneShot";
-    private const ActionDefinitions.Id ArcaneArcherToggle = (ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle;
+    private const Id ArcaneArcherToggle = (Id)ExtraActionId.ArcaneArcherToggle;
 
     internal static readonly FeatureDefinitionPower PowerArcaneShot = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}ArcaneShot")
@@ -673,7 +674,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             EffectHelpers
                 .StartVisualEffect(attacker, defender, SpellDefinitions.Shatter, EffectHelpers.EffectType.Zone);
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 

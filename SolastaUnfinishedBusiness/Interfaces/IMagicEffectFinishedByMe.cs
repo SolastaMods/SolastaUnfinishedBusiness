@@ -9,7 +9,7 @@ public interface IMagicEffectFinishedByMe
 {
     [UsedImplicitly]
     IEnumerator OnMagicEffectFinishedByMe(
-        CharacterActionMagicEffect action,
+        CharacterAction action,
         GameLocationCharacter attacker,
         List<GameLocationCharacter> targets);
 }

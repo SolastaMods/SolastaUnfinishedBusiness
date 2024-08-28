@@ -56,8 +56,8 @@ public static class CursorLocationBattleActionExecutingPatcher
             CharacterAction action)
         {
             // NoCost powers offer the selection again (i.e.: Overwhelming Gambit, Umbral Stalker Shadow Stride, etc.)
-            if (action is CharacterActionUsePower actionUsePower &&
-                actionUsePower.activePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.NoCost)
+            if (action.ActionParams.RulesetEffect is RulesetEffectPower rulesetEffectPower &&
+                rulesetEffectPower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.NoCost)
             {
                 return ActionDefinitions.ActionStatus.Unavailable;
             }

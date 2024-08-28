@@ -337,6 +337,7 @@ public sealed class OathOfDread : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerAuraOfDominationDamage, rulesetAttacker);
 
+            //TODO: check if MyExecuteActionSpendPower works here
             attacker.MyExecuteActionPowerNoCost(usablePower, character);
         }
     }
@@ -358,14 +359,6 @@ public sealed class OathOfDread : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             if (helper.IsMyTurn())
             {
                 yield break;

@@ -536,7 +536,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private sealed class CustomBehaviorWildMagicSurge : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var hasUsedWildMarkThisTurn = rulesetAttacker.HasConditionOfCategoryAndType(
@@ -545,9 +547,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 AttributeDefinitions.TagEffect, ConditionChaos.Name);
 
             if (hasUsedWildMarkThisTurn ||
-                action is not CharacterActionCastSpell actionCastSell ||
-                (actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 && !hasChaos) ||
-                actionCastSell.ActiveSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer)
+                action is not CharacterActionCastSpell actionCastSpell ||
+                (actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel == 0 && !hasChaos) ||
+                (actionCastSpell.ActiveSpell.SpellRepertoire != null && // casting from a scroll so let wild surge
+                 actionCastSpell.ActiveSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer))
             {
                 yield break;
             }
@@ -1117,7 +1120,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private sealed class CustomBehaviorSpellBombardment : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -1127,7 +1130,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -1139,7 +1142,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             if (levels < 18 ||
                 ((activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                  rulesetEffectSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer) &&
+                  rulesetEffectSpell.SpellRepertoire?.SpellCastingClass != CharacterClassDefinitions.Sorcerer) &&
                  activeEffect.SourceDefinition != PowerFireball))
             {
                 yield break;
@@ -1480,7 +1483,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -1497,7 +1500,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

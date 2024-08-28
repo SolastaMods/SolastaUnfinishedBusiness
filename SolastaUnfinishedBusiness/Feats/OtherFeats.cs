@@ -19,6 +19,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -711,7 +712,12 @@ internal static class OtherFeats
 
             attacker.BurnOneMainAttack();
 
-            if (!ResolveContest(attacker, defender))
+            var abilityCheckData = new AbilityCheckData();
+
+            yield return ResolveContest(attacker, defender, abilityCheckData);
+
+            // cannot be Frightened anymore
+            if (abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 rulesetDefender.InflictCondition(
                     conditionMark.Name,
@@ -745,7 +751,8 @@ internal static class OtherFeats
                 0);
         }
 
-        private static bool ResolveContest(GameLocationCharacter actor, GameLocationCharacter opponent)
+        private static IEnumerator ResolveContest(
+            GameLocationCharacter actor, GameLocationCharacter opponent, AbilityCheckData abilityCheckData)
         {
             var actionModifierActor = new ActionModifier();
             var actionModifierOpponent = new ActionModifier();
@@ -768,7 +775,7 @@ internal static class OtherFeats
             {
                 foreach (var executionModifier in key.ActionExecutionModifiers)
                 {
-                    if (executionModifier.actionId != ActionDefinitions.Id.PowerNoCost ||
+                    if (executionModifier.actionId != Id.PowerNoCost ||
                         !actor.RulesetCharacter.IsMatchingEquipementCondition(executionModifier.equipmentContext) ||
                         executionModifier.advantageType == AdvantageType.None)
                     {
@@ -783,23 +790,22 @@ internal static class OtherFeats
                 }
             }
 
-            actor.RulesetCharacter.ResolveContestCheck(
+            yield return TryAlterOutcomeAttributeCheck.ResolveContestCheck(
+                actor.RulesetCharacter,
                 abilityCheckBonusActor,
                 actionModifierActor.AbilityCheckModifier,
                 AttributeDefinitions.Charisma,
                 SkillDefinitions.Intimidation,
                 actionModifierActor.AbilityCheckAdvantageTrends,
                 actionModifierActor.AbilityCheckModifierTrends,
+                opponent.RulesetCharacter,
                 abilityCheckBonusOpponent,
                 actionModifierOpponent.AbilityCheckModifier,
                 AttributeDefinitions.Wisdom,
                 SkillDefinitions.Insight,
                 actionModifierOpponent.AbilityCheckAdvantageTrends,
                 actionModifierOpponent.AbilityCheckModifierTrends,
-                opponent.RulesetCharacter,
-                out var outcome);
-
-            return outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+                abilityCheckData);
         }
     }
 
@@ -849,7 +855,7 @@ internal static class OtherFeats
         var actionAffinityBalefulScion = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityBalefulScionToggle")
             .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle)
+            .SetAuthorizedActions((Id)ExtraActionId.BalefulScionToggle)
             .AddCustomSubFeatures(new CustomBehaviorBalefulScion(conditionBalefulScion, powerBalefulScion))
             .AddToDB();
 
@@ -972,7 +978,7 @@ internal static class OtherFeats
 
             if (!attacker.IsWithinRange(defender, 12) ||
                 !attacker.OncePerTurnIsValid(powerBalefulScion.Name) ||
-                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) ||
+                !rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.BalefulScionToggle) ||
                 rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
@@ -1164,18 +1170,24 @@ internal static class OtherFeats
             actingCharacter.ComputeAbilityCheckActionModifier(
                 AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, actionModifier);
 
-            actingCharacter.RollAbilityCheck(
+            var abilityCheckRoll = actingCharacter.RollAbilityCheck(
                 AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, 15,
-                AdvantageType.None, actionModifier, false, -1, out var outcome, out _, true);
+                AdvantageType.None, actionModifier, false, -1, out var rollOutcome, out var successDelta, true);
 
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+            var abilityCheckData = new AbilityCheckData
             {
-                var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+                AbilityCheckRoll = abilityCheckRoll,
+                AbilityCheckRollOutcome = rollOutcome,
+                AbilityCheckSuccessDelta = successDelta
+            };
 
-                yield return battleService.HandleFailedAbilityCheck(action, actingCharacter, actionModifier);
-            }
+            yield return TryAlterOutcomeAttributeCheck
+                .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData, actionModifier);
 
-            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            rollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+
+            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 rulesetCharacter.InflictCondition(
                     conditionAcrobat.Name,
@@ -1611,7 +1623,7 @@ internal static class OtherFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
-                        itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
+                        itemSelectionType: ItemSelectionType.Weapon)
                     .SetDurationData(DurationType.Minute, 1)
                     .Build())
             .AddToDB();
@@ -1629,7 +1641,7 @@ internal static class OtherFeats
                 .SetSharedPool(ActivationTime.BonusAction, powerChromaticInfusion)
                 .SetEffectDescription(EffectDescriptionBuilder.Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
-                        itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
+                        itemSelectionType: ItemSelectionType.Weapon)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -1776,7 +1788,7 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
-                defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
+                defender.SpendActionType(ActionType.Reaction);
 
                 var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
 
@@ -2507,7 +2519,7 @@ internal static class OtherFeats
                 .SetSavingThrowData(false,
                     AttributeDefinitions.Constitution, false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Constitution)
+                    AttributeDefinitions.Constitution, 8)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -2806,7 +2818,7 @@ internal static class OtherFeats
                         AttributeDefinitions.Wisdom,
                         true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Strength)
+                        AttributeDefinitions.Strength, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -2968,7 +2980,7 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode.ActionType != ActionDefinitions.ActionType.Reaction ||
+            if (attackMode.ActionType != ActionType.Reaction ||
                 attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
             {
                 yield break;

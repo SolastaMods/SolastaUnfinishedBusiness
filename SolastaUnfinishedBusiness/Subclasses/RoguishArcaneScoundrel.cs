@@ -297,16 +297,13 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         FeatureDefinitionPower powerCounterSpell) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if ((action is not CharacterActionCastSpell characterActionCastSpell ||
-                 characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
-                 !characterActionCastSpell.ActionParams.TargetAction.Countered) &&
-                (action is not CharacterActionUsePower characterActionUsePower ||
-                 characterActionUsePower.activePower.PowerDefinition != powerCounterSpell ||
-                 !characterActionUsePower.ActionParams.TargetAction.Countered))
+            if (!action.ActionParams.TargetAction.Countered ||
+                (action.ActionParams.RulesetEffect.SourceDefinition != Counterspell &&
+                 action.ActionParams.RulesetEffect.SourceDefinition != powerCounterSpell))
             {
                 yield break;
             }
@@ -315,6 +312,8 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             var usablePower = PowerProvider.Get(powerArcaneBackslash, rulesetAttacker);
 
             attacker.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
+
+            //TODO: check if MyExecuteActionSpendPower works here
             attacker.MyExecuteActionPowerNoCost(usablePower, [.. targets]);
         }
     }

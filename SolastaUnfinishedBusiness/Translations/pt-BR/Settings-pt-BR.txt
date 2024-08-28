@@ -103,7 +103,6 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampame
 ModUi/&EnableAdditionalItemsInDungeonMaker=Adicione itens modificados ao Editor
 ModUi/&EnableAlternateHuman=Habilite o <color=#D89555>Humano</color> <i><color=#F0DAA0>[+1 talento / +2 escolhas de atributos / +1 habilidade] alternativo]</color></i>
 ModUi/&EnableAlternateVotingSystem=Ativar sistema de votação alternativo <i><color=#F0DAA0>[peso da escolha = votos * modificador de carisma do herói]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Ative <color=#D89555>Inspiração Bárdica</color> para também ativar verificações de atributos fora do combate
 ModUi/&EnableBarbarianBrutalStrike=Habilite <color=#D89555>Bárbaro</color> <b>Golpe Brutal</b> e <b>Melhoria de Ataque Brutal</b> nos níveis 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Habilite a escolha do <color=#D89555>Bárbaro</color> <b>Estilo de Luta</b> no nível 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Ative o buff e o debuff do <color=#D89555>Bárbaro</color> <b>Ataque Imprudente</b> para terminar no início do próximo turno
@@ -127,7 +126,8 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Ative a seleção de <color=#D89555>talento
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Fighter</color> <b>Especialização em Armas</b> nos níveis 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas tenha desvantagem com qualquer outra arma tipo]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite planos de fundo flexíveis <i><color=#F0DAA0>[selecione habilidades e proficiências em ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Habilite corridas flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
-ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permita que o herói com melhor proficiência faça escolhas de diálogo
+ModUi/&EnableGauntletMainAttacks=Permitir <b>Ataque Desarmado</b> com ação principal para o personagem se um <color=#D89555>Monge</color> ou tiver <b>Manoplas</b> ou <b>Manopla</b> equipada
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permita que o herói com melhor proficiência role escolhas de diálogo <i><color=#F0DAA0>[funciona, mas as narrações parecem estranhas em campanhas oficiais]</color></i>
 ModUi/&EnableHigherGroundRules=Habilite regras de terreno mais alto <i><color=#F0DAA0>[+1 para acertar se estiver atacando de um terreno mais alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Ative <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração
 ModUi/&EnableHotkeyToggleHud=Ative <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar a exibição do HUD

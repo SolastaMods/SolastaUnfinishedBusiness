@@ -495,7 +495,7 @@ internal static class CustomWeaponsContext
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
             .Create(LightCrossbowType, CeHandXbowType)
             .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
-            .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
+            .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddCustomSubFeatures(new CustomScale(0.5f))
             .SetAnimationTag("Rapier")
             .AddToDB();
@@ -787,7 +787,10 @@ internal static class CustomWeaponsContext
     {
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
         {
-            if (item is not { WeaponDescription.weaponType: "UnarmedStrikeType" }) { continue; }
+            if (item is not { WeaponDescription.weaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
+            {
+                continue;
+            }
 
             if (item == ItemDefinitions.UnarmedStrikeBase) { continue; }
 
@@ -803,6 +806,72 @@ internal static class CustomWeaponsContext
             }
         }
     }
+
+    internal static void ModifyUnarmedAttackWithGauntlet(RulesetCharacterHero hero, ref ItemDefinition itemDefinition,
+        ref WeaponDescription weaponDescription, ref RulesetItem weapon)
+    {
+        if (!Main.Settings.EnableMonkHandwrapsUseGauntletSlot
+            || weapon != null || itemDefinition != ItemDefinitions.UnarmedStrikeBase)
+        {
+            return;
+        }
+
+        var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
+
+        if (item is not { ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
+        {
+            return;
+        }
+
+        itemDefinition = item.ItemDefinition;
+        weaponDescription = itemDefinition.WeaponDescription;
+        weapon = item;
+    }
+
+    //TODO: not sure this is the best place for this method
+    internal static void TryAddMainActionUnarmedAttacks(RulesetCharacterHero hero)
+    {
+        if (!Main.Settings.EnableGauntletMainAttacks)
+        {
+            return;
+        }
+
+        //skip if we already have main unarmed attack
+        if (hero.AttackModes.Any(m => m is
+                {
+                    ActionType: ActionDefinitions.ActionType.Main,
+                    SourceDefinition: ItemDefinition
+                    {
+                        WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike
+                    }
+                }
+            ))
+        {
+            return;
+        }
+
+        //checkin only extra glove slot, because gauntlets in main hand slot would already add attack
+        var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
+        var definition = item?.ItemDefinition;
+
+        if (item is not { ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
+        {
+            item = null;
+            definition = null;
+        }
+
+        definition ??= ItemDefinitions.UnarmedStrikeBase;
+
+        if (hero.GetClassLevel(CharacterClassDefinitions.Monk) == 0 && item == null)
+        {
+            return;
+        }
+
+        hero.AttackModes.Add(hero.RefreshAttackMode(ActionDefinitions.ActionType.Main, definition,
+            definition.WeaponDescription, hero.HasFreeHandSlot(), true, EquipmentDefinitions.SlotTypeMainHand,
+            hero.attackModifiers, hero.FeaturesOrigin, item));
+    }
+
 
     #region Halberd Icons
 

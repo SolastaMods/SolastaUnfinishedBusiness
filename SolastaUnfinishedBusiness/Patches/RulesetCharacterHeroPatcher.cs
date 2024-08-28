@@ -100,7 +100,7 @@ public static class RulesetCharacterHeroPatcher
                 if (rulesetConditionVar != null && $"{code.operand}".Contains("RefreshArmorClassInFeatures"))
                 {
                     //abort if we reached refresh call after reaching RulesetCondition local var, but haven't found place of insertion
-                    //this means code has changed and we need to look at it - maybe this patch is not needed anymore in this case
+                    //this means code has changed, and we need to look at it - maybe this patch is not needed anymore in this case
                     break;
                 }
             }
@@ -133,6 +133,56 @@ public static class RulesetCharacterHeroPatcher
             if (callRefresh && !dryRun && __instance.CharacterRefreshed != null)
             {
                 __instance.CharacterRefreshed(__instance);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeBaseAbilityCheckBonus))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeBaseAbilityCheckBonus_Patch
+    {
+        //BUGFIX: fix Bard jack of all trades, and Martial Champion remarkable athlete not working at all [VANILLA]
+        [UsedImplicitly]
+        public static void Postfix(
+            RulesetCharacterHero __instance,
+            ref int __result,
+            string abilityScoreName,
+            List<TrendInfo> modifierTrends,
+            bool checkFeatures)
+        {
+            if (!checkFeatures ||
+                modifierTrends == null ||
+                modifierTrends.Any(x => x.sourceType == FeatureSourceType.Proficiency))
+            {
+                return;
+            }
+
+            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAbilityCheckAffinity>(
+                __instance.FeaturesToBrowse, __instance.FeaturesOrigin);
+
+            foreach (var featureDefinition in __instance.FeaturesToBrowse)
+            {
+                var key = (FeatureDefinitionAbilityCheckAffinity)featureDefinition;
+
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var affinityGroup in key.AffinityGroups)
+                {
+                    if (affinityGroup.abilityScoreName != abilityScoreName || affinityGroup.affinity !=
+                        CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient)
+                    {
+                        continue;
+                    }
+
+                    var pb = __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                    var add = (pb + 1) / 2;
+
+                    modifierTrends.Add(new TrendInfo(
+                        add, __instance.FeaturesOrigin[key].sourceType, __instance.FeaturesOrigin[key].sourceName,
+                        null));
+
+                    __result += add;
+                }
             }
         }
     }
@@ -382,19 +432,8 @@ public static class RulesetCharacterHeroPatcher
             ref RulesetItem weapon)
         {
             //PATCH: allow hand wraps to be put into gauntlet slot
-            if (Main.Settings.EnableMonkHandwrapsUseGauntletSlot
-                && weapon == null && itemDefinition == DatabaseHelper.ItemDefinitions.UnarmedStrikeBase)
-            {
-                var slot = __instance.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0];
-                var item = slot?.EquipedItem;
-
-                if (item is { ItemDefinition.WeaponDescription.WeaponType: "UnarmedStrikeType" })
-                {
-                    itemDefinition = item.ItemDefinition;
-                    weaponDescription = itemDefinition.WeaponDescription;
-                    weapon = item;
-                }
-            }
+            CustomWeaponsContext.ModifyUnarmedAttackWithGauntlet(__instance, ref itemDefinition, ref weaponDescription,
+                ref weapon);
 
             //PATCH: validate damage features
             attackModifiers.RemoveAll(provider =>
@@ -548,6 +587,9 @@ public static class RulesetCharacterHeroPatcher
                     modifier.ModifyAttackMode(__instance, attackMode);
                 }
             }
+
+            //PATCH: add Main Action gauntlet attacks if needed
+            CustomWeaponsContext.TryAddMainActionUnarmedAttacks(__instance);
 
             //PATCH: remove invalid attacks
             //used to prevent hand crossbows use with no free hand
@@ -761,7 +803,7 @@ public static class RulesetCharacterHeroPatcher
             RulesetCharacterHero __instance,
             List<SpellDefinition> ritualSpells)
         {
-            // originally it was supposed to only trigger with MC but we now need for Plane Magic scenarios
+            // originally it was supposed to only trigger with MC, but we now need for Plane Magic scenarios
             // if (!SharedSpellsContext.IsMulticaster(__instance))
             // {
             //     return true;

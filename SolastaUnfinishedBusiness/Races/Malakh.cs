@@ -239,8 +239,8 @@ internal static class RaceMalakhBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D4))
-                    .SetImpactEffectParameters(FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite
-                        .impactParticleReference)
+                    .SetImpactEffectParameters(
+                        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
                     .Build())
             .AddToDB();
 
@@ -330,7 +330,7 @@ internal static class RaceMalakhBuilder
             var usablePower = PowerProvider.Get(powerAngelicRadianceDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 3).ToArray();
 
-            locationCharacter.MyExecuteActionPowerNoCost(usablePower, targets);
+            locationCharacter.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 }

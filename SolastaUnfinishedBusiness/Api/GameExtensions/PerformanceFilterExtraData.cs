@@ -163,12 +163,13 @@ internal class PerformanceFilterExtraData
         character.UsedSpecialFeatures[key] = (character.UsedMainSpell ? MainSpell : 0)
                                              + (character.UsedMainCantrip ? MainCantrip : 0)
                                              + (character.UsedBonusSpell ? BonusSpell : 0);
+
         // ReSharper disable once InvocationIsSkipped
         Main.Log(
             $"StoreSpellcasting [{character.Name}] type: {type} '{key}' flags: {character.UsedSpecialFeatures[key]} ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} {ToString()}");
     }
 
-    public void LoadSpellcasting(GameLocationCharacter character, ActionDefinitions.ActionType type)
+    public void LoadSpellcasting(GameLocationCharacter character, ActionDefinitions.ActionType type, bool loadEmpty)
     {
         if (type != ActionDefinitions.ActionType.Main)
         {
@@ -180,6 +181,13 @@ internal class PerformanceFilterExtraData
         if (!character.UsedSpecialFeatures.TryGetValue(key, out var flags))
         {
             flags = 0;
+            if (!loadEmpty)
+            {
+                // ReSharper disable once InvocationIsSkipped
+                Main.Log(
+                    $"LoadSpellcasting [{character.Name}] type: {type} '{key}' ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} NO STATE, SKIP");
+                return;
+            }
         }
 
         character.usedMainSpell = (flags & MainSpell) > 0;
@@ -189,6 +197,23 @@ internal class PerformanceFilterExtraData
         // ReSharper disable once InvocationIsSkipped
         Main.Log(
             $"LoadSpellcasting [{character.Name}] type: {type} '{key}' flags: {flags} ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} {ToString()}");
+    }
+
+    public bool CantripsOnly(GameLocationCharacter character, ActionDefinitions.ActionType actionType)
+    {
+        var key = _customSpellcasting ? Key(SpellFlags) : DefaultSpellFlags;
+
+        if (!character.UsedSpecialFeatures.TryGetValue(key, out var flags))
+        {
+            return false;
+        }
+
+        return actionType switch
+        {
+            ActionDefinitions.ActionType.Main => (flags & BonusSpell) > 0,
+            ActionDefinitions.ActionType.Bonus => (flags & MainSpell) > 0,
+            _ => false
+        };
     }
 
     public string FormatTitle()

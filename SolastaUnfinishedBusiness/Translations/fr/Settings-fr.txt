@@ -103,7 +103,6 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour
 ModUi/&EnableAdditionalItemsInDungeonMaker=Ajouter des éléments modifiés à l'éditeur
 ModUi/&EnableAlternateHuman=Activer l'<color=#D89555>Humain</color> alternatif <i><color=#F0DAA0>[+1 don / +2 choix d'attributs / +1 compétence]</color></i>
 ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[poids du choix = votes * modificateur de charisme du héros]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Activez <color=#D89555>Inspiration bardique</color> pour déclencher également les vérifications d'attributs hors combat.
 ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Barbare</color> <b>Frappe brutale</b> et <b>Amélioration de la frappe brutale</b> aux niveaux 9, 13 et 17.
 ModUi/&EnableBarbarianFightingStyle=Activer le choix <color=#D89555>Barbare</color> <b>Style de combat</b> au niveau 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Activez le buff et le débuff <color=#D89555>Barbare</color> <b>Attaque téméraire</b> pour terminer au début du prochain tour.
@@ -127,7 +126,8 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des <color=#D89555>ex
 ModUi/&EnableFighterWeaponSpecialization=Activer <color=#D89555>Combattant</color> <b>Spécialisation d'arme</b> aux niveaux 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et infliger des dégâts mais désavantagez avec toute autre arme tapez]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionner les compétences et les outils à partir des arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs raciales par défaut]</color></i>
-ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permettre au héros le plus compétent de lancer les choix de dialogue
+ModUi/&EnableGauntletMainAttacks=Autoriser une <b>attaque à mains nues</b> avec l'action principale du personnage s'il est un <color=#D89555>moine</color> ou s'il a des <b>bandages</b> ou un <b>gantelet</b> équipés
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permettre au héros le plus compétent de faire des choix de dialogue <i><color=#F0DAA0>[ça marche mais les narrations semblent étranges dans les campagnes officielles]</color></i>
 ModUi/&EnableHigherGroundRules=Activer les règles de terrain plus élevées <i><color=#F0DAA0>[+1 pour toucher si vous attaquez depuis un terrain plus élevé]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la superposition de débogage
 ModUi/&EnableHotkeyToggleHud=Activez <color=#1E81B0>CTRL-SHIFT-(H)</color> pour basculer l'affichage du HUD.

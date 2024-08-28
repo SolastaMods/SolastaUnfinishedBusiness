@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=Higher Ground
 Feedback/&MagicalGuidanceCheckToHitRoll={0} used {1} and rolls a {2} to replace {3} on the check roll
 Feedback/&MetamagicActivatedShortLine={0} activates the {1} metamagic
 Feedback/&NarrativeChoiceRoll={0} rolls a {1} narrative choice with a {2} result.
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=You can't use after rest identify power while travelling
 Feedback/&ReturningWeaponActivates={1} returns to {0}!
 Feedback/&SmallRace=Small Race
 Feedback/&TriggerFeatureLine={0} triggers {1}
@@ -191,7 +192,7 @@ Message/&CharacterExportModalContentDescription=Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription=Export {0}
 Message/&MessageModWelcomeDescription=The Unfinished Business Mod is packed full of exciting features, but by default none are enabled. Press <color=#F0DAA0>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Unfinished Business' to open the settings pages. Explore the options and select the ones you like.
 Message/&MessageModWelcomeTitle=Unfinished Business Mod
-Message/&ModErrorWarningDescription=Solasta has detected an instability. Please ask every player to close the game, grab the file <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b>, and share these logs, and the save file with the Unfinished Business mod community.
+Message/&ModErrorWarningDescription=Solasta has detected an instability. Please ask every player to close the game, grab the file <b>%APPDATA%\..\LocalLow\Tactical Adventures\Player.log</b>, and share these logs, and the save file with the Unfinished Business mod community.
 Message/&ModErrorWarningTitle=Game Warning!
 Message/&RespecMultiplayerAbortDescription=Cannot respec on a multiplayer game or map...
 Message/&RespecSuccessfulDescription=RESPEC was successful. Don't forget to pick up your items on the ground.

@@ -117,6 +117,47 @@ internal static class SaveByLocationContext
         }
     }
 
+    internal static (string, LocationType) GetMostRecent()
+    {
+        // Find the most recently touched save file and select the correct location/campaign for that save
+        var mostRecent = Directory.EnumerateDirectories(LocationSaveGameDirectory)
+            .Select(d =>
+            (
+                d,
+                Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                LocationType.UserLocation
+            ))
+            .Concat(
+                Directory.EnumerateDirectories(CampaignSaveGameDirectory)
+                    .Select(d =>
+                    (
+                        d,
+                        Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                        LocationType.CustomCampaign
+                    ))
+                    .Concat(
+                        Directory.EnumerateDirectories(OfficialSaveGameDirectory)
+                            .Select(d =>
+                            (
+                                d,
+                                Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                                LocationType.StandardCampaign
+                            ))
+                            .Concat(
+                                Enumerable.Repeat(
+                                    (
+                                        DefaultSaveGameDirectory,
+                                        Directory.EnumerateFiles(DefaultSaveGameDirectory, "*.sav")
+                                            .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                                        LocationType.Default
+                                    ), 1))))
+            .Where(d => d.Item2.HasValue)
+            .OrderByDescending(d => d.Item2)
+            .FirstOrDefault();
+
+        return (mostRecent.Item1 ?? DefaultSaveGameDirectory, mostRecent.Item3);
+    }
+
     internal static void LateLoad()
     {
         if (!Main.Settings.EnableSaveByLocation)
@@ -130,60 +171,10 @@ internal static class SaveByLocationContext
         Directory.CreateDirectory(CampaignSaveGameDirectory);
 
         // Find the most recently touched save file and select the correct location/campaign for that save
-        var mostRecent = Directory.EnumerateDirectories(LocationSaveGameDirectory)
-            .Select(d => new
-            {
-                Path = d,
-                LastWriteTime =
-                    Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                LocationType = LocationType.UserLocation
-            })
-            .Concat(
-                Directory.EnumerateDirectories(CampaignSaveGameDirectory)
-                    .Select(d => new
-                    {
-                        Path = d,
-                        LastWriteTime =
-                            Directory.EnumerateFiles(d, "*.sav")
-                                .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                        LocationType = LocationType.CustomCampaign
-                    }))
-            .Concat(
-                Directory.EnumerateDirectories(OfficialSaveGameDirectory)
-                    .Select(d => new
-                    {
-                        Path = d,
-                        LastWriteTime =
-                            Directory.EnumerateFiles(d, "*.sav")
-                                .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                        LocationType = LocationType.StandardCampaign
-                    }))
-            .Concat(
-                Enumerable.Repeat(
-                    new
-                    {
-                        Path = DefaultSaveGameDirectory,
-                        LastWriteTime =
-                            Directory.EnumerateFiles(DefaultSaveGameDirectory, "*.sav")
-                                .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                        LocationType = LocationType.Default
-                    }
-                    , 1))
-            .Where(d => d.LastWriteTime.HasValue)
-            .OrderByDescending(d => d.LastWriteTime)
-            .FirstOrDefault();
+        var (path, locationType) = GetMostRecent();
 
-        var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
-
-        if (mostRecent == null)
-        {
-            return;
-        }
-
-        // ReSharper disable once InvocationIsSkipped
-        Main.Log($"Most recent folder={mostRecent.Path}");
-
-        selectedCampaignService.SetCampaignLocation(mostRecent.LocationType, Path.GetFileName(mostRecent.Path));
+        ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>()
+            .SetCampaignLocation(locationType, Path.GetFileName(path));
     }
 
     private static int SaveFileCount(LocationType locationType, string folder)

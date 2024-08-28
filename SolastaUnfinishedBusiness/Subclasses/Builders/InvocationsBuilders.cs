@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine.AddressableAssets;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -285,9 +286,9 @@ internal static class InvocationsBuilders
             .SetActionId(ExtraActionId.BondOfTheTalismanTeleport)
             .RequiresAuthorization(false)
             .OverrideClassName("UsePower")
-            .SetActionScope(ActionDefinitions.ActionScope.All)
-            .SetActionType(ActionDefinitions.ActionType.Bonus)
-            .SetFormType(ActionDefinitions.ActionFormType.Small)
+            .SetActionScope(ActionScope.All)
+            .SetActionType(ActionType.Bonus)
+            .SetFormType(ActionFormType.Small)
             .SetActivatedPower(power)
             .AddToDB();
 
@@ -771,7 +772,7 @@ internal static class InvocationsBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerPerniciousCloakDamage, rulesetCaster);
 
-            caster.MyExecuteActionPowerNoCost(usablePower, character);
+            caster.MyExecuteActionSpendPower(usablePower, character);
         }
     }
 
@@ -849,8 +850,8 @@ internal static class InvocationsBuilders
                 FeatureDefinitionAdditionalActionBuilder
                     .Create("AdditionalActionAbilityQuasit")
                     .SetGuiPresentationNoContent(true)
-                    .SetActionType(ActionDefinitions.ActionType.Main)
-                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                    .SetActionType(ActionType.Main)
+                    .SetRestrictedActions(Id.AttackMain)
                     .SetMaxAttacksNumber(1)
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionHasted)
@@ -926,9 +927,9 @@ internal static class InvocationsBuilders
                 yield break;
             }
 
-            if (action.ActionType != ActionDefinitions.ActionType.Bonus &&
+            if (action.ActionType != ActionType.Bonus &&
                 //action.ActingCharacter.PerceptionState == ActionDefinitions.PerceptionState.OnGuard
-                action.ActionDefinition.ActionScope == ActionDefinitions.ActionScope.Battle)
+                action.ActionDefinition.ActionScope == ActionScope.Battle)
             {
                 yield break;
             }
@@ -1112,7 +1113,7 @@ internal static class InvocationsBuilders
             var usablePower = PowerProvider.Get(powerChillingHexDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1).ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 
@@ -1297,7 +1298,7 @@ internal static class InvocationsBuilders
             var usablePower = PowerProvider.Get(powerVexingHexDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1).ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 
@@ -1514,7 +1515,7 @@ internal static class InvocationsBuilders
             }
 
             yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerReaction,
+                Id.PowerReaction,
                 usablePower,
                 [defender],
                 attacker,

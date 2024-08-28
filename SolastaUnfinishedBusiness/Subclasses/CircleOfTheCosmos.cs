@@ -622,7 +622,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -732,7 +732,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         ConditionDefinition conditionChaliceHealing) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -1245,12 +1245,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             // no need to check for source here as these are all self conditions
             rulesetCharacter.RemoveCondition(activeCondition);
 
-            var implementationManager = ServiceRepository.GetService<IRulesetImplementationService>()
-                as RulesetImplementationManager;
-
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var usablePower = PowerProvider.Get(magicEffect, rulesetCharacter);
-            var effectPower = implementationManager
-                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
+            var effectPower = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false);
 
             effectPower.remainingRounds = remainingRounds;
 

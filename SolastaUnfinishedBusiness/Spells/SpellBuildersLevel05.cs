@@ -565,7 +565,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.Countered)
+            if (action.Countered || action.ExecutionFailed)
             {
                 yield break;
             }
@@ -1131,9 +1131,6 @@ internal static partial class SpellBuilders
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService =
-                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
-
             var actingCharacter = cursorLocationSelectPosition.ActionParams?.ActingCharacter;
             var targetCharacter = cursorLocationSelectPosition.ActionParams?.TargetCharacters[0];
 
@@ -1145,7 +1142,7 @@ internal static partial class SpellBuilders
             const int RANGE = TelekinesisRange / 2;
             var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
 
-            boxInt.Inflate(RANGE);
+            boxInt.Inflate(TelekinesisRange);
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
@@ -1157,8 +1154,7 @@ internal static partial class SpellBuilders
                     !positioningService.CanPlaceCharacter(targetCharacter, position,
                         CellHelpers.PlacementMode.Station) ||
                     !positioningService.CanCharacterStayAtPosition_Floor(targetCharacter, position,
-                        onlyCheckCellsWithRealGround: true) ||
-                    !visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter))
+                        onlyCheckCellsWithRealGround: true))
                 {
                     continue;
                 }
@@ -1174,7 +1170,7 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.Countered)
+            if (action.Countered || action.ExecutionFailed)
             {
                 yield break;
             }
@@ -1200,7 +1196,7 @@ internal static partial class SpellBuilders
 
             var targetCharacter = action.ActionParams.TargetCharacters[0];
 
-            RollAbilityCheckAndTryMoveApplyRestrained(
+            yield return RollAbilityCheckAndTryMoveApplyRestrained(
                 actingCharacter,
                 targetCharacter,
                 rulesetSpell,
@@ -1216,11 +1212,12 @@ internal static partial class SpellBuilders
             return targetCharacter.Side == Side.Ally;
         }
 
-        private static bool ResolveRolls(
+        private static IEnumerator ResolveRolls(
             GameLocationCharacter actor,
             GameLocationCharacter opponent,
             string spellCastingAbility,
-            ActionDefinitions.Id actionId)
+            ActionDefinitions.Id actionId,
+            AbilityCheckData abilityCheckData)
         {
             var actionModifier1 = new ActionModifier();
             var actionModifier2 = new ActionModifier();
@@ -1271,26 +1268,25 @@ internal static partial class SpellBuilders
                 }
             }
 
-            actor.RulesetCharacter.ResolveContestCheck(
+            yield return TryAlterOutcomeAttributeCheck.ResolveContestCheck(
+                actor.RulesetCharacter,
                 abilityCheckBonus1,
                 actionModifier1.AbilityCheckModifier,
                 spellCastingAbility,
                 string.Empty,
                 actionModifier1.AbilityCheckAdvantageTrends,
                 actionModifier1.AbilityCheckModifierTrends,
+                opponent.RulesetCharacter,
                 abilityCheckBonus2,
                 actionModifier2.AbilityCheckModifier,
                 AttributeDefinitions.Strength,
                 string.Empty,
                 actionModifier2.AbilityCheckAdvantageTrends,
                 actionModifier2.AbilityCheckModifierTrends,
-                opponent.RulesetCharacter,
-                out var outcome);
-
-            return outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+                abilityCheckData);
         }
 
-        private static void RollAbilityCheckAndTryMoveApplyRestrained(
+        private static IEnumerator RollAbilityCheckAndTryMoveApplyRestrained(
             GameLocationCharacter actingCharacter,
             // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter targetCharacter,
@@ -1303,16 +1299,18 @@ internal static partial class SpellBuilders
 
             if (isEnemy)
             {
+                var abilityCheckData = new AbilityCheckData();
                 var spellCastingAbility = actingRulesetCharacter.SpellsCastByMe
                     .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SpellRepertoire?
                     // assume Intelligence if no repertoire (ritual spell only used on Force Knight)
                     .SpellCastingAbility ?? AttributeDefinitions.Intelligence;
 
-                var result = ResolveRolls(actingCharacter, targetCharacter, spellCastingAbility, action.ActionId);
+                yield return ResolveRolls(
+                    actingCharacter, targetCharacter, spellCastingAbility, action.ActionId, abilityCheckData);
 
-                if (!result)
+                if (abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
                 {
-                    return;
+                    yield break;
                 }
             }
 
@@ -1329,7 +1327,7 @@ internal static partial class SpellBuilders
 
             if (!isEnemy)
             {
-                return;
+                yield break;
             }
 
             targetRulesetCharacter.InflictCondition(

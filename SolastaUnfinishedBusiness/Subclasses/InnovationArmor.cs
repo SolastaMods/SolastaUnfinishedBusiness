@@ -287,7 +287,7 @@ public sealed class InnovationArmor : AbstractSubclass
             .AddCustomSubFeatures(new RestrictReactionAttackMode(
                 (_, _, _, attackMode, _) =>
                     attackMode?.sourceDefinition is ItemDefinition weapon &&
-                    weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name))
+                    weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.LightningLauncherType.Name))
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder

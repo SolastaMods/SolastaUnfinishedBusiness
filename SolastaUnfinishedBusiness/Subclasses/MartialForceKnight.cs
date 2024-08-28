@@ -34,7 +34,7 @@ public sealed class MartialForceKnight : AbstractSubclass
     private const ActionDefinitions.Id ForcePoweredStrikeToggle =
         (ActionDefinitions.Id)ExtraActionId.ForcePoweredStrikeToggle;
 
-    internal static readonly FeatureDefinitionPower PowerPsionicInitiate = FeatureDefinitionPowerBuilder
+    private static readonly FeatureDefinitionPower PowerPsionicInitiate = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}PsionicInitiate")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 3)
@@ -52,6 +52,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ForcePoweredStrikeToggle)
+            .SetActivatedPower(PowerPsionicInitiate, false)
             .OverrideClassName("Toggle")
             .AddCustomSubFeatures(new ActionItemDiceBoxForcePoweredStrike())
             .AddToDB();
@@ -104,7 +105,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         var powerKineticBarrier = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}KineticBarrier")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, PowerPsionicInitiate)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -118,7 +119,6 @@ public sealed class MartialForceKnight : AbstractSubclass
             .AddToDB();
 
         powerKineticBarrier.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitPossibleOnMeOrAllyKineticBarrier(powerKineticBarrier));
 
         // Force Drive
@@ -164,7 +164,9 @@ public sealed class MartialForceKnight : AbstractSubclass
             .AddToDB();
 
         powerForceDrive.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForceDriveOncePerShort) == 0));
+            new ValidatorsValidatePowerUse(c =>
+                c.GetRemainingPowerUses(powerForceDriveOncePerShort) == 0 &&
+                !c.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, conditionForceDrive.Name)));
 
         // Psionic Initiate
 
@@ -657,6 +659,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             if (!attacker.UsedSpecialFeatures.TryGetValue(powerPsionicAdept.Name, out var value) || value == 0 ||
                 defender.RulesetActor is not { IsDeadOrDyingOrUnconscious: false } ||
+                (rollOutcome != RollOutcome.Success && rollOutcome != RollOutcome.CriticalSuccess) ||
                 levels < 7)
             {
                 yield break;
@@ -732,7 +735,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerKineticBarrier, rulesetHelper);
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+            if (action.AttackRollOutcome is not RollOutcome.Success ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||

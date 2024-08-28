@@ -1345,13 +1345,6 @@ internal static class GambitsBuilders
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             //trigger only on a miss
             if (rollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
@@ -1689,7 +1682,10 @@ internal static class GambitsBuilders
 
             if (action.AttackRollOutcome != RollOutcome.Failure ||
                 helper != attacker ||
-                !rulesetHelper.CanUsePower(pool))
+                !rulesetHelper.CanUsePower(pool) ||
+                (rulesetHelper.GetRemainingPowerUses(pool) == 1 &&
+                 rulesetHelper.HasConditionOfCategoryAndType(
+                     AttributeDefinitions.TagEffect, "ConditionGambitDieDamage")))
             {
                 yield break;
             }

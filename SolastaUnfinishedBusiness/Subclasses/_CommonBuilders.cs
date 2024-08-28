@@ -96,7 +96,7 @@ internal static class CommonBuilders
                 ConditionDefinitionBuilder
                     .Create("ConditionCasterFightingWarMagic")
                     .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
-                    .SetSilent(Silent.WhenRemoved)
+                    .SetSilent(Silent.WhenRefreshedOrRemoved)
                     .SetPossessive()
                     .AddFeatures(
                         FeatureDefinitionAttackModifierBuilder
@@ -165,7 +165,7 @@ internal static class CommonBuilders
         ConditionDefinition conditionDefinition) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {

@@ -322,6 +322,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
     public bool EnableMonkHandwrapsUseGauntletSlot { get; set; }
+    public bool EnableGauntletMainAttacks { get; set; }
     public bool AddPickPocketableLoot { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int TotalCraftingTimeModifier { get; set; }
@@ -388,7 +389,6 @@ public class Settings : UnityModManager.ModSettings
     // Campaigns and Locations
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
-    public bool EnableAttributeCheckHelpersToWorkOffCombat { get; set; }
     public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }

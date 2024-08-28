@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -323,7 +324,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             }
 
             yield return helper.MyReactToUsePower(
-                ActionDefinitions.Id.PowerReaction,
+                Id.PowerReaction,
                 usablePower,
                 [attacker],
                 attacker,
@@ -340,7 +341,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
         ConditionDefinition conditionGiftOfTheWindAttacked) : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -413,7 +414,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerDeathFromAbove, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 }

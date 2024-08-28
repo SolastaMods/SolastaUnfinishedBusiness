@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -333,6 +334,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeAcid, 1))
+                    .SetImpactEffectParameters(AcidArrow)
                     .Build())
             .AddToDB();
 
@@ -804,7 +806,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerReactiveHideDamage, rulesetDefender);
 
-            defender.MyExecuteActionPowerNoCost(usablePower, attacker);
+            defender.MyExecuteActionSpendPower(usablePower, attacker);
         }
 
         public int HandlerPriority => 10;
@@ -831,7 +833,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             }
 
             yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerReaction,
+                Id.PowerReaction,
                 usablePower,
                 [defender],
                 attacker,

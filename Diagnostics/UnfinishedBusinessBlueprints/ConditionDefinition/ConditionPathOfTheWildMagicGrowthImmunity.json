@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityPathOfTheWildMagicReroll:6a0d4f99-9615-555d-85a4-630bfc0562eb",
-    "Definition:PowerPathOfTheWildMagicWildSurgeReroll:011775eb-afc7-5751-bc38-e62ce6abfbc5"
+    "Definition:MovementAffinityFreedomOfMovement:097ce72cf88822243afb196bbddc360c"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -16,13 +15,9 @@
   "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
-  "forceTurnOccurence": false,
+  "forceTurnOccurence": true,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "BattleEnd",
-    "NoAttackOrDamagedInTurn",
-    "RageStop"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -156,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "399723d2-af57-507b-8b51-1906c61182d5",
+  "guid": "3ee03a69-cd0c-5222-b664-9ad748b7e1d6",
   "contentPack": 9999,
-  "name": "ConditionPathOfTheWildMagicReroll"
+  "name": "ConditionPathOfTheWildMagicGrowthImmunity"
 }

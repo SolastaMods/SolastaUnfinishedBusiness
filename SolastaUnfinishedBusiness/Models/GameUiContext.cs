@@ -141,16 +141,14 @@ internal static class GameUiContext
 
     internal static IEnumerator SelectPosition(CharacterAction action, FeatureDefinitionPower power)
     {
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
+        var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
         var character = action.ActingCharacter;
         var rulesetCharacter = character.RulesetCharacter;
         var usablePower = PowerProvider.Get(power, rulesetCharacter);
         var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost)
         {
             RulesetEffect =
-                implementationManager.MyInstantiateEffectPower(rulesetCharacter, usablePower, true)
+                implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, true)
         };
         var cursorService = ServiceRepository.GetService<ICursorService>();
 

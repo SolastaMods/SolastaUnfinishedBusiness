@@ -45,7 +45,8 @@ public static class ActiveCharacterPanelPatcher
         {
             //PATCH: properly update IconsOnPortrait
             var character = __instance.GuiCharacter.RulesetCharacter;
-            if (character != null && character is not RulesetCharacterEffectProxy)
+
+            if (character is { IsDeadOrDyingOrUnconscious: false } and not RulesetCharacterEffectProxy)
             {
                 character.CharacterRefreshed += __instance.ConcentrationChanged;
                 character.PowerActivated += OnCharacterPowerActivated;
@@ -86,13 +87,12 @@ public static class ActiveCharacterPanelPatcher
             //PATCH: properly update IconsOnPortrait
             var character = __instance.GuiCharacter.RulesetCharacter;
 
-            if (character is null or RulesetCharacterEffectProxy)
+            // ReSharper disable once InvertIf
+            if (character is { IsDeadOrDyingOrUnconscious: false } and not RulesetCharacterEffectProxy)
             {
-                return;
+                character.CharacterRefreshed -= __instance.ConcentrationChanged;
+                character.PowerActivated -= OnCharacterPowerActivated;
             }
-
-            character.CharacterRefreshed -= __instance.ConcentrationChanged;
-            character.PowerActivated -= OnCharacterPowerActivated;
         }
 
         [UsedImplicitly]

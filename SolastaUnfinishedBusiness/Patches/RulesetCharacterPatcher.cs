@@ -1154,7 +1154,9 @@ public static class RulesetCharacterPatcher
         }
     }
 
+#if false
     //PATCH: IModifyAbilityCheck
+    // this is now handled inside ITryAlterOutcomeAttributeCheck
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ResolveContestCheck))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1229,6 +1231,7 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Call, extendedRollDieMethod));
         }
     }
+#endif
 
     //PATCH: logic to correctly calculate spell slots under MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshSpellRepertoires))]
@@ -1839,6 +1842,28 @@ public static class RulesetCharacterPatcher
             if (modifier != null)
             {
                 __result += modifier.ModifySpeedAddition(__instance, provider);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshEffectsForRealTimeLapse))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshEffectsForRealTimeLapse_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetCharacter __instance, int roundsNumber)
+        {
+            //PATCH: fix Ice Storm not ending sometimes on Battle End
+            //Noticed on Ice Storm spell, but it may affect other spells or even powers
+            //caused by RemainingRounds being decremented on battle end in GameLocationCharacter.RefreshEffectsForBattleRoundEnd, without termination - not sure why
+            //and then this method terminates only spells that RemainingRounds > 0, so set it to 1 in order to make them terminate
+            //This method also has same RemainingRounds > 0 check for powers - maybe they need same treatment?
+            //Or maybe there's reason for this check and broken part is somewhere else?
+            foreach (var spell in __instance.SpellsCastByMe
+                         .Where(spell => roundsNumber > 0 && spell.RemainingRounds == 0))
+            {
+                spell.RemainingRounds = 1;
             }
         }
     }

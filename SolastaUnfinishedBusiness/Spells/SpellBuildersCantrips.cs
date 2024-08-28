@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -743,10 +744,10 @@ internal static partial class SpellBuilders
                     .Create($"ActionAffinity{NAME}")
                     .SetGuiPresentationNoContent(true)
                     .SetForbiddenActions(
-                        ActionDefinitions.Id.DisengageMain,
-                        ActionDefinitions.Id.DisengageBonus,
-                        ActionDefinitions.Id.DashMain,
-                        ActionDefinitions.Id.DashBonus)
+                        Id.DisengageMain,
+                        Id.DisengageBonus,
+                        Id.DashMain,
+                        Id.DashBonus)
                     .AddToDB())
             .AddToDB();
 
@@ -799,6 +800,7 @@ internal static partial class SpellBuilders
     {
         var powerBoomingBladeDamage = FeatureDefinitionPowerBuilder
             .Create("PowerBoomingBladeDamage")
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -888,7 +890,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action.ActionId != ActionDefinitions.Id.TacticalMove)
+            if (action.ActionId != Id.TacticalMove)
             {
                 yield break;
             }
@@ -908,7 +910,7 @@ internal static partial class SpellBuilders
             var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
             var usablePower = PowerProvider.Get(powerBoomingBladeDamage, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
 
@@ -920,6 +922,7 @@ internal static partial class SpellBuilders
     {
         var powerResonatingStrikeDamage = FeatureDefinitionPowerBuilder
             .Create("PowerResonatingStrike")
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -1005,10 +1008,19 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            // let AttackAfterMagicEffect handle first target
+            // handle first target like AttackAfterMagicEffect
             if (__instance.SelectionService.SelectedTargets.Count == 0)
             {
-                return true;
+                if (AttackAfterMagicEffect.CanAttack(__instance.ActionParams.ActingCharacter, target))
+                {
+                    return true;
+                }
+
+                var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
+
+                __instance.actionModifier.FailureFlags.Add(Gui.Format("Tooltip/&TargetMeleeWeaponError", text));
+
+                return false;
             }
 
             if (__instance.SelectionService.SelectedTargets[0].IsWithinRange(target, 1))
@@ -1023,7 +1035,7 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)
         {
-            if (action is not CharacterActionCastSpell actionCastSpell)
+            if (action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell)
             {
                 yield break;
             }
@@ -1036,10 +1048,10 @@ internal static partial class SpellBuilders
             }
             else
             {
-                var rulesetCaster = actionCastSpell.ActionParams.ActingCharacter.RulesetCharacter;
-                var spellCastingAbility = actionCastSpell.ActiveSpell.SpellRepertoire.SpellCastingAbility;
+                var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+                var spellCastingAbility = rulesetEffectSpell.SpellRepertoire.SpellCastingAbility;
 
-                SecondTarget = actionCastSpell.ActionParams.TargetCharacters[1];
+                SecondTarget = action.ActionParams.TargetCharacters[1];
                 SpellCastingModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                     rulesetCaster.TryGetAttributeValue(spellCastingAbility));
             }
@@ -1103,7 +1115,7 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerResonatingStrikeDamage, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, secondDefender);
+            attacker.MyExecuteActionSpendPower(usablePower, secondDefender);
         }
     }
 

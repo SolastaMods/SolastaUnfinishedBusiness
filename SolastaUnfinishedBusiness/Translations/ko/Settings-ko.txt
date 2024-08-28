@@ -103,7 +103,6 @@ ModUi/&EnableAdditionalIconsOnLevelMap=레벨 맵에서 캠프, 출구 및 텔�
 ModUi/&EnableAdditionalItemsInDungeonMaker=편집기에 수정된 항목 추가
 ModUi/&EnableAlternateHuman=대체 <color=#D89555>인간</color> <i><color=#F0DAA0>[+1 재주 / +2 속성 선택 / +1 기술]</color></i> 활성화
 ModUi/&EnableAlternateVotingSystem=대체 투표 시스템 활성화 <i><color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정자]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>음유시인의 영감</color>을 활성화하면 전투 외 속성 확인도 실행됩니다.
 ModUi/&EnableBarbarianBrutalStrike=레벨 9, 13, 17에서 <color=#D89555>야만인</color> <b>잔혹한 일격</b> 및 <b>잔혹한 일격 개선</b>을 활성화하세요.
 ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>야만인</color> <b>격투 스타일</b> 선택 활성화
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>야만인</color> <b>무모한 공격</b> 버프 및 디버프를 활성화하여 다음 턴 시작 시 완료
@@ -127,7 +126,8 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=레벨 6과 14에서 <color=#D89555>재능<
 ModUi/&EnableFighterWeaponSpecialization=레벨 8과 16에서 <color=#D89555>전투기</color> <b>무기 전문화</b> 활성화 <i><color=#F0DAA0>[적중 및 피해에 +1을 주지만 다른 무기에 대해서는 불리함을 얻습니다. 유형]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[인종 기본값 대신 능력 점수 포인트 할당]</color></i>
-ModUi/&EnableHeroWithBestProficiencyToRollChoice=최고의 능력을 갖춘 영웅이 대화 선택을 할 수 있도록 활성화
+ModUi/&EnableGauntletMainAttacks=<color=#D89555>수도사</color> 또는 <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우 캐릭터가 주요 행동으로 <b>비무장 공격</b>을 허용합니다.
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=가장 뛰어난 능력을 가진 영웅이 대화 선택을 할 수 있도록 합니다. <i><color=#F0DAA0>[작동하지만 공식 캠페인에서는 내레이션이 이상하게 보입니다.]</color></i>
 ModUi/&EnableHigherGroundRules=더 높은 지대 규칙 활성화 <i><color=#F0DAA0>[더 높은 지대에서 공격할 경우 적중률 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 표시하려면 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 활성화하세요.
 ModUi/&EnableHotkeyToggleHud=HUD 디스플레이를 전환하려면 <color=#1E81B0>CTRL-SHIFT-(H)</color>를 활성화하세요.
@@ -162,7 +162,7 @@ ModUi/&EnableRogueSteadyAim=레벨 3에서 <color=#D89555>도적</color> <b>고�
 ModUi/&EnableRogueStrSaving=<color=#D89555>도적</color>을 활성화하여 <b>교활한/악랄한 일격</b>, <b>약화/개선된 일격</b> 및 <b>칼날비에 DEX 또는 STR 수정자를 사용하세요. </b>
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
 ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 준비되도록 <color=#D89555>마법사</color> 시그니처 주문을 활성화하세요. <i><color=#F0DAA0>[레벨 20에 한 번이 아닌]</color></i>
-ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 ​​<color=#D89555>마법사</color> <b>마법의 인도</b>를 활성화합니다.
+ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 <color=#D89555>마법사</color> <b>마법의 인도</b>를 활성화합니다.
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작을 활성화하여 빠른 메타매직이 적용된 주요 동작 주문을 시전할 수 있습니다.
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>

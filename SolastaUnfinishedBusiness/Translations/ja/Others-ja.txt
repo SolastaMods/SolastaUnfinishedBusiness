@@ -177,6 +177,7 @@ Feedback/&HigherGroundAttack=高いところ
 Feedback/&MagicalGuidanceCheckToHitRoll={0}は{1}を使用し、チェックロールで{3}の代わりに{2}をロールします
 Feedback/&MetamagicActivatedShortLine={0}は{1}メタマジックを発動します
 Feedback/&NarrativeChoiceRoll={0} は、{1} の物語の選択肢をロールして、{2} の結果をもたらします。
+Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=旅行中は休憩後にパワーを識別できません
 Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
 Feedback/&SmallRace=スモールレース
 Feedback/&TriggerFeatureLine={0} が {1} をトリガーします
@@ -191,7 +192,7 @@ Message/&CharacterExportModalContentDescription=エクスポートするヒー�
 Message/&CharacterExportModalTitleDescription={0} をエクスポート
 Message/&MessageModWelcomeDescription=Unfinished Business Mod にはエキサイティングな機能が満載ですが、デフォルトではどれも有効になっていません。 <color=#F0DAA0>Ctrl-F10</color> を押して Unity Mod Manager UI [UMM] を開き、「Unfinished Business」の横にある設定アイコンをクリックして設定ページを開きます。オプションを調べて、好みのものを選択してください。
 Message/&MessageModWelcomeTitle=未完の仕事 Mod
-Message/&ModErrorWarningDescription=ソラスタは不安定性を検出しました。すべてのプレイヤーに、ゲームを終了し、ファイル <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> を取得し、これらのログと保存ファイルを Unfinished Business MOD コミュニティと共有するよう依頼してください。
+Message/&ModErrorWarningDescription=ソラスタは不安定性を検出しました。すべてのプレイヤーに、ゲームを終了し、ファイル <b>%APPDATA%\..\LocalLow\Tactical Adventures\Player.log</b> を取得し、これらのログと保存ファイルを Unfinished Business MOD コミュニティと共有するよう依頼してください。
 Message/&ModErrorWarningTitle=ゲームの警告!
 Message/&RespecMultiplayerAbortDescription=マルチプレイヤー ゲームまたはマップで再スペックできません...
 Message/&RespecSuccessfulDescription=RESPECは成功しました。地面にあるアイテムを忘れずに拾いましょう。

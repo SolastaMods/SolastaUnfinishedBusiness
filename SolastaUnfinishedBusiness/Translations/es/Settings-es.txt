@@ -103,7 +103,6 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campame
 ModUi/&EnableAdditionalItemsInDungeonMaker=Agregar elementos modificados al Editor
 ModUi/&EnableAlternateHuman=Habilite el <color=#D89555>Humano</color> <i><color=#F0DAA0>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
 ModUi/&EnableAlternateVotingSystem=Habilitar sistema de votación alternativo <i><color=#F0DAA0>[peso de elección = votos * modificador de carisma del héroe]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Habilite <color=#D89555>Bardic Inspiration</color> para activar también comprobaciones de atributos fuera de combate.
 ModUi/&EnableBarbarianBrutalStrike=Habilite <color=#D89555>Bárbaro</color> <b>Golpe brutal</b> y <b>Mejora de golpe brutal</b> en los niveles 9, 13 y 17.
 ModUi/&EnableBarbarianFightingStyle=Habilite la opción <color=#D89555>Bárbaro</color> <b>Estilo de lucha</b> en el nivel 2.
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilite la ventaja y desventaja del <color=#D89555>Bárbaro</color> <b>Ataque imprudente</b> para finalizar al comienzo del siguiente turno.
@@ -127,7 +126,8 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de <color=#D89555>d
 ModUi/&EnableFighterWeaponSpecialization=Habilita <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles 8 y 16 <i><color=#F0DAA0>[obtiene +1 para golpear y dañar, pero está en desventaja con cualquier otra arma tipo]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione habilidades y conocimientos de herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntuación de habilidad en lugar de los valores raciales predeterminados]</color></i>
-ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permitir que el héroe con mayor competencia realice opciones de diálogo.
+ModUi/&EnableGauntletMainAttacks=Permitir <b>Ataque sin armas</b> con acción principal para el personaje si es un <color=#D89555>Monje</color> o tiene <b>Manos</b> o <b>Guantelete</b> equipados
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permite que el héroe con mayor competencia elija opciones de diálogo. <i><color=#F0DAA0>[funciona, pero las narraciones se ven extrañas en las campañas oficiales]</color></i>
 ModUi/&EnableHigherGroundRules=Habilite reglas básicas más altas <i><color=#F0DAA0>[+1 para golpear si ataca desde un terreno más alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar la visualización del HUD

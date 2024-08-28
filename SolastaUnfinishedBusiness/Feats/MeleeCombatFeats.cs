@@ -16,6 +16,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
@@ -36,7 +37,7 @@ internal static class MeleeCombatFeats
         .SetGuiPresentation(Category.Feat)
         .AddCustomSubFeatures(
             new AddExtraMainHandAttack(
-                ActionDefinitions.ActionType.Bonus,
+                ActionType.Bonus,
                 ValidatorsCharacter.HasAttacked,
                 ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
                 ValidatorsCharacter.HasMeleeWeaponInMainHand))
@@ -563,7 +564,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentationNoContent(true)
             .AddCustomSubFeatures(
                 new AddExtraMainHandAttack(
-                    ActionDefinitions.ActionType.Bonus,
+                    ActionType.Bonus,
                     ValidatorsCharacter.HasMeleeWeaponOrUnarmedInMainHand,
                     ValidatorsCharacter.HasAnyOfConditions(ConditionDashing)))
             .AddToDB();
@@ -779,7 +780,7 @@ internal static class MeleeCombatFeats
             var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetHelper);
 
             yield return helper.MyReactToUsePower(
-                ActionDefinitions.Id.PowerReaction,
+                Id.PowerReaction,
                 usablePower,
                 [defender],
                 attacker,
@@ -808,17 +809,15 @@ internal static class MeleeCombatFeats
 
     internal static IEnumerator HandleFeatOldTactics(CharacterAction characterAction, GameLocationCharacter target)
     {
-        var actionManager =
-            ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
         var battleManager =
             ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-        if (!actionManager || !battleManager)
+        if (!battleManager)
         {
             yield break;
         }
 
-        if (characterAction.ActionId != ActionDefinitions.Id.StandUp)
+        if (characterAction.ActionId != Id.StandUp)
         {
             yield break;
         }
@@ -905,7 +904,7 @@ internal static class MeleeCombatFeats
             }
 
             rulesetCharacter.LogCharacterUsedFeature(featureDefinition);
-            locationCharacter.ReadiedAction = ActionDefinitions.ReadyActionType.Melee;
+            locationCharacter.ReadiedAction = ReadyActionType.Melee;
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -986,7 +985,7 @@ internal static class MeleeCombatFeats
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            if (action.ActionType is ActionDefinitions.ActionType.Reaction &&
+            if (action.ActionType is ActionType.Reaction &&
                 !attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag) &&
                 ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)(attackMode, null, null))
             {
@@ -1009,14 +1008,13 @@ internal static class MeleeCombatFeats
         var concentrationProvider = new StopPowerConcentrationProvider(
             Name,
             "Tooltip/&CleavingAttackConcentration",
-            Sprites.GetSprite(nameof(Resources.PowerAttackConcentrationIcon), Resources.PowerAttackConcentrationIcon,
-                64, 64));
+            Sprites.GetSprite(Name, Resources.PowerAttackConcentrationIcon, 64, 64));
 
         var conditionCleavingAttackFinish = ConditionDefinitionBuilder
             .Create($"Condition{Name}Finish")
             .SetGuiPresentation(Category.Condition)
             .SetPossessive()
-            .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
+            .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionType.Bonus))
             .AddToDB();
 
         var conditionCleavingAttack = ConditionDefinitionBuilder
@@ -1056,7 +1054,6 @@ internal static class MeleeCombatFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1276,7 +1273,7 @@ internal static class MeleeCombatFeats
             }
 
             if (!attacker.OnceInMyTurnIsValid(SpecialFeatureName) ||
-                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle))
+                !rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.FeatCrusherToggle))
             {
                 yield break;
             }
@@ -1541,7 +1538,7 @@ internal static class MeleeCombatFeats
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
 
@@ -1635,9 +1632,10 @@ internal static class MeleeCombatFeats
     {
         const string Name = "FeatPowerAttack";
 
-        var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
+        var concentrationProvider = new StopPowerConcentrationProvider(
+            "PowerAttack",
             "Tooltip/&PowerAttackConcentration",
-            Sprites.GetSprite("PowerAttackConcentrationIcon", Resources.PowerAttackConcentrationIcon, 64, 64));
+            Sprites.GetSprite("FeatCleavingAttack", Resources.PowerAttackConcentrationIcon, 64, 64));
 
         var conditionPowerAttack = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
@@ -1676,7 +1674,6 @@ internal static class MeleeCombatFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1932,7 +1929,7 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var attackModeMain = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeMain = actingCharacter.FindActionAttackMode(Id.AttackMain);
 
             if (attackModeMain == null)
             {
@@ -1943,7 +1940,7 @@ internal static class MeleeCombatFeats
             var attackMode = RulesetAttackMode.AttackModesPool.Get();
 
             attackMode.Copy(attackModeMain);
-            attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
+            attackMode.ActionType = ActionType.NoCost;
 
             //remove additional ability score modifier damage
 #if false
@@ -1967,7 +1964,7 @@ internal static class MeleeCombatFeats
                 var attackModifier = new ActionModifier();
 
                 actingCharacter.MyExecuteActionAttack(
-                    ActionDefinitions.Id.AttackFree,
+                    Id.AttackFree,
                     target,
                     attackMode,
                     attackModifier);

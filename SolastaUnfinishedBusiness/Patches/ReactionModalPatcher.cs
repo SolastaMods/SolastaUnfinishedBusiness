@@ -28,7 +28,7 @@ public static class ReactionModalPatcher
                 return true;
             }
 
-            ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
+            ServiceRepository.GetService<IGameLocationActionService>().ProcessReactionRequest(request, false);
             return false;
         }
     }

@@ -6,6 +6,8 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 // On spell being cast
 internal interface IOnSpellCasted
 {
+    int Priority { get; }
+
     IEnumerator OnSpellCasted(
         RulesetCharacter featureOwner,
         GameLocationCharacter caster,

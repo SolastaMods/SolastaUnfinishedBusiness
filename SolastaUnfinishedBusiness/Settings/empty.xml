@@ -443,6 +443,7 @@
     <AddNewWeaponsAndRecipesToShops>false</AddNewWeaponsAndRecipesToShops>
     <AddNewWeaponsAndRecipesToEditor>false</AddNewWeaponsAndRecipesToEditor>
     <EnableMonkHandwrapsUseGauntletSlot>false</EnableMonkHandwrapsUseGauntletSlot>
+    <EnableGauntletMainAttacks>false</EnableGauntletMainAttacks>
     <AddPickPocketableLoot>false</AddPickPocketableLoot>
     <RecipeCost>200</RecipeCost>
     <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
@@ -856,7 +857,6 @@
     </SpellListSpellEnabled>
     <EnableAdditionalIconsOnLevelMap>false</EnableAdditionalIconsOnLevelMap>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
-    <EnableAttributeCheckHelpersToWorkOffCombat>false</EnableAttributeCheckHelpersToWorkOffCombat>
     <EnableHeroWithBestProficiencyToRollChoice>false</EnableHeroWithBestProficiencyToRollChoice>
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
     <MarkInvisibleTeleportersOnLevelMap>false</MarkInvisibleTeleportersOnLevelMap>

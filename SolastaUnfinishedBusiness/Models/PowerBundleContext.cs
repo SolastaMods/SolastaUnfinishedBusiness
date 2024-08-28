@@ -51,8 +51,8 @@ internal static class PowerBundleContext
 
                 fromActor ??= GameLocationCharacter.GetFromActor(ruleChar);
 
-                var implementationManager =
-                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+                var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
                 if (fromActor != null)
                 {
@@ -61,15 +61,14 @@ internal static class PowerBundleContext
                     var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerNoCost)
                     {
                         ActionModifiers = { new ActionModifier() },
-                        RulesetEffect = implementationManager
-                            .MyInstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true),
+                        RulesetEffect = implementationService
+                            .InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true),
                         UsablePower = usablePower,
                         TargetCharacters = { fromActor },
                         SkipAnimationsAndVFX = true
                     };
 
-                    ServiceRepository.GetService<ICommandService>()
-                        .ExecuteAction(actionParams, functor.ActionExecuted, false);
+                    actionService.ExecuteAction(actionParams, functor.ActionExecuted, false);
 
                     while (!functor._powerUsed)
                     {
@@ -81,8 +80,8 @@ internal static class PowerBundleContext
                     var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
 
                     formsParams.FillSourceAndTarget(ruleChar, ruleChar);
-                    formsParams.FillFromActiveEffect(implementationManager
-                        .MyInstantiateEffectPower(ruleChar, usablePower, false));
+                    formsParams.FillFromActiveEffect(implementationService
+                        .InstantiateEffectPower(ruleChar, usablePower, false));
                     formsParams.effectSourceType = EffectSourceType.Power;
 
                     ruleChar.UsePower(usablePower);

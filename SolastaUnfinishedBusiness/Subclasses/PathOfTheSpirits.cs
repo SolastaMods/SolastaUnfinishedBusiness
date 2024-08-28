@@ -440,7 +440,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {

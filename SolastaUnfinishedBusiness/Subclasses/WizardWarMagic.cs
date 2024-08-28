@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -88,7 +89,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
                 "ActionAffinityPowerSurgeToggle")
             .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.PowerSurgeToggle)
+            .SetAuthorizedActions((Id)ExtraActionId.PowerSurgeToggle)
             .AddToDB();
 
         var featureSetPowerSurge = FeatureDefinitionFeatureSetBuilder
@@ -118,12 +119,13 @@ public sealed class WizardWarMagic : AbstractSubclass
             .Create($"Power{Name}DeflectionShroud")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique, 3)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce))
-                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererDraconicDragonWingsSprout)
+                    //.SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererDraconicDragonWingsSprout)
                     .SetImpactEffectParameters(SpellDefinitions.ArcaneSword)
                     .Build())
             .AddToDB();
@@ -317,7 +319,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 .Take(3)
                 .ToArray();
 
-            helper.MyExecuteActionPowerNoCost(usablePower, targets);
+            helper.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 
@@ -360,7 +362,7 @@ public sealed class WizardWarMagic : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterActionMagicEffect action,
+            CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
@@ -392,7 +394,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 AttributeDefinitions.TagEffect, conditionSurgeMark.Name);
             var shouldTrigger =
                 attacker.OncePerTurnIsValid(powerSurge.Name) &&
-                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PowerSurgeToggle) &&
+                rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.PowerSurgeToggle) &&
                 rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
 
             if (shouldTrigger && !alreadyTriggered)

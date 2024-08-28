@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
@@ -96,17 +97,25 @@ public static class CharacterActionBreakFreePatcher
                 abilityScoreName, actionModifier.AbilityCheckModifierTrends, proficiencyName);
             __instance.ActingCharacter.ComputeAbilityCheckActionModifier(
                 abilityScoreName, proficiencyName, actionModifier);
-            __instance.ActingCharacter.RollAbilityCheck(
-                abilityScoreName, proficiencyName, checkDC, AdvantageType.None, actionModifier, false,
-                -1, out var outcome, out var successDelta, true);
-            __instance.AbilityCheckRollOutcome = outcome;
-            __instance.AbilityCheckSuccessDelta = successDelta;
 
-            if (__instance.AbilityCheckRollOutcome == RollOutcome.Failure)
+            var abilityCheckRoll = __instance.ActingCharacter.RollAbilityCheck(
+                abilityScoreName, proficiencyName, checkDC, AdvantageType.None, actionModifier, false,
+                -1, out var rollOutcome, out var successDelta, true);
+
+            //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+            var abilityCheckData = new AbilityCheckData
             {
-                yield return ServiceRepository.GetService<IGameLocationBattleService>()
-                    .HandleFailedAbilityCheck(__instance, __instance.ActingCharacter, actionModifier);
-            }
+                AbilityCheckRoll = abilityCheckRoll,
+                AbilityCheckRollOutcome = rollOutcome,
+                AbilityCheckSuccessDelta = successDelta
+            };
+
+            yield return TryAlterOutcomeAttributeCheck
+                .HandleITryAlterOutcomeAttributeCheck(__instance.ActingCharacter, abilityCheckData, actionModifier);
+
+            __instance.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+            __instance.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+            __instance.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
 
             var breakFreeExecuted = __instance.ActingCharacter.RulesetCharacter.BreakFreeExecuted;
 
