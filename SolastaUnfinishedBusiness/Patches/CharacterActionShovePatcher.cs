@@ -2,7 +2,9 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -43,9 +45,7 @@ public static class CharacterActionShovePatcher
             var success =
                 isSameSide ||
                 isIncapacitated ||
-                abilityCheckData.AbilityCheckRollOutcome
-                    is RuleDefinitions.RollOutcome.Success
-                    or RuleDefinitions.RollOutcome.CriticalSuccess;
+                abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
             //END PATCH
 
             if (isIncapacitated)
@@ -112,23 +112,12 @@ public static class CharacterActionShovePatcher
                     // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
                     foreach (var usablePower in rulesetCharacter.UsablePowers)
                     {
-                        if (rulesetCharacter.IsPowerOverriden(usablePower) ||
-                            rulesetCharacter.GetRemainingUsesOfPower(usablePower) <= 0 ||
-                            usablePower.PowerDefinition.ActivationTime !=
-                            RuleDefinitions.ActivationTime.OnSuccessfulShoveAuto)
+                        if (!rulesetCharacter.IsPowerOverriden(usablePower) &&
+                            rulesetCharacter.GetRemainingUsesOfPower(usablePower) > 0 &&
+                            usablePower.PowerDefinition.ActivationTime == ActivationTime.OnSuccessfulShoveAuto)
                         {
-                            continue;
+                            actingCharacter.MyExecuteActionSpendPower(usablePower, target);
                         }
-
-                        var service = ServiceRepository.GetService<IRulesetImplementationService>();
-                        var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
-                        {
-                            StringParameter = usablePower.PowerDefinition.Name,
-                            RulesetEffect = service.InstantiateEffectPower(rulesetCharacter, usablePower, false),
-                            TargetCharacters = { target }
-                        };
-
-                        actionService.ExecuteAction(actionParams, null, true);
                     }
                 }
             }

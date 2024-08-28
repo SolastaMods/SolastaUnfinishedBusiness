@@ -163,6 +163,7 @@ internal class PerformanceFilterExtraData
         character.UsedSpecialFeatures[key] = (character.UsedMainSpell ? MainSpell : 0)
                                              + (character.UsedMainCantrip ? MainCantrip : 0)
                                              + (character.UsedBonusSpell ? BonusSpell : 0);
+
         // ReSharper disable once InvocationIsSkipped
         Main.Log(
             $"StoreSpellcasting [{character.Name}] type: {type} '{key}' flags: {character.UsedSpecialFeatures[key]} ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} {ToString()}");
@@ -182,6 +183,7 @@ internal class PerformanceFilterExtraData
             flags = 0;
             if (!loadEmpty)
             {
+                // ReSharper disable once InvocationIsSkipped
                 Main.Log(
                     $"LoadSpellcasting [{character.Name}] type: {type} '{key}' ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} NO STATE, SKIP");
                 return;
