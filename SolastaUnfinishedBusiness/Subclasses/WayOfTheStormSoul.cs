@@ -213,8 +213,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != PowerMonkFlurryOfBlows)
+            if (action.ActionParams.RulesetEffect.SourceDefinition != PowerMonkFlurryOfBlows)
             {
                 yield break;
             }

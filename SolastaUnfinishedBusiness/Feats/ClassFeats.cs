@@ -605,8 +605,7 @@ internal static class ClassFeats
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
+            if (action.ActionParams.RulesetEffect.SourceDefinition != PowerFighterSecondWind)
             {
                 yield break;
             }

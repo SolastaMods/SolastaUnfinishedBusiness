@@ -52,8 +52,7 @@ internal static class ForceGlobalUniqueEffects
 
     internal static void EnforceLimitedInstancePower(CharacterActionUsePower action)
     {
-        var power = action.activePower.PowerDefinition;
-
+        var power = action.ActionParams.RulesetEffect.SourceDefinition;
         var limiter = power.GetFirstSubFeatureOfType<ILimitEffectInstances>();
 
         if (limiter == null)

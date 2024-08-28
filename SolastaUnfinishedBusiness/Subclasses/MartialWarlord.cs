@@ -354,8 +354,7 @@ public sealed class MartialWarlord : AbstractSubclass
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action is not CharacterActionSpendPower characterActionSpendPower
-                || characterActionSpendPower.activePower.PowerDefinition.Name is not (
+            if (action.ActionParams.RulesetEffect?.SourceDefinition.Name is not (
                     "PowerMartialWarlordCoveringStrike" or
                     "PowerMartialWarlordExploitOpening" or
                     "PowerMartialWarlordPredictAttack"))

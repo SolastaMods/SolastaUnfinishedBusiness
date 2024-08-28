@@ -20,7 +20,8 @@ public static class CharacterActionUsePowerPatcher
             return false;
         }
 
-        return !__instance.activePower.PowerDefinition.HasSubFeatureOfType<IIgnoreInvisibilityInterruptionCheck>();
+        return !__instance.ActionParams.RulesetEffect.SourceDefinition
+            .HasSubFeatureOfType<IIgnoreInvisibilityInterruptionCheck>();
     }
 
     [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.CheckInterruptionBefore))]

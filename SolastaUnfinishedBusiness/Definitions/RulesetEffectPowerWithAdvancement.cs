@@ -108,20 +108,25 @@ internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
             return true;
         }
 
-        if (action.activePower.PowerDefinition.SurrogateToSpell)
+        var rulesetEffect = action.ActionParams.RulesetEffect;
+
+        if (rulesetEffect.SourceDefinition is FeatureDefinitionPower power)
+        {
+            if (power.SurrogateToSpell)
+            {
+                return true;
+            }
+        }
+
+        var effectDescription = rulesetEffect.EffectDescription;
+
+        if (rulesetEffect is not RulesetEffectPowerWithAdvancement ||
+            !effectDescription.HasAdditionalSlotAdvancement)
         {
             return true;
         }
 
-        var effectDescription = action.activePower.EffectDescription;
-
-        if (action.activePower is not RulesetEffectPowerWithAdvancement
-            || !effectDescription.HasAdditionalSlotAdvancement)
-        {
-            return true;
-        }
-
-        var deltaLevel = action.activePower.EffectLevel - 1;
+        var deltaLevel = rulesetEffect.EffectLevel - 1;
         var advancement = effectDescription.EffectAdvancement;
 
         action.AddDice = advancement.ComputeAdditionalDiceBySlotDelta(deltaLevel);

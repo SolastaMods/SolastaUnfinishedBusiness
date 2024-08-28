@@ -894,15 +894,10 @@ internal static class Level20Context
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action is not CharacterActionUsePower actionUsePower)
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = attacker.RulesetCharacter;
-            var power = actionUsePower.activePower.PowerDefinition == PowerDruidWildShape
+            var source = action.ActionParams.RulesetEffect.SourceDefinition;
+            var power = source == PowerDruidWildShape
                 ? PowerDruidWildShape
-                : actionUsePower.activePower.PowerDefinition == CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat
+                : source == CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat
                     ? CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat
                     : null;
 
@@ -911,6 +906,7 @@ internal static class Level20Context
                 yield break;
             }
 
+            var rulesetCharacter = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
 
             usablePower.Recharge();

@@ -2450,8 +2450,8 @@ internal static partial class SpellBuilders
             // handle initial cases
             switch (action)
             {
-                case CharacterActionUsePower actionUsePower when
-                    actionUsePower.activePower.PowerDefinition == powerWitchBolt:
+                case CharacterActionUsePower when
+                    action.ActionParams.RulesetEffect.SourceDefinition == powerWitchBolt:
                     yield break;
                 case CharacterActionSpendPower actionSpendPower when
                     actionSpendPower.activePower.PowerDefinition.ActivationTime
