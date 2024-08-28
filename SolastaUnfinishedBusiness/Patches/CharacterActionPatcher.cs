@@ -57,6 +57,8 @@ public static class CharacterActionPatcher
     [UsedImplicitly]
     public static class Execute_Patch
     {
+        private static bool _usedBonusSpell;
+
         private static bool ActionShouldKeepConcentration(CharacterAction action)
         {
             var isProtectedPower =
@@ -68,69 +70,74 @@ public static class CharacterActionPatcher
             return isProtectedPower;
         }
 
+        private static void FixAlwaysConsumeMainActionOnBattleSurprise(CharacterAction action)
+        {
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+            switch (action.ActionId)
+            {
+                case ActionDefinitions.Id.PowerMain when
+                    action.ActionParams.activeEffect is RulesetEffectPower effectPower &&
+                    effectPower.PowerDefinition.ActivationTime != ActivationTime.Action:
+                {
+                    var actionType = effectPower.ActionType;
+                    var allActionDefinitions = ServiceRepository
+                        .GetService<IGameLocationActionService>().AllActionDefinitions;
+
+                    action.ActionParams.actionDefinition = actionType switch
+                    {
+                        ActionDefinitions.ActionType.Bonus =>
+                            allActionDefinitions[ActionDefinitions.Id.PowerBonus],
+                        ActionDefinitions.ActionType.NoCost =>
+                            allActionDefinitions[ActionDefinitions.Id.PowerNoCost],
+                        _ => action.ActionParams.actionDefinition
+                    };
+
+                    break;
+                }
+                case ActionDefinitions.Id.CastMain when
+                    action.ActionParams.activeEffect is RulesetEffectSpell effectSpell &&
+                    effectSpell.SpellDefinition.ActivationTime != ActivationTime.Action:
+                {
+                    var actionType = effectSpell.ActionType;
+                    var allActionDefinitions = ServiceRepository
+                        .GetService<IGameLocationActionService>().AllActionDefinitions;
+
+                    action.ActionParams.actionDefinition = actionType switch
+                    {
+                        ActionDefinitions.ActionType.Bonus =>
+                            allActionDefinitions[ActionDefinitions.Id.CastBonus],
+                        ActionDefinitions.ActionType.NoCost =>
+                            allActionDefinitions[ActionDefinitions.Id.CastNoCost],
+                        _ => action.ActionParams.actionDefinition
+                    };
+
+                    break;
+                }
+            }
+        }
+
         [UsedImplicitly]
         public static void Prefix(CharacterAction __instance)
         {
+            var actingCharacter = __instance.ActingCharacter;
+
             //BUGFIX: vanilla always consume a main action on battle surprise phase even if a bonus power or spell
             if (Gui.Battle != null &&
                 Gui.Battle.CurrentRound == 1 &&
                 Gui.Battle.InitiativeSortedContenders.Count > 0 &&
                 Gui.Battle.ActiveContender == Gui.Battle.InitiativeSortedContenders[0])
             {
-                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                switch (__instance.ActionId)
-                {
-                    case ActionDefinitions.Id.PowerMain when
-                        __instance.ActionParams.activeEffect is RulesetEffectPower effectPower &&
-                        effectPower.PowerDefinition.ActivationTime != ActivationTime.Action:
-                    {
-                        var actionType = effectPower.ActionType;
-                        var allActionDefinitions = ServiceRepository
-                            .GetService<IGameLocationActionService>().AllActionDefinitions;
-
-                        __instance.ActionParams.actionDefinition = actionType switch
-                        {
-                            ActionDefinitions.ActionType.Bonus =>
-                                allActionDefinitions[ActionDefinitions.Id.PowerBonus],
-                            ActionDefinitions.ActionType.NoCost =>
-                                allActionDefinitions[ActionDefinitions.Id.PowerNoCost],
-                            _ => __instance.ActionParams.actionDefinition
-                        };
-
-                        break;
-                    }
-                    case ActionDefinitions.Id.CastMain when
-                        __instance.ActionParams.activeEffect is RulesetEffectSpell effectSpell &&
-                        effectSpell.SpellDefinition.ActivationTime != ActivationTime.Action:
-                    {
-                        var actionType = effectSpell.ActionType;
-                        var allActionDefinitions = ServiceRepository
-                            .GetService<IGameLocationActionService>().AllActionDefinitions;
-
-                        __instance.ActionParams.actionDefinition = actionType switch
-                        {
-                            ActionDefinitions.ActionType.Bonus =>
-                                allActionDefinitions[ActionDefinitions.Id.CastBonus],
-                            ActionDefinitions.ActionType.NoCost =>
-                                allActionDefinitions[ActionDefinitions.Id.CastNoCost],
-                            _ => __instance.ActionParams.actionDefinition
-                        };
-
-                        break;
-                    }
-                }
+                FixAlwaysConsumeMainActionOnBattleSurprise(__instance);
             }
 
             //PATCH: support `IPreventRemoveConcentrationOnPowerUse`
             if (ActionShouldKeepConcentration(__instance))
             {
-                __instance.ActingCharacter.UsedSpecialFeatures.TryAdd(
-                    CharacterActionExtensions.ShouldKeepConcentration, 0);
+                actingCharacter.UsedSpecialFeatures.TryAdd(CharacterActionExtensions.ShouldKeepConcentration, 0);
             }
             else
             {
-                __instance.ActingCharacter.UsedSpecialFeatures.Remove(
-                    CharacterActionExtensions.ShouldKeepConcentration);
+                actingCharacter.UsedSpecialFeatures.Remove(CharacterActionExtensions.ShouldKeepConcentration);
             }
 
             switch (__instance)
@@ -154,6 +161,10 @@ public static class CharacterActionPatcher
                 case CharacterActionMoveStepBase characterActionMoveStepBase:
                     OtherFeats.NotifyFeatStealth(characterActionMoveStepBase);
                     break;
+
+                case CharacterActionActionSurge:
+                    _usedBonusSpell = __instance.ActingCharacter.UsedBonusSpell;
+                    break;
             }
         }
 
@@ -165,19 +176,12 @@ public static class CharacterActionPatcher
                 yield return values.Current;
             }
 
-            //PATCH: support for Official Flanking Rules
-            if (Gui.Battle != null &&
-                Main.Settings.UseOfficialFlankingRules)
-            {
-                FlankingAndHigherGround.ClearFlankingDeterminationCache();
-            }
-
+            //PATCH: support for `IActionFinishedByMe`
             var actingCharacter = __instance.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //PATCH: support for `IActionFinishedByMe`
                 foreach (var actionFinished in rulesetCharacter
                              .GetEffectControllerOrSelf()
                              .GetSubFeaturesByType<IActionFinishedByMe>())
@@ -186,8 +190,24 @@ public static class CharacterActionPatcher
                 }
             }
 
-            if (Gui.Battle != null &&
-                actingCharacter.Side != Side.Ally)
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            //BUGFIX: vanilla sets usedBonusSpell to false on action surge
+            if (__instance is CharacterActionActionSurge)
+            {
+                __instance.ActingCharacter.UsedBonusSpell = _usedBonusSpell;
+            }
+
+            //PATCH: support for Official Flanking Rules
+            if (Main.Settings.UseOfficialFlankingRules)
+            {
+                FlankingAndHigherGround.ClearFlankingDeterminationCache();
+            }
+
+            if (actingCharacter.IsOppositeSide(Side.Ally))
             {
                 switch (__instance)
                 {
@@ -232,8 +252,7 @@ public static class CharacterActionPatcher
             }
 
             //PATCH: support for Circle of the Wildfire cauterizing flames
-            if (Gui.Battle != null &&
-                __instance is CharacterActionShove)
+            if (__instance is CharacterActionShove)
             {
                 foreach (var targetCharacter in __instance.ActionParams.TargetCharacters)
                 {
@@ -246,16 +265,6 @@ public static class CharacterActionPatcher
             {
                 rulesetCharacter.ProcessConditionsMatchingInterruption(
                     (ConditionInterruption)ExtraConditionInterruption.UsesBonusAction);
-            }
-
-            // ReSharper disable once InvertIf
-            if (__instance is CharacterActionAttack actionAttack)
-            {
-                if (actionAttack.ActionParams.AttackMode != null)
-                {
-                    rulesetCharacter.ProcessConditionsMatchingInterruption(
-                        (ConditionInterruption)ExtraConditionInterruption.AttacksWithWeaponOrUnarmed);
-                }
             }
         }
     }

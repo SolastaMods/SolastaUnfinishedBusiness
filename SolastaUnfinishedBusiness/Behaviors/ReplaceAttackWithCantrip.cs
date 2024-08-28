@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
@@ -33,25 +33,29 @@ internal static class ReplaceAttackWithCantrip
         ActionScope scope)
     {
         if (scope != ActionScope.Battle ||
-            actionParams.actionDefinition.Id != Id.CastMain ||
+            actionParams.ActionDefinition.Id != Id.CastMain ||
             actionParams.activeEffect is not RulesetEffectSpell spellEffect ||
-            spellEffect.spellDefinition.spellLevel > 0 ||
+            spellEffect.SpellDefinition.SpellLevel > 0 ||
             !character.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
         {
             return;
         }
 
-        // very similar to BurnOneMainAttack but differences are to handle Action Surge and other scenarios
+        var attackMode = actionParams.attackMode;
         var rulesetCharacter = character.RulesetCharacter;
 
         character.HandleMonkMartialArts();
-        character.HasAttackedSinceLastTurn = true;
+
+        // only mark has attacked if not an attack after magic effect
+        if (!attackMode.AttackTags.Contains(AttackAfterMagicEffect.AttackAfterMagicEffectTag))
+        {
+            character.HasAttackedSinceLastTurn = true;
+        }
+
         character.UsedMainAttacks++;
         rulesetCharacter.ExecutedAttacks++;
-        rulesetCharacter.RefreshAttackModes();
 
-        var maxAttacks = rulesetCharacter.AttackModes
-            .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
+        var maxAttacks = character.GetAllowedMainAttacks();
 
         if (character.UsedMainAttacks < maxAttacks)
         {

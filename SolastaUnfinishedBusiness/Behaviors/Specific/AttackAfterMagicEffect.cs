@@ -4,15 +4,12 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
 internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 {
-    private const string AttackCantrip = "AttackCantrip";
-    private const string QuickenedAttackCantrip = "QuickenedAttackCantrip";
-    private const string ReplaceAttackCantrip = "ReplaceAttackCantrip";
+    internal const string AttackAfterMagicEffectTag = "AttackAfterMagicEffectTag";
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
 
@@ -36,47 +33,6 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         __instance.actionModifier.FailureFlags.Add(Gui.Format("Tooltip/&TargetMeleeWeaponError", text));
 
         return false;
-    }
-
-    internal static void HandleAttackAfterMagicEffect(GameLocationCharacter character,
-        CharacterActionParams actionParams)
-    {
-        if (actionParams.AttackMode == null)
-        {
-            return;
-        }
-
-        var attackTags = actionParams.AttackMode.AttackTags;
-
-        if (!attackTags.Contains(AttackCantrip))
-        {
-            return;
-        }
-
-        // this is required with replace cantrip scenarios
-        character.UsedMainCantrip = true;
-
-        var isReplaceAttackWithCantrip = attackTags.Contains(ReplaceAttackCantrip);
-
-        if (attackTags.Contains(QuickenedAttackCantrip))
-        {
-            character.UsedMainSpell = true;
-            character.SpendActionType(ActionDefinitions.ActionType.Bonus);
-        }
-        else if (!isReplaceAttackWithCantrip)
-        {
-            character.SpendActionType(ActionDefinitions.ActionType.Main);
-        }
-
-        if (isReplaceAttackWithCantrip)
-        {
-            return;
-        }
-
-        // by now Followup Strike or Polearm already triggered. below fixes stats so bonus attack isn't offered
-        character.HasAttackedSinceLastTurn = false;
-        character.RulesetCharacter.ExecutedAttacks--;
-        character.RulesetCharacter.RefreshAttackModes();
     }
 
     internal static bool CanAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
@@ -110,8 +66,7 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         }
 
         //Spell got countered or it failed
-        if (actionMagicEffect.Countered ||
-            actionMagicEffect.ExecutionFailed)
+        if (actionMagicEffect.Countered || actionMagicEffect.ExecutionFailed)
         {
             return attacks;
         }
@@ -154,22 +109,10 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         //set action type to be same as the one used for the magic effect
         attackMode.ActionType = actionMagicEffect.ActionType;
 
-        //mark this attack for proper integration with War Magic
-        attackMode.AttackTags.TryAdd(AttackCantrip);
-
-        //mark this attack for proper integration with Replace Attack with cantrip
-        if (actionParams.ActingCharacter.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
+        //mark this attack for proper integration with polearm, and follow-up strike
+        if (!actionParams.ActingCharacter.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
         {
-            attackMode.AttackTags.TryAdd(ReplaceAttackCantrip);
-        }
-
-        if (actionMagicEffect is CharacterActionCastSpell actionCastSpell)
-        {
-            //mark this attack for proper integration with Quickened
-            if (actionCastSpell.ActiveSpell.MetamagicOption == MetamagicQuickenedSpell)
-            {
-                attackMode.AttackTags.TryAdd(QuickenedAttackCantrip);
-            }
+            attackMode.AddAttackTagAsNeeded(AttackAfterMagicEffectTag);
         }
 
         // this is required to support reaction scenarios where AttackMain won't work

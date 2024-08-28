@@ -498,16 +498,6 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            //BUGFIX: ensure you can cast 2 levelled spells with action surge if no bonus spell was casted
-            if (actionParams.ActionDefinition == DatabaseHelper.ActionDefinitions.ActionSurge &&
-                !__instance.UsedBonusSpell)
-            {
-                __instance.UsedMainSpell = false;
-            }
-
-            //PATCH: support for `AttackAfterMagicEffect`
-            AttackAfterMagicEffect.HandleAttackAfterMagicEffect(__instance, actionParams);
-
             //PATCH: support for `IReplaceAttackWithCantrip`
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
 
@@ -515,9 +505,13 @@ public static class GameLocationCharacterPatcher
             ActionSwitching.CheckIfActionSwitched(
                 __instance, actionParams, scope, _mainRank, _mainAttacks, _bonusRank, _bonusAttacks);
 
-            //PATCH: vanilla doesn't refresh attack modes on free attacks
+            //PATCH: only call refresh once after above methods are called
+            //BUGFIX: vanilla doesn't refresh attack modes on free attacks
             if (scope == ActionDefinitions.ActionScope.Battle &&
-                actionParams.ActionDefinition.Id == ActionDefinitions.Id.AttackFree)
+                actionParams.ActionDefinition.Id
+                    is ActionDefinitions.Id.AttackFree
+                    or ActionDefinitions.Id.AttackMain
+                    or ActionDefinitions.Id.AttackOff)
             {
                 __instance.RulesetCharacter.RefreshAttackModes();
             }

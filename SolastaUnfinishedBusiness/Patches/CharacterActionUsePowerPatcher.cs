@@ -11,6 +11,18 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionUsePowerPatcher
 {
+    private static bool IgnoreInterruptionProcessForPowerFunction(CharacterActionUsePower __instance)
+    {
+        var isPowerFunction = __instance.ActionParams.RulesetEffect.Name.Contains("PowerFunction");
+
+        if (isPowerFunction && Main.Settings.KeepInvisibilityWhenUsingItems)
+        {
+            return false;
+        }
+
+        return !__instance.activePower.PowerDefinition.HasSubFeatureOfType<IIgnoreInvisibilityInterruptionCheck>();
+    }
+
     [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.CheckInterruptionBefore))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -20,14 +32,7 @@ public static class CharacterActionUsePowerPatcher
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: ignores interruptions processing for certain powers so they won't interrupt invisibility
-            var isPowerFunction = __instance.ActionParams.RulesetEffect.Name.Contains("PowerFunction");
-
-            if (isPowerFunction && Main.Settings.KeepInvisibilityWhenUsingItems)
-            {
-                return false;
-            }
-
-            return !__instance.activePower.PowerDefinition.HasSubFeatureOfType<IIgnoreInvisibilityInterruptionCheck>();
+            return IgnoreInterruptionProcessForPowerFunction(__instance);
         }
     }
 
@@ -40,14 +45,7 @@ public static class CharacterActionUsePowerPatcher
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: ignores interruptions processing for certain powers so they won't interrupt invisibility
-            var isPowerFunction = __instance.ActionParams.RulesetEffect.Name.Contains("PowerFunction");
-
-            if (isPowerFunction && Main.Settings.KeepInvisibilityWhenUsingItems)
-            {
-                return false;
-            }
-
-            return !__instance.activePower.PowerDefinition.HasSubFeatureOfType<IIgnoreInvisibilityInterruptionCheck>();
+            return IgnoreInterruptionProcessForPowerFunction(__instance);
         }
     }
 
@@ -74,8 +72,7 @@ public static class CharacterActionUsePowerPatcher
         {
             //PATCH: terminates all matching spells and powers of same group
             ForceGlobalUniqueEffects.TerminateMatchingUniqueEffect(
-                __instance.ActingCharacter.RulesetCharacter,
-                __instance.activePower);
+                __instance.ActingCharacter.RulesetCharacter, __instance.actionParams.RulesetEffect);
 
             //PATCH: Support for limited power effect instances
             //terminates earliest power effect instances of same limit, if limit reached
@@ -94,45 +91,41 @@ public static class CharacterActionUsePowerPatcher
         [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
-            //PATCH: we get an empty originItem under MP (GRENADIER) (MULTIPLAYER)
-            if (__instance.activePower.OriginItem == null)
-            {
-                var provider = __instance.activePower.PowerDefinition.GetFirstSubFeatureOfType<PowerPoolDevice>();
-
-                if (provider != null)
-                {
-                    __instance.activePower.originItem = provider.GetDevice(__instance.ActingCharacter.RulesetCharacter);
-                }
-            }
-
             //PATCH: Calculate extra charge usage for `RulesetEffectPowerWithAdvancement`
-            if (__instance.activePower.OriginItem == null
-                || __instance.activePower is not RulesetEffectPowerWithAdvancement power)
+            if (__instance.actionParams.RulesetEffect.OriginItem == null ||
+                __instance.actionParams.RulesetEffect is not RulesetEffectPowerWithAdvancement power)
             {
                 return true;
             }
 
-            var usableDevice = power.OriginItem;
+            CalculateExtraChargeUsage(__instance, power);
 
-            foreach (var usableFunction in usableDevice.UsableFunctions
-                         .Select(usableFunction => new
-                         {
-                             usableFunction, functionDescription = usableFunction.DeviceFunctionDescription
-                         })
-                         .Where(t =>
-                             t.functionDescription.Type == DeviceFunctionDescription.FunctionType.Power &&
-                             t.functionDescription.FeatureDefinitionPower == power.PowerDefinition)
-                         .Select(t => t.usableFunction))
+            return false;
+        }
+
+        private static void CalculateExtraChargeUsage(
+            CharacterActionUsePower __instance, RulesetEffectPowerWithAdvancement power)
+        {
+            var usableDevice = power.OriginItem;
+            var usableFunction = usableDevice.UsableFunctions
+                .Select(usableFunction => new
+                {
+                    usableFunction, functionDescription = usableFunction.DeviceFunctionDescription
+                })
+                .Where(t =>
+                    t.functionDescription.Type == DeviceFunctionDescription.FunctionType.Power &&
+                    t.functionDescription.FeatureDefinitionPower == power.PowerDefinition)
+                .Select(t => t.usableFunction)
+                .FirstOrDefault();
+
+            if (usableFunction != null)
             {
                 __instance.ActingCharacter.RulesetCharacter
                     .UseDeviceFunction(usableDevice, usableFunction, power.ExtraCharges);
-                break;
             }
 
             ServiceRepository.GetService<IGameLocationActionService>()
                 .ItemUsed?.Invoke(usableDevice.ItemDefinition.Name);
-
-            return false;
         }
     }
 }

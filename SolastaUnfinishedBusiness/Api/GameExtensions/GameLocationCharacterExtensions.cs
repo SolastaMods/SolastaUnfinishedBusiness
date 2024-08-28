@@ -782,7 +782,7 @@ public static class GameLocationCharacterExtensions
         instance.MyExecuteActionSpendPower(usablePower);
     }
 
-    private static int GetAllowedMainAttacks(this GameLocationCharacter instance)
+    internal static int GetAllowedMainAttacks(this GameLocationCharacter instance)
     {
         var performanceFilters = instance.actionPerformancesByType[ActionType.Main];
         var index = instance.currentActionRankByType[ActionType.Main];
