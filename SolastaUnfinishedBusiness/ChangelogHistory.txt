@@ -1,28 +1,35 @@
 1.5.97.28:
 
 - added 'Allow Unarmed Attack with main action for character if a Monk or has Handwraps or Gauntlet equipped' setting
+- fixed Action Surge interaction with bonus spells
 - fixed College of Swords flourish, and Martial Psi-Warrior force drive toggles
+- fixed contest checks to allow reactions [VANILLA]
 - fixed death saving throw causing a crash on action panel
 - fixed Domain Tempest thunderous strike causing a crash on gadgets
 - fixed Green-Flame Blade cantrip first target selection rules if reach, and reach setting disabled
-- fixed Green-Flame blade cantrip, Thunderstep spell, and other features to behave correctly under multiplayer
+- fixed Green-Flame blade cantrip, Thunderstep spell, and other features to work under multiplayer
 - fixed Hand Cross Bow weapon type to martial weapon category
 - fixed Imp Badland draw inspiration getting offered on a critical failure
 - fixed Innovation Armorer perfected armorer inverting thunder gauntlet and lightning launcher conditions
 - fixed Innovation Grenadier alchemy initial pool amount to 6
-- fixed Bard jack of all trades, and Martial Champion remarkable athlete not working [VANILLA]
+- fixed Bard jack of all trades, and Martial Champion remarkable athlete [VANILLA]
 - fixed Martial Psi-Warrior kinetic barrier getting offered on a critical hit
 - fixed Martial Psi-Warrior psionic adept push/prone reactions getting offered on a miss
 - fixed multiclass level up interaction with whole casters
 - fixed Oath of Ancients turn faithless to be 1 minute duration and don't recheck saving every turn
+- fixed Path of the Wild Magic wild surge growth difficult to ignore allies
 - fixed Precise maneuver integration with Brace, Return Fire, and Riposte maneuvers when only 1 die left
 - fixed Roguish Arcane Scoundrel arcane backslash reaction description causing a crash on display
-- fixed save by location/campaign setting using a wrong path on custom campaigns random encounters or maps
+- fixed save by location/campaign setting using a wrong path on custom campaigns overland map
 - fixed Sorcerer Wild Magic wild surge causing a crash with scrolls
 - fixed Telekinesis spell range calculation
-- improved contest checks to allow reactions from bardic inspiration, bend luck, bountiful luck, lucky, etc. [VANILLA]
-- improved Path of the Wild Magic combat log when rolling wild magic die, and drain description 
+- improved Path of the Wild Magic wild surge combat log, and drain description 
 - improved Patron Eldritch Surge [RESPEC required]
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
 
 1.5.97.27:
 
@@ -43,11 +50,6 @@
 - fixed Way of Weal and Woe missing 11 and 17 descriptions on level up
 - improved Quickened action to show spell selection panel, and cast main spell with quickened metamagic applied
 - improved Shadow Blade spell to name ADV as 'Shadow Blade', and show ADV feature on dagger and spell descriptions
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
 
 1.5.97.26:
 
