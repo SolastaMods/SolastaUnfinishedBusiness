@@ -100,7 +100,7 @@ public static class RulesetCharacterHeroPatcher
                 if (rulesetConditionVar != null && $"{code.operand}".Contains("RefreshArmorClassInFeatures"))
                 {
                     //abort if we reached refresh call after reaching RulesetCondition local var, but haven't found place of insertion
-                    //this means code has changed and we need to look at it - maybe this patch is not needed anymore in this case
+                    //this means code has changed, and we need to look at it - maybe this patch is not needed anymore in this case
                     break;
                 }
             }
@@ -177,7 +177,7 @@ public static class RulesetCharacterHeroPatcher
                     var pb = __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                     var add = (pb + 1) / 2;
 
-                    modifierTrends?.Add(new TrendInfo(
+                    modifierTrends.Add(new TrendInfo(
                         add, __instance.FeaturesOrigin[key].sourceType, __instance.FeaturesOrigin[key].sourceName,
                         null));
 
@@ -803,7 +803,7 @@ public static class RulesetCharacterHeroPatcher
             RulesetCharacterHero __instance,
             List<SpellDefinition> ritualSpells)
         {
-            // originally it was supposed to only trigger with MC but we now need for Plane Magic scenarios
+            // originally it was supposed to only trigger with MC, but we now need for Plane Magic scenarios
             // if (!SharedSpellsContext.IsMulticaster(__instance))
             // {
             //     return true;

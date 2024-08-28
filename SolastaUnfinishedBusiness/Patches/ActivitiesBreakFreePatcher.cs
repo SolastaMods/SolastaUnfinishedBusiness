@@ -25,8 +25,7 @@ public static class ActivitiesBreakFreePatcher
             [NotNull] IEnumerator values,
             [NotNull] BreakFree __instance,
             AiLocationCharacter character,
-            DecisionDefinition decisionDefinition,
-            DecisionContext context)
+            DecisionDefinition decisionDefinition)
         {
             RulesetCondition restrainingCondition = null;
 

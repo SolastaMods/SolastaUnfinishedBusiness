@@ -1,7 +1,8 @@
 1.5.97.28:
-
+ 
 - added 'Allow Unarmed Attack with main action for character if a Monk or has Handwraps or Gauntlet equipped' setting
-- fixed Action Surge interaction with bonus spells
+- fixed Action Surge interaction with main spells
+- fixed Bard jack of all trades, and Martial Champion remarkable athlete [VANILLA]
 - fixed College of Swords flourish, and Martial Psi-Warrior force drive toggles
 - fixed contest checks to allow reactions [VANILLA]
 - fixed death saving throw causing a crash on action panel
@@ -12,7 +13,6 @@
 - fixed Imp Badland draw inspiration getting offered on a critical failure
 - fixed Innovation Armorer perfected armorer inverting thunder gauntlet and lightning launcher conditions
 - fixed Innovation Grenadier alchemy initial pool amount to 6
-- fixed Bard jack of all trades, and Martial Champion remarkable athlete [VANILLA]
 - fixed Martial Psi-Warrior kinetic barrier getting offered on a critical hit
 - fixed Martial Psi-Warrior psionic adept push/prone reactions getting offered on a miss
 - fixed multiclass level up interaction with whole casters
@@ -24,7 +24,7 @@
 - fixed Sorcerer Wild Magic wild surge causing a crash with scrolls
 - fixed Telekinesis spell range calculation
 - improved Path of the Wild Magic wild surge combat log, and drain description 
-- improved Patron Eldritch Surge [RESPEC required]
+- improved Patron Eldritch Surge behaviors and features [needs RESPEC]
 
 KNOWN ISSUES:
 

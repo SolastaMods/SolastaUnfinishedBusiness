@@ -1383,20 +1383,10 @@ public static class CharacterActionMagicEffectPatcher
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
             var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
-            var effectLevel = 0;
-            var effectSourceType = EffectSourceType.Power;
-
-            switch (__instance)
-            {
-                case CharacterActionCastSpell spell:
-                    effectSourceType = EffectSourceType.Spell;
-                    effectLevel = spell.ActiveSpell.SlotLevel;
-                    break;
-                case CharacterActionUsePower power:
-                    effectLevel = power.activePower.EffectLevel;
-                    break;
-            }
-
+            var effectLevel = __instance.ActionParams.RulesetEffect?.EffectLevel ?? 0;
+            var effectSourceType = __instance is CharacterActionCastSpell
+                ? EffectSourceType.Spell
+                : EffectSourceType.Power;
             var character = __instance.ActingCharacter.RulesetCharacter;
 
             formsParams.FillSourceAndTarget(character, character);
