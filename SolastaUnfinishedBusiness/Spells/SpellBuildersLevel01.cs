@@ -1320,7 +1320,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            if (action is not CharacterActionCastSpell actionCastSpell || action.Countered)
+            if (action is not CharacterActionCastSpell actionCastSpell || action.Countered || action.ExecutionFailed)
             {
                 yield break;
             }
