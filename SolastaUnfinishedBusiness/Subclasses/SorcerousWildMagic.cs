@@ -547,9 +547,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 AttributeDefinitions.TagEffect, ConditionChaos.Name);
 
             if (hasUsedWildMarkThisTurn ||
-                action is not CharacterActionCastSpell actionCastSell ||
-                (actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 && !hasChaos) ||
-                actionCastSell.ActiveSpell.SpellRepertoire?.SpellCastingClass != CharacterClassDefinitions.Sorcerer)
+                action is not CharacterActionCastSpell actionCastSpell ||
+                (actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel == 0 && !hasChaos) ||
+                (actionCastSpell.ActiveSpell.SpellRepertoire != null && // casting from a scroll so let wild surge
+                 actionCastSpell.ActiveSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer))
             {
                 yield break;
             }
