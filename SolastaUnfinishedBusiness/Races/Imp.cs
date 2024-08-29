@@ -614,7 +614,6 @@ internal static class RaceImpBuilder
 
             void ReactionValidated()
             {
-                usablePower.Consume();
                 action.AttackSuccessDelta += InspirationValue;
                 action.AttackRollOutcome = RollOutcome.Success;
                 actionModifier.AttackRollModifier += InspirationValue;
@@ -656,7 +655,6 @@ internal static class RaceImpBuilder
 
             void ReactionValidated()
             {
-                usablePower.Consume();
                 action.RolledSaveThrow = true;
                 action.SaveOutcomeDelta = 0;
                 action.SaveOutcome = RollOutcome.Success;
