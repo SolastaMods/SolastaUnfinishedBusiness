@@ -1046,8 +1046,6 @@ internal static class Level20Context
 
             void ReactionValidated()
             {
-                rulesetHelper.UsePower(usablePower);
-
                 var delta = -action.AttackSuccessDelta;
 
                 action.AttackRollOutcome = RollOutcome.Success;
