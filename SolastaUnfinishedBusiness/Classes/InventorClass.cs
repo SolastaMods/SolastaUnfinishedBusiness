@@ -1012,8 +1012,6 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         void ReactionValidated()
         {
-            usablePower.Consume();
-
             abilityCheckData.AbilityCheckRoll += bonus;
             abilityCheckData.AbilityCheckSuccessDelta += bonus;
 
