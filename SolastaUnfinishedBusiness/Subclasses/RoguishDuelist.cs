@@ -13,7 +13,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -66,7 +65,7 @@ public sealed class RoguishDuelist : AbstractSubclass
         var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}{SureFooted}")
             .SetGuiPresentation($"FeatureSet{Name}{SureFooted}", Category.Feature)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass, 1)
+            .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
             .AddToDB();
 
         var conditionSureFooted = ConditionDefinitionBuilder
