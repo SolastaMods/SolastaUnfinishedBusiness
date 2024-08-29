@@ -67,6 +67,13 @@ public static class GameLocationCharacterExtensions
         actionService.ExecuteAction(actionParams, null, true);
     }
 
+    internal static void MyExecuteActionDodge(this GameLocationCharacter character)
+    {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+        actionService.ExecuteAction(new CharacterActionParams(character, Id.Dodge), null, true);
+    }
+    
     internal static void MyExecuteActionPowerNoCost(
         this GameLocationCharacter character,
         RulesetUsablePower usablePower,
