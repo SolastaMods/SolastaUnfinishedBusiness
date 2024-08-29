@@ -103,7 +103,7 @@ public static class CharacterActionSpendPowerPatcher
                 // BEGIN PATCH
 
                 //PATCH: support for shared pool powers that character got from conditions to properly consume uses when triggered
-                if (activePower.UsablePower.powerDefinition.HasSubFeatureOfType<ForcePowerUseInSpendPowerAction>())
+                else if (activePower.UsablePower.powerDefinition.HasSubFeatureOfType<ForcePowerUseInSpendPowerAction>())
                 {
                     __instance.ActingCharacter.RulesetCharacter.UsePower(activePower.UsablePower);
                 }
