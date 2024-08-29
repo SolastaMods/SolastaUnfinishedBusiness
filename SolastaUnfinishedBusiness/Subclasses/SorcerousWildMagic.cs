@@ -635,8 +635,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             void ReactionValidated()
             {
-                usablePower.Consume();
-
                 List<TrendInfo> advantageTrends =
                     [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
 
@@ -738,8 +736,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             void ReactionValidated()
             {
-                usablePower.Consume();
-
                 List<TrendInfo> advantageTrends =
                     [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
 
