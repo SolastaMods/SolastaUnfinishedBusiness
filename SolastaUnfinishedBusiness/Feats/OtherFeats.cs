@@ -2348,8 +2348,6 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
-                rulesetHelper.UsePower(usablePower);
-
                 action.SaveOutcomeDelta = 0;
                 action.SaveOutcome = RollOutcome.Success;
             }
