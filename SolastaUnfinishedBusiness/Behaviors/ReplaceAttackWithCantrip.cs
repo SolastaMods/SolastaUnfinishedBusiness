@@ -33,6 +33,7 @@ internal static class ReplaceAttackWithCantrip
         ActionScope scope)
     {
         if (scope != ActionScope.Battle ||
+            actionParams.AttackMode == null ||
             actionParams.ActionDefinition.Id != Id.CastMain ||
             actionParams.activeEffect is not RulesetEffectSpell spellEffect ||
             spellEffect.SpellDefinition.SpellLevel > 0 ||
