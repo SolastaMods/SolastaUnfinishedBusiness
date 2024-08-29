@@ -33,7 +33,6 @@ internal static class ReplaceAttackWithCantrip
         ActionScope scope)
     {
         if (scope != ActionScope.Battle ||
-            actionParams.AttackMode == null ||
             actionParams.ActionDefinition.Id != Id.CastMain ||
             actionParams.activeEffect is not RulesetEffectSpell spellEffect ||
             spellEffect.SpellDefinition.SpellLevel > 0 ||
@@ -48,7 +47,8 @@ internal static class ReplaceAttackWithCantrip
         character.HandleMonkMartialArts();
 
         // only mark has attacked if not an attack after magic effect
-        if (!attackMode.AttackTags.Contains(AttackAfterMagicEffect.AttackAfterMagicEffectTag))
+        if (attackMode == null ||
+            !attackMode.AttackTags.Contains(AttackAfterMagicEffect.AttackAfterMagicEffectTag))
         {
             character.HasAttackedSinceLastTurn = true;
         }
