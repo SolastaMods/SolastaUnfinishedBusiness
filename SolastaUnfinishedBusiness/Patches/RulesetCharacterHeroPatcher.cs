@@ -137,34 +137,6 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    //BUGFIX: fix Bard jack of all trades, and Martial Champion remarkable athlete not working at all [VANILLA]
-    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeBaseAbilityCheckBonus))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class ComputeBaseAbilityCheckBonus_Patch
-    {
-        [UsedImplicitly]
-        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
-        {
-            var isNullOrEmptyMethod = typeof(string).GetMethod("IsNullOrEmpty");
-
-            var myIsNullOrEmptyMethod =
-                new Func<string, bool>(MyIsNullOrEmpty).Method;
-
-            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceCall(
-                isNullOrEmptyMethod,
-                1,
-                "RulesetCharacterHero.ComputeBaseAbilityCheckBonus",
-                new CodeInstruction(OpCodes.Call, myIsNullOrEmptyMethod));
-        }
-
-        private static bool MyIsNullOrEmpty(string str)
-        {
-            return str != null;
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeAndApplyHitDieRoll))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
