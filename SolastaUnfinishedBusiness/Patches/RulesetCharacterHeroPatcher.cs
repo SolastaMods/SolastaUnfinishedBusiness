@@ -137,53 +137,31 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
+    //BUGFIX: fix Bard jack of all trades, and Martial Champion remarkable athlete not working at all [VANILLA]
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeBaseAbilityCheckBonus))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeBaseAbilityCheckBonus_Patch
     {
-        //BUGFIX: fix Bard jack of all trades, and Martial Champion remarkable athlete not working at all [VANILLA]
         [UsedImplicitly]
-        public static void Postfix(
-            RulesetCharacterHero __instance,
-            ref int __result,
-            string abilityScoreName,
-            List<TrendInfo> modifierTrends,
-            bool checkFeatures)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            if (!checkFeatures ||
-                modifierTrends == null ||
-                modifierTrends.Any(x => x.sourceType == FeatureSourceType.Proficiency))
-            {
-                return;
-            }
+            var isNullOrEmptyMethod = typeof(string).GetMethod("IsNullOrEmpty");
 
-            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAbilityCheckAffinity>(
-                __instance.FeaturesToBrowse, __instance.FeaturesOrigin);
+            var myIsNullOrEmptyMethod =
+                new Func<string, bool>(MyIsNullOrEmpty).Method;
 
-            foreach (var featureDefinition in __instance.FeaturesToBrowse)
-            {
-                var key = (FeatureDefinitionAbilityCheckAffinity)featureDefinition;
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceCall(
+                isNullOrEmptyMethod,
+                1,
+                "RulesetCharacterHero.ComputeBaseAbilityCheckBonus",
+                new CodeInstruction(OpCodes.Call, myIsNullOrEmptyMethod));
+        }
 
-                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                foreach (var affinityGroup in key.AffinityGroups)
-                {
-                    if (affinityGroup.abilityScoreName != abilityScoreName || affinityGroup.affinity !=
-                        CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient)
-                    {
-                        continue;
-                    }
-
-                    var pb = __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-                    var add = (pb + 1) / 2;
-
-                    modifierTrends.Add(new TrendInfo(
-                        add, __instance.FeaturesOrigin[key].sourceType, __instance.FeaturesOrigin[key].sourceName,
-                        null));
-
-                    __result += add;
-                }
-            }
+        private static bool MyIsNullOrEmpty(string str)
+        {
+            return str != null;
         }
     }
 
