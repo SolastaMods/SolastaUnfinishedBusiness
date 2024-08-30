@@ -162,7 +162,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
         var powerAudaciousWhirl = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AudaciousWhirl")
-            .SetGuiPresentation($"FeatureSet{Name}AudaciousWhirl", Category.Feature)
+            .SetGuiPresentation($"FeatureSet{Name}AudaciousWhirl", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
             .AddToDB();
 
