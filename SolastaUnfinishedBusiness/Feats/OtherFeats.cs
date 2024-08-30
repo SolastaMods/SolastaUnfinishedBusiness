@@ -712,7 +712,7 @@ internal static class OtherFeats
 
             attacker.BurnOneMainAttack();
 
-            var abilityCheckData = new AbilityCheckData();
+            var abilityCheckData = new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier() };
 
             yield return ResolveContest(attacker, defender, abilityCheckData);
 
@@ -1179,15 +1179,14 @@ internal static class OtherFeats
             {
                 AbilityCheckRoll = abilityCheckRoll,
                 AbilityCheckRollOutcome = rollOutcome,
-                AbilityCheckSuccessDelta = successDelta
+                AbilityCheckSuccessDelta = successDelta,
+                AbilityCheckActionModifier = actionModifier
             };
 
             yield return TryAlterOutcomeAttributeCheck
-                .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData, actionModifier);
+                .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData);
 
-            rollOutcome = abilityCheckData.AbilityCheckRollOutcome;
-
-            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 rulesetCharacter.InflictCondition(
                     conditionAcrobat.Name,
@@ -2078,14 +2077,13 @@ internal static class OtherFeats
             GameLocationBattleManager battleManager,
             AbilityCheckData abilityCheckData,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier abilityCheckModifier)
+            GameLocationCharacter helper)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
 
             if (abilityCheckData.AbilityCheckRoll == 0 ||
-                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != defender ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {

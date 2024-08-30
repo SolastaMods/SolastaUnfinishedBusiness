@@ -1195,13 +1195,12 @@ internal static partial class CharacterContext
             GameLocationBattleManager battleManager,
             AbilityCheckData abilityCheckData,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier abilityCheckModifier)
+            GameLocationCharacter helper)
         {
             var rulesetHelper = helper.RulesetCharacter;
 
             if (abilityCheckData.AbilityCheckRoll == 0 ||
-                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != defender ||
                 rulesetHelper.RemainingSorceryPoints == 0)
             {

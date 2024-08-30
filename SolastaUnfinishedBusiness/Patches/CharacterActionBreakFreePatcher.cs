@@ -19,7 +19,14 @@ public static class CharacterActionBreakFreePatcher
     public static class ExecuteImpl_Patch
     {
         [UsedImplicitly]
-        public static IEnumerator Postfix(IEnumerator values, CharacterActionBreakFree __instance)
+        public static bool Prefix(ref IEnumerator __result, CharacterActionBreakFree __instance)
+        {
+            __result = Process(__instance);
+
+            return false;
+        }
+
+        private static IEnumerator Process(CharacterActionBreakFree __instance)
         {
             RulesetCondition restrainingCondition = null;
 
@@ -107,25 +114,27 @@ public static class CharacterActionBreakFreePatcher
             {
                 AbilityCheckRoll = abilityCheckRoll,
                 AbilityCheckRollOutcome = rollOutcome,
-                AbilityCheckSuccessDelta = successDelta
+                AbilityCheckSuccessDelta = successDelta,
+                AbilityCheckActionModifier = actionModifier
             };
 
             yield return TryAlterOutcomeAttributeCheck
-                .HandleITryAlterOutcomeAttributeCheck(__instance.ActingCharacter, abilityCheckData, actionModifier);
+                .HandleITryAlterOutcomeAttributeCheck(__instance.ActingCharacter, abilityCheckData);
 
             __instance.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
             __instance.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
             __instance.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
 
-            var breakFreeExecuted = __instance.ActingCharacter.RulesetCharacter.BreakFreeExecuted;
+            var success = __instance.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
 
-            breakFreeExecuted?.Invoke(__instance.ActingCharacter.RulesetCharacter,
-                __instance.AbilityCheckRollOutcome == RollOutcome.Success);
-
-            if (__instance.AbilityCheckRollOutcome == RollOutcome.Success)
+            if (success)
             {
                 __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
             }
+
+            var breakFreeExecuted = __instance.ActingCharacter.RulesetCharacter.BreakFreeExecuted;
+
+            breakFreeExecuted?.Invoke(__instance.ActingCharacter.RulesetCharacter, success);
         }
     }
 }

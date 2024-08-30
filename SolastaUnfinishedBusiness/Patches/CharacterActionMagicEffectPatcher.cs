@@ -1283,7 +1283,7 @@ public static class CharacterActionMagicEffectPatcher
                 yield break;
             }
 
-            var abilityCheckData = new AbilityCheckData();
+            var abilityCheckData = new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier() };
 
             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
                 actingCharacter, target, ActionDefinitions.Id.Shove, abilityCheckData);

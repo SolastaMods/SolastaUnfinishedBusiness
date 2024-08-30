@@ -889,8 +889,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             GameLocationBattleManager battleManager,
             AbilityCheckData abilityCheckData,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier abilityCheckModifier)
+            GameLocationCharacter helper)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBendLuck, rulesetHelper);
@@ -907,13 +906,13 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             if (helper.Side == defender.Side &&
                 abilityCheckData.AbilityCheckRoll > 0 &&
-                abilityCheckData.AbilityCheckRollOutcome == RollOutcome.Failure)
+                abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 stringParameter = "BendLuckCheck";
             }
             else if (helper.Side != defender.Side &&
                      abilityCheckData.AbilityCheckRoll > 0 &&
-                     abilityCheckData.AbilityCheckRollOutcome == RollOutcome.Success)
+                     abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 stringParameter = "BendLuckEnemyCheck";
             }
@@ -939,10 +938,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
                 var dieRoll = rulesetHelper.RollDie(
                     DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
+                var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
 
                 if (helper.Side == defender.Side)
                 {
-                    abilityCheckModifier.AbilityCheckAdvantageTrends.Add(
+                    abilityCheckModifier.AbilityCheckModifierTrends.Add(
                         new TrendInfo(dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
                         {
                             dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
@@ -969,7 +969,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 }
                 else
                 {
-                    abilityCheckModifier.AbilityCheckAdvantageTrends.Add(
+                    abilityCheckModifier.AbilityCheckModifierTrends.Add(
                         new TrendInfo(-dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
                         {
                             dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None

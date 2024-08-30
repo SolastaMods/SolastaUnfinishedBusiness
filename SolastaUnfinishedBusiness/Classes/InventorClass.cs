@@ -969,8 +969,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         GameLocationBattleManager battleManager,
         AbilityCheckData abilityCheckData,
         GameLocationCharacter defender,
-        GameLocationCharacter helper,
-        ActionModifier abilityCheckModifier)
+        GameLocationCharacter helper)
     {
         var rulesetDefender = defender.RulesetActor;
 
@@ -990,7 +989,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
         if (abilityCheckData.AbilityCheckRoll == 0 ||
-            abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+            abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
             !helper.CanReact() ||
             !helper.CanPerceiveTarget(defender) ||
             rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
@@ -1012,13 +1011,16 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         void ReactionValidated()
         {
-            abilityCheckData.AbilityCheckRoll += bonus;
-            abilityCheckData.AbilityCheckSuccessDelta += bonus;
+            var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
 
-            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
-            {
-                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
-            }
+            abilityCheckModifier.AbilityCheckModifierTrends.Add(
+                new TrendInfo(bonus, FeatureSourceType.Power, power.Name, power));
+
+            abilityCheckModifier.AbilityCheckModifier += bonus;
+            abilityCheckData.AbilityCheckSuccessDelta += bonus;
+            abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                ? RollOutcome.Success
+                : RollOutcome.Failure;
 
             var extra = abilityCheckData.AbilityCheckSuccessDelta >= 0
                 ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")

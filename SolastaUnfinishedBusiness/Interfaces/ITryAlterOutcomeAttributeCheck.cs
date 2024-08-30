@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using UnityEngine;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
@@ -15,15 +17,15 @@ public interface ITryAlterOutcomeAttributeCheck
         GameLocationBattleManager battleManager,
         AbilityCheckData abilityCheckData,
         GameLocationCharacter defender,
-        GameLocationCharacter helper,
-        ActionModifier abilityCheckModifier);
+        GameLocationCharacter helper);
 }
 
 public sealed class AbilityCheckData
 {
     public int AbilityCheckRoll { get; set; }
-    public RuleDefinitions.RollOutcome AbilityCheckRollOutcome { get; set; }
+    public RollOutcome AbilityCheckRollOutcome { get; set; }
     public int AbilityCheckSuccessDelta { get; set; }
+    public ActionModifier AbilityCheckActionModifier { get; set; }
 }
 
 internal static class TryAlterOutcomeAttributeCheck
@@ -79,15 +81,15 @@ internal static class TryAlterOutcomeAttributeCheck
             {
                 if (executionModifier.actionId != actionId ||
                     !actor.RulesetCharacter.IsMatchingEquipementCondition(executionModifier.equipmentContext) ||
-                    executionModifier.advantageType == RuleDefinitions.AdvantageType.None)
+                    executionModifier.advantageType == AdvantageType.None)
                 {
                     continue;
                 }
 
-                var num = executionModifier.advantageType == RuleDefinitions.AdvantageType.Advantage ? 1 : -1;
+                var num = executionModifier.advantageType == AdvantageType.Advantage ? 1 : -1;
                 var featureOrigin = actor.RulesetCharacter.FeaturesOrigin[key];
 
-                actionModifierActorStrength.AbilityCheckAdvantageTrends.Add(new RuleDefinitions.TrendInfo(
+                actionModifierActorStrength.AbilityCheckAdvantageTrends.Add(new TrendInfo(
                     num, featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
             }
         }
@@ -128,10 +130,10 @@ internal static class TryAlterOutcomeAttributeCheck
 
     private static int ExtendedRollDie(
         [NotNull] RulesetCharacter rulesetCharacter,
-        RuleDefinitions.DieType dieType,
-        RuleDefinitions.RollContext rollContext,
+        DieType dieType,
+        RollContext rollContext,
         bool isProficient,
-        RuleDefinitions.AdvantageType advantageType,
+        AdvantageType advantageType,
         bool enumerateFeatures,
         bool canRerollDice,
         string skill,
@@ -139,8 +141,8 @@ internal static class TryAlterOutcomeAttributeCheck
         int rollModifier,
         string abilityScoreName,
         string proficiencyName,
-        List<RuleDefinitions.TrendInfo> advantageTrends,
-        List<RuleDefinitions.TrendInfo> modifierTrends)
+        List<TrendInfo> advantageTrends,
+        List<TrendInfo> modifierTrends)
     {
         var minRoll = 0;
 
@@ -165,24 +167,24 @@ internal static class TryAlterOutcomeAttributeCheck
         int rollModifier,
         string abilityScoreName,
         string proficiencyName,
-        List<RuleDefinitions.TrendInfo> advantageTrends,
-        List<RuleDefinitions.TrendInfo> modifierTrends,
+        List<TrendInfo> advantageTrends,
+        List<TrendInfo> modifierTrends,
         RulesetCharacter opponent,
         int opponentBaseBonus,
         int opponentRollModifier,
         string opponentAbilityScoreName,
         string opponentProficiencyName,
-        List<RuleDefinitions.TrendInfo> opponentAdvantageTrends,
-        List<RuleDefinitions.TrendInfo> opponentModifierTrends,
+        List<TrendInfo> opponentAdvantageTrends,
+        List<TrendInfo> opponentModifierTrends,
         AbilityCheckData abilityCheckData,
         bool notify = true)
     {
-        var advantageActor = RuleDefinitions.ComputeAdvantage(advantageTrends);
+        var advantageActor = ComputeAdvantage(advantageTrends);
         var isProficientActor = rulesetCharacter.IsProficient(proficiencyName);
 
         foreach (var modifierTrend in modifierTrends)
         {
-            if (modifierTrend.dieFlag == RuleDefinitions.TrendInfoDieFlag.None ||
+            if (modifierTrend.dieFlag == TrendInfoDieFlag.None ||
                 modifierTrend.value <= 0)
             {
                 continue;
@@ -195,7 +197,7 @@ internal static class TryAlterOutcomeAttributeCheck
 
         var rawRoll = ExtendedRollDie(
             rulesetCharacter,
-            RuleDefinitions.DieType.D20, RuleDefinitions.RollContext.AbilityCheck,
+            DieType.D20, RollContext.AbilityCheck,
             isProficientActor,
             advantageActor,
             true,
@@ -208,12 +210,12 @@ internal static class TryAlterOutcomeAttributeCheck
             advantageTrends,
             modifierTrends);
 
-        var advantageOpponent = RuleDefinitions.ComputeAdvantage(opponentAdvantageTrends);
+        var advantageOpponent = ComputeAdvantage(opponentAdvantageTrends);
         var isProficientOpponent = opponent.IsProficient(opponentProficiencyName);
 
         foreach (var opponentModifierTrend in opponentModifierTrends)
         {
-            if (opponentModifierTrend.dieFlag == RuleDefinitions.TrendInfoDieFlag.None ||
+            if (opponentModifierTrend.dieFlag == TrendInfoDieFlag.None ||
                 opponentModifierTrend.value <= 0)
             {
                 continue;
@@ -226,7 +228,7 @@ internal static class TryAlterOutcomeAttributeCheck
 
         var opponentRawRoll = ExtendedRollDie(
             opponent,
-            RuleDefinitions.DieType.D20, RuleDefinitions.RollContext.AbilityCheck,
+            DieType.D20, RollContext.AbilityCheck,
             isProficientOpponent,
             advantageOpponent,
             true,
@@ -243,46 +245,56 @@ internal static class TryAlterOutcomeAttributeCheck
         var opponentTotalRoll = opponentBaseBonus + opponentRawRoll + opponentRollModifier;
 
         // handle actor interruptions
+        var actionModifierHero = new ActionModifier();
+
         abilityCheckData.AbilityCheckRoll = rawRoll;
         abilityCheckData.AbilityCheckSuccessDelta = totalRoll - opponentTotalRoll;
-        abilityCheckData.AbilityCheckRollOutcome = totalRoll != RuleDefinitions.DiceMinValue[8]
-            ? totalRoll <= opponentTotalRoll ? RuleDefinitions.RollOutcome.Failure :
-            rawRoll != RuleDefinitions.DiceMaxValue[8] ? RuleDefinitions.RollOutcome.Success :
-            RuleDefinitions.RollOutcome.CriticalSuccess
-            : RuleDefinitions.RollOutcome.CriticalFailure;
+        abilityCheckData.AbilityCheckRollOutcome = totalRoll != DiceMinValue[8]
+            ? totalRoll <= opponentTotalRoll ? RollOutcome.Failure :
+            rawRoll != DiceMaxValue[8] ? RollOutcome.Success :
+            RollOutcome.CriticalSuccess
+            : RollOutcome.CriticalFailure;
+        abilityCheckData.AbilityCheckActionModifier = actionModifierHero;
 
         yield return HandleITryAlterOutcomeAttributeCheck(
-            GameLocationCharacter.GetFromActor(rulesetCharacter), abilityCheckData, new ActionModifier());
+            GameLocationCharacter.GetFromActor(rulesetCharacter), abilityCheckData);
 
-        totalRoll = totalRoll - rawRoll + abilityCheckData.AbilityCheckRoll;
+        totalRoll = totalRoll - rawRoll + abilityCheckData.AbilityCheckRoll +
+                    abilityCheckData.AbilityCheckActionModifier.AbilityCheckModifier;
         rawRoll = abilityCheckData.AbilityCheckRoll;
+        modifierTrends.AddRange(abilityCheckData.AbilityCheckActionModifier.AbilityCheckModifierTrends);
 
         // handle opponent interruptions
+        var actionModifierEnemy = new ActionModifier();
+
         abilityCheckData.AbilityCheckRoll = opponentRawRoll;
         abilityCheckData.AbilityCheckSuccessDelta = opponentRawRoll - totalRoll;
-        abilityCheckData.AbilityCheckRollOutcome = opponentRawRoll != RuleDefinitions.DiceMinValue[8]
-            ? opponentRawRoll <= totalRoll ? RuleDefinitions.RollOutcome.Failure :
-            opponentRawRoll != RuleDefinitions.DiceMaxValue[8] ? RuleDefinitions.RollOutcome.Success :
-            RuleDefinitions.RollOutcome.CriticalSuccess
-            : RuleDefinitions.RollOutcome.CriticalFailure;
+        abilityCheckData.AbilityCheckRollOutcome = opponentRawRoll != DiceMinValue[8]
+            ? opponentRawRoll <= totalRoll ? RollOutcome.Failure :
+            opponentRawRoll != DiceMaxValue[8] ? RollOutcome.Success :
+            RollOutcome.CriticalSuccess
+            : RollOutcome.CriticalFailure;
+        abilityCheckData.AbilityCheckActionModifier = actionModifierEnemy;
 
         yield return HandleITryAlterOutcomeAttributeCheck(
-            GameLocationCharacter.GetFromActor(opponent), abilityCheckData, new ActionModifier());
+            GameLocationCharacter.GetFromActor(opponent), abilityCheckData);
 
-        opponentTotalRoll = opponentTotalRoll - opponentRawRoll + abilityCheckData.AbilityCheckRoll;
+        opponentTotalRoll = opponentTotalRoll - opponentRawRoll + abilityCheckData.AbilityCheckRoll +
+                            abilityCheckData.AbilityCheckActionModifier.AbilityCheckModifier;
         opponentRawRoll = abilityCheckData.AbilityCheckRoll;
+        opponentModifierTrends.AddRange(abilityCheckData.AbilityCheckActionModifier.AbilityCheckModifierTrends);
 
         // calculate final results
         abilityCheckData.AbilityCheckRoll = rawRoll;
         abilityCheckData.AbilityCheckSuccessDelta = totalRoll - opponentTotalRoll;
-        abilityCheckData.AbilityCheckRollOutcome = totalRoll != RuleDefinitions.DiceMinValue[8]
-            ? totalRoll <= opponentTotalRoll ? RuleDefinitions.RollOutcome.Failure :
-            rawRoll != RuleDefinitions.DiceMaxValue[8] ? RuleDefinitions.RollOutcome.Success :
-            RuleDefinitions.RollOutcome.CriticalSuccess
-            : RuleDefinitions.RollOutcome.CriticalFailure;
+        abilityCheckData.AbilityCheckRollOutcome = totalRoll != DiceMinValue[8]
+            ? totalRoll <= opponentTotalRoll ? RollOutcome.Failure :
+            rawRoll != DiceMaxValue[8] ? RollOutcome.Success :
+            RollOutcome.CriticalSuccess
+            : RollOutcome.CriticalFailure;
 
-        rulesetCharacter.ProcessConditionsMatchingInterruption(RuleDefinitions.ConditionInterruption.AbilityCheck);
-        opponent.ProcessConditionsMatchingInterruption(RuleDefinitions.ConditionInterruption.AbilityCheck);
+        rulesetCharacter.ProcessConditionsMatchingInterruption(ConditionInterruption.AbilityCheck);
+        opponent.ProcessConditionsMatchingInterruption(ConditionInterruption.AbilityCheck);
 
         if (notify)
         {
@@ -307,8 +319,7 @@ internal static class TryAlterOutcomeAttributeCheck
 
     internal static IEnumerator HandleITryAlterOutcomeAttributeCheck(
         GameLocationCharacter actingCharacter,
-        AbilityCheckData abilityCheckData,
-        ActionModifier actionModifier)
+        AbilityCheckData abilityCheckData)
     {
         yield return HandleBardicRollOnFailure(actingCharacter, abilityCheckData);
 
@@ -338,7 +349,7 @@ internal static class TryAlterOutcomeAttributeCheck
                          .GetSubFeaturesByType<ITryAlterOutcomeAttributeCheck>())
             {
                 yield return tryAlterOutcomeAttributeCheck.OnTryAlterAttributeCheck(
-                    battleManager, abilityCheckData, actingCharacter, unit, actionModifier);
+                    battleManager, abilityCheckData, actingCharacter, unit);
             }
         }
     }
@@ -350,7 +361,7 @@ internal static class TryAlterOutcomeAttributeCheck
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
             as GameLocationBattleManager;
 
-        if (abilityCheckData.AbilityCheckRollOutcome != RuleDefinitions.RollOutcome.Failure)
+        if (abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
         {
             yield break;
         }
@@ -363,14 +374,14 @@ internal static class TryAlterOutcomeAttributeCheck
             out var forceMaxRoll,
             out var advantage);
 
-        if (bestDie <= RuleDefinitions.DieType.D1 ||
+        if (bestDie <= DieType.D1 ||
             actingCharacter.RulesetCharacter == null)
         {
             yield break;
         }
 
         // Is the die enough to overcome the failure?
-        if (RuleDefinitions.DiceMaxValue[(int)bestDie] < Mathf.Abs(abilityCheckData.AbilityCheckSuccessDelta))
+        if (DiceMaxValue[(int)bestDie] < Mathf.Abs(abilityCheckData.AbilityCheckSuccessDelta))
         {
             yield break;
         }
@@ -378,8 +389,7 @@ internal static class TryAlterOutcomeAttributeCheck
         var reactionParams =
             new CharacterActionParams(actingCharacter, ActionDefinitions.Id.UseBardicInspiration)
             {
-                IntParameter = (int)bestDie,
-                IntParameter2 = (int)RuleDefinitions.BardicInspirationUsageType.AbilityCheck
+                IntParameter = (int)bestDie, IntParameter2 = (int)BardicInspirationUsageType.AbilityCheck
             };
         var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
 
@@ -392,17 +402,25 @@ internal static class TryAlterOutcomeAttributeCheck
             yield break;
         }
 
-        // Now we have a shot at succeeding on the ability check
         var roll = actingCharacter.RulesetCharacter.RollBardicInspirationDie(
             sourceCondition, abilityCheckData.AbilityCheckSuccessDelta, forceMaxRoll, advantage);
 
-        if (roll < Mathf.Abs(abilityCheckData.AbilityCheckSuccessDelta))
+        abilityCheckData.AbilityCheckSuccessDelta += roll;
+
+        var actionModifier = abilityCheckData.AbilityCheckActionModifier;
+
+        if (actionModifier != null)
         {
-            yield break;
+            actionModifier.AbilityCheckModifier += roll;
+            actionModifier.AbilityCheckModifierTrends.Add(new TrendInfo(
+                roll, FeatureSourceType.CharacterFeature,
+                DatabaseHelper.FeatureDefinitionPowers.PowerBardGiveBardicInspiration.Name, null));
         }
 
-        // The roll is now a success!
-        abilityCheckData.AbilityCheckSuccessDelta += roll;
-        abilityCheckData.AbilityCheckRollOutcome = RuleDefinitions.RollOutcome.Success;
+        // change roll to success if appropriate
+        if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
+        {
+            abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
+        }
     }
 }
