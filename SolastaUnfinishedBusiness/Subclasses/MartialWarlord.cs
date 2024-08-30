@@ -355,9 +355,9 @@ public sealed class MartialWarlord : AbstractSubclass
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action.ActionParams.RulesetEffect?.SourceDefinition.Name is not (
-                    "PowerMartialWarlordCoveringStrike" or
-                    "PowerMartialWarlordExploitOpening" or
-                    "PowerMartialWarlordPredictAttack"))
+                "PowerMartialWarlordCoveringStrike" or
+                "PowerMartialWarlordExploitOpening" or
+                "PowerMartialWarlordPredictAttack"))
             {
                 yield break;
             }
@@ -511,8 +511,7 @@ public sealed class MartialWarlord : AbstractSubclass
             EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
 
             yield break;
         }

@@ -1450,7 +1450,7 @@ internal static class RaceFeats
 
             actingCharacter.UsedSpecialFeatures.TryAdd(UsedTacticalMoves, actingCharacter.UsedTacticalMoves);
             actingCharacter.UsedTacticalMoves = 0;
-            ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(_actionParams, null, true);
+             ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(_actionParams, null, true);
 
             yield break;
         }

@@ -1608,8 +1608,7 @@ internal static partial class CharacterContext
                 0,
                 0);
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
         }
 
         private IEnumerator HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)

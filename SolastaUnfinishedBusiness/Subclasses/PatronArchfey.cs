@@ -444,8 +444,7 @@ public class PatronArchfey : AbstractSubclass
                 positions = [.. cursorLocationSelectPosition!.selectedPositions]
             };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
         }
 
         private IEnumerator HandleReaction(

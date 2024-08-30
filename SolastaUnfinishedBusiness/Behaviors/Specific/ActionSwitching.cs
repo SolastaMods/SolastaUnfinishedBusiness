@@ -211,8 +211,7 @@ public static class ActionSwitching
             IntParameter = (int)type, IntParameter2 = index
         };
 
-        ServiceRepository.GetService<IGameLocationActionService>()?
-            .ExecuteAction(actionParams, null, true);
+        ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
     }
 
     internal static void DoPrioritizeAction(

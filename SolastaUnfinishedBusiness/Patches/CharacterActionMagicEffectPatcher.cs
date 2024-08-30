@@ -950,7 +950,7 @@ public static class CharacterActionMagicEffectPatcher
                     }
                     else
                     {
-                        ServiceRepository.GetService<IGameLocationActionService>()?
+                        ServiceRepository.GetService<IGameLocationActionService>()
                             .ExecuteAction(actionParam, null, false);
                     }
                 }

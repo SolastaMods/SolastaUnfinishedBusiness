@@ -884,8 +884,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 Positions = { downedCreature.LocationPosition }
             };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
         }
     }
 
