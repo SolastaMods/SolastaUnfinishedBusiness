@@ -195,8 +195,9 @@ public static class CharacterActionPatcher
                 yield break;
             }
 
-            //BUGFIX: vanilla sets usedBonusSpell to false on action surge
-            if (__instance is CharacterActionActionSurge)
+            //BUGFIX: vanilla sets usedBonusSpell to previous value on action surge without action switching
+            //vanilla always set it to false which is incorrect as you cannot cast 2 leveled spells on same turn
+            if (!Main.Settings.EnableActionSwitching && __instance is CharacterActionActionSurge)
             {
                 __instance.ActingCharacter.UsedBonusSpell = _usedBonusSpell;
             }
