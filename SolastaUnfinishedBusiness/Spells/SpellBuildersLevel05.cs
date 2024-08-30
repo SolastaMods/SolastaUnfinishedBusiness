@@ -989,7 +989,7 @@ internal static partial class SpellBuilders
 
     #region Telekinesis
 
-    private const string ConditionTelekinesisRestrainedName = "ConditionTelekinesisRestrained";
+    internal const string ConditionTelekinesisRestrainedName = "ConditionTelekinesisRestrained";
 
     private const int TelekinesisRange = 12;
 
@@ -1321,8 +1321,7 @@ internal static partial class SpellBuilders
                     Positions = { action.ActionParams.Positions[0] }
                 };
 
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
+                ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
             }
 
             if (!isEnemy)

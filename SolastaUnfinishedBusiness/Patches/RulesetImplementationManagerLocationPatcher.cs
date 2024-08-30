@@ -113,7 +113,10 @@ public static class RulesetImplementationManagerLocationPatcher
             {
                 var rulesetCharacter = character.RulesetCharacter;
                 var conditionsToRemove = rulesetCharacter.AllConditions
-                    .Where(x => x.ConditionDefinition.IsSubtypeOf(ConditionRestrained))
+                    .Where(x =>
+                        x.ConditionDefinition.IsSubtypeOf(ConditionRestrained) &&
+                        (character.Side == Side.Ally ||
+                         x.ConditionDefinition.Name != SpellBuilders.ConditionTelekinesisRestrainedName))
                     .ToList();
 
                 foreach (var activeCondition in conditionsToRemove)
