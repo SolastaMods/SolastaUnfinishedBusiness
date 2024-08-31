@@ -1478,6 +1478,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetSorcererChildRiftRiftwalk { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererChildRiftRiftwalk");
+
         internal static FeatureDefinitionFeatureSet AdditionalDamageRangerFavoredEnemyChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("AdditionalDamageRangerFavoredEnemyChoice");
 
