@@ -870,7 +870,7 @@ Wild Magic Table:
 - Magic infuses the weapon that you are holding. Until your rage ends, the weapon's damage type changes to force, and it gains the thrown properties, with a normal range of 20 feet and a long range of 60 feet. If the weapon leaves your hand, the weapon reappears in your hand. Your rage damage bonus will also apply on this thrown weapon.
 - Whenever a creature hits you with an attack roll before your rage ends, that creature takes 1d6 force damage.
 - Until your rage ends, you gain a +1 bonus to AC, and while within 10 feet of you, your allies gain the same bonus.
-- Until your rage ends, at the end of each of your turn, the ground within 15 feet of you becomes difficult terrain until the beginning of your next turn.
+- Until your rage ends, at the end of each of your turn, the ground within 15 feet of you becomes difficult terrain for your enemies until the beginning of your next turn.
 - A bolt of light shoots from your chest. Another creature of your choice that you can see within 30 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage and be blinded until the start of your next turn. Until your rage ends, you can use this effect again on each of your turns as a bonus action.
 
 
