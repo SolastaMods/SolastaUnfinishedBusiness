@@ -413,10 +413,7 @@ internal static partial class CharacterContext
         }
 
         private static void InflictCondition(
-            RulesetCharacter rulesetAttacker,
-            // ReSharper disable once SuggestBaseTypeForParameter
-            RulesetCharacter rulesetDefender,
-            string conditionName)
+            RulesetCharacter rulesetAttacker, RulesetCharacter rulesetDefender, string conditionName)
         {
             rulesetDefender.InflictCondition(
                 conditionName,
@@ -448,8 +445,11 @@ internal static partial class CharacterContext
             bool checkMagicalAttackDamage)
         {
             var damageType = activeEffect.EffectDescription.FindFirstDamageForm()?.DamageType;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (damageType == null)
+            if (damageType == null ||
+                rulesetAttacker == null ||
+                rulesetAttacker is RulesetCharacterEffectProxy)
             {
                 yield break;
             }
@@ -466,8 +466,11 @@ internal static partial class CharacterContext
             RulesetAttackMode attackMode)
         {
             var damageType = attackMode.EffectDescription.FindFirstDamageForm()?.DamageType;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (damageType == null)
+            if (damageType == null ||
+                rulesetAttacker == null ||
+                rulesetAttacker is RulesetCharacterEffectProxy)
             {
                 yield break;
             }
@@ -509,7 +512,7 @@ internal static partial class CharacterContext
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
+                FactionDefinitions.HostileMonsters.Name,
                 1,
                 conditionSunderingBlowAlly.Name,
                 0,
