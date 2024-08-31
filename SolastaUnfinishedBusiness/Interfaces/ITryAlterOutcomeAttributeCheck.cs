@@ -361,7 +361,7 @@ internal static class TryAlterOutcomeAttributeCheck
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
             as GameLocationBattleManager;
 
-        if (abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+        if (abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure)
         {
             yield break;
         }

@@ -989,7 +989,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
         if (abilityCheckData.AbilityCheckRoll == 0 ||
-            abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+            abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
             !helper.CanReact() ||
             !helper.CanPerceiveTarget(defender) ||
             rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||

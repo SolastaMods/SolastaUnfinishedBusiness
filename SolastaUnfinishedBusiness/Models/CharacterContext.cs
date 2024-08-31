@@ -1200,7 +1200,7 @@ internal static partial class CharacterContext
             var rulesetHelper = helper.RulesetCharacter;
 
             if (abilityCheckData.AbilityCheckRoll == 0 ||
-                abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
                 helper != defender ||
                 rulesetHelper.RemainingSorceryPoints == 0)
             {

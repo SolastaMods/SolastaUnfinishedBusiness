@@ -861,7 +861,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
 
             if (abilityCheckData.AbilityCheckRoll == 0 ||
-                abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
                 abilityCheckData.AbilityCheckSuccessDelta + MaxDieTypeValue < 0 ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 !helper.CanReact() ||
