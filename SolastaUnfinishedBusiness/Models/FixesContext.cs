@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -17,7 +18,6 @@ using static EquipmentDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -679,7 +679,8 @@ internal static class FixesContext
     private static void AddAdditionalActionTitles()
     {
         AdditionalActionHasted.GuiPresentation.Title = Haste.GuiPresentation.Title;
-        AdditionalActionSurgedMain.GuiPresentation.Title = ActionSurge.GuiPresentation.Title;
+        AdditionalActionSurgedMain.GuiPresentation.Title =
+            DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
     }
 
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe,

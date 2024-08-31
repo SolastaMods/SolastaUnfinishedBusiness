@@ -1939,13 +1939,27 @@ public static class RulesetCharacterPatcher
             }
 
             //PATCH: fix scenarios where hero doesn't have an instance of a usable power
-            if (hero.ActiveFeatures
+            var featureDefinitionPowers = hero.ActiveFeatures
                 .SelectMany(k => k.Value)
                 .OfType<FeatureDefinitionPower>()
-                .Any(power => hero.GetPowerFromDefinition(power) == null))
+                .ToArray();
+
+            if (featureDefinitionPowers.Any(x => hero.GetPowerFromDefinition(x) == null))
             {
                 Main.Info($"Hero [{hero.Name}] had missing powers, granting them");
                 hero.GrantPowers();
+            }
+
+            //BUGFIX: fix Sorcerer Child of the Rift missing PowerSorcererChildRiftRiftwalkDamage at 14th
+            if (hero.ClassesHistory.Count >= 14 &&
+                featureDefinitionPowers.Any(x => x == PowerSorcererChildRiftRiftwalk) &&
+                hero.UsablePowers.All(x =>
+                    x.PowerDefinition != PowerSorcererChildRiftRiftwalkLandingDamage))
+            {
+                var usablePower =
+                    new RulesetUsablePower(PowerSorcererChildRiftRiftwalkLandingDamage, hero.RaceDefinition, Sorcerer);
+
+                hero.UsablePowers.Add(usablePower);
             }
 
             hero.RefreshAll();

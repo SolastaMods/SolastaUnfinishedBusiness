@@ -2096,6 +2096,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerSorcererChildRiftRiftwalk { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftRiftwalk");
 
+        internal static FeatureDefinitionPower PowerSorcererChildRiftRiftwalkLandingDamage { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftRiftwalkLandingDamage");
+
         internal static FeatureDefinitionPower PowerSpellBladeSpellTyrant { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSpellBladeSpellTyrant");
 
