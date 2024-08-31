@@ -636,7 +636,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             void ReactionValidated()
             {
                 List<TrendInfo> advantageTrends =
-                    [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
+                    [new(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
 
                 actionModifier.AttackAdvantageTrends.SetRange(advantageTrends);
 
@@ -737,7 +737,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             void ReactionValidated()
             {
                 List<TrendInfo> advantageTrends =
-                    [new TrendInfo(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
+                    [new(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
 
                 actionModifier.SavingThrowAdvantageTrends.SetRange(advantageTrends);
 
