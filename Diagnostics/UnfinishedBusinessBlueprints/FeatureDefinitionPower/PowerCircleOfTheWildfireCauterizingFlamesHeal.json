@@ -83,7 +83,7 @@
           "dieType": "D10",
           "bonusHealing": 0,
           "variablePool": false,
-          "healingCap": "HalfMaximumHitPoints"
+          "healingCap": "MaximumHitPoints"
         },
         "hasFilterId": false,
         "filterId": 0

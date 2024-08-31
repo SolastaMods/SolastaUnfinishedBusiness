@@ -85,7 +85,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         .SetBonusMode(AddBonusMode.AbilityBonus)
                         .SetHealingForm(
                             HealingComputation.Dice, 0, DieType.D10, 1, false,
-                            HealingCap.HalfMaximumHitPoints)
+                            HealingCap.MaximumHitPoints)
                         .Build())
                 //.SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(CureWounds)
