@@ -71,8 +71,8 @@ internal sealed class ForcePushOrDragFromEffectPoint
         if (formsParams.targetCharacter is not { CanReceiveMotion: true } ||
             (formsParams.rolledSaveThrow &&
              effectForm.SavingThrowAffinity != RuleDefinitions.EffectSavingThrowType.None &&
-             formsParams.saveOutcome != RuleDefinitions.RollOutcome.Failure &&
-             formsParams.saveOutcome != RuleDefinitions.RollOutcome.CriticalFailure))
+             formsParams.saveOutcome is not
+                 (RuleDefinitions.RollOutcome.Failure or RuleDefinitions.RollOutcome.CriticalFailure)))
         {
             return true;
         }

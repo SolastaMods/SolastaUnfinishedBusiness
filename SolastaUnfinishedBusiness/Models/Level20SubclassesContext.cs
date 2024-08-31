@@ -1982,7 +1982,7 @@ internal static class Level20SubclassesContext
             rulesetTarget.RemoveCondition(activeCondition);
 
             // takes 10d10 Necrotic
-            if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (action.SaveOutcome == RollOutcome.Success)
             {
                 var usablePower = PowerProvider.Get(powerQuiveringPalmDamage, rulesetAttacker);
 

@@ -637,7 +637,7 @@ internal static class RaceImpBuilder
 
             if (helper != defender ||
                 !action.RolledSaveThrow ||
-                action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                action.SaveOutcome != RollOutcome.Failure ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 action.SaveOutcomeDelta < -InspirationValue)
             {
