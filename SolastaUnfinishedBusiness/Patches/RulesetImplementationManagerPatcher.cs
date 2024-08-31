@@ -954,19 +954,15 @@ public static class RulesetImplementationManagerPatcher
     {
         private static readonly List<CodeInstruction> MatchPattern =
         [
-            new CodeInstruction(OpCodes.Ldarg_2),
-            new CodeInstruction(OpCodes.Ldfld,
-                typeof(RulesetImplementationDefinitions.ApplyFormsParams).GetField("activeEffect")),
-
-            new CodeInstruction(OpCodes.Brtrue),
-            new CodeInstruction(OpCodes.Ldloc_1),
-            new CodeInstruction(OpCodes.Callvirt, typeof(ConditionDefinition).GetMethod("get_SpecialDuration")),
-            new CodeInstruction(OpCodes.Brfalse),
-            new CodeInstruction(OpCodes.Ldarg_1),
-            new CodeInstruction(OpCodes.Callvirt,
-                typeof(OverrideSavingThrowInfo).GetMethod("get_OverrideSavingThrowInfo")),
-
-            new CodeInstruction(OpCodes.Brfalse_S)
+            new(OpCodes.Ldarg_2),
+            new(OpCodes.Ldfld, typeof(RulesetImplementationDefinitions.ApplyFormsParams).GetField("activeEffect")),
+            new(OpCodes.Brtrue),
+            new(OpCodes.Ldloc_1),
+            new(OpCodes.Callvirt, typeof(ConditionDefinition).GetMethod("get_SpecialDuration")),
+            new(OpCodes.Brfalse),
+            new(OpCodes.Ldarg_1),
+            new(OpCodes.Callvirt, typeof(OverrideSavingThrowInfo).GetMethod("get_OverrideSavingThrowInfo")),
+            new(OpCodes.Brfalse_S)
         ];
 
         private static bool CompareInstructions(IReadOnlyList<CodeInstruction> codes)

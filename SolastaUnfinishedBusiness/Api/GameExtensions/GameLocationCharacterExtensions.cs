@@ -73,7 +73,7 @@ public static class GameLocationCharacterExtensions
 
         actionService.ExecuteAction(new CharacterActionParams(character, Id.Dodge), null, true);
     }
-    
+
     internal static void MyExecuteActionPowerNoCost(
         this GameLocationCharacter character,
         RulesetUsablePower usablePower,
