@@ -57,8 +57,6 @@ public static class CharacterActionPatcher
     [UsedImplicitly]
     public static class Execute_Patch
     {
-        private static bool _usedBonusSpell;
-
         private static bool ActionShouldKeepConcentration(CharacterAction action)
         {
             var isProtectedPower =
@@ -161,10 +159,6 @@ public static class CharacterActionPatcher
                 case CharacterActionMoveStepBase characterActionMoveStepBase:
                     OtherFeats.NotifyFeatStealth(characterActionMoveStepBase);
                     break;
-
-                case CharacterActionActionSurge:
-                    _usedBonusSpell = __instance.ActingCharacter.UsedBonusSpell;
-                    break;
             }
         }
 
@@ -193,13 +187,6 @@ public static class CharacterActionPatcher
             if (Gui.Battle == null)
             {
                 yield break;
-            }
-
-            //BUGFIX: vanilla sets usedBonusSpell to previous value on action surge without action switching
-            //vanilla always set it to false which is incorrect as you cannot cast 2 leveled spells on same turn
-            if (!Main.Settings.EnableActionSwitching && __instance is CharacterActionActionSurge)
-            {
-                __instance.ActingCharacter.UsedBonusSpell = _usedBonusSpell;
             }
 
             //PATCH: support for Official Flanking Rules
