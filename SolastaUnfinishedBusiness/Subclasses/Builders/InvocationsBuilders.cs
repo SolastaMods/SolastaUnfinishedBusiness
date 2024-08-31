@@ -628,6 +628,85 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    #region Burning Hex
+
+    internal static InvocationDefinition BuildBurningHex()
+    {
+        const string NAME = "InvocationBurningHex";
+
+        var powerInvocationBurningHex = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Invocation, Blindness)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDamageForm(DamageTypeFire)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionOnFire))
+                    .SetParticleEffectParameters(PowerDomainElementalFireBurst)
+                    .SetCasterEffectParameters(PowerPactChainPseudodragon)
+                    .Build())
+            .AddToDB();
+
+        powerInvocationBurningHex.AddCustomSubFeatures(
+            new FilterTargetingCharacterCanApplyHex(powerInvocationBurningHex));
+
+        return InvocationDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, FireBolt)
+            .SetValidators(ValidateHex)
+            .SetGrantedFeature(powerInvocationBurningHex)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Vexing Hex
+
+    internal static InvocationDefinition BuildVexingHex()
+    {
+        const string NAME = "InvocationVexingHex";
+
+        var powerVexingHex = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Invocation, Blindness)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Cube, 3)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
+                        .SetDamageForm(DamageTypePsychic)
+                        .Build())
+                    .SetParticleEffectParameters(PowerSorakDreadLaughter)
+                    .SetCasterEffectParameters(PowerPactChainPseudodragon)
+                    .Build())
+            .AddToDB();
+
+        powerVexingHex.AddCustomSubFeatures(new FilterTargetingCharacterCanApplyHex(powerVexingHex));
+
+        return InvocationDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, Blindness)
+            .SetRequirements(5)
+            .SetValidators(ValidateHex)
+            .SetGrantedFeature(powerVexingHex)
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Pernicious Cloak
 
     internal static InvocationDefinition BuildPerniciousCloak()
@@ -732,11 +811,6 @@ internal static class InvocationsBuilders
             .AddToDB();
 
         conditionPerniciousCloakSelf.Features.Add(powerPerniciousCloakRemove);
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create(powerPerniciousCloak, $"FeatureSet{Name}")
-            .AddToDB();
 
         return InvocationDefinitionBuilder
             .Create(Name)
@@ -1043,23 +1117,14 @@ internal static class InvocationsBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetDamageForm(DamageTypeCold)
-                        .Build())
                     .SetParticleEffectParameters(PowerDomainElementalIceLance)
                     .SetCasterEffectParameters(PowerPactChainPseudodragon)
                     .Build())
             .AddToDB();
 
         powerInvocationChillingHex.AddCustomSubFeatures(
-            new CustomBehaviorChillingHex(powerInvocationChillingHex, powerInvocationChillingHexDamage));
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create(powerInvocationChillingHex, $"FeatureSet{NAME}")
-            .AddToDB();
+            new FilterTargetingCharacterCanApplyHex(powerInvocationChillingHex),
+            new PowerOrSpellFinishedByMeChillingHex(powerInvocationChillingHexDamage));
 
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(NAME)
@@ -1069,37 +1134,9 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorChillingHex(
-        FeatureDefinitionPower powerChillingHex,
-        FeatureDefinitionPower powerChillingHexDamage) : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeChillingHex(FeatureDefinitionPower powerChillingHexDamage)
+        : IPowerOrSpellFinishedByMe
     {
-        public bool EnforceFullSelection => false;
-
-        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
-        {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerChillingHex)
-            {
-                return true;
-            }
-
-            var rulesetCharacter = target.RulesetCharacter;
-
-            if (rulesetCharacter == null)
-            {
-                return false;
-            }
-
-            var isValid = CanApplyHex(rulesetCharacter);
-
-            if (!isValid)
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveMaledictionCurseOrHex");
-            }
-
-            return isValid;
-        }
-
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
@@ -1119,198 +1156,44 @@ internal static class InvocationsBuilders
 
     #endregion
 
-    #region Burning Hex
-
-    internal static InvocationDefinition BuildBurningHex()
-    {
-        const string NAME = "InvocationBurningHex";
-
-        var powerInvocationBurningHex = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Invocation, Blindness)
-            .SetUsesFixed(ActivationTime.BonusAction)
-            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetBonusMode(AddBonusMode.AbilityBonus)
-                            .SetDamageForm(DamageTypeFire)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionOnFire))
-                    .SetParticleEffectParameters(PowerDomainElementalFireBurst)
-                    .SetCasterEffectParameters(PowerPactChainPseudodragon)
-                    .Build())
-            .AddToDB();
-
-        powerInvocationBurningHex.AddCustomSubFeatures(
-            new FilterTargetingCharacterBurningHex(powerInvocationBurningHex));
-
-        return InvocationDefinitionWithPrerequisitesBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, FireBolt)
-            .SetValidators(ValidateHex)
-            .SetGrantedFeature(powerInvocationBurningHex)
-            .AddToDB();
-    }
-
-    private sealed class FilterTargetingCharacterBurningHex(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerVexingHex) : IFilterTargetingCharacter
-    {
-        public bool EnforceFullSelection => false;
-
-        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
-        {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerVexingHex)
-            {
-                return true;
-            }
-
-            var rulesetCharacter = target.RulesetCharacter;
-
-            if (rulesetCharacter == null)
-            {
-                return false;
-            }
-
-            var isValid = CanApplyHex(rulesetCharacter);
-
-            if (!isValid)
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveMaledictionCurseOrHex");
-            }
-
-            return isValid;
-        }
-    }
-
-    #endregion
-
-    #region Vexing Hex
-
-    internal static InvocationDefinition BuildVexingHex()
-    {
-        const string NAME = "InvocationVexingHex";
-
-        var powerInvocationVexingHexDamage = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}Damage")
-            .SetGuiPresentation(NAME, Category.Invocation, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetBonusMode(AddBonusMode.AbilityBonus)
-                            .SetDamageForm(DamageTypePsychic)
-                            .Build())
-                    .SetImpactEffectParameters(PowerSorakDreadLaughter)
-                    .Build())
-            .AddToDB();
-
-        var powerInvocationVexingHex = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Invocation, Blindness)
-            .SetUsesFixed(ActivationTime.BonusAction)
-            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetDamageForm(DamageTypePsychic)
-                        .Build())
-                    .SetParticleEffectParameters(PowerSorakDreadLaughter)
-                    .SetCasterEffectParameters(PowerPactChainPseudodragon)
-                    .Build())
-            .AddToDB();
-
-        powerInvocationVexingHex.AddCustomSubFeatures(
-            new FilterTargetingCharacterVexingHex(powerInvocationVexingHex, powerInvocationVexingHexDamage));
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create(powerInvocationVexingHex, $"FeatureSet{NAME}")
-            .AddToDB();
-
-        return InvocationDefinitionWithPrerequisitesBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, Blindness)
-            .SetRequirements(5)
-            .SetValidators(ValidateHex)
-            .SetGrantedFeature(powerInvocationVexingHex)
-            .AddToDB();
-    }
-
-    private sealed class FilterTargetingCharacterVexingHex(
-        FeatureDefinitionPower powerVexingHex,
-        FeatureDefinitionPower powerVexingHexDamage) : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
-    {
-        public bool EnforceFullSelection => false;
-
-        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
-        {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerVexingHex)
-            {
-                return true;
-            }
-
-            var rulesetCharacter = target.RulesetCharacter;
-
-            if (rulesetCharacter == null)
-            {
-                return false;
-            }
-
-            var isValid = CanApplyHex(rulesetCharacter);
-
-            if (!isValid)
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveMaledictionCurseOrHex");
-            }
-
-            return isValid;
-        }
-
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
-            var attacker = action.ActingCharacter;
-            var defender = action.ActionParams.TargetCharacters[0];
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerVexingHexDamage, rulesetAttacker);
-            var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1).ToArray();
-
-            attacker.MyExecuteActionSpendPower(usablePower, targets);
-        }
-    }
-
-    #endregion
-
     #region HELPERS
+
+    private sealed class FilterTargetingCharacterCanApplyHex(FeatureDefinitionPower powerHex)
+        : IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerHex)
+            {
+                return true;
+            }
+
+            var rulesetCharacter = target.RulesetCharacter;
+
+            if (rulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid = CanApplyHex(rulesetCharacter);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveMaledictionCurseOrHex");
+            }
+
+            return isValid;
+        }
+    }
 
     private static bool CanApplyHex(RulesetActor rulesetCharacter)
     {
-        return rulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionMalediction.Name)
-               || rulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionCursed.Name)
-               || rulesetCharacter.HasConditionOfType(PatronSoulBlade.ConditionHex);
+        return rulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionMalediction.Name) ||
+               rulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionCursed.Name) ||
+               rulesetCharacter.HasConditionOfType(PatronSoulBlade.ConditionHex);
     }
 
     private static (bool, string) ValidateHex(InvocationDefinition invocationDefinition, RulesetCharacterHero hero)
