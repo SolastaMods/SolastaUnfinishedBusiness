@@ -1956,9 +1956,13 @@ public static class RulesetCharacterPatcher
                 hero.UsablePowers.All(x =>
                     x.PowerDefinition != PowerSorcererChildRiftRiftwalkLandingDamage))
             {
+                var tag = AttributeDefinitions.GetClassTag(Sorcerer, 14);
                 var usablePower =
-                    new RulesetUsablePower(PowerSorcererChildRiftRiftwalkLandingDamage, hero.RaceDefinition, Sorcerer);
+                    new RulesetUsablePower(PowerSorcererChildRiftRiftwalkLandingDamage, null, Sorcerer);
 
+                usablePower.Recharge();
+
+                hero.ActiveFeatures[tag].Add(PowerSorcererChildRiftRiftwalkLandingDamage);
                 hero.UsablePowers.Add(usablePower);
             }
 
