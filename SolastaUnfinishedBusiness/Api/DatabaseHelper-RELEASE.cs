@@ -1478,6 +1478,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetSorcererChildRiftRiftwalk { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererChildRiftRiftwalk");
+
         internal static FeatureDefinitionFeatureSet AdditionalDamageRangerFavoredEnemyChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("AdditionalDamageRangerFavoredEnemyChoice");
 
@@ -2092,6 +2095,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerSorcererChildRiftRiftwalk { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftRiftwalk");
+
+        internal static FeatureDefinitionPower PowerSorcererChildRiftRiftwalkLandingDamage { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftRiftwalkLandingDamage");
 
         internal static FeatureDefinitionPower PowerSpellBladeSpellTyrant { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSpellBladeSpellTyrant");

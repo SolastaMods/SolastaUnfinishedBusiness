@@ -232,17 +232,17 @@ public static class GameLocationBattleManagerPatcher
         public static IEnumerator Process(
             CharacterAction action,
             GameLocationCharacter checker,
-            ActionModifier abilityCheckModifier)
+            ActionModifier actionModifier)
         {
             var abilityCheckData = new AbilityCheckData
             {
                 AbilityCheckRoll = action.AbilityCheckRoll,
                 AbilityCheckRollOutcome = action.AbilityCheckRollOutcome,
-                AbilityCheckSuccessDelta = action.AbilityCheckSuccessDelta
+                AbilityCheckSuccessDelta = action.AbilityCheckSuccessDelta,
+                AbilityCheckActionModifier = actionModifier
             };
 
-            yield return TryAlterOutcomeAttributeCheck
-                .HandleITryAlterOutcomeAttributeCheck(checker, abilityCheckData, abilityCheckModifier);
+            yield return TryAlterOutcomeAttributeCheck.HandleITryAlterOutcomeAttributeCheck(checker, abilityCheckData);
 
             action.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
             action.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;

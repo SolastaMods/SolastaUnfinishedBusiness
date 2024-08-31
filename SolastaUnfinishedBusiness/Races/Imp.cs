@@ -305,7 +305,7 @@ internal static class RaceImpBuilder
             if (defender.HasConditionOfType(ConditionImpAssistedEnemyName) ||
                 defender.HasConditionOfType(ConditionImpSpiteName))
             {
-                attackModifier.attackAdvantageTrends.Add(
+                attackModifier.AttackAdvantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.Condition, condition.name, condition));
             }
         }
@@ -614,7 +614,6 @@ internal static class RaceImpBuilder
 
             void ReactionValidated()
             {
-                usablePower.Consume();
                 action.AttackSuccessDelta += InspirationValue;
                 action.AttackRollOutcome = RollOutcome.Success;
                 actionModifier.AttackRollModifier += InspirationValue;
@@ -638,7 +637,7 @@ internal static class RaceImpBuilder
 
             if (helper != defender ||
                 !action.RolledSaveThrow ||
-                action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                action.SaveOutcome != RollOutcome.Failure ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
                 action.SaveOutcomeDelta < -InspirationValue)
             {
@@ -656,7 +655,6 @@ internal static class RaceImpBuilder
 
             void ReactionValidated()
             {
-                usablePower.Consume();
                 action.RolledSaveThrow = true;
                 action.SaveOutcomeDelta = 0;
                 action.SaveOutcome = RollOutcome.Success;

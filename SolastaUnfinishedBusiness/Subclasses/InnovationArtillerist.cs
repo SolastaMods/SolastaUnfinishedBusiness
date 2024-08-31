@@ -1124,9 +1124,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             locationCharacter.usedTacticalMoves = locationCharacter.MaxTacticalMoves;
 
             // or use powers so force the dodge action
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            actionService.ExecuteInstantSingleAction(new CharacterActionParams(locationCharacter, Id.Dodge));
+            locationCharacter.MyExecuteActionDodge();
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)

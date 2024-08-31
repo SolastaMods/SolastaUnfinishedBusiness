@@ -1,12 +1,7 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "HitPoints",
-  "modifierOperation": "AddConditionAmount",
-  "modifierValue": 0,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinitionMoveMode, Assembly-CSharp",
+  "moveMode": "Fly",
+  "speed": 0,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -31,7 +26,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5842708b-eb28-5bc7-9210-dd6cb554bcff",
+  "guid": "f32a5326-5471-53f8-80fa-86098b13d002",
   "contentPack": 9999,
-  "name": "AttributeModifierInnovationArtilleristEldritchCannonHitPoints"
+  "name": "MoveModeTelekinesis"
 }

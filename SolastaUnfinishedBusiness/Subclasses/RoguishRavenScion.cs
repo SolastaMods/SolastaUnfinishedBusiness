@@ -265,8 +265,6 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
             void ReactionValidated()
             {
-                usablePower.Consume();
-
                 var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
                 var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
                     ? "Feedback/&RollAttackCriticalFailureTitle"
@@ -291,12 +289,12 @@ public sealed class RoguishRavenScion : AbstractSubclass
                     attackMode.toHitBonus,
                     defender.RulesetActor,
                     attackMode.sourceDefinition,
-                    attackModifier.attackToHitTrends,
+                    attackModifier.AttacktoHitTrends,
                     false,
                     attackModifier.AttackAdvantageTrends,
                     attackMode.ranged,
                     false,
-                    attackModifier.attackRollModifier,
+                    attackModifier.AttackRollModifier,
                     out var outcome,
                     out var successDelta,
                     -1,

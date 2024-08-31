@@ -1702,7 +1702,7 @@ internal static class Level20SubclassesContext
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(
+            attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
     }
@@ -1982,7 +1982,7 @@ internal static class Level20SubclassesContext
             rulesetTarget.RemoveCondition(activeCondition);
 
             // takes 10d10 Necrotic
-            if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (action.SaveOutcome == RollOutcome.Success)
             {
                 var usablePower = PowerProvider.Get(powerQuiveringPalmDamage, rulesetAttacker);
 

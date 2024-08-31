@@ -85,7 +85,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         .SetBonusMode(AddBonusMode.AbilityBonus)
                         .SetHealingForm(
                             HealingComputation.Dice, 0, DieType.D10, 1, false,
-                            HealingCap.HalfMaximumHitPoints)
+                            HealingCap.MaximumHitPoints)
                         .Build())
                 //.SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(CureWounds)
@@ -562,9 +562,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             locationCharacter.usedTacticalMoves = locationCharacter.MaxTacticalMoves;
 
             // or use powers so force the dodge action
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            actionService.ExecuteInstantSingleAction(new CharacterActionParams(locationCharacter, Id.Dodge));
+            locationCharacter.MyExecuteActionDodge();
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)
@@ -886,8 +884,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 Positions = { downedCreature.LocationPosition }
             };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
         }
     }
 

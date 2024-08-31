@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
   "modifierOperation": "AddConditionAmount",
-  "modifierValue": 1,
+  "modifierValue": 0,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
   "minimum1": false,

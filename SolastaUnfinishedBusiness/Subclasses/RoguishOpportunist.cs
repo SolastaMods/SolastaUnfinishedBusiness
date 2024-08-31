@@ -320,7 +320,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(new TrendInfo(
+            attackModifier.AttackAdvantageTrends.Add(new TrendInfo(
                 1, FeatureSourceType.CharacterFeature,
                 featureOpportunistQuickStrike.Name, featureOpportunistQuickStrike));
         }

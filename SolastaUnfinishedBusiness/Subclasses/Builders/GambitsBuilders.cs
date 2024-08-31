@@ -1286,7 +1286,7 @@ internal static class GambitsBuilders
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(
+            attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.Condition, ConditionGambitFeint, null));
         }
 
@@ -1958,8 +1958,7 @@ internal static class GambitsBuilders
 
             targetCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
 
             yield break;
         }

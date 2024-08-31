@@ -47,7 +47,8 @@ internal static class ReplaceAttackWithCantrip
         character.HandleMonkMartialArts();
 
         // only mark has attacked if not an attack after magic effect
-        if (!attackMode.AttackTags.Contains(AttackAfterMagicEffect.AttackAfterMagicEffectTag))
+        if (attackMode == null ||
+            !attackMode.AttackTags.Contains(AttackAfterMagicEffect.AttackAfterMagicEffectTag))
         {
             character.HasAttackedSinceLastTurn = true;
         }

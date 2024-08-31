@@ -969,8 +969,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         GameLocationBattleManager battleManager,
         AbilityCheckData abilityCheckData,
         GameLocationCharacter defender,
-        GameLocationCharacter helper,
-        ActionModifier abilityCheckModifier)
+        GameLocationCharacter helper)
     {
         var rulesetDefender = defender.RulesetActor;
 
@@ -1012,15 +1011,16 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         void ReactionValidated()
         {
-            usablePower.Consume();
+            var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
 
-            abilityCheckData.AbilityCheckRoll += bonus;
+            abilityCheckModifier.AbilityCheckModifierTrends.Add(
+                new TrendInfo(bonus, FeatureSourceType.Power, power.Name, power));
+
+            abilityCheckModifier.AbilityCheckModifier += bonus;
             abilityCheckData.AbilityCheckSuccessDelta += bonus;
-
-            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
-            {
-                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
-            }
+            abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                ? RollOutcome.Success
+                : RollOutcome.Failure;
 
             var extra = abilityCheckData.AbilityCheckSuccessDelta >= 0
                 ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")

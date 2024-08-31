@@ -57,8 +57,6 @@ public static class CharacterActionPatcher
     [UsedImplicitly]
     public static class Execute_Patch
     {
-        private static bool _usedBonusSpell;
-
         private static bool ActionShouldKeepConcentration(CharacterAction action)
         {
             var isProtectedPower =
@@ -161,10 +159,6 @@ public static class CharacterActionPatcher
                 case CharacterActionMoveStepBase characterActionMoveStepBase:
                     OtherFeats.NotifyFeatStealth(characterActionMoveStepBase);
                     break;
-
-                case CharacterActionActionSurge:
-                    _usedBonusSpell = __instance.ActingCharacter.UsedBonusSpell;
-                    break;
             }
         }
 
@@ -193,12 +187,6 @@ public static class CharacterActionPatcher
             if (Gui.Battle == null)
             {
                 yield break;
-            }
-
-            //BUGFIX: vanilla sets usedBonusSpell to false on action surge
-            if (__instance is CharacterActionActionSurge)
-            {
-                __instance.ActingCharacter.UsedBonusSpell = _usedBonusSpell;
             }
 
             //PATCH: support for Official Flanking Rules

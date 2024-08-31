@@ -85,15 +85,16 @@ public static class ActivitiesBreakFreePatcher
                     {
                         AbilityCheckRoll = abilityCheckRoll,
                         AbilityCheckRollOutcome = rollOutcome,
-                        AbilityCheckSuccessDelta = successDelta
+                        AbilityCheckSuccessDelta = successDelta,
+                        AbilityCheckActionModifier = actionModifier
                     };
 
                     yield return TryAlterOutcomeAttributeCheck
-                        .HandleITryAlterOutcomeAttributeCheck(
-                            gameLocationCharacter, abilityCheckData, __instance.actionModifier);
+                        .HandleITryAlterOutcomeAttributeCheck(gameLocationCharacter, abilityCheckData);
 
-                    rollOutcome = abilityCheckData.AbilityCheckRollOutcome;
-                    success = rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+                    success = abilityCheckData.AbilityCheckRollOutcome
+                        is RollOutcome.Success
+                        or RollOutcome.CriticalSuccess;
 
                     if (success)
                     {

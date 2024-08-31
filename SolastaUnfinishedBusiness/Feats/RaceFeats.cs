@@ -737,11 +737,10 @@ internal static class RaceFeats
             GameLocationBattleManager battleManager,
             AbilityCheckData abilityCheckData,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier abilityCheckModifier)
+            GameLocationCharacter helper)
         {
             if (abilityCheckData.AbilityCheckRoll != 1 ||
-                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
@@ -1450,7 +1449,7 @@ internal static class RaceFeats
 
             actingCharacter.UsedSpecialFeatures.TryAdd(UsedTacticalMoves, actingCharacter.UsedTacticalMoves);
             actingCharacter.UsedTacticalMoves = 0;
-            ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(_actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(_actionParams, null, true);
 
             yield break;
         }

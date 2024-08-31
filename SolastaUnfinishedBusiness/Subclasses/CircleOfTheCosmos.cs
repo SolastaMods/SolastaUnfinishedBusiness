@@ -823,8 +823,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
-                usablePower.Consume();
-
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
                 attackModifier.AttacktoHitTrends.Add(
@@ -857,8 +855,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             GameLocationBattleManager battleManager,
             AbilityCheckData abilityCheckData,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier abilityCheckModifier)
+            GameLocationCharacter helper)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
@@ -888,11 +885,15 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
-                usablePower.Consume();
-
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
+                var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
 
-                abilityCheckData.AbilityCheckRoll += dieRoll;
+                abilityCheckModifier.AbilityCheckModifierTrends.Add(
+                    new TrendInfo(dieRoll, FeatureSourceType.Power, powerWeal.Name, powerWeal)
+                    {
+                        dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
+                    });
+                abilityCheckModifier.AbilityCheckModifier += dieRoll;
                 abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
 
                 (ConsoleStyleDuplet.ParameterType, string) extra;
@@ -904,6 +905,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 }
                 else
                 {
+                    abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Failure;
                     extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
                 }
 
@@ -956,8 +958,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
-                usablePower.Consume();
-
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
                 action.RolledSaveThrow = true;
@@ -1038,8 +1038,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
-                usablePower.Consume();
-
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
@@ -1073,14 +1071,13 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             GameLocationBattleManager battleManager,
             AbilityCheckData abilityCheckData,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier abilityCheckModifier)
+            GameLocationCharacter helper)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
 
             if (abilityCheckData.AbilityCheckRoll == 0 ||
-                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Success ||
+                abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 abilityCheckData.AbilityCheckSuccessDelta - MaxDieTypeValue >= 0 ||
                 !helper.CanReact() ||
                 !helper.IsOppositeSide(defender.Side) ||
@@ -1104,12 +1101,16 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
-                usablePower.Consume();
-
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
+                var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
 
-                abilityCheckData.AbilityCheckRoll += dieRoll;
+                abilityCheckModifier.AbilityCheckModifierTrends.Add(
+                    new TrendInfo(dieRoll, FeatureSourceType.Power, powerWoe.Name, powerWoe)
+                    {
+                        dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
+                    });
+                abilityCheckModifier.AbilityCheckModifier += dieRoll;
                 abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
 
                 (ConsoleStyleDuplet.ParameterType, string) extra;
@@ -1121,6 +1122,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 }
                 else
                 {
+                    abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
                     extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
                 }
 
@@ -1173,8 +1175,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
-                usablePower.Consume();
-
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 

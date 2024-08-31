@@ -31,7 +31,7 @@ public static class CharacterActionShovePatcher
             var isTopple = characterActionShove.ActionParams.BoolParameter;
             var isSameSide = actingCharacter.Side == target.Side;
             var isIncapacitated = target.RulesetCharacter.IsIncapacitated;
-            var abilityCheckData = new AbilityCheckData();
+            var abilityCheckData = new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier() };
 
             //BEGIN PATCH
             // original code

@@ -1195,8 +1195,7 @@ internal static partial class CharacterContext
             GameLocationBattleManager battleManager,
             AbilityCheckData abilityCheckData,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier abilityCheckModifier)
+            GameLocationCharacter helper)
         {
             var rulesetHelper = helper.RulesetCharacter;
 

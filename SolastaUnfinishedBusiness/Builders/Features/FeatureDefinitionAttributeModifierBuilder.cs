@@ -25,7 +25,7 @@ internal class FeatureDefinitionAttributeModifierBuilder
     {
         Definition.modifierOperation = AttributeModifierOperation.AddConditionAmount;
         Definition.modifiedAttribute = attribute;
-        Definition.modifierValue = 1;
+        Definition.modifierValue = 0;
         return this;
     }
 

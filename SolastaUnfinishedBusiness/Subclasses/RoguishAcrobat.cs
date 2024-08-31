@@ -42,7 +42,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
         var attributeModifierAcrobatDefender = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}Protector")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.ArmorClass, 1)
+            .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.ArmorClass)
             .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff)
             .AddToDB();
 

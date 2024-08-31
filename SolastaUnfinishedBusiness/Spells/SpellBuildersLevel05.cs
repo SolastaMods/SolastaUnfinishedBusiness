@@ -989,7 +989,7 @@ internal static partial class SpellBuilders
 
     #region Telekinesis
 
-    private const string ConditionTelekinesisRestrainedName = "ConditionTelekinesisRestrained";
+    internal const string ConditionTelekinesisRestrainedName = "ConditionTelekinesisRestrained";
 
     private const int TelekinesisRange = 12;
 
@@ -997,11 +997,21 @@ internal static partial class SpellBuilders
     {
         const string Name = "Telekinesis";
 
-        _ = ConditionDefinitionBuilder
+        var moveMode = FeatureDefinitionMoveModeBuilder
+            .Create($"MoveMode{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetMode(MoveMode.Fly, 0)
+            .AddToDB();
+
+        var conditionTelekinesisRestrained = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRestrained, ConditionTelekinesisRestrainedName)
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFeatures()
+            .SetFeatures(moveMode)
             .AddToDB();
+
+        // there is indeed a typo on tag
+        // ReSharper disable once StringLiteralTypo
+        conditionTelekinesisRestrained.ConditionTags.Add("Verticality");
 
         var sprite = Sprites.GetSprite(Name, Resources.Telekinesis, 128);
 
@@ -1151,10 +1161,8 @@ internal static partial class SpellBuilders
                     int3.Distance(targetCharacter.LocationPosition, position) > RANGE ||
                     // must use vanilla distance calculation here
                     int3.Distance(actingCharacter.LocationPosition, position) > TelekinesisRange ||
-                    !positioningService.CanPlaceCharacter(targetCharacter, position,
-                        CellHelpers.PlacementMode.Station) ||
-                    !positioningService.CanCharacterStayAtPosition_Floor(targetCharacter, position,
-                        onlyCheckCellsWithRealGround: true))
+                    !positioningService.CanPlaceCharacter(
+                        targetCharacter, position, CellHelpers.PlacementMode.Station))
                 {
                     continue;
                 }
@@ -1299,7 +1307,7 @@ internal static partial class SpellBuilders
 
             if (isEnemy)
             {
-                var abilityCheckData = new AbilityCheckData();
+                var abilityCheckData = new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier() };
                 var spellCastingAbility = actingRulesetCharacter.SpellsCastByMe
                     .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SpellRepertoire?
                     // assume Intelligence if no repertoire (ritual spell only used on Force Knight)
@@ -1321,8 +1329,7 @@ internal static partial class SpellBuilders
                     Positions = { action.ActionParams.Positions[0] }
                 };
 
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
+                ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
             }
 
             if (!isEnemy)

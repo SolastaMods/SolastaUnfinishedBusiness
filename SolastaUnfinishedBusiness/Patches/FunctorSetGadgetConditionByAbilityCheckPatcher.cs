@@ -172,11 +172,12 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                 {
                     AbilityCheckRoll = abilityCheckRoll,
                     AbilityCheckRollOutcome = rollOutcome,
-                    AbilityCheckSuccessDelta = successDelta
+                    AbilityCheckSuccessDelta = successDelta,
+                    AbilityCheckActionModifier = actionModifier
                 };
 
                 yield return TryAlterOutcomeAttributeCheck
-                    .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData, actionModifier);
+                    .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData);
 
                 rollOutcome = abilityCheckData.AbilityCheckRollOutcome;
             }

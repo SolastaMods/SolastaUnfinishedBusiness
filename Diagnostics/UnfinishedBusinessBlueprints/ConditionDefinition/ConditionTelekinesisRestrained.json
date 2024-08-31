@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionRestrained:ec9fa707d4174c54bbdecde60a860c2c",
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:MoveModeTelekinesis:f32a5326-5471-53f8-80fa-86098b13d002"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -22,7 +24,9 @@
   "interruptionDamageThreshold": 0,
   "keepConditionIfSavingThrowSucceeds": false,
   "interruptionSavingThrowAffinity": "None",
-  "conditionTags": [],
+  "conditionTags": [
+    "Verticality"
+  ],
   "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,

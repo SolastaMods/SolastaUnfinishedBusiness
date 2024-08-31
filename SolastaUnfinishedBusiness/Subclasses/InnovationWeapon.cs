@@ -505,15 +505,17 @@ public sealed class InnovationWeapon : AbstractSubclass
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            //If not commanded use Dodge at the turn start
+            // if commanded allow anything
             if (IsCommanded(locationCharacter.RulesetCharacter))
             {
                 return;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            // if not commanded it cannot move
+            locationCharacter.usedTacticalMoves = locationCharacter.MaxTacticalMoves;
 
-            actionService.ExecuteInstantSingleAction(new CharacterActionParams(locationCharacter, Id.Dodge));
+            // or use powers so force the dodge action
+            locationCharacter.MyExecuteActionDodge();
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)

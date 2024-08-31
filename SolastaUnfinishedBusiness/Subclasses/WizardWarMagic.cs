@@ -216,7 +216,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                     0,
                     0);
 
-                attackModifier.attackRollModifier -= bonus;
+                attackModifier.AttackRollModifier -= bonus;
                 attackModifier.AttacktoHitTrends.Add(
                     new TrendInfo(-bonus, FeatureSourceType.CharacterFeature, featureArcaneDeflection.Name,
                         featureArcaneDeflection));

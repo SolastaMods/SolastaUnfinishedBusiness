@@ -1,3 +1,33 @@
+1.5.97.29:
+
+- fixed cantrips **CRASH** if not a melee cantrip and hero has replace attack with cantrips
+- fixed Bait and Switch maneuver incorrectly changing AC with an add. +1
+- fixed Bardic Inspiration attribute checks to use modifiers instead of adding to roll
+- fixed Circle of the Cosmos weal/woe double consumption
+- fixed Circle of the Wildfire cauterizing flames heal from half to full hit points cap
+- fixed College of Elegance evasive footwork incorrectly changing AC with an add. +1
+- fixed College of Swords defensive flourish incorrectly changing AC with an add. +1
+- fixed Evasive Footwork maneuver incorrectly changing AC with an add. +1
+- fixed Imp Badland draw inspiration double consumption
+- fixed Innovation Vivisectionist organ donation double consumption
+- fixed Inventor flash of genius double consumption
+- fixed Mage Slayer feat double consumption
+- fixed Martial Psi-Warrior kinetic barrier incorrectly changing AC with an add. +1
+- fixed Martial Warlord relentlessness incorrectly changing AC with an add. +1
+- fixed Oath of Altruism spiritual shielding incorrectly changing AC with an add. +1
+- fixed Rogue struck of luck double consumption
+- fixed Roguish Acrobat protector incorrectly changing AC with an add. +1
+- fixed Roguish Duelist bravado incorrectly changing AC with an add. +1
+- fixed Roguish Raven deadly focus double consumption
+- fixed Sorcerer Child of the Rift rift walk missing landing damage [VANILLA] 
+- fixed Sorcerer Wild Magic tides of chaos double consumption
+- fixed Wizard Dead Master undead chains incorrectly changing AC with an add. +1
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
+
 1.5.97.28:
  
 - added 'Allow Unarmed Attack with main action for character if a Monk or has Handwraps or Gauntlet equipped' setting
@@ -25,11 +55,6 @@
 - fixed Telekinesis spell range calculation
 - improved Path of the Wild Magic wild surge combat log, and drain description 
 - improved Patron Eldritch Surge behaviors and features [needs RESPEC]
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
 
 1.5.97.27:
 

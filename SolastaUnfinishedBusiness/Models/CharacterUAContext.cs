@@ -1461,7 +1461,7 @@ internal static partial class CharacterContext
             return false;
         }
 
-        var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
+        var advantageType = ComputeAdvantage(attackModifier.AttackAdvantageTrends);
 
         return advantageType switch
         {
@@ -1608,8 +1608,7 @@ internal static partial class CharacterContext
                 0,
                 0);
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
         }
 
         private IEnumerator HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)

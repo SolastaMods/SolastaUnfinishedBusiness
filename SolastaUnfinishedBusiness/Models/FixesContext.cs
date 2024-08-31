@@ -13,17 +13,27 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using UnityEngine;
+using static AttributeDefinitions;
 using static EquipmentDefinitions;
-using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -60,6 +70,7 @@ internal static class FixesContext
         FixRestPowerVisibility();
         FixSavingThrowAffinityConditionRaging();
         FixSavingThrowAffinityManaPainterAbsorption();
+        FixSorcererChildRiftRiftWalk();
         FixSmitesAndStrikesDiceProgression();
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
@@ -159,35 +170,34 @@ internal static class FixesContext
         for (var level = 17; level <= 20; level++)
         {
             // Tiefling
-            FeatureDefinitionCastSpells.CastSpellTiefling.slotsPerLevels.Add(
+            CastSpellTiefling.slotsPerLevels.Add(
                 new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                 {
-                    Level = level, Slots = FeatureDefinitionCastSpells.CastSpellTiefling.slotsPerLevels[15].slots
+                    Level = level, Slots = CastSpellTiefling.slotsPerLevels[15].slots
                 });
 
-            FeatureDefinitionCastSpells.CastSpellTiefling.KnownCantrips[level] = 1;
+            CastSpellTiefling.KnownCantrips[level] = 1;
 
             // Gnome
-            FeatureDefinitionCastSpells.CastSpellGnomeShadow.slotsPerLevels.Add(
+            CastSpellGnomeShadow.slotsPerLevels.Add(
                 new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                 {
-                    Level = level, Slots = FeatureDefinitionCastSpells.CastSpellGnomeShadow.slotsPerLevels[15].slots
+                    Level = level, Slots = CastSpellGnomeShadow.slotsPerLevels[15].slots
                 });
 
-            FeatureDefinitionCastSpells.CastSpellGnomeShadow.KnownCantrips[level] = 1;
+            CastSpellGnomeShadow.KnownCantrips[level] = 1;
 
             // Tradition Light
-            FeatureDefinitionCastSpells.CastSpellTraditionLight.slotsPerLevels.Add(
+            CastSpellTraditionLight.slotsPerLevels.Add(
                 new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                 {
-                    Level = level,
-                    Slots = FeatureDefinitionCastSpells.CastSpellTraditionLight.slotsPerLevels[15].slots
+                    Level = level, Slots = CastSpellTraditionLight.slotsPerLevels[15].slots
                 });
 
-            FeatureDefinitionCastSpells.CastSpellTraditionLight.KnownCantrips[level] = 2;
+            CastSpellTraditionLight.KnownCantrips[level] = 2;
 
             // Warlock
-            FeatureDefinitionCastSpells.CastSpellWarlock.slotsPerLevels[level - 1].slots =
+            CastSpellWarlock.slotsPerLevels[level - 1].slots =
             [
                 0,
                 0,
@@ -200,27 +210,33 @@ internal static class FixesContext
                 0
             ];
 
-            FeatureDefinitionCastSpells.CastSpellWarlock.KnownCantrips[level - 1] = 4;
+            CastSpellWarlock.KnownCantrips[level - 1] = 4;
         }
     }
 
     private static void FixSavingThrowAffinityConditionRaging()
     {
-        FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionRaging.AffinityGroups[0].savingThrowContext =
-            (SavingThrowContext)10;
+        SavingThrowAffinityConditionRaging.AffinityGroups[0].savingThrowContext = (SavingThrowContext)10;
     }
 
     private static void FixSavingThrowAffinityManaPainterAbsorption()
     {
-        FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityManaPainterAbsorption.AffinityGroups.Clear();
+        SavingThrowAffinityManaPainterAbsorption.AffinityGroups.Clear();
+    }
+
+    private static void FixSorcererChildRiftRiftWalk()
+    {
+        SorcerousChildRift.FeatureUnlocks.RemoveAll(x => x.Level == 14);
+        SorcerousChildRift.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetSorcererChildRiftRiftwalk, 14));
+        FeatureSetSorcererChildRiftRiftwalk.GuiPresentation = PowerSorcererChildRiftRiftwalk.GuiPresentation;
     }
 
     private static void FixLanguagesPointPoolsToIncludeAllLanguages()
     {
         var dlcLanguages = new List<string> { "Language_Abyssal", "Language_Gnomish", "Language_Infernal" };
 
-        FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_one.RestrictedChoices.AddRange(dlcLanguages);
-        FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_two.RestrictedChoices.AddRange(dlcLanguages);
+        PointPoolBackgroundLanguageChoice_one.RestrictedChoices.AddRange(dlcLanguages);
+        PointPoolBackgroundLanguageChoice_two.RestrictedChoices.AddRange(dlcLanguages);
     }
 
     private static void ExtendCharmImmunityToDemonicInfluence()
@@ -242,23 +258,15 @@ internal static class FixesContext
 
     private static void FixDragonBreathPowerSavingAttribute()
     {
-        PowerDragonBreath_Acid.EffectDescription.savingThrowAbility =
-            AttributeDefinitions.Dexterity;
-
-        PowerDragonBreath_Acid_Spectral_DLC3.EffectDescription.savingThrowAbility =
-            AttributeDefinitions.Dexterity;
-
-        PowerDragonBreath_Fire.EffectDescription.savingThrowAbility =
-            AttributeDefinitions.Dexterity;
-
-        PowerDragonBreath_YoungGreen_Poison.EffectDescription.savingThrowAbility =
-            AttributeDefinitions.Constitution;
+        PowerDragonBreath_Acid.EffectDescription.savingThrowAbility = Dexterity;
+        PowerDragonBreath_Acid_Spectral_DLC3.EffectDescription.savingThrowAbility = Dexterity;
+        PowerDragonBreath_Fire.EffectDescription.savingThrowAbility = Dexterity;
+        PowerDragonBreath_YoungGreen_Poison.EffectDescription.savingThrowAbility = Constitution;
     }
 
     private static void FixBlackDragonLegendaryActions()
     {
-        MonsterDefinitions.BlackDragon_MasterOfNecromancy.LegendaryActionOptions.SetRange(
-            MonsterDefinitions.GoldDragon_AerElai.LegendaryActionOptions);
+        BlackDragon_MasterOfNecromancy.LegendaryActionOptions.SetRange(GoldDragon_AerElai.LegendaryActionOptions);
     }
 
     private static void FixArmorClassOnLegendaryArmors()
@@ -276,11 +284,8 @@ internal static class FixesContext
 
     private static void FixMummyDreadfulGlareSavingAttribute()
     {
-        Power_Mummy_DreadfulGlare.EffectDescription.savingThrowAbility =
-            AttributeDefinitions.Wisdom;
-
-        Power_MummyLord_DreadfulGlare.EffectDescription.savingThrowAbility =
-            AttributeDefinitions.Wisdom;
+        Power_Mummy_DreadfulGlare.EffectDescription.savingThrowAbility = Wisdom;
+        Power_MummyLord_DreadfulGlare.EffectDescription.savingThrowAbility = Wisdom;
     }
 
     private static void FixAdditionalDamageRestrictions()
@@ -355,15 +360,15 @@ internal static class FixesContext
         ItemDefinitions.FlameBlade.weaponDefinition.weaponType = ConjuredWeaponTypeName;
 
         //BUGFIX: allows classes without simple weapon proficiency to wield divine blade
-        FeatureDefinitionProficiencys.ProficiencyDruidWeapon.proficiencies.Add(ConjuredWeaponTypeName);
-        FeatureDefinitionProficiencys.ProficiencySorcererWeapon.proficiencies.Add(ConjuredWeaponTypeName);
-        FeatureDefinitionProficiencys.ProficiencyWizardWeapon.proficiencies.Add(ConjuredWeaponTypeName);
+        ProficiencyDruidWeapon.proficiencies.Add(ConjuredWeaponTypeName);
+        ProficiencySorcererWeapon.proficiencies.Add(ConjuredWeaponTypeName);
+        ProficiencyWizardWeapon.proficiencies.Add(ConjuredWeaponTypeName);
     }
 
     private static void FixFightingStyleArchery()
     {
         //BEHAVIOR: allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
-        FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.AddCustomSubFeatures(
+        AttackModifierFightingStyleArchery.AddCustomSubFeatures(
             new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) => (OperationType.Set,
                 ValidatorsWeapon.IsOfWeaponType(
                     CustomWeaponsContext.HandXbowWeaponType,
@@ -388,10 +393,10 @@ internal static class FixesContext
         var provider = new ModifyProviderRankByClassLevel(Monk);
         var features = new List<FeatureDefinition>
         {
-            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage,
-            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsUnarmedStrikeBonus,
-            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
-            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom
+            AttackModifierMonkMartialArtsImprovedDamage,
+            AttackModifierMonkMartialArtsUnarmedStrikeBonus,
+            AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
+            AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom
         };
 
         foreach (var feature in features)
@@ -463,7 +468,7 @@ internal static class FixesContext
         }
 
         ConditionDefinitions.ConditionBlinded.Features.Remove(
-            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlinded);
+            SavingThrowAffinityConditionBlinded);
 
         CloudKill.EffectDescription.EffectForms.TryAdd(
             EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionHeavilyObscured));
@@ -490,28 +495,28 @@ internal static class FixesContext
 
         //BUGFIX: Wall of Fire should have a DEX saving throw
         WallOfFire.EffectDescription.hasSavingThrow = true;
-        WallOfFire.EffectDescription.savingThrowAbility = AttributeDefinitions.Dexterity;
+        WallOfFire.EffectDescription.savingThrowAbility = Dexterity;
         WallOfFire.EffectDescription.EffectForms[0].hasSavingThrow = true;
         WallOfFire.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
 
         WallOfFireLine.EffectDescription.hasSavingThrow = true;
-        WallOfFireLine.EffectDescription.savingThrowAbility = AttributeDefinitions.Dexterity;
+        WallOfFireLine.EffectDescription.savingThrowAbility = Dexterity;
         WallOfFireLine.EffectDescription.EffectForms[0].hasSavingThrow = true;
         WallOfFireLine.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
 
         WallOfFireRing_Inner.EffectDescription.hasSavingThrow = true;
-        WallOfFireRing_Inner.EffectDescription.savingThrowAbility = AttributeDefinitions.Dexterity;
+        WallOfFireRing_Inner.EffectDescription.savingThrowAbility = Dexterity;
         WallOfFireRing_Inner.EffectDescription.EffectForms[0].hasSavingThrow = true;
         WallOfFireRing_Inner.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
 
         WallOfFireRing_Outer.EffectDescription.hasSavingThrow = true;
-        WallOfFireRing_Outer.EffectDescription.savingThrowAbility = AttributeDefinitions.Dexterity;
+        WallOfFireRing_Outer.EffectDescription.savingThrowAbility = Dexterity;
         WallOfFireRing_Outer.EffectDescription.EffectForms[0].hasSavingThrow = true;
         WallOfFireRing_Outer.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
 
         //BUGFIX: Insect Plague should have a CON saving throw
         InsectPlague.EffectDescription.hasSavingThrow = true;
-        InsectPlague.EffectDescription.savingThrowAbility = AttributeDefinitions.Constitution;
+        InsectPlague.EffectDescription.savingThrowAbility = Constitution;
         InsectPlague.EffectDescription.EffectForms[0].hasSavingThrow = true;
         InsectPlague.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
 
@@ -673,10 +678,9 @@ internal static class FixesContext
 
     private static void AddAdditionalActionTitles()
     {
-        FeatureDefinitionAdditionalActions.AdditionalActionHasted.GuiPresentation.Title
-            = Haste.GuiPresentation.Title;
-        FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.Title
-            = DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
+        AdditionalActionHasted.GuiPresentation.Title = Haste.GuiPresentation.Title;
+        AdditionalActionSurgedMain.GuiPresentation.Title =
+            DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
     }
 
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe,
@@ -788,7 +792,7 @@ internal static class FixesContext
 
             // handle rogue cunning strike feature
             if (rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, CharacterContext.ConditionReduceSneakDice.Name,
+                    TagEffect, CharacterContext.ConditionReduceSneakDice.Name,
                     out var activeCondition))
             {
                 var newDiceNumber = Math.Max(damageForm.diceNumber - activeCondition.amount, 0);
@@ -824,7 +828,7 @@ internal static class FixesContext
                 RoguishSlayer.InflictConditionChainOfExecution(rulesetAttacker, defender.RulesetCharacter);
 
                 if (rulesetAttacker.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, RoguishSlayer.ConditionChainOfExecutionBeneficialName,
+                        TagEffect, RoguishSlayer.ConditionChainOfExecutionBeneficialName,
                         out activeCondition) &&
                     activeCondition.SourceGuid == rulesetAttacker.Guid)
                 {

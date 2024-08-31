@@ -239,7 +239,6 @@ public sealed class InnovationVivisectionist : AbstractSubclass
 
             void ReactionValidated()
             {
-                usablePower.Consume();
                 rulesetAttacker.RepayPowerUse(usablePowerEmergencyCure);
                 rulesetAttacker.RepayPowerUse(usablePowerEmergencySurgery);
             }
