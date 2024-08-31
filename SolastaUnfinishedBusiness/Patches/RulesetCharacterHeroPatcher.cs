@@ -159,6 +159,149 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeBaseAbilityCheckBonus))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeBaseAbilityCheckBonus_Patch
+    {
+        //BUGFIX: fix Bard jack of all trades, and Martial Champion remarkable athlete on checks with null or empty proficiency name  [VANILLA]
+        [UsedImplicitly]
+        public static bool Prefix(
+            RulesetCharacterHero __instance,
+            out int __result,
+            string abilityScoreName,
+            List<TrendInfo> modifierTrends,
+            string proficiencyName = null,
+            bool doubleProficiency = false,
+            bool checkInventory = true,
+            bool checkFeatures = true)
+        {
+            __result = ComputeBaseAbilityCheckBonus(__instance,
+                abilityScoreName, modifierTrends, proficiencyName, doubleProficiency, checkInventory, checkFeatures);
+
+            return false;
+        }
+
+        private static int HandleHalfProficiencyWhenNotProficient(
+            RulesetCharacterHero __instance,
+            string abilityScoreName,
+            List<TrendInfo> modifierTrends)
+        {
+            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAbilityCheckAffinity>(
+                __instance.FeaturesToBrowse, __instance.FeaturesOrigin);
+
+            var result = 0;
+            var pb = __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            foreach (var featureDefinition in __instance.FeaturesToBrowse)
+            {
+                var key = (FeatureDefinitionAbilityCheckAffinity)featureDefinition;
+
+                foreach (var add in key.AffinityGroups
+                             .Where(x =>
+                                 x.abilityScoreName == abilityScoreName &&
+                                 x.affinity == CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient)
+                             .Select(_ => pb / 2))
+                {
+                    modifierTrends?.Add(new TrendInfo(
+                        add,
+                        __instance.FeaturesOrigin[key].sourceType,
+                        __instance.FeaturesOrigin[key].sourceName,
+                        __instance.FeaturesOrigin[key]));
+
+                    result += add;
+                }
+            }
+
+            return result;
+        }
+
+        // vanilla code from RulesetCharacter.ComputeBaseAbilityCheckBonus
+        private static int BaseComputeBaseAbilityCheckBonus(
+            RulesetCharacterHero __instance,
+            string abilityScoreName,
+            List<TrendInfo> modifierTrends)
+        {
+            var abilityScoreModifier =
+                AttributeDefinitions.ComputeAbilityScoreModifier(__instance.TryGetAttributeValue(abilityScoreName));
+
+            modifierTrends?.SetRange(
+                new TrendInfo(abilityScoreModifier, FeatureSourceType.AbilityScore, abilityScoreName, null));
+
+            return abilityScoreModifier;
+        }
+
+        // almost vanilla code except change on pb calc from half round up to half round down
+        private static int ComputeBaseAbilityCheckBonus(
+            RulesetCharacterHero __instance,
+            string abilityScoreName,
+            List<TrendInfo> modifierTrends,
+            string proficiencyName = null,
+            bool doubleProficiency = false,
+            bool checkInventory = true,
+            bool checkFeatures = true)
+        {
+            var abilityCheckBonus = 0;
+
+            if (!string.IsNullOrEmpty(abilityScoreName))
+            {
+                abilityCheckBonus = BaseComputeBaseAbilityCheckBonus(__instance, abilityScoreName, modifierTrends);
+            }
+            else
+            {
+                modifierTrends?.Clear();
+            }
+
+            if (string.IsNullOrEmpty(proficiencyName))
+            {
+                if (checkFeatures &&
+                    modifierTrends?.All(x => x.sourceType != FeatureSourceType.Proficiency) == true)
+                {
+                    abilityCheckBonus +=
+                        HandleHalfProficiencyWhenNotProficient(__instance, abilityScoreName, modifierTrends);
+                }
+
+                return abilityCheckBonus;
+            }
+
+            var hasExpertise = __instance.expertiseProficiencies.Contains(proficiencyName);
+            var modifier = 0;
+
+            if (__instance.skillProficiencies.Contains(proficiencyName))
+            {
+                modifier = (hasExpertise | doubleProficiency ? 2 : 1) *
+                           __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            }
+            else if (__instance.toolTypeProficiencies.Contains(proficiencyName))
+            {
+                var element = DatabaseRepository.GetDatabase<ToolTypeDefinition>().GetElement(proficiencyName);
+
+                if (!checkInventory || __instance.characterInventory.CountToolsOfType(element) > 0)
+                {
+                    modifier = (hasExpertise | doubleProficiency ? 2 : 1) *
+                               __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                }
+            }
+            else if (proficiencyName == "ForcedProficiency")
+            {
+                modifier = __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            }
+
+            if (modifier > 0)
+            {
+                modifierTrends?.Add(new TrendInfo(modifier, FeatureSourceType.Proficiency, string.Empty, null));
+                abilityCheckBonus += modifier;
+            }
+            else if (checkFeatures)
+            {
+                abilityCheckBonus +=
+                    HandleHalfProficiencyWhenNotProficient(__instance, abilityScoreName, modifierTrends);
+            }
+
+            return abilityCheckBonus;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.FindClassHoldingFeature))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
