@@ -984,7 +984,7 @@ internal static class Level20Context
                 yield break;
             }
 
-            attackModifier.attackAdvantageTrends.Clear();
+            attackModifier.AttackAdvantageTrends.Clear();
             attackModifier.ignoreAdvantage = true;
         }
     }

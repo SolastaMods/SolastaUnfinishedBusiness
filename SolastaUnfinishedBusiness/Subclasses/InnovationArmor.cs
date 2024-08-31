@@ -350,8 +350,8 @@ public sealed class InnovationArmor : AbstractSubclass
                 magical = true;
             }
 
-            hitBonus += modifier.attackRollModifier;
-            damageBonus += modifier.damageRollModifier;
+            hitBonus += modifier.AttackRollModifier;
+            damageBonus += modifier.DamageRollModifier;
         }
 
         if (magical)

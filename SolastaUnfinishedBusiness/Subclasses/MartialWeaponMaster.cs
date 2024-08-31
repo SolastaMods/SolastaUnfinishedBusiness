@@ -249,7 +249,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(
+            attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(-1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
     }
@@ -321,7 +321,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(
+            attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
     }

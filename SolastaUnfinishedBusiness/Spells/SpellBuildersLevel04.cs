@@ -1436,7 +1436,7 @@ internal static partial class SpellBuilders
         {
             if (attackMode?.AbilityScore == AttributeDefinitions.Strength)
             {
-                attackModifier.attackAdvantageTrends.Add(
+                attackModifier.AttackAdvantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.Condition, conditionBeast.Name, conditionBeast));
             }
         }
@@ -1461,7 +1461,7 @@ internal static partial class SpellBuilders
                 || attackProximity == BattleDefinitions.AttackProximity.MagicRange
                 || attackProximity == BattleDefinitions.AttackProximity.MagicReach)
             {
-                attackModifier.attackAdvantageTrends.Add(
+                attackModifier.AttackAdvantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.Condition, conditionTree.Name, conditionTree));
             }
         }

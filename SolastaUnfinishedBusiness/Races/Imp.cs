@@ -305,7 +305,7 @@ internal static class RaceImpBuilder
             if (defender.HasConditionOfType(ConditionImpAssistedEnemyName) ||
                 defender.HasConditionOfType(ConditionImpSpiteName))
             {
-                attackModifier.attackAdvantageTrends.Add(
+                attackModifier.AttackAdvantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.Condition, condition.name, condition));
             }
         }

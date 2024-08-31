@@ -1253,7 +1253,7 @@ internal static class EldritchVersatilityBuilders
 
                 eldritchWardSupportCondition.SaveBonus += requiredSaveAddition;
                 action.SaveOutcome = RollOutcome.Success;
-                action.saveOutcomeDelta = 0;
+                action.SaveOutcomeDelta = 0;
                 console.AddEntry(entry);
 
                 yield break;
@@ -1289,7 +1289,7 @@ internal static class EldritchVersatilityBuilders
                 eldritchWardSupportCondition.SaveBonus = requiredSaveAddition;
 
                 action.SaveOutcome = RollOutcome.Success;
-                action.saveOutcomeDelta = 0;
+                action.SaveOutcomeDelta = 0;
                 console.AddEntry(entry);
             }
         }

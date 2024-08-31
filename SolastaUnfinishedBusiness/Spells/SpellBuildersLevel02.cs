@@ -1084,7 +1084,7 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(
+            attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.Equipment, itemShadowBlade.Name, itemShadowBlade));
         }
     }

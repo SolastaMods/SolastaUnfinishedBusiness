@@ -1702,7 +1702,7 @@ internal static class Level20SubclassesContext
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(
+            attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
     }

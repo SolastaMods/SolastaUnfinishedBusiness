@@ -989,7 +989,7 @@ internal static class MeleeCombatFeats
                 !attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag) &&
                 ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)(attackMode, null, null))
             {
-                attackModifier.attackAdvantageTrends.Add(
+                attackModifier.AttackAdvantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.Feat, featDefinition.Name, featDefinition));
             }
 
@@ -1491,7 +1491,7 @@ internal static class MeleeCombatFeats
 
             var attackModifier = action.ActionParams.ActionModifiers[0];
             var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
-            var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
+            var advantageType = ComputeAdvantage(attackModifier.AttackAdvantageTrends);
             var attackRoll = 0;
 
             FeatureDefinitionPower power = null;

@@ -1461,7 +1461,7 @@ internal static partial class CharacterContext
             return false;
         }
 
-        var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
+        var advantageType = ComputeAdvantage(attackModifier.AttackAdvantageTrends);
 
         return advantageType switch
         {

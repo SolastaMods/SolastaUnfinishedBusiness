@@ -1286,7 +1286,7 @@ internal static class GambitsBuilders
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(
+            attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.Condition, ConditionGambitFeint, null));
         }
 

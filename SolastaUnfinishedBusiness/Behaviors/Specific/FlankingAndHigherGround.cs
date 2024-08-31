@@ -209,8 +209,8 @@ internal static class FlankingAndHigherGround
 
         if (Main.Settings.UseOfficialFlankingRulesButAddAttackModifier)
         {
-            actionModifier.attackRollModifier += 1;
-            actionModifier.attackToHitTrends.Add(
+            actionModifier.AttackRollModifier += 1;
+            actionModifier.AttacktoHitTrends.Add(
                 new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Unknown, "Feedback/&FlankingAttack",
                     null));
         }
@@ -239,8 +239,8 @@ internal static class FlankingAndHigherGround
 
         var actionModifier = evaluationParams.attackModifier;
 
-        actionModifier.attackRollModifier += 1;
-        actionModifier.attackToHitTrends.Add(
+        actionModifier.AttackRollModifier += 1;
+        actionModifier.AttacktoHitTrends.Add(
             new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Unknown, "Feedback/&HigherGroundAttack",
                 null));
     }

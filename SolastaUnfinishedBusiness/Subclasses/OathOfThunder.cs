@@ -295,7 +295,7 @@ public sealed class OathOfThunder : AbstractSubclass
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(
+            attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(-1, FeatureSourceType.CharacterFeature, featureHammersBoon.Name, featureHammersBoon));
         }
 

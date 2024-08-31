@@ -57,7 +57,7 @@ internal class RemoveRangedAttackInMeleeDisadvantage
             return;
         }
 
-        attackParams.attackModifier.attackAdvantageTrends.RemoveAll(t =>
+        attackParams.attackModifier.AttackAdvantageTrends.RemoveAll(t =>
             t.value == -1
             && t is
             {

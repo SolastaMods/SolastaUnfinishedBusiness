@@ -22,8 +22,8 @@ public static class ActionModifierPatcher
                 return true;
             }
 
-            var advantage = __instance.attackAdvantageTrends.Any(t => t.value > 0) ? 1 : 0;
-            var disadvantage = __instance.attackAdvantageTrends.Any(t => t.value < 0) ? -1 : 0;
+            var advantage = __instance.AttackAdvantageTrends.Any(t => t.value > 0) ? 1 : 0;
+            var disadvantage = __instance.AttackAdvantageTrends.Any(t => t.value < 0) ? -1 : 0;
 
             __result = advantage + disadvantage;
 
