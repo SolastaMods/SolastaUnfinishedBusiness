@@ -1939,37 +1939,9 @@ internal static class OtherFeats
         return feat;
     }
 
-    private sealed class CustomBehaviorLucky(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerLucky)
-        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow, IRollSavingThrowFinished
+    private sealed class CustomBehaviorLucky(FeatureDefinitionPower powerLucky)
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {
-        private const string LuckyModifierTag = "LuckyModifierTag";
-        private const string LuckySaveTag = "LuckySaveTag";
-
-        public void OnSavingThrowFinished(
-            RulesetCharacter rulesetCaster,
-            RulesetCharacter rulesetDefender,
-            int saveBonus,
-            string abilityScoreName,
-            BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
-            List<TrendInfo> advantageTrends,
-            int rollModifier,
-            int saveDC,
-            bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
-            List<EffectForm> effectForms)
-        {
-            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-            caster.UsedSpecialFeatures.TryAdd(LuckyModifierTag, 0);
-            caster.UsedSpecialFeatures.TryAdd(LuckySaveTag, 0);
-            caster.UsedSpecialFeatures[LuckyModifierTag] = saveBonus + rollModifier;
-            caster.UsedSpecialFeatures[LuckySaveTag] = saveDC;
-        }
-
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
@@ -2154,9 +2126,7 @@ internal static class OtherFeats
             if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 helper != defender ||
-                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
-                !defender.UsedSpecialFeatures.TryGetValue(LuckyModifierTag, out var modifier) ||
-                !defender.UsedSpecialFeatures.TryGetValue(LuckySaveTag, out var saveDC))
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -2174,6 +2144,8 @@ internal static class OtherFeats
             {
                 var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
                     out _);
+                var modifier = saveModifier.SavingThrowModifier;
+                var saveDC = action.GetSaveDC();
                 var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
 
                 if (dieRoll <= savingRoll)

@@ -613,37 +613,9 @@ internal static class RaceFeats
         return feat;
     }
 
-    private sealed class CustomBehaviorBountifulLuck(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionBountifulLuck)
-        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow, IRollSavingThrowFinished
+    private sealed class CustomBehaviorBountifulLuck(ConditionDefinition conditionBountifulLuck)
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {
-        private const string BountifulLuckModifierTag = "BountifulLuckModifierTag";
-        private const string BountifulLuckSaveTag = "BountifulLuckSaveTag";
-
-        public void OnSavingThrowFinished(
-            RulesetCharacter rulesetCaster,
-            RulesetCharacter rulesetDefender,
-            int saveBonus,
-            string abilityScoreName,
-            BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
-            List<TrendInfo> advantageTrends,
-            int rollModifier,
-            int saveDC,
-            bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
-            List<EffectForm> effectForms)
-        {
-            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-            caster.UsedSpecialFeatures.TryAdd(BountifulLuckModifierTag, 0);
-            caster.UsedSpecialFeatures.TryAdd(BountifulLuckSaveTag, 0);
-            caster.UsedSpecialFeatures[BountifulLuckModifierTag] = saveBonus + rollModifier;
-            caster.UsedSpecialFeatures[BountifulLuckSaveTag] = saveDC;
-        }
-
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
@@ -830,13 +802,13 @@ internal static class RaceFeats
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.IsWithinRange(defender, 6) ||
-                !helper.CanPerceiveTarget(defender) ||
-                !defender.UsedSpecialFeatures.TryGetValue(BountifulLuckModifierTag, out var modifier) ||
-                !defender.UsedSpecialFeatures.TryGetValue(BountifulLuckSaveTag, out var saveDC))
+                !helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
 
+            var modifier = saveModifier.SavingThrowModifier;
+            var saveDC = action.GetSaveDC();
             var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
 
             if (savingRoll != 1)
