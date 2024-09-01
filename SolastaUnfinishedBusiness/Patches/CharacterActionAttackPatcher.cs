@@ -475,30 +475,25 @@ public static class CharacterActionAttackPatcher
 
                     // These bool information must be store as a class member, as it is passed to HandleFailedSavingThrow
                     __instance.RolledSaveThrow = attackMode.TryRollSavingThrow(
-                        rulesetCharacter, target.RulesetActor, attackModifier,
-                        __instance.actualEffectForms, out var saveOutcome, out var saveOutcomeDelta);
+                        rulesetCharacter,
+                        target.RulesetActor,
+                        attackModifier,
+                        __instance.actualEffectForms,
+                        out var saveOutcome,
+                        out var saveOutcomeDelta);
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
                     if (__instance.RolledSaveThrow)
                     {
-                        target.RulesetActor?.GrantConditionOnSavingThrowOutcome(
-                            attackMode.EffectDescription, saveOutcome, true);
-
-                        // Legendary Resistance or Indomitable?
-                        if (__instance.SaveOutcome == RollOutcome.Failure)
-                        {
-                            yield return battleManager.HandleFailedSavingThrow(
-                                __instance, actingCharacter, target, attackModifier, false, hasBorrowedLuck);
-                        }
-
-                        //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                        foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleManager, __instance, actingCharacter, target, attackModifier, false,
-                                     hasBorrowedLuck))
-                        {
-                            yield return tryAlterOutcomeSavingThrow;
-                        }
+                        yield return TryAlterOutcomeSavingThrow.Handler(
+                            battleManager,
+                            __instance,
+                            actingCharacter,
+                            target,
+                            attackModifier,
+                            hasBorrowedLuck,
+                            attackMode.EffectDescription);
                     }
 
                     // Check for resulting actions, if any of them is a CharacterSpendPower w/ a Motion effect form, don't wait for hit animation

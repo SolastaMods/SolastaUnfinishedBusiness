@@ -1194,6 +1194,7 @@ public static class CharacterActionMagicEffectPatcher
                 if (rulesetEffect.EffectDescription.RecurrentEffect == RecurrentEffect.No ||
                     (rulesetEffect.EffectDescription.RecurrentEffect & RecurrentEffect.OnActivation) != 0)
                 {
+                    // Saving throw?
                     var hasBorrowedLuck = rulesetTarget.HasConditionOfTypeOrSubType(ConditionBorrowedLuck);
 
                     __instance.RolledSaveThrow = rulesetEffect.TryRollSavingThrow(
@@ -1208,27 +1209,16 @@ public static class CharacterActionMagicEffectPatcher
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
-                    rulesetTarget.GrantConditionOnSavingThrowOutcome(
-                        rulesetEffect.EffectDescription, saveOutcome, false);
-
-                    // Legendary Resistance or Indomitable?
-                    if (__instance.RolledSaveThrow && __instance.SaveOutcome == RollOutcome.Failure)
+                    if (__instance.RolledSaveThrow)
                     {
-                        yield return battleManager.HandleFailedSavingThrow(
+                        yield return TryAlterOutcomeSavingThrow.Handler(
+                            battleManager,
                             __instance,
                             actingCharacter,
                             target,
                             attackModifier,
-                            !needToRollDie,
-                            hasBorrowedLuck);
-                    }
-
-                    //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                    foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                 battleManager, __instance, actingCharacter, target, attackModifier, false,
-                                 hasBorrowedLuck))
-                    {
-                        yield return tryAlterOutcomeSavingThrow;
+                            hasBorrowedLuck,
+                            rulesetEffect.EffectDescription);
                     }
                 }
             }

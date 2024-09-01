@@ -126,7 +126,8 @@ public static class CharacterActionSpendPowerPatcher
                 if (activePower != null)
                 {
                     __instance.RolledSaveThrow = activePower.TryRollSavingThrow(
-                        actingCharacter.RulesetCharacter, actingCharacter.Side,
+                        actingCharacter.RulesetCharacter,
+                        actingCharacter.Side,
                         target.RulesetActor,
                         actionModifier,
                         activePower.EffectDescription.EffectForms,
@@ -141,20 +142,14 @@ public static class CharacterActionSpendPowerPatcher
 
                     if (__instance.RolledSaveThrow)
                     {
-                        // Legendary Resistance or Indomitable?
-                        if (__instance.SaveOutcome == RuleDefinitions.RollOutcome.Failure)
-                        {
-                            yield return battleManager.HandleFailedSavingThrow(
-                                __instance, actingCharacter, target, actionModifier, false, hasBorrowedLuck);
-                        }
-
-                        //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                        foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleManager, __instance, actingCharacter, target, actionModifier, false,
-                                     hasBorrowedLuck))
-                        {
-                            yield return tryAlterOutcomeSavingThrow;
-                        }
+                        yield return TryAlterOutcomeSavingThrow.Handler(
+                            battleManager,
+                            __instance,
+                            actingCharacter,
+                            target,
+                            actionModifier,
+                            hasBorrowedLuck,
+                            rulesetEffect.EffectDescription);
                     }
 
                     // Apply the forms of the power

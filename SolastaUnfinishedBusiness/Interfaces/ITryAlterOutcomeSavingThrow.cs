@@ -20,7 +20,33 @@ public interface ITryAlterOutcomeSavingThrow
 
 internal static class TryAlterOutcomeSavingThrow
 {
-    internal static IEnumerable Handler(
+    internal static IEnumerator Handler(
+        GameLocationBattleManager battleManager,
+        CharacterAction action,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier actionModifier,
+        bool hasBorrowedLuck,
+        EffectDescription effectDescription)
+    {
+        // Legendary Resistance or Indomitable?
+        if (action.SaveOutcome == RuleDefinitions.RollOutcome.Failure)
+        {
+            yield return battleManager.HandleFailedSavingThrow(
+                action, attacker, defender, actionModifier, false, hasBorrowedLuck);
+        }
+
+        //PATCH: support for `ITryAlterOutcomeSavingThrow`
+        foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrowHandler(
+                     battleManager, action, attacker, defender, actionModifier, false, hasBorrowedLuck))
+        {
+            yield return tryAlterOutcomeSavingThrow;
+        }
+
+        defender.RulesetActor.GrantConditionOnSavingThrowOutcome(effectDescription, action.SaveOutcome, true);
+    }
+
+    private static IEnumerable TryAlterOutcomeSavingThrowHandler(
         GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
