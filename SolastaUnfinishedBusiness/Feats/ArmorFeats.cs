@@ -208,8 +208,8 @@ internal static class ArmorFeats
 
         // add +2 on DEX savings
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -222,7 +222,9 @@ internal static class ArmorFeats
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (abilityScoreName != AttributeDefinitions.Dexterity || !defender.IsWearingShield())
+            if (abilityScoreName != AttributeDefinitions.Dexterity ||
+                rulesetActorDefender is not RulesetCharacter rulesetCharacterDefender ||
+                !rulesetCharacterDefender.IsWearingShield())
             {
                 return;
             }

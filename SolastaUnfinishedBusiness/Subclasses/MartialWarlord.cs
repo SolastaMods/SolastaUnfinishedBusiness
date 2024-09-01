@@ -750,8 +750,8 @@ public sealed class MartialWarlord : AbstractSubclass
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,

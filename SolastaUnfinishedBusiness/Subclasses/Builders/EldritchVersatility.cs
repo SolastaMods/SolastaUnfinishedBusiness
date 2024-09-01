@@ -1340,13 +1340,23 @@ internal static class EldritchVersatilityBuilders
 
             private sealed class EldritchWardSaveBonus : IRollSavingThrowInitiated
             {
-                public void OnSavingThrowInitiated(RulesetCharacter caster, RulesetCharacter defender,
-                    ref int saveBonus, ref string abilityScoreName, BaseDefinition sourceDefinition,
-                    List<TrendInfo> modifierTrends, List<TrendInfo> advantageTrends, ref int rollModifier,
-                    ref int saveDC, ref bool hasHitVisual, RollOutcome outcome, int outcomeDelta,
+                public void OnSavingThrowInitiated(
+                    RulesetActor rulesetActorCaster,
+                    RulesetActor rulesetActorDefender,
+                    ref int saveBonus,
+                    ref string abilityScoreName,
+                    BaseDefinition sourceDefinition,
+                    List<TrendInfo> modifierTrends,
+                    List<TrendInfo> advantageTrends,
+                    ref int rollModifier,
+                    ref int saveDC,
+                    ref bool hasHitVisual,
+                    RollOutcome outcome,
+                    int outcomeDelta,
                     List<EffectForm> effectForms)
                 {
-                    GetCustomConditionFromCharacter(defender, out var supportCondition);
+                    GetCustomConditionFromCharacter(rulesetActorDefender, out var supportCondition);
+
                     var acBonus = supportCondition.SaveBonus;
                     rollModifier += acBonus;
                     modifierTrends.Add(new TrendInfo(acBonus, FeatureSourceType.Condition, BindingDefinition.Name,

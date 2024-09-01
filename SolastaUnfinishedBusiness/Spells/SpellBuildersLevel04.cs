@@ -950,14 +950,12 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ModifySavingThrowAuraOfPerseverance(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellDefinition)
+    private sealed class ModifySavingThrowAuraOfPerseverance(SpellDefinition spellDefinition)
         : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1059,8 +1057,8 @@ internal static partial class SpellBuilders
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1467,8 +1465,8 @@ internal static partial class SpellBuilders
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1574,8 +1572,8 @@ internal static partial class SpellBuilders
     private sealed class RollSavingThrowFinishedIrresistiblePerformance : IRollSavingThrowFinished
     {
         public void OnSavingThrowFinished(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             int saveBonus,
             string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1588,14 +1586,14 @@ internal static partial class SpellBuilders
             ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (caster == null || outcome == RollOutcome.Failure)
+            if (outcome == RollOutcome.Failure)
             {
                 return;
             }
 
-            if (!defender.AllConditions.Any(x =>
+            if (!rulesetActorDefender.AllConditions.Any(x =>
                     x.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name) &&
-                    x.SourceGuid == caster.Guid))
+                    x.SourceGuid == rulesetActorCaster?.Guid))
             {
                 return;
             }

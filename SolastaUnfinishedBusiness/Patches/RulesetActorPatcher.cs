@@ -441,6 +441,114 @@ public static class RulesetActorPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveCondition))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RemoveCondition_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var rollSavingThrowMethod = typeof(RulesetActor).GetMethod("RollSavingThrow");
+            var myRollSavingThrowMethod =
+                typeof(RemoveCondition_Patch).GetMethod("RollSavingThrow");
+
+            return instructions
+                .ReplaceCalls(rollSavingThrowMethod,
+                    "RulesetActor.RemoveCondition",
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Call, myRollSavingThrowMethod));
+        }
+
+        [UsedImplicitly]
+        public static void RollSavingThrow(
+            RulesetCharacter __instance,
+            int saveBonus,
+            string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            RulesetCondition rulesetCondition)
+        {
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var effectForms = new List<EffectForm>();
+
+            rulesetCondition.BuildDummyEffectForms(effectForms);
+            __instance.MyRollSavingThrow(
+                caster,
+                saveBonus,
+                abilityScoreName,
+                sourceDefinition,
+                modifierTrends,
+                advantageTrends,
+                rollModifier,
+                saveDC,
+                hasHitVisual,
+                ref outcome,
+                ref outcomeDelta,
+                effectForms);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ProcessConditionsMatchingInterruption))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ProcessConditionsMatchingInterruption_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var rollSavingThrowMethod = typeof(RulesetActor).GetMethod("RollSavingThrow");
+            var myRollSavingThrowMethod =
+                typeof(RemoveCondition_Patch).GetMethod("RollSavingThrow");
+
+            return instructions
+                .ReplaceCalls(rollSavingThrowMethod,
+                    "RulesetActor.ProcessConditionsMatchingInterruption",
+                    new CodeInstruction(OpCodes.Ldloc_3),
+                    new CodeInstruction(OpCodes.Call, myRollSavingThrowMethod));
+        }
+
+        [UsedImplicitly]
+        public static void RollSavingThrow(
+            RulesetCharacter __instance,
+            int saveBonus,
+            string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            RulesetCondition rulesetCondition)
+        {
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var effectForms = new List<EffectForm>();
+
+            rulesetCondition.BuildDummyEffectForms(effectForms);
+            __instance.MyRollSavingThrow(
+                caster,
+                saveBonus,
+                abilityScoreName,
+                sourceDefinition,
+                modifierTrends,
+                advantageTrends,
+                rollModifier,
+                saveDC,
+                hasHitVisual,
+                ref outcome,
+                ref outcomeDelta,
+                effectForms);
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveConditionOfCategory))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

@@ -1281,8 +1281,8 @@ internal static partial class CharacterContext
     private sealed class RollSavingThrowInitiatedIndomitableSaving : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1295,7 +1295,12 @@ internal static partial class CharacterContext
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            var classLevel = defender.GetClassLevel(Fighter);
+            if (rulesetActorDefender is not RulesetCharacterHero rulesetCharacterDefender)
+            {
+                return;
+            }
+
+            var classLevel = rulesetCharacterDefender.GetClassLevel(Fighter);
 
             rollModifier += classLevel;
             modifierTrends.Add(

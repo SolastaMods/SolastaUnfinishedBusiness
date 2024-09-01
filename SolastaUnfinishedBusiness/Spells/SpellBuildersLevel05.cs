@@ -963,8 +963,8 @@ internal static partial class SpellBuilders
         }
 
         public void OnSavingThrowFinished(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             int saveBonus,
             string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -979,7 +979,7 @@ internal static partial class SpellBuilders
         {
             if (outcome == RollOutcome.Success)
             {
-                GameLocationCharacter.GetFromActor(defender).UsedSpecialFeatures
+                GameLocationCharacter.GetFromActor(rulesetActorDefender).UsedSpecialFeatures
                     .TryAdd(CircleOfMagicalNegationSavedTag, 0);
             }
         }

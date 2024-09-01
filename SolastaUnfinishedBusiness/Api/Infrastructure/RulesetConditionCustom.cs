@@ -94,13 +94,11 @@ internal abstract class RulesetConditionCustom<T> : RulesetCondition, IForceCond
         return customCondition;
     }
 
-    public static bool GetCustomConditionFromCharacter(
-        RulesetCharacter rulesetCharacter,
-        out T supportCondition)
+    public static bool GetCustomConditionFromCharacter(RulesetActor rulesetActor, out T supportCondition)
     {
         // Main.Info($"Category is {Category}, Definition is {BindingDefinition.Name}");
         supportCondition =
-            rulesetCharacter.TryGetConditionOfCategoryAndType(Category, BindingDefinition.Name,
+            rulesetActor.TryGetConditionOfCategoryAndType(Category, BindingDefinition.Name,
                 out var rulesetCondition)
                 ? rulesetCondition as T
                 : null;

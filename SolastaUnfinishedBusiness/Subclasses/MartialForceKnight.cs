@@ -863,8 +863,8 @@ public sealed class MartialForceKnight : AbstractSubclass
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -877,12 +877,18 @@ public sealed class MartialForceKnight : AbstractSubclass
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
+            if (rulesetActorDefender is not RulesetCharacter rulesetCharacterDefender)
+            {
+                return;
+            }
+
             var changed = false;
-            var intelligence = ComputeBaseBonus(defender, AttributeDefinitions.Intelligence, out var intModifier);
+            var intelligence =
+                ComputeBaseBonus(rulesetCharacterDefender, AttributeDefinitions.Intelligence, out var intModifier);
 
             if (abilityScoreName == AttributeDefinitions.Wisdom)
             {
-                var wisdom = ComputeBaseBonus(defender, AttributeDefinitions.Wisdom, out _);
+                var wisdom = ComputeBaseBonus(rulesetCharacterDefender, AttributeDefinitions.Wisdom, out _);
 
                 if (intelligence > wisdom)
                 {
@@ -893,7 +899,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             if (abilityScoreName == AttributeDefinitions.Charisma)
             {
-                var charisma = ComputeBaseBonus(defender, AttributeDefinitions.Charisma, out _);
+                var charisma = ComputeBaseBonus(rulesetCharacterDefender, AttributeDefinitions.Charisma, out _);
 
                 if (intelligence > charisma)
                 {
@@ -911,7 +917,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             modifierTrends.RemoveAll(x =>
                 x.sourceType is FeatureSourceType.AbilityScore or FeatureSourceType.Proficiency);
             modifierTrends.AddRange(intModifier);
-            defender.LogCharacterUsedFeature(featureForceOfWill);
+            rulesetCharacterDefender.LogCharacterUsedFeature(featureForceOfWill);
         }
 
         private static int ComputeBaseBonus(

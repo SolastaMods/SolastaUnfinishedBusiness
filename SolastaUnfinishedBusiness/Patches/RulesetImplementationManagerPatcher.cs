@@ -819,56 +819,19 @@ public static class RulesetImplementationManagerPatcher
             RulesetCharacter caster,
             List<EffectForm> effectForms)
         {
-            //PATCH: supports Oath of Ancients / Oath of Dread Path of The Savagery
-            OnRollSavingThrowOath(caster, __instance, sourceDefinition,
-                OathOfAncients.ConditionElderChampionName,
-                OathOfAncients.ConditionElderChampionEnemy);
-            OnRollSavingThrowOath(caster, __instance, sourceDefinition,
-                OathOfDread.ConditionAspectOfDreadName,
-                OathOfDread.ConditionAspectOfDreadEnemy);
-            PathOfTheSavagery.OnRollSavingThrowFuriousDefense(__instance, ref abilityScoreName);
-
-            //PATCH: supports `OnSavingThrowInitiated` interface
-            foreach (var rollSavingThrowInitiated in __instance.GetSubFeaturesByType<IRollSavingThrowInitiated>())
-            {
-                rollSavingThrowInitiated.OnSavingThrowInitiated(
-                    caster,
-                    __instance,
-                    ref saveBonus,
-                    ref abilityScoreName,
-                    sourceDefinition,
-                    modifierTrends,
-                    advantageTrends,
-                    ref rollModifier,
-                    ref saveDC,
-                    ref hasHitVisual,
-                    outcome,
-                    outcomeDelta,
-                    effectForms);
-            }
-
-            __instance.RollSavingThrow(
-                saveBonus, abilityScoreName, sourceDefinition, modifierTrends, advantageTrends,
-                rollModifier, saveDC, hasHitVisual, out outcome, out outcomeDelta);
-
-            //PATCH: supports `IRollSavingThrowFinished` interface
-            foreach (var rollSavingThrowFinished in __instance.GetSubFeaturesByType<IRollSavingThrowFinished>())
-            {
-                rollSavingThrowFinished.OnSavingThrowFinished(
-                    caster,
-                    __instance,
-                    saveBonus,
-                    abilityScoreName,
-                    sourceDefinition,
-                    modifierTrends,
-                    advantageTrends,
-                    rollModifier,
-                    saveDC,
-                    hasHitVisual,
-                    ref outcome,
-                    ref outcomeDelta,
-                    effectForms);
-            }
+            __instance.MyRollSavingThrow(
+                caster,
+                saveBonus,
+                abilityScoreName,
+                sourceDefinition,
+                modifierTrends,
+                advantageTrends,
+                rollModifier,
+                saveDC,
+                hasHitVisual,
+                ref outcome,
+                ref outcomeDelta,
+                effectForms);
         }
 
         [UsedImplicitly]

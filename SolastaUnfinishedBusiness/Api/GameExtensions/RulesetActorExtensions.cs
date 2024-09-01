@@ -2,12 +2,166 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class RulesetActorExtensions
 {
+    private static void OnRollSavingThrowOath(
+        RulesetCharacter caster,
+        RulesetActor target,
+        BaseDefinition sourceDefinition,
+        string selfConditionName,
+        ConditionDefinition conditionDefinitionEnemy)
+    {
+        if (caster == null ||
+            caster.Side == target.Side ||
+            !caster.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, selfConditionName))
+        {
+            return;
+        }
+
+        if (sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
+            sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity } &&
+            !caster.AllConditions.Any(x => x.Name.Contains("Smite")))
+        {
+            return;
+        }
+
+        var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
+        var gameLocationTarget = GameLocationCharacter.GetFromActor(target);
+
+        if (gameLocationCaster == null ||
+            gameLocationTarget == null ||
+            !gameLocationCaster.IsWithinRange(gameLocationTarget, 2))
+        {
+            return;
+        }
+
+        target.InflictCondition(
+            conditionDefinitionEnemy.Name,
+            DurationType.Round,
+            0,
+            TurnOccurenceType.StartOfTurn,
+            AttributeDefinitions.TagEffect,
+            caster.guid,
+            caster.CurrentFaction.Name,
+            1,
+            conditionDefinitionEnemy.Name,
+            0,
+            0,
+            0);
+    }
+
+    internal static void MyRollSavingThrow(
+        this RulesetActor rulesetActorTarget,
+        RulesetCharacter rulesetActorCaster,
+        int saveBonus,
+        string abilityScoreName,
+        BaseDefinition sourceDefinition,
+        List<TrendInfo> modifierTrends,
+        List<TrendInfo> advantageTrends,
+        int rollModifier,
+        int saveDC,
+        bool hasHitVisual,
+        ref RollOutcome outcome,
+        ref int outcomeDelta,
+        List<EffectForm> effectForms)
+    {
+        //PATCH: supports Oath of Ancients / Oath of Dread / Path of The Savagery
+        OnRollSavingThrowOath(rulesetActorCaster, rulesetActorTarget, sourceDefinition,
+            OathOfAncients.ConditionElderChampionName,
+            OathOfAncients.ConditionElderChampionEnemy);
+        OnRollSavingThrowOath(rulesetActorCaster, rulesetActorTarget, sourceDefinition,
+            OathOfDread.ConditionAspectOfDreadName,
+            OathOfDread.ConditionAspectOfDreadEnemy);
+
+        var rulesetCharacterTarget = rulesetActorTarget as RulesetCharacter;
+
+        //BEGIN PATCH
+        if (rulesetCharacterTarget != null)
+        {
+            PathOfTheSavagery.OnRollSavingThrowFuriousDefense(rulesetCharacterTarget, ref abilityScoreName);
+
+            //PATCH: supports `OnSavingThrowInitiated` interface
+            foreach (var rollSavingThrowInitiated in rulesetCharacterTarget
+                         .GetSubFeaturesByType<IRollSavingThrowInitiated>())
+            {
+                rollSavingThrowInitiated.OnSavingThrowInitiated(
+                    rulesetActorCaster,
+                    rulesetActorTarget,
+                    ref saveBonus,
+                    ref abilityScoreName,
+                    sourceDefinition,
+                    modifierTrends,
+                    advantageTrends,
+                    ref rollModifier,
+                    ref saveDC,
+                    ref hasHitVisual,
+                    outcome,
+                    outcomeDelta,
+                    effectForms);
+            }
+        }
+        //END PATCH
+
+        var saveRoll = rulesetActorTarget.RollDie(
+            DieType.D20, RollContext.SavingThrow, false, ComputeAdvantage(advantageTrends),
+            out var firstRoll, out var secondRoll);
+
+        var totalRoll = saveRoll + saveBonus + rollModifier;
+        outcomeDelta = totalRoll - saveDC;
+        outcome = totalRoll < saveDC ? RollOutcome.Failure : RollOutcome.Success;
+
+        foreach (var modifierTrend in modifierTrends)
+        {
+            if (modifierTrend.dieFlag == TrendInfoDieFlag.None ||
+                modifierTrend is not { value: > 0, dieType: > DieType.D1 })
+            {
+                continue;
+            }
+
+            var additionalSaveDieRolled = rulesetActorTarget.AdditionalSaveDieRolled;
+
+            additionalSaveDieRolled?.Invoke(rulesetActorTarget, modifierTrend);
+        }
+
+        rulesetActorTarget.SaveRolled?.Invoke(rulesetActorTarget, abilityScoreName, sourceDefinition, outcome, saveDC,
+            totalRoll,
+            saveRoll, firstRoll, secondRoll, saveBonus + rollModifier, modifierTrends, advantageTrends, hasHitVisual);
+
+        rulesetActorTarget.ProcessConditionsMatchingInterruption(ConditionInterruption.SavingThrow);
+
+        //BEGIN PATCH
+        if (rulesetCharacterTarget == null)
+        {
+            return;
+        }
+
+        //PATCH: supports `IRollSavingThrowFinished` interface
+        foreach (var rollSavingThrowFinished in rulesetCharacterTarget.GetSubFeaturesByType<IRollSavingThrowFinished>())
+        {
+            rollSavingThrowFinished.OnSavingThrowFinished(
+                rulesetActorCaster,
+                rulesetActorTarget,
+                saveBonus,
+                abilityScoreName,
+                sourceDefinition,
+                modifierTrends,
+                advantageTrends,
+                rollModifier,
+                saveDC,
+                hasHitVisual,
+                ref outcome,
+                ref outcomeDelta,
+                effectForms);
+        }
+        //END PATCH
+    }
+
     internal static void ModifyAttributeAndMax(this RulesetActor hero, string attributeName, int amount)
     {
         var attribute = hero.GetAttribute(attributeName);

@@ -455,8 +455,8 @@ public sealed class WizardWarMagic : AbstractSubclass
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -469,7 +469,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (defender.ConcentratedSpell == null)
+            if (rulesetActorDefender is RulesetCharacter { ConcentratedSpell: null })
             {
                 return;
             }

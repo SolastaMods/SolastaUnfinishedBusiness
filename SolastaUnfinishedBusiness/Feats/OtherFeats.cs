@@ -1066,8 +1066,8 @@ internal static class OtherFeats
         ConditionDefinition conditionResistance) : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1080,7 +1080,12 @@ internal static class OtherFeats
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (caster is RulesetCharacterHero or RulesetCharacterMonster)
+            if (rulesetActorDefender is not RulesetCharacter rulesetCharacterDefender)
+            {
+                return;
+            }
+
+            if (rulesetActorCaster is RulesetCharacterHero or RulesetCharacterMonster)
             {
                 return;
             }
@@ -1088,14 +1093,14 @@ internal static class OtherFeats
             advantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.Condition, conditionResistance.Name, conditionResistance));
 
-            defender.InflictCondition(
+            rulesetCharacterDefender.InflictCondition(
                 conditionResistance.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
-                defender.guid,
-                defender.CurrentFaction.Name,
+                rulesetCharacterDefender.guid,
+                rulesetCharacterDefender.CurrentFaction.Name,
                 1,
                 conditionResistance.Name,
                 0,

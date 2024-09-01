@@ -928,8 +928,8 @@ internal static class InventorClass
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -942,8 +942,14 @@ internal static class InventorClass
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
+            if (rulesetActorDefender is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
             var attunedItems =
-                defender.CharacterInventory?.items?.Count(x => x.AttunedToCharacter == defender.Name) ?? 0;
+                rulesetCharacter.CharacterInventory?.items?.Count(x => x.AttunedToCharacter == rulesetCharacter.Name) ??
+                0;
 
             rollModifier += attunedItems;
             modifierTrends.Add(
