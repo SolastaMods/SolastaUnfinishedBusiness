@@ -47,6 +47,7 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
+        AddAdditionalActionTitles();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
         FixAdditionalDamageRogueSneakAttack();
@@ -407,10 +408,10 @@ internal static class FixesContext
 
     private static void FixMartialCommanderCoordinatedDefense()
     {
-        PowerMartialCommanderCoordinatedDefense.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAttacked));
+        ActionAffinityMartialCommanderCoordinatedDefense.AddCustomSubFeatures(
+            new ValidateDefinitionApplication(ValidatorsCharacter.HasAttacked));
     }
-    
+
     private static void FixMinorMagicEffectsIssues()
     {
         // fix issues with bad targeting

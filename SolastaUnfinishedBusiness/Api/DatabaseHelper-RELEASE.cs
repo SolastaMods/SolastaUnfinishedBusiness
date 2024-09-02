@@ -932,6 +932,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionActionAffinitys
     {
+        internal static FeatureDefinitionActionAffinity ActionAffinityMartialCommanderCoordinatedDefense { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMartialCommanderCoordinatedDefense");
+
         internal static FeatureDefinitionActionAffinity ActionAffinityAggressive { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityAggressive");
 
@@ -1721,8 +1724,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
-        internal static FeatureDefinitionPower PowerMartialCommanderCoordinatedDefense { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderCoordinatedDefense");   
         internal static FeatureDefinitionPower PowerIncubus_Drain { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerIncubus_Drain");
 
