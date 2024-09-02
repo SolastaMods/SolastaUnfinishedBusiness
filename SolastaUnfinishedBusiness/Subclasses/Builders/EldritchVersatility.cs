@@ -857,14 +857,35 @@ internal static class EldritchVersatilityBuilders
 
                 if (glc != null)
                 {
-                    glc.RollAbilityCheck(AttributeDefinitions.Intelligence,
-                        SkillDefinitions.Arcana,
+                    var abilityCheckRoll = glc.RollAbilityCheck(
+                        AttributeDefinitions.Intelligence, SkillDefinitions.Arcana,
                         14 + spellLevel + Math.Max(-6, spellLevel - supportCondition.CurrentPoints),
-                        AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
-                        out _, true);
+                        AdvantageType.None,
+                        checkModifier,
+                        false,
+                        -1,
+                        out var rollOutcome,
+                        out var successDelta,
+                        true);
+
+                    //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+                    var abilityCheckData = new AbilityCheckData
+                    {
+                        AbilityCheckRoll = abilityCheckRoll,
+                        AbilityCheckRollOutcome = rollOutcome,
+                        AbilityCheckSuccessDelta = successDelta,
+                        AbilityCheckActionModifier = checkModifier
+                    };
+
+                    yield return TryAlterOutcomeAttributeCheck
+                        .HandleITryAlterOutcomeAttributeCheck(castAction.ActingCharacter, abilityCheckData);
+
+                    castAction.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+                    castAction.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                    castAction.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
 
                     // Fails check
-                    if (abilityCheckRollOutcome > RollOutcome.Success)
+                    if (castAction.AbilityCheckRollOutcome > RollOutcome.Success)
                     {
                         yield break;
                     }
@@ -876,8 +897,8 @@ internal static class EldritchVersatilityBuilders
             }
 
             var console = Gui.Game.GameConsole;
-            var entry = new GameConsoleEntry("Feedback/BattlefieldShorthandCopySpellSuccess",
-                console.consoleTableDefinition) { Indent = true };
+            var entry = new GameConsoleEntry(
+                "Feedback/BattlefieldShorthandCopySpellSuccess", console.consoleTableDefinition) { Indent = true };
 
             console.AddCharacterEntry(featureOwner, entry);
             entry.AddParameter(
@@ -907,14 +928,39 @@ internal static class EldritchVersatilityBuilders
                         AttributeDefinitions.ComputeAbilityScoreModifier(
                             featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence))
                 };
+
                 checkModifier.AbilityCheckModifierTrends.Add(new TrendInfo(checkModifier.AbilityCheckModifier,
                     FeatureSourceType.CharacterFeature, "PowerPatronEldritchSurgeVersatilitySwitchPool", null));
-                gameLocationCharacter.RollAbilityCheck("Intelligence", "Arcana", supportCondition.CreateSlotDC,
-                    AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
-                    out _, true);
 
-                // If success increase DC, other wise decrease DC
-                var createSuccess = abilityCheckRollOutcome <= RollOutcome.Success;
+                var abilityCheckRoll = gameLocationCharacter.RollAbilityCheck(
+                    AttributeDefinitions.Intelligence, SkillDefinitions.Arcana,
+                    supportCondition.CreateSlotDC,
+                    AdvantageType.None,
+                    checkModifier,
+                    false,
+                    -1,
+                    out var rollOutcome,
+                    out var successDelta,
+                    true);
+
+                //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+                var abilityCheckData = new AbilityCheckData
+                {
+                    AbilityCheckRoll = abilityCheckRoll,
+                    AbilityCheckRollOutcome = rollOutcome,
+                    AbilityCheckSuccessDelta = successDelta,
+                    AbilityCheckActionModifier = checkModifier
+                };
+
+                yield return TryAlterOutcomeAttributeCheck
+                    .HandleITryAlterOutcomeAttributeCheck(action.ActingCharacter, abilityCheckData);
+
+                action.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+                action.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                action.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
+
+                // If success increase DC, otherwise decrease DC
+                var createSuccess = action.AbilityCheckRollOutcome <= RollOutcome.Success;
 
                 // Log to notify outcome and new DC
                 var console = Gui.Game.GameConsole;
@@ -930,7 +976,7 @@ internal static class EldritchVersatilityBuilders
                 console.AddEntry(entry);
 
                 // If fails
-                if (abilityCheckRollOutcome > RollOutcome.Success)
+                if (action.AbilityCheckRollOutcome > RollOutcome.Success)
                 {
                     supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BattlefieldConversionFailure);
                     yield break;
