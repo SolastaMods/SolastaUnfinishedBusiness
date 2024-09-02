@@ -2140,13 +2140,17 @@ internal static class OtherFeats
                 yield break;
             }
 
+            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
+
             // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 helper,
                 "LuckySaving",
-                reactionValidated: ReactionValidated,
-                battleManager: battleManager);
+                "SpendPowerLuckySavingDescription".Formatted(
+                    Category.Reaction, attacker?.Name ?? envTitle, savingThrowData.Title),
+                ReactionValidated,
+                battleManager);
 
             yield break;
 
@@ -2322,7 +2326,8 @@ internal static class OtherFeats
                 usablePower,
                 defender,
                 "MageSlayer",
-                "SpendPowerMageSlayerDescription".Formatted(Category.Reaction, attacker?.Name ?? envTitle),
+                "SpendPowerMageSlayerDescription".Formatted(
+                    Category.Reaction, attacker?.Name ?? envTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager);
 

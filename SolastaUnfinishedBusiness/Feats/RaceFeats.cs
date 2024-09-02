@@ -824,7 +824,7 @@ internal static class RaceFeats
                 helper,
                 "BountifulLuckSaving",
                 "CustomReactionBountifulLuckSavingDescription".Formatted(
-                    Category.Reaction, defender.Name, attacker?.Name ?? envTitle, helper.Name),
+                    Category.Reaction, defender.Name, attacker?.Name ?? envTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager: battleManager);
 

@@ -952,7 +952,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 helper,
                 "WealCosmosOmenSaving",
                 "SpendPowerWealCosmosOmenSavingDescription".Formatted(
-                    Category.Reaction, defender.Name, attacker?.Name ?? envTitle, helper.Name),
+                    Category.Reaction, defender.Name, attacker?.Name ?? envTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager);
 
@@ -1172,7 +1172,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 helper,
                 "WoeCosmosOmenSaving",
                 "SpendPowerWoeCosmosOmenSavingDescription".Formatted(
-                    Category.Reaction, defender.Name, attacker?.Name ?? envTitle, helper.Name),
+                    Category.Reaction, defender.Name, attacker?.Name ?? envTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager);
 

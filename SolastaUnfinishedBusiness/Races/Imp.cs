@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -607,7 +608,7 @@ internal static class RaceImpBuilder
             yield return attacker.MyReactToSpendPower(
                 usablePower,
                 attacker,
-                "DrawInspiration",
+                "DrawInspirationAttack",
                 reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
@@ -644,13 +645,17 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
+            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
+
             // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 helper,
-                "DrawInspiration",
-                reactionValidated: ReactionValidated,
-                battleManager: battleManager);
+                "DrawInspirationSaving",
+                "SpendPowerDrawInspirationSavingDescription".Formatted(
+                    Category.Reaction, attacker?.Name ?? envTitle, savingThrowData.Title),
+                ReactionValidated,
+                battleManager);
 
             yield break;
 
