@@ -1,6 +1,3 @@
-
-=EMPTY
-=EMPTY
 Condition/&ConditionAcidClawsDescription=-1 a CA.
 Condition/&ConditionAcidClawsTitle=Quemadura por ácido
 Condition/&ConditionBoomingBladeSheathedDescription=Estás envuelto en una energía explosiva. Si te mueves voluntariamente 1,5 m o más, recibirás daño por trueno.

@@ -1,6 +1,3 @@
-
-=EMPTY
-=EMPTY
 Condition/&ConditionAcidClawsDescription=-1 à AC.
 Condition/&ConditionAcidClawsTitle=Brûlures acides
 Condition/&ConditionBoomingBladeSheathedDescription=Vous êtes enveloppé d'une énergie tonitruante. Si vous vous déplacez volontairement de 1,50 m ou plus, vous subissez des dégâts de foudre.

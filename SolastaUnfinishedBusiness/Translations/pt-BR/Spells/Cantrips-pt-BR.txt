@@ -1,6 +1,3 @@
-
-=EMPTY
-=EMPTY
 Condition/&ConditionAcidClawsDescription=-1 para CA.
 Condition/&ConditionAcidClawsTitle=Queimadura ácida
 Condition/&ConditionBoomingBladeSheathedDescription=Você está envolto em energia estrondosa. Se você se mover voluntariamente 5 pés ou mais, você recebe dano de trovão.

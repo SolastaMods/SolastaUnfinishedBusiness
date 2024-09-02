@@ -1,6 +1,3 @@
-
-=EMPTY
-=EMPTY
 Condition/&ConditionAcidClawsDescription=-1 bis AC.
 Condition/&ConditionAcidClawsTitle=Säure brennen
 Condition/&ConditionBoomingBladeSheathedDescription=Du bist von dröhnender Energie umgeben. Wenn du dich freiwillig 1,5 Meter oder mehr bewegst, erleidest du Donnerschaden.

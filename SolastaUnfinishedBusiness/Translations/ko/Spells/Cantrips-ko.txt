@@ -1,6 +1,3 @@
-
-=EMPTY
-=EMPTY
 Condition/&ConditionAcidClawsDescription=방어구 등급이 1 감소합니다.
 Condition/&ConditionAcidClawsTitle=산성 화상
 Condition/&ConditionBoomingBladeSheathedDescription=당신은 폭발하는 에너지에 싸여 있습니다. 만약 당신이 5피트 이상 기꺼이 이동한다면, 당신은 천둥 피해를 입습니다.

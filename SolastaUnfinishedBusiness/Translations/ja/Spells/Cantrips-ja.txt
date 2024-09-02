@@ -1,6 +1,3 @@
-
-=EMPTY
-=EMPTY
 Condition/&ConditionAcidClawsDescription=アーマークラスが1下がります。
 Condition/&ConditionAcidClawsTitle=アシッドバーン
 Condition/&ConditionBoomingBladeSheathedDescription=あなたは轟くエネルギーに包まれています。あなたが自発的に 5 フィート以上移動すると、雷のダメージを受けます。

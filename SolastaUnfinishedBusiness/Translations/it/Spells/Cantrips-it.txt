@@ -1,6 +1,3 @@
-
-=EMPTY
-=EMPTY
 Condition/&ConditionAcidClawsDescription=-1 a CA.
 Condition/&ConditionAcidClawsTitle=Ustione da acido
 Condition/&ConditionBoomingBladeSheathedDescription=Sei avvolto in un'energia rimbombante. Se ti sposti volontariamente di 5 piedi o più, subisci danni da tuono.
