@@ -862,52 +862,6 @@ public static class RulesetImplementationManagerPatcher
 
             return senseMode == null || !glTarget.IsWithinRange(glCaster, senseMode.SenseRange);
         }
-
-        internal static void OnRollSavingThrowOath(
-            RulesetCharacter caster,
-            RulesetActor target,
-            BaseDefinition sourceDefinition,
-            string selfConditionName,
-            ConditionDefinition conditionDefinitionEnemy)
-        {
-            if (caster == null ||
-                caster.Side == target.Side ||
-                !caster.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, selfConditionName))
-            {
-                return;
-            }
-
-            if (sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
-                sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity } &&
-                !caster.AllConditions.Any(x => x.Name.Contains("Smite")))
-            {
-                return;
-            }
-
-            var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
-            var gameLocationTarget = GameLocationCharacter.GetFromActor(target);
-
-            if (gameLocationCaster == null ||
-                gameLocationTarget == null ||
-                !gameLocationCaster.IsWithinRange(gameLocationTarget, 2))
-            {
-                return;
-            }
-
-            target.InflictCondition(
-                conditionDefinitionEnemy.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                caster.guid,
-                caster.CurrentFaction.Name,
-                1,
-                conditionDefinitionEnemy.Name,
-                0,
-                0,
-                0);
-        }
     }
 
     [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.ApplyConditionForm))]

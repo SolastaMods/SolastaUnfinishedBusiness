@@ -512,7 +512,7 @@ internal static partial class CharacterContext
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
-                FactionDefinitions.HostileMonsters.Name,
+                FactionDefinitions.Party.Name,
                 1,
                 conditionSunderingBlowAlly.Name,
                 0,
