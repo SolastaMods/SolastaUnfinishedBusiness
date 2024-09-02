@@ -100,13 +100,12 @@ public static class CharacterActionMoveStepClimbPatcher
                             AbilityCheckRoll = abilityCheckRoll,
                             AbilityCheckRollOutcome = outcome,
                             AbilityCheckSuccessDelta = successDelta,
-                            AbilityCheckActionModifier = actionModifier
+                            AbilityCheckActionModifier = actionModifier,
+                            Action = action
                         };
 
-                        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-
-                        yield return battleManager
-                            .HandleFailedAbilityCheck(action, actingCharacter, actionModifier);
+                        yield return TryAlterOutcomeAttributeCheck
+                            .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData);
 
                         action.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
                         action.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;

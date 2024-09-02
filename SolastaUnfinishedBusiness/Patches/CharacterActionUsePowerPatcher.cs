@@ -248,13 +248,12 @@ public static class CharacterActionUsePowerPatcher
                         AbilityCheckRoll = abilityCheckRoll,
                         AbilityCheckRollOutcome = outcome,
                         AbilityCheckSuccessDelta = successDelta,
-                        AbilityCheckActionModifier = actionModifier
+                        AbilityCheckActionModifier = actionModifier,
+                        Action = actionUsePower
                     };
 
-                    var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-
-                    yield return battleManager
-                        .HandleFailedAbilityCheck(actionUsePower, actingCharacter, actionModifier);
+                    yield return TryAlterOutcomeAttributeCheck
+                        .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData);
 
                     actionUsePower.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
                     actionUsePower.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;

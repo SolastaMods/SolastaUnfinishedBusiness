@@ -26,6 +26,7 @@ public sealed class AbilityCheckData
     public RollOutcome AbilityCheckRollOutcome { get; set; }
     public int AbilityCheckSuccessDelta { get; set; }
     public ActionModifier AbilityCheckActionModifier { get; set; }
+    public CharacterAction Action { get; set; }
 }
 
 internal static class TryAlterOutcomeAttributeCheck
@@ -370,7 +371,7 @@ internal static class TryAlterOutcomeAttributeCheck
         battleManager.GetBestParametersForBardicDieRoll(
             actingCharacter,
             out var bestDie,
-            out _,
+            out var bestModifier,
             out var sourceCondition,
             out var forceMaxRoll,
             out var advantage);
@@ -402,6 +403,14 @@ internal static class TryAlterOutcomeAttributeCheck
             sourceCondition, abilityCheckData.AbilityCheckSuccessDelta, forceMaxRoll, advantage);
 
         abilityCheckData.AbilityCheckSuccessDelta += roll;
+
+        var action = abilityCheckData.Action;
+
+        if (action != null)
+        {
+            action.BardicDieType = bestDie;
+            action.FeatureName = bestModifier.Name;
+        }
 
         var actionModifier = abilityCheckData.AbilityCheckActionModifier;
 

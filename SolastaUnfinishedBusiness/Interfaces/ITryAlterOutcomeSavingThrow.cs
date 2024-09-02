@@ -263,7 +263,7 @@ internal static class TryAlterOutcomeSavingThrow
         battleManager.GetBestParametersForBardicDieRoll(
             defender,
             out var bestDie,
-            out _,
+            out var bestModifier,
             out var sourceCondition,
             out var forceMaxRoll,
             out var advantage);
@@ -296,6 +296,14 @@ internal static class TryAlterOutcomeSavingThrow
             sourceCondition, savingThrowData.SaveOutcomeDelta, forceMaxRoll, advantage);
 
         savingThrowData.SaveOutcomeDelta += roll;
+
+        var action = savingThrowData.Action;
+
+        if (action != null)
+        {
+            action.BardicDieType = bestDie;
+            action.FeatureName = bestModifier.Name;
+        }
 
         var actionModifier = savingThrowData.SaveActionModifier;
 

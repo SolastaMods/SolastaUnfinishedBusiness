@@ -712,7 +712,8 @@ internal static class OtherFeats
 
             attacker.BurnOneMainAttack();
 
-            var abilityCheckData = new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier() };
+            var abilityCheckData =
+                new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier(), Action = action };
 
             yield return ResolveContest(attacker, defender, abilityCheckData);
 
@@ -1185,12 +1186,12 @@ internal static class OtherFeats
                 AbilityCheckRoll = abilityCheckRoll,
                 AbilityCheckRollOutcome = rollOutcome,
                 AbilityCheckSuccessDelta = successDelta,
-                AbilityCheckActionModifier = actionModifier
+                AbilityCheckActionModifier = actionModifier,
+                Action = action
             };
 
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            yield return battleManager.HandleFailedAbilityCheck(action, actingCharacter, actionModifier);
+            yield return TryAlterOutcomeAttributeCheck
+                .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData);
 
             if (abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {

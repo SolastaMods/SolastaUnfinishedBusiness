@@ -245,13 +245,12 @@ public static class CharacterActionCastSpellPatcher
                         AbilityCheckRoll = abilityCheckRoll,
                         AbilityCheckRollOutcome = outcome,
                         AbilityCheckSuccessDelta = successDelta,
-                        AbilityCheckActionModifier = actionModifier
+                        AbilityCheckActionModifier = actionModifier,
+                        Action = actionCastSpell
                     };
 
-                    var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-
-                    yield return battleManager
-                        .HandleFailedAbilityCheck(actionCastSpell, actingCharacter, actionModifier);
+                    yield return TryAlterOutcomeAttributeCheck
+                        .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData);
 
                     actionCastSpell.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
                     actionCastSpell.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;

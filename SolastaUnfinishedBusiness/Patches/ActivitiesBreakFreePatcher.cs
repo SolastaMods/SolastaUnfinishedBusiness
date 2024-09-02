@@ -94,7 +94,8 @@ public static class ActivitiesBreakFreePatcher
                         AbilityCheckRoll = abilityCheckRoll,
                         AbilityCheckRollOutcome = rollOutcome,
                         AbilityCheckSuccessDelta = successDelta,
-                        AbilityCheckActionModifier = actionModifier
+                        AbilityCheckActionModifier = actionModifier,
+                        Action = null
                     };
 
                     yield return TryAlterOutcomeAttributeCheck

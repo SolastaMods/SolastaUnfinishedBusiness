@@ -123,12 +123,12 @@ public static class CharacterActionBreakFreePatcher
                 AbilityCheckRoll = abilityCheckRoll,
                 AbilityCheckRollOutcome = rollOutcome,
                 AbilityCheckSuccessDelta = successDelta,
-                AbilityCheckActionModifier = actionModifier
+                AbilityCheckActionModifier = actionModifier,
+                Action = __instance
             };
 
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            yield return battleManager.HandleFailedAbilityCheck(__instance, __instance.ActingCharacter, actionModifier);
+            yield return TryAlterOutcomeAttributeCheck
+                .HandleITryAlterOutcomeAttributeCheck(__instance.ActingCharacter, abilityCheckData);
 
             __instance.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
             __instance.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
