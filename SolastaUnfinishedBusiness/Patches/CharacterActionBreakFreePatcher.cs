@@ -106,8 +106,16 @@ public static class CharacterActionBreakFreePatcher
                 abilityScoreName, proficiencyName, actionModifier);
 
             var abilityCheckRoll = __instance.ActingCharacter.RollAbilityCheck(
-                abilityScoreName, proficiencyName, checkDC, AdvantageType.None, actionModifier, false,
-                -1, out var rollOutcome, out var successDelta, true);
+                abilityScoreName,
+                proficiencyName,
+                checkDC,
+                AdvantageType.None,
+                actionModifier,
+                false,
+                -1,
+                out var rollOutcome,
+                out var successDelta,
+                true);
 
             //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
             var abilityCheckData = new AbilityCheckData
@@ -118,8 +126,9 @@ public static class CharacterActionBreakFreePatcher
                 AbilityCheckActionModifier = actionModifier
             };
 
-            yield return TryAlterOutcomeAttributeCheck
-                .HandleITryAlterOutcomeAttributeCheck(__instance.ActingCharacter, abilityCheckData);
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            yield return battleManager.HandleFailedAbilityCheck(__instance, __instance.ActingCharacter, actionModifier);
 
             __instance.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
             __instance.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;

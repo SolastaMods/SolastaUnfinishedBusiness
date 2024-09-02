@@ -77,8 +77,16 @@ public static class ActivitiesBreakFreePatcher
                         AttributeDefinitions.Strength, string.Empty, actionModifier);
 
                     var abilityCheckRoll = gameLocationCharacter.RollAbilityCheck(
-                        AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, actionModifier,
-                        false, -1, out var rollOutcome, out var successDelta, true);
+                        AttributeDefinitions.Strength,
+                        string.Empty,
+                        checkDC,
+                        AdvantageType.None,
+                        actionModifier,
+                        false,
+                        -1,
+                        out var rollOutcome,
+                        out var successDelta,
+                        true);
 
                     //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
                     var abilityCheckData = new AbilityCheckData

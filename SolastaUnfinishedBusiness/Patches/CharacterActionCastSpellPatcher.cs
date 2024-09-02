@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -11,6 +12,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -137,6 +139,145 @@ public static class CharacterActionCastSpellPatcher
                 __instance.ActiveSpell);
 
             return false;
+        }
+    }
+
+    //PATCH: allow check reactions on cast spell regardless of success / failure
+    [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.CounterEffectAction))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CounterEffectAction_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(ref IEnumerator __result, CharacterActionCastSpell __instance,
+            CharacterAction counterAction)
+        {
+            __result = Process(__instance, counterAction);
+
+            return false;
+        }
+
+        private static IEnumerator Process(
+            CharacterActionCastSpell actionCastSpell,
+            CharacterAction counterAction)
+        {
+            if (actionCastSpell.ActionParams.TargetAction == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = actionCastSpell.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var actionParams = actionCastSpell.ActionParams.TargetAction.ActionParams;
+            var actionModifier = actionParams.ActionModifiers[0];
+
+            foreach (var effectForm in actionParams.RulesetEffect.EffectDescription.EffectForms)
+            {
+                if (effectForm.FormType != EffectForm.EffectFormType.Counter)
+                {
+                    continue;
+                }
+
+                var counterForm = effectForm.CounterForm;
+                var counteredSpell = actionParams.TargetAction.ActionParams.RulesetEffect as RulesetEffectSpell;
+                var counteredSpellDefinition = counteredSpell!.SpellDefinition;
+                var slotLevel = counteredSpell.SlotLevel;
+
+                if (counterForm.AutomaticSpellLevel + actionCastSpell.addSpellLevel >= slotLevel)
+                {
+                    actionCastSpell.ActionParams.TargetAction.Countered = true;
+                }
+                else if (counterForm.CheckBaseDC != 0)
+                {
+                    var checkDC = counterForm.CheckBaseDC + slotLevel;
+
+                    rulesetCharacter
+                        .EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(rulesetCharacter.FeaturesToBrowse);
+
+                    foreach (var featureDefinition in rulesetCharacter.FeaturesToBrowse)
+                    {
+                        var definitionMagicAffinity = (FeatureDefinitionMagicAffinity)featureDefinition;
+
+                        if (definitionMagicAffinity.CounterspellAffinity == AdvantageType.None)
+                        {
+                            continue;
+                        }
+
+                        var advTrend = definitionMagicAffinity.CounterspellAffinity == AdvantageType.Advantage
+                            ? 1
+                            : -1;
+
+                        actionModifier.AbilityCheckAdvantageTrends.Add(new TrendInfo(
+                            advTrend, FeatureSourceType.CharacterFeature, definitionMagicAffinity.Name, null));
+                    }
+
+                    if (counteredSpell.CounterAffinity != AdvantageType.None)
+                    {
+                        var advTrend = counteredSpell.CounterAffinity == AdvantageType.Advantage
+                            ? 1
+                            : -1;
+
+                        actionModifier.AbilityCheckAdvantageTrends.Add(new TrendInfo(
+                            advTrend, FeatureSourceType.CharacterFeature, counteredSpell.CounterAffinityOrigin, null));
+                    }
+
+                    var proficiencyName = string.Empty;
+
+                    if (counterForm.AddProficiencyBonus)
+                    {
+                        proficiencyName = "ForcedProficiency";
+                    }
+
+                    var abilityCheckRoll = actingCharacter.RollAbilityCheck(
+                        actionCastSpell.activeSpell.SpellRepertoire.SpellCastingAbility,
+                        proficiencyName,
+                        checkDC,
+                        AdvantageType.None,
+                        actionModifier,
+                        false,
+                        0,
+                        out var outcome,
+                        out var successDelta,
+                        true);
+
+                    var abilityCheckData = new AbilityCheckData
+                    {
+                        AbilityCheckRoll = abilityCheckRoll,
+                        AbilityCheckRollOutcome = outcome,
+                        AbilityCheckSuccessDelta = successDelta,
+                        AbilityCheckActionModifier = actionModifier
+                    };
+
+                    var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
+
+                    yield return battleManager
+                        .HandleFailedAbilityCheck(actionCastSpell, actingCharacter, actionModifier);
+
+                    actionCastSpell.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+                    actionCastSpell.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                    actionCastSpell.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
+
+                    if (counterAction.AbilityCheckRollOutcome == RollOutcome.Success)
+                    {
+                        actionCastSpell.ActionParams.TargetAction.Countered = true;
+                    }
+                }
+
+                if (!actionParams.TargetAction.Countered ||
+                    rulesetCharacter.SpellCounter == null)
+                {
+                    continue;
+                }
+
+                var unknown = string.IsNullOrEmpty(counteredSpell.IdentifiedBy);
+
+                actionCastSpell.ActingCharacter.RulesetCharacter.SpellCounter(
+                    rulesetCharacter,
+                    actionCastSpell.ActionParams.TargetAction.ActingCharacter.RulesetCharacter,
+                    counteredSpellDefinition,
+                    actionCastSpell.ActionParams.TargetAction.Countered,
+                    unknown);
+            }
         }
     }
 }

@@ -877,8 +877,9 @@ internal static class EldritchVersatilityBuilders
                         AbilityCheckActionModifier = checkModifier
                     };
 
-                    yield return TryAlterOutcomeAttributeCheck
-                        .HandleITryAlterOutcomeAttributeCheck(castAction.ActingCharacter, abilityCheckData);
+                    var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
+
+                    yield return battleManager.HandleFailedAbilityCheck(castAction, glc, checkModifier);
 
                     castAction.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
                     castAction.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
@@ -952,8 +953,9 @@ internal static class EldritchVersatilityBuilders
                     AbilityCheckActionModifier = checkModifier
                 };
 
-                yield return TryAlterOutcomeAttributeCheck
-                    .HandleITryAlterOutcomeAttributeCheck(action.ActingCharacter, abilityCheckData);
+                var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
+
+                yield return battleManager.HandleFailedAbilityCheck(action, gameLocationCharacter, checkModifier);
 
                 action.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
                 action.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;

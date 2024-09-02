@@ -1188,8 +1188,9 @@ internal static class OtherFeats
                 AbilityCheckActionModifier = actionModifier
             };
 
-            yield return TryAlterOutcomeAttributeCheck
-                .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData);
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            yield return battleManager.HandleFailedAbilityCheck(action, actingCharacter, actionModifier);
 
             if (abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
