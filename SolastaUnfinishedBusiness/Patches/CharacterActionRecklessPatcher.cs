@@ -62,8 +62,6 @@ public static class CharacterActionRecklessAttackPatcher
 
             action.ActingCharacter.RulesetCharacter.AddConditionOfCategory(
                 AttributeDefinitions.TagCombat, activeCondition2);
-
-            yield return null;
         }
     }
 }

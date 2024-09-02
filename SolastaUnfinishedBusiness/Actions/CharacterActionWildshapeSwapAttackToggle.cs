@@ -26,7 +26,7 @@ public class CharacterActionMonsterSwapAttackToggle(CharacterActionParams action
 
         var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-        if (gameLocationCharacter == null || gameLocationCharacter.HasAttackedSinceLastTurn)
+        if (gameLocationCharacter is not {HasAttackedSinceLastTurn: false})
         {
             yield break;
         }
@@ -35,7 +35,5 @@ public class CharacterActionMonsterSwapAttackToggle(CharacterActionParams action
             (monsterDef.AttackIterations[1], monsterDef.AttackIterations[0]);
 
         monster.RefreshAttackModes();
-
-        yield return null;
     }
 }

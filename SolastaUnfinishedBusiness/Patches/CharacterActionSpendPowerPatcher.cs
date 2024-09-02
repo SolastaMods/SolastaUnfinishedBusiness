@@ -353,8 +353,6 @@ public static class CharacterActionSpendPowerPatcher
             }
 
             __instance.PersistantEffectAction();
-
-            yield return null;
         }
     }
 }

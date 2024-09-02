@@ -10,6 +10,6 @@ public class CharacterActionDoNothing(CharacterActionParams actionParams) : Char
 {
     public override IEnumerator ExecuteImpl()
     {
-        yield return null;
+        yield break;
     }
 }
