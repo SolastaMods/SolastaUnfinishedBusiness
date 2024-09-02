@@ -598,7 +598,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorTidesOfChaos : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
+    private sealed class CustomBehaviorTidesOfChaos
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {
         public int HandlerPriority => -5; // ensure it triggers after bend luck
 
@@ -700,6 +701,57 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
                     (ConsoleStyleDuplet.ParameterType.FailedRoll,
                         Gui.Format("Feedback/&RollAttackFailureTitle", $"{attackRoll + toHitBonus}")));
+            }
+        }
+
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            AbilityCheckData abilityCheckData,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetHelper);
+
+            if (abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                helper != defender ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            // any reaction within a saving flow must use the yielder as waiter
+            yield return helper.MyReactToSpendPower(
+                usablePower,
+                helper,
+                "TidesOfChaosCheck",
+                "SpendPowerTidesOfChaosCheckDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                List<TrendInfo> advantageTrends =
+                    [new(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
+
+                abilityCheckData.AbilityCheckActionModifier.AbilityCheckAdvantageTrends.SetRange(advantageTrends);
+
+                var dieRoll = rulesetHelper.RollDie(
+                    DieType.D20, RollContext.None, false, AdvantageType.Advantage, out _, out _);
+
+                abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
+                abilityCheckData.AbilityCheckRoll = dieRoll;
+                abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                    ? RollOutcome.Success
+                    : RollOutcome.Failure;
+
+                rulesetHelper.LogCharacterActivatesAbility(
+                    PowerTidesOfChaos.GuiPresentation.Title,
+                    "Feedback/&TidesOfChaosAdvantageCheck",
+                    tooltipContent: PowerTidesOfChaos.Name,
+                    tooltipClass: "PowerDefinition");
             }
         }
 
