@@ -10,6 +10,8 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class RulesetActorExtensions
 {
+    #region Saving Throw Handlers
+
     private static void OnRollSavingThrowOath(
         RulesetCharacter caster,
         RulesetActor target,
@@ -56,6 +58,11 @@ internal static class RulesetActorExtensions
             0);
     }
 
+    // keep a tab on last SaveDC / SaveBonusAndRollModifier / SavingThrowAbility
+    internal static int SaveDC { get; private set; }
+    internal static int SaveBonusAndRollModifier { get; private set; }
+    internal static string SavingThrowAbility { get; private set; }
+
     internal static void MyRollSavingThrow(
         this RulesetActor rulesetActorTarget,
         RulesetCharacter rulesetActorCaster,
@@ -71,7 +78,7 @@ internal static class RulesetActorExtensions
         ref int outcomeDelta,
         List<EffectForm> effectForms)
     {
-        //PATCH: supports Oath of Ancients / Oath of Dread / Path of The Savagery
+        //PATCH: supports Oath of Ancients / Oath of Dread
         OnRollSavingThrowOath(rulesetActorCaster, rulesetActorTarget, sourceDefinition,
             OathOfAncients.ConditionElderChampionName,
             OathOfAncients.ConditionElderChampionEnemy);
@@ -84,6 +91,7 @@ internal static class RulesetActorExtensions
         //BEGIN PATCH
         if (rulesetCharacterTarget != null)
         {
+            //PATCH: supports Path of The Savagery
             PathOfTheSavagery.OnRollSavingThrowFuriousDefense(rulesetCharacterTarget, ref abilityScoreName);
 
             //PATCH: supports `OnSavingThrowInitiated` interface
@@ -107,6 +115,11 @@ internal static class RulesetActorExtensions
             }
         }
         //END PATCH
+
+        // keep a tab on last SaveDC / SaveBonusAndRollModifier / SavingThrowAbility
+        SaveDC = saveDC;
+        SaveBonusAndRollModifier = saveBonus + rollModifier;
+        SavingThrowAbility = abilityScoreName;
 
         var saveRoll = rulesetActorTarget.RollDie(
             DieType.D20, RollContext.SavingThrow, false, ComputeAdvantage(advantageTrends),
@@ -161,6 +174,8 @@ internal static class RulesetActorExtensions
         }
         //END PATCH
     }
+
+    #endregion
 
     internal static void ModifyAttributeAndMax(this RulesetActor hero, string attributeName, int amount)
     {
@@ -264,7 +279,7 @@ internal static class RulesetActorExtensions
         return features.SelectMany(f =>
             f is FeatureDefinitionFeatureSet set
                 ? FlattenFeatureList(set.FeatureSet)
-                : new List<FeatureDefinition> { f });
+                : [f]);
     }
 
     [NotNull]

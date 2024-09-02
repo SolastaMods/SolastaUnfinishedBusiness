@@ -291,6 +291,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionDomainMischiefBorrowedLuck { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDomainMischiefBorrowedLuck");
+
         internal static ConditionDefinition ConditionSurged { get; } =
             GetDefinition<ConditionDefinition>("ConditionSurged");
 

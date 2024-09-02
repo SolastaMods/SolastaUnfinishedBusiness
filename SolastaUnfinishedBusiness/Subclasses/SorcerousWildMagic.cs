@@ -622,6 +622,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 attacker,
@@ -704,31 +705,32 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier actionModifier,
+            SavingThrowData savingThrowData,
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetHelper);
 
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome is not RollOutcome.Failure ||
+            if (savingThrowData.SaveOutcome is not RollOutcome.Failure ||
                 helper != defender ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
+            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
+            
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                attacker,
+                helper,
                 "TidesOfChaosSave",
                 "SpendPowerTidesOfChaosSaveDescription"
-                    .Formatted(Category.Reaction, attacker.Name, action.FormatTitle()),
+                    .Formatted(Category.Reaction, attacker?.Name ?? envTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager);
 
@@ -739,22 +741,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 List<TrendInfo> advantageTrends =
                     [new(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
 
-                actionModifier.SavingThrowAdvantageTrends.SetRange(advantageTrends);
+                savingThrowData.SaveActionModifier.SavingThrowAdvantageTrends.SetRange(advantageTrends);
 
-                action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
-                    ? action.ActionParams.AttackMode.TryRollSavingThrow(
-                        attacker.RulesetCharacter,
-                        defender.RulesetActor,
-                        actionModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms,
-                        out var saveOutcome, out var saveOutcomeDelta)
-                    : action.ActionParams.RulesetEffect.TryRollSavingThrow(
-                        attacker.RulesetCharacter,
-                        attacker.Side,
-                        defender.RulesetActor,
-                        actionModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual,
-                        out saveOutcome, out saveOutcomeDelta);
-                action.SaveOutcome = saveOutcome;
-                action.SaveOutcomeDelta = saveOutcomeDelta;
+                TryAlterOutcomeSavingThrow.TryRerollSavingThrow(attacker, defender, savingThrowData, hasHitVisual);
 
                 rulesetHelper.LogCharacterActivatesAbility(
                     PowerTidesOfChaos.GuiPresentation.Title,
@@ -812,6 +801,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 attacker,
@@ -921,9 +911,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within an attribute check flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                defender,
+                helper,
                 stringParameter,
                 $"SpendPower{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
@@ -999,11 +990,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
+            SavingThrowData savingThrowData,
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
@@ -1013,7 +1003,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             if (helper == defender ||
                 !helper.CanReact() ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
-                Math.Abs(action.SaveOutcomeDelta) > 4)
+                Math.Abs(savingThrowData.SaveOutcomeDelta) > 4)
             {
                 yield break;
             }
@@ -1021,14 +1011,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             string stringParameter;
 
             if (helper.Side == defender.Side &&
-                action.RolledSaveThrow &&
-                action.SaveOutcome == RollOutcome.Failure)
+                savingThrowData.SaveOutcome == RollOutcome.Failure)
             {
                 stringParameter = "BendLuckSaving";
             }
             else if (helper.Side != defender.Side &&
-                     action.RolledSaveThrow &&
-                     action.SaveOutcome == RollOutcome.Success)
+                     savingThrowData.SaveOutcome == RollOutcome.Success)
             {
                 stringParameter = "BendLuckEnemySaving";
             }
@@ -1037,9 +1025,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                attacker,
+                helper,
                 stringParameter,
                 $"SpendPower{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
@@ -1055,17 +1044,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 var dieRoll = rulesetHelper.RollDie(
                     DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
 
-                if (helper.Side == attacker.Side)
+                if (helper.Side == attacker?.Side)
                 {
-                    saveModifier.SavingThrowAdvantageTrends.Add(
-                        new TrendInfo(dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
-                        {
-                            dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
-                        });
-
-                    action.SaveOutcomeDelta += dieRoll;
-                    saveModifier.SavingThrowModifier += dieRoll;
-                    action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
+                    savingThrowData.SaveOutcomeDelta += dieRoll;
+                    savingThrowData.SaveOutcome =
+                        savingThrowData.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
                     rulesetHelper.LogCharacterActivatesAbility(
                         powerBendLuck.GuiPresentation.Title,
@@ -1075,22 +1058,16 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         extra:
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                            (action.SaveOutcome > 0
+                            (savingThrowData.SaveOutcome > 0
                                 ? ConsoleStyleDuplet.ParameterType.Positive
                                 : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
                         ]);
                 }
                 else
                 {
-                    saveModifier.SavingThrowAdvantageTrends.Add(
-                        new TrendInfo(-dieRoll, FeatureSourceType.Power, powerBendLuck.Name, powerBendLuck)
-                        {
-                            dieType = DieType.D4, dieFlag = TrendInfoDieFlag.None
-                        });
-
-                    action.SaveOutcomeDelta -= dieRoll;
-                    saveModifier.SavingThrowModifier -= dieRoll;
-                    action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
+                    savingThrowData.SaveOutcomeDelta -= dieRoll;
+                    savingThrowData.SaveOutcome =
+                        savingThrowData.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
                     rulesetHelper.LogCharacterActivatesAbility(
                         powerBendLuck.GuiPresentation.Title,
@@ -1100,7 +1077,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         extra:
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                            (action.SaveOutcome > 0
+                            (savingThrowData.SaveOutcome > 0
                                 ? ConsoleStyleDuplet.ParameterType.Positive
                                 : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
                         ]);

@@ -603,6 +603,7 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return attacker.MyReactToSpendPower(
                 usablePower,
                 attacker,
@@ -625,28 +626,28 @@ internal static class RaceImpBuilder
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier actionModifier,
-            bool hasHitVisual, [UsedImplicitly] bool hasBorrowedLuck)
+            SavingThrowData savingThrowData,
+            bool hasHitVisual,
+            bool hasBorrowedLuck)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetHelper);
 
             if (helper != defender ||
-                !action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
-                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
-                action.SaveOutcomeDelta < -InspirationValue)
+                savingThrowData.SaveOutcome != RollOutcome.Failure ||
+                savingThrowData.SaveOutcomeDelta + InspirationValue < 0 ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
-            yield return defender.MyReactToSpendPower(
+            // any reaction within a saving flow must use the yielder as waiter
+            yield return helper.MyReactToSpendPower(
                 usablePower,
-                attacker,
+                helper,
                 "DrawInspiration",
                 reactionValidated: ReactionValidated,
                 battleManager: battleManager);
@@ -655,9 +656,8 @@ internal static class RaceImpBuilder
 
             void ReactionValidated()
             {
-                action.RolledSaveThrow = true;
-                action.SaveOutcomeDelta = 0;
-                action.SaveOutcome = RollOutcome.Success;
+                savingThrowData.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
             }
         }
     }

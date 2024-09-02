@@ -188,6 +188,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
                 attacker,
@@ -237,11 +238,10 @@ public sealed class WizardWarMagic : AbstractSubclass
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
+            SavingThrowData savingThrowData,
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
@@ -249,19 +249,19 @@ public sealed class WizardWarMagic : AbstractSubclass
             var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
-                action.SaveOutcomeDelta + bonus < 0 ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
+                savingThrowData.SaveOutcomeDelta + bonus < 0 ||
                 helper != defender ||
                 !helper.CanReact() ||
-                !helper.CanPerceiveTarget(attacker))
+                (attacker != null && !helper.CanPerceiveTarget(attacker)))
             {
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
-                attacker,
+                helper,
                 "ArcaneDeflectionSaving",
                 "CustomReactionArcaneDeflectionSavingDescription".Formatted(Category.Reaction),
                 ReactionValidated,
@@ -287,8 +287,9 @@ public sealed class WizardWarMagic : AbstractSubclass
                     0,
                     0);
 
-                action.SaveOutcomeDelta += bonus;
-                action.SaveOutcome = RollOutcome.Success;
+                savingThrowData.SaveOutcomeDelta += bonus;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
+
                 helper.RulesetCharacter.LogCharacterUsedFeature(
                     featureArcaneDeflection,
                     "Feedback/&ArcaneDeflectionSavingRoll",

@@ -110,7 +110,7 @@ public static class CharacterActionSpendPowerPatcher
 
                 // END PATCH
             }
-            else
+            else if (activePower != null)
             {
                 actingCharacter.RulesetCharacter.UseDevicePower(activePower.OriginItem, activePower.PowerDefinition);
             }
@@ -134,6 +134,7 @@ public static class CharacterActionSpendPowerPatcher
                         false,
                         out var saveOutcome,
                         out var saveOutcomeDelta);
+
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
@@ -142,12 +143,25 @@ public static class CharacterActionSpendPowerPatcher
 
                     if (__instance.RolledSaveThrow)
                     {
+                        var savingThrowData = new SavingThrowData
+                        {
+                            SaveActionModifier = actionModifier,
+                            SaveOutcome = __instance.SaveOutcome,
+                            SaveOutcomeDelta = __instance.SaveOutcomeDelta,
+                            SaveDC = RulesetActorExtensions.SaveDC,
+                            SaveBonusAndRollModifier = RulesetActorExtensions.SaveBonusAndRollModifier,
+                            SavingThrowAbility = RulesetActorExtensions.SavingThrowAbility,
+                            SourceDefinition = null,
+                            EffectDescription = rulesetEffect.EffectDescription,
+                            Title = __instance.FormatTitle(),
+                            Action = __instance
+                        };
+
                         yield return TryAlterOutcomeSavingThrow.Handler(
                             battleManager,
-                            __instance,
                             actingCharacter,
                             target,
-                            actionModifier,
+                            savingThrowData,
                             hasBorrowedLuck,
                             rulesetEffect.EffectDescription);
                     }

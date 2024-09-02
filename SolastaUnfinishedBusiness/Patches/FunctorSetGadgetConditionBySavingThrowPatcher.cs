@@ -1,12 +1,11 @@
-﻿#if false
-using System;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Interfaces;
-using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -21,6 +20,10 @@ public static class FunctorSetGadgetConditionBySavingThrowPatcher
     [UsedImplicitly]
     public static class SelectCharacters_Patch
     {
+        private static readonly EffectDescription EmptyEffectDescription = EffectDescriptionBuilder
+            .Create()
+            .Build();
+
         [UsedImplicitly]
         public static bool Prefix(
             out IEnumerator __result,
@@ -58,12 +61,10 @@ public static class FunctorSetGadgetConditionBySavingThrowPatcher
 
             var actionModifier = new ActionModifier();
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var effectFormList = new List<EffectForm>();
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var abilityScoreName = functorParameters.AbilityCheck.AbilityScoreName;
             var gadgetDefinition = functorParameters.GadgetDefinition;
-
-            implementationService.TryRollSavingThrow(
+            var rolledSavingThrow = implementationService.TryRollSavingThrow(
                 null,
                 RuleDefinitions.Side.Enemy,
                 rulesetCharacter,
@@ -76,99 +77,69 @@ public static class FunctorSetGadgetConditionBySavingThrowPatcher
                 false,
                 false,
                 RuleDefinitions.FeatureSourceType.Base,
-                effectFormList,
+                EmptyEffectDescription.EffectForms,
                 null,
                 null,
                 string.Empty,
                 gadgetDefinition,
                 string.Empty,
                 null,
-                out var outcome,
+                out var saveOutcome,
                 out var saveOutcomeDelta);
 
             var worldGadget = !functorParameters.BoolParameter
                 ? functorParameters.TargetGadget
                 : functorParameters.SourceGadget;
 
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
-                as GameLocationBattleManager;
-
-            if (outcome == RuleDefinitions.RollOutcome.Failure)
+            if (rolledSavingThrow)
             {
-                battleManager!.GetBestParametersForBardicDieRoll(
-                    actingCharacter,
-                    out var bestDie,
-                    out _,
-                    out var sourceCondition,
-                    out var forceMaxRoll,
-                    out var advantage);
-
-                if (bestDie > RuleDefinitions.DieType.D1 &&
-                    actingCharacter.RulesetCharacter != null)
+                var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
+                    as GameLocationBattleManager;
+                var hasBorrowedLuck =
+                    rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBorrowedLuck);
+                var savingThrowData = new SavingThrowData
                 {
-                    // Is the die enough to overcome the failure?
-                    if (RuleDefinitions.DiceMaxValue[(int)bestDie] >= Mathf.Abs(saveOutcomeDelta))
-                    {
-                        var reactionParams =
-                            new CharacterActionParams(actingCharacter,
-                                ActionDefinitions.Id.UseBardicInspiration)
-                            {
-                                IntParameter = (int)bestDie,
-                                IntParameter2 = (int)RuleDefinitions.BardicInspirationUsageType.SavingThrow
-                            };
+                    SaveActionModifier = actionModifier,
+                    SaveOutcome = saveOutcome,
+                    SaveOutcomeDelta = saveOutcomeDelta,
+                    SaveDC = RulesetActorExtensions.SaveDC,
+                    SaveBonusAndRollModifier = RulesetActorExtensions.SaveBonusAndRollModifier,
+                    SavingThrowAbility = RulesetActorExtensions.SavingThrowAbility,
+                    SourceDefinition = gadgetDefinition,
+                    EffectDescription = EmptyEffectDescription,
+                    Title = gadgetDefinition.FormatTitle(),
+                    Action = null
+                };
 
-                        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-                        var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
-
-                        actionService.ReactToUseBardicInspiration(reactionParams);
-
-                        yield return battleManager.WaitForReactions(actingCharacter, actionService,
-                            previousReactionCount);
-
-                        if (reactionParams.ReactionValidated)
-                        {
-                            // Now we have a shot at succeeding on the ability check
-                            var roll = actingCharacter.RulesetCharacter.RollBardicInspirationDie(
-                                sourceCondition, saveOutcomeDelta, forceMaxRoll, advantage);
-
-                            if (roll >= Mathf.Abs(saveOutcomeDelta))
-                            {
-                                // The roll is now a success!
-                                outcome = RuleDefinitions.RollOutcome.Success;
-                            }
-                        }
-                    }
-                }
+                yield return TryAlterOutcomeSavingThrow.Handler(
+                    battleManager,
+                    null,
+                    actingCharacter,
+                    savingThrowData,
+                    hasBorrowedLuck,
+                    EmptyEffectDescription);
             }
 
-            //PATCH: support for `ITryAlterOutcomeAttributeCheck`
-            // foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-            //              battleManager, null, actingCharacter, null, new ActionModifier(), true, false))
-            // {
-            //     yield return tryAlterOutcomeSavingThrow;
-            // }
-                
-            //END PATCH
-            
-            if (outcome is RuleDefinitions.RollOutcome.Success or RuleDefinitions.RollOutcome.CriticalSuccess)
+            if (saveOutcome == RuleDefinitions.RollOutcome.Success)
             {
-                var conditionIndex = Array.IndexOf(worldGadget.ConditionChoices(),
-                    functorParameters.TargetConditionState.name);
-                worldGadget.GameGadget.SetCondition(conditionIndex, functorParameters.TargetConditionState.state,
+                var conditionIndex = Array.IndexOf(
+                    worldGadget.ConditionChoices(), functorParameters.TargetConditionState.name);
+
+                worldGadget.GameGadget.SetCondition(
+                    conditionIndex,
+                    functorParameters.TargetConditionState.state,
                     functorParameters.ActingCharacters);
-                yield break;
             }
-
-            // ReSharper disable once InvertIf
-            if (functorParameters.HasAlternateTargetConditionState)
+            else if (functorParameters.HasAlternateTargetConditionState)
             {
-                var conditionIndex = Array.IndexOf(worldGadget.ConditionChoices(),
-                    functorParameters.AlternateTargetConditionState.name);
-                worldGadget.GameGadget.SetCondition(conditionIndex,
+                var conditionIndex = Array.IndexOf(
+                    worldGadget.ConditionChoices(), functorParameters.AlternateTargetConditionState.name);
+
+                worldGadget.GameGadget.SetCondition(
+                    conditionIndex,
                     functorParameters.AlternateTargetConditionState.state,
                     functorParameters.ActingCharacters);
             }
         }
     }
 }
-#endif

@@ -481,17 +481,31 @@ public static class CharacterActionAttackPatcher
                         __instance.actualEffectForms,
                         out var saveOutcome,
                         out var saveOutcomeDelta);
+
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
                     if (__instance.RolledSaveThrow)
                     {
+                        var savingThrowData = new SavingThrowData
+                        {
+                            SaveActionModifier = attackModifier,
+                            SaveOutcome = __instance.SaveOutcome,
+                            SaveOutcomeDelta = __instance.SaveOutcomeDelta,
+                            SaveDC = RulesetActorExtensions.SaveDC,
+                            SaveBonusAndRollModifier = RulesetActorExtensions.SaveBonusAndRollModifier,
+                            SavingThrowAbility = RulesetActorExtensions.SavingThrowAbility,
+                            SourceDefinition = null,
+                            EffectDescription = attackMode.EffectDescription,
+                            Title = __instance.FormatTitle(),
+                            Action = __instance
+                        };
+
                         yield return TryAlterOutcomeSavingThrow.Handler(
                             battleManager,
-                            __instance,
                             actingCharacter,
                             target,
-                            attackModifier,
+                            savingThrowData,
                             hasBorrowedLuck,
                             attackMode.EffectDescription);
                     }

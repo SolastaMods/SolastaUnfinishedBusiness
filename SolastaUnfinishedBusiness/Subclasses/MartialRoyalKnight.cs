@@ -233,11 +233,10 @@ public sealed class MartialRoyalKnight : AbstractSubclass
     {
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
+            SavingThrowData savingThrowData,
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
@@ -252,25 +251,25 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
-            RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var rulesetOriginalHelper);
+            RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var rulesetHelper);
 
-            var originalHelper = GameLocationCharacter.GetFromActor(rulesetOriginalHelper);
-            var usablePower = PowerProvider.Get(powerInspiringProtection, rulesetOriginalHelper);
+            var originalHelper = GameLocationCharacter.GetFromActor(rulesetHelper);
+            var usablePower = PowerProvider.Get(powerInspiringProtection, rulesetHelper);
 
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
                 !originalHelper.CanReact() ||
                 !originalHelper.CanPerceiveTarget(defender) ||
-                rulesetOriginalHelper.GetRemainingUsesOfPower(usablePower) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return originalHelper.MyReactToSpendPower(
                 usablePower,
-                attacker,
+                originalHelper,
                 "RoyalKnightInspiringProtection",
-                FormatReactionDescription(action, attacker, defender, originalHelper),
+                FormatReactionDescription(savingThrowData.Title, attacker, defender, originalHelper),
                 ReactionValidated,
                 battleManager);
 
@@ -278,36 +277,22 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             void ReactionValidated()
             {
-                rulesetOriginalHelper.UsePower(usablePower);
-
-                action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
-                    ? action.ActionParams.AttackMode.TryRollSavingThrow(
-                        attacker.RulesetCharacter,
-                        defender.RulesetActor,
-                        saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms,
-                        out var saveOutcome, out var saveOutcomeDelta)
-                    : action.ActionParams.RulesetEffect.TryRollSavingThrow(
-                        attacker.RulesetCharacter,
-                        attacker.Side,
-                        defender.RulesetActor,
-                        saveModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual,
-                        out saveOutcome, out saveOutcomeDelta);
-
-                action.SaveOutcome = saveOutcome;
-                action.SaveOutcomeDelta = saveOutcomeDelta;
+                rulesetHelper.UsePower(usablePower);
+                TryAlterOutcomeSavingThrow.TryRerollSavingThrow(attacker, defender, savingThrowData, hasHitVisual);
             }
         }
 
         private static string FormatReactionDescription(
-            CharacterAction action,
-            GameLocationCharacter attacker,
+            string sourceTitle,
+            [CanBeNull] GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
             var text = defender == helper ? "Self" : "Ally";
+            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
 
             return $"SpendPowerRoyalKnightInspiringProtectionDescription{text}"
-                .Formatted(Category.Reaction, defender.Name, attacker.Name, action.FormatTitle());
+                .Formatted(Category.Reaction, defender.Name, attacker?.Name ?? envTitle, sourceTitle);
         }
     }
 }

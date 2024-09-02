@@ -1984,6 +1984,7 @@ internal static class OtherFeats
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 attacker,
@@ -1995,6 +1996,8 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
                     out _);
                 var previousRoll = action.AttackRoll;
@@ -2067,9 +2070,10 @@ internal static class OtherFeats
                 yield break;
             }
 
+            // any reaction within an attribute check flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                defender,
+                helper,
                 "LuckyCheck",
                 reactionValidated: ReactionValidated,
                 battleManager: battleManager);
@@ -2078,6 +2082,8 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
                     out _);
                 var previousRoll = abilityCheckData.AbilityCheckRoll;
@@ -2117,28 +2123,27 @@ internal static class OtherFeats
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
+            SavingThrowData savingThrowData,
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
 
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
                 helper != defender ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                attacker,
+                helper,
                 "LuckySaving",
                 reactionValidated: ReactionValidated,
                 battleManager: battleManager);
@@ -2147,11 +2152,14 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
                     out _);
-                var modifier = saveModifier.SavingThrowModifier;
-                var saveDC = action.GetSaveDC();
-                var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
+
+                var saveDC = savingThrowData.SaveDC;
+                var rollModifier = savingThrowData.SaveBonusAndRollModifier;
+                var savingRoll = savingThrowData.SaveOutcomeDelta - rollModifier + saveDC;
 
                 if (dieRoll <= savingRoll)
                 {
@@ -2167,8 +2175,9 @@ internal static class OtherFeats
                     return;
                 }
 
-                action.SaveOutcomeDelta += dieRoll - savingRoll;
-                action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
+                savingThrowData.SaveOutcomeDelta += dieRoll - savingRoll;
+                savingThrowData.SaveOutcome =
+                    savingThrowData.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
                 rulesetHelper.LogCharacterActivatesAbility(
                     "Feat/&FeatLuckyTitle",
@@ -2287,35 +2296,33 @@ internal static class OtherFeats
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier actionModifier,
+            SavingThrowData savingThrowData,
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetHelper);
 
-            var effectDescription = action.ActionParams.AttackMode?.EffectDescription ??
-                                    action.ActionParams.RulesetEffect?.EffectDescription;
-
-            if (helper != defender ||
-                !action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
+                helper != defender ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
-                effectDescription?.savingThrowAbility is not
+                savingThrowData.SavingThrowAbility is not
                     (AttributeDefinitions.Intelligence or AttributeDefinitions.Wisdom or AttributeDefinitions.Charisma))
             {
                 yield break;
             }
 
+            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
+
+            // any reaction within a saving flow must use the yielder as waiter
             yield return defender.MyReactToSpendPower(
                 usablePower,
-                attacker,
+                defender,
                 "MageSlayer",
-                "SpendPowerMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
+                "SpendPowerMageSlayerDescription".Formatted(Category.Reaction, attacker?.Name ?? envTitle),
                 ReactionValidated,
                 battleManager);
 
@@ -2323,8 +2330,10 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
-                action.SaveOutcomeDelta = 0;
-                action.SaveOutcome = RollOutcome.Success;
+                usablePower.Consume();
+
+                savingThrowData.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
             }
         }
 

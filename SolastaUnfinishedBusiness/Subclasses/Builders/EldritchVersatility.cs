@@ -1074,6 +1074,7 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
                 attacker,
@@ -1193,16 +1194,14 @@ internal static class EldritchVersatilityBuilders
     {
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
+            SavingThrowData savingThrowData,
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
                 helper.IsOppositeSide(defender.Side))
             {
                 yield break;
@@ -1224,7 +1223,7 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
-            var requiredSaveAddition = -action.SaveOutcomeDelta;
+            var requiredSaveAddition = -savingThrowData.SaveOutcomeDelta;
             var modifier = GetAbilityScoreModifier(helperCharacter, AttributeDefinitions.Wisdom, supportCondition);
             var console = Gui.Game.GameConsole;
             var entry =
@@ -1236,7 +1235,7 @@ internal static class EldritchVersatilityBuilders
             console.AddCharacterEntry(helperCharacter, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{requiredSaveAddition}");
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
-                Gui.Format(GameConsole.SaveSuccessOutcome, action.GetSaveDC().ToString()));
+                Gui.Format(GameConsole.SaveSuccessOutcome, savingThrowData.SaveDC.ToString()));
 
             if (alreadyWarded)
             {
@@ -1252,8 +1251,8 @@ internal static class EldritchVersatilityBuilders
                 }
 
                 eldritchWardSupportCondition.SaveBonus += requiredSaveAddition;
-                action.SaveOutcome = RollOutcome.Success;
-                action.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
+                savingThrowData.SaveOutcomeDelta = 0;
                 console.AddEntry(entry);
 
                 yield break;
@@ -1266,9 +1265,10 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
-                attacker,
+                helper,
                 "EldritchWard",
                 "CustomReactionEldritchWard".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
@@ -1288,8 +1288,9 @@ internal static class EldritchVersatilityBuilders
                     defenderCharacter, out eldritchWardSupportCondition);
                 eldritchWardSupportCondition.SaveBonus = requiredSaveAddition;
 
-                action.SaveOutcome = RollOutcome.Success;
-                action.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
+
                 console.AddEntry(entry);
             }
         }

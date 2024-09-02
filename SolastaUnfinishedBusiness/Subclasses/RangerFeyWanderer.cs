@@ -286,22 +286,17 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier actionModifier,
+            SavingThrowData savingThrowData,
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Success ||
-                !HasCharmedOrFrightened(
-                    action.ActionParams.activeEffect?.EffectDescription.EffectForms ??
-                    action.ActionParams.AttackMode?.EffectDescription.EffectForms ??
-                    []) ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Success ||
+                !HasCharmedOrFrightened(savingThrowData.EffectDescription.EffectForms) ||
                 !helper.CanReact() ||
-                !helper.IsOppositeSide(attacker.Side) ||
+                (attacker != null && !helper.IsOppositeSide(attacker.Side)) ||
                 !helper.IsWithinRange(defender, 24) ||
                 !helper.CanPerceiveTarget(defender))
             {
@@ -311,10 +306,11 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBeguilingTwist, rulesetHelper);
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPowerBundle(
                 usablePower,
                 [attacker],
-                attacker,
+                helper,
                 powerBeguilingTwist.Name,
                 ReactionValidated,
                 battleManager: battleManager);
@@ -323,7 +319,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
             void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                attacker.SpendActionType(ActionDefinitions.ActionType.Reaction);
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
             }
         }
 
