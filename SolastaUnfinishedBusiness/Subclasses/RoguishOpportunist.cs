@@ -372,8 +372,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            bool hasHitVisual)
         {
             if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
                 !helper.IsOppositeSide(defender.Side) ||

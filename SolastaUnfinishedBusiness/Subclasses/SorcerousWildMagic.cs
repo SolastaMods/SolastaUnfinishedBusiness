@@ -761,8 +761,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetHelper);
@@ -1046,8 +1045,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBendLuck, rulesetHelper);

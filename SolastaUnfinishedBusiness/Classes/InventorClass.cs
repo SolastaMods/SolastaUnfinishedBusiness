@@ -1051,8 +1051,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         GameLocationCharacter defender,
         GameLocationCharacter helper,
         SavingThrowData savingThrowData,
-        bool hasHitVisual,
-        bool hasBorrowedLuck)
+        bool hasHitVisual)
     {
         var rulesetDefender = defender.RulesetActor;
 

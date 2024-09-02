@@ -794,8 +794,7 @@ internal static class RaceFeats
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            bool hasHitVisual)
         {
             if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
                 helper == defender ||

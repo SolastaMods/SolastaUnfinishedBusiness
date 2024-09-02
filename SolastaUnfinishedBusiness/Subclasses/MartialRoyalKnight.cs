@@ -237,8 +237,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            bool hasHitVisual)
         {
             var rulesetDefender = defender.RulesetActor;
 

@@ -2128,8 +2128,7 @@ internal static class OtherFeats
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
@@ -2305,8 +2304,7 @@ internal static class OtherFeats
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetHelper);

@@ -242,8 +242,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
