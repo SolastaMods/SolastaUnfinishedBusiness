@@ -307,6 +307,13 @@ public static class PartyEditor
                                     {
                                         chr.TrainFeats([feat]);
 
+                                        foreach (var power in feat.Features.OfType<FeatureDefinitionPower>())
+                                        {
+                                            var usablePower = new RulesetUsablePower(power, null, null);
+
+                                            chr.UsablePowers.Add(usablePower);
+                                        }
+
                                         LevelUpContext.RecursiveGrantCustomFeatures(
                                             chr, AttributeDefinitions.TagFeat, feat.Features);
                                     }
@@ -315,6 +322,17 @@ public static class PartyEditor
                                     ? () =>
                                     {
                                         chr.TrainedFeats.Remove(feat);
+
+                                        foreach (var power in feat.Features.OfType<FeatureDefinitionPower>())
+                                        {
+                                            var usablePower =
+                                                chr.UsablePowers.FirstOrDefault(p => p.PowerDefinition == power);
+
+                                            if (usablePower != null)
+                                            {
+                                                chr.UsablePowers.Remove(usablePower);
+                                            }
+                                        }
 
                                         LevelUpContext.RecursiveRemoveCustomFeatures(
                                             chr, AttributeDefinitions.TagFeat, feat.Features);
