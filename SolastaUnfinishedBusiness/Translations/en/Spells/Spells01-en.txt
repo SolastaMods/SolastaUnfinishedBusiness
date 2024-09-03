@@ -71,7 +71,10 @@ Reaction/&ReactionSpendPowerBundleChaosBoltDescription=Choose a damage type.
 Reaction/&ReactionSpendPowerBundleChaosBoltReactDescription=Choose a damage type.
 Reaction/&ReactionSpendPowerBundleChaosBoltReactTitle=Chaos Bolt
 Reaction/&ReactionSpendPowerBundleChaosBoltTitle=Chaos Bolt
-Reaction/&SpendSpellSlotElementalInfusionDescription=You can become resistant to incoming elemental damage and deal additional 1d6 elemental damage per spell slot level on your next attack.
+Reaction/&ReactionSpendPowerBundleCommandSpellDescription=Choose your command.
+Reaction/&ReactionSpendPowerBundleCommandSpellReactDescription=Choose your command.
+Reaction/&ReactionSpendPowerBundleCommandSpellReactTitle=Command
+Reaction/&ReactionSpendPowerBundleCommandSpellTitle=CommandReaction/&SpendSpellSlotElementalInfusionDescription=You can become resistant to incoming elemental damage and deal additional 1d6 elemental damage per spell slot level on your next attack.
 Reaction/&SpendSpellSlotElementalInfusionReactDescription=Absorb the incoming damage element
 Reaction/&SpendSpellSlotElementalInfusionReactTitle=Absorb Element
 Reaction/&SpendSpellSlotElementalInfusionTitle=Incoming Element Attack!
