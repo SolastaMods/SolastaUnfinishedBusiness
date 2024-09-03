@@ -1467,12 +1467,14 @@ internal static class RaceFeats
                 ActionDefinitions.Id.TacticalMove,
                 ActionDefinitions.MoveStance.Charge,
                 destination, orientation) { AttackMode = characterActionCharge.ActionParams.AttackMode };
+
             var characterActionMoveStepWalk = new CharacterActionMoveStepWalk(chargeActionParams, actionID, path);
+
             var attackActionParams = new CharacterActionParams(
                 characterActionCharge.ActingCharacter, ActionDefinitions.Id.AttackFree,
                 characterActionCharge.ActionParams.AttackMode, characterActionCharge.ActionParams.TargetCharacters[0],
-                characterActionCharge.ActionParams
-                    .ActionModifiers[0]); // { BoolParameter = true, BoolParameter2 = true };
+                characterActionCharge.ActionParams.ActionModifiers[0]);
+
             var characterActionAttack = new CharacterActionAttack(attackActionParams);
 
             characterActionCharge.ResultingActions.Add(characterActionMoveStepWalk);

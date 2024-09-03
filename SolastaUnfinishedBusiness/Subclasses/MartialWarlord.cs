@@ -480,27 +480,13 @@ public sealed class MartialWarlord : AbstractSubclass
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
 
             var actingCharacter = action.ActingCharacter;
             var targetCharacter = action.ActionParams.TargetCharacters[0];
             var targetRulesetCharacter = targetCharacter.RulesetCharacter;
             var targetPosition = action.ActionParams.Positions[0];
-            var actionParams =
-                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove,
-                    ActionDefinitions.MoveStance.Run, targetPosition, LocationDefinitions.Orientation.North)
-                {
-                    BoolParameter3 = false, BoolParameter5 = false
-                };
 
-            targetCharacter.UsedTacticalMoves = 0;
             targetRulesetCharacter.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,
@@ -519,19 +505,10 @@ public sealed class MartialWarlord : AbstractSubclass
             EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
-            actionManager.actionChainByCharacter.TryGetValue(targetCharacter, out var actionChainSlot);
+            targetCharacter.UsedTacticalMoves = 0;
+            targetCharacter.MyExecuteActionTacticalMove(targetPosition);
 
-            var collection = actionChainSlot?.actionQueue;
-
-            if (collection != null &&
-                !collection.Empty() &&
-                collection[0].action is CharacterActionMoveStepWalk)
-            {
-                actionParams.BoolParameter2 = true;
-            }
-
-            actionManager.ExecuteActionChain(
-                new CharacterActionChainParams(actionParams.ActingCharacter, actionParams), null, false);
+            yield break;
         }
 
         public int PositionRange => 12;

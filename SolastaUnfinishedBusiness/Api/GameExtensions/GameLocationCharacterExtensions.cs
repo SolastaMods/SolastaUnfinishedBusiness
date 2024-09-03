@@ -129,6 +129,35 @@ public static class GameLocationCharacterExtensions
         actionService.ExecuteInstantSingleAction(new CharacterActionParams(character, Id.StandUp));
     }
 
+    internal static void MyExecuteActionTacticalMove(this GameLocationCharacter character, int3 position)
+    {
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+        if (!actionManager)
+        {
+            return;
+        }
+
+        var actionParams = new CharacterActionParams(
+            character, Id.TacticalMove, MoveStance.Run, position, LocationDefinitions.Orientation.North)
+        {
+            BoolParameter3 = false, BoolParameter5 = false
+        };
+
+        actionManager!.actionChainByCharacter.TryGetValue(character, out var actionChainSlot);
+
+        var collection = actionChainSlot?.actionQueue;
+
+        if (collection is { Count: > 0 } &&
+            collection[0].action is CharacterActionMoveStepWalk)
+        {
+            actionParams.BoolParameter2 = true;
+        }
+
+        actionManager.ExecuteActionChain(
+            new CharacterActionChainParams(actionParams.ActingCharacter, actionParams), null, false);
+    }
+
     //
     // mod custom reactions
     //

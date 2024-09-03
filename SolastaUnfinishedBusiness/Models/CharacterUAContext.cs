@@ -1581,13 +1581,8 @@ internal static partial class CharacterContext
             yield return GameUiContext.SelectPosition(action, powerWithdraw);
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var targetPosition = action.ActionParams.Positions[0];
-            var distance = int3.Distance(attacker.LocationPosition, targetPosition);
-            var actionParams =
-                new CharacterActionParams(attacker, ActionDefinitions.Id.TacticalMove)
-                {
-                    Positions = { targetPosition }
-                };
+            var position = action.ActionParams.Positions[0];
+            var distance = int3.Distance(attacker.LocationPosition, position);
 
             attacker.UsedTacticalMoves -= (int)distance;
 
@@ -1611,7 +1606,7 @@ internal static partial class CharacterContext
                 0,
                 0);
 
-            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionTacticalMove(position);
         }
 
         private IEnumerator HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)

@@ -1230,6 +1230,236 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Command
+
+    internal static SpellDefinition BuildCommand()
+    {
+        const string NAME = "CommandSpell";
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddToDB();
+
+        var conditionApproach = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Approach")
+            .SetGuiPresentation(Category.Condition)
+            .AddToDB();
+
+        conditionApproach.AddCustomSubFeatures(new CharacterTurnStartListenerCommandApproach(conditionApproach));
+
+        var powerApproach = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{NAME}Approach")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionApproach))
+                    .Build())
+            .AddToDB();
+
+        var conditionFlee = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Flee")
+            .SetGuiPresentation(Category.Condition)
+            .AddToDB();
+
+        conditionFlee.AddCustomSubFeatures(new CharacterTurnStartListenerCommandFlee(conditionFlee));
+
+        var powerFlee = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{NAME}Flee")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFlee))
+                    .Build())
+            .AddToDB();
+
+        var conditionGrovel = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Grovel")
+            .SetGuiPresentation(Category.Condition)
+            .AddToDB();
+
+        var powerGrovel = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{NAME}Grovel")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionGrovel))
+                    .Build())
+            .AddToDB();
+
+        var conditionHalt = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Halt")
+            .SetGuiPresentation(Category.Condition)
+            .AddToDB();
+
+        conditionHalt.battlePackage = DecisionPackageDefinitions.Idle;
+
+        var powerHalt = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{NAME}Halt")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHalt))
+                    .Build())
+            .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(powerPool, false,
+            powerApproach, powerFlee, powerGrovel, powerHalt);
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Command)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .UseQuickAnimations()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .Build())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeCommand(powerPool))
+            .AddToDB();
+
+        return spell;
+    }
+
+    private static int3 GetCandidatePosition(
+        GameLocationCharacter caster,
+        GameLocationCharacter target,
+        bool isFar = true)
+    {
+        var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+        var tacticalMoves = target.MaxTacticalMoves;
+        var boxInt = new BoxInt(target.LocationPosition, int3.zero, int3.zero);
+        var position = target.LocationPosition;
+        var distance = -1f;
+
+        boxInt.Inflate(tacticalMoves, 0, tacticalMoves);
+
+        foreach (var candidatePosition in boxInt.EnumerateAllPositionsWithin())
+        {
+            if (!positioningService.CanPlaceCharacter(
+                    target, candidatePosition, CellHelpers.PlacementMode.Station) ||
+                !positioningService.CanCharacterStayAtPosition_Floor(
+                    target, candidatePosition, onlyCheckCellsWithRealGround: true) ||
+                positioningService.IsDangerousPosition(target, candidatePosition))
+            {
+                continue;
+            }
+
+            var candidateDistance = int3.Distance(candidatePosition, caster.LocationPosition);
+
+            if ((isFar && candidateDistance < distance) ||
+                (!isFar && candidateDistance > distance))
+            {
+                continue;
+            }
+
+            distance = candidateDistance;
+            position = candidatePosition;
+        }
+
+        return position;
+    }
+
+    private sealed class PowerOrSpellFinishedByMeCommand(FeatureDefinitionPower powerPool) : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action.Countered || action.ExecutionFailed)
+            {
+                yield break;
+            }
+
+            var caster = action.ActingCharacter;
+            var rulesetCaster = caster.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerPool, rulesetCaster);
+
+            foreach (var target in action.ActionParams.TargetCharacters)
+            {
+                yield return caster.MyReactToSpendPowerBundle(
+                    usablePower,
+                    [target],
+                    caster,
+                    "CommandSpell");
+            }
+        }
+    }
+
+    private sealed class CharacterTurnStartListenerCommandApproach(
+        ConditionDefinition conditionApproach) : ICharacterTurnStartListener
+    {
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionApproach.Name, out var activeCondition))
+            {
+                return;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+            var position = GetCandidatePosition(caster, locationCharacter, false);
+
+            locationCharacter.MyExecuteActionTacticalMove(position);
+        }
+    }
+
+    private sealed class CharacterTurnStartListenerCommandFlee(
+        ConditionDefinition conditionFlee) : ICharacterTurnStartListener
+    {
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionFlee.Name, out var activeCondition))
+            {
+                return;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+            var position = GetCandidatePosition(caster, locationCharacter);
+
+            locationCharacter.MyExecuteActionTacticalMove(position);
+        }
+    }
+
+    #endregion
+
     #region Dissonant Whispers
 
     internal static SpellDefinition BuildDissonantWhispers()
@@ -1261,16 +1491,21 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypePsychic, 3, DieType.D6)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeBuildDissonantWhispers())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDissonantWhispers())
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class PowerOrSpellFinishedByMeBuildDissonantWhispers : IPowerOrSpellFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeDissonantWhispers : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            if (action.Countered || action.ExecutionFailed)
+            {
+                yield break;
+            }
+
             var target = action.ActionParams.TargetCharacters[0];
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
@@ -1281,63 +1516,11 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var position = GetCandidatePosition(action.ActingCharacter, target);
-            var actionParams =
-                new CharacterActionParams(
-                    target, Id.TacticalMove, MoveStance.Run, position, LocationDefinitions.Orientation.North)
-                {
-                    BoolParameter3 = false, BoolParameter5 = false
-                };
-
-            actionManager.actionChainByCharacter.TryGetValue(target, out var actionChainSlot);
-
-            var collection = actionChainSlot?.actionQueue;
-
-            if (collection != null &&
-                !collection.Empty() &&
-                collection[0].action is CharacterActionMoveStepWalk)
-            {
-                actionParams.BoolParameter2 = true;
-            }
-
             target.SpendActionType(ActionType.Reaction);
-            actionManager.ExecuteActionChain(
-                new CharacterActionChainParams(actionParams.ActingCharacter, actionParams), null, false);
-        }
 
-        private static int3 GetCandidatePosition(GameLocationCharacter caster, GameLocationCharacter target)
-        {
-            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var tacticalMoves = target.MaxTacticalMoves;
-            var boxInt = new BoxInt(target.LocationPosition, int3.zero, int3.zero);
-            var position = target.LocationPosition;
-            var distance = -1f;
+            var position = GetCandidatePosition(action.ActingCharacter, target);
 
-            boxInt.Inflate(tacticalMoves, 0, tacticalMoves);
-
-            foreach (var candidatePosition in boxInt.EnumerateAllPositionsWithin())
-            {
-                if (!positioningService.CanPlaceCharacter(
-                        target, candidatePosition, CellHelpers.PlacementMode.Station) ||
-                    !positioningService.CanCharacterStayAtPosition_Floor(
-                        target, candidatePosition, onlyCheckCellsWithRealGround: true) ||
-                    positioningService.IsDangerousPosition(target, candidatePosition))
-                {
-                    continue;
-                }
-
-                var candidateDistance = int3.Distance(candidatePosition, caster.LocationPosition);
-
-                if (candidateDistance < distance)
-                {
-                    continue;
-                }
-
-                distance = candidateDistance;
-                position = candidatePosition;
-            }
-
-            return position;
+            target.MyExecuteActionTacticalMove(position);
         }
     }
 
