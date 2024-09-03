@@ -964,7 +964,8 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            foreach (var attribute in actor.Attributes)
+            foreach (var attribute in actor.Attributes
+                         .Where(x => x.Value.UpToDate))
             {
                 foreach (var modifier in attribute.Value.ActiveModifiers)
                 {
