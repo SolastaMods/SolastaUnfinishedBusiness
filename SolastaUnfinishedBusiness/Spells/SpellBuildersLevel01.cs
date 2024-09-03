@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -1224,6 +1225,119 @@ internal static partial class SpellBuilders
             }
 
             return false;
+        }
+    }
+
+    #endregion
+
+    #region Dissonant Whispers
+
+    internal static SpellDefinition BuildDissonantWhispers()
+    {
+        const string NAME = "DissonantWhispers";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.DissonantWhispers, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetParticleEffectParameters(ShadowDagger)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 3, DieType.D6)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeBuildDissonantWhispers())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class PowerOrSpellFinishedByMeBuildDissonantWhispers : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var target = action.ActionParams.TargetCharacters[0];
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (!actionManager ||
+                action.SaveOutcome == RollOutcome.Success ||
+                !target.CanReact())
+            {
+                yield break;
+            }
+
+            var position = GetCandidatePosition(action.ActingCharacter, target);
+            var actionParams =
+                new CharacterActionParams(
+                    target, Id.TacticalMove, MoveStance.Run, position, LocationDefinitions.Orientation.North)
+                {
+                    BoolParameter3 = false, BoolParameter5 = false
+                };
+
+            actionManager.actionChainByCharacter.TryGetValue(target, out var actionChainSlot);
+
+            var collection = actionChainSlot?.actionQueue;
+
+            if (collection != null &&
+                !collection.Empty() &&
+                collection[0].action is CharacterActionMoveStepWalk)
+            {
+                actionParams.BoolParameter2 = true;
+            }
+
+            target.SpendActionType(ActionType.Reaction);
+            actionManager.ExecuteActionChain(
+                new CharacterActionChainParams(actionParams.ActingCharacter, actionParams), null, false);
+        }
+
+        private static int3 GetCandidatePosition(GameLocationCharacter caster, GameLocationCharacter target)
+        {
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var tacticalMoves = target.MaxTacticalMoves;
+            var boxInt = new BoxInt(target.LocationPosition, int3.zero, int3.zero);
+            var position = target.LocationPosition;
+            var distance = -1f;
+
+            boxInt.Inflate(tacticalMoves, 0, tacticalMoves);
+
+            foreach (var candidatePosition in boxInt.EnumerateAllPositionsWithin())
+            {
+                if (!positioningService.CanPlaceCharacter(
+                        target, candidatePosition, CellHelpers.PlacementMode.Station) ||
+                    !positioningService.CanCharacterStayAtPosition_Floor(
+                        target, candidatePosition, onlyCheckCellsWithRealGround: true) ||
+                    positioningService.IsDangerousPosition(target, candidatePosition))
+                {
+                    continue;
+                }
+
+                var candidateDistance = int3.Distance(candidatePosition, caster.LocationPosition);
+
+                if (candidateDistance < distance)
+                {
+                    continue;
+                }
+
+                distance = candidateDistance;
+                position = candidatePosition;
+            }
+
+            return position;
         }
     }
 
