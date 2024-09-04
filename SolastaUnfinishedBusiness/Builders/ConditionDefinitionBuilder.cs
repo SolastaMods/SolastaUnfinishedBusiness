@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using TA.AI;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
@@ -43,6 +44,15 @@ internal class ConditionDefinitionBuilder
     internal ConditionDefinitionBuilder AllowMultipleInstances()
     {
         Definition.allowMultipleInstances = true;
+        return this;
+    }
+
+    internal ConditionDefinitionBuilder SetBrain(
+        DecisionPackageDefinition battlePackage, bool forceBehavior, bool fearSource)
+    {
+        Definition.battlePackage = battlePackage;
+        Definition.forceBehavior = forceBehavior;
+        Definition.fearSource = fearSource;
         return this;
     }
 

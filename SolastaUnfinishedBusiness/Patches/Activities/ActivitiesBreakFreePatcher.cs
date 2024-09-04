@@ -10,10 +10,10 @@ using TA.AI;
 using TA.AI.Activities;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.Patches;
+namespace SolastaUnfinishedBusiness.Patches.Activities;
 
 [UsedImplicitly]
-public static class ActivitiesBreakFreePatcher
+public static class BreakFreePatcher
 {
     [HarmonyPatch(typeof(BreakFree), nameof(BreakFree.ExecuteImpl))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -23,7 +23,6 @@ public static class ActivitiesBreakFreePatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(
             [NotNull] IEnumerator values,
-            [NotNull] BreakFree __instance,
             AiLocationCharacter character,
             DecisionDefinition decisionDefinition)
         {
