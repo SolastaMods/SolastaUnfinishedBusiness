@@ -2,121 +2,11 @@
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class GameUiDisplay
 {
-    private static bool _selectedForSwap;
-    private static int _selectedX, _selectedY;
-    private static readonly string[] SetNames = ["1", "2", "3", "4", "5"];
-
-    private static void DisplayFormationGrid()
-    {
-        var selectedSet = Main.Settings.FormationGridSelectedSet;
-
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton(Gui.Localize("ModUi/&FormationResetAllSets"), () =>
-                {
-                    _selectedForSwap = false;
-                    GameUiContext.ResetAllFormationGrids();
-                },
-                UI.Width(110f));
-
-            if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width(165f)))
-            {
-                _selectedForSwap = false;
-                Main.Settings.FormationGridSelectedSet = selectedSet;
-                GameUiContext.FillDefinitionFromFormationGrid();
-            }
-
-            UI.Label(Gui.Localize("ModUi/&FormationHelp1"));
-        }
-
-        UI.Label();
-
-        for (var y = 0; y < GameUiContext.GridSize; y++)
-        {
-            using (UI.HorizontalScope())
-            {
-                // first line
-                if (y == 0)
-                {
-                    UI.ActionButton(Gui.Localize("ModUi/&FormationResetThisSet"), () =>
-                        {
-                            _selectedForSwap = false;
-                            GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
-                        },
-                        UI.Width(110f));
-                }
-                else
-                {
-                    UI.Label("", UI.Width(110f));
-                }
-
-                for (var x = 0; x < GameUiContext.GridSize; x++)
-                {
-                    var saveColor = GUI.color;
-                    string label;
-
-                    if (Main.Settings.FormationGridSets[selectedSet][y][x] == 1)
-                    {
-                        // yep 256 not 255 for a light contrast
-                        GUI.color = new Color(0x1E / 256f, 0x81 / 256f, 0xB0 / 256f);
-                        label = "@";
-                    }
-                    else
-                    {
-                        label = "..";
-                    }
-
-                    if (_selectedForSwap && _selectedX == x && _selectedY == y)
-                    {
-                        label = $"<b><color=red>{label}</color></b>";
-                    }
-
-                    UI.ActionButton(label, () =>
-                    {
-                        // ReSharper disable once InlineTemporaryVariable
-                        // ReSharper disable once AccessToModifiedClosure
-                        var localX = x;
-                        // ReSharper disable once InlineTemporaryVariable
-                        // ReSharper disable once AccessToModifiedClosure
-                        var localY = y;
-
-                        if (_selectedForSwap)
-                        {
-                            (Main.Settings.FormationGridSets[selectedSet][localY][localX],
-                                Main.Settings.FormationGridSets[selectedSet][_selectedY][_selectedX]) = (
-                                Main.Settings.FormationGridSets[selectedSet][_selectedY][_selectedX],
-                                Main.Settings.FormationGridSets[selectedSet][localY][localX]);
-
-                            GameUiContext.FillDefinitionFromFormationGrid();
-
-                            _selectedForSwap = false;
-                        }
-                        else
-                        {
-                            _selectedX = localX;
-                            _selectedY = localY;
-                            _selectedForSwap = true;
-                        }
-                    }, UI.Width(30f));
-
-                    GUI.color = saveColor;
-                }
-
-                // first line
-                if (y <= 1)
-                {
-                    UI.Label(Gui.Localize("ModUi/&FormationHelp" + (y + 2)));
-                }
-            }
-        }
-    }
-
     internal static void DisplayGameUi()
     {
         #region Campaign
@@ -364,23 +254,6 @@ internal static class GameUiDisplay
         {
             Main.Settings.OutlineGridWidthSpeed = intValue;
             GameUiContext.UpdateMovementGrid();
-        }
-
-        #endregion
-
-        #region Formation
-
-        UI.Label();
-        UI.Label(Gui.Localize("ModUi/&Formation"));
-        UI.Label();
-
-        if (Global.IsMultiplayer)
-        {
-            UI.Label(Gui.Localize("ModUi/&FormationError"));
-        }
-        else
-        {
-            DisplayFormationGrid();
         }
 
         #endregion
