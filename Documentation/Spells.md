@@ -231,7 +231,7 @@ You hurl a 4-inch-diameter sphere of energy at a creature that you can see withi
 
 Spray a luminous cone that briefly blinds your enemies. Roll 6d10: the total is how many hit points of creatures this spell can affect.
 
-# 58. - Command (V) level 1 Enchantment [UB]
+# 58. - *Command* © (V) level 1 Enchantment [UB]
 
 You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead. Commands follow:
 • Approach: The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.
@@ -260,7 +260,7 @@ Detect nearby magic objects or creatures.
 
 TMP For the duration you sense the presence and location of poisonous creatures and diseases within 6 cells of you.
 
-# 64. - Dissonant Whispers (V) level 1 Enchantment [UB]
+# 64. - *Dissonant Whispers* © (V) level 1 Enchantment [UB]
 
 You whisper a discordant melody that only one creature of your choice within range can hear, wracking it with terrible pain. The target must make a Wisdom saving throw. On a failed save, it takes 3d6 psychic damage and must immediately use its reaction, if available, to move as far as its speed allows away from you. The creature doesn't move into obviously dangerous ground, such as a fire or a pit. On a successful save, the target takes half as much damage and doesn't have to move away. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.
 

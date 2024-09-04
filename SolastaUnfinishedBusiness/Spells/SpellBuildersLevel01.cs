@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
-using TA;
 using TA.AI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -1275,7 +1274,7 @@ internal static partial class SpellBuilders
 
         var conditionApproach = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Approach")
-            .SetGuiPresentation($"Power{NAME}Approach", Category.Feature, ConditionSlowed)
+            .SetGuiPresentation($"Power{NAME}Approach", Category.Feature, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
@@ -1301,7 +1300,7 @@ internal static partial class SpellBuilders
 
         var conditionFlee = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Flee")
-            .SetGuiPresentation($"Power{NAME}Flee", Category.Feature, ConditionSlowed)
+            .SetGuiPresentation($"Power{NAME}Flee", Category.Feature, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
@@ -1405,6 +1404,7 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.ConditionForm(
                         conditionSelf,
                         ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(Command)
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeCommand(powerPool))
             .AddToDB();
@@ -1412,11 +1412,13 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class PowerOrSpellFinishedByMeCommand(FeatureDefinitionPower powerPool) : IPowerOrSpellFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeCommand(
+        FeatureDefinitionPower powerPool,
+        params ConditionDefinition[] conditions) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.Countered || action.ExecutionFailed)
+            if (action.Countered || action.ExecutionFailed || action.SaveOutcome == RollOutcome.Success)
             {
                 yield break;
             }
@@ -1431,7 +1433,30 @@ internal static partial class SpellBuilders
                     usablePower,
                     [target],
                     caster,
-                    "CommandSpell");
+                    "CommandSpell",
+                    ReactionValidated);
+
+                continue;
+
+                void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
+                {
+                    if (!reactionRequest.Validated)
+                    {
+                        return;
+                    }
+
+                    var rulesetTarget = target.RulesetCharacter;
+                    var conditionsToRemove = rulesetCaster.AllConditions
+                        .Where(x =>
+                            x.SourceGuid != caster.Guid &&
+                            conditions.Contains(x.ConditionDefinition))
+                        .ToList();
+
+                    foreach (var condition in conditionsToRemove)
+                    {
+                        rulesetTarget.RemoveCondition(condition);
+                    }
+                }
             }
         }
     }
@@ -1459,7 +1484,8 @@ internal static partial class SpellBuilders
                 }
             }
 
-            target.EndBattleTurn(Gui.Battle.CurrentRound);
+            target.SpendActionType(ActionType.Bonus);
+            target.SpendActionType(ActionType.Main);
         }
     }
 
@@ -1500,7 +1526,6 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetParticleEffectParameters(ShadowDagger)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -1509,6 +1534,8 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypePsychic, 3, DieType.D6)
                             .Build())
+                    .SetCasterEffectParameters(Feeblemind)
+                    .SetEffectEffectParameters(PowerBardTraditionVerbalOnslaught)
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDissonantWhispers())
             .AddToDB();
@@ -1537,49 +1564,21 @@ internal static partial class SpellBuilders
 
             target.SpendActionType(ActionType.Reaction);
 
-            var position = GetCandidatePosition(action.ActingCharacter, target);
+            var aiService = ServiceRepository.GetService<IAiLocationService>();
 
+            aiService.TryGetAiFromGameCharacter(target, out var aiTarget);
+
+            var brain = aiTarget.BattleBrain;
+            var decisionsBackup = brain.Decisions.ToList();
+
+            brain.decisions.SetRange(DecisionPackageDefinitions.Fear.Package.WeightedDecisions);
+
+            yield return brain.DecideNextActivity();
+
+            var position = brain.SelectedDecision.context.position;
+
+            brain.decisions.SetRange(decisionsBackup);
             target.MyExecuteActionTacticalMove(position);
-        }
-
-
-        private static int3 GetCandidatePosition(
-            GameLocationCharacter caster,
-            GameLocationCharacter target,
-            bool isFar = true)
-        {
-            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var tacticalMoves = target.MaxTacticalMoves;
-            var boxInt = new BoxInt(target.LocationPosition, int3.zero, int3.zero);
-            var position = target.LocationPosition;
-            var distance = -1f;
-
-            boxInt.Inflate(tacticalMoves, 0, tacticalMoves);
-
-            foreach (var candidatePosition in boxInt.EnumerateAllPositionsWithin())
-            {
-                if (!positioningService.CanPlaceCharacter(
-                        target, candidatePosition, CellHelpers.PlacementMode.Station) ||
-                    !positioningService.CanCharacterStayAtPosition_Floor(
-                        target, candidatePosition, onlyCheckCellsWithRealGround: true) ||
-                    positioningService.IsDangerousPosition(target, candidatePosition))
-                {
-                    continue;
-                }
-
-                var candidateDistance = int3.Distance(candidatePosition, caster.LocationPosition);
-
-                if ((isFar && candidateDistance < distance) ||
-                    (!isFar && candidateDistance > distance))
-                {
-                    continue;
-                }
-
-                distance = candidateDistance;
-                position = candidatePosition;
-            }
-
-            return position;
         }
     }
 

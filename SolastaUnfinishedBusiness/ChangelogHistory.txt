@@ -9,6 +9,7 @@
 - improved Conversion Slots, and Shorthand versatilities to react on ability checks
 - improved game log to avoid voxelization warning messages to flood the same [DM overlay trick]
 - improved Maneuvering Attack, and Martial Warlord strategic repositioning to use a run stance
+- improved mod UI to ensure all settings required to be in sync on MP sessions are now under Gameplay
 - improved saving roll reaction modal descriptions [Circle of the Cosmos, Sorcerer Wild Magic, etc.]
 - improved Sorcerer Wild Magic tides of chaos to react on ability checks
 - improved vanilla to allow reactions on gadget's saving roll [traps]

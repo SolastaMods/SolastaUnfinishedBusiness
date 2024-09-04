@@ -1724,6 +1724,8 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerBardTraditionVerbalOnslaught { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardTraditionVerbalOnslaught");
         internal static FeatureDefinitionPower PowerIncubus_Drain { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerIncubus_Drain");
 
