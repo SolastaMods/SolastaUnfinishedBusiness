@@ -1242,6 +1242,8 @@ DecisionBreakFreeConditionGrappledRestrainedSpellWeb	TA.AI.DecisionDefinition	TA
 DecisionBreakFreeConditionNoxiousSpray	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	2f033fcf-d478-5581-94d9-27a3ad4496ad
 DecisionBreakFreeConditionRestrainedByEntangle	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	2a416669-5ec8-53c1-b07b-8fe6f29da4d2
 DecisionBreakFreeConditionVileBrew	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	4b3278e8-334a-58d6-8c75-2f48e28b4e54
+Move_Approach	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	5cb2a87f-09a4-5fae-9b74-10516ea8a8ab
+Approach	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	5043a0ec-c626-5877-bd87-c7bc0584366d
 DieTypeD3	DieTypeDefinition	DieTypeDefinition	63dc904b-8d78-5406-90aa-e7e1f3eefd84
 ProxyCircleOfTheWildfireCauterizingFlames	EffectProxyDefinition	EffectProxyDefinition	5d3d90cd-1858-5044-b4f6-586754122132
 ProxyDawn	EffectProxyDefinition	EffectProxyDefinition	5c460453-060a-51c2-9099-a6a40908dba9

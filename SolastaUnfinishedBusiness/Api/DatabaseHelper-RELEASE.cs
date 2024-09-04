@@ -3908,13 +3908,11 @@ internal static partial class DatabaseHelper
     {
         internal static DecisionPackageDefinition DefaultMeleeWithBackupRangeDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("DefaultMeleeWithBackupRangeDecisions");
-
         internal static DecisionPackageDefinition DefaultSupportCasterWithBackupAttacksDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("DefaultSupportCasterWithBackupAttacksDecisions");
-
-        internal static DecisionPackageDefinition Idle { get; } =
-            GetDefinition<DecisionPackageDefinition>("Idle");
-
+        
+        internal static DecisionPackageDefinition Fear { get; } = GetDefinition<DecisionPackageDefinition>("Fear");
+        internal static DecisionPackageDefinition Idle { get; } = GetDefinition<DecisionPackageDefinition>("Idle");
         internal static DecisionPackageDefinition IdleGuard_Default { get; } =
             GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
     }

@@ -11,8 +11,8 @@
     "Definition:PowerCommandSpellHalt:ba84cf9e-4373-5a11-af15-41395a314cde"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,

@@ -13,6 +13,8 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
+using TA.AI;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -1242,12 +1244,45 @@ internal static partial class SpellBuilders
             .SetUsesFixed(ActivationTime.NoCost)
             .AddToDB();
 
-        var conditionApproach = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Approach")
-            .SetGuiPresentation(Category.Condition)
+        // Approach
+
+        #region Approach AI Behavior
+
+        var moveAfraidDecision = DatabaseRepository.GetDatabase<DecisionDefinition>().GetElement("Move_Afraid");
+        var scorer = Object.Instantiate(moveAfraidDecision.Decision.scorer);
+
+        scorer.name = "MoveScorer_Approach";
+        // invert PenalizeVeryCloseEnemyProximityAtPosition behavior
+        scorer.scorer.WeightedConsiderations[2].Consideration.boolSecParameter = true;
+        // remove PenalizeVeryCloseEnemyProximityAtPosition
+        scorer.scorer.WeightedConsiderations.RemoveAt(1);
+
+        var decision = DecisionDefinitionBuilder
+            .Create("Move_Approach")
+            .SetGuiPresentationNoContent(true)
+            .SetDecisionDescription(
+                "Go as close as possible to enemies.",
+                "Move",
+                scorer)
             .AddToDB();
 
-        conditionApproach.AddCustomSubFeatures(new CharacterTurnStartListenerCommandApproach(conditionApproach));
+        var approachPackage = DecisionPackageDefinitionBuilder
+            .Create("Approach")
+            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decision, weight = 9 })
+            .AddToDB();
+
+        #endregion
+
+        var conditionApproach = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Approach")
+            .SetGuiPresentation($"Power{NAME}Approach", Category.Feature, ConditionSlowed)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSpecialDuration()
+            .SetBrain(approachPackage, true, true)
+            .SetSpecialInterruptions(ConditionInterruption.Moved)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedCommandApproachOrFlee(true))
+            .AddToDB();
 
         var powerApproach = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}Approach")
@@ -1257,18 +1292,23 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionApproach))
                     .Build())
             .AddToDB();
 
+        // Flee
+
         var conditionFlee = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Flee")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation($"Power{NAME}Flee", Category.Feature, ConditionSlowed)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSpecialDuration()
+            .SetBrain(DecisionPackageDefinitions.Fear, true, true)
+            .SetSpecialInterruptions(ConditionInterruption.Moved)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedCommandApproachOrFlee(false))
             .AddToDB();
-
-        conditionFlee.AddCustomSubFeatures(new CharacterTurnStartListenerCommandFlee(conditionFlee));
 
         var powerFlee = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}Flee")
@@ -1278,16 +1318,23 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFlee))
                     .Build())
             .AddToDB();
 
+        // Grovel
+
         var conditionGrovel = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Grovel")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation($"Power{NAME}Grovel", Category.Feature, ConditionPossessed)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSpecialDuration()
             .AddToDB();
+
+        conditionGrovel.AddCustomSubFeatures(new CharacterBeforeTurnStartListenerCommandGrovel());
 
         var powerGrovel = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}Grovel")
@@ -1297,7 +1344,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionGrovel))
                     .Build())
@@ -1305,10 +1351,12 @@ internal static partial class SpellBuilders
 
         var conditionHalt = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Halt")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation($"Power{NAME}Halt", Category.Feature, ConditionPossessed)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSpecialDuration()
+            .SetBrain(DecisionPackageDefinitions.Idle, true, false)
             .AddToDB();
-
-        conditionHalt.battlePackage = DecisionPackageDefinitions.Idle;
 
         var powerHalt = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}Halt")
@@ -1318,14 +1366,21 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHalt))
                     .Build())
             .AddToDB();
 
-        PowerBundle.RegisterPowerBundle(powerPool, false,
-            powerApproach, powerFlee, powerGrovel, powerHalt);
+        PowerBundle.RegisterPowerBundle(powerPool, false, powerApproach, powerFlee, powerGrovel, powerHalt);
+
+        var conditionSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powerPool, powerApproach, powerFlee, powerGrovel, powerHalt)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddToDB();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -1341,55 +1396,20 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .UseQuickAnimations()
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(
+                        conditionSelf,
+                        ConditionForm.ConditionOperation.Add, true))
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeCommand(powerPool))
             .AddToDB();
 
         return spell;
-    }
-
-    private static int3 GetCandidatePosition(
-        GameLocationCharacter caster,
-        GameLocationCharacter target,
-        bool isFar = true)
-    {
-        var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-        var tacticalMoves = target.MaxTacticalMoves;
-        var boxInt = new BoxInt(target.LocationPosition, int3.zero, int3.zero);
-        var position = target.LocationPosition;
-        var distance = -1f;
-
-        boxInt.Inflate(tacticalMoves, 0, tacticalMoves);
-
-        foreach (var candidatePosition in boxInt.EnumerateAllPositionsWithin())
-        {
-            if (!positioningService.CanPlaceCharacter(
-                    target, candidatePosition, CellHelpers.PlacementMode.Station) ||
-                !positioningService.CanCharacterStayAtPosition_Floor(
-                    target, candidatePosition, onlyCheckCellsWithRealGround: true) ||
-                positioningService.IsDangerousPosition(target, candidatePosition))
-            {
-                continue;
-            }
-
-            var candidateDistance = int3.Distance(candidatePosition, caster.LocationPosition);
-
-            if ((isFar && candidateDistance < distance) ||
-                (!isFar && candidateDistance > distance))
-            {
-                continue;
-            }
-
-            distance = candidateDistance;
-            position = candidatePosition;
-        }
-
-        return position;
     }
 
     private sealed class PowerOrSpellFinishedByMeCommand(FeatureDefinitionPower powerPool) : IPowerOrSpellFinishedByMe
@@ -1416,45 +1436,44 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class CharacterTurnStartListenerCommandApproach(
-        ConditionDefinition conditionApproach) : ICharacterTurnStartListener
+    private sealed class OnConditionAddedOrRemovedCommandApproachOrFlee(
+        bool onlyEndTurnIfWithin5Ft) : IOnConditionAddedOrRemoved
     {
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            // bool
+        }
 
-            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionApproach.Name, out var activeCondition))
+        public void OnConditionRemoved(RulesetCharacter rulesetTarget, RulesetCondition rulesetCondition)
+        {
+            var target = GameLocationCharacter.GetFromActor(rulesetTarget);
+
+            if (onlyEndTurnIfWithin5Ft)
             {
-                return;
+                var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+                var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+
+                if (!target.IsWithinRange(caster, 1))
+                {
+                    return;
+                }
             }
 
-            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
-            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-            var position = GetCandidatePosition(caster, locationCharacter, false);
-
-            locationCharacter.MyExecuteActionTacticalMove(position);
+            target.EndBattleTurn(Gui.Battle.CurrentRound);
         }
     }
 
-    private sealed class CharacterTurnStartListenerCommandFlee(
-        ConditionDefinition conditionFlee) : ICharacterTurnStartListener
+    private sealed class CharacterBeforeTurnStartListenerCommandGrovel : ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionFlee.Name, out var activeCondition))
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var actionParams = new CharacterActionParams(locationCharacter, Id.DropProne)
             {
-                return;
-            }
+                CanBeAborted = false, CanBeCancelled = false
+            };
 
-            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
-            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-            var position = GetCandidatePosition(caster, locationCharacter);
-
-            locationCharacter.MyExecuteActionTacticalMove(position);
+            actionService.ExecuteAction(actionParams, null, false);
         }
     }
 
@@ -1521,6 +1540,46 @@ internal static partial class SpellBuilders
             var position = GetCandidatePosition(action.ActingCharacter, target);
 
             target.MyExecuteActionTacticalMove(position);
+        }
+
+
+        private static int3 GetCandidatePosition(
+            GameLocationCharacter caster,
+            GameLocationCharacter target,
+            bool isFar = true)
+        {
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var tacticalMoves = target.MaxTacticalMoves;
+            var boxInt = new BoxInt(target.LocationPosition, int3.zero, int3.zero);
+            var position = target.LocationPosition;
+            var distance = -1f;
+
+            boxInt.Inflate(tacticalMoves, 0, tacticalMoves);
+
+            foreach (var candidatePosition in boxInt.EnumerateAllPositionsWithin())
+            {
+                if (!positioningService.CanPlaceCharacter(
+                        target, candidatePosition, CellHelpers.PlacementMode.Station) ||
+                    !positioningService.CanCharacterStayAtPosition_Floor(
+                        target, candidatePosition, onlyCheckCellsWithRealGround: true) ||
+                    positioningService.IsDangerousPosition(target, candidatePosition))
+                {
+                    continue;
+                }
+
+                var candidateDistance = int3.Distance(candidatePosition, caster.LocationPosition);
+
+                if ((isFar && candidateDistance < distance) ||
+                    (!isFar && candidateDistance > distance))
+                {
+                    continue;
+                }
+
+                distance = candidateDistance;
+                position = candidatePosition;
+            }
+
+            return position;
         }
     }
 

@@ -1,3 +1,18 @@
+1.5.97.30:
+
+- added Command [Bard, Cleric, Paladin], and Dissonant Whispers [Bard] spells
+- fixed Barbarian Sundering Blow interaction with Call Lightning, and other proxy like powers
+- fixed Lucky, and Mage Slayer feats double consumption
+- fixed Martial Commander coordinated defense to require an attack first [VANILLA]
+- fixed Party Editor to register/unregister powers from feats
+- improved ability checks to also allow reactions on success [Circle of the Cosmos woe]
+- improved Conversion Slots, and Shorthand versatilities to react on ability checks
+- improved game log to avoid voxelization warning messages to flood the same [DM overlay trick]
+- improved Maneuvering Attack, and Martial Warlord strategic repositioning to use a run stance
+- improved saving roll reaction modal descriptions [Circle of the Cosmos, Sorcerer Wild Magic, etc.]
+- improved Sorcerer Wild Magic tides of chaos to react on ability checks
+- improved vanilla to allow reactions on gadget's saving roll [traps]
+
 1.5.97.29:
 
 - fixed cantrips **CRASH** if not a melee cantrip and hero has replace attack with cantrips

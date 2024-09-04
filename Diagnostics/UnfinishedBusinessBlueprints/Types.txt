@@ -68,4 +68,5 @@ RestActivityDefinition
 SpellDefinition
 SpellListDefinition
 TA.AI.DecisionDefinition
+TA.AI.DecisionPackageDefinition
 WeaponTypeDefinition
