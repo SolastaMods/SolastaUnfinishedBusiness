@@ -839,17 +839,17 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            string StringParameter;
+            string stringParameter;
 
             if (helper.Side == attacker.Side &&
                 action.AttackRollOutcome is RollOutcome.Failure)
             {
-                StringParameter = "BendLuckAttack";
+                stringParameter = "BendLuckAttack";
             }
             else if (helper.Side != attacker.Side &&
                      action.AttackRollOutcome is RollOutcome.Success)
             {
-                StringParameter = "BendLuckEnemyAttack";
+                stringParameter = "BendLuckEnemyAttack";
             }
             else
             {
@@ -860,8 +860,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 attacker,
-                StringParameter,
-                $"SpendPower{StringParameter}Description".Formatted(Category.Reaction, defender.Name),
+                stringParameter,
+                $"SpendPower{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
                 battleManager);
 
@@ -949,19 +949,19 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            string StringParameter;
+            string stringParameter;
 
             if (helper.Side == defender.Side &&
                 abilityCheckData.AbilityCheckRoll > 0 &&
                 abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
-                StringParameter = "BendLuckCheck";
+                stringParameter = "BendLuckCheck";
             }
             else if (helper.Side != defender.Side &&
                      abilityCheckData.AbilityCheckRoll > 0 &&
                      abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                StringParameter = "BendLuckEnemyCheck";
+                stringParameter = "BendLuckEnemyCheck";
             }
             else
             {
@@ -972,8 +972,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 helper,
-                StringParameter,
-                $"SpendPower{StringParameter}Description".Formatted(Category.Reaction, defender.Name),
+                stringParameter,
+                $"SpendPower{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
                 battleManager);
 
@@ -1066,17 +1066,17 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            string StringParameter;
+            string stringParameter;
 
             if (helper.Side == defender.Side &&
                 savingThrowData.SaveOutcome == RollOutcome.Failure)
             {
-                StringParameter = "BendLuckSaving";
+                stringParameter = "BendLuckSaving";
             }
             else if (helper.Side != defender.Side &&
                      savingThrowData.SaveOutcome == RollOutcome.Success)
             {
-                StringParameter = "BendLuckEnemySaving";
+                stringParameter = "BendLuckEnemySaving";
             }
             else
             {
@@ -1089,8 +1089,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 helper,
-                StringParameter,
-                $"SpendPower{StringParameter}Description".Formatted(Category.Reaction,
+                stringParameter,
+                $"SpendPower{stringParameter}Description".Formatted(Category.Reaction,
                     defender.Name, attacker?.Name ?? envTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager);

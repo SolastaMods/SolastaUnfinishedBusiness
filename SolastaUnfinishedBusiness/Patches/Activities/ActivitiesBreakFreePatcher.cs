@@ -51,7 +51,7 @@ public static class BreakFreePatcher
             var success = true;
 
             // no ability check
-            switch (decisionDefinition.Decision.stringParameter)
+            switch (decisionDefinition.Decision.StringParameter)
             {
                 case AiContext.DoNothing:
                     rulesetCharacter.RemoveCondition(restrainingCondition);

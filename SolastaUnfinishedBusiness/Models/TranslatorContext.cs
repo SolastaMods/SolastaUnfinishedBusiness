@@ -648,10 +648,10 @@ internal static class TranslatorContext
 
                     foreach (var functor in userDialogState.functors)
                     {
-                        functor.stringParameter = functor.type switch
+                        functor.StringParameter = functor.type switch
                         {
-                            "SetLocationStatus" => Translate(functor.stringParameter, languageCode),
-                            _ => functor.stringParameter
+                            "SetLocationStatus" => Translate(functor.StringParameter, languageCode),
+                            _ => functor.StringParameter
                         };
                     }
                 }
@@ -693,7 +693,7 @@ internal static class TranslatorContext
 
                         if (outStart.type == "SetLocationStatus")
                         {
-                            outStart.stringParameter = Translate(outStart.stringParameter, languageCode);
+                            outStart.StringParameter = Translate(outStart.StringParameter, languageCode);
                         }
                     }
 
@@ -703,12 +703,12 @@ internal static class TranslatorContext
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
                         // magicSkySword : Only place parameters can be translated
-                        outcome.validatorDescription.stringParameter = outcome.validatorDescription.type switch
+                        outcome.validatorDescription.StringParameter = outcome.validatorDescription.type switch
                         {
                             QuestDefinitions.QuestValidatorType.EnterLocation
                                 or QuestDefinitions.QuestValidatorType.LeaveLocation => Translate(
-                                    outcome.validatorDescription.stringParameter, languageCode),
-                            _ => outcome.validatorDescription.stringParameter
+                                    outcome.validatorDescription.StringParameter, languageCode),
+                            _ => outcome.validatorDescription.StringParameter
                         };
                     }
                 }

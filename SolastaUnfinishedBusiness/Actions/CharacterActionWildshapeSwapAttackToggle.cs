@@ -26,7 +26,7 @@ public class CharacterActionMonsterSwapAttackToggle(CharacterActionParams action
 
         var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-        if (gameLocationCharacter is not {HasAttackedSinceLastTurn: false})
+        if (gameLocationCharacter is not { HasAttackedSinceLastTurn: false })
         {
             yield break;
         }
