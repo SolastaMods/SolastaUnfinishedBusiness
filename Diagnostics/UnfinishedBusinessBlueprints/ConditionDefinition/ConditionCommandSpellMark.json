@@ -2,24 +2,20 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
-  "features": [
-    "Definition:ActionAffinityCommandSpell:d57c78ae-570a-5fd6-b2fc-7eaca82a71bd"
-  ],
+  "conditionType": "Beneficial",
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
+  "specialDuration": false,
+  "durationType": "Hour",
   "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Moved"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -89,7 +85,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -100,10 +96,10 @@
   "subsequentVariableForDC": "FrenzyExhaustionDC",
   "subsequentDCIncrease": 5,
   "effectFormsOnRemoved": [],
-  "forceBehavior": true,
+  "forceBehavior": false,
   "addBehavior": false,
-  "fearSource": true,
-  "battlePackage": "Definition:Approach:5043a0ec-c626-5877-bd87-c7bc0584366d",
+  "fearSource": false,
+  "battlePackage": null,
   "explorationPackage": null,
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,
@@ -131,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerCommandSpellApproachTitle",
-    "description": "Feature/&PowerCommandSpellApproachDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5e96eb4d8d8193a4cbddbf7477990f88",
-      "m_SubObjectName": "ConditionPossessed",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -153,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bc446416-951a-5ad8-a0a0-f0e1eae119f4",
+  "guid": "6c3dde6d-64eb-5e23-a14c-b820870f90ee",
   "contentPack": 9999,
-  "name": "ConditionCommandSpellApproach"
+  "name": "ConditionCommandSpellMark"
 }

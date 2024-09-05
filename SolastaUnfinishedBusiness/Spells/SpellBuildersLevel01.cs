@@ -1093,6 +1093,7 @@ internal static partial class SpellBuilders
                     [defender],
                     attacker,
                     "ChaosBolt",
+                    string.Empty,
                     ReactionValidated,
                     ReactionNotValidated,
                     battleManager);
@@ -1243,6 +1244,12 @@ internal static partial class SpellBuilders
             .SetUsesFixed(ActivationTime.NoCost)
             .AddToDB();
 
+        var actionAffinityCanOnlyMove = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(false, false, true, false, false, false)
+            .AddToDB();
+
         // Approach
 
         #region Approach AI Behavior
@@ -1279,6 +1286,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetSpecialDuration()
             .SetBrain(approachPackage, true, true)
+            .SetFeatures(actionAffinityCanOnlyMove)
             .SetSpecialInterruptions(ConditionInterruption.Moved)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedCommandApproachOrFlee(true))
             .AddToDB();
@@ -1305,6 +1313,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetSpecialDuration()
             .SetBrain(DecisionPackageDefinitions.Fear, true, true)
+            .SetFeatures(actionAffinityCanOnlyMove)
             .SetSpecialInterruptions(ConditionInterruption.Moved)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedCommandApproachOrFlee(false))
             .AddToDB();
@@ -1381,6 +1390,12 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Command)
@@ -1401,24 +1416,32 @@ internal static partial class SpellBuilders
                         additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(
-                        conditionSelf,
-                        ConditionForm.ConditionOperation.Add, true))
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionMark, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(conditionSelf, ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(Command)
+                    .SetEffectEffectParameters(SpareTheDying)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeCommand(powerPool))
+            .AddCustomSubFeatures(
+                new PowerOrSpellFinishedByMeCommand(
+                    conditionMark, powerPool, conditionApproach, conditionFlee, conditionGrovel, conditionHalt))
             .AddToDB();
 
         return spell;
     }
 
     private sealed class PowerOrSpellFinishedByMeCommand(
+        ConditionDefinition conditionMark,
         FeatureDefinitionPower powerPool,
         params ConditionDefinition[] conditions) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.Countered || action.ExecutionFailed || action.SaveOutcome == RollOutcome.Success)
+            if (action.Countered || action.ExecutionFailed)
             {
                 yield break;
             }
@@ -1427,13 +1450,16 @@ internal static partial class SpellBuilders
             var rulesetCaster = caster.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerPool, rulesetCaster);
 
-            foreach (var target in action.ActionParams.TargetCharacters)
+            foreach (var target in action.ActionParams.TargetCharacters
+                         .Where(x => x.RulesetActor.HasConditionOfCategoryAndType(
+                             AttributeDefinitions.TagEffect, conditionMark.Name)))
             {
                 yield return caster.MyReactToSpendPowerBundle(
                     usablePower,
                     [target],
                     caster,
                     "CommandSpell",
+                    "ReactionSpendPowerBundleCommandSpellDescription".Formatted(Category.Reaction, target.Name),
                     ReactionValidated);
 
                 continue;
@@ -1446,7 +1472,7 @@ internal static partial class SpellBuilders
                     }
 
                     var rulesetTarget = target.RulesetCharacter;
-                    var conditionsToRemove = rulesetCaster.AllConditions
+                    var conditionsToRemove = rulesetTarget.AllConditions
                         .Where(x =>
                             x.SourceGuid != caster.Guid &&
                             conditions.Contains(x.ConditionDefinition))

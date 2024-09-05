@@ -83,6 +83,33 @@
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionCommandSpellMark",
+          "conditionDefinition": "Definition:ConditionCommandSpellMark:6c3dde6d-64eb-5e23-a14c-b820870f90ee",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
@@ -151,7 +178,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "19f4a5c35fbee93479226bd045a5ec1f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

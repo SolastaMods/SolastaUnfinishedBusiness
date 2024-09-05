@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityCommandSpell:d57c78ae-570a-5fd6-b2fc-7eaca82a71bd"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
