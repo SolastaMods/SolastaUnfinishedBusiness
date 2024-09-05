@@ -1,6 +1,7 @@
 1.5.97.30:
 
 - added Command [Bard, Cleric, Paladin], and Dissonant Whispers [Bard] spells
+- added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop' setting
 - fixed Barbarian Sundering Blow interaction with Call Lightning, and other proxy like powers
 - fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe not consuming reaction
 - fixed Dwarven Fortitude, and Magical Guidance incorrectly consuming a reaction
@@ -15,6 +16,7 @@
 - improved saving roll reaction modal descriptions [Circle of the Cosmos, Sorcerer Wild Magic, etc.]
 - improved Sorcerer Wild Magic tides of chaos to react on ability checks
 - improved vanilla to allow reactions on gadget's saving roll [traps]
+- improved Victory Modal export behavior to allow heroes not in pool to be exported [VANILLA]
 
 1.5.97.29:
 

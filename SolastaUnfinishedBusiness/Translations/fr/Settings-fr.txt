@@ -89,7 +89,7 @@ ModUi/&DocsSubclasses=Sous-classes
 ModUi/&DocsSubraces=Sous-races
 ModUi/&DocsVersatilities=Polyvalences
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=Ne pas afficher les casques sur les personnages graphiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DontDisplayHelmets=Ne pas afficher les <color=#D89555>casques</color> sur les personnages graphiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir utilisé <color=#D89555>Action Prête</color> <i><color=#F0DAA0>[permet d'utiliser une Action Bonus ou toute action Principale supplémentaire à partir de la Hâte ou d'autres sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à % du bord de l'écran</color></i>
@@ -234,6 +234,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement 
 ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color>
 ModUi/&Merchants=<color=#F0DAA0>Marchands :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
+ModUi/&ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Activez le clic-glisser <color=#1E81B0>CTRL</color> pour contourner les vérifications des <color=#D89555>objets de quête</color> lors de la chute
 ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des verts du pacte]</color></i>

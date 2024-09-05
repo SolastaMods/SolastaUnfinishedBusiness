@@ -89,7 +89,7 @@ ModUi/&DocsSubclasses=Subclases
 ModUi/&DocsSubraces=Subrazas
 ModUi/&DocsVersatilities=Versatilidades
 ModUi/&Donate=<b><color=#D89555>Donar:</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=No mostrar cascos en caracteres gráficos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&DontDisplayHelmets=No mostrar <color=#D89555>cascos</color> en personajes gráficos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DontEndTurnAfterReady=No finalice el turno después de usar <color=#D89555>Acción lista</color> <i><color=#F0DAA0>[permite usar Acción adicional o cualquier acción principal adicional de Prisa u otras fuentes]</color></i>
 ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el personaje ya está en la pantalla
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que el héroe esté fuera o dentro del % del borde de la pantalla</color></i>
@@ -234,6 +234,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marca la ubicación de l
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
+ModUi/&ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Habilite la función <color=#1E81B0>CTRL</color> de clic y arrastre para omitir las comprobaciones de <color=#D89555>objetos de misión</color> al soltarlos
 ModUi/&Monsters=<color=#F0DAA0>Monstruos:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula de movimiento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> hace clic en un hechizo para invertir el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y otros gastan los verdes de pacto]</color></i>

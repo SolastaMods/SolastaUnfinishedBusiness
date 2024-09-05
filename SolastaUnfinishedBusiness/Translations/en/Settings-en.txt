@@ -89,7 +89,7 @@ ModUi/&DocsSubclasses=Subclasses
 ModUi/&DocsSubraces=Subraces
 ModUi/&DocsVersatilities=Versatilities
 ModUi/&Donate=<b><color=#D89555>Donate:</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=Don't display helmets on graphic characters <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DontDisplayHelmets=Don't display <color=#D89555>helmets</color> on graphic characters <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>Ready Action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
@@ -341,3 +341,4 @@ ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[attacker who perceive 
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use official <color=#D89555>small races</color> rules when wielding heavy weapons <i><color=#F0DAA0>[your attacks have disadvantage]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Set <color=#D89555>Sorcerer Wild Magic</color> chance die threshold:</color>\n<i><color=#F0DAA0>[wild surge triggers if rolls less or equal threshold]</color></i>
+ModUi/&ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Enable <color=#1E81B0>CTRL</color> click-drag to bypass <color=#D89555>quest items</color> checks on drop

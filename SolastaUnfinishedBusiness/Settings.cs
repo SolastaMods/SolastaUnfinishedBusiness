@@ -461,6 +461,7 @@ public class Settings : UnityModManager.ModSettings
     // Inventory and Items
     public bool AddCustomIconsToOfficialItems { get; set; }
     public bool DisableAutoEquip { get; set; }
+    public bool EnableCtrlClickDragToBypassQuestItemsOnDrop { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }

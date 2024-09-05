@@ -89,7 +89,7 @@ ModUi/&DocsSubclasses=Unterklassen
 ModUi/&DocsSubraces=Subraces
 ModUi/&DocsVersatilities=Vielseitigkeit
 ModUi/&Donate=<b><color=#D89555>Spenden:</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=Helme nicht auf grafischen Charakteren anzeigen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DontDisplayHelmets=Keine <color=#D89555>Helme</color> auf Grafikcharakteren anzeigen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht nach der Verwendung von <color=#D89555>Bereitschaftsaktion</color> <i><color=#F0DAA0>[ermöglicht die Verwendung von Bonusaktionen oder zusätzlichen Hauptaktionen aus Eile oder anderen Quellen]</color></i>
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
 ModUi/&DontFollowMargin=<i><color=white>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</color></i>
@@ -234,6 +234,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie nach der Entdeckung
 ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>
 ModUi/&Merchants=<color=#F0DAA0>Händler:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagie</color>
+ModUi/&ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Aktivieren Sie <color=#1E81B0>STRG</color> Klicken-Ziehen, um die Überprüfung auf <color=#D89555>Questgegenstände</color> beim Ablegen zu umgehen.
 ModUi/&Monsters=<color=#F0DAA0>Monster:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Bewegungsrasters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>UMSCHALT</color>-Klick auf einen Zauber kehrt den verbrauchten Standardrepertoire-Slottyp um.\n<i><color=#F0DAA0>[<color=#D89555>Hexenmeister</color> gibt weiße Zauberslots aus und andere geben Paktgrüne aus]</color></i>

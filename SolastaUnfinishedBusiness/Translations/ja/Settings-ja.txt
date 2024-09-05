@@ -89,7 +89,7 @@ ModUi/&DocsSubclasses=サブクラス
 ModUi/&DocsSubraces=サブレース
 ModUi/&DocsVersatilities=多用途性
 ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=グラフィック キャラクターにヘルメットを表示しない<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&DontDisplayHelmets=グラフィック キャラクターに <color=#D89555>ヘルメット</color> を表示しない <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DontEndTurnAfterReady=<color=#D89555>準備アクション</color>を使用した後にターンを終了しない <i><color=#F0DAA0>[ボーナスアクションまたはヘイストやその他のソースからの追加のメインアクションの使用を許可する]</color></i>
 ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にある場合、戦闘カメラが追従しない
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローがオフまたは画面端の % 以内でない場合</color></i>
@@ -234,6 +234,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 発見後にレベルマップ上
 ModUi/&MaxAllowedClasses=<color=white>許可されるクラスの最大数</color>
 ModUi/&Merchants=<color=#F0DAA0>販売者:</color>
 ModUi/&Metamagic=<color=#F0DAA0>メタマジック</color>
+ModUi/&ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=<color=#1E81B0>CTRL</color> クリックドラッグを有効にすると、ドロップ時の <color=#D89555>クエストアイテム</color> チェックをバイパスできます
 ModUi/&Monsters=<color=#F0DAA0>モンスター:</color>
 ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を乗算します</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> で呪文をクリックすると、消費されるデフォルトのレパートリー スロット タイプが反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color>は白い呪文スロットを消費します他の人は協定の緑のものを使います]</color></i>

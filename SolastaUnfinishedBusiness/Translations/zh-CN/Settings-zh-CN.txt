@@ -89,7 +89,7 @@ ModUi/&DocsSubclasses=文档：子职
 ModUi/&DocsSubraces=文档：亚种
 ModUi/&DocsVersatilities=多功能性
 ModUi/&Donate=<b><color=#D89555>捐赠：</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=不在角色图像上显示头盔<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&DontDisplayHelmets=不要在图形角色上显示<color=#D89555>头盔</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DontEndTurnAfterReady=使用<color=#D89555>准备行动</color>后不要结束回合<i><color=#F0DAA0>[允许使用奖励行动或任何来自加速或其他来源的额外主要行动]</color></i>
 ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕边缘的%范围内</color></i>
@@ -234,6 +234,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+发现后在关卡地图上标记�
 ModUi/&MaxAllowedClasses=<color=white>最大允许职业</color>
 ModUi/&Merchants=<color=#F0DAA0>商家：</color>
 ModUi/&Metamagic=<color=#F0DAA0>超魔</color>
+ModUi/&ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=启用 <color=#1E81B0>CTRL</color> 单击拖动以绕过<color=#D89555>任务物品</color> 的丢弃检查
 ModUi/&Monsters=<color=#F0DAA0>怪物：</color>
 ModUi/&MovementGridWidthModifier=<color=white>将移动格子宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>点击法术会反转消耗的默认曲目槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color>消耗白色法术位，其他职业消耗绿色的]</color></i>
