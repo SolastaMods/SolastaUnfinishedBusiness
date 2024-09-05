@@ -291,7 +291,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             var usablePower = PowerProvider.Get(powerSlashingWhirlDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker, withinRange: 1).Where(x => x != defender).ToArray();
 
-            attacker.MyExecuteActionSpendPower(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, false, targets);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)

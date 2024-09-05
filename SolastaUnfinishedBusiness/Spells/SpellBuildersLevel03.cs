@@ -1228,7 +1228,7 @@ internal static partial class SpellBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageCold, rulesetCaster);
 
-            caster.MyExecuteActionSpendPower(usablePower, character);
+            caster.MyExecuteActionSpendPower(usablePower, false, character);
         }
     }
 

@@ -1991,7 +1991,7 @@ internal static class Level20SubclassesContext
             {
                 var usablePower = PowerProvider.Get(powerQuiveringPalmDamage, rulesetAttacker);
 
-                attacker.MyExecuteActionSpendPower(usablePower, target);
+                attacker.MyExecuteActionSpendPower(usablePower, false, target);
 
                 yield break;
             }

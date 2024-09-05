@@ -237,7 +237,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerImprovedBarkWardDamage, rulesetDefender);
 
-            defender.MyExecuteActionSpendPower(usablePower, attacker);
+            defender.MyExecuteActionSpendPower(usablePower, false, attacker);
         }
     }
 }

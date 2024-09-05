@@ -828,7 +828,7 @@ internal static partial class SpellBuilders
             var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
             var usablePower = PowerProvider.Get(power, rulesetCaster);
 
-            caster.MyExecuteActionSpendPower(usablePower, character);
+            caster.MyExecuteActionSpendPower(usablePower, false, character);
         }
     }
 
@@ -1289,7 +1289,7 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerElementalBane, rulesetAttacker);
 
-            attacker.MyExecuteActionSpendPower(usablePower, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, false, defender);
         }
     }
 

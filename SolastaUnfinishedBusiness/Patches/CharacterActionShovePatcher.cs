@@ -119,7 +119,7 @@ public static class CharacterActionShovePatcher
                             rulesetCharacter.GetRemainingUsesOfPower(usablePower) > 0 &&
                             usablePower.PowerDefinition.ActivationTime == ActivationTime.OnSuccessfulShoveAuto)
                         {
-                            actingCharacter.MyExecuteActionSpendPower(usablePower, target);
+                            actingCharacter.MyExecuteActionSpendPower(usablePower, true, target);
                         }
                     }
                 }

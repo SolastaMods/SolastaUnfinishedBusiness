@@ -97,6 +97,7 @@ public static class GameLocationCharacterExtensions
     internal static void MyExecuteActionSpendPower(
         this GameLocationCharacter character,
         RulesetUsablePower usablePower,
+        bool skipAnimationAndVFX = false,
         params GameLocationCharacter[] targets)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -107,7 +108,8 @@ public static class GameLocationCharacterExtensions
             StringParameter = usablePower.PowerDefinition.Name,
             RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = [.. targets]
+            targetCharacters = [.. targets],
+            SkipAnimationsAndVFX = skipAnimationAndVFX
         };
 
         actionService.ExecuteInstantSingleAction(actionParams);

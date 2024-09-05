@@ -541,7 +541,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         : PowerCauterizingFlamesHeal,
                     rulesetSource);
 
-                source.MyExecuteActionSpendPower(usablePower, character);
+                source.MyExecuteActionSpendPower(usablePower, false, character);
             }
         }
     }
