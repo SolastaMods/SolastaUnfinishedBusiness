@@ -1416,6 +1416,7 @@ internal static partial class SpellBuilders
                         additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetRestrictedCreatureFamilies(CharacterFamilyDefinitions.Humanoid.Name)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

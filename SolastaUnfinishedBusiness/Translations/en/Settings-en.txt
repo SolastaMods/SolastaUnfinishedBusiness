@@ -234,6 +234,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisib
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagic</color>
+ModUi/&ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Enable <color=#1E81B0>CTRL</color> click-drag to bypass <color=#D89555>quest items</color> checks on drop
 ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiply the movement grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
@@ -341,4 +342,3 @@ ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[attacker who perceive 
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use official <color=#D89555>small races</color> rules when wielding heavy weapons <i><color=#F0DAA0>[your attacks have disadvantage]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Set <color=#D89555>Sorcerer Wild Magic</color> chance die threshold:</color>\n<i><color=#F0DAA0>[wild surge triggers if rolls less or equal threshold]</color></i>
-ModUi/&ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Enable <color=#1E81B0>CTRL</color> click-drag to bypass <color=#D89555>quest items</color> checks on drop
