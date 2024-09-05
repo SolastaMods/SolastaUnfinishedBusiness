@@ -408,6 +408,7 @@ internal static class MetamagicBuilders
                 [defender],
                 attacker,
                 MetamagicTransmuted,
+                string.Empty,
                 ReactionValidated,
                 ReactionNotValidated,
                 battleManager);

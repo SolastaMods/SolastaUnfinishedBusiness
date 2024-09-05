@@ -685,7 +685,7 @@ internal static partial class SpellBuilders
                 [actingCharacter],
                 actingCharacter,
                 "BorrowedKnowledge",
-                ReactionValidated);
+                reactionValidated: ReactionValidated);
 
             yield break;
 

@@ -626,7 +626,7 @@ internal static partial class SpellBuilders
                 [target],
                 actingCharacter,
                 "EmpoweredKnowledge",
-                ReactionValidated);
+                reactionValidated: ReactionValidated);
 
             yield break;
 

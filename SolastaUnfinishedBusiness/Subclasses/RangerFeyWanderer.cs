@@ -311,7 +311,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                 [attacker],
                 helper,
                 powerBeguilingTwist.Name,
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;

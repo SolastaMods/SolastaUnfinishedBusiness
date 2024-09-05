@@ -330,6 +330,7 @@ public static class GameLocationCharacterExtensions
         List<GameLocationCharacter> targets,
         GameLocationCharacter waiter,
         string stringParameter,
+        string stringParameter2 = "",
         Action<ReactionRequestSpendBundlePower> reactionValidated = null,
         Action<ReactionRequestSpendBundlePower> reactionNotValidated = null,
         GameLocationBattleManager battleManager = null)
@@ -349,6 +350,7 @@ public static class GameLocationCharacterExtensions
         var actionParams = new CharacterActionParams(character, Id.SpendPower)
         {
             StringParameter = stringParameter,
+            StringParameter2 = stringParameter2,
             ActionModifiers = actionModifiers,
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),

@@ -374,7 +374,7 @@ public sealed class DomainTempest : AbstractSubclass
                 [attacker],
                 attacker,
                 "WrathOfTheStorm",
-                ReactionValidated);
+                reactionValidated: ReactionValidated);
 
             yield break;
 

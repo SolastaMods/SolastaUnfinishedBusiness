@@ -628,7 +628,7 @@ internal static class MeleeCombatFeats
                 [defender],
                 attacker,
                 powerPool.Name,
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;

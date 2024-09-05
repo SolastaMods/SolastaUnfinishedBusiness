@@ -359,7 +359,7 @@ internal static partial class CharacterContext
                 [defender],
                 attacker,
                 powerBarbarianBrutalStrike.Name,
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;
@@ -1519,7 +1519,7 @@ internal static partial class CharacterContext
                 [defender],
                 attacker,
                 powerRogueCunningStrike.Name,
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;

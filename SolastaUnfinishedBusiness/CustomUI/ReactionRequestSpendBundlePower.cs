@@ -179,7 +179,9 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
     {
         var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}Description";
 
-        return Gui.Format(format, _guiCharacter.Name);
+        return string.IsNullOrEmpty(reactionParams.StringParameter2)
+            ? Gui.Format(format, _guiCharacter.Name)
+            : reactionParams.StringParameter2;
     }
 
     public override string FormatReactTitle()

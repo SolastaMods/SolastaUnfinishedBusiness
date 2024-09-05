@@ -456,8 +456,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             [attacker],
             attacker,
             "ControlledChaos",
-            ReactionValidated,
-            ReactionNotValidated);
+            reactionValidated: ReactionValidated,
+            reactionNotValidated: ReactionNotValidated);
 
         rulesetAttacker.UsablePowers.Remove(usablePowerFirst);
         rulesetAttacker.UsablePowers.Remove(usablePowerSecond);
@@ -637,6 +637,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             void ReactionValidated()
             {
+                // this is an exception to rule and only happens
+                // as powers added at 1st level from subclasses won't have a class assigned
+                usablePower.Consume();
+
                 List<TrendInfo> advantageTrends =
                     [new(1, FeatureSourceType.CharacterFeature, PowerTidesOfChaos.Name, PowerTidesOfChaos)];
 
@@ -835,17 +839,17 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            string stringParameter;
+            string StringParameter;
 
             if (helper.Side == attacker.Side &&
                 action.AttackRollOutcome is RollOutcome.Failure)
             {
-                stringParameter = "BendLuckAttack";
+                StringParameter = "BendLuckAttack";
             }
             else if (helper.Side != attacker.Side &&
                      action.AttackRollOutcome is RollOutcome.Success)
             {
-                stringParameter = "BendLuckEnemyAttack";
+                StringParameter = "BendLuckEnemyAttack";
             }
             else
             {
@@ -856,8 +860,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 attacker,
-                stringParameter,
-                $"SpendPower{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
+                StringParameter,
+                $"SpendPower{StringParameter}Description".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
                 battleManager);
 
@@ -945,19 +949,19 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            string stringParameter;
+            string StringParameter;
 
             if (helper.Side == defender.Side &&
                 abilityCheckData.AbilityCheckRoll > 0 &&
                 abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
-                stringParameter = "BendLuckCheck";
+                StringParameter = "BendLuckCheck";
             }
             else if (helper.Side != defender.Side &&
                      abilityCheckData.AbilityCheckRoll > 0 &&
                      abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                stringParameter = "BendLuckEnemyCheck";
+                StringParameter = "BendLuckEnemyCheck";
             }
             else
             {
@@ -968,8 +972,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 helper,
-                stringParameter,
-                $"SpendPower{stringParameter}Description".Formatted(Category.Reaction, defender.Name),
+                StringParameter,
+                $"SpendPower{StringParameter}Description".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
                 battleManager);
 
@@ -1062,17 +1066,17 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            string stringParameter;
+            string StringParameter;
 
             if (helper.Side == defender.Side &&
                 savingThrowData.SaveOutcome == RollOutcome.Failure)
             {
-                stringParameter = "BendLuckSaving";
+                StringParameter = "BendLuckSaving";
             }
             else if (helper.Side != defender.Side &&
                      savingThrowData.SaveOutcome == RollOutcome.Success)
             {
-                stringParameter = "BendLuckEnemySaving";
+                StringParameter = "BendLuckEnemySaving";
             }
             else
             {
@@ -1085,8 +1089,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 helper,
-                stringParameter,
-                $"SpendPower{stringParameter}Description".Formatted(Category.Reaction,
+                StringParameter,
+                $"SpendPower{StringParameter}Description".Formatted(Category.Reaction,
                     defender.Name, attacker?.Name ?? envTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager);

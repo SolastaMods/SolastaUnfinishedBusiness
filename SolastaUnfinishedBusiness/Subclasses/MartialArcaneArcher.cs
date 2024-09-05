@@ -624,7 +624,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 [defender],
                 attacker,
                 "ArcaneShot",
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;

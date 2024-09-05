@@ -998,8 +998,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 [character],
                 character,
                 "ControlledSurge",
-                ReactionValidated,
-                ReactionNotValidated);
+                reactionValidated: ReactionValidated,
+                reactionNotValidated: ReactionNotValidated);
 
             rulesetAttacker.usablePowers = usablePowersOrig;
 

@@ -361,7 +361,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 [defender],
                 attacker,
                 powerAudaciousWhirl.Name,
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;
