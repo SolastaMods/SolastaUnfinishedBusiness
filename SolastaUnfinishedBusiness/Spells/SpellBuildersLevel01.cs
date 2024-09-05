@@ -1442,7 +1442,6 @@ internal static partial class SpellBuilders
                         additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetRestrictedCreatureFamilies(CharacterFamilyDefinitions.Humanoid.Name)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1464,8 +1463,74 @@ internal static partial class SpellBuilders
     private sealed class PowerOrSpellFinishedByMeCommand(
         ConditionDefinition conditionMark,
         FeatureDefinitionPower powerPool,
-        params ConditionDefinition[] conditions) : IPowerOrSpellFinishedByMe
+        params ConditionDefinition[] conditions) : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
+        public bool EnforceFullSelection => true;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            var selectedTargets = __instance.SelectionService.SelectedTargets;
+
+            if (selectedTargets.Any(selectedTarget => !target.IsWithinRange(selectedTarget, 6)))
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&SecondTargetNotWithinRange");
+                return false;
+            }
+
+            var rulesetCaster = __instance.ActionParams.ActingCharacter.RulesetCharacter.GetOriginalHero();
+
+            if (rulesetCaster == null)
+            {
+                return false;
+            }
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            if (rulesetTarget.CharacterFamily == "Dragon" &&
+                !rulesetCaster.LanguageProficiencies.Contains("Language_Draconic"))
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
+                return false;
+            }
+
+            if (rulesetTarget.CharacterFamily == "Fey" &&
+                !rulesetCaster.LanguageProficiencies.Contains("Language_Elvish"))
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
+                return false;
+            }
+
+            if (rulesetTarget.CharacterFamily is "Giant" or "Giant_Rugan" &&
+                !rulesetCaster.LanguageProficiencies.Contains("Language_Giant"))
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
+                return false;
+            }
+
+            if (rulesetTarget.CharacterFamily == "Fiend" &&
+                !rulesetCaster.LanguageProficiencies.Contains("Language_Infernal"))
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
+                return false;
+            }
+
+            if (rulesetTarget.CharacterFamily == "Elemental" &&
+                !rulesetCaster.LanguageProficiencies.Contains("Language_Terran"))
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
+                return false;
+            }
+
+            var result = rulesetTarget.CharacterFamily == "Humanoid";
+
+            if (!result)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
+            }
+
+            return result;
+        }
+
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action.Countered || action.ExecutionFailed)

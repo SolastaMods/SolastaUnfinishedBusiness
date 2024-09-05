@@ -306,6 +306,7 @@ Tooltip/&Tag9000Title=Effet personnalisé
 Tooltip/&TagDamageChaosBoltTitle=Dégâts chaotiques
 Tooltip/&TagUnfinishedBusinessTitle=Inachevé
 Tooltip/&TargetMeleeWeaponError=Impossible d'effectuer une attaque au corps à corps sur cette cible car elle se trouve à {0}
+Tooltip/&TargetMustUnderstandYou=La cible doit comprendre votre commande
 UI/&CustomFeatureSelectionStageDescription=Sélectionnez des fonctionnalités supplémentaires pour votre classe/sous-classe.
 UI/&CustomFeatureSelectionStageFeatures=Caractéristiques
 UI/&CustomFeatureSelectionStageNotDone=Vous devez sélectionner toutes les fonctionnalités disponibles avant de continuer

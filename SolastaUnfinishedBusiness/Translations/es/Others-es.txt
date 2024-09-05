@@ -306,6 +306,7 @@ Tooltip/&Tag9000Title=Efecto personalizado
 Tooltip/&TagDamageChaosBoltTitle=Daño caótico
 Tooltip/&TagUnfinishedBusinessTitle=Negocios inconclusos
 Tooltip/&TargetMeleeWeaponError=No se puede realizar un ataque cuerpo a cuerpo contra este objetivo porque no está dentro de {0}
+Tooltip/&TargetMustUnderstandYou=El objetivo debe comprender tu orden
 UI/&CustomFeatureSelectionStageDescription=Seleccione funciones adicionales para su clase/subclase.
 UI/&CustomFeatureSelectionStageFeatures=Características
 UI/&CustomFeatureSelectionStageNotDone=Debe seleccionar todas las funciones disponibles antes de continuar
