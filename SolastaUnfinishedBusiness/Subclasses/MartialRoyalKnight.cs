@@ -276,7 +276,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             void ReactionValidated()
             {
-                rulesetHelper.UsePower(usablePower);
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 TryAlterOutcomeSavingThrow.TryRerollSavingThrow(attacker, defender, savingThrowData, hasHitVisual);
             }
         }

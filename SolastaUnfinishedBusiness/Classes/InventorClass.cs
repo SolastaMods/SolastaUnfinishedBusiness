@@ -17,6 +17,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -594,7 +595,7 @@ internal static class InventorClass
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityInventorRituals")
                     .SetGuiPresentationNoContent(true)
-                    .SetAuthorizedActions(ActionDefinitions.Id.CastRitual)
+                    .SetAuthorizedActions(Id.CastRitual)
                     .AddToDB())
             .AddToDB();
     }
@@ -1019,6 +1020,8 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         void ReactionValidated()
         {
+            helper.SpendActionType(ActionType.Reaction);
+
             var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
 
             abilityCheckModifier.AbilityCheckModifierTrends.Add(
@@ -1092,6 +1095,8 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         void ReactionValidated()
         {
+            helper.SpendActionType(ActionType.Reaction);
+
             savingThrowData.SaveOutcomeDelta += bonus;
             savingThrowData.SaveOutcome =
                 savingThrowData.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;

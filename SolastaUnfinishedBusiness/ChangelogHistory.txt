@@ -4,7 +4,8 @@
 - fixed Barbarian Sundering Blow interaction with Call Lightning, and other proxy like powers
 - fixed Lucky, and Mage Slayer feats double consumption
 - fixed Martial Commander coordinated defense to require an attack first [VANILLA]
-- fixed Party Editor to register/unregister powers from feats
+- fixed Party Editor to register/unregister powers from feats 
+- fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe not consuming reaction
 - improved ability checks to also allow reactions on success [Circle of the Cosmos woe]
 - improved Conversion Slots, and Shorthand versatilities to react on ability checks
 - improved game log to avoid voxelization warning messages to flood the same [DM overlay trick]

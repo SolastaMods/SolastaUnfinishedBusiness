@@ -865,6 +865,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 EffectHelpers.StartVisualEffect(helper, attacker,
                     PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
 
@@ -975,6 +977,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 EffectHelpers.StartVisualEffect(helper, defender,
                     PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
 
@@ -1091,6 +1095,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 EffectHelpers.StartVisualEffect(helper, defender,
                     PowerDomainLawHolyRetribution, EffectHelpers.EffectType.Caster);
 

@@ -824,6 +824,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
                 attackModifier.AttacktoHitTrends.Add(
@@ -887,6 +889,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
                 var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
 
@@ -959,6 +963,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
                 savingThrowData.SaveOutcomeDelta += dieRoll;
@@ -1040,6 +1046,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
@@ -1104,6 +1112,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
                 var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
@@ -1178,6 +1188,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
