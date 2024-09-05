@@ -1208,7 +1208,7 @@ internal static partial class CharacterContext
             }
 
             yield return helper.MyReactToDoNothing(
-                ExtraActionId.DoNothingReaction,
+                ExtraActionId.DoNothingFree,
                 defender,
                 "MagicalGuidanceCheck",
                 "CustomReactionMagicalGuidanceCheckDescription"

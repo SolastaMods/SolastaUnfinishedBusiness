@@ -1126,7 +1126,7 @@ internal static class RaceFeats
 
             // any reaction within a ByMe trigger should use the acting character as waiter
             yield return attacker.MyReactToDoNothing(
-                ExtraActionId.DoNothingReaction,
+                ExtraActionId.DoNothingFree,
                 attacker,
                 "DwarvenFortitude",
                 "CustomReactionDwarvenFortitudeDescription".Formatted(Category.Reaction),
