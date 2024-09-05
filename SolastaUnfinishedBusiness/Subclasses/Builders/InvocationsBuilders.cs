@@ -996,11 +996,6 @@ internal static class InvocationsBuilders
         {
             var actingCharacter = action.ActingCharacter;
 
-            if (actingCharacter.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
             if (action.ActionType != ActionType.Bonus &&
                 //action.ActingCharacter.PerceptionState == ActionDefinitions.PerceptionState.OnGuard
                 action.ActionDefinition.ActionScope == ActionScope.Battle)
@@ -1068,7 +1063,7 @@ internal static class InvocationsBuilders
                 conditionDefinition.Name,
                 DurationType.Minute,
                 1,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,

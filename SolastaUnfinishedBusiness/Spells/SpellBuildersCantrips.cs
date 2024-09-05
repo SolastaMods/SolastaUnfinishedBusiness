@@ -825,8 +825,7 @@ internal static partial class SpellBuilders
 
         conditionBoomingBladeSheathed.possessive = false;
         conditionBoomingBladeSheathed.AddCustomSubFeatures(
-            new ActionFinishedByMeConditionBoomingBladeSheathed(
-                conditionBoomingBladeSheathed, powerBoomingBladeDamage));
+            new OnConditionAddedOrRemovedBoomingBladeSheathed(conditionBoomingBladeSheathed, powerBoomingBladeDamage));
 
         var additionalDamageBoomingBlade = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageBoomingBlade")
@@ -884,24 +883,21 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ActionFinishedByMeConditionBoomingBladeSheathed(
+    private sealed class OnConditionAddedOrRemovedBoomingBladeSheathed(
         ConditionDefinition conditionBoomingBladeSheathed,
-        FeatureDefinitionPower powerBoomingBladeDamage) : IActionFinishedByMe
+        FeatureDefinitionPower powerBoomingBladeDamage) : IOnConditionAddedOrRemoved
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (action.ActionId != Id.TacticalMove)
-            {
-                yield break;
-            }
+            // empty
+        }
 
-            var defender = action.ActingCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
+        public void OnConditionRemoved(RulesetCharacter rulesetDefender, RulesetCondition rulesetCondition)
+        {
             if (!rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionBoomingBladeSheathed.Name, out var activeCondition))
             {
-                yield break;
+                return;
             }
 
             rulesetDefender.RemoveCondition(activeCondition);
@@ -909,6 +905,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
             var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
             var usablePower = PowerProvider.Get(powerBoomingBladeDamage, rulesetAttacker);
+            var defender = GameLocationCharacter.GetFromActor(rulesetDefender);
 
             attacker.MyExecuteActionSpendPower(usablePower, false, defender);
         }
