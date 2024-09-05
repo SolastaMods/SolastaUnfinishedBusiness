@@ -1250,31 +1250,32 @@ internal static partial class SpellBuilders
             .SetAllowedActionTypes(false, false, true, false, false, false)
             .AddToDB();
 
+         var moveAfraidDecision = DatabaseRepository.GetDatabase<DecisionDefinition>().GetElement("Move_Afraid");
+
         // Approach
 
         #region Approach AI Behavior
 
-        var moveAfraidDecision = DatabaseRepository.GetDatabase<DecisionDefinition>().GetElement("Move_Afraid");
-        var scorer = Object.Instantiate(moveAfraidDecision.Decision.scorer);
+        var scorerApproach = Object.Instantiate(moveAfraidDecision.Decision.scorer);
 
-        scorer.name = "MoveScorer_Approach";
-        // invert PenalizeVeryCloseEnemyProximityAtPosition behavior
-        scorer.scorer.WeightedConsiderations[2].Consideration.boolSecParameter = true;
-        // remove PenalizeVeryCloseEnemyProximityAtPosition
-        scorer.scorer.WeightedConsiderations.RemoveAt(1);
+        scorerApproach.name = "MoveScorer_Approach";
+        // invert PenalizeFearSourceProximityAtPosition
+        scorerApproach.scorer.WeightedConsiderations[2].Consideration.boolSecParameter = true;
+        // invert PenalizeVeryCloseEnemyProximityAtPosition
+        scorerApproach.scorer.WeightedConsiderations[1].Consideration.boolSecParameter = true;
 
-        var decision = DecisionDefinitionBuilder
+        var decisionApproach = DecisionDefinitionBuilder
             .Create("Move_Approach")
             .SetGuiPresentationNoContent(true)
             .SetDecisionDescription(
                 "Go as close as possible to enemies.",
                 "Move",
-                scorer)
+                scorerApproach)
             .AddToDB();
 
-        var approachPackage = DecisionPackageDefinitionBuilder
+        var packageApproach = DecisionPackageDefinitionBuilder
             .Create("Approach")
-            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decision, weight = 9 })
+            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decisionApproach, weight = 9 })
             .AddToDB();
 
         #endregion
@@ -1285,9 +1286,8 @@ internal static partial class SpellBuilders
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
-            .SetBrain(approachPackage, true, true)
+            .SetBrain(packageApproach, true, true)
             .SetFeatures(actionAffinityCanOnlyMove)
-            .SetSpecialInterruptions(ConditionInterruption.Moved)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedCommandApproachOrFlee(true))
             .AddToDB();
 
@@ -1306,15 +1306,38 @@ internal static partial class SpellBuilders
 
         // Flee
 
+        #region Flee AI Behavior
+
+        var scorerFlee = Object.Instantiate(moveAfraidDecision.Decision.scorer);
+
+        scorerFlee.name = "MoveScorer_Flee";
+        // tweak IsCloseFromMe to differ a bit from Fear on location determination and force enemy to move further
+        scorerFlee.scorer.WeightedConsiderations[3].Consideration.floatParameter = 6;
+
+        var decisionFlee = DecisionDefinitionBuilder
+            .Create("Move_Flee")
+            .SetGuiPresentationNoContent(true)
+            .SetDecisionDescription(
+                "Go as far as possible from enemies.",
+                "Move",
+                scorerFlee)
+            .AddToDB();
+
+        var packageFlee = DecisionPackageDefinitionBuilder
+            .Create("Flee")
+            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decisionFlee, weight = 9 })
+            .AddToDB();
+
+        #endregion
+
         var conditionFlee = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Flee")
             .SetGuiPresentation($"Power{NAME}Flee", Category.Feature, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
-            .SetBrain(DecisionPackageDefinitions.Fear, true, true)
+            .SetBrain(packageFlee, true, true)
             .SetFeatures(actionAffinityCanOnlyMove)
-            .SetSpecialInterruptions(ConditionInterruption.Moved)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedCommandApproachOrFlee(false))
             .AddToDB();
 
@@ -1340,9 +1363,8 @@ internal static partial class SpellBuilders
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
+            .AddCustomSubFeatures(new CharacterBeforeTurnStartListenerCommandGrovel())
             .AddToDB();
-
-        conditionGrovel.AddCustomSubFeatures(new CharacterBeforeTurnStartListenerCommandGrovel());
 
         var powerGrovel = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}Grovel")
@@ -1356,6 +1378,8 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionGrovel))
                     .Build())
             .AddToDB();
+
+        // Halt
 
         var conditionHalt = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Halt")
@@ -1381,6 +1405,8 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(powerPool, false, powerApproach, powerFlee, powerGrovel, powerHalt);
+
+        // Command Spell
 
         var conditionSelf = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Self")
