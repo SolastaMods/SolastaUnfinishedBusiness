@@ -68,7 +68,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             .Create(FeatureDefinitionActionAffinitys.ActionAffinityBarbarianRecklessAttack,
                 $"ActionAffinity{Name}Reroll")
             .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions((Id)ExtraActionId.WildSurgeReroll)
             .AddToDB();
 
@@ -307,7 +306,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var actionAffinityTeleport = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}Teleport")
                 .SetGuiPresentationNoContent(true)
-                .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeTeleport)
                 .AddToDB();
 
@@ -315,7 +313,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .Create(FeatureDefinitionActionAffinitys.ActionAffinityBarbarianRecklessAttack,
                     $"ActionAffinity{Name}TeleportFree")
                 .SetGuiPresentationNoContent(true)
-                .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeTeleportFree)
                 .AddToDB();
 
@@ -372,14 +369,12 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var actionAffinitySummon = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}Summon")
                 .SetGuiPresentationNoContent(true)
-                .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeSummon)
                 .AddToDB();
 
             var actionAffinitySummonFree = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}SummonFree")
                 .SetGuiPresentationNoContent(true)
-                .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeSummonFree)
                 .AddToDB();
 
@@ -702,14 +697,12 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var actionAffinityBolt = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}Bolt")
                 .SetGuiPresentationNoContent(true)
-                .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeBolt)
                 .AddToDB();
 
             var actionAffinityBoltFree = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}BoltFree")
                 .SetGuiPresentationNoContent(true)
-                .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeBoltFree)
                 .AddToDB();
 

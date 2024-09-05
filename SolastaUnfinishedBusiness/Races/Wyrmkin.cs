@@ -416,7 +416,6 @@ internal static class RaceWyrmkinBuilder
         var actionAffinityCrystalWyrmkinCrystalDefense = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}CrystalDefense")
             .SetGuiPresentation(Category.Feature)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions((Id)ExtraActionId.CrystalDefenseOn)
             .AddToDB();
 
