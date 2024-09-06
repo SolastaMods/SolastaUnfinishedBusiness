@@ -1591,7 +1591,7 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            if (!rulesetActorDefender.AllConditions.Any(x =>
+            if (!rulesetActorDefender.AllConditionsForEnumeration.Any(x =>
                     x.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name) &&
                     x.SourceGuid == rulesetActorCaster?.Guid))
             {

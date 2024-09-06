@@ -492,7 +492,8 @@ internal static class ClassFeats
             }
 
             var rulesetCondition =
-                rulesetCharacterMonster.AllConditions.FirstOrDefault(x => x.SourceGuid == TemporaryHitPointsGuid);
+                rulesetCharacterMonster.AllConditionsForEnumeration.FirstOrDefault(x =>
+                    x.SourceGuid == TemporaryHitPointsGuid);
 
             if (rulesetCondition != null)
             {

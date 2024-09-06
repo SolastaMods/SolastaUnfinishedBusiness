@@ -388,7 +388,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
-            if (rulesetDefender.AllConditions.All(x => x.ConditionDefinition != conditionDiscordance))
+            if (rulesetDefender.AllConditionsForEnumeration.All(x => x.ConditionDefinition != conditionDiscordance))
             {
                 rulesetDefender.InflictCondition(
                     conditionDiscordance.Name,
@@ -469,7 +469,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var targets = action.actionParams.TargetCharacters
                 .Where(x =>
                     x.RulesetActor is { IsDeadOrDyingOrUnconscious: false }
-                    && x.RulesetActor.AllConditions.Count(y =>
+                    && x.RulesetActor.AllConditionsForEnumeration.Count(y =>
                         y.ConditionDefinition == conditionDiscordance) > 1)
                 .ToList();
 

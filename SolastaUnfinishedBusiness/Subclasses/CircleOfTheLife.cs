@@ -223,7 +223,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
             locationCharacter.UsedSpecialFeatures.Add(VerdancyHealedTag, 1);
 
-            foreach (var rulesetCondition in rulesetCharacter.AllConditions
+            foreach (var rulesetCondition in rulesetCharacter.AllConditionsForEnumeration
                          .Where(x => x.ConditionDefinition.Name is ConditionVerdancy or ConditionVerdancy14)
                          .ToList())
             {

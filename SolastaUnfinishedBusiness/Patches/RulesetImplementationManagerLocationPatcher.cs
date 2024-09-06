@@ -112,7 +112,7 @@ public static class RulesetImplementationManagerLocationPatcher
             if (Main.Settings.EnableTeleportToRemoveRestrained)
             {
                 var rulesetCharacter = character.RulesetCharacter;
-                var conditionsToRemove = rulesetCharacter.AllConditions
+                var conditionsToRemove = rulesetCharacter.AllConditionsForEnumeration
                     .Where(x =>
                         x.ConditionDefinition.IsSubtypeOf(ConditionRestrained) &&
                         (character.Side == Side.Ally ||

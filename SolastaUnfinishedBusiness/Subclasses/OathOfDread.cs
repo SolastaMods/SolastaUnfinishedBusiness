@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -317,10 +316,8 @@ public sealed class OathOfDread : AbstractSubclass
             }
 
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
-            var hasFrightenedFromSource = rulesetCharacter.AllConditions.Any(x =>
-                x.SourceGuid == rulesetAttacker.Guid &&
-                (x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
-                 x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened)));
+            var hasFrightenedFromSource = rulesetCharacter.HasAnyConditionOfTypeOrSubType(
+                RuleDefinitions.ConditionFrightened);
 
             if (!hasFrightenedFromSource ||
                 rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
@@ -376,9 +373,7 @@ public sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            var hasFrightened = rulesetAttacker.AllConditions.Any(x =>
-                x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
-                x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened));
+            var hasFrightened = rulesetAttacker.HasAnyConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightened);
 
             if (!hasFrightened && !rulesetAttacker.HasConditionOfType(conditionMarkOfTheSubmission))
             {

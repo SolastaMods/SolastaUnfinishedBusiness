@@ -536,7 +536,7 @@ internal static class RulesetCharacterExtensions
     internal static bool RemoveAllConditionsOfType(this RulesetCharacter character, params string[] types)
     {
         //should we return number of removed conditions, instead of whether we removed any?
-        var conditions = character?.AllConditions
+        var conditions = character?.AllConditionsForEnumeration
             .Where(c => types.Contains(c.conditionDefinition.Name))
             .ToList();
 
@@ -580,7 +580,7 @@ internal static class RulesetCharacterExtensions
 
     internal static bool HasTemporaryConditionOfType(this RulesetCharacter character, string conditionName)
     {
-        return character.AllConditions
+        return character.AllConditionsForEnumeration
             .Any(condition => condition.ConditionDefinition.IsSubtypeOf(conditionName) &&
                               condition.DurationType != DurationType.Permanent);
     }

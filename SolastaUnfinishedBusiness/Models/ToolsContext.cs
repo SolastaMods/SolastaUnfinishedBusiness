@@ -272,14 +272,15 @@ internal static class ToolsContext
 
         private static void TransferConditionsOfCategory(RulesetActor oldHero, RulesetActor newHero, string category)
         {
-            if (!oldHero.conditionsByCategory.TryGetValue(category, out var conditions))
+            if (!oldHero.ConditionsByCategory.TryGetValue(category, out var conditions))
             {
                 return;
             }
 
             newHero.AddConditionCategoryAsNeeded(category);
-            newHero.conditionsByCategory[category].AddRange(conditions);
-            newHero.allConditions.AddRange(conditions);
+            newHero.AllConditions.AddRange(conditions);
+            newHero.AllConditionsForEnumeration.AddRange(conditions);
+            newHero.ConditionsByCategory[category].AddRange(conditions);
         }
 
         private static void CleanupOldHeroConditions(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
@@ -288,8 +289,9 @@ internal static class ToolsContext
             oldHero.allConditions
                 .Where(c => !newHero.AllConditions.Contains(c))
                 .Do(c => c.Unregister());
-            oldHero.allConditions.Clear();
-            oldHero.conditionsByCategory.Clear();
+            oldHero.AllConditions.Clear();
+            oldHero.AllConditionsForEnumeration.Clear();
+            oldHero.ConditionsByCategory.Clear();
         }
 
         private static void CopyInventoryOver([NotNull] RulesetCharacter oldHero, int3 position)

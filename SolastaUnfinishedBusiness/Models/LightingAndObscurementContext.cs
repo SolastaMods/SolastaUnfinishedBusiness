@@ -234,7 +234,7 @@ internal static class LightingAndObscurementContext
     {
         return
             actor != null &&
-            actor.AllConditions
+            actor.AllConditionsForEnumeration
                 .Select(y => y.ConditionDefinition)
                 .Any(x => x.IsSubtypeOf(ConditionBlinded.Name) && x != ConditionBlindedByDarkness);
     }

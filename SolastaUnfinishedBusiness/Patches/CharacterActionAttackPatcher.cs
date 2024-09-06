@@ -838,13 +838,12 @@ public static class CharacterActionAttackPatcher
                 rulesetDefender.matchingInterruption = true;
                 rulesetDefender.matchingInterruptionConditions.Clear();
 
-                foreach (var rulesetCondition in rulesetDefender.conditionsByCategory
-                             .SelectMany(keyValuePair => keyValuePair.Value
-                                 .Where(rulesetCondition =>
-                                     rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
-                                         (ConditionInterruption)ExtraConditionInterruption
-                                             .AfterWasAttackedNotBySource) &&
-                                     rulesetCondition.SourceGuid != actingCharacter.Guid)))
+                foreach (var rulesetCondition in rulesetDefender.AllConditionsForEnumeration
+                             .Where(rulesetCondition =>
+                                 rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
+                                     (ConditionInterruption)ExtraConditionInterruption
+                                         .AfterWasAttackedNotBySource) &&
+                                 rulesetCondition.SourceGuid != actingCharacter.Guid))
                 {
                     rulesetDefender.matchingInterruptionConditions.Add(rulesetCondition);
                 }

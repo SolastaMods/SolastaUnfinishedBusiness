@@ -45,11 +45,10 @@ public static class InfluenceFearSourceProximityPatcher
             var numerator = 0.0f;
             var rulesetCharacter = parameters.character.GameLocationCharacter.RulesetCharacter;
 
-            foreach (var rulesetCondition in rulesetCharacter.ConditionsByCategory
-                         .SelectMany(kvp => kvp.Value
-                             .Where(rulesetCondition =>
-                                 rulesetCondition.ConditionDefinition.ForceBehavior &&
-                                 rulesetCondition.ConditionDefinition.FearSource)))
+            foreach (var rulesetCondition in rulesetCharacter.AllConditionsForEnumeration
+                         .Where(rulesetCondition =>
+                             rulesetCondition.ConditionDefinition.ForceBehavior &&
+                             rulesetCondition.ConditionDefinition.FearSource))
             {
                 // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
                 foreach (var relevantEnemy in parameters.situationalInformation.RelevantEnemies)

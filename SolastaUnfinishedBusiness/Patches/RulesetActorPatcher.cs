@@ -568,7 +568,7 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.ContainsKey(category))
+            if (!character.ConditionsByCategory.ContainsKey(category))
             {
                 return;
             }
@@ -596,7 +596,7 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.TryGetValue(category, out var value))
+            if (!character.ConditionsByCategory.TryGetValue(category, out var value))
             {
                 return;
             }
@@ -627,7 +627,7 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.TryGetValue(category, out var value))
+            if (!character.ConditionsByCategory.TryGetValue(category, out var value))
             {
                 return;
             }
@@ -690,7 +690,7 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.TryGetValue(category, out var value))
+            if (!character.ConditionsByCategory.TryGetValue(category, out var value))
             {
                 return;
             }
@@ -1110,7 +1110,7 @@ public static class RulesetActorPatcher
             __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var rulesetCondition in __instance.AllConditions)
+            foreach (var rulesetCondition in __instance.AllConditionsForEnumeration)
             {
                 var immunityRemovingFeatures = rulesetCondition.conditionDefinition
                     .GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
@@ -1150,7 +1150,7 @@ public static class RulesetActorPatcher
             __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var rulesetCondition in __instance.AllConditions)
+            foreach (var rulesetCondition in __instance.AllConditionsForEnumeration)
             {
                 var immunityRemovingFeatures = rulesetCondition.conditionDefinition
                     .GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();

@@ -1245,13 +1245,12 @@ public static class CharacterActionMagicEffectPatcher
                     rulesetTarget.matchingInterruption = true;
                     rulesetTarget.matchingInterruptionConditions.Clear();
 
-                    foreach (var rulesetCondition in rulesetTarget.conditionsByCategory
-                                 .SelectMany(keyValuePair => keyValuePair.Value
-                                     .Where(rulesetCondition =>
-                                         rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
-                                             (ConditionInterruption)ExtraConditionInterruption
-                                                 .AfterWasAttackedNotBySource) &&
-                                         rulesetCondition.SourceGuid != actingCharacter.Guid)))
+                    foreach (var rulesetCondition in rulesetTarget.AllConditionsForEnumeration
+                                 .Where(rulesetCondition =>
+                                     rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
+                                         (ConditionInterruption)ExtraConditionInterruption
+                                             .AfterWasAttackedNotBySource) &&
+                                     rulesetCondition.SourceGuid != actingCharacter.Guid))
                     {
                         rulesetTarget.matchingInterruptionConditions.Add(rulesetCondition);
                     }

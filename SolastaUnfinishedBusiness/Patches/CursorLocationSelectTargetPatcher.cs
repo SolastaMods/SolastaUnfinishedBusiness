@@ -80,7 +80,7 @@ public static class CursorLocationSelectTargetPatcher
                 .FirstOrDefault(x =>
                     x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
                     rulesetCharacterMonster.MonsterDefinition.Name == OwlFamiliar &&
-                    rulesetCharacterMonster.AllConditions.Exists(y =>
+                    rulesetCharacterMonster.AllConditionsForEnumeration.Exists(y =>
                         y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
                         y.SourceGuid == actingCharacter.Guid));
 

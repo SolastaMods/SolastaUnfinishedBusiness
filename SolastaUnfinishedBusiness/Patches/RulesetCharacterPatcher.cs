@@ -349,12 +349,11 @@ public static class RulesetCharacterPatcher
                          .OfType<RulesetCharacter>()
                          .ToList())
             {
-                foreach (var rulesetCondition in targetRulesetCharacter.AllConditions
+                foreach (var rulesetCondition in targetRulesetCharacter.AllConditionsForEnumeration
                              .Where(x =>
                                  x.ConditionDefinition.SpecialInterruptions.Contains(
                                      (ConditionInterruption)ExtraConditionInterruption.SourceRageStop) &&
-                                 x.SourceGuid == sourceCharacter.Guid)
-                             .ToList())
+                                 x.SourceGuid == sourceCharacter.Guid))
                 {
                     targetRulesetCharacter.RemoveCondition(rulesetCondition);
 
