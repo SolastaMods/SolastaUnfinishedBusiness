@@ -291,9 +291,6 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
-        internal static ConditionDefinition ConditionDashing { get; } =
-            GetDefinition<ConditionDefinition>("ConditionDashing");
-
         internal static ConditionDefinition ConditionDomainMischiefBorrowedLuck { get; } =
             GetDefinition<ConditionDefinition>("ConditionDomainMischiefBorrowedLuck");
 
@@ -2483,11 +2480,6 @@ internal static partial class DatabaseHelper
     internal static class FormationDefinitions
     {
         internal static FormationDefinition Column2 { get; } = GetDefinition<FormationDefinition>("Column2");
-
-        internal static FormationDefinition SingleCreature { get; } =
-            GetDefinition<FormationDefinition>("SingleCreature");
-
-        internal static FormationDefinition Squad4 { get; } = GetDefinition<FormationDefinition>("Squad4");
     }
 
     internal static class GadgetBlueprints
@@ -3920,6 +3912,8 @@ internal static partial class DatabaseHelper
 
         internal static DecisionPackageDefinition DefaultSupportCasterWithBackupAttacksDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("DefaultSupportCasterWithBackupAttacksDecisions");
+
+        internal static DecisionPackageDefinition Fear { get; } = GetDefinition<DecisionPackageDefinition>("Fear");
 
         internal static DecisionPackageDefinition Idle { get; } = GetDefinition<DecisionPackageDefinition>("Idle");
     }

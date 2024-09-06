@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Displays;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -318,6 +321,32 @@ internal static class DocumentationContext
         sw.WriteLine(outString.ToString());
     }
 
+    private static readonly Dictionary<SpellListDefinition, CharacterClassDefinition> SpellListClassMap =
+        new()
+        {
+            { InventorClass.SpellList, InventorClass.Class },
+            { SpellListBard, Bard },
+            { SpellListCleric, Cleric },
+            { SpellListDruid, Druid },
+            { SpellListPaladin, Paladin },
+            { SpellListRanger, Ranger },
+            { SpellListSorcerer, Sorcerer },
+            { SpellListWarlock, Warlock },
+            { SpellListWizard, Wizard }
+        };
+
+    private static string GetClassesWhichCanCastSpell(SpellDefinition spell)
+    {
+        var result = SpellListClassMap.Where(kvp => kvp.Key.SpellsByLevel
+                .SelectMany(x => x.Spells)
+                .Contains(spell))
+            .Aggregate(" [", (current, kvp) => current + kvp.Value.FormatTitle() + ",");
+
+        result = result.Substring(0, result.Length - 1) + "]";
+
+        return result;
+    }
+
     private static void DumpOthers<T>(string groupName, Func<T, bool> filter) where T : BaseDefinition
     {
         var outString = new StringBuilder();
@@ -367,6 +396,8 @@ internal static class DocumentationContext
                 {
                     title += " [" + Gui.Format("Tooltip/&TagConcentrationTitle") + "]";
                 }
+
+                title += GetClassesWhichCanCastSpell(spellDefinition);
             }
 
             outString.AppendLine($"# {counter++}. - {title} {GetTag(featureDefinition)}");
