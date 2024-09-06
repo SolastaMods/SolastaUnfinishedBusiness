@@ -36,19 +36,19 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "InfluenceFearSourceProximity",
+                "considerationType": "InfluenceEnemyProximity",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
-                "stringParameter": "",
-                "floatParameter": 6.0,
-                "intParameter": 1,
+                "stringParameter": "ConditionCommandSpellApproach",
+                "floatParameter": 3.0,
+                "intParameter": 2,
                 "byteParameter": 0,
                 "boolParameter": true,
-                "boolSecParameter": true,
+                "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "PenalizeFearSourceProximityAtPosition"
+              "name": "PenalizeVeryCloseEnemyProximityAtPosition"
             },
             "weight": 1.0
           },
@@ -58,19 +58,19 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "DistanceFromMe",
+                "considerationType": "InfluenceFearSourceProximity",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
-                "stringParameter": "",
-                "floatParameter": 20.0,
-                "intParameter": 0,
+                "stringParameter": "ConditionCommandSpellApproach",
+                "floatParameter": 6.0,
+                "intParameter": 1,
                 "byteParameter": 0,
-                "boolParameter": false,
+                "boolParameter": true,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "IsCloseFromMe"
+              "name": "PenalizeFearSourceProximityAtPosition"
             },
             "weight": 1.0
           }

@@ -65,9 +65,7 @@
     "hasVelocity": false,
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
-    "restrictedCreatureFamilies": [
-      "Humanoid"
-    ],
+    "restrictedCreatureFamilies": [],
     "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,

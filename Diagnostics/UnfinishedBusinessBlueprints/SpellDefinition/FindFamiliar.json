@@ -97,7 +97,7 @@
           "number": 1,
           "conditionDefinition": "Definition:ConditionMindControlledByCaster:72691050707821744968bd0595150b86",
           "persistOnConcentrationLoss": false,
-          "decisionPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
+          "decisionPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",
           "effectProxyDefinitionName": null
         },
         "hasFilterId": false,

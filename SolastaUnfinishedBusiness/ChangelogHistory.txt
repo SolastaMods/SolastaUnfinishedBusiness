@@ -16,8 +16,9 @@
 - improved mod UI to ensure all settings required to be in sync on MP sessions are now under Gameplay
 - improved saving roll reaction modal descriptions [Circle of the Cosmos, Sorcerer Wild Magic, etc.]
 - improved Sorcerer Wild Magic tides of chaos to react on ability checks
+- improved spells documentation dump to include which classes can cast any given spell
 - improved vanilla to allow reactions on gadget's saving roll [traps]
-- improved Victory Modal export behavior to allow heroes not in pool to be exported [VANILLA]
+- improved victory modal export behavior to allow heroes not in pool to be exported [VANILLA]
 
 1.5.97.29:
 

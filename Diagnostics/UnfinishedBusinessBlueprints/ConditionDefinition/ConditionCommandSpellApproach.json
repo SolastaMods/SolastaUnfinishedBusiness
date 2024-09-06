@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:ActionAffinityCommandSpell:d57c78ae-570a-5fd6-b2fc-7eaca82a71bd"
+    "Definition:MovementAffinityConditionDashing:f04b97bac67dce94fae71500ae6412ad"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -17,9 +17,7 @@
   "durationParameter": 0,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Moved"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
