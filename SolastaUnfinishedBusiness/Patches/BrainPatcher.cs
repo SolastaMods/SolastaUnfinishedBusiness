@@ -37,12 +37,9 @@ public static class BrainPatcher
             if (!brain.contextUpToDateStatus.TryGetValue(contextType, out var isUpToDate))
             {
                 brain.contextUpToDateStatus.Add(contextType, true);
-                decisionContexts = brain.contexts[contextType];
             }
-            else
-            {
-                decisionContexts = brain.contexts[contextType];
-            }
+
+            decisionContexts = brain.contexts[contextType];
 
             if (isUpToDate)
             {
@@ -54,27 +51,6 @@ public static class BrainPatcher
             yield return brain.BuildContextElements(contextType, decisionContexts);
 
             brain.contextUpToDateStatus[contextType] = true;
-        }
-    }
-
-    //BUGFIX: vanilla was setting this to true when in reality should be false
-    [HarmonyPatch(typeof(Brain), nameof(Brain.InvalidateMovePositionsOnly))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class InvalidateMovePositionsOnly_Patch
-    {
-        [UsedImplicitly]
-        public static bool Prefix(Brain __instance)
-        {
-            if (__instance.contexts.TryGetValue(ContextType.MovePosition, out var decisionContextList))
-            {
-                decisionContextList.Clear();
-            }
-
-            __instance.contextUpToDateStatus.TryAdd(ContextType.MovePosition, false);
-            __instance.contextUpToDateStatus[ContextType.MovePosition] = false;
-
-            return false;
         }
     }
 }

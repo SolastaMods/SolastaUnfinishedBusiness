@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Patches.Considerations;
 [UsedImplicitly]
 public static class InfluenceFearSourceProximityPatcher
 {
-    //PATCH: allows this influence to be reverted if boolSecParameter is true
+    //PATCH: allows this influence to be reverted if enemy has StringParameter condition name
     //used on Command Spell, approach command
     [HarmonyPatch(typeof(InfluenceFearSourceProximity), nameof(InfluenceFearSourceProximity.Score))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -37,13 +37,14 @@ public static class InfluenceFearSourceProximityPatcher
             DecisionParameters parameters,
             ScoringResult scoringResult)
         {
+            var character = parameters.character.GameLocationCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
             var denominator = consideration.IntParameter > 0 ? consideration.IntParameter : 1;
             var floatParameter = consideration.FloatParameter;
-            var position = consideration.BoolParameter
-                ? context.position
-                : parameters.character.GameLocationCharacter.LocationPosition;
+            var position = consideration.BoolParameter ? context.position : character.LocationPosition;
             var numerator = 0.0f;
-            var rulesetCharacter = parameters.character.GameLocationCharacter.RulesetCharacter;
+            var approachSourceGuid = rulesetCharacter.AllConditionsForEnumeration.FirstOrDefault(x =>
+                x.ConditionDefinition.Name == consideration.StringParameter)?.SourceGuid ?? 0;
 
             foreach (var rulesetCondition in rulesetCharacter.AllConditionsForEnumeration
                          .Where(rulesetCondition =>
@@ -65,9 +66,10 @@ public static class InfluenceFearSourceProximityPatcher
                                 relevantEnemy, relevantEnemy.LocationPosition);
 
                     //BEGIN PATCH
-                    if (consideration.boolSecParameter)
+                    if (relevantEnemy.Guid == approachSourceGuid)
                     {
-                        distance = floatParameter - distance + 1;
+                        numerator += Mathf.Lerp(0.0f, 1f, Mathf.Clamp(distance / floatParameter, 0.0f, 1f));
+                        break;
                     }
                     //END PATCH
 
@@ -90,9 +92,10 @@ public static class InfluenceFearSourceProximityPatcher
                                 relevantAlly.LocationPosition);
 
                     //BEGIN PATCH
-                    if (consideration.boolSecParameter)
+                    if (relevantAlly.Guid == approachSourceGuid)
                     {
-                        distance = floatParameter - distance + 1;
+                        numerator += Mathf.Lerp(0.0f, 1f, Mathf.Clamp(distance / floatParameter, 0.0f, 1f));
+                        break;
                     }
                     //END PATCH
 

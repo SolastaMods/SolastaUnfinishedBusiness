@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TA.AI;
@@ -10,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Patches.Considerations;
 [UsedImplicitly]
 public static class InfluenceEnemyProximityPatcher
 {
-    //PATCH: allows this influence to be reverted if boolSecParameter is true
+    //PATCH: allows this influence to be reverted if enemy has StringParameter condition name
     //used on Command Spell, approach command
     [HarmonyPatch(typeof(InfluenceEnemyProximity), nameof(InfluenceEnemyProximity.Score))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -36,19 +37,20 @@ public static class InfluenceEnemyProximityPatcher
             DecisionParameters parameters,
             ScoringResult scoringResult)
         {
+            var character = parameters.character.GameLocationCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
             var denominator = consideration.IntParameter > 0 ? consideration.IntParameter : 1;
             var floatParameter = consideration.FloatParameter;
-            var position = consideration.BoolParameter
-                ? context.position
-                : parameters.character.GameLocationCharacter.LocationPosition;
+            var position = consideration.BoolParameter ? context.position : character.LocationPosition;
             var numerator = 0.0f;
+            var approachSourceGuid = rulesetCharacter.AllConditionsForEnumeration.FirstOrDefault(x =>
+                x.ConditionDefinition.Name == consideration.StringParameter)?.SourceGuid ?? 0;
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var enemy in parameters.situationalInformation.RelevantEnemies)
             {
                 if (!AiLocationDefinitions.IsRelevantTargetForCharacter(
-                        parameters.character.GameLocationCharacter,
-                        enemy, parameters.situationalInformation.HasRelevantPerceivedTarget))
+                        character, enemy, parameters.situationalInformation.HasRelevantPerceivedTarget))
                 {
                     continue;
                 }
@@ -59,9 +61,10 @@ public static class InfluenceEnemyProximityPatcher
                             parameters.character.GameLocationCharacter, position, enemy, enemy.LocationPosition);
 
                 //BEGIN PATCH
-                if (consideration.boolSecParameter)
+                if (enemy.Guid == approachSourceGuid)
                 {
-                    distance = floatParameter - distance + 1;
+                    numerator += Mathf.Lerp(0.0f, 1f, Mathf.Clamp(distance / floatParameter, 0.0f, 1f));
+                    continue;
                 }
                 //END PATCH
 

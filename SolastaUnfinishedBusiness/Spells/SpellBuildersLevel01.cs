@@ -1244,25 +1244,26 @@ internal static partial class SpellBuilders
             .SetUsesFixed(ActivationTime.NoCost)
             .AddToDB();
 
-        var actionAffinityCanOnlyMove = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes(false, false, true, false, false, false)
-            .AddToDB();
-
-         var moveAfraidDecision = DatabaseRepository.GetDatabase<DecisionDefinition>().GetElement("Move_Afraid");
+        var moveAfraidDecision = DatabaseRepository.GetDatabase<DecisionDefinition>().GetElement("Move_Afraid");
 
         // Approach
 
         #region Approach AI Behavior
 
+        const string ConditionApproachName = $"Condition{NAME}Approach";
+
         var scorerApproach = Object.Instantiate(moveAfraidDecision.Decision.scorer);
 
+        // need to deep copy these objects to avoid mess with move afraid settings
+        scorerApproach.scorer = scorerApproach.scorer.DeepCopy();
         scorerApproach.name = "MoveScorer_Approach";
-        // invert PenalizeFearSourceProximityAtPosition
-        scorerApproach.scorer.WeightedConsiderations[2].Consideration.boolSecParameter = true;
-        // invert PenalizeVeryCloseEnemyProximityAtPosition
-        scorerApproach.scorer.WeightedConsiderations[1].Consideration.boolSecParameter = true;
+
+        // remove IsCloseFromMe
+        scorerApproach.scorer.WeightedConsiderations.RemoveAt(3);
+        // invert PenalizeFearSourceProximityAtPosition if brain character has condition approach and enemy is condition source
+        scorerApproach.scorer.WeightedConsiderations[2].Consideration.stringParameter = ConditionApproachName;
+        // invert PenalizeVeryCloseEnemyProximityAtPosition if brain character has condition approach and enemy is condition source
+        scorerApproach.scorer.WeightedConsiderations[1].Consideration.stringParameter = ConditionApproachName;
 
         var decisionApproach = DecisionDefinitionBuilder
             .Create("Move_Approach")
@@ -1281,15 +1282,16 @@ internal static partial class SpellBuilders
         #endregion
 
         var conditionApproach = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Approach")
+            .Create(ConditionApproachName)
             .SetGuiPresentation($"Power{NAME}Approach", Category.Feature, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
             .SetBrain(packageApproach, true, true)
-            .SetFeatures(actionAffinityCanOnlyMove)
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedCommandApproachOrFlee(true))
+            .SetFeatures(MovementAffinityConditionDashing)
             .AddToDB();
+
+        conditionApproach.AddCustomSubFeatures(new ActionFinishedByMeApproach(conditionApproach));
 
         var powerApproach = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}Approach")
@@ -1306,39 +1308,14 @@ internal static partial class SpellBuilders
 
         // Flee
 
-        #region Flee AI Behavior
-
-        var scorerFlee = Object.Instantiate(moveAfraidDecision.Decision.scorer);
-
-        scorerFlee.name = "MoveScorer_Flee";
-        // tweak IsCloseFromMe to differ a bit from Fear on location determination and force enemy to move further
-        scorerFlee.scorer.WeightedConsiderations[3].Consideration.floatParameter = 6;
-
-        var decisionFlee = DecisionDefinitionBuilder
-            .Create("Move_Flee")
-            .SetGuiPresentationNoContent(true)
-            .SetDecisionDescription(
-                "Go as far as possible from enemies.",
-                "Move",
-                scorerFlee)
-            .AddToDB();
-
-        var packageFlee = DecisionPackageDefinitionBuilder
-            .Create("Flee")
-            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decisionFlee, weight = 9 })
-            .AddToDB();
-
-        #endregion
-
         var conditionFlee = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Flee")
             .SetGuiPresentation($"Power{NAME}Flee", Category.Feature, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
-            .SetBrain(packageFlee, true, true)
-            .SetFeatures(actionAffinityCanOnlyMove)
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedCommandApproachOrFlee(false))
+            .SetBrain(DecisionPackageDefinitions.Fear, true, true)
+            .SetFeatures(MovementAffinityConditionDashing)
             .AddToDB();
 
         var powerFlee = FeatureDefinitionPowerSharedPoolBuilder
@@ -1460,6 +1437,31 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    private sealed class ActionFinishedByMeApproach(ConditionDefinition conditionApproach) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            var actingCharacter = characterAction.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (characterAction.ActionId != Id.TacticalMove ||
+                actingCharacter.MovingToDestination ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionApproach.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+
+            if (!caster.IsWithinRange(actingCharacter, 1))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+        }
+    }
+
     private sealed class PowerOrSpellFinishedByMeCommand(
         ConditionDefinition conditionMark,
         FeatureDefinitionPower powerPool,
@@ -1481,54 +1483,30 @@ internal static partial class SpellBuilders
 
             if (rulesetCaster == null)
             {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
                 return false;
             }
 
             var rulesetTarget = target.RulesetCharacter;
 
-            if (rulesetTarget.CharacterFamily == "Dragon" &&
-                !rulesetCaster.LanguageProficiencies.Contains("Language_Draconic"))
+            switch (rulesetTarget.CharacterFamily)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
-                return false;
+                case "Dragon" when
+                    rulesetCaster.LanguageProficiencies.Contains("Language_Draconic"):
+                case "Elemental" when
+                    rulesetCaster.LanguageProficiencies.Contains("Language_Terran"):
+                case "Fey" when
+                    rulesetCaster.LanguageProficiencies.Contains("Language_Elvish"):
+                case "Fiend" when
+                    rulesetCaster.LanguageProficiencies.Contains("Language_Infernal"):
+                case "Giant" or "Giant_Rugan" when
+                    rulesetCaster.LanguageProficiencies.Contains("Language_Giant"):
+                case "Humanoid":
+                    return true;
+                default:
+                    __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
+                    return false;
             }
-
-            if (rulesetTarget.CharacterFamily == "Fey" &&
-                !rulesetCaster.LanguageProficiencies.Contains("Language_Elvish"))
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
-                return false;
-            }
-
-            if (rulesetTarget.CharacterFamily is "Giant" or "Giant_Rugan" &&
-                !rulesetCaster.LanguageProficiencies.Contains("Language_Giant"))
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
-                return false;
-            }
-
-            if (rulesetTarget.CharacterFamily == "Fiend" &&
-                !rulesetCaster.LanguageProficiencies.Contains("Language_Infernal"))
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
-                return false;
-            }
-
-            if (rulesetTarget.CharacterFamily == "Elemental" &&
-                !rulesetCaster.LanguageProficiencies.Contains("Language_Terran"))
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
-                return false;
-            }
-
-            var result = rulesetTarget.CharacterFamily == "Humanoid";
-
-            if (!result)
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
-            }
-
-            return result;
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1564,7 +1542,7 @@ internal static partial class SpellBuilders
                     }
 
                     var rulesetTarget = target.RulesetCharacter;
-                    var conditionsToRemove = rulesetTarget.AllConditions
+                    var conditionsToRemove = rulesetTarget.AllConditionsForEnumeration
                         .Where(x =>
                             x.SourceGuid != caster.Guid &&
                             conditions.Contains(x.ConditionDefinition))
@@ -1576,34 +1554,6 @@ internal static partial class SpellBuilders
                     }
                 }
             }
-        }
-    }
-
-    private sealed class OnConditionAddedOrRemovedCommandApproachOrFlee(
-        bool onlyEndTurnIfWithin5Ft) : IOnConditionAddedOrRemoved
-    {
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            // bool
-        }
-
-        public void OnConditionRemoved(RulesetCharacter rulesetTarget, RulesetCondition rulesetCondition)
-        {
-            var target = GameLocationCharacter.GetFromActor(rulesetTarget);
-
-            if (onlyEndTurnIfWithin5Ft)
-            {
-                var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
-                var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-                if (!target.IsWithinRange(caster, 1))
-                {
-                    return;
-                }
-            }
-
-            target.SpendActionType(ActionType.Bonus);
-            target.SpendActionType(ActionType.Main);
         }
     }
 
@@ -1682,20 +1632,24 @@ internal static partial class SpellBuilders
 
             target.SpendActionType(ActionType.Reaction);
 
+            // use enemy brain to decide position to go based on Fear package
             var aiService = ServiceRepository.GetService<IAiLocationService>();
 
             aiService.TryGetAiFromGameCharacter(target, out var aiTarget);
 
             var brain = aiTarget.BattleBrain;
-            var decisionsBackup = brain.Decisions.ToList();
 
-            brain.decisions.SetRange(DecisionPackageDefinitions.Fear.Package.WeightedDecisions);
+            brain.StashDecisions();
+            brain.RemoveAllDecisions();
+            brain.AddDecisionPackage(DecisionPackageDefinitions.Fear);
+            brain.RegisterAllActiveDecisionPackages();
 
             yield return brain.DecideNextActivity();
 
             var position = brain.SelectedDecision.context.position;
 
-            brain.decisions.SetRange(decisionsBackup);
+            brain.UnstashDecisions();
+
             target.MyExecuteActionTacticalMove(position);
         }
     }
@@ -2319,7 +2273,8 @@ internal static partial class SpellBuilders
             RulesetEffect rulesetEffect)
         {
             var rulesetCondition =
-                character.AllConditions.FirstOrDefault(x => x.ConditionDefinition == conditionSkinOfRetribution);
+                character.AllConditionsForEnumeration.FirstOrDefault(x =>
+                    x.ConditionDefinition == conditionSkinOfRetribution);
             var effectLevel = rulesetCondition!.EffectLevel;
 
             var damageForm = effectDescription.FindFirstDamageForm();
