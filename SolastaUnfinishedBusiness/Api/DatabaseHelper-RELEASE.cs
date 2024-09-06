@@ -291,6 +291,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionDashing { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashing");
+
         internal static ConditionDefinition ConditionDomainMischiefBorrowedLuck { get; } =
             GetDefinition<ConditionDefinition>("ConditionDomainMischiefBorrowedLuck");
 
@@ -1595,6 +1598,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionMovementAffinitys
     {
+        internal static FeatureDefinitionMovementAffinity MovementAffinityConditionDashing { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionDashing");
+
         internal static FeatureDefinitionMovementAffinity MovementAffinityBarbarianFastMovement { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityBarbarianFastMovement");
 
@@ -1726,6 +1732,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionPower PowerBardTraditionVerbalOnslaught { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBardTraditionVerbalOnslaught");
+
         internal static FeatureDefinitionPower PowerIncubus_Drain { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerIncubus_Drain");
 
@@ -3910,13 +3917,11 @@ internal static partial class DatabaseHelper
     {
         internal static DecisionPackageDefinition DefaultMeleeWithBackupRangeDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("DefaultMeleeWithBackupRangeDecisions");
+
         internal static DecisionPackageDefinition DefaultSupportCasterWithBackupAttacksDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("DefaultSupportCasterWithBackupAttacksDecisions");
-        
-        internal static DecisionPackageDefinition Fear { get; } = GetDefinition<DecisionPackageDefinition>("Fear");
+
         internal static DecisionPackageDefinition Idle { get; } = GetDefinition<DecisionPackageDefinition>("Idle");
-        internal static DecisionPackageDefinition IdleGuard_Default { get; } =
-            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
     }
 
     internal static class ToolTypeDefinitions

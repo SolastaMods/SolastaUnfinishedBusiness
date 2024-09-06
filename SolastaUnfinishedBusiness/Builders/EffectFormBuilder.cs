@@ -452,7 +452,7 @@ internal class EffectFormBuilder
             monsterDefinitionName = monsterDefinitionName,
             conditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionMindControlledByCaster,
             persistOnConcentrationLoss = false,
-            decisionPackage = DatabaseHelper.DecisionPackageDefinitions.IdleGuard_Default,
+            decisionPackage = DatabaseHelper.DecisionPackageDefinitions.Idle,
             effectProxyDefinitionName = null
         };
 

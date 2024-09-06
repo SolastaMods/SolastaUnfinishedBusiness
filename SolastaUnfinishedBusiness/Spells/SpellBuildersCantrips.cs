@@ -15,6 +15,7 @@ using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -434,7 +435,7 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
-                    .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                    .AddImmuneCreatureFamilies(Construct, Undead)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -774,7 +775,7 @@ internal static partial class SpellBuilders
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Wisdom,
                         12)
-                    .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                    .AddImmuneCreatureFamilies(Construct, Undead)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
