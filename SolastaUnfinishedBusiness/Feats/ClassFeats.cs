@@ -407,14 +407,19 @@ internal static class ClassFeats
         {
             if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 attacker == helper ||
-                helper.IsMyTurn() ||
-                !helper.CanReact())
+                helper.IsMyTurn())
             {
                 yield break;
             }
 
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var defender in targets)
             {
+                if (!helper.CanReact())
+                {
+                    yield break;
+                }
+
                 var (opportunityAttackMode, actionModifier) =
                     helper.GetFirstMeleeModeThatCanAttack(defender, battleManager);
 
