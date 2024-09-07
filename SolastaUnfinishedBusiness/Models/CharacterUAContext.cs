@@ -1591,6 +1591,8 @@ internal static partial class CharacterContext
                 attacker.UsedTacticalMoves = 0;
             }
 
+             attacker.UsedTacticalMovesChanged?.Invoke(attacker);
+
             rulesetAttacker.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,

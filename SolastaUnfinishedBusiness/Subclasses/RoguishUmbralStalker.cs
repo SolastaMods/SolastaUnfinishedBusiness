@@ -411,6 +411,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             actingCharacter.UsedSpecialFeatures.TryAdd("ShadowStride", 1);
             actingCharacter.UsedTacticalMoves += distance;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
         }
     }
 

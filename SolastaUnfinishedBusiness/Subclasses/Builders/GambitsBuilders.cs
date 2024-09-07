@@ -1467,6 +1467,7 @@ internal static class GambitsBuilders
 
             // consume one tactical move
             actingCharacter.UsedTacticalMoves++;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
 
             var dieType = GetGambitDieSize(caster);
             int dieRoll;
@@ -1933,6 +1934,7 @@ internal static class GambitsBuilders
             var targetPosition = action.ActionParams.Positions[0];
 
             targetCharacter.UsedTacticalMoves = 0;
+            targetCharacter.UsedTacticalMovesChanged?.Invoke(targetCharacter);
             targetRulesetCharacter.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,
@@ -1952,6 +1954,7 @@ internal static class GambitsBuilders
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
             targetCharacter.UsedTacticalMoves = 0;
+            targetCharacter.UsedTacticalMovesChanged?.Invoke(targetCharacter);
             targetCharacter.SpendActionType(ActionDefinitions.ActionType.Reaction);
             targetCharacter.MyExecuteActionTacticalMove(targetPosition);
 

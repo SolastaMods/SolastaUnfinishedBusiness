@@ -506,6 +506,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
             targetCharacter.UsedTacticalMoves = 0;
+            targetCharacter.UsedTacticalMovesChanged?.Invoke(targetCharacter);
             targetCharacter.MyExecuteActionTacticalMove(targetPosition);
 
             yield break;

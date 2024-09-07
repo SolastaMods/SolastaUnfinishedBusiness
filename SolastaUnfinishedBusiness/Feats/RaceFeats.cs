@@ -1369,6 +1369,7 @@ internal static class RaceFeats
             }
 
             actingCharacter.UsedTacticalMoves = usedTacticalMoves;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
             actingCharacter.UsedSpecialFeatures.Remove(UsedTacticalMoves);
         }
 
@@ -1426,6 +1427,7 @@ internal static class RaceFeats
 
             actingCharacter.UsedSpecialFeatures.TryAdd(UsedTacticalMoves, actingCharacter.UsedTacticalMoves);
             actingCharacter.UsedTacticalMoves = 0;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
             ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(_actionParams, null, true);
 
             yield break;
