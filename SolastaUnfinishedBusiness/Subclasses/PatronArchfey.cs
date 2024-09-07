@@ -351,6 +351,11 @@ public class PatronArchfey : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
+            if (attacker.Side == defender.Side)
+            {
+                yield break;
+            }
+
             yield return HandleReaction(battleManager, attacker, defender);
         }
 

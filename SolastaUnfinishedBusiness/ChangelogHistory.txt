@@ -9,6 +9,7 @@
 - fixed Lucky, and Mage Slayer feats double consumption
 - fixed Martial Commander coordinated defense to require an attack first [VANILLA]
 - fixed Party Editor to register/unregister powers from feats
+- fixed Patron Archfey misty step to only react against enemy effects
 - fixed save by location/campaign setting on multiplayer load
 - improved ability checks to also allow reactions on success [Circle of the Cosmos woe]
 - improved Conversion Slots, and Shorthand versatilities to react on ability checks
