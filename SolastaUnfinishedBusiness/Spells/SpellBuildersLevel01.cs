@@ -1244,15 +1244,13 @@ internal static partial class SpellBuilders
             .SetUsesFixed(ActivationTime.NoCost)
             .AddToDB();
 
-        var moveAfraidDecision = DatabaseRepository.GetDatabase<DecisionDefinition>().GetElement("Move_Afraid");
-
         // Approach
 
         #region Approach AI Behavior
 
         const string ConditionApproachName = $"Condition{NAME}Approach";
 
-        var scorerApproach = Object.Instantiate(moveAfraidDecision.Decision.scorer);
+        var scorerApproach = Object.Instantiate(FixesContext.DecisionMoveAfraid.Decision.scorer);
 
         // need to deep copy these objects to avoid mess with move afraid settings
         scorerApproach.scorer = scorerApproach.scorer.DeepCopy();
@@ -1364,7 +1362,12 @@ internal static partial class SpellBuilders
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
-            .SetBrain(DecisionPackageDefinitions.Idle, true, false)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{NAME}Halt")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAllowedActionTypes(false, false, false, false, false, false)
+                    .AddToDB())
             .AddToDB();
 
         var powerHalt = FeatureDefinitionPowerSharedPoolBuilder
@@ -1631,6 +1634,8 @@ internal static partial class SpellBuilders
             }
 
             target.SpendActionType(ActionType.Reaction);
+            target.UsedTacticalMoves = 0;
+            target.UsedTacticalMovesChanged?.Invoke(target);
 
             // use enemy brain to decide position to go based on Fear package
             var aiService = ServiceRepository.GetService<IAiLocationService>();

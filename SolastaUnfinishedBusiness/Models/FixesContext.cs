@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using TA.AI;
 using UnityEngine;
 using static AttributeDefinitions;
 using static EquipmentDefinitions;
@@ -39,6 +40,9 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FixesContext
 {
+    internal static readonly DecisionDefinition DecisionMoveAfraid =
+        DatabaseRepository.GetDatabase<DecisionDefinition>().GetElement("Move_Afraid");
+
     internal static void Load()
     {
         InitMagicAffinitiesAndCastSpells();
@@ -56,6 +60,7 @@ internal static class FixesContext
         FixBlackDragonLegendaryActions();
         FixColorTables();
         FixCriticalThresholdModifiers();
+        FixDecisionMoveAfraid();
         FixDivineBlade();
         FixDragonBreathPowerSavingAttribute();
         FixEagerForBattleTexts();
@@ -342,6 +347,12 @@ internal static class FixesContext
             Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
             Gui.CheckModifierColors.Add(i, new Color32(0, 36, 77, byte.MaxValue));
         }
+    }
+
+    private static void FixDecisionMoveAfraid()
+    {
+        //BUGFIX: allow actors to move a bit far on move_afraid by lowering consideration weight a bit
+        DecisionMoveAfraid.Decision.scorer.Scorer.WeightedConsiderations[3].weight = 0.95f;
     }
 
     private static void FixDivineBlade()
