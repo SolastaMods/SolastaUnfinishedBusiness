@@ -83,7 +83,14 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
             //.SetParentCondition(ConditionDefinitions.ConditionRestrained)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoNothing)
             .AddToDB();
+
+        var battlePackage = AiContext.BuildDecisionBreakFreeFromCondition(
+            conditionGrappledRestrainedIceBound.Name, AiContext.BreakFreeType.DoNothing);
+
+        conditionGrappledRestrainedIceBound.addBehavior = true;
+        conditionGrappledRestrainedIceBound.battlePackage = battlePackage;
 
         conditionGrappledRestrainedIceBound.specialDuration = false;
         conditionGrappledRestrainedIceBound.specialInterruptions.Clear();
@@ -285,8 +292,15 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiseased)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoNothing)
             .SetFeatures(actionAffinityNoxiousSpray)
             .AddToDB();
+
+        var battlePackage = AiContext.BuildDecisionBreakFreeFromCondition(
+                conditionNoxiousSpray.Name, AiContext.BreakFreeType.DoNothing);
+
+        conditionNoxiousSpray.addBehavior = true;
+        conditionNoxiousSpray.battlePackage = battlePackage;
 
         conditionNoxiousSpray.specialDuration = false;
 
@@ -430,7 +444,14 @@ internal static partial class SpellBuilders
             .Create(ConditionGrappledRestrainedRemorhaz, $"ConditionGrappledRestrained{NAME}")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(ConditionRestrainedByWeb)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .AddToDB();
+
+        var battlePackage = AiContext.BuildDecisionBreakFreeFromCondition(
+            conditionRestrainedBySpellWeb.Name, AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC);
+
+        conditionRestrainedBySpellWeb.addBehavior = true;
+        conditionRestrainedBySpellWeb.battlePackage = battlePackage;
 
         conditionRestrainedBySpellWeb.specialDuration = false;
         conditionRestrainedBySpellWeb.specialInterruptions.Clear();

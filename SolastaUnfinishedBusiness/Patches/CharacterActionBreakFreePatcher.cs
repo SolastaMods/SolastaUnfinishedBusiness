@@ -60,43 +60,47 @@ public static class CharacterActionBreakFreePatcher
 
             var checkDC = 10;
             var sourceGuid = restrainingCondition.SourceGuid;
-            var conditionName = restrainingCondition.ConditionDefinition.Name;
+            var action = (AiContext.BreakFreeType)restrainingCondition.Amount;
 
-            if (AiContext.DoNothingConditions.Contains(conditionName))
+            switch (action)
             {
-                __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
-                yield break;
-            }
+                case AiContext.BreakFreeType.DoNothing:
+                    __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
+                    yield break;
 
-            if (AiContext.DoStrengthCheckCasterDCConditions.Contains(conditionName))
-            {
-                if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
+                case AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC:
                 {
-                    checkDC = rulesetCharacterHero.SpellRepertoires
-                        .Select(x => x.SaveDC)
-                        .Max();
-                }
-
-                proficiencyName = string.Empty;
-            }
-            else
-            {
-                if (restrainingCondition.HasSaveOverride)
-                {
-                    checkDC = restrainingCondition.SaveOverrideDC;
-                }
-                else
-                {
-                    if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetEffect entity1))
+                    if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
                     {
-                        checkDC = entity1.SaveDC;
+                        checkDC = rulesetCharacterHero.SpellRepertoires
+                            .Select(x => x.SaveDC)
+                            .Max();
                     }
-                    else if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterMonster entity2))
+
+                    proficiencyName = string.Empty;
+                    break;
+                }
+                default:
+                {
+                    if (restrainingCondition.HasSaveOverride)
                     {
-                        checkDC = 10 + AttributeDefinitions
-                            .ComputeAbilityScoreModifier(entity2.GetAttribute(AttributeDefinitions.Strength)
-                                .CurrentValue);
+                        checkDC = restrainingCondition.SaveOverrideDC;
                     }
+                    else
+                    {
+                        if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetEffect entity1))
+                        {
+                            checkDC = entity1.SaveDC;
+                        }
+                        else if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterMonster entity2))
+                        {
+                            checkDC = 10 + AttributeDefinitions
+                                .ComputeAbilityScoreModifier(entity2.GetAttribute(AttributeDefinitions.Strength)
+                                    .CurrentValue);
+                        }
+                    }
+
+                    break;
                 }
             }
 

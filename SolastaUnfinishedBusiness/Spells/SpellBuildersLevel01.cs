@@ -219,6 +219,7 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(ConditionRestrainedByWeb)
             .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -227,6 +228,12 @@ internal static partial class SpellBuilders
                     .Build())
             .CopyParticleReferences(Entangle)
             .AddToDB();
+
+        var battlePackage = AiContext.BuildDecisionBreakFreeFromCondition(
+            conditionEnsnared.Name, AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC);
+
+        conditionEnsnared.addBehavior = true;
+        conditionEnsnared.battlePackage = battlePackage;
 
         conditionEnsnared.specialInterruptions.Clear();
 
@@ -645,6 +652,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionAcidArrowed)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoNothing)
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -652,6 +660,12 @@ internal static partial class SpellBuilders
                     .SetCreatedBy()
                     .Build())
             .AddToDB();
+
+        var battlePackage =
+            AiContext.BuildDecisionBreakFreeFromCondition(conditionVileBrew.Name, AiContext.BreakFreeType.DoNothing);
+
+        conditionVileBrew.addBehavior = true;
+        conditionVileBrew.battlePackage = battlePackage;
 
         conditionVileBrew.possessive = false;
         conditionVileBrew.specialDuration = false;

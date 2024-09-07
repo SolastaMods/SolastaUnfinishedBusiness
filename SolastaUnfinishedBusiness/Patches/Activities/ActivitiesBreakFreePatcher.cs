@@ -51,13 +51,13 @@ public static class BreakFreePatcher
             var success = true;
 
             // no ability check
-            switch (decisionDefinition.Decision.StringParameter)
+            switch ((AiContext.BreakFreeType)int.Parse(decisionDefinition.Decision.StringParameter))
             {
-                case AiContext.DoNothing:
+                case AiContext.BreakFreeType.DoNothing:
                     rulesetCharacter.RemoveCondition(restrainingCondition);
                     break;
 
-                case AiContext.DoStrengthCheckCasterDC:
+                case AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC:
                     var checkDC = 10;
                     var sourceGuid = restrainingCondition.SourceGuid;
 

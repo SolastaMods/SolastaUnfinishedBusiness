@@ -1,27 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using TA.AI;
+using TA.AI.Activities;
 using TA.AI.Considerations;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class AiContext
 {
-    internal const string DoNothing = "1";
-    internal const string DoStrengthCheckCasterDC = "2";
-
-    internal static readonly List<string> DoNothingConditions =
-        ["ConditionNoxiousSpray", "ConditionVileBrew", "ConditionGrappledRestrainedIceBound"];
-
-    internal static readonly List<string> DoStrengthCheckCasterDCConditions =
-    [
-        "ConditionFlashFreeze", "ConditionGrappledRestrainedEnsnared",
-        "ConditionGrappledRestrainedSpellWeb", "ConditionRestrainedByEntangle"
-    ];
-
     internal static ActivityScorerDefinition CreateActivityScorer(
         ActivityScorerDefinition baseScorer, string name)
     {
@@ -30,39 +20,45 @@ internal static class AiContext
         result.name = name;
         result.scorer = result.Scorer.DeepCopy();
 
+        result.scorer.WeightedConsiderations.SetRange(result.scorer.WeightedConsiderations.Select(x =>
+            new WeightedConsiderationDescription
+            {
+                consideration =
+                    CreateConsiderationDefinition(x.consideration.name, x.consideration.Consideration),
+                weight = x.weight
+            }).ToList());
+
         return result;
     }
 
     private static ConsiderationDefinition CreateConsiderationDefinition(
         string name, ConsiderationDescription consideration)
     {
-        var baseDescription = FixesContext.DecisionMoveAfraid.Decision.Scorer.WeightedConsiderations[0]
-            .ConsiderationDefinition;
+        var baseDescription =
+            FixesContext.DecisionMoveAfraid.Decision.Scorer.WeightedConsiderations[0].ConsiderationDefinition;
 
-        baseDescription.name = name;
-        baseDescription.consideration = consideration;
+        var result = Object.Instantiate(baseDescription);
 
-        return Object.Instantiate(baseDescription);
+        result.name = name;
+        result.consideration = consideration.DeepCopy();
+
+        return result;
     }
 
     internal static void Load()
     {
-        // order matters as same weight
-        // this code needs a refactoring. meanwhile check:
-        // - CharacterActionPanelPatcher SelectBreakFreeMode and add condition there if spell also aims allies
-        foreach (var condition in DoNothingConditions)
-        {
-            BuildDecisionBreakFreeFromCondition(condition, DoNothing);
-        }
+        ConditionRestrainedByEntangle.amountOrigin = ConditionDefinition.OriginOfAmount.Fixed;
+        ConditionRestrainedByEntangle.baseAmount = (int)BreakFreeType.DoStrengthCheckAgainstCasterDC;
 
-        foreach (var condition in DoStrengthCheckCasterDCConditions)
-        {
-            BuildDecisionBreakFreeFromCondition(condition, DoStrengthCheckCasterDC);
-        }
+        var battlePackage = BuildDecisionBreakFreeFromCondition(ConditionRestrainedByEntangle.Name,
+            BreakFreeType.DoStrengthCheckAgainstCasterDC);
+
+        ConditionRestrainedByEntangle.addBehavior = true;
+        ConditionRestrainedByEntangle.battlePackage = battlePackage;
     }
 
-    // boolParameter false won't do any ability check
-    private static void BuildDecisionBreakFreeFromCondition(string conditionName, string action)
+    internal static DecisionPackageDefinition BuildDecisionBreakFreeFromCondition(
+        string conditionName, BreakFreeType action)
     {
         var mainActionNotFullyConsumed = new WeightedConsiderationDescription
         {
@@ -70,7 +66,10 @@ internal static class AiContext
                 "MainActionNotFullyConsumed",
                 new ConsiderationDescription
                 {
-                    considerationType = nameof(HasCondition), boolParameter = true, floatParameter = 1f
+                    considerationType = nameof(ActionTypeStatus),
+                    stringParameter = string.Empty,
+                    boolParameter = true,
+                    floatParameter = 1f
                 }),
             weight = 1f
         };
@@ -90,31 +89,37 @@ internal static class AiContext
             weight = 1f
         };
 
-        // create scorer copy
+        // create scorer
 
         var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
-        var scorerBreakFree = CreateActivityScorer(baseDecision.Decision.scorer, "BreakFree");
+        var scorerBreakFree = CreateActivityScorer(baseDecision.Decision.scorer, $"BreakFree{conditionName}");
 
         scorerBreakFree.scorer.considerations = [hasConditionBreakFree, mainActionNotFullyConsumed];
-
-        // create and assign decision definition to all decision packages
 
         var decisionBreakFree = DecisionDefinitionBuilder
             .Create($"DecisionBreakFree{conditionName}")
             .SetGuiPresentationNoContent(true)
             .SetDecisionDescription(
-                "if restrained and can use main action, try to break free",
-                "BreakFree",
+                $"if restrained from {conditionName}, and can use main action, try to break free",
+                nameof(BreakFree),
                 scorerBreakFree,
-                action,
+                ((int)action).ToString(),
                 enumParameter: 1,
                 floatParameter: 3f)
             .AddToDB();
 
-        foreach (var decisionPackageDefinition in DatabaseRepository.GetDatabase<DecisionPackageDefinition>())
-        {
-            decisionPackageDefinition.package.weightedDecisions.Add(
-                new WeightedDecisionDescription(decisionBreakFree, 1, 0, false));
-        }
+        var packageBreakFree = DecisionPackageDefinitionBuilder
+            .Create($"BreakFreeAbilityCheck{conditionName}")
+            .SetGuiPresentationNoContent(true)
+            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decisionBreakFree, weight = 1f })
+            .AddToDB();
+
+        return packageBreakFree;
+    }
+
+    internal enum BreakFreeType
+    {
+        DoNothing,
+        DoStrengthCheckAgainstCasterDC
     }
 }

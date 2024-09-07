@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
@@ -454,7 +455,14 @@ internal static partial class SpellBuilders
                 RuleDefinitions.ConditionRestrained, Category.Rules, ConditionDefinitions.ConditionChilled)
             .SetPossessive()
             .SetParentCondition(ConditionRestrainedByWeb)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .AddToDB();
+
+        var battlePackage = AiContext.BuildDecisionBreakFreeFromCondition(
+            conditionFlashFreeze.Name, AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC);
+
+        conditionFlashFreeze.addBehavior = true;
+        conditionFlashFreeze.battlePackage = battlePackage;
 
         conditionFlashFreeze.specialDuration = false;
         conditionFlashFreeze.specialInterruptions.Clear();
