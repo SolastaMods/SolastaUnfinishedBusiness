@@ -1302,6 +1302,8 @@ internal static partial class SpellBuilders
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionApproach))
+                    .SetParticleEffectParameters(Command)
+                    .SetEffectEffectParameters(SpareTheDying)
                     .Build())
             .AddToDB();
 
@@ -1337,6 +1339,8 @@ internal static partial class SpellBuilders
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFlee))
+                    .SetParticleEffectParameters(Command)
+                    .SetEffectEffectParameters(SpareTheDying)
                     .Build())
             .AddToDB();
 
@@ -1370,6 +1374,8 @@ internal static partial class SpellBuilders
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionGrovel))
+                    .SetParticleEffectParameters(Command)
+                    .SetEffectEffectParameters(SpareTheDying)
                     .Build())
             .AddToDB();
 
@@ -1409,6 +1415,8 @@ internal static partial class SpellBuilders
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHalt))
+                    .SetParticleEffectParameters(Command)
+                    .SetEffectEffectParameters(SpareTheDying)
                     .Build())
             .AddToDB();
 
