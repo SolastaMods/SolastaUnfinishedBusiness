@@ -85,7 +85,7 @@
           "number": 1,
           "conditionDefinition": "Definition:ConditionMindControlledByCaster:72691050707821744968bd0595150b86",
           "persistOnConcentrationLoss": false,
-          "decisionPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",
+          "decisionPackage": null,
           "effectProxyDefinitionName": null
         },
         "hasFilterId": false,

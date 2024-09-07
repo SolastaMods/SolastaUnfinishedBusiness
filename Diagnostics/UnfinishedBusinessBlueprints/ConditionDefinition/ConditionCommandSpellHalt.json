@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityCommandSpellHalt:aefc4f30-7712-50b2-8a52-9368185278ab"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -96,10 +98,10 @@
   "subsequentVariableForDC": "FrenzyExhaustionDC",
   "subsequentDCIncrease": 5,
   "effectFormsOnRemoved": [],
-  "forceBehavior": true,
+  "forceBehavior": false,
   "addBehavior": false,
   "fearSource": false,
-  "battlePackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",
+  "battlePackage": null,
   "explorationPackage": null,
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,
