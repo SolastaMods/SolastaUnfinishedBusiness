@@ -21,27 +21,16 @@ public static class WorldSectorPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var logError1Method = typeof(Trace).GetMethod("LogWarning", BindingFlags.Public | BindingFlags.Static,
-                Type.DefaultBinder, [typeof(string)], null);
-            var logError2Method = typeof(Trace).GetMethod("LogWarning", BindingFlags.Public | BindingFlags.Static,
-                Type.DefaultBinder, [typeof(string), typeof(object[])], null);
-            var logError3Method = typeof(Trace).GetMethod("LogWarning", BindingFlags.Public | BindingFlags.Static,
+            var logWarningMethod = typeof(Trace).GetMethod("LogWarning", BindingFlags.Public | BindingFlags.Static,
                 Type.DefaultBinder, [typeof(string), typeof(Object), typeof(object[])], null);
 
-            var myLogError2Method = typeof(SetHighlightVisibility_Patch).GetMethod("LogWarning",
-                BindingFlags.Public | BindingFlags.Static,
-                Type.DefaultBinder, [typeof(string), typeof(object[])], null);
-            var myLogError3Method = typeof(SetHighlightVisibility_Patch).GetMethod("LogWarning",
+            var myLogWarningMethod = typeof(SetHighlightVisibility_Patch).GetMethod("LogWarning",
                 BindingFlags.Public | BindingFlags.Static,
                 Type.DefaultBinder, [typeof(string), typeof(Object), typeof(object[])], null);
 
             return instructions
-                .ReplaceCalls(logError1Method, "WorldSector.Voxelize1",
-                    new CodeInstruction(OpCodes.Pop))
-                .ReplaceCalls(logError2Method, "WorldSector.Voxelize2",
-                    new CodeInstruction(OpCodes.Call, myLogError2Method))
-                .ReplaceCalls(logError3Method, "WorldSector.Voxelize3",
-                    new CodeInstruction(OpCodes.Call, myLogError3Method));
+                .ReplaceCalls(logWarningMethod, "WorldSector.Voxelize1",
+                    new CodeInstruction(OpCodes.Call, myLogWarningMethod));
         }
 
         [UsedImplicitly]
