@@ -312,7 +312,9 @@ public sealed class OathOfAncients : AbstractSubclass
             List<GameLocationCharacter> targets)
         {
             if (action.ActionType != ActionDefinitions.ActionType.Main ||
-                action is not CharacterActionCastSpell)
+                action is not CharacterActionCastSpell actionCastSpell ||
+                actionCastSpell.Countered ||
+                actionCastSpell.ExecutionFailed)
             {
                 yield break;
             }

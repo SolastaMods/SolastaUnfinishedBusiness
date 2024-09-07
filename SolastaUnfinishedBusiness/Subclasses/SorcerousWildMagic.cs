@@ -548,6 +548,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             if (hasUsedWildMarkThisTurn ||
                 action is not CharacterActionCastSpell actionCastSpell ||
+                actionCastSpell.Countered ||
+                actionCastSpell.ExecutionFailed ||
                 (actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel == 0 && !hasChaos) ||
                 (actionCastSpell.ActiveSpell.SpellRepertoire != null && // casting from a scroll so let wild surge
                  actionCastSpell.ActiveSpell.SpellRepertoire.SpellCastingClass != CharacterClassDefinitions.Sorcerer))
@@ -1177,7 +1179,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             attacker.UsedSpecialFeatures.Remove(FeatureSpellBombardment.Name);
 
             if (levels < 18 ||
-                ((activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
+                ((action.Countered ||
+                  action is CharacterActionCastSpell { ExecutionFailed: true } ||
+                  activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
                   rulesetEffectSpell.SpellRepertoire?.SpellCastingClass != CharacterClassDefinitions.Sorcerer) &&
                  activeEffect.SourceDefinition != PowerFireball))
             {

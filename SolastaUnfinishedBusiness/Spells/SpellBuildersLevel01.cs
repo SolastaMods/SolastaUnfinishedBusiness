@@ -1872,14 +1872,17 @@ internal static partial class SpellBuilders
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
-                action.ActionParams.RulesetEffect.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit)
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                action.Countered ||
+                action is CharacterActionCastSpell { ExecutionFailed: true } ||
+                action.ActionParams.RulesetEffect.EffectDescription.RangeType 
+                    is not (RangeType.Touch or RangeType.MeleeHit))
             {
-                attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionElementalInfusion.Name);
+                yield break;
             }
 
-            yield break;
+            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionElementalInfusion.Name);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(

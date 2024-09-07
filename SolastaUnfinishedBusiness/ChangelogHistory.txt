@@ -4,6 +4,7 @@
 - added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop' setting
 - fixed Barbarian Sundering Blow interaction with Call Lightning, and other proxy like powers
 - fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe not consuming reaction
+- fixed countered, and execution failed checks on custom behaviors that trigger on effects' end
 - fixed Dwarven Fortitude, and Magical Guidance incorrectly consuming a reaction
 - fixed Exploiter feat not checking for reactions from 2nd target onwards
 - fixed Lucky, and Mage Slayer feats double consumption

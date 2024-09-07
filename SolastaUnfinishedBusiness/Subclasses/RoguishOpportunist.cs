@@ -340,6 +340,12 @@ public sealed class RoguishOpportunist : AbstractSubclass
             GameLocationCharacter helper,
             List<GameLocationCharacter> targets)
         {
+            if (action.Countered ||
+                action is CharacterActionCastSpell { ExecutionFailed: true })
+            {
+                yield break;
+            }
+            
             // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
             {

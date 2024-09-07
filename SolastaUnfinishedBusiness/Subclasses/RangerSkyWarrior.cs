@@ -347,7 +347,9 @@ public sealed class RangerSkyWarrior : AbstractSubclass
         {
             var rulesetEffect = action.ActionParams.RulesetEffect;
 
-            if (action.AttackRoll == 0 ||
+            if (action.Countered ||
+                action is CharacterActionCastSpell { ExecutionFailed: true } ||
+                action.AttackRoll == 0 ||
                 action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 (rulesetEffect != null &&
                  rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit)))

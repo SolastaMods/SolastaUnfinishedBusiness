@@ -370,6 +370,8 @@ public sealed class WizardWarMagic : AbstractSubclass
             List<GameLocationCharacter> targets)
         {
             if (action is not CharacterActionCastSpell actionCastSpell ||
+                actionCastSpell.Countered ||
+                actionCastSpell.ExecutionFailed ||
                 actionCastSpell.ActiveSpell.SpellDefinition != SpellDefinitions.Counterspell)
             {
                 yield break;

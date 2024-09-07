@@ -374,7 +374,9 @@ internal static class ClassFeats
             var effectDescription = action.actionParams.RulesetEffect.EffectDescription;
 
             if (effectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit) ||
-                effectDescription.TargetParameter != 1)
+                effectDescription.TargetParameter != 1 ||
+                action.Countered ||
+                action is CharacterActionCastSpell { ExecutionFailed: true })
             {
                 yield break;
             }

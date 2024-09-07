@@ -770,7 +770,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action is not CharacterActionCastSpell)
+            if (action is not CharacterActionCastSpell actionCastSpell ||
+                actionCastSpell.Countered ||
+                actionCastSpell.ExecutionFailed)
             {
                 yield break;
             }

@@ -1270,7 +1270,9 @@ internal static class RaceFeats
             List<GameLocationCharacter> targets)
         {
             if (!action.ActionParams.activeEffect.EffectDescription.EffectForms.Any(x =>
-                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType is DamageTypeFire))
+                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType is DamageTypeFire) ||
+                action.Countered ||
+                action is CharacterActionCastSpell { ExecutionFailed: true })
             {
                 yield break;
             }
