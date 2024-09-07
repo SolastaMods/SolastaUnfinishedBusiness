@@ -345,8 +345,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
             {
                 yield break;
             }
-            
-            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
             {
                 if (target.RulesetActor.HasConditionOfCategoryAndType(TagEffect, conditionSeizeTheChance.Name))

@@ -1,0 +1,116 @@
+{
+  "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
+  "decision": {
+    "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
+    "description": "Go as far as possible from enemies.",
+    "scorer": {
+      "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
+      "scorer": {
+        "$type": "TA.AI.ActivityScorer, Assembly-CSharp",
+        "considerations": [
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "IsValidMoveDestination",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "IsValidMoveDestination"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "InfluenceEnemyProximity",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "ConditionCommandSpellApproach",
+                "floatParameter": 3.0,
+                "intParameter": 2,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "PenalizeVeryCloseEnemyProximityAtPosition"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "InfluenceFearSourceProximity",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "ConditionCommandSpellApproach",
+                "floatParameter": 6.0,
+                "intParameter": 1,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "PenalizeFearSourceProximityAtPosition"
+            },
+            "weight": 1.0
+          }
+        ]
+      },
+      "name": "MoveScorer_DissonantWhispers"
+    },
+    "activityType": "Move",
+    "stringParameter": "",
+    "stringSecParameter": "",
+    "boolParameter": false,
+    "boolSecParameter": false,
+    "floatParameter": 0.0,
+    "enumParameter": 0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "bdfa6649-5cad-5b35-a697-209ea53ca45d",
+  "contentPack": 9999,
+  "name": "Move_DissonantWhispers"
+}

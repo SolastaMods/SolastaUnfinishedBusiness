@@ -53,7 +53,7 @@ internal static class TryAlterOutcomeSavingThrow
             if (savingThrowData.Action != null)
             {
                 savingThrowData.Action.SaveOutcome = savingThrowData.SaveOutcome;
-                savingThrowData.Action.SaveOutcomeDelta = savingThrowData.SaveOutcomeDelta; 
+                savingThrowData.Action.SaveOutcomeDelta = savingThrowData.SaveOutcomeDelta;
             }
         }
 

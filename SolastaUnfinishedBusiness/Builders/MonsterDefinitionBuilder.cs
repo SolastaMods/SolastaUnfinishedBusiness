@@ -2,7 +2,6 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using TA.AI;
 using static RuleDefinitions;
 using static BestiaryDefinitions;
 
@@ -69,11 +68,13 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
+#if false
     internal MonsterDefinitionBuilder SetDefaultBattleDecisionPackage(DecisionPackageDefinition decisionPackage)
     {
         Definition.defaultBattleDecisionPackage = decisionPackage;
         return this;
     }
+#endif
 
     internal MonsterDefinitionBuilder SetDefaultFaction(FactionDefinition faction)
     {

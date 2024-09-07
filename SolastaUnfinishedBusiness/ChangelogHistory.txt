@@ -3,15 +3,16 @@
 - added Command [Bard, Cleric, Paladin], and Dissonant Whispers [Bard] spells
 - added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop' setting
 - fixed Barbarian Sundering Blow interaction with Call Lightning, and other proxy like powers
+- fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances saving throw logic
 - fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe not consuming reaction
-- fixed countered, and execution failed checks on custom behaviors that trigger on effects' end
+- fixed countered, and execution failed checks on custom behaviors triggering logic
 - fixed Dwarven Fortitude, and Magical Guidance incorrectly consuming a reaction
 - fixed Exploiter feat not checking for reactions from 2nd target onwards
 - fixed Lucky, and Mage Slayer feats double consumption
 - fixed Martial Commander coordinated defense to require an attack first [VANILLA]
 - fixed Party Editor to register/unregister powers from feats
 - fixed Path of the Wild Magic retribution, and Patron Archfey misty step to only react against enemy effects
-- fixed save by location/campaign setting on multiplayer load
+- fixed save by location/campaign setting on multiplayer load in overland map
 - improved ability checks to also allow reactions on success [Circle of the Cosmos woe]
 - improved Conversion Slots, and Shorthand versatilities to react on ability checks
 - improved game log to avoid voxelization warning messages to flood the same [DM overlay trick]
@@ -19,7 +20,7 @@
 - improved mod UI to ensure all settings required to be in sync on MP sessions are now under Gameplay
 - improved saving roll reaction modal descriptions [Circle of the Cosmos, Sorcerer Wild Magic, etc.]
 - improved Sorcerer Wild Magic tides of chaos to react on ability checks
-- improved spells documentation dump to include which classes can cast any given spell
+- improved spells documentation dump to include allowed casting classes
 - improved vanilla to allow reactions on gadget's saving roll [traps]
 - improved victory modal export behavior to allow heroes not in pool to be exported [VANILLA]
 

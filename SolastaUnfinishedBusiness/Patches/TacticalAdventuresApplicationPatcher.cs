@@ -30,10 +30,10 @@ public static class TacticalAdventuresApplicationPatcher
         }
 
         __result = selectedCampaignService?.SaveGameDirectory ?? DefaultSaveGameDirectory;
-        
+
         return false;
     }
-    
+
     [HarmonyPatch(typeof(TacticalAdventuresApplication), nameof(TacticalAdventuresApplication.SaveGameDirectory),
         MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -46,8 +46,9 @@ public static class TacticalAdventuresApplicationPatcher
             return EnableSaveByLocation(ref __result);
         }
     }
-    
-    [HarmonyPatch(typeof(TacticalAdventuresApplication), nameof(TacticalAdventuresApplication.MultiplayerFilesDirectory),
+
+    [HarmonyPatch(typeof(TacticalAdventuresApplication),
+        nameof(TacticalAdventuresApplication.MultiplayerFilesDirectory),
         MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

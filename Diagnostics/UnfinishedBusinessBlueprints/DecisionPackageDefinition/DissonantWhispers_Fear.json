@@ -6,7 +6,7 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:Move_Approach:5cb2a87f-09a4-5fae-9b74-10516ea8a8ab",
+        "decision": "Definition:Move_DissonantWhispers:bdfa6649-5cad-5b35-a697-209ea53ca45d",
         "weight": 9.0,
         "cooldown": 0,
         "dynamicCooldown": false
@@ -37,7 +37,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5043a0ec-c626-5877-bd87-c7bc0584366d",
+  "guid": "dfe2cc9e-cc70-5cfe-9057-19454acb1068",
   "contentPack": 9999,
-  "name": "Approach"
+  "name": "DissonantWhispers_Fear"
 }
