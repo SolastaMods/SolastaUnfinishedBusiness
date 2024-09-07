@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using TA.AI;
 using TA.AI.Considerations;
@@ -22,6 +22,29 @@ internal static class AiContext
         "ConditionGrappledRestrainedSpellWeb", "ConditionRestrainedByEntangle"
     ];
 
+    internal static ActivityScorerDefinition CreateActivityScorer(
+        ActivityScorerDefinition baseScorer, string name)
+    {
+        var result = Object.Instantiate(baseScorer);
+
+        result.name = name;
+        result.scorer = result.Scorer.DeepCopy();
+
+        return result;
+    }
+
+    private static ConsiderationDefinition CreateConsiderationDefinition(
+        string name, ConsiderationDescription consideration)
+    {
+        var baseDescription = FixesContext.DecisionMoveAfraid.Decision.Scorer.WeightedConsiderations[0]
+            .ConsiderationDefinition;
+
+        baseDescription.name = name;
+        baseDescription.consideration = consideration;
+
+        return Object.Instantiate(baseDescription);
+    }
+
     internal static void Load()
     {
         // order matters as same weight
@@ -41,46 +64,38 @@ internal static class AiContext
     // boolParameter false won't do any ability check
     private static void BuildDecisionBreakFreeFromCondition(string conditionName, string action)
     {
-        //TODO: create proper builders
-
-        // create considerations copies
-
-        var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
-        var considerationHasCondition = baseDecision.Decision.Scorer.considerations.FirstOrDefault(x =>
-            x.consideration.name == "HasConditionFlying");
-        var considerationMainActionNotFullyConsumed = baseDecision.Decision.Scorer.considerations.FirstOrDefault(x =>
-            x.consideration.name == "MainActionNotFullyConsumed");
-
-        if (considerationHasCondition == null || considerationMainActionNotFullyConsumed == null)
+        var mainActionNotFullyConsumed = new WeightedConsiderationDescription
         {
-            Main.Error("fetching considerations at BuildDecisionBreakFreeFromCondition");
-
-            return;
-        }
-
-        var considerationHasConditionBreakFree = new WeightedConsiderationDescription
-        {
-            consideration = Object.Instantiate(considerationHasCondition.consideration),
-            weight = considerationHasCondition.weight
+            consideration = CreateConsiderationDefinition(
+                "MainActionNotFullyConsumed",
+                new ConsiderationDescription
+                {
+                    considerationType = nameof(HasCondition), boolParameter = true, floatParameter = 1f
+                }),
+            weight = 1f
         };
 
-        considerationHasConditionBreakFree.consideration.name = $"Has{conditionName}";
-        considerationHasConditionBreakFree.consideration.consideration = new ConsiderationDescription
+        var hasConditionBreakFree = new WeightedConsiderationDescription
         {
-            considerationType = nameof(HasCondition),
-            curve = considerationHasCondition.consideration.consideration.curve,
-            boolParameter = considerationHasCondition.consideration.consideration.boolParameter,
-            intParameter = considerationHasCondition.consideration.consideration.intParameter,
-            floatParameter = considerationHasCondition.consideration.consideration.floatParameter,
-            stringParameter = conditionName
+            consideration = CreateConsiderationDefinition(
+                $"Has{conditionName}",
+                new ConsiderationDescription
+                {
+                    considerationType = nameof(HasCondition),
+                    stringParameter = conditionName,
+                    boolParameter = true,
+                    intParameter = 2,
+                    floatParameter = 2f
+                }),
+            weight = 1f
         };
 
         // create scorer copy
 
-        var scorer = Object.Instantiate(baseDecision.Decision.scorer);
+        var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
+        var scorerBreakFree = CreateActivityScorer(baseDecision.Decision.scorer, "BreakFree");
 
-        scorer.name = "BreakFree";
-        scorer.scorer.considerations = [considerationHasConditionBreakFree, considerationMainActionNotFullyConsumed];
+        scorerBreakFree.scorer.considerations = [hasConditionBreakFree, mainActionNotFullyConsumed];
 
         // create and assign decision definition to all decision packages
 
@@ -90,7 +105,7 @@ internal static class AiContext
             .SetDecisionDescription(
                 "if restrained and can use main action, try to break free",
                 "BreakFree",
-                scorer,
+                scorerBreakFree,
                 action,
                 enumParameter: 1,
                 floatParameter: 3f)

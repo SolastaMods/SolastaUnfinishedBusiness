@@ -13,7 +13,6 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using TA.AI;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -1244,11 +1243,8 @@ internal static partial class SpellBuilders
 
         const string ConditionApproachName = $"Condition{NAME}Approach";
 
-        var scorerApproach = Object.Instantiate(FixesContext.DecisionMoveAfraid.Decision.scorer);
-
-        // need to deep copy these objects to avoid mess with move afraid settings
-        scorerApproach.scorer = scorerApproach.scorer.DeepCopy();
-        scorerApproach.name = "MoveScorer_Approach";
+        var scorerApproach = AiContext.CreateActivityScorer(
+            FixesContext.DecisionMoveAfraid.Decision.scorer, "MoveScorer_Approach");
 
         // invert PenalizeFearSourceProximityAtPosition if brain character has condition approach and enemy is condition source
         scorerApproach.scorer.WeightedConsiderations[2].Consideration.stringParameter = ConditionApproachName;
@@ -1266,6 +1262,7 @@ internal static partial class SpellBuilders
 
         var packageApproach = DecisionPackageDefinitionBuilder
             .Create("Approach")
+            .SetGuiPresentationNoContent(true)
             .SetWeightedDecisions(new WeightedDecisionDescription { decision = decisionApproach, weight = 9 })
             .AddToDB();
 
@@ -1445,7 +1442,7 @@ internal static partial class SpellBuilders
         spellHalt.AddCustomSubFeatures(
             new PowerOrSpellFinishedByMeCommand(
                 conditionMark, conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
-        
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Command)
@@ -1498,7 +1495,7 @@ internal static partial class SpellBuilders
 
             actingCharacter.UsedTacticalMoves = actingCharacter.MaxTacticalMoves;
             actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
-            
+
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
 
@@ -1605,6 +1602,31 @@ internal static partial class SpellBuilders
     {
         const string NAME = "DissonantWhispers";
 
+        #region Dissonant Whispers AI Behavior
+
+        var scorerDissonantWhispers = AiContext.CreateActivityScorer(
+            FixesContext.DecisionMoveAfraid.Decision.scorer, "MoveScorer_DissonantWhispers");
+
+        // remove IsCloseToMe
+        scorerDissonantWhispers.scorer.WeightedConsiderations.RemoveAt(3);
+
+        var decisionDissonantWhispers = DecisionDefinitionBuilder
+            .Create("Move_DissonantWhispers")
+            .SetGuiPresentationNoContent(true)
+            .SetDecisionDescription(
+                "Go as far as possible from enemies.",
+                "Move",
+                scorerDissonantWhispers)
+            .AddToDB();
+
+        var packageDissonantWhispers = DecisionPackageDefinitionBuilder
+            .Create("DissonantWhispers_Fear")
+            .SetGuiPresentationNoContent(true)
+            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decisionDissonantWhispers, weight = 9 })
+            .AddToDB();
+
+        #endregion
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.DissonantWhispers, 128))
@@ -1631,13 +1653,14 @@ internal static partial class SpellBuilders
                     .SetCasterEffectParameters(Feeblemind)
                     .SetEffectEffectParameters(PowerBardTraditionVerbalOnslaught)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDissonantWhispers())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDissonantWhispers(packageDissonantWhispers))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class PowerOrSpellFinishedByMeDissonantWhispers : IPowerOrSpellFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeDissonantWhispers(DecisionPackageDefinition packageDissonantWhispers)
+        : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1669,7 +1692,7 @@ internal static partial class SpellBuilders
 
             brain.StashDecisions();
             brain.RemoveAllDecisions();
-            brain.AddDecisionPackage(DecisionPackageDefinitions.Fear);
+            brain.AddDecisionPackage(packageDissonantWhispers);
             brain.RegisterAllActiveDecisionPackages();
 
             yield return brain.DecideNextActivity();
