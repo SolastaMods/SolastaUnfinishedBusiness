@@ -1238,12 +1238,6 @@ internal static partial class SpellBuilders
     {
         const string NAME = "CommandSpell";
 
-        var powerPool = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .AddToDB();
-
         // Approach
 
         #region Approach AI Behavior
@@ -1256,8 +1250,6 @@ internal static partial class SpellBuilders
         scorerApproach.scorer = scorerApproach.scorer.DeepCopy();
         scorerApproach.name = "MoveScorer_Approach";
 
-        // remove IsCloseFromMe
-        scorerApproach.scorer.WeightedConsiderations.RemoveAt(3);
         // invert PenalizeFearSourceProximityAtPosition if brain character has condition approach and enemy is condition source
         scorerApproach.scorer.WeightedConsiderations[2].Consideration.stringParameter = ConditionApproachName;
         // invert PenalizeVeryCloseEnemyProximityAtPosition if brain character has condition approach and enemy is condition source
@@ -1291,15 +1283,24 @@ internal static partial class SpellBuilders
 
         conditionApproach.AddCustomSubFeatures(new ActionFinishedByMeApproach(conditionApproach));
 
-        var powerApproach = FeatureDefinitionPowerSharedPoolBuilder
+        var spellApproach = SpellDefinitionBuilder
             .Create($"Power{NAME}Approach")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.NoCost, powerPool)
-            .SetShowCasting(false)
+            .SetGuiPresentation(Category.Feature, Command)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionApproach))
                     .Build())
             .AddToDB();
@@ -1316,16 +1317,25 @@ internal static partial class SpellBuilders
             .SetFeatures(MovementAffinityConditionDashing)
             .AddToDB();
 
-        var powerFlee = FeatureDefinitionPowerSharedPoolBuilder
+        var spellFlee = SpellDefinitionBuilder
             .Create($"Power{NAME}Flee")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.NoCost, powerPool)
-            .SetShowCasting(false)
+            .SetGuiPresentation(Category.Feature, Command)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFlee))
                     .Build())
             .AddToDB();
@@ -1341,15 +1351,24 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(new CharacterBeforeTurnStartListenerCommandGrovel())
             .AddToDB();
 
-        var powerGrovel = FeatureDefinitionPowerSharedPoolBuilder
+        var spellGrovel = SpellDefinitionBuilder
             .Create($"Power{NAME}Grovel")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.NoCost, powerPool)
-            .SetShowCasting(false)
+            .SetGuiPresentation(Category.Feature, Command)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionGrovel))
                     .Build())
             .AddToDB();
@@ -1370,31 +1389,30 @@ internal static partial class SpellBuilders
                     .AddToDB())
             .AddToDB();
 
-        var powerHalt = FeatureDefinitionPowerSharedPoolBuilder
+        var spellHalt = SpellDefinitionBuilder
             .Create($"Power{NAME}Halt")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.NoCost, powerPool)
-            .SetShowCasting(false)
+            .SetGuiPresentation(Category.Feature, Command)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHalt))
                     .Build())
             .AddToDB();
 
-        PowerBundle.RegisterPowerBundle(powerPool, false, powerApproach, powerFlee, powerGrovel, powerHalt);
-
         // Command Spell
-
-        var conditionSelf = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Self")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(powerPool, powerApproach, powerFlee, powerGrovel, powerHalt)
-            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
-            .AddToDB();
 
         var conditionMark = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Mark")
@@ -1402,6 +1420,24 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
+        // MAIN
+
+        spellApproach.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMeCommand(
+                conditionMark, conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
+
+        spellFlee.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMeCommand(
+                conditionMark, conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
+
+        spellGrovel.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMeCommand(
+                conditionMark, conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
+
+        spellHalt.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMeCommand(
+                conditionMark, conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
+        
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Command)
@@ -1412,6 +1448,7 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSubSpells(spellApproach, spellFlee, spellGrovel, spellHalt)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1427,14 +1464,10 @@ internal static partial class SpellBuilders
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionMark, ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(conditionSelf, ConditionForm.ConditionOperation.Add, true))
+                            .Build())
                     .SetParticleEffectParameters(Command)
                     .SetEffectEffectParameters(SpareTheDying)
                     .Build())
-            .AddCustomSubFeatures(
-                new PowerOrSpellFinishedByMeCommand(
-                    conditionMark, powerPool, conditionApproach, conditionFlee, conditionGrovel, conditionHalt))
             .AddToDB();
 
         return spell;
@@ -1455,6 +1488,9 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
+            actingCharacter.UsedTacticalMoves = actingCharacter.MaxTacticalMoves;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
+            
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
 
@@ -1467,7 +1503,6 @@ internal static partial class SpellBuilders
 
     private sealed class PowerOrSpellFinishedByMeCommand(
         ConditionDefinition conditionMark,
-        FeatureDefinitionPower powerPool,
         params ConditionDefinition[] conditions) : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => true;
@@ -1520,41 +1555,21 @@ internal static partial class SpellBuilders
             }
 
             var caster = action.ActingCharacter;
-            var rulesetCaster = caster.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerPool, rulesetCaster);
 
             foreach (var target in action.ActionParams.TargetCharacters
                          .Where(x => x.RulesetActor.HasConditionOfCategoryAndType(
                              AttributeDefinitions.TagEffect, conditionMark.Name)))
             {
-                yield return caster.MyReactToSpendPowerBundle(
-                    usablePower,
-                    [target],
-                    caster,
-                    "CommandSpell",
-                    "ReactionSpendPowerBundleCommandSpellDescription".Formatted(Category.Reaction, target.Name),
-                    ReactionValidated);
+                var rulesetTarget = target.RulesetCharacter;
+                var conditionsToRemove = rulesetTarget.AllConditionsForEnumeration
+                    .Where(x =>
+                        x.SourceGuid != caster.Guid &&
+                        conditions.Contains(x.ConditionDefinition))
+                    .ToList();
 
-                continue;
-
-                void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
+                foreach (var condition in conditionsToRemove)
                 {
-                    if (!reactionRequest.Validated)
-                    {
-                        return;
-                    }
-
-                    var rulesetTarget = target.RulesetCharacter;
-                    var conditionsToRemove = rulesetTarget.AllConditionsForEnumeration
-                        .Where(x =>
-                            x.SourceGuid != caster.Guid &&
-                            conditions.Contains(x.ConditionDefinition))
-                        .ToList();
-
-                    foreach (var condition in conditionsToRemove)
-                    {
-                        rulesetTarget.RemoveCondition(condition);
-                    }
+                    rulesetTarget.RemoveCondition(condition);
                 }
             }
         }
@@ -1875,7 +1890,7 @@ internal static partial class SpellBuilders
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 action.Countered ||
                 action is CharacterActionCastSpell { ExecutionFailed: true } ||
-                action.ActionParams.RulesetEffect.EffectDescription.RangeType 
+                action.ActionParams.RulesetEffect.EffectDescription.RangeType
                     is not (RangeType.Touch or RangeType.MeleeHit))
             {
                 yield break;
