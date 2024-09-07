@@ -1,7 +1,12 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
-  "spellsBundle": false,
-  "subspellsList": [],
+  "spellsBundle": true,
+  "subspellsList": [
+    "Definition:PowerCommandSpellApproach:18ae3db8-2589-5b95-b795-4f54e5aae89e",
+    "Definition:PowerCommandSpellFlee:7920093b-60b8-5b72-8217-8e863e38bdea",
+    "Definition:PowerCommandSpellGrovel:35f18407-8050-5283-ba7f-3a5863aa555e",
+    "Definition:PowerCommandSpellHalt:ba84cf9e-4373-5a11-af15-41395a314cde"
+  ],
   "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEnchantment",
@@ -95,33 +100,6 @@
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionCommandSpellSelf",
-          "conditionDefinition": "Definition:ConditionCommandSpellSelf:7b73b84d-697d-5018-9cff-85b0fba12033",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": true,
           "forceOnSelf": false
         },
         "hasFilterId": false,

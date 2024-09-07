@@ -73,6 +73,28 @@
               "name": "PenalizeFearSourceProximityAtPosition"
             },
             "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "DistanceFromMe",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 20.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "IsCloseFromMe"
+            },
+            "weight": 0.95
           }
         ]
       },
