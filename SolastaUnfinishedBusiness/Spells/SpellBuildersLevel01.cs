@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using TA.AI;
+using TA.AI.Activities;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -229,7 +230,7 @@ internal static partial class SpellBuilders
             .CopyParticleReferences(Entangle)
             .AddToDB();
 
-        var battlePackage = AiContext.BuildDecisionBreakFreeFromCondition(
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
             conditionEnsnared.Name, AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC);
 
         conditionEnsnared.addBehavior = true;
@@ -662,7 +663,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var battlePackage =
-            AiContext.BuildDecisionBreakFreeFromCondition(conditionVileBrew.Name, AiContext.BreakFreeType.DoNothing);
+            AiContext.BuildDecisionPackageBreakFree(conditionVileBrew.Name, AiContext.BreakFreeType.DoNothing);
 
         conditionVileBrew.addBehavior = true;
         conditionVileBrew.battlePackage = battlePackage;
@@ -1270,7 +1271,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetDecisionDescription(
                 "Go as close as possible to enemies.",
-                "Move",
+                nameof(Move),
                 scorerApproach)
             .AddToDB();
 
@@ -1312,7 +1313,12 @@ internal static partial class SpellBuilders
                         additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionApproach))
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionApproach, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .SetParticleEffectParameters(Command)
                     .SetEffectEffectParameters(SpareTheDying)
                     .Build())
@@ -1349,7 +1355,12 @@ internal static partial class SpellBuilders
                         additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFlee))
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionFlee, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .SetParticleEffectParameters(Command)
                     .SetEffectEffectParameters(SpareTheDying)
                     .Build())
@@ -1384,7 +1395,12 @@ internal static partial class SpellBuilders
                         additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionGrovel))
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionGrovel, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .SetParticleEffectParameters(Command)
                     .SetEffectEffectParameters(SpareTheDying)
                     .Build())
@@ -1425,7 +1441,12 @@ internal static partial class SpellBuilders
                         additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHalt))
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionHalt, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .SetParticleEffectParameters(Command)
                     .SetEffectEffectParameters(SpareTheDying)
                     .Build())
@@ -1433,29 +1454,19 @@ internal static partial class SpellBuilders
 
         // Command Spell
 
-        var conditionMark = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Mark")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
         // MAIN
 
         spellApproach.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeCommand(
-                conditionMark, conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
+            new PowerOrSpellFinishedByMeCommand(conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
 
         spellFlee.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeCommand(
-                conditionMark, conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
+            new PowerOrSpellFinishedByMeCommand(conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
 
         spellGrovel.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeCommand(
-                conditionMark, conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
+            new PowerOrSpellFinishedByMeCommand(conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
 
         spellHalt.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeCommand(
-                conditionMark, conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
+            new PowerOrSpellFinishedByMeCommand(conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -1474,16 +1485,10 @@ internal static partial class SpellBuilders
                     .UseQuickAnimations()
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                        additionalTargetsPerIncrement: 1)
+                    .SetEffectAdvancement(
+                        EffectIncrementMethod.PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(conditionMark, ConditionForm.ConditionOperation.Add)
-                            .Build())
                     .SetParticleEffectParameters(Command)
                     .SetEffectEffectParameters(SpareTheDying)
                     .Build())
@@ -1492,37 +1497,8 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ActionFinishedByMeApproach(ConditionDefinition conditionApproach) : IActionFinishedByMe
-    {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
-        {
-            var actingCharacter = characterAction.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            if (characterAction.ActionId != Id.TacticalMove ||
-                actingCharacter.MovingToDestination ||
-                !rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionApproach.Name, out var activeCondition))
-            {
-                yield break;
-            }
-
-            actingCharacter.UsedTacticalMoves = actingCharacter.MaxTacticalMoves;
-            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
-
-            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
-            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-            if (!caster.IsWithinRange(actingCharacter, 1))
-            {
-                rulesetCharacter.RemoveCondition(activeCondition);
-            }
-        }
-    }
-
-    private sealed class PowerOrSpellFinishedByMeCommand(
-        ConditionDefinition conditionMark,
-        params ConditionDefinition[] conditions) : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
+    private sealed class PowerOrSpellFinishedByMeCommand(params ConditionDefinition[] conditions)
+        : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => true;
 
@@ -1575,21 +1551,62 @@ internal static partial class SpellBuilders
 
             var caster = action.ActingCharacter;
 
-            foreach (var target in action.ActionParams.TargetCharacters
-                         .Where(x => x.RulesetActor.HasConditionOfCategoryAndType(
-                             AttributeDefinitions.TagEffect, conditionMark.Name)))
+            foreach (var target in action.ActionParams.TargetCharacters)
             {
                 var rulesetTarget = target.RulesetCharacter;
-                var conditionsToRemove = rulesetTarget.AllConditionsForEnumeration
-                    .Where(x =>
-                        x.SourceGuid != caster.Guid &&
-                        conditions.Contains(x.ConditionDefinition))
-                    .ToList();
+                var conditionsToRemove = new List<RulesetCondition>();
+                var shouldRemove = false;
+
+                foreach (var activeCondition in rulesetTarget.AllConditionsForEnumeration
+                             .Where(activeCondition => conditions.Contains(activeCondition.ConditionDefinition)))
+                {
+                    if (activeCondition.SourceGuid == caster.Guid)
+                    {
+                        shouldRemove = true;
+                    }
+                    else
+                    {
+                        conditionsToRemove.Add(activeCondition);
+                    }
+                }
+
+                if (!shouldRemove)
+                {
+                    yield break;
+                }
 
                 foreach (var condition in conditionsToRemove)
                 {
                     rulesetTarget.RemoveCondition(condition);
                 }
+            }
+        }
+    }
+
+    private sealed class ActionFinishedByMeApproach(ConditionDefinition conditionApproach) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            var actingCharacter = characterAction.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (characterAction.ActionId != Id.TacticalMove ||
+                actingCharacter.MovingToDestination ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionApproach.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            actingCharacter.UsedTacticalMoves = actingCharacter.MaxTacticalMoves;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+
+            if (!caster.IsWithinRange(actingCharacter, 1))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
             }
         }
     }
@@ -1629,7 +1646,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetDecisionDescription(
                 "Go as far as possible from enemies.",
-                "Move",
+                nameof(Move),
                 scorerDissonantWhispers)
             .AddToDB();
 
@@ -3050,7 +3067,6 @@ internal static partial class SpellBuilders
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
-
             var rulesetSpell = rulesetCaster?.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
 
             if (rulesetSpell != null)

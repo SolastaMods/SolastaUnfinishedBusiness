@@ -51,7 +51,7 @@ public static class BreakFreePatcher
             var success = true;
 
             // no ability check
-            switch ((AiContext.BreakFreeType)int.Parse(decisionDefinition.Decision.StringParameter))
+            switch ((AiContext.BreakFreeType)decisionDefinition.Decision.enumParameter)
             {
                 case AiContext.BreakFreeType.DoNothing:
                     rulesetCharacter.RemoveCondition(restrainingCondition);
@@ -121,10 +121,7 @@ public static class BreakFreePatcher
             }
 
             gameLocationCharacter.SpendActionType(ActionDefinitions.ActionType.Main);
-
-            var breakFreeExecuted = rulesetCharacter.BreakFreeExecuted;
-
-            breakFreeExecuted?.Invoke(rulesetCharacter, success);
+            rulesetCharacter.BreakFreeExecuted?.Invoke(rulesetCharacter, success);
         }
     }
 }

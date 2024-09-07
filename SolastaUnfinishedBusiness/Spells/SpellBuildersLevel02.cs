@@ -86,7 +86,7 @@ internal static partial class SpellBuilders
             .SetFixedAmount((int)AiContext.BreakFreeType.DoNothing)
             .AddToDB();
 
-        var battlePackage = AiContext.BuildDecisionBreakFreeFromCondition(
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
             conditionGrappledRestrainedIceBound.Name, AiContext.BreakFreeType.DoNothing);
 
         conditionGrappledRestrainedIceBound.addBehavior = true;
@@ -296,7 +296,7 @@ internal static partial class SpellBuilders
             .SetFeatures(actionAffinityNoxiousSpray)
             .AddToDB();
 
-        var battlePackage = AiContext.BuildDecisionBreakFreeFromCondition(
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
                 conditionNoxiousSpray.Name, AiContext.BreakFreeType.DoNothing);
 
         conditionNoxiousSpray.addBehavior = true;
@@ -447,7 +447,7 @@ internal static partial class SpellBuilders
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .AddToDB();
 
-        var battlePackage = AiContext.BuildDecisionBreakFreeFromCondition(
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
             conditionRestrainedBySpellWeb.Name, AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC);
 
         conditionRestrainedBySpellWeb.addBehavior = true;

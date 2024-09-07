@@ -458,7 +458,7 @@ internal static partial class SpellBuilders
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .AddToDB();
 
-        var battlePackage = AiContext.BuildDecisionBreakFreeFromCondition(
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
             conditionFlashFreeze.Name, AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC);
 
         conditionFlashFreeze.addBehavior = true;

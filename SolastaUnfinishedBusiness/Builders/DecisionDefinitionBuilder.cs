@@ -15,6 +15,7 @@ internal class DecisionDefinitionBuilder
         string stringParameter = "",
         string stringSecParameter = "",
         bool boolParameter = false,
+        bool boolSecParameter = false,
         float floatParameter = 0,
         int enumParameter = 0)
     {
@@ -26,6 +27,7 @@ internal class DecisionDefinitionBuilder
             stringParameter = stringParameter,
             stringSecParameter = stringSecParameter,
             boolParameter = boolParameter,
+            boolSecParameter = boolSecParameter,
             floatParameter = floatParameter,
             enumParameter = enumParameter
         };
