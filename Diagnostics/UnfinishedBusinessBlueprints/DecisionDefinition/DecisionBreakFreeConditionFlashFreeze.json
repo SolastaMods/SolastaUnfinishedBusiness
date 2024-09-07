@@ -2,7 +2,7 @@
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
-    "description": "if restrained and can use main action, try to break free",
+    "description": "if restrained from ConditionFlashFreeze, and can use main action, try to break free",
     "scorer": {
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
@@ -54,10 +54,10 @@
           }
         ]
       },
-      "name": "BreakFree"
+      "name": "BreakFreeConditionFlashFreeze"
     },
     "activityType": "BreakFree",
-    "stringParameter": "2",
+    "stringParameter": "1",
     "stringSecParameter": "",
     "boolParameter": false,
     "boolSecParameter": false,

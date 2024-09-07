@@ -40,7 +40,7 @@
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
-                "stringParameter": "ConditionCommandSpellApproach",
+                "stringParameter": "",
                 "floatParameter": 3.0,
                 "intParameter": 2,
                 "byteParameter": 0,
@@ -62,7 +62,7 @@
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
-                "stringParameter": "ConditionCommandSpellApproach",
+                "stringParameter": "",
                 "floatParameter": 6.0,
                 "intParameter": 1,
                 "byteParameter": 0,

@@ -5,7 +5,7 @@
 - fixed Barbarian Sundering Blow interaction with Call Lightning, and other proxy like powers
 - fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances saving throw logic
 - fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe not consuming reaction
-- fixed countered, and execution failed checks on custom behaviors triggering logic
+- fixed countered, and execution failed checks on custom behaviors logic
 - fixed Dwarven Fortitude, and Magical Guidance incorrectly consuming a reaction
 - fixed Exploiter feat not checking for reactions from 2nd target onwards
 - fixed Lucky, and Mage Slayer feats double consumption
