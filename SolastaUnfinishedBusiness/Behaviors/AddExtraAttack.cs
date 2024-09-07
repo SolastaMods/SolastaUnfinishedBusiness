@@ -423,7 +423,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
         var offHandItem = hero.GetOffhandWeapon();
 
         if (offHandItem == null ||
-            !ValidatorsWeapon.IsShield(offHandItem))
+            !ValidatorsWeapon.IsShield(offHandItem.ItemDefinition))
         {
             return null;
         }

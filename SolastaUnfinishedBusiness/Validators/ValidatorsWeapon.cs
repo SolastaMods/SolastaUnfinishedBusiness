@@ -35,8 +35,10 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMagical(RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter _)
     {
-        return attackMode.Magical || (rulesetItem != null
-                                      && (rulesetItem.IsMagicalWeapon() || ShieldAttack.IsMagicalShield(rulesetItem)));
+        return attackMode.Magical ||
+               (rulesetItem != null &&
+                (rulesetItem.IsMagicalWeapon() ||
+                 ShieldAttack.IsMagicalShield(rulesetItem)));
     }
 
 #if false
@@ -69,10 +71,14 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static bool IsMelee([CanBeNull] ItemDefinition itemDefinition)
     {
-        return itemDefinition
-               && ((itemDefinition.WeaponDescription != null
-                    && itemDefinition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee)
-                   || itemDefinition.IsArmor /* for shields */);
+        if (!itemDefinition)
+        {
+            return false;
+        }
+
+        return itemDefinition.IsArmor ||
+               (itemDefinition.WeaponDescription != null &&
+                itemDefinition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee);
     }
 
 #pragma warning disable IDE0060
@@ -89,17 +95,15 @@ internal static class ValidatorsWeapon
             attackModeRulesetItem = rulesetItem1;
         }
 
-        var item = attackModeRulesetItem ?? rulesetItem;
-
         // don't use IsMelee(attackMode) in here as these are used before an attack initiates
-        return IsMelee(item ?? rulesetCharacter?.GetMainWeapon());
+        return IsMelee(attackModeRulesetItem ?? rulesetItem ?? rulesetCharacter?.GetMainWeapon());
     }
 #pragma warning restore IDE0060
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee([CanBeNull] RulesetItem rulesetItem)
     {
-        return rulesetItem != null && IsMelee(rulesetItem.ItemDefinition);
+        return IsMelee(rulesetItem?.ItemDefinition);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -119,16 +123,14 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsShield([CanBeNull] ItemDefinition itemDefinition)
     {
-        return itemDefinition
-               && itemDefinition.IsArmor
-               && itemDefinition.ArmorDescription != null
-               && itemDefinition.ArmorDescription.ArmorType == ShieldType.Name;
-    }
+        if (!itemDefinition)
+        {
+            return false;
+        }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsShield([CanBeNull] RulesetItem rulesetItem)
-    {
-        return rulesetItem != null && IsShield(rulesetItem.ItemDefinition);
+        return itemDefinition.IsArmor &&
+               itemDefinition.ArmorDescription != null &&
+               itemDefinition.ArmorDescription.ArmorType == ShieldType.Name;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -136,10 +138,14 @@ internal static class ValidatorsWeapon
         [CanBeNull] ItemDefinition itemDefinition,
         params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
-        return itemDefinition
-               && itemDefinition.IsWeapon
-               && itemDefinition.WeaponDescription != null
-               && weaponTypeDefinitions.Contains(itemDefinition.WeaponDescription.WeaponTypeDefinition);
+        if (!itemDefinition)
+        {
+            return false;
+        }
+
+        return itemDefinition.IsWeapon &&
+               itemDefinition.WeaponDescription != null &&
+               weaponTypeDefinitions.Contains(itemDefinition.WeaponDescription.WeaponTypeDefinition);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -147,7 +153,7 @@ internal static class ValidatorsWeapon
         [CanBeNull] RulesetItem rulesetItem,
         params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
-        return rulesetItem != null && IsWeaponType(rulesetItem.ItemDefinition, weaponTypeDefinitions);
+        return IsWeaponType(rulesetItem?.ItemDefinition, weaponTypeDefinitions);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -189,9 +195,13 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool HasAnyWeaponTag([CanBeNull] ItemDefinition itemDefinition, [NotNull] params string[] tags)
     {
-        return itemDefinition
-               && itemDefinition.IsWeapon
-               && itemDefinition.WeaponDescription != null
-               && tags.Any(t => itemDefinition.WeaponDescription.WeaponTags.Contains(t));
+        if (!itemDefinition)
+        {
+            return false;
+        }
+
+        return itemDefinition.IsWeapon &&
+               itemDefinition.WeaponDescription != null &&
+               tags.Any(t => itemDefinition.WeaponDescription.WeaponTags.Contains(t));
     }
 }
