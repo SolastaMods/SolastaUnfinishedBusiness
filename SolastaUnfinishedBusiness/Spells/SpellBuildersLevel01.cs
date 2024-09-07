@@ -2497,7 +2497,6 @@ internal static partial class SpellBuilders
             .SetCharacterFamily("Fey")
             .SetChallengeRating(0)
             .SetDroppedLootDefinition(null)
-            .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction(FactionDefinitions.Party)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)

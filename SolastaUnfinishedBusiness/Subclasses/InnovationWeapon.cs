@@ -401,7 +401,6 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetCreatureTags(SteelDefenderTag)
             .SetDefaultFaction(FactionDefinitions.Party)
             .SetFullyControlledWhenAllied(true)
-            .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
             .SetHeight(6)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetCharacterFamily(InventorClass.InventorConstructFamily)

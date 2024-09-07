@@ -67,6 +67,7 @@ internal static class DocumentationContext
                  !SpellsContext.SpellsChildMaster.ContainsKey(x) &&
                  x.implemented &&
                  !x.Name.Contains("Invocation") &&
+                 !x.Name.EndsWith("NoFocus") &&
                  !x.Name.EndsWith("_B")));
         DumpOthers<ItemDefinition>("Items", x => x.IsArmor || x.IsWeapon);
         DumpOthers<MetamagicOptionDefinition>("Metamagic",
@@ -337,14 +338,18 @@ internal static class DocumentationContext
 
     private static string GetClassesWhichCanCastSpell(SpellDefinition spell)
     {
-        var result = SpellListClassMap.Where(kvp => kvp.Key.SpellsByLevel
-                .SelectMany(x => x.Spells)
-                .Contains(spell))
-            .Aggregate(" [", (current, kvp) => current + kvp.Value.FormatTitle() + ",");
+        var result = SpellListClassMap
+            .OrderBy(kvp => kvp.Value.FormatTitle())
+            .Where(kvp =>
+                kvp.Key.SpellsByLevel
+                    .SelectMany(x => x.Spells)
+                    .Contains(spell) ||
+                SpellsContext.SpellListContextTab[kvp.Key].SuggestedSpells.Contains(spell))
+            .Aggregate(string.Empty, (current, kvp) => current + kvp.Value.FormatTitle() + ", ");
 
-        result = result.Substring(0, result.Length - 1) + "]";
-
-        return result;
+        return result == string.Empty
+            ? string.Empty
+            : "**[" + result.Substring(0, result.Length - 2) + "]**" + Environment.NewLine;
     }
 
     private static void DumpOthers<T>(string groupName, Func<T, bool> filter) where T : BaseDefinition
@@ -397,7 +402,7 @@ internal static class DocumentationContext
                     title += " [" + Gui.Format("Tooltip/&TagConcentrationTitle") + "]";
                 }
 
-                title += GetClassesWhichCanCastSpell(spellDefinition);
+                description = GetClassesWhichCanCastSpell(spellDefinition) + Environment.NewLine + description;
             }
 
             outString.AppendLine($"# {counter++}. - {title} {GetTag(featureDefinition)}");
