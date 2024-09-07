@@ -954,12 +954,15 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            actualEffectForms.RemoveAll(x =>
+            var removed = actualEffectForms.RemoveAll(x =>
                 x.HasSavingThrow
                 && x.FormType == EffectForm.EffectFormType.Damage
                 && x.SavingThrowAffinity == EffectSavingThrowType.HalfDamage);
 
-            defender.RulesetCharacter.LogCharacterAffectedByCondition(conditionCircleOfMagicalNegation);
+            if (removed > 0)
+            {
+                defender.RulesetCharacter.LogCharacterAffectedByCondition(conditionCircleOfMagicalNegation);
+            }
         }
 
         public void OnSavingThrowFinished(

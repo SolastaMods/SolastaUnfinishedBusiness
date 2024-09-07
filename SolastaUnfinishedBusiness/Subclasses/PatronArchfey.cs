@@ -351,12 +351,10 @@ public class PatronArchfey : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (attacker.Side == defender.Side)
+            if (attacker.IsOppositeSide(defender.Side))
             {
-                yield break;
+                yield return HandleReaction(battleManager, attacker, defender);
             }
-
-            yield return HandleReaction(battleManager, attacker, defender);
         }
 
         public IEnumerator OnMagicEffectFinishedOnMe(CharacterAction action,
@@ -504,7 +502,6 @@ public class PatronArchfey : AbstractSubclass
 
     private class CustomBehaviorBeguilingDefenses(FeatureDefinitionPower powerBeguilingDefenses)
         : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
-
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
