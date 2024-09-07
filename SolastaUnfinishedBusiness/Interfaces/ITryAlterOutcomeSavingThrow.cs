@@ -49,6 +49,12 @@ internal static class TryAlterOutcomeSavingThrow
         {
             yield return HandleFailedSavingThrow(
                 battleManager, attacker, defender, savingThrowData, false, hasBorrowedLuck);
+
+            if (savingThrowData.Action != null)
+            {
+                savingThrowData.Action.SaveOutcome = savingThrowData.SaveOutcome;
+                savingThrowData.Action.SaveOutcomeDelta = savingThrowData.SaveOutcomeDelta; 
+            }
         }
 
         //PATCH: support for `ITryAlterOutcomeSavingThrow`
@@ -162,8 +168,8 @@ internal static class TryAlterOutcomeSavingThrow
             }
         }
 
-        savingThrowData.SaveOutcome = saveOutcome;
         savingThrowData.SaveOutcomeDelta = saveOutcomeDelta;
+        savingThrowData.SaveOutcome = saveOutcome;
     }
 
     private static IEnumerator HandleFailedSavingThrow(
@@ -189,6 +195,7 @@ internal static class TryAlterOutcomeSavingThrow
 
             if (reactionParams.ReactionValidated)
             {
+                savingThrowData.SaveOutcomeDelta = 0;
                 savingThrowData.SaveOutcome = RollOutcome.Success;
             }
         }
