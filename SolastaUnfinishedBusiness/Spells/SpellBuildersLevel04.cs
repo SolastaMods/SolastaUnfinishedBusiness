@@ -1411,7 +1411,7 @@ internal static partial class SpellBuilders
                 // UI Only
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
             .AddToDB();

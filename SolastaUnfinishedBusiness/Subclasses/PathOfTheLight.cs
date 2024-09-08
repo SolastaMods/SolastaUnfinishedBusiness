@@ -106,7 +106,7 @@ public sealed class PathOfTheLight : AbstractSubclass
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
-                            .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                            .SetDurationData(DurationType.Minute, 1)
                             .SetEffectForms(
                                 EffectFormBuilder
                                     .Create()

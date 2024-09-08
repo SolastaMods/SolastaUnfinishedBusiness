@@ -122,7 +122,7 @@ internal static class SubraceGrayDwarfBuilder
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.Invisibility.EffectDescription)
-                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
             .AddToDB();

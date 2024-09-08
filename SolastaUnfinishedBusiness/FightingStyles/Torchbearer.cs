@@ -23,7 +23,7 @@ internal sealed class Torchbearer : AbstractFightingStyle
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                 .SetSavingThrowData(
                     false,

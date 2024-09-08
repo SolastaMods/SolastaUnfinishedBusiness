@@ -91,7 +91,7 @@ internal static partial class SpellBuilders
             .Create(ConditionDefinitions.ConditionBlinded, $"ConditionBlindedBy{NAME}")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(ConditionDefinitions.ConditionBlinded)
-            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Minute, 1)
             .SetFeatures()
             .AddToDB();
 
