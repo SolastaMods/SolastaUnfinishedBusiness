@@ -166,9 +166,9 @@ internal static class SaveByLocationContext
         }
 
         // Ensure folders exist
-        Directory.CreateDirectory(OfficialSaveGameDirectory);
-        Directory.CreateDirectory(LocationSaveGameDirectory);
-        Directory.CreateDirectory(CampaignSaveGameDirectory);
+        Main.EnsureFolderExists(OfficialSaveGameDirectory);
+        Main.EnsureFolderExists(LocationSaveGameDirectory);
+        Main.EnsureFolderExists(CampaignSaveGameDirectory);
 
         // Find the most recently touched save file and select the correct location/campaign for that save
         var (path, locationType) = GetMostRecent();

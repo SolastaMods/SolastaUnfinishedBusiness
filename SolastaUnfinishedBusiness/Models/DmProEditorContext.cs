@@ -38,7 +38,7 @@ internal static class DmProEditorContext
 
         var backupDirectory = Path.Combine(Main.ModFolder, BackupFolder);
 
-        Directory.CreateDirectory(backupDirectory);
+        Main.EnsureFolderExists(backupDirectory);
 
         var title = userContent.Title;
         var compliantTitle = IOHelper.GetOsCompliantFilename(title);

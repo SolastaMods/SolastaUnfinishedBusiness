@@ -16,7 +16,7 @@ internal static class ModSettings
     public static void SaveSettings<T>(this ModEntry modEntry, string fileName, T settings)
     {
         var userConfigFolder = modEntry.Path + "UserSettings";
-        Directory.CreateDirectory(userConfigFolder);
+        Main.EnsureFolderExists(userConfigFolder);
         var userPath = $"{userConfigFolder}{Path.DirectorySeparatorChar}{fileName}";
         File.WriteAllText(userPath, JsonConvert.SerializeObject(settings, Formatting.Indented));
     }
@@ -26,7 +26,7 @@ internal static class ModSettings
     {
         var assembly = Assembly.GetExecutingAssembly();
         var userConfigFolder = modEntry.Path + "UserSettings";
-        Directory.CreateDirectory(userConfigFolder);
+        Main.EnsureFolderExists(userConfigFolder);
         var userPath = $"{userConfigFolder}{Path.DirectorySeparatorChar}{fileName}";
         try
         {

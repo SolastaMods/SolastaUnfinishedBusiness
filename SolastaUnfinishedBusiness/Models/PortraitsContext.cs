@@ -19,10 +19,10 @@ public static class PortraitsContext
 
     internal static void Load()
     {
-        Directory.CreateDirectory(PortraitsFolder);
-        Directory.CreateDirectory(PreGenFolder);
-        Directory.CreateDirectory(PersonalFolder);
-        Directory.CreateDirectory(MonstersFolder);
+        Main.EnsureFolderExists(PortraitsFolder);
+        Main.EnsureFolderExists(PreGenFolder);
+        Main.EnsureFolderExists(PersonalFolder);
+        Main.EnsureFolderExists(MonstersFolder);
     }
 
     internal static bool HasCustomPortrait(RulesetCharacter rulesetCharacter)

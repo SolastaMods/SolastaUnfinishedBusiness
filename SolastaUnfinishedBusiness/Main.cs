@@ -61,6 +61,14 @@ internal static class Main
         ModEntry.Logger.Log(msg);
     }
 
+    internal static void EnsureFolderExists(string path)
+    {
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+    }
+
     [UsedImplicitly]
     internal static bool Load([NotNull] UnityModManager.ModEntry modEntry)
     {
@@ -123,7 +131,7 @@ internal static class Main
 
     internal static void LoadSettingFilenames()
     {
-        Directory.CreateDirectory(SettingsFolder);
+        EnsureFolderExists(SettingsFolder);
 
         SettingsFiles = Directory.GetFiles(SettingsFolder)
             .Where(x => x.EndsWith(".xml"))

@@ -16,8 +16,8 @@ internal static class DocumentationContext
 {
     internal static void DumpDocumentation()
     {
-        Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
-        Directory.CreateDirectory($"{Main.ModFolder}/Documentation/Monsters");
+        Main.EnsureFolderExists($"{Main.ModFolder}/Documentation");
+        Main.EnsureFolderExists($"{Main.ModFolder}/Documentation/Monsters");
 
         foreach (var characterFamilyDefinition in DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
                      .Where(x =>
