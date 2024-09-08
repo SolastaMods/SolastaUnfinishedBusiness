@@ -11,7 +11,6 @@
 - fixed Martial Commander coordinated defense to require an attack first [VANILLA]
 - fixed Party Editor to register/unregister powers from feats
 - fixed Path of the Wild Magic retribution, and Patron Archfey misty step to only react against enemy effects
-- fixed save by location/campaign setting on multiplayer load in overland map
 - improved ability checks to also allow reactions on success [Circle of the Cosmos woe]
 - improved Conversion Slots, and Shorthand versatilities to react on ability checks
 - improved Maneuvering Attack, and Martial Warlord strategic repositioning to use a run stance

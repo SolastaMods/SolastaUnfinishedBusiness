@@ -46,18 +46,4 @@ public static class TacticalAdventuresApplicationPatcher
             return EnableSaveByLocation(ref __result);
         }
     }
-
-    [HarmonyPatch(typeof(TacticalAdventuresApplication),
-        nameof(TacticalAdventuresApplication.MultiplayerFilesDirectory),
-        MethodType.Getter)]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class MultiplayerFilesDirectory_Getter_Patch
-    {
-        [UsedImplicitly]
-        public static bool Prefix(ref string __result)
-        {
-            return EnableSaveByLocation(ref __result);
-        }
-    }
 }
