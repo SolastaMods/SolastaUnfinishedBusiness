@@ -2,7 +2,7 @@
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
-    "description": "if restrained from ConditionGrappledRestrainedSpellWeb, and can use main action, try to break free",
+    "description": "if restrained from ConditionOathOfAncientsNaturesWrath, and can use main action, try to break free",
     "scorer": {
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
@@ -18,7 +18,7 @@
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
-                "stringParameter": "ConditionGrappledRestrainedSpellWeb",
+                "stringParameter": "ConditionOathOfAncientsNaturesWrath",
                 "floatParameter": 2.0,
                 "intParameter": 2,
                 "byteParameter": 0,
@@ -26,7 +26,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "HasConditionGrappledRestrainedSpellWeb"
+              "name": "HasConditionOathOfAncientsNaturesWrath"
             },
             "weight": 1.0
           },
@@ -54,7 +54,7 @@
           }
         ]
       },
-      "name": "BreakFreeConditionGrappledRestrainedSpellWeb"
+      "name": "BreakFreeConditionOathOfAncientsNaturesWrath"
     },
     "activityType": "BreakFree",
     "stringParameter": "",
@@ -88,7 +88,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "61e7fc96-8cb5-5c2b-8a67-75fbef4f333a",
+  "guid": "25d7ad8d-27b8-5882-9bfb-acc37798812f",
   "contentPack": 9999,
-  "name": "DecisionBreakFreeConditionGrappledRestrainedSpellWeb"
+  "name": "DecisionBreakFreeConditionOathOfAncientsNaturesWrath"
 }

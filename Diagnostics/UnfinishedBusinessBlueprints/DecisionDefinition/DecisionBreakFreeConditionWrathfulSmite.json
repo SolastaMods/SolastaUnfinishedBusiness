@@ -2,7 +2,7 @@
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
-    "description": "if restrained from ConditionGrappledRestrainedSpellWeb, and can use main action, try to break free",
+    "description": "if restrained from ConditionWrathfulSmite, and can use main action, try to break free",
     "scorer": {
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
@@ -18,7 +18,7 @@
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
-                "stringParameter": "ConditionGrappledRestrainedSpellWeb",
+                "stringParameter": "ConditionWrathfulSmite",
                 "floatParameter": 2.0,
                 "intParameter": 2,
                 "byteParameter": 0,
@@ -26,7 +26,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "HasConditionGrappledRestrainedSpellWeb"
+              "name": "HasConditionWrathfulSmite"
             },
             "weight": 1.0
           },
@@ -54,7 +54,7 @@
           }
         ]
       },
-      "name": "BreakFreeConditionGrappledRestrainedSpellWeb"
+      "name": "BreakFreeConditionWrathfulSmite"
     },
     "activityType": "BreakFree",
     "stringParameter": "",
@@ -88,7 +88,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "61e7fc96-8cb5-5c2b-8a67-75fbef4f333a",
+  "guid": "1c32e557-4a88-580f-8d11-54d731c4bb79",
   "contentPack": 9999,
-  "name": "DecisionBreakFreeConditionGrappledRestrainedSpellWeb"
+  "name": "DecisionBreakFreeConditionWrathfulSmite"
 }

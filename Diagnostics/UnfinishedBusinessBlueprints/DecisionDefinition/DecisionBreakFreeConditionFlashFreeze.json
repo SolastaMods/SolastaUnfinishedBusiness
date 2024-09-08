@@ -61,7 +61,7 @@
     "stringSecParameter": "",
     "boolParameter": false,
     "boolSecParameter": false,
-    "floatParameter": 0.0,
+    "floatParameter": 3.0,
     "enumParameter": 1
   },
   "guiPresentation": {

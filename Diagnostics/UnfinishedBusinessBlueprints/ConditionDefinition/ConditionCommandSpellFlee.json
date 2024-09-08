@@ -102,7 +102,7 @@
   "addBehavior": false,
   "fearSource": true,
   "battlePackage": "Definition:Fear:67e55218421c6034d8ec7952695e5831",
-  "explorationPackage": null,
+  "explorationPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,
   "refundReceivedDamageWhenRemoved": false,
