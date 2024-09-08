@@ -28,61 +28,49 @@ public static class CharacterActionBreakFreePatcher
 
         private static IEnumerator Process(CharacterActionBreakFree __instance)
         {
-            RulesetCondition restrainingCondition = null;
-
-            __instance.ActingCharacter.RulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionActionAffinity>(
-                __instance.ActingCharacter.RulesetCharacter.FeaturesToBrowse);
-
-            foreach (var definitionActionAffinity in __instance.ActingCharacter.RulesetCharacter.FeaturesToBrowse
-                         .Cast<FeatureDefinitionActionAffinity>()
-                         .Where(definitionActionAffinity => definitionActionAffinity.AuthorizedActions
-                             .Contains(__instance.ActionId)))
-            {
-                restrainingCondition = __instance.ActingCharacter.RulesetCharacter
-                    .FindFirstConditionHoldingFeature(definitionActionAffinity);
-            }
+            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+            var restrainingCondition = AiContext.GetRestrainingCondition(rulesetCharacter);
 
             if (restrainingCondition == null)
             {
                 yield break;
             }
 
-            var actionModifier = new ActionModifier();
-
-            var abilityScoreName =
-                __instance.ActionParams.BreakFreeMode == ActionDefinitions.BreakFreeMode.Athletics
-                    ? AttributeDefinitions.Strength
-                    : AttributeDefinitions.Dexterity;
-
-            var proficiencyName = __instance.ActionParams.BreakFreeMode == ActionDefinitions.BreakFreeMode.Athletics
-                ? SkillDefinitions.Athletics
-                : SkillDefinitions.Acrobatics;
-
-            var checkDC = 10;
             var sourceGuid = restrainingCondition.SourceGuid;
-            var action = (AiContext.BreakFreeType)restrainingCondition.Amount;
+            var action = (AiContext.BreakFreeType)restrainingCondition?.Amount;
+            var actionModifier = new ActionModifier();
+            var checkDC = 10;
+            string abilityScoreName;
+            string proficiencyName;
 
             switch (action)
             {
-                case AiContext.BreakFreeType.DoNothing:
+                case AiContext.BreakFreeType.DoNoCheckAndRemoveCondition:
                     __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
                     yield break;
 
                 case AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC:
                 {
-                    if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
-                    {
-                        checkDC = rulesetCharacterHero.SpellRepertoires
-                            .Select(x => x.SaveDC)
-                            .Max();
-                    }
-
-                    proficiencyName = string.Empty;
+                    CalculateDC(AttributeDefinitions.Strength);
+                    break;
+                }
+                case AiContext.BreakFreeType.DoWisdomCheckAgainstCasterDC:
+                {
+                    CalculateDC(AttributeDefinitions.Wisdom);
                     break;
                 }
                 default:
                 {
-                    if (restrainingCondition.HasSaveOverride)
+                    abilityScoreName =
+                        __instance.ActionParams.BreakFreeMode == ActionDefinitions.BreakFreeMode.Athletics
+                            ? AttributeDefinitions.Strength
+                            : AttributeDefinitions.Dexterity;
+
+                    proficiencyName = __instance.ActionParams.BreakFreeMode == ActionDefinitions.BreakFreeMode.Athletics
+                        ? SkillDefinitions.Athletics
+                        : SkillDefinitions.Acrobatics;
+
+                    if (restrainingCondition!.HasSaveOverride)
                     {
                         checkDC = restrainingCondition.SaveOverrideDC;
                     }
@@ -106,6 +94,7 @@ public static class CharacterActionBreakFreePatcher
 
             __instance.ActingCharacter.RulesetCharacter.ComputeBaseAbilityCheckBonus(
                 abilityScoreName, actionModifier.AbilityCheckModifierTrends, proficiencyName);
+
             __instance.ActingCharacter.ComputeAbilityCheckActionModifier(
                 abilityScoreName, proficiencyName, actionModifier);
 
@@ -148,6 +137,21 @@ public static class CharacterActionBreakFreePatcher
             var breakFreeExecuted = __instance.ActingCharacter.RulesetCharacter.BreakFreeExecuted;
 
             breakFreeExecuted?.Invoke(__instance.ActingCharacter.RulesetCharacter, success);
+
+            yield break;
+
+            void CalculateDC(string newAbilityScoreName)
+            {
+                if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
+                {
+                    checkDC = rulesetCharacterHero.SpellRepertoires
+                        .Select(x => x.SaveDC)
+                        .Max();
+                }
+
+                abilityScoreName = newAbilityScoreName;
+                proficiencyName = string.Empty;
+            }
         }
     }
 }

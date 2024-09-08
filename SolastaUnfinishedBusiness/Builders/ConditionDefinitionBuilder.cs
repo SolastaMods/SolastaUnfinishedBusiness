@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using TA.AI;
@@ -48,11 +49,17 @@ internal class ConditionDefinitionBuilder
     }
 
     internal ConditionDefinitionBuilder SetBrain(
-        DecisionPackageDefinition battlePackage, bool forceBehavior, bool fearSource)
+        DecisionPackageDefinition battlePackage,
+        bool addBehavior = false,
+        bool forceBehavior = false,
+        bool fearSource = false)
     {
         Definition.battlePackage = battlePackage;
+        Definition.explorationPackage = DatabaseHelper.DecisionPackageDefinitions.IdleGuard_Default;
+        Definition.addBehavior = addBehavior;
         Definition.forceBehavior = forceBehavior;
         Definition.fearSource = fearSource;
+
         return this;
     }
 

@@ -5,9 +5,11 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -62,8 +64,17 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Paladin)
             .AddToDB();
 
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{Name}NaturesWrath");
+
         var conditionNaturesWrath = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionRestrainedByEntangle, $"Condition{Name}NaturesWrath")
+            .Create($"Condition{Name}NaturesWrath")
+            .SetGuiPresentation(ConditionDefinitions.ConditionRestrained.GuiPresentation)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
+            .SetBrain(battlePackage, true)
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
 
         //Free single target entangle on Channel Divinity use
@@ -74,7 +85,7 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 10)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 8, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(Entangle)
                     .SetEffectForms(

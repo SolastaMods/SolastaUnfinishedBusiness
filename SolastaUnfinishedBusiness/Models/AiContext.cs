@@ -1,46 +1,56 @@
-﻿using SolastaUnfinishedBusiness.Api;
+﻿using System;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using TA.AI;
 using TA.AI.Activities;
 using TA.AI.Considerations;
-using UnityEngine;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class AiContext
 {
     internal static ActivityScorerDefinition CreateActivityScorer(
-        ActivityScorerDefinition baseScorer, string name)
+        DecisionDefinition baseDecision, string name,
+        bool overwriteConsiderations = false,
+        params WeightedConsiderationDescription[] considerations)
     {
-        var result = Object.Instantiate(baseScorer);
+        var result = Object.Instantiate(baseDecision.Decision.scorer);
 
         result.name = name;
         result.scorer = new ActivityScorer();
 
-        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var weightedConsideration in baseScorer.scorer.WeightedConsiderations)
+        if (!overwriteConsiderations)
         {
-            var sourceDescription = weightedConsideration.Consideration;
-            var targetDescription = new ConsiderationDescription
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var weightedConsideration in baseDecision.Decision.scorer.scorer.WeightedConsiderations)
             {
-                considerationType = sourceDescription.considerationType,
-                curve = AnimationCurve.Constant(0f, 1f, 1f),
-                boolParameter = sourceDescription.boolParameter,
-                boolSecParameter = sourceDescription.boolSecParameter,
-                boolTerParameter = sourceDescription.boolTerParameter,
-                byteParameter = sourceDescription.byteParameter,
-                intParameter = sourceDescription.intParameter,
-                floatParameter = sourceDescription.floatParameter,
-                stringParameter = sourceDescription.stringParameter
-            };
+                var sourceDescription = weightedConsideration.Consideration;
+                var targetDescription = new ConsiderationDescription
+                {
+                    considerationType = sourceDescription.considerationType,
+                    curve = sourceDescription.curve,
+                    boolParameter = sourceDescription.boolParameter,
+                    boolSecParameter = sourceDescription.boolSecParameter,
+                    boolTerParameter = sourceDescription.boolTerParameter,
+                    byteParameter = sourceDescription.byteParameter,
+                    intParameter = sourceDescription.intParameter,
+                    floatParameter = sourceDescription.floatParameter,
+                    stringParameter = sourceDescription.stringParameter
+                };
 
-            var weightedConsiderationDescription = new WeightedConsiderationDescription(
-                CreateConsiderationDefinition(weightedConsideration.ConsiderationDefinition.name, targetDescription),
-                weightedConsideration.weight);
+                var weightedConsiderationDescription = new WeightedConsiderationDescription(
+                    CreateConsiderationDefinition(weightedConsideration.ConsiderationDefinition.name,
+                        targetDescription),
+                    weightedConsideration.weight);
 
-            result.scorer.WeightedConsiderations.Add(weightedConsiderationDescription);
+                result.Scorer.WeightedConsiderations.Add(weightedConsiderationDescription);
+            }
         }
+
+        result.Scorer.WeightedConsiderations.AddRange(considerations);
 
         return result;
     }
@@ -59,30 +69,23 @@ internal static class AiContext
         return result;
     }
 
-    internal static void Load()
+    private static WeightedConsiderationDescription GetWeightedConsiderationDescriptionByDecisionAndConsideration(
+        DecisionDefinition decisionDefinition, string considerationType)
     {
-        ConditionRestrainedByEntangle.amountOrigin = ConditionDefinition.OriginOfAmount.Fixed;
-        ConditionRestrainedByEntangle.baseAmount = (int)BreakFreeType.DoStrengthCheckAgainstCasterDC;
+        var weightedConsiderationDescription =
+            decisionDefinition.Decision.Scorer.WeightedConsiderations
+                .FirstOrDefault(y => y.ConsiderationDefinition.Consideration.considerationType == considerationType)
+            ?? throw new Exception();
 
-        var battlePackage = BuildDecisionPackageBreakFree(
-            ConditionRestrainedByEntangle.Name, BreakFreeType.DoStrengthCheckAgainstCasterDC);
-
-        ConditionRestrainedByEntangle.addBehavior = true;
-        ConditionRestrainedByEntangle.battlePackage = battlePackage;
+        return weightedConsiderationDescription;
     }
 
-    internal static DecisionPackageDefinition BuildDecisionPackageBreakFree(string conditionName, BreakFreeType action)
+    internal static DecisionPackageDefinition BuildDecisionPackageBreakFree(string conditionName)
     {
-        var mainActionNotFullyConsumed = new WeightedConsiderationDescription(
-            CreateConsiderationDefinition(
-                "MainActionNotFullyConsumed",
-                new ConsiderationDescription
-                {
-                    considerationType = nameof(ActionTypeStatus),
-                    stringParameter = string.Empty,
-                    boolParameter = true,
-                    floatParameter = 1f
-                }), 1f);
+        var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
+
+        var wcdHasCondition = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
+            baseDecision, "HasCondition");
 
         var hasConditionBreakFree = new WeightedConsiderationDescription(
             CreateConsiderationDefinition(
@@ -90,18 +93,30 @@ internal static class AiContext
                 new ConsiderationDescription
                 {
                     considerationType = nameof(HasCondition),
+                    curve = wcdHasCondition.Consideration.curve,
                     stringParameter = conditionName,
                     boolParameter = true,
                     intParameter = 2,
                     floatParameter = 2f
                 }), 1f);
 
-        // create scorer
+        var wcdActionTypeStatus = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
+            baseDecision, "ActionTypeStatus");
 
-        var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
-        var scorerBreakFree = CreateActivityScorer(baseDecision.Decision.scorer, $"BreakFree{conditionName}");
+        var mainActionNotFullyConsumed = new WeightedConsiderationDescription(
+            CreateConsiderationDefinition(
+                "MainActionNotFullyConsumed",
+                new ConsiderationDescription
+                {
+                    considerationType = nameof(ActionTypeStatus),
+                    curve = wcdActionTypeStatus.Consideration.curve,
+                    boolParameter = true,
+                    floatParameter = 1f
+                }), 1f);
 
-        scorerBreakFree.scorer.considerations = [hasConditionBreakFree, mainActionNotFullyConsumed];
+        var scorerBreakFree = CreateActivityScorer(baseDecision, $"BreakFree{conditionName}", true,
+            hasConditionBreakFree,
+            mainActionNotFullyConsumed);
 
         var decisionBreakFree = DecisionDefinitionBuilder
             .Create($"DecisionBreakFree{conditionName}")
@@ -110,7 +125,8 @@ internal static class AiContext
                 $"if restrained from {conditionName}, and can use main action, try to break free",
                 nameof(BreakFree),
                 scorerBreakFree,
-                enumParameter: (int)action)
+                enumParameter: 1,
+                floatParameter: 3f)
             .AddToDB();
 
         var packageBreakFree = DecisionPackageDefinitionBuilder
@@ -122,9 +138,19 @@ internal static class AiContext
         return packageBreakFree;
     }
 
+    internal static RulesetCondition GetRestrainingCondition(RulesetCharacter rulesetCharacter)
+    {
+        return rulesetCharacter
+            .GetFeaturesByType<FeatureDefinitionActionAffinity>()
+            .Where(actionAffinity => actionAffinity.AuthorizedActions.Contains(ActionDefinitions.Id.BreakFree))
+            .Select(rulesetCharacter.FindFirstConditionHoldingFeature)
+            .FirstOrDefault(rulesetCondition => rulesetCondition != null);
+    }
+
     internal enum BreakFreeType
     {
-        DoNothing,
-        DoStrengthCheckAgainstCasterDC
+        DoNoCheckAndRemoveCondition = 10,
+        DoStrengthCheckAgainstCasterDC = 20,
+        DoWisdomCheckAgainstCasterDC = 30
     }
 }

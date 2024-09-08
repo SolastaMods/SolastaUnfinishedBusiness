@@ -15,6 +15,7 @@ using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -449,23 +450,20 @@ internal static partial class SpellBuilders
     {
         const string NAME = "FlashFreeze";
 
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}");
+
         var conditionFlashFreeze = ConditionDefinitionBuilder
-            .Create(ConditionGrappledRestrainedRemorhaz, $"Condition{NAME}")
+            .Create($"Condition{NAME}")
             .SetGuiPresentation(
                 RuleDefinitions.ConditionRestrained, Category.Rules, ConditionDefinitions.ConditionChilled)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .SetPossessive()
-            .SetParentCondition(ConditionRestrainedByWeb)
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
+            .SetBrain(battlePackage, true)
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
-
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
-            conditionFlashFreeze.Name, AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC);
-
-        conditionFlashFreeze.addBehavior = true;
-        conditionFlashFreeze.battlePackage = battlePackage;
-
-        conditionFlashFreeze.specialDuration = false;
-        conditionFlashFreeze.specialInterruptions.Clear();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)

@@ -22,7 +22,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using MirrorImage = SolastaUnfinishedBusiness.Behaviors.Specific.MirrorImage;
 
 namespace SolastaUnfinishedBusiness.Spells;
@@ -77,23 +76,18 @@ internal static partial class SpellBuilders
         const string NAME = "BindingIce";
 
         var spriteReference = Sprites.GetSprite("WinterBreath", Resources.WinterBreath, 128);
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree("ConditionGrappledRestrainedIceBound");
 
         var conditionGrappledRestrainedIceBound = ConditionDefinitionBuilder
-            .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedIceBound")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
-            //.SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoNothing)
+            .Create("ConditionGrappledRestrainedIceBound")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrained)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoNoCheckAndRemoveCondition)
+            .SetBrain(battlePackage, true)
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
-
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
-            conditionGrappledRestrainedIceBound.Name, AiContext.BreakFreeType.DoNothing);
-
-        conditionGrappledRestrainedIceBound.addBehavior = true;
-        conditionGrappledRestrainedIceBound.battlePackage = battlePackage;
-
-        conditionGrappledRestrainedIceBound.specialDuration = false;
-        conditionGrappledRestrainedIceBound.specialInterruptions.Clear();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -287,22 +281,18 @@ internal static partial class SpellBuilders
             .SetAllowedActionTypes(false, move: false)
             .AddToDB();
 
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}");
+
         var conditionNoxiousSpray = ConditionDefinitionBuilder
             .Create(ConditionPheromoned, $"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiseased)
-            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoNothing)
-            .SetFeatures(actionAffinityNoxiousSpray)
+            .SetPossessive()
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoNoCheckAndRemoveCondition)
+            .SetBrain(battlePackage, true)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetFeatures(actionAffinityNoxiousSpray, ActionAffinityGrappled)
             .AddToDB();
-
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
-                conditionNoxiousSpray.Name, AiContext.BreakFreeType.DoNothing);
-
-        conditionNoxiousSpray.addBehavior = true;
-        conditionNoxiousSpray.battlePackage = battlePackage;
-
-        conditionNoxiousSpray.specialDuration = false;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -440,21 +430,18 @@ internal static partial class SpellBuilders
     {
         const string NAME = "SpellWeb";
 
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"ConditionGrappledRestrained{NAME}");
+
         var conditionRestrainedBySpellWeb = ConditionDefinitionBuilder
-            .Create(ConditionGrappledRestrainedRemorhaz, $"ConditionGrappledRestrained{NAME}")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetParentCondition(ConditionRestrainedByWeb)
+            .Create($"ConditionGrappledRestrained{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrained)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
+            .SetBrain(battlePackage, true)
+            .SetSpecialDuration(DurationType.Hour, 1)
+            .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
-
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
-            conditionRestrainedBySpellWeb.Name, AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC);
-
-        conditionRestrainedBySpellWeb.addBehavior = true;
-        conditionRestrainedBySpellWeb.battlePackage = battlePackage;
-
-        conditionRestrainedBySpellWeb.specialDuration = false;
-        conditionRestrainedBySpellWeb.specialInterruptions.Clear();
 
         var conditionAffinityGrappledRestrainedSpellWebImmunity = FeatureDefinitionConditionAffinityBuilder
             .Create($"ConditionAffinityGrappledRestrained{NAME}Immunity")
@@ -491,8 +478,8 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Grease)
-                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 4, 1)
                     .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 4, 1)
                     .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .SetSavingThrowData(
                         false,

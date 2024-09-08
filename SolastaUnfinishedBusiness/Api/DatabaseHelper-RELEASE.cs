@@ -3911,6 +3911,9 @@ internal static partial class DatabaseHelper
             GetDefinition<DecisionPackageDefinition>("DefaultMeleeWithBackupRangeDecisions");
 
         internal static DecisionPackageDefinition Fear { get; } = GetDefinition<DecisionPackageDefinition>("Fear");
+
+        internal static DecisionPackageDefinition IdleGuard_Default { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
     }
 
     internal static class ToolTypeDefinitions

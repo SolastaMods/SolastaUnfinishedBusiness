@@ -3,10 +3,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using TA.AI;
 using TA.AI.Activities;
 using static RuleDefinitions;
 
@@ -21,94 +19,36 @@ public static class BreakFreePatcher
     public static class BreakFree_Patch
     {
         [UsedImplicitly]
-        public static IEnumerator Postfix(
-            [NotNull] IEnumerator values,
-            AiLocationCharacter character,
-            DecisionDefinition decisionDefinition)
+        public static IEnumerator Postfix([NotNull] IEnumerator values, AiLocationCharacter character)
         {
-            RulesetCondition restrainingCondition = null;
-
             var gameLocationCharacter = character.GameLocationCharacter;
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
-
-            if (rulesetCharacter == null)
-            {
-                yield break;
-            }
-
-            foreach (var definitionActionAffinity in rulesetCharacter
-                         .GetFeaturesByType<FeatureDefinitionActionAffinity>()
-                         .Where(x => x.AuthorizedActions.Contains(ActionDefinitions.Id.BreakFree)))
-            {
-                restrainingCondition = rulesetCharacter.FindFirstConditionHoldingFeature(definitionActionAffinity);
-            }
+            var restrainingCondition = AiContext.GetRestrainingCondition(rulesetCharacter);
 
             if (restrainingCondition == null)
             {
+                while (values.MoveNext())
+                {
+                    yield return values.Current;
+                }
+
                 yield break;
             }
 
+            var action = (AiContext.BreakFreeType)restrainingCondition.Amount;
             var success = true;
 
-            // no ability check
-            switch ((AiContext.BreakFreeType)decisionDefinition.Decision.enumParameter)
+            switch (action)
             {
-                case AiContext.BreakFreeType.DoNothing:
-                    rulesetCharacter.RemoveCondition(restrainingCondition);
+                case AiContext.BreakFreeType.DoNoCheckAndRemoveCondition:
                     break;
 
                 case AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC:
-                    var checkDC = 10;
-                    var sourceGuid = restrainingCondition.SourceGuid;
+                    yield return RollAttributeCheck(AttributeDefinitions.Strength);
+                    break;
 
-                    if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
-                    {
-                        checkDC = rulesetCharacterHero.SpellRepertoires
-                            .Select(x => x.SaveDC)
-                            .Max();
-                    }
-
-                    var actionModifier = new ActionModifier();
-
-                    rulesetCharacter.ComputeBaseAbilityCheckBonus(
-                        AttributeDefinitions.Strength, actionModifier.AbilityCheckModifierTrends, string.Empty);
-                    gameLocationCharacter.ComputeAbilityCheckActionModifier(
-                        AttributeDefinitions.Strength, string.Empty, actionModifier);
-
-                    var abilityCheckRoll = gameLocationCharacter.RollAbilityCheck(
-                        AttributeDefinitions.Strength,
-                        string.Empty,
-                        checkDC,
-                        AdvantageType.None,
-                        actionModifier,
-                        false,
-                        -1,
-                        out var rollOutcome,
-                        out var successDelta,
-                        true);
-
-                    //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
-                    var abilityCheckData = new AbilityCheckData
-                    {
-                        AbilityCheckRoll = abilityCheckRoll,
-                        AbilityCheckRollOutcome = rollOutcome,
-                        AbilityCheckSuccessDelta = successDelta,
-                        AbilityCheckActionModifier = actionModifier,
-                        Action = null
-                    };
-
-                    yield return TryAlterOutcomeAttributeCheck
-                        .HandleITryAlterOutcomeAttributeCheck(gameLocationCharacter, abilityCheckData);
-
-                    success = abilityCheckData.AbilityCheckRollOutcome
-                        is RollOutcome.Success
-                        or RollOutcome.CriticalSuccess;
-
-                    if (success)
-                    {
-                        rulesetCharacter.RemoveCondition(restrainingCondition);
-                    }
-
+                case AiContext.BreakFreeType.DoWisdomCheckAgainstCasterDC:
+                    yield return RollAttributeCheck(AttributeDefinitions.Wisdom);
                     break;
 
                 default:
@@ -120,8 +60,64 @@ public static class BreakFreePatcher
                     yield break;
             }
 
+            if (success)
+            {
+                rulesetCharacter.RemoveCondition(restrainingCondition);
+            }
+
             gameLocationCharacter.SpendActionType(ActionDefinitions.ActionType.Main);
             rulesetCharacter.BreakFreeExecuted?.Invoke(rulesetCharacter, success);
+
+            yield break;
+
+            IEnumerator RollAttributeCheck(string attributeName)
+            {
+                var checkDC = 10;
+                var sourceGuid = restrainingCondition!.SourceGuid;
+
+                if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
+                {
+                    checkDC = rulesetCharacterHero.SpellRepertoires
+                        .Select(x => x.SaveDC)
+                        .Max();
+                }
+
+                var actionModifier = new ActionModifier();
+
+                rulesetCharacter.ComputeBaseAbilityCheckBonus(
+                    attributeName, actionModifier.AbilityCheckModifierTrends, string.Empty);
+                gameLocationCharacter.ComputeAbilityCheckActionModifier(
+                    attributeName, string.Empty, actionModifier);
+
+                var abilityCheckRoll = gameLocationCharacter.RollAbilityCheck(
+                    attributeName,
+                    string.Empty,
+                    checkDC,
+                    AdvantageType.None,
+                    actionModifier,
+                    false,
+                    -1,
+                    out var rollOutcome,
+                    out var successDelta,
+                    true);
+
+                //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+                var abilityCheckData = new AbilityCheckData
+                {
+                    AbilityCheckRoll = abilityCheckRoll,
+                    AbilityCheckRollOutcome = rollOutcome,
+                    AbilityCheckSuccessDelta = successDelta,
+                    AbilityCheckActionModifier = actionModifier,
+                    Action = null
+                };
+
+                yield return TryAlterOutcomeAttributeCheck
+                    .HandleITryAlterOutcomeAttributeCheck(gameLocationCharacter, abilityCheckData);
+
+                success = abilityCheckData.AbilityCheckRollOutcome
+                    is RollOutcome.Success
+                    or RollOutcome.CriticalSuccess;
+            }
         }
     }
 }

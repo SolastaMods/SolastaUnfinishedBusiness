@@ -215,28 +215,25 @@ internal static partial class SpellBuilders
     {
         const string NAME = "EnsnaringStrike";
 
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree("ConditionGrappledRestrainedEnsnared");
+
         var conditionEnsnared = ConditionDefinitionBuilder
-            .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedEnsnared")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetParentCondition(ConditionRestrainedByWeb)
-            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+            .Create("ConditionGrappledRestrainedEnsnared")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrained)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
+            .SetBrain(battlePackage, true)
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetFeatures(ActionAffinityGrappled)
+            .CopyParticleReferences(Entangle)
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
                     .SetCreatedBy()
                     .Build())
-            .CopyParticleReferences(Entangle)
             .AddToDB();
-
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
-            conditionEnsnared.Name, AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC);
-
-        conditionEnsnared.addBehavior = true;
-        conditionEnsnared.battlePackage = battlePackage;
-
-        conditionEnsnared.specialInterruptions.Clear();
 
         var additionalDamageEnsnaringStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
@@ -459,6 +456,17 @@ internal static partial class SpellBuilders
     {
         const string NAME = "WrathfulSmite";
 
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}");
+
+        var conditionEnemy = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
+            .SetParentCondition(ConditionDefinitions.ConditionFrightened)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoWisdomCheckAgainstCasterDC)
+            .SetBrain(battlePackage, true)
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetFeatures(ActionAffinityGrappled)
+            .AddToDB();
+
         var additionalDamageWrathfulSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
@@ -475,12 +483,9 @@ internal static partial class SpellBuilders
                 new ConditionOperationDescription
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
-                        .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                        .SetParentCondition(ConditionDefinitions.ConditionFrightened)
-                        .AddToDB(),
+                    conditionDefinition = conditionEnemy,
                     hasSavingThrow = true,
+                    //TODO: change this to false after fix battle package
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn
@@ -648,12 +653,17 @@ internal static partial class SpellBuilders
     {
         const string NAME = "VileBrew";
 
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}");
+
         var conditionVileBrew = ConditionDefinitionBuilder
-            .Create(ConditionOnAcidPilgrim, $"Condition{NAME}")
+            .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionAcidArrowed)
             .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoNothing)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoNoCheckAndRemoveCondition)
+            .SetBrain(battlePackage, true)
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetFeatures(ActionAffinityGrappled)
+            .SetConditionParticleReference(ConditionOnAcidPilgrim)
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -661,15 +671,6 @@ internal static partial class SpellBuilders
                     .SetCreatedBy()
                     .Build())
             .AddToDB();
-
-        var battlePackage =
-            AiContext.BuildDecisionPackageBreakFree(conditionVileBrew.Name, AiContext.BreakFreeType.DoNothing);
-
-        conditionVileBrew.addBehavior = true;
-        conditionVileBrew.battlePackage = battlePackage;
-
-        conditionVileBrew.possessive = false;
-        conditionVileBrew.specialDuration = false;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -684,8 +685,8 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
+                .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 6)
-                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
                 .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                     EffectDifficultyClassComputation.SpellCastingFeature)
@@ -1258,8 +1259,7 @@ internal static partial class SpellBuilders
 
         const string ConditionApproachName = $"Condition{NAME}Approach";
 
-        var scorerApproach = AiContext.CreateActivityScorer(
-            FixesContext.DecisionMoveAfraid.Decision.scorer, "MoveScorer_Approach");
+        var scorerApproach = AiContext.CreateActivityScorer(FixesContext.DecisionMoveAfraid, "MoveScorer_Approach");
 
         // invert PenalizeFearSourceProximityAtPosition if brain character has condition approach and enemy is condition source
         scorerApproach.scorer.WeightedConsiderations[2].Consideration.stringParameter = ConditionApproachName;
@@ -1285,19 +1285,19 @@ internal static partial class SpellBuilders
 
         var conditionApproach = ConditionDefinitionBuilder
             .Create(ConditionApproachName)
-            .SetGuiPresentation($"Power{NAME}Approach", Category.Feature, ConditionPossessed)
+            .SetGuiPresentation($"{NAME}Approach", Category.Spell, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
-            .SetBrain(packageApproach, true, true)
+            .SetBrain(packageApproach, forceBehavior: true, fearSource: true)
             .SetFeatures(MovementAffinityConditionDashing)
             .AddToDB();
 
         conditionApproach.AddCustomSubFeatures(new ActionFinishedByMeApproach(conditionApproach));
 
         var spellApproach = SpellDefinitionBuilder
-            .Create($"Power{NAME}Approach")
-            .SetGuiPresentation(Category.Feature, Command)
+            .Create($"{NAME}Approach")
+            .SetGuiPresentation(Category.Spell, Command)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -1308,6 +1308,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
@@ -1328,17 +1329,17 @@ internal static partial class SpellBuilders
 
         var conditionFlee = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Flee")
-            .SetGuiPresentation($"Power{NAME}Flee", Category.Feature, ConditionPossessed)
+            .SetGuiPresentation($"{NAME}Flee", Category.Spell, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
-            .SetBrain(DecisionPackageDefinitions.Fear, true, true)
+            .SetBrain(DecisionPackageDefinitions.Fear, forceBehavior: true, fearSource: true)
             .SetFeatures(MovementAffinityConditionDashing)
             .AddToDB();
 
         var spellFlee = SpellDefinitionBuilder
-            .Create($"Power{NAME}Flee")
-            .SetGuiPresentation(Category.Feature, Command)
+            .Create($"{NAME}Flee")
+            .SetGuiPresentation(Category.Spell, Command)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -1349,7 +1350,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
@@ -1370,7 +1371,7 @@ internal static partial class SpellBuilders
 
         var conditionGrovel = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Grovel")
-            .SetGuiPresentation($"Power{NAME}Grovel", Category.Feature, ConditionPossessed)
+            .SetGuiPresentation($"{NAME}Grovel", Category.Spell, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
@@ -1378,8 +1379,8 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var spellGrovel = SpellDefinitionBuilder
-            .Create($"Power{NAME}Grovel")
-            .SetGuiPresentation(Category.Feature, Command)
+            .Create($"{NAME}Grovel")
+            .SetGuiPresentation(Category.Spell, Command)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -1390,6 +1391,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
@@ -1410,7 +1412,7 @@ internal static partial class SpellBuilders
 
         var conditionHalt = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Halt")
-            .SetGuiPresentation($"Power{NAME}Halt", Category.Feature, ConditionPossessed)
+            .SetGuiPresentation($"{NAME}Halt", Category.Spell, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration()
@@ -1423,8 +1425,8 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var spellHalt = SpellDefinitionBuilder
-            .Create($"Power{NAME}Halt")
-            .SetGuiPresentation(Category.Feature, Command)
+            .Create($"{NAME}Halt")
+            .SetGuiPresentation(Category.Spell, Command)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -1435,7 +1437,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
@@ -1456,17 +1458,13 @@ internal static partial class SpellBuilders
 
         // MAIN
 
-        spellApproach.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeCommand(conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
+        var behavior =
+            new PowerOrSpellFinishedByMeCommand(conditionApproach, conditionFlee, conditionGrovel, conditionHalt);
 
-        spellFlee.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeCommand(conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
-
-        spellGrovel.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeCommand(conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
-
-        spellHalt.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeCommand(conditionApproach, conditionFlee, conditionGrovel, conditionHalt));
+        spellApproach.AddCustomSubFeatures(behavior);
+        spellFlee.AddCustomSubFeatures(behavior);
+        spellGrovel.AddCustomSubFeatures(behavior);
+        spellHalt.AddCustomSubFeatures(behavior);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -1482,15 +1480,11 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .UseQuickAnimations()
-                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(
                         EffectIncrementMethod.PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(Command)
-                    .SetEffectEffectParameters(SpareTheDying)
                     .Build())
             .AddToDB();
 
@@ -1532,7 +1526,7 @@ internal static partial class SpellBuilders
                     rulesetCaster.LanguageProficiencies.Contains("Language_Elvish"):
                 case "Fiend" when
                     rulesetCaster.LanguageProficiencies.Contains("Language_Infernal"):
-                case "Giant" or "Giant_Rugan" when
+                case "Giant" when
                     rulesetCaster.LanguageProficiencies.Contains("Language_Giant"):
                 case "Humanoid":
                     return true;
@@ -1636,7 +1630,7 @@ internal static partial class SpellBuilders
         #region Dissonant Whispers AI Behavior
 
         var scorerDissonantWhispers = AiContext.CreateActivityScorer(
-            FixesContext.DecisionMoveAfraid.Decision.scorer, "MoveScorer_DissonantWhispers");
+            FixesContext.DecisionMoveAfraid, "MoveScorer_DissonantWhispers");
 
         // remove IsCloseToMe
         scorerDissonantWhispers.scorer.WeightedConsiderations.RemoveAt(3);
