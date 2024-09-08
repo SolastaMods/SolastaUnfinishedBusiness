@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using TA;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -17,6 +18,8 @@ internal static class EncountersSpawnContext
     private static readonly List<MonsterDefinition> Monsters = [];
 
     internal static readonly List<RulesetCharacter> EncounterCharacters = [];
+
+    private static ulong EncounterId { get; set; } = 10000;
 
     internal static void AddToEncounter(RulesetCharacterHero hero)
     {
@@ -158,7 +161,18 @@ internal static class EncountersSpawnContext
         foreach (var gameLocationCharacter in EncounterCharacters
                      .Select(character =>
                          characterService.CreateCharacter(
-                             PlayerControllerManager.DmControllerId, character, Side.Enemy)))
+                             PlayerControllerManager.DmControllerId, character, Side.Enemy,
+                             new GameLocationBehaviourPackage
+                             {
+                                 BattleStartBehavior =
+                                     GameLocationBehaviourPackage.BattleStartBehaviorType.RaisesAlarm,
+                                 DecisionPackageDefinition =
+                                     character is RulesetCharacterMonster monster
+                                         ? monster.MonsterDefinition.DefaultBattleDecisionPackage
+                                         : IdleGuard_Default,
+                                 EncounterId = EncounterId++,
+                                 FormationDefinition = DatabaseHelper.FormationDefinitions.Column2
+                             })))
         {
             gameLocationCharacter.CollectExistingLightSources(true);
             gameLocationCharacter.RefreshActionPerformances();
