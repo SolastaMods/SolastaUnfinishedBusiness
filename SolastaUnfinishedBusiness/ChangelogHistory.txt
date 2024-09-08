@@ -24,6 +24,11 @@
 - improved vanilla to allow reactions on gadget's saving roll [traps]
 - improved victory modal export behavior to allow heroes not in pool to be exported [VANILLA]
 
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
+
 1.5.97.29:
 
 - fixed cantrips **CRASH** if not a melee cantrip and hero has replace attack with cantrips
@@ -48,11 +53,6 @@
 - fixed Sorcerer Child of the Rift rift walk missing landing damage [VANILLA] 
 - fixed Sorcerer Wild Magic tides of chaos double consumption
 - fixed Wizard Dead Master undead chains incorrectly changing AC with an add. +1
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
 
 1.5.97.28:
  

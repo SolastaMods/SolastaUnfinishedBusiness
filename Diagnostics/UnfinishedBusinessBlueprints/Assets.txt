@@ -696,7 +696,6 @@ ConditionCommandSpellApproach	ConditionDefinition	ConditionDefinition	bc446416-9
 ConditionCommandSpellFlee	ConditionDefinition	ConditionDefinition	b52e3cc4-15af-5123-a861-3fae68460977
 ConditionCommandSpellGrovel	ConditionDefinition	ConditionDefinition	6422ce36-c309-52f9-b699-bddb61fde71e
 ConditionCommandSpellHalt	ConditionDefinition	ConditionDefinition	d20e7a46-e706-5c54-8bea-955b2054193a
-ConditionCommandSpellMark	ConditionDefinition	ConditionDefinition	6c3dde6d-64eb-5e23-a14c-b820870f90ee
 ConditionCorruptingBolt	ConditionDefinition	ConditionDefinition	c47e9ae4-841b-53af-b40f-2cb08dfa7d08
 ConditionCrownOfStars	ConditionDefinition	ConditionDefinition	2d6f7c70-16fc-550b-83ff-f2e945b43449
 ConditionCrusadersMantle	ConditionDefinition	ConditionDefinition	04a3a8c7-cf68-5a07-a0c1-9aabc911cad9
@@ -1245,6 +1244,13 @@ DecisionBreakFreeConditionVileBrew	TA.AI.DecisionDefinition	TA.AI.DecisionDefini
 Move_Approach	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	5cb2a87f-09a4-5fae-9b74-10516ea8a8ab
 Move_DissonantWhispers	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	bdfa6649-5cad-5b35-a697-209ea53ca45d
 Approach	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	5043a0ec-c626-5877-bd87-c7bc0584366d
+BreakFreeAbilityCheckConditionFlashFreeze	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	5578aa14-4a4c-5aa0-b787-7203e14b8a36
+BreakFreeAbilityCheckConditionGrappledRestrainedEnsnared	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	bf1d4828-465e-5897-91ca-bc8094b3d20e
+BreakFreeAbilityCheckConditionGrappledRestrainedIceBound	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	4702878b-3ac6-55e7-8954-7b1a8382aa7a
+BreakFreeAbilityCheckConditionGrappledRestrainedSpellWeb	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	f265e068-e06c-503a-8aa5-dc39a214a7ec
+BreakFreeAbilityCheckConditionNoxiousSpray	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	1918a4d8-ff14-5aa1-9c20-1256e73c5730
+BreakFreeAbilityCheckConditionRestrainedByEntangle	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	0d9623d9-0cd7-5c03-8275-e9e61f0f1b6a
+BreakFreeAbilityCheckConditionVileBrew	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	7b202c71-3241-5f80-8b02-ada4a0d9383f
 DissonantWhispers_Fear	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	dfe2cc9e-cc70-5cfe-9057-19454acb1068
 DieTypeD3	DieTypeDefinition	DieTypeDefinition	63dc904b-8d78-5406-90aa-e7e1f3eefd84
 ProxyCircleOfTheWildfireCauterizingFlames	EffectProxyDefinition	EffectProxyDefinition	5d3d90cd-1858-5044-b4f6-586754122132
@@ -12144,6 +12150,10 @@ CircleOfMagicalNegation	SpellDefinition	SpellDefinition	c03e2ec6-3fd5-5943-8750-
 CloudOfDaggers	SpellDefinition	SpellDefinition	c95adfd0-7613-54ea-8270-b3624ae4dd78
 ColorBurst	SpellDefinition	SpellDefinition	c79e03ee-1d09-569f-85d9-27a50cfc7110
 CommandSpell	SpellDefinition	SpellDefinition	289ffbc5-ef5c-56b1-b6ba-79d88e236887
+CommandSpellApproach	SpellDefinition	SpellDefinition	395b1d47-bc7c-50e1-91e2-78e39a4e418b
+CommandSpellFlee	SpellDefinition	SpellDefinition	0bed52be-d94a-5da2-8cfe-d5784f55e6f8
+CommandSpellGrovel	SpellDefinition	SpellDefinition	b48998ac-2379-5637-ad85-8e45cdd375ac
+CommandSpellHalt	SpellDefinition	SpellDefinition	d4e87ec4-f113-5c33-b5c6-0452ab42231b
 ConjureElementalInvisibleStalker	SpellDefinition	SpellDefinition	4f4b45b0-1a32-55c5-ab58-66d105a6f07f
 CorruptingBolt	SpellDefinition	SpellDefinition	715e1a9b-115f-5036-99b9-bf54f7e34f01
 CreateDeadRisenGhost	SpellDefinition	SpellDefinition	02a12317-e3e2-5833-9611-eeaaead7c151
@@ -12220,10 +12230,6 @@ MysticalCloakLowerPlane	SpellDefinition	SpellDefinition	27097d2a-d8b7-5dce-b6f2-
 NoxiousSpray	SpellDefinition	SpellDefinition	01220ecc-fa04-5576-acd6-b7dd39748f52
 PetalStorm	SpellDefinition	SpellDefinition	4cc7aea6-dee9-5631-8b2a-f0e497b71bde
 PoisonWave	SpellDefinition	SpellDefinition	eb22297a-4da6-5f24-87e8-ddcd2b957bd0
-PowerCommandSpellApproach	SpellDefinition	SpellDefinition	18ae3db8-2589-5b95-b795-4f54e5aae89e
-PowerCommandSpellFlee	SpellDefinition	SpellDefinition	7920093b-60b8-5b72-8217-8e863e38bdea
-PowerCommandSpellGrovel	SpellDefinition	SpellDefinition	35f18407-8050-5283-ba7f-3a5863aa555e
-PowerCommandSpellHalt	SpellDefinition	SpellDefinition	ba84cf9e-4373-5a11-af15-41395a314cde
 PowerWordHeal	SpellDefinition	SpellDefinition	f9e2477f-fbee-5778-8ffc-c0380c0dea7d
 PowerWordKill	SpellDefinition	SpellDefinition	7d618d6a-004a-539e-a996-e180936abe9c
 PrimalSavagery	SpellDefinition	SpellDefinition	a24eee9b-4a70-559f-838b-76777d3f6666

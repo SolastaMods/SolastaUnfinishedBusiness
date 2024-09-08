@@ -83,8 +83,8 @@
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
@@ -319,8 +319,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCommandSpellHaltTitle",
-    "description": "Feature/&PowerCommandSpellHaltDescription",
+    "title": "Spell/&CommandSpellHaltTitle",
+    "description": "Spell/&CommandSpellHaltDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6edc0b78da56b1e4b94c3d7fb6c96dec",
@@ -340,7 +340,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ba84cf9e-4373-5a11-af15-41395a314cde",
+  "guid": "d4e87ec4-f113-5c33-b5c6-0452ab42231b",
   "contentPack": 9999,
-  "name": "PowerCommandSpellHalt"
+  "name": "CommandSpellHalt"
 }

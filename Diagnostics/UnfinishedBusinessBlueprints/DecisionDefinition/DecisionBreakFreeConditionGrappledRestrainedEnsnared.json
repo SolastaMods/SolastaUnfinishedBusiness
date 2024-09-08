@@ -57,11 +57,11 @@
       "name": "BreakFreeConditionGrappledRestrainedEnsnared"
     },
     "activityType": "BreakFree",
-    "stringParameter": "1",
+    "stringParameter": "",
     "stringSecParameter": "",
     "boolParameter": false,
     "boolSecParameter": false,
-    "floatParameter": 3.0,
+    "floatParameter": 0.0,
     "enumParameter": 1
   },
   "guiPresentation": {

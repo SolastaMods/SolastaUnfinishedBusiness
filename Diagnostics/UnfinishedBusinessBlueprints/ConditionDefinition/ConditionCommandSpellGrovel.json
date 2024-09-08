@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCommandSpellGrovelTitle",
-    "description": "Feature/&PowerCommandSpellGrovelDescription",
+    "title": "Spell/&CommandSpellGrovelTitle",
+    "description": "Spell/&CommandSpellGrovelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "5e96eb4d8d8193a4cbddbf7477990f88",

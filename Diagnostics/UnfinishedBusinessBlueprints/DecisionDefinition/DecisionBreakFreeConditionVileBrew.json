@@ -57,12 +57,12 @@
       "name": "BreakFreeConditionVileBrew"
     },
     "activityType": "BreakFree",
-    "stringParameter": "0",
+    "stringParameter": "",
     "stringSecParameter": "",
     "boolParameter": false,
     "boolSecParameter": false,
-    "floatParameter": 3.0,
-    "enumParameter": 1
+    "floatParameter": 0.0,
+    "enumParameter": 0
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -83,8 +83,8 @@
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
@@ -319,8 +319,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCommandSpellApproachTitle",
-    "description": "Feature/&PowerCommandSpellApproachDescription",
+    "title": "Spell/&CommandSpellApproachTitle",
+    "description": "Spell/&CommandSpellApproachDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6edc0b78da56b1e4b94c3d7fb6c96dec",
@@ -340,7 +340,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "18ae3db8-2589-5b95-b795-4f54e5aae89e",
+  "guid": "395b1d47-bc7c-50e1-91e2-78e39a4e418b",
   "contentPack": 9999,
-  "name": "PowerCommandSpellApproach"
+  "name": "CommandSpellApproach"
 }

@@ -42,7 +42,7 @@
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
-    "difficultyClassComputation": "FixedValue",
+    "difficultyClassComputation": "AbilityScoreAndProficiency",
     "savingThrowDifficultyAbility": "Dexterity",
     "fixedSavingThrowDifficultyClass": 8,
     "savingThrowAffinitiesBySense": [],

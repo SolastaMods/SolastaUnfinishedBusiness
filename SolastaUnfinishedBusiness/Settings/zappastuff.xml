@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>0</DisplayModMessage>
+    <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -1958,6 +1958,7 @@
     <EnableCancelEditOnRightMouseClick>true</EnableCancelEditOnRightMouseClick>
     <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
     <DisableAutoEquip>true</DisableAutoEquip>
+    <EnableCtrlClickDragToBypassQuestItemsOnDrop>false</EnableCtrlClickDragToBypassQuestItemsOnDrop>
     <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>

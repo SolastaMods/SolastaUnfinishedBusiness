@@ -2,10 +2,10 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": true,
   "subspellsList": [
-    "Definition:PowerCommandSpellApproach:18ae3db8-2589-5b95-b795-4f54e5aae89e",
-    "Definition:PowerCommandSpellFlee:7920093b-60b8-5b72-8217-8e863e38bdea",
-    "Definition:PowerCommandSpellGrovel:35f18407-8050-5283-ba7f-3a5863aa555e",
-    "Definition:PowerCommandSpellHalt:ba84cf9e-4373-5a11-af15-41395a314cde"
+    "Definition:CommandSpellApproach:395b1d47-bc7c-50e1-91e2-78e39a4e418b",
+    "Definition:CommandSpellFlee:0bed52be-d94a-5da2-8cfe-d5784f55e6f8",
+    "Definition:CommandSpellGrovel:b48998ac-2379-5637-ad85-8e45cdd375ac",
+    "Definition:CommandSpellHalt:d4e87ec4-f113-5c33-b5c6-0452ab42231b"
   ],
   "compactSubspellsTooltip": false,
   "implemented": true,
@@ -77,35 +77,7 @@
     "effectPoolAmount": 60,
     "effectApplication": "All",
     "effectFormFilters": [],
-    "effectForms": [
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionCommandSpellMark",
-          "conditionDefinition": "Definition:ConditionCommandSpellMark:6c3dde6d-64eb-5e23-a14c-b820870f90ee",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      }
-    ],
+    "effectForms": [],
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",

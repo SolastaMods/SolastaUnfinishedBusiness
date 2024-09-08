@@ -83,8 +83,8 @@
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
@@ -319,8 +319,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCommandSpellFleeTitle",
-    "description": "Feature/&PowerCommandSpellFleeDescription",
+    "title": "Spell/&CommandSpellFleeTitle",
+    "description": "Spell/&CommandSpellFleeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6edc0b78da56b1e4b94c3d7fb6c96dec",
@@ -340,7 +340,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7920093b-60b8-5b72-8217-8e863e38bdea",
+  "guid": "0bed52be-d94a-5da2-8cfe-d5784f55e6f8",
   "contentPack": 9999,
-  "name": "PowerCommandSpellFlee"
+  "name": "CommandSpellFlee"
 }

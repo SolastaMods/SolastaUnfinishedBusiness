@@ -1081,6 +1081,7 @@
     <EnableCancelEditOnRightMouseClick>false</EnableCancelEditOnRightMouseClick>
     <AddCustomIconsToOfficialItems>false</AddCustomIconsToOfficialItems>
     <DisableAutoEquip>false</DisableAutoEquip>
+    <EnableCtrlClickDragToBypassQuestItemsOnDrop>false</EnableCtrlClickDragToBypassQuestItemsOnDrop>
     <EnableInventoryFilteringAndSorting>false</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>false</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>false</EnableInventoryTintKnownRecipesRed>

@@ -221,7 +221,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-    "amountOrigin": "Fixed",
+  "amountOrigin": "Fixed",
   "baseAmount": 1,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
