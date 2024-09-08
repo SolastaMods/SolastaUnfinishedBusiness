@@ -16,24 +16,14 @@ internal static class DocumentationContext
 {
     internal static void DumpDocumentation()
     {
-        if (!Directory.Exists($"{Main.ModFolder}/Documentation"))
-        {
-            Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
-        }
-
-        if (!Directory.Exists($"{Main.ModFolder}/Documentation/Monsters"))
-        {
-            Directory.CreateDirectory($"{Main.ModFolder}/Documentation/Monsters");
-        }
+        Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
+        Directory.CreateDirectory($"{Main.ModFolder}/Documentation/Monsters");
 
         foreach (var characterFamilyDefinition in DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
-                     .Where(x => x.Name != "Giant_Rugan" && x.Name != "Ooze"))
+                     .Where(x =>
+                         x.Name is not ("Giant_Rugan" or "Ooze") &&
+                         x.ContentPack != CeContentPackContext.CeContentPack))
         {
-            if (characterFamilyDefinition.ContentPack == CeContentPackContext.CeContentPack)
-            {
-                continue;
-            }
-
             DumpMonsters($"SolastaMonsters{characterFamilyDefinition.Name}",
                 x => x.CharacterFamily == characterFamilyDefinition.Name && x.DefaultFaction == "HostileMonsters");
         }
@@ -43,8 +33,20 @@ internal static class DocumentationContext
 
         DumpRaces("Races", x => vanillaRaces.Contains(x) || RacesContext.Races.Contains(x));
         DumpRaces("Subraces", x => !vanillaRaces.Contains(x) && !RacesContext.Races.Contains(x));
+
         DumpClasses(string.Empty, _ => true);
         DumpSubclasses(string.Empty, GetModdedSubclasses().Union(GetVanillaSubclasses()));
+
+        DumpOthers<SpellDefinition>("Spells",
+            x =>
+                (x.ContentPack == CeContentPackContext.CeContentPack &&
+                 SpellsContext.Spells.Contains(x)) ||
+                (x.ContentPack != CeContentPackContext.CeContentPack &&
+                 !SpellsContext.SpellsChildMaster.ContainsKey(x) &&
+                 x.implemented &&
+                 !x.Name.Contains("Invocation") &&
+                 !x.Name.EndsWith("NoFocus") &&
+                 !x.Name.EndsWith("_B")));
 
         DumpOthers<CharacterBackgroundDefinition>("Backgrounds",
             _ => true);
@@ -59,17 +61,8 @@ internal static class DocumentationContext
             x =>
                 InvocationsContext.Invocations.Contains(x) ||
                 x.ContentPack != CeContentPackContext.CeContentPack);
-        DumpOthers<SpellDefinition>("Spells",
-            x =>
-                (x.ContentPack == CeContentPackContext.CeContentPack &&
-                 SpellsContext.Spells.Contains(x)) ||
-                (x.ContentPack != CeContentPackContext.CeContentPack &&
-                 !SpellsContext.SpellsChildMaster.ContainsKey(x) &&
-                 x.implemented &&
-                 !x.Name.Contains("Invocation") &&
-                 !x.Name.EndsWith("NoFocus") &&
-                 !x.Name.EndsWith("_B")));
-        DumpOthers<ItemDefinition>("Items", x => x.IsArmor || x.IsWeapon);
+        DumpOthers<ItemDefinition>("Items",
+            x => x.IsArmor || x.IsWeapon);
         DumpOthers<MetamagicOptionDefinition>("Metamagic",
             x =>
                 MetamagicContext.Metamagic.Contains(x) ||
@@ -115,6 +108,32 @@ internal static class DocumentationContext
             .Replace("</i>", string.Empty);
     }
 
+    private static void DumpFeatureUnlockByLevel(StringBuilder outString, List<FeatureUnlockByLevel> featureUnlocks)
+    {
+        var level = 0;
+
+        foreach (var featureUnlockByLevel in featureUnlocks
+                     .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
+                     .OrderBy(x => x.level))
+        {
+            if (level != featureUnlockByLevel.level)
+            {
+                outString.AppendLine();
+                outString.AppendLine($"## Level {featureUnlockByLevel.level}");
+                outString.AppendLine();
+                level = featureUnlockByLevel.level;
+            }
+
+            var featureDefinition = featureUnlockByLevel.FeatureDefinition;
+            var description = LazyManStripXml(featureDefinition.FormatDescription());
+
+            outString.AppendLine($"* {featureDefinition.FormatTitle()}");
+            outString.AppendLine();
+            outString.AppendLine(description);
+            outString.AppendLine();
+        }
+    }
+
     private static void DumpClasses(string groupName, Func<BaseDefinition, bool> filter)
     {
         var outString = new StringBuilder();
@@ -129,28 +148,7 @@ internal static class DocumentationContext
             outString.AppendLine(LazyManStripXml(klass.FormatDescription()));
             outString.AppendLine();
 
-            var level = 0;
-
-            foreach (var featureUnlockByLevel in klass.FeatureUnlocks
-                         .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
-                         .OrderBy(x => x.level))
-            {
-                if (level != featureUnlockByLevel.level)
-                {
-                    outString.AppendLine();
-                    outString.AppendLine($"## Level {featureUnlockByLevel.level}");
-                    outString.AppendLine();
-                    level = featureUnlockByLevel.level;
-                }
-
-                var featureDefinition = featureUnlockByLevel.FeatureDefinition;
-                var description = LazyManStripXml(featureDefinition.FormatDescription());
-
-                outString.AppendLine($"* {featureDefinition.FormatTitle()}");
-                outString.AppendLine();
-                outString.AppendLine(description);
-                outString.AppendLine();
-            }
+            DumpFeatureUnlockByLevel(outString, klass.FeatureUnlocks);
 
             outString.AppendLine();
             outString.AppendLine();
@@ -239,28 +237,7 @@ internal static class DocumentationContext
             outString.AppendLine(LazyManStripXml(subclass.FormatDescription()));
             outString.AppendLine();
 
-            var level = 0;
-
-            foreach (var featureUnlockByLevel in subclass.FeatureUnlocks
-                         .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
-                         .OrderBy(x => x.level))
-            {
-                if (level != featureUnlockByLevel.level)
-                {
-                    outString.AppendLine();
-                    outString.AppendLine($"### Level {featureUnlockByLevel.level}");
-                    outString.AppendLine();
-                    level = featureUnlockByLevel.level;
-                }
-
-                var featureDefinition = featureUnlockByLevel.FeatureDefinition;
-                var description = LazyManStripXml(featureDefinition.FormatDescription());
-
-                outString.AppendLine($"* {featureDefinition.FormatTitle()}");
-                outString.AppendLine();
-                outString.AppendLine(description);
-                outString.AppendLine();
-            }
+            DumpFeatureUnlockByLevel(outString, subclass.FeatureUnlocks);
 
             outString.AppendLine();
             outString.AppendLine();
@@ -291,28 +268,7 @@ internal static class DocumentationContext
             outString.AppendLine(LazyManStripXml(race.FormatDescription()));
             outString.AppendLine();
 
-            var level = 0;
-
-            foreach (var featureUnlockByLevel in race.FeatureUnlocks
-                         .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
-                         .OrderBy(x => x.level))
-            {
-                if (level != featureUnlockByLevel.level)
-                {
-                    outString.AppendLine();
-                    outString.AppendLine($"## Level {featureUnlockByLevel.level}");
-                    outString.AppendLine();
-                    level = featureUnlockByLevel.level;
-                }
-
-                var featureDefinition = featureUnlockByLevel.FeatureDefinition;
-                var description = LazyManStripXml(featureDefinition.FormatDescription());
-
-                outString.AppendLine($"* {featureDefinition.FormatTitle()}");
-                outString.AppendLine();
-                outString.AppendLine(description);
-                outString.AppendLine();
-            }
+            DumpFeatureUnlockByLevel(outString, race.FeatureUnlocks);
 
             outString.AppendLine();
             outString.AppendLine();
@@ -435,8 +391,7 @@ internal static class DocumentationContext
     {
         var outString = new StringBuilder();
 
-        outString.AppendLine(
-            $"# {counter++}. - {monsterDefinition.FormatTitle()}");
+        outString.AppendLine($"# {counter++}. - {monsterDefinition.FormatTitle()}");
         outString.AppendLine();
 
         var description = LazyManStripXml(monsterDefinition.FormatDescription());

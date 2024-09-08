@@ -19,25 +19,10 @@ public static class PortraitsContext
 
     internal static void Load()
     {
-        if (!Directory.Exists(PortraitsFolder))
-        {
-            Directory.CreateDirectory(PortraitsFolder);
-        }
-
-        if (!Directory.Exists(PreGenFolder))
-        {
-            Directory.CreateDirectory(PreGenFolder);
-        }
-
-        if (!Directory.Exists(PersonalFolder))
-        {
-            Directory.CreateDirectory(PersonalFolder);
-        }
-
-        if (!Directory.Exists(MonstersFolder))
-        {
-            Directory.CreateDirectory(MonstersFolder);
-        }
+        Directory.CreateDirectory(PortraitsFolder);
+        Directory.CreateDirectory(PreGenFolder);
+        Directory.CreateDirectory(PersonalFolder);
+        Directory.CreateDirectory(MonstersFolder);
     }
 
     internal static bool HasCustomPortrait(RulesetCharacter rulesetCharacter)

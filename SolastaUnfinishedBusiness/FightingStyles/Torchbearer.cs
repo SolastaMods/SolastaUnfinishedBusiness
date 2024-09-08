@@ -29,7 +29,7 @@ internal sealed class Torchbearer : AbstractFightingStyle
                     false,
                     AttributeDefinitions.Dexterity,
                     false,
-                    EffectDifficultyClassComputation.FixedValue,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Dexterity,
                     8)
                 .SetParticleEffectParameters(SpellDefinitions.FireBolt)

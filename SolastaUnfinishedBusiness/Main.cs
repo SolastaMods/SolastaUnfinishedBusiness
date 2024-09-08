@@ -123,10 +123,7 @@ internal static class Main
 
     internal static void LoadSettingFilenames()
     {
-        if (!Directory.Exists(SettingsFolder))
-        {
-            Directory.CreateDirectory(SettingsFolder);
-        }
+        Directory.CreateDirectory(SettingsFolder);
 
         SettingsFiles = Directory.GetFiles(SettingsFolder)
             .Where(x => x.EndsWith(".xml"))
