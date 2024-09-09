@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using TA.AI.Activities;
@@ -81,6 +82,19 @@ public static class BreakFreePatcher
                         .Select(x => x.SaveDC)
                         .Max();
                 }
+
+                var sourceEffect =
+                    rulesetCharacterHero.SpellsCastByMe.FirstOrDefault(x =>
+                        x.TrackedConditionGuids.Any(y => y == restrainingCondition.Guid))?.SourceDefinition;
+
+                rulesetCharacter.LogCharacterActivatesAbility(
+                    sourceEffect?.Name ?? string.Empty,
+                    "Feedback/&BreakFreeAttempt",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo,
+                            restrainingCondition.ConditionDefinition.FormatTitle())
+                    ]);
 
                 var actionModifier = new ActionModifier();
 

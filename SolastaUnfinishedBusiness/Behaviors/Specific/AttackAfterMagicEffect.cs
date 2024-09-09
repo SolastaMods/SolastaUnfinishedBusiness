@@ -116,10 +116,8 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         }
 
         // always use free attack
-        var attackActionParams = new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree)
-        {
-            AttackMode = attackMode
-        };
+        var attackActionParams =
+            new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
 
         attackActionParams.TargetCharacters.Add(targets[0]);
         attackActionParams.ActionModifiers.Add(new ActionModifier());

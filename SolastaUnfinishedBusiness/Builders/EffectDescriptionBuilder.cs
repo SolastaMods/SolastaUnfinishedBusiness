@@ -211,7 +211,7 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    #if false
+#if false
     internal EffectDescriptionBuilder SetTargetFiltering(
         TargetFilteringMethod targetFilteringMethod,
         TargetFilteringTag targetFilteringTag = TargetFilteringTag.No,
@@ -225,7 +225,7 @@ internal class EffectDescriptionBuilder
         return this;
     }
 #endif
-    
+
     internal EffectDescriptionBuilder SetRecurrentEffect(RecurrentEffect recurrentEffect)
     {
         _effect.recurrentEffect = recurrentEffect;
