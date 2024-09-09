@@ -1,6 +1,6 @@
 1.5.97.30:
 
-- added Command [Bard, Cleric, Paladin], and Dissonant Whispers [Bard] spells
+- added Command [Bard, Cleric, Paladin], Dissonant Whispers [Bard], and Holy Weapon [Cleric, Paladin] spells
 - added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop' setting
 - fixed Barbarian Sundering Blow interaction with Call Lightning, and other proxy like powers
 - fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances saving throw logic
@@ -11,6 +11,7 @@
 - fixed Martial Commander coordinated defense to require an attack first [VANILLA]
 - fixed Party Editor to register/unregister powers from feats
 - fixed Path of the Wild Magic retribution, and Patron Archfey misty step to only react against enemy effects
+- fixed Wrathful Smite to do a wisdom attribute check to get rid of frightened on turn start
 - improved ability checks to also allow reactions on success [Circle of the Cosmos woe]
 - improved Conversion Slots, and Shorthand versatilities to react on ability checks
 - improved Maneuvering Attack, and Martial Warlord strategic repositioning to use a run stance
