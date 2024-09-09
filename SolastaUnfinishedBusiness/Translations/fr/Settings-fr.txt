@@ -115,6 +115,7 @@ ModUi/&EnableCharacterChecker=Activez le bouton Vérificateur de caractères sur
 ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour exporter le caractère
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</color> doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Bouffon de feu, Balbuzard pêcheur de feu, Araignée de feu et famille de conditions en feu]</color></i>
 ModUi/&EnableCheatMenu=Activer le menu des astuces
+ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Activez le clic-glisser <color=#1E81B0>CTRL</color> pour contourner les vérifications des <color=#D89555>objets de quête</color> lors de la chute
 ModUi/&EnableCustomPortraits=Activer les <color=#D89555>portraits personnalisés</color>
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personnel</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>. </b></i>, nommé d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utiliser PNG images, d'une taille de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclut des salles plates, des donjons de 150 x 150 et 200 x 200 et un mélange sans fioritures des ressources de tous les environnements]</color></i>
@@ -234,7 +235,6 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement 
 ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color>
 ModUi/&Merchants=<color=#F0DAA0>Marchands :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
-ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Activez le clic-glisser <color=#1E81B0>CTRL</color> pour contourner les vérifications des <color=#D89555>objets de quête</color> lors de la chute
 ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des verts du pacte]</color></i>

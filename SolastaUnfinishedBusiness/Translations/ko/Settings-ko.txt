@@ -115,6 +115,7 @@ ModUi/&EnableCharacterChecker=메인 화면 > 캐릭터에서 문자 검사기 �
 ModUi/&EnableCharacterExport=캐릭터를 내보내려면 <color=#1E81B0>CTRL-SHIFT-(E)</color>를 활성화하세요.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태의 종족]</color></i>
 ModUi/&EnableCheatMenu=치트 메뉴 활성화
+ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=<color=#1E81B0>CTRL</color> 클릭-드래그를 활성화하여 드롭 시 <color=#D89555>퀘스트 아이템</color> 검사를 무시합니다.
 ModUi/&EnableCustomPortraits=<color=#D89555>맞춤 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 사용자 정의 초상화를 하위 폴더 <i><b><color=#F0DAA0>개인</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color> 아래에 배치하세요. </b></i>, 영웅의 이름을 따서 명명됨 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• PNG 사용 투명 레이어가 있는 256 x 384 픽셀 크기의 이미지 <i><color=#F0DAA0>[최상의 결과를 얻으려면 김프 사용]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 활성화\n<i><color=#F0DAA0>[플랫 룸, 150x150 및 200x200 던전 크기 및 모든 환경의 자산을 혼합하는 장식 없음]</color></i>
@@ -234,7 +235,6 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 발견 후 레벨 지도에 보�
 ModUi/&MaxAllowedClasses=<color=white>최대 허용 수업</color>
 ModUi/&Merchants=<color=#F0DAA0>상점:</color>
 ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>
-ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=<color=#1E81B0>CTRL</color> 클릭-드래그를 활성화하여 드롭 시 <color=#D89555>퀘스트 아이템</color> 검사를 무시합니다.
 ModUi/&Monsters=<color=#F0DAA0>괴물:</color>
 ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&MulticlassKeyHelp=주문을 <color=#1E81B0>SHIFT</color> 클릭하면 소비되는 기본 레퍼토리 슬롯 유형이 반전됩니다.\n<i><color=#F0DAA0>[<color=#D89555>워록</color>은 흰색 주문 슬롯을 소비합니다. 다른 사람들은 녹색 계약을 사용합니다.]</color></i>

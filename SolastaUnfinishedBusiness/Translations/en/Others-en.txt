@@ -167,6 +167,7 @@ Feedback/&AdditionalDamageBrutalStrikeFormat=Brutal Strike
 Feedback/&AdditionalDamageBrutalStrikeLine=Brutal Strike deals extra +{2} damage!
 Feedback/&AdditionalDamageSunderingBlowFormat=Sundering Blow
 Feedback/&AdditionalDamageSunderingBlowLine=Sundering Blow deals extra +{2} damage!
+Feedback/&BreakFreeAttempt={0} tries to break free from {1}
 Feedback/&ChangeGloombladeDieType={1} changes the gloomblade die type from {2} to {3}
 Feedback/&ChangeSneakDiceDieType={1} changes the sneak die type from {2} to {3}
 Feedback/&ChangeSneakDiceNumber={1} changes the sneak dice number from {2} to {3}

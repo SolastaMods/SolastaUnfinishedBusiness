@@ -167,6 +167,7 @@ Feedback/&AdditionalDamageBrutalStrikeFormat=Brutaler Schlag
 Feedback/&AdditionalDamageBrutalStrikeLine=Brutaler Schlag verursacht zusätzlichen +{2} Schaden!
 Feedback/&AdditionalDamageSunderingBlowFormat=Trennender Schlag
 Feedback/&AdditionalDamageSunderingBlowLine=Sundering Blow verursacht zusätzlichen +{2} Schaden!
+Feedback/&BreakFreeAttempt={0} versucht sich von {1} zu befreien
 Feedback/&ChangeGloombladeDieType={1} ändert den Gloomblade-Würfeltyp von {2} zu {3}
 Feedback/&ChangeSneakDiceDieType={1} ändert den Schleichwürfeltyp von {2} zu {3}
 Feedback/&ChangeSneakDiceNumber={1} ändert die Zahl der Schleichwürfel von {2} auf {3}
