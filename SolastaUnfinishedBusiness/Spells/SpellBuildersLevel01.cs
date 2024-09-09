@@ -449,7 +449,7 @@ internal static partial class SpellBuilders
     {
         const string NAME = "WrathfulSmite";
 
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}");
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}Enemy");
 
         var conditionEnemy = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
@@ -478,8 +478,7 @@ internal static partial class SpellBuilders
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionEnemy,
                     hasSavingThrow = true,
-                    //TODO: change this to false after fix battle package
-                    canSaveToCancel = true,
+                    canSaveToCancel = false,
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn
                 })

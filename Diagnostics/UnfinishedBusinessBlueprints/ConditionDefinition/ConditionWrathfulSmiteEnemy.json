@@ -236,7 +236,7 @@
   "forceBehavior": false,
   "addBehavior": true,
   "fearSource": false,
-  "battlePackage": "Definition:BreakFreeAbilityCheckConditionWrathfulSmite:64259f64-63c1-54cb-8683-3cfb5b1b78a0",
+  "battlePackage": "Definition:BreakFreeAbilityCheckConditionWrathfulSmiteEnemy:8952dfa4-c552-57f5-bf82-7e317c4e459d",
   "explorationPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,

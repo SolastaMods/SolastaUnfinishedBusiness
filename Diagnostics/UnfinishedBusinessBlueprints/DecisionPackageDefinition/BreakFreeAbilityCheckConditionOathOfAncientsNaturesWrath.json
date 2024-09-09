@@ -7,7 +7,7 @@
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:DecisionBreakFreeConditionOathOfAncientsNaturesWrath:25d7ad8d-27b8-5882-9bfb-acc37798812f",
-        "weight": 1.0,
+        "weight": 2.0,
         "cooldown": 0,
         "dynamicCooldown": false
       }

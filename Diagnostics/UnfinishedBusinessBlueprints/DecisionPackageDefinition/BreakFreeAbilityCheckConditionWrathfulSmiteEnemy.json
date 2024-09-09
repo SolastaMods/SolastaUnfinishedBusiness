@@ -6,8 +6,8 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:DecisionBreakFreeConditionWrathfulSmite:1c32e557-4a88-580f-8d11-54d731c4bb79",
-        "weight": 1.0,
+        "decision": "Definition:DecisionBreakFreeConditionWrathfulSmiteEnemy:6400794a-3234-55f7-973f-d443c38c9a20",
+        "weight": 2.0,
         "cooldown": 0,
         "dynamicCooldown": false
       }
@@ -37,7 +37,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "64259f64-63c1-54cb-8683-3cfb5b1b78a0",
+  "guid": "8952dfa4-c552-57f5-bf82-7e317c4e459d",
   "contentPack": 9999,
-  "name": "BreakFreeAbilityCheckConditionWrathfulSmite"
+  "name": "BreakFreeAbilityCheckConditionWrathfulSmiteEnemy"
 }

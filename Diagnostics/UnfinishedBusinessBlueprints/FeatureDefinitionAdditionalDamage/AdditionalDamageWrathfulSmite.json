@@ -142,7 +142,7 @@
       "conditionName": "",
       "conditionDefinition": "Definition:ConditionWrathfulSmiteEnemy:08ab37a6-23bc-59c3-ac2b-09f02170a996",
       "saveAffinity": "Negates",
-      "canSaveToCancel": true,
+      "canSaveToCancel": false,
       "saveOccurence": "StartOfTurn"
     }
   ],

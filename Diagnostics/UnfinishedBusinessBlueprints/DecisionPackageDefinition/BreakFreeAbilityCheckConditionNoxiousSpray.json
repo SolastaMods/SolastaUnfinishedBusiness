@@ -7,7 +7,7 @@
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:DecisionBreakFreeConditionNoxiousSpray:2f033fcf-d478-5581-94d9-27a3ad4496ad",
-        "weight": 1.0,
+        "weight": 2.0,
         "cooldown": 0,
         "dynamicCooldown": false
       }

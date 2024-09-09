@@ -7,7 +7,7 @@
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:DecisionBreakFreeConditionGrappledRestrainedSpellWeb:61e7fc96-8cb5-5c2b-8a67-75fbef4f333a",
-        "weight": 1.0,
+        "weight": 2.0,
         "cooldown": 0,
         "dynamicCooldown": false
       }
