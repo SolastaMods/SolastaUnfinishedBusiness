@@ -50,6 +50,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 
+        powerRallyingCry.EffectDescription.targetFilteringTag = TargetFilteringTag.No;
+
         // LEVEL 07
 
         var abilityCheckAffinityRoyalEnvoy = FeatureDefinitionAbilityCheckAffinityBuilder
@@ -288,10 +290,10 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             GameLocationCharacter helper)
         {
             var text = defender == helper ? "Self" : "Ally";
-            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
 
             return $"SpendPowerRoyalKnightInspiringProtectionDescription{text}"
-                .Formatted(Category.Reaction, defender.Name, attacker?.Name ?? envTitle, sourceTitle);
+                .Formatted(Category.Reaction, defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle,
+                    sourceTitle);
         }
     }
 }

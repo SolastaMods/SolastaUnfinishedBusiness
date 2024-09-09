@@ -815,15 +815,14 @@ internal static class RaceFeats
                 yield break;
             }
 
-            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
-
             // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
                 helper,
                 "BountifulLuckSaving",
                 "CustomReactionBountifulLuckSavingDescription".Formatted(
-                    Category.Reaction, defender.Name, attacker?.Name ?? envTitle, savingThrowData.Title),
+                    Category.Reaction, defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle,
+                    savingThrowData.Title),
                 ReactionValidated,
                 battleManager: battleManager);
 

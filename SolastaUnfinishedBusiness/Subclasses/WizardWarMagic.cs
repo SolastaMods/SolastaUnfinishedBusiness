@@ -257,15 +257,13 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
-            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
-
             // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
                 helper,
                 "ArcaneDeflectionSaving",
                 "CustomReactionArcaneDeflectionSavingDescription".Formatted(
-                    Category.Reaction, attacker?.Name ?? envTitle, savingThrowData.Title),
+                    Category.Reaction, attacker?.Name ?? ReactionRequestCustom.EnvTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager: battleManager);
 

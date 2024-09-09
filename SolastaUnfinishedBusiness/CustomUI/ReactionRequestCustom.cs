@@ -9,6 +9,7 @@ public interface IReactionRequestWithResource
 
 public class ReactionRequestCustom : ReactionRequest, IReactionRequestWithResource
 {
+    internal static readonly string EnvTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
     private readonly string _type;
 
     internal ReactionRequestCustom(string type, CharacterActionParams reactionParams)

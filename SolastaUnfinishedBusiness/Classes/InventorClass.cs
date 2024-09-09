@@ -1123,9 +1123,8 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         GameLocationCharacter helper)
     {
         var text = defender == helper ? "Self" : "Ally";
-        var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
 
         return $"SpendPowerInventorFlashOfGeniusReactDescription{text}"
-            .Formatted(Category.Reaction, defender.Name, attacker?.Name ?? envTitle, sourceTitle);
+            .Formatted(Category.Reaction, defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle, sourceTitle);
     }
 }

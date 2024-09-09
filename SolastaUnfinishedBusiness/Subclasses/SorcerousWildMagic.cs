@@ -779,15 +779,14 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
-
             // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 helper,
                 "TidesOfChaosSave",
                 "SpendPowerTidesOfChaosSaveDescription"
-                    .Formatted(Category.Reaction, attacker?.Name ?? envTitle, savingThrowData.Title),
+                    .Formatted(Category.Reaction, attacker?.Name ?? ReactionRequestCustom.EnvTitle,
+                        savingThrowData.Title),
                 ReactionValidated,
                 battleManager);
 
@@ -1085,7 +1084,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
 
             // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
@@ -1093,7 +1091,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 helper,
                 stringParameter,
                 $"SpendPower{stringParameter}Description".Formatted(Category.Reaction,
-                    defender.Name, attacker?.Name ?? envTitle, savingThrowData.Title),
+                    defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager);
 

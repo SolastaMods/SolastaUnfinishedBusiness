@@ -644,15 +644,13 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            var envTitle = Gui.Localize("Screen/&EditorLocationEnvironmentTitle");
-
             // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 helper,
                 "DrawInspirationSaving",
                 "SpendPowerDrawInspirationSavingDescription".Formatted(
-                    Category.Reaction, attacker?.Name ?? envTitle, savingThrowData.Title),
+                    Category.Reaction, attacker?.Name ?? ReactionRequestCustom.EnvTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager);
 

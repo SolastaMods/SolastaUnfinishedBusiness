@@ -1,4 +1,5 @@
-﻿using System;
+﻿// using SolastaUnfinishedBusiness.Classes;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -21,6 +22,7 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -307,6 +309,98 @@ public static class RulesetCharacterPatcher
             }
         }
     }
+
+#if false
+    //BUGFIX: ensure that we always get a proper encounter id on overriding faction scenarios
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionAdded))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class OnConditionAdded_Patch
+    {
+        //ClericCombatDecisions
+        //FighterCombatDecisions
+        //PaladinCombatDecisions
+        //RogueCombatDecisions
+        // CasterCombatDecisions
+        // OffensiveCasterCombatDecisions
+        // DefaultMeleeWithBackupRangeDecisions
+        // DefaultRangeWithBackupMeleeDecisions
+        // DefaultSupportCasterWithBackupAttacksDecisions
+        public static void Prefix(RulesetCharacter __instance, RulesetCondition activeCondition)
+        {
+            if (!activeCondition.ConditionDefinition.IsOverridingFaction(activeCondition.SourceFactionName, out _))
+            {
+                return;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+            var character = GameLocationCharacter.GetFromActor(__instance);
+
+            if (character.BehaviourPackage == null)
+            {
+                var package = DefaultMeleeWithBackupRangeDecisions;
+
+                switch (__instance)
+                {
+                    case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Cleric):
+                        package = ClericCombatDecisions;
+                        break;
+                    case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Fighter):
+                        package = FighterCombatDecisions;
+                        break;
+                    case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Paladin):
+                        package = PaladinCombatDecisions;
+                        break;
+                    case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Rogue):
+                        package = RogueCombatDecisions;
+                        break;
+                    case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Druid):
+                        package = CasterCombatDecisions;
+                        break;
+                    case RulesetCharacterHero rulesetHero:
+                    {
+                        if (rulesetHero.ClassesHistory.Contains(InventorClass.Class) ||
+                            rulesetHero.ClassesHistory.Contains(Bard) ||
+                            rulesetHero.ClassesHistory.Contains(Sorcerer) ||
+                            rulesetHero.ClassesHistory.Contains(Warlock) ||
+                            rulesetHero.ClassesHistory.Contains(Wizard))
+                        {
+                            package = OffensiveCasterCombatDecisions;
+                        }
+
+                        break;
+                    }
+                    case RulesetCharacterMonster rulesetMonster:
+                    {
+                        if (rulesetMonster.MonsterDefinition.Features.Any(x => x is FeatureDefinitionCastSpell))
+                        {
+                            package = DefaultSupportCasterWithBackupAttacksDecisions;
+                        }
+
+                        if (rulesetMonster.MonsterDefinition.AttackIterations.Any(x =>
+                                x.MonsterAttackDefinition.Proximity == AttackProximity.Range))
+                        {
+                            package = DefaultRangeWithBackupMeleeDecisions;
+                        }
+
+                        break;
+                    }
+                }
+
+                character.BehaviourPackage = new GameLocationBehaviourPackage
+                {
+                    BattleStartBehavior =
+                        GameLocationBehaviourPackage.BattleStartBehaviorType.RaisesAlarm,
+                    DecisionPackageDefinition = package,
+                    EncounterId = caster.BehaviourPackage?.EncounterId ?? 0
+                };
+            }
+
+            character.BehaviourPackage.EncounterId = caster.BehaviourPackage?.EncounterId ?? 0;
+        }
+    }
+#endif
 
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionRemoved))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
