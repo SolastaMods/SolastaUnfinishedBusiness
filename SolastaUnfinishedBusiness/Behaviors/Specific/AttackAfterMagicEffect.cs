@@ -115,13 +115,11 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
             attackMode.AddAttackTagAsNeeded(AttackAfterMagicEffectTag);
         }
 
-        // this is required to support reaction scenarios where AttackMain won't work
-        var actionId = attackMode.ActionType == ActionDefinitions.ActionType.Main
-            ? ActionDefinitions.Id.AttackMain
-            : ActionDefinitions.Id.AttackFree;
-
-        var attackActionParams =
-            new CharacterActionParams(caster, actionId) { AttackMode = attackMode };
+        // always use free attack
+        var attackActionParams = new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree)
+        {
+            AttackMode = attackMode
+        };
 
         attackActionParams.TargetCharacters.Add(targets[0]);
         attackActionParams.ActionModifiers.Add(new ActionModifier());
