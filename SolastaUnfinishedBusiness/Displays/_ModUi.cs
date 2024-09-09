@@ -156,6 +156,7 @@ internal static class ModUi
         "GiftOfAlacrity",
         "GravitySinkhole",
         "HeroicInfusion",
+        "HolyWeapon",
         "HungerOfTheVoid",
         "IceBlade",
         "Incineration",

@@ -19,7 +19,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Item",
-    "itemSelectionType": "Weapon",
+    "itemSelectionType": "EquippedNoLightSource",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -73,33 +73,6 @@
     "effectApplication": "All",
     "effectFormFilters": [],
     "effectForms": [
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionHolyWeapon",
-          "conditionDefinition": "Definition:ConditionHolyWeapon:4abe721f-d87f-519b-a35d-152100b60eb4",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "LightSource",
@@ -165,6 +138,33 @@
           ],
           "usageLimitation": "Unlimited",
           "useAmount": 0
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionHolyWeapon",
+          "conditionDefinition": "Definition:ConditionHolyWeapon:4abe721f-d87f-519b-a35d-152100b60eb4",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": true,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
