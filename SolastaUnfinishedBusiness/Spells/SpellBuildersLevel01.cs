@@ -112,13 +112,11 @@ internal static partial class SpellBuilders
                     EffectDescriptionBuilder
                         .Create()
                         .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                        .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                        .SetEffectForms(EffectFormBuilder.DamageForm(damageType, 3, DieType.D8))
                         .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                             additionalDicePerIncrement: 1)
+                        .SetEffectForms(EffectFormBuilder.DamageForm(damageType, 3, DieType.D8))
                         .SetParticleEffectParameters(effectDescription.EffectParticleParameters)
-                        .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
-                        .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
+                        .SetSpeedAndImpactOffset(SpeedType.CellsPerSeconds, 8.5f, offsetImpactTimePerTarget: 0.1f)
                         .Build())
                 .AddToDB();
 
@@ -134,16 +132,13 @@ internal static partial class SpellBuilders
             .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 50, false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
-            .SetSubSpells(subSpells.ToArray())
+            .SetSubSpells([.. subSpells])
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalDicePerIncrement: 1)
-                    .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
-                    .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
                     .Build())
             .AddToDB();
     }
@@ -365,19 +360,17 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetFiltering(TargetFilteringMethod.AllCharacterAndGadgets)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals, 4)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals, 4)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D4)
                             .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                        additionalTargetsPerIncrement: 1)
                     .SetParticleEffectParameters(Sparkle)
-                    .SetSpeed(SpeedType.CellsPerSeconds, 20)
-                    .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
+                    .SetSpeedAndImpactOffset(SpeedType.CellsPerSeconds, 20, offsetImpactTimePerTarget: 0.1f)
                     .Build())
             .AddToDB();
 
@@ -567,7 +560,7 @@ internal static partial class SpellBuilders
                         true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetParticleEffectParameters(Shatter)
-                    .AddEffectForms(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeForce, 2, DieType.D8)
@@ -852,8 +845,6 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 2, DieType.D8),
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 1, DieType.D6))
@@ -894,7 +885,6 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeChaosBolt, 2, DieType.D8),

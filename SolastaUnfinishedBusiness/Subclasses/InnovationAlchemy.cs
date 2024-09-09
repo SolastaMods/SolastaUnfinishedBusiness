@@ -658,8 +658,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                             .SetDamageForm(damageType, 3, dieType)
                             .Build())
                     .AddEffectForms(effects)
-                    .SetSpeed(SpeedType.CellsPerSeconds, 12)
-                    .SetupImpactOffsets(offsetImpactTimePerTarget: 0.3f)
+                    .SetSpeedAndImpactOffset(SpeedType.CellsPerSeconds, 12, offsetImpactTimePerTarget: 0.3f)
                     .Build())
             .SetUseSpellAttack()
             .AddToDB();
@@ -698,7 +697,6 @@ public sealed class InnovationAlchemy : AbstractSubclass
                         false,
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Intelligence)
-                    .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
                     .SetParticleEffectParameters(particleParameters)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -754,7 +752,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                             .SetDamageForm(damageType, 2, dieType)
                             .Build())
                     .AddEffectForms(effects)
-                    .SetSpeed(SpeedType.CellsPerSeconds, 8)
+                    .SetSpeedAndImpactOffset(SpeedType.CellsPerSeconds, 8)
                     .Build())
             .AddToDB();
 

@@ -44,8 +44,8 @@
     "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
-    "poolFilterDiceNumber": 0,
-    "poolFilterDieType": "D1",
+    "poolFilterDiceNumber": 5,
+    "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
@@ -97,11 +97,11 @@
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
     },
-    "speedType": "CellsPerSeconds",
-    "speedParameter": 8.5,
+    "speedType": "Instant",
+    "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
-    "offsetImpactTimePerTarget": 0.1,
+    "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {

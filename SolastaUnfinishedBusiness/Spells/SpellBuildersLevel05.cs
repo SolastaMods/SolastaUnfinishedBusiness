@@ -95,7 +95,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnMove | RecurrentEffect.OnTurnStart)
-                    .AddEffectForms(
+                    .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypePiercing, 2, DieType.D8),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))

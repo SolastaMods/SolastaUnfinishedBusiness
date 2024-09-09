@@ -211,6 +211,7 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    #if false
     internal EffectDescriptionBuilder SetTargetFiltering(
         TargetFilteringMethod targetFilteringMethod,
         TargetFilteringTag targetFilteringTag = TargetFilteringTag.No,
@@ -223,7 +224,8 @@ internal class EffectDescriptionBuilder
         _effect.poolFilterDieType = poolFilterDieType;
         return this;
     }
-
+#endif
+    
     internal EffectDescriptionBuilder SetRecurrentEffect(RecurrentEffect recurrentEffect)
     {
         _effect.recurrentEffect = recurrentEffect;
@@ -299,10 +301,18 @@ internal class EffectDescriptionBuilder
     }
 #endif
 
-    internal EffectDescriptionBuilder SetSpeed(SpeedType speedType, float speedParameter = 0f)
+    internal EffectDescriptionBuilder SetSpeedAndImpactOffset(
+        SpeedType speedType,
+        float speedParameter = 0f,
+        bool offsetImpactTimeBasedOnDistance = false,
+        float offsetImpactTimeBasedOnDistanceFactor = 0.1f,
+        float offsetImpactTimePerTarget = 0.0f)
     {
         _effect.speedType = speedType;
         _effect.speedParameter = speedParameter;
+        _effect.offsetImpactTimeBasedOnDistance = offsetImpactTimeBasedOnDistance;
+        _effect.offsetImpactTimeBasedOnDistanceFactor = offsetImpactTimeBasedOnDistanceFactor;
+        _effect.offsetImpactTimePerTarget = offsetImpactTimePerTarget;
         return this;
     }
 
@@ -321,17 +331,6 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder AddEffectForms(params EffectForm[] effectForms)
     {
         _effect.EffectForms.AddRange(effectForms);
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetupImpactOffsets(
-        bool offsetImpactTimeBasedOnDistance = false,
-        float offsetImpactTimeBasedOnDistanceFactor = 0.1f,
-        float offsetImpactTimePerTarget = 0.0f)
-    {
-        _effect.offsetImpactTimeBasedOnDistance = offsetImpactTimeBasedOnDistance;
-        _effect.offsetImpactTimeBasedOnDistanceFactor = offsetImpactTimeBasedOnDistanceFactor;
-        _effect.offsetImpactTimePerTarget = offsetImpactTimePerTarget;
         return this;
     }
 }

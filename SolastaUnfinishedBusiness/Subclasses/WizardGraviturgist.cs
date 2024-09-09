@@ -133,7 +133,7 @@ public sealed class WizardGraviturgist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(SpellDefinitions.EldritchBlast)
-                    .AddEffectForms(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)

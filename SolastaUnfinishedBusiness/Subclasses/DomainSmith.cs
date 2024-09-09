@@ -235,11 +235,10 @@ public sealed class DomainSmith : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetParticleEffectParameters(PowerOathOfDevotionTurnUnholy)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAdamantBenediction))
+                    .SetParticleEffectParameters(PowerOathOfDevotionTurnUnholy)
                     .Build())
             .AddToDB();
 

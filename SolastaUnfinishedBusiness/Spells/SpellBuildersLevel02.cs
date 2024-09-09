@@ -111,19 +111,18 @@ internal static partial class SpellBuilders
                         AttributeDefinitions.Constitution,
                         true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(ConeOfCold)
-                    .AddEffectForms(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeCold, 3, DieType.D8)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .Build())
-                    .AddEffectForms(
+                            .Build(),
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(conditionGrappledRestrainedIceBound, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
+                    .SetParticleEffectParameters(ConeOfCold)
                     .Build())
             .AddToDB();
 

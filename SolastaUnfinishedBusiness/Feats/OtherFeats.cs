@@ -1856,11 +1856,6 @@ internal static class OtherFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(
-                        TargetFilteringMethod.CharacterOnly,
-                        TargetFilteringTag.No,
-                        5,
-                        DieType.D8)
                     .SetRequiredCondition(ConditionDefinitions.ConditionDead)
                     .SetEffectForms(
                         EffectFormBuilder

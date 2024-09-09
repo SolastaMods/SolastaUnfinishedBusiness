@@ -13,6 +13,7 @@ using UnityEngine;
 using static RuleDefinitions;
 using static ConditionForm;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
@@ -244,11 +245,9 @@ public sealed class InnovationArmor : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                    .AddEffectForms(EffectFormBuilder.LightSourceForm(LightSourceType.Basic, 0, 1,
-                        new Color(0.9f, 0.78f, 0.62f),
-                        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.LightSourceForm
-                            .graphicsPrefabReference))
-                    .AddEffectForms(
+                    .SetEffectForms(EffectFormBuilder.LightSourceForm(LightSourceType.Basic, 0, 1,
+                            new Color(0.9f, 0.78f, 0.62f),
+                            AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference),
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create("ConditionInventorArmorerInfiltratorGlimmer")
@@ -264,8 +263,7 @@ public sealed class InnovationArmor : AbstractSubclass
                                         .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                         .SetSituationalContext(SituationalContext.TargetIsEffectSource)
                                         .AddToDB())
-                                .AddToDB()))
-                    .AddEffectForms(
+                                .AddToDB()),
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create("ConditionInventorArmorerInfiltratorDamage")

@@ -99,12 +99,11 @@ public sealed class PatronSoulBlade : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetParticleEffectParameters(Bane)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionHexDefender),
                         EffectFormBuilder.ConditionForm(
                             conditionHexAttacker, ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(Bane)
                     .Build())
             .AddCustomSubFeatures(ForceRetargetAvailability.Mark)
             .AddToDB();

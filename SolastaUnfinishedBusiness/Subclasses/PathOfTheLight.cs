@@ -212,8 +212,6 @@ public sealed class PathOfTheLight : AbstractSubclass
                 AttributeDefinitions.Constitution)
             .SetDurationData(DurationType.Minute, 1)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
-            .SetSpeed(SpeedType.CellsPerSeconds, 9.5f)
-            .SetParticleEffectParameters(GuidingBolt)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -246,6 +244,8 @@ public sealed class PathOfTheLight : AbstractSubclass
                         faerieFireLightSource.lightSourceForm.graphicsPrefabReference)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
+            .SetParticleEffectParameters(GuidingBolt)
+            .SetSpeedAndImpactOffset(SpeedType.CellsPerSeconds, 9.5f)
             .Build();
 
         var featureSetPathOfTheLightIlluminatingBurst = FeatureDefinitionFeatureSetBuilder

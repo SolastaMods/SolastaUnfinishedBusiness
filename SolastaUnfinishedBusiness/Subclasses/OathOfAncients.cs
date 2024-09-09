@@ -114,10 +114,8 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetParticleEffectParameters(PowerWindShelteringBreeze)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetRestrictedCreatureFamilies("Fey", "Fiend", "Elemental")
                     .SetSavingThrowData(
                         false,
@@ -134,6 +132,7 @@ public sealed class OathOfAncients : AbstractSubclass
                                 ConditionDefinitions.ConditionTurned,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(PowerWindShelteringBreeze)
                     .Build())
             .AddToDB();
 
