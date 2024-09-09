@@ -497,6 +497,9 @@ internal static partial class SpellBuilders
                             .SetConditionForm(ConditionDefinitions.ConditionBlinded,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(FaerieFire)
+                    .SetImpactEffectParameters(
+                        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeHolyWeapon())
             .AddToDB();
@@ -554,6 +557,8 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true))
                     .UseQuickAnimations()
+                    .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
+                    .SetEffectEffectParameters(new AssetReference())
                     .Build())
             .AddToDB();
 

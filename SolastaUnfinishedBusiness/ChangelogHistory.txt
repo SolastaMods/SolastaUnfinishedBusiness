@@ -11,7 +11,7 @@
 - fixed Martial Commander coordinated defense to require an attack first [VANILLA]
 - fixed Party Editor to register/unregister powers from feats
 - fixed Path of the Wild Magic retribution, and Patron Archfey misty step to only react against enemy effects
-- fixed Wrathful Smite to do a wisdom attribute check to get rid of frightened on turn start
+- fixed Wrathful Smite to do a wisdom ability check against caster DC instead of a save on turn start 
 - improved ability checks to also allow reactions on success [Circle of the Cosmos woe]
 - improved Conversion Slots, and Shorthand versatilities to react on ability checks
 - improved Maneuvering Attack, and Martial Warlord strategic repositioning to use a run stance

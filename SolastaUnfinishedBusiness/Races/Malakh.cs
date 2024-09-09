@@ -110,6 +110,8 @@ internal static class RaceMalakhBuilder
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+            .SetImpactParticleReference(
+                SpellDefinitions.FaerieFire.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         CreateAngelicFormChoice(BuildAngelicFlight(additionalDamageMalakhAngelicForm));
