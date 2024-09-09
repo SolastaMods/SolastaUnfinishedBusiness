@@ -1334,6 +1334,8 @@
                     <string>MinorLifesteal</string>
                     <string>StarryWisp</string>
                     <string>ThunderStrike</string>
+                    <string>CommandSpell</string>
+                    <string>DissonantWhispers</string>
                     <string>EarthTremor</string>
                     <string>Mule</string>
                     <string>BorrowedKnowledge</string>
@@ -1366,6 +1368,7 @@
                     <string>TollTheDead</string>
                     <string>BurstOfRadiance</string>
                     <string>Wrack</string>
+                    <string>CommandSpell</string>
                     <string>Sanctuary</string>
                     <string>BorrowedKnowledge</string>
                     <string>ProtectThreshold</string>
@@ -1375,6 +1378,7 @@
                     <string>AuraOfVitality</string>
                     <string>AuraOfPerseverance</string>
                     <string>Dawn</string>
+                    <string>HolyWeapon</string>
                     <string>ShelterFromEnergy</string>
                     <string>RescueTheDying</string>
                     <string>SoulExpulsion</string>
@@ -1459,6 +1463,7 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>CommandSpell</string>
                     <string>SearingSmite</string>
                     <string>ThunderousSmite</string>
                     <string>WrathfulSmite</string>
@@ -1474,6 +1479,7 @@
                     <string>BanishingSmite</string>
                     <string>CircleOfMagicalNegation</string>
                     <string>DivineWrath</string>
+                    <string>HolyWeapon</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -1748,8 +1754,8 @@
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
     <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
-    <DontFollowCharacterInBattle>false</DontFollowCharacterInBattle>
-    <NeverMoveCameraOnEnemyTurn>false</NeverMoveCameraOnEnemyTurn>
+    <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
+    <NeverMoveCameraOnEnemyTurn>true</NeverMoveCameraOnEnemyTurn>
     <DontFollowMargin>5</DontFollowMargin>
     <GridSelectedColor>1</GridSelectedColor>
     <MovementGridWidthModifier>100</MovementGridWidthModifier>
@@ -1958,7 +1964,7 @@
     <EnableCancelEditOnRightMouseClick>true</EnableCancelEditOnRightMouseClick>
     <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
     <DisableAutoEquip>true</DisableAutoEquip>
-    <EnableCtrlClickDragToBypassQuestItemsOnDrop>false</EnableCtrlClickDragToBypassQuestItemsOnDrop>
+    <EnableCtrlClickDragToBypassQuestItemsOnDrop>true</EnableCtrlClickDragToBypassQuestItemsOnDrop>
     <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>

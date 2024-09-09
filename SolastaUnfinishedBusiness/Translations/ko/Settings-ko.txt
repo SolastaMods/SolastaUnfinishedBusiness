@@ -234,7 +234,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 발견 후 레벨 지도에 보�
 ModUi/&MaxAllowedClasses=<color=white>최대 허용 수업</color>
 ModUi/&Merchants=<color=#F0DAA0>상점:</color>
 ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>
-ModUi/&ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=<color=#1E81B0>CTRL</color> 클릭-드래그를 활성화하여 드롭 시 <color=#D89555>퀘스트 아이템</color> 검사를 무시합니다.
+ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=<color=#1E81B0>CTRL</color> 클릭-드래그를 활성화하여 드롭 시 <color=#D89555>퀘스트 아이템</color> 검사를 무시합니다.
 ModUi/&Monsters=<color=#F0DAA0>괴물:</color>
 ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&MulticlassKeyHelp=주문을 <color=#1E81B0>SHIFT</color> 클릭하면 소비되는 기본 레퍼토리 슬롯 유형이 반전됩니다.\n<i><color=#F0DAA0>[<color=#D89555>워록</color>은 흰색 주문 슬롯을 소비합니다. 다른 사람들은 녹색 계약을 사용합니다.]</color></i>

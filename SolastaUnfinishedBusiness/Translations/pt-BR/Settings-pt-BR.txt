@@ -234,7 +234,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização do
 ModUi/&MaxAllowedClasses=<color=white>Máximo de classes permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamágica</color>
-ModUi/&ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Habilitar <color=#1E81B0>CTRL</color> clicar e arrastar para ignorar as verificações de <color=#D89555>itens de missão</color> ao soltar
+ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Habilitar <color=#1E81B0>CTRL</color> clicar e arrastar para ignorar as verificações de <color=#D89555>itens de missão</color> ao soltar
 ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de movimento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clicar em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam os verdes do pacto]</color></i>

@@ -459,9 +459,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionFrightenedPhantasmalKiller { get; } =
             GetDefinition<ConditionDefinition>("ConditionFrightenedPhantasmalKiller");
 
-        internal static ConditionDefinition ConditionGrappledRestrainedRemorhaz { get; } =
-            GetDefinition<ConditionDefinition>("ConditionGrappledRestrainedRemorhaz");
-
         internal static ConditionDefinition ConditionGuided { get; } =
             GetDefinition<ConditionDefinition>("ConditionGuided");
 
@@ -641,9 +638,6 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionRestrainedByMagicalArrow { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrainedByMagicalArrow");
-
-        internal static ConditionDefinition ConditionRestrainedByWeb { get; } =
-            GetDefinition<ConditionDefinition>("ConditionRestrainedByWeb");
 
         internal static ConditionDefinition ConditionRestrictedInsideMagicCircle { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrictedInsideMagicCircle");

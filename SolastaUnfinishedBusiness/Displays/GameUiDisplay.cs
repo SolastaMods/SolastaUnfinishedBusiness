@@ -372,7 +372,7 @@ internal static class GameUiDisplay
             ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
         }
 
-        toggle = Main.Settings.DontDisplayHelmets;
+        toggle = Main.Settings.EnableCtrlClickDragToBypassQuestItemsOnDrop;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableCtrlClickDragToBypassQuestItemsOnDrop = toggle;
