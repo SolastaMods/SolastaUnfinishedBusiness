@@ -83,16 +83,12 @@ public static class BreakFreePatcher
                         .Max();
                 }
 
-                var sourceEffect =
-                    rulesetCharacterHero.SpellsCastByMe.FirstOrDefault(x =>
-                        x.TrackedConditionGuids.Any(y => y == restrainingCondition.Guid))?.SourceDefinition;
-
                 rulesetCharacter.LogCharacterActivatesAbility(
-                    sourceEffect?.Name ?? string.Empty,
+                    string.Empty,
                     "Feedback/&BreakFreeAttempt",
                     extra:
                     [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo,
+                        (ConsoleStyleDuplet.ParameterType.Negative,
                             restrainingCondition.ConditionDefinition.FormatTitle())
                     ]);
 

@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
@@ -148,6 +149,15 @@ public static class CharacterActionBreakFreePatcher
                         .Select(x => x.SaveDC)
                         .Max();
                 }
+
+                rulesetCharacter.LogCharacterActivatesAbility(
+                    string.Empty,
+                    "Feedback/&BreakFreeAttempt",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Negative,
+                            restrainingCondition.ConditionDefinition.FormatTitle())
+                    ]);
 
                 abilityScoreName = newAbilityScoreName;
                 proficiencyName = string.Empty;
