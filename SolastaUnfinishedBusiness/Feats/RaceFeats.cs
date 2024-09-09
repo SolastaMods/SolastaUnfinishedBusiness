@@ -1203,7 +1203,7 @@ internal static class RaceFeats
             .AddToDB();
 
         var lightSourceForm =
-            FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+            Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
@@ -1211,7 +1211,7 @@ internal static class RaceFeats
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Light)
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(

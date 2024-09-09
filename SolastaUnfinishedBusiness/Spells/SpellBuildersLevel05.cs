@@ -233,7 +233,7 @@ internal static partial class SpellBuilders
     {
         const string NAME = "Incineration";
 
-        var lightSourceForm = FaerieFire.EffectDescription
+        var lightSourceForm = Light.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;
 
         var conditionIncineration = ConditionDefinitionBuilder
@@ -263,7 +263,7 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Light)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
@@ -523,7 +523,7 @@ internal static partial class SpellBuilders
                     TagsDefinitions.MagicalWeapon, TagsDefinitions.Criticity.Important, ValidatorsWeapon.AlwaysValid))
             .AddToDB();
 
-        var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+        var lightSourceForm = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -538,7 +538,7 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Light)
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.EquippedNoLightSource)
@@ -556,13 +556,10 @@ internal static partial class SpellBuilders
                                 ItemPropertyUsage.Unlimited, 0, new FeatureUnlockByLevel(additionalDamage, 0))
                             .Build(),
                         EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true))
-                    .UseQuickAnimations()
                     .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
                     .SetEffectEffectParameters(new AssetReference())
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectForms[0].createdByCharacter = true;
 
         return spell;
     }

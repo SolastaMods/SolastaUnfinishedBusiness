@@ -150,7 +150,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetSharedPool(ActivationTime.BonusAction, powerLunarCloak)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(FaerieFire)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(

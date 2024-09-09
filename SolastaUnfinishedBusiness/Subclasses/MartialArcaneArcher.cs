@@ -462,7 +462,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(SpellDefinitions.FaerieFire)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetParticleEffectParameters(SpellDefinitions.FaerieFire)

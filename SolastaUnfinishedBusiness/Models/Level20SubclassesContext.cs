@@ -832,7 +832,7 @@ internal static class Level20SubclassesContext
             .SetFeatures(savingThrowAffinityOathOfDevotionHolyNimbus)
             .AddToDB();
 
-        var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+        var lightSourceForm = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var powerOathOfDevotionHolyNimbus = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfDevotionHolyNimbus")
@@ -840,7 +840,7 @@ internal static class Level20SubclassesContext
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Light)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetRecurrentEffect(

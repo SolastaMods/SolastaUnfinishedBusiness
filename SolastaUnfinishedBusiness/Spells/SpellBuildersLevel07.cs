@@ -330,7 +330,7 @@ internal static partial class SpellBuilders
 
         conditionCrownOfStars.GuiPresentation.description = Gui.EmptyContent;
 
-        var lightSourceForm = FaerieFire.EffectDescription
+        var lightSourceForm = Light.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;
 
         var spell = SpellDefinitionBuilder
@@ -345,7 +345,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Light)
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,

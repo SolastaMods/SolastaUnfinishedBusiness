@@ -261,7 +261,7 @@ internal static class RaceMalakhBuilder
             .AddToDB();
 
         var faerieFireLightSource =
-            SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+            SpellDefinitions.Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var powerMalakhAngelicRadiance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicRadiance")
@@ -269,7 +269,7 @@ internal static class RaceMalakhBuilder
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(SpellDefinitions.Light)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
