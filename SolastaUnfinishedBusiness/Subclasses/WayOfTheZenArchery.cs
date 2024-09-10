@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
@@ -176,23 +177,27 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
     // set attacks number to 2 to allow a mix of unarmed / bow attacks otherwise game engine will consume bonus action
     // once at least one bonus attack is used this check fails and everything gets back to normal
-    // the patch on CharacterActionItemForm.Refresh finishes the trick by hiding the number of attacks image
+    // the patch on CharacterActionItemForm.Refresh finishes the trick by hiding the number of attacks
+    // when attack tags have a proper hide tag
     private sealed class ModifyWeaponAttackModeFlurryOfArrows : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
         {
             var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-            if (character is { UsedBonusAttacks: 0 } &&
-                attackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
-                rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionFlurryOfBlows) &&
-                ValidatorsWeapon.IsOfWeaponType(
-                    WeaponTypeDefinitions.LongbowType,
-                    WeaponTypeDefinitions.ShortbowType)(attackMode, null, null))
+            if (character is not { UsedBonusAttacks: 0 } ||
+                attackMode.ActionType != ActionDefinitions.ActionType.Bonus ||
+                !rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionFlurryOfBlows) ||
+                !ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.LongbowType, WeaponTypeDefinitions.ShortbowType)(
+                    attackMode, null, null))
             {
-                attackMode.AttacksNumber = 2;
+                return;
             }
+
+            attackMode.AddAttackTagAsNeeded(
+                CharacterActionItemFormPatcher.Refresh_Patch.HideAttacksNumberOnActionPanel);
+            attackMode.AttacksNumber = 2;
         }
     }
 
