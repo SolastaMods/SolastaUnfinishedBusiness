@@ -390,6 +390,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
             .SetAttackModeOnly()
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
@@ -465,6 +466,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
             .SetAttackModeOnly()
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
@@ -1314,6 +1316,9 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        spellApproach.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
+        spellApproach.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
+        
         // Flee
 
         var conditionFlee = ConditionDefinitionBuilder
@@ -1356,6 +1361,9 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        spellFlee.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
+        spellFlee.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
+        
         // Grovel
 
         var conditionGrovel = ConditionDefinitionBuilder
@@ -1397,6 +1405,9 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        spellGrovel.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
+        spellGrovel.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
+        
         // Halt
 
         var conditionHalt = ConditionDefinitionBuilder
@@ -1443,6 +1454,9 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        spellHalt.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
+        spellHalt.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
+        
         // Command Spell
 
         // MAIN

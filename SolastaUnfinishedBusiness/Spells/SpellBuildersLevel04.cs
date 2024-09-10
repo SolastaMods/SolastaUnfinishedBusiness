@@ -261,6 +261,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
             .SetAttackModeOnly()
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetDamageDice(DieType.D6, 4)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetSavingThrowData(
