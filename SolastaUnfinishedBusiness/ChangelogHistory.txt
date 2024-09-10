@@ -5,6 +5,7 @@
 - fixed Barbarian Sundering Blow interaction with Call Lightning, and other attack proxies
 - fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances save logic
 - fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe reaction consumption
+- fixed Demonic Influence adding all location enemies as new contenders [VANILLA]
 - fixed Dwarven Fortitude, and Magical Guidance incorrectly consuming a reaction
 - fixed Exploiter feat not checking for reactions from 2nd target onwards
 - fixed Lucky, and Mage Slayer feats double consumption
@@ -15,10 +16,10 @@
 - fixed Quickened interaction with melee attack cantrips
 - fixed Wrathful Smite to do a wisdom ability check against caster DC
 - improved ability checks to also allow reactions on success [Circle of the Cosmos woe]
-- improved Sorcerer Wild Magic tides of chaos, Conversion Slots, and Shorthand versatilities to react on ability checks
 - improved Maneuvering Attack, and Martial Warlord strategic repositioning to use a run stance
 - improved mod UI to ensure all settings required to be in sync on MP sessions are now under Gameplay
 - improved saving roll reaction modal descriptions [Circle of the Cosmos, Sorcerer Wild Magic, etc.]
+- improved Sorcerer Wild Magic tides of chaos, Conversion Slots, and Shorthand versatilities to react on ability checks
 - improved spells documentation dump to include allowed casting classes
 - improved vanilla to allow reactions on gadget's saving roll [traps]
 - improved victory modal export behavior to allow heroes not in pool to be exported [VANILLA]

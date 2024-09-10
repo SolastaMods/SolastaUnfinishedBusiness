@@ -14,6 +14,25 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationCharacterManagerPatcher
 {
+    //BUGFIX: fix demonic influence getting all enemies agro on a custom map
+    [HarmonyPatch(typeof(GameLocationCharacterManager), nameof(GameLocationCharacterManager.CreateCharacter))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SpawnParty_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(Side side, ref GameLocationBehaviourPackage behaviourPackage)
+        {
+            if (side == Side.Ally)
+            {
+                behaviourPackage ??= new GameLocationBehaviourPackage
+                {
+                    EncounterId = 424242
+                };
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationCharacterManager),
         nameof(GameLocationCharacterManager.CreateAndBindEffectProxy))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
