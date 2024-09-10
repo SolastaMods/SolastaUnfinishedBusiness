@@ -266,6 +266,7 @@ internal static class ModUi
         "StarryWisp",
         "SteelWhirlwind",
         "StrikeWithTheWind",
+        "SwiftQuiver",
         "SwordStorm",
         "SynapticStatic",
         "Telekinesis",

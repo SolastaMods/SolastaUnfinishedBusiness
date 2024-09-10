@@ -1184,6 +1184,7 @@ ConditionSunderingBlow	ConditionDefinition	ConditionDefinition	c90e3266-d44c-5af
 ConditionSunderingBlowAlly	ConditionDefinition	ConditionDefinition	73a99876-5aed-5b10-a854-b4c63147585a
 ConditionSunlightBlade	ConditionDefinition	ConditionDefinition	6ac4b1f4-8f80-5e90-8e86-e66db308a40a
 ConditionSunlightBladeHighlighted	ConditionDefinition	ConditionDefinition	eb813adc-3ad0-52da-9836-0460b6c55291
+ConditionSwiftQuiver	ConditionDefinition	ConditionDefinition	1e981912-4130-58da-9464-ac4a23323337
 ConditionSynapticStatic	ConditionDefinition	ConditionDefinition	0e14b879-1475-52c8-843b-429d5ee6bc8a
 ConditionTaunted	ConditionDefinition	ConditionDefinition	4684284a-a3b2-54f9-9b40-0badf8e95081
 ConditionTaunter	ConditionDefinition	ConditionDefinition	44ef4a88-e18c-5b4f-862b-0cf1ed14b71e
@@ -12624,6 +12625,7 @@ StarryWisp	SpellDefinition	SpellDefinition	9856da86-1888-5630-8647-3a003421a268
 SteelWhirlwind	SpellDefinition	SpellDefinition	ab7f50cb-6f73-57c6-b96b-f06ac4ed17b3
 StrikeWithTheWind	SpellDefinition	SpellDefinition	d641e4ac-7291-5516-a07c-f45b6444dcfe
 SunlightBlade	SpellDefinition	SpellDefinition	62effe92-a4c1-58ed-a9a0-06f1a64e8c8e
+SwiftQuiver	SpellDefinition	SpellDefinition	12962336-42c4-5ddc-8ea1-6092af61fe43
 SwordStorm	SpellDefinition	SpellDefinition	d3b6df03-2c2c-524a-a160-e988006a5fd8
 SynapticStatic	SpellDefinition	SpellDefinition	5e75eeec-87bb-5e81-918a-03171bfea6a6
 Telekinesis	SpellDefinition	SpellDefinition	4a9561ac-ffb6-5b44-b94a-24f69e41fd4c

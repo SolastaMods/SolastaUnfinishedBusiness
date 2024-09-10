@@ -1,6 +1,6 @@
 1.5.97.30:
 
-- added Command [Bard, Cleric, Paladin], Dissonant Whispers [Bard], and Holy Weapon [Cleric, Paladin] spells
+- added Command, Dissonant Whispers, Holy Weapon, and Swift Quiver spells
 - added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop' setting
 - fixed Barbarian Sundering Blow interaction with Call Lightning, and other proxy like powers
 - fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances saving throw logic
