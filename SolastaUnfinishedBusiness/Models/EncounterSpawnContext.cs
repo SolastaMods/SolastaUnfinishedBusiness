@@ -165,11 +165,8 @@ internal static class EncountersSpawnContext
                              new GameLocationBehaviourPackage
                              {
                                  BattleStartBehavior =
-                                     GameLocationBehaviourPackage.BattleStartBehaviorType.RaisesAlarm,
-                                 DecisionPackageDefinition =
-                                     character is RulesetCharacterMonster monster
-                                         ? monster.MonsterDefinition.DefaultBattleDecisionPackage
-                                         : IdleGuard_Default,
+                                     GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
+                                 DecisionPackageDefinition = IdleGuard_Default,
                                  EncounterId = EncounterId++,
                                  FormationDefinition = DatabaseHelper.FormationDefinitions.Column2
                              })))
