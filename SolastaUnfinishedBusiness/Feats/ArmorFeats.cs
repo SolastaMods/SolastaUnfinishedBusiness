@@ -92,6 +92,9 @@ internal static class ArmorFeats
             featMediumArmorDex,
             featMediumArmorStr);
 
+        featGroupMediumArmor.armorProficiencyPrerequisite = true;
+        featGroupMediumArmor.armorProficiencyCategory = LightArmorCategory;
+
         GroupFeats.FeatGroupDefenseCombat.AddFeats(featShieldTechniques);
 
         GroupFeats.MakeGroup("FeatGroupArmor", null,

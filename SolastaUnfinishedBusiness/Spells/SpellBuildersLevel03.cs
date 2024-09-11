@@ -114,7 +114,7 @@ internal static partial class SpellBuilders
                     hasSavingThrow = true,
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn
+                    saveOccurence = TurnOccurenceType.EndOfTurn
                 })
             // doesn't follow the standard impact particle reference
             .SetImpactParticleReference(DivineFavor.EffectDescription.EffectParticleParameters.casterParticleReference)

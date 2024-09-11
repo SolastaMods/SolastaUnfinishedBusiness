@@ -395,7 +395,7 @@ internal static class SrdAndHouseRulesContext
 
         if (!Main.Settings.RemoveHumanoidFilterOnHideousLaughter)
         {
-            HideousLaughter.effectDescription.restrictedCreatureFamilies.Add("Humanoid");
+            HideousLaughter.effectDescription.restrictedCreatureFamilies.Add(CharacterFamilyDefinitions.Humanoid.Name);
         }
     }
 

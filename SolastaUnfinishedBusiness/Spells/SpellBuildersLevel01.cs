@@ -708,11 +708,11 @@ internal static partial class SpellBuilders
         var powerThunderousSmite = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}ThunderousSmite")
             .SetGuiPresentation(NAME, Category.Spell, hidden: true)
-            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -738,6 +738,8 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithMeleeAndDamages)
             .AddToDB();
+
+        conditionThunderousSmite.terminateWhenRemoved = true;
 
         var spell = SpellDefinitionBuilder
             .Create(BrandingSmite, NAME)
@@ -1505,7 +1507,7 @@ internal static partial class SpellBuilders
             { CharacterFamilyDefinitions.Fey.Name, "Elvish" },
             { CharacterFamilyDefinitions.Fiend.Name, "Infernal" },
             { CharacterFamilyDefinitions.Giant.Name, "Giant" },
-            { CharacterFamilyDefinitions.Humanoid.Name, "Common" },
+            { CharacterFamilyDefinitions.Humanoid.Name, "Common" }
         };
 
         public bool EnforceFullSelection => true;
@@ -1535,7 +1537,7 @@ internal static partial class SpellBuilders
                 failureFlags.Add("Failure/&FailureFlagCannotTargetUndead");
                 return false;
             }
-            
+
             var rulesetCaster = __instance.ActionParams.ActingCharacter.RulesetCharacter.GetOriginalHero();
 
             if (rulesetCaster == null || !FamilyLanguages.TryGetValue(rulesetTarget.CharacterFamily, out var language))

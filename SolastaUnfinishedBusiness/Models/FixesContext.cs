@@ -329,7 +329,6 @@ internal static class FixesContext
             ));
 
         AdditionalDamageBrandingSmite.attackModeOnly = true;
-        AdditionalDamageBrandingSmite.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
 
         AdditionalDamageRangerSwiftBladeBattleFocus.attackModeOnly = true;
         AdditionalDamageRangerSwiftBladeBattleFocus.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
