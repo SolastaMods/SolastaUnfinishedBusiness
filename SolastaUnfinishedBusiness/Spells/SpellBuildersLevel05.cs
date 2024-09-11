@@ -889,7 +889,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature, SpiritualWeapon)
             .SetNotificationTag("HolyWeapon")
-            .SetDamageDice(DieType.D6, 2)
+            .SetDamageDice(DieType.D8, 2)
             .SetSpecificDamageType(DamageTypeRadiant)
             .AddCustomSubFeatures(
                 new AddTagToWeapon(
@@ -915,9 +915,9 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionDefinitions.ConditionBlinded,
-                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(FaerieFire)
                     .SetCasterEffectParameters(PowerOathOfDevotionTurnUnholy)
@@ -926,9 +926,11 @@ internal static partial class SpellBuilders
                     .Build())
             .AddCustomSubFeatures(
                 new PowerOrSpellFinishedByMeHolyWeapon(),
-                new ValidatorsValidatePowerUse(c => 
-                    c.GetMainWeapon()?.DynamicItemProperties.Any(x => x.FeatureDefinition == additionalDamage) == true ||
-                    c.GetOffhandWeapon()?.DynamicItemProperties.Any(x => x.FeatureDefinition == additionalDamage) == true))
+                new ValidatorsValidatePowerUse(c =>
+                    c.GetMainWeapon()?.DynamicItemProperties.Any(x => x.FeatureDefinition == additionalDamage) ==
+                    true ||
+                    c.GetOffhandWeapon()?.DynamicItemProperties.Any(x => x.FeatureDefinition == additionalDamage) ==
+                    true))
             .AddToDB();
 
         var condition = ConditionDefinitionBuilder
@@ -972,8 +974,7 @@ internal static partial class SpellBuilders
                                 ItemPropertyUsage.Unlimited, 0, new FeatureUnlockByLevel(additionalDamage, 0))
                             .Build(),
                         EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true))
-                    .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
-                    .SetEffectEffectParameters(new AssetReference())
+                    .SetCasterEffectParameters(HolyAura)
                     .Build())
             .AddToDB();
 
