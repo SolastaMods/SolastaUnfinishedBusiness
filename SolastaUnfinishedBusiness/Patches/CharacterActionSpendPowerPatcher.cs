@@ -115,6 +115,9 @@ public static class CharacterActionSpendPowerPatcher
                 actingCharacter.RulesetCharacter.UseDevicePower(activePower.OriginItem, activePower.PowerDefinition);
             }
 
+            actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+                (RuleDefinitions.ConditionInterruption) ExtraConditionInterruption.SpendPower);
+            
             for (var i = 0; i < targets.Count; i++)
             {
                 var target = targets[i];
@@ -352,6 +355,9 @@ public static class CharacterActionSpendPowerPatcher
                 }
             }
 
+            actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+                (RuleDefinitions.ConditionInterruption) ExtraConditionInterruption.SpendPowerExecuted);
+            
             __instance.PersistantEffectAction();
         }
     }
