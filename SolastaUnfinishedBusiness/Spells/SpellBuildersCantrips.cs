@@ -824,8 +824,8 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionBoomingBladeSheathed.possessive = false;
-        conditionBoomingBladeSheathed.AddCustomSubFeatures(
-            new OnConditionAddedOrRemovedBoomingBladeSheathed(conditionBoomingBladeSheathed, powerBoomingBladeDamage));
+        conditionBoomingBladeSheathed.AddCustomSubFeatures(new ActionFinishedByMeConditionBoomingBladeSheathed(
+            conditionBoomingBladeSheathed, powerBoomingBladeDamage));
 
         var additionalDamageBoomingBlade = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageBoomingBlade")
@@ -883,21 +883,24 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class OnConditionAddedOrRemovedBoomingBladeSheathed(
+    private sealed class ActionFinishedByMeConditionBoomingBladeSheathed(
         ConditionDefinition conditionBoomingBladeSheathed,
-        FeatureDefinitionPower powerBoomingBladeDamage) : IOnConditionAddedOrRemoved
+        FeatureDefinitionPower powerBoomingBladeDamage) : IActionFinishedByMe
     {
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            // empty
-        }
+            if (action.ActionId != Id.TacticalMove)
+            {
+                yield break;
+            }
 
-        public void OnConditionRemoved(RulesetCharacter rulesetDefender, RulesetCondition rulesetCondition)
-        {
+            var defender = action.ActingCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
             if (!rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionBoomingBladeSheathed.Name, out var activeCondition))
             {
-                return;
+                yield break;
             }
 
             rulesetDefender.RemoveCondition(activeCondition);
@@ -905,7 +908,6 @@ internal static partial class SpellBuilders
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
             var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
             var usablePower = PowerProvider.Get(powerBoomingBladeDamage, rulesetAttacker);
-            var defender = GameLocationCharacter.GetFromActor(rulesetDefender);
 
             attacker.MyExecuteActionSpendPower(usablePower, false, defender);
         }
