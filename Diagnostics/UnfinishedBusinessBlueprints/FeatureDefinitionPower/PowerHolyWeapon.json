@@ -109,7 +109,7 @@
         "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
-        "canSaveToCancel": false,
+        "canSaveToCancel": true,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
