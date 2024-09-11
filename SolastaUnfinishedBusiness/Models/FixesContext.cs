@@ -51,6 +51,11 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
+        //ConditionDefinitions.ConditionUnderDemonicInfluence.forceBehavior = false;
+        ConditionDefinitions.ConditionUnderDemonicInfluence.specialDuration = true;
+        ConditionDefinitions.ConditionUnderDemonicInfluence.durationType = DurationType.Hour;
+        ConditionDefinitions.ConditionUnderDemonicInfluence.durationParameter = 1;
+
         AddAdditionalActionTitles();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
@@ -646,8 +651,10 @@ internal static class FixesContext
     {
         foreach (var power in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
                      .Where(x =>
-                         x.ActivationTime == ActivationTime.PermanentUnlessIncapacitated &&
-                         (x.Name.StartsWith("PowerOath") || x.Name.StartsWith("PowerPaladin"))))
+                         x.ActivationTime is ActivationTime.Permanent or ActivationTime.PermanentUnlessIncapacitated &&
+                         (x.Name.StartsWith("PowerDomain") ||
+                          x.Name.StartsWith("PowerOath") ||
+                          x.Name.StartsWith("PowerPaladin"))))
         {
             power.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
         }
