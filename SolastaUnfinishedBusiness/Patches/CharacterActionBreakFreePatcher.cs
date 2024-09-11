@@ -93,12 +93,6 @@ public static class CharacterActionBreakFreePatcher
                 }
             }
 
-            __instance.ActingCharacter.RulesetCharacter.ComputeBaseAbilityCheckBonus(
-                abilityScoreName, actionModifier.AbilityCheckModifierTrends, proficiencyName);
-
-            __instance.ActingCharacter.ComputeAbilityCheckActionModifier(
-                abilityScoreName, proficiencyName, actionModifier);
-
             var abilityCheckRoll = __instance.ActingCharacter.RollAbilityCheck(
                 abilityScoreName,
                 proficiencyName,

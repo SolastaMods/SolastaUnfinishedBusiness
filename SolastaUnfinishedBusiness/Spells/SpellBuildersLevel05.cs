@@ -1455,8 +1455,8 @@ internal static partial class SpellBuilders
                 contextField2 |= 64;
             }
 
-            opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Strength, string.Empty, actionModifier2,
-                contextField2);
+            opponent.ComputeAbilityCheckActionModifier(
+                AttributeDefinitions.Strength, string.Empty, actionModifier2, contextField2);
 
             actor.RulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
                 actor.RulesetCharacter.FeaturesToBrowse, actor.RulesetCharacter.FeaturesOrigin);

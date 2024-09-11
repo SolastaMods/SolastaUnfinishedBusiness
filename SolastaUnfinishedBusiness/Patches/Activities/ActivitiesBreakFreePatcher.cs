@@ -93,12 +93,6 @@ public static class BreakFreePatcher
                     ]);
 
                 var actionModifier = new ActionModifier();
-
-                rulesetCharacter.ComputeBaseAbilityCheckBonus(
-                    attributeName, actionModifier.AbilityCheckModifierTrends, string.Empty);
-                gameLocationCharacter.ComputeAbilityCheckActionModifier(
-                    attributeName, string.Empty, actionModifier);
-
                 var abilityCheckRoll = gameLocationCharacter.RollAbilityCheck(
                     attributeName,
                     string.Empty,

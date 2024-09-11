@@ -1169,16 +1169,16 @@ internal static class OtherFeats
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var actionModifier = new ActionModifier();
-
-            rulesetCharacter.ComputeBaseAbilityCheckBonus(
-                AttributeDefinitions.Dexterity, actionModifier.AbilityCheckModifierTrends, SkillDefinitions.Acrobatics);
-
-            actingCharacter.ComputeAbilityCheckActionModifier(
-                AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, actionModifier);
-
             var abilityCheckRoll = actingCharacter.RollAbilityCheck(
-                AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, 15,
-                AdvantageType.None, actionModifier, false, -1, out var rollOutcome, out var successDelta, true);
+                AttributeDefinitions.Dexterity,
+                SkillDefinitions.Acrobatics,
+                15,
+                AdvantageType.None,
+                actionModifier,
+                false, -1,
+                out var rollOutcome,
+                out var successDelta,
+                true);
 
             //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
             var abilityCheckData = new AbilityCheckData
@@ -2397,7 +2397,6 @@ internal static class OtherFeats
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .AddToDB()))
                     .AddToDB())
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
 

@@ -58,8 +58,8 @@ internal static class TryAlterOutcomeAttributeCheck
             contextFieldActor |= 64;
         }
 
-        actor.ComputeAbilityCheckActionModifier(AttributeDefinitions.Strength, SkillDefinitions.Athletics,
-            actionModifierActorStrength, contextFieldActor);
+        actor.ComputeAbilityCheckActionModifier(
+            AttributeDefinitions.Strength, SkillDefinitions.Athletics, actionModifierActorStrength, contextFieldActor);
 
         var contextFieldOpponent = 1;
 
