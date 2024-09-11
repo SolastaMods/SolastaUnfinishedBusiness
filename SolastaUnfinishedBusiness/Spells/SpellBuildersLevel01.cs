@@ -415,7 +415,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
             .SetFeatures(additionalDamageSearingSmite)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithMeleeAndDamages)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -492,7 +492,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
             .SetFeatures(additionalDamageWrathfulSmite)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithMeleeAndDamages)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -734,9 +734,9 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(
                 $"{NAME}Title".Formatted(Category.Spell), Gui.EmptyContent, ConditionBrandingSmite)
             .SetPossessive()
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .SetFeatures(powerThunderousSmite)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithMeleeAndDamages)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -1318,7 +1318,7 @@ internal static partial class SpellBuilders
 
         spellApproach.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
         spellApproach.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
-        
+
         // Flee
 
         var conditionFlee = ConditionDefinitionBuilder
@@ -1363,7 +1363,7 @@ internal static partial class SpellBuilders
 
         spellFlee.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
         spellFlee.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
-        
+
         // Grovel
 
         var conditionGrovel = ConditionDefinitionBuilder
@@ -1407,7 +1407,7 @@ internal static partial class SpellBuilders
 
         spellGrovel.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
         spellGrovel.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
-        
+
         // Halt
 
         var conditionHalt = ConditionDefinitionBuilder
@@ -1456,7 +1456,7 @@ internal static partial class SpellBuilders
 
         spellHalt.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
         spellHalt.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
-        
+
         // Command Spell
 
         // MAIN
@@ -1518,6 +1518,13 @@ internal static partial class SpellBuilders
             }
 
             var rulesetTarget = target.RulesetCharacter;
+
+            if (rulesetTarget.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, RuleDefinitions.ConditionSurprised))
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustNotBeSurprised");
+                return false;
+            }
 
             switch (rulesetTarget.CharacterFamily)
             {
@@ -1589,6 +1596,7 @@ internal static partial class SpellBuilders
 
             if (characterAction.ActionId != Id.TacticalMove ||
                 actingCharacter.MovingToDestination ||
+                !actingCharacter.IsMyTurn() ||
                 !rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionApproach.Name, out var activeCondition))
             {

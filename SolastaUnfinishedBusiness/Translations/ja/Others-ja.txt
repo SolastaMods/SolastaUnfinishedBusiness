@@ -307,6 +307,7 @@ Tooltip/&Tag9000Title=カスタムエフェクト
 Tooltip/&TagDamageChaosBoltTitle=カオスダメージ
 Tooltip/&TagUnfinishedBusinessTitle=未完の仕事
 Tooltip/&TargetMeleeWeaponError={0} 内にないため、このターゲットに近接攻撃を実行できません
+Tooltip/&TargetMustNotBeSurprised=ターゲットは驚いてはいけない
 Tooltip/&TargetMustUnderstandYou=ターゲットはあなたのコマンドを理解する必要があります
 UI/&CustomFeatureSelectionStageDescription=クラス/サブクラスの追加機能を選択します。
 UI/&CustomFeatureSelectionStageFeatures=特徴

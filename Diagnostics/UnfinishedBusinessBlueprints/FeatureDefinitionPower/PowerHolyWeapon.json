@@ -150,7 +150,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3cff2b6f11a2cd649b3fb3fb2c402351",
+        "m_AssetGUID": "8b9fa0fcdb99d2347a36d25a972de9f5",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -356,7 +356,7 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": false,
+  "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
@@ -367,9 +367,9 @@
     "description": "Feature/&PowerHolyWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7892e11668806184fb7f0901204e6ddc",
-      "m_SubObjectName": "SpiritualWeapon",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "fce89a39-76c3-5d2a-8b88-33e80cc88a44",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

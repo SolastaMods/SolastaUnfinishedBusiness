@@ -125,7 +125,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
             .SetFeatures(additionalDamageBlindingSmite)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithMeleeAndDamages)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder

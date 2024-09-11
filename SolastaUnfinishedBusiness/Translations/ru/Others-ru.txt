@@ -307,6 +307,7 @@ Tooltip/&Tag9000Title=Кастомный эффект
 Tooltip/&TagDamageChaosBoltTitle=Хаотичный урон
 Tooltip/&TagUnfinishedBusinessTitle=Неоконченное Дело
 Tooltip/&TargetMeleeWeaponError=Невозможно провести атаку ближнего боя по этой цели, так как она находится вне пределов {0}
+Tooltip/&TargetMustNotBeSurprised=Цель не должна быть застигнута врасплох
 Tooltip/&TargetMustUnderstandYou=Цель должна понимать ваш приказ
 UI/&CustomFeatureSelectionStageDescription=Выберите дополнительные черты для вашего класса/архетипа.
 UI/&CustomFeatureSelectionStageFeatures=Черты

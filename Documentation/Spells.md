@@ -594,9 +594,7 @@ You ward a creature within range against attack. Until the spell ends, any creat
 
 **[Paladin, Ranger]**
 
-On your next hit your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames.
-At the start of each of its turns the target must make a successful Constitution saving throw to stop burning, or take 1d6 fire damage.
-Higher Levels: for each slot level above 1st, the initial extra damage dealt by the attack increases by 1d6.
+The next time you hit a creature with a melee weapon attack during the spell's duration, your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames. At the start of each of its turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 1d6 fire damage. On a successful save, the spells ends. If the target or a creature within 5 feet of it uses an action to put out the flames, or if some other effect douses the flames (such as the target being submerged in water), the spell ends. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.
 
 # 99. - Shield (V,S) level 1 Abjuration [SOL]
 
@@ -626,7 +624,7 @@ A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a d
 
 **[Paladin]**
 
-On your next hit your weapon rings with thunder and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 ft away from you and knocked prone.
+The first time you hit with a melee weapon attack during this spell's duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.
 
 # 104. - Thunderwave (V,S) level 1 Evocation [SOL]
 
@@ -649,7 +647,7 @@ A beam of crackling, blue energy lances out toward a creature within range, form
 
 **[Paladin]**
 
-Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain, and it becomes frightened.
+The next time you hit with a melee weapon attack during this spell's duration, your attack deals an extra 1d6 psychic damage. Additionally, if the target is a creature, it must make a Wisdom saving throw or be frightened of you until the spell ends. As an action, the creature can make a Wisdom check against your spell save DC to steel its resolve and end this spell.
 
 # 108. - *Zephyr Strike* © (V) level 1 Transmutation [Concentration] [UB]
 
@@ -1001,8 +999,7 @@ Curses a creature you can touch.
 
 **[Paladin]**
 
-On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
-A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
+The next time you hit a creature with a melee weapon attack during this spell's duration, you weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends. A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
 
 # 166. - Call Lightning (V,S) level 3 Conjuration [Concentration] [SOL]
 
@@ -1400,7 +1397,7 @@ Dim light spreads within a 30-foot-radius sphere centered on a point you choose 
 
 **[Paladin]**
 
-The next time you hit a creature with a weapon attack during this spell's duration, your weapon pierces both body and mind, and the attack deals an extra 4d6 psychic damage to the target. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
+The next time you hit a creature with a melee weapon attack during this spell's duration, your weapon pierces both body and mind, and the attack deals an extra 4d6 psychic damage to the target. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
 
 # 232. - Stoneskin (M,V,S) level 4 Abjuration [Concentration] [SOL]
 
@@ -1568,7 +1565,7 @@ You flourish the weapon used in the casting and then vanish to strike like the w
 
 **[Ranger]**
 
-You transmute your quiver so it produces an endless supply of non-magical ammunition, which seems to leap into your hand when you reach for it. On each of your turns until the spell ends, you can use a bonus action to make two attacks when holding a two ranged weapon. Each time you make such a ranged attack, your quiver magically replaces the piece of ammunition you used with a similar piece of non-magical ammunition.
+You transmute your quiver so it automatically makes the ammunition leap into your hand when you reach for it. On each of your turns until the spell ends, you can use a bonus action to make two attacks with a ranged weapon.
 
 # 260. - *Synaptic Static* © (V) level 5 Evocation [UB]
 

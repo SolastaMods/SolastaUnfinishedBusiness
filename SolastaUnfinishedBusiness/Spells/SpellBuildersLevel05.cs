@@ -887,9 +887,8 @@ internal static partial class SpellBuilders
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentation(Category.Feature, SpiritualWeapon)
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerHolyWeapon, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -910,6 +909,7 @@ internal static partial class SpellBuilders
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(FaerieFire)
+                    .SetCasterEffectParameters(PowerOathOfDevotionTurnUnholy)
                     .SetImpactEffectParameters(
                         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
                     .Build())
@@ -939,7 +939,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, SpiritualWeapon)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.HolyWeapon, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.Action)
@@ -976,9 +976,9 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class PowerOrSpellFinishedByMeHolyWeapon : IPowerOrSpellFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeHolyWeapon : IPowerOrSpellInitiatedByMe
     {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActingCharacter.RulesetCharacter.BreakConcentration();
 
@@ -1109,9 +1109,9 @@ internal static partial class SpellBuilders
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionReckless)
             .AddCustomSubFeatures(new AddExtraSwiftQuiverAttack(ActionDefinitions.ActionType.Bonus))
+            .CopyParticleReferences(ConditionDefinitions.ConditionSpiderClimb)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -1132,57 +1132,20 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
+                    .SetCasterEffectParameters(WindWall)
                     .Build())
             .AddToDB();
 
         return spell;
     }
 
-    internal sealed class AddExtraSwiftQuiverAttack
-        : AddExtraAttackBase, IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
+    internal sealed class AddExtraSwiftQuiverAttack : AddExtraAttackBase
     {
         internal AddExtraSwiftQuiverAttack(
             ActionDefinitions.ActionType actionType,
             params IsCharacterValidHandler[] validators) : base(actionType, validators)
         {
             // Empty
-        }
-
-        public IEnumerator OnPhysicalAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
-        {
-            if (action.ActionType == ActionDefinitions.ActionType.Bonus &&
-                IsTwoHandedBow(attackMode, null, null))
-            {
-                (attackMode.SourceDefinition as ItemDefinition)!.WeaponDescription.WeaponTags.Add(
-                    TagsDefinitions.WeaponTagAmmunition);
-            }
-
-            yield break;
-        }
-
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
-        {
-            if (action.ActionType == ActionDefinitions.ActionType.Bonus &&
-                IsTwoHandedBow(attackMode, null, null))
-            {
-                (attackMode.SourceDefinition as ItemDefinition)!.WeaponDescription.WeaponTags.Remove(
-                    TagsDefinitions.WeaponTagAmmunition);
-            }
-
-            yield break;
         }
 
         private static bool IsTwoHandedBow(RulesetAttackMode mode, RulesetItem item, RulesetCharacterHero hero)
@@ -1207,9 +1170,6 @@ internal static partial class SpellBuilders
             }
 
             var strikeDefinition = item.ItemDefinition;
-            var weaponDescription = strikeDefinition.WeaponDescription;
-            var removedTag = weaponDescription.WeaponTags.Remove(TagsDefinitions.WeaponTagAmmunition);
-
             var attackMode = hero.RefreshAttackMode(
                 ActionType,
                 strikeDefinition,
@@ -1221,11 +1181,6 @@ internal static partial class SpellBuilders
                 hero.FeaturesOrigin,
                 item
             );
-
-            if (removedTag)
-            {
-                weaponDescription.WeaponTags.Add(TagsDefinitions.WeaponTagAmmunition);
-            }
 
             attackMode.AttacksNumber = 2;
 

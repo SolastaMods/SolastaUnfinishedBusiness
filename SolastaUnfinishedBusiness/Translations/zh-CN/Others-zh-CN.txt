@@ -307,6 +307,7 @@ Tooltip/&Tag9000Title=自定义效果
 Tooltip/&TagDamageChaosBoltTitle=混沌伤害
 Tooltip/&TagUnfinishedBusinessTitle=未竟之业
 Tooltip/&TargetMeleeWeaponError=无法对该目标进行近战攻击，因为目标不在{0}内
+Tooltip/&TargetMustNotBeSurprised=目标不能感到惊讶
 Tooltip/&TargetMustUnderstandYou=目标必须理解你的命令
 UI/&CustomFeatureSelectionStageDescription=为你的职业/子职业选择额外的特性。
 UI/&CustomFeatureSelectionStageFeatures=专长
