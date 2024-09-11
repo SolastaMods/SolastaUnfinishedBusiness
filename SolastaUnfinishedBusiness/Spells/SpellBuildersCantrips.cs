@@ -913,7 +913,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Burning Blade
+    #region Resonating Strike
 
     internal static SpellDefinition BuildResonatingStrike()
     {
@@ -950,7 +950,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(additionalDamageResonatingStrike)
-            .SetSpecialInterruptions(ConditionInterruption.UsePowerExecuted)
+            .SetSpecialInterruptions(ExtraConditionInterruption.SpendPowerExecuted)
             .AddToDB();
 
         conditionResonatingStrike.AddCustomSubFeatures(

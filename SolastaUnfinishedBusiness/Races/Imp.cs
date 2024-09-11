@@ -698,6 +698,7 @@ internal static class RaceImpBuilder
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,
                 ConditionInterruption.CastSpellExecuted,
+                (ConditionInterruption)ExtraConditionInterruption.SpendPowerExecuted,
                 ConditionInterruption.UsePowerExecuted)
             .AddToDB();
 

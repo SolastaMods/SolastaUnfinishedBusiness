@@ -237,6 +237,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,
                 ConditionInterruption.CastSpellExecuted,
+                (ConditionInterruption)ExtraConditionInterruption.SpendPowerExecuted,
                 ConditionInterruption.UsePowerExecuted)
             .AddToDB();
 

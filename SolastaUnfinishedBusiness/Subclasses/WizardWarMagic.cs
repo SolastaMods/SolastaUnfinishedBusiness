@@ -64,6 +64,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,
                 ConditionInterruption.CastSpellExecuted,
+                (ConditionInterruption)ExtraConditionInterruption.SpendPowerExecuted,
                 ConditionInterruption.UsePowerExecuted)
             .AddToDB();
 
