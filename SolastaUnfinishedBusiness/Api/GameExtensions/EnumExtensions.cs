@@ -135,7 +135,8 @@ public enum ExtraConditionInterruption
     AfterWasAttackedNotBySource,
     AttacksWithWeaponOrUnarmed,
     SourceRageStop,
-    UsesBonusAction
+    UsesBonusAction,
+    AttacksWithMeleeAndDamages
 }
 
 internal enum ExtraMotionType

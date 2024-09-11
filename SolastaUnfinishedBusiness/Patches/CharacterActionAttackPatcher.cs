@@ -724,6 +724,13 @@ public static class CharacterActionAttackPatcher
             yield return GuardianAura.ProcessOnCharacterAttackHitFinished(
                 battleManager, actingCharacter, target, attackMode, null, damageReceived);
 
+            //PATCH: supports smite spell scenarios
+            if (attackHasDamaged && !rangeAttack)
+            {
+                rulesetCharacter.ProcessConditionsMatchingInterruption(
+                    (ConditionInterruption)ExtraConditionInterruption.AttacksWithMeleeAndDamages, damageReceived);
+            }
+
             // END PATCH
 
             if (attackHasDamaged)
