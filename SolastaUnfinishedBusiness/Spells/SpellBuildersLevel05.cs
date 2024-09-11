@@ -885,6 +885,17 @@ internal static partial class SpellBuilders
     {
         const string NAME = "HolyWeapon";
 
+        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentation(Category.Feature, SpiritualWeapon)
+            .SetNotificationTag("HolyWeapon")
+            .SetDamageDice(DieType.D6, 2)
+            .SetSpecificDamageType(DamageTypeRadiant)
+            .AddCustomSubFeatures(
+                new AddTagToWeapon(
+                    TagsDefinitions.MagicalWeapon, TagsDefinitions.Criticity.Important, ValidatorsWeapon.AlwaysValid))
+            .AddToDB();
+
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerHolyWeapon, 256, 128))
@@ -913,7 +924,11 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(
                         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeHolyWeapon())
+            .AddCustomSubFeatures(
+                new PowerOrSpellFinishedByMeHolyWeapon(),
+                new ValidatorsValidatePowerUse(c => 
+                    c.GetMainWeapon()?.DynamicItemProperties.Any(x => x.FeatureDefinition == additionalDamage) == true ||
+                    c.GetOffhandWeapon()?.DynamicItemProperties.Any(x => x.FeatureDefinition == additionalDamage) == true))
             .AddToDB();
 
         var condition = ConditionDefinitionBuilder
@@ -922,17 +937,6 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(power)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
-            .AddToDB();
-
-        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature, SpiritualWeapon)
-            .SetNotificationTag("HolyWeapon")
-            .SetDamageDice(DieType.D6, 2)
-            .SetSpecificDamageType(DamageTypeRadiant)
-            .AddCustomSubFeatures(
-                new AddTagToWeapon(
-                    TagsDefinitions.MagicalWeapon, TagsDefinitions.Criticity.Important, ValidatorsWeapon.AlwaysValid))
             .AddToDB();
 
         var lightSourceForm = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
