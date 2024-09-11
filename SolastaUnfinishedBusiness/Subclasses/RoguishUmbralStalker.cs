@@ -448,7 +448,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             {
                 var hitPoints = 2 * rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Rogue);
 
-                defender.MyExecuteActionStabilizeAndStandUp(hitPoints, PowerDefilerMistyFormEscape);
+                defender.MyExecuteActionStabilizeAndStandUp(hitPoints);
             }
         }
     }

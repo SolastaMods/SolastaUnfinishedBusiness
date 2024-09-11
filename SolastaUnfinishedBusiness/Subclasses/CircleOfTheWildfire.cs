@@ -923,7 +923,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             {
                 var hitPoints = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.HitPoints) / 2;
 
-                defender.MyExecuteActionStabilizeAndStandUp(hitPoints, PowerDefilerMistyFormEscape);
+                defender.MyExecuteActionStabilizeAndStandUp(hitPoints);
             }
         }
     }

@@ -115,18 +115,12 @@ public static class GameLocationCharacterExtensions
         actionService.ExecuteInstantSingleAction(actionParams);
     }
 
-    internal static void MyExecuteActionStabilizeAndStandUp(
-        this GameLocationCharacter character, int hitPoints, IMagicEffect magicEffect = null)
+    internal static void MyExecuteActionStabilizeAndStandUp(this GameLocationCharacter character, int hitPoints)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var rulesetCharacter = character.RulesetCharacter;
 
         rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
-
-        if (magicEffect != null)
-        {
-            EffectHelpers.StartVisualEffect(character, character, magicEffect, EffectHelpers.EffectType.Caster);
-        }
 
         actionService.ExecuteInstantSingleAction(new CharacterActionParams(character, Id.StandUp));
     }

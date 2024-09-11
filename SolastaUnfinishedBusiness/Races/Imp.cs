@@ -569,9 +569,6 @@ internal static class RaceImpBuilder
                 0,
                 0,
                 0);
-
-            EffectHelpers.StartVisualEffect(
-                defender, defender, SpellDefinitions.ViciousMockery, EffectHelpers.EffectType.Effect);
         }
     }
 

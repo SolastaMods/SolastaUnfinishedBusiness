@@ -1805,9 +1805,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDefilerDarkness { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDefilerDarkness");
 
-        internal static FeatureDefinitionPower PowerDefilerMistyFormEscape { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDefilerMistyFormEscape");
-
         internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
 

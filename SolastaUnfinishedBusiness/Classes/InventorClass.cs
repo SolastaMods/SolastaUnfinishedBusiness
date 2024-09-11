@@ -924,8 +924,7 @@ internal static class InventorClass
             {
                 var hitPoints = rulesetCharacter.GetClassLevel(Class);
 
-                defender.MyExecuteActionStabilizeAndStandUp(
-                    hitPoints, FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift);
+                defender.MyExecuteActionStabilizeAndStandUp(hitPoints);
             }
         }
 
