@@ -1497,23 +1497,27 @@ internal static partial class SpellBuilders
     private sealed class PowerOrSpellFinishedByMeCommand(params ConditionDefinition[] conditions)
         : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
+        private static readonly Dictionary<string, string> FamilyLanguages = new()
+        {
+            //TODO: ideally we need to use proper LanguageDefinitions here instead of partial names
+            { CharacterFamilyDefinitions.Dragon.Name, "Draconic" },
+            { CharacterFamilyDefinitions.Elemental.Name, "Terran" },
+            { CharacterFamilyDefinitions.Fey.Name, "Elvish" },
+            { CharacterFamilyDefinitions.Fiend.Name, "Infernal" },
+            { CharacterFamilyDefinitions.Giant.Name, "Giant" },
+            { CharacterFamilyDefinitions.Humanoid.Name, "Common" },
+        };
+
         public bool EnforceFullSelection => true;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             var selectedTargets = __instance.SelectionService.SelectedTargets;
 
+            var failureFlags = __instance.actionModifier.FailureFlags;
             if (selectedTargets.Any(selectedTarget => !target.IsWithinRange(selectedTarget, 6)))
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&SecondTargetNotWithinRange");
-                return false;
-            }
-
-            var rulesetCaster = __instance.ActionParams.ActingCharacter.RulesetCharacter.GetOriginalHero();
-
-            if (rulesetCaster == null)
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
+                failureFlags.Add("Tooltip/&SecondTargetNotWithinRange");
                 return false;
             }
 
@@ -1522,28 +1526,31 @@ internal static partial class SpellBuilders
             if (rulesetTarget.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, RuleDefinitions.ConditionSurprised))
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustNotBeSurprised");
+                failureFlags.Add("Failure/&FailureFlagTargetMustNotBeSurprised");
                 return false;
             }
 
-            switch (rulesetTarget.CharacterFamily)
+            if (rulesetTarget.CharacterFamily == CharacterFamilyDefinitions.Undead.Name)
             {
-                case "Dragon" when
-                    rulesetCaster.LanguageProficiencies.Contains("Language_Draconic"):
-                case "Elemental" when
-                    rulesetCaster.LanguageProficiencies.Contains("Language_Terran"):
-                case "Fey" when
-                    rulesetCaster.LanguageProficiencies.Contains("Language_Elvish"):
-                case "Fiend" when
-                    rulesetCaster.LanguageProficiencies.Contains("Language_Infernal"):
-                case "Giant" when
-                    rulesetCaster.LanguageProficiencies.Contains("Language_Giant"):
-                case "Humanoid":
-                    return true;
-                default:
-                    __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustUnderstandYou");
-                    return false;
+                failureFlags.Add("Failure/&FailureFlagCannotTargetUndead");
+                return false;
             }
+            
+            var rulesetCaster = __instance.ActionParams.ActingCharacter.RulesetCharacter.GetOriginalHero();
+
+            if (rulesetCaster == null || !FamilyLanguages.TryGetValue(rulesetTarget.CharacterFamily, out var language))
+            {
+                failureFlags.Add("Failure/&FailureFlagTargetMustUnderstandYou");
+                return false;
+            }
+
+            if (rulesetCaster.LanguageProficiencies.Contains($"Language_{language}"))
+            {
+                return true;
+            }
+
+            failureFlags.Add(Gui.Format("Failure/&FailureFlagMustKnowLanguage", $"Language/&{language}Title"));
+            return false;
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
