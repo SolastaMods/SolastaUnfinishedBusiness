@@ -343,12 +343,9 @@ Spray a luminous cone that briefly blinds your enemies. Roll 6d10: the total is 
 
 **[Bard, Cleric, Paladin]**
 
-You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. You can only command creatures you share a language with, which include all humanoids. To command a non-humanoid creature, you must know Draconic for Dragons, Elvish for Fey, Giant for Giants, Infernal for Fiends and Terran for Elementals. Commands follow:
-• Approach: The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.
-• Flee: The target spends its turn moving away from you by the fastest available means.
-• Grovel: The target falls prone and then ends its turn.
-• Halt: The target doesn't move and takes no actions.
-When you cast this spell using a spell slot of 2nd level or higher, you may target an additional creature within range for each slot level above 2nd.
+You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn.
+You can only command creatures you share a language with. Humanoids are considered knowing Common. To command a non-humanoid creature, you must know Draconic for Dragons, Elvish for Fey, Giant for Giants, Infernal for Fiends and Terran for Elementals.
+Cannot target Undead or Surprised creatures.
 
 # 58. - Comprehend Languages (V,S) level 1 Divination [SOL]
 
@@ -1421,7 +1418,7 @@ Create a burning wall that injures creatures in or next to it.
 
 **[Paladin]**
 
-Your next hit deals additional 5d10 force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
+The next time you hit a creature with a weapon attack before this spell ends, your weapon crackles with force, and the attack deals an extra 5d10 force damage to the target. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it. If the target is native to a different plane of existence than the on you're on, the target disappears, returning to its home plane. If the target is native to the plane you're on, the creature vanishes into a harmless demi-plane. While there, the target is incapacitated. It remains there until the spell ends, at which point the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.
 
 # 236. - *Circle of Power* © (V) level 5 Abjuration [Concentration] [UB]
 
@@ -1505,7 +1502,7 @@ Paralyzes a creature unless it succeeds a WIS saving throw. No effect on undead.
 
 **[Cleric, Paladin]**
 
-You imbue a weapon you touch with holy power. Until the spell ends, the weapon emits bright light in a 30-foot radius and dim light for an additional 30 feet. In addition, weapon attacks made with it deal an extra 2d8 radiant damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration. As a bonus action on your turn, you can dismiss this spell and cause the weapon to emit a burst of radiance. Each creature of your choice that you can see within 30 feet of the weapon must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, a creature takes half as much damage and isn't blinded. At the end of each of its turns, a blinded creature can make a Constitution saving throw, ending the effect on itself on a success.
+You imbue a weapon you touch with holy power. Until the spell ends, the weapon emits bright light in a 30-foot radius and dim light for an additional 30 feet. In addition, weapon attacks made with it deal an extra 2d8 radiant damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration. As a bonus action on your turn, if wielding the weapon, you can dismiss this spell and cause the weapon to emit a burst of radiance. Each creature of your choice that you can see within 30 feet of the weapon must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, a creature takes half as much damage and isn't blinded. At the end of each of its turns, a blinded creature can make a Constitution saving throw, ending the effect on itself on a success.
 
 # 250. - *Immolation* © (V) level 5 Evocation [Concentration] [UB]
 
