@@ -8,6 +8,8 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using TA;
+using UnityEngine;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -87,6 +89,48 @@ public static class GameLocationEnvironmentManagerPatcher
                 .ReplaceCalls(
                     logExceptionMethod, "GameLocationEnvironmentManager.RegisterGlobalActiveEffect.LogException",
                     new CodeInstruction(OpCodes.Pop));
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationEnvironmentManager),
+        nameof(GameLocationEnvironmentManager.ComputePushDestination))]
+    [HarmonyPatch([
+        typeof(Vector3), //sourceCenter
+        typeof(GameLocationCharacter), //target
+        typeof(int), //distance
+        typeof(bool), //reverse
+        typeof(IGameLocationPositioningService), //positioningService
+        typeof(int3), //destination
+        typeof(Vector3) //direction
+    ], [
+        ArgumentType.Normal, //sourceCenter
+        ArgumentType.Normal, //target
+        ArgumentType.Normal, //distance
+        ArgumentType.Normal, //reverse
+        ArgumentType.Normal, //positioningService
+        ArgumentType.Out, //destination
+        ArgumentType.Out //direction
+    ])]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputePushDestination_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(out bool __result,
+            Vector3 sourceCenter,
+            GameLocationCharacter target,
+            int distance,
+            bool reverse,
+            IGameLocationPositioningService positioningService,
+            out int3 destination,
+            out Vector3 direction)
+        {
+            //PATCH: allow push and pull motion effects to change vertical position of a target
+            //TODO: add setting to enable this behavior
+            __result = VerticalPushPullMotion.ComputePushDestination(sourceCenter, target, distance, reverse,
+                positioningService, out destination, out direction);
+
+            return false;
         }
     }
 }
