@@ -1,10 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Spells;
 using UnityEngine;
 using static RuleDefinitions;
 using Coroutine = TA.Coroutine;
@@ -46,6 +48,14 @@ public static class CharacterActionAttackPatcher
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var itemService = ServiceRepository.GetService<IGameLocationItemService>();
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+
+            //BEGIN PATCH
+            //support Swift Quiver spell interaction with Flurry of Blows
+            if (attackMode.AttackTags.Contains(SpellBuilders.SwiftQuiverAttackTag))
+            {
+                actingCharacter.UsedSpecialFeatures.TryAdd(SpellBuilders.SwiftQuiverAttackTag, 0);
+            }
+            //END PATCH
 
             // Check action params
             var canAttackMain =

@@ -1108,6 +1108,8 @@ internal static partial class SpellBuilders
 
     #region Swift Quiver
 
+    internal const string SwiftQuiverAttackTag = "SwiftQuiverAttack";
+    
     internal static SpellDefinition BuildSwiftQuiver()
     {
         const string NAME = "SwiftQuiver";
@@ -1115,7 +1117,9 @@ internal static partial class SpellBuilders
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionReckless)
-            .AddCustomSubFeatures(new AddExtraSwiftQuiverAttack(ActionDefinitions.ActionType.Bonus))
+            .AddCustomSubFeatures(new AddExtraSwiftQuiverAttack(
+                ActionDefinitions.ActionType.Bonus,
+                ValidatorsCharacter.HasNoneOfConditions(ConditionMonkFlurryOfBlowsUnarmedStrikeBonus.Name)))
             .CopyParticleReferences(ConditionDefinitions.ConditionSpiderClimb)
             .AddToDB();
 
@@ -1188,6 +1192,7 @@ internal static partial class SpellBuilders
             );
 
             attackMode.AttacksNumber = 2;
+            attackMode.AddAttackTagAsNeeded(SwiftQuiverAttackTag);
 
             return [attackMode];
         }

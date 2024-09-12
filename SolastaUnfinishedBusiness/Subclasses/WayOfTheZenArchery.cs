@@ -40,8 +40,9 @@ public sealed class WayOfZenArchery : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
                 new ModifyWeaponAttackModeFlurryOfArrows(),
-                new AddExtraMainHandAttack(
+                new AddExtraRangedAttack(
                     ActionDefinitions.ActionType.Bonus,
+                    ValidatorsWeapon.AlwaysValid,
                     ValidatorsCharacter.HasBowWithoutArmor,
                     ValidatorsCharacter.HasAnyOfConditions(ConditionMonkMartialArtsUnarmedStrikeBonus)))
             .AddToDB();
