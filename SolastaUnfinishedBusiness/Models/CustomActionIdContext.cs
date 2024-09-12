@@ -680,7 +680,7 @@ public static class CustomActionIdContext
         // more or less in order of cost
         if (hero == null ||
             !hero.TrainedMetamagicOptions.Contains(quickenedSpell) ||
-            !glc.IsActionOnGoing(Id.MetamagicToggle) ||
+            (Main.Settings.HideQuickenedActionWhenMetamagicOff && !glc.IsActionOnGoing(Id.MetamagicToggle)) ||
             glc.GetActionTypeStatus(ActionType.Bonus) != ActionStatus.Available ||
             !glc.RulesetCharacter.CanCastSpellOfActionType(ActionType.Main, glc.CanOnlyUseCantrips))
         {

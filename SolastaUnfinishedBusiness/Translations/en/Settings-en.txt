@@ -208,6 +208,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Grant Scimitar <b>Weapon Speci
 ModUi/&GridSelectedColor=Change the movement <b><color=$$$$$$>grid color</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Hide this action when metamagic is toggled off</i>
 ModUi/&HighContrastTargetingAoeColor=Change AoE creatures <b><color=$$$$$$>highlight select color</color></b>
 ModUi/&HighContrastTargetingSingleColor=Change single creatures <b><color=$$$$$$>highlight select color</color></b>
 ModUi/&House=<color=#F0DAA0>House:</color>
