@@ -234,9 +234,10 @@ internal static class LightingAndObscurementContext
     {
         return
             actor != null &&
-            actor.AllConditionsForEnumeration
+            actor.ConditionsByCategory
+                .SelectMany(x => x.Value)
                 .Select(y => y.ConditionDefinition)
-                .Any(x => x.IsSubtypeOf(ConditionBlinded.Name) && x != ConditionBlindedByDarkness);
+                .Any(z => z.IsSubtypeOf(ConditionBlinded.Name) && z != ConditionBlindedByDarkness);
     }
 
     // improved cell perception routine that takes sight into consideration

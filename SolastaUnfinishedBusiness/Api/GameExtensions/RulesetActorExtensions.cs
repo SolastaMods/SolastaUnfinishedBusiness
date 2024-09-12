@@ -28,7 +28,9 @@ internal static class RulesetActorExtensions
 
         if (sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
             sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity } &&
-            !caster.AllConditionsForEnumeration.Any(x => x.Name.Contains("Smite")))
+            !caster.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .Any(x => x.Name.Contains("Smite")))
         {
             return;
         }
@@ -293,8 +295,9 @@ internal static class RulesetActorExtensions
 
         if (actor != null)
         {
-            list.AddRange(
-                actor.AllConditionsForEnumeration.SelectMany(x => x.ConditionDefinition.GetAllSubFeaturesOfType<T>()));
+            list.AddRange(actor.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .SelectMany(x => x.ConditionDefinition.GetAllSubFeaturesOfType<T>()));
         }
 
         return list;
@@ -311,7 +314,8 @@ internal static class RulesetActorExtensions
             return true;
         }
 
-        return actor?.AllConditionsForEnumeration
+        return actor?.ConditionsByCategory
+            .SelectMany(x => x.Value)
             .SelectMany(x => x.ConditionDefinition.GetAllSubFeaturesOfType<T>())
             .FirstOrDefault() != null;
     }

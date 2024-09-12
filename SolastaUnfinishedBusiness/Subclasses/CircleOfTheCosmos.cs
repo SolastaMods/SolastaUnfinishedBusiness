@@ -1245,8 +1245,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var activeCondition = rulesetCharacter.AllConditionsForEnumeration.FirstOrDefault(x =>
-                ConstellationFormConditions.Contains(x.Name));
+
+            var activeCondition = rulesetCharacter.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .FirstOrDefault(x =>
+                    ConstellationFormConditions.Contains(x.Name));
 
             if (activeCondition == null)
             {

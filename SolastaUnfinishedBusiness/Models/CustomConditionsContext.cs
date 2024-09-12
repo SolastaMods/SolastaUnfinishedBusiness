@@ -325,10 +325,11 @@ internal static class CustomConditionsContext
             }
             else
             {
-                var conditions = target.AllConditionsForEnumeration;
-
-                foreach (var condition in conditions
-                             .Where(condition => condition.ConditionDefinition.IsSubtypeOf("ConditionFlying")))
+                // need ToList to avoid enumerator issues with RemoveCondition
+                foreach (var condition in target.ConditionsByCategory
+                             .SelectMany(x => x.Value)
+                             .Where(condition => condition.ConditionDefinition.IsSubtypeOf("ConditionFlying"))
+                             .ToList())
                 {
                     //We are not interested in permanent effects
                     if (condition.DurationType == DurationType.Permanent)
@@ -522,7 +523,9 @@ internal static class CustomConditionsContext
             var actingCharacter = characterAction.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            foreach (var rulesetCondition in rulesetCharacter.AllConditionsForEnumeration
+            // need ToList to avoid enumerator issues with RemoveCondition
+            foreach (var rulesetCondition in rulesetCharacter.ConditionsByCategory
+                         .SelectMany(x => x.Value)
                          .Where(x => x.ConditionDefinition.Name == Taunted.Name)
                          .Select(a => new { a, rulesetCaster = EffectHelpers.GetCharacterByGuid(a.SourceGuid) })
                          .Where(t => t.rulesetCaster != null)

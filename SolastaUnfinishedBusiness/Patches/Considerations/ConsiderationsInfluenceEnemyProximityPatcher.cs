@@ -43,7 +43,10 @@ public static class InfluenceEnemyProximityPatcher
             var floatParameter = consideration.FloatParameter;
             var position = consideration.BoolParameter ? context.position : character.LocationPosition;
             var numerator = 0.0f;
-            var approachSourceGuid = rulesetCharacter.AllConditionsForEnumeration.FirstOrDefault(x =>
+
+            var approachSourceGuid = rulesetCharacter.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .FirstOrDefault(x =>
                 x.ConditionDefinition.Name == consideration.StringParameter)?.SourceGuid ?? 0;
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator

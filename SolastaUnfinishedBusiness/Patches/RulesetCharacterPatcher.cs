@@ -144,15 +144,10 @@ public static class RulesetCharacterPatcher
                 }
             }
 
-            __instance.GetAllConditions(__instance.AllConditionsForEnumeration);
-
-            foreach (var rulesetCondition in __instance.AllConditionsForEnumeration)
+            foreach (var rulesetCondition in __instance.ConditionsByCategory
+                         .SelectMany(x => x.Value)
+                         .Where(x => x.ConditionDefinition.UsesBardicInspirationDie()))
             {
-                if (!rulesetCondition.ConditionDefinition.UsesBardicInspirationDie())
-                {
-                    continue;
-                }
-
                 foreach (var feature in rulesetCondition.ConditionDefinition.Features)
                 {
                     if (feature is ICombatAffinityProvider affinityProvider)
@@ -444,11 +439,14 @@ public static class RulesetCharacterPatcher
                          .OfType<RulesetCharacter>()
                          .ToList())
             {
-                foreach (var rulesetCondition in targetRulesetCharacter.AllConditionsForEnumeration
+                // need ToList to avoid enumerator issues with RemoveCondition
+                foreach (var rulesetCondition in targetRulesetCharacter.ConditionsByCategory
+                             .SelectMany(x => x.Value)
                              .Where(x =>
                                  x.ConditionDefinition.SpecialInterruptions.Contains(
                                      (ConditionInterruption)ExtraConditionInterruption.SourceRageStop) &&
-                                 x.SourceGuid == sourceCharacter.Guid))
+                                 x.SourceGuid == sourceCharacter.Guid)
+                             .ToList())
                 {
                     targetRulesetCharacter.RemoveCondition(rulesetCondition);
 

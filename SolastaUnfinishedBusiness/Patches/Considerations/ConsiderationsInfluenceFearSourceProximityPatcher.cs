@@ -43,8 +43,13 @@ public static class InfluenceFearSourceProximityPatcher
             var floatParameter = consideration.FloatParameter;
             var position = consideration.BoolParameter ? context.position : character.LocationPosition;
             var numerator = 0.0f;
-            var approachSourceGuid = rulesetCharacter.AllConditionsForEnumeration.FirstOrDefault(x =>
-                x.ConditionDefinition.Name == consideration.StringParameter)?.SourceGuid ?? 0;
+
+            // prefer enumerate first to save some cycles
+            rulesetCharacter.GetAllConditions(rulesetCharacter.AllConditionsForEnumeration);
+
+            var approachSourceGuid = rulesetCharacter.AllConditionsForEnumeration
+                .FirstOrDefault(x =>
+                    x.ConditionDefinition.Name == consideration.StringParameter)?.SourceGuid ?? 0;
 
             foreach (var rulesetCondition in rulesetCharacter.AllConditionsForEnumeration
                          .Where(rulesetCondition =>

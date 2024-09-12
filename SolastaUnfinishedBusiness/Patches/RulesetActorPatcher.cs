@@ -1112,12 +1112,14 @@ public static class RulesetActorPatcher
             Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
+            __instance.GetAllConditions(__instance.AllConditionsForEnumeration);
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var rulesetCondition in __instance.AllConditionsForEnumeration)
             {
                 var immunityRemovingFeatures = rulesetCondition.conditionDefinition
                     .GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
+
                 if (!immunityRemovingFeatures.Any(x => x.IsValid(__instance, rulesetCondition)))
                 {
                     continue;
@@ -1152,6 +1154,7 @@ public static class RulesetActorPatcher
             Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
+            __instance.GetAllConditions(__instance.AllConditionsForEnumeration);
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var rulesetCondition in __instance.AllConditionsForEnumeration)

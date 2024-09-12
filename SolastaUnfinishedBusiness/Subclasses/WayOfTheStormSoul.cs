@@ -357,9 +357,11 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker)
                 .Where(x =>
-                    x.RulesetActor.AllConditionsForEnumeration
-                        .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
-                                  y.SourceGuid == rulesetAttacker.Guid))
+                    x.RulesetActor.ConditionsByCategory
+                        .SelectMany(y => y.Value)
+                        .Any(z =>
+                            z.ConditionDefinition == conditionEyeOfTheStorm &&
+                                  z.SourceGuid == rulesetAttacker.Guid))
                 .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);

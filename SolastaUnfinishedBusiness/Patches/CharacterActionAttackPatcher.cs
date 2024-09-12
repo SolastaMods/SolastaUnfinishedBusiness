@@ -855,7 +855,8 @@ public static class CharacterActionAttackPatcher
                 rulesetDefender.matchingInterruption = true;
                 rulesetDefender.matchingInterruptionConditions.Clear();
 
-                foreach (var rulesetCondition in rulesetDefender.AllConditionsForEnumeration
+                foreach (var rulesetCondition in rulesetDefender.ConditionsByCategory
+                             .SelectMany(x => x.Value)
                              .Where(rulesetCondition =>
                                  rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
                                      (ConditionInterruption)ExtraConditionInterruption

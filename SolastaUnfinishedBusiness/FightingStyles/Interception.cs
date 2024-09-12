@@ -43,8 +43,10 @@ internal sealed class Interception : AbstractFightingStyle
                                     .SetGuiPresentation(Name, Category.FightingStyle)
                                     .SetAlwaysActiveReducedDamage(
                                         (_, defender) =>
-                                            defender.RulesetActor.AllConditionsForEnumeration.FirstOrDefault(
-                                                x => x.ConditionDefinition.Name == $"Condition{Name}")!.Amount)
+                                            defender.RulesetActor.ConditionsByCategory
+                                                .SelectMany(x => x.Value)
+                                                .FirstOrDefault(
+                                                    x => x.ConditionDefinition.Name == $"Condition{Name}")!.Amount)
                                     .AddToDB())
                             .AddToDB()))
                 .AddToDB())

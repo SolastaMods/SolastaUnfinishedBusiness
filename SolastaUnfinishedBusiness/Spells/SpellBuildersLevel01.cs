@@ -1562,7 +1562,8 @@ internal static partial class SpellBuilders
                 var conditionsToRemove = new List<RulesetCondition>();
                 var shouldRemove = false;
 
-                foreach (var activeCondition in rulesetTarget.AllConditionsForEnumeration
+                foreach (var activeCondition in rulesetTarget.ConditionsByCategory
+                             .SelectMany(x => x.Value)
                              .Where(activeCondition => conditions.Contains(activeCondition.ConditionDefinition)))
                 {
                     if (activeCondition.SourceGuid == caster.Guid)
@@ -2367,8 +2368,10 @@ internal static partial class SpellBuilders
             RulesetEffect rulesetEffect)
         {
             var rulesetCondition =
-                character.AllConditionsForEnumeration.FirstOrDefault(x =>
-                    x.ConditionDefinition == conditionSkinOfRetribution);
+                character.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .FirstOrDefault(x =>
+                        x.ConditionDefinition == conditionSkinOfRetribution);
             var effectLevel = rulesetCondition!.EffectLevel;
 
             var damageForm = effectDescription.FindFirstDamageForm();

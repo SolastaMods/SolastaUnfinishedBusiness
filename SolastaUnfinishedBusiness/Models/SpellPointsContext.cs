@@ -253,9 +253,11 @@ internal static class SpellPointsContext
     internal static void ConvertAdditionalSlotsIntoSpellPointsBeforeRefreshSpellRepertoire(RulesetCharacterHero hero)
     {
         var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
-        var activeConditions = hero.AllConditionsForEnumeration.ToList();
 
-        foreach (var activeCondition in activeConditions)
+        // need ToList to avoid enumerator issues with RemoveCondition
+        foreach (var activeCondition in hero.ConditionsByCategory
+                     .SelectMany(x => x.Value)
+                     .ToList())
         {
             var removeCondition = false;
 

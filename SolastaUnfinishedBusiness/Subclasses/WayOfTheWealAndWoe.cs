@@ -161,7 +161,9 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             }
 
             var conditionWealCount =
-                rulesetCharacter.AllConditionsForEnumeration.Count(x => x.ConditionDefinition == conditionWeal);
+                rulesetCharacter.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .Count(x => x.ConditionDefinition == conditionWeal);
 
             if (result == 1 || result - conditionWealCount > 1)
             {

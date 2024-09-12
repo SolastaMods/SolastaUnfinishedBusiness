@@ -1245,7 +1245,8 @@ public static class CharacterActionMagicEffectPatcher
                     rulesetTarget.matchingInterruption = true;
                     rulesetTarget.matchingInterruptionConditions.Clear();
 
-                    foreach (var rulesetCondition in rulesetTarget.AllConditionsForEnumeration
+                    foreach (var rulesetCondition in rulesetTarget.ConditionsByCategory
+                                 .SelectMany(x => x.Value)
                                  .Where(rulesetCondition =>
                                      rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
                                          (ConditionInterruption)ExtraConditionInterruption

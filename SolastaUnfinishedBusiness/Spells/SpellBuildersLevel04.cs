@@ -1592,9 +1592,11 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            if (!rulesetActorDefender.AllConditionsForEnumeration.Any(x =>
-                    x.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name) &&
-                    x.SourceGuid == rulesetActorCaster?.Guid))
+            if (!rulesetActorDefender.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .Any(x =>
+                        x.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name) &&
+                        x.SourceGuid == rulesetActorCaster?.Guid))
             {
                 return;
             }

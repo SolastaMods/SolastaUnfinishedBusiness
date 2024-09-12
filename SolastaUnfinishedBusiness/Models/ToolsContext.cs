@@ -279,18 +279,18 @@ internal static class ToolsContext
 
             newHero.AddConditionCategoryAsNeeded(category);
             newHero.AllConditions.AddRange(conditions);
-            newHero.AllConditionsForEnumeration.AddRange(conditions);
             newHero.ConditionsByCategory[category].AddRange(conditions);
         }
 
         private static void CleanupOldHeroConditions(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
         {
             //Unregister all conditions that are not present in new hero
-            oldHero.allConditions
-                .Where(c => !newHero.AllConditions.Contains(c))
+            oldHero.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .Where(c => !newHero.ConditionsByCategory.SelectMany(x => x.Value).Contains(c))
+                .ToList()
                 .Do(c => c.Unregister());
             oldHero.AllConditions.Clear();
-            oldHero.AllConditionsForEnumeration.Clear();
             oldHero.ConditionsByCategory.Clear();
         }
 
