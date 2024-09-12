@@ -37,7 +37,7 @@ internal static class VerticalPushPullMotion
         destination = target.LocationPosition;
         var position = target.LocationPosition;
         var delta = new Vector3();
-        var canPush = false;
+        var result = false;
 
         for (var index = 0; index < distance; ++index)
         {
@@ -69,7 +69,7 @@ internal static class VerticalPushPullMotion
             if (flag && positioningService.CanPlaceCharacter(target, position, CellHelpers.PlacementMode.Station))
             {
                 destination = position;
-                canPush = true;
+                result = true;
             }
             else
             {
@@ -78,11 +78,12 @@ internal static class VerticalPushPullMotion
         }
 
         //TODO: remove after testing
+        var dir = reverse ? "Pull" : "Push";
         Main.Log(
-            $"Motion applied: {canPush}, source: {sourceCenter}, target: {targetCenter}, destination: {destination}",
+            $"{dir} [{target.Name}] {distance}\u25ce applied: {result}, source: {sourceCenter}, target: {targetCenter}, destination: {destination}",
             true);
 
-        return canPush;
+        return result;
     }
 
     private static int3 Step(Vector3 delta, double tolerance)
