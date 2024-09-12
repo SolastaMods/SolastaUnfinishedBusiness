@@ -114,6 +114,7 @@ public static class CustomActionIdContext
     {
         ActionDefinitionBuilder
             .Create(CastInvocation, "CastInvocationBonus")
+            .SetSortOrder(CastBonus.GuiPresentation.sortOrder + 2)
             .SetActionId(ExtraActionId.CastInvocationBonus)
             .SetActionType(ActionType.Bonus)
             .SetActionScope(ActionScope.Battle)
@@ -121,6 +122,7 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(CastInvocation, "CastInvocationNoCost")
+            .SetSortOrder(CastNoCost.GuiPresentation.sortOrder + 2)
             .SetActionId(ExtraActionId.CastInvocationNoCost)
             .SetActionType(ActionType.NoCost)
             .SetActionScope(ActionScope.Battle)
@@ -128,7 +130,8 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(CastInvocation, "CastPlaneMagicMain")
-            .SetGuiPresentation("CastPlaneMagic", Category.Action, Sprites.ActionPlaneMagic, 10)
+            .SetGuiPresentation("CastPlaneMagic", Category.Action, Sprites.ActionPlaneMagic)
+            .SetSortOrder(CastMain.GuiPresentation.sortOrder + 1)
             .SetActionId(ExtraActionId.CastPlaneMagicMain)
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.All)
@@ -136,7 +139,8 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(CastInvocation, "CastPlaneMagicBonus")
-            .SetGuiPresentation("CastPlaneMagic", Category.Action, Sprites.ActionPlaneMagic, 41)
+            .SetGuiPresentation("CastPlaneMagic", Category.Action, Sprites.ActionPlaneMagic)
+            .SetSortOrder(CastBonus.GuiPresentation.sortOrder + 1)
             .SetActionId(ExtraActionId.CastPlaneMagicBonus)
             .SetActionType(ActionType.Bonus)
             .SetActionScope(ActionScope.Battle)

@@ -336,4 +336,19 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
             : GuiPresentationBuilder.NoContent);
         return builder;
     }
+
+    internal static TBuilder SetSortOrder<TBuilder>(this TBuilder builder, BaseDefinition definition)
+        where TBuilder : IDefinitionBuilder
+    {
+        return builder.SetSortOrder(definition.GuiPresentation.SortOrder);
+    }
+
+    internal static TBuilder SetSortOrder<TBuilder>(this TBuilder builder, int sortOrder)
+        where TBuilder : IDefinitionBuilder
+    {
+        var gui = builder.GetGuiPresentation();
+        gui.sortOrder = sortOrder;
+
+        return builder;
+    }
 }
