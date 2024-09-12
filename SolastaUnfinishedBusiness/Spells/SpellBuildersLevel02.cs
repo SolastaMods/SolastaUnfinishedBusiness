@@ -123,20 +123,9 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(ConeOfCold)
+                    .SetConditionEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters
-                .conditionParticleReference;
-
-        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters
-                .conditionStartParticleReference;
-
-        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters
-                .conditionEndParticleReference;
 
         return spell;
     }
@@ -497,17 +486,9 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))
+                    .SetConditionEffectParameters(Entangle)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.conditionParticleReference;
-
-        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-
-        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         return spell;
     }

@@ -496,16 +496,10 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
                     .SetCasterEffectParameters(SleetStorm)
+                    .SetConditionEffectParameters(ConditionDefinitions.ConditionRestrained)
                     .Build())
             .AddCustomSubFeatures(new FilterTargetingCharacterFlashFreeze())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            ConditionDefinitions.ConditionRestrained.conditionStartParticleReference;
-        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            ConditionDefinitions.ConditionRestrained.conditionParticleReference;
-        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            ConditionDefinitions.ConditionRestrained.conditionEndParticleReference;
 
         return spell;
     }

@@ -28,12 +28,10 @@ internal class ConditionDefinitionBuilder
 {
     private static void SetEmptyParticleReferencesWhereNull(ConditionDefinition definition)
     {
-        var assetReference = new AssetReference();
-
-        definition.conditionStartParticleReference ??= assetReference;
-        definition.conditionParticleReference ??= assetReference;
-        definition.conditionEndParticleReference ??= assetReference;
-        definition.characterShaderReference ??= assetReference;
+        definition.conditionStartParticleReference ??= new AssetReference();
+        definition.conditionParticleReference ??= new AssetReference();
+        definition.conditionEndParticleReference ??= new AssetReference();
+        definition.characterShaderReference ??= new AssetReference();
     }
 
     protected override void Initialise()

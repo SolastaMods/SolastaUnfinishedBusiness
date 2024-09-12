@@ -101,6 +101,37 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder SetConditionEffectParameters(ConditionDefinition conditionDefinition)
+    {
+        return SetConditionEffectParameters(
+            conditionDefinition.conditionStartParticleReference,
+            conditionDefinition.conditionParticleReference,
+            conditionDefinition.conditionEndParticleReference);
+    }
+
+    internal EffectDescriptionBuilder SetConditionEffectParameters(IMagicEffect magicEffect)
+    {
+        return SetConditionEffectParameters(
+            magicEffect.EffectDescription.EffectParticleParameters.conditionStartParticleReference,
+            magicEffect.EffectDescription.EffectParticleParameters.conditionParticleReference,
+            magicEffect.EffectDescription.EffectParticleParameters.conditionEndParticleReference);
+    }
+
+    internal EffectDescriptionBuilder SetConditionEffectParameters(
+        AssetReference conditionStartParticleReference = null,
+        AssetReference conditionParticleReference = null,
+        AssetReference conditionEndParticleReference = null)
+    {
+        conditionStartParticleReference ??= new AssetReference();
+        conditionParticleReference ??= new AssetReference();
+        conditionEndParticleReference ??= new AssetReference();
+
+        _effect.effectParticleParameters.conditionStartParticleReference = conditionStartParticleReference;
+        _effect.effectParticleParameters.conditionParticleReference = conditionParticleReference;
+        _effect.effectParticleParameters.conditionEndParticleReference = conditionEndParticleReference;
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetEffectEffectParameters(IMagicEffect reference)
     {
         return SetEffectEffectParameters(reference.EffectDescription.EffectParticleParameters.effectParticleReference);

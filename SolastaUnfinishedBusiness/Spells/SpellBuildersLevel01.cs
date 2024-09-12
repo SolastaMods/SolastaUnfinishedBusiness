@@ -1315,11 +1315,9 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(Command)
                     .SetEffectEffectParameters(SpareTheDying)
+                    .SetConditionEffectParameters()
                     .Build())
             .AddToDB();
-
-        spellApproach.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
-        spellApproach.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
 
         // Flee
 
@@ -1360,11 +1358,9 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(Command)
                     .SetEffectEffectParameters(SpareTheDying)
+                    .SetConditionEffectParameters()
                     .Build())
             .AddToDB();
-
-        spellFlee.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
-        spellFlee.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
 
         // Grovel
 
@@ -1404,11 +1400,9 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(Command)
                     .SetEffectEffectParameters(SpareTheDying)
+                    .SetConditionEffectParameters()
                     .Build())
             .AddToDB();
-
-        spellGrovel.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
-        spellGrovel.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
 
         // Halt
 
@@ -1453,11 +1447,9 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(Command)
                     .SetEffectEffectParameters(SpareTheDying)
+                    .SetConditionEffectParameters()
                     .Build())
             .AddToDB();
-
-        spellHalt.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
-        spellHalt.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
 
         // Command Spell
 

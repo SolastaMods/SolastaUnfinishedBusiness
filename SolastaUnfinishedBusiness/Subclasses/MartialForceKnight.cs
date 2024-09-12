@@ -16,7 +16,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -493,12 +492,9 @@ public sealed class MartialForceKnight : AbstractSubclass
                         EffectFormBuilder.ConditionForm(conditionTelekinesisNoCost),
                         EffectFormBuilder.ConditionForm(conditionTelekinesis))
                     .SetParticleEffectParameters(SpellDefinitions.MindTwist)
+                    .SetConditionEffectParameters()
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference = new AssetReference();
-        spell.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
-        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
 
         var customBehavior = new SpellBuilders.CustomBehaviorTelekinesis(conditionTelekinesisNoCost, spell);
 

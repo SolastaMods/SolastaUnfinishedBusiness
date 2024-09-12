@@ -197,11 +197,10 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(SacredFlame)
+                    .SetImpactEffectParameters(SacredFlame
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
-            spell.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
     }

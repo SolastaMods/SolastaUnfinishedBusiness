@@ -144,12 +144,11 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                             .SetConditionForm(conditionEyeOfTheStorm, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
+                    .SetImpactEffectParameters(PowerDomainElementalLightningBlade
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddCustomSubFeatures(ValidatorsValidatePowerUse.InCombat)
             .AddToDB();
-
-        powerEyeOfTheStormLeap.EffectDescription.EffectParticleParameters.impactParticleReference =
-            powerEyeOfTheStormLeap.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         var powerEyeOfTheStorm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EyeOfTheStorm")

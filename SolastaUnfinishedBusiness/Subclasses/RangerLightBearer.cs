@@ -153,6 +153,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();

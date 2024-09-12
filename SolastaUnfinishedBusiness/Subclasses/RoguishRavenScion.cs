@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -87,13 +86,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
                             .AddCustomSubFeatures(new TryAlterOutcomeAttackDeadlyAimHeartSeekingShot())
                             .AddToDB()))
                     .SetParticleEffectParameters(PowerPactChainImp)
+                    .SetConditionEffectParameters()
                     .Build())
             .AddToDB();
-
-        powerHeartSeekingShot.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            new AssetReference();
-        powerHeartSeekingShot.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            new AssetReference();
 
         // LEVEL 13
 

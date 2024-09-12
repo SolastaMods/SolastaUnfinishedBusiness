@@ -174,11 +174,10 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                             .SetDamageForm(DamageTypeThunder)
                             .Build())
                     .SetParticleEffectParameters(SpellDefinitions.CallLightning)
+                    .SetImpactEffectParameters(SpellDefinitions.CallLightning
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
-
-        powerMightyShot.EffectDescription.EffectParticleParameters.impactParticleReference =
-            powerMightyShot.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         powerMightyShot.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,

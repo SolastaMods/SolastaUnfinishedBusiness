@@ -15,7 +15,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -923,6 +922,7 @@ internal static partial class SpellBuilders
                     .SetCasterEffectParameters(PowerOathOfDevotionTurnUnholy)
                     .SetImpactEffectParameters(
                         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
+                    .SetConditionEffectParameters(ConditionDefinitions.ConditionBlinded)
                     .Build())
             .AddCustomSubFeatures(
                 new PowerOrSpellFinishedByMeHolyWeapon(),
@@ -1284,12 +1284,9 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(conditionTelekinesisNoCost),
                         EffectFormBuilder.ConditionForm(conditionTelekinesis))
                     .SetParticleEffectParameters(MindTwist)
+                    .SetConditionEffectParameters()
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference = new AssetReference();
-        spell.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
-        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
 
         var customBehavior = new CustomBehaviorTelekinesis(conditionTelekinesisNoCost, spell);
 
