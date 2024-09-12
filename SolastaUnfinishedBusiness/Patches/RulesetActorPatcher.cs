@@ -964,16 +964,22 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            foreach (var attribute in actor.Attributes
-                         .Where(x => x.Value.UpToDate))
+            foreach (var attribute in actor.Attributes)
             {
-                foreach (var modifier in attribute.Value.ActiveModifiers)
+                var rulesetAttribute = attribute.Value;
+
+                if (!rulesetAttribute.upToDate)
                 {
-                    switch (modifier.Operation)
+                    rulesetAttribute.Refresh();
+                }
+
+                foreach (var attributeModifier in rulesetAttribute.ActiveModifiers)
+                {
+                    switch (attributeModifier.Operation)
                     {
                         case AttributeModifierOperation.MultiplyByClassLevel
                             or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions:
-                            modifier.Value = attribute.Key switch
+                            attributeModifier.Value = attribute.Key switch
                             {
                                 AttributeDefinitions.HealingPool =>
                                     hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Paladin),
@@ -988,28 +994,26 @@ public static class RulesetActorPatcher
                         {
                             var halfPb = hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) / 2;
 
-                            modifier.Value = halfPb;
+                            attributeModifier.Value = halfPb;
                             break;
                         }
                         case AttributeModifierOperation.AddProficiencyBonus:
                         {
                             var pb = hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
-                            modifier.Value = pb;
+                            attributeModifier.Value = pb;
                             break;
                         }
                         case AttributeModifierOperation.Additive when
                             attribute.Key == AttributeDefinitions.HealingPool:
                         {
-                            //make this more generic. it supports Ancient Forest and Light Bearer subclasses
-                            //this will not work if both subclasses are present...
                             var levels =
                                 hero.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Druid,
                                     CircleOfTheAncientForest.Name) +
                                 hero.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger,
                                     RangerLightBearer.Name);
 
-                            modifier.Value = levels * 5;
+                            attributeModifier.Value = levels * 5;
                             break;
                         }
                     }
