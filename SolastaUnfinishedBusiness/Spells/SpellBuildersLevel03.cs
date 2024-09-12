@@ -544,8 +544,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = mover.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
 
-            //TODO: check if MyExecuteActionSpendPower works here
-            mover.MyExecuteActionPowerNoCost(usablePower, targets);
+            mover.MyExecuteActionSpendPower(usablePower, false, targets);
         }
     }
 

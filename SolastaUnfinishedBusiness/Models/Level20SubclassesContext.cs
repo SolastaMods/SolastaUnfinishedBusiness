@@ -1514,8 +1514,7 @@ internal static class Level20SubclassesContext
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
 
-            //TODO: check if MyExecuteActionSpendPower works here
-            actingCharacter.MyExecuteActionPowerNoCost(usablePower, actingCharacter);
+            actingCharacter.MyExecuteActionSpendPower(usablePower, false, actingCharacter);
 
             yield break;
         }
