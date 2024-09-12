@@ -153,6 +153,7 @@ ModUi/&EnableMonkWeaponSpecialization=Включить <b>Специализац
 ModUi/&EnableMulticlass=Включить мультиклассирование <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Включить улучшение костей лечения из OneDnd для <color=#D89555>Лечения ран</color>, <color=#D89555>Лечащего слова</color>, <color=#D89555>Множественного лечения ран</color> и <color=#D89555>Множественного лечащего слова</color>
 ModUi/&EnablePcgRandom=Включить улучшенный алгоритм генерации случайных чисел <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=Включить эффекты движения «толкать» и «тянуть» для работы по осям вверх/вниз
 ModUi/&EnableRangerNatureShroudAt10=Включить умение <color=#D89555>Следопыта</color> <b>Природная завеса</b> на уровне 10 <i><color=#F0DAA0>[бонусным действием вы можете волшебным образом стать невидимым до начала следующего хода]</color></i>
 ModUi/&EnableRejoinParty=Включить принудительную группировку персонажей вокруг выбранного героя или лидера, если никто не выбран, по нажатию <color=#1E81B0>CTRL-SHIFT-(R)</color> <i><color=#F0DAA0>[полезно в пати из 5 или 6 персонажей]</color></i>
 ModUi/&EnableRelearnSpells=Включить возможность выбирать заговоры или заклинания, уже известные из других источников
@@ -208,6 +209,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Дать <b>Специализ
 ModUi/&GridSelectedColor=Изменить <b><color=$$$$$$>цвет сетки перемещения</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Скрыть визуальные эффекты выходов и телепортов, если они ещё не открыты
 ModUi/&HideMonsterHitPoints=Отображать здоровье противников в относительных 25% / 50% / 75% / 100% вместо точных значений хитов
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Скрыть это действие, когда переключатель метамагии выключен</i>
 ModUi/&HighContrastTargetingAoeColor=Изменить <b><color=$$$$$$>цвет подсветки</color></b> эффектов по площади
 ModUi/&HighContrastTargetingSingleColor=Изменить <b><color=$$$$$$>цвет подсветки</color></b> цели
 ModUi/&House=<color=#F0DAA0>Домашние правила:</color>

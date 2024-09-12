@@ -153,6 +153,7 @@ ModUi/&EnableMonkWeaponSpecialization=Activez la <color=#D89555>Moine</color> <b
 ModUi/&EnableMulticlass=Activer le multiclasse <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Activez le bonus des dés de guérison OneDnd sur <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color> et <color= #D89555>Mot de guérison de masse</color>
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=Activez les effets de mouvement de poussée et de traction pour qu'ils fonctionnent également sur l'axe haut/bas
 ModUi/&EnableRangerNatureShroudAt10=Activez la fonctionnalité <color=#D89555>Ranger</color> <b>Voile de la nature</b> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour. ]</color></i>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 personnes ]</color></i>
 ModUi/&EnableRelearnSpells=Activer la sélection de cantrips ou de sorts déjà appris à partir d'autres sources
@@ -208,6 +209,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Accordez la <b>spécialisation
 ModUi/&GridSelectedColor=Changer la <b><color=$$$$$$>couleur de la grille</color></b> du mouvement
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les effets visuels des sorties et des téléporteurs s'ils ne sont pas encore découverts
 ModUi/&HideMonsterHitPoints=Afficher la santé des monstres par incréments de 25 %/50 %/75 %/100 % au lieu des points de vie exacts
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Masquer cette action lorsque la bascule métamagique est désactivée</i>
 ModUi/&HighContrastTargetingAoeColor=Changer les créatures AoE <b><color=$$$$$$>surligner la couleur sélectionnée</color></b>
 ModUi/&HighContrastTargetingSingleColor=Changer des créatures uniques <b><color=$$$$$$>surligner la couleur sélectionnée</color></b>
 ModUi/&House=<color=#F0DAA0>Maison :</color>

@@ -16,8 +16,8 @@ internal static class VerticalPushPullMotion
         int distance,
         bool reverse,
         IGameLocationPositioningService positioningService,
-        out int3 destination,
-        out Vector3 step)
+        ref int3 destination,
+        ref Vector3 step)
     {
         var targetCenter = new Vector3();
         positioningService.ComputeGravityCenterPosition(target, ref targetCenter);
@@ -78,10 +78,12 @@ internal static class VerticalPushPullMotion
         }
 
         //TODO: remove after testing
+#if DEBUG
         var dir = reverse ? "Pull" : "Push";
         Main.Log(
             $"{dir} [{target.Name}] {distance}\u25ce applied: {result}, source: {sourceCenter}, target: {targetCenter}, destination: {destination}",
             true);
+#endif
 
         return result;
     }

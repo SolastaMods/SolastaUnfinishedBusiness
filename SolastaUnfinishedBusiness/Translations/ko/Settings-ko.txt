@@ -153,6 +153,7 @@ ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>몽크
 ModUi/&EnableMulticlass=멀티클래스 활성화 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>상처 대량 치료</color> 및 <color=에서 OneDnd 치유 주사위 버프를 활성화하세요. #D89555>대량 치유의 말씀</color>
 ModUi/&EnablePcgRandom=더 나은 무작위 생성기 알고리즘 활성화 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=위/아래 축에서도 푸시 및 풀 모션 효과를 작동하도록 설정
 ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>레인저</color> <b>자연의 장막</b> 기능을 활성화하세요. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법처럼 투명해질 수 있습니다 ]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color>을 활성화하면 선택한 영웅이나 리더를 중심으로 파티에 다시 합류할 수 있습니다. <i><color=#F0DAA0>[5인 또는 6인 파티에 유용합니다. ]</color></i>
 ModUi/&EnableRelearnSpells=다른 소스에서 이미 배운 캔트립이나 주문 선택 활성화
@@ -208,6 +209,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<color=#D89555>음유시인</c
 ModUi/&GridSelectedColor=<b><color=$$$$$$>그리드 색상</color></b> 이동 변경
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=아직 발견되지 않은 경우 출구 및 텔레포터 시각 효과 숨기기
 ModUi/&HideMonsterHitPoints=정확한 체력 대신 몬스터의 체력을 25% / 50% / 75% / 100% 단계로 표시합니다.
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ 메타매직 토글이 꺼져 있을 때 이 동작을 숨깁니다.</i>
 ModUi/&HighContrastTargetingAoeColor=AoE 생물 변경 <b><color=$$$$$$>선택 색상 강조 표시</color></b>
 ModUi/&HighContrastTargetingSingleColor=단일 생물 변경 <b><color=$$$$$$>선택 색상 강조 표시</color></b>
 ModUi/&House=<color=#F0DAA0>집:</color>

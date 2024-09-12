@@ -153,6 +153,7 @@ ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で<color=#D89555>モ�
 ModUi/&EnableMulticlass=マルチクラス <b><i><color=#C04040E0>[再起動が必要]</color></i></b> を有効にする
 ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>Cure Wounds</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> で OneDnd ヒーリング ダイス バッファーを有効にします。
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=プッシュとプルのモーション効果を上下軸でも有効にします
 ModUi/&EnableRangerNatureShroudAt10=<color=#D89555>レンジャー</color> の<b>自然のベール</b>機能をレベル 10 で有効にします<i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法のように透明になることができます。 ]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color> を有効にすると、何も選択されていない場合、選択したヒーローまたはリーダーを中心としたパーティーに再参加できます<i><color=#F0DAA0>[5 人または 6 人のパーティーで便利です] ]</color></i>
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップまたは呪文の選択を有効にする
@@ -208,6 +209,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<color=#D89555>吟遊詩人</c
 ModUi/&GridSelectedColor=動きの<b><color=$$$$$$>グリッドの色</color></b>を変更します。
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=まだ発見されていない場合は、出口とテレポーターの視覚効果を非表示にします
 ModUi/&HideMonsterHitPoints=正確なヒットポイントではなく、モンスターの体力を 25% / 50% / 75% / 100% の段階で表示します
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ メタマジックトグルがオフのときはこのアクションを非表示にする</i>
 ModUi/&HighContrastTargetingAoeColor=範囲クリーチャーを変更する<b><color=$$$$$$>選択した色をハイライト表示</color></b>
 ModUi/&HighContrastTargetingSingleColor=単一のクリーチャーを変更する<b><color=$$$$$$>選択した色をハイライト表示</color></b>
 ModUi/&House=<color=#F0DAA0>家:</color>

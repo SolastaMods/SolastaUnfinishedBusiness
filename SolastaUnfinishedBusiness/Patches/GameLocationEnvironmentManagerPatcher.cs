@@ -116,19 +116,24 @@ public static class GameLocationEnvironmentManagerPatcher
     public static class ComputePushDestination_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(out bool __result,
+        public static bool Prefix(
+            ref bool __result,
             Vector3 sourceCenter,
             GameLocationCharacter target,
             int distance,
             bool reverse,
             IGameLocationPositioningService positioningService,
-            out int3 destination,
-            out Vector3 direction)
+            ref int3 destination,
+            ref Vector3 direction)
         {
+            if (!Main.Settings.EnablePullPushOnVerticalDirection)
+            {
+                return true;
+            }
+
             //PATCH: allow push and pull motion effects to change vertical position of a target
-            //TODO: add setting to enable this behavior
-            __result = VerticalPushPullMotion.ComputePushDestination(sourceCenter, target, distance, reverse,
-                positioningService, out destination, out direction);
+            __result = VerticalPushPullMotion.ComputePushDestination(
+                sourceCenter, target, distance, reverse, positioningService, ref destination, ref direction);
 
             return false;
         }

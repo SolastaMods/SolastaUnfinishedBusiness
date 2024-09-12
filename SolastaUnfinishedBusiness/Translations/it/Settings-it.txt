@@ -153,6 +153,7 @@ ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>s
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Abilita il potenziamento dei dadi di guarigione OneDnd su <color=#D89555> Cura ferite</color>, <color=#D89555> Parola curativa</color>, <color=#D89555> Cura ferite di massa</color> e <color= #D89555>Parola di guarigione di massa</color>
 ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=Abilita gli effetti di movimento push e pull per funzionare anche sull'asse su/giù
 ModUi/&EnableRangerNatureShroudAt10=Abilita la funzione <color=#D89555>Ranger</color> <b>Velo della Natura</b> al livello 10 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo ]</color></i>
 ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per unirsi al gruppo attorno all'eroe selezionato o al leader se non è selezionato nessuno <i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=Abilita la selezione di trucchetti o incantesimi già appresi da altre fonti
@@ -208,6 +209,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Concede la <b>specializzazione
 ModUi/&GridSelectedColor=Cambia il <b><color=$$$$$$>colore della griglia</color></b> del movimento
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e del teletrasporto se non ancora scoperti
 ModUi/&HideMonsterHitPoints=Visualizza la salute dei mostri in incrementi del 25%/50%/75%/100% anziché i punti ferita esatti
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Nascondi questa azione quando l'interruttore metamagia è disattivato</i>
 ModUi/&HighContrastTargetingAoeColor=Cambia le creature AoE <b><color=$$$$$$>evidenzia seleziona colore</color></b>
 ModUi/&HighContrastTargetingSingleColor=Cambia singole creature <b><color=$$$$$$>evidenzia seleziona colore</color></b>
 ModUi/&House=<color=#F0DAA0>Casa:</color>

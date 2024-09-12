@@ -153,6 +153,7 @@ ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Monk</color> <b>Weap
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Enable OneDnd healing dice buff on <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color>
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
 ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Ranger</color> <b>Nature's Veil</b> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party around the selected hero or the leader if none is selected <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
@@ -208,7 +209,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Grant Scimitar <b>Weapon Speci
 ModUi/&GridSelectedColor=Change the movement <b><color=$$$$$$>grid color</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
-ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Hide this action when metamagic is toggled off</i>
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Hide this action when metamagic toggle is off</i>
 ModUi/&HighContrastTargetingAoeColor=Change AoE creatures <b><color=$$$$$$>highlight select color</color></b>
 ModUi/&HighContrastTargetingSingleColor=Change single creatures <b><color=$$$$$$>highlight select color</color></b>
 ModUi/&House=<color=#F0DAA0>House:</color>

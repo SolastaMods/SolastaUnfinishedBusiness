@@ -153,6 +153,7 @@ ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b
 ModUi/&EnableMulticlass=Aktivieren Sie Multiclass <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Aktiviere den OneDnd-Heilwürfel-Buf für <color=#D89555>Wunden heilen</color>, <color=#D89555>Heilendes Wort</color>, <color=#D89555>Massenhafte Wunden heilen</color> und <color=#D89555>Massenhaftes Heilendes Wort</color>
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=Aktivieren Sie Push- und Pull-Bewegungseffekte, damit diese auch auf der Auf-/Ab-Achse funktionieren
 ModUi/&EnableRangerNatureShroudAt10=Aktiviere die Funktion <color=#D89555>Waldläufer</color> <b>Naturschleier</b> auf Stufe 10 <i><color=#F0DAA0>[als Bonusaktion kannst du bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden ]</color></i>
 ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen von 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=Aktivieren Sie die Auswahl von Cantrips oder Zaubersprüchen, die bereits aus anderen Quellen gelernt wurden
@@ -208,6 +209,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Gewähre <b>Waffenspezialisier
 ModUi/&GridSelectedColor=Ändern Sie die Bewegung <b><color=$$$$$$>Gitterfarbe</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Verstecke die visuellen Effekte von Ausgängen und Teleportern, falls sie noch nicht entdeckt wurden
 ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Diese Aktion verbergen, wenn die Metamagie-Umschaltung ausgeschaltet ist</i>
 ModUi/&HighContrastTargetingAoeColor=AoE-Kreaturen ändern <b><color=$$$$$$>Farbe auswählen</color></b>
 ModUi/&HighContrastTargetingSingleColor=Einzelne Kreaturen ändern <b><color=$$$$$$>Farbe auswählen</color></b>
 ModUi/&House=<color=#F0DAA0>Haus:</color>

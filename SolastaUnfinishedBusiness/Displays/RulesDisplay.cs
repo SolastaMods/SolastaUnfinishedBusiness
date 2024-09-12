@@ -206,7 +206,7 @@ internal static class RulesDisplay
         {
             Main.Settings.EnableSorcererQuickenedAction = toggle;
         }
-        
+
         if (Main.Settings.EnableSorcererQuickenedAction)
         {
             toggle = Main.Settings.HideQuickenedActionWhenMetamagicOff;
@@ -538,6 +538,12 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHigherGroundRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableHigherGroundRules = toggle;
+        }
+
+        toggle = Main.Settings.EnablePullPushOnVerticalDirection;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePullPushOnVerticalDirection"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePullPushOnVerticalDirection = toggle;
         }
 
         toggle = Main.Settings.EnableTeleportToRemoveRestrained;

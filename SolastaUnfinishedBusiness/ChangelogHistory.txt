@@ -1,6 +1,7 @@
 1.5.97.30:
 
 - added Command, Dissonant Whispers, Holy Weapon, and Swift Quiver spells
+- added Character > Rules > 'Enable push and pull motion effects to also work on up/down axis' setting
 - added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop' setting
 - fixed Barbarian Sundering Blow interaction with Call Lightning, and other attack proxies
 - fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances save logic

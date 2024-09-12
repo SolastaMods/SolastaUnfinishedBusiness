@@ -153,6 +153,7 @@ ModUi/&EnableMonkWeaponSpecialization=在<color=#D89555>武僧</color> 2 级和 
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>疗伤术</color>、<color=#D89555>治愈真言</color>、<color=#D89555>群体疗伤术</color>和<color=#D89555>群体治愈真言</color>上启用 OneDnd 治疗骰增益
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=使推拉运动效果也适用于上/下轴
 ModUi/&EnableRangerNatureShroudAt10=在<color=#D89555>游侠</color> 10 级启用<b>自然面纱</b>特性<i><color=#F0DAA0>[作为附赠动作，你可以魔法地变得隐形，直到下回合开始]</color></i>
 ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于 5 人或 6 人的队伍]</color></i>
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的戏法或法术</i>
@@ -208,6 +209,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=为<color=#D89555>吟游诗人
 ModUi/&GridSelectedColor=更改移动<b><color=$$$$$$>网格颜色</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器视觉效果
 ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%的步骤显示怪物的生命值，而不是准确生命值
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ 当 metamagic 切换关闭时隐藏此操作</i>
 ModUi/&HighContrastTargetingAoeColor=更改 AoE 生物<b><color=$$$$$$>突出显示选择颜色</color></b>
 ModUi/&HighContrastTargetingSingleColor=更改单个生物<b><color=$$$$$$>突出显示选择颜色</color></b>
 ModUi/&House=<color=#F0DAA0>房规：</color>

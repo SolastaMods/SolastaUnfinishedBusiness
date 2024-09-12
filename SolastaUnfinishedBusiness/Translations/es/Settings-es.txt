@@ -153,6 +153,7 @@ ModUi/&EnableMonkWeaponSpecialization=Habilita <color=#D89555>Monje</color> <b>E
 ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Habilite la mejora de dados de curación OneDnd en <color=#D89555>Curar heridas</color>, <color=#D89555>Palabra de curación</color>, <color=#D89555>Curar heridas en masa</color> y <color= #D89555>Palabra de sanación masiva</color>
 ModUi/&EnablePcgRandom=Habilite un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=Habilite los efectos de movimiento de empujar y tirar para que funcionen también en el eje arriba/abajo
 ModUi/&EnableRangerNatureShroudAt10=Activa la función <color=#D89555>Ranger</color> <b>Velo de la Naturaleza</b> en el nivel 10 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno. ]</color></i>
 ModUi/&EnableRejoinParty=Habilite <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirse al grupo alrededor del héroe seleccionado o del líder si no se selecciona ninguno <i><color=#F0DAA0>[útil con grupos de 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=Habilitar la selección de trucos o hechizos ya aprendidos de otras fuentes.
@@ -208,6 +209,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Otorga <b>especialización en 
 ModUi/&GridSelectedColor=Cambiar el movimiento <b><color=$$$$$$>color de la cuadrícula</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar salidas y efectos visuales de teletransportadores si aún no se han descubierto
 ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25% / 50% / 75% / 100% en lugar de puntos de vida exactos.
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Ocultar esta acción cuando la opción metamágica esté desactivada</i>
 ModUi/&HighContrastTargetingAoeColor=Cambiar criaturas AoE <b><color=$$$$$$>resaltar seleccionar color</color></b>
 ModUi/&HighContrastTargetingSingleColor=Cambiar criaturas individuales <b><color=$$$$$$>resaltar seleccionar color</color></b>
 ModUi/&House=<color=#F0DAA0>Casa:</color>
