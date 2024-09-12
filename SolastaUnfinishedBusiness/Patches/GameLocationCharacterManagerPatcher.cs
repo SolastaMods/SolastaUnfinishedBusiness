@@ -25,7 +25,10 @@ public static class GameLocationCharacterManagerPatcher
         {
             if (side == Side.Ally)
             {
-                behaviourPackage ??= new GameLocationBehaviourPackage { EncounterId = 424242 };
+                behaviourPackage ??= new GameLocationBehaviourPackage
+                {
+                    BattleStartBehavior = GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm
+                };
             }
         }
     }

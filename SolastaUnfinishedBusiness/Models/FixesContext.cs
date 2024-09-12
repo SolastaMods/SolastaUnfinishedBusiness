@@ -51,10 +51,11 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
-        //ConditionDefinitions.ConditionUnderDemonicInfluence.forceBehavior = false;
+        // fix demonic influence duration and combat log (conditions with ForcedBehavior should have special duration)
         ConditionDefinitions.ConditionUnderDemonicInfluence.specialDuration = true;
         ConditionDefinitions.ConditionUnderDemonicInfluence.durationType = DurationType.Hour;
         ConditionDefinitions.ConditionUnderDemonicInfluence.durationParameter = 1;
+        ConditionDefinitions.ConditionUnderDemonicInfluence.possessive = true;
 
         AddAdditionalActionTitles();
         ExtendCharmImmunityToDemonicInfluence();
