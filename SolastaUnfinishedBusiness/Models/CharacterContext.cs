@@ -353,6 +353,7 @@ internal static partial class CharacterContext
             .Create(CastBonus, "CastQuickened")
             .SetGuiPresentation(
                 "Rules/&MetamagicOptionQuickenedSpellTitle", "Action/&CastQuickenedDescription", CastMain)
+            .SetSortOrder(CastBonus)
             .SetActionId(ExtraActionId.CastQuickened)
             .AddToDB();
 

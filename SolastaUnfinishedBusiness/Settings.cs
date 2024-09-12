@@ -220,6 +220,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueStrSaving { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
+    public bool HideQuickenedActionWhenMetamagicOff { get; set; }
 
     // Visuals
     public bool OfferAdditionalLoreFriendlyNames { get; set; }

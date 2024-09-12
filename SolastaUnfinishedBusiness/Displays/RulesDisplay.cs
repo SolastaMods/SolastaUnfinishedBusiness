@@ -206,6 +206,15 @@ internal static class RulesDisplay
         {
             Main.Settings.EnableSorcererQuickenedAction = toggle;
         }
+        
+        if (Main.Settings.EnableSorcererQuickenedAction)
+        {
+            toggle = Main.Settings.HideQuickenedActionWhenMetamagicOff;
+            if (UI.Toggle(Gui.Localize("ModUi/&HideQuickenedActionWhenMetamagicOff"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.HideQuickenedActionWhenMetamagicOff = toggle;
+            }
+        }
 
         UI.Label();
 
