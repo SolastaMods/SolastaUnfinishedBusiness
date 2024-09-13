@@ -304,6 +304,7 @@
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
     <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
+    <AddFallProneActionToAllRaces>false</AddFallProneActionToAllRaces>
     <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
     <EnableAlternateHuman>false</EnableAlternateHuman>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
@@ -350,6 +351,7 @@
     <EnableRogueStrSaving>false</EnableRogueStrSaving>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
+    <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
     <OfferAdditionalLoreFriendlyNames>false</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>false</UnlockAllNpcFaces>
     <AllowUnmarkedSorcerers>false</AllowUnmarkedSorcerers>
@@ -429,6 +431,7 @@
     <FlightSuspendWingedBoots>false</FlightSuspendWingedBoots>
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <EnableHigherGroundRules>false</EnableHigherGroundRules>
+    <EnablePullPushOnVerticalDirection>false</EnablePullPushOnVerticalDirection>
     <FullyControlConjurations>false</FullyControlConjurations>
     <EnableTeleportToRemoveRestrained>false</EnableTeleportToRemoveRestrained>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>false</ColdResistanceAlsoGrantsImmunityToChilledCondition>
