@@ -2,7 +2,7 @@
 <Settings>
     <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
-    <SelectedTab>0</SelectedTab>
+    <SelectedTab>4</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -432,6 +432,7 @@
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <EnableHigherGroundRules>false</EnableHigherGroundRules>
     <EnablePullPushOnVerticalDirection>false</EnablePullPushOnVerticalDirection>
+    <ModifyGravitySlam>true</ModifyGravitySlam>
     <FullyControlConjurations>false</FullyControlConjurations>
     <EnableTeleportToRemoveRestrained>false</EnableTeleportToRemoveRestrained>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>false</ColdResistanceAlsoGrantsImmunityToChilledCondition>
@@ -444,7 +445,6 @@
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
     <AddNewWeaponsAndRecipesToShops>false</AddNewWeaponsAndRecipesToShops>
-    <AddNewWeaponsAndRecipesToEditor>false</AddNewWeaponsAndRecipesToEditor>
     <EnableMonkHandwrapsUseGauntletSlot>false</EnableMonkHandwrapsUseGauntletSlot>
     <EnableGauntletMainAttacks>false</EnableGauntletMainAttacks>
     <AddPickPocketableLoot>false</AddPickPocketableLoot>
@@ -1099,11 +1099,17 @@
     <EnableLoggingInvalidReferencesInUserCampaigns>false</EnableLoggingInvalidReferencesInUserCampaigns>
     <EnableSortingDungeonMakerAssets>false</EnableSortingDungeonMakerAssets>
     <AllowGadgetsAndPropsToBePlacedAnywhere>false</AllowGadgetsAndPropsToBePlacedAnywhere>
-    <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
     <UnleashEnemyAsNpc>false</UnleashEnemyAsNpc>
+    <AddNewWeaponsAndRecipesToEditor>false</AddNewWeaponsAndRecipesToEditor>
+    <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
+    <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
