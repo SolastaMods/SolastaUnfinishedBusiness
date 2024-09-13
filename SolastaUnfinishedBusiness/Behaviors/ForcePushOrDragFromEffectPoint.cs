@@ -30,10 +30,18 @@ internal sealed class ForcePushOrDragFromEffectPoint
     {
         var positions = action.ActionParams.Positions;
 
-        if (positions.Count != 0 &&
-            formsParams.activeEffect.SourceDefinition.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>())
+        var sourceDefinition = formsParams.activeEffect.SourceDefinition;
+        if (positions.Count != 0 && sourceDefinition.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>())
         {
             formsParams.position = positions[0];
+        }
+        else if (sourceDefinition.HasSubFeatureOfType<SlamDown>())
+        {
+            var locationTarget = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
+            if (locationTarget != null)
+            {
+                formsParams.position = locationTarget.locationPosition + new int3(0, 10, 0);
+            }
         }
 
         return service.ApplyEffectForms(
@@ -61,7 +69,8 @@ internal sealed class ForcePushOrDragFromEffectPoint
         }
 
         var position = formsParams.position;
-        var active = source.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>();
+        var active = source.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>()
+                     || source.HasSubFeatureOfType<SlamDown>();
 
         if (!active || position == int3.zero)
         {

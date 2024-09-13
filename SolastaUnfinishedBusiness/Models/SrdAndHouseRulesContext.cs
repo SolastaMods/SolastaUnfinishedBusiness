@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -108,6 +109,7 @@ internal static class SrdAndHouseRulesContext
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
         NoTwinnedBladeCantrips();
+        ModifyGravitySlam();
     }
 
     private static void LoadSenseNormalVisionRangeMultiplier()
@@ -936,6 +938,39 @@ internal static class SrdAndHouseRulesContext
     {
         MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
     }
+
+    #region Gravity Slam
+
+    private static EffectDescription gravitySlamVanilla;
+    private static EffectDescription gravitySlamModified;
+
+    private static void ModifyGravitySlam()
+    {
+        gravitySlamVanilla = GravitySlam.EffectDescription;
+
+        gravitySlamModified = EffectDescriptionBuilder.Create(gravitySlamVanilla)
+            .SetTargetingData(Side.All, RangeType.Distance, 20, TargetType.Cylinder, 4, 10)
+            //TODO: try making tooltip say "Push Down" instead "Push Away"
+            .AddEffectForms(EffectFormBuilder.MotionForm(MotionForm.MotionType.PushFromOrigin, 10))
+            .Build();
+        
+        GravitySlam.AddCustomSubFeatures(SlamDown.Mark); //does nothing if it has no push motion
+        ToggleGravitySlamModification();
+    }
+
+    internal static void ToggleGravitySlamModification()
+    {
+        if (Main.Settings.EnablePullPushOnVerticalDirection && Main.Settings.ModifyGravitySlam)
+        {
+            GravitySlam.effectDescription = gravitySlamModified;
+        }
+        else
+        {
+            GravitySlam.effectDescription = gravitySlamVanilla;
+        }
+    }
+
+    #endregion
 
     private sealed class FilterTargetingCharacterChainLightning : IFilterTargetingCharacter
     {
