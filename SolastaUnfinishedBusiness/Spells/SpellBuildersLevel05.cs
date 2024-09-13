@@ -900,11 +900,12 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}")
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerHolyWeapon, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -920,7 +921,6 @@ internal static partial class SpellBuilders
                                 ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(FaerieFire)
-                    .SetCasterEffectParameters(PowerOathOfDevotionTurnUnholy)
                     .SetImpactEffectParameters(
                         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
                     .SetConditionEffectParameters(ConditionDefinitions.ConditionBlinded)
@@ -1004,6 +1004,9 @@ internal static partial class SpellBuilders
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var ally = action.ActionParams.TargetCharacters[0];
+
+            EffectHelpers.StartVisualEffect(ally, ally, PowerOathOfDevotionTurnUnholy, EffectHelpers.EffectType.Caster);
+
             var targets = Gui.Battle?.GetContenders(ally, withinRange: 6) ?? [];
 
             action.ActionParams.TargetCharacters.SetRange(targets);

@@ -1019,14 +1019,14 @@ internal static class SrdAndHouseRulesContext
 
     #region Gravity Slam
 
-    private static EffectDescription gravitySlamVanilla;
-    private static EffectDescription gravitySlamModified;
+    private static EffectDescription _gravitySlamVanilla;
+    private static EffectDescription _gravitySlamModified;
 
     private static void ModifyGravitySlam()
     {
-        gravitySlamVanilla = GravitySlam.EffectDescription;
+        _gravitySlamVanilla = GravitySlam.EffectDescription;
 
-        gravitySlamModified = EffectDescriptionBuilder.Create(gravitySlamVanilla)
+        _gravitySlamModified = EffectDescriptionBuilder.Create(_gravitySlamVanilla)
             .SetTargetingData(Side.All, RangeType.Distance, 20, TargetType.Cylinder, 4, 10)
             .AddEffectForms(EffectFormBuilder.MotionForm(ExtraMotionType.PushDown, 10))
             .Build();
@@ -1038,11 +1038,11 @@ internal static class SrdAndHouseRulesContext
     {
         if (Main.Settings.EnablePullPushOnVerticalDirection && Main.Settings.ModifyGravitySlam)
         {
-            GravitySlam.effectDescription = gravitySlamModified;
+            GravitySlam.effectDescription = _gravitySlamModified;
         }
         else
         {
-            GravitySlam.effectDescription = gravitySlamVanilla;
+            GravitySlam.effectDescription = _gravitySlamVanilla;
         }
 
         Global.RefreshControlledCharacter();

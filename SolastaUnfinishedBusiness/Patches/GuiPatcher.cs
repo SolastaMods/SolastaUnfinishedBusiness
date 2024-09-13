@@ -49,18 +49,17 @@ public static class GuiPatcher
     public static class FormatMotionForm_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(ref string __result, MotionForm motionForm, int range)
+        public static void Postfix(ref string __result, MotionForm motionForm)
         {
             //PATCH: format extra motion types
-            switch ((ExtraMotionType)motionForm.Type)
+            __result = (ExtraMotionType)motionForm.Type switch
             {
-                case ExtraMotionType.CustomSwap:
-                    __result = Gui.Format("Rules/&MotionFormSwitchFormat", Gui.FormatDistance(motionForm.Distance));
-                    break;
-                case ExtraMotionType.PushDown:
-                    __result = Gui.Format("Rules/&MotionFormPushDownFormat", Gui.FormatDistance(motionForm.Distance));
-                    break;
-            }
+                ExtraMotionType.CustomSwap => Gui.Format("Rules/&MotionFormSwitchFormat",
+                    Gui.FormatDistance(motionForm.Distance)),
+                ExtraMotionType.PushDown => Gui.Format("Rules/&MotionFormPushDownFormat",
+                    Gui.FormatDistance(motionForm.Distance)),
+                _ => __result
+            };
         }
     }
 

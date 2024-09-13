@@ -2140,8 +2140,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetFeatures(movementAffinityStrikeWithTheWind)
-            .SetConditionParticleReference(PowerWindGuidingWinds)
-            .AddToDB();
+             .AddToDB();
 
         var additionalDamageStrikeWithTheWind = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
@@ -2165,7 +2164,6 @@ internal static partial class SpellBuilders
             .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddCustomSubFeatures(
                 new OnConditionAddedOrRemovedStrikeWithTheWindAttack(conditionStrikeWithTheWindAttackMovement))
-            .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage)
             .AddToDB();
 
         var powerStrikeWithTheWind = FeatureDefinitionPowerBuilder
@@ -2187,7 +2185,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .AddFeatures(powerStrikeWithTheWind)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
-            .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage)
+            .SetConditionParticleReference(PowerWindGuidingWinds)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder

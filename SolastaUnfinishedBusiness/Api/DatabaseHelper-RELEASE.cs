@@ -308,9 +308,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } =
             GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
 
-        internal static ConditionDefinition ConditionSpiderClimb { get; } =
-            GetDefinition<ConditionDefinition>("ConditionSpiderClimb");
-
         internal static ConditionDefinition ConditionDomainMischiefBorrowedLuck { get; } =
             GetDefinition<ConditionDefinition>("ConditionDomainMischiefBorrowedLuck");
 
@@ -688,9 +685,6 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionSorcererChildRiftDeflection { get; } =
             GetDefinition<ConditionDefinition>("ConditionSorcererChildRiftDeflection");
-
-        internal static ConditionDefinition ConditionSpellbladeArcaneEscape { get; } =
-            GetDefinition<ConditionDefinition>("ConditionSpellbladeArcaneEscape");
 
         internal static ConditionDefinition ConditionSpiritGuardians { get; } =
             GetDefinition<ConditionDefinition>("ConditionSpiritGuardians");
