@@ -239,6 +239,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+发现后在关卡地图上标记�
 ModUi/&MaxAllowedClasses=<color=white>最大允许职业</color>
 ModUi/&Merchants=<color=#F0DAA0>商家：</color>
 ModUi/&Metamagic=<color=#F0DAA0>超魔</color>
+ModUi/&ModifyGravitySlam=<i>+ 修改<color=#D89555>重力猛击</color>法术，将受影响的目标向下推，并将其变为圆柱体而不是球体</i>
 ModUi/&Monsters=<color=#F0DAA0>怪物：</color>
 ModUi/&MovementGridWidthModifier=<color=white>将移动格子宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>点击法术会反转消耗的默认曲目槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color>消耗白色法术位，其他职业消耗绿色的]</color></i>

@@ -239,6 +239,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Contrassegna anche la posizione d
 ModUi/&MaxAllowedClasses=<color=white>Classi massime consentite</color>
 ModUi/&Merchants=<color=#F0DAA0>Commercianti:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
+ModUi/&ModifyGravitySlam=<i>+ Modifica l'incantesimo <color=#D89555>Gravity Slam</color> per spingere verso il basso i bersagli colpiti e trasformarlo in un cilindro anziché in una sfera</i>
 ModUi/&Monsters=<color=#F0DAA0>Mostri:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAIUSC</color> fare clic su un incantesimo inverte il tipo di slot di repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Stregone</color> spende slot incantesimo bianchi e altri spendono quelli verdi del patto]</color></i>

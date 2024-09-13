@@ -239,6 +239,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie nach der Entdeckung
 ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>
 ModUi/&Merchants=<color=#F0DAA0>Händler:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagie</color>
+ModUi/&ModifyGravitySlam=<i>+ Ändern Sie den Zauber <color=#D89555>Gravitationsschlag</color>, um betroffene Ziele nach unten zu drücken und einen Zylinder statt einer Kugel anzuzeigen</i>
 ModUi/&Monsters=<color=#F0DAA0>Monster:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Bewegungsrasters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>UMSCHALT</color>-Klick auf einen Zauber kehrt den verbrauchten Standardrepertoire-Slottyp um.\n<i><color=#F0DAA0>[<color=#D89555>Hexenmeister</color> gibt weiße Zauberslots aus und andere geben Paktgrüne aus]</color></i>
