@@ -19,7 +19,7 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
-    private static List<ActionModifier> GetActionModifiers(int count)
+    internal static List<ActionModifier> GetActionModifiers(int count)
     {
         var actionModifiers = new List<ActionModifier>();
 

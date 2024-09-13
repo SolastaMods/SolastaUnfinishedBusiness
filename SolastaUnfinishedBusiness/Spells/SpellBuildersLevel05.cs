@@ -21,6 +21,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
+using static SolastaUnfinishedBusiness.Api.GameExtensions.GameLocationCharacterExtensions;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -903,7 +904,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -924,13 +925,7 @@ internal static partial class SpellBuilders
                         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
                     .SetConditionEffectParameters(ConditionDefinitions.ConditionBlinded)
                     .Build())
-            .AddCustomSubFeatures(
-                new PowerOrSpellFinishedByMeHolyWeapon(),
-                new ValidatorsValidatePowerUse(c =>
-                    c.GetMainWeapon()?.DynamicItemProperties.Any(x => x.FeatureDefinition == additionalDamage) ==
-                    true ||
-                    c.GetOffhandWeapon()?.DynamicItemProperties.Any(x => x.FeatureDefinition == additionalDamage) ==
-                    true))
+            .AddCustomSubFeatures(new CustomBehaviorHolyWeapon(additionalDamage))
             .AddToDB();
 
         var condition = ConditionDefinitionBuilder
@@ -981,10 +976,38 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class PowerOrSpellFinishedByMeHolyWeapon : IPowerOrSpellInitiatedByMe
+    private sealed class CustomBehaviorHolyWeapon(FeatureDefinitionAdditionalDamage additionalDamage)
+        : IPowerOrSpellInitiatedByMe, IFilterTargetingCharacter
     {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            var hero = target.RulesetCharacter.GetOriginalHero();
+            var rulesetItem = hero?.CharacterInventory.EnumerateAllSlots()
+                .FirstOrDefault(x =>
+                    x.EquipedItem?.DynamicItemProperties.Any(y => y.FeatureDefinition == additionalDamage) == true)
+                ?.EquipedItem;
+            var sourceEffectGuid = rulesetItem?.DynamicItemProperties
+                .FirstOrDefault(x => x.FeatureDefinition == additionalDamage)?.SourceEffectGuid ?? 0;
+            var caster = EffectHelpers.GetCharacterByEffectGuid(sourceEffectGuid);
+            var hasHolyWeapon = caster != null && __instance.ActionParams.ActingCharacter.RulesetCharacter == caster;
+
+            if (!hasHolyWeapon)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustHaveHolyWeapon");
+            }
+
+            return hasHolyWeapon;
+        }
+
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var ally = action.ActionParams.TargetCharacters[0];
+            var targets = Gui.Battle?.GetContenders(ally, withinRange: 6) ?? [];
+
+            action.ActionParams.TargetCharacters.SetRange(targets);
+            action.ActionParams.ActionModifiers.SetRange(GetActionModifiers(targets.Count));
             action.ActingCharacter.RulesetCharacter.BreakConcentration();
 
             yield break;
@@ -1109,7 +1132,7 @@ internal static partial class SpellBuilders
     #region Swift Quiver
 
     internal const string SwiftQuiverAttackTag = "SwiftQuiverAttack";
-    
+
     internal static SpellDefinition BuildSwiftQuiver()
     {
         const string NAME = "SwiftQuiver";

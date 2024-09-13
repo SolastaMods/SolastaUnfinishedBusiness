@@ -311,6 +311,7 @@ Tooltip/&Tag9000Title=Effetto personalizzato
 Tooltip/&TagDamageChaosBoltTitle=Danno caotico
 Tooltip/&TagUnfinishedBusinessTitle=Lavoro incompleto
 Tooltip/&TargetMeleeWeaponError=Non è possibile eseguire un attacco corpo a corpo su questo bersaglio poiché non si trova entro {0}
+Tooltip/&TargetMustHaveHolyWeapon=Il bersaglio deve avere un'arma sacra
 Tooltip/&TargetMustNotBeSurprised=Il bersaglio non deve essere sorpreso
 Tooltip/&TargetMustUnderstandYou=Il bersaglio deve capire il tuo comando
 UI/&CustomFeatureSelectionStageDescription=Seleziona funzionalità extra per la tua classe/sottoclasse.

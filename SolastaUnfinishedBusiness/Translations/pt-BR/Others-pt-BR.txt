@@ -311,6 +311,7 @@ Tooltip/&Tag9000Title=Efeito personalizado
 Tooltip/&TagDamageChaosBoltTitle=Dano Caótico
 Tooltip/&TagUnfinishedBusinessTitle=Negócios inacabados
 Tooltip/&TargetMeleeWeaponError=Não é possível realizar ataque corpo a corpo neste alvo, pois ele não está a {0}
+Tooltip/&TargetMustHaveHolyWeapon=O alvo deve ter uma arma sagrada
 Tooltip/&TargetMustNotBeSurprised=O alvo não deve ser surpreendido
 Tooltip/&TargetMustUnderstandYou=O alvo deve entender seu comando
 UI/&CustomFeatureSelectionStageDescription=Selecione recursos extras para sua classe/subclasse.

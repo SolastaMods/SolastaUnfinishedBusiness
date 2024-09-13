@@ -311,6 +311,7 @@ Tooltip/&Tag9000Title=Custom Effect
 Tooltip/&TagDamageChaosBoltTitle=Chaotic Damage
 Tooltip/&TagUnfinishedBusinessTitle=Unfinished Business
 Tooltip/&TargetMeleeWeaponError=Can't perform melee attack on this target as not within {0}
+Tooltip/&TargetMustHaveHolyWeapon=Target must have holy weapon
 UI/&CustomFeatureSelectionStageDescription=Select extra features for your class/subclass.
 UI/&CustomFeatureSelectionStageFeatures=Features
 UI/&CustomFeatureSelectionStageNotDone=You must select all available features before proceeding

@@ -311,6 +311,7 @@ Tooltip/&Tag9000Title=Benutzerdefinierter Effekt
 Tooltip/&TagDamageChaosBoltTitle=Chaotischer Schaden
 Tooltip/&TagUnfinishedBusinessTitle=Unerledigte Aufgabe
 Tooltip/&TargetMeleeWeaponError=Auf dieses Ziel kann kein Nahkampfangriff ausgeführt werden, da es sich nicht innerhalb von {0} befindet
+Tooltip/&TargetMustHaveHolyWeapon=Ziel muss heilige Waffe besitzen
 Tooltip/&TargetMustNotBeSurprised=Das Ziel darf nicht überrascht werden
 Tooltip/&TargetMustUnderstandYou=Das Ziel muss Ihren Befehl verstehen
 UI/&CustomFeatureSelectionStageDescription=Wählen Sie zusätzliche Funktionen für Ihre Klasse/Unterklasse aus.
