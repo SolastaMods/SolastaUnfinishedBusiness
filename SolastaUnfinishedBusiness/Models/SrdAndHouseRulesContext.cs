@@ -3,7 +3,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -950,11 +949,9 @@ internal static class SrdAndHouseRulesContext
 
         gravitySlamModified = EffectDescriptionBuilder.Create(gravitySlamVanilla)
             .SetTargetingData(Side.All, RangeType.Distance, 20, TargetType.Cylinder, 4, 10)
-            //TODO: try making tooltip say "Push Down" instead "Push Away"
-            .AddEffectForms(EffectFormBuilder.MotionForm(MotionForm.MotionType.PushFromOrigin, 10))
+            .AddEffectForms(EffectFormBuilder.MotionForm(ExtraMotionType.PushDown, 10))
             .Build();
         
-        GravitySlam.AddCustomSubFeatures(SlamDown.Mark); //does nothing if it has no push motion
         ToggleGravitySlamModification();
     }
 

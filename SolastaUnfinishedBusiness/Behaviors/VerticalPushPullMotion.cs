@@ -97,12 +97,3 @@ internal static class VerticalPushPullMotion
         );
     }
 }
-
-internal class SlamDown
-{
-    private SlamDown()
-    {
-    }
-
-    public static SlamDown Mark { get; } = new();
-}
