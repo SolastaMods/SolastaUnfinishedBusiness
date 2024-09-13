@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangr
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munições, receitas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Ative <color=#D89555>Darkness Perceptive</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicionado modificador de DES aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
+ModUi/&AddFallProneActionToAllRaces=Adicione a ação <color=#D89555>Cair De bruços</color> a todas as raças jogáveis ​​<i><color=#F0DAA0>[você pode cair de bruços sem custo]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Habilite <color=#D89555>Lutador</color> para adicionar o nível de classe como um bônus na nova rolagem do teste de resistência de <color=#D89555>Resistência Indomável</color>
 ModUi/&AddHelpActionToAllRaces=Adicionada a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1 espaço de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ativar inimigos humanóides preferidos do <color=#D89555>Ranger</color>

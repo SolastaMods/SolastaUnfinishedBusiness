@@ -1,29 +1,29 @@
 1.5.97.30:
 
 - added Command, Dissonant Whispers, Holy Weapon, and Swift Quiver spells
-- added Character > Rules > 'Enable push and pull motion effects to also work on up/down axis' setting
-- added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop' setting
-- fixed Barbarian Sundering Blow interaction with Call Lightning, and other attack proxies
+- added Character > General 'Add the Fall Prone action to all playable races'
+- added Character > Rules > 'Enable push and pull motion effects to also work on up/down axis'
+- added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop'
+- fixed Barbarian Sundering Blow interaction with Call Lightning
 - fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances save logic
 - fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe reaction consumption
-- fixed Demonic Influence adding all location enemies as new contenders [VANILLA]
+- fixed Circle of the Cosmos woe ability checks reaction not triggering
+- fixed Demonic Influence adding all location enemies to battle [VANILLA]
 - fixed Dwarven Fortitude, and Magical Guidance incorrectly consuming a reaction
 - fixed Exploiter feat not checking for reactions from 2nd target onwards
 - fixed Green-Flame Blade cantrip adding extra damage to subsequent attacks on same turn
 - fixed Lucky, and Mage Slayer feats double consumption
 - fixed Martial Commander coordinated defense to require an attack first [VANILLA]
 - fixed Party Editor to register/unregister powers from feats
-- fixed Path of the Wild Magic retribution, and Patron Archfey misty step to only react against enemies
+- fixed Path of the Wild Magic retribution, and Patron Archfey misty step reacting against allies
 - fixed Power Attack feat not triggering on unarmed attacks
 - fixed Quickened interaction with melee attack cantrips
 - fixed Wrathful Smite to do a wisdom ability check against caster DC
-- improved ability checks to also allow reactions on success
-- improved gadgets to trigger "try alter save outcome" type reactions [VANILLA]
+- improved gadgets to trigger "try alter save outcome" reactions [VANILLA]
 - improved Maneuvering Attack, and Martial Warlord strategic repositioning to use a run stance
 - improved mod UI to ensure all settings required to be in sync on MP sessions are now under Gameplay
-- improved saving roll reaction modal descriptions [Circle of the Cosmos, Sorcerer Wild Magic, etc.]
+- improved saving roll reaction modal descriptions
 - improved Sorcerer Wild Magic tides of chaos, Conversion Slots, and Shorthand versatilities to react on ability checks
-- improved spells documentation dump to include allowed casting classes
 - improved victory modal export behavior to allow heroes not in pool to be exported [VANILLA]
 
 KNOWN ISSUES:

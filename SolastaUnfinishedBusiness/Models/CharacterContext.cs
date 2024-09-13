@@ -219,6 +219,7 @@ internal static partial class CharacterContext
         SwitchFighterLevelToIndomitableSavingReroll();
         SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
+        SwitchProneAction();
         SwitchHelpPower();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
@@ -736,6 +737,13 @@ internal static partial class CharacterContext
                     x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
             }
         }
+    }
+
+    internal static void SwitchProneAction()
+    {
+        DropProne.formType = Main.Settings.AddFallProneActionToAllRaces
+            ? ActionDefinitions.ActionFormType.Large 
+            : ActionDefinitions.ActionFormType.Invisible;
     }
 
     internal static void SwitchDarknessPerceptive()

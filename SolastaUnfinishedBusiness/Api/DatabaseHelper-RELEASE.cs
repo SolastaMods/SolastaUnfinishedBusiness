@@ -32,6 +32,7 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition CastNoCost { get; } = GetDefinition<ActionDefinition>("CastNoCost");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
+        internal static ActionDefinition DropProne { get; } = GetDefinition<ActionDefinition>("DropProne");
         internal static ActionDefinition ReapplyEffect { get; } = GetDefinition<ActionDefinition>("ReapplyEffect");
         internal static ActionDefinition SpiritRage { get; } = GetDefinition<ActionDefinition>("SpiritRage");
 

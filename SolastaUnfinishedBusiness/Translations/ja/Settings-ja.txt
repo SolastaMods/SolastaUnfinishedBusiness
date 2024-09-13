@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<col
 ModUi/&AddCustomIconsToOfficialItems=公式ゲーム アイテム <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要] にカスタム アイコンを追加します。 </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>闇の知覚</color>を有効にするcolor> <i><color=#F0DAA0>\n[照明が当たっていないとき、または魔法の暗闇の下で知覚チェックで有利になる]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=敵に DEX 修飾子を追加する <color=#D89555>イニシアティブ ロール</color>
+ModUi/&AddFallProneActionToAllRaces=すべてのプレイ可能な種族に <color=#D89555>うつ伏せになる</color> アクションを追加します <i><color=#F0DAA0>[コストをかけずにうつ伏せになることができます]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>ファイター</color>を有効にして、<color=#D89555>不屈の抵抗</color>セービングスローのリロールにボーナスとしてクラスレベルを追加します
 ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加します<i><color=#F0DAA0>[味方のクリーチャーが自分の1マス以内にいるクリーチャーを攻撃するのを助けることができます]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color> が好む人型の敵を有効にする

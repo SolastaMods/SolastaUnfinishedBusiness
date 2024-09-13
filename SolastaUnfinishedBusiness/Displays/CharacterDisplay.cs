@@ -50,6 +50,13 @@ internal static class CharacterDisplay
         UI.Label();
         UI.Label();
 
+        toggle = Main.Settings.AddFallProneActionToAllRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddFallProneActionToAllRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddFallProneActionToAllRaces = toggle;
+            CharacterContext.SwitchProneAction();
+        }
+
         toggle = Main.Settings.AddHelpActionToAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {

@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상급</color> 및 <color=#
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 사용자 정의 아이콘 추가 <i><color=#F0DAA0>[탄약, 조리법, 키트 등]</color></i> <b><i><color=#C04040E0>[다시 시작해야 함] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>Darkness Perceptive</color>를 활성화하세요. color> <i><color=#F0DAA0>\n[빛이 없거나 마법의 어둠 속에서 인지 검사에 이점을 부여합니다.]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=적에게 DEX 수정치를 추가합니다 <color=#D89555>이니셔티브 롤</color>
+ModUi/&AddFallProneActionToAllRaces=모든 플레이 가능한 종족에 <color=#D89555>엎드려 넘어지기</color> 액션을 추가합니다. <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>파이터</color>를 활성화하여 클래스 레벨을 <color=#D89555>불굴의 저항</color> 저장 던지기 재굴림에 보너스로 추가하세요.
 ModUi/&AddHelpActionToAllRaces=플레이 가능한 모든 종족에 <color=#D89555>도움말</color> 액션을 추가하세요. <i><color=#F0DAA0>[당신은 1셀 내의 생물을 공격하는 아군 생물을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 인간형 선호 적 활성화
