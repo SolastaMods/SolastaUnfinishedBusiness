@@ -175,6 +175,7 @@ ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>テレポート</color>�
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=キャラクタープールの切り替えを有効にして、デフォルトのプレイおよびテストパーティーを設定します
 ModUi/&EnableTooltipDistance=戦闘中にキャラクターの上にマウスを置いたときにツールチップに距離を表示できるようになります
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>コンジュア・エレメンタル</color>と<color=#D89555>コンジュア・フェイ</color>のアップキャストを有効にする
+ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
 ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color> を有効にして VTT カメラを切り替えます<i><color=#F0DAA0>[右クリックしてドラッグしてカメラの位置を決め、WASD でパンして Page Up/ページを下に移動してズーム]</color></i>
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と<color=#D89555>特技</color>の選択<i><color=#F0DAA0>[排他的な選択肢の代わりに]</color></i>の両方を有効にします
 ModUi/&EncounterPercentageChance=<color=white>ランダムな遭遇確率を設定する</color>

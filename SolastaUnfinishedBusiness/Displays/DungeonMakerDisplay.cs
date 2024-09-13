@@ -109,6 +109,12 @@ internal static class DungeonMakerDisplay
             Main.Settings.UnleashNpcAsEnemy = toggle;
         }
 
+        toggle = Main.Settings.EnableVariablePlaceholdersOnTexts;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableVariablePlaceholdersOnTexts"), ref toggle))
+        {
+            Main.Settings.EnableVariablePlaceholdersOnTexts = toggle;
+        }
+
         toggle = Main.Settings.EnableDungeonMakerModdedContent;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableDungeonMakerModdedContent"), ref toggle))
         {

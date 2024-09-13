@@ -175,6 +175,7 @@ ModUi/&EnableTeleportToRemoveRestrained=Habilite <color=#D89555>Teletransporte</
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los cambios en el grupo de personajes para configurar su grupo de prueba y juego predeterminado
 ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas al pasar el cursor sobre un personaje en combate.
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar transmisión ascendente de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>
+ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
 ModUi/&EnableVttCamera=Habilite <color=#1E81B0>CTRL-SHIFT-(V)</color> para alternar la cámara VTT <i><color=#F0DAA0>[haga clic derecho y arrastre para posicionar la cámara, WASD para desplazarse y Re Pág/ Avance de página para hacer zoom]</color></i>
 ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntuaciones de atributos y la selección de <color=#D89555>dotes</color> <i><color=#F0DAA0>[en lugar de una elección exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentaje de posibilidades de encuentros aleatorios</color>

@@ -175,6 +175,7 @@ ModUi/&EnableTeleportToRemoveRestrained=Abilita <color=#D89555>Teletrasporto</co
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Abilita gli interruttori sul pool di personaggi per impostare il gioco predefinito e il gruppo di prova
 ModUi/&EnableTooltipDistance=Abilita la visualizzazione della distanza sui tooltip quando si passa sopra un personaggio in combattimento
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555>Evoca Elementale</color> e <color=#D89555>Evoca Fata</color>
+ModUi/&EnableVariablePlaceholdersOnTexts=Abilita segnaposto variabili nelle descrizioni <i><color=#F0DAA0>[usa {VARIABLE_NAME} come segnaposto]</color></i>
 ModUi/&EnableVttCamera=Abilita <color=#1E81B0>CTRL-SHIFT-(V)</color> per attivare/disattivare la telecamera VTT <i><color=#F0DAA0>[fai clic con il pulsante destro del mouse e trascina per posizionare la telecamera, WASD per eseguire la panoramica e Pagina su/ Pagina giù per ingrandire]</color></i>
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei <color=#D89555>talenti</color> <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Imposta la percentuale di possibilità di incontri casuali</color>

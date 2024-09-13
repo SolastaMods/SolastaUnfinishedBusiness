@@ -175,6 +175,7 @@ ModUi/&EnableTeleportToRemoveRestrained=Enable <color=#D89555>Teleport</color> t
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
 ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
+ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descriptions <i><color=#F0DAA0>[use {VARIABLE_NAME} as placeholder]</color></i>
 ModUi/&EnableVttCamera=Enable <color=#1E81B0>CTRL-SHIFT-(V)</color> to toggle the VTT camera <i><color=#F0DAA0>[right-click and drag to position the camera, WASD to pan and Page Up/Page Down to zoom]</color></i>
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and <color=#D89555>feats</color> selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>

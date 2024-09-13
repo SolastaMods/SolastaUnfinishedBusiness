@@ -3,13 +3,14 @@
 - added Command, Dissonant Whispers, Holy Weapon, and Swift Quiver spells
 - added Character > General 'Add the Fall Prone action to all playable races'
 - added Character > Rules > 'Enable push and pull motion effects to also work on up/down axis'
+- added interface > Dungeon Maker > 'Enable variable placeholders on descriptions'
 - added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop'
 - fixed Barbarian Sundering Blow interaction with Call Lightning
 - fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances save logic
 - fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe reaction consumption
 - fixed Circle of the Cosmos woe ability checks reaction not triggering
 - fixed Demonic Influence adding all location enemies to battle [VANILLA]
-- fixed Dwarven Fortitude, and Magical Guidance incorrectly consuming a reaction
+- fixed Dwarven Fortitude, and Magical Guidance consuming a reaction
 - fixed Exploiter feat not checking for reactions from 2nd target onwards
 - fixed Green-Flame Blade cantrip adding extra damage to subsequent attacks on same turn
 - fixed Lucky, and Mage Slayer feats double consumption

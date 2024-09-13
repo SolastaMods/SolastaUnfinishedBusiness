@@ -175,6 +175,7 @@ ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>텔레포트</color>를 �
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=기본 플레이 및 테스트 파티를 설정하려면 캐릭터 풀의 토글을 활성화하세요.
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위로 마우스를 가져갈 때 툴팁에 거리 표시 활성화
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 창조</color> 및 <color=#D89555>페이 창조</color>의 업캐스트를 활성화합니다.
+ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
 ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color>를 활성화하여 VTT 카메라를 전환합니다. <i><color=#F0DAA0>[카메라 위치를 마우스 오른쪽 버튼으로 클릭하고 드래그하고, 팬 및 페이지 위로 이동하려면 WASD/ 확대하려면 페이지를 아래로 내리세요]</color></i>
 ModUi/&EnablesAsiAndFeat=속성 점수 증가와 <color=#D89555>feats</color> 선택 <i><color=#F0DAA0>[독점 선택 대신]</color></i>을 모두 활성화합니다.
 ModUi/&EncounterPercentageChance=<color=white>무작위 만남 확률 설정</color>

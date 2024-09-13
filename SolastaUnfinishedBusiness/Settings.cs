@@ -323,7 +323,6 @@ public class Settings : UnityModManager.ModSettings
     // Gameplay - Items, Crafting & Merchants
     //
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
-    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
     public bool EnableMonkHandwrapsUseGauntletSlot { get; set; }
     public bool EnableGauntletMainAttacks { get; set; }
     public bool AddPickPocketableLoot { get; set; }
@@ -486,8 +485,10 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableLoggingInvalidReferencesInUserCampaigns { get; set; }
     public bool EnableSortingDungeonMakerAssets { get; set; }
     public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
-    public bool UnleashNpcAsEnemy { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }
+    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
+    public bool UnleashNpcAsEnemy { get; set; }
+    public bool EnableVariablePlaceholdersOnTexts { get; set; }
     public bool EnableDungeonMakerModdedContent { get; set; }
 
     //

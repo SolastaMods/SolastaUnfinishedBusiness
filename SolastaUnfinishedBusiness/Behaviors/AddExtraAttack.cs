@@ -239,25 +239,11 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
             return null;
         }
 
-        var result = new List<RulesetAttackMode>();
-
-        AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
-        AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
-
-        return result;
-    }
-
-    private void AddItemAttack(
-        // ReSharper disable once SuggestBaseTypeForParameter
-        List<RulesetAttackMode> attackModes,
-        [NotNull] string slot,
-        [NotNull] RulesetCharacterHero hero)
-    {
-        var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
+        var item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
 
         if (item == null || !_weaponValidator.Invoke(null, item, hero))
         {
-            return;
+            return null;
         }
 
         var strikeDefinition = item.ItemDefinition;
@@ -267,7 +253,7 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
             strikeDefinition.WeaponDescription,
             ValidatorsCharacter.IsFreeOffhand(hero),
             true,
-            slot,
+            EquipmentDefinitions.SlotTypeMainHand,
             hero.attackModifiers,
             hero.FeaturesOrigin,
             item
@@ -278,7 +264,7 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
         attackMode.Thrown = ValidatorsWeapon.HasAnyWeaponTag(item.ItemDefinition, TagsDefinitions.WeaponTagThrown);
         attackMode.AttackTags.Remove(TagsDefinitions.WeaponTagMelee);
 
-        attackModes.Add(attackMode);
+        return [attackMode];
     }
 }
 

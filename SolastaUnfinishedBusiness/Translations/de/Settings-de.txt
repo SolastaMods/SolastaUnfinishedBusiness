@@ -175,6 +175,7 @@ ModUi/&EnableTeleportToRemoveRestrained=Aktivieren Sie <color=#D89555>Teleportie
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie die Schalter für den Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Entfernung in Tooltips, wenn Sie im Kampf mit der Maus über einen Charakter fahren
 ModUi/&EnableUpcastConjureElementalAndFey=Aktivieren Sie die Übertragung von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Fee beschwören</color>
+ModUi/&EnableVariablePlaceholdersOnTexts=Aktivieren Sie variable Platzhalter in Beschreibungen <i><color=#F0DAA0>[verwenden Sie {VARIABLE_NAME} als Platzhalter]</color></i>
 ModUi/&EnableVttCamera=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(V)</color>, um die VTT-Kamera umzuschalten <i><color=#F0DAA0>[rechtsklicken und ziehen, um die Kamera zu positionieren, WASD zum Schwenken und Bild auf/ Seite nach unten zum Vergrößern]</color></i>
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Auswahl von <color=#D89555>Leistungen</color> <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Legen Sie die prozentuale Chance auf zufällige Begegnungen fest</color>
