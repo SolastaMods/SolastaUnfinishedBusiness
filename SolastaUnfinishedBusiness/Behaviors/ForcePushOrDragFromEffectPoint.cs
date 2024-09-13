@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using TA;
+using static MotionForm;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
 
@@ -65,7 +66,7 @@ internal sealed class ForcePushOrDragFromEffectPoint
         {
             position = formsParams.position;
         }
-        else if (effectForm.MotionForm?.Type == (MotionForm.MotionType)ExtraMotionType.PushDown)
+        else if (effectForm.MotionForm?.Type == (MotionType)ExtraMotionType.PushDown)
         {
             var locationTarget = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
             if (locationTarget == null)
@@ -97,8 +98,9 @@ internal sealed class ForcePushOrDragFromEffectPoint
 
         var motionForm = effectForm.MotionForm;
 
-        if (motionForm.Type != MotionForm.MotionType.PushFromOrigin
-            && motionForm.Type != MotionForm.MotionType.DragToOrigin)
+        if (motionForm.Type is not MotionType.PushFromOrigin
+            and not MotionType.DragToOrigin
+            and not (MotionType)ExtraMotionType.PushDown)
         {
             return true;
         }
@@ -116,7 +118,7 @@ internal sealed class ForcePushOrDragFromEffectPoint
             return false;
         }
 
-        var reverse = motionForm.Type == MotionForm.MotionType.DragToOrigin;
+        var reverse = motionForm.Type == MotionType.DragToOrigin;
 
         if (!ServiceRepository.GetService<IGameLocationEnvironmentService>()
                 .ComputePushDestination(position, target, motionForm.Distance, reverse,
