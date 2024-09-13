@@ -742,7 +742,7 @@ internal static partial class CharacterContext
     internal static void SwitchProneAction()
     {
         DropProne.formType = Main.Settings.AddFallProneActionToAllRaces
-            ? ActionDefinitions.ActionFormType.Large 
+            ? ActionDefinitions.ActionFormType.Large
             : ActionDefinitions.ActionFormType.Invisible;
     }
 

@@ -47,7 +47,7 @@ public static class InfluenceEnemyProximityPatcher
             var approachSourceGuid = rulesetCharacter.ConditionsByCategory
                 .SelectMany(x => x.Value)
                 .FirstOrDefault(x =>
-                x.ConditionDefinition.Name == consideration.StringParameter)?.SourceGuid ?? 0;
+                    x.ConditionDefinition.Name == consideration.StringParameter)?.SourceGuid ?? 0;
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var enemy in parameters.situationalInformation.RelevantEnemies)

@@ -361,7 +361,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                         .SelectMany(y => y.Value)
                         .Any(z =>
                             z.ConditionDefinition == conditionEyeOfTheStorm &&
-                                  z.SourceGuid == rulesetAttacker.Guid))
+                            z.SourceGuid == rulesetAttacker.Guid))
                 .ToArray();
 
             attacker.MyExecuteActionPowerNoCost(usablePower, targets);
