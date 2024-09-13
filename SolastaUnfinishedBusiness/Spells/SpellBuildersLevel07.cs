@@ -264,6 +264,7 @@ internal static partial class SpellBuilders
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders = locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
                 .Where(x =>
+                    x.Side == defender.Side &&
                     x.CanReact() &&
                     x.IsWithinRange(defender, 18) &&
                     x.CanPerceiveTarget(defender) &&

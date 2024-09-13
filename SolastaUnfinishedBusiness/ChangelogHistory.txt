@@ -17,6 +17,7 @@
 - fixed Party Editor to register/unregister powers from feats
 - fixed Path of the Wild Magic retribution, and Patron Archfey misty step reacting against allies
 - fixed Power Attack feat not triggering on unarmed attacks
+- fixed Rescue the Dying spell reacting on enemy death
 - fixed Quickened interaction with melee attack cantrips
 - fixed Wrathful Smite to do a wisdom ability check against caster DC
 - improved gadgets to trigger "try alter save outcome" reactions [VANILLA]
