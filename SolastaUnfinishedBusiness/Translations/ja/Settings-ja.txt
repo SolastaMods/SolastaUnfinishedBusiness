@@ -19,6 +19,7 @@ ModUi/&AdvancedHelp=• <b><color=#C04040E0>注意:</color></b> これらの設�
 ModUi/&AllItemInDm=DM内のすべてのアイテム
 ModUi/&AllRecipesInDm=すべてのレシピはDMにあります
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ すべてのプレイヤーに物語シーケンスを許可</i>
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=自然の暗闇にいるときに味方が<color=#D89555>レンジャー グロウムストーカー</color>を感知できるようにする
 ModUi/&AllowAnyClassToWearSylvanArmor=どのクラスも<color=#D89555>森の鎧</color>または<color=#D89555>ライトブリンガーの服</color>を着用できるようにする
 ModUi/&AllowBeardlessDwarves=ひげのない<color=#D89555>ドワーフ</color>を許可する
 ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>ブレード・カントリップ</color>が5フィートではなくリーチを使用できるようにする

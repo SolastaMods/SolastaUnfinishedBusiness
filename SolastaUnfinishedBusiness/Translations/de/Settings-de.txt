@@ -19,6 +19,7 @@ ModUi/&AdvancedHelp=• <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellu
 ModUi/&AllItemInDm=Alle Artikel in DM
 ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Alle Spieler in Erzählsequenzen zulassen</i>
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Erlaubt Verbündeten, <color=#D89555>Ranger GloomStalker</color> in natürlicher Dunkelheit wahrzunehmen
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Sylvan-Rüstung</color> oder <color=#D89555>Lichtbringer-Kleidung</color> zu tragen
 ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
 ModUi/&AllowBladeCantripsToUseReach=Erlaube <color=#D89555>Blade Cantrips</color>, eine Reichweite statt 5 Fuß zu verwenden.

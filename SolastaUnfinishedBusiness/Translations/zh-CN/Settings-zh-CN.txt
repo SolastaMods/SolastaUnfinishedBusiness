@@ -19,6 +19,7 @@ ModUi/&AdvancedHelp=•<b><color=#C04040E0>注意：</color></b>这些设置将�
 ModUi/&AllItemInDm=DM中的所有项目
 ModUi/&AllRecipesInDm=冒险中的所有配方
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序列</i>
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=允许盟友在自然黑暗中感知<color=#D89555>Ranger GloomStalker</color>
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿<color=#D89555>森林之甲</color>或<color=#D89555>光明使者之衣</color>
 ModUi/&AllowBeardlessDwarves=允许无须<color=#D89555>矮人</color>
 ModUi/&AllowBladeCantripsToUseReach=允许<color=#D89555>剑术戏法</color>使用触及范围，而不是 5 英尺

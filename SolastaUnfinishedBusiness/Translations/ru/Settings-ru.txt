@@ -19,6 +19,7 @@ ModUi/&AdvancedHelp=• <b><color=#C04040E0>ВНИМАНИЕ:</color></b> Для
 ModUi/&AllItemInDm=Все предметы в СП
 ModUi/&AllRecipesInDm=Все рецепты в СП
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Позволить всем игрокам участвовать в нарративных последовательностях</i>
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Разрешить союзникам воспринимать <color=#D89555>Ranger GloomStalker</color> в естественной темноте.
 ModUi/&AllowAnyClassToWearSylvanArmor=Позволить всем классам носить <color=#D89555>Доспехи Сильвана</color> или <color=#D89555>Одежды Несущего свет</color>
 ModUi/&AllowBeardlessDwarves=Разрешить безбородых <color=#D89555>Дварфов</color> <i><color=#F0DAA0>[как, вообще, можно подумать о чём-то столь противоестественном?]</color></i>
 ModUi/&AllowBladeCantripsToUseReach=Позволить <color=#D89555>Заговорам клинков</color> использовать досягаемость персонажа вместо обычных 5 футов

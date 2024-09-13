@@ -19,6 +19,7 @@ ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENZIONE:</color></b> Queste impos
 ModUi/&AllItemInDm=Tutti gli articoli in DM
 ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori sequenze narrative</i>
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Consenti agli alleati di percepire <color=#D89555>Ranger GloomStalker</color> quando si trovano nell'oscurità naturale
 ModUi/&AllowAnyClassToWearSylvanArmor=Consenti a qualsiasi classe di indossare <color=#D89555> Armatura Silvana</color> o <color=#D89555> Abiti da Portatore di Luce</color>
 ModUi/&AllowBeardlessDwarves=Consenti <color=#D89555>Nani</color> senza barba
 ModUi/&AllowBladeCantripsToUseReach=Consenti a <color=#D89555>Trucchetti Lama</color> di usare la portata invece di 5 piedi

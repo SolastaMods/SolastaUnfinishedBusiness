@@ -267,8 +267,6 @@ public sealed class RangerGloomStalker : AbstractSubclass
     private sealed class CustomBehaviorUmbralSight(FeatureDefinitionSense senseDarkvision18)
         : ICustomLevelUpLogic, IPreventEnemySenseMode
     {
-        private static readonly List<SenseMode.Type> Senses = [SenseMode.Type.Darkvision];
-
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             hero.ActiveFeatures[tag]
@@ -285,7 +283,10 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
         public List<SenseMode.Type> PreventedSenseModes(GameLocationCharacter attacker, RulesetCharacter defender)
         {
-            return Senses;
+            return Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness &&
+                   attacker.Side == defender.Side
+                ? []
+                : [SenseMode.Type.Darkvision];
         }
     }
 

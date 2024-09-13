@@ -299,6 +299,7 @@ public class Settings : UnityModManager.ModSettings
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public int WildSurgeDieRollThreshold { get; set; } = 2;
+    public bool AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness { get; set; }
     public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }
     public bool AccountForAllDiceOnFollowUpStrike { get; set; }
