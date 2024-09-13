@@ -33,7 +33,7 @@ public static class UserGadgetParameterValuePatcher
             return match.Value;
         }
     }
-    
+
     [HarmonyPatch(typeof(UserGadgetParameterValue), nameof(UserGadgetParameterValue.StringValue), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

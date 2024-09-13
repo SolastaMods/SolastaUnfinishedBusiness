@@ -938,39 +938,6 @@ internal static class SrdAndHouseRulesContext
         MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
     }
 
-    #region Gravity Slam
-
-    private static EffectDescription gravitySlamVanilla;
-    private static EffectDescription gravitySlamModified;
-
-    private static void ModifyGravitySlam()
-    {
-        gravitySlamVanilla = GravitySlam.EffectDescription;
-
-        gravitySlamModified = EffectDescriptionBuilder.Create(gravitySlamVanilla)
-            .SetTargetingData(Side.All, RangeType.Distance, 20, TargetType.Cylinder, 4, 10)
-            .AddEffectForms(EffectFormBuilder.MotionForm(ExtraMotionType.PushDown, 10))
-            .Build();
-        
-        ToggleGravitySlamModification();
-    }
-
-    internal static void ToggleGravitySlamModification()
-    {
-        if (Main.Settings.EnablePullPushOnVerticalDirection && Main.Settings.ModifyGravitySlam)
-        {
-            GravitySlam.effectDescription = gravitySlamModified;
-        }
-        else
-        {
-            GravitySlam.effectDescription = gravitySlamVanilla;
-        }
-
-        Global.RefreshControlledCharacter();
-    }
-
-    #endregion
-
     private sealed class FilterTargetingCharacterChainLightning : IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
@@ -1049,4 +1016,37 @@ internal static class SrdAndHouseRulesContext
 
         public static NoTwinned Mark { get; } = new();
     }
+
+    #region Gravity Slam
+
+    private static EffectDescription gravitySlamVanilla;
+    private static EffectDescription gravitySlamModified;
+
+    private static void ModifyGravitySlam()
+    {
+        gravitySlamVanilla = GravitySlam.EffectDescription;
+
+        gravitySlamModified = EffectDescriptionBuilder.Create(gravitySlamVanilla)
+            .SetTargetingData(Side.All, RangeType.Distance, 20, TargetType.Cylinder, 4, 10)
+            .AddEffectForms(EffectFormBuilder.MotionForm(ExtraMotionType.PushDown, 10))
+            .Build();
+
+        ToggleGravitySlamModification();
+    }
+
+    internal static void ToggleGravitySlamModification()
+    {
+        if (Main.Settings.EnablePullPushOnVerticalDirection && Main.Settings.ModifyGravitySlam)
+        {
+            GravitySlam.effectDescription = gravitySlamModified;
+        }
+        else
+        {
+            GravitySlam.effectDescription = gravitySlamVanilla;
+        }
+
+        Global.RefreshControlledCharacter();
+    }
+
+    #endregion
 }

@@ -2140,7 +2140,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetFeatures(movementAffinityStrikeWithTheWind)
-            .SetConditionParticleReference(ConditionSpellbladeArcaneEscape)
+            .SetConditionParticleReference(PowerWindGuidingWinds)
             .AddToDB();
 
         var additionalDamageStrikeWithTheWind = FeatureDefinitionAdditionalDamageBuilder

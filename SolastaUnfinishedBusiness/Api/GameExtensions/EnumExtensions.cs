@@ -154,7 +154,7 @@ internal enum ExtraMotionType
     // RallyKindred,
     // PushRandomDirection,
     CustomSwap = 9000,
-    PushDown = 9001,
+    PushDown = 9001
 }
 
 internal enum ExtraPowerAttackHitComputation

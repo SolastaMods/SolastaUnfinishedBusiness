@@ -65,7 +65,7 @@ internal sealed class ForcePushOrDragFromEffectPoint
         {
             position = formsParams.position;
         }
-        else if(effectForm.MotionForm?.Type == (MotionForm.MotionType)ExtraMotionType.PushDown)
+        else if (effectForm.MotionForm?.Type == (MotionForm.MotionType)ExtraMotionType.PushDown)
         {
             var locationTarget = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
             if (locationTarget == null)
@@ -73,6 +73,7 @@ internal sealed class ForcePushOrDragFromEffectPoint
                 //Do nothing, maybe log error?
                 return false;
             }
+
             position = locationTarget.locationPosition + new int3(0, 10, 0);
         }
         else

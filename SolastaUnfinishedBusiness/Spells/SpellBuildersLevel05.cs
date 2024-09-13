@@ -1143,7 +1143,6 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(new AddExtraSwiftQuiverAttack(
                 ActionDefinitions.ActionType.Bonus,
                 ValidatorsCharacter.HasNoneOfConditions(ConditionMonkFlurryOfBlowsUnarmedStrikeBonus.Name)))
-            .CopyParticleReferences(ConditionDefinitions.ConditionSpiderClimb)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -1165,6 +1164,10 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
                     .SetCasterEffectParameters(WindWall)
+                    .SetConditionEffectParameters(
+                        Haste.EffectDescription.EffectParticleParameters.conditionStartParticleReference,
+                        SpiderClimb.EffectDescription.EffectParticleParameters.conditionParticleReference,
+                        Haste.EffectDescription.EffectParticleParameters.conditionEndParticleReference)
                     .Build())
             .AddToDB();
 
@@ -1180,10 +1183,11 @@ internal static partial class SpellBuilders
             // Empty
         }
 
-        private static bool IsTwoHandedBow(RulesetAttackMode mode, RulesetItem item, RulesetCharacterHero hero)
+        private static bool IsBowOrCrossbow(RulesetAttackMode mode, RulesetItem item, RulesetCharacterHero hero)
         {
-            return ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType)(
-                mode, item, hero);
+            return ValidatorsWeapon.IsOfWeaponType(
+                LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType,
+                CustomWeaponsContext.HandXbowWeaponType)(mode, item, hero);
         }
 
         protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
@@ -1196,7 +1200,7 @@ internal static partial class SpellBuilders
             var item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
 
             if (item == null ||
-                !IsTwoHandedBow(null, item, hero))
+                !IsBowOrCrossbow(null, item, hero))
             {
                 return null;
             }
