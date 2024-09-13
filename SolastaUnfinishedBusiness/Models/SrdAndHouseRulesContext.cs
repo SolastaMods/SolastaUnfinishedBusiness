@@ -968,6 +968,8 @@ internal static class SrdAndHouseRulesContext
         {
             GravitySlam.effectDescription = gravitySlamVanilla;
         }
+
+        Global.RefreshControlledCharacter();
     }
 
     #endregion
