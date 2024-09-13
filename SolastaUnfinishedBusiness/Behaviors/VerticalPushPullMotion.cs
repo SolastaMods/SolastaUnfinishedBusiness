@@ -1,6 +1,7 @@
 ﻿using System;
 using TA;
 using UnityEngine;
+using static CellFlags;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
 
@@ -54,16 +55,22 @@ internal static class VerticalPushPullMotion
             delta.y = sides.y == 0 ? delta.y : 0;
             delta.z = sides.z == 0 ? delta.z : 0;
 
-            var allSurfaceSides = CellFlags.DirectionToAllSurfaceSides(sides);
+            sides.y = -sides.y; //invert vertical direction before getting flags
+            var surfaceSides = DirectionToAllSurfaceSides(sides);
+            sides.y = -sides.y; //return vertical direction to normal
+
             var flag = true;
             var canMoveThroughWalls = target.CanMoveInSituation(RulesetCharacter.MotionRange.ThroughWalls);
-            foreach (var allSide in CellFlags.AllSides)
+            var size = target.SizeParameters;
+            
+            //TODO: find a way to add sliding if only part of sides are blocked?
+            foreach (var side in AllSides)
             {
-                if (flag && (allSide & allSurfaceSides) != CellFlags.Side.None)
-                {
-                    flag &= positioningService.CanCharacterMoveThroughSide(target.SizeParameters, position, allSide,
-                        canMoveThroughWalls);
-                }
+                if (!flag) { break; }
+
+                if ((side & surfaceSides) == Side.None) { continue; }
+
+                flag &= positioningService.CanCharacterMoveThroughSide(size, position, side, canMoveThroughWalls);
             }
 
             if (flag && positioningService.CanPlaceCharacter(target, position, CellHelpers.PlacementMode.Station))
