@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 
@@ -38,6 +39,27 @@ public static class GuiPatcher
             if (rangeValue > 1 && rangeType is RangeType.Touch or RangeType.MeleeHit)
             {
                 __result += " " + Gui.FormatDistance(rangeValue);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(Gui), nameof(Gui.FormatMotionForm))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class FormatMotionForm_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(ref string __result, MotionForm motionForm, int range)
+        {
+            //PATCH: format extra motion types
+            switch ((ExtraMotionType)motionForm.Type)
+            {
+                case ExtraMotionType.CustomSwap:
+                    __result = Gui.Format("Rules/&MotionFormSwitchFormat", Gui.FormatDistance(motionForm.Distance));
+                    break;
+                case ExtraMotionType.PushDown:
+                    __result = Gui.Format("Rules/&MotionFormPushDownFormat", Gui.FormatDistance(motionForm.Distance));
+                    break;
             }
         }
     }

@@ -544,6 +544,17 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePullPushOnVerticalDirection"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablePullPushOnVerticalDirection = toggle;
+            SrdAndHouseRulesContext.ToggleGravitySlamModification();
+        }
+
+        if (Main.Settings.EnablePullPushOnVerticalDirection)
+        {
+            toggle = Main.Settings.ModifyGravitySlam;
+            if (UI.Toggle(Gui.Localize("ModUi/&ModifyGravitySlam"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ModifyGravitySlam = toggle;
+                SrdAndHouseRulesContext.ToggleGravitySlamModification();
+            }
         }
 
         toggle = Main.Settings.EnableTeleportToRemoveRestrained;

@@ -308,6 +308,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCharactersOnFireToEmitLight { get; set; }
     public bool EnableHigherGroundRules { get; set; }
     public bool EnablePullPushOnVerticalDirection { get; set; }
+    public bool ModifyGravitySlam { get; set; } = true;
     public bool FullyControlConjurations { get; set; }
     public bool EnableTeleportToRemoveRestrained { get; set; }
     public bool ColdResistanceAlsoGrantsImmunityToChilledCondition { get; set; }

@@ -153,7 +153,8 @@ internal enum ExtraMotionType
     // Telekinesis,
     // RallyKindred,
     // PushRandomDirection,
-    CustomSwap = 9000
+    CustomSwap = 9000,
+    PushDown = 9001,
 }
 
 internal enum ExtraPowerAttackHitComputation
