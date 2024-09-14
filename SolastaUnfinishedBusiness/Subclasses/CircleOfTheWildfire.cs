@@ -489,7 +489,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     {
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-        if (!battleManager)
+        if (!battleManager ||
+            (character.RulesetCharacter is RulesetCharacterEffectProxy proxy &&
+             proxy.EffectProxyDefinition == EffectProxyCauterizingFlames))
         {
             yield break;
         }

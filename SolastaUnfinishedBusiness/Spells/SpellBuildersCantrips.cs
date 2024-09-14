@@ -1079,7 +1079,9 @@ internal static partial class SpellBuilders
     {
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-        if (!battleManager)
+        if (!battleManager ||
+            (character.RulesetCharacter is RulesetCharacterEffectProxy proxy &&
+             proxy.EffectProxyDefinition == EffectProxyCreateBonfire))
         {
             return;
         }
