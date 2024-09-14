@@ -305,21 +305,13 @@ internal static class SaveByLocationContext
 
     internal class SavePlace : IComparable<SavePlace>
     {
+         public int Count;
+        public DateTime? Date;
         public string Name;
         public string Path;
-        public int Count;
-        public DateTime? Date;
         public LocationType Type;
 
         public bool Available => Count > 0 || Type is LocationType.Default;
-
-        public static SavePlace Default()
-        {
-            return new SavePlace
-            {
-                Path = DefaultSaveGameDirectory, Count = 0, Date = null, Type = LocationType.Default
-            };
-        }
 
         public int CompareTo(SavePlace other)
         {
@@ -329,6 +321,14 @@ internal static class SaveByLocationContext
             return type != 0
                 ? type
                 : String.Compare(Name, other.Name, StringComparison.Ordinal);
+        }
+
+        public static SavePlace Default()
+        {
+            return new SavePlace
+            {
+                Path = DefaultSaveGameDirectory, Count = 0, Date = null, Type = LocationType.Default
+            };
         }
     }
 }

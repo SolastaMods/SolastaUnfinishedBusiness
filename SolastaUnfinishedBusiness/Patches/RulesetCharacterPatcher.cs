@@ -92,14 +92,13 @@ public static class RulesetCharacterPatcher
         public static void Postfix(RulesetCharacter __instance)
         {
             //PATCH: fix medium creatures with height 60+ inches (elves, humans and orcs mostly) being considered 1 tile taller
-            CharacterSizeDefinition size = __instance.SizeDefinition;
+            var size = __instance.SizeDefinition;
             //skip for non-medium creatures, since I didn't find any non-medium creatures that have this problem
             if (size.Name != DatabaseHelper.CharacterSizeDefinitions.Medium.Name) { return; }
 
             __instance.SizeParams = new RulesetActor.SizeParameters
             {
-                minExtent = size.MinExtent,
-                maxExtent = size.MaxExtent
+                minExtent = size.MinExtent, maxExtent = size.MaxExtent
             };
         }
     }
