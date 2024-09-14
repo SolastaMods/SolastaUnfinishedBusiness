@@ -73,7 +73,6 @@ internal static class SaveByLocationContext
             Date = files.Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
             Type = type
         };
-        Main.Log2($"[{place.Name}] type:{place.Type} count:{place.Count}, date:{place.Date}, path:{place.Path}");
         return place;
     }
 
@@ -91,7 +90,6 @@ internal static class SaveByLocationContext
 
         // Find the most recently touched save file and select the correct location/campaign for that save
         var place = GetMostRecentPlace();
-        Main.Log2($"MOST RECENT '{place.Path}' type:{place.Type}");
 
         ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>()
             .SetCampaignLocation(place.Type, place.Name);
