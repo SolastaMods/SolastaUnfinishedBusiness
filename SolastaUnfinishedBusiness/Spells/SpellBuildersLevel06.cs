@@ -196,9 +196,11 @@ internal static partial class SpellBuilders
     {
         const string NAME = "GravityFissure";
 
+        var sprite = Sprites.GetSprite(NAME, Resources.GravityFissure, 128);
+
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Spell, sprite)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -218,14 +220,16 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                             .Build())
-                    .SetParticleEffectParameters(GravitySlam)
-                    .SetImpactEffectParameters(ArcaneSword)
+                    .SetImpactEffectParameters(Thunderwave)
                     .Build())
             .AddToDB();
 
+        power.AddCustomSubFeatures(
+            ForcePushOrDragFromEffectPoint.Marker, new ModifyEffectDescriptionGravityFissure(power));
+
         var spell = SpellDefinitionBuilder
             .Create($"{NAME}")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.GravityFissure, 128))
+            .SetGuiPresentation(Category.Spell, sprite)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(6)
             .SetCastingTime(ActivationTime.Action)
@@ -246,14 +250,36 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeForce, 8, DieType.D8)
                             .Build())
-                    .SetParticleEffectParameters(GravitySlam)
-                    .SetImpactEffectParameters(ArcaneSword)
+                    .SetCasterEffectParameters(Thunderwave)
+                    .SetImpactEffectParameters(Thunderwave)
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeGravityFissure(power))
             .AddToDB();
 
-
         return spell;
+    }
+
+    private sealed class ModifyEffectDescriptionGravityFissure(FeatureDefinitionPower powerDrag)
+        : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerDrag;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
+            {
+                effectDescription.EffectForms[0].DamageForm.diceNumber = 2 + rulesetEffectPower.usablePower.saveDC;
+            }
+
+            return effectDescription;
+        }
     }
 
     private sealed class PowerOrSpellFinishedByMeGravityFissure(FeatureDefinitionPower powerDrag)
@@ -262,27 +288,28 @@ internal static partial class SpellBuilders
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
-            var placeholderPosition = new int3(800, 800, 800);
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var dummy = locationCharacterService.DummyCharacter;
-
-            // only non affected contenders
             var contendersAndPositions =
                 (Gui.Battle?.AllContenders ??
                  locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
                 .Where(x =>
+                    // don't include caster
                     x != actingCharacter &&
+                    // don't include affected contenders
                     !CharacterActionMagicEffectPatcher.AffectedFloorPositions.Contains(x.LocationPosition))
-                .ToDictionary(x => x, _ => new Container(placeholderPosition));
+                // create tab to select best position and set initial to far beyond
+                .ToDictionary(x => x, _ => new Container());
 
+            // select the best position possible to force a drag to effect origin
             foreach (var contenderAndPosition in contendersAndPositions)
             {
                 var contender = contenderAndPosition.Key;
                 var bestDragToPosition = contenderAndPosition.Value.Position;
 
-                foreach (var affectedFloorPosition in CharacterActionMagicEffectPatcher.CoveredFloorPositions)
+                foreach (var coveredFloorPosition in CharacterActionMagicEffectPatcher.CoveredFloorPositions)
                 {
-                    dummy.LocationPosition = affectedFloorPosition;
+                    dummy.LocationPosition = coveredFloorPosition;
 
                     if (!contender.IsWithinRange(dummy, 2))
                     {
@@ -300,41 +327,51 @@ internal static partial class SpellBuilders
                         continue;
                     }
 
-                    contenderAndPosition.Value.Position = affectedFloorPosition;
+                    contenderAndPosition.Value.Position = coveredFloorPosition;
                 }
             }
 
+            // clean up the house as a good guest
+            dummy.LocationPosition = Container.PlaceHolderPosition;
+
+            // issue drag to origin powers to all contenders with a non placeholder position
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDrag, rulesetCharacter);
 
+            // store the effect level on save DC as easier to retrieve later
+            usablePower.saveDC = action.ActionParams.activeEffect.EffectLevel;
+
             // drag each selected contender to the closest position
-            foreach (var actionParams in contendersAndPositions
-                         .Where(x => x.Value.Position != placeholderPosition)
-                         .Select(x => new CharacterActionParams(actingCharacter, Id.SpendPower)
-                         {
-                             RulesetEffect =
-                                 implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
-                             UsablePower = usablePower,
-                             TargetCharacters = { x.Key },
-                             Positions = { x.Value.Position }
-                         }))
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var x in contendersAndPositions)
             {
+                if (x.Value.Position == Container.PlaceHolderPosition)
+                {
+                    continue;
+                }
+
+                var actionParams = new CharacterActionParams(actingCharacter, Id.PowerNoCost)
+                {
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { x.Key },
+                    Positions = { x.Value.Position }
+                };
+
                 actionService.ExecuteInstantSingleAction(actionParams);
             }
 
             yield break;
         }
 
+        // container class to hold selected dragging position to avoid changing enumerator
         private sealed class Container
         {
-            internal int3 Position;
-
-            internal Container(int3 position)
-            {
-                Position = position;
-            }
+            internal static readonly int3 PlaceHolderPosition = new(800, 800, 800);
+            internal int3 Position = PlaceHolderPosition;
         }
     }
 

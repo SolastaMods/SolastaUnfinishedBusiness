@@ -148,7 +148,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "7b70493edfd42734b975cf604767e952",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -184,7 +184,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "27a46eed70a684e42bf43db0fba210b9",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -196,7 +196,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "7f06ef11e32162e45925324de6f9e1d5",
+        "m_AssetGUID": "3e25fca5d3585174f9b7e20aca6ef3d9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -360,12 +360,12 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Spell/&GravityFissureTitle",
+    "description": "Spell/&GravityFissureDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "543799d2-0a37-5662-8cb5-9ac355c09595",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
