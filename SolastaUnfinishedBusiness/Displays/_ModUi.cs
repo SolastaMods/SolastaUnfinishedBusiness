@@ -194,6 +194,7 @@ internal static class ModUi
         "LightningArrow",
         "LightningLure",
         "MaddeningDarkness",
+        "MagicStone",
         "MagnifyGravity",
         "MartialArcaneArcher",
         "MartialForceKnight",

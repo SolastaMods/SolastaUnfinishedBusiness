@@ -365,6 +365,49 @@ internal static partial class SpellBuilders
 
     #region Mind Spike
 
+    internal static SpellDefinition BuildMagicStone()
+    {
+        const string NAME = "MagicStone";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MagicStone, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalSummonsPerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonItemForm(ItemDefinitions.Dart, 3, true)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(ShadowDagger)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Mind Spike
+
     internal static SpellDefinition BuildMindSpike()
     {
         const string NAME = "MindSpike";
