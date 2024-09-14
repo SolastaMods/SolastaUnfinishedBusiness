@@ -660,7 +660,7 @@ internal static class FixesContext
             power.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
         }
     }
-    
+
     private static void ReportDashing()
     {
         Report(ConditionDefinitions.ConditionDashing);
@@ -673,6 +673,7 @@ internal static class FixesContext
         Report(ConditionDefinitions.ConditionDashingBonusSwiftSteps);
         Report(ConditionDefinitions.ConditionDashingExpeditiousRetreat);
         Report(ConditionDefinitions.ConditionDashingExpeditiousRetreatSwiftBlade);
+        Report(ConditionDefinitions.ConditionDashingSwiftBlade);
         return;
 
         static void Report(ConditionDefinition condition)

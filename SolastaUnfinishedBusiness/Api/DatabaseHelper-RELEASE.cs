@@ -305,6 +305,39 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionDashing { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashing");
+
+        internal static ConditionDefinition ConditionDashingAdditional { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingAdditional");
+
+        internal static ConditionDefinition ConditionDashingAdditionalSwiftBlade { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingAdditionalSwiftBlade");
+
+        internal static ConditionDefinition ConditionDashingBonus { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingBonus");
+
+        internal static ConditionDefinition ConditionDashingBonusAdditional { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingBonusAdditional");
+
+        internal static ConditionDefinition ConditionDashingBonusStepOfTheWind { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingBonusStepOfTheWind");
+
+        internal static ConditionDefinition ConditionDashingBonusSwiftBlade { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingBonusSwiftBlade");
+
+        internal static ConditionDefinition ConditionDashingBonusSwiftSteps { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingBonusSwiftSteps");
+
+        internal static ConditionDefinition ConditionDashingExpeditiousRetreat { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingExpeditiousRetreat");
+
+        internal static ConditionDefinition ConditionDashingExpeditiousRetreatSwiftBlade { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingExpeditiousRetreatSwiftBlade");
+
+        internal static ConditionDefinition ConditionDashingSwiftBlade { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingSwiftBlade");
+
         internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } =
             GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
 

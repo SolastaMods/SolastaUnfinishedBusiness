@@ -25,6 +25,7 @@
 - fixed Rescue the Dying spell reacting on enemy death
 - fixed save by location not offering saves for campaigns you don't have, and disabling buttons if there are no saves
 - fixed Wrathful Smite to do a wisdom ability check against caster DC
+- improved combat log so players can see when characters use dash action [VANILLA]
 - improved location gadgets to trigger "try alter save outcome" reactions [VANILLA]
 - improved Maneuvering Attack, and Martial Warlord strategic repositioning to use a run stance
 - improved mod UI to ensure all settings required to be in sync on MP sessions are now under Gameplay
@@ -41,6 +42,7 @@ KNOWN ISSUES:
 - fixed cantrips **CRASH** if not a melee cantrip and hero has replace attack with cantrips
 - fixed Bait and Switch maneuver incorrectly changing AC with an add. +1
 - fixed Bardic Inspiration attribute checks to use modifiers instead of adding to roll
+- fixed character spell selection panel scrolling if last spell group has more spells than it can fit in view
 - fixed Circle of the Cosmos weal/woe double consumption
 - fixed Circle of the Wildfire cauterizing flames heal from half to full hit points cap
 - fixed College of Elegance evasive footwork incorrectly changing AC with an add. +1
