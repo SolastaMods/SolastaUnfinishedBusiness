@@ -486,18 +486,19 @@ internal static class RulesDisplay
         UI.Label();
 
         toggle = Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness"), ref toggle,
+                UI.AutoWidth()))
         {
             Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness = toggle;
         }
-        
+
         toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeDragonbornElementalBreathUsages = toggle;
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
-        
+
         toggle = Main.Settings.EnableSignatureSpellsRelearn;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
         {

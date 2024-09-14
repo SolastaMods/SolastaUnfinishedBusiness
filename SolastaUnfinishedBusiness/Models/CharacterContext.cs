@@ -741,7 +741,7 @@ internal static partial class CharacterContext
 
     internal static void SwitchProneAction()
     {
-         DropProne.actionType = ActionDefinitions.ActionType.NoCost;
+        DropProne.actionType = ActionDefinitions.ActionType.NoCost;
         DropProne.formType = Main.Settings.AddFallProneActionToAllRaces
             ? ActionDefinitions.ActionFormType.Small
             : ActionDefinitions.ActionFormType.Invisible;

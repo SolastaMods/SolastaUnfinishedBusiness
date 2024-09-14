@@ -2140,7 +2140,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetFeatures(movementAffinityStrikeWithTheWind)
-             .AddToDB();
+            .AddToDB();
 
         var additionalDamageStrikeWithTheWind = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")

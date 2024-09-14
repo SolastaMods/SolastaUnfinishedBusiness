@@ -847,6 +847,7 @@ ConditionGiftOfTheChromaticDragonDamageCold	ConditionDefinition	ConditionDefinit
 ConditionGiftOfTheChromaticDragonDamageFire	ConditionDefinition	ConditionDefinition	36e168e5-ccb2-539d-b735-7953ef295b21
 ConditionGiftOfTheChromaticDragonDamageLightning	ConditionDefinition	ConditionDefinition	a4ca0c1c-fbea-51b6-a622-9105a9a7932f
 ConditionGiftOfTheChromaticDragonDamagePoison	ConditionDefinition	ConditionDefinition	6cf96f9b-b329-5af6-9c28-ead86e5b14b5
+ConditionGlibness	ConditionDefinition	ConditionDefinition	3182a19d-2d56-5f7a-849b-c2b28c7536b5
 ConditionGrappledRestrainedEnsnared	ConditionDefinition	ConditionDefinition	526a12f3-594a-5627-82fa-8403e9315b07
 ConditionGrappledRestrainedIceBound	ConditionDefinition	ConditionDefinition	968f2f49-dd5a-5f60-99e0-fe22f189bad2
 ConditionGrappledRestrainedSpellWeb	ConditionDefinition	ConditionDefinition	7593e0f9-a1ff-539c-bf19-9ba1c7abfd60
@@ -926,6 +927,7 @@ ConditionLauncherAttackMarker	ConditionDefinition	ConditionDefinition	775d0214-8
 ConditionLightlyObscured	ConditionDefinition	ConditionDefinition	b4f6a93a-e532-5b1e-9482-4fc19a163c4a
 ConditionLightningArrow	ConditionDefinition	ConditionDefinition	a07682ec-5181-5d93-94a2-0bcdfde53042
 ConditionLightSensitivity	ConditionDefinition	ConditionDefinition	0c2dcf8b-8320-536c-b9f2-e685ec85b00e
+ConditionMagicStone	ConditionDefinition	ConditionDefinition	e26abe14-2554-598d-89d1-e8df7c362553
 ConditionMalakhAngelicFlight	ConditionDefinition	ConditionDefinition	94211922-11c5-58ee-b5c5-42a3382f1b4a
 ConditionMalakhAngelicRadiance	ConditionDefinition	ConditionDefinition	5c99cf39-c491-5cda-847f-4117508bfc31
 ConditionMalakhAngelicVisage	ConditionDefinition	ConditionDefinition	d7521618-7bff-5b79-bc7a-e623cdf9e000
@@ -12216,6 +12218,7 @@ FlashFreeze	SpellDefinition	SpellDefinition	c7bca121-71cb-5243-ad33-de4f547dd73b
 Foresight	SpellDefinition	SpellDefinition	7e0b6dac-dd42-59de-8216-2a15d6b05693
 ForestGuardian	SpellDefinition	SpellDefinition	e84a5167-a3d0-5e96-b978-60039654e3bb
 GiftOfAlacrity	SpellDefinition	SpellDefinition	cfc1affd-8762-5031-b552-4a48251d784c
+Glibness	SpellDefinition	SpellDefinition	6fff4ed6-1408-5410-9bb6-16392e1e6b15
 GravitySinkhole	SpellDefinition	SpellDefinition	42bea70d-ddc5-5295-8c18-c6b6b9c3abf6
 HeroicInfusion	SpellDefinition	SpellDefinition	cf5c6a2f-ae52-59d6-a88d-31bb5d00c17d
 HolyWeapon	SpellDefinition	SpellDefinition	ed4a2ccf-c199-5f4c-bfc3-7bc8a584e4ce
@@ -12232,6 +12235,7 @@ LevitateSpell	SpellDefinition	SpellDefinition	91d64839-2a19-5655-a8f5-e14cd8e803
 LightningArrow	SpellDefinition	SpellDefinition	67f4d8f5-2b76-530c-969d-887c67ecbbc3
 LightningLure	SpellDefinition	SpellDefinition	a371e3b0-84af-5794-9d67-642b9677fc8d
 MaddeningDarkness	SpellDefinition	SpellDefinition	307ab880-6bb4-514a-bc43-cd1bbb6df87d
+MagicStone	SpellDefinition	SpellDefinition	e7b2ec32-cf9f-5044-9645-08d130d4350f
 MagnifyGravity	SpellDefinition	SpellDefinition	79f50c24-d249-5283-b784-10d3ffa9b444
 MantleOfThorns	SpellDefinition	SpellDefinition	e104287c-c35e-5355-b4ab-527a4a46860e
 MassHeal	SpellDefinition	SpellDefinition	0a9e59ba-4e57-52a5-ab05-27ae3c96e34f

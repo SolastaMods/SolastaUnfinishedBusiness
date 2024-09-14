@@ -813,7 +813,7 @@ public static class GameLocationCharacterExtensions
 
         var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
 
-        instance.MyExecuteActionSpendPower(usablePower);
+        instance.MyExecuteActionSpendPower(usablePower, true, instance);
     }
 
     internal static int GetAllowedMainAttacks(this GameLocationCharacter instance)

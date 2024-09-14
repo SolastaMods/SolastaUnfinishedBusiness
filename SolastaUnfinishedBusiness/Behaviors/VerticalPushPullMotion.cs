@@ -62,7 +62,7 @@ internal static class VerticalPushPullMotion
             var flag = true;
             var canMoveThroughWalls = target.CanMoveInSituation(RulesetCharacter.MotionRange.ThroughWalls);
             var size = target.SizeParameters;
-            
+
             //TODO: find a way to add sliding if only part of sides are blocked?
             foreach (var side in AllSides)
             {
