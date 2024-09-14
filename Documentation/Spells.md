@@ -34,7 +34,7 @@ You brandish the weapon used in the spell's casting and make a melee attack with
 
 Deal damage to one enemy and prevent healing for a limited time.
 
-# 7. - *Create Bonfire* © (V,S) level 0 Conjuration [UB]
+# 7. - *Create Bonfire* © (V,S) level 0 Conjuration [Concentration] [UB]
 
 **[Artificer, Druid, Sorcerer, Warlock, Wizard]**
 

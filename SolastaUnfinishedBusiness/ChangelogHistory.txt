@@ -1,9 +1,9 @@
 1.5.97.30:
 
-- added Create Bonfire, Magic Stone, Command, Dissonant Whispers, Holy Weapon, Swift Quiver, and Glibness spells
 - added Character > General 'Add the Fall Prone action to all playable races'
 - added Character > Rules > 'Allow allies to perceive Ranger GloomStalker when in natural darkness'
 - added Character > Rules > 'Enable push and pull motion effects to also work on up/down axis'
+- added Create Bonfire, Magic Stone [wip], Command, Dissonant Whispers, Holy Weapon, Swift Quiver, and Glibness spells
 - added Interface > Dungeon Maker > 'Enable variable placeholders on descriptions'
 - added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop'
 - fixed Ashardalon's Stride spell doing multiple damages to same target on same round
@@ -17,11 +17,13 @@
 - fixed Green-Flame Blade cantrip adding extra damage to subsequent attacks on same turn
 - fixed Lucky, and Mage Slayer feats double consumption
 - fixed Martial Commander coordinated defense to require an attack first [VANILLA]
+- fixed medium creatures with height 5ft+ being considered only 1 tile taller [VANILLA]
 - fixed Party Editor to register/unregister powers from feats
 - fixed Path of the Wild Magic retribution, and Patron Archfey misty step reacting against allies
 - fixed Power Attack feat not triggering on unarmed attacks
-- fixed Rescue the Dying spell reacting on enemy death
 - fixed Quickened interaction with melee attack cantrips
+- fixed Rescue the Dying spell reacting on enemy death
+- fixed save by location not offering saves for campaigns you don't have, and disabling buttons if there are no saves
 - fixed Wrathful Smite to do a wisdom ability check against caster DC
 - improved location gadgets to trigger "try alter save outcome" reactions [VANILLA]
 - improved Maneuvering Attack, and Martial Warlord strategic repositioning to use a run stance

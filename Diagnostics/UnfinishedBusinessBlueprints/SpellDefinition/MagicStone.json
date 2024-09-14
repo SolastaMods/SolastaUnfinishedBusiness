@@ -5,20 +5,20 @@
   "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolTransmutation",
-  "spellLevel": 8,
+  "spellLevel": 0,
   "ritual": false,
   "uniqueInstance": false,
-  "castingTime": "Action",
+  "castingTime": "BonusAction",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
   "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
+    "rangeType": "Touch",
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -42,8 +42,8 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "All",
-    "durationType": "Hour",
+    "targetSide": "Ally",
+    "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -75,6 +75,36 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Summon",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "summonForm": {
+          "$type": "SummonForm, Assembly-CSharp",
+          "summonType": "InventoryItem",
+          "itemDefinition": "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+          "trackItem": true,
+          "monsterDefinitionName": "",
+          "number": 3,
+          "conditionDefinition": null,
+          "persistOnConcentrationLoss": true,
+          "decisionPackage": null,
+          "effectProxyDefinitionName": null
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
         "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
@@ -90,11 +120,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionGlibness",
-          "conditionDefinition": "Definition:ConditionGlibness:3182a19d-2d56-5f7a-849b-c2b28c7536b5",
+          "conditionDefinitionName": "ConditionMagicStone",
+          "conditionDefinition": "Definition:ConditionMagicStone:e26abe14-2554-598d-89d1-e8df7c362553",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": false,
+          "applyToSelf": true,
           "forceOnSelf": false
         },
         "hasFilterId": false,
@@ -104,13 +134,13 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "CasterLevelTable",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
-      "additionalSummonsPerIncrement": 0,
+      "additionalSummonsPerIncrement": 1,
       "additionalHPPerIncrement": 0,
       "additionalTempHPPerIncrement": 0,
       "additionalTargetCellsPerIncrement": 0,
@@ -127,13 +157,13 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "571a64165c20f514eb4d4e632a93fff4",
+        "m_AssetGUID": "2a5fb39a57ad3754ebaaaccd9e92e9ce",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b8e3910dc27fdf743ab63e37bc90ba01",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -151,7 +181,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "440ce6c2017fc654fa1accc32e030c96",
+        "m_AssetGUID": "05c5c0f49bcabdf449d3dc9ba3ae10cb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -175,7 +205,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "c50fd7065bb34304ca1f1a3a02dcd532",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -308,7 +338,7 @@
   },
   "concentrationAction": "None",
   "verboseComponent": true,
-  "somaticComponent": false,
+  "somaticComponent": true,
   "materialComponentType": "None",
   "specificMaterialComponentTag": "Diamond",
   "specificMaterialComponentCostGp": 100,
@@ -319,11 +349,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&GlibnessTitle",
-    "description": "Spell/&GlibnessDescription",
+    "title": "Spell/&MagicStoneTitle",
+    "description": "Spell/&MagicStoneDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b1b3864d-84d0-5132-b2c0-f1144c4bf2eb",
+      "m_AssetGUID": "5183a34e-8e8b-59ba-9a3f-3657b0a591c2",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -340,7 +370,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6fff4ed6-1408-5410-9bb6-16392e1e6b15",
+  "guid": "e7b2ec32-cf9f-5044-9645-08d130d4350f",
   "contentPack": 9999,
-  "name": "Glibness"
+  "name": "MagicStone"
 }
