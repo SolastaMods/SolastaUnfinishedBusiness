@@ -156,6 +156,7 @@ internal static class ModUi
         "ForestGuardian",
         "Glibness",
         "GiftOfAlacrity",
+        "GravityFissure",
         "GravitySinkhole",
         "HeroicInfusion",
         "HolyWeapon",

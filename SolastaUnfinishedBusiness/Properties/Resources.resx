@@ -162,16 +162,23 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="GravityFissure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/GravityFissure.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="HolyWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/HolyWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <!--
   <data name="MagicStone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/MagicStone.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  -->
   <data name="PowerHolyWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerHolyWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089

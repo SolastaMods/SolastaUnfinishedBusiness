@@ -248,7 +248,7 @@ internal static class SpellsContext
         RegisterSpell(BuildInfestation(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildLightningLure(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
-        RegisterSpell(BuildMagicStone(), 0, SpellListDruid, SpellListWarlock, spellListInventorClass);
+        //RegisterSpell(BuildMagicStone(), 0, SpellListDruid, SpellListWarlock, spellListInventorClass);
         RegisterSpell(BuildMindSpike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPrimalSavagery(), 0, SpellListDruid);
@@ -368,8 +368,9 @@ internal static class SpellsContext
         RegisterSpell(Telekinesis, 0, SpellListSorcerer, SpellListWizard);
 
         // 6th level
-        RegisterSpell(BuildHeroicInfusion(), 0, SpellListWizard);
         RegisterSpell(BuildFlashFreeze(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock);
+        RegisterSpell(BuildGravityFissure(), 0, SpellListWizard);
+        RegisterSpell(BuildHeroicInfusion(), 0, SpellListWizard);
         RegisterSpell(BuildMysticalCloak(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPoisonWave(), 0, SpellListWizard);
         RegisterSpell(BuildFizbanPlatinumShield(), 0, SpellListSorcerer, SpellListWizard);

@@ -1812,6 +1812,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] GravityFissure {
+            get {
+                object obj = ResourceManager.GetObject("GravityFissure", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] GravitySinkhole {
             get {
                 object obj = ResourceManager.GetObject("GravitySinkhole", resourceCulture);
@@ -2375,16 +2385,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] MaddeningDarkness {
             get {
                 object obj = ResourceManager.GetObject("MaddeningDarkness", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] MagicStone {
-            get {
-                object obj = ResourceManager.GetObject("MagicStone", resourceCulture);
                 return ((byte[])(obj));
             }
         }

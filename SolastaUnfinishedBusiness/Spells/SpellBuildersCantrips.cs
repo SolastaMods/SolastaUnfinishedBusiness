@@ -363,11 +363,44 @@ internal static partial class SpellBuilders
 
     #endregion
 
+#if false
     #region Magic Stone
 
     internal static SpellDefinition BuildMagicStone()
     {
         const string NAME = "MagicStone";
+
+        var itemShadowStone = ItemDefinitionBuilder
+            .Create(ItemDefinitions.Dart, $"Item{NAME}")
+            //.SetGuiPresentation(Category.Item)
+            .SetItemTags(TagsDefinitions.ItemTagConjured)
+            .SetStaticProperties(
+                ItemPropertyDescriptionBuilder.From(
+                        FeatureDefinitionBuilder
+                            .Create($"Feature{NAME}")
+                            .SetGuiPresentation($"Feature{NAME}", Category.Feature)
+                            .AddToDB(),
+                        knowledgeAffinity: EquipmentDefinitions.KnowledgeAffinity.ActiveAndVisible)
+                    .Build())
+            .HideFromDungeonEditor()
+            .AddToDB();
+
+        itemShadowStone.activeTags.Clear();
+        itemShadowStone.itemPresentation.assetReference =
+            ItemDefinitions.StoneOfGoodLuck.itemPresentation.assetReference;
+        itemShadowStone.weaponDefinition.EffectDescription.EffectParticleParameters.impactParticleReference =
+            EffectProxyDefinitions.ProxyArcaneSword.attackImpactParticle;
+
+        var weaponDescription = itemShadowStone.WeaponDescription;
+
+        weaponDescription.closeRange = 12;
+        weaponDescription.maxRange = 12;
+
+        var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();
+
+        damageForm.damageType = DamageTypeBludgeoning;
+        damageForm.dieType = DieType.D6;
+        damageForm.diceNumber = 1;
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -394,17 +427,25 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetSummonItemForm(ItemDefinitions.Dart, 3, true)
+                            .SetSummonItemForm(itemShadowStone, 3, true)
                             .Build(),
                         EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(ShadowDagger)
                     .Build())
             .AddToDB();
 
+        spell.EffectDescription.slotTypes =
+        [
+            EquipmentDefinitions.SlotTypeMainHand,
+            EquipmentDefinitions.SlotTypeOffHand,
+            EquipmentDefinitions.SlotTypeContainer
+        ];
+
         return spell;
     }
 
     #endregion
+#endif
 
     #region Mind Spike
 

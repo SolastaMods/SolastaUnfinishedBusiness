@@ -186,6 +186,44 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Gravity Fissure
+
+    internal static SpellDefinition BuildGravityFissure()
+    {
+        const string NAME = "GravityFissure";
+
+        var spell = SpellDefinitionBuilder
+            .Create($"{NAME}HigherPlane")
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.GravityFissure, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 12)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeForce, 8, DieType.D8)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+
+        return spell;
+    }
+
+    #endregion
+
     #region Shelter From Energy
 
     private static readonly List<(FeatureDefinitionDamageAffinity, IMagicEffect, AssetReference)> ShelterDamageTypes =
