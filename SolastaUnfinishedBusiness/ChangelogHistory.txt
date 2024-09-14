@@ -3,10 +3,11 @@
 - added Character > General 'Add the Fall Prone action to all playable races'
 - added Character > Rules > 'Allow allies to perceive Ranger GloomStalker when in natural darkness'
 - added Character > Rules > 'Enable push and pull motion effects to also work on up/down axis'
-- added Create Bonfire, Magic Stone [wip], Command, Dissonant Whispers, Holy Weapon, Swift Quiver, and Glibness spells
+- added Create Bonfire, Command, Dissonant Whispers, Holy Weapon, Swift Quiver, Gravity Fissure, and Glibness spells
 - added Interface > Dungeon Maker > 'Enable variable placeholders on descriptions'
 - added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop'
 - fixed Ashardalon's Stride spell doing multiple damages to same target on same round
+- fixed auto powers displaying on action bar under others group [VANILLA]
 - fixed Barbarian Sundering Blow interaction with Call Lightning
 - fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances save logic
 - fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe reaction consumption
