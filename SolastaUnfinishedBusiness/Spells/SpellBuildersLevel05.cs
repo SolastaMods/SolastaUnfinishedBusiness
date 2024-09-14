@@ -900,7 +900,6 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}")
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerHolyWeapon, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -920,6 +919,7 @@ internal static partial class SpellBuilders
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(PowerOathOfDevotionTurnUnholy)
                     .SetParticleEffectParameters(FaerieFire)
                     .SetImpactEffectParameters(
                         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
@@ -970,6 +970,7 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true))
                     .SetCasterEffectParameters(HolyAura)
+                    .SetEffectEffectParameters(PowerOathOfJugementPurgeCorruption)
                     .Build())
             .AddToDB();
 

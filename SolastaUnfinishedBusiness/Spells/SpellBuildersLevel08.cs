@@ -115,11 +115,12 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Darkness)
+                    .Create()
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
-                    .SetParticleEffectParameters(Light)
+                    .SetCasterEffectParameters(Tongues)
+                    .SetEffectEffectParameters(PowerOathOfJugementPurgeCorruption)
                     .Build())
             .AddToDB();
     }

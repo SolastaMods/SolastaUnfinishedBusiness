@@ -363,7 +363,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Mind Spike
+    #region Magic Stone
 
     internal static SpellDefinition BuildMagicStone()
     {
@@ -1016,11 +1016,12 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Position)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -1034,7 +1035,7 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
                             .Build())
-                    .SetCasterEffectParameters(ProduceFlame)
+                    .SetCasterEffectParameters(ProduceFlameHold)
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeCreateBonfire())
             .AddToDB();
@@ -1042,6 +1043,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    // increase damage die and mark enemies damaged this turn
     private sealed class CustomBehaviorCreateBonfireDamage : IModifyEffectDescription, IPowerOrSpellFinishedByMe
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -1096,6 +1098,7 @@ internal static partial class SpellBuilders
         }
     }
 
+    // issue power damage if there is a target on cube position on spell end
     private sealed class PowerOrSpellFinishedByMeCreateBonfire : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1118,6 +1121,7 @@ internal static partial class SpellBuilders
         }
     }
 
+    // handle on turn start, on turn end, shove, move behaviors
     internal static void HandleCreateBonfireBehavior(GameLocationCharacter character, bool checkCondition = true)
     {
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
