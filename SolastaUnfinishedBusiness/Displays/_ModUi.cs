@@ -61,6 +61,7 @@ internal static class ModUi
         "CollegeOfLife",
         "CollegeOfValiance",
         "CommandSpell",
+        "CreateBonfire",
         "CrownOfStars",
         "CrusadersMantle",
         "Dawn",

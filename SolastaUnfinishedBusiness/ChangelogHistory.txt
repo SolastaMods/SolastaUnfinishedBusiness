@@ -1,7 +1,8 @@
 1.5.97.30:
 
-- added Command, Dissonant Whispers, Holy Weapon, and Swift Quiver spells
+- added Create Bonfire, Command, Dissonant Whispers, Holy Weapon, and Swift Quiver spells
 - added Character > General 'Add the Fall Prone action to all playable races'
+- added Character > Rules > 'Allow allies to perceive Ranger GloomStalker when in natural darkness'
 - added Character > Rules > 'Enable push and pull motion effects to also work on up/down axis'
 - added Interface > Dungeon Maker > 'Enable variable placeholders on descriptions'
 - added Interface > Game UI > 'Enable CTRL click-drag to bypass quest items checks on drop'

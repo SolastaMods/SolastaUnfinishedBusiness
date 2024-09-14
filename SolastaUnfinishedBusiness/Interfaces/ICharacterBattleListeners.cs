@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Spells;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
@@ -78,6 +79,9 @@ public static class CharacterBattleListenersPatch
             return;
         }
 
+        //PATCH: supports Create Bonfire cantrip
+        SpellBuilders.HandleCreateBonfireBehavior(locationCharacter);
+
         //PATCH: supports EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack
         if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
             rulesetCharacter.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk) > 0)
@@ -118,6 +122,9 @@ public static class CharacterBattleListenersPatch
         {
             return;
         }
+
+        //PATCH: supports Create Bonfire cantrip
+        SpellBuilders.HandleCreateBonfireBehavior(locationCharacter, false);
 
         var listeners = rulesetCharacter.GetSubFeaturesByType<ICharacterBeforeTurnEndListener>();
 
