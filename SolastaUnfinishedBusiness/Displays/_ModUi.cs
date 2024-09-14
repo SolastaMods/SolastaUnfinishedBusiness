@@ -154,6 +154,7 @@ internal static class ModUi
         "FlameArrows",
         "Foresight",
         "ForestGuardian",
+        "Glibness",
         "GiftOfAlacrity",
         "GravitySinkhole",
         "HeroicInfusion",

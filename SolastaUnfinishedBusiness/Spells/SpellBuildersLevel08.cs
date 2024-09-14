@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -85,6 +86,61 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(DispelMagic)
                     .Build())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Glibness
+
+    internal static SpellDefinition BuildGlibness()
+    {
+        const string NAME = "Glibness";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell)
+            .SetPossessive()
+            .AddCustomSubFeatures(new ModifyAbilityCheckGlibness())
+            .AddToDB();
+
+        return SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Glibness, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(8)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Darkness)
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
+                    .SetParticleEffectParameters(Light)
+                    .Build())
+            .AddToDB();
+    }
+
+    private sealed class ModifyAbilityCheckGlibness : IModifyAbilityCheck
+    {
+        public void MinRoll(
+            RulesetCharacter character,
+            int baseBonus,
+            string abilityScoreName,
+            string proficiencyName,
+            List<TrendInfo> advantageTrends,
+            List<TrendInfo> modifierTrends,
+            ref int rollModifier,
+            ref int minRoll)
+        {
+            if (abilityScoreName == AttributeDefinitions.Charisma)
+            {
+                minRoll = Math.Max(minRoll, 15);
+            }
+        }
     }
 
     #endregion
