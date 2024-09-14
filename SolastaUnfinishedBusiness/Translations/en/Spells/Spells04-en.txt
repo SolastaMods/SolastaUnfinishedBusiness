@@ -37,7 +37,6 @@ Feedback/&AdditionalDamageElementalBaneFormat=Elemental Bane!
 Feedback/&AdditionalDamageElementalBaneLine=Elemental Bane deals extra damage!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Staggering Smite!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} deals more damage to {1} through a staggering smite (+{2})
-Proxy/&ProxyFaithfulHoundDescription=Faithful Hound that deals 4d8 piercing damage on hit.
 Proxy/&ProxyFaithfulHoundTitle=Mordenkainen's Faithful Hound
 Spell/&AuraOfPerseveranceDescription=Purifying energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura, including you, can't become diseased, has resistance to poison damage, and has advantage on saving throws against effects that cause any of the following conditions: blinded, charmed, deafened, frightened, paralyzed, poisoned, and stunned.
 Spell/&AuraOfPerseveranceTitle=Aura of Purity

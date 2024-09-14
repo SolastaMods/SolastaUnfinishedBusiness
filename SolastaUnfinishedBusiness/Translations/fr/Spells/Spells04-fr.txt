@@ -37,7 +37,6 @@ Feedback/&AdditionalDamageElementalBaneFormat=Fléau élémentaire !
 Feedback/&AdditionalDamageElementalBaneLine=Le fléau élémentaire inflige des dégâts supplémentaires !
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Frappe stupéfiante !
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} inflige plus de dégâts à {1} grâce à un coup étourdissant (+{2})
-Proxy/&ProxyFaithfulHoundDescription=Chien fidèle qui inflige 4d8 dégâts perforants à l'impact.
 Proxy/&ProxyFaithfulHoundTitle=Le fidèle chien de Mordenkainen
 Spell/&AuraOfPerseveranceDescription=Une énergie purificatrice rayonne de vous dans une aura d'un rayon de 9 mètres. Jusqu'à la fin du sort, l'aura se déplace avec vous, centrée sur vous. Chaque créature non hostile dans l'aura, y compris vous, ne peut pas tomber malade, a une résistance aux dégâts de poison et a un avantage aux jets de sauvegarde contre les effets qui provoquent l'une des conditions suivantes : aveuglé, charmé, assourdi, effrayé, paralysé, empoisonné et abasourdi.
 Spell/&AuraOfPerseveranceTitle=Aura de pureté

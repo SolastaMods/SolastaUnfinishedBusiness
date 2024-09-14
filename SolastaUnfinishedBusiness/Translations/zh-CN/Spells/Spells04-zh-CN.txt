@@ -37,7 +37,6 @@ Feedback/&AdditionalDamageElementalBaneFormat=元素祸害！
 Feedback/&AdditionalDamageElementalBaneLine=元素灾厄造成额外伤害！
 Feedback/&AdditionalDamageStaggeringSmiteFormat=惊惧斩！
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} 通过惊惧斩对 {1} 造成更多伤害 (+{2})
-Proxy/&ProxyFaithfulHoundDescription=忠实的猎犬击中时造成 4d8 穿刺伤害。
 Proxy/&ProxyFaithfulHoundTitle=魔邓肯忠犬
 Spell/&AuraOfPerseveranceDescription=你身上散发出半径 30 尺的灵光，具有净化能量。直到法术结束前，灵光会随着你移动，以你为中心。灵光中的每个非敌对生物（包括你）都不会患病，对毒素伤害有抗性，并且在对抗导致以下任何情况的效果时具有优势：目盲、魅惑、耳聋、恐慌、失能、中毒，昏迷。
 Spell/&AuraOfPerseveranceTitle=净化灵光

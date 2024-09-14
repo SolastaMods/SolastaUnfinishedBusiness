@@ -37,7 +37,6 @@ Feedback/&AdditionalDamageElementalBaneFormat=Flagello Elementale!
 Feedback/&AdditionalDamageElementalBaneLine=Elemental Bane infligge danni extra!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Colpo sconvolgente!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} infligge più danni a {1} tramite un colpo sconcertante (+{2})
-Proxy/&ProxyFaithfulHoundDescription=Segugio fedele che infligge 4d8 danni perforanti quando colpisce.
 Proxy/&ProxyFaithfulHoundTitle=Il fedele segugio di Mordenkainen
 Spell/&AuraOfPerseveranceDescription=L'energia purificatrice si irradia da te in un'aura con un raggio di 30 piedi. Finché l'incantesimo non termina, l'aura si muove con te, centrata su di te. Ogni creatura non ostile nell'aura, incluso te, non può ammalarsi, ha resistenza ai danni da veleno e ha vantaggio sui tiri salvezza contro effetti che causano una qualsiasi delle seguenti condizioni: accecato, affascinato, assordato, spaventato, paralizzato, avvelenato e stordito.
 Spell/&AuraOfPerseveranceTitle=Aura di Purezza

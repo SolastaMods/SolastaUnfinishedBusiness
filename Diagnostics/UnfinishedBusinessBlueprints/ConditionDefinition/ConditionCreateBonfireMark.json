@@ -3,13 +3,10 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:AdditionalDamageStrikeWithTheWind:fd6f9ee6-54aa-5eef-867a-01ba35c35370",
-    "Definition:CombatAffinityStrikeWithTheWind:4a9706fc-be59-5efb-a679-00d13298b19f"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -19,7 +16,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "Attacks"
+    "AnyBattleTurnEnd"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -90,7 +87,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -132,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionStrikeWithTheWindAttackTitle",
-    "description": "Condition/&ConditionStrikeWithTheWindAttackDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0d141b75b2bd30943a5fdde92b747da3",
-      "m_SubObjectName": "ConditionDisengaging",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -154,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f07489c7-911e-5f9e-abdc-a99fb662b822",
+  "guid": "16259b67-cbf3-59fe-8127-e240592f1470",
   "contentPack": 9999,
-  "name": "ConditionStrikeWithTheWindAttack"
+  "name": "ConditionCreateBonfireMark"
 }

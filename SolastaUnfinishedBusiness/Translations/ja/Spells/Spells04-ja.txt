@@ -37,7 +37,6 @@ Feedback/&AdditionalDamageElementalBaneFormat=エレメンタルベイン！
 Feedback/&AdditionalDamageElementalBaneLine=エレメンタルベインは追加の ダメージを与えます。
 Feedback/&AdditionalDamageStaggeringSmiteFormat=驚異のスマイト！
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} は驚異的な打撃により {1} にさらに多くのダメージを与えます (+{2})
-Proxy/&ProxyFaithfulHoundDescription=ヒット時に4d8の貫通ダメージを与える忠実な猟犬。
 Proxy/&ProxyFaithfulHoundTitle=モルデンカイネンの忠実な猟犬
 Spell/&AuraOfPerseveranceDescription=浄化のエネルギーがあなたから半径 30 フィートのオーラとして放射されます。呪文が終わるまで、オーラはあなたを中心としてあなたと一緒に移動します。あなたを含め、オーラ内の非敵対的なクリーチャーは病気になることがなく、毒ダメージに対する耐性があり、次の状態のいずれかを引き起こす効果に対してセーヴィング スローで有利になります: 盲目、魅惑、聴覚障害、恐怖、麻痺、毒を盛られて気絶した。
 Spell/&AuraOfPerseveranceTitle=純粋さのオーラ

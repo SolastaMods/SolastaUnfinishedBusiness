@@ -3,7 +3,7 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 24,
+    "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
@@ -31,13 +31,13 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "All",
-    "durationType": "Minute",
-    "durationParameter": 1,
+    "durationType": "Round",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Constitution",
-    "ignoreCover": true,
+    "savingThrowAbility": "Dexterity",
+    "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
@@ -72,19 +72,19 @@
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
-        "savingThrowAffinity": "HalfDamage",
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 4,
+          "diceNumber": 1,
           "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
-          "damageType": "DamageRadiant",
+          "damageType": "DamageFire",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
@@ -95,43 +95,16 @@
         },
         "hasFilterId": false,
         "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
-        "dcModifier": 0,
-        "canSaveToCancel": true,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBlinded",
-          "conditionDefinition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
       }
     ],
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "CasterLevelTable",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 1,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -150,7 +123,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3cff2b6f11a2cd649b3fb3fb2c402351",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -186,7 +159,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6937e1207989e6644ad591240a0bb88c",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -198,7 +171,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "5cdd6944009a9f14eae5a1f5e9bc0a82",
+        "m_AssetGUID": "e446eddf529bfc94c9b972fc384b9986",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -284,19 +257,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a1709422dd78d964e9dbef20ad79c3d3",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2fb59c86519dd104a8b75863927aea9a",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "48d43d702483f604685b7401f56dc4d7",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -327,7 +300,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -362,12 +335,12 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerHolyWeaponTitle",
-    "description": "Feature/&PowerHolyWeaponDescription",
+    "hidden": true,
+    "title": "Feature/&PowerCreateBonfireDamageTitle",
+    "description": "Feature/&PowerCreateBonfireDamageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "fce89a39-76c3-5d2a-8b88-33e80cc88a44",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -384,7 +357,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "998ab674-743b-5200-b721-4e4a915a38d8",
+  "guid": "b7c2435b-6087-5c17-a46b-e970baee8a07",
   "contentPack": 9999,
-  "name": "PowerHolyWeapon"
+  "name": "PowerCreateBonfireDamage"
 }

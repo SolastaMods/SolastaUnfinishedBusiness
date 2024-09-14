@@ -37,7 +37,6 @@ Feedback/&AdditionalDamageElementalBaneFormat=Maldição Elemental!
 Feedback/&AdditionalDamageElementalBaneLine=Elemental Bane causa dano extra!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Golpe Escalonante!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} causa mais dano a {1} por meio de um golpe impressionante (+{2})
-Proxy/&ProxyFaithfulHoundDescription=Cão Fiel que causa 4d8 de dano perfurante ao acertar.
 Proxy/&ProxyFaithfulHoundTitle=O fiel cão de caça de Mordenkainen
 Spell/&AuraOfPerseveranceDescription=Energia purificadora irradia de você em uma aura com um raio de 30 pés. Até que a magia termine, a aura se move com você, centralizada em você. Cada criatura não hostil na aura, incluindo você, não pode ficar doente, tem resistência a dano de veneno e tem vantagem em testes de resistência contra efeitos que causam qualquer uma das seguintes condições: cego, encantado, surdo, assustado, paralisado, envenenado e atordoado.
 Spell/&AuraOfPerseveranceTitle=Aura de Pureza

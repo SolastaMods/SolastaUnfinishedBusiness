@@ -37,7 +37,6 @@ Feedback/&AdditionalDamageElementalBaneFormat=엘리멘탈 베인!
 Feedback/&AdditionalDamageElementalBaneLine=원소의 베인은 추가로 의 피해를 입힙니다!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=스태킹 스마이트!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0}는 엄청난 강타(+{2})를 통해 {1}에 더 많은 피해를 입힙니다.
-Proxy/&ProxyFaithfulHoundDescription=적중 시 4d8의 관통 피해를 주는 충실한 사냥개입니다.
 Proxy/&ProxyFaithfulHoundTitle=모덴카이넨의 충실한 사냥개
 Spell/&AuraOfPerseveranceDescription=정화 에너지는 반경 30피트의 오라로 당신에게서 방출됩니다. 주문이 끝날 때까지 오라는 당신을 중심으로 당신과 함께 움직입니다. 당신을 포함하여 오라에 있는 적대적이지 않은 각 생물은 질병에 걸릴 수 없으며, 독 피해에 대한 저항력을 갖고 있으며, 다음 조건 중 하나를 유발하는 효과에 대한 내성 굴림에 이점이 있습니다. 중독되어 기절했습니다.
 Spell/&AuraOfPerseveranceTitle=순수의 오라

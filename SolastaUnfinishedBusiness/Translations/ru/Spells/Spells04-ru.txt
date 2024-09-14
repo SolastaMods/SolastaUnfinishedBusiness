@@ -37,7 +37,6 @@ Feedback/&AdditionalDamageElementalBaneFormat=Проклятье стихий!
 Feedback/&AdditionalDamageElementalBaneLine=Проклятье стихий наносит дополнительный урон!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Оглушающая кара!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} наносит больше урона {1} с помощью оглушающей кары (+{2})
-Proxy/&ProxyFaithfulHoundDescription=Верный пёс, который наносит 4d8 колющего урона при попадании.
 Proxy/&ProxyFaithfulHoundTitle=Верный пёс Морденкайнена
 Spell/&AuraOfPerseveranceDescription=От вас исходит очищающая аура с радиусом 30 футов. Пока заклинание активно, аура перемещается вместе с вами, оставаясь с центром на вас. Все невраждебные существа в ауре, включая вас, не могут заболеть, имеют сопротивление урону ядом и совершают с преимуществом спасброски от эффектов, вызывающих следующие состояния: глухота, испуг, ослепление, отравление, очарование, ошеломление и паралич.
 Spell/&AuraOfPerseveranceTitle=Аура очищения

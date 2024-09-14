@@ -37,7 +37,6 @@ Feedback/&AdditionalDamageElementalBaneFormat=¡Perdición elemental!
 Feedback/&AdditionalDamageElementalBaneLine=¡Elemental Bane inflige daño adicional!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=¡Golpe asombroso!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} inflige más daño a {1} a través de un golpe tambaleante (+{2})
-Proxy/&ProxyFaithfulHoundDescription=Perro fiel que inflige 4d8 de daño perforante al impactar.
 Proxy/&ProxyFaithfulHoundTitle=El fiel perro de Mordenkainen
 Spell/&AuraOfPerseveranceDescription=La energía purificadora irradia desde ti en un aura con un radio de 30 pies. Hasta que el conjuro termine, el aura se mueve contigo, centrada en ti. Ninguna criatura no hostil en el aura, incluido tú, puede enfermarse, tiene resistencia al daño por veneno y tiene ventaja en las tiradas de salvación contra efectos que causen cualquiera de las siguientes condiciones: cegado, encantado, ensordecido, asustado, paralizado, envenenado y aturdido.
 Spell/&AuraOfPerseveranceTitle=Aura de pureza

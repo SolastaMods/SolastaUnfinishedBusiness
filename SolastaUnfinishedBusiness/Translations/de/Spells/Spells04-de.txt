@@ -37,7 +37,6 @@ Feedback/&AdditionalDamageElementalBaneFormat=Elementarer Fluch!
 Feedback/&AdditionalDamageElementalBaneLine=Elemental Bane verursacht zusätzlichen Schaden!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Atemberaubender Schlag!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} fügt {1} durch einen atemberaubenden Schlag mehr Schaden zu (+{2})
-Proxy/&ProxyFaithfulHoundDescription=Treuer Hund, der bei einem Treffer 4W8 Stichschaden verursacht.
 Proxy/&ProxyFaithfulHoundTitle=Mordenkainens treuer Hund
 Spell/&AuraOfPerseveranceDescription=Reinigende Energie strahlt von dir in einer Aura mit einem Radius von 9 Metern aus. Bis der Zauber endet, bewegt sich die Aura mit dir, auf dich zentriert. Jede nicht feindliche Kreatur in der Aura, dich eingeschlossen, kann nicht erkranken, ist resistent gegen Giftschäden und hat einen Vorteil bei Rettungswürfen gegen Effekte, die einen der folgenden Zustände verursachen: geblendet, bezaubert, taub, verängstigt, gelähmt, vergiftet und betäubt.
 Spell/&AuraOfPerseveranceTitle=Aura der Reinheit
