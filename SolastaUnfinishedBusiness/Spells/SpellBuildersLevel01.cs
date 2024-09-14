@@ -1283,7 +1283,6 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetSpecialDuration()
             .SetBrain(packageApproach, forceBehavior: true, fearSource: true)
-            .SetFeatures(MovementAffinityConditionDashing)
             .AddToDB();
 
         conditionApproach.AddCustomSubFeatures(new ActionFinishedByMeApproach(conditionApproach));
