@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders;
 using TA.AI;
 using TA.AI.Activities;
 using TA.AI.Considerations;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -58,10 +59,7 @@ internal static class AiContext
     private static ConsiderationDefinition CreateConsiderationDefinition(
         string name, ConsiderationDescription consideration)
     {
-        var baseDescription =
-            FixesContext.DecisionMoveAfraid.Decision.Scorer.WeightedConsiderations[0].ConsiderationDefinition;
-
-        var result = Object.Instantiate(baseDescription);
+        var result = ScriptableObject.CreateInstance<ConsiderationDefinition>();
 
         result.name = name;
         result.consideration = consideration;
@@ -72,12 +70,9 @@ internal static class AiContext
     private static WeightedConsiderationDescription GetWeightedConsiderationDescriptionByDecisionAndConsideration(
         DecisionDefinition decisionDefinition, string considerationType)
     {
-        var weightedConsiderationDescription =
-            decisionDefinition.Decision.Scorer.WeightedConsiderations
-                .FirstOrDefault(y => y.ConsiderationDefinition.Consideration.considerationType == considerationType)
-            ?? throw new Exception();
-
-        return weightedConsiderationDescription;
+        return decisionDefinition.Decision.Scorer.WeightedConsiderations
+                   .FirstOrDefault(y => y.ConsiderationDefinition.Consideration.considerationType == considerationType)
+               ?? throw new Exception();
     }
 
     internal static DecisionPackageDefinition BuildDecisionPackageBreakFree(string conditionName)
