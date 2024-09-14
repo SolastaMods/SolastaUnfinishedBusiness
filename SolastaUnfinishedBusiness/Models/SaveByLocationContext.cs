@@ -33,9 +33,6 @@ internal static class SaveByLocationContext
 
     internal static CustomDropDown Dropdown { get; private set; }
 
-    //TODO: is this still used?
-    internal static bool UseLightEnumeration { get; private set; }
-
     private static List<SavePlace> GetAllSavePlaces()
     {
         // Find the most recently touched save file and select the correct location/campaign for that save
@@ -222,7 +219,7 @@ internal static class SaveByLocationContext
                 LocationType = place.Type,
                 text = GetTitle(place.Type, place.Name),
                 Title = place.Name,
-                TooltipContent = $"{place.Count} save{(place.Count == 1 ? "" : "s")}",
+                TooltipContent = $"{place.Count} save{(place.Count == 1 ? "" : "s")}"
             };
         }
 
