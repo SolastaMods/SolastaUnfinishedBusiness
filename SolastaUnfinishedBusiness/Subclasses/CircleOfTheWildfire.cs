@@ -38,6 +38,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         .Create(EffectProxyDefinitions.ProxyDancingLights, $"Proxy{Name}CauterizingFlames")
         .SetOrUpdateGuiPresentation($"Power{Name}SummonCauterizingFlames", Category.Feature)
         .SetCanMove(false, false)
+        .SetAdditionalFeatures()
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerCauterizingFlames =
