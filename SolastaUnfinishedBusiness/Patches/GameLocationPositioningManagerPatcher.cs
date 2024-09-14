@@ -6,7 +6,6 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Models;
 using TA;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -30,19 +29,6 @@ public static class GameLocationPositioningManagerPatcher
 
             return instructions.ReplaceCalls(logErrorMethod, "GameLocationPositioningManager.CharacterMoved",
                 new CodeInstruction(OpCodes.Pop));
-        }
-    }
-
-    //PATH: Fire monsters should emit light
-    [HarmonyPatch(typeof(GameLocationCharacterManager), nameof(GameLocationCharacterManager.RevealCharacter))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class RevealCharacter_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(GameLocationCharacter character)
-        {
-            SrdAndHouseRulesContext.AddLightSourceIfNeeded(character);
         }
     }
 }
