@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -192,8 +196,35 @@ internal static partial class SpellBuilders
     {
         const string NAME = "GravityFissure";
 
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeForce, 8, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                            .Build())
+                    .SetParticleEffectParameters(GravitySlam)
+                    .SetImpactEffectParameters(ArcaneSword)
+                    .Build())
+            .AddToDB();
+
         var spell = SpellDefinitionBuilder
-            .Create($"{NAME}HigherPlane")
+            .Create($"{NAME}")
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.GravityFissure, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(6)
@@ -215,11 +246,96 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeForce, 8, DieType.D8)
                             .Build())
+                    .SetParticleEffectParameters(GravitySlam)
+                    .SetImpactEffectParameters(ArcaneSword)
                     .Build())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeGravityFissure(power))
             .AddToDB();
 
 
         return spell;
+    }
+
+    private sealed class PowerOrSpellFinishedByMeGravityFissure(FeatureDefinitionPower powerDrag)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var placeholderPosition = new int3(800, 800, 800);
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var dummy = locationCharacterService.DummyCharacter;
+
+            // only non affected contenders
+            var contendersAndPositions =
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .Where(x =>
+                    x != actingCharacter &&
+                    !CharacterActionMagicEffectPatcher.AffectedFloorPositions.Contains(x.LocationPosition))
+                .ToDictionary(x => x, _ => new Container(placeholderPosition));
+
+            foreach (var contenderAndPosition in contendersAndPositions)
+            {
+                var contender = contenderAndPosition.Key;
+                var bestDragToPosition = contenderAndPosition.Value.Position;
+
+                foreach (var affectedFloorPosition in CharacterActionMagicEffectPatcher.CoveredFloorPositions)
+                {
+                    dummy.LocationPosition = affectedFloorPosition;
+
+                    if (!contender.IsWithinRange(dummy, 2))
+                    {
+                        continue;
+                    }
+
+                    var newDistance = DistanceCalculation.GetDistanceFromCharacters(contender, dummy);
+
+                    dummy.LocationPosition = bestDragToPosition;
+
+                    var currentDistance = DistanceCalculation.GetDistanceFromCharacters(contender, dummy);
+
+                    if (newDistance > currentDistance)
+                    {
+                        continue;
+                    }
+
+                    contenderAndPosition.Value.Position = affectedFloorPosition;
+                }
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerDrag, rulesetCharacter);
+
+            // drag each selected contender to the closest position
+            foreach (var actionParams in contendersAndPositions
+                         .Where(x => x.Value.Position != placeholderPosition)
+                         .Select(x => new CharacterActionParams(actingCharacter, Id.SpendPower)
+                         {
+                             RulesetEffect =
+                                 implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                             UsablePower = usablePower,
+                             TargetCharacters = { x.Key },
+                             Positions = { x.Value.Position }
+                         }))
+            {
+                actionService.ExecuteInstantSingleAction(actionParams);
+            }
+
+            yield break;
+        }
+
+        private sealed class Container
+        {
+            internal int3 Position;
+
+            internal Container(int3 position)
+            {
+                Position = position;
+            }
+        }
     }
 
     #endregion

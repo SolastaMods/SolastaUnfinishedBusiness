@@ -21,6 +21,9 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionMagicEffectPatcher
 {
+    internal static readonly List<int3> CoveredFloorPositions = [];
+    internal static readonly List<int3> AffectedFloorPositions = [];
+
     [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.MagicEffectExecuteOnPositions))]
     [UsedImplicitly]
     public static class MagicEffectExecuteOnPositions_Patch
@@ -577,6 +580,9 @@ public static class CharacterActionMagicEffectPatcher
                     actionParams.HasMagneticTargeting,
                     actingCharacter,
                     coveredPositions,
+                    CoveredFloorPositions,
+                    null,
+                    AffectedFloorPositions,
                     groundOnly: effectDescription.AffectOnlyGround);
             }
 
