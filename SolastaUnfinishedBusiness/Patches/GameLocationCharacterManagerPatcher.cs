@@ -32,6 +32,19 @@ public static class GameLocationCharacterManagerPatcher
             }
         }
     }
+    
+    //PATH: Fire monsters should emit light
+    [HarmonyPatch(typeof(GameLocationCharacterManager), nameof(GameLocationCharacterManager.RevealCharacter))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RevealCharacter_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(GameLocationCharacter character)
+        {
+            SrdAndHouseRulesContext.AddLightSourceIfNeeded(character);
+        }
+    }
 
     [HarmonyPatch(typeof(GameLocationCharacterManager),
         nameof(GameLocationCharacterManager.CreateAndBindEffectProxy))]
