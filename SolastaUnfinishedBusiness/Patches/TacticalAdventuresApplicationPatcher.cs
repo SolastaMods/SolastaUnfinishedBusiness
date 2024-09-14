@@ -24,7 +24,7 @@ public static class TacticalAdventuresApplicationPatcher
         if (Gui.GameCampaign?.campaignDefinition?.IsUserCampaign == true &&
             selectedCampaignService is { LocationType: LocationType.StandardCampaign })
         {
-            (__result, _) = GetMostRecent();
+            __result = GetMostRecentPlace().Path;
 
             return false;
         }
