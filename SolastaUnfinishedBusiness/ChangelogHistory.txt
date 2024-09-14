@@ -11,6 +11,7 @@
 - fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances save logic
 - fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe reaction consumption
 - fixed Circle of the Cosmos woe ability checks reaction not triggering
+- fixed Counter Spell not rolling a charisma attribute check
 - fixed Demonic Influence adding all location enemies to battle [VANILLA]
 - fixed Dwarven Fortitude, and Magical Guidance consuming a reaction
 - fixed Exploiter feat not checking for reactions from 2nd target onwards
