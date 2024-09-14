@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -80,6 +81,27 @@ public static class RulesetCharacterPatcher
         __instance.EnumerateFeaturesToBrowse<FeatureDefinitionRegeneration>(featuresToBrowse, featuresOrigin);
         featuresToBrowse.RemoveAll(x =>
             !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshSizeParams))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshSizeParams_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance)
+        {
+            //PATCH: fix medium creatures with height 60+ inches (elves, humans and orcs mostly) being considered 1 tile taller
+            CharacterSizeDefinition size = __instance.SizeDefinition;
+            //skip for non-medium creatures, since I didn't find any non-medium creatures that have this problem
+            if (size.Name != DatabaseHelper.CharacterSizeDefinitions.Medium.Name) { return; }
+
+            __instance.SizeParams = new RulesetActor.SizeParameters
+            {
+                minExtent = size.MinExtent,
+                maxExtent = size.MaxExtent
+            };
+        }
     }
 
     //PATCH: supports Prone condition to correctly interact with reach attacks
