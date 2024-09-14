@@ -88,6 +88,7 @@ internal static class FixesContext
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
         FixPaladinAurasDisplayOnActionBar();
+        ReportDashing();
 
         // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
@@ -657,6 +658,28 @@ internal static class FixesContext
                           x.Name.StartsWith("PowerPaladin"))))
         {
             power.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        }
+    }
+    
+    private static void ReportDashing()
+    {
+        Report(ConditionDefinitions.ConditionDashing);
+        Report(ConditionDefinitions.ConditionDashingAdditional);
+        Report(ConditionDefinitions.ConditionDashingAdditionalSwiftBlade);
+        Report(ConditionDefinitions.ConditionDashingBonus);
+        Report(ConditionDefinitions.ConditionDashingBonusAdditional);
+        Report(ConditionDefinitions.ConditionDashingBonusStepOfTheWind);
+        Report(ConditionDefinitions.ConditionDashingBonusSwiftBlade);
+        Report(ConditionDefinitions.ConditionDashingBonusSwiftSteps);
+        Report(ConditionDefinitions.ConditionDashingExpeditiousRetreat);
+        Report(ConditionDefinitions.ConditionDashingExpeditiousRetreatSwiftBlade);
+        return;
+
+        static void Report(ConditionDefinition condition)
+        {
+            condition.GuiPresentation.Title = "Screen/&DashModeTitle";
+            condition.GuiPresentation.hidden = false;
+            condition.silentWhenAdded = false;
         }
     }
 
