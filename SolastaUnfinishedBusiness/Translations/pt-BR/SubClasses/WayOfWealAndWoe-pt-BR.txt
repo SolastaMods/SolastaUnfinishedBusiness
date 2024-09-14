@@ -8,6 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=Depois de fazer uma jogada de ata
 Feature/&FeatureWayOfWealAndWoeWealTitle=Bem
 Feature/&FeatureWayOfWealAndWoeWoeDescription=Depois de fazer uma jogada de ataque com uma arma de monge ou um ataque desarmado e errar gravemente, você sofre dano igual a uma jogada do seu dado de artes marciais.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
-Feedback/&WoeReroll=Por causa de {1} {2} re-rola o dado de ataque de um {3} para um {4}
+Feedback/&WoeReroll=Por causa de {1} {0} re-rola o dado de ataque de um {2} para um {3}
 Subclass/&WayOfWealAndWoeDescription=Os monges do Caminho da Prosperidade e da Infelicidade concentram-se tanto na prosperidade quanto na adversidade para enfrentar seus inimigos na batalha.
 Subclass/&WayOfWealAndWoeTitle=Caminho da prosperidade e da desgraça

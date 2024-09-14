@@ -8,6 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=수도사 무기나 비무장 공
 Feature/&FeatureWayOfWealAndWoeWealTitle=복리
 Feature/&FeatureWayOfWealAndWoeWoeDescription=수도사 무기나 비무장 공격으로 공격 굴림을 하고 치명타 피해를 입은 후에는 무술 주사위 굴림 1개에 해당하는 피해를 입습니다.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
-Feedback/&WoeReroll={1} 때문에 {2} 공격 굴림 주사위를 {3}에서 {4}로 다시 굴립니다.
+Feedback/&WoeReroll={1} {0} 때문에 공격 굴림 주사위를 {2}에서 {3}으로 다시 굴립니다.
 Subclass/&WayOfWealAndWoeDescription=복과 비의 길의 승려들은 번영과 역경 모두에 초점을 맞춰 적과 전투를 벌입니다.
 Subclass/&WayOfWealAndWoeTitle=행복과 비애의 길

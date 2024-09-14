@@ -8,6 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=После того, как вы 
 Feature/&FeatureWayOfWealAndWoeWealTitle=Благо
 Feature/&FeatureWayOfWealAndWoeWoeDescription=После того, как вы совершаете бросок атаки оружием монаха или безоружной атаки и критически промахиваетесь, вы получаете урон, равный одному броску вашей кости боевых искусств.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Горе
-Feedback/&WoeReroll=Из-за {1} {2} перебрасывает кость броска атаки с {3} на {4}
+Feedback/&WoeReroll=Из-за {1} {0} перебрасывает кость броска атаки с {2} на {3}
 Subclass/&WayOfWealAndWoeDescription=Монахи Пути блага и горя сосредотачиваются как на процветании, так и на невзгодах, чтобы вовлечь своих врагов в битву.
 Subclass/&WayOfWealAndWoeTitle=Путь блага и горя

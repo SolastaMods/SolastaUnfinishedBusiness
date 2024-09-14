@@ -8,6 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=Après avoir effectué un jet d'a
 Feature/&FeatureWayOfWealAndWoeWealTitle=Bonheur
 Feature/&FeatureWayOfWealAndWoeWoeDescription=Après avoir effectué un jet d'attaque avec une arme de moine ou une attaque à mains nues et avoir échoué de manière critique, vous subissez des dégâts égaux à un jet de votre dé d'arts martiaux.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
-Feedback/&WoeReroll=À cause de {1}, {2} relance le dé d'attaque de {3} à {4}
+Feedback/&WoeReroll=À cause de {1}, {0} relance le dé d'attaque de {2} à {3}
 Subclass/&WayOfWealAndWoeDescription=Les moines de la Voie du Bien et du Malheur se concentrent à la fois sur la prospérité et l'adversité pour engager leurs ennemis dans la bataille.
 Subclass/&WayOfWealAndWoeTitle=La voie du bonheur et du malheur

@@ -171,7 +171,6 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             }
 
             rulesetCharacter.LogCharacterUsedFeature(featureWeal, "Feedback/&WoeReroll", false,
-                (ConsoleStyleDuplet.ParameterType.Player, rulesetCharacter.Name),
                 (ConsoleStyleDuplet.ParameterType.SuccessfulRoll, result.ToString()),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, 1.ToString()));
 
