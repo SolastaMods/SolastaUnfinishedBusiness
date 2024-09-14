@@ -2092,11 +2092,8 @@ internal static partial class SpellBuilders
             {
                 var slotUsed = actionParams.IntParameter;
 
-                if (!Global.IsMultiplayer)
-                {
-                    EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Caster);
-                    EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Effect);
-                }
+                EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Effect);
 
                 foreach (var condition in resistanceDamageTypes
                              .Select(damageType =>
