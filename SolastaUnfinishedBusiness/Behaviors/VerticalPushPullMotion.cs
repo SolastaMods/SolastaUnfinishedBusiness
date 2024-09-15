@@ -19,15 +19,23 @@ internal static class VerticalPushPullMotion
         bool reverse,
         IGameLocationPositioningService positioningService,
         ref int3 destination,
-        ref Vector3 step)
+        ref Vector3 direction)
     {
         var targetCenter = new Vector3();
         positioningService.ComputeGravityCenterPosition(target, ref targetCenter);
-        var direction = targetCenter - sourceCenter;
-        if (reverse) { direction = -direction; }
+        direction = targetCenter - sourceCenter;
+        if (reverse)
+        {
+            direction = -direction;
+            var b = ((int)direction.Manhattan()) - 1;
+            distance = distance <= 0 ? b : Mathf.Min(distance, b);
+        }
+        else
+        {
+            distance = Mathf.Max(1, distance);
+        }
 
-        distance = Mathf.Max(1, distance);
-        step = direction.normalized;
+        direction = direction.normalized;
         destination = target.LocationPosition;
         var position = target.LocationPosition;
         var delta = new Vector3();
@@ -35,7 +43,7 @@ internal static class VerticalPushPullMotion
 
         for (var index = 0; index < distance; ++index)
         {
-            delta += step;
+            delta += direction;
 
             var sides = Step(delta, StepHigh);
             if (sides == int3.zero)
@@ -143,7 +151,7 @@ internal static class VerticalPushPullMotion
         }
 
         //Last attempt: zero on Y and one of X/Z axis
-        
+
         //Try zeroing X and Y axis
         if (delta.x < d)
         {
