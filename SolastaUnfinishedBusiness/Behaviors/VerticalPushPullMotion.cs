@@ -24,9 +24,17 @@ internal static class VerticalPushPullMotion
         var targetCenter = new Vector3();
         positioningService.ComputeGravityCenterPosition(target, ref targetCenter);
         var direction = targetCenter - sourceCenter;
-        if (reverse) { direction = -direction; }
+        if (reverse)
+        {
+            direction = -direction;
+            var b = (int)Math.Max(Math.Max(Mathf.Abs(direction.x), Mathf.Abs(direction.y)), Mathf.Abs(direction.z));
+            distance = distance <= 0 ? b : Mathf.Min(distance, b);
+        }
+        else
+        {
+            distance = Mathf.Max(1, distance);
+        }
 
-        distance = Mathf.Max(1, distance);
         step = direction.normalized;
         destination = target.LocationPosition;
         var position = target.LocationPosition;
