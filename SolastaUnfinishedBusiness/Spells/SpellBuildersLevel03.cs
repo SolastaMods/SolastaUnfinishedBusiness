@@ -544,7 +544,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = mover.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
 
-            mover.MyExecuteActionSpendPower(usablePower, false, targets);
+            mover.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 
@@ -779,7 +779,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [.. _targets]);
+            attacker.MyExecuteActionSpendPower(usablePower, [.. _targets]);
         }
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1206,7 +1206,7 @@ internal static partial class SpellBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageAcid, rulesetCaster);
 
-            caster.MyExecuteActionSpendPower(usablePower, false, character);
+            caster.MyExecuteActionSpendPower(usablePower, character);
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter character)
@@ -1223,7 +1223,7 @@ internal static partial class SpellBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageCold, rulesetCaster);
 
-            caster.MyExecuteActionSpendPower(usablePower, false, character);
+            caster.MyExecuteActionSpendPower(usablePower, character);
         }
     }
 
@@ -1263,12 +1263,12 @@ internal static partial class SpellBuilders
             .SetFeatures(powerLightningArrowLeap)
             .AddToDB();
 
-        powerLightningArrowLeap.AddCustomSubFeatures(
-            new ModifyEffectDescriptionLightningArrowLeap(powerLightningArrowLeap, conditionLightningArrow));
-
         conditionLightningArrow.AddCustomSubFeatures(
             AddUsablePowersFromCondition.Marker,
             new CustomBehaviorLightningArrow(powerLightningArrowLeap, conditionLightningArrow));
+
+        powerLightningArrowLeap.AddCustomSubFeatures(
+            new ModifyEffectDescriptionLightningArrowLeap(powerLightningArrowLeap, conditionLightningArrow));
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
@@ -1296,10 +1296,8 @@ internal static partial class SpellBuilders
     }
 
     private sealed class ModifyEffectDescriptionLightningArrowLeap(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower featureDefinitionPower,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition)
+        ConditionDefinition conditionLightningArrow)
         : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -1313,12 +1311,10 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var glc = GameLocationCharacter.GetFromActor(character);
-
-            if (glc != null &&
-                glc.UsedSpecialFeatures.TryGetValue(conditionDefinition.Name, out var additionalDice))
+            if (character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionLightningArrow.Name, out var activeCondition))
             {
-                effectDescription.FindFirstDamageForm().diceNumber = 2 + additionalDice;
+                effectDescription.FindFirstDamageForm().diceNumber = 2 + activeCondition.EffectLevel;
             }
 
             return effectDescription;
@@ -1398,8 +1394,6 @@ internal static partial class SpellBuilders
             // keep a tab on additionalDice for leap power later on
             var additionalDice = activeCondition.EffectLevel - 3;
 
-            attacker.UsedSpecialFeatures.TryAdd(conditionLightningArrow.Name, additionalDice);
-
             rulesetAttacker.RemoveCondition(activeCondition);
 
             // half damage on target on a miss
@@ -1442,7 +1436,7 @@ internal static partial class SpellBuilders
                 .GetContenders(defender, isOppositeSide: false, withinRange: 2)
                 .ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 

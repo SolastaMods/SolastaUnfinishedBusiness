@@ -325,6 +325,8 @@ internal static class MetamagicBuilders
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
+        condition.AddCustomSubFeatures(new CustomBehaviorTransmuted(condition));
+
         var metamagic = MetamagicOptionDefinitionBuilder
             .Create(MetamagicTransmuted)
             .SetGuiPresentation(Category.Feature)
@@ -332,7 +334,7 @@ internal static class MetamagicBuilders
             .AddToDB();
 
         metamagic.AddCustomSubFeatures(
-            new MagicEffectBeforeHitConfirmedOnEnemyTransmuted(metamagic, condition, powerPool), validator);
+            new MagicEffectInitiatedByMeTransmuted(metamagic, condition, powerPool), validator);
 
         return metamagic;
     }
@@ -356,24 +358,21 @@ internal static class MetamagicBuilders
         result = false;
     }
 
-    private sealed class MagicEffectBeforeHitConfirmedOnEnemyTransmuted(
+    private sealed class MagicEffectInitiatedByMeTransmuted(
         MetamagicOptionDefinition metamagicOptionDefinition,
         ConditionDefinition condition,
-        FeatureDefinitionPower powerPool) : IMagicEffectBeforeHitConfirmedOnEnemy
+        FeatureDefinitionPower powerPool) : IMagicEffectInitiatedByMe
     {
-        private string _newDamageType;
+        private const string TransmutedDamage = "TransmutedDamage";
 
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
+        public IEnumerator OnMagicEffectInitiatedByMe(
+            CharacterAction action,
+            RulesetEffect activeEffect,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            List<GameLocationCharacter> targets)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetEffect = action.ActionParams.RulesetEffect;
 
             if (rulesetEffect.MetamagicOption != metamagicOptionDefinition &&
                 rulesetAttacker.SpellsCastByMe
@@ -382,12 +381,7 @@ internal static class MetamagicBuilders
                 yield break;
             }
 
-            if (rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name))
-            {
-                yield break;
-            }
-
-            rulesetAttacker.InflictCondition(
+            var activeCondition = rulesetAttacker.InflictCondition(
                 condition.Name,
                 DurationType.Round,
                 0,
@@ -405,35 +399,76 @@ internal static class MetamagicBuilders
 
             yield return attacker.MyReactToSpendPowerBundle(
                 usablePower,
-                [defender],
+                [attacker],
                 attacker,
                 MetamagicTransmuted,
                 string.Empty,
                 ReactionValidated,
-                ReactionNotValidated,
-                battleManager);
+                ReactionNotValidated);
 
             yield break;
 
             void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                var option = reactionRequest.SelectedSubOption;
-
-                _newDamageType = TransmutedDamageTypes[option];
-
-                foreach (var effectForm in actualEffectForms
-                             .Where(x =>
-                                 x.FormType == EffectForm.EffectFormType.Damage &&
-                                 TransmutedDamageTypes.Contains(x.DamageForm.DamageType)))
-                {
-                    effectForm.DamageForm.damageType = _newDamageType;
-                }
+                attacker.SetSpecialFeatureUses(TransmutedDamage, reactionRequest.SelectedSubOption);
             }
 
             void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
+                attacker.SetSpecialFeatureUses(TransmutedDamage, -1);
+                rulesetAttacker.RemoveCondition(activeCondition);
                 rulesetAttacker.SpendSorceryPoints(-1);
             }
+        }
+    }
+
+    private sealed class CustomBehaviorTransmuted(ConditionDefinition condition)
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
+    {
+        private const string TransmutedDamage = "TransmutedDamage";
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var option = attacker.GetSpecialFeatureUses(TransmutedDamage);
+
+            if (option < 0)
+            {
+                yield break;
+            }
+
+            var newDamageType = TransmutedDamageTypes[option];
+
+            foreach (var effectForm in actualEffectForms
+                         .Where(x =>
+                             x.FormType == EffectForm.EffectFormType.Damage &&
+                             TransmutedDamageTypes.Contains(x.DamageForm.DamageType)))
+            {
+                effectForm.DamageForm.damageType = newDamageType;
+            }
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name,
+                    out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetAttacker.RemoveCondition(activeCondition);
         }
     }
 

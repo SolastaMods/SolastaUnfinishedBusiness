@@ -29,6 +29,6 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
         var usablePower = PowerProvider.Get(StopPower, character);
 
-        locationCharacter.MyExecuteActionSpendPower(usablePower, true, locationCharacter);
+        locationCharacter.MyExecuteActionSpendPower(usablePower, locationCharacter);
     }
 }

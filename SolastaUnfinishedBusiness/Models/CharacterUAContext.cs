@@ -1623,7 +1623,7 @@ internal static partial class CharacterContext
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerKnockOutApply, rulesetAttacker);
 
-            attacker.MyExecuteActionSpendPower(usablePower, false, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
 

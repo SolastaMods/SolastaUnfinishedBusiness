@@ -176,7 +176,6 @@ public sealed class CollegeOfElegance : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionAmazingDisplay, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetCasterEffectParameters(PowerOathOfDevotionTurnUnholy)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
@@ -384,7 +383,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
             var usablePowerEnemy = PowerProvider.Get(powerAmazingDisplayEnemy, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePowerEnemy, [.. targets]);
+            attacker.MyExecuteActionSpendPower(usablePowerEnemy, [.. targets]);
         }
     }
 }

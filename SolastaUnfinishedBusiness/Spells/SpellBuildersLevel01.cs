@@ -1760,7 +1760,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                        EffectDifficultyClassComputation.FixedValue)
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1817,7 +1817,10 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            effectDescription.FindFirstDamageForm().DiceNumber = 2 + (PowerOrSpellFinishedByMeIceBlade.EffectLevel - 1);
+            if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
+            {
+                effectDescription.FindFirstDamageForm().DiceNumber = 2 + (rulesetEffectPower.usablePower.saveDC - 1);
+            }
 
             return effectDescription;
         }
@@ -1826,8 +1829,6 @@ internal static partial class SpellBuilders
     private sealed class PowerOrSpellFinishedByMeIceBlade(FeatureDefinitionPower powerIceBlade)
         : IPowerOrSpellFinishedByMe
     {
-        internal static int EffectLevel;
-
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
@@ -1842,23 +1843,19 @@ internal static partial class SpellBuilders
 
             var caster = actionCastSpell.ActingCharacter;
             var rulesetCaster = caster.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerIceBlade, rulesetCaster);
 
-            EffectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
+            usablePower.saveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
 
             // need to loop over target characters to support twinned metamagic scenarios
-            foreach (var target in actionCastSpell.ActionParams.TargetCharacters)
+            foreach (var targets in actionCastSpell.ActionParams.TargetCharacters
+                         .Select(target => Gui.Battle.AllContenders
+                             .Where(x =>
+                                 x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                                 x.IsWithinRange(target, 1))
+                             .ToArray()))
             {
-                var targets = Gui.Battle.AllContenders
-                    .Where(x =>
-                        x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                        x.IsWithinRange(target, 1))
-                    .ToArray();
-
-                var usablePower = PowerProvider.Get(powerIceBlade, rulesetCaster);
-
-                usablePower.saveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
-
-                caster.MyExecuteActionPowerNoCost(usablePower, targets);
+                caster.MyExecuteActionSpendPower(usablePower, targets);
             }
         }
     }
@@ -2819,7 +2816,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 

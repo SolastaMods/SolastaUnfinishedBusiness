@@ -993,7 +993,7 @@ internal static partial class SpellBuilders
             var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
             var usablePower = PowerProvider.Get(powerBoomingBladeDamage, rulesetAttacker);
 
-            attacker.MyExecuteActionSpendPower(usablePower, false, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
 
@@ -1200,7 +1200,7 @@ internal static partial class SpellBuilders
         var source = GameLocationCharacter.GetFromActor(rulesetSource);
         var usablePower = PowerProvider.Get(PowerCreateBonfireDamage, rulesetSource);
 
-        source.MyExecuteActionSpendPower(usablePower, false, character);
+        source.MyExecuteActionSpendPower(usablePower, character);
     }
 
     #endregion
@@ -1404,7 +1404,7 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerResonatingStrikeDamage, rulesetAttacker);
 
-            attacker.MyExecuteActionSpendPower(usablePower, false, secondDefender);
+            attacker.MyExecuteActionSpendPower(usablePower, secondDefender);
         }
     }
 

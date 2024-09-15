@@ -2526,7 +2526,7 @@ internal static class OtherFeats
 
         var usablePower = PowerProvider.Get(PowerFeatPoisonousSkin, rulesetMe);
 
-        me.MyExecuteActionSpendPower(usablePower, false, target);
+        me.MyExecuteActionSpendPower(usablePower, target);
     }
 
     //Poison character that shoves me
@@ -2847,7 +2847,7 @@ internal static class OtherFeats
                         withinRange: distance)
                     .ToArray();
 
-            attacker.MyExecuteActionSpendPower(usablePower, false, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(

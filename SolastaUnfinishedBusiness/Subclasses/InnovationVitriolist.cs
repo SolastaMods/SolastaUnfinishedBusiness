@@ -616,7 +616,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerVitriolicInfusion, rulesetAttacker);
 
-            attacker.MyExecuteActionSpendPower(usablePower, false, [.. targets]);
+            attacker.MyExecuteActionSpendPower(usablePower, [.. targets]);
         }
     }
 }

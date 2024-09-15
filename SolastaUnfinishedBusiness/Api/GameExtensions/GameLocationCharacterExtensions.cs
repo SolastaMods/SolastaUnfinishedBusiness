@@ -75,9 +75,7 @@ public static class GameLocationCharacterExtensions
     }
 
     internal static void MyExecuteActionPowerNoCost(
-        this GameLocationCharacter character,
-        RulesetUsablePower usablePower,
-        params GameLocationCharacter[] targets)
+        this GameLocationCharacter character, RulesetUsablePower usablePower, params GameLocationCharacter[] targets)
     {
         var actionModifiers = GetActionModifiers(targets.Length);
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -88,17 +86,15 @@ public static class GameLocationCharacterExtensions
             ActionModifiers = actionModifiers,
             RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = [.. targets]
+            targetCharacters = [.. targets],
+            SkipAnimationsAndVFX = true
         };
 
         actionService.ExecuteAction(actionParams, null, true);
     }
 
     internal static void MyExecuteActionSpendPower(
-        this GameLocationCharacter character,
-        RulesetUsablePower usablePower,
-        bool skipAnimationAndVFX = false,
-        params GameLocationCharacter[] targets)
+        this GameLocationCharacter character, RulesetUsablePower usablePower, params GameLocationCharacter[] targets)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
@@ -109,7 +105,7 @@ public static class GameLocationCharacterExtensions
             RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
             targetCharacters = [.. targets],
-            SkipAnimationsAndVFX = skipAnimationAndVFX
+            SkipAnimationsAndVFX = true
         };
 
         actionService.ExecuteInstantSingleAction(actionParams);
@@ -307,7 +303,8 @@ public static class GameLocationCharacterExtensions
             StringParameter2 = stringParameter2,
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
-            UsablePower = usablePower
+            UsablePower = usablePower,
+            SkipAnimationsAndVFX = true
         };
 
         actionService.ReactToSpendPower(actionParams);
@@ -351,7 +348,8 @@ public static class GameLocationCharacterExtensions
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets
+            targetCharacters = targets,
+            SkipAnimationsAndVFX = true
         };
         var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
 
@@ -813,7 +811,7 @@ public static class GameLocationCharacterExtensions
 
         var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
 
-        instance.MyExecuteActionSpendPower(usablePower, true, instance);
+        instance.MyExecuteActionSpendPower(usablePower, instance);
     }
 
     internal static int GetAllowedMainAttacks(this GameLocationCharacter instance)

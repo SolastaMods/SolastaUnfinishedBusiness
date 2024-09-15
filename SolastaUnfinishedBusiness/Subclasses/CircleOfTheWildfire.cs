@@ -544,7 +544,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         : PowerCauterizingFlamesHeal,
                     rulesetSource);
 
-                source.MyExecuteActionSpendPower(usablePower, false, character);
+                source.MyExecuteActionSpendPower(usablePower, character);
             }
         }
     }
@@ -638,7 +638,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     // Summon Spirit
     //
 
-    private sealed class PowerOrSpellFinishedByMeSummonSpirit(FeatureDefinitionPower powerSummonSpirit)
+    private sealed class PowerOrSpellFinishedByMeSummonSpirit(FeatureDefinitionPower powerSummonSpiritDamage)
         : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -646,7 +646,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerSummonSpirit, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerSummonSpiritDamage, rulesetAttacker);
             var spirit = GetMySpirit(attacker.Guid);
             var contenders =
                 Gui.Battle?.AllContenders ??
@@ -658,7 +658,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     spirit.IsWithinRange(x, 2))
                 .ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
 
             yield break;
         }
@@ -707,7 +707,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [.. _targets]);
+            attacker.MyExecuteActionSpendPower(usablePower, [.. _targets]);
 
             yield break;
         }

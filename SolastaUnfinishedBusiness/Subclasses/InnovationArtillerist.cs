@@ -1071,7 +1071,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     x.IsWithinRange(selectedTarget, 4))
                 .ToArray();
 
-            selectedTarget.MyExecuteActionPowerNoCost(usablePower, targets);
+            selectedTarget.MyExecuteActionSpendPower(usablePower, targets);
 
             yield break;
         }

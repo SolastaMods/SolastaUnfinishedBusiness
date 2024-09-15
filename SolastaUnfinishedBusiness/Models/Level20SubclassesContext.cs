@@ -1514,7 +1514,7 @@ internal static class Level20SubclassesContext
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
 
-            actingCharacter.MyExecuteActionSpendPower(usablePower, false, actingCharacter);
+            actingCharacter.MyExecuteActionSpendPower(usablePower, actingCharacter);
 
             yield break;
         }
@@ -1990,7 +1990,7 @@ internal static class Level20SubclassesContext
             {
                 var usablePower = PowerProvider.Get(powerQuiveringPalmDamage, rulesetAttacker);
 
-                attacker.MyExecuteActionSpendPower(usablePower, false, target);
+                attacker.MyExecuteActionSpendPower(usablePower, target);
 
                 yield break;
             }
