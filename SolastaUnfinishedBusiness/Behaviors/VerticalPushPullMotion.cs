@@ -1,5 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using TA;
 using UnityEngine;
 using static CellFlags;
@@ -74,9 +74,10 @@ internal static class VerticalPushPullMotion
 
         //TODO: remove after testing
 #if DEBUG
+        var applied = (target.LocationPosition - destination).Manhattan();
         var dir = reverse ? "Pull" : "Push";
         Main.Log(
-            $"{dir} [{target.Name}] {distance}\u25ce applied: {result}, source: {sourceCenter}, target: {targetCenter}, destination: {destination}",
+            $"{dir}:{distance}\u25ce [{target.Name}]  moved: {applied}\u25ce, source: {sourceCenter}, target: {targetCenter}, destination: {destination}",
             true);
 #endif
 
@@ -90,7 +91,7 @@ internal static class VerticalPushPullMotion
         {
             return sides;
         }
-        
+
         //TODO: should this have a setting, or always allow sliding?
         //Full motion didn't succeed, try sliding
         //try zeroing each direction and pick passing one with shortest zeroed delta
