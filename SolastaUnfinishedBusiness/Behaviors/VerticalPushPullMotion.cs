@@ -114,7 +114,6 @@ internal static class VerticalPushPullMotion
             tmp = new int3(0, sides.y, sides.z);
             if (tmp != int3.zero && CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
             {
-                // ReSharper disable once RedundantAssignment
                 d = delta.x;
                 slide = tmp;
             }
@@ -126,7 +125,6 @@ internal static class VerticalPushPullMotion
             tmp = new int3(sides.x, 0, sides.z);
             if (tmp != int3.zero && CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
             {
-                // ReSharper disable once RedundantAssignment
                 d = delta.y;
                 slide = tmp;
             }
@@ -138,7 +136,6 @@ internal static class VerticalPushPullMotion
             tmp = new int3(sides.x, sides.y, 0);
             if (tmp != int3.zero && CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
             {
-                // ReSharper disable once RedundantAssignment
                 d = delta.z;
                 slide = tmp;
             }
@@ -158,23 +155,28 @@ internal static class VerticalPushPullMotion
             tmp = new int3(0, 0, sides.z);
             if (CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
             {
-                // ReSharper disable once RedundantAssignment
                 d = delta.x;
                 slide = tmp;
             }
         }
 
         //Try zeroing Y and Z axis
-        if (delta.z < d)
+        if (delta.z >= d)
         {
-            tmp = new int3(sides.x, 0, 0);
-            if (CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
-            {
-                // ReSharper disable once RedundantAssignment
-                d = delta.z;
-                slide = tmp;
-            }
+            return slide;
         }
+
+        tmp = new int3(sides.x, 0, 0);
+        if (!CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
+        {
+            return slide;
+        }
+
+#pragma warning disable IDE0059
+        // ReSharper disable once RedundantAssignment
+        d = delta.z;
+#pragma warning restore IDE0059
+        slide = tmp;
 
         return slide;
     }
