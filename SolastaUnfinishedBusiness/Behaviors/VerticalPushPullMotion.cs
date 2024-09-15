@@ -149,13 +149,11 @@ internal static class VerticalPushPullMotion
     private static bool CheckDirections(int3 sides, int3 position, bool canMoveThroughWalls,
         RulesetActor.SizeParameters size, IGameLocationPositioningService positioning)
     {
-        sides.y = -sides.y; //invert vertical direction before getting flags
         var surfaceSides = DirectionToAllSurfaceSides(sides);
-        sides.y = -sides.y; //return vertical direction to normal
 
         return AllSides
             .Where(side => (side & surfaceSides) != Side.None)
-            .All(side => positioning.CanCharacterMoveThroughSide(size, position + sides, side, canMoveThroughWalls));
+            .All(side => positioning.CanCharacterMoveThroughSide(size, position, side, canMoveThroughWalls));
     }
 
     private static int3 Step(Vector3 delta, double tolerance)
