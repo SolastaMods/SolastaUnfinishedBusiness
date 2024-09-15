@@ -31,7 +31,7 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "addLightSource": false,
+  "addLightSource": true,
   "lightSourceForm": {
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
