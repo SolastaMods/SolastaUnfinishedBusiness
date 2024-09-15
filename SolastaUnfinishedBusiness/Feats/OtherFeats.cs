@@ -2492,7 +2492,6 @@ internal static class OtherFeats
                 .Create()
                 .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                .ExcludeCaster()
                 .SetSavingThrowData(false,
                     AttributeDefinitions.Constitution, false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
@@ -2527,7 +2526,7 @@ internal static class OtherFeats
 
         var usablePower = PowerProvider.Get(PowerFeatPoisonousSkin, rulesetMe);
 
-        me.MyExecuteActionPowerNoCost(usablePower, target);
+        me.MyExecuteActionSpendPower(usablePower, false, target);
     }
 
     //Poison character that shoves me
@@ -2790,18 +2789,14 @@ internal static class OtherFeats
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Wisdom,
-                        true,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Strength, 8)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Strength, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
-                                ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFrightened, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -2852,7 +2847,7 @@ internal static class OtherFeats
                         withinRange: distance)
                     .ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, false, targets);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(

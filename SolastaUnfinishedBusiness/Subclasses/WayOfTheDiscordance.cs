@@ -427,7 +427,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, false, defender);
         }
     }
 

@@ -679,8 +679,8 @@ internal static partial class CharacterContext
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -1221,8 +1221,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1245,8 +1245,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1344,8 +1344,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1384,8 +1384,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1407,8 +1407,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1623,7 +1623,7 @@ internal static partial class CharacterContext
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerKnockOutApply, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, false, defender);
         }
     }
 
