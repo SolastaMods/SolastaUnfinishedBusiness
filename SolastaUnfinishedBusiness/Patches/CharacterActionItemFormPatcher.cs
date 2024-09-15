@@ -23,13 +23,20 @@ public static class CharacterActionItemFormPatcher
         {
             //PATCH: make caption on small form wrap, instead of truncating
             //TODO: do we need a setting to control this?
-            if (__instance.highSlotNumber == null)
+            TMP_Text tmpText;
+            if (__instance.highSlotNumber == null && (tmpText = __instance.captionLabel.tmpText) != null)
             {
-                var tmpText = __instance.captionLabel.tmpText;
-
                 tmpText.enableWordWrapping = true;
                 tmpText.alignment = TextAlignmentOptions.Bottom;
                 tmpText.overflowMode = TextOverflowModes.Overflow;
+            }
+
+            //PATCH: disable word wrapping for attack number
+            //useful when you have Spell Points enabled and have 100+ of them, not noticeable otherwise
+            var attacks = __instance.attacksNumberValue;
+            if (attacks != null && (tmpText = attacks.tmpText) != null)
+            {
+                tmpText.enableWordWrapping = false;
             }
 
             //PATCH: Get dynamic properties from forced attack

@@ -9,7 +9,6 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using static MetricsDefinitions;
@@ -357,13 +356,18 @@ internal static class MetamagicBuilders
         failure = "Failure/&FailureTransmutedSpell";
         result = false;
     }
+    private const string TransmutedDamage = "TransmutedDamage";
+
+    private static string TransmutedSpell(RulesetEffect effect)
+    {
+        return $"TransmutedSpell:{effect.Name}:{effect.Guid}";
+    }
 
     private sealed class MagicEffectInitiatedByMeTransmuted(
         MetamagicOptionDefinition metamagicOptionDefinition,
         ConditionDefinition condition,
         FeatureDefinitionPower powerPool) : IMagicEffectInitiatedByMe
     {
-        private const string TransmutedDamage = "TransmutedDamage";
 
         public IEnumerator OnMagicEffectInitiatedByMe(
             CharacterAction action,
@@ -403,30 +407,24 @@ internal static class MetamagicBuilders
                 attacker,
                 MetamagicTransmuted,
                 string.Empty,
-                ReactionValidated,
-                ReactionNotValidated);
-
-            yield break;
-
-            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
-            {
-                attacker.SetSpecialFeatureUses(TransmutedDamage, reactionRequest.SelectedSubOption);
-            }
-
-            void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
-            {
-                attacker.SetSpecialFeatureUses(TransmutedDamage, -1);
-                rulesetAttacker.RemoveCondition(activeCondition);
-                rulesetAttacker.SpendSorceryPoints(-1);
-            }
+                reactionRequest =>
+                {
+                    attacker.SetSpecialFeatureUses(TransmutedDamage, reactionRequest.SelectedSubOption);
+                    attacker.SetSpecialFeatureUses(TransmutedSpell(activeEffect), 1);
+                },
+                _ =>
+                {
+                    attacker.SetSpecialFeatureUses(TransmutedDamage, -1);
+                    attacker.SetSpecialFeatureUses(TransmutedSpell(activeEffect), -1);
+                    rulesetAttacker.RemoveCondition(activeCondition);
+                    rulesetAttacker.SpendSorceryPoints(-1);
+                });
         }
     }
 
     private sealed class CustomBehaviorTransmuted(ConditionDefinition condition)
         : IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
     {
-        private const string TransmutedDamage = "TransmutedDamage";
-
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -437,6 +435,11 @@ internal static class MetamagicBuilders
             bool firstTarget,
             bool criticalHit)
         {
+            if (attacker.GetSpecialFeatureUses(TransmutedSpell(rulesetEffect)) != 1)
+            {
+                yield break;
+            }
+
             var option = attacker.GetSpecialFeatureUses(TransmutedDamage);
 
             if (option < 0)
@@ -460,6 +463,14 @@ internal static class MetamagicBuilders
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
+            var transmutedSpell = TransmutedSpell(action.actionParams.activeEffect);
+            if (attacker.GetSpecialFeatureUses(transmutedSpell) != 1)
+            {
+                yield break;
+            }
+            
+            attacker.SetSpecialFeatureUses(transmutedSpell, -1);
+            
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!rulesetAttacker.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name,

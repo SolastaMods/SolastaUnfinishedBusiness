@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -8,17 +9,25 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReactionRequestWithResource
+internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReactionRequestWithResource,
+    IReactionRequestWithCallbacks
 {
     internal const string Name = "ReactionSpendPowerBundle";
     private readonly GuiCharacter _guiCharacter;
     private readonly FeatureDefinitionPower _masterPower;
     private readonly ActionModifier _modifier;
     private readonly GameLocationCharacter _target;
+    public Action<ReactionRequest> ReactionValidated { get; }
+    public Action<ReactionRequest> ReactionNotValidated { get; }
 
-    internal ReactionRequestSpendBundlePower([NotNull] CharacterActionParams reactionParams)
+    internal ReactionRequestSpendBundlePower([NotNull] CharacterActionParams reactionParams,
+        Action<ReactionRequestSpendBundlePower> reactionValidated = null,
+        Action<ReactionRequestSpendBundlePower> reactionNotValidated = null)
         : base(Name, reactionParams)
     {
+        ReactionValidated = ReactionRequestCallback.Transform(reactionValidated);
+        ReactionNotValidated = ReactionRequestCallback.Transform(reactionNotValidated);
+
         _target = reactionParams.TargetCharacters[0];
         _modifier = reactionParams.ActionModifiers.ElementAtOrDefault(0) ?? new ActionModifier();
         _guiCharacter = new GuiCharacter(reactionParams.ActingCharacter);
