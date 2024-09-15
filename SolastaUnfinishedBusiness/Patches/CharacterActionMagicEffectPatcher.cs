@@ -903,6 +903,18 @@ public static class CharacterActionMagicEffectPatcher
                     magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
             }
 
+            //PATCH: supports `IMagicEffectFinishedByMe` on metamagic
+            if (hero != null)
+            {
+                foreach (var magicEffectFinishedByMe in hero.TrainedMetamagicOptions
+                             .SelectMany(metamagic =>
+                                 metamagic.GetAllSubFeaturesOfType<IMagicEffectFinishedByMe>()))
+                {
+                    yield return
+                        magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
+                }
+            }
+
             //PATCH: support for `IMagicEffectFinishedOnMe`
             foreach (var target in targets)
             {
