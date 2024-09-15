@@ -170,10 +170,10 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                             .SetDamageForm()
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         powerDeathFromAbove.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new CustomBehaviorDeathFromAbove(
                 powerDeathFromAbove, conditionGiftOfTheWind, conditionGiftOfTheWindAttacked));
 
@@ -416,6 +416,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerDeathFromAbove, rulesetAttacker);
 
+            // death from above is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }

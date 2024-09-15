@@ -363,6 +363,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                             z.SourceGuid == rulesetAttacker.Guid))
                 .ToArray();
 
+            // eye of the storm leap is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }

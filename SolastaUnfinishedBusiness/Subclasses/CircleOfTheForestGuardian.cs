@@ -237,6 +237,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerImprovedBarkWardDamage, rulesetDefender);
 
+            // improved bark ward damage is a use at will power
             defender.MyExecuteActionSpendPower(usablePower, attacker);
         }
     }

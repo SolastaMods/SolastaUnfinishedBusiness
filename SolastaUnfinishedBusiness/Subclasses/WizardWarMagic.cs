@@ -320,6 +320,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 .Take(3)
                 .ToArray();
 
+            // deflection shroud is a use at will power
             helper.MyExecuteActionSpendPower(usablePower, targets);
         }
     }

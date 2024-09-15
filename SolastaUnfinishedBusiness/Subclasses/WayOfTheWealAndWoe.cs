@@ -275,6 +275,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
 
+            // woe, their woe, and brutal weal are use at will power
             attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }

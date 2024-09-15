@@ -427,6 +427,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
 
+            // discordance and turmoil are use at will power
             attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
@@ -481,6 +482,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
 
+            // discordance is a use at will power
             actingCharacter.MyExecuteActionSpendPower(usablePowerDiscordance, [.. targets]);
 
             // Turmoil
@@ -502,6 +504,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
 
+            // turmoil is a use at will power
             actingCharacter.MyExecuteActionSpendPower(usablePowerTurmoil, [.. targets]);
         }
     }
@@ -573,6 +576,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
 
+            // tides of chaos is a use at will power
             ally.MyExecuteActionSpendPower(usablePower, ally);
         }
     }

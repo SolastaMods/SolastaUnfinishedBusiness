@@ -1267,6 +1267,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             effectPower.remainingRounds = remainingRounds;
 
+            //TODO: double check if spend power works here
             actingCharacter.MyExecuteActionSpendPower(usablePower, actingCharacter);
         }
     }

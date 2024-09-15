@@ -674,6 +674,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             EffectHelpers
                 .StartVisualEffect(attacker, defender, SpellDefinitions.Shatter, EffectHelpers.EffectType.Zone);
+
+            // burst arrow damage is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }

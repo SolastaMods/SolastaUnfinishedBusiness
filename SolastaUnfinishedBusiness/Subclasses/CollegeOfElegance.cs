@@ -177,7 +177,6 @@ public sealed class CollegeOfElegance : AbstractSubclass
                             .SetConditionForm(conditionAmazingDisplay, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerAmazingDisplay = FeatureDefinitionPowerBuilder
@@ -188,6 +187,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .AddToDB();
 
         powerAmazingDisplay.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new PhysicalAttackFinishedByMeAmazingDisplay(
                 conditionAmazingDisplayMarker, powerAmazingDisplay, powerAmazingDisplayEnemy));
 
@@ -383,6 +383,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
             var usablePowerEnemy = PowerProvider.Get(powerAmazingDisplayEnemy, rulesetAttacker);
 
+            // amazing display enemy is a use at will power
             attacker.MyExecuteActionSpendPower(usablePowerEnemy, [.. targets]);
         }
     }

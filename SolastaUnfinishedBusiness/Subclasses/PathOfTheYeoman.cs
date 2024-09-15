@@ -326,6 +326,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 .GetContenders(defender, isOppositeSide: false, withinRange: 3)
                 .ToArray();
 
+            // mighty shot is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }

@@ -15,7 +15,7 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Line",
@@ -30,21 +30,21 @@
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",
-    "targetFilteringTag": "No",
+    "targetFilteringTag": "NotFlying",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "No",
+    "recurrentEffect": "OnActivation",
     "retargetAfterDeath": false,
-    "retargetActionType": "Bonus",
+    "retargetActionType": "None",
     "poolFilterDiceNumber": 5,
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "All",
-    "durationType": "Instantaneous",
-    "durationParameter": 1,
+    "durationType": "Round",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
@@ -107,6 +107,29 @@
         },
         "hasFilterId": false,
         "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Topology",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "topologyForm": {
+          "$type": "TopologyForm, Assembly-CSharp",
+          "changeType": "DangerousZone",
+          "impactsFlyingCharacters": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
     "specialFormsDescription": "",
@@ -135,7 +158,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "d26797bf421dbc2448872162f23d8fd3",
+        "m_AssetGUID": "4cd9d54e34323a640b05b2f1f7a67ff8",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -183,13 +206,13 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3e25fca5d3585174f9b7e20aca6ef3d9",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectImpactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "0cf7d6b4dc876b44fbe88623cfeb3959",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -213,23 +236,23 @@
       },
       "activeEffectSurfaceStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "6c17be351f2b9ff4aa1185d493235050",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "078a274c32322044baa5a19b901d5f4f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "780bc00265f8d9f49bc6db61627acb92",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndex": "Earthquake",
       "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",

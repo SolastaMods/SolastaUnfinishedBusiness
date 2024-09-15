@@ -305,7 +305,7 @@ internal static class SaveByLocationContext
 
     internal class SavePlace : IComparable<SavePlace>
     {
-         public int Count;
+        public int Count;
         public DateTime? Date;
         public string Name;
         public string Path;

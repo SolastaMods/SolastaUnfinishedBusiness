@@ -353,6 +353,7 @@ public sealed class OathOfThunder : AbstractSubclass
                 .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2)
                 .ToArray();
 
+            // bi frost damage is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }

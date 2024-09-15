@@ -846,6 +846,7 @@ internal static class InvocationsBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerPerniciousCloakDamage, rulesetCaster);
 
+            // pernicious cloak damage is a use at will power
             caster.MyExecuteActionSpendPower(usablePower, character);
         }
     }
@@ -1145,6 +1146,7 @@ internal static class InvocationsBuilders
             var usablePower = PowerProvider.Get(powerChillingHexDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1).ToArray();
 
+            // chilling hex damage is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }

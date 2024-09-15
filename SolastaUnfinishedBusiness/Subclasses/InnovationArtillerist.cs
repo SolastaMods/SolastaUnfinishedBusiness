@@ -1071,6 +1071,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     x.IsWithinRange(selectedTarget, 4))
                 .ToArray();
 
+            // eldirith detonation is a use at will power
             selectedTarget.MyExecuteActionSpendPower(usablePower, targets);
 
             yield break;

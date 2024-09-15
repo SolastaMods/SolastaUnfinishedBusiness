@@ -12,7 +12,7 @@
 - fixed Bardic Inspiration, Indomitable Resistances, and Legendary Resistances save logic
 - fixed Bend Luck, Flash of Genius, Inspiring Protection, Shield Master, and Weal/Woe reaction consumption
 - fixed Circle of the Cosmos woe ability checks reaction not triggering
-- fixed Counter Spell not rolling a charisma attribute check
+- fixed Counter Spell not rolling charisma attribute checks
 - fixed Demonic Influence adding all location enemies to battle [VANILLA]
 - fixed Dwarven Fortitude, and Magical Guidance consuming a reaction
 - fixed Exploiter feat not checking for reactions from 2nd target onwards
@@ -26,6 +26,7 @@
 - fixed Quickened interaction with melee attack cantrips
 - fixed Rescue the Dying spell reacting on enemy death
 - fixed save by location not offering saves for campaigns you don't have, and disabling buttons if there are no saves
+- fixed Transmuted metamagic only changing first target damage type with AoE spells
 - fixed Wrathful Smite to do a wisdom ability check against caster DC
 - improved combat log so players can see when characters use dash action [VANILLA]
 - improved location gadgets to trigger "try alter save outcome" reactions [VANILLA]

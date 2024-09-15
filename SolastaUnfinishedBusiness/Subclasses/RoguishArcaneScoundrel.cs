@@ -313,6 +313,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
             attacker.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
 
+            // arcane backslash sneak damage is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, [.. targets]);
         }
     }

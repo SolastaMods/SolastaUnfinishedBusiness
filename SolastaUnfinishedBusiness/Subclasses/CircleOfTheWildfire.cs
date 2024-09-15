@@ -118,7 +118,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
 
         var powerSpiritTeleportDamage = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpiritTeleportDamage")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -544,6 +544,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         : PowerCauterizingFlamesHeal,
                     rulesetSource);
 
+                // cauterizing flames damage or heal are use at will power
                 source.MyExecuteActionSpendPower(usablePower, character);
             }
         }
@@ -658,6 +659,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     spirit.IsWithinRange(x, 2))
                 .ToArray();
 
+            // spirit summon damage is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, targets);
 
             yield break;
@@ -707,6 +709,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
+            // spirit teleport explode is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, [.. _targets]);
 
             yield break;
