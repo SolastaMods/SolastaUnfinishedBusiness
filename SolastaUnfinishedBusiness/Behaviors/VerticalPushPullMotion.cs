@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using TA;
 using UnityEngine;
 using static CellFlags;
@@ -45,32 +46,27 @@ internal static class VerticalPushPullMotion
             delta += step;
 
             var sides = Step(delta, StepHigh);
-            if (sides is { x: 0, y: 0, z: 0 })
+            if (sides == int3.zero)
             {
                 sides = Step(delta, StepLow);
             }
 
-            position += sides;
-            delta.x = sides.x == 0 ? delta.x : 0;
-            delta.y = sides.y == 0 ? delta.y : 0;
-            delta.z = sides.z == 0 ? delta.z : 0;
+            var flag = sides != int3.zero;
 
-            sides.y = -sides.y; //invert vertical direction before getting flags
-            var surfaceSides = DirectionToAllSurfaceSides(sides);
-            sides.y = -sides.y; //return vertical direction to normal
-
-            var flag = true;
-            var canMoveThroughWalls = target.CanMoveInSituation(RulesetCharacter.MotionRange.ThroughWalls);
-            var size = target.SizeParameters;
-
-            //TODO: find a way to add sliding if only part of sides are blocked?
-            foreach (var side in AllSides)
+            if (flag)
             {
-                if (!flag) { break; }
+                var canMoveThroughWalls = target.CanMoveInSituation(RulesetCharacter.MotionRange.ThroughWalls);
+                var size = target.SizeParameters;
 
-                if ((side & surfaceSides) == Side.None) { continue; }
+                var slide = Slide(sides, delta, position, canMoveThroughWalls, size, positioningService);
 
-                flag &= positioningService.CanCharacterMoveThroughSide(size, position, side, canMoveThroughWalls);
+                flag = slide != int3.zero;
+                position += slide;
+
+                //zero delta based on full motion
+                delta.x = sides.x == 0 ? delta.x : 0;
+                delta.y = sides.y == 0 ? delta.y : 0;
+                delta.z = sides.z == 0 ? delta.z : 0;
             }
 
             if (flag && positioningService.CanPlaceCharacter(target, position, CellHelpers.PlacementMode.Station))
@@ -93,6 +89,73 @@ internal static class VerticalPushPullMotion
 #endif
 
         return result;
+    }
+
+    private static int3 Slide(int3 sides, Vector3 delta, int3 position, bool canMoveThroughWalls,
+        RulesetActor.SizeParameters size, IGameLocationPositioningService positioningService)
+    {
+        if (CheckDirections(sides, position, canMoveThroughWalls, size, positioningService))
+        {
+            return sides;
+        }
+        
+        //TODO: should this have a setting, or always allow sliding?
+        //Full motion didn't succeed, try sliding
+        //try zeroing each direction and pick passing one with shortest zeroed delta
+
+        var d = float.MaxValue;
+        var slide = int3.zero;
+        int3 tmp;
+
+        //Try zeroing X axis
+        if (sides.x != 0 && delta.x < d)
+        {
+            tmp = new int3(0, sides.y, sides.z);
+            if (tmp != int3.zero && CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
+            {
+                // ReSharper disable once RedundantAssignment
+                d = delta.x;
+                slide = tmp;
+            }
+        }
+
+        //Try zeroing Y axis
+        if (sides.y != 0 && delta.y < d)
+        {
+            tmp = new int3(sides.x, 0, sides.z);
+            if (tmp != int3.zero && CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
+            {
+                // ReSharper disable once RedundantAssignment
+                d = delta.y;
+                slide = tmp;
+            }
+        }
+
+        //Try zeroing Z axis
+        if (sides.z != 0 && delta.z < d)
+        {
+            tmp = new int3(sides.x, sides.y, 0);
+            if (tmp != int3.zero && CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
+            {
+                // ReSharper disable once RedundantAssignment
+                d = delta.z;
+                slide = tmp;
+            }
+        }
+
+        return slide;
+    }
+
+    private static bool CheckDirections(int3 sides, int3 position, bool canMoveThroughWalls,
+        RulesetActor.SizeParameters size, IGameLocationPositioningService positioning)
+    {
+        sides.y = -sides.y; //invert vertical direction before getting flags
+        var surfaceSides = DirectionToAllSurfaceSides(sides);
+        sides.y = -sides.y; //return vertical direction to normal
+
+        return AllSides
+            .Where(side => (side & surfaceSides) != Side.None)
+            .All(side => positioning.CanCharacterMoveThroughSide(size, position + sides, side, canMoveThroughWalls));
     }
 
     private static int3 Step(Vector3 delta, double tolerance)
