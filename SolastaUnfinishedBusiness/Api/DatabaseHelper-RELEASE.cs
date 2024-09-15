@@ -786,6 +786,9 @@ internal static partial class DatabaseHelper
 
     internal static class EffectProxyDefinitions
     {
+        internal static EffectProxyDefinition ProxyWallOfFire_Line { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyWallOfFire_Line");
+
         internal static EffectProxyDefinition ProxyIndomitableLight { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyIndomitableLight");
 
@@ -809,7 +812,6 @@ internal static partial class DatabaseHelper
 
         internal static EffectProxyDefinition ProxyInsectPlague { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyInsectPlague");
-
 
         internal static EffectProxyDefinition ProxySpikeGrowth { get; } =
             GetDefinition<EffectProxyDefinition>("ProxySpikeGrowth");

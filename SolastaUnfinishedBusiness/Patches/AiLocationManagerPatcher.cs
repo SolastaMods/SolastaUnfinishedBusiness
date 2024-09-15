@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class AiLocationManagerPatcher
 {
     //TODO: move to separate class?
-    internal static T CreateDelegate<T>(this MethodInfo method) where T : Delegate
+    private static T CreateDelegate<T>(this MethodInfo method) where T : Delegate
     {
         return (T)Delegate.CreateDelegate(typeof(T), method);
     }

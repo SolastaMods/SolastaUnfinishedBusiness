@@ -394,7 +394,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         //
 
         EffectProxyCauterizingFlames.actionId = Id.NoAction;
-        EffectProxyCauterizingFlames.addLightSource = false;
 
         var powerSummonCauterizingFlames = FeatureDefinitionPowerBuilder
             .Create(PowerSummonCauterizingFlamesName)
