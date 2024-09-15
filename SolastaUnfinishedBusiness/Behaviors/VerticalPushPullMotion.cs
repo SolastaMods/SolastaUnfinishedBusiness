@@ -136,6 +136,38 @@ internal static class VerticalPushPullMotion
             }
         }
 
+        //We either got successful slide, or no way to try double slide with Y=0
+        if (slide != int3.zero || sides.x == 0 || sides.z == 0)
+        {
+            return slide;
+        }
+
+        //Last attempt: zero on Y and one of X/Z axis
+        
+        //Try zeroing X and Y axis
+        if (delta.x < d)
+        {
+            tmp = new int3(0, 0, sides.z);
+            if (CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
+            {
+                // ReSharper disable once RedundantAssignment
+                d = delta.x;
+                slide = tmp;
+            }
+        }
+
+        //Try zeroing Y and Z axis
+        if (delta.z < d)
+        {
+            tmp = new int3(sides.x, 0, 0);
+            if (CheckDirections(tmp, position, canMoveThroughWalls, size, positioningService))
+            {
+                // ReSharper disable once RedundantAssignment
+                d = delta.z;
+                slide = tmp;
+            }
+        }
+
         return slide;
     }
 
