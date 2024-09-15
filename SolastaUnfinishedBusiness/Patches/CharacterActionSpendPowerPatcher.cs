@@ -244,6 +244,16 @@ public static class CharacterActionSpendPowerPatcher
                     var targetCurrentHitPoints = target.RulesetCharacter.CurrentHitPoints;
                     //END BUGFIX
 
+                    //BEGIN PATCH
+                    var positions = __instance.ActionParams.Positions;
+
+                    var sourceDefinition = activePower.SourceDefinition;
+                    if (positions.Count != 0 && sourceDefinition.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>())
+                    {
+                        applyFormsParams.position = positions[0];
+                    }
+                    // END PATCH
+
                     implementationService.ApplyEffectForms(
                         effectForms,
                         applyFormsParams,
