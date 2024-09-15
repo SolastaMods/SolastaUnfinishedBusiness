@@ -374,7 +374,7 @@ internal static partial class SpellBuilders
             if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
             {
                 effectDescription.FindFirstDamageForm().DiceNumber =
-                    7 + (2 * (rulesetEffectPower.usablePower.saveDC - 8));
+                    7 + (2 * (rulesetEffectPower.usablePower.spentPoints - 8));
             }
 
             return effectDescription;
@@ -401,8 +401,8 @@ internal static partial class SpellBuilders
                         target, actingCharacter, isOppositeSide: false, hasToPerceiveTarget: true, withinRange: 12)
                     .ToArray();
 
-            // use fixed saveDC to store effect level to be used later by power
-            usablePower.saveDC = action.ActionParams.RulesetEffect.EffectLevel;
+            // use spentPoints to store effect level to be used later by power
+            usablePower.spentPoints = action.ActionParams.RulesetEffect.EffectLevel;
 
             actingCharacter.MyExecuteActionSpendPower(usablePower, targets);
         }

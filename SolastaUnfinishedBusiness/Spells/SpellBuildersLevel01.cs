@@ -1819,7 +1819,8 @@ internal static partial class SpellBuilders
         {
             if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
             {
-                effectDescription.FindFirstDamageForm().DiceNumber = 2 + (rulesetEffectPower.usablePower.saveDC - 1);
+                effectDescription.FindFirstDamageForm().DiceNumber =
+                    2 + (rulesetEffectPower.usablePower.spentPoints - 1);
             }
 
             return effectDescription;
@@ -1845,7 +1846,8 @@ internal static partial class SpellBuilders
             var rulesetCaster = caster.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerIceBlade, rulesetCaster);
 
-            usablePower.saveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
+            // use spentPoints to store effect level to be used later by power
+            usablePower.spentPoints = action.ActionParams.activeEffect.EffectLevel;
 
             // need to loop over target characters to support twinned metamagic scenarios
             foreach (var targets in actionCastSpell.ActionParams.TargetCharacters

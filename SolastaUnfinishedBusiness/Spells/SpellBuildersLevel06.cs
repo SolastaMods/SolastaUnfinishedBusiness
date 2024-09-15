@@ -209,6 +209,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -220,7 +221,7 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                             .Build())
-                    .SetImpactEffectParameters(Earthquake)
+                    .SetImpactEffectParameters(GravitySlam)
                     .Build())
             .AddToDB();
 
@@ -257,6 +258,7 @@ internal static partial class SpellBuilders
                             .Build(),
                         // only required to get the SFX in this particular scenario to activate
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false))
+                    .SetImpactEffectParameters(GravitySlam)
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeGravityFissure(power))
             .AddToDB();
@@ -280,7 +282,8 @@ internal static partial class SpellBuilders
         {
             if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
             {
-                effectDescription.EffectForms[0].DamageForm.diceNumber = 2 + rulesetEffectPower.usablePower.saveDC;
+                effectDescription.EffectForms[0].DamageForm.diceNumber =
+                    8 + (rulesetEffectPower.usablePower.spentPoints - 6);
             }
 
             return effectDescription;
@@ -348,8 +351,8 @@ internal static partial class SpellBuilders
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDrag, rulesetCharacter);
 
-            // store the effect level on save DC as easier to retrieve later
-            usablePower.saveDC = action.ActionParams.activeEffect.EffectLevel;
+            // use spentPoints to store effect level to be used later by power
+            usablePower.spentPoints = action.ActionParams.activeEffect.EffectLevel;
 
             // drag each selected contender to the closest position
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
@@ -995,7 +998,7 @@ internal static partial class SpellBuilders
                 return effectDescription;
             }
 
-            damageForm.diceNumber = 4 + activeCondition.EffectLevel - 6;
+            damageForm.diceNumber = 4 + (activeCondition.EffectLevel - 6);
 
             return effectDescription;
         }

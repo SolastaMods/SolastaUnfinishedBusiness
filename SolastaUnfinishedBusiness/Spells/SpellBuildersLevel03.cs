@@ -519,7 +519,7 @@ internal static partial class SpellBuilders
                 return effectDescription;
             }
 
-            effectDescription.FindFirstDamageForm().DiceNumber = character.ConcentratedSpell.EffectLevel - 2;
+            effectDescription.FindFirstDamageForm().DiceNumber = 1 + (character.ConcentratedSpell.EffectLevel - 3);
 
             return effectDescription;
         }
@@ -825,7 +825,7 @@ internal static partial class SpellBuilders
                 return effectDescription;
             }
 
-            effectDescription.FindFirstDamageForm().DiceNumber = activeCondition.EffectLevel;
+            effectDescription.FindFirstDamageForm().DiceNumber = 3 + (activeCondition.EffectLevel - 3);
 
             return effectDescription;
         }
@@ -1314,7 +1314,7 @@ internal static partial class SpellBuilders
             if (character.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionLightningArrow.Name, out var activeCondition))
             {
-                effectDescription.FindFirstDamageForm().diceNumber = 2 + activeCondition.EffectLevel;
+                effectDescription.FindFirstDamageForm().diceNumber = 2 + (activeCondition.EffectLevel - 3);
             }
 
             return effectDescription;
@@ -1356,7 +1356,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var diceNumber = MainTargetDiceNumber + activeCondition.EffectLevel - 3;
+            var diceNumber = MainTargetDiceNumber + (activeCondition.EffectLevel - 3);
             var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
 
             if (pos >= 0)
@@ -1761,7 +1761,7 @@ internal static partial class SpellBuilders
 
             var caster = action.ActingCharacter;
             var rulesetCaster = caster.RulesetCharacter;
-            var diceNumber = 4 + actionCastSpell.activeSpell.EffectLevel - 3;
+            var diceNumber = 4 + (actionCastSpell.activeSpell.EffectLevel - 3);
 
             // need to loop over target characters to support twinned metamagic scenarios
             foreach (var target in action.ActionParams.TargetCharacters)
