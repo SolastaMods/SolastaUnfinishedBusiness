@@ -209,7 +209,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -221,7 +221,7 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                             .Build())
-                    .SetImpactEffectParameters(GravitySlam)
+                    .SetImpactEffectParameters(EldritchBlast)
                     .Build())
             .AddToDB();
 
@@ -242,8 +242,8 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create(Earthquake)
                     // only required to get the SFX in this particular scenario to activate
-                    // deviates a bit from TT but not OP at all to have difficult terrain until end of turn
-                    .SetDurationData(DurationType.Round)
+                    // deviates a bit from TT but not OP at all to have difficult terrain until start of turn
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Line, 12)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -258,7 +258,7 @@ internal static partial class SpellBuilders
                             .Build(),
                         // only required to get the SFX in this particular scenario to activate
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false))
-                    .SetImpactEffectParameters(GravitySlam)
+                    .SetImpactEffectParameters(EldritchBlast)
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeGravityFissure(power))
             .AddToDB();
@@ -298,6 +298,13 @@ internal static partial class SpellBuilders
             var actingCharacter = action.ActingCharacter;
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var dummy = locationCharacterService.DummyCharacter;
+
+            // collect all covered positions except for the one under the caster
+            var coveredFloorPositions = CharacterActionMagicEffectPatcher.CoveredFloorPositions
+                .Where(x => x != actingCharacter.LocationPosition)
+                .ToList();
+
+            // collect all contenders that should be dragged
             var contendersAndPositions =
                 (Gui.Battle?.AllContenders ??
                  locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
@@ -305,9 +312,17 @@ internal static partial class SpellBuilders
                     // don't include caster
                     x != actingCharacter &&
                     // don't include affected contenders
-                    !CharacterActionMagicEffectPatcher.AffectedFloorPositions.Contains(x.LocationPosition))
+                    !CharacterActionMagicEffectPatcher.AffectedFloorPositions.Contains(x.LocationPosition) &&
+                    // don't include actions not within 2 cells range
+                    coveredFloorPositions.Any(y =>
+                    {
+                        dummy.LocationPosition = y;
+
+                        return x.IsWithinRange(dummy, 2);
+                    }))
                 // create tab to select best position and set initial to far beyond
                 .ToDictionary(x => x, _ => new Container());
+
 
             CharacterActionMagicEffectPatcher.CoveredFloorPositions.Reverse();
 
@@ -316,23 +331,20 @@ internal static partial class SpellBuilders
             {
                 var contender = contenderAndPosition.Key;
 
-                foreach (var coveredFloorPosition in CharacterActionMagicEffectPatcher.CoveredFloorPositions)
+                foreach (var coveredFloorPosition in coveredFloorPositions)
                 {
+                    // must be inside loop as Position can change on previous interactions
                     var bestDragToPosition = contenderAndPosition.Value.Position;
-
-                    dummy.LocationPosition = coveredFloorPosition;
-
-                    if (!contender.IsWithinRange(dummy, 2))
-                    {
-                        continue;
-                    }
-
-                    var newDistance = DistanceCalculation.GetDistanceFromCharacters(contender, dummy);
 
                     dummy.LocationPosition = bestDragToPosition;
 
                     var currentDistance = DistanceCalculation.GetDistanceFromCharacters(contender, dummy);
 
+                    dummy.LocationPosition = coveredFloorPosition;
+
+                    var newDistance = DistanceCalculation.GetDistanceFromCharacters(contender, dummy);
+
+                    //TODO: improve this with a better logic to determine which cell should pull in the end
                     if (currentDistance - newDistance < 0)
                     {
                         continue;
@@ -341,9 +353,6 @@ internal static partial class SpellBuilders
                     contenderAndPosition.Value.Position = coveredFloorPosition;
                 }
             }
-
-            // clean up the house as a good guest
-            dummy.LocationPosition = Container.PlaceHolderPosition;
 
             // issue drag to origin powers to all contenders with a non placeholder position
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -354,15 +363,16 @@ internal static partial class SpellBuilders
             // use spentPoints to store effect level to be used later by power
             usablePower.spentPoints = action.ActionParams.activeEffect.EffectLevel;
 
-            // drag each selected contender to the closest position
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var x in contendersAndPositions)
-            {
-                if (x.Value.Position == Container.PlaceHolderPosition)
-                {
-                    continue;
-                }
+            // drag each contender to the selected position starting with the ones closer to the line
+            foreach (var x in contendersAndPositions
+                         .Where(x => x.Value.Position != Container.PlaceHolderPosition)
+                         .OrderBy(x =>
+                         {
+                             dummy.LocationPosition = x.Value.Position;
 
+                             return DistanceCalculation.GetDistanceFromCharacters(x.Key, dummy);
+                         }))
+            {
                 var actionParams = new CharacterActionParams(actingCharacter, Id.SpendPower)
                 {
                     ActionModifiers = { new ActionModifier() },
@@ -375,6 +385,9 @@ internal static partial class SpellBuilders
 
                 actionService.ExecuteInstantSingleAction(actionParams);
             }
+
+            // clean up the house as a good guest
+            dummy.LocationPosition = Container.PlaceHolderPosition;
 
             yield break;
         }

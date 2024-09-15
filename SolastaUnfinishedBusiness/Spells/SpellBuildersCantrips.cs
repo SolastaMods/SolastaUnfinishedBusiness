@@ -1100,10 +1100,10 @@ internal static partial class SpellBuilders
         {
             var diceNumber = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel) switch
             {
-                >= 17 => 3,
-                >= 11 => 2,
-                >= 5 => 1,
-                _ => 0
+                >= 17 => 4,
+                >= 11 => 3,
+                >= 5 => 2,
+                _ => 1
             };
 
             var damageForm = effectDescription.EffectForms[0].DamageForm;

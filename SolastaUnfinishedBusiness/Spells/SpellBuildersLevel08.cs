@@ -98,7 +98,7 @@ internal static partial class SpellBuilders
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell)
+            .SetGuiPresentation(NAME, Category.Spell, ConditionBlessed)
             .SetPossessive()
             .AddCustomSubFeatures(new ModifyAbilityCheckGlibness())
             .AddToDB();

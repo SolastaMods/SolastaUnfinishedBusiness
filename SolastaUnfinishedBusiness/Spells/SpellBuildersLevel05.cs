@@ -919,8 +919,8 @@ internal static partial class SpellBuilders
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetCasterEffectParameters(PowerOathOfDevotionTurnUnholy)
                     .SetParticleEffectParameters(FaerieFire)
+                    .SetCasterEffectParameters(PowerOathOfDevotionTurnUnholy)
                     .SetImpactEffectParameters(
                         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
                     .SetConditionEffectParameters(ConditionDefinitions.ConditionBlinded)
