@@ -59,7 +59,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionDiscordance, ConditionOperation.Remove),
                         EffectFormBuilder.ConditionForm(conditionDiscordance, ConditionOperation.Remove),
@@ -173,7 +173,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, Charisma, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, Wisdom, 8)
                     .SetEffectForms(
@@ -427,7 +427,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
 
-            attacker.MyExecuteActionSpendPower(usablePower, false, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
 
@@ -481,7 +481,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
 
-            actingCharacter.MyExecuteActionPowerNoCost(usablePowerDiscordance, [.. targets]);
+            actingCharacter.MyExecuteActionSpendPower(usablePowerDiscordance, [.. targets]);
 
             // Turmoil
             var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
@@ -502,7 +502,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
 
-            actingCharacter.MyExecuteActionPowerNoCost(usablePowerTurmoil, [.. targets]);
+            actingCharacter.MyExecuteActionSpendPower(usablePowerTurmoil, [.. targets]);
         }
     }
 
@@ -573,7 +573,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
 
-            ally.MyExecuteActionSpendPower(usablePower, false, ally);
+            ally.MyExecuteActionSpendPower(usablePower, ally);
         }
     }
 }

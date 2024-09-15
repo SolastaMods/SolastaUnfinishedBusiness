@@ -126,7 +126,6 @@ public sealed class WizardWarMagic : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique, 3)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce))
-                    //.SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererDraconicDragonWingsSprout)
                     .SetImpactEffectParameters(SpellDefinitions.ArcaneSword)
                     .Build())
             .AddToDB();
@@ -321,7 +320,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 .Take(3)
                 .ToArray();
 
-            helper.MyExecuteActionSpendPower(usablePower, false, targets);
+            helper.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 

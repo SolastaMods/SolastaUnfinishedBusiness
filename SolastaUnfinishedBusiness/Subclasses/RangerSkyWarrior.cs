@@ -416,7 +416,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerDeathFromAbove, rulesetAttacker);
 
-            attacker.MyExecuteActionSpendPower(usablePower, false, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 }

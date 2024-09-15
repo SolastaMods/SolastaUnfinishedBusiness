@@ -538,7 +538,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 1).ToArray();
 
-            locationCharacter.MyExecuteActionSpendPower(usablePower, false, targets);
+            locationCharacter.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 

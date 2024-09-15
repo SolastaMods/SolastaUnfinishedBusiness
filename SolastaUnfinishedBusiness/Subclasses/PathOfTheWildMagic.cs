@@ -908,7 +908,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 }
                 else if (reactingOutOfTurn)
                 {
-                    character.MyExecuteActionSpendPower(usablePower, true, attacker);
+                    character.MyExecuteActionSpendPower(usablePower, attacker);
                 }
             }
             else

@@ -129,7 +129,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 8)
@@ -147,7 +147,6 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                     .SetImpactEffectParameters(PowerDomainElementalLightningBlade
                         .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(ValidatorsValidatePowerUse.InCombat)
             .AddToDB();
 
         var powerEyeOfTheStorm = FeatureDefinitionPowerBuilder
@@ -364,7 +363,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                             z.SourceGuid == rulesetAttacker.Guid))
                 .ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 }

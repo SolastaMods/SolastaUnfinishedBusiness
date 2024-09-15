@@ -178,7 +178,7 @@ public sealed class OathOfThunder : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(true, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -353,7 +353,7 @@ public sealed class OathOfThunder : AbstractSubclass
                 .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2)
                 .ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 }
