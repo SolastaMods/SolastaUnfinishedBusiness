@@ -3635,6 +3635,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition DelayedBlastFireball { get; } =
             GetDefinition<SpellDefinition>("DelayedBlastFireball");
 
+        internal static SpellDefinition Earthquake { get; } = GetDefinition<SpellDefinition>("Earthquake");
         internal static SpellDefinition AcidArrow { get; } = GetDefinition<SpellDefinition>("AcidArrow");
         internal static SpellDefinition AcidSplash { get; } = GetDefinition<SpellDefinition>("AcidSplash");
         internal static SpellDefinition Aid { get; } = GetDefinition<SpellDefinition>("Aid");

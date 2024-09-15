@@ -220,7 +220,7 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                             .Build())
-                    .SetImpactEffectParameters(Thunderwave)
+                    .SetImpactEffectParameters(Earthquake)
                     .Build())
             .AddToDB();
 
@@ -239,19 +239,24 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 12)
+                    .Create(Earthquake)
+                    // only required to get the SFX in this particular scenario to activate
+                    // deviates a bit from TT but not OP at all to have difficult terrain until end of turn
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Line, 12)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    // only required to get the SFX in this particular scenario to activate
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeForce, 8, DieType.D8)
-                            .Build())
-                    .SetCasterEffectParameters(Thunderwave)
-                    .SetImpactEffectParameters(Thunderwave)
+                            .Build(),
+                        // only required to get the SFX in this particular scenario to activate
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false))
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeGravityFissure(power))
             .AddToDB();
@@ -301,14 +306,17 @@ internal static partial class SpellBuilders
                 // create tab to select best position and set initial to far beyond
                 .ToDictionary(x => x, _ => new Container());
 
+            CharacterActionMagicEffectPatcher.CoveredFloorPositions.Reverse();
+
             // select the best position possible to force a drag to effect origin
             foreach (var contenderAndPosition in contendersAndPositions)
             {
                 var contender = contenderAndPosition.Key;
-                var bestDragToPosition = contenderAndPosition.Value.Position;
 
                 foreach (var coveredFloorPosition in CharacterActionMagicEffectPatcher.CoveredFloorPositions)
                 {
+                    var bestDragToPosition = contenderAndPosition.Value.Position;
+
                     dummy.LocationPosition = coveredFloorPosition;
 
                     if (!contender.IsWithinRange(dummy, 2))
@@ -322,7 +330,7 @@ internal static partial class SpellBuilders
 
                     var currentDistance = DistanceCalculation.GetDistanceFromCharacters(contender, dummy);
 
-                    if (newDistance > currentDistance)
+                    if (currentDistance - newDistance < 0)
                     {
                         continue;
                     }
@@ -352,10 +360,11 @@ internal static partial class SpellBuilders
                     continue;
                 }
 
-                var actionParams = new CharacterActionParams(actingCharacter, Id.PowerNoCost)
+                var actionParams = new CharacterActionParams(actingCharacter, Id.SpendPower)
                 {
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    RulesetEffect =
+                        implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { x.Key },
                     Positions = { x.Value.Position }
