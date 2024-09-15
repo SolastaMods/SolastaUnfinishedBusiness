@@ -317,9 +317,6 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for Circle of Wildfire proxies
             yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(mover);
 
-            //PATCH: support for Create Bonfire proxies
-            SpellBuilders.HandleCreateBonfireBehavior(mover);
-
             //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord
             if (mover.IsMyTurn() || mover.Side != Side.Ally)
             {

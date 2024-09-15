@@ -38,7 +38,7 @@ Deal damage to one enemy and prevent healing for a limited time.
 
 **[Artificer, Druid, Sorcerer, Warlock, Wizard]**
 
-You create a bonfire on ground that you can see within range. Until the spell ends, the bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it enters the bonfire's space for the first time on a turn or ends its turn there. The spell's damage increases by an additional die at 5th, 11th and 17th level.
+You create a bonfire on ground that you can see within range. Until the spell ends, the bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it enters the bonfire's space or ends its turn there. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
 # 8. - Dancing Lights (V,S) level 0 Evocation [Concentration] [SOL]
 

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -200,6 +199,68 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(SacredFlame)
                     .SetImpactEffectParameters(SacredFlame
                         .EffectDescription.EffectParticleParameters.effectParticleReference)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Create Bonfire
+
+    internal static SpellDefinition BuildCreateBonfire()
+    {
+        const string NAME = "CreateBonfire";
+
+        var effectProxyCreateBonfire = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyWallOfFire_Line, "ProxyCreateBonfire")
+            .SetOrUpdateGuiPresentation(Category.Proxy)
+            .SetCanMove(false, false)
+            .SetAdditionalFeatures()
+            .AddToDB();
+
+        effectProxyCreateBonfire.actionId = Id.NoAction;
+        effectProxyCreateBonfire.GuiPresentation.description = Gui.NoLocalization;
+        effectProxyCreateBonfire.lightSourceForm.dimAdditionalRange = 2;
+        effectProxyCreateBonfire.lightSourceForm.brightRange = 2;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.CreateBonfire, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(WallOfFireLine)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(effectProxyCreateBonfire)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTopologyForm(TopologyForm.Type.DangerousZone, false)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeFire, 1, DieType.D8)
+                            .Build())
+                    .SetCasterEffectParameters(ProduceFlameHold)
                     .Build())
             .AddToDB();
 
@@ -995,212 +1056,6 @@ internal static partial class SpellBuilders
 
             attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
-    }
-
-    #endregion
-
-    #region Create Bonfire
-
-    private static readonly ConditionDefinition ConditionCreateBonfireMark = ConditionDefinitionBuilder
-        .Create("ConditionCreateBonfireMark")
-        .SetGuiPresentationNoContent(true)
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-        .AddToDB();
-
-    private static readonly FeatureDefinitionPower PowerCreateBonfireDamage = FeatureDefinitionPowerBuilder
-        .Create("PowerCreateBonfireDamage")
-        .SetGuiPresentation(Category.Feature, hidden: true)
-        .SetUsesFixed(ActivationTime.NoCost)
-        .SetShowCasting(false)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Round)
-                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
-                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetDamageForm(DamageTypeFire, 1, DieType.D8)
-                        .Build())
-                .SetImpactEffectParameters(FireBolt)
-                .Build())
-        .AddCustomSubFeatures(new CustomBehaviorCreateBonfireDamage())
-        .AddToDB();
-
-    private static readonly EffectProxyDefinition EffectProxyCreateBonfire = EffectProxyDefinitionBuilder
-        .Create(EffectProxyDefinitions.ProxyDancingLights, "ProxyCreateBonfire")
-        .SetOrUpdateGuiPresentation(Category.Proxy)
-        .SetCanMove(false, false)
-        .SetAdditionalFeatures()
-        .AddToDB();
-
-    internal static SpellDefinition BuildCreateBonfire()
-    {
-        const string NAME = "CreateBonfire";
-
-        EffectProxyCreateBonfire.actionId = Id.NoAction;
-        EffectProxyCreateBonfire.addLightSource = false;
-        EffectProxyCreateBonfire.GuiPresentation.description = Gui.NoLocalization;
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.CreateBonfire, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
-            .SetSpellLevel(0)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetRequiresConcentration(true)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube)
-                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .RollSaveOnlyIfRelevantForms()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetSummonEffectProxyForm(EffectProxyCreateBonfire)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
-                            .Build())
-                    .SetCasterEffectParameters(ProduceFlameHold)
-                    .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeCreateBonfire())
-            .AddToDB();
-
-        return spell;
-    }
-
-    // increase damage die and mark enemies damaged this turn
-    private sealed class CustomBehaviorCreateBonfireDamage : IModifyEffectDescription, IPowerOrSpellFinishedByMe
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == PowerCreateBonfireDamage;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var diceNumber = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel) switch
-            {
-                >= 17 => 4,
-                >= 11 => 3,
-                >= 5 => 2,
-                _ => 1
-            };
-
-            var damageForm = effectDescription.EffectForms[0].DamageForm;
-
-            damageForm.DiceNumber = diceNumber;
-
-            return effectDescription;
-        }
-
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
-                yield break;
-            }
-
-            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
-            var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
-
-            rulesetCaster.InflictCondition(
-                ConditionCreateBonfireMark.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagStatus,
-                rulesetTarget.Guid,
-                rulesetTarget.CurrentFaction.Name,
-                1,
-                ConditionCreateBonfireMark.Name,
-                0,
-                0,
-                0);
-        }
-    }
-
-    // issue power damage if there is a target on cube position on spell end
-    private sealed class PowerOrSpellFinishedByMeCreateBonfire : IPowerOrSpellFinishedByMe
-    {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var contenders =
-                (Gui.Battle?.AllContenders ??
-                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
-
-            var target = contenders.FirstOrDefault(x =>
-                x.LocationPosition == action.ActionParams.Positions[0]);
-
-            if (target != null)
-            {
-                HandleCreateBonfireBehavior(target);
-            }
-
-            yield break;
-        }
-    }
-
-    // handle on turn start, on turn end, shove, move behaviors
-    internal static void HandleCreateBonfireBehavior(GameLocationCharacter character, bool checkCondition = true)
-    {
-        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-        if (!battleManager ||
-            (character.RulesetCharacter is RulesetCharacterEffectProxy proxy &&
-             proxy.EffectProxyDefinition == EffectProxyCreateBonfire))
-        {
-            return;
-        }
-
-        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-        var bonfireProxy = locationCharacterService.AllProxyCharacters
-            .FirstOrDefault(u =>
-                character.LocationPosition == u.LocationPosition &&
-                u.RulesetCharacter is RulesetCharacterEffectProxy rulesetCharacterEffectProxy &&
-                rulesetCharacterEffectProxy.EffectProxyDefinition == EffectProxyCreateBonfire);
-
-        if (bonfireProxy == null)
-        {
-            return;
-        }
-
-        var rulesetProxy = bonfireProxy.RulesetCharacter as RulesetCharacterEffectProxy;
-        var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetProxy!.ControllerGuid);
-
-        if (checkCondition &&
-            character.RulesetCharacter.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, ConditionCreateBonfireMark.Name, out var activeCondition) &&
-            activeCondition.SourceGuid == rulesetSource.Guid)
-        {
-            return;
-        }
-
-        var source = GameLocationCharacter.GetFromActor(rulesetSource);
-        var usablePower = PowerProvider.Get(PowerCreateBonfireDamage, rulesetSource);
-
-        source.MyExecuteActionSpendPower(usablePower, character);
     }
 
     #endregion

@@ -1,7 +1,7 @@
 {
   "$type": "EffectProxyDefinition, Assembly-CSharp",
   "canMove": false,
-  "canRotate": true,
+  "canRotate": false,
   "canMoveOnCharacters": false,
   "canAttack": false,
   "canTriggerPower": false,
@@ -31,7 +31,7 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "addLightSource": false,
+  "addLightSource": true,
   "lightSourceForm": {
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
@@ -39,14 +39,14 @@
     "dimAdditionalRange": 2,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.933333337,
-      "g": 0.8428167,
-      "b": 0.4196078,
+      "r": 1.0,
+      "g": 0.5409614,
+      "b": 0.193396211,
       "a": 1.0
     },
     "graphicsPrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "b604c9f0be3f29241adbf0c6754b7324",
+      "m_AssetGUID": "792bd092227ae074ca8d89efc06dbfc6",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -64,23 +64,29 @@
   "hasPresentation": true,
   "prefabReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "6c9e02aed79129b4dadb6ea301ee193d",
+    "m_AssetGUID": "58aff54afb62c3a43be06958596b2bf2",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "isEmptyPresentation": false,
+  "isEmptyPresentation": true,
   "modelScale": 1.0,
-  "showWorldLocationFeedbacks": true,
-  "hasPortrait": true,
+  "showWorldLocationFeedbacks": false,
+  "hasPortrait": false,
   "portraitSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "a206bbd84c5d22147a9aa91bb99eeb90",
-    "m_SubObjectName": "ProxyDancingLights",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "startEvent": {
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": null,
+    "WwiseObjectReference": {
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Play_Vfx_EVO_WallOfFire_Cell",
+      "id": 1935475708,
+      "guid": "73EB45BB-E4D5-480F-B6D9-6BEEF1BF62E3",
+      "name": "73EB45BB-E4D5-480F-B6D9-6BEEF1BF62E3"
+    },
     "idInternal": 0,
     "valueGuidInternal": {
       "$type": "System.Byte[], mscorlib",
@@ -120,8 +126,8 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a206bbd84c5d22147a9aa91bb99eeb90",
-      "m_SubObjectName": "ProxyDancingLights",
+      "m_AssetGUID": "4cfa51a7cbd64134d9097a59eefe34c7",
+      "m_SubObjectName": "WallOfFire",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
