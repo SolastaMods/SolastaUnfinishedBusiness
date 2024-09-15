@@ -61,9 +61,9 @@ public static class AiLocationManagerPatcher
                         __instance.activityContextsMap.AddOrReplace(name,
                             method.CreateDelegate<AiLocationDefinitions.GetContextTypeHandler>());
                     }
-                    else if (method.ReturnType == typeof(void) 
-                             && parameters.Length == 2 
-                             && parameters[0].ParameterType.GetElementType() == typeof(ActionDefinitions.Id) 
+                    else if (method.ReturnType == typeof(void)
+                             && parameters.Length == 2
+                             && parameters[0].ParameterType.GetElementType() == typeof(ActionDefinitions.Id)
                              && parameters[1].ParameterType.GetElementType() == typeof(ActionDefinitions.Id))
                     {
                         __instance.activityActionIdsMap.AddOrReplace(name,
@@ -94,11 +94,11 @@ public static class AiLocationManagerPatcher
         [UsedImplicitly]
         public static void Postfix(AiLocationManager __instance)
         {
-            foreach (Type type in Assembly.GetExecutingAssembly().GetTypes()
+            foreach (var type in Assembly.GetExecutingAssembly().GetTypes()
                          .Where(t => t.IsSubclassOf(typeof(ConsiderationBase))))
             {
                 var name = type.ToString().Split('.').Last();
-                foreach (MethodInfo method in type.GetMethods(BindingFlags.Static | BindingFlags.Public))
+                foreach (var method in type.GetMethods(BindingFlags.Static | BindingFlags.Public))
                 {
                     if (method.ReturnType == typeof(IEnumerator))
                     {

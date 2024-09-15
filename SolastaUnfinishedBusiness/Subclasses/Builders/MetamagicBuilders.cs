@@ -356,6 +356,7 @@ internal static class MetamagicBuilders
         failure = "Failure/&FailureTransmutedSpell";
         result = false;
     }
+
     private const string TransmutedDamage = "TransmutedDamage";
 
     private static string TransmutedSpell(RulesetEffect effect)
@@ -368,7 +369,6 @@ internal static class MetamagicBuilders
         ConditionDefinition condition,
         FeatureDefinitionPower powerPool) : IMagicEffectInitiatedByMe
     {
-
         public IEnumerator OnMagicEffectInitiatedByMe(
             CharacterAction action,
             RulesetEffect activeEffect,
@@ -468,9 +468,9 @@ internal static class MetamagicBuilders
             {
                 yield break;
             }
-            
+
             attacker.SetSpecialFeatureUses(transmutedSpell, -1);
-            
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!rulesetAttacker.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name,

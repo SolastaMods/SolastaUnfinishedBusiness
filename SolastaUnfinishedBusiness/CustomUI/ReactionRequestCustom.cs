@@ -9,12 +9,11 @@ public interface IReactionRequestWithResource
     ICustomReactionResource Resource { get; }
 }
 
-public interface IReactionRequestWithCallbacks//<T> where T : ReactionRequest
+public interface IReactionRequestWithCallbacks //<T> where T : ReactionRequest
 {
-    [CanBeNull]
-    public Action<ReactionRequest> ReactionValidated { get; }
-    [CanBeNull]
-    public Action<ReactionRequest> ReactionNotValidated { get; }
+    [CanBeNull] public Action<ReactionRequest> ReactionValidated { get; }
+
+    [CanBeNull] public Action<ReactionRequest> ReactionNotValidated { get; }
 }
 
 public static class ReactionRequestCallback

@@ -351,8 +351,8 @@ public static class GameLocationCharacterExtensions
             targetCharacters = targets,
             SkipAnimationsAndVFX = true
         };
-        var reactionRequest = new ReactionRequestSpendBundlePower(actionParams, 
-            reactionValidated, reactionNotValidated);
+        var reactionRequest = new ReactionRequestSpendBundlePower(
+            actionParams, reactionValidated, reactionNotValidated);
 
         actionManager.AddInterruptRequest(reactionRequest);
 

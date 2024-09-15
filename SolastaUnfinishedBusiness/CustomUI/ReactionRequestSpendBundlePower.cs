@@ -17,8 +17,6 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
     private readonly FeatureDefinitionPower _masterPower;
     private readonly ActionModifier _modifier;
     private readonly GameLocationCharacter _target;
-    public Action<ReactionRequest> ReactionValidated { get; }
-    public Action<ReactionRequest> ReactionNotValidated { get; }
 
     internal ReactionRequestSpendBundlePower([NotNull] CharacterActionParams reactionParams,
         Action<ReactionRequestSpendBundlePower> reactionValidated = null,
@@ -58,6 +56,9 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
     public override bool IsStillValid =>
         ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters.Contains(_target) &&
         _target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false };
+
+    public Action<ReactionRequest> ReactionValidated { get; }
+    public Action<ReactionRequest> ReactionNotValidated { get; }
 
     public ICustomReactionResource Resource { get; set; }
 
