@@ -351,20 +351,12 @@ public static class GameLocationCharacterExtensions
             targetCharacters = targets,
             SkipAnimationsAndVFX = true
         };
-        var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+        var reactionRequest = new ReactionRequestSpendBundlePower(actionParams, 
+            reactionValidated, reactionNotValidated);
 
         actionManager.AddInterruptRequest(reactionRequest);
 
         yield return battleManager.WaitForReactions(waiter, actionManager, count);
-
-        if (actionParams.ReactionValidated)
-        {
-            reactionValidated?.Invoke(reactionRequest);
-        }
-        else
-        {
-            reactionNotValidated?.Invoke(reactionRequest);
-        }
     }
 
     internal static IEnumerator MyReactToUsePower(
