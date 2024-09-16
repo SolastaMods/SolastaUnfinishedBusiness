@@ -28,6 +28,7 @@ public class CursorMotionHelper : MonoBehaviour
     private readonly Dictionary<ulong, ActionChainHelper> Helpers = new();
 
     private GameLocationCharacter ActingCharacter => Cursor.ActionParams.ActingCharacter;
+    private Vector3 ActingCharacterCenter = Vector3.zero;
 
     internal static void Initialize(GameObject chainHelperPrefab)
     {
@@ -76,6 +77,7 @@ public class CursorMotionHelper : MonoBehaviour
         PositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
         EnvService = ServiceRepository.GetService<IGameLocationEnvironmentService>();
 
+        ActingCharacterCenter = PositioningService.ComputeGravityCenterPosition(ActingCharacter);
         Info = BuildInfo();
         if (Info == null) { return; }
 
@@ -174,12 +176,11 @@ public class CursorMotionHelper : MonoBehaviour
     {
         if (Info == null) { return int3.zero; }
 
-        //TODO: cache acting character and their gravity on Activate?
         var src = Info.Type switch
         {
             DirectionType.Down => (target.locationPosition + new int3(0, 10, 0)).ToVector3() + CENTER,
             _ when Info.FromOrigin => AimedPosition.ToVector3() + CENTER,
-            _ => PositioningService.ComputeGravityCenterPosition(ActingCharacter)
+            _ => ActingCharacterCenter
         };
 
         var reverse = Info.Type == DirectionType.Pull;
