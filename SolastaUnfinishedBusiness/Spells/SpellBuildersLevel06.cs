@@ -298,7 +298,8 @@ internal static partial class SpellBuilders
 
             // collect all covered positions
             var positions =
-                GetAffectedPositions(action.ActingCharacter, action.ActionParams, positioningCharacterService);
+                GetAffectedPositions(action.ActingCharacter, action.ActionParams.RulesetEffect,
+                    action.ActionParams.Positions[0], positioningCharacterService);
 
             // collect all contenders that should be dragged
             var targets = GetPullTargets(actingCharacter, positions, locationCharacterService)
@@ -386,18 +387,18 @@ internal static partial class SpellBuilders
 
         internal static List<int3> GetAffectedPositions(
             GameLocationCharacter actingCharacter,
-            CharacterActionParams actionParams,
+            RulesetEffect rulesetEffect,
+            int3 position,
             IGameLocationPositioningService positioningService
         )
         {
             var targetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
-            var rulesetEffect = actionParams.RulesetEffect;
             var origin = new Vector3();
             var direction = new Vector3();
             List<int3> positions = [];
             List<GameLocationCharacter> affectedCharacters = [];
 
-            var impactPoint = positioningService.GetWorldPositionFromGridPosition(actionParams.Positions[0]);
+            var impactPoint = positioningService.GetWorldPositionFromGridPosition(position);
 
             targetingService.ComputeTargetingParameters(
                 impactPoint,
@@ -554,7 +555,8 @@ internal static partial class SpellBuilders
 
         conditionMark.GuiPresentation.description = Gui.EmptyContent;
 
-        var lightSourceForm = SpellDefinitions.Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+        var lightSourceForm =
+            SpellDefinitions.Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)

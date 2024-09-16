@@ -261,7 +261,8 @@ public class CursorMotionHelper : MonoBehaviour
         }
 
         var caster = ActingCharacter;
-        var tiles = cursor.coveredPlanePositions;
+        var tiles = GravityFissure.GetAffectedPositions(ActingCharacter, _cursor.ActionParams.RulesetEffect,
+            _aimedPosition, _positioningService);
         var targets = GravityFissure.GetPullTargets(caster, tiles, _characterService);
         return targets;
     }
@@ -315,7 +316,10 @@ public class CursorMotionHelper : MonoBehaviour
         //Process Gravity Fissure
         if (IsGravityFissure)
         {
-            return new MotionInfo { Distance = VerticalPushPullMotion.PullOntoCaster, Type = DirectionType.Pull, FromOrigin = true };
+            return new MotionInfo
+            {
+                Distance = VerticalPushPullMotion.PullOntoCaster, Type = DirectionType.Pull, FromOrigin = true
+            };
         }
 
         //Process Eldritch Blast
