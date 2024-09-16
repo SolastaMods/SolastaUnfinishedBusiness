@@ -22,6 +22,13 @@ internal static class DistanceCalculation
 
         return character1ClosestCube.ChessboardDistance(character2ClosestCube);
     }
+    
+    internal static float GetDistanceFromCharacter(GameLocationCharacter character, int3 target)
+    {
+        var characterClosestCube = GetCharacterClosestCubeToPosition(character, target);
+
+        return characterClosestCube.ChessboardDistance(target);
+    }
 
     private static int3 GetCharacterClosestCubeToPosition(GameLocationCharacter character1, int3 position)
     {

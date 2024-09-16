@@ -299,7 +299,7 @@ internal static partial class SpellBuilders
             // collect all covered positions
             var positions =
                 GetAffectedPositions(action.ActingCharacter, action.ActionParams.RulesetEffect,
-                    action.ActionParams.Positions[0], positioningCharacterService);
+                    action.ActionParams.CursorHoveredPosition);
 
             // collect all contenders that should be dragged
             var targets = GetPullTargets(actingCharacter, positions, locationCharacterService)
@@ -317,12 +317,7 @@ internal static partial class SpellBuilders
             // drag each contender to the selected position starting with the ones closer to the line
             foreach (var x in targets
                          .Where(x => x.Value != int3.invalid)
-                         .OrderBy(x =>
-                         {
-                             dummy.LocationPosition = x.Value;
-
-                             return DistanceCalculation.GetDistanceFromCharacters(x.Key, dummy);
-                         }))
+                         .OrderBy(x => int3.Distance(x.Key.LocationPosition, x.Value)))
             {
                 var actionParams = new CharacterActionParams(actingCharacter, Id.SpendPower)
                 {
@@ -354,32 +349,34 @@ internal static partial class SpellBuilders
                            characterService.PartyCharacters.Union(characterService.GuestCharacters))
                 .Where(x =>
                     // don't include caster
-                    x != caster &&
-                    // don't include affected contenders
-                    !affectedPositions.Any(y =>
-                    {
-                        dummy.LocationPosition = y;
-
-                        return x.IsWithinRange(dummy, 0);
-                    }) &&
-                    // don't include actions not within 2 cells range
-                    affectedPositions.Any(y =>
-                    {
-                        dummy.LocationPosition = y;
-
-                        return x.IsWithinRange(dummy, 2);
-                    }))
-                .ToList();
+                    x != caster
+                    && Valid(affectedPositions.Select(p => DistanceCalculation.GetDistanceFromCharacter(x, p)))
+                ).ToList();
 
             dummy.LocationPosition = int3.zero;
             return targets;
+
+            bool Valid(IEnumerable<float> values)
+            {
+                var flag = false;
+                foreach (var value in values)
+                {
+                    // don't include affected contenders
+                    if (value < 1) { return false; }
+
+                    // include actions within 2 cells range
+                    if (value <= 2) { flag = true; }
+                }
+
+                return flag;
+            }
         }
 
         internal static int3 GetPositionForGravityFissure(GameLocationCharacter target,
             ICollection<int3> affectedPositions, IGameLocationPositioningService positioningService)
         {
             //TODO: check if distance by DistanceCalculation.GetDistanceFromCharacters is better
-            var center = positioningService.ComputeGravityCenterPosition(target);
+            var center = positioningService.ComputeGravityCenterPosition(target) - CursorMotionHelper.Center;
             return affectedPositions
                 .OrderBy(t => (t.ToVector3() - center).magnitude)
                 .FirstOrDefault();
@@ -388,9 +385,7 @@ internal static partial class SpellBuilders
         internal static List<int3> GetAffectedPositions(
             GameLocationCharacter actingCharacter,
             RulesetEffect rulesetEffect,
-            int3 position,
-            IGameLocationPositioningService positioningService
-        )
+            Vector3 impactPoint)
         {
             var targetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
             var origin = new Vector3();
@@ -398,14 +393,15 @@ internal static partial class SpellBuilders
             List<int3> positions = [];
             List<GameLocationCharacter> affectedCharacters = [];
 
-            var impactPoint = positioningService.GetWorldPositionFromGridPosition(position);
+            EffectDescription effectDescription = rulesetEffect.EffectDescription;
+            var castingPosition = actingCharacter.LocationPosition;
 
             targetingService.ComputeTargetingParameters(
                 impactPoint,
                 actingCharacter,
-                actingCharacter.LocationPosition,
+                castingPosition,
                 MetricsDefinitions.GeometricShapeType.Line,
-                rulesetEffect.EffectDescription.RangeType,
+                effectDescription.RangeType,
                 ref origin,
                 ref direction);
 
@@ -415,7 +411,7 @@ internal static partial class SpellBuilders
                 impactPoint,
                 MetricsDefinitions.GeometricShapeType.Line,
                 actingCharacter.Side,
-                rulesetEffect.EffectDescription,
+                effectDescription,
                 rulesetEffect.ComputeTargetParameter(),
                 rulesetEffect.ComputeTargetParameter2(),
                 affectedCharacters,
@@ -424,7 +420,7 @@ internal static partial class SpellBuilders
                 coveredFloorPositions: positions,
                 groundOnly: false);
 
-            return positions;
+            return [.. positions.OrderBy(a => int3.Distance(castingPosition, a))];
         }
     }
 

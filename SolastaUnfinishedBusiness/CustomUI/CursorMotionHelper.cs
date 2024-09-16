@@ -18,7 +18,7 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 public class CursorMotionHelper : MonoBehaviour
 {
     private static GameObject _chainHelperPrefab;
-    private static readonly Vector3 Center = new(0.5f, 0.5f, 0.5f);
+    internal static readonly Vector3 Center = new(0.5f, 0.5f, 0.5f);
 
     private readonly List<int3> _gravityFissureTiles = [];
 
@@ -274,9 +274,9 @@ public class CursorMotionHelper : MonoBehaviour
         _gravityFissureTiles.Clear();
 
         var caster = ActingCharacter;
-
+        var cursorHovered = cursor.HoveredPosition + new Vector3(0.0f, 0.5f, 0.0f);
         _gravityFissureTiles.AddRange(GravityFissure.GetAffectedPositions(ActingCharacter,
-            _cursor.ActionParams.RulesetEffect, _aimedPosition, _positioningService));
+            _cursor.ActionParams.RulesetEffect, cursorHovered));
 
         var targets = GravityFissure.GetPullTargets(caster, _gravityFissureTiles, _characterService);
 
