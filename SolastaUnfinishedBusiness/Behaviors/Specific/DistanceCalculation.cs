@@ -1,23 +1,10 @@
-﻿using System;
+﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using TA;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
 internal static class DistanceCalculation
 {
-    private static float GetDistanceFromPositions(int3 position1, int3 position2) //, bool useDefault = false)
-    {
-        // if (useDefault)
-        // {
-        //     return int3.Distance(position1, position2);
-        // }
-
-        var rawDistance = position1 - position2;
-        var distance = Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
-
-        return distance;
-    }
-
     internal static float GetDistanceFromCharacters(
         GameLocationCharacter character1,
         GameLocationCharacter character2)
@@ -33,9 +20,7 @@ internal static class DistanceCalculation
         var character1ClosestCube = GetCharacterClosestCubeToPosition(character1, GetPositionCenter(character2));
         var character2ClosestCube = GetCharacterClosestCubeToPosition(character2, character1ClosestCube);
 
-        var distance = GetDistanceFromPositions(character1ClosestCube, character2ClosestCube);
-
-        return distance;
+        return character1ClosestCube.ChessboardDistance(character2ClosestCube);
     }
 
     private static int3 GetCharacterClosestCubeToPosition(GameLocationCharacter character1, int3 position)

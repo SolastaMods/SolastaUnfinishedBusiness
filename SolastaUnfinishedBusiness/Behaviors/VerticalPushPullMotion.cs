@@ -29,7 +29,7 @@ internal static class VerticalPushPullMotion
         if (reverse)
         {
             direction = -direction;
-            var b = (int)direction.Manhattan() - 1;
+            var b = (int)direction.ChessboardLength() - 1;
             if (distance == PullOntoCaster) { b += 1; } //if we have magic number - pull right on top of source
 
             distance = distance <= 0 ? b : Mathf.Min(distance, b);
@@ -86,7 +86,7 @@ internal static class VerticalPushPullMotion
 
         //TODO: remove after testing
 #if DEBUG
-        var applied = (target.LocationPosition - destination).Manhattan();
+        var applied = target.LocationPosition.ChessboardDistance(destination);
         var dir = reverse ? "Pull" : "Push";
         Main.Log(
             $"{dir}:{distance}\u25ce [{target.Name}]  moved: {applied}\u25ce, source: {sourceCenter}, target: {targetCenter}, destination: {destination}",
