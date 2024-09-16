@@ -246,6 +246,7 @@ Rules/&ActivationTypeOnRageStartAutomaticTitle=자동 분노 시작
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=자동 생명체의 HP가 0으로 감소했습니다.
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=자동 몰래 공격
 Rules/&CounterFormDismissCreatureFormat=소환된 대상 생물을 해제합니다.
+Rules/&MotionFormPullOnTop=위로 당겨 올리다
 Rules/&MotionFormPushDownFormat={0}을 누르세요
 Rules/&MotionFormSwitchFormat=자리를 바꾸다
 Rules/&SituationalContext9000Format=손에 블레이드 마스터리 무기 유형이 있음:

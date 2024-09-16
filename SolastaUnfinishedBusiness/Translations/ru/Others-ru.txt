@@ -246,6 +246,7 @@ Rules/&ActivationTypeOnRageStartAutomaticTitle=Автоматическое на
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Автоматическое уменьшение хитов существа до нуля
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Автоматическая скрытая атака
 Rules/&CounterFormDismissCreatureFormat=Отпускает призванное существо
+Rules/&MotionFormPullOnTop=Наденьте сверху
 Rules/&MotionFormPushDownFormat=Толкуть вниз {0}
 Rules/&MotionFormSwitchFormat=Поменяться местами
 Rules/&SituationalContext9000Format=Держит в руках тип оружия Мастерства клинка:

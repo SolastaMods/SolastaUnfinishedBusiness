@@ -246,6 +246,7 @@ Rules/&ActivationTypeOnRageStartAutomaticTitle=Inicio de furia automática
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Criatura automática reducida a cero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Ataque furtivo automático
 Rules/&CounterFormDismissCreatureFormat=Despierta a una criatura conjurada objetivo.
+Rules/&MotionFormPullOnTop=Tirar de la parte superior
 Rules/&MotionFormPushDownFormat=Empuja hacia abajo {0}
 Rules/&MotionFormSwitchFormat=Cambiar de lugar
 Rules/&SituationalContext9000Format=Tiene en sus manos los siguientes tipos de armas de maestría en la espada:

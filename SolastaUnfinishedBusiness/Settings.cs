@@ -409,6 +409,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableExtendedProficienciesPanelDisplay { get; set; }
 
     // Battle
+    public bool ShowMotionFormPreview { get; set; }
     public bool DontFollowCharacterInBattle { get; set; }
     public bool NeverMoveCameraOnEnemyTurn { get; set; }
     public int DontFollowMargin { get; set; } = 5;

@@ -302,6 +302,7 @@ ModUi/&ShowChannelDivinityOnPortrait=在英雄头像上显示<color=#D89555>引�
 ModUi/&ShowCraftedItemOnRecipeIcon=在商店和库存中的配方项目附近显示制作的项目图标 <i><color=#F0DAA0>[将鼠标悬停在它上面将显示制作物品的工具提示]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细的工具提示中显示制作配方
 ModUi/&ShowDescriptions=显示说明
+ModUi/&ShowMotionFormPreview=显示<b>推</b>和<b>拉</b>效果的预览
 ModUi/&SpellLevelFilter=<b><i><color=white>法术等级过滤器</color><color=#F0DAA0>[-1 显示全部]</color></i></b>
 ModUi/&SpellsMenu=法术
 ModUi/&StealthBreaksWhenAttackHits=当武器或法术攻击命中时启用隐匿损失

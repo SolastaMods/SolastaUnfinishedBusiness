@@ -165,6 +165,12 @@ internal static class GameUiDisplay
 
         int intValue;
 
+        toggle = Main.Settings.ShowMotionFormPreview;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowMotionFormPreview"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowMotionFormPreview = toggle;
+        }
+
         toggle = Main.Settings.DontFollowCharacterInBattle;
         if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
         {

@@ -246,6 +246,7 @@ Rules/&ActivationTypeOnRageStartAutomaticTitle=Démarrage automatique de la rage
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Créature automatique réduite à zéro PV
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Attaque furtive automatique
 Rules/&CounterFormDismissCreatureFormat=Renvoie une créature invoquée ciblée
+Rules/&MotionFormPullOnTop=Tirer sur le dessus
 Rules/&MotionFormPushDownFormat=Appuyez sur {0}
 Rules/&MotionFormSwitchFormat=Changer de place
 Rules/&SituationalContext9000Format=A des types d'armes de maîtrise de la lame en main :

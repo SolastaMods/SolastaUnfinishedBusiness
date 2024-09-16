@@ -42,7 +42,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildGiftOfTheEverLivingOnes());
         LoadInvocation(BuildGiftOfTheHunter());
         LoadInvocation(BuildGiftOfTheProtectors());
-        LoadInvocation(BuildGraspingBlast());
+        LoadInvocation(GraspingBlast);
         LoadInvocation(BuildHinderingBlast());
         LoadInvocation(BuildImprovedPactWeapon());
         LoadInvocation(BuildInexorableHex());

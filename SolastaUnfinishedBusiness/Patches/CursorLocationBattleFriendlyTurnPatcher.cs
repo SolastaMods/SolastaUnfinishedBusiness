@@ -6,6 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
+using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -32,6 +33,19 @@ public static class CursorLocationBattleFriendlyTurnPatcher
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldloc_2),
                 new CodeInstruction(OpCodes.Call, method));
+        }
+    }
+
+    [HarmonyPatch(typeof(CursorLocationBattleFriendlyTurn), nameof(CursorLocationBattleFriendlyTurn.Initialize))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class Initialize_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix([NotNull] CursorLocationBattleFriendlyTurn __instance)
+        {
+            //PATCH: 
+            CursorMotionHelper.Initialize(__instance.chainHelperPrefab);
         }
     }
 }

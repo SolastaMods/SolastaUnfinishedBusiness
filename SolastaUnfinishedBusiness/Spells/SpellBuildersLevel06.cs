@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -9,11 +10,10 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Patches;
-using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -23,6 +23,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static FeatureDefinitionAttributeModifier;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -192,7 +193,10 @@ internal static partial class SpellBuilders
 
     #region Gravity Fissure
 
-    internal static SpellDefinition BuildGravityFissure()
+    private static SpellDefinition _gravityFissure;
+    internal static SpellDefinition GravityFissure => _gravityFissure ??= BuildGravityFissure();
+
+    private static SpellDefinition BuildGravityFissure()
     {
         const string NAME = "GravityFissure";
 
@@ -203,26 +207,22 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell, sprite)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetDamageForm(DamageTypeForce, 8, DieType.D8)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
-                            .Build())
-                    .SetImpactEffectParameters(EldritchBlast)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                .SetEffectForms(
+                    EffectFormBuilder.Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetDamageForm(DamageTypeForce, 8, DieType.D8)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetMotionForm(MotionForm.MotionType.DragToOrigin, VerticalPushPullMotion.PullOntoCaster)
+                        .Build())
+                .SetImpactEffectParameters(EldritchBlast)
+                .Build())
             .AddToDB();
 
         power.AddCustomSubFeatures(
@@ -238,28 +238,24 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(Earthquake)
+            .SetEffectDescription(EffectDescriptionBuilder.Create(Earthquake)
+                // only required to get the SFX in this particular scenario to activate
+                .SetDurationData(DurationType.Round)
+                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Line, 12)
+                .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                // only required to get the SFX in this particular scenario to activate
+                .SetRecurrentEffect(RecurrentEffect.OnActivation)
+                .SetEffectForms(EffectFormBuilder.Create()
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .SetDamageForm(DamageTypeForce, 8, DieType.D8)
+                        .Build(),
                     // only required to get the SFX in this particular scenario to activate
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Line, 12)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    // only required to get the SFX in this particular scenario to activate
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeForce, 8, DieType.D8)
-                            .Build(),
-                        // only required to get the SFX in this particular scenario to activate
-                        // dangerous zone won't be enforced here as not a concentration spell
-                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false))
-                    .SetImpactEffectParameters(EldritchBlast)
-                    .Build())
+                    // dangerous zone won't be enforced here as not a concentration spell
+                    EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false))
+                .SetImpactEffectParameters(EldritchBlast)
+                .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeGravityFissure(power))
             .AddToDB();
 
@@ -290,68 +286,24 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class PowerOrSpellFinishedByMeGravityFissure(FeatureDefinitionPower powerDrag)
+    internal sealed class PowerOrSpellFinishedByMeGravityFissure(FeatureDefinitionPower powerDrag)
         : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var positioningCharacterService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var dummy = locationCharacterService.DummyCharacter;
 
-            // collect all covered positions except for the one under the caster
-            var coveredFloorPositions = CharacterActionMagicEffectPatcher.CoveredFloorPositions
-                .Where(x => x != actingCharacter.LocationPosition)
-                .ToList();
+            // collect all covered positions
+            var positions =
+                GetAffectedPositions(action.ActingCharacter, action.ActionParams.RulesetEffect,
+                    action.ActionParams.Positions[0], positioningCharacterService);
 
             // collect all contenders that should be dragged
-            var contendersAndPositions =
-                (Gui.Battle?.AllContenders ??
-                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .Where(x =>
-                    // don't include caster
-                    x != actingCharacter &&
-                    // don't include affected contenders
-                    !CharacterActionMagicEffectPatcher.AffectedFloorPositions.Contains(x.LocationPosition) &&
-                    // don't include actions not within 2 cells range
-                    coveredFloorPositions.Any(y =>
-                    {
-                        dummy.LocationPosition = y;
-
-                        return x.IsWithinRange(dummy, 2);
-                    }))
-                // create tab to select best position and set initial to far beyond
-                .ToDictionary(x => x, _ => new Container());
-
-            CharacterActionMagicEffectPatcher.CoveredFloorPositions.Reverse();
-
-            // select the best position possible to force a drag to effect origin
-            foreach (var contenderAndPosition in contendersAndPositions)
-            {
-                var contender = contenderAndPosition.Key;
-
-                foreach (var coveredFloorPosition in coveredFloorPositions)
-                {
-                    // must be inside loop as Position can change on previous interactions
-                    var bestDragToPosition = contenderAndPosition.Value.Position;
-
-                    dummy.LocationPosition = bestDragToPosition;
-
-                    var currentDistance = DistanceCalculation.GetDistanceFromCharacters(contender, dummy);
-
-                    dummy.LocationPosition = coveredFloorPosition;
-
-                    var newDistance = DistanceCalculation.GetDistanceFromCharacters(contender, dummy);
-
-                    //TODO: improve this with a better logic to determine which cell should pull in the end
-                    if (currentDistance - newDistance < 0)
-                    {
-                        continue;
-                    }
-
-                    contenderAndPosition.Value.Position = coveredFloorPosition;
-                }
-            }
+            var targets = GetPullTargets(actingCharacter, positions, locationCharacterService)
+                .ToDictionary(x => x, x => GetPositionForGravityFissure(x, positions, positioningCharacterService));
 
             // issue drag to origin powers to all contenders with a non placeholder position
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -363,11 +315,11 @@ internal static partial class SpellBuilders
             usablePower.spentPoints = action.ActionParams.RulesetEffect.EffectLevel;
 
             // drag each contender to the selected position starting with the ones closer to the line
-            foreach (var x in contendersAndPositions
-                         .Where(x => x.Value.Position != Container.PlaceHolderPosition)
+            foreach (var x in targets
+                         .Where(x => x.Value != int3.invalid)
                          .OrderBy(x =>
                          {
-                             dummy.LocationPosition = x.Value.Position;
+                             dummy.LocationPosition = x.Value;
 
                              return DistanceCalculation.GetDistanceFromCharacters(x.Key, dummy);
                          }))
@@ -379,23 +331,100 @@ internal static partial class SpellBuilders
                         implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { x.Key },
-                    Positions = { x.Value.Position }
+                    Positions = { x.Value }
                 };
 
                 actionService.ExecuteInstantSingleAction(actionParams);
             }
 
             // clean up the house as a good guest
-            dummy.LocationPosition = Container.PlaceHolderPosition;
+            dummy.LocationPosition = int3.invalid;
 
             yield break;
         }
 
-        // container class to hold selected dragging position to avoid changing enumerator
-        private sealed class Container
+        internal static List<GameLocationCharacter> GetPullTargets(
+            GameLocationCharacter caster, ICollection<int3> affectedPositions,
+            IGameLocationCharacterService characterService
+        )
         {
-            internal static readonly int3 PlaceHolderPosition = new(800, 800, 800);
-            internal int3 Position = PlaceHolderPosition;
+            var dummy = characterService.DummyCharacter;
+
+            var targets = (Gui.Battle?.AllContenders ??
+                           characterService.PartyCharacters.Union(characterService.GuestCharacters))
+                .Where(x =>
+                    // don't include caster
+                    x != caster &&
+                    // don't include affected contenders
+                    !affectedPositions.Any(y =>
+                    {
+                        dummy.LocationPosition = y;
+
+                        return x.IsWithinRange(dummy, 0);
+                    }) &&
+                    // don't include actions not within 2 cells range
+                    affectedPositions.Any(y =>
+                    {
+                        dummy.LocationPosition = y;
+
+                        return x.IsWithinRange(dummy, 2);
+                    }))
+                .ToList();
+
+            dummy.LocationPosition = int3.zero;
+            return targets;
+        }
+
+        internal static int3 GetPositionForGravityFissure(GameLocationCharacter target,
+            ICollection<int3> affectedPositions, IGameLocationPositioningService positioningService)
+        {
+            //TODO: check if distance by DistanceCalculation.GetDistanceFromCharacters is better
+            var center = positioningService.ComputeGravityCenterPosition(target);
+            return affectedPositions
+                .OrderBy(t => (t.ToVector3() - center).magnitude)
+                .FirstOrDefault();
+        }
+
+        internal static List<int3> GetAffectedPositions(
+            GameLocationCharacter actingCharacter,
+            RulesetEffect rulesetEffect,
+            int3 position,
+            IGameLocationPositioningService positioningService
+        )
+        {
+            var targetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
+            var origin = new Vector3();
+            var direction = new Vector3();
+            List<int3> positions = [];
+            List<GameLocationCharacter> affectedCharacters = [];
+
+            var impactPoint = positioningService.GetWorldPositionFromGridPosition(position);
+
+            targetingService.ComputeTargetingParameters(
+                impactPoint,
+                actingCharacter,
+                actingCharacter.LocationPosition,
+                MetricsDefinitions.GeometricShapeType.Line,
+                rulesetEffect.EffectDescription.RangeType,
+                ref origin,
+                ref direction);
+
+            targetingService.ComputeTargetsOfAreaOfEffect(
+                origin,
+                direction,
+                impactPoint,
+                MetricsDefinitions.GeometricShapeType.Line,
+                actingCharacter.Side,
+                rulesetEffect.EffectDescription,
+                rulesetEffect.ComputeTargetParameter(),
+                rulesetEffect.ComputeTargetParameter2(),
+                affectedCharacters,
+                false,
+                actingCharacter,
+                coveredFloorPositions: positions,
+                groundOnly: false);
+
+            return positions;
         }
     }
 
@@ -526,7 +555,8 @@ internal static partial class SpellBuilders
 
         conditionMark.GuiPresentation.description = Gui.EmptyContent;
 
-        var lightSourceForm = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+        var lightSourceForm =
+            SpellDefinitions.Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -542,7 +572,7 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Light)
+                    .Create(SpellDefinitions.Light)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(

@@ -30,6 +30,9 @@ internal static class InvocationsBuilders
 {
     internal const string EldritchSmiteTag = "EldritchSmite";
 
+    private static InvocationDefinition _graspingBlast;
+    public static InvocationDefinition GraspingBlast => _graspingBlast ??= BuildGraspingBlast();
+
     internal static InvocationDefinition BuildEldritchSmite()
     {
         return InvocationDefinitionBuilder
@@ -191,7 +194,7 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    internal static InvocationDefinition BuildGraspingBlast()
+    private static InvocationDefinition BuildGraspingBlast()
     {
         const string NAME = "InvocationGraspingBlast";
 

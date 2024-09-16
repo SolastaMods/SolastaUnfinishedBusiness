@@ -302,6 +302,7 @@ ModUi/&ShowChannelDivinityOnPortrait=영웅의 초상화에 얼마나 많은 <co
 ModUi/&ShowCraftedItemOnRecipeIcon=상점과 인벤토리의 제작 아이템 근처에 제작 아이템 아이콘 표시 <i><color=#F0DAA0>[마우스를 위에 올리면 제작 아이템에 대한 툴팁이 표시됩니다]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=자세한 툴팁에 제작법 표시
 ModUi/&ShowDescriptions=설명 표시
+ModUi/&ShowMotionFormPreview=<b>밀기</b> 및 <b>당기기</b> 효과의 미리보기 표시
 ModUi/&SpellLevelFilter=<b><i><color=white>주문 수준 필터</color> <color=#F0DAA0>[-1은 모두 표시]</color></i></b>
 ModUi/&SpellsMenu=주문
 ModUi/&StealthBreaksWhenAttackHits=무기나 주문 공격이 적중할 때 스텔스 손실 활성화

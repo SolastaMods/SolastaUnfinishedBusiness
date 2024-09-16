@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class DocumentationContext
 {
-    internal static void EnsureFolderExists()
+    private static void EnsureFolderExists()
     {
         Main.EnsureFolderExists($"{Main.ModFolder}/Documentation");
         Main.EnsureFolderExists($"{Main.ModFolder}/Documentation/Monsters");
@@ -22,6 +22,7 @@ internal static class DocumentationContext
 
     internal static void DumpDocumentation()
     {
+        EnsureFolderExists();
         foreach (var characterFamilyDefinition in DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
                      .Where(x =>
                          x.Name is not ("Giant_Rugan" or "Ooze") &&
