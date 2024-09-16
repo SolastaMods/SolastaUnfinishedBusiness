@@ -5,9 +5,11 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Subclasses.Builders;
 using TA;
 using UnityEngine;
 using static MotionForm;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -258,7 +260,24 @@ public class CursorMotionHelper : MonoBehaviour
         var effect = Cursor.ActionParams.RulesetEffect;
         if (effect == null) { return null; }
 
-        //TODO: check special cases like Eldritch Blast with invocations
+        var character = ActingCharacter.RulesetCharacter;
+
+        //Process Eldritch Blast
+        if (effect.Name == SpellDefinitions.EldritchBlast.Name)
+        {
+            if (character.HasActiveInvocation(InvocationDefinitions.RepellingBlast))
+            {
+                return new MotionInfo { Distance = 2, Type = DirectionType.Push, FromOrigin = false };
+            }
+
+            if (character.HasActiveInvocation(InvocationsBuilders.GraspingBlast))
+            {
+                return new MotionInfo { Distance = 2, Type = DirectionType.Pull, FromOrigin = false };
+            }
+
+            return null;
+        }
+
         //TODO: check MotionForm.MotionType.PushFromWall
         var motion = effect.EffectDescription.effectForms
             .Where(f => f.FormType == EffectForm.EffectFormType.Motion)

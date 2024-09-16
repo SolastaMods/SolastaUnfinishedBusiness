@@ -371,6 +371,11 @@ internal static class RulesetCharacterExtensions
         return hero?.GetClassLevel(className) ?? 0;
     }
 
+    internal static bool HasActiveInvocation(this RulesetCharacter self, InvocationDefinition invocation)
+    {
+        return self?.Invocations.Any(i => i.InvocationDefinition == invocation && i.Active) == true;
+    }
+
     internal static bool KnowsAnyInvocationOfActionId(this RulesetCharacter instance,
         Id actionId,
         ActionScope scope)
