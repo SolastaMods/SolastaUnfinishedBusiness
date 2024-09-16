@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -373,13 +374,36 @@ internal static partial class SpellBuilders
         }
 
         internal static int3 GetPositionForGravityFissure(GameLocationCharacter target,
-            ICollection<int3> affectedPositions, IGameLocationPositioningService positioningService)
+            List<int3> affectedPositions, IGameLocationPositioningService positioningService)
         {
-            //TODO: check if distance by DistanceCalculation.GetDistanceFromCharacters is better
+            //maybe better try to get line from caster to cursor point from params?
+            var line = Vector3.zero;
+            if (affectedPositions.Count >= 2)
+            {
+                var a = affectedPositions.First();
+                var b = affectedPositions.Last();
+                a.y = b.y = 0;
+
+                if (a != b)
+                {
+                    line = (a - b).ToVector3();
+                }
+            }
+
             var center = positioningService.ComputeGravityCenterPosition(target) - CursorMotionHelper.Center;
             return affectedPositions
-                .OrderBy(t => (t.ToVector3() - center).magnitude)
+                .OrderBy(Value)
                 .FirstOrDefault();
+
+            float Value(int3 p)
+            {
+                var v = p.ToVector3() - center;
+                var result = v.magnitude;
+                if (line == Vector3.zero) { return result; }
+
+                v.y = 0;
+                return 1000000 * result + Math.Abs(Vector3.Angle(line, v) - 90);
+            }
         }
 
         internal static List<int3> GetAffectedPositions(
