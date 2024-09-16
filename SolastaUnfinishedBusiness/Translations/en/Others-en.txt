@@ -246,6 +246,7 @@ Rules/&ActivationTypeOnRageStartAutomaticTitle=Auto Rage Start
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Auto Creature Reduced to Zero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Auto Sneak Attack
 Rules/&CounterFormDismissCreatureFormat=Dismisses a target conjured creature
+Rules/&MotionFormPullOnTop=Pull on top
 Rules/&MotionFormPushDownFormat=Push down {0}
 Rules/&MotionFormSwitchFormat=Switch places
 Rules/&SituationalContext9000Format=Has Blade Mastery weapon types in hands:
