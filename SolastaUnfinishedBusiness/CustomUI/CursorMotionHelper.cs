@@ -101,6 +101,7 @@ public class CursorMotionHelper : MonoBehaviour
             _selectionService.TargetSelectionChange -= TargetsChanged;
         }
 
+        GravityFissureTiles.Clear();
         DestroyHelpers();
     }
 
@@ -252,6 +253,8 @@ public class CursorMotionHelper : MonoBehaviour
         return string.Join(", ", cursor.coveredPlanePositions);
     }
 
+    private readonly List<int3> GravityFissureTiles = [];
+
     private List<GameLocationCharacter> GetAoETargets(CursorLocationGeometricShape cursor)
     {
         var affectedTargets = cursor.affectedCharacters.ToList();
@@ -260,21 +263,17 @@ public class CursorMotionHelper : MonoBehaviour
             return affectedTargets;
         }
 
+        GravityFissureTiles.Clear();
         var caster = ActingCharacter;
-        var tiles = GravityFissure.GetAffectedPositions(ActingCharacter, _cursor.ActionParams.RulesetEffect,
-            _aimedPosition, _positioningService);
-        var targets = GravityFissure.GetPullTargets(caster, tiles, _characterService);
+        GravityFissureTiles.AddRange(GravityFissure.GetAffectedPositions(ActingCharacter,
+            _cursor.ActionParams.RulesetEffect, _aimedPosition, _positioningService));
+        var targets = GravityFissure.GetPullTargets(caster, GravityFissureTiles, _characterService);
         return targets;
     }
 
     private Vector3 GetPositionForGravityFissure(GameLocationCharacter target)
     {
-        if (_cursor is not CursorLocationGeometricShape cursor)
-        {
-            return _positioningService.ComputeGravityCenterPosition(target);
-        }
-
-        return GravityFissure.GetPositionForGravityFissure(target, cursor.coveredPlanePositions, _positioningService)
+        return GravityFissure.GetPositionForGravityFissure(target, GravityFissureTiles, _positioningService)
             .ToVector3() + Center;
     }
 
