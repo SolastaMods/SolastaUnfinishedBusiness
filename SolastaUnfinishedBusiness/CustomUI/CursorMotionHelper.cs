@@ -15,24 +15,24 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class CursorMotionHelper : MonoBehaviour
 {
-    private static GameObject ChainHelperPrefab;
-    private static readonly Vector3 CENTER = new(0.5f, 0.5f, 0.5f);
+    private static GameObject _chainHelperPrefab;
+    private static readonly Vector3 Center = new(0.5f, 0.5f, 0.5f);
 
-    private CursorLocation Cursor;
-    private IGameLocationSelectionService SelectionService;
-    private IGameLocationPositioningService PositioningService;
-    private IGameLocationEnvironmentService EnvService;
-    [CanBeNull] private MotionInfo Info;
-    private int3 AimedPosition = int3.zero;
+    private CursorLocation _cursor;
+    private IGameLocationSelectionService _selectionService;
+    private IGameLocationPositioningService _positioningService;
+    private IGameLocationEnvironmentService _envService;
+    [CanBeNull] private MotionInfo _info;
+    private int3 _aimedPosition = int3.zero;
 
-    private readonly Dictionary<ulong, ActionChainHelper> Helpers = new();
+    private readonly Dictionary<ulong, ActionChainHelper> _helpers = new();
 
-    private GameLocationCharacter ActingCharacter => Cursor.ActionParams.ActingCharacter;
-    private Vector3 ActingCharacterCenter = Vector3.zero;
+    private GameLocationCharacter ActingCharacter => _cursor.ActionParams.ActingCharacter;
+    private Vector3 _actingCharacterCenter = Vector3.zero;
 
     internal static void Initialize(GameObject chainHelperPrefab)
     {
-        ChainHelperPrefab = chainHelperPrefab;
+        _chainHelperPrefab = chainHelperPrefab;
     }
 
     internal static void Activate(CursorLocation cursor)
@@ -68,32 +68,32 @@ public class CursorMotionHelper : MonoBehaviour
 
     private void Init(CursorLocation cursor)
     {
-        Cursor = cursor;
+        _cursor = cursor;
     }
 
     private void DoActivate()
     {
-        SelectionService = Cursor.SelectionService;
-        PositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-        EnvService = ServiceRepository.GetService<IGameLocationEnvironmentService>();
+        _selectionService = _cursor.SelectionService;
+        _positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+        _envService = ServiceRepository.GetService<IGameLocationEnvironmentService>();
 
-        ActingCharacterCenter = PositioningService.ComputeGravityCenterPosition(ActingCharacter);
-        Info = BuildInfo();
-        if (Info == null) { return; }
+        _actingCharacterCenter = _positioningService.ComputeGravityCenterPosition(ActingCharacter);
+        _info = BuildInfo();
+        if (_info == null) { return; }
 
-        if (Cursor is CursorLocationSelectTarget)
+        if (_cursor is CursorLocationSelectTarget)
         {
-            SelectionService.CharacterHoverChange += HoverChanged;
-            SelectionService.TargetSelectionChange += TargetsChanged;
+            _selectionService.CharacterHoverChange += HoverChanged;
+            _selectionService.TargetSelectionChange += TargetsChanged;
         }
     }
 
     private void DoDeactivate()
     {
-        if (Cursor is CursorLocationSelectTarget)
+        if (_cursor is CursorLocationSelectTarget)
         {
-            SelectionService.CharacterHoverChange -= HoverChanged;
-            SelectionService.TargetSelectionChange -= TargetsChanged;
+            _selectionService.CharacterHoverChange -= HoverChanged;
+            _selectionService.TargetSelectionChange -= TargetsChanged;
         }
 
         DestroyHelpers();
@@ -112,7 +112,7 @@ public class CursorMotionHelper : MonoBehaviour
 
         var sameSide = ActingCharacter.Side == target.Side;
         var pos = target.LocationPosition + shift;
-        var src = PositioningService.ComputeGravityCenterPosition(target);
+        var src = _positioningService.ComputeGravityCenterPosition(target);
         var dst = src + shift.ToVector3();
 
         helper.PlaceGhostWithoutPath(target, pos, sameSide);
@@ -121,17 +121,17 @@ public class CursorMotionHelper : MonoBehaviour
 
     private bool IsValidTarget(GameLocationCharacter target)
     {
-        if (Info == null) { return false; }
+        if (_info == null) { return false; }
 
-        if (Cursor is not CursorLocationSelectTarget selectTarget) { return true; }
+        if (_cursor is not CursorLocationSelectTarget selectTarget) { return true; }
 
         return selectTarget.IsValidTarget(target);
     }
 
     private bool HasTarget(ulong guid)
     {
-        return SelectionService.SelectedTargets.Any(t => t.Guid == guid)
-               || (Cursor as CursorLocationGeometricShape)?.affectedCharacters.Any(c => c.Guid == guid) == true;
+        return _selectionService.SelectedTargets.Any(t => t.Guid == guid)
+               || (_cursor as CursorLocationGeometricShape)?.affectedCharacters.Any(c => c.Guid == guid) == true;
     }
 
     [CanBeNull]
@@ -140,11 +140,11 @@ public class CursorMotionHelper : MonoBehaviour
         if (target == null || !IsValidTarget(target)) { return null; }
 
         var guid = target.Guid;
-        if (!Helpers.TryGetValue(guid, out var helper))
+        if (!_helpers.TryGetValue(guid, out var helper))
         {
-            helper = Instantiate(ChainHelperPrefab, this.transform).GetComponent<ActionChainHelper>();
+            helper = Instantiate(_chainHelperPrefab, this.transform).GetComponent<ActionChainHelper>();
             helper.Activate(target.RulesetCharacter);
-            Helpers.Add(guid, helper);
+            _helpers.Add(guid, helper);
         }
 
         return helper;
@@ -158,34 +158,34 @@ public class CursorMotionHelper : MonoBehaviour
 
     private void DestroyHelper(ulong guid)
     {
-        if (Helpers.TryGetValue(guid, out var helper))
+        if (_helpers.TryGetValue(guid, out var helper))
         {
-            Helpers.Remove(guid);
+            _helpers.Remove(guid);
             DestroyHelper(helper);
         }
     }
 
     private void DestroyHelpers()
     {
-        var helpers = Helpers.Values.ToList();
-        Helpers.Clear();
+        var helpers = _helpers.Values.ToList();
+        _helpers.Clear();
         helpers.ForEach(DestroyHelper);
     }
 
     private int3 GetTargetShift(GameLocationCharacter target)
     {
-        if (Info == null) { return int3.zero; }
+        if (_info == null) { return int3.zero; }
 
-        var src = Info.Type switch
+        var src = _info.Type switch
         {
-            DirectionType.Down => (target.locationPosition + new int3(0, 10, 0)).ToVector3() + CENTER,
-            _ when Info.FromOrigin => AimedPosition.ToVector3() + CENTER,
-            _ => ActingCharacterCenter
+            DirectionType.Down => (target.locationPosition + new int3(0, 10, 0)).ToVector3() + Center,
+            _ when _info.FromOrigin => _aimedPosition.ToVector3() + Center,
+            _ => _actingCharacterCenter
         };
 
-        var reverse = Info.Type == DirectionType.Pull;
-        var distance = Info.Distance;
-        if (EnvService.ComputePushDestination(src, target, distance, reverse, PositioningService, out var dst, out _))
+        var reverse = _info.Type == DirectionType.Pull;
+        var distance = _info.Distance;
+        if (_envService.ComputePushDestination(src, target, distance, reverse, _positioningService, out var dst, out _))
         {
             return dst - target.LocationPosition;
         }
@@ -212,12 +212,12 @@ public class CursorMotionHelper : MonoBehaviour
 
     private void RefreshAoETargets(CursorLocationGeometricShape cursor)
     {
-        if (Info == null) { return; }
+        if (_info == null) { return; }
 
-        var old = Helpers.Keys.ToList();
+        var old = _helpers.Keys.ToList();
         var targets = cursor.affectedCharacters.ToList();
-        var moved = AimedPosition != cursor.aimedPosition;
-        AimedPosition = cursor.aimedPosition;
+        var moved = _aimedPosition != cursor.aimedPosition;
+        _aimedPosition = cursor.aimedPosition;
         foreach (var target in targets)
         {
             if (target.RulesetCharacter == null) { continue; }
@@ -258,7 +258,7 @@ public class CursorMotionHelper : MonoBehaviour
     [CanBeNull]
     private MotionInfo BuildInfo()
     {
-        var effect = Cursor.ActionParams.RulesetEffect;
+        var effect = _cursor.ActionParams.RulesetEffect;
         if (effect == null) { return null; }
 
         var character = ActingCharacter.RulesetCharacter;
