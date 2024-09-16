@@ -27,7 +27,7 @@ internal static class VerticalPushPullMotion
         if (reverse)
         {
             direction = -direction;
-            var b = ((int)direction.Manhattan()) - 1;
+            var b = (int)direction.Manhattan() - 1;
             distance = distance <= 0 ? b : Mathf.Min(distance, b);
         }
         else
