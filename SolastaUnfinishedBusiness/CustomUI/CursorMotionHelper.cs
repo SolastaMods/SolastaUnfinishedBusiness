@@ -5,11 +5,13 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using TA;
 using UnityEngine;
 using static MotionForm;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using GravityFissure = SolastaUnfinishedBusiness.Spells.SpellBuilders.PowerOrSpellFinishedByMeGravityFissure;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -22,8 +24,10 @@ public class CursorMotionHelper : MonoBehaviour
     private IGameLocationSelectionService _selectionService;
     private IGameLocationPositioningService _positioningService;
     private IGameLocationEnvironmentService _envService;
+    private IGameLocationCharacterService _characterService;
     [CanBeNull] private MotionInfo _info;
     private int3 _aimedPosition = int3.zero;
+    private string _positionsKey = "";
 
     private readonly Dictionary<ulong, ActionChainHelper> _helpers = new();
 
@@ -76,6 +80,7 @@ public class CursorMotionHelper : MonoBehaviour
         _selectionService = _cursor.SelectionService;
         _positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
         _envService = ServiceRepository.GetService<IGameLocationEnvironmentService>();
+        _characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
         _actingCharacterCenter = _positioningService.ComputeGravityCenterPosition(ActingCharacter);
         _info = BuildInfo();
@@ -179,6 +184,7 @@ public class CursorMotionHelper : MonoBehaviour
         var src = _info.Type switch
         {
             DirectionType.Down => (target.locationPosition + new int3(0, 10, 0)).ToVector3() + Center,
+            _ when _info.FromOrigin && IsGravityFissure => GetPositionForGravityFissure(target),
             _ when _info.FromOrigin => _aimedPosition.ToVector3() + Center,
             _ => _actingCharacterCenter
         };
@@ -214,15 +220,23 @@ public class CursorMotionHelper : MonoBehaviour
     {
         if (_info == null) { return; }
 
-        var old = _helpers.Keys.ToList();
-        var targets = cursor.affectedCharacters.ToList();
-        var moved = _aimedPosition != cursor.aimedPosition;
+        var key = PosKey(cursor);
+        var moved = IsGravityFissure
+            ? _positionsKey != key
+            : _aimedPosition != cursor.aimedPosition;
+
         _aimedPosition = cursor.aimedPosition;
+        _positionsKey = key;
+
+        if (!moved) { return; }
+
+        var old = _helpers.Keys.ToList();
+        var targets = GetAoETargets(cursor);
         foreach (var target in targets)
         {
             if (target.RulesetCharacter == null) { continue; }
 
-            if (old.Remove(target.Guid) && !moved)
+            if (old.Remove(target.Guid) && !_info.FromOrigin)
             {
                 continue;
             }
@@ -231,6 +245,36 @@ public class CursorMotionHelper : MonoBehaviour
         }
 
         old.ForEach(DestroyHelper);
+    }
+
+    private static string PosKey(CursorLocationGeometricShape cursor)
+    {
+        return string.Join(", ", cursor.coveredPlanePositions);
+    }
+
+    private List<GameLocationCharacter> GetAoETargets(CursorLocationGeometricShape cursor)
+    {
+        var affectedTargets = cursor.affectedCharacters.ToList();
+        if (!IsGravityFissure)
+        {
+            return affectedTargets;
+        }
+
+        var caster = ActingCharacter;
+        var tiles = cursor.coveredPlanePositions;
+        var targets = GravityFissure.GetPullTargets(caster, tiles, _characterService);
+        return targets;
+    }
+
+    private Vector3 GetPositionForGravityFissure(GameLocationCharacter target)
+    {
+        if (_cursor is not CursorLocationGeometricShape cursor)
+        {
+            return _positioningService.ComputeGravityCenterPosition(target);
+        }
+
+        return GravityFissure.GetPositionForGravityFissure(target, cursor.coveredPlanePositions, _positioningService)
+            .ToVector3() + Center;
     }
 
     private void TargetsChanged(
@@ -255,13 +299,24 @@ public class CursorMotionHelper : MonoBehaviour
         }
     }
 
+    private bool IsGravityFissure;
+
     [CanBeNull]
     private MotionInfo BuildInfo()
     {
+        IsGravityFissure = false;
         var effect = _cursor.ActionParams.RulesetEffect;
         if (effect == null) { return null; }
 
+        IsGravityFissure = effect.SourceDefinition == SpellBuilders.GravityFissure;
+
         var character = ActingCharacter.RulesetCharacter;
+
+        //Process Gravity Fissure
+        if (IsGravityFissure)
+        {
+            return new MotionInfo { Distance = VerticalPushPullMotion.PullOntoCaster, Type = DirectionType.Pull, FromOrigin = true };
+        }
 
         //Process Eldritch Blast
         if (effect.Name == SpellDefinitions.EldritchBlast.Name)
