@@ -246,6 +246,7 @@ Rules/&ActivationTypeOnRageStartAutomaticTitle=Avvio automatico della rabbia
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Creatura automatica ridotta a zero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Attacco furtivo automatico
 Rules/&CounterFormDismissCreatureFormat=Congeda una creatura bersaglio evocata
+Rules/&MotionFormPullOnTop=Tirare in alto
 Rules/&MotionFormPushDownFormat=Spingere verso il basso {0}
 Rules/&MotionFormSwitchFormat=Cambiare posto
 Rules/&SituationalContext9000Format=Ha in mano i tipi di armi Blade Mastery:

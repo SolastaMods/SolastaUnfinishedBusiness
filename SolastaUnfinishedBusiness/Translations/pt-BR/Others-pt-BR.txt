@@ -246,6 +246,7 @@ Rules/&ActivationTypeOnRageStartAutomaticTitle=Início de raiva automática
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Criatura Automática Reduzida a Zero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Ataque furtivo automático
 Rules/&CounterFormDismissCreatureFormat=Dispensa uma criatura alvo conjurada
+Rules/&MotionFormPullOnTop=Puxe para cima
 Rules/&MotionFormPushDownFormat=Empurre para baixo {0}
 Rules/&MotionFormSwitchFormat=Trocar de lugar
 Rules/&SituationalContext9000Format=Tem tipos de armas de Maestria em Lâmina em mãos:

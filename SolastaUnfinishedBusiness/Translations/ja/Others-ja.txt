@@ -246,6 +246,7 @@ Rules/&ActivationTypeOnRageStartAutomaticTitle=オートレイジスタート
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=自動クリーチャーのHPがゼロに減少
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=オートスニークアタック
 Rules/&CounterFormDismissCreatureFormat=対象の召喚されたクリーチャーを退ける
+Rules/&MotionFormPullOnTop=上に引っ張る
 Rules/&MotionFormPushDownFormat={0}を押し下げる
 Rules/&MotionFormSwitchFormat=場所を交換する
 Rules/&SituationalContext9000Format=ブレードマスタリーの武器タイプを手に持っています:
