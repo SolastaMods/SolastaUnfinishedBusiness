@@ -374,7 +374,9 @@ internal static class ClassFeats
             var effectDescription = action.actionParams.RulesetEffect.EffectDescription;
 
             if (effectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit) ||
-                effectDescription.TargetParameter != 1)
+                effectDescription.TargetParameter != 1 ||
+                action.Countered ||
+                action is CharacterActionCastSpell { ExecutionFailed: true })
             {
                 yield break;
             }
@@ -407,14 +409,19 @@ internal static class ClassFeats
         {
             if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 attacker == helper ||
-                helper.IsMyTurn() ||
-                !helper.CanReact())
+                helper.IsMyTurn())
             {
                 yield break;
             }
 
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var defender in targets)
             {
+                if (!helper.CanReact())
+                {
+                    yield break;
+                }
+
                 var (opportunityAttackMode, actionModifier) =
                     helper.GetFirstMeleeModeThatCanAttack(defender, battleManager);
 
@@ -492,7 +499,10 @@ internal static class ClassFeats
             }
 
             var rulesetCondition =
-                rulesetCharacterMonster.AllConditions.FirstOrDefault(x => x.SourceGuid == TemporaryHitPointsGuid);
+                rulesetCharacterMonster.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .FirstOrDefault(x =>
+                        x.SourceGuid == TemporaryHitPointsGuid);
 
             if (rulesetCondition != null)
             {

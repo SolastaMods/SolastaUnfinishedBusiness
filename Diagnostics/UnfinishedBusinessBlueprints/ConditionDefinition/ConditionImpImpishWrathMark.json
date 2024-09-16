@@ -18,6 +18,7 @@
   "specialInterruptions": [
     "Attacks",
     "CastSpellExecuted",
+    9007,
     "UsePowerExecuted"
   ],
   "interruptionRequiresSavingThrow": false,

@@ -21,6 +21,9 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionMagicEffectPatcher
 {
+    internal static readonly List<int3> CoveredFloorPositions = [];
+    internal static readonly List<int3> AffectedFloorPositions = [];
+
     [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.MagicEffectExecuteOnPositions))]
     [UsedImplicitly]
     public static class MagicEffectExecuteOnPositions_Patch
@@ -577,6 +580,9 @@ public static class CharacterActionMagicEffectPatcher
                     actionParams.HasMagneticTargeting,
                     actingCharacter,
                     coveredPositions,
+                    CoveredFloorPositions,
+                    null,
+                    AffectedFloorPositions,
                     groundOnly: effectDescription.AffectOnlyGround);
             }
 
@@ -897,6 +903,18 @@ public static class CharacterActionMagicEffectPatcher
                     magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
             }
 
+            //PATCH: supports `IMagicEffectFinishedByMe` on metamagic
+            if (hero != null)
+            {
+                foreach (var magicEffectFinishedByMe in hero.TrainedMetamagicOptions
+                             .SelectMany(metamagic =>
+                                 metamagic.GetAllSubFeaturesOfType<IMagicEffectFinishedByMe>()))
+                {
+                    yield return
+                        magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
+                }
+            }
+
             //PATCH: support for `IMagicEffectFinishedOnMe`
             foreach (var target in targets)
             {
@@ -951,7 +969,7 @@ public static class CharacterActionMagicEffectPatcher
                     else
                     {
                         ServiceRepository.GetService<IGameLocationActionService>()
-                            .ExecuteAction(actionParam, null, false);
+                            .ExecuteAction(actionParam, null, true);
                     }
                 }
             }
@@ -988,7 +1006,7 @@ public static class CharacterActionMagicEffectPatcher
             CharacterActionMagicEffect __instance,
             RulesetEffect rulesetEffect,
             GameLocationCharacter target,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
             bool checkMagicalAttackDamage)
@@ -1031,7 +1049,7 @@ public static class CharacterActionMagicEffectPatcher
                     rulesetEffect,
                     actingCharacter,
                     target,
-                    attackModifier,
+                    actionModifier,
                     firstTarget,
                     checkMagicalAttackDamage);
             }
@@ -1045,10 +1063,10 @@ public static class CharacterActionMagicEffectPatcher
                     rulesetEffect,
                     rulesetTarget,
                     rulesetEffect.GetEffectSource(),
-                    attackModifier.AttacktoHitTrends,
-                    attackModifier.AttackAdvantageTrends,
+                    actionModifier.AttacktoHitTrends,
+                    actionModifier.AttackAdvantageTrends,
                     false,
-                    attackModifier.AttackRollModifier,
+                    actionModifier.AttackRollModifier,
                     out var outcome,
                     out var successDelta,
                     -1,
@@ -1060,7 +1078,7 @@ public static class CharacterActionMagicEffectPatcher
                 if (__instance.AttackRollOutcome == RollOutcome.Failure)
                 {
                     yield return battleManager.HandleBardicInspirationForAttack(
-                        __instance, actingCharacter, target, attackModifier);
+                        __instance, actingCharacter, target, actionModifier);
 
                     // BEGIN PATCH
 
@@ -1078,7 +1096,7 @@ public static class CharacterActionMagicEffectPatcher
 
                 //PATCH: support for `ITryAlterOutcomeAttack`
                 foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNegativePriority(
-                             battleManager, __instance, actingCharacter, target, attackModifier, null,
+                             battleManager, __instance, actingCharacter, target, actionModifier, null,
                              rulesetEffect))
                 {
                     yield return tryAlterOutcomeAttack;
@@ -1097,7 +1115,7 @@ public static class CharacterActionMagicEffectPatcher
                             target,
                             null,
                             rulesetEffect,
-                            attackModifier,
+                            actionModifier,
                             __instance.AttackRoll,
                             __instance.AttackSuccessDelta,
                             effectDescription.RangeType == RangeType.RangeHit);
@@ -1105,7 +1123,7 @@ public static class CharacterActionMagicEffectPatcher
 
                     //PATCH: support for `ITryAlterOutcomeAttack`
                     foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNonNegativePriority(
-                                 battleManager, __instance, actingCharacter, target, attackModifier, null,
+                                 battleManager, __instance, actingCharacter, target, actionModifier, null,
                                  rulesetEffect))
                     {
                         yield return tryAlterOutcomeAttack;
@@ -1117,10 +1135,10 @@ public static class CharacterActionMagicEffectPatcher
                         rulesetEffect,
                         rulesetTarget,
                         rulesetEffect.GetEffectSource(),
-                        attackModifier.AttacktoHitTrends,
-                        attackModifier.AttackAdvantageTrends,
+                        actionModifier.AttacktoHitTrends,
+                        actionModifier.AttackAdvantageTrends,
                         false,
-                        attackModifier.AttackRollModifier,
+                        actionModifier.AttackRollModifier,
                         out outcome,
                         out successDelta,
                         __instance.AttackRoll,
@@ -1138,7 +1156,7 @@ public static class CharacterActionMagicEffectPatcher
                                 __instance,
                                 actingCharacter,
                                 target,
-                                attackModifier,
+                                actionModifier,
                                 rulesetEffect,
                                 actualEffectForms,
                                 firstTarget,
@@ -1152,9 +1170,9 @@ public static class CharacterActionMagicEffectPatcher
                         rulesetEffect,
                         rulesetTarget,
                         rulesetEffect.GetEffectSource(),
-                        attackModifier.AttacktoHitTrends,
-                        attackModifier.AttackAdvantageTrends,
-                        false, attackModifier.AttackRollModifier,
+                        actionModifier.AttacktoHitTrends,
+                        actionModifier.AttackAdvantageTrends,
+                        false, actionModifier.AttackRollModifier,
                         out outcome,
                         out successDelta,
                         __instance.AttackRoll,
@@ -1176,7 +1194,7 @@ public static class CharacterActionMagicEffectPatcher
                         __instance,
                         actingCharacter,
                         target,
-                        attackModifier,
+                        actionModifier,
                         rulesetEffect,
                         actualEffectForms,
                         firstTarget,
@@ -1194,41 +1212,45 @@ public static class CharacterActionMagicEffectPatcher
                 if (rulesetEffect.EffectDescription.RecurrentEffect == RecurrentEffect.No ||
                     (rulesetEffect.EffectDescription.RecurrentEffect & RecurrentEffect.OnActivation) != 0)
                 {
+                    // Saving throw?
                     var hasBorrowedLuck = rulesetTarget.HasConditionOfTypeOrSubType(ConditionBorrowedLuck);
 
                     __instance.RolledSaveThrow = rulesetEffect.TryRollSavingThrow(
                         actingCharacter.RulesetCharacter,
                         actingCharacter.Side,
                         rulesetTarget,
-                        attackModifier,
+                        actionModifier,
                         actualEffectForms,
                         hasSavingThrowAnimation,
                         out var saveOutcome,
                         out var saveOutcomeDelta);
+
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
-                    rulesetTarget.GrantConditionOnSavingThrowOutcome(
-                        rulesetEffect.EffectDescription, saveOutcome, false);
-
-                    // Legendary Resistance or Indomitable?
-                    if (__instance.RolledSaveThrow && __instance.SaveOutcome == RollOutcome.Failure)
+                    if (__instance.RolledSaveThrow)
                     {
-                        yield return battleManager.HandleFailedSavingThrow(
-                            __instance,
+                        var savingThrowData = new SavingThrowData
+                        {
+                            SaveActionModifier = actionModifier,
+                            SaveOutcome = __instance.SaveOutcome,
+                            SaveOutcomeDelta = __instance.SaveOutcomeDelta,
+                            SaveDC = RulesetActorExtensions.SaveDC,
+                            SaveBonusAndRollModifier = RulesetActorExtensions.SaveBonusAndRollModifier,
+                            SavingThrowAbility = RulesetActorExtensions.SavingThrowAbility,
+                            SourceDefinition = null,
+                            EffectDescription = rulesetEffect.EffectDescription,
+                            Title = __instance.FormatTitle(),
+                            Action = __instance
+                        };
+
+                        yield return TryAlterOutcomeSavingThrow.Handler(
+                            battleManager,
                             actingCharacter,
                             target,
-                            attackModifier,
-                            !needToRollDie,
-                            hasBorrowedLuck);
-                    }
-
-                    //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                    foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                 battleManager, __instance, actingCharacter, target, attackModifier, false,
-                                 hasBorrowedLuck))
-                    {
-                        yield return tryAlterOutcomeSavingThrow;
+                            savingThrowData,
+                            hasBorrowedLuck,
+                            rulesetEffect.EffectDescription);
                     }
                 }
             }
@@ -1241,13 +1263,13 @@ public static class CharacterActionMagicEffectPatcher
                     rulesetTarget.matchingInterruption = true;
                     rulesetTarget.matchingInterruptionConditions.Clear();
 
-                    foreach (var rulesetCondition in rulesetTarget.conditionsByCategory
-                                 .SelectMany(keyValuePair => keyValuePair.Value
-                                     .Where(rulesetCondition =>
-                                         rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
-                                             (ConditionInterruption)ExtraConditionInterruption
-                                                 .AfterWasAttackedNotBySource) &&
-                                         rulesetCondition.SourceGuid != actingCharacter.Guid)))
+                    foreach (var rulesetCondition in rulesetTarget.ConditionsByCategory
+                                 .SelectMany(x => x.Value)
+                                 .Where(rulesetCondition =>
+                                     rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
+                                         (ConditionInterruption)ExtraConditionInterruption
+                                             .AfterWasAttackedNotBySource) &&
+                                     rulesetCondition.SourceGuid != actingCharacter.Guid))
                     {
                         rulesetTarget.matchingInterruptionConditions.Add(rulesetCondition);
                     }
@@ -1283,7 +1305,8 @@ public static class CharacterActionMagicEffectPatcher
                 yield break;
             }
 
-            var abilityCheckData = new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier() };
+            var abilityCheckData =
+                new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier(), Action = __instance };
 
             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
                 actingCharacter, target, ActionDefinitions.Id.Shove, abilityCheckData);

@@ -462,7 +462,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(SpellDefinitions.FaerieFire)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetParticleEffectParameters(SpellDefinitions.FaerieFire)
@@ -624,7 +624,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 [defender],
                 attacker,
                 "ArcaneShot",
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;
@@ -674,6 +674,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             EffectHelpers
                 .StartVisualEffect(attacker, defender, SpellDefinitions.Shatter, EffectHelpers.EffectType.Zone);
+
+            // burst arrow damage is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }

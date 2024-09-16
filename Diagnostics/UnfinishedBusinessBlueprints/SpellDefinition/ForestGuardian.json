@@ -48,7 +48,7 @@
     "targetSide": "Ally",
     "durationType": "Minute",
     "durationParameter": 1,
-    "endOfEffect": "EndOfSourceTurn",
+    "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",

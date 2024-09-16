@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using TA.AI;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
@@ -26,12 +28,10 @@ internal class ConditionDefinitionBuilder
 {
     private static void SetEmptyParticleReferencesWhereNull(ConditionDefinition definition)
     {
-        var assetReference = new AssetReference();
-
-        definition.conditionStartParticleReference ??= assetReference;
-        definition.conditionParticleReference ??= assetReference;
-        definition.conditionEndParticleReference ??= assetReference;
-        definition.characterShaderReference ??= assetReference;
+        definition.conditionStartParticleReference ??= new AssetReference();
+        definition.conditionParticleReference ??= new AssetReference();
+        definition.conditionEndParticleReference ??= new AssetReference();
+        definition.characterShaderReference ??= new AssetReference();
     }
 
     protected override void Initialise()
@@ -43,6 +43,21 @@ internal class ConditionDefinitionBuilder
     internal ConditionDefinitionBuilder AllowMultipleInstances()
     {
         Definition.allowMultipleInstances = true;
+        return this;
+    }
+
+    internal ConditionDefinitionBuilder SetBrain(
+        DecisionPackageDefinition battlePackage,
+        bool addBehavior = false,
+        bool forceBehavior = false,
+        bool fearSource = false)
+    {
+        Definition.battlePackage = battlePackage;
+        Definition.explorationPackage = DatabaseHelper.DecisionPackageDefinitions.IdleGuard_Default;
+        Definition.addBehavior = addBehavior;
+        Definition.forceBehavior = forceBehavior;
+        Definition.fearSource = fearSource;
+
         return this;
     }
 

@@ -133,7 +133,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Proxy/&ProxyFaithfulHoundTitle",
-    "description": "Proxy/&ProxyFaithfulHoundDescription",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "9ccae0cf-fedf-5b4b-a2fa-770939e6b8e9",

@@ -161,7 +161,9 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             }
 
             var conditionWealCount =
-                rulesetCharacter.AllConditions.Count(x => x.ConditionDefinition == conditionWeal);
+                rulesetCharacter.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .Count(x => x.ConditionDefinition == conditionWeal);
 
             if (result == 1 || result - conditionWealCount > 1)
             {
@@ -169,7 +171,6 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             }
 
             rulesetCharacter.LogCharacterUsedFeature(featureWeal, "Feedback/&WoeReroll", false,
-                (ConsoleStyleDuplet.ParameterType.Player, rulesetCharacter.Name),
                 (ConsoleStyleDuplet.ParameterType.SuccessfulRoll, result.ToString()),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, 1.ToString()));
 
@@ -274,6 +275,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
 
+            // woe, their woe, and brutal weal are use at will power
             attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }

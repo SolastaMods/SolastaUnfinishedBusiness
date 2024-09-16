@@ -237,6 +237,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,
                 ConditionInterruption.CastSpellExecuted,
+                (ConditionInterruption)ExtraConditionInterruption.SpendPowerExecuted,
                 ConditionInterruption.UsePowerExecuted)
             .AddToDB();
 
@@ -615,6 +616,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerVitriolicInfusion, rulesetAttacker);
 
+            // vitriolic infusion damage is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, [.. targets]);
         }
     }

@@ -45,7 +45,5 @@ internal class CharacterActionWildlingFeralAgility(CharacterActionParams actionP
             0,
             0,
             0);
-
-        yield return null;
     }
 }

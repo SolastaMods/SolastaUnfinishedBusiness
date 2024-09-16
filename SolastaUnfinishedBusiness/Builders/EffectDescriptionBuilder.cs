@@ -101,6 +101,37 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder SetConditionEffectParameters(ConditionDefinition conditionDefinition)
+    {
+        return SetConditionEffectParameters(
+            conditionDefinition.conditionStartParticleReference,
+            conditionDefinition.conditionParticleReference,
+            conditionDefinition.conditionEndParticleReference);
+    }
+
+    internal EffectDescriptionBuilder SetConditionEffectParameters(IMagicEffect magicEffect)
+    {
+        return SetConditionEffectParameters(
+            magicEffect.EffectDescription.EffectParticleParameters.conditionStartParticleReference,
+            magicEffect.EffectDescription.EffectParticleParameters.conditionParticleReference,
+            magicEffect.EffectDescription.EffectParticleParameters.conditionEndParticleReference);
+    }
+
+    internal EffectDescriptionBuilder SetConditionEffectParameters(
+        AssetReference conditionStartParticleReference = null,
+        AssetReference conditionParticleReference = null,
+        AssetReference conditionEndParticleReference = null)
+    {
+        conditionStartParticleReference ??= new AssetReference();
+        conditionParticleReference ??= new AssetReference();
+        conditionEndParticleReference ??= new AssetReference();
+
+        _effect.effectParticleParameters.conditionStartParticleReference = conditionStartParticleReference;
+        _effect.effectParticleParameters.conditionParticleReference = conditionParticleReference;
+        _effect.effectParticleParameters.conditionEndParticleReference = conditionEndParticleReference;
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetEffectEffectParameters(IMagicEffect reference)
     {
         return SetEffectEffectParameters(reference.EffectDescription.EffectParticleParameters.effectParticleReference);
@@ -211,6 +242,7 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     internal EffectDescriptionBuilder SetTargetFiltering(
         TargetFilteringMethod targetFilteringMethod,
         TargetFilteringTag targetFilteringTag = TargetFilteringTag.No,
@@ -223,6 +255,7 @@ internal class EffectDescriptionBuilder
         _effect.poolFilterDieType = poolFilterDieType;
         return this;
     }
+#endif
 
     internal EffectDescriptionBuilder SetRecurrentEffect(RecurrentEffect recurrentEffect)
     {
@@ -299,10 +332,18 @@ internal class EffectDescriptionBuilder
     }
 #endif
 
-    internal EffectDescriptionBuilder SetSpeed(SpeedType speedType, float speedParameter = 0f)
+    internal EffectDescriptionBuilder SetSpeedAndImpactOffset(
+        SpeedType speedType,
+        float speedParameter = 0f,
+        bool offsetImpactTimeBasedOnDistance = false,
+        float offsetImpactTimeBasedOnDistanceFactor = 0.1f,
+        float offsetImpactTimePerTarget = 0.0f)
     {
         _effect.speedType = speedType;
         _effect.speedParameter = speedParameter;
+        _effect.offsetImpactTimeBasedOnDistance = offsetImpactTimeBasedOnDistance;
+        _effect.offsetImpactTimeBasedOnDistanceFactor = offsetImpactTimeBasedOnDistanceFactor;
+        _effect.offsetImpactTimePerTarget = offsetImpactTimePerTarget;
         return this;
     }
 
@@ -321,17 +362,6 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder AddEffectForms(params EffectForm[] effectForms)
     {
         _effect.EffectForms.AddRange(effectForms);
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetupImpactOffsets(
-        bool offsetImpactTimeBasedOnDistance = false,
-        float offsetImpactTimeBasedOnDistanceFactor = 0.1f,
-        float offsetImpactTimePerTarget = 0.0f)
-    {
-        _effect.offsetImpactTimeBasedOnDistance = offsetImpactTimeBasedOnDistance;
-        _effect.offsetImpactTimeBasedOnDistanceFactor = offsetImpactTimeBasedOnDistanceFactor;
-        _effect.offsetImpactTimePerTarget = offsetImpactTimePerTarget;
         return this;
     }
 }

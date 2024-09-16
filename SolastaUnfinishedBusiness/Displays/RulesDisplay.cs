@@ -207,6 +207,15 @@ internal static class RulesDisplay
             Main.Settings.EnableSorcererQuickenedAction = toggle;
         }
 
+        if (Main.Settings.EnableSorcererQuickenedAction)
+        {
+            toggle = Main.Settings.HideQuickenedActionWhenMetamagicOff;
+            if (UI.Toggle(Gui.Localize("ModUi/&HideQuickenedActionWhenMetamagicOff"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.HideQuickenedActionWhenMetamagicOff = toggle;
+            }
+        }
+
         UI.Label();
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
@@ -476,6 +485,13 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness = toggle;
+        }
+
         toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
         {
@@ -529,6 +545,23 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHigherGroundRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableHigherGroundRules = toggle;
+        }
+
+        toggle = Main.Settings.EnablePullPushOnVerticalDirection;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePullPushOnVerticalDirection"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePullPushOnVerticalDirection = toggle;
+            SrdAndHouseRulesContext.ToggleGravitySlamModification();
+        }
+
+        if (Main.Settings.EnablePullPushOnVerticalDirection)
+        {
+            toggle = Main.Settings.ModifyGravitySlam;
+            if (UI.Toggle(Gui.Localize("ModUi/&ModifyGravitySlam"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ModifyGravitySlam = toggle;
+                SrdAndHouseRulesContext.ToggleGravitySlamModification();
+            }
         }
 
         toggle = Main.Settings.EnableTeleportToRemoveRestrained;

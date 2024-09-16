@@ -18,10 +18,7 @@
   "addAbilityToDamage": false,
   "attackPower": null,
   "impactsPlacement": false,
-  "additionalFeatures": [
-    "Definition:MoveModeMove2:0127a492ba7a429408b3282dde9374d7",
-    "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44"
-  ],
+  "additionalFeatures": [],
   "attackParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -34,7 +31,7 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "addLightSource": false,
+  "addLightSource": true,
   "lightSourceForm": {
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",

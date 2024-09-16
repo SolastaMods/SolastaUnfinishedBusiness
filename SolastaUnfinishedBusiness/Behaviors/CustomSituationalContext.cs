@@ -60,16 +60,22 @@ internal static class CustomSituationalContext
 
             ExtraSituationalContext.IsNotConditionSource =>
                 // this is required whenever there is a SetMyAttackAdvantage (Taunted, Illuminating Strike, Honed Bear)
-                contextParams.target.Guid != contextParams.source.AllConditions.FirstOrDefault(x =>
-                    x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
+                contextParams.target.Guid != contextParams.source.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .FirstOrDefault(x =>
+                        x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
                 // this is required whenever there is a SetAttackOnMeAdvantage (Press the Advantage, Gambit Blind)
-                contextParams.source.Guid != contextParams.target.AllConditions.FirstOrDefault(x =>
-                    x.ConditionDefinition == contextParams.condition)?.SourceGuid,
+                contextParams.source.Guid != contextParams.target.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .FirstOrDefault(x =>
+                        x.ConditionDefinition == contextParams.condition)?.SourceGuid,
 
             ExtraSituationalContext.IsNotConditionSourceNotRanged =>
                 // this is required whenever there is a SetMyAttackAdvantage (Wolf Leadership)
-                contextParams.source.Guid != contextParams.source.AllConditions.FirstOrDefault(x =>
-                    x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
+                contextParams.source.Guid != contextParams.source.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .FirstOrDefault(x =>
+                        x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
                 !contextParams.rangedAttack,
 
             ExtraSituationalContext.TargetIsFavoriteEnemy =>

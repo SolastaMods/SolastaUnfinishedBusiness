@@ -27,7 +27,6 @@ internal static class BootContext
         DiagnosticsContext.CacheTaDefinitions();
 
         // Load Portraits, Translations and Resources Locator after
-        PortraitsContext.Load();
         TranslatorContext.Load();
         ResourceLocatorContext.Load();
 
@@ -43,9 +42,6 @@ internal static class BootContext
 
         // Custom Conditions must load as early as possible
         CustomConditionsContext.Load();
-
-        // AI Context
-        AiContext.Load();
 
         //
         // custom stuff that can be loaded in any order

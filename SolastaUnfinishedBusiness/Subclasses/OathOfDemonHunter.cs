@@ -70,6 +70,8 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
             .SetTargetCondition(conditionTrialMark, AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
             .SetSpecificDamageType(DamageTypeRadiant)
+            .SetImpactParticleReference(
+                FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
             .AddToDB();
 
         var powerTrialMark = FeatureDefinitionPowerBuilder

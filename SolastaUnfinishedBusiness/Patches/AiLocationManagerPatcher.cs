@@ -14,6 +14,12 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class AiLocationManagerPatcher
 {
+    //TODO: move to separate class?
+    private static T CreateDelegate<T>(this MethodInfo method) where T : Delegate
+    {
+        return (T)Delegate.CreateDelegate(typeof(T), method);
+    }
+
     //PATCH: support for Circle of the Wildfire cauterizing flames
     [HarmonyPatch(typeof(AiLocationManager), nameof(AiLocationManager.ProcessBattleTurn))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -44,43 +50,65 @@ public static class AiLocationManagerPatcher
                      Assembly.GetExecutingAssembly().GetTypes()
                          .Where(t => t.IsSubclassOf(typeof(ActivityBase))))
             {
-                __instance.activitiesMap.TryAdd(type.ToString().Split('.').Last(), type);
+                var name = type.ToString().Split('.').Last();
+                __instance.activitiesMap.AddOrReplace(name, type);
 
                 foreach (var method in type.GetMethods(BindingFlags.Static | BindingFlags.Public))
                 {
                     var parameters = method.GetParameters();
                     if (method.ReturnType == typeof(ContextType))
                     {
-                        __instance.activityContextsMap.TryAdd(
-                            type.ToString().Split('.').Last(),
-                            (AiLocationDefinitions.GetContextTypeHandler)Delegate.CreateDelegate(
-                                typeof(AiLocationDefinitions.GetContextTypeHandler), method));
+                        __instance.activityContextsMap.AddOrReplace(name,
+                            method.CreateDelegate<AiLocationDefinitions.GetContextTypeHandler>());
                     }
-                    else if (method.ReturnType == typeof(void) &&
-                             parameters.Length == 2 &&
-                             parameters[0].ParameterType.GetElementType() == typeof(ActionDefinitions.Id) &&
-                             parameters[1].ParameterType.GetElementType() == typeof(ActionDefinitions.Id))
+                    else if (method.ReturnType == typeof(void)
+                             && parameters.Length == 2
+                             && parameters[0].ParameterType.GetElementType() == typeof(ActionDefinitions.Id)
+                             && parameters[1].ParameterType.GetElementType() == typeof(ActionDefinitions.Id))
                     {
-                        __instance.activityActionIdsMap.TryAdd(
-                            type.ToString().Split('.').Last(),
-                            (AiLocationDefinitions.GetActionIdHandler)Delegate.CreateDelegate(
-                                typeof(AiLocationDefinitions.GetActionIdHandler), method));
+                        __instance.activityActionIdsMap.AddOrReplace(name,
+                            method.CreateDelegate<AiLocationDefinitions.GetActionIdHandler>());
                     }
-                    else if (method.ReturnType == typeof(bool) &&
-                             parameters.Length == 2 && parameters[0].ParameterType.GetElementType() ==
-                             typeof(GameLocationCharacter))
+                    else if (method.ReturnType == typeof(bool)
+                             && parameters.Length == 2
+                             && parameters[0].ParameterType.GetElementType() == typeof(GameLocationCharacter))
                     {
-                        __instance.activityShouldBeSkippedMap.TryAdd(
-                            type.ToString().Split('.').Last(),
-                            (AiLocationDefinitions.ShouldBeSkippedHandler)Delegate.CreateDelegate(
-                                typeof(AiLocationDefinitions.ShouldBeSkippedHandler), method));
+                        __instance.activityShouldBeSkippedMap.AddOrReplace(name,
+                            method.CreateDelegate<AiLocationDefinitions.ShouldBeSkippedHandler>());
                     }
                     else if (method.ReturnType == typeof(bool) && parameters.Length == 0)
                     {
-                        __instance.activityUsesMovementContextsMap.TryAdd(
-                            type.ToString().Split('.').Last(),
-                            (AiLocationDefinitions.UsesMovementContextsHandler)Delegate.CreateDelegate(
-                                typeof(AiLocationDefinitions.UsesMovementContextsHandler), method));
+                        __instance.activityUsesMovementContextsMap.AddOrReplace(name,
+                            method.CreateDelegate<AiLocationDefinitions.UsesMovementContextsHandler>());
+                    }
+                }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(AiLocationManager), nameof(AiLocationManager.BuildConsiderationsMap))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class BuildConsiderationsMap_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(AiLocationManager __instance)
+        {
+            foreach (var type in Assembly.GetExecutingAssembly().GetTypes()
+                         .Where(t => t.IsSubclassOf(typeof(ConsiderationBase))))
+            {
+                var name = type.ToString().Split('.').Last();
+                foreach (var method in type.GetMethods(BindingFlags.Static | BindingFlags.Public))
+                {
+                    if (method.ReturnType == typeof(IEnumerator))
+                    {
+                        __instance.considerationsWithAllocMap.AddOrReplace(name,
+                            method.CreateDelegate<AiLocationDefinitions.ScoreConsiderationWithAllocHandler>());
+                    }
+                    else if (method.ReturnType == typeof(void))
+                    {
+                        __instance.considerationsMap.AddOrReplace(name,
+                            method.CreateDelegate<AiLocationDefinitions.ScoreConsiderationHandler>());
                     }
                 }
             }

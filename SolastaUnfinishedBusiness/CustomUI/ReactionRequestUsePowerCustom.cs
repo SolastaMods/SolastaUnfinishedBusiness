@@ -31,8 +31,8 @@ public class ReactionRequestUsePowerCustom : ReactionRequestUsePower
 
     public override string FormatDescription()
     {
-        return string.IsNullOrEmpty(reactionParams.stringParameter2)
+        return string.IsNullOrEmpty(reactionParams.StringParameter2)
             ? base.FormatDescription()
-            : reactionParams.stringParameter2;
+            : reactionParams.StringParameter2;
     }
 }

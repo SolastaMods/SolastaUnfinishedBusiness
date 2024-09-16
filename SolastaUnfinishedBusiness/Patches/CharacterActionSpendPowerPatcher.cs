@@ -110,10 +110,13 @@ public static class CharacterActionSpendPowerPatcher
 
                 // END PATCH
             }
-            else
+            else if (activePower != null)
             {
                 actingCharacter.RulesetCharacter.UseDevicePower(activePower.OriginItem, activePower.PowerDefinition);
             }
+
+            actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+                (RuleDefinitions.ConditionInterruption)ExtraConditionInterruption.SpendPower);
 
             for (var i = 0; i < targets.Count; i++)
             {
@@ -126,13 +129,15 @@ public static class CharacterActionSpendPowerPatcher
                 if (activePower != null)
                 {
                     __instance.RolledSaveThrow = activePower.TryRollSavingThrow(
-                        actingCharacter.RulesetCharacter, actingCharacter.Side,
+                        actingCharacter.RulesetCharacter,
+                        actingCharacter.Side,
                         target.RulesetActor,
                         actionModifier,
                         activePower.EffectDescription.EffectForms,
                         false,
                         out var saveOutcome,
                         out var saveOutcomeDelta);
+
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
@@ -141,20 +146,27 @@ public static class CharacterActionSpendPowerPatcher
 
                     if (__instance.RolledSaveThrow)
                     {
-                        // Legendary Resistance or Indomitable?
-                        if (__instance.SaveOutcome == RuleDefinitions.RollOutcome.Failure)
+                        var savingThrowData = new SavingThrowData
                         {
-                            yield return battleManager.HandleFailedSavingThrow(
-                                __instance, actingCharacter, target, actionModifier, false, hasBorrowedLuck);
-                        }
+                            SaveActionModifier = actionModifier,
+                            SaveOutcome = __instance.SaveOutcome,
+                            SaveOutcomeDelta = __instance.SaveOutcomeDelta,
+                            SaveDC = RulesetActorExtensions.SaveDC,
+                            SaveBonusAndRollModifier = RulesetActorExtensions.SaveBonusAndRollModifier,
+                            SavingThrowAbility = RulesetActorExtensions.SavingThrowAbility,
+                            SourceDefinition = null,
+                            EffectDescription = rulesetEffect.EffectDescription,
+                            Title = __instance.FormatTitle(),
+                            Action = __instance
+                        };
 
-                        //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                        foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleManager, __instance, actingCharacter, target, actionModifier, false,
-                                     hasBorrowedLuck))
-                        {
-                            yield return tryAlterOutcomeSavingThrow;
-                        }
+                        yield return TryAlterOutcomeSavingThrow.Handler(
+                            battleManager,
+                            actingCharacter,
+                            target,
+                            savingThrowData,
+                            hasBorrowedLuck,
+                            rulesetEffect.EffectDescription);
                     }
 
                     // Apply the forms of the power
@@ -231,6 +243,16 @@ public static class CharacterActionSpendPowerPatcher
                         target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: true };
                     var targetCurrentHitPoints = target.RulesetCharacter.CurrentHitPoints;
                     //END BUGFIX
+
+                    //BEGIN PATCH
+                    var positions = __instance.ActionParams.Positions;
+
+                    var sourceDefinition = activePower.SourceDefinition;
+                    if (positions.Count != 0 && sourceDefinition.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>())
+                    {
+                        applyFormsParams.position = positions[0];
+                    }
+                    // END PATCH
 
                     implementationService.ApplyEffectForms(
                         effectForms,
@@ -343,9 +365,10 @@ public static class CharacterActionSpendPowerPatcher
                 }
             }
 
-            __instance.PersistantEffectAction();
+            actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+                (RuleDefinitions.ConditionInterruption)ExtraConditionInterruption.SpendPowerExecuted);
 
-            yield return null;
+            __instance.PersistantEffectAction();
         }
     }
 }

@@ -340,7 +340,13 @@ public sealed class RoguishOpportunist : AbstractSubclass
             GameLocationCharacter helper,
             List<GameLocationCharacter> targets)
         {
-            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
+            if (action.Countered ||
+                action is CharacterActionCastSpell { ExecutionFailed: true })
+            {
+                yield break;
+            }
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
             {
                 if (target.RulesetActor.HasConditionOfCategoryAndType(TagEffect, conditionSeizeTheChance.Name))
@@ -368,33 +374,29 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
         {
-            if (!helper.IsOppositeSide(defender.Side) ||
-                !action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
+                !helper.IsOppositeSide(defender.Side) ||
                 helper.IsMyTurn())
             {
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetActor;
 
             rulesetDefender.InflictCondition(
                 conditionSeizeTheChance.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.EndOfSourceTurn,
+                TurnOccurenceType.EndOfTurn,
                 TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
+                rulesetDefender.guid,
+                FactionDefinitions.HostileMonsters.Name,
                 1,
                 conditionSeizeTheChance.Name,
                 0,

@@ -164,7 +164,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Strength, 8)
                     .SetEffectForms(
@@ -174,16 +174,15 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                             .SetDamageForm(DamageTypeThunder)
                             .Build())
                     .SetParticleEffectParameters(SpellDefinitions.CallLightning)
+                    .SetImpactEffectParameters(SpellDefinitions.CallLightning
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
-
-        powerMightyShot.EffectDescription.EffectParticleParameters.impactParticleReference =
-            powerMightyShot.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         powerMightyShot.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
             new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D12, DieType.D12), IsLongBow),
-            new PhysicalAttackFinishedByMeMightyShot(powerMightyShot));
+            new CustomBehaviorMightyShot(powerMightyShot));
 
         // MAIN
 
@@ -272,7 +271,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
     // Mighty Shot
     //
 
-    private sealed class PhysicalAttackFinishedByMeMightyShot(FeatureDefinitionPower powerMightyShot)
+    private sealed class CustomBehaviorMightyShot(FeatureDefinitionPower powerMightyShot)
         : IPhysicalAttackFinishedByMe, IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -327,7 +326,8 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 .GetContenders(defender, isOppositeSide: false, withinRange: 3)
                 .ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            // mighty shot is a use at will power
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 }

@@ -89,7 +89,7 @@ internal static partial class SpellBuilders
 
         var proxyFaithfulHound = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyArcaneSword, $"Proxy{NAME}")
-            .SetGuiPresentation(Category.Proxy, sprite)
+            .SetGuiPresentation(Category.Proxy, Gui.NoLocalization, sprite)
             .SetPortrait(sprite)
             .SetActionId(ExtraActionId.ProxyHoundWeapon)
             .SetAttackMethod(ProxyAttackMethod.CasterSpellAbility, DamageTypePiercing, DieType.D8, 4)
@@ -261,6 +261,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
             .SetAttackModeOnly()
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetDamageDice(DieType.D6, 4)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetSavingThrowData(
@@ -283,7 +284,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
             .SetFeatures(additionalDamageStaggeringSmite)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithMeleeAndDamages)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -950,14 +951,12 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ModifySavingThrowAuraOfPerseverance(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellDefinition)
+    private sealed class ModifySavingThrowAuraOfPerseverance(SpellDefinition spellDefinition)
         : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1059,8 +1058,8 @@ internal static partial class SpellBuilders
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1413,7 +1412,7 @@ internal static partial class SpellBuilders
                 // UI Only
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
             .AddToDB();
@@ -1467,8 +1466,8 @@ internal static partial class SpellBuilders
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1574,8 +1573,8 @@ internal static partial class SpellBuilders
     private sealed class RollSavingThrowFinishedIrresistiblePerformance : IRollSavingThrowFinished
     {
         public void OnSavingThrowFinished(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             int saveBonus,
             string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1588,14 +1587,16 @@ internal static partial class SpellBuilders
             ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (caster == null || outcome == RollOutcome.Failure)
+            if (outcome == RollOutcome.Failure)
             {
                 return;
             }
 
-            if (!defender.AllConditions.Any(x =>
-                    x.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name) &&
-                    x.SourceGuid == caster.Guid))
+            if (!rulesetActorDefender.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .Any(x =>
+                        x.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name) &&
+                        x.SourceGuid == rulesetActorCaster?.Guid))
             {
                 return;
             }

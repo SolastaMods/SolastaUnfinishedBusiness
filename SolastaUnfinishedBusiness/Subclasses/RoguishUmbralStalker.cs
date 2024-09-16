@@ -411,6 +411,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             actingCharacter.UsedSpecialFeatures.TryAdd("ShadowStride", 1);
             actingCharacter.UsedTacticalMoves += distance;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
         }
     }
 
@@ -447,7 +448,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             {
                 var hitPoints = 2 * rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Rogue);
 
-                defender.MyExecuteActionStabilizeAndStandUp(hitPoints, PowerDefilerMistyFormEscape);
+                defender.MyExecuteActionStabilizeAndStandUp(hitPoints);
             }
         }
     }

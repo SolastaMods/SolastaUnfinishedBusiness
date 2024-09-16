@@ -8,8 +8,8 @@ public interface IRollSavingThrowFinished
 {
     [UsedImplicitly]
     public void OnSavingThrowFinished(
-        RulesetCharacter caster,
-        RulesetCharacter defender,
+        RulesetActor rulesetActorCaster,
+        RulesetActor rulesetActorDefender,
         int saveBonus,
         string abilityScoreName,
         BaseDefinition sourceDefinition,

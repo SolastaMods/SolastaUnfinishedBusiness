@@ -291,6 +291,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             var usablePower = PowerProvider.Get(powerSlashingWhirlDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker, withinRange: 1).Where(x => x != defender).ToArray();
 
+            // slashing whirl damage is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
 
@@ -361,7 +362,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 [defender],
                 attacker,
                 powerAudaciousWhirl.Name,
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;

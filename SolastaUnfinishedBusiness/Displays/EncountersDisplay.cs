@@ -13,11 +13,11 @@ internal static class EncountersDisplay
 
     private static bool _showAttributes;
 
-    private static readonly Dictionary<MonsterDefinition, bool> CurrentFeaturesMonster = new();
+    private static readonly Dictionary<MonsterDefinition, bool> CurrentFeaturesMonster = [];
 
-    private static readonly Dictionary<MonsterDefinition, bool> CurrentAttacksMonster = new();
+    private static readonly Dictionary<MonsterDefinition, bool> CurrentAttacksMonster = [];
 
-    private static readonly Dictionary<RulesetCharacterHero, bool> CurrentItemsHeroes = new();
+    private static readonly Dictionary<RulesetCharacterHero, bool> CurrentItemsHeroes = [];
 
     private static void DisplayHeroStats([NotNull] RulesetCharacterHero hero, string actionText, Action action)
     {

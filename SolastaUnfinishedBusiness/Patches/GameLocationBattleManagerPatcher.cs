@@ -239,7 +239,8 @@ public static class GameLocationBattleManagerPatcher
                 AbilityCheckRoll = action.AbilityCheckRoll,
                 AbilityCheckRollOutcome = action.AbilityCheckRollOutcome,
                 AbilityCheckSuccessDelta = action.AbilityCheckSuccessDelta,
-                AbilityCheckActionModifier = actionModifier
+                AbilityCheckActionModifier = actionModifier,
+                Action = action
             };
 
             yield return TryAlterOutcomeAttributeCheck.HandleITryAlterOutcomeAttributeCheck(checker, abilityCheckData);

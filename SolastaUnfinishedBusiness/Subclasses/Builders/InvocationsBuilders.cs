@@ -846,6 +846,7 @@ internal static class InvocationsBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerPerniciousCloakDamage, rulesetCaster);
 
+            // pernicious cloak damage is a use at will power
             caster.MyExecuteActionSpendPower(usablePower, character);
         }
     }
@@ -996,11 +997,6 @@ internal static class InvocationsBuilders
         {
             var actingCharacter = action.ActingCharacter;
 
-            if (actingCharacter.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
             if (action.ActionType != ActionType.Bonus &&
                 //action.ActingCharacter.PerceptionState == ActionDefinitions.PerceptionState.OnGuard
                 action.ActionDefinition.ActionScope == ActionScope.Battle)
@@ -1068,7 +1064,7 @@ internal static class InvocationsBuilders
                 conditionDefinition.Name,
                 DurationType.Minute,
                 1,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
@@ -1150,6 +1146,7 @@ internal static class InvocationsBuilders
             var usablePower = PowerProvider.Get(powerChillingHexDamage, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1).ToArray();
 
+            // chilling hex damage is a use at will power
             attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }

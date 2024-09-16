@@ -628,7 +628,7 @@ internal static class MeleeCombatFeats
                 [defender],
                 attacker,
                 powerPool.Name,
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;
@@ -1705,13 +1705,8 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (attackMode?.SourceObject is not RulesetItem rulesetItem)
-            {
-                return;
-            }
-
             // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
-            if (!ValidatorsWeapon.IsMelee(rulesetItem) &&
+            if (!ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
                 !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;
@@ -1721,8 +1716,8 @@ internal static class MeleeCombatFeats
             var toDamage = ToHit + proficiency;
 
             attackMode.ToHitBonus -= ToHit;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(-ToHit, FeatureSourceType.Feat, featDefinition.Name,
-                featDefinition));
+            attackMode.ToHitBonusTrends.Add(
+                new TrendInfo(-ToHit, FeatureSourceType.Feat, featDefinition.Name, featDefinition));
 
             var damage = attackMode.EffectDescription?.FindFirstDamageForm();
 
@@ -1732,8 +1727,8 @@ internal static class MeleeCombatFeats
             }
 
             damage.BonusDamage += toDamage;
-            damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, featDefinition.Name,
-                featDefinition));
+            damage.DamageBonusTrends.Add(
+                new TrendInfo(toDamage, FeatureSourceType.Feat, featDefinition.Name, featDefinition));
         }
     }
 

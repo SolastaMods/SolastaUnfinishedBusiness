@@ -1,10 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Spells;
 using UnityEngine;
 using static RuleDefinitions;
 using Coroutine = TA.Coroutine;
@@ -46,6 +48,14 @@ public static class CharacterActionAttackPatcher
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var itemService = ServiceRepository.GetService<IGameLocationItemService>();
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+
+            //BEGIN PATCH
+            //support Swift Quiver spell interaction with Flurry of Blows
+            if (attackMode.AttackTags.Contains(SpellBuilders.SwiftQuiverAttackTag))
+            {
+                actingCharacter.UsedSpecialFeatures.TryAdd(SpellBuilders.SwiftQuiverAttackTag, 0);
+            }
+            //END PATCH
 
             // Check action params
             var canAttackMain =
@@ -475,30 +485,39 @@ public static class CharacterActionAttackPatcher
 
                     // These bool information must be store as a class member, as it is passed to HandleFailedSavingThrow
                     __instance.RolledSaveThrow = attackMode.TryRollSavingThrow(
-                        rulesetCharacter, target.RulesetActor, attackModifier,
-                        __instance.actualEffectForms, out var saveOutcome, out var saveOutcomeDelta);
+                        rulesetCharacter,
+                        target.RulesetActor,
+                        attackModifier,
+                        __instance.actualEffectForms,
+                        out var saveOutcome,
+                        out var saveOutcomeDelta);
+
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
                     if (__instance.RolledSaveThrow)
                     {
-                        target.RulesetActor?.GrantConditionOnSavingThrowOutcome(
-                            attackMode.EffectDescription, saveOutcome, true);
-
-                        // Legendary Resistance or Indomitable?
-                        if (__instance.SaveOutcome == RollOutcome.Failure)
+                        var savingThrowData = new SavingThrowData
                         {
-                            yield return battleManager.HandleFailedSavingThrow(
-                                __instance, actingCharacter, target, attackModifier, false, hasBorrowedLuck);
-                        }
+                            SaveActionModifier = attackModifier,
+                            SaveOutcome = __instance.SaveOutcome,
+                            SaveOutcomeDelta = __instance.SaveOutcomeDelta,
+                            SaveDC = RulesetActorExtensions.SaveDC,
+                            SaveBonusAndRollModifier = RulesetActorExtensions.SaveBonusAndRollModifier,
+                            SavingThrowAbility = RulesetActorExtensions.SavingThrowAbility,
+                            SourceDefinition = null,
+                            EffectDescription = attackMode.EffectDescription,
+                            Title = __instance.FormatTitle(),
+                            Action = __instance
+                        };
 
-                        //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                        foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleManager, __instance, actingCharacter, target, attackModifier, false,
-                                     hasBorrowedLuck))
-                        {
-                            yield return tryAlterOutcomeSavingThrow;
-                        }
+                        yield return TryAlterOutcomeSavingThrow.Handler(
+                            battleManager,
+                            actingCharacter,
+                            target,
+                            savingThrowData,
+                            hasBorrowedLuck,
+                            attackMode.EffectDescription);
                     }
 
                     // Check for resulting actions, if any of them is a CharacterSpendPower w/ a Motion effect form, don't wait for hit animation
@@ -715,6 +734,13 @@ public static class CharacterActionAttackPatcher
             yield return GuardianAura.ProcessOnCharacterAttackHitFinished(
                 battleManager, actingCharacter, target, attackMode, null, damageReceived);
 
+            //PATCH: supports smite spell scenarios
+            if (attackHasDamaged && !rangeAttack)
+            {
+                rulesetCharacter.ProcessConditionsMatchingInterruption(
+                    (ConditionInterruption)ExtraConditionInterruption.AttacksWithMeleeAndDamages, damageReceived);
+            }
+
             // END PATCH
 
             if (attackHasDamaged)
@@ -829,13 +855,13 @@ public static class CharacterActionAttackPatcher
                 rulesetDefender.matchingInterruption = true;
                 rulesetDefender.matchingInterruptionConditions.Clear();
 
-                foreach (var rulesetCondition in rulesetDefender.conditionsByCategory
-                             .SelectMany(keyValuePair => keyValuePair.Value
-                                 .Where(rulesetCondition =>
-                                     rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
-                                         (ConditionInterruption)ExtraConditionInterruption
-                                             .AfterWasAttackedNotBySource) &&
-                                     rulesetCondition.SourceGuid != actingCharacter.Guid)))
+                foreach (var rulesetCondition in rulesetDefender.ConditionsByCategory
+                             .SelectMany(x => x.Value)
+                             .Where(rulesetCondition =>
+                                 rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
+                                     (ConditionInterruption)ExtraConditionInterruption
+                                         .AfterWasAttackedNotBySource) &&
+                                 rulesetCondition.SourceGuid != actingCharacter.Guid))
                 {
                     rulesetDefender.matchingInterruptionConditions.Add(rulesetCondition);
                 }

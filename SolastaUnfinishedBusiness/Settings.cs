@@ -173,6 +173,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool DisableSenseDarkVisionFromAllRaces { get; set; }
     public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
+    public bool AddFallProneActionToAllRaces { get; set; }
     public bool AddHelpActionToAllRaces { get; set; }
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleRaces { get; set; }
@@ -220,6 +221,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueStrSaving { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
+    public bool HideQuickenedActionWhenMetamagicOff { get; set; }
 
     // Visuals
     public bool OfferAdditionalLoreFriendlyNames { get; set; }
@@ -297,6 +299,7 @@ public class Settings : UnityModManager.ModSettings
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public int WildSurgeDieRollThreshold { get; set; } = 2;
+    public bool AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness { get; set; }
     public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }
     public bool AccountForAllDiceOnFollowUpStrike { get; set; }
@@ -305,6 +308,8 @@ public class Settings : UnityModManager.ModSettings
     public bool FlightSuspendWingedBoots { get; set; }
     public bool EnableCharactersOnFireToEmitLight { get; set; }
     public bool EnableHigherGroundRules { get; set; }
+    public bool EnablePullPushOnVerticalDirection { get; set; }
+    public bool ModifyGravitySlam { get; set; } = true;
     public bool FullyControlConjurations { get; set; }
     public bool EnableTeleportToRemoveRestrained { get; set; }
     public bool ColdResistanceAlsoGrantsImmunityToChilledCondition { get; set; }
@@ -320,7 +325,6 @@ public class Settings : UnityModManager.ModSettings
     // Gameplay - Items, Crafting & Merchants
     //
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
-    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
     public bool EnableMonkHandwrapsUseGauntletSlot { get; set; }
     public bool EnableGauntletMainAttacks { get; set; }
     public bool AddPickPocketableLoot { get; set; }
@@ -461,6 +465,7 @@ public class Settings : UnityModManager.ModSettings
     // Inventory and Items
     public bool AddCustomIconsToOfficialItems { get; set; }
     public bool DisableAutoEquip { get; set; }
+    public bool EnableCtrlClickDragToBypassQuestItemsOnDrop { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
@@ -482,8 +487,10 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableLoggingInvalidReferencesInUserCampaigns { get; set; }
     public bool EnableSortingDungeonMakerAssets { get; set; }
     public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
-    public bool UnleashNpcAsEnemy { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }
+    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
+    public bool UnleashNpcAsEnemy { get; set; }
+    public bool EnableVariablePlaceholdersOnTexts { get; set; }
     public bool EnableDungeonMakerModdedContent { get; set; }
 
     //

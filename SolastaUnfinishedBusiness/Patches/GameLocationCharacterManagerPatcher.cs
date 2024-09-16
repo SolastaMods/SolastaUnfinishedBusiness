@@ -14,6 +14,38 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationCharacterManagerPatcher
 {
+    //BUGFIX: fix demonic influence getting all enemies agro on a custom map
+    [HarmonyPatch(typeof(GameLocationCharacterManager), nameof(GameLocationCharacterManager.CreateCharacter))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SpawnParty_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(Side side, ref GameLocationBehaviourPackage behaviourPackage)
+        {
+            if (side == Side.Ally)
+            {
+                behaviourPackage ??= new GameLocationBehaviourPackage
+                {
+                    BattleStartBehavior = GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm
+                };
+            }
+        }
+    }
+
+    //PATCH: Fire monsters should emit light
+    [HarmonyPatch(typeof(GameLocationCharacterManager), nameof(GameLocationCharacterManager.RevealCharacter))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RevealCharacter_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(GameLocationCharacter character)
+        {
+            SrdAndHouseRulesContext.AddLightSourceIfNeeded(character);
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationCharacterManager),
         nameof(GameLocationCharacterManager.CreateAndBindEffectProxy))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -220,27 +252,6 @@ public static class GameLocationCharacterManagerPatcher
 
                 ServiceRepository.GetService<IGameLocationPositioningService>()
                     .PlaceCharacter(character, character.LocationPosition, character.Orientation);
-            }
-        }
-    }
-
-    //PATCH: recalculates additional party members positions (PARTYSIZE)
-    [HarmonyPatch(typeof(GameLocationCharacterManager),
-        nameof(GameLocationCharacterManager.UnlockCharactersForLoading))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class UnlockCharactersForLoading_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix([NotNull] GameLocationCharacterManager __instance)
-        {
-            var partyCharacters = __instance.PartyCharacters;
-
-            for (var idx = ToolsContext.GamePartySize; idx < partyCharacters.Count; idx++)
-            {
-                var position = partyCharacters[idx % ToolsContext.GamePartySize].LocationPosition;
-
-                partyCharacters[idx].LocationPosition = new int3(position.x, position.y, position.z);
             }
         }
     }

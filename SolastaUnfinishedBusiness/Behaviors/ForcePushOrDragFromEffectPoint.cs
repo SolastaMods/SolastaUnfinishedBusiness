@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using TA;
+using static MotionForm;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
 
@@ -30,8 +31,8 @@ internal sealed class ForcePushOrDragFromEffectPoint
     {
         var positions = action.ActionParams.Positions;
 
-        if (positions.Count != 0 &&
-            formsParams.activeEffect.SourceDefinition.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>())
+        var sourceDefinition = formsParams.activeEffect.SourceDefinition;
+        if (positions.Count != 0 && sourceDefinition.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>())
         {
             formsParams.position = positions[0];
         }
@@ -60,10 +61,28 @@ internal sealed class ForcePushOrDragFromEffectPoint
             return true;
         }
 
-        var position = formsParams.position;
-        var active = source.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>();
+        int3 position;
+        if (source.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>())
+        {
+            position = formsParams.position;
+        }
+        else if (effectForm.MotionForm?.Type == (MotionType)ExtraMotionType.PushDown)
+        {
+            var locationTarget = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
+            if (locationTarget == null)
+            {
+                //Do nothing, maybe log error?
+                return false;
+            }
 
-        if (!active || position == int3.zero)
+            position = locationTarget.locationPosition + new int3(0, 10, 0);
+        }
+        else
+        {
+            return true;
+        }
+
+        if (position == int3.zero)
         {
             return true;
         }
@@ -79,8 +98,9 @@ internal sealed class ForcePushOrDragFromEffectPoint
 
         var motionForm = effectForm.MotionForm;
 
-        if (motionForm.Type != MotionForm.MotionType.PushFromOrigin
-            && motionForm.Type != MotionForm.MotionType.DragToOrigin)
+        if (motionForm.Type is not MotionType.PushFromOrigin
+            and not MotionType.DragToOrigin
+            and not (MotionType)ExtraMotionType.PushDown)
         {
             return true;
         }
@@ -98,7 +118,7 @@ internal sealed class ForcePushOrDragFromEffectPoint
             return false;
         }
 
-        var reverse = motionForm.Type == MotionForm.MotionType.DragToOrigin;
+        var reverse = motionForm.Type == MotionType.DragToOrigin;
 
         if (!ServiceRepository.GetService<IGameLocationEnvironmentService>()
                 .ComputePushDestination(position, target, motionForm.Distance, reverse,

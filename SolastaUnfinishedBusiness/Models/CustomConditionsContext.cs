@@ -325,10 +325,11 @@ internal static class CustomConditionsContext
             }
             else
             {
-                var conditions = target.allConditionsForEnumeration;
-
-                foreach (var condition in conditions
-                             .Where(condition => condition.ConditionDefinition.IsSubtypeOf("ConditionFlying")))
+                // need ToList to avoid enumerator issues with RemoveCondition
+                foreach (var condition in target.ConditionsByCategory
+                             .SelectMany(x => x.Value)
+                             .Where(condition => condition.ConditionDefinition.IsSubtypeOf("ConditionFlying"))
+                             .ToList())
                 {
                     //We are not interested in permanent effects
                     if (condition.DurationType == DurationType.Permanent)
@@ -522,16 +523,18 @@ internal static class CustomConditionsContext
             var actingCharacter = characterAction.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            foreach (var rulesetCondition in rulesetCharacter.AllConditions
+            // need ToList to avoid enumerator issues with RemoveCondition
+            foreach (var rulesetCondition in rulesetCharacter.ConditionsByCategory
+                         .SelectMany(x => x.Value)
                          .Where(x => x.ConditionDefinition.Name == Taunted.Name)
-                         .ToList()
                          .Select(a => new { a, rulesetCaster = EffectHelpers.GetCharacterByGuid(a.SourceGuid) })
                          .Where(t => t.rulesetCaster != null)
                          .Select(b => new { b, caster = GameLocationCharacter.GetFromActor(b.rulesetCaster) })
                          .Where(t =>
                              // ruleset amount carries the max range for the condition
                              t.caster != null && !t.caster.IsWithinRange(actingCharacter, t.b.a.Amount))
-                         .Select(c => c.b.a))
+                         .Select(c => c.b.a)
+                         .ToList())
             {
                 rulesetCharacter.RemoveCondition(rulesetCondition);
             }

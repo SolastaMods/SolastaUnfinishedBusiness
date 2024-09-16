@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -70,6 +71,30 @@ public static class InventoryPanelPatcher
         {
             //PATCH: support for customized filtering of items for ItemProperty effect form
             CustomItemFilter.FilterItems(__instance);
+        }
+    }
+
+    //PATCH: enable CTRL click-drag to bypass quest items checks on drop
+    [HarmonyPatch(typeof(InventoryPanel), nameof(InventoryPanel.EndInteraction))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class EndInteraction_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(InventoryPanel __instance, out bool __state)
+        {
+            __state = Main.Settings.EnableCtrlClickDragToBypassQuestItemsOnDrop &&
+                      (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) &&
+                      __instance.DraggedItem.ItemDefinition.ItemTags.Remove(TagsDefinitions.ItemTagQuest);
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(InventoryPanel __instance, bool __state)
+        {
+            if (__state)
+            {
+                __instance.DraggedItem.ItemDefinition.ItemTags.Add(TagsDefinitions.ItemTagQuest);
+            }
         }
     }
 }

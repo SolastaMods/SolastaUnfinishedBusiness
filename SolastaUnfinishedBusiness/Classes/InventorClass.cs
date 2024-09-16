@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -16,6 +17,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -593,7 +595,7 @@ internal static class InventorClass
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityInventorRituals")
                     .SetGuiPresentationNoContent(true)
-                    .SetAuthorizedActions(ActionDefinitions.Id.CastRitual)
+                    .SetAuthorizedActions(Id.CastRitual)
                     .AddToDB())
             .AddToDB();
     }
@@ -922,14 +924,13 @@ internal static class InventorClass
             {
                 var hitPoints = rulesetCharacter.GetClassLevel(Class);
 
-                defender.MyExecuteActionStabilizeAndStandUp(
-                    hitPoints, FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift);
+                defender.MyExecuteActionStabilizeAndStandUp(hitPoints);
             }
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -942,8 +943,14 @@ internal static class InventorClass
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
+            if (rulesetActorDefender is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
             var attunedItems =
-                defender.CharacterInventory?.items?.Count(x => x.AttunedToCharacter == defender.Name) ?? 0;
+                rulesetCharacter.CharacterInventory?.items?.Count(x => x.AttunedToCharacter == rulesetCharacter.Name) ??
+                0;
 
             rollModifier += attunedItems;
             modifierTrends.Add(
@@ -998,9 +1005,10 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             yield break;
         }
 
+        // any reaction within an attribute check flow must use the yielder as waiter
         yield return helper.MyReactToSpendPower(
             usablePower,
-            defender,
+            helper,
             "InventorFlashOfGeniusCheck",
             "SpendPowerInventorFlashOfGeniusCheckDescription".Formatted(
                 Category.Reaction, defender.Name, helper.Name),
@@ -1011,6 +1019,8 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         void ReactionValidated()
         {
+            helper.SpendActionType(ActionType.Reaction);
+
             var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
 
             abilityCheckModifier.AbilityCheckModifierTrends.Add(
@@ -1039,13 +1049,11 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
     public IEnumerator OnTryAlterOutcomeSavingThrow(
         GameLocationBattleManager battleManager,
-        CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         GameLocationCharacter helper,
-        ActionModifier saveModifier,
-        bool hasHitVisual,
-        bool hasBorrowedLuck)
+        SavingThrowData savingThrowData,
+        bool hasHitVisual)
     {
         var rulesetDefender = defender.RulesetActor;
 
@@ -1064,21 +1072,21 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
         var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
-        if (!action.RolledSaveThrow ||
-            action.SaveOutcome != RollOutcome.Failure ||
+        if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
+            savingThrowData.SaveOutcomeDelta + bonus < 0 ||
             !helper.CanReact() ||
             !helper.CanPerceiveTarget(defender) ||
-            rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
-            action.SaveOutcomeDelta + bonus < 0)
+            rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
         {
             yield break;
         }
 
+        // any reaction within a saving flow must use the yielder as waiter
         yield return helper.MyReactToSpendPower(
             usablePower,
-            attacker,
+            helper,
             "InventorFlashOfGenius",
-            FormatReactionDescription(action, attacker, defender, helper),
+            FormatReactionDescription(savingThrowData.Title, attacker, defender, helper),
             ReactionValidated,
             battleManager);
 
@@ -1086,14 +1094,13 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         void ReactionValidated()
         {
-            action.SaveOutcomeDelta += bonus;
+            helper.SpendActionType(ActionType.Reaction);
 
-            if (action.SaveOutcomeDelta >= 0)
-            {
-                action.SaveOutcome = RollOutcome.Success;
-            }
+            savingThrowData.SaveOutcomeDelta += bonus;
+            savingThrowData.SaveOutcome =
+                savingThrowData.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
-            var extra = action.SaveOutcomeDelta >= 0
+            var extra = savingThrowData.SaveOutcomeDelta >= 0
                 ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
                 : (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
 
@@ -1109,14 +1116,14 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
     }
 
     private static string FormatReactionDescription(
-        CharacterAction action,
-        GameLocationCharacter attacker,
+        string sourceTitle,
+        [CanBeNull] GameLocationCharacter attacker,
         GameLocationCharacter defender,
         GameLocationCharacter helper)
     {
         var text = defender == helper ? "Self" : "Ally";
 
         return $"SpendPowerInventorFlashOfGeniusReactDescription{text}"
-            .Formatted(Category.Reaction, defender.Name, attacker.Name, action.FormatTitle());
+            .Formatted(Category.Reaction, defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle, sourceTitle);
     }
 }

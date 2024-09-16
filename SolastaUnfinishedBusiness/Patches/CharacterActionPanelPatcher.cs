@@ -292,25 +292,11 @@ public static class CharacterActionPanelPatcher
         public static bool Prefix(CharacterActionPanel __instance)
         {
             var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
+            var restrainingCondition = AiContext.GetRestrainingCondition(rulesetCharacter);
 
-            RulesetCondition restrainingCondition = null;
-
-            rulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionActionAffinity>(
-                rulesetCharacter.FeaturesToBrowse);
-
-            foreach (var definitionActionAffinity in rulesetCharacter.FeaturesToBrowse
-                         .Cast<FeatureDefinitionActionAffinity>()
-                         .Where(definitionActionAffinity => definitionActionAffinity.AuthorizedActions
-                             .Contains(ActionDefinitions.Id.BreakFree)))
-            {
-                restrainingCondition = rulesetCharacter.FindFirstConditionHoldingFeature(definitionActionAffinity);
-            }
-
-            if (restrainingCondition?.ConditionDefinition.Name is not
-                ("ConditionVileBrew" or
-                "ConditionGrappledRestrainedIceBound" or
-                "ConditionGrappledRestrainedSpellWeb" or
-                "ConditionRestrainedByEntangle"))
+            // if not a modded strength check condition let vanilla handle
+            // this works as so far there is no way an ally should be forced to do a DoWisdomCheckAgainstCasterDC
+            if (restrainingCondition?.Amount != (int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             {
                 return true;
             }

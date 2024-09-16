@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -8,7 +9,8 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReactionRequestWithResource
+internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReactionRequestWithResource,
+    IReactionRequestWithCallbacks
 {
     internal const string Name = "ReactionSpendPowerBundle";
     private readonly GuiCharacter _guiCharacter;
@@ -16,9 +18,14 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
     private readonly ActionModifier _modifier;
     private readonly GameLocationCharacter _target;
 
-    internal ReactionRequestSpendBundlePower([NotNull] CharacterActionParams reactionParams)
+    internal ReactionRequestSpendBundlePower([NotNull] CharacterActionParams reactionParams,
+        Action<ReactionRequestSpendBundlePower> reactionValidated = null,
+        Action<ReactionRequestSpendBundlePower> reactionNotValidated = null)
         : base(Name, reactionParams)
     {
+        ReactionValidated = ReactionRequestCallback.Transform(reactionValidated);
+        ReactionNotValidated = ReactionRequestCallback.Transform(reactionNotValidated);
+
         _target = reactionParams.TargetCharacters[0];
         _modifier = reactionParams.ActionModifiers.ElementAtOrDefault(0) ?? new ActionModifier();
         _guiCharacter = new GuiCharacter(reactionParams.ActingCharacter);
@@ -49,6 +56,9 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
     public override bool IsStillValid =>
         ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters.Contains(_target) &&
         _target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false };
+
+    public Action<ReactionRequest> ReactionValidated { get; }
+    public Action<ReactionRequest> ReactionNotValidated { get; }
 
     public ICustomReactionResource Resource { get; set; }
 
@@ -179,7 +189,9 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
     {
         var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}Description";
 
-        return Gui.Format(format, _guiCharacter.Name);
+        return string.IsNullOrEmpty(reactionParams.StringParameter2)
+            ? Gui.Format(format, _guiCharacter.Name)
+            : reactionParams.StringParameter2;
     }
 
     public override string FormatReactTitle()

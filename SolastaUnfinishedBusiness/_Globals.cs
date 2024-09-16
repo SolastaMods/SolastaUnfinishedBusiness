@@ -40,4 +40,9 @@ internal static class Global
     [CanBeNull]
     internal static RulesetCharacter CurrentCharacter =>
         InspectedHero ?? LevelUpHero ?? SelectedLocationCharacter?.RulesetCharacter;
+
+    internal static void RefreshControlledCharacter()
+    {
+        SelectedLocationCharacter?.RulesetCharacter?.RefreshAll();
+    }
 }

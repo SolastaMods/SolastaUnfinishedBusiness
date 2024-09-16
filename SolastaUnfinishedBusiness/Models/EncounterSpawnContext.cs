@@ -114,21 +114,28 @@ internal static class EncountersSpawnContext
                 null,
                 null);
         }
-        else if (Gui.GameLocation &&
-                 Gui.GameLocation.LocationDefinition &&
-                 Gui.GameLocation.LocationDefinition.IsUserLocation)
-        {
-            var position = GetEncounterPosition();
 
-            Gui.GuiService.ShowMessage(
-                MessageModal.Severity.Attention2,
-                "Message/&SpawnCustomEncounterTitle",
-                Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(),
-                    position.x.ToString()),
-                "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                () => StageEncounter(position),
-                null);
+        if (!Gui.GameLocation)
+        {
+            return;
         }
+
+        if (!Gui.GameLocation.LocationDefinition ||
+            !Gui.GameLocation.LocationDefinition.IsUserLocation)
+        {
+            return;
+        }
+
+        var position = GetEncounterPosition();
+
+        Gui.GuiService.ShowMessage(
+            MessageModal.Severity.Attention2,
+            "Message/&SpawnCustomEncounterTitle",
+            Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(),
+                position.x.ToString()),
+            "Message/&MessageYesTitle", "Message/&MessageNoTitle",
+            () => StageEncounter(position),
+            null);
     }
 
     private static int3 GetEncounterPosition()
@@ -168,9 +175,7 @@ internal static class EncountersSpawnContext
                                      GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
                                  DecisionPackageDefinition = IdleGuard_Default,
                                  EncounterId = EncounterId++,
-                                 FormationDefinition = EncounterCharacters.Count > 1
-                                     ? DatabaseHelper.FormationDefinitions.Squad4
-                                     : DatabaseHelper.FormationDefinitions.SingleCreature
+                                 FormationDefinition = DatabaseHelper.FormationDefinitions.Column2
                              })))
         {
             gameLocationCharacter.CollectExistingLightSources(true);

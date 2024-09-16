@@ -441,6 +441,114 @@ public static class RulesetActorPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveCondition))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RemoveCondition_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var rollSavingThrowMethod = typeof(RulesetActor).GetMethod("RollSavingThrow");
+            var myRollSavingThrowMethod =
+                typeof(RemoveCondition_Patch).GetMethod("RollSavingThrow");
+
+            return instructions
+                .ReplaceCalls(rollSavingThrowMethod,
+                    "RulesetActor.RemoveCondition",
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Call, myRollSavingThrowMethod));
+        }
+
+        [UsedImplicitly]
+        public static void RollSavingThrow(
+            RulesetCharacter __instance,
+            int saveBonus,
+            string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            RulesetCondition rulesetCondition)
+        {
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var effectForms = new List<EffectForm>();
+
+            rulesetCondition.BuildDummyEffectForms(effectForms);
+            __instance.MyRollSavingThrow(
+                caster,
+                saveBonus,
+                abilityScoreName,
+                sourceDefinition,
+                modifierTrends,
+                advantageTrends,
+                rollModifier,
+                saveDC,
+                hasHitVisual,
+                ref outcome,
+                ref outcomeDelta,
+                effectForms);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ProcessConditionsMatchingInterruption))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ProcessConditionsMatchingInterruption_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var rollSavingThrowMethod = typeof(RulesetActor).GetMethod("RollSavingThrow");
+            var myRollSavingThrowMethod =
+                typeof(RemoveCondition_Patch).GetMethod("RollSavingThrow");
+
+            return instructions
+                .ReplaceCalls(rollSavingThrowMethod,
+                    "RulesetActor.ProcessConditionsMatchingInterruption",
+                    new CodeInstruction(OpCodes.Ldloc_3),
+                    new CodeInstruction(OpCodes.Call, myRollSavingThrowMethod));
+        }
+
+        [UsedImplicitly]
+        public static void RollSavingThrow(
+            RulesetCharacter __instance,
+            int saveBonus,
+            string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            RulesetCondition rulesetCondition)
+        {
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var effectForms = new List<EffectForm>();
+
+            rulesetCondition.BuildDummyEffectForms(effectForms);
+            __instance.MyRollSavingThrow(
+                caster,
+                saveBonus,
+                abilityScoreName,
+                sourceDefinition,
+                modifierTrends,
+                advantageTrends,
+                rollModifier,
+                saveDC,
+                hasHitVisual,
+                ref outcome,
+                ref outcomeDelta,
+                effectForms);
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveConditionOfCategory))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -460,7 +568,7 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.ContainsKey(category))
+            if (!character.ConditionsByCategory.ContainsKey(category))
             {
                 return;
             }
@@ -488,7 +596,7 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.TryGetValue(category, out var value))
+            if (!character.ConditionsByCategory.TryGetValue(category, out var value))
             {
                 return;
             }
@@ -519,7 +627,7 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.TryGetValue(category, out var value))
+            if (!character.ConditionsByCategory.TryGetValue(category, out var value))
             {
                 return;
             }
@@ -582,7 +690,7 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.TryGetValue(category, out var value))
+            if (!character.ConditionsByCategory.TryGetValue(category, out var value))
             {
                 return;
             }
@@ -858,13 +966,20 @@ public static class RulesetActorPatcher
 
             foreach (var attribute in actor.Attributes)
             {
-                foreach (var modifier in attribute.Value.ActiveModifiers)
+                var rulesetAttribute = attribute.Value;
+
+                if (!rulesetAttribute.upToDate)
                 {
-                    switch (modifier.Operation)
+                    rulesetAttribute.Refresh();
+                }
+
+                foreach (var attributeModifier in rulesetAttribute.ActiveModifiers)
+                {
+                    switch (attributeModifier.Operation)
                     {
                         case AttributeModifierOperation.MultiplyByClassLevel
                             or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions:
-                            modifier.Value = attribute.Key switch
+                            attributeModifier.Value = attribute.Key switch
                             {
                                 AttributeDefinitions.HealingPool =>
                                     hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Paladin),
@@ -879,28 +994,26 @@ public static class RulesetActorPatcher
                         {
                             var halfPb = hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) / 2;
 
-                            modifier.Value = halfPb;
+                            attributeModifier.Value = halfPb;
                             break;
                         }
                         case AttributeModifierOperation.AddProficiencyBonus:
                         {
                             var pb = hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
-                            modifier.Value = pb;
+                            attributeModifier.Value = pb;
                             break;
                         }
                         case AttributeModifierOperation.Additive when
                             attribute.Key == AttributeDefinitions.HealingPool:
                         {
-                            //make this more generic. it supports Ancient Forest and Light Bearer subclasses
-                            //this will not work if both subclasses are present...
                             var levels =
                                 hero.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Druid,
                                     CircleOfTheAncientForest.Name) +
                                 hero.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger,
                                     RangerLightBearer.Name);
 
-                            modifier.Value = levels * 5;
+                            attributeModifier.Value = levels * 5;
                             break;
                         }
                     }
@@ -999,12 +1112,14 @@ public static class RulesetActorPatcher
             Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
+            __instance.GetAllConditions(__instance.AllConditionsForEnumeration);
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var rulesetCondition in __instance.AllConditions)
+            foreach (var rulesetCondition in __instance.AllConditionsForEnumeration)
             {
                 var immunityRemovingFeatures = rulesetCondition.conditionDefinition
                     .GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
+
                 if (!immunityRemovingFeatures.Any(x => x.IsValid(__instance, rulesetCondition)))
                 {
                     continue;
@@ -1039,9 +1154,10 @@ public static class RulesetActorPatcher
             Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
+            __instance.GetAllConditions(__instance.AllConditionsForEnumeration);
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var rulesetCondition in __instance.AllConditions)
+            foreach (var rulesetCondition in __instance.AllConditionsForEnumeration)
             {
                 var immunityRemovingFeatures = rulesetCondition.conditionDefinition
                     .GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();

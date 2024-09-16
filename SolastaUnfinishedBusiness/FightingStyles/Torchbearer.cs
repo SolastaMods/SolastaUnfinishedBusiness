@@ -23,13 +23,13 @@ internal sealed class Torchbearer : AbstractFightingStyle
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                 .SetSavingThrowData(
                     false,
                     AttributeDefinitions.Dexterity,
                     false,
-                    EffectDifficultyClassComputation.FixedValue,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Dexterity,
                     8)
                 .SetParticleEffectParameters(SpellDefinitions.FireBolt)

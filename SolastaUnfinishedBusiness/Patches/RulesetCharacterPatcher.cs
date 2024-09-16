@@ -1,4 +1,6 @@
-﻿using System;
+﻿// using SolastaUnfinishedBusiness.Classes;
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -6,6 +8,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -21,6 +24,7 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -77,6 +81,26 @@ public static class RulesetCharacterPatcher
         __instance.EnumerateFeaturesToBrowse<FeatureDefinitionRegeneration>(featuresToBrowse, featuresOrigin);
         featuresToBrowse.RemoveAll(x =>
             !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshSizeParams))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshSizeParams_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance)
+        {
+            //PATCH: fix medium creatures with height 60+ inches (elves, humans and orcs mostly) being considered 1 tile taller
+            var size = __instance.SizeDefinition;
+            //skip for non-medium creatures, since I didn't find any non-medium creatures that have this problem
+            if (size.Name != DatabaseHelper.CharacterSizeDefinitions.Medium.Name) { return; }
+
+            __instance.SizeParams = new RulesetActor.SizeParameters
+            {
+                minExtent = size.MinExtent, maxExtent = size.MaxExtent
+            };
+        }
     }
 
     //PATCH: supports Prone condition to correctly interact with reach attacks
@@ -141,15 +165,10 @@ public static class RulesetCharacterPatcher
                 }
             }
 
-            __instance.GetAllConditions(__instance.AllConditionsForEnumeration);
-
-            foreach (var rulesetCondition in __instance.AllConditionsForEnumeration)
+            foreach (var rulesetCondition in __instance.ConditionsByCategory
+                         .SelectMany(x => x.Value)
+                         .Where(x => x.ConditionDefinition.UsesBardicInspirationDie()))
             {
-                if (!rulesetCondition.ConditionDefinition.UsesBardicInspirationDie())
-                {
-                    continue;
-                }
-
                 foreach (var feature in rulesetCondition.ConditionDefinition.Features)
                 {
                     if (feature is ICombatAffinityProvider affinityProvider)
@@ -308,6 +327,98 @@ public static class RulesetCharacterPatcher
         }
     }
 
+#if false
+    //BUGFIX: ensure that we always get a proper encounter id on overriding faction scenarios
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionAdded))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class OnConditionAdded_Patch
+    {
+        //ClericCombatDecisions
+        //FighterCombatDecisions
+        //PaladinCombatDecisions
+        //RogueCombatDecisions
+        // CasterCombatDecisions
+        // OffensiveCasterCombatDecisions
+        // DefaultMeleeWithBackupRangeDecisions
+        // DefaultRangeWithBackupMeleeDecisions
+        // DefaultSupportCasterWithBackupAttacksDecisions
+        public static void Prefix(RulesetCharacter __instance, RulesetCondition activeCondition)
+        {
+            if (!activeCondition.ConditionDefinition.IsOverridingFaction(activeCondition.SourceFactionName, out _))
+            {
+                return;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+            var character = GameLocationCharacter.GetFromActor(__instance);
+
+            if (character.BehaviourPackage == null)
+            {
+                var package = DefaultMeleeWithBackupRangeDecisions;
+
+                switch (__instance)
+                {
+                    case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Cleric):
+                        package = ClericCombatDecisions;
+                        break;
+                    case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Fighter):
+                        package = FighterCombatDecisions;
+                        break;
+                    case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Paladin):
+                        package = PaladinCombatDecisions;
+                        break;
+                    case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Rogue):
+                        package = RogueCombatDecisions;
+                        break;
+                    case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Druid):
+                        package = CasterCombatDecisions;
+                        break;
+                    case RulesetCharacterHero rulesetHero:
+                    {
+                        if (rulesetHero.ClassesHistory.Contains(InventorClass.Class) ||
+                            rulesetHero.ClassesHistory.Contains(Bard) ||
+                            rulesetHero.ClassesHistory.Contains(Sorcerer) ||
+                            rulesetHero.ClassesHistory.Contains(Warlock) ||
+                            rulesetHero.ClassesHistory.Contains(Wizard))
+                        {
+                            package = OffensiveCasterCombatDecisions;
+                        }
+
+                        break;
+                    }
+                    case RulesetCharacterMonster rulesetMonster:
+                    {
+                        if (rulesetMonster.MonsterDefinition.Features.Any(x => x is FeatureDefinitionCastSpell))
+                        {
+                            package = DefaultSupportCasterWithBackupAttacksDecisions;
+                        }
+
+                        if (rulesetMonster.MonsterDefinition.AttackIterations.Any(x =>
+                                x.MonsterAttackDefinition.Proximity == AttackProximity.Range))
+                        {
+                            package = DefaultRangeWithBackupMeleeDecisions;
+                        }
+
+                        break;
+                    }
+                }
+
+                character.BehaviourPackage = new GameLocationBehaviourPackage
+                {
+                    BattleStartBehavior =
+                        GameLocationBehaviourPackage.BattleStartBehaviorType.RaisesAlarm,
+                    DecisionPackageDefinition = package,
+                    EncounterId = caster.BehaviourPackage?.EncounterId ?? 0
+                };
+            }
+
+            character.BehaviourPackage.EncounterId = caster.BehaviourPackage?.EncounterId ?? 0;
+        }
+    }
+#endif
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionRemoved))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -349,7 +460,9 @@ public static class RulesetCharacterPatcher
                          .OfType<RulesetCharacter>()
                          .ToList())
             {
-                foreach (var rulesetCondition in targetRulesetCharacter.AllConditions
+                // need ToList to avoid enumerator issues with RemoveCondition
+                foreach (var rulesetCondition in targetRulesetCharacter.ConditionsByCategory
+                             .SelectMany(x => x.Value)
                              .Where(x =>
                                  x.ConditionDefinition.SpecialInterruptions.Contains(
                                      (ConditionInterruption)ExtraConditionInterruption.SourceRageStop) &&

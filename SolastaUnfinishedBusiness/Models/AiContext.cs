@@ -1,105 +1,152 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using TA.AI;
+using TA.AI.Activities;
 using TA.AI.Considerations;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class AiContext
 {
-    internal const string DoNothing = "1";
-    internal const string DoStrengthCheckCasterDC = "2";
-
-    internal static readonly List<string> DoNothingConditions =
-        ["ConditionNoxiousSpray", "ConditionVileBrew", "ConditionGrappledRestrainedIceBound"];
-
-    internal static readonly List<string> DoStrengthCheckCasterDCConditions =
-    [
-        "ConditionFlashFreeze", "ConditionGrappledRestrainedEnsnared",
-        "ConditionGrappledRestrainedSpellWeb", "ConditionRestrainedByEntangle"
-    ];
-
-    internal static void Load()
+    internal static ActivityScorerDefinition CreateActivityScorer(
+        DecisionDefinition baseDecision, string name,
+        bool overwriteConsiderations = false,
+        params WeightedConsiderationDescription[] considerations)
     {
-        // order matters as same weight
-        // this code needs a refactoring. meanwhile check:
-        // - CharacterActionPanelPatcher SelectBreakFreeMode and add condition there if spell also aims allies
-        foreach (var condition in DoNothingConditions)
+        var result = Object.Instantiate(baseDecision.Decision.scorer);
+
+        result.name = name;
+        result.scorer = new ActivityScorer();
+
+        if (!overwriteConsiderations)
         {
-            BuildDecisionBreakFreeFromCondition(condition, DoNothing);
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var weightedConsideration in baseDecision.Decision.scorer.scorer.WeightedConsiderations)
+            {
+                var sourceDescription = weightedConsideration.Consideration;
+                var targetDescription = new ConsiderationDescription
+                {
+                    considerationType = sourceDescription.considerationType,
+                    curve = sourceDescription.curve,
+                    boolParameter = sourceDescription.boolParameter,
+                    boolSecParameter = sourceDescription.boolSecParameter,
+                    boolTerParameter = sourceDescription.boolTerParameter,
+                    byteParameter = sourceDescription.byteParameter,
+                    intParameter = sourceDescription.intParameter,
+                    floatParameter = sourceDescription.floatParameter,
+                    stringParameter = sourceDescription.stringParameter
+                };
+
+                var weightedConsiderationDescription = new WeightedConsiderationDescription(
+                    CreateConsiderationDefinition(weightedConsideration.ConsiderationDefinition.name,
+                        targetDescription),
+                    weightedConsideration.weight);
+
+                result.Scorer.WeightedConsiderations.Add(weightedConsiderationDescription);
+            }
         }
 
-        foreach (var condition in DoStrengthCheckCasterDCConditions)
-        {
-            BuildDecisionBreakFreeFromCondition(condition, DoStrengthCheckCasterDC);
-        }
+        result.Scorer.WeightedConsiderations.AddRange(considerations);
+
+        return result;
     }
 
-    // boolParameter false won't do any ability check
-    private static void BuildDecisionBreakFreeFromCondition(string conditionName, string action)
+    private static ConsiderationDefinition CreateConsiderationDefinition(
+        string name, ConsiderationDescription consideration)
     {
-        //TODO: create proper builders
+        var result = ScriptableObject.CreateInstance<ConsiderationDefinition>();
 
-        // create considerations copies
+        result.name = name;
+        result.consideration = consideration;
 
+        return result;
+    }
+
+    private static WeightedConsiderationDescription GetWeightedConsiderationDescriptionByDecisionAndConsideration(
+        DecisionDefinition decisionDefinition, string considerationType)
+    {
+        return decisionDefinition.Decision.Scorer.WeightedConsiderations
+                   .FirstOrDefault(y => y.ConsiderationDefinition.Consideration.considerationType == considerationType)
+               ?? throw new Exception();
+    }
+
+    internal static DecisionPackageDefinition BuildDecisionPackageBreakFree(string conditionName)
+    {
         var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
-        var considerationHasCondition = baseDecision.Decision.Scorer.considerations.FirstOrDefault(x =>
-            x.consideration.name == "HasConditionFlying");
-        var considerationMainActionNotFullyConsumed = baseDecision.Decision.Scorer.considerations.FirstOrDefault(x =>
-            x.consideration.name == "MainActionNotFullyConsumed");
 
-        if (considerationHasCondition == null || considerationMainActionNotFullyConsumed == null)
-        {
-            Main.Error("fetching considerations at BuildDecisionBreakFreeFromCondition");
+        var wcdHasCondition = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
+            baseDecision, "HasCondition");
 
-            return;
-        }
+        var hasConditionBreakFree = new WeightedConsiderationDescription(
+            CreateConsiderationDefinition(
+                $"Has{conditionName}",
+                new ConsiderationDescription
+                {
+                    considerationType = nameof(HasCondition),
+                    curve = wcdHasCondition.Consideration.curve,
+                    stringParameter = conditionName,
+                    boolParameter = true,
+                    intParameter = 2,
+                    floatParameter = 2f
+                }), 1f);
 
-        var considerationHasConditionBreakFree = new WeightedConsiderationDescription
-        {
-            consideration = Object.Instantiate(considerationHasCondition.consideration),
-            weight = considerationHasCondition.weight
-        };
+        var wcdActionTypeStatus = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
+            baseDecision, "ActionTypeStatus");
 
-        considerationHasConditionBreakFree.consideration.name = $"Has{conditionName}";
-        considerationHasConditionBreakFree.consideration.consideration = new ConsiderationDescription
-        {
-            considerationType = nameof(HasCondition),
-            curve = considerationHasCondition.consideration.consideration.curve,
-            boolParameter = considerationHasCondition.consideration.consideration.boolParameter,
-            intParameter = considerationHasCondition.consideration.consideration.intParameter,
-            floatParameter = considerationHasCondition.consideration.consideration.floatParameter,
-            stringParameter = conditionName
-        };
+        var mainActionNotFullyConsumed = new WeightedConsiderationDescription(
+            CreateConsiderationDefinition(
+                "MainActionNotFullyConsumed",
+                new ConsiderationDescription
+                {
+                    considerationType = nameof(ActionTypeStatus),
+                    curve = wcdActionTypeStatus.Consideration.curve,
+                    boolParameter = true,
+                    floatParameter = 1f
+                }), 1f);
 
-        // create scorer copy
-
-        var scorer = Object.Instantiate(baseDecision.Decision.scorer);
-
-        scorer.name = "BreakFree";
-        scorer.scorer.considerations = [considerationHasConditionBreakFree, considerationMainActionNotFullyConsumed];
-
-        // create and assign decision definition to all decision packages
+        var scorerBreakFree = CreateActivityScorer(baseDecision, $"BreakFree{conditionName}", true,
+            hasConditionBreakFree,
+            mainActionNotFullyConsumed);
 
         var decisionBreakFree = DecisionDefinitionBuilder
             .Create($"DecisionBreakFree{conditionName}")
             .SetGuiPresentationNoContent(true)
             .SetDecisionDescription(
-                "if restrained and can use main action, try to break free",
-                "BreakFree",
-                scorer,
-                action,
+                $"if restrained from {conditionName}, and can use main action, try to break free",
+                nameof(BreakFree),
+                scorerBreakFree,
                 enumParameter: 1,
                 floatParameter: 3f)
             .AddToDB();
 
-        foreach (var decisionPackageDefinition in DatabaseRepository.GetDatabase<DecisionPackageDefinition>())
-        {
-            decisionPackageDefinition.package.weightedDecisions.Add(
-                new WeightedDecisionDescription(decisionBreakFree, 1, 0, false));
-        }
+        // use weight 2f to ensure scenarios that don't prevent enemies from take actions to still consider this
+        var packageBreakFree = DecisionPackageDefinitionBuilder
+            .Create($"BreakFreeAbilityCheck{conditionName}")
+            .SetGuiPresentationNoContent(true)
+            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decisionBreakFree, weight = 2f })
+            .AddToDB();
+
+        return packageBreakFree;
+    }
+
+    internal static RulesetCondition GetRestrainingCondition(RulesetCharacter rulesetCharacter)
+    {
+        return rulesetCharacter
+            .GetFeaturesByType<FeatureDefinitionActionAffinity>()
+            .Where(actionAffinity => actionAffinity.AuthorizedActions.Contains(ActionDefinitions.Id.BreakFree))
+            .Select(rulesetCharacter.FindFirstConditionHoldingFeature)
+            .FirstOrDefault(rulesetCondition => rulesetCondition != null);
+    }
+
+    internal enum BreakFreeType
+    {
+        DoNoCheckAndRemoveCondition = 10,
+        DoStrengthCheckAgainstCasterDC = 20,
+        DoWisdomCheckAgainstCasterDC = 30
     }
 }

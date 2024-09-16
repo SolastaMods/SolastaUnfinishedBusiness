@@ -712,7 +712,8 @@ internal static class OtherFeats
 
             attacker.BurnOneMainAttack();
 
-            var abilityCheckData = new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier() };
+            var abilityCheckData =
+                new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier(), Action = action };
 
             yield return ResolveContest(attacker, defender, abilityCheckData);
 
@@ -1066,8 +1067,8 @@ internal static class OtherFeats
         ConditionDefinition conditionResistance) : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1080,7 +1081,12 @@ internal static class OtherFeats
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (caster is RulesetCharacterHero or RulesetCharacterMonster)
+            if (rulesetActorDefender is not RulesetCharacter rulesetCharacterDefender)
+            {
+                return;
+            }
+
+            if (rulesetActorCaster is RulesetCharacterHero or RulesetCharacterMonster)
             {
                 return;
             }
@@ -1088,14 +1094,14 @@ internal static class OtherFeats
             advantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.Condition, conditionResistance.Name, conditionResistance));
 
-            defender.InflictCondition(
+            rulesetCharacterDefender.InflictCondition(
                 conditionResistance.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
-                defender.guid,
-                defender.CurrentFaction.Name,
+                rulesetCharacterDefender.guid,
+                rulesetCharacterDefender.CurrentFaction.Name,
                 1,
                 conditionResistance.Name,
                 0,
@@ -1163,16 +1169,16 @@ internal static class OtherFeats
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var actionModifier = new ActionModifier();
-
-            rulesetCharacter.ComputeBaseAbilityCheckBonus(
-                AttributeDefinitions.Dexterity, actionModifier.AbilityCheckModifierTrends, SkillDefinitions.Acrobatics);
-
-            actingCharacter.ComputeAbilityCheckActionModifier(
-                AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, actionModifier);
-
             var abilityCheckRoll = actingCharacter.RollAbilityCheck(
-                AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, 15,
-                AdvantageType.None, actionModifier, false, -1, out var rollOutcome, out var successDelta, true);
+                AttributeDefinitions.Dexterity,
+                SkillDefinitions.Acrobatics,
+                15,
+                AdvantageType.None,
+                actionModifier,
+                false, -1,
+                out var rollOutcome,
+                out var successDelta,
+                true);
 
             //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
             var abilityCheckData = new AbilityCheckData
@@ -1180,7 +1186,8 @@ internal static class OtherFeats
                 AbilityCheckRoll = abilityCheckRoll,
                 AbilityCheckRollOutcome = rollOutcome,
                 AbilityCheckSuccessDelta = successDelta,
-                AbilityCheckActionModifier = actionModifier
+                AbilityCheckActionModifier = actionModifier,
+                Action = action
             };
 
             yield return TryAlterOutcomeAttributeCheck
@@ -1849,11 +1856,6 @@ internal static class OtherFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(
-                        TargetFilteringMethod.CharacterOnly,
-                        TargetFilteringTag.No,
-                        5,
-                        DieType.D8)
                     .SetRequiredCondition(ConditionDefinitions.ConditionDead)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -1939,37 +1941,9 @@ internal static class OtherFeats
         return feat;
     }
 
-    private sealed class CustomBehaviorLucky(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerLucky)
-        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow, IRollSavingThrowFinished
+    private sealed class CustomBehaviorLucky(FeatureDefinitionPower powerLucky)
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {
-        private const string LuckyModifierTag = "LuckyModifierTag";
-        private const string LuckySaveTag = "LuckySaveTag";
-
-        public void OnSavingThrowFinished(
-            RulesetCharacter rulesetCaster,
-            RulesetCharacter rulesetDefender,
-            int saveBonus,
-            string abilityScoreName,
-            BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
-            List<TrendInfo> advantageTrends,
-            int rollModifier,
-            int saveDC,
-            bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
-            List<EffectForm> effectForms)
-        {
-            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-            caster.UsedSpecialFeatures.TryAdd(LuckyModifierTag, 0);
-            caster.UsedSpecialFeatures.TryAdd(LuckySaveTag, 0);
-            caster.UsedSpecialFeatures[LuckyModifierTag] = saveBonus + rollModifier;
-            caster.UsedSpecialFeatures[LuckySaveTag] = saveDC;
-        }
-
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
@@ -2007,6 +1981,7 @@ internal static class OtherFeats
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 attacker,
@@ -2018,6 +1993,8 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
                     out _);
                 var previousRoll = action.AttackRoll;
@@ -2090,9 +2067,10 @@ internal static class OtherFeats
                 yield break;
             }
 
+            // any reaction within an attribute check flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                defender,
+                helper,
                 "LuckyCheck",
                 reactionValidated: ReactionValidated,
                 battleManager: battleManager);
@@ -2101,6 +2079,8 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
                     out _);
                 var previousRoll = abilityCheckData.AbilityCheckRoll;
@@ -2140,41 +2120,44 @@ internal static class OtherFeats
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
 
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
                 helper != defender ||
-                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
-                !defender.UsedSpecialFeatures.TryGetValue(LuckyModifierTag, out var modifier) ||
-                !defender.UsedSpecialFeatures.TryGetValue(LuckySaveTag, out var saveDC))
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                attacker,
+                helper,
                 "LuckySaving",
-                reactionValidated: ReactionValidated,
-                battleManager: battleManager);
+                "SpendPowerLuckySavingDescription".Formatted(
+                    Category.Reaction, attacker?.Name ?? ReactionRequestCustom.EnvTitle, savingThrowData.Title),
+                ReactionValidated,
+                battleManager);
 
             yield break;
 
             void ReactionValidated()
             {
+                usablePower.Consume();
+
                 var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
                     out _);
-                var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
+
+                var saveDC = savingThrowData.SaveDC;
+                var rollModifier = savingThrowData.SaveBonusAndRollModifier;
+                var savingRoll = savingThrowData.SaveOutcomeDelta - rollModifier + saveDC;
 
                 if (dieRoll <= savingRoll)
                 {
@@ -2190,8 +2173,9 @@ internal static class OtherFeats
                     return;
                 }
 
-                action.SaveOutcomeDelta += dieRoll - savingRoll;
-                action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
+                savingThrowData.SaveOutcomeDelta += dieRoll - savingRoll;
+                savingThrowData.SaveOutcome =
+                    savingThrowData.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
                 rulesetHelper.LogCharacterActivatesAbility(
                     "Feat/&FeatLuckyTitle",
@@ -2310,35 +2294,31 @@ internal static class OtherFeats
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier actionModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetHelper);
 
-            var effectDescription = action.ActionParams.AttackMode?.EffectDescription ??
-                                    action.ActionParams.RulesetEffect?.EffectDescription;
-
-            if (helper != defender ||
-                !action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
+                helper != defender ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
-                effectDescription?.savingThrowAbility is not
+                savingThrowData.SavingThrowAbility is not
                     (AttributeDefinitions.Intelligence or AttributeDefinitions.Wisdom or AttributeDefinitions.Charisma))
             {
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return defender.MyReactToSpendPower(
                 usablePower,
-                attacker,
+                defender,
                 "MageSlayer",
-                "SpendPowerMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
+                "SpendPowerMageSlayerDescription".Formatted(
+                    Category.Reaction, attacker?.Name ?? ReactionRequestCustom.EnvTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager);
 
@@ -2346,8 +2326,10 @@ internal static class OtherFeats
 
             void ReactionValidated()
             {
-                action.SaveOutcomeDelta = 0;
-                action.SaveOutcome = RollOutcome.Success;
+                usablePower.Consume();
+
+                savingThrowData.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
             }
         }
 
@@ -2415,7 +2397,6 @@ internal static class OtherFeats
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .AddToDB()))
                     .AddToDB())
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
 
@@ -2511,7 +2492,6 @@ internal static class OtherFeats
                 .Create()
                 .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                .ExcludeCaster()
                 .SetSavingThrowData(false,
                     AttributeDefinitions.Constitution, false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
@@ -2546,7 +2526,7 @@ internal static class OtherFeats
 
         var usablePower = PowerProvider.Get(PowerFeatPoisonousSkin, rulesetMe);
 
-        me.MyExecuteActionPowerNoCost(usablePower, target);
+        me.MyExecuteActionSpendPower(usablePower, target);
     }
 
     //Poison character that shoves me
@@ -2809,18 +2789,14 @@ internal static class OtherFeats
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Wisdom,
-                        true,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Strength, 8)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Strength, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
-                                ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFrightened, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -2871,7 +2847,7 @@ internal static class OtherFeats
                         withinRange: distance)
                     .ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(

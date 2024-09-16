@@ -8,6 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=Dopo aver effettuato un tiro per 
 Feature/&FeatureWayOfWealAndWoeWealTitle=Benessere
 Feature/&FeatureWayOfWealAndWoeWoeDescription=Dopo aver effettuato un tiro per colpire con un'arma da monaco o un attacco senz'armi e aver mancato un colpo critico, subisci un danno pari a un tiro del tuo dado di arti marziali.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
-Feedback/&WoeReroll=A causa di {1} {2} rilancia il dado di attacco da un {3} a un {4}
+Feedback/&WoeReroll=A causa di {1} {0} rilancia il dado di attacco da un {2} a un {3}
 Subclass/&WayOfWealAndWoeDescription=I monaci della Via della Ricchezza e della Sventura si concentrano sia sulla prosperità che sulle avversità per affrontare i loro nemici in battaglia.
 Subclass/&WayOfWealAndWoeTitle=Via del benessere e del dolore

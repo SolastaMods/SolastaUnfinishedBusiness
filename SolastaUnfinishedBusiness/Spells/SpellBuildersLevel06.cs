@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -184,6 +190,217 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Gravity Fissure
+
+    internal static SpellDefinition BuildGravityFissure()
+    {
+        const string NAME = "GravityFissure";
+
+        var sprite = Sprites.GetSprite(NAME, Resources.GravityFissure, 128);
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, sprite)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeForce, 8, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                            .Build())
+                    .SetImpactEffectParameters(EldritchBlast)
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(
+            ForcePushOrDragFromEffectPoint.Marker, new ModifyEffectDescriptionGravityFissure(power));
+
+        var spell = SpellDefinitionBuilder
+            .Create($"{NAME}")
+            .SetGuiPresentation(Category.Spell, sprite)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Earthquake)
+                    // only required to get the SFX in this particular scenario to activate
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Line, 12)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    // only required to get the SFX in this particular scenario to activate
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeForce, 8, DieType.D8)
+                            .Build(),
+                        // only required to get the SFX in this particular scenario to activate
+                        // dangerous zone won't be enforced here as not a concentration spell
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false))
+                    .SetImpactEffectParameters(EldritchBlast)
+                    .Build())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeGravityFissure(power))
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class ModifyEffectDescriptionGravityFissure(FeatureDefinitionPower powerDrag)
+        : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerDrag;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
+            {
+                effectDescription.EffectForms[0].DamageForm.DiceNumber =
+                    8 + (rulesetEffectPower.usablePower.spentPoints - 6);
+            }
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeGravityFissure(FeatureDefinitionPower powerDrag)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var dummy = locationCharacterService.DummyCharacter;
+
+            // collect all covered positions except for the one under the caster
+            var coveredFloorPositions = CharacterActionMagicEffectPatcher.CoveredFloorPositions
+                .Where(x => x != actingCharacter.LocationPosition)
+                .ToList();
+
+            // collect all contenders that should be dragged
+            var contendersAndPositions =
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .Where(x =>
+                    // don't include caster
+                    x != actingCharacter &&
+                    // don't include affected contenders
+                    !CharacterActionMagicEffectPatcher.AffectedFloorPositions.Contains(x.LocationPosition) &&
+                    // don't include actions not within 2 cells range
+                    coveredFloorPositions.Any(y =>
+                    {
+                        dummy.LocationPosition = y;
+
+                        return x.IsWithinRange(dummy, 2);
+                    }))
+                // create tab to select best position and set initial to far beyond
+                .ToDictionary(x => x, _ => new Container());
+
+            CharacterActionMagicEffectPatcher.CoveredFloorPositions.Reverse();
+
+            // select the best position possible to force a drag to effect origin
+            foreach (var contenderAndPosition in contendersAndPositions)
+            {
+                var contender = contenderAndPosition.Key;
+
+                foreach (var coveredFloorPosition in coveredFloorPositions)
+                {
+                    // must be inside loop as Position can change on previous interactions
+                    var bestDragToPosition = contenderAndPosition.Value.Position;
+
+                    dummy.LocationPosition = bestDragToPosition;
+
+                    var currentDistance = DistanceCalculation.GetDistanceFromCharacters(contender, dummy);
+
+                    dummy.LocationPosition = coveredFloorPosition;
+
+                    var newDistance = DistanceCalculation.GetDistanceFromCharacters(contender, dummy);
+
+                    //TODO: improve this with a better logic to determine which cell should pull in the end
+                    if (currentDistance - newDistance < 0)
+                    {
+                        continue;
+                    }
+
+                    contenderAndPosition.Value.Position = coveredFloorPosition;
+                }
+            }
+
+            // issue drag to origin powers to all contenders with a non placeholder position
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerDrag, rulesetCharacter);
+
+            // use spentPoints to store effect level to be used later by power
+            usablePower.spentPoints = action.ActionParams.RulesetEffect.EffectLevel;
+
+            // drag each contender to the selected position starting with the ones closer to the line
+            foreach (var x in contendersAndPositions
+                         .Where(x => x.Value.Position != Container.PlaceHolderPosition)
+                         .OrderBy(x =>
+                         {
+                             dummy.LocationPosition = x.Value.Position;
+
+                             return DistanceCalculation.GetDistanceFromCharacters(x.Key, dummy);
+                         }))
+            {
+                var actionParams = new CharacterActionParams(actingCharacter, Id.SpendPower)
+                {
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect =
+                        implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { x.Key },
+                    Positions = { x.Value.Position }
+                };
+
+                actionService.ExecuteInstantSingleAction(actionParams);
+            }
+
+            // clean up the house as a good guest
+            dummy.LocationPosition = Container.PlaceHolderPosition;
+
+            yield break;
+        }
+
+        // container class to hold selected dragging position to avoid changing enumerator
+        private sealed class Container
+        {
+            internal static readonly int3 PlaceHolderPosition = new(800, 800, 800);
+            internal int3 Position = PlaceHolderPosition;
+        }
+    }
+
+    #endregion
+
     #region Shelter From Energy
 
     private static readonly List<(FeatureDefinitionDamageAffinity, IMagicEffect, AssetReference)> ShelterDamageTypes =
@@ -309,7 +526,7 @@ internal static partial class SpellBuilders
 
         conditionMark.GuiPresentation.description = Gui.EmptyContent;
 
-        var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+        var lightSourceForm = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -325,7 +542,7 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Light)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(
@@ -448,16 +665,20 @@ internal static partial class SpellBuilders
     {
         const string NAME = "FlashFreeze";
 
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}");
+
         var conditionFlashFreeze = ConditionDefinitionBuilder
-            .Create(ConditionGrappledRestrainedRemorhaz, $"Condition{NAME}")
+            .Create($"Condition{NAME}")
             .SetGuiPresentation(
                 RuleDefinitions.ConditionRestrained, Category.Rules, ConditionDefinitions.ConditionChilled)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .SetPossessive()
-            .SetParentCondition(ConditionRestrainedByWeb)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
+            .SetBrain(battlePackage, true)
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
-
-        conditionFlashFreeze.specialDuration = false;
-        conditionFlashFreeze.specialInterruptions.Clear();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -490,16 +711,10 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
                     .SetCasterEffectParameters(SleetStorm)
+                    .SetConditionEffectParameters(ConditionDefinitions.ConditionRestrained)
                     .Build())
             .AddCustomSubFeatures(new FilterTargetingCharacterFlashFreeze())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            ConditionDefinitions.ConditionRestrained.conditionStartParticleReference;
-        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            ConditionDefinitions.ConditionRestrained.conditionParticleReference;
-        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            ConditionDefinitions.ConditionRestrained.conditionEndParticleReference;
 
         return spell;
     }
@@ -706,6 +921,11 @@ internal static partial class SpellBuilders
 
         conditionRingOfBlades.GuiPresentation.description = Gui.EmptyContent;
 
+        var behavior = new ModifyEffectDescriptionRingOfBlades(powerRingOfBlades, conditionRingOfBlades);
+
+        powerRingOfBlades.AddCustomSubFeatures(behavior);
+        powerRingOfBladesFree.AddCustomSubFeatures(behavior);
+
         var conditionRingOfBladesFree = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Free")
             .SetGuiPresentationNoContent(true)
@@ -744,7 +964,6 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(HypnoticPattern)
                     .SetEffectEffectParameters(PowerMagebaneSpellCrusher)
                     .Build())
-            .AddCustomSubFeatures(new ModifyEffectDescriptionRingOfBlades(powerRingOfBlades, conditionRingOfBlades))
             .AddToDB();
 
         return spell;
@@ -787,15 +1006,11 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (!character.TryGetConditionOfCategoryAndType(
+            if (character.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionRingOfBlades.Name, out var activeCondition))
             {
-                return effectDescription;
+                effectDescription.EffectForms[0].DamageForm.DiceNumber = 4 + (activeCondition.EffectLevel - 6);
             }
-
-            damageForm.diceNumber = 4 + activeCondition.EffectLevel - 6;
 
             return effectDescription;
         }

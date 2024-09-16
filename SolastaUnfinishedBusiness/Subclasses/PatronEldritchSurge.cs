@@ -294,9 +294,11 @@ public class PatronEldritchSurge : AbstractSubclass
             var rulesetCharacter = attacker.RulesetCharacter;
 
             if (Gui.Battle == null ||
-                actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
-                || actionType != ActionType.Main
-                || !BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
+                action.Countered ||
+                action is CharacterActionCastSpell { ExecutionFailed: true } ||
+                actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
+                actionType != ActionType.Main ||
+                !BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
                     rulesetCharacter, out var supportCondition)
                )
             {

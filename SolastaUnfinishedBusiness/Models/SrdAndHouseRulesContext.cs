@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
+using TA.AI;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -73,6 +74,9 @@ internal static class SrdAndHouseRulesContext
             .SetForbiddenActions(Id.AttackOpportunity)
             .AddToDB();
 
+    private static readonly DecisionPackageDefinition DecisionPackageRestrained =
+        AiContext.BuildDecisionPackageBreakFree(ConditionRestrainedByEntangle.Name);
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -104,6 +108,7 @@ internal static class SrdAndHouseRulesContext
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
         NoTwinnedBladeCantrips();
+        ModifyGravitySlam();
     }
 
     private static void LoadSenseNormalVisionRangeMultiplier()
@@ -397,12 +402,16 @@ internal static class SrdAndHouseRulesContext
 
     internal static void SwitchRecurringEffectOnEntangle()
     {
+        // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
         if (Main.Settings.RemoveRecurringEffectOnEntangle)
         {
-            // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
             Entangle.effectDescription.recurrentEffect = RecurrentEffect.OnActivation;
             Entangle.effectDescription.EffectForms[2].canSaveToCancel = false;
             ConditionRestrainedByEntangle.Features.Add(FeatureDefinitionActionAffinitys.ActionAffinityGrappled);
+            ConditionRestrainedByEntangle.amountOrigin = ConditionDefinition.OriginOfAmount.Fixed;
+            ConditionRestrainedByEntangle.baseAmount = (int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC;
+            ConditionRestrainedByEntangle.addBehavior = true;
+            ConditionRestrainedByEntangle.battlePackage = DecisionPackageRestrained;
         }
         else
         {
@@ -410,6 +419,10 @@ internal static class SrdAndHouseRulesContext
                 RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd | RecurrentEffect.OnEnter;
             Entangle.effectDescription.EffectForms[2].canSaveToCancel = true;
             ConditionRestrainedByEntangle.Features.Remove(FeatureDefinitionActionAffinitys.ActionAffinityGrappled);
+            ConditionRestrainedByEntangle.amountOrigin = ConditionDefinition.OriginOfAmount.None;
+            ConditionRestrainedByEntangle.baseAmount = 0;
+            ConditionRestrainedByEntangle.addBehavior = false;
+            ConditionRestrainedByEntangle.battlePackage = null;
         }
     }
 
@@ -1003,4 +1016,37 @@ internal static class SrdAndHouseRulesContext
 
         public static NoTwinned Mark { get; } = new();
     }
+
+    #region Gravity Slam
+
+    private static EffectDescription _gravitySlamVanilla;
+    private static EffectDescription _gravitySlamModified;
+
+    private static void ModifyGravitySlam()
+    {
+        _gravitySlamVanilla = GravitySlam.EffectDescription;
+
+        _gravitySlamModified = EffectDescriptionBuilder.Create(_gravitySlamVanilla)
+            .SetTargetingData(Side.All, RangeType.Distance, 20, TargetType.Cylinder, 4, 10)
+            .AddEffectForms(EffectFormBuilder.MotionForm(ExtraMotionType.PushDown, 10))
+            .Build();
+
+        ToggleGravitySlamModification();
+    }
+
+    internal static void ToggleGravitySlamModification()
+    {
+        if (Main.Settings.EnablePullPushOnVerticalDirection && Main.Settings.ModifyGravitySlam)
+        {
+            GravitySlam.effectDescription = _gravitySlamModified;
+        }
+        else
+        {
+            GravitySlam.effectDescription = _gravitySlamVanilla;
+        }
+
+        Global.RefreshControlledCharacter();
+    }
+
+    #endregion
 }

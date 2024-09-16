@@ -359,7 +359,7 @@ internal static partial class CharacterContext
                 [defender],
                 attacker,
                 powerBarbarianBrutalStrike.Name,
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;
@@ -413,10 +413,7 @@ internal static partial class CharacterContext
         }
 
         private static void InflictCondition(
-            RulesetCharacter rulesetAttacker,
-            // ReSharper disable once SuggestBaseTypeForParameter
-            RulesetCharacter rulesetDefender,
-            string conditionName)
+            RulesetCharacter rulesetAttacker, RulesetCharacter rulesetDefender, string conditionName)
         {
             rulesetDefender.InflictCondition(
                 conditionName,
@@ -448,8 +445,11 @@ internal static partial class CharacterContext
             bool checkMagicalAttackDamage)
         {
             var damageType = activeEffect.EffectDescription.FindFirstDamageForm()?.DamageType;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (damageType == null)
+            if (damageType == null ||
+                rulesetAttacker == null ||
+                rulesetAttacker is RulesetCharacterEffectProxy)
             {
                 yield break;
             }
@@ -466,8 +466,11 @@ internal static partial class CharacterContext
             RulesetAttackMode attackMode)
         {
             var damageType = attackMode.EffectDescription.FindFirstDamageForm()?.DamageType;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (damageType == null)
+            if (damageType == null ||
+                rulesetAttacker == null ||
+                rulesetAttacker is RulesetCharacterEffectProxy)
             {
                 yield break;
             }
@@ -509,7 +512,7 @@ internal static partial class CharacterContext
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
+                FactionDefinitions.Party.Name,
                 1,
                 conditionSunderingBlowAlly.Name,
                 0,
@@ -676,8 +679,8 @@ internal static partial class CharacterContext
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -1218,8 +1221,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1242,8 +1245,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1341,8 +1344,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1381,8 +1384,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1404,8 +1407,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1516,7 +1519,7 @@ internal static partial class CharacterContext
                 [defender],
                 attacker,
                 powerRogueCunningStrike.Name,
-                ReactionValidated,
+                reactionValidated: ReactionValidated,
                 battleManager: battleManager);
 
             yield break;
@@ -1578,13 +1581,8 @@ internal static partial class CharacterContext
             yield return GameUiContext.SelectPosition(action, powerWithdraw);
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var targetPosition = action.ActionParams.Positions[0];
-            var distance = int3.Distance(attacker.LocationPosition, targetPosition);
-            var actionParams =
-                new CharacterActionParams(attacker, ActionDefinitions.Id.TacticalMove)
-                {
-                    Positions = { targetPosition }
-                };
+            var position = action.ActionParams.Positions[0];
+            var distance = int3.Distance(attacker.LocationPosition, position);
 
             attacker.UsedTacticalMoves -= (int)distance;
 
@@ -1592,6 +1590,8 @@ internal static partial class CharacterContext
             {
                 attacker.UsedTacticalMoves = 0;
             }
+
+            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
 
             rulesetAttacker.InflictCondition(
                 ConditionDisengaging,
@@ -1608,7 +1608,7 @@ internal static partial class CharacterContext
                 0,
                 0);
 
-            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
+            attacker.MyExecuteActionTacticalMove(position);
         }
 
         private IEnumerator HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)
@@ -1623,7 +1623,7 @@ internal static partial class CharacterContext
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerKnockOutApply, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
 

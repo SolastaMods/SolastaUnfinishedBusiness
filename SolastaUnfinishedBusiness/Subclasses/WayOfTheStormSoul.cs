@@ -129,7 +129,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 8)
@@ -144,12 +144,10 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                             .SetConditionForm(conditionEyeOfTheStorm, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
+                    .SetImpactEffectParameters(PowerDomainElementalLightningBlade
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(ValidatorsValidatePowerUse.InCombat)
             .AddToDB();
-
-        powerEyeOfTheStormLeap.EffectDescription.EffectParticleParameters.impactParticleReference =
-            powerEyeOfTheStormLeap.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         var powerEyeOfTheStorm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EyeOfTheStorm")
@@ -358,12 +356,15 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker)
                 .Where(x =>
-                    x.RulesetActor.AllConditions
-                        .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
-                                  y.SourceGuid == rulesetAttacker.Guid))
+                    x.RulesetActor.ConditionsByCategory
+                        .SelectMany(y => y.Value)
+                        .Any(z =>
+                            z.ConditionDefinition == conditionEyeOfTheStorm &&
+                            z.SourceGuid == rulesetAttacker.Guid))
                 .ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            // eye of the storm leap is a use at will power
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 }

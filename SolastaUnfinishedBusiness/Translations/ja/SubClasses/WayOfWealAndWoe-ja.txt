@@ -8,6 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=モンク武器または素手攻
 Feature/&FeatureWayOfWealAndWoeWealTitle=ウェル
 Feature/&FeatureWayOfWealAndWoeWoeDescription=モンク武器または素手攻撃で攻撃ロールを行い、クリティカルミスをした後、武術ダイスの 1 ロールに等しいダメージを受けます。
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
-Feedback/&WoeReroll={1} のため、{2} は攻撃ロールのダイスを {3} から {4} に振り直します。
+Feedback/&WoeReroll={1} のため、{0} は攻撃ロールダイスを {2} から {3} に再ロールします。
 Subclass/&WayOfWealAndWoeDescription=貧富の道の修道士は、繁栄と逆境の両方に焦点を当てて敵と戦います。
 Subclass/&WayOfWealAndWoeTitle=幸と不幸の道

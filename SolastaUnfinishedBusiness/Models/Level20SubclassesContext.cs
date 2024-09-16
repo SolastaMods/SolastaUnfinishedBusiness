@@ -832,7 +832,7 @@ internal static class Level20SubclassesContext
             .SetFeatures(savingThrowAffinityOathOfDevotionHolyNimbus)
             .AddToDB();
 
-        var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+        var lightSourceForm = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var powerOathOfDevotionHolyNimbus = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfDevotionHolyNimbus")
@@ -840,7 +840,7 @@ internal static class Level20SubclassesContext
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Light)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetRecurrentEffect(
@@ -1514,8 +1514,7 @@ internal static class Level20SubclassesContext
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
 
-            //TODO: check if MyExecuteActionSpendPower works here
-            actingCharacter.MyExecuteActionPowerNoCost(usablePower, actingCharacter);
+            actingCharacter.MyExecuteActionSpendPower(usablePower, actingCharacter);
 
             yield break;
         }
@@ -1651,8 +1650,8 @@ internal static class Level20SubclassesContext
     private sealed class ModifySavingThrowHolyNimbus(FeatureDefinition featureDefinition) : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1665,8 +1664,8 @@ internal static class Level20SubclassesContext
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (abilityScoreName == AttributeDefinitions.Wisdom
-                && caster is RulesetCharacterMonster { CharacterFamily: "Fiend" or "Undead" })
+            if (abilityScoreName == AttributeDefinitions.Wisdom &&
+                rulesetActorCaster is RulesetCharacterMonster { CharacterFamily: "Fiend" or "Undead" })
             {
                 advantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
@@ -1753,8 +1752,8 @@ internal static class Level20SubclassesContext
         : IRollSavingThrowFinished
     {
         public void OnSavingThrowFinished(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             int saveBonus,
             string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1767,10 +1766,15 @@ internal static class Level20SubclassesContext
             ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            var hero = defender.GetOriginalHero();
+            if (outcome != RollOutcome.Success ||
+                rulesetActorDefender is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
 
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                hero == null)
+            var hero = rulesetCharacter.GetOriginalHero();
+
+            if (hero == null)
             {
                 return;
             }

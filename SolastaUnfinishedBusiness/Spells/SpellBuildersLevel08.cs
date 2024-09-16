@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -85,6 +86,62 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(DispelMagic)
                     .Build())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Glibness
+
+    internal static SpellDefinition BuildGlibness()
+    {
+        const string NAME = "Glibness";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionBlessed)
+            .SetPossessive()
+            .AddCustomSubFeatures(new ModifyAbilityCheckGlibness())
+            .AddToDB();
+
+        return SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Glibness, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(8)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
+                    .SetCasterEffectParameters(Tongues)
+                    .SetEffectEffectParameters(PowerOathOfJugementPurgeCorruption)
+                    .Build())
+            .AddToDB();
+    }
+
+    private sealed class ModifyAbilityCheckGlibness : IModifyAbilityCheck
+    {
+        public void MinRoll(
+            RulesetCharacter character,
+            int baseBonus,
+            string abilityScoreName,
+            string proficiencyName,
+            List<TrendInfo> advantageTrends,
+            List<TrendInfo> modifierTrends,
+            ref int rollModifier,
+            ref int minRoll)
+        {
+            if (abilityScoreName == AttributeDefinitions.Charisma)
+            {
+                minRoll = Math.Max(minRoll, 15);
+            }
+        }
     }
 
     #endregion
@@ -226,6 +283,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    // UI Only
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -313,12 +371,10 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var glc = GameLocationCharacter.GetFromActor(character);
-
-            if (glc != null &&
-                glc.UsedSpecialFeatures.TryGetValue("SoulExpulsion", out var effectLevel))
+            if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
             {
-                effectDescription.FindFirstDamageForm().DiceNumber = 7 + (2 * (effectLevel - 8));
+                effectDescription.EffectForms[0].DamageForm.DiceNumber =
+                    7 + (2 * (rulesetEffectPower.usablePower.spentPoints - 8));
             }
 
             return effectDescription;
@@ -345,8 +401,10 @@ internal static partial class SpellBuilders
                         target, actingCharacter, isOppositeSide: false, hasToPerceiveTarget: true, withinRange: 12)
                     .ToArray();
 
-            actingCharacter.UsedSpecialFeatures.TryAdd("SoulExpulsion", action.ActionParams.RulesetEffect.EffectLevel);
-            actingCharacter.MyExecuteActionPowerNoCost(usablePower, targets);
+            // use spentPoints to store effect level to be used later by power
+            usablePower.spentPoints = action.ActionParams.RulesetEffect.EffectLevel;
+
+            actingCharacter.MyExecuteActionSpendPower(usablePower, targets);
         }
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)

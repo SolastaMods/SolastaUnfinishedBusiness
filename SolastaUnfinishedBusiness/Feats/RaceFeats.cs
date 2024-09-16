@@ -613,37 +613,9 @@ internal static class RaceFeats
         return feat;
     }
 
-    private sealed class CustomBehaviorBountifulLuck(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionBountifulLuck)
-        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow, IRollSavingThrowFinished
+    private sealed class CustomBehaviorBountifulLuck(ConditionDefinition conditionBountifulLuck)
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {
-        private const string BountifulLuckModifierTag = "BountifulLuckModifierTag";
-        private const string BountifulLuckSaveTag = "BountifulLuckSaveTag";
-
-        public void OnSavingThrowFinished(
-            RulesetCharacter rulesetCaster,
-            RulesetCharacter rulesetDefender,
-            int saveBonus,
-            string abilityScoreName,
-            BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
-            List<TrendInfo> advantageTrends,
-            int rollModifier,
-            int saveDC,
-            bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
-            List<EffectForm> effectForms)
-        {
-            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-            caster.UsedSpecialFeatures.TryAdd(BountifulLuckModifierTag, 0);
-            caster.UsedSpecialFeatures.TryAdd(BountifulLuckSaveTag, 0);
-            caster.UsedSpecialFeatures[BountifulLuckModifierTag] = saveBonus + rollModifier;
-            caster.UsedSpecialFeatures[BountifulLuckSaveTag] = saveDC;
-        }
-
         public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
@@ -666,6 +638,7 @@ internal static class RaceFeats
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
                 attacker,
@@ -750,9 +723,10 @@ internal static class RaceFeats
                 yield break;
             }
 
+            // any reaction within an attribute check flow must use the yielder as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
-                defender,
+                helper,
                 "BountifulLuckCheck",
                 "CustomReactionBountifulLuckCheckDescription".Formatted(Category.Reaction, defender.Name, helper.Name),
                 ReactionValidated,
@@ -816,40 +790,39 @@ internal static class RaceFeats
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
         {
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
                 helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.IsWithinRange(defender, 6) ||
-                !helper.CanPerceiveTarget(defender) ||
-                !defender.UsedSpecialFeatures.TryGetValue(BountifulLuckModifierTag, out var modifier) ||
-                !defender.UsedSpecialFeatures.TryGetValue(BountifulLuckSaveTag, out var saveDC))
+                !helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
 
-            var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
+            var saveDC = savingThrowData.SaveDC;
+            var rollModifier = savingThrowData.SaveBonusAndRollModifier;
+            var savingRoll = savingThrowData.SaveOutcomeDelta - rollModifier + saveDC;
 
             if (savingRoll != 1)
             {
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
-                attacker,
+                helper,
                 "BountifulLuckSaving",
-                "CustomReactionBountifulLuckSavingDescription".Formatted(Category.Reaction, defender.Name,
-                    attacker.Name, helper.Name),
+                "CustomReactionBountifulLuckSavingDescription".Formatted(
+                    Category.Reaction, defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle,
+                    savingThrowData.Title),
                 ReactionValidated,
                 battleManager: battleManager);
 
@@ -875,8 +848,9 @@ internal static class RaceFeats
                     return;
                 }
 
-                action.SaveOutcomeDelta += dieRoll - savingRoll;
-                action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
+                savingThrowData.SaveOutcomeDelta += dieRoll - savingRoll;
+                savingThrowData.SaveOutcome =
+                    savingThrowData.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
                 rulesetHelper.InflictCondition(
                     conditionBountifulLuck.Name,
@@ -1149,8 +1123,9 @@ internal static class RaceFeats
                 yield break;
             }
 
+            // any reaction within a ByMe trigger should use the acting character as waiter
             yield return attacker.MyReactToDoNothing(
-                ExtraActionId.DoNothingReaction,
+                ExtraActionId.DoNothingFree,
                 attacker,
                 "DwarvenFortitude",
                 "CustomReactionDwarvenFortitudeDescription".Formatted(Category.Reaction),
@@ -1228,7 +1203,7 @@ internal static class RaceFeats
             .AddToDB();
 
         var lightSourceForm =
-            FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+            Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
@@ -1236,7 +1211,7 @@ internal static class RaceFeats
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Light)
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
@@ -1294,7 +1269,9 @@ internal static class RaceFeats
             List<GameLocationCharacter> targets)
         {
             if (!action.ActionParams.activeEffect.EffectDescription.EffectForms.Any(x =>
-                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType is DamageTypeFire))
+                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType is DamageTypeFire) ||
+                action.Countered ||
+                action is CharacterActionCastSpell { ExecutionFailed: true })
             {
                 yield break;
             }
@@ -1302,6 +1279,7 @@ internal static class RaceFeats
             var rulesetCharacter = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
 
+            // any reaction within a ByMe trigger should use the acting character as waiter
             yield return attacker.MyReactToUsePower(
                 ActionDefinitions.Id.PowerNoCost,
                 usablePower,
@@ -1392,6 +1370,7 @@ internal static class RaceFeats
             }
 
             actingCharacter.UsedTacticalMoves = usedTacticalMoves;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
             actingCharacter.UsedSpecialFeatures.Remove(UsedTacticalMoves);
         }
 
@@ -1449,6 +1428,7 @@ internal static class RaceFeats
 
             actingCharacter.UsedSpecialFeatures.TryAdd(UsedTacticalMoves, actingCharacter.UsedTacticalMoves);
             actingCharacter.UsedTacticalMoves = 0;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
             ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(_actionParams, null, true);
 
             yield break;
@@ -1490,12 +1470,14 @@ internal static class RaceFeats
                 ActionDefinitions.Id.TacticalMove,
                 ActionDefinitions.MoveStance.Charge,
                 destination, orientation) { AttackMode = characterActionCharge.ActionParams.AttackMode };
+
             var characterActionMoveStepWalk = new CharacterActionMoveStepWalk(chargeActionParams, actionID, path);
+
             var attackActionParams = new CharacterActionParams(
                 characterActionCharge.ActingCharacter, ActionDefinitions.Id.AttackFree,
                 characterActionCharge.ActionParams.AttackMode, characterActionCharge.ActionParams.TargetCharacters[0],
-                characterActionCharge.ActionParams
-                    .ActionModifiers[0]); // { BoolParameter = true, BoolParameter2 = true };
+                characterActionCharge.ActionParams.ActionModifiers[0]);
+
             var characterActionAttack = new CharacterActionAttack(attackActionParams);
 
             characterActionCharge.ResultingActions.Add(characterActionMoveStepWalk);
@@ -1843,6 +1825,7 @@ internal static class RaceFeats
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return attacker.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
                 attacker,

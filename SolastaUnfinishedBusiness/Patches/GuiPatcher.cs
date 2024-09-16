@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 
@@ -39,6 +40,26 @@ public static class GuiPatcher
             {
                 __result += " " + Gui.FormatDistance(rangeValue);
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(Gui), nameof(Gui.FormatMotionForm))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class FormatMotionForm_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(ref string __result, MotionForm motionForm)
+        {
+            //PATCH: format extra motion types
+            __result = (ExtraMotionType)motionForm.Type switch
+            {
+                ExtraMotionType.CustomSwap => Gui.Format("Rules/&MotionFormSwitchFormat",
+                    Gui.FormatDistance(motionForm.Distance)),
+                ExtraMotionType.PushDown => Gui.Format("Rules/&MotionFormPushDownFormat",
+                    Gui.FormatDistance(motionForm.Distance)),
+                _ => __result
+            };
         }
     }
 

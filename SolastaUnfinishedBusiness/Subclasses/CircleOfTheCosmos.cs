@@ -810,6 +810,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 attacker,
@@ -823,6 +824,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
                 attackModifier.AttacktoHitTrends.Add(
@@ -872,9 +875,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within an attribute check flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                defender,
+                helper,
                 "WealCosmosOmenCheck",
                 "SpendPowerWealCosmosOmenCheckDescription".Formatted(
                     Category.Reaction, defender.Name, helper.Name),
@@ -885,6 +889,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
                 var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
 
@@ -922,20 +928,16 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
 
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
-                action.SaveOutcomeDelta + MaxDieTypeValue < 0 ||
+            if (savingThrowData.SaveOutcomeDelta + MaxDieTypeValue < 0 ||
                 !helper.CanReact() ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
@@ -945,12 +947,14 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                attacker,
+                helper,
                 "WealCosmosOmenSaving",
                 "SpendPowerWealCosmosOmenSavingDescription".Formatted(
-                    Category.Reaction, defender.Name, attacker.Name, helper.Name),
+                    Category.Reaction, defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle,
+                    savingThrowData.Title),
                 ReactionValidated,
                 battleManager);
 
@@ -958,20 +962,22 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
-                action.RolledSaveThrow = true;
-                action.SaveOutcomeDelta += dieRoll;
+                savingThrowData.SaveOutcomeDelta += dieRoll;
 
                 (ConsoleStyleDuplet.ParameterType, string) extra;
 
-                if (action.SaveOutcomeDelta >= 0)
+                if (savingThrowData.SaveOutcomeDelta >= 0)
                 {
-                    action.SaveOutcome = RollOutcome.Success;
+                    savingThrowData.SaveOutcome = RollOutcome.Success;
                     extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
                 }
                 else
                 {
+                    savingThrowData.SaveOutcome = RollOutcome.Failure;
                     extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
                 }
 
@@ -1025,6 +1031,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
                 attacker,
@@ -1038,6 +1045,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
@@ -1088,9 +1097,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within an attribute check flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                defender,
+                helper,
                 "WoeCosmosOmenCheck",
                 "SpendPowerWoeCosmosOmenCheckDescription".Formatted(
                     Category.Reaction, defender.Name, helper.Name),
@@ -1101,6 +1111,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
                 var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
@@ -1139,20 +1151,17 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
 
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Success ||
-                action.SaveOutcomeDelta - MaxDieTypeValue >= 0 ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Success ||
+                savingThrowData.SaveOutcomeDelta - MaxDieTypeValue >= 0 ||
                 !helper.CanReact() ||
                 !helper.IsOppositeSide(defender.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
@@ -1162,12 +1171,14 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToSpendPower(
                 usablePower,
-                attacker,
+                helper,
                 "WoeCosmosOmenSaving",
                 "SpendPowerWoeCosmosOmenSavingDescription".Formatted(
-                    Category.Reaction, defender.Name, attacker.Name, helper.Name),
+                    Category.Reaction, defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle,
+                    savingThrowData.Title),
                 ReactionValidated,
                 battleManager);
 
@@ -1175,21 +1186,23 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             void ReactionValidated()
             {
+                helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
+
                 var dieRoll =
                     -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
-                action.RolledSaveThrow = true;
-                action.SaveOutcomeDelta += dieRoll;
+                savingThrowData.SaveOutcomeDelta += dieRoll;
 
                 (ConsoleStyleDuplet.ParameterType, string) extra;
 
-                if (action.SaveOutcomeDelta < 0)
+                if (savingThrowData.SaveOutcomeDelta < 0)
                 {
-                    action.SaveOutcome = RollOutcome.Failure;
+                    savingThrowData.SaveOutcome = RollOutcome.Failure;
                     extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
                 }
                 else
                 {
+                    savingThrowData.SaveOutcome = RollOutcome.Success;
                     extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
                 }
 
@@ -1232,8 +1245,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var activeCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
-                ConstellationFormConditions.Contains(x.Name));
+
+            var activeCondition = rulesetCharacter.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .FirstOrDefault(x =>
+                    ConstellationFormConditions.Contains(x.Name));
 
             if (activeCondition == null)
             {
@@ -1251,9 +1267,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             effectPower.remainingRounds = remainingRounds;
 
-            actingCharacter.MyExecuteActionPowerNoCost(usablePower, actingCharacter);
-
-            usablePower.RepayUse();
+            //TODO: double check if spend power works here
+            actingCharacter.MyExecuteActionSpendPower(usablePower, actingCharacter);
         }
     }
 }

@@ -17,6 +17,7 @@ internal static class SaveByLocationContext
     private const string LocationSaveFolder = @"CE\Location";
     private const string CampaignSaveFolder = @"CE\Campaign";
     private const string OfficialSaveFolder = @"CE\Official";
+    private const string DefaultName = "Default";
 
     internal static readonly string DefaultSaveGameDirectory =
         Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
@@ -30,132 +31,53 @@ internal static class SaveByLocationContext
     private static readonly string OfficialSaveGameDirectory =
         Path.Combine(DefaultSaveGameDirectory, OfficialSaveFolder);
 
-    private static List<CampaignDefinition> _allOfficialCampaigns;
-    private static List<UserLocation> _allUserLocations;
-    private static List<UserCampaign> _allUserCampaigns;
-
     internal static CustomDropDown Dropdown { get; private set; }
 
-    internal static bool UseLightEnumeration { get; private set; }
-
-    private static IEnumerable<CampaignDefinition> AllOfficialCampaigns
+    internal static void EnsureFoldersExist()
     {
-        get
-        {
-            if (_allOfficialCampaigns != null)
-            {
-                return _allOfficialCampaigns;
-            }
-
-            _allOfficialCampaigns = [];
-
-            var allElements = DatabaseRepository.GetDatabase<CampaignDefinition>().GetAllElements();
-
-            foreach (var campaign in allElements)
-            {
-                if (campaign.GuiPresentation.Hidden || campaign.IsUserCampaign || campaign.EditorOnly)
-                {
-                    continue;
-                }
-
-                _allOfficialCampaigns.Add(campaign);
-            }
-
-            return _allOfficialCampaigns;
-        }
+        Main.EnsureFolderExists(OfficialSaveGameDirectory);
+        Main.EnsureFolderExists(LocationSaveGameDirectory);
+        Main.EnsureFolderExists(CampaignSaveGameDirectory);
     }
 
-    private static IEnumerable<UserLocation> AllUserLocations
-    {
-        get
-        {
-            if (_allUserLocations != null)
-            {
-                return _allUserLocations;
-            }
-
-            var userLocationPoolService =
-                (UserLocationPoolManager)ServiceRepository.GetService<IUserLocationPoolService>();
-
-            if (!userLocationPoolService.Enumerated)
-            {
-                UseLightEnumeration = true;
-                userLocationPoolService.EnumeratePool(out _, []);
-                userLocationPoolService.enumerated = false;
-                UseLightEnumeration = false;
-            }
-
-            _allUserLocations = userLocationPoolService.AllLocations;
-
-            return _allUserLocations;
-        }
-    }
-
-    private static IEnumerable<UserCampaign> AllUserCampaigns
-    {
-        get
-        {
-            if (_allUserCampaigns != null)
-            {
-                return _allUserCampaigns;
-            }
-
-            var userCampaignPoolService =
-                (UserCampaignPoolManager)ServiceRepository.GetService<IUserCampaignPoolService>();
-
-            if (!userCampaignPoolService.Enumerated)
-            {
-                UseLightEnumeration = true;
-                userCampaignPoolService.EnumeratePool(out _, []);
-                userCampaignPoolService.enumerated = false;
-                UseLightEnumeration = false;
-            }
-
-            _allUserCampaigns = userCampaignPoolService.AllCampaigns;
-
-            return _allUserCampaigns;
-        }
-    }
-
-    internal static (string, LocationType) GetMostRecent()
+    private static List<SavePlace> GetAllSavePlaces()
     {
         // Find the most recently touched save file and select the correct location/campaign for that save
-        var mostRecent = Directory.EnumerateDirectories(LocationSaveGameDirectory)
-            .Select(d =>
-            (
-                d,
-                Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                LocationType.UserLocation
-            ))
-            .Concat(
-                Directory.EnumerateDirectories(CampaignSaveGameDirectory)
-                    .Select(d =>
-                    (
-                        d,
-                        Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                        LocationType.CustomCampaign
-                    ))
-                    .Concat(
-                        Directory.EnumerateDirectories(OfficialSaveGameDirectory)
-                            .Select(d =>
-                            (
-                                d,
-                                Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                                LocationType.StandardCampaign
-                            ))
-                            .Concat(
-                                Enumerable.Repeat(
-                                    (
-                                        DefaultSaveGameDirectory,
-                                        Directory.EnumerateFiles(DefaultSaveGameDirectory, "*.sav")
-                                            .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                                        LocationType.Default
-                                    ), 1))))
-            .Where(d => d.Item2.HasValue)
-            .OrderByDescending(d => d.Item2)
-            .FirstOrDefault();
+        return EnumerateDirectories(LocationSaveGameDirectory, LocationType.UserLocation)
+            .Concat(EnumerateDirectories(CampaignSaveGameDirectory, LocationType.CustomCampaign))
+            .Concat(EnumerateDirectories(OfficialSaveGameDirectory, LocationType.StandardCampaign))
+            .Append(MostRecentFile(DefaultSaveGameDirectory, LocationType.Default))
+            .Where(d => d.Available)
+            .ToList();
+    }
 
-        return (mostRecent.Item1 ?? DefaultSaveGameDirectory, mostRecent.Item3);
+    internal static SavePlace GetMostRecentPlace()
+    {
+        return GetAllSavePlaces()
+                   .Where(d => d.Date.HasValue)
+                   .OrderByDescending(d => d.Date.Value)
+                   .FirstOrDefault()
+               ?? SavePlace.Default();
+    }
+
+    private static IEnumerable<SavePlace> EnumerateDirectories(string where, LocationType type)
+    {
+        return Directory.EnumerateDirectories(where)
+            .Select(dir => MostRecentFile(dir, type));
+    }
+
+    private static SavePlace MostRecentFile(string dir, LocationType type)
+    {
+        var files = Directory.EnumerateFiles(dir, "*.sav").ToList();
+        var place = new SavePlace
+        {
+            Name = type == LocationType.Default ? DefaultName : Path.GetFileName(dir),
+            Path = dir,
+            Count = files.Count,
+            Date = files.Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+            Type = type
+        };
+        return place;
     }
 
     internal static void LateLoad()
@@ -165,52 +87,11 @@ internal static class SaveByLocationContext
             return;
         }
 
-        // Ensure folders exist
-        Directory.CreateDirectory(OfficialSaveGameDirectory);
-        Directory.CreateDirectory(LocationSaveGameDirectory);
-        Directory.CreateDirectory(CampaignSaveGameDirectory);
-
         // Find the most recently touched save file and select the correct location/campaign for that save
-        var (path, locationType) = GetMostRecent();
+        var place = GetMostRecentPlace();
 
         ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>()
-            .SetCampaignLocation(locationType, Path.GetFileName(path));
-    }
-
-    private static int SaveFileCount(LocationType locationType, string folder)
-    {
-        switch (locationType)
-        {
-            case LocationType.UserLocation:
-            {
-                var saveFolder = Path.Combine(LocationSaveGameDirectory, folder);
-
-                return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
-            }
-            case LocationType.CustomCampaign:
-            {
-                var saveFolder = Path.Combine(CampaignSaveGameDirectory, folder);
-
-                return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
-            }
-            case LocationType.StandardCampaign:
-            {
-                var saveFolder = Path.Combine(OfficialSaveGameDirectory, folder);
-
-                return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
-            }
-            case LocationType.Default:
-            {
-                var saveFolder = DefaultSaveGameDirectory;
-
-                return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
-            }
-            default:
-                Main.Error($"Unknown LocationType: {locationType}");
-                break;
-        }
-
-        return 0;
+            .SetCampaignLocation(place.Type, place.Name);
     }
 
     internal static void LoadPanelOnBeginShowSaveByLocationBehavior(LoadPanel panel)
@@ -224,42 +105,11 @@ internal static class SaveByLocationContext
 
         // populate the dropdown
         guiDropdown.ClearOptions();
-
-        var officialCampaigns = AllOfficialCampaigns
-            .Select(c => new
-            {
-                LocationType = LocationType.StandardCampaign, Title = Gui.Localize(c.GuiPresentation.Title)
-            })
-            .OrderBy(c => c.Title)
-            .ToList();
-
-        // add them together - each block sorted - can we have separators?
-        var userContentList =
-            AllUserCampaigns
-                .Select(l => new { LocationType = LocationType.CustomCampaign, l.Title })
-                .OrderBy(l => l.Title)
-                .Concat(AllUserLocations
-                    .Select(l => new { LocationType = LocationType.UserLocation, l.Title })
-                    .OrderBy(l => l.Title))
-                .ToList();
-
         guiDropdown.AddOptions(
-            Enumerable.Repeat(new { LocationType = LocationType.Default, Title = "Default" }, 1)
-                .Union(officialCampaigns)
-                .Union(userContentList)
-                .Select(opt => new
-                {
-                    opt.LocationType, opt.Title, SaveFileCount = SaveFileCount(opt.LocationType, opt.Title)
-                })
-                .Select(opt => new LocationOptionData
-                {
-                    LocationType = opt.LocationType,
-                    text = GetTitle(opt.LocationType, opt.Title),
-                    CampaignOrLocation = opt.Title,
-                    TooltipContent = $"{opt.SaveFileCount} save{(opt.SaveFileCount == 1 ? "" : "s")}",
-                    ShowInDropdown = opt.SaveFileCount > 0 || opt.LocationType is LocationType.Default
-                })
-                .Where(opt => opt.ShowInDropdown) // Only show locations that have saves
+            GetAllSavePlaces()
+                .Where(p => p.Available)
+                .OrderBy(p => p)
+                .Select(LocationOptionData.Create)
                 .Cast<TMP_Dropdown.OptionData>()
                 .ToList());
 
@@ -271,7 +121,7 @@ internal static class SaveByLocationContext
 
         var option = guiDropdown.Options
             .Cast<LocationOptionData>()
-            .Select((o, i) => new { o.CampaignOrLocation, o.LocationType, Index = i })
+            .Select((o, i) => new { CampaignOrLocation = o.Title, o.LocationType, Index = i })
             .Where(opt => opt.LocationType == selectedCampaign.LocationType)
             .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 
@@ -295,24 +145,6 @@ internal static class SaveByLocationContext
 
         return;
 
-        string GetTitle(LocationType locationType, string title)
-        {
-            switch (locationType)
-            {
-                default:
-                    Main.Error($"Unknown LocationType: {locationType}");
-                    return title.Red();
-                case LocationType.Default:
-                    return title;
-                case LocationType.StandardCampaign:
-                    return title;
-                case LocationType.CustomCampaign:
-                    return title.Khaki();
-                case LocationType.UserLocation:
-                    return title.Orange();
-            }
-        }
-
         void ValueChanged([NotNull] TMP_Dropdown.OptionData selected)
         {
             // update selected campaign
@@ -325,7 +157,7 @@ internal static class SaveByLocationContext
 
             // ReSharper disable once InvocationIsSkipped
             Main.Log(
-                $"ValueChanged: selected={locationData.LocationType}, {locationData.text}, {locationData.CampaignOrLocation}");
+                $"ValueChanged: selected={locationData.LocationType}, {locationData.text}, {locationData.Title}");
 
             selectedCampaignService.SetCampaignLocation(locationData);
 
@@ -379,9 +211,37 @@ internal static class SaveByLocationContext
 
     internal sealed class LocationOptionData : GuiDropdown.OptionDataAdvanced
     {
-        internal string CampaignOrLocation { get; set; }
-        internal LocationType LocationType { get; set; }
-        internal bool ShowInDropdown { get; set; }
+        internal string Title { get; private set; }
+        internal LocationType LocationType { get; private set; }
+
+        internal static LocationOptionData Create(SavePlace place)
+        {
+            return new LocationOptionData
+            {
+                LocationType = place.Type,
+                text = GetTitle(place.Type, place.Name),
+                Title = place.Name,
+                TooltipContent = $"{place.Count} save{(place.Count == 1 ? "" : "s")}"
+            };
+        }
+
+        private static string GetTitle(LocationType locationType, string title)
+        {
+            switch (locationType)
+            {
+                case LocationType.Default:
+                    return title;
+                case LocationType.StandardCampaign:
+                    return title;
+                case LocationType.CustomCampaign:
+                    return title.Khaki();
+                case LocationType.UserLocation:
+                    return title.Orange();
+                default:
+                    Main.Error($"Unknown LocationType: {locationType}");
+                    return title.Red();
+            }
+        }
     }
 
     internal static class ServiceRepositoryEx
@@ -403,23 +263,15 @@ internal static class SaveByLocationContext
         }
     }
 
-    private interface ISelectedCampaignService : IService
-    {
-        // string CampaignOrLocationName { get; }
-        // LocationType LocationType { get; }
-        // string SaveGameDirectory { get; }
-        // void SetCampaignLocation(string campaign, string location);
-    }
-
     internal enum LocationType
     {
         Default,
         StandardCampaign,
-        UserLocation,
-        CustomCampaign
+        CustomCampaign,
+        UserLocation
     }
 
-    internal sealed class SelectedCampaignService : ISelectedCampaignService
+    internal sealed class SelectedCampaignService : IService
     {
         internal string CampaignOrLocationName { get; private set; }
         internal string SaveGameDirectory { get; private set; }
@@ -427,7 +279,7 @@ internal static class SaveByLocationContext
 
         internal void SetCampaignLocation([NotNull] LocationOptionData selected)
         {
-            SetCampaignLocation(selected.LocationType, selected.CampaignOrLocation);
+            SetCampaignLocation(selected.LocationType, selected.Title);
         }
 
         internal void SetCampaignLocation(LocationType type, string name)
@@ -450,6 +302,35 @@ internal static class SaveByLocationContext
             // ReSharper disable once InvocationIsSkipped
             Main.Log(
                 $"SelectedCampaignService: Type='{LocationType}', Name='{CampaignOrLocationName}', Folder='{SaveGameDirectory}'");
+        }
+    }
+
+    internal class SavePlace : IComparable<SavePlace>
+    {
+        public int Count;
+        public DateTime? Date;
+        public string Name;
+        public string Path;
+        public LocationType Type;
+
+        public bool Available => Count > 0 || Type is LocationType.Default;
+
+        public int CompareTo(SavePlace other)
+        {
+            if (other == null) { return -1; }
+
+            var type = Type.CompareTo(other.Type);
+            return type != 0
+                ? type
+                : String.Compare(Name, other.Name, StringComparison.Ordinal);
+        }
+
+        public static SavePlace Default()
+        {
+            return new SavePlace
+            {
+                Path = DefaultSaveGameDirectory, Count = 0, Date = null, Type = LocationType.Default
+            };
         }
     }
 }

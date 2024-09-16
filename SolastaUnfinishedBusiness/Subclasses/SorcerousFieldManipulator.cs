@@ -103,12 +103,9 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(EldritchBlast)
-                    .SetSavingThrowData(
-                        true,
-                        AttributeDefinitions.Strength,
-                        true,
+                    .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -248,7 +245,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker, withinRange: 2).ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            // forceful step apply is a use at will power
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 }

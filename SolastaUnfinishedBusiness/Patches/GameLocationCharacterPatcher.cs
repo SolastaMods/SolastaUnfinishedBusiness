@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine;
@@ -372,6 +373,17 @@ public static class GameLocationCharacterPatcher
                 __instance.RulesetCharacter.RemainingKiPoints > 0)
             {
                 __result = ActionDefinitions.ActionStatus.Available;
+            }
+
+            //PATCH: support Swift Quiver spell interaction with Flurry of Blows
+            if (actionId
+                    is ActionDefinitions.Id.FlurryOfBlows
+                    or ActionDefinitions.Id.FlurryOfBlowsSwiftSteps
+                    or ActionDefinitions.Id.FlurryOfBlowsUnendingStrikes &&
+                __instance.UsedSpecialFeatures.ContainsKey(SpellBuilders.SwiftQuiverAttackTag) &&
+                __result == ActionDefinitions.ActionStatus.Available)
+            {
+                __result = ActionDefinitions.ActionStatus.CannotPerform;
             }
 
             var traditionFreedomLevel =

@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
@@ -28,86 +29,81 @@ public static class CharacterActionBreakFreePatcher
 
         private static IEnumerator Process(CharacterActionBreakFree __instance)
         {
-            RulesetCondition restrainingCondition = null;
-
-            __instance.ActingCharacter.RulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionActionAffinity>(
-                __instance.ActingCharacter.RulesetCharacter.FeaturesToBrowse);
-
-            foreach (var definitionActionAffinity in __instance.ActingCharacter.RulesetCharacter.FeaturesToBrowse
-                         .Cast<FeatureDefinitionActionAffinity>()
-                         .Where(definitionActionAffinity => definitionActionAffinity.AuthorizedActions
-                             .Contains(__instance.ActionId)))
-            {
-                restrainingCondition = __instance.ActingCharacter.RulesetCharacter
-                    .FindFirstConditionHoldingFeature(definitionActionAffinity);
-            }
+            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+            var restrainingCondition = AiContext.GetRestrainingCondition(rulesetCharacter);
 
             if (restrainingCondition == null)
             {
                 yield break;
             }
 
-            var actionModifier = new ActionModifier();
-
-            var abilityScoreName =
-                __instance.ActionParams.BreakFreeMode == ActionDefinitions.BreakFreeMode.Athletics
-                    ? AttributeDefinitions.Strength
-                    : AttributeDefinitions.Dexterity;
-
-            var proficiencyName = __instance.ActionParams.BreakFreeMode == ActionDefinitions.BreakFreeMode.Athletics
-                ? SkillDefinitions.Athletics
-                : SkillDefinitions.Acrobatics;
-
-            var checkDC = 10;
             var sourceGuid = restrainingCondition.SourceGuid;
-            var conditionName = restrainingCondition.ConditionDefinition.Name;
+            var action = (AiContext.BreakFreeType)restrainingCondition?.Amount;
+            var actionModifier = new ActionModifier();
+            var checkDC = 10;
+            string abilityScoreName;
+            string proficiencyName;
 
-            if (AiContext.DoNothingConditions.Contains(conditionName))
+            switch (action)
             {
-                __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
-                yield break;
-            }
+                case AiContext.BreakFreeType.DoNoCheckAndRemoveCondition:
+                    __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
+                    yield break;
 
-            if (AiContext.DoStrengthCheckCasterDCConditions.Contains(conditionName))
-            {
-                if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
+                case AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC:
                 {
-                    checkDC = rulesetCharacterHero.SpellRepertoires
-                        .Select(x => x.SaveDC)
-                        .Max();
+                    CalculateDC(AttributeDefinitions.Strength);
+                    break;
                 }
-
-                proficiencyName = string.Empty;
-            }
-            else
-            {
-                if (restrainingCondition.HasSaveOverride)
+                case AiContext.BreakFreeType.DoWisdomCheckAgainstCasterDC:
                 {
-                    checkDC = restrainingCondition.SaveOverrideDC;
+                    CalculateDC(AttributeDefinitions.Wisdom);
+                    break;
                 }
-                else
+                default:
                 {
-                    if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetEffect entity1))
+                    abilityScoreName =
+                        __instance.ActionParams.BreakFreeMode == ActionDefinitions.BreakFreeMode.Athletics
+                            ? AttributeDefinitions.Strength
+                            : AttributeDefinitions.Dexterity;
+
+                    proficiencyName = __instance.ActionParams.BreakFreeMode == ActionDefinitions.BreakFreeMode.Athletics
+                        ? SkillDefinitions.Athletics
+                        : SkillDefinitions.Acrobatics;
+
+                    if (restrainingCondition!.HasSaveOverride)
                     {
-                        checkDC = entity1.SaveDC;
+                        checkDC = restrainingCondition.SaveOverrideDC;
                     }
-                    else if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterMonster entity2))
+                    else
                     {
-                        checkDC = 10 + AttributeDefinitions
-                            .ComputeAbilityScoreModifier(entity2.GetAttribute(AttributeDefinitions.Strength)
-                                .CurrentValue);
+                        if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetEffect entity1))
+                        {
+                            checkDC = entity1.SaveDC;
+                        }
+                        else if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterMonster entity2))
+                        {
+                            checkDC = 10 + AttributeDefinitions
+                                .ComputeAbilityScoreModifier(entity2.GetAttribute(AttributeDefinitions.Strength)
+                                    .CurrentValue);
+                        }
                     }
+
+                    break;
                 }
             }
-
-            __instance.ActingCharacter.RulesetCharacter.ComputeBaseAbilityCheckBonus(
-                abilityScoreName, actionModifier.AbilityCheckModifierTrends, proficiencyName);
-            __instance.ActingCharacter.ComputeAbilityCheckActionModifier(
-                abilityScoreName, proficiencyName, actionModifier);
 
             var abilityCheckRoll = __instance.ActingCharacter.RollAbilityCheck(
-                abilityScoreName, proficiencyName, checkDC, AdvantageType.None, actionModifier, false,
-                -1, out var rollOutcome, out var successDelta, true);
+                abilityScoreName,
+                proficiencyName,
+                checkDC,
+                AdvantageType.None,
+                actionModifier,
+                false,
+                -1,
+                out var rollOutcome,
+                out var successDelta,
+                true);
 
             //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
             var abilityCheckData = new AbilityCheckData
@@ -115,7 +111,8 @@ public static class CharacterActionBreakFreePatcher
                 AbilityCheckRoll = abilityCheckRoll,
                 AbilityCheckRollOutcome = rollOutcome,
                 AbilityCheckSuccessDelta = successDelta,
-                AbilityCheckActionModifier = actionModifier
+                AbilityCheckActionModifier = actionModifier,
+                Action = __instance
             };
 
             yield return TryAlterOutcomeAttributeCheck
@@ -135,6 +132,30 @@ public static class CharacterActionBreakFreePatcher
             var breakFreeExecuted = __instance.ActingCharacter.RulesetCharacter.BreakFreeExecuted;
 
             breakFreeExecuted?.Invoke(__instance.ActingCharacter.RulesetCharacter, success);
+
+            yield break;
+
+            void CalculateDC(string newAbilityScoreName)
+            {
+                if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
+                {
+                    checkDC = rulesetCharacterHero.SpellRepertoires
+                        .Select(x => x.SaveDC)
+                        .Max();
+                }
+
+                rulesetCharacter.LogCharacterActivatesAbility(
+                    string.Empty,
+                    "Feedback/&BreakFreeAttempt",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Negative,
+                            restrainingCondition.ConditionDefinition.FormatTitle())
+                    ]);
+
+                abilityScoreName = newAbilityScoreName;
+                proficiencyName = string.Empty;
+            }
         }
     }
 }

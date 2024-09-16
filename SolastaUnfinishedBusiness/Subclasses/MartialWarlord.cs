@@ -486,13 +486,7 @@ public sealed class MartialWarlord : AbstractSubclass
             var targetCharacter = action.ActionParams.TargetCharacters[0];
             var targetRulesetCharacter = targetCharacter.RulesetCharacter;
             var targetPosition = action.ActionParams.Positions[0];
-            var actionParams =
-                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
-                {
-                    Positions = { targetPosition }
-                };
 
-            targetCharacter.UsedTacticalMoves = 0;
             targetRulesetCharacter.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,
@@ -511,7 +505,9 @@ public sealed class MartialWarlord : AbstractSubclass
             EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
-            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
+            targetCharacter.UsedTacticalMoves = 0;
+            targetCharacter.UsedTacticalMovesChanged?.Invoke(targetCharacter);
+            targetCharacter.MyExecuteActionTacticalMove(targetPosition);
 
             yield break;
         }
@@ -750,8 +746,8 @@ public sealed class MartialWarlord : AbstractSubclass
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,

@@ -164,12 +164,11 @@ public sealed class CollegeOfValiance : AbstractSubclass
     }
 
     private sealed class RollSavingThrowFinishedDishearteningPerformance(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDishearteningPerformance) : IRollSavingThrowFinished
     {
         public void OnSavingThrowFinished(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             int saveBonus,
             string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -182,13 +181,13 @@ public sealed class CollegeOfValiance : AbstractSubclass
             ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (outcome == RollOutcome.Failure)
             {
                 return;
             }
 
             // no need to check for source guid here
-            if (!defender.TryGetConditionOfCategoryAndType(
+            if (!rulesetActorDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionDishearteningPerformance.Name, out var activeCondition))
             {
                 return;
@@ -196,7 +195,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
 
             var bardCharacter = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
 
-            defender.RemoveCondition(activeCondition);
+            rulesetActorDefender.RemoveCondition(activeCondition);
 
             if (bardCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {

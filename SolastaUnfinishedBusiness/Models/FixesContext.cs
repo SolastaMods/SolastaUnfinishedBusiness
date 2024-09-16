@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using TA.AI;
 using UnityEngine;
 using static AttributeDefinitions;
 using static EquipmentDefinitions;
@@ -39,6 +40,9 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FixesContext
 {
+    internal static readonly DecisionDefinition DecisionMoveAfraid =
+        DatabaseRepository.GetDatabase<DecisionDefinition>().GetElement("Move_Afraid");
+
     internal static void Load()
     {
         InitMagicAffinitiesAndCastSpells();
@@ -47,6 +51,12 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
+        // fix demonic influence duration and combat log (conditions with ForcedBehavior should have special duration)
+        ConditionDefinitions.ConditionUnderDemonicInfluence.specialDuration = true;
+        ConditionDefinitions.ConditionUnderDemonicInfluence.durationType = DurationType.Hour;
+        ConditionDefinitions.ConditionUnderDemonicInfluence.durationParameter = 1;
+        ConditionDefinitions.ConditionUnderDemonicInfluence.possessive = true;
+
         AddAdditionalActionTitles();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
@@ -56,6 +66,7 @@ internal static class FixesContext
         FixBlackDragonLegendaryActions();
         FixColorTables();
         FixCriticalThresholdModifiers();
+        FixDecisionMoveAfraid();
         FixDivineBlade();
         FixDragonBreathPowerSavingAttribute();
         FixEagerForBattleTexts();
@@ -63,6 +74,7 @@ internal static class FixesContext
         FixGorillaWildShapeRocksToUnlimited();
         FixLanguagesPointPoolsToIncludeAllLanguages();
         FixMartialArtsProgression();
+        FixMartialCommanderCoordinatedDefense();
         FixMountaineerBonusShoveRestrictions();
         FixMummyDreadfulGlareSavingAttribute();
         FixPowerDragonbornBreathWeaponDiceProgression();
@@ -76,6 +88,7 @@ internal static class FixesContext
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
         FixPaladinAurasDisplayOnActionBar();
+        ReportDashing();
 
         // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
@@ -318,7 +331,6 @@ internal static class FixesContext
             ));
 
         AdditionalDamageBrandingSmite.attackModeOnly = true;
-        AdditionalDamageBrandingSmite.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
 
         AdditionalDamageRangerSwiftBladeBattleFocus.attackModeOnly = true;
         AdditionalDamageRangerSwiftBladeBattleFocus.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
@@ -341,6 +353,12 @@ internal static class FixesContext
             Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
             Gui.CheckModifierColors.Add(i, new Color32(0, 36, 77, byte.MaxValue));
         }
+    }
+
+    private static void FixDecisionMoveAfraid()
+    {
+        //BUGFIX: allow actors to move a bit far on move_afraid by lowering consideration weight a bit
+        DecisionMoveAfraid.Decision.scorer.Scorer.WeightedConsiderations[3].weight = 0.95f;
     }
 
     private static void FixDivineBlade()
@@ -403,6 +421,12 @@ internal static class FixesContext
         {
             feature.AddCustomSubFeatures(provider);
         }
+    }
+
+    private static void FixMartialCommanderCoordinatedDefense()
+    {
+        ActionAffinityMartialCommanderCoordinatedDefense.AddCustomSubFeatures(
+            new ValidateDefinitionApplication(ValidatorsCharacter.HasAttacked));
     }
 
     private static void FixMinorMagicEffectsIssues()
@@ -628,10 +652,35 @@ internal static class FixesContext
     {
         foreach (var power in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
                      .Where(x =>
-                         x.ActivationTime == ActivationTime.PermanentUnlessIncapacitated &&
-                         (x.Name.StartsWith("PowerOath") || x.Name.StartsWith("PowerPaladin"))))
+                         x.ActivationTime is ActivationTime.Permanent or ActivationTime.PermanentUnlessIncapacitated &&
+                         (x.Name.StartsWith("PowerDomain") ||
+                          x.Name.StartsWith("PowerOath") ||
+                          x.Name.StartsWith("PowerPaladin"))))
         {
             power.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        }
+    }
+
+    private static void ReportDashing()
+    {
+        Report(ConditionDefinitions.ConditionDashing);
+        Report(ConditionDefinitions.ConditionDashingAdditional);
+        Report(ConditionDefinitions.ConditionDashingAdditionalSwiftBlade);
+        Report(ConditionDefinitions.ConditionDashingBonus);
+        Report(ConditionDefinitions.ConditionDashingBonusAdditional);
+        Report(ConditionDefinitions.ConditionDashingBonusStepOfTheWind);
+        Report(ConditionDefinitions.ConditionDashingBonusSwiftBlade);
+        Report(ConditionDefinitions.ConditionDashingBonusSwiftSteps);
+        Report(ConditionDefinitions.ConditionDashingExpeditiousRetreat);
+        Report(ConditionDefinitions.ConditionDashingExpeditiousRetreatSwiftBlade);
+        Report(ConditionDefinitions.ConditionDashingSwiftBlade);
+        return;
+
+        static void Report(ConditionDefinition condition)
+        {
+            condition.GuiPresentation.Title = "Screen/&DashModeTitle";
+            condition.GuiPresentation.hidden = false;
+            condition.silentWhenAdded = false;
         }
     }
 
@@ -744,7 +793,7 @@ internal static class FixesContext
                 yield break;
             }
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)

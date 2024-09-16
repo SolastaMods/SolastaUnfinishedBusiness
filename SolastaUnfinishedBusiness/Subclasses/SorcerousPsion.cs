@@ -396,6 +396,8 @@ public sealed class SorcerousPsion : AbstractSubclass
             attacker.UsedSpecialFeatures.TryAdd(powerSupremeWill.Name, 0);
 
             if (action is not CharacterActionCastSpell actionCastSpell ||
+                actionCastSpell.Countered ||
+                actionCastSpell.ExecutionFailed ||
                 !hasTag || value == 0)
             {
                 yield break;

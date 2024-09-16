@@ -80,9 +80,11 @@ public static class CursorLocationSelectTargetPatcher
                 .FirstOrDefault(x =>
                     x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
                     rulesetCharacterMonster.MonsterDefinition.Name == OwlFamiliar &&
-                    rulesetCharacterMonster.AllConditions.Exists(y =>
-                        y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
-                        y.SourceGuid == actingCharacter.Guid));
+                    rulesetCharacterMonster.ConditionsByCategory
+                        .SelectMany(x => x.Value)
+                        .Exists(y =>
+                            y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
+                            y.SourceGuid == actingCharacter.Guid));
 
             var canAttack = familiar != null && familiar.IsWithinRange(target, 1);
 

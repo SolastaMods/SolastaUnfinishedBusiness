@@ -147,8 +147,45 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="CreateBonfire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/CreateBonfire.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="AganazzarScorcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AganazzarScorcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="Glibness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/Glibness.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="GravityFissure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/GravityFissure.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="HolyWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/HolyWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <!--
+  <data name="MagicStone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/MagicStone.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  -->
+  <data name="PowerHolyWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerHolyWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="SwiftQuiver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/SwiftQuiver.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -1680,6 +1717,11 @@
   </data>
   <data name="CausticZap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/CausticZap.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="DissonantWhispers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/DissonantWhispers.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>

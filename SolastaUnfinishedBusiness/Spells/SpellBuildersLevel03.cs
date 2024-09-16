@@ -91,7 +91,7 @@ internal static partial class SpellBuilders
             .Create(ConditionDefinitions.ConditionBlinded, $"ConditionBlindedBy{NAME}")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(ConditionDefinitions.ConditionBlinded)
-            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Minute, 1)
             .SetFeatures()
             .AddToDB();
 
@@ -102,6 +102,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
             .SetAttackModeOnly()
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetDamageDice(DieType.D8, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
@@ -113,7 +114,7 @@ internal static partial class SpellBuilders
                     hasSavingThrow = true,
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn
+                    saveOccurence = TurnOccurenceType.EndOfTurn
                 })
             // doesn't follow the standard impact particle reference
             .SetImpactParticleReference(DivineFavor.EffectDescription.EffectParticleParameters.casterParticleReference)
@@ -124,7 +125,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
             .SetFeatures(additionalDamageBlindingSmite)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithMeleeAndDamages)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -181,16 +182,11 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
-                    .AddEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionCrusadersMantle, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCrusadersMantle))
                     .Build())
             .AddToDB();
 
@@ -517,13 +513,12 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (character.ConcentratedSpell == null ||
-                character.ConcentratedSpell.SpellDefinition != spell)
+            if (character.ConcentratedSpell != null &&
+                character.ConcentratedSpell.SpellDefinition == spell)
             {
-                return effectDescription;
+                effectDescription.EffectForms[0].DamageForm.DiceNumber =
+                    1 + (character.ConcentratedSpell.EffectLevel - 3);
             }
-
-            effectDescription.FindFirstDamageForm().DiceNumber = character.ConcentratedSpell.EffectLevel - 2;
 
             return effectDescription;
         }
@@ -548,8 +543,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = mover.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
 
-            //TODO: check if MyExecuteActionSpendPower works here
-            mover.MyExecuteActionPowerNoCost(usablePower, targets);
+            mover.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 
@@ -784,7 +778,7 @@ internal static partial class SpellBuilders
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [.. _targets]);
+            attacker.MyExecuteActionSpendPower(usablePower, [.. _targets]);
         }
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -824,13 +818,11 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (!character.TryGetConditionOfCategoryAndType(
+            if (character.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionExplode.Name, out var activeCondition))
             {
-                return effectDescription;
+                effectDescription.EffectForms[0].DamageForm.DiceNumber = 3 + (activeCondition.EffectLevel - 3);
             }
-
-            effectDescription.FindFirstDamageForm().DiceNumber = activeCondition.EffectLevel;
 
             return effectDescription;
         }
@@ -1211,7 +1203,7 @@ internal static partial class SpellBuilders
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageAcid, rulesetCaster);
 
-            caster.MyExecuteActionPowerNoCost(usablePower, character);
+            caster.MyExecuteActionSpendPower(usablePower, character);
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter character)
@@ -1268,12 +1260,12 @@ internal static partial class SpellBuilders
             .SetFeatures(powerLightningArrowLeap)
             .AddToDB();
 
-        powerLightningArrowLeap.AddCustomSubFeatures(
-            new ModifyEffectDescriptionLightningArrowLeap(powerLightningArrowLeap, conditionLightningArrow));
-
         conditionLightningArrow.AddCustomSubFeatures(
             AddUsablePowersFromCondition.Marker,
             new CustomBehaviorLightningArrow(powerLightningArrowLeap, conditionLightningArrow));
+
+        powerLightningArrowLeap.AddCustomSubFeatures(
+            new ModifyEffectDescriptionLightningArrowLeap(powerLightningArrowLeap, conditionLightningArrow));
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
@@ -1301,10 +1293,8 @@ internal static partial class SpellBuilders
     }
 
     private sealed class ModifyEffectDescriptionLightningArrowLeap(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower featureDefinitionPower,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition)
+        ConditionDefinition conditionLightningArrow)
         : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -1318,12 +1308,10 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var glc = GameLocationCharacter.GetFromActor(character);
-
-            if (glc != null &&
-                glc.UsedSpecialFeatures.TryGetValue(conditionDefinition.Name, out var additionalDice))
+            if (character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionLightningArrow.Name, out var activeCondition))
             {
-                effectDescription.FindFirstDamageForm().diceNumber = 2 + additionalDice;
+                effectDescription.EffectForms[0].DamageForm.DiceNumber = 2 + (activeCondition.EffectLevel - 3);
             }
 
             return effectDescription;
@@ -1365,7 +1353,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var diceNumber = MainTargetDiceNumber + activeCondition.EffectLevel - 3;
+            var diceNumber = MainTargetDiceNumber + (activeCondition.EffectLevel - 3);
             var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
 
             if (pos >= 0)
@@ -1402,8 +1390,6 @@ internal static partial class SpellBuilders
 
             // keep a tab on additionalDice for leap power later on
             var additionalDice = activeCondition.EffectLevel - 3;
-
-            attacker.UsedSpecialFeatures.TryAdd(conditionLightningArrow.Name, additionalDice);
 
             rulesetAttacker.RemoveCondition(activeCondition);
 
@@ -1447,7 +1433,7 @@ internal static partial class SpellBuilders
                 .GetContenders(defender, isOppositeSide: false, withinRange: 2)
                 .ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
 
@@ -1772,17 +1758,17 @@ internal static partial class SpellBuilders
 
             var caster = action.ActingCharacter;
             var rulesetCaster = caster.RulesetCharacter;
-            var diceNumber = 4 + actionCastSpell.activeSpell.EffectLevel - 3;
+            var diceNumber = 4 + (actionCastSpell.activeSpell.EffectLevel - 3);
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypeNecrotic, DiceNumber = diceNumber, DieType = DieType.D8
+            };
 
             // need to loop over target characters to support twinned metamagic scenarios
             foreach (var target in action.ActionParams.TargetCharacters)
             {
                 var rulesetTarget = target.RulesetCharacter;
                 var rolls = new List<int>();
-                var damageForm = new DamageForm
-                {
-                    DamageType = DamageTypeNecrotic, DiceNumber = diceNumber, DieType = DieType.D8
-                };
                 var totalDamage = rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
                 var totalHealing = totalDamage * 2;
                 var currentHitPoints = rulesetCaster.CurrentHitPoints;

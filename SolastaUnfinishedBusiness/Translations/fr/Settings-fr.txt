@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saigne
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux objets officiels du jeu <i><color=#F0DAA0>[munitions, recettes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Activez <color=#D89555>Darkness Perceptive</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Grey Dwarf</color> <i><color=#F0DAA0>\n[accorde un avantage sur les tests de perception lorsqu'il n'est pas éclairé ou dans l'obscurité magique]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Ajoutez un modificateur DEX aux ennemis <color=#D89555>Initiative Roll</color>
+ModUi/&AddFallProneActionToAllRaces=Ajoutez l'action <color=#D89555>Tomber à terre</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez tomber à terre sans frais]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Activez <color=#D89555>Combattant</color> pour ajouter le niveau de classe en bonus à la relance du jet de sauvegarde de la <color=#D89555>Résistance indomptable</color>.
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature amie à attaquer une créature à moins d'une cellule de vous]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Activer les ennemis préférés humanoïdes <color=#D89555>Ranger</color>
@@ -18,6 +19,7 @@ ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENTION :</color></b> Ces paramè
 ModUi/&AllItemInDm=Tous les articles en DM
 ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur les séquences narratives</i>
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Permettre aux alliés de percevoir <color=#D89555>Ranger GloomStalker</color> lorsqu'ils sont dans l'obscurité naturelle
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser n'importe quelle classe à porter une <color=#D89555>armure sylvestre</color> ou des <color=#D89555>vêtements de porteur de lumière</color>
 ModUi/&AllowBeardlessDwarves=Autoriser les <color=#D89555>Nains</color> imberbes
 ModUi/&AllowBladeCantripsToUseReach=Autoriser les <color=#D89555>sorties de lame</color> à utiliser la portée au lieu de 1,50 m
@@ -89,7 +91,7 @@ ModUi/&DocsSubclasses=Sous-classes
 ModUi/&DocsSubraces=Sous-races
 ModUi/&DocsVersatilities=Polyvalences
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=Ne pas afficher les casques sur les personnages graphiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DontDisplayHelmets=Ne pas afficher les <color=#D89555>casques</color> sur les personnages graphiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir utilisé <color=#D89555>Action Prête</color> <i><color=#F0DAA0>[permet d'utiliser une Action Bonus ou toute action Principale supplémentaire à partir de la Hâte ou d'autres sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à % du bord de l'écran</color></i>
@@ -115,6 +117,7 @@ ModUi/&EnableCharacterChecker=Activez le bouton Vérificateur de caractères sur
 ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour exporter le caractère
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</color> doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Bouffon de feu, Balbuzard pêcheur de feu, Araignée de feu et famille de conditions en feu]</color></i>
 ModUi/&EnableCheatMenu=Activer le menu des astuces
+ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Activez le clic-glisser <color=#1E81B0>CTRL</color> pour contourner les vérifications des <color=#D89555>objets de quête</color> lors de la chute
 ModUi/&EnableCustomPortraits=Activer les <color=#D89555>portraits personnalisés</color>
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personnel</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>. </b></i>, nommé d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utiliser PNG images, d'une taille de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclut des salles plates, des donjons de 150 x 150 et 200 x 200 et un mélange sans fioritures des ressources de tous les environnements]</color></i>
@@ -152,6 +155,7 @@ ModUi/&EnableMonkWeaponSpecialization=Activez la <color=#D89555>Moine</color> <b
 ModUi/&EnableMulticlass=Activer le multiclasse <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Activez le bonus des dés de guérison OneDnd sur <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color> et <color= #D89555>Mot de guérison de masse</color>
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=Activez les effets de mouvement de poussée et de traction pour qu'ils fonctionnent également sur l'axe haut/bas
 ModUi/&EnableRangerNatureShroudAt10=Activez la fonctionnalité <color=#D89555>Ranger</color> <b>Voile de la nature</b> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour. ]</color></i>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 personnes ]</color></i>
 ModUi/&EnableRelearnSpells=Activer la sélection de cantrips ou de sorts déjà appris à partir d'autres sources
@@ -172,6 +176,7 @@ ModUi/&EnableTeleportToRemoveRestrained=Activez la <color=#D89555>téléportatio
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activez les bascules sur le pool de personnages pour définir votre jeu par défaut et votre groupe de test
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bulles lors du survol d'un personnage en combat
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la diffusion ascendante de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
+ModUi/&EnableVariablePlaceholdersOnTexts=Activer les espaces réservés aux variables dans les descriptions <i><color=#F0DAA0>[utiliser {VARIABLE_NAME} comme espace réservé]</color></i>
 ModUi/&EnableVttCamera=Activez <color=#1E81B0>CTRL-SHIFT-(V)</color> pour basculer la caméra VTT <i><color=#F0DAA0>[cliquez avec le bouton droit et faites glisser pour positionner la caméra, WASD pour effectuer un panoramique et Page précédente/ Page suivante pour zoomer]</color></i>
 ModUi/&EnablesAsiAndFeat=Activer l'augmentation des scores d'attribut et la sélection des <color=#D89555>exploits</color> <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Définir le pourcentage de chances de rencontres aléatoires</color>
@@ -207,6 +212,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Accordez la <b>spécialisation
 ModUi/&GridSelectedColor=Changer la <b><color=$$$$$$>couleur de la grille</color></b> du mouvement
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les effets visuels des sorties et des téléporteurs s'ils ne sont pas encore découverts
 ModUi/&HideMonsterHitPoints=Afficher la santé des monstres par incréments de 25 %/50 %/75 %/100 % au lieu des points de vie exacts
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Masquer cette action lorsque la bascule métamagique est désactivée</i>
 ModUi/&HighContrastTargetingAoeColor=Changer les créatures AoE <b><color=$$$$$$>surligner la couleur sélectionnée</color></b>
 ModUi/&HighContrastTargetingSingleColor=Changer des créatures uniques <b><color=$$$$$$>surligner la couleur sélectionnée</color></b>
 ModUi/&House=<color=#F0DAA0>Maison :</color>
@@ -234,6 +240,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement 
 ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color>
 ModUi/&Merchants=<color=#F0DAA0>Marchands :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
+ModUi/&ModifyGravitySlam=<i>+ Modifier le sort <color=#D89555>Gravity Slam</color> pour pousser les cibles affectées vers le bas et être un cylindre au lieu d'une sphère</i>
 ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des verts du pacte]</color></i>

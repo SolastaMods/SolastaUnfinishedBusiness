@@ -239,11 +239,11 @@ public static class CharacterActionPatcher
                 }
             }
 
-            //PATCH: support for Circle of the Wildfire cauterizing flames
             if (__instance is CharacterActionShove)
             {
                 foreach (var targetCharacter in __instance.ActionParams.TargetCharacters)
                 {
+                    //PATCH: support for Circle of the Wildfire cauterizing flames
                     yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(targetCharacter);
                 }
             }

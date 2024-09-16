@@ -8,6 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=Nachdem Sie einen Angriffswurf mi
 Feature/&FeatureWayOfWealAndWoeWealTitle=Wohl
 Feature/&FeatureWayOfWealAndWoeWoeDescription=Wenn Sie einen Angriffswurf mit einer Mönchswaffe oder einen unbewaffneten Angriff ausführen und kritisch verfehlen, erleiden Sie Schaden in Höhe eines Wurfs Ihres Kampfkunstwürfels.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
-Feedback/&WoeReroll=Aufgrund von {1} wird beim Angriffswurf durch {2} eine Änderung des Würfels von einer {3} auf eine {4} vorgenommen.
+Feedback/&WoeReroll=Aufgrund von {1} wird beim Angriffswurf durch {0} ein Würfel von {2} auf {3} geändert.
 Subclass/&WayOfWealAndWoeDescription=Mönche des Wegs von Wohl und Wehe konzentrieren sich sowohl auf Wohlstand als auch auf Widrigkeiten, um ihren Feinden in die Schlacht zu ziehen.
 Subclass/&WayOfWealAndWoeTitle=Weg des Wohls und des Leids

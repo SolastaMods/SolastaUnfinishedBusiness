@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static EquipmentDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
@@ -91,6 +92,9 @@ internal static class ArmorFeats
             featMediumArmorDex,
             featMediumArmorStr);
 
+        featGroupMediumArmor.armorProficiencyPrerequisite = true;
+        featGroupMediumArmor.armorProficiencyCategory = LightArmorCategory;
+
         GroupFeats.FeatGroupDefenseCombat.AddFeats(featShieldTechniques);
 
         GroupFeats.MakeGroup("FeatGroupArmor", null,
@@ -117,7 +121,7 @@ internal static class ArmorFeats
         var actionAffinityShieldTechniques = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
+            .SetAuthorizedActions(Id.ShoveBonus)
             .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasShield, ValidatorsCharacter.HasAttacked))
             .AddToDB();
@@ -185,6 +189,8 @@ internal static class ArmorFeats
 
             void ReactionValidated()
             {
+                defender.SpendActionType(ActionType.Reaction);
+
                 actionModifier.DefenderDamageMultiplier *= 0.5f;
                 rulesetDefender.DamageHalved(rulesetDefender, powerShieldTechniques);
 
@@ -208,8 +214,8 @@ internal static class ArmorFeats
 
         // add +2 on DEX savings
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -222,7 +228,9 @@ internal static class ArmorFeats
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (abilityScoreName != AttributeDefinitions.Dexterity || !defender.IsWearingShield())
+            if (abilityScoreName != AttributeDefinitions.Dexterity ||
+                rulesetActorDefender is not RulesetCharacter rulesetCharacterDefender ||
+                !rulesetCharacterDefender.IsWearingShield())
             {
                 return;
             }

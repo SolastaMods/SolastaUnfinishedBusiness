@@ -223,8 +223,8 @@ public class PatronCelestial : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionBlindedBySearingVengeance))
                     .SetParticleEffectParameters(PowerDomainSunHeraldOfTheSun)
-                    .SetCasterEffectParameters(HolyAura.EffectDescription.EffectParticleParameters
-                        .effectParticleReference)
+                    .SetCasterEffectParameters(
+                        HolyAura.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 

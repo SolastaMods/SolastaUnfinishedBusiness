@@ -42,11 +42,12 @@ public static class FunctorPatcher
                     continue;
                 }
 
-                if (!rulesetCharacter.ConditionsByCategory.Values.Select(rulesetConditions => rulesetConditions
-                        .Where(x => x.ConditionDefinition ==
-                                    DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature)
-                        .Any(x => characterService.PartyCharacters.Any(y =>
-                            y.RulesetCharacter.Guid == x.SourceGuid))).Any(found => found))
+                if (!rulesetCharacter.ConditionsByCategory
+                        .SelectMany(x => x.Value)
+                        .Where(x =>
+                            x.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature)
+                        .Any(x => characterService.PartyCharacters
+                            .Any(y => y.RulesetCharacter.Guid == x.SourceGuid)))
                 {
                     continue;
                 }

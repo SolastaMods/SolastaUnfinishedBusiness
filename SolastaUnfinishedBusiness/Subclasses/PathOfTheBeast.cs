@@ -153,7 +153,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .AddEffectForms(EffectFormBuilder.ConditionForm(conditionCallTheHunt))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCallTheHunt))
                     .Build())
             .AddToDB();
 

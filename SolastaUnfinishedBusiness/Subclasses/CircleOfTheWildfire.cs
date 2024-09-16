@@ -38,6 +38,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         .Create(EffectProxyDefinitions.ProxyDancingLights, $"Proxy{Name}CauterizingFlames")
         .SetOrUpdateGuiPresentation($"Power{Name}SummonCauterizingFlames", Category.Feature)
         .SetCanMove(false, false)
+        .SetAdditionalFeatures()
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerCauterizingFlames =
@@ -117,7 +118,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
 
         var powerSpiritTeleportDamage = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpiritTeleportDamage")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -393,7 +394,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         //
 
         EffectProxyCauterizingFlames.actionId = Id.NoAction;
-        EffectProxyCauterizingFlames.addLightSource = false;
 
         var powerSummonCauterizingFlames = FeatureDefinitionPowerBuilder
             .Create(PowerSummonCauterizingFlamesName)
@@ -488,7 +488,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     {
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-        if (!battleManager)
+        if (!battleManager ||
+            (character.RulesetCharacter is RulesetCharacterEffectProxy proxy &&
+             proxy.EffectProxyDefinition == EffectProxyCauterizingFlames))
         {
             yield break;
         }
@@ -541,6 +543,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         : PowerCauterizingFlamesHeal,
                     rulesetSource);
 
+                // cauterizing flames damage or heal are use at will power
                 source.MyExecuteActionSpendPower(usablePower, character);
             }
         }
@@ -635,7 +638,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     // Summon Spirit
     //
 
-    private sealed class PowerOrSpellFinishedByMeSummonSpirit(FeatureDefinitionPower powerSummonSpirit)
+    private sealed class PowerOrSpellFinishedByMeSummonSpirit(FeatureDefinitionPower powerSummonSpiritDamage)
         : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -643,7 +646,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerSummonSpirit, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerSummonSpiritDamage, rulesetAttacker);
             var spirit = GetMySpirit(attacker.Guid);
             var contenders =
                 Gui.Battle?.AllContenders ??
@@ -655,7 +658,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     spirit.IsWithinRange(x, 2))
                 .ToArray();
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
+            // spirit summon damage is a use at will power
+            attacker.MyExecuteActionSpendPower(usablePower, targets);
 
             yield break;
         }
@@ -704,7 +708,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, [.. _targets]);
+            // spirit teleport explode is a use at will power
+            attacker.MyExecuteActionSpendPower(usablePower, [.. _targets]);
 
             yield break;
         }
@@ -770,7 +775,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action is not CharacterActionCastSpell)
+            if (action is not CharacterActionCastSpell actionCastSpell ||
+                actionCastSpell.Countered ||
+                actionCastSpell.ExecutionFailed)
             {
                 yield break;
             }
@@ -921,7 +928,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             {
                 var hitPoints = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.HitPoints) / 2;
 
-                defender.MyExecuteActionStabilizeAndStandUp(hitPoints, PowerDefilerMistyFormEscape);
+                defender.MyExecuteActionStabilizeAndStandUp(hitPoints);
             }
         }
     }

@@ -15,6 +15,7 @@ using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -196,11 +197,72 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(SacredFlame)
+                    .SetImpactEffectParameters(SacredFlame
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
-            spell.EffectDescription.EffectParticleParameters.effectParticleReference;
+        return spell;
+    }
+
+    #endregion
+
+    #region Create Bonfire
+
+    internal static SpellDefinition BuildCreateBonfire()
+    {
+        const string NAME = "CreateBonfire";
+
+        var effectProxyCreateBonfire = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyWallOfFire_Line, "ProxyCreateBonfire")
+            .SetOrUpdateGuiPresentation(Category.Proxy)
+            .SetCanMove(false, false)
+            .SetAdditionalFeatures()
+            .AddToDB();
+
+        effectProxyCreateBonfire.actionId = Id.NoAction;
+        effectProxyCreateBonfire.GuiPresentation.description = Gui.NoLocalization;
+        effectProxyCreateBonfire.lightSourceForm.dimAdditionalRange = 2;
+        effectProxyCreateBonfire.lightSourceForm.brightRange = 2;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.CreateBonfire, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(WallOfFireLine)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(effectProxyCreateBonfire)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTopologyForm(TopologyForm.Type.DangerousZone, false)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeFire, 1, DieType.D8)
+                            .Build())
+                    .SetCasterEffectParameters(ProduceFlameHold)
+                    .Build())
+            .AddToDB();
 
         return spell;
     }
@@ -227,7 +289,6 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -363,6 +424,90 @@ internal static partial class SpellBuilders
 
     #endregion
 
+#if false
+    #region Magic Stone
+
+    internal static SpellDefinition BuildMagicStone()
+    {
+        const string NAME = "MagicStone";
+
+        var itemShadowStone = ItemDefinitionBuilder
+            .Create(ItemDefinitions.Dart, $"Item{NAME}")
+            //.SetGuiPresentation(Category.Item)
+            .SetItemTags(TagsDefinitions.ItemTagConjured)
+            .SetStaticProperties(
+                ItemPropertyDescriptionBuilder.From(
+                        FeatureDefinitionBuilder
+                            .Create($"Feature{NAME}")
+                            .SetGuiPresentation($"Feature{NAME}", Category.Feature)
+                            .AddToDB(),
+                        knowledgeAffinity: EquipmentDefinitions.KnowledgeAffinity.ActiveAndVisible)
+                    .Build())
+            .HideFromDungeonEditor()
+            .AddToDB();
+
+        itemShadowStone.activeTags.Clear();
+        itemShadowStone.itemPresentation.assetReference =
+            ItemDefinitions.StoneOfGoodLuck.itemPresentation.assetReference;
+        itemShadowStone.weaponDefinition.EffectDescription.EffectParticleParameters.impactParticleReference =
+            EffectProxyDefinitions.ProxyArcaneSword.attackImpactParticle;
+
+        var weaponDescription = itemShadowStone.WeaponDescription;
+
+        weaponDescription.closeRange = 12;
+        weaponDescription.maxRange = 12;
+
+        var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();
+
+        damageForm.damageType = DamageTypeBludgeoning;
+        damageForm.dieType = DieType.D6;
+        damageForm.diceNumber = 1;
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MagicStone, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalSummonsPerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonItemForm(itemShadowStone, 3, true)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(ShadowDagger)
+                    .Build())
+            .AddToDB();
+
+        spell.EffectDescription.slotTypes =
+        [
+            EquipmentDefinitions.SlotTypeMainHand,
+            EquipmentDefinitions.SlotTypeOffHand,
+            EquipmentDefinitions.SlotTypeContainer
+        ];
+
+        return spell;
+    }
+
+    #endregion
+#endif
+
     #region Mind Spike
 
     internal static SpellDefinition BuildMindSpike()
@@ -434,7 +579,7 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
-                    .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                    .AddImmuneCreatureFamilies(Construct, Undead)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -493,7 +638,7 @@ internal static partial class SpellBuilders
         const string NAME = "StarryWisp";
 
         var lightSourceForm =
-            FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+            SpellDefinitions.Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -516,7 +661,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(SpellDefinitions.Light)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
@@ -774,7 +919,7 @@ internal static partial class SpellBuilders
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Wisdom,
                         12)
-                    .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                    .AddImmuneCreatureFamilies(Construct, Undead)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -824,9 +969,8 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionBoomingBladeSheathed.possessive = false;
-        conditionBoomingBladeSheathed.AddCustomSubFeatures(
-            new ActionFinishedByMeConditionBoomingBladeSheathed(
-                conditionBoomingBladeSheathed, powerBoomingBladeDamage));
+        conditionBoomingBladeSheathed.AddCustomSubFeatures(new ActionFinishedByMeConditionBoomingBladeSheathed(
+            conditionBoomingBladeSheathed, powerBoomingBladeDamage));
 
         var additionalDamageBoomingBlade = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageBoomingBlade")
@@ -916,7 +1060,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Burning Blade
+    #region Resonating Strike
 
     internal static SpellDefinition BuildResonatingStrike()
     {
@@ -953,7 +1097,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(additionalDamageResonatingStrike)
-            .SetSpecialInterruptions(ConditionInterruption.UsePowerExecuted)
+            .SetSpecialInterruptions(ExtraConditionInterruption.SpendPowerExecuted)
             .AddToDB();
 
         conditionResonatingStrike.AddCustomSubFeatures(

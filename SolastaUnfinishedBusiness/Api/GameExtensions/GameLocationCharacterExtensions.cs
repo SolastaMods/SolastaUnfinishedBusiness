@@ -19,7 +19,7 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
-    private static List<ActionModifier> GetActionModifiers(int count)
+    internal static List<ActionModifier> GetActionModifiers(int count)
     {
         var actionModifiers = new List<ActionModifier>();
 
@@ -75,9 +75,7 @@ public static class GameLocationCharacterExtensions
     }
 
     internal static void MyExecuteActionPowerNoCost(
-        this GameLocationCharacter character,
-        RulesetUsablePower usablePower,
-        params GameLocationCharacter[] targets)
+        this GameLocationCharacter character, RulesetUsablePower usablePower, params GameLocationCharacter[] targets)
     {
         var actionModifiers = GetActionModifiers(targets.Length);
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -88,16 +86,15 @@ public static class GameLocationCharacterExtensions
             ActionModifiers = actionModifiers,
             RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = [.. targets]
+            targetCharacters = [.. targets],
+            SkipAnimationsAndVFX = true
         };
 
         actionService.ExecuteAction(actionParams, null, true);
     }
 
     internal static void MyExecuteActionSpendPower(
-        this GameLocationCharacter character,
-        RulesetUsablePower usablePower,
-        params GameLocationCharacter[] targets)
+        this GameLocationCharacter character, RulesetUsablePower usablePower, params GameLocationCharacter[] targets)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
@@ -107,26 +104,50 @@ public static class GameLocationCharacterExtensions
             StringParameter = usablePower.PowerDefinition.Name,
             RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = [.. targets]
+            targetCharacters = [.. targets],
+            SkipAnimationsAndVFX = true
         };
 
         actionService.ExecuteInstantSingleAction(actionParams);
     }
 
-    internal static void MyExecuteActionStabilizeAndStandUp(
-        this GameLocationCharacter character, int hitPoints, IMagicEffect magicEffect = null)
+    internal static void MyExecuteActionStabilizeAndStandUp(this GameLocationCharacter character, int hitPoints)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var rulesetCharacter = character.RulesetCharacter;
 
         rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
-        if (magicEffect != null)
+        actionService.ExecuteInstantSingleAction(new CharacterActionParams(character, Id.StandUp));
+    }
+
+    internal static void MyExecuteActionTacticalMove(this GameLocationCharacter character, int3 position)
+    {
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+        if (!actionManager)
         {
-            EffectHelpers.StartVisualEffect(character, character, magicEffect, EffectHelpers.EffectType.Caster);
+            return;
         }
 
-        actionService.ExecuteInstantSingleAction(new CharacterActionParams(character, Id.StandUp));
+        var actionParams = new CharacterActionParams(
+            character, Id.TacticalMove, MoveStance.Run, position, LocationDefinitions.Orientation.North)
+        {
+            BoolParameter3 = false, BoolParameter5 = false
+        };
+
+        actionManager!.actionChainByCharacter.TryGetValue(character, out var actionChainSlot);
+
+        var collection = actionChainSlot?.actionQueue;
+
+        if (collection is { Count: > 0 } &&
+            collection[0].action is CharacterActionMoveStepWalk)
+        {
+            actionParams.BoolParameter2 = true;
+        }
+
+        actionManager.ExecuteActionChain(
+            new CharacterActionChainParams(actionParams.ActingCharacter, actionParams), null, false);
     }
 
     //
@@ -282,7 +303,8 @@ public static class GameLocationCharacterExtensions
             StringParameter2 = stringParameter2,
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
-            UsablePower = usablePower
+            UsablePower = usablePower,
+            SkipAnimationsAndVFX = true
         };
 
         actionService.ReactToSpendPower(actionParams);
@@ -301,6 +323,7 @@ public static class GameLocationCharacterExtensions
         List<GameLocationCharacter> targets,
         GameLocationCharacter waiter,
         string stringParameter,
+        string stringParameter2 = "",
         Action<ReactionRequestSpendBundlePower> reactionValidated = null,
         Action<ReactionRequestSpendBundlePower> reactionNotValidated = null,
         GameLocationBattleManager battleManager = null)
@@ -320,26 +343,20 @@ public static class GameLocationCharacterExtensions
         var actionParams = new CharacterActionParams(character, Id.SpendPower)
         {
             StringParameter = stringParameter,
+            StringParameter2 = stringParameter2,
             ActionModifiers = actionModifiers,
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets
+            targetCharacters = targets,
+            SkipAnimationsAndVFX = true
         };
-        var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+        var reactionRequest = new ReactionRequestSpendBundlePower(
+            actionParams, reactionValidated, reactionNotValidated);
 
         actionManager.AddInterruptRequest(reactionRequest);
 
         yield return battleManager.WaitForReactions(waiter, actionManager, count);
-
-        if (actionParams.ReactionValidated)
-        {
-            reactionValidated?.Invoke(reactionRequest);
-        }
-        else
-        {
-            reactionNotValidated?.Invoke(reactionRequest);
-        }
     }
 
     internal static IEnumerator MyReactToUsePower(
@@ -786,7 +803,7 @@ public static class GameLocationCharacterExtensions
 
         var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
 
-        instance.MyExecuteActionSpendPower(usablePower);
+        instance.MyExecuteActionSpendPower(usablePower, instance);
     }
 
     internal static int GetAllowedMainAttacks(this GameLocationCharacter instance)

@@ -17,27 +17,12 @@ public static class PortraitsContext
     private static readonly string PersonalFolder = $"{PortraitsFolder}/Personal";
     private static readonly string MonstersFolder = $"{PortraitsFolder}/Monsters";
 
-    internal static void Load()
+    internal static void EnsureFolderExists()
     {
-        if (!Directory.Exists(PortraitsFolder))
-        {
-            Directory.CreateDirectory(PortraitsFolder);
-        }
-
-        if (!Directory.Exists(PreGenFolder))
-        {
-            Directory.CreateDirectory(PreGenFolder);
-        }
-
-        if (!Directory.Exists(PersonalFolder))
-        {
-            Directory.CreateDirectory(PersonalFolder);
-        }
-
-        if (!Directory.Exists(MonstersFolder))
-        {
-            Directory.CreateDirectory(MonstersFolder);
-        }
+        Main.EnsureFolderExists(PortraitsFolder);
+        Main.EnsureFolderExists(PreGenFolder);
+        Main.EnsureFolderExists(PersonalFolder);
+        Main.EnsureFolderExists(MonstersFolder);
     }
 
     internal static bool HasCustomPortrait(RulesetCharacter rulesetCharacter)

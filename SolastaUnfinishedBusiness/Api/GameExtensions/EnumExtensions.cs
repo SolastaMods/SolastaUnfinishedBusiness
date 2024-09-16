@@ -135,7 +135,10 @@ public enum ExtraConditionInterruption
     AfterWasAttackedNotBySource,
     AttacksWithWeaponOrUnarmed,
     SourceRageStop,
-    UsesBonusAction
+    UsesBonusAction,
+    AttacksWithMeleeAndDamages,
+    SpendPower,
+    SpendPowerExecuted
 }
 
 internal enum ExtraMotionType
@@ -150,7 +153,8 @@ internal enum ExtraMotionType
     // Telekinesis,
     // RallyKindred,
     // PushRandomDirection,
-    CustomSwap = 9000
+    CustomSwap = 9000,
+    PushDown = 9001
 }
 
 internal enum ExtraPowerAttackHitComputation

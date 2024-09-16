@@ -351,80 +351,80 @@ internal static class SharedSpellsContext
 
     internal static readonly List<SlotsByLevelDuplet> InitiateCastingSlots =
     [
-        new SlotsByLevelDuplet { Slots = [1], Level = 01 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 02 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 03 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 04 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 05 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 06 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 07 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 08 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 09 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 10 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 11 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 12 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 13 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 14 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 15 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 16 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 17 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 18 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 19 },
-        new SlotsByLevelDuplet { Slots = [1], Level = 20 }
+        new() { Slots = [1], Level = 01 },
+        new() { Slots = [1], Level = 02 },
+        new() { Slots = [1], Level = 03 },
+        new() { Slots = [1], Level = 04 },
+        new() { Slots = [1], Level = 05 },
+        new() { Slots = [1], Level = 06 },
+        new() { Slots = [1], Level = 07 },
+        new() { Slots = [1], Level = 08 },
+        new() { Slots = [1], Level = 09 },
+        new() { Slots = [1], Level = 10 },
+        new() { Slots = [1], Level = 11 },
+        new() { Slots = [1], Level = 12 },
+        new() { Slots = [1], Level = 13 },
+        new() { Slots = [1], Level = 14 },
+        new() { Slots = [1], Level = 15 },
+        new() { Slots = [1], Level = 16 },
+        new() { Slots = [1], Level = 17 },
+        new() { Slots = [1], Level = 18 },
+        new() { Slots = [1], Level = 19 },
+        new() { Slots = [1], Level = 20 }
     ];
 
     internal static readonly List<SlotsByLevelDuplet> RaceCastingSlots =
     [
-        new SlotsByLevelDuplet { Slots = [0, 0], Level = 01 },
-        new SlotsByLevelDuplet { Slots = [0, 0], Level = 02 },
-        new SlotsByLevelDuplet { Slots = [1, 0], Level = 03 },
-        new SlotsByLevelDuplet { Slots = [1, 0], Level = 04 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 05 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 06 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 07 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 08 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 09 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 10 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 11 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 12 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 13 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 14 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 15 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 16 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 17 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 18 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 19 },
-        new SlotsByLevelDuplet { Slots = [1, 1], Level = 20 }
+        new() { Slots = [0, 0], Level = 01 },
+        new() { Slots = [0, 0], Level = 02 },
+        new() { Slots = [1, 0], Level = 03 },
+        new() { Slots = [1, 0], Level = 04 },
+        new() { Slots = [1, 1], Level = 05 },
+        new() { Slots = [1, 1], Level = 06 },
+        new() { Slots = [1, 1], Level = 07 },
+        new() { Slots = [1, 1], Level = 08 },
+        new() { Slots = [1, 1], Level = 09 },
+        new() { Slots = [1, 1], Level = 10 },
+        new() { Slots = [1, 1], Level = 11 },
+        new() { Slots = [1, 1], Level = 12 },
+        new() { Slots = [1, 1], Level = 13 },
+        new() { Slots = [1, 1], Level = 14 },
+        new() { Slots = [1, 1], Level = 15 },
+        new() { Slots = [1, 1], Level = 16 },
+        new() { Slots = [1, 1], Level = 17 },
+        new() { Slots = [1, 1], Level = 18 },
+        new() { Slots = [1, 1], Level = 19 },
+        new() { Slots = [1, 1], Level = 20 }
     ];
 
     internal static readonly List<SlotsByLevelDuplet> RaceEmptyCastingSlots =
     [
-        new SlotsByLevelDuplet { Slots = [0], Level = 01 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 02 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 03 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 04 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 05 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 06 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 07 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 08 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 09 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 10 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 11 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 12 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 13 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 14 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 15 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 16 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 17 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 18 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 19 },
-        new SlotsByLevelDuplet { Slots = [0], Level = 20 }
+        new() { Slots = [0], Level = 01 },
+        new() { Slots = [0], Level = 02 },
+        new() { Slots = [0], Level = 03 },
+        new() { Slots = [0], Level = 04 },
+        new() { Slots = [0], Level = 05 },
+        new() { Slots = [0], Level = 06 },
+        new() { Slots = [0], Level = 07 },
+        new() { Slots = [0], Level = 08 },
+        new() { Slots = [0], Level = 09 },
+        new() { Slots = [0], Level = 10 },
+        new() { Slots = [0], Level = 11 },
+        new() { Slots = [0], Level = 12 },
+        new() { Slots = [0], Level = 13 },
+        new() { Slots = [0], Level = 14 },
+        new() { Slots = [0], Level = 15 },
+        new() { Slots = [0], Level = 16 },
+        new() { Slots = [0], Level = 17 },
+        new() { Slots = [0], Level = 18 },
+        new() { Slots = [0], Level = 19 },
+        new() { Slots = [0], Level = 20 }
     ];
 
     // game uses IndexOf(0) on these sub lists reason why the last 0 there
     private static readonly List<SlotsByLevelDuplet> WarlockCastingSlots =
     [
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -438,7 +438,7 @@ internal static class SharedSpellsContext
             Level = 01
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -452,7 +452,7 @@ internal static class SharedSpellsContext
             Level = 02
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -466,7 +466,7 @@ internal static class SharedSpellsContext
             Level = 03
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -480,7 +480,7 @@ internal static class SharedSpellsContext
             Level = 04
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -494,7 +494,7 @@ internal static class SharedSpellsContext
             Level = 05
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -508,7 +508,7 @@ internal static class SharedSpellsContext
             Level = 06
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -522,7 +522,7 @@ internal static class SharedSpellsContext
             Level = 07
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -536,7 +536,7 @@ internal static class SharedSpellsContext
             Level = 08
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -550,7 +550,7 @@ internal static class SharedSpellsContext
             Level = 09
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -564,7 +564,7 @@ internal static class SharedSpellsContext
             Level = 10
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -578,7 +578,7 @@ internal static class SharedSpellsContext
             Level = 11
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -592,7 +592,7 @@ internal static class SharedSpellsContext
             Level = 12
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -606,7 +606,7 @@ internal static class SharedSpellsContext
             Level = 13
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -620,7 +620,7 @@ internal static class SharedSpellsContext
             Level = 14
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -634,7 +634,7 @@ internal static class SharedSpellsContext
             Level = 15
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -648,7 +648,7 @@ internal static class SharedSpellsContext
             Level = 16
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -662,7 +662,7 @@ internal static class SharedSpellsContext
             Level = 17
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -676,7 +676,7 @@ internal static class SharedSpellsContext
             Level = 18
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [
@@ -690,7 +690,7 @@ internal static class SharedSpellsContext
             Level = 19
         },
 
-        new SlotsByLevelDuplet
+        new()
         {
             Slots =
             [

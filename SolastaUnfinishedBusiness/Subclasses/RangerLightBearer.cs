@@ -153,14 +153,21 @@ public sealed class RangerLightBearer : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         powerBlessedGlow.EffectDescription.savingThrowAffinitiesByFamily =
         [
-            new SaveAffinityByFamilyDescription { advantageType = AdvantageType.Disadvantage, family = "Fiend" },
-            new SaveAffinityByFamilyDescription { advantageType = AdvantageType.Disadvantage, family = "Undead" }
+            new SaveAffinityByFamilyDescription
+            {
+                advantageType = AdvantageType.Disadvantage, family = CharacterFamilyDefinitions.Fiend.Name
+            },
+            new SaveAffinityByFamilyDescription
+            {
+                advantageType = AdvantageType.Disadvantage, family = CharacterFamilyDefinitions.Undead.Name
+            }
         ];
 
         var powerLightEnhanced = FeatureDefinitionPowerBuilder

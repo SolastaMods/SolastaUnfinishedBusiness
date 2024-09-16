@@ -98,7 +98,8 @@ public sealed class PathOfTheReaver : AbstractSubclass
             .AddToDB();
 
         powerCorruptedBlood.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden, new PhysicalAttackFinishedOnMeCorruptedBlood(powerCorruptedBlood));
+            ModifyPowerVisibility.Hidden,
+            new PhysicalAttackFinishedOnMeCorruptedBlood(powerCorruptedBlood));
 
         // MAIN
 
@@ -281,6 +282,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerCorruptedBlood, rulesetDefender);
 
+            // corrupted blood is a use at will power
             defender.MyExecuteActionSpendPower(usablePower, attacker);
         }
     }

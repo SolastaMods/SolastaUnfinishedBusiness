@@ -417,14 +417,13 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
-                    .SetParticleEffectParameters(Counterspell)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetCounterForm(CounterForm.CounterType.DismissCreature, 0, 0, false, false)
                             .Build())
+                    .SetParticleEffectParameters(Counterspell)
                     .Build())
             .AddCustomSubFeatures(new ValidatorsValidatePowerUse(HasCannon))
             .AddToDB();
@@ -595,7 +594,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
                     .Build())
             .AddCustomSubFeatures(
@@ -1073,7 +1071,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     x.IsWithinRange(selectedTarget, 4))
                 .ToArray();
 
-            selectedTarget.MyExecuteActionPowerNoCost(usablePower, targets);
+            // eldirith detonation is a use at will power
+            selectedTarget.MyExecuteActionSpendPower(usablePower, targets);
 
             yield break;
         }

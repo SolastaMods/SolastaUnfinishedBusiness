@@ -40,7 +40,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DefaultSupportCasterWithBackupAttacksDecisions:f99448e8f4c2d9d478837c543e3e205f",
+  "defaultBattleDecisionPackage": "Definition:DefaultFlyingBeastWithBackupRangeCombatDecisions:2de7c4b469d4b984b80c0dbb2f82acab",
   "threatEvaluatorDefinition": null,
   "languages": [],
   "audioSwitches": [],

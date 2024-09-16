@@ -13,7 +13,6 @@ using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -343,7 +342,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
             var rulesetDowned = downedCreature.RulesetCharacter;
             var characterFamily = rulesetDowned.CharacterFamily;
 
-            if (characterFamily == Construct.Name || characterFamily == Undead.Name)
+            if (characterFamily is "Construct" or "Undead")
             {
                 yield break;
             }

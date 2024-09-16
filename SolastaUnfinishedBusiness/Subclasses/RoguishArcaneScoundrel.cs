@@ -313,8 +313,8 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
             attacker.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
 
-            //TODO: check if MyExecuteActionSpendPower works here
-            attacker.MyExecuteActionPowerNoCost(usablePower, [.. targets]);
+            // arcane backslash sneak damage is a use at will power
+            attacker.MyExecuteActionSpendPower(usablePower, [.. targets]);
         }
     }
 

@@ -4,11 +4,9 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Validators;
 using TA.AddressableAssets;
 using TMPro;
 using UnityEngine;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -25,13 +23,20 @@ public static class CharacterActionItemFormPatcher
         {
             //PATCH: make caption on small form wrap, instead of truncating
             //TODO: do we need a setting to control this?
-            if (__instance.highSlotNumber == null)
+            TMP_Text tmpText;
+            if (__instance.highSlotNumber == null && (tmpText = __instance.captionLabel.tmpText) != null)
             {
-                var tmpText = __instance.captionLabel.tmpText;
-
                 tmpText.enableWordWrapping = true;
                 tmpText.alignment = TextAlignmentOptions.Bottom;
                 tmpText.overflowMode = TextOverflowModes.Overflow;
+            }
+
+            //PATCH: disable word wrapping for attack number
+            //useful when you have Spell Points enabled and have 100+ of them, not noticeable otherwise
+            var attacks = __instance.attacksNumberValue;
+            if (attacks != null && (tmpText = attacks.tmpText) != null)
+            {
+                tmpText.enableWordWrapping = false;
             }
 
             //PATCH: Get dynamic properties from forced attack
@@ -51,12 +56,13 @@ public static class CharacterActionItemFormPatcher
     [UsedImplicitly]
     public static class Refresh_Patch
     {
+        internal const string HideAttacksNumberOnActionPanel = "HideAttacksNumberOnActionPanel";
+
         [UsedImplicitly]
         public static void Postfix(CharacterActionItemForm __instance)
         {
             //PATCH: supports Way of Zen Archery flurry of arrows to not display max attack numbers on action button
-            if (__instance.currentAttackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
-                ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType)(__instance.currentAttackMode, null, null))
+            if (__instance.currentAttackMode.AttackTags.Contains(HideAttacksNumberOnActionPanel))
             {
                 __instance.attacksNumberGroup.gameObject.SetActive(false);
             }

@@ -253,9 +253,9 @@ internal static class ValidatorsCharacter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool HasConditionWithSubFeatureOfType<T>(this RulesetCharacter character) where T : class
     {
-        return character.conditionsByCategory
-            .Any(keyValuePair => keyValuePair.Value
-                .Any(rulesetCondition => rulesetCondition.ConditionDefinition.HasSubFeatureOfType<T>()));
+        return character.ConditionsByCategory
+            .SelectMany(x => x.Value)
+            .Any(rulesetCondition => rulesetCondition.ConditionDefinition.HasSubFeatureOfType<T>());
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

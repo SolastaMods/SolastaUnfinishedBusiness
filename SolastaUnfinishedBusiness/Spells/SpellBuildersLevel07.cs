@@ -264,6 +264,7 @@ internal static partial class SpellBuilders
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders = locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
                 .Where(x =>
+                    x.Side == defender.Side &&
                     x.CanReact() &&
                     x.IsWithinRange(defender, 18) &&
                     x.CanPerceiveTarget(defender) &&
@@ -308,6 +309,8 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalSummonsPerIncrement: 2)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeRadiant, 4, DieType.D12))
                     .SetParticleEffectParameters(ShadowDagger)
                     .SetParticleEffectParameters(GuidingBolt)
@@ -330,7 +333,7 @@ internal static partial class SpellBuilders
 
         conditionCrownOfStars.GuiPresentation.description = Gui.EmptyContent;
 
-        var lightSourceForm = FaerieFire.EffectDescription
+        var lightSourceForm = Light.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;
 
         var spell = SpellDefinitionBuilder
@@ -345,7 +348,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Light)
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,

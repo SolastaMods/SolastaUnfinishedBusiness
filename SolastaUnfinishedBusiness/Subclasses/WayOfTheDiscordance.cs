@@ -59,7 +59,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionDiscordance, ConditionOperation.Remove),
                         EffectFormBuilder.ConditionForm(conditionDiscordance, ConditionOperation.Remove),
@@ -173,7 +173,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, Charisma, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, Wisdom, 8)
                     .SetEffectForms(
@@ -388,7 +388,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
-            if (rulesetDefender.AllConditions.All(x => x.ConditionDefinition != conditionDiscordance))
+            if (rulesetDefender.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .All(x => x.ConditionDefinition != conditionDiscordance))
             {
                 rulesetDefender.InflictCondition(
                     conditionDiscordance.Name,
@@ -425,7 +427,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
 
-            attacker.MyExecuteActionPowerNoCost(usablePower, defender);
+            // discordance and turmoil are use at will power
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
 
@@ -469,16 +472,18 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var targets = action.actionParams.TargetCharacters
                 .Where(x =>
                     x.RulesetActor is { IsDeadOrDyingOrUnconscious: false }
-                    && x.RulesetActor.AllConditions.Count(y =>
-                        y.ConditionDefinition == conditionDiscordance) > 1)
+                    && x.RulesetActor.ConditionsByCategory
+                        .SelectMany(y => y.Value)
+                        .Count(z =>
+                            z.ConditionDefinition == conditionDiscordance) > 1)
                 .ToList();
 
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
 
-            //TODO: check if MyExecuteActionSpendPower works here
-            actingCharacter.MyExecuteActionPowerNoCost(usablePowerDiscordance, [.. targets]);
+            // discordance is a use at will power
+            actingCharacter.MyExecuteActionSpendPower(usablePowerDiscordance, [.. targets]);
 
             // Turmoil
             var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
@@ -499,7 +504,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
 
-            actingCharacter.MyExecuteActionPowerNoCost(usablePowerTurmoil, [.. targets]);
+            // turmoil is a use at will power
+            actingCharacter.MyExecuteActionSpendPower(usablePowerTurmoil, [.. targets]);
         }
     }
 
@@ -570,8 +576,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
 
-            //TODO: check if MyExecuteActionSpendPower works here
-            ally.MyExecuteActionPowerNoCost(usablePower, ally);
+            // tides of chaos is a use at will power
+            ally.MyExecuteActionSpendPower(usablePower, ally);
         }
     }
 }

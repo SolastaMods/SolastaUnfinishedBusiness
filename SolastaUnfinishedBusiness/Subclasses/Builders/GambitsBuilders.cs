@@ -1307,7 +1307,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            attacker.CurrentActionRankByType[ActionDefinitions.ActionType.Bonus]++;
+            attacker.SpendActionType(ActionDefinitions.ActionType.Bonus);
             rulesetCharacter.UpdateUsageForPower(pool, 1);
         }
 
@@ -1467,6 +1467,7 @@ internal static class GambitsBuilders
 
             // consume one tactical move
             actingCharacter.UsedTacticalMoves++;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
 
             var dieType = GetGambitDieSize(caster);
             int dieRoll;
@@ -1931,13 +1932,9 @@ internal static class GambitsBuilders
             var targetCharacter = action.ActionParams.TargetCharacters[0];
             var targetRulesetCharacter = targetCharacter.RulesetCharacter;
             var targetPosition = action.ActionParams.Positions[0];
-            var actionParams =
-                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
-                {
-                    Positions = { targetPosition }
-                };
 
             targetCharacter.UsedTacticalMoves = 0;
+            targetCharacter.UsedTacticalMovesChanged?.Invoke(targetCharacter);
             targetRulesetCharacter.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,
@@ -1956,9 +1953,10 @@ internal static class GambitsBuilders
             EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
-            targetCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
-
-            ServiceRepository.GetService<IGameLocationActionService>().ExecuteAction(actionParams, null, true);
+            targetCharacter.UsedTacticalMoves = 0;
+            targetCharacter.UsedTacticalMovesChanged?.Invoke(targetCharacter);
+            targetCharacter.SpendActionType(ActionDefinitions.ActionType.Reaction);
+            targetCharacter.MyExecuteActionTacticalMove(targetPosition);
 
             yield break;
         }

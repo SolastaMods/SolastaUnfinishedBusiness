@@ -806,6 +806,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerReactiveHideDamage, rulesetDefender);
 
+            // reactive hide damage is a use at will power
             defender.MyExecuteActionSpendPower(usablePower, attacker);
         }
 

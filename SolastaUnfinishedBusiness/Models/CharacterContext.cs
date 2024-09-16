@@ -219,6 +219,7 @@ internal static partial class CharacterContext
         SwitchFighterLevelToIndomitableSavingReroll();
         SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
+        SwitchProneAction();
         SwitchHelpPower();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
@@ -353,6 +354,7 @@ internal static partial class CharacterContext
             .Create(CastBonus, "CastQuickened")
             .SetGuiPresentation(
                 "Rules/&MetamagicOptionQuickenedSpellTitle", "Action/&CastQuickenedDescription", CastMain)
+            .SetSortOrder(CastBonus)
             .SetActionId(ExtraActionId.CastQuickened)
             .AddToDB();
 
@@ -735,6 +737,14 @@ internal static partial class CharacterContext
                     x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
             }
         }
+    }
+
+    internal static void SwitchProneAction()
+    {
+        DropProne.actionType = ActionDefinitions.ActionType.NoCost;
+        DropProne.formType = Main.Settings.AddFallProneActionToAllRaces
+            ? ActionDefinitions.ActionFormType.Small
+            : ActionDefinitions.ActionFormType.Invisible;
     }
 
     internal static void SwitchDarknessPerceptive()
@@ -1208,7 +1218,7 @@ internal static partial class CharacterContext
             }
 
             yield return helper.MyReactToDoNothing(
-                ExtraActionId.DoNothingReaction,
+                ExtraActionId.DoNothingFree,
                 defender,
                 "MagicalGuidanceCheck",
                 "CustomReactionMagicalGuidanceCheckDescription"
@@ -1281,8 +1291,8 @@ internal static partial class CharacterContext
     private sealed class RollSavingThrowInitiatedIndomitableSaving : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1295,7 +1305,12 @@ internal static partial class CharacterContext
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            var classLevel = defender.GetClassLevel(Fighter);
+            if (rulesetActorDefender is not RulesetCharacterHero rulesetCharacterDefender)
+            {
+                return;
+            }
+
+            var classLevel = rulesetCharacterDefender.GetClassLevel(Fighter);
 
             rollModifier += classLevel;
             modifierTrends.Add(

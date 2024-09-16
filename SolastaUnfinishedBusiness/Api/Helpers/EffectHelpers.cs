@@ -20,6 +20,12 @@ internal static class EffectHelpers
         IMagicEffect magicEffect,
         EffectType effectType = EffectType.Impact)
     {
+        // be safe on multiplayer sessions as depending on flow, SFX can break them
+        if (Global.IsMultiplayer)
+        {
+            return;
+        }
+
         var prefab = effectType switch
         {
             EffectType.Caster => magicEffect.EffectDescription.EffectParticleParameters.CasterParticle,

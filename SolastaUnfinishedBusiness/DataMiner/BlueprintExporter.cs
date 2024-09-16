@@ -33,14 +33,6 @@ internal class BlueprintExporter : MonoBehaviour
         }
     }
 
-    private static void EnsureFolderExists(string path)
-    {
-        if (!Directory.Exists(path))
-        {
-            Directory.CreateDirectory(path);
-        }
-    }
-
     private static void SetExport(int exportId, Coroutine coroutine, float percentageComplete)
     {
         CurrentExports[exportId].Coroutine = coroutine;
@@ -93,7 +85,7 @@ internal class BlueprintExporter : MonoBehaviour
 
         yield return null;
 
-        EnsureFolderExists(path);
+        Main.EnsureFolderExists(path);
 
         // Types.txt
         using (var sw = new StreamWriter($"{path}/Types.txt"))
@@ -135,7 +127,7 @@ internal class BlueprintExporter : MonoBehaviour
             var folderName = $"{path}/{definitionType}";
             var fullname = $"{folderName}/{filename}";
 
-            EnsureFolderExists(folderName);
+            Main.EnsureFolderExists(folderName);
 
             if (fullname.Length > MaxPathLength)
             {

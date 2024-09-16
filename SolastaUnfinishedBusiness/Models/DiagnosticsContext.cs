@@ -138,17 +138,9 @@ internal static class DiagnosticsContext
     {
         var path = Path.Combine(ProjectFolder ?? GameFolder, "Diagnostics");
 
-        EnsureFolderExists(path);
+        Main.EnsureFolderExists(path);
 
         return path;
-    }
-
-    private static void EnsureFolderExists([NotNull] string path)
-    {
-        if (!Directory.Exists(path))
-        {
-            Directory.CreateDirectory(path);
-        }
     }
 
     private const string OfficialBpFolder = "OfficialBlueprints";
@@ -199,7 +191,7 @@ internal static class DiagnosticsContext
             return;
         }
 
-        EnsureFolderExists(DiagnosticsFolder);
+        Main.EnsureFolderExists(DiagnosticsFolder);
 
         /////////////////////////////////////////////////////////////////////////////////////////////////
         // Write all definitions with no GUI presentation to file

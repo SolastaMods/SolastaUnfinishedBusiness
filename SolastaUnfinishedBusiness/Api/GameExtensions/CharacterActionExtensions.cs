@@ -1,13 +1,26 @@
-﻿using System;
-using static RuleDefinitions;
-
-namespace SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class CharacterActionExtensions
 {
     internal const string ShouldKeepConcentration = "ActionShouldKeepConcentration";
 
-    // ReSharper disable once InconsistentNaming
+    internal static string FormatTitle(this CharacterAction action)
+    {
+        var magicEffect = action.actionParams.RulesetEffect;
+
+        return magicEffect == null
+            ? Gui.Localize("Action/&AttackTitle")
+            : magicEffect.SourceDefinition.FormatTitle();
+    }
+
+    internal static bool ShouldKeepConcentrationOnPowerUseOrSpend(RulesetCharacter character)
+    {
+        var glc = GameLocationCharacter.GetFromActor(character);
+
+        return glc != null && glc.UsedSpecialFeatures.ContainsKey(ShouldKeepConcentration);
+    }
+
+#if false
     internal static int GetSaveDC(this CharacterAction action)
     {
         var actionParams = action.actionParams;
@@ -55,20 +68,5 @@ internal static class CharacterActionExtensions
 
         return saveDc;
     }
-
-    internal static string FormatTitle(this CharacterAction action)
-    {
-        var magicEffect = action.actionParams.RulesetEffect;
-
-        return magicEffect == null
-            ? Gui.Localize("Action/&AttackTitle")
-            : magicEffect.SourceDefinition.FormatTitle();
-    }
-
-    internal static bool ShouldKeepConcentrationOnPowerUseOrSpend(RulesetCharacter character)
-    {
-        var glc = GameLocationCharacter.GetFromActor(character);
-
-        return glc != null && glc.UsedSpecialFeatures.ContainsKey(ShouldKeepConcentration);
-    }
+#endif
 }

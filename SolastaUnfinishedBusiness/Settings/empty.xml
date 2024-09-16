@@ -304,6 +304,7 @@
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
     <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
+    <AddFallProneActionToAllRaces>false</AddFallProneActionToAllRaces>
     <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
     <EnableAlternateHuman>false</EnableAlternateHuman>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
@@ -350,6 +351,7 @@
     <EnableRogueStrSaving>false</EnableRogueStrSaving>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
+    <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
     <OfferAdditionalLoreFriendlyNames>false</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>false</UnlockAllNpcFaces>
     <AllowUnmarkedSorcerers>false</AllowUnmarkedSorcerers>
@@ -421,6 +423,8 @@
     <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
     <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
     <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
+    <AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>false
+    </AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>
     <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <AccountForAllDiceOnFollowUpStrike>false</AccountForAllDiceOnFollowUpStrike>
@@ -429,6 +433,8 @@
     <FlightSuspendWingedBoots>false</FlightSuspendWingedBoots>
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <EnableHigherGroundRules>false</EnableHigherGroundRules>
+    <EnablePullPushOnVerticalDirection>false</EnablePullPushOnVerticalDirection>
+    <ModifyGravitySlam>true</ModifyGravitySlam>
     <FullyControlConjurations>false</FullyControlConjurations>
     <EnableTeleportToRemoveRestrained>false</EnableTeleportToRemoveRestrained>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>false</ColdResistanceAlsoGrantsImmunityToChilledCondition>
@@ -441,7 +447,6 @@
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
     <AddNewWeaponsAndRecipesToShops>false</AddNewWeaponsAndRecipesToShops>
-    <AddNewWeaponsAndRecipesToEditor>false</AddNewWeaponsAndRecipesToEditor>
     <EnableMonkHandwrapsUseGauntletSlot>false</EnableMonkHandwrapsUseGauntletSlot>
     <EnableGauntletMainAttacks>false</EnableGauntletMainAttacks>
     <AddPickPocketableLoot>false</AddPickPocketableLoot>
@@ -1081,6 +1086,7 @@
     <EnableCancelEditOnRightMouseClick>false</EnableCancelEditOnRightMouseClick>
     <AddCustomIconsToOfficialItems>false</AddCustomIconsToOfficialItems>
     <DisableAutoEquip>false</DisableAutoEquip>
+    <EnableCtrlClickDragToBypassQuestItemsOnDrop>false</EnableCtrlClickDragToBypassQuestItemsOnDrop>
     <EnableInventoryFilteringAndSorting>false</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>false</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>false</EnableInventoryTintKnownRecipesRed>
@@ -1095,8 +1101,10 @@
     <EnableLoggingInvalidReferencesInUserCampaigns>false</EnableLoggingInvalidReferencesInUserCampaigns>
     <EnableSortingDungeonMakerAssets>false</EnableSortingDungeonMakerAssets>
     <AllowGadgetsAndPropsToBePlacedAnywhere>false</AllowGadgetsAndPropsToBePlacedAnywhere>
-    <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
     <UnleashEnemyAsNpc>false</UnleashEnemyAsNpc>
+    <AddNewWeaponsAndRecipesToEditor>false</AddNewWeaponsAndRecipesToEditor>
+    <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
+    <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>

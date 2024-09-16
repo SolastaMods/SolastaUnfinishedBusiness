@@ -26,6 +26,7 @@ public sealed class AbilityCheckData
     public RollOutcome AbilityCheckRollOutcome { get; set; }
     public int AbilityCheckSuccessDelta { get; set; }
     public ActionModifier AbilityCheckActionModifier { get; set; }
+    public CharacterAction Action { get; set; }
 }
 
 internal static class TryAlterOutcomeAttributeCheck
@@ -57,8 +58,8 @@ internal static class TryAlterOutcomeAttributeCheck
             contextFieldActor |= 64;
         }
 
-        actor.ComputeAbilityCheckActionModifier(AttributeDefinitions.Strength, SkillDefinitions.Athletics,
-            actionModifierActorStrength, contextFieldActor);
+        actor.ComputeAbilityCheckActionModifier(
+            AttributeDefinitions.Strength, SkillDefinitions.Athletics, actionModifierActorStrength, contextFieldActor);
 
         var contextFieldOpponent = 1;
 
@@ -321,11 +322,12 @@ internal static class TryAlterOutcomeAttributeCheck
         GameLocationCharacter actingCharacter,
         AbilityCheckData abilityCheckData)
     {
-        yield return HandleBardicRollOnFailure(actingCharacter, abilityCheckData);
-
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
             as GameLocationBattleManager;
+
+        yield return HandleBardicRollOnFailure(battleManager, actingCharacter, abilityCheckData);
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var contenders =
             Gui.Battle?.AllContenders ??
@@ -355,33 +357,28 @@ internal static class TryAlterOutcomeAttributeCheck
     }
 
     private static IEnumerator HandleBardicRollOnFailure(
-        GameLocationCharacter actingCharacter, AbilityCheckData abilityCheckData)
+        GameLocationBattleManager battleManager,
+        GameLocationCharacter actingCharacter,
+        AbilityCheckData abilityCheckData)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
-            as GameLocationBattleManager;
 
         if (abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure)
         {
             yield break;
         }
 
-        battleManager!.GetBestParametersForBardicDieRoll(
+        battleManager.GetBestParametersForBardicDieRoll(
             actingCharacter,
             out var bestDie,
-            out _,
+            out var bestModifier,
             out var sourceCondition,
             out var forceMaxRoll,
             out var advantage);
 
         if (bestDie <= DieType.D1 ||
-            actingCharacter.RulesetCharacter == null)
-        {
-            yield break;
-        }
-
-        // Is the die enough to overcome the failure?
-        if (DiceMaxValue[(int)bestDie] < Mathf.Abs(abilityCheckData.AbilityCheckSuccessDelta))
+            actingCharacter.RulesetCharacter == null ||
+            DiceMaxValue[(int)bestDie] < Mathf.Abs(abilityCheckData.AbilityCheckSuccessDelta))
         {
             yield break;
         }
@@ -406,6 +403,14 @@ internal static class TryAlterOutcomeAttributeCheck
             sourceCondition, abilityCheckData.AbilityCheckSuccessDelta, forceMaxRoll, advantage);
 
         abilityCheckData.AbilityCheckSuccessDelta += roll;
+
+        var action = abilityCheckData.Action;
+
+        if (action != null)
+        {
+            action.BardicDieType = bestDie;
+            action.FeatureName = bestModifier.Name;
+        }
 
         var actionModifier = abilityCheckData.AbilityCheckActionModifier;
 

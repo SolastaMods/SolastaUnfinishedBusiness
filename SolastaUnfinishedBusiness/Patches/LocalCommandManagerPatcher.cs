@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -35,6 +36,27 @@ public static class LocalCommandManagerPatcher
         }
     }
 #endif
+    [HarmonyPatch(typeof(LocalCommandManager), nameof(LocalCommandManager.ProcessReactionRequest))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ProcessReactionRequest_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(ReactionRequest reactionRequest, bool validated)
+        {
+            if (reactionRequest is not IReactionRequestWithCallbacks callbacks) { return; }
+
+            if (validated)
+            {
+                callbacks.ReactionValidated?.Invoke(reactionRequest);
+            }
+            else
+            {
+                callbacks.ReactionNotValidated?.Invoke(reactionRequest);
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(LocalCommandManager), nameof(LocalCommandManager.TogglePermanentInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

@@ -223,9 +223,9 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
             locationCharacter.UsedSpecialFeatures.Add(VerdancyHealedTag, 1);
 
-            foreach (var rulesetCondition in rulesetCharacter.AllConditions
-                         .Where(x => x.ConditionDefinition.Name is ConditionVerdancy or ConditionVerdancy14)
-                         .ToList())
+            foreach (var rulesetCondition in rulesetCharacter.ConditionsByCategory
+                         .SelectMany(x => x.Value)
+                         .Where(x => x.ConditionDefinition.Name is ConditionVerdancy or ConditionVerdancy14))
             {
                 var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 

@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상급</color> 및 <color=#
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 사용자 정의 아이콘 추가 <i><color=#F0DAA0>[탄약, 조리법, 키트 등]</color></i> <b><i><color=#C04040E0>[다시 시작해야 함] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>Darkness Perceptive</color>를 활성화하세요. color> <i><color=#F0DAA0>\n[빛이 없거나 마법의 어둠 속에서 인지 검사에 이점을 부여합니다.]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=적에게 DEX 수정치를 추가합니다 <color=#D89555>이니셔티브 롤</color>
+ModUi/&AddFallProneActionToAllRaces=모든 플레이 가능한 종족에 <color=#D89555>엎드려 넘어지기</color> 액션을 추가합니다. <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>파이터</color>를 활성화하여 클래스 레벨을 <color=#D89555>불굴의 저항</color> 저장 던지기 재굴림에 보너스로 추가하세요.
 ModUi/&AddHelpActionToAllRaces=플레이 가능한 모든 종족에 <color=#D89555>도움말</color> 액션을 추가하세요. <i><color=#F0DAA0>[당신은 1셀 내의 생물을 공격하는 아군 생물을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 인간형 선호 적 활성화
@@ -18,6 +19,7 @@ ModUi/&AdvancedHelp=• <b><color=#C04040E0>주의:</color></b> 이 설정을 �
 ModUi/&AllItemInDm=DM의 모든 항목
 ModUi/&AllRecipesInDm=모든 레시피는 DM에 있어요
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 내러티브 시퀀스에서 모든 플레이어 허용</i>
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=자연스러운 어둠 속에서 아군이 <color=#D89555>레인저 글룸스토커</color>를 인식하도록 허용합니다.
 ModUi/&AllowAnyClassToWearSylvanArmor=모든 클래스가 <color=#D89555>실반 갑옷</color> 또는 <color=#D89555>빛의 인도자 옷</color>을 착용할 수 있도록 허용합니다.
 ModUi/&AllowBeardlessDwarves=수염이 없는 <color=#D89555>드워프</color> 허용
 ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>블레이드 캔트립</color>이 5피트 대신 리치를 사용하도록 허용
@@ -89,7 +91,7 @@ ModUi/&DocsSubclasses=서브클래스
 ModUi/&DocsSubraces=하위 경주
 ModUi/&DocsVersatilities=다양성
 ModUi/&Donate=<b><color=#D89555>기부:</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=그래픽 문자에 헬멧을 표시하지 마세요. <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
+ModUi/&DontDisplayHelmets=그래픽 캐릭터에 <color=#D89555>헬멧</color>을 표시하지 마세요 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&DontEndTurnAfterReady=<color=#D89555>준비 행동</color>을 사용한 후에 턴을 끝내지 마세요 <i><color=#F0DAA0>[서둘러서 또는 다른 출처에서 보너스 행동이나 추가 주요 행동을 사용할 수 있음]</color></i>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있으면 전투 카메라가 따라오지 않습니다.
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 꺼져 있거나 화면 가장자리의 % 내에 있지 않은 경우</color></i>
@@ -115,6 +117,7 @@ ModUi/&EnableCharacterChecker=메인 화면 > 캐릭터에서 문자 검사기 �
 ModUi/&EnableCharacterExport=캐릭터를 내보내려면 <color=#1E81B0>CTRL-SHIFT-(E)</color>를 활성화하세요.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태의 종족]</color></i>
 ModUi/&EnableCheatMenu=치트 메뉴 활성화
+ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=<color=#1E81B0>CTRL</color> 클릭-드래그를 활성화하여 드롭 시 <color=#D89555>퀘스트 아이템</color> 검사를 무시합니다.
 ModUi/&EnableCustomPortraits=<color=#D89555>맞춤 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 사용자 정의 초상화를 하위 폴더 <i><b><color=#F0DAA0>개인</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color> 아래에 배치하세요. </b></i>, 영웅의 이름을 따서 명명됨 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• PNG 사용 투명 레이어가 있는 256 x 384 픽셀 크기의 이미지 <i><color=#F0DAA0>[최상의 결과를 얻으려면 김프 사용]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 활성화\n<i><color=#F0DAA0>[플랫 룸, 150x150 및 200x200 던전 크기 및 모든 환경의 자산을 혼합하는 장식 없음]</color></i>
@@ -152,6 +155,7 @@ ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>몽크
 ModUi/&EnableMulticlass=멀티클래스 활성화 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>상처 대량 치료</color> 및 <color=에서 OneDnd 치유 주사위 버프를 활성화하세요. #D89555>대량 치유의 말씀</color>
 ModUi/&EnablePcgRandom=더 나은 무작위 생성기 알고리즘 활성화 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePullPushOnVerticalDirection=위/아래 축에서도 푸시 및 풀 모션 효과를 작동하도록 설정
 ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>레인저</color> <b>자연의 장막</b> 기능을 활성화하세요. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법처럼 투명해질 수 있습니다 ]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color>을 활성화하면 선택한 영웅이나 리더를 중심으로 파티에 다시 합류할 수 있습니다. <i><color=#F0DAA0>[5인 또는 6인 파티에 유용합니다. ]</color></i>
 ModUi/&EnableRelearnSpells=다른 소스에서 이미 배운 캔트립이나 주문 선택 활성화
@@ -172,6 +176,7 @@ ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>텔레포트</color>를 �
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=기본 플레이 및 테스트 파티를 설정하려면 캐릭터 풀의 토글을 활성화하세요.
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위로 마우스를 가져갈 때 툴팁에 거리 표시 활성화
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 창조</color> 및 <color=#D89555>페이 창조</color>의 업캐스트를 활성화합니다.
+ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
 ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color>를 활성화하여 VTT 카메라를 전환합니다. <i><color=#F0DAA0>[카메라 위치를 마우스 오른쪽 버튼으로 클릭하고 드래그하고, 팬 및 페이지 위로 이동하려면 WASD/ 확대하려면 페이지를 아래로 내리세요]</color></i>
 ModUi/&EnablesAsiAndFeat=속성 점수 증가와 <color=#D89555>feats</color> 선택 <i><color=#F0DAA0>[독점 선택 대신]</color></i>을 모두 활성화합니다.
 ModUi/&EncounterPercentageChance=<color=white>무작위 만남 확률 설정</color>
@@ -207,6 +212,7 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<color=#D89555>음유시인</c
 ModUi/&GridSelectedColor=<b><color=$$$$$$>그리드 색상</color></b> 이동 변경
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=아직 발견되지 않은 경우 출구 및 텔레포터 시각 효과 숨기기
 ModUi/&HideMonsterHitPoints=정확한 체력 대신 몬스터의 체력을 25% / 50% / 75% / 100% 단계로 표시합니다.
+ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ 메타매직 토글이 꺼져 있을 때 이 동작을 숨깁니다.</i>
 ModUi/&HighContrastTargetingAoeColor=AoE 생물 변경 <b><color=$$$$$$>선택 색상 강조 표시</color></b>
 ModUi/&HighContrastTargetingSingleColor=단일 생물 변경 <b><color=$$$$$$>선택 색상 강조 표시</color></b>
 ModUi/&House=<color=#F0DAA0>집:</color>
@@ -234,6 +240,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 발견 후 레벨 지도에 보�
 ModUi/&MaxAllowedClasses=<color=white>최대 허용 수업</color>
 ModUi/&Merchants=<color=#F0DAA0>상점:</color>
 ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>
+ModUi/&ModifyGravitySlam=<i>+ <color=#D89555>중력 강타</color> 주문을 수정하여 영향을 받는 대상을 아래로 밀어내고 구체 대신 원통형으로 만듭니다.</i>
 ModUi/&Monsters=<color=#F0DAA0>괴물:</color>
 ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&MulticlassKeyHelp=주문을 <color=#1E81B0>SHIFT</color> 클릭하면 소비되는 기본 레퍼토리 슬롯 유형이 반전됩니다.\n<i><color=#F0DAA0>[<color=#D89555>워록</color>은 흰색 주문 슬롯을 소비합니다. 다른 사람들은 녹색 계약을 사용합니다.]</color></i>

@@ -1,10 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Interfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -127,6 +129,157 @@ public static class CharacterActionUsePowerPatcher
 
             ServiceRepository.GetService<IGameLocationActionService>()
                 .ItemUsed?.Invoke(usableDevice.ItemDefinition.Name);
+        }
+    }
+
+    //PATCH: allow check reactions on cast spell regardless of success / failure
+    [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.CounterEffectAction))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CounterEffectAction_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            ref IEnumerator __result, CharacterActionUsePower __instance, CharacterAction counterAction)
+        {
+            __result = Process(__instance, counterAction);
+
+            return false;
+        }
+
+        private static IEnumerator Process(CharacterActionUsePower actionUsePower, CharacterAction counterAction)
+        {
+            if (actionUsePower.ActionParams.TargetAction == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = actionUsePower.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var actionParams = actionUsePower.ActionParams.TargetAction.ActionParams;
+            var actionModifier = actionParams.ActionModifiers[0];
+
+            foreach (var effectForm in actionParams.RulesetEffect.EffectDescription.EffectForms)
+            {
+                if (effectForm.FormType != EffectForm.EffectFormType.Counter)
+                {
+                    continue;
+                }
+
+                var counterForm = effectForm.CounterForm;
+                var counteredSpell = actionParams.TargetAction.ActionParams.RulesetEffect as RulesetEffectSpell;
+                var counteredSpellDefinition = counteredSpell!.SpellDefinition;
+                var slotLevel = counteredSpell.SlotLevel;
+
+                if (counterForm.AutomaticSpellLevel >= slotLevel)
+                {
+                    actionUsePower.ActionParams.TargetAction.Countered = true;
+                }
+                else if (counterForm.CheckBaseDC != 0)
+                {
+                    var checkDC = counterForm.CheckBaseDC + slotLevel;
+
+                    rulesetCharacter
+                        .EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(rulesetCharacter.FeaturesToBrowse);
+
+                    foreach (var featureDefinition in rulesetCharacter.FeaturesToBrowse)
+                    {
+                        var definitionMagicAffinity = (FeatureDefinitionMagicAffinity)featureDefinition;
+
+                        if (definitionMagicAffinity.CounterspellAffinity == AdvantageType.None)
+                        {
+                            continue;
+                        }
+
+                        var advTrend = definitionMagicAffinity.CounterspellAffinity == AdvantageType.Advantage
+                            ? 1
+                            : -1;
+
+                        actionModifier.AbilityCheckAdvantageTrends.Add(new TrendInfo(
+                            advTrend, FeatureSourceType.CharacterFeature, definitionMagicAffinity.Name, null));
+                    }
+
+                    if (counteredSpell.CounterAffinity != AdvantageType.None)
+                    {
+                        var advTrend = counteredSpell.CounterAffinity == AdvantageType.Advantage
+                            ? 1
+                            : -1;
+
+                        actionModifier.AbilityCheckAdvantageTrends
+                            .Add(new TrendInfo(advTrend,
+                                FeatureSourceType.CharacterFeature,
+                                counteredSpell.CounterAffinityOrigin, null));
+                    }
+
+                    var abilityScoreName = AttributeDefinitions.Charisma;
+
+                    foreach (var spellRepertoire in rulesetCharacter.SpellRepertoires
+                                 .Where(repertoire =>
+                                     repertoire.SpellCastingFeature.SpellCastingOrigin
+                                         is FeatureDefinitionCastSpell.CastingOrigin.Class
+                                         or FeatureDefinitionCastSpell.CastingOrigin.Subclass))
+                    {
+                        abilityScoreName = spellRepertoire.SpellCastingFeature.SpellcastingAbility;
+
+                        break;
+                    }
+
+                    var proficiencyName = string.Empty;
+
+                    if (counterForm.AddProficiencyBonus)
+                    {
+                        proficiencyName = "ForcedProficiency";
+                    }
+
+                    var abilityCheckRoll = actingCharacter.RollAbilityCheck(
+                        abilityScoreName,
+                        proficiencyName,
+                        checkDC,
+                        AdvantageType.None,
+                        actionModifier,
+                        false,
+                        0,
+                        out var outcome,
+                        out var successDelta,
+                        true);
+
+                    var abilityCheckData = new AbilityCheckData
+                    {
+                        AbilityCheckRoll = abilityCheckRoll,
+                        AbilityCheckRollOutcome = outcome,
+                        AbilityCheckSuccessDelta = successDelta,
+                        AbilityCheckActionModifier = actionModifier,
+                        Action = actionUsePower
+                    };
+
+                    yield return TryAlterOutcomeAttributeCheck
+                        .HandleITryAlterOutcomeAttributeCheck(actingCharacter, abilityCheckData);
+
+                    actionUsePower.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+                    actionUsePower.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                    actionUsePower.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
+
+                    if (counterAction.AbilityCheckRollOutcome == RollOutcome.Success)
+                    {
+                        actionUsePower.ActionParams.TargetAction.Countered = true;
+                    }
+                }
+
+                if (!actionParams.TargetAction.Countered ||
+                    rulesetCharacter.SpellCounter == null)
+                {
+                    continue;
+                }
+
+                var unknown = string.IsNullOrEmpty(counteredSpell.IdentifiedBy);
+
+                rulesetCharacter.SpellCounter(
+                    rulesetCharacter,
+                    actionUsePower.ActionParams.TargetAction.ActingCharacter.RulesetCharacter,
+                    counteredSpellDefinition,
+                    actionUsePower.ActionParams.TargetAction.Countered,
+                    unknown);
+            }
         }
     }
 }

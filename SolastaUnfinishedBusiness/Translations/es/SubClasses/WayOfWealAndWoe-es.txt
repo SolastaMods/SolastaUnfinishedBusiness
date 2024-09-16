@@ -8,6 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=Después de realizar una tirada d
 Feature/&FeatureWayOfWealAndWoeWealTitle=Roncha
 Feature/&FeatureWayOfWealAndWoeWoeDescription=Después de realizar una tirada de ataque con un arma de monje o un ataque desarmado, y fallar críticamente, sufres un daño igual a una tirada de tu dado de artes marciales.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
-Feedback/&WoeReroll=Debido a que {1} {2} vuelve a tirar el dado de ataque de un {3} a un {4}
+Feedback/&WoeReroll=Debido a que {1} {0} vuelve a tirar el dado de ataque de {2} a {3}
 Subclass/&WayOfWealAndWoeDescription=Los monjes del Camino de la Riqueza y la Pena se centran tanto en la prosperidad como en la adversidad para enfrentarse a sus enemigos en la batalla.
 Subclass/&WayOfWealAndWoeTitle=Camino de prosperidad y de desgracia

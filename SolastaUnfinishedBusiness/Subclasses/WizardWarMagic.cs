@@ -64,6 +64,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,
                 ConditionInterruption.CastSpellExecuted,
+                (ConditionInterruption)ExtraConditionInterruption.SpendPowerExecuted,
                 ConditionInterruption.UsePowerExecuted)
             .AddToDB();
 
@@ -125,7 +126,6 @@ public sealed class WizardWarMagic : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique, 3)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce))
-                    //.SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererDraconicDragonWingsSprout)
                     .SetImpactEffectParameters(SpellDefinitions.ArcaneSword)
                     .Build())
             .AddToDB();
@@ -188,6 +188,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
                 attacker,
@@ -237,33 +238,32 @@ public sealed class WizardWarMagic : AbstractSubclass
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
-                action.SaveOutcomeDelta + bonus < 0 ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
+                savingThrowData.SaveOutcomeDelta + bonus < 0 ||
                 helper != defender ||
                 !helper.CanReact() ||
-                !helper.CanPerceiveTarget(attacker))
+                (attacker != null && !helper.CanPerceiveTarget(attacker)))
             {
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
-                attacker,
+                helper,
                 "ArcaneDeflectionSaving",
-                "CustomReactionArcaneDeflectionSavingDescription".Formatted(Category.Reaction),
+                "CustomReactionArcaneDeflectionSavingDescription".Formatted(
+                    Category.Reaction, attacker?.Name ?? ReactionRequestCustom.EnvTitle, savingThrowData.Title),
                 ReactionValidated,
                 battleManager: battleManager);
 
@@ -287,8 +287,9 @@ public sealed class WizardWarMagic : AbstractSubclass
                     0,
                     0);
 
-                action.SaveOutcomeDelta += bonus;
-                action.SaveOutcome = RollOutcome.Success;
+                savingThrowData.SaveOutcomeDelta += bonus;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
+
                 helper.RulesetCharacter.LogCharacterUsedFeature(
                     featureArcaneDeflection,
                     "Feedback/&ArcaneDeflectionSavingRoll",
@@ -319,6 +320,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 .Take(3)
                 .ToArray();
 
+            // deflection shroud is a use at will power
             helper.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
@@ -367,6 +369,8 @@ public sealed class WizardWarMagic : AbstractSubclass
             List<GameLocationCharacter> targets)
         {
             if (action is not CharacterActionCastSpell actionCastSpell ||
+                actionCastSpell.Countered ||
+                actionCastSpell.ExecutionFailed ||
                 actionCastSpell.ActiveSpell.SpellDefinition != SpellDefinitions.Counterspell)
             {
                 yield break;
@@ -455,8 +459,8 @@ public sealed class WizardWarMagic : AbstractSubclass
         }
 
         public void OnSavingThrowInitiated(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
             ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -469,7 +473,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (defender.ConcentratedSpell == null)
+            if (rulesetActorDefender is RulesetCharacter { ConcentratedSpell: null })
             {
                 return;
             }

@@ -53,8 +53,8 @@ internal sealed class BlueprintLoader : MonoBehaviour
 
         // iterate over all DBs / BPs and collect them
         var blueprints = new List<BaseDefinition>();
-        foreach (IEnumerable<BaseDefinition> db in databases.Values.OrderBy(db =>
-                     db.GetType().GetGenericArguments()[0].Name))
+        foreach (var db in databases.Values.OrderBy(db =>
+                     db.GetType().GetGenericArguments()[0].Name).Cast<IEnumerable<BaseDefinition>>())
         {
             yield return null;
 

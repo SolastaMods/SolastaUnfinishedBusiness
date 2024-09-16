@@ -857,14 +857,36 @@ internal static class EldritchVersatilityBuilders
 
                 if (glc != null)
                 {
-                    glc.RollAbilityCheck(AttributeDefinitions.Intelligence,
-                        SkillDefinitions.Arcana,
+                    var abilityCheckRoll = glc.RollAbilityCheck(
+                        AttributeDefinitions.Intelligence, SkillDefinitions.Arcana,
                         14 + spellLevel + Math.Max(-6, spellLevel - supportCondition.CurrentPoints),
-                        AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
-                        out _, true);
+                        AdvantageType.None,
+                        checkModifier,
+                        false,
+                        -1,
+                        out var rollOutcome,
+                        out var successDelta,
+                        true);
+
+                    //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+                    var abilityCheckData = new AbilityCheckData
+                    {
+                        AbilityCheckRoll = abilityCheckRoll,
+                        AbilityCheckRollOutcome = rollOutcome,
+                        AbilityCheckSuccessDelta = successDelta,
+                        AbilityCheckActionModifier = checkModifier,
+                        Action = castAction
+                    };
+
+                    yield return TryAlterOutcomeAttributeCheck
+                        .HandleITryAlterOutcomeAttributeCheck(glc, abilityCheckData);
+
+                    castAction.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+                    castAction.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                    castAction.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
 
                     // Fails check
-                    if (abilityCheckRollOutcome > RollOutcome.Success)
+                    if (castAction.AbilityCheckRollOutcome > RollOutcome.Success)
                     {
                         yield break;
                     }
@@ -876,8 +898,8 @@ internal static class EldritchVersatilityBuilders
             }
 
             var console = Gui.Game.GameConsole;
-            var entry = new GameConsoleEntry("Feedback/BattlefieldShorthandCopySpellSuccess",
-                console.consoleTableDefinition) { Indent = true };
+            var entry = new GameConsoleEntry(
+                "Feedback/BattlefieldShorthandCopySpellSuccess", console.consoleTableDefinition) { Indent = true };
 
             console.AddCharacterEntry(featureOwner, entry);
             entry.AddParameter(
@@ -907,14 +929,40 @@ internal static class EldritchVersatilityBuilders
                         AttributeDefinitions.ComputeAbilityScoreModifier(
                             featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence))
                 };
+
                 checkModifier.AbilityCheckModifierTrends.Add(new TrendInfo(checkModifier.AbilityCheckModifier,
                     FeatureSourceType.CharacterFeature, "PowerPatronEldritchSurgeVersatilitySwitchPool", null));
-                gameLocationCharacter.RollAbilityCheck("Intelligence", "Arcana", supportCondition.CreateSlotDC,
-                    AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
-                    out _, true);
 
-                // If success increase DC, other wise decrease DC
-                var createSuccess = abilityCheckRollOutcome <= RollOutcome.Success;
+                var abilityCheckRoll = gameLocationCharacter.RollAbilityCheck(
+                    AttributeDefinitions.Intelligence, SkillDefinitions.Arcana,
+                    supportCondition.CreateSlotDC,
+                    AdvantageType.None,
+                    checkModifier,
+                    false,
+                    -1,
+                    out var rollOutcome,
+                    out var successDelta,
+                    true);
+
+                //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+                var abilityCheckData = new AbilityCheckData
+                {
+                    AbilityCheckRoll = abilityCheckRoll,
+                    AbilityCheckRollOutcome = rollOutcome,
+                    AbilityCheckSuccessDelta = successDelta,
+                    AbilityCheckActionModifier = checkModifier,
+                    Action = action
+                };
+
+                yield return TryAlterOutcomeAttributeCheck
+                    .HandleITryAlterOutcomeAttributeCheck(gameLocationCharacter, abilityCheckData);
+
+                action.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+                action.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                action.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
+
+                // If success increase DC, otherwise decrease DC
+                var createSuccess = action.AbilityCheckRollOutcome <= RollOutcome.Success;
 
                 // Log to notify outcome and new DC
                 var console = Gui.Game.GameConsole;
@@ -930,7 +978,7 @@ internal static class EldritchVersatilityBuilders
                 console.AddEntry(entry);
 
                 // If fails
-                if (abilityCheckRollOutcome > RollOutcome.Success)
+                if (action.AbilityCheckRollOutcome > RollOutcome.Success)
                 {
                     supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BattlefieldConversionFailure);
                     yield break;
@@ -1074,6 +1122,7 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
                 attacker,
@@ -1193,16 +1242,13 @@ internal static class EldritchVersatilityBuilders
     {
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier saveModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
         {
-            if (!action.RolledSaveThrow ||
-                action.SaveOutcome != RollOutcome.Failure ||
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
                 helper.IsOppositeSide(defender.Side))
             {
                 yield break;
@@ -1224,7 +1270,7 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
-            var requiredSaveAddition = -action.SaveOutcomeDelta;
+            var requiredSaveAddition = -savingThrowData.SaveOutcomeDelta;
             var modifier = GetAbilityScoreModifier(helperCharacter, AttributeDefinitions.Wisdom, supportCondition);
             var console = Gui.Game.GameConsole;
             var entry =
@@ -1236,7 +1282,7 @@ internal static class EldritchVersatilityBuilders
             console.AddCharacterEntry(helperCharacter, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{requiredSaveAddition}");
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
-                Gui.Format(GameConsole.SaveSuccessOutcome, action.GetSaveDC().ToString()));
+                Gui.Format(GameConsole.SaveSuccessOutcome, savingThrowData.SaveDC.ToString()));
 
             if (alreadyWarded)
             {
@@ -1252,8 +1298,8 @@ internal static class EldritchVersatilityBuilders
                 }
 
                 eldritchWardSupportCondition.SaveBonus += requiredSaveAddition;
-                action.SaveOutcome = RollOutcome.Success;
-                action.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
+                savingThrowData.SaveOutcomeDelta = 0;
                 console.AddEntry(entry);
 
                 yield break;
@@ -1266,9 +1312,10 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
+            // any reaction within a saving flow must use the yielder as waiter
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
-                attacker,
+                helper,
                 "EldritchWard",
                 "CustomReactionEldritchWard".Formatted(Category.Reaction, defender.Name),
                 ReactionValidated,
@@ -1288,8 +1335,9 @@ internal static class EldritchVersatilityBuilders
                     defenderCharacter, out eldritchWardSupportCondition);
                 eldritchWardSupportCondition.SaveBonus = requiredSaveAddition;
 
-                action.SaveOutcome = RollOutcome.Success;
-                action.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
+
                 console.AddEntry(entry);
             }
         }
@@ -1340,13 +1388,23 @@ internal static class EldritchVersatilityBuilders
 
             private sealed class EldritchWardSaveBonus : IRollSavingThrowInitiated
             {
-                public void OnSavingThrowInitiated(RulesetCharacter caster, RulesetCharacter defender,
-                    ref int saveBonus, ref string abilityScoreName, BaseDefinition sourceDefinition,
-                    List<TrendInfo> modifierTrends, List<TrendInfo> advantageTrends, ref int rollModifier,
-                    ref int saveDC, ref bool hasHitVisual, RollOutcome outcome, int outcomeDelta,
+                public void OnSavingThrowInitiated(
+                    RulesetActor rulesetActorCaster,
+                    RulesetActor rulesetActorDefender,
+                    ref int saveBonus,
+                    ref string abilityScoreName,
+                    BaseDefinition sourceDefinition,
+                    List<TrendInfo> modifierTrends,
+                    List<TrendInfo> advantageTrends,
+                    ref int rollModifier,
+                    ref int saveDC,
+                    ref bool hasHitVisual,
+                    RollOutcome outcome,
+                    int outcomeDelta,
                     List<EffectForm> effectForms)
                 {
-                    GetCustomConditionFromCharacter(defender, out var supportCondition);
+                    GetCustomConditionFromCharacter(rulesetActorDefender, out var supportCondition);
+
                     var acBonus = supportCondition.SaveBonus;
                     rollModifier += acBonus;
                     modifierTrends.Add(new TrendInfo(acBonus, FeatureSourceType.Condition, BindingDefinition.Name,

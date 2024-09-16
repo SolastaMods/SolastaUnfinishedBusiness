@@ -13,11 +13,11 @@
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
-    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -454,11 +454,11 @@
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
-      "aoeScoreMultiplier": 1.0,
+      "aoeScoreMultiplier": 1.5,
       "cooldownForCaster": 0,
-      "cooldownForBattle": 0,
+      "cooldownForBattle": 2,
       "sortingScoreMultiplier": 1.0,
-      "dynamicCooldown": false
+      "dynamicCooldown": true
     },
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false,
