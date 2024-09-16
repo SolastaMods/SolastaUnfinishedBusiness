@@ -33,6 +33,8 @@ public class CursorMotionHelper : MonoBehaviour
 
     internal static void Activate(CursorLocation cursor)
     {
+        if (!Main.Settings.ShowMotionFormPreview) { return; }
+
         if (!cursor.TryGetComponent<CursorMotionHelper>(out var helper))
         {
             helper = cursor.gameObject.AddComponent<CursorMotionHelper>();
@@ -52,6 +54,8 @@ public class CursorMotionHelper : MonoBehaviour
 
     internal static void RefreshHover(CursorLocationGeometricShape cursor)
     {
+        if (!Main.Settings.ShowMotionFormPreview) { return; }
+
         if (cursor.TryGetComponent<CursorMotionHelper>(out var helper))
         {
             helper.RefreshAoETargets(cursor);
