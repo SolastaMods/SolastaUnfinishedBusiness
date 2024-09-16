@@ -2,7 +2,7 @@
 <Settings>
     <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
-    <SelectedTab>4</SelectedTab>
+    <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -423,6 +423,8 @@
     <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
     <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
     <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
+    <AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>false
+    </AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>
     <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <AccountForAllDiceOnFollowUpStrike>false</AccountForAllDiceOnFollowUpStrike>
@@ -1108,8 +1110,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

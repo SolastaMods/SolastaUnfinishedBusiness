@@ -401,6 +401,7 @@
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
     <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
+    <AddFallProneActionToAllRaces>false</AddFallProneActionToAllRaces>
     <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
     <EnableAlternateHuman>true</EnableAlternateHuman>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
@@ -447,6 +448,7 @@
     <EnableRogueStrSaving>true</EnableRogueStrSaving>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
+    <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
     <OfferAdditionalLoreFriendlyNames>true</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>true</UnlockAllNpcFaces>
     <AllowUnmarkedSorcerers>true</AllowUnmarkedSorcerers>
@@ -518,6 +520,8 @@
     <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
     <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
     <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
+    <AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>false
+    </AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>
     <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <AccountForAllDiceOnFollowUpStrike>true</AccountForAllDiceOnFollowUpStrike>
@@ -526,6 +530,8 @@
     <FlightSuspendWingedBoots>true</FlightSuspendWingedBoots>
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <EnableHigherGroundRules>true</EnableHigherGroundRules>
+    <EnablePullPushOnVerticalDirection>false</EnablePullPushOnVerticalDirection>
+    <ModifyGravitySlam>true</ModifyGravitySlam>
     <FullyControlConjurations>true</FullyControlConjurations>
     <EnableTeleportToRemoveRestrained>false</EnableTeleportToRemoveRestrained>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>true</ColdResistanceAlsoGrantsImmunityToChilledCondition>
@@ -538,7 +544,6 @@
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
     <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
-    <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
     <EnableMonkHandwrapsUseGauntletSlot>true</EnableMonkHandwrapsUseGauntletSlot>
     <EnableGauntletMainAttacks>false</EnableGauntletMainAttacks>
     <AddPickPocketableLoot>true</AddPickPocketableLoot>
@@ -1349,6 +1354,7 @@
                     <string>PsychicLance</string>
                     <string>EmpoweredKnowledge</string>
                     <string>SynapticStatic</string>
+                    <string>Glibness</string>
                     <string>MindBlank</string>
                     <string>Foresight</string>
                     <string>PowerWordHeal</string>
@@ -1394,6 +1400,7 @@
             <value>
                 <ArrayOfString>
                     <string>AcidClaws</string>
+                    <string>CreateBonfire</string>
                     <string>AirBlast</string>
                     <string>Infestation</string>
                     <string>PrimalSavagery</string>
@@ -1433,6 +1440,7 @@
             <value>
                 <ArrayOfString>
                     <string>BoomingBlade</string>
+                    <string>CreateBonfire</string>
                     <string>ResonatingStrike</string>
                     <string>LightningLure</string>
                     <string>SunlightBlade</string>
@@ -1517,6 +1525,7 @@
                     <string>Foresight</string>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
+                    <string>CreateBonfire</string>
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
@@ -1592,6 +1601,7 @@
                     <string>EmpoweredKnowledge</string>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
+                    <string>CreateBonfire</string>
                     <string>ResonatingStrike</string>
                     <string>Infestation</string>
                     <string>LightningLure</string>
@@ -1627,6 +1637,7 @@
                     <string>Scatter</string>
                     <string>MysticalCloak</string>
                     <string>CrownOfStars</string>
+                    <string>Glibness</string>
                     <string>MaddeningDarkness</string>
                     <string>Foresight</string>
                     <string>PowerWordKill</string>
@@ -1651,6 +1662,7 @@
                 <ArrayOfString>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
+                    <string>CreateBonfire</string>
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
@@ -1714,6 +1726,7 @@
                     <string>SynapticStatic</string>
                     <string>Telekinesis</string>
                     <string>FizbanPlatinumShield</string>
+                    <string>GravityFissure</string>
                     <string>PoisonWave</string>
                     <string>RingOfBlades</string>
                     <string>Scatter</string>
@@ -1980,8 +1993,10 @@
     <EnableLoggingInvalidReferencesInUserCampaigns>true</EnableLoggingInvalidReferencesInUserCampaigns>
     <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
     <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
-    <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
     <UnleashEnemyAsNpc>false</UnleashEnemyAsNpc>
+    <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
+    <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
+    <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
