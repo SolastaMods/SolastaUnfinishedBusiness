@@ -242,8 +242,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create(Earthquake)
                     // only required to get the SFX in this particular scenario to activate
-                    // deviates a bit from TT but not OP at all to have difficult terrain until start of turn
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Line, 12)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -257,6 +256,7 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeForce, 8, DieType.D8)
                             .Build(),
                         // only required to get the SFX in this particular scenario to activate
+                        // dangerous zone won't be enforced here as not a concentration spell
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false))
                     .SetImpactEffectParameters(EldritchBlast)
                     .Build())
@@ -282,7 +282,7 @@ internal static partial class SpellBuilders
         {
             if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
             {
-                effectDescription.EffectForms[0].DamageForm.diceNumber =
+                effectDescription.EffectForms[0].DamageForm.DiceNumber =
                     8 + (rulesetEffectPower.usablePower.spentPoints - 6);
             }
 
@@ -323,7 +323,6 @@ internal static partial class SpellBuilders
                 // create tab to select best position and set initial to far beyond
                 .ToDictionary(x => x, _ => new Container());
 
-
             CharacterActionMagicEffectPatcher.CoveredFloorPositions.Reverse();
 
             // select the best position possible to force a drag to effect origin
@@ -361,7 +360,7 @@ internal static partial class SpellBuilders
             var usablePower = PowerProvider.Get(powerDrag, rulesetCharacter);
 
             // use spentPoints to store effect level to be used later by power
-            usablePower.spentPoints = action.ActionParams.activeEffect.EffectLevel;
+            usablePower.spentPoints = action.ActionParams.RulesetEffect.EffectLevel;
 
             // drag each contender to the selected position starting with the ones closer to the line
             foreach (var x in contendersAndPositions
@@ -922,6 +921,11 @@ internal static partial class SpellBuilders
 
         conditionRingOfBlades.GuiPresentation.description = Gui.EmptyContent;
 
+        var behavior = new ModifyEffectDescriptionRingOfBlades(powerRingOfBlades, conditionRingOfBlades);
+
+        powerRingOfBlades.AddCustomSubFeatures(behavior);
+        powerRingOfBladesFree.AddCustomSubFeatures(behavior);
+
         var conditionRingOfBladesFree = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Free")
             .SetGuiPresentationNoContent(true)
@@ -960,7 +964,6 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(HypnoticPattern)
                     .SetEffectEffectParameters(PowerMagebaneSpellCrusher)
                     .Build())
-            .AddCustomSubFeatures(new ModifyEffectDescriptionRingOfBlades(powerRingOfBlades, conditionRingOfBlades))
             .AddToDB();
 
         return spell;
@@ -1003,15 +1006,11 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (!character.TryGetConditionOfCategoryAndType(
+            if (character.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionRingOfBlades.Name, out var activeCondition))
             {
-                return effectDescription;
+                effectDescription.EffectForms[0].DamageForm.DiceNumber = 4 + (activeCondition.EffectLevel - 6);
             }
-
-            damageForm.diceNumber = 4 + (activeCondition.EffectLevel - 6);
 
             return effectDescription;
         }

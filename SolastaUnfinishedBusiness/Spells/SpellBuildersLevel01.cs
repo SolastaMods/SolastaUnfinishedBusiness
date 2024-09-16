@@ -1819,7 +1819,7 @@ internal static partial class SpellBuilders
         {
             if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
             {
-                effectDescription.FindFirstDamageForm().DiceNumber =
+                effectDescription.EffectForms[0].DamageForm.DiceNumber =
                     2 + (rulesetEffectPower.usablePower.spentPoints - 1);
             }
 
@@ -1847,7 +1847,7 @@ internal static partial class SpellBuilders
             var usablePower = PowerProvider.Get(powerIceBlade, rulesetCaster);
 
             // use spentPoints to store effect level to be used later by power
-            usablePower.spentPoints = action.ActionParams.activeEffect.EffectLevel;
+            usablePower.spentPoints = action.ActionParams.RulesetEffect.EffectLevel;
 
             // need to loop over target characters to support twinned metamagic scenarios
             foreach (var targets in actionCastSpell.ActionParams.TargetCharacters
@@ -2779,15 +2779,11 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (!character.TryGetConditionOfCategoryAndType(
+            if (character.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionSpikeBarrage.Name, out var activeCondition))
             {
-                return effectDescription;
+                effectDescription.EffectForms[0].DamageForm.DiceNumber = activeCondition.EffectLevel;
             }
-
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            damageForm.DiceNumber = activeCondition.EffectLevel;
 
             return effectDescription;
         }
@@ -2939,16 +2935,12 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var rulesetSpell = character.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
-
-            if (rulesetSpell == null)
+            if (character.ConcentratedSpell != null &&
+                character.ConcentratedSpell.SpellDefinition == spellWitchBolt)
             {
-                return effectDescription;
+                effectDescription.EffectForms[0].DamageForm.DiceNumber =
+                    1 + (character.ConcentratedSpell.EffectLevel - 1);
             }
-
-            var effectLevel = rulesetSpell.EffectLevel;
-
-            effectDescription.FindFirstDamageForm().DiceNumber = effectLevel;
 
             return effectDescription;
         }

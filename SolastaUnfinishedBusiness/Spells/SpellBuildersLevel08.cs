@@ -373,7 +373,7 @@ internal static partial class SpellBuilders
         {
             if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
             {
-                effectDescription.FindFirstDamageForm().DiceNumber =
+                effectDescription.EffectForms[0].DamageForm.DiceNumber =
                     7 + (2 * (rulesetEffectPower.usablePower.spentPoints - 8));
             }
 
