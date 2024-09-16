@@ -4,6 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -137,6 +138,7 @@ public static class CursorLocationSelectTargetPatcher
         [UsedImplicitly]
         public static void Postfix(CursorLocationSelectTarget __instance)
         {
+            CursorMotionHelper.Activate(__instance);
             if (!TryGetModifyTeleportEffectBehavior(__instance.ActionParams, out var modifyTeleportEffectBehavior))
             {
                 return;
@@ -157,6 +159,7 @@ public static class CursorLocationSelectTargetPatcher
         [UsedImplicitly]
         public static void Prefix(CursorLocationSelectTarget __instance)
         {
+            CursorMotionHelper.Deactivate(__instance);
             if (!TryGetModifyTeleportEffectBehavior(__instance.ActionParams, out _))
             {
                 return;
