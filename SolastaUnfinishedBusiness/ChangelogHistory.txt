@@ -1,3 +1,14 @@
+1.5.97.31:
+
+- added Interface > Game UI > 'Show preview of Push and Pull effects'
+- fixed mod initialization sequence introduced on previous version
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
+- Show preview of Push and Pull effects still need some tweaks to integrate correctly with Gravity Fissure
+
 1.5.97.30:
 
 - added Character > General 'Add the Fall Prone action to all playable races'
@@ -35,11 +46,6 @@
 - improved mod UI to ensure all settings required to be in sync on MP sessions are now under Gameplay
 - improved Sorcerer Wild Magic tides of chaos, Conversion Slots, and Shorthand versatilities to react on ability checks
 - improved victory modal export behavior to allow heroes not in pool to be exported [VANILLA]
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
 
 1.5.97.29:
 
