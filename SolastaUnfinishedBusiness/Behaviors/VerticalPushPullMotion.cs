@@ -29,7 +29,7 @@ internal static class VerticalPushPullMotion
         if (reverse)
         {
             direction = -direction;
-            var b = ((int)direction.Manhattan()) - 1;
+            var b = (int)direction.Manhattan() - 1;
             if (distance == PullOntoCaster) { b += 1; } //if we have magic number - pull right on top of source
 
             distance = distance <= 0 ? b : Mathf.Min(distance, b);

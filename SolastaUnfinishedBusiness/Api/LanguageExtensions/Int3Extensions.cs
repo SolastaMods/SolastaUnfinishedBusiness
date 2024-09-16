@@ -1,15 +1,19 @@
-﻿using System;
-using TA;
+﻿using TA;
 using UnityEngine;
+#if DEBUG
+using System;
+#endif
 
 namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 public static class Int3Extensions
 {
+#if DEBUG
     public static int Manhattan(this int3 self)
     {
         return Math.Max(Math.Abs(self.x), Math.Max(Math.Abs(self.y), Math.Abs(self.z)));
     }
+#endif
 
     public static int Manhattan(this int3 self, int3 other)
     {

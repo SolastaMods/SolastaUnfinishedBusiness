@@ -302,6 +302,7 @@ ModUi/&ShowChannelDivinityOnPortrait=Zeigt an, wie viele <color=#D89555>Channel 
 ModUi/&ShowCraftedItemOnRecipeIcon=Symbol für hergestellte Gegenstände neben Rezeptgegenständen im Shop und Inventar anzeigen <i><color=#F0DAA0>[Wenn Sie mit der Maus darüber fahren, wird ein Tooltip für hergestellte Gegenstände angezeigt]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezepte in detaillierten Tooltips anzeigen
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
+ModUi/&ShowMotionFormPreview=Vorschau der <b>Push</b>- und <b>Pull</b>-Effekte anzeigen
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alles an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
 ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie den Verlust der Tarnung, wenn ein Waffen- oder Zauberangriff trifft

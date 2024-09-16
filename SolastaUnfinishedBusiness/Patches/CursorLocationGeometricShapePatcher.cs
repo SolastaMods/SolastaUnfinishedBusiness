@@ -88,42 +88,39 @@ public static class CursorLocationGeometricShapePatcher
                 new CodeInstruction(OpCodes.Call, myUpdateCubePositionRegularMethod));
         }
     }
-    
+
     //PATCH: supports `IModifyTeleportEffectBehavior`
     [HarmonyPatch(typeof(CursorLocationGeometricShape), nameof(CursorLocationGeometricShape.Activate))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Activate_Patch
     {
-       
         [UsedImplicitly]
         public static void Postfix(CursorLocationGeometricShape __instance)
         {
             CursorMotionHelper.Activate(__instance);
         }
     }
-    
+
     //PATCH: supports `IModifyTeleportEffectBehavior`
     [HarmonyPatch(typeof(CursorLocationGeometricShape), nameof(CursorLocationGeometricShape.Deactivate))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Deactivate_Patch
     {
-       
         [UsedImplicitly]
         public static void Prefix(CursorLocationGeometricShape __instance)
         {
             CursorMotionHelper.Deactivate(__instance);
         }
     }
-    
+
     //PATCH: supports `IModifyTeleportEffectBehavior`
     [HarmonyPatch(typeof(CursorLocationGeometricShape), nameof(CursorLocationGeometricShape.RefreshHover))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshHover_Patch
     {
-       
         [UsedImplicitly]
         public static void Postfix(CursorLocationGeometricShape __instance)
         {
