@@ -94,6 +94,11 @@ internal static class Main
             return false;
         }
 
+        EnsureFolderExists(SettingsFolder);
+        DocumentationContext.EnsureFolderExists();
+        PortraitsContext.EnsureFolderExists();
+        SaveByLocationContext.EnsureFoldersExist();
+
         try
         {
             Mod = new ModManager<Core, Settings>();
@@ -131,8 +136,6 @@ internal static class Main
 
     internal static void LoadSettingFilenames()
     {
-        EnsureFolderExists(SettingsFolder);
-
         SettingsFiles = Directory.GetFiles(SettingsFolder)
             .Where(x => x.EndsWith(".xml"))
             .Select(Path.GetFileNameWithoutExtension)

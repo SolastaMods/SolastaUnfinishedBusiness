@@ -17,7 +17,7 @@ public static class PortraitsContext
     private static readonly string PersonalFolder = $"{PortraitsFolder}/Personal";
     private static readonly string MonstersFolder = $"{PortraitsFolder}/Monsters";
 
-    internal static void Load()
+    internal static void EnsureFolderExists()
     {
         Main.EnsureFolderExists(PortraitsFolder);
         Main.EnsureFolderExists(PreGenFolder);

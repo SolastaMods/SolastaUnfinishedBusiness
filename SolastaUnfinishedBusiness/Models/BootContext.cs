@@ -27,7 +27,6 @@ internal static class BootContext
         DiagnosticsContext.CacheTaDefinitions();
 
         // Load Portraits, Translations and Resources Locator after
-        PortraitsContext.Load();
         TranslatorContext.Load();
         ResourceLocatorContext.Load();
 

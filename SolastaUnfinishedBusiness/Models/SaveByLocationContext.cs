@@ -33,6 +33,13 @@ internal static class SaveByLocationContext
 
     internal static CustomDropDown Dropdown { get; private set; }
 
+    internal static void EnsureFoldersExist()
+    {
+        Main.EnsureFolderExists(OfficialSaveGameDirectory);
+        Main.EnsureFolderExists(LocationSaveGameDirectory);
+        Main.EnsureFolderExists(CampaignSaveGameDirectory);
+    }
+
     private static List<SavePlace> GetAllSavePlaces()
     {
         // Find the most recently touched save file and select the correct location/campaign for that save
@@ -79,11 +86,6 @@ internal static class SaveByLocationContext
         {
             return;
         }
-
-        // Ensure folders exist
-        Main.EnsureFolderExists(OfficialSaveGameDirectory);
-        Main.EnsureFolderExists(LocationSaveGameDirectory);
-        Main.EnsureFolderExists(CampaignSaveGameDirectory);
 
         // Find the most recently touched save file and select the correct location/campaign for that save
         var place = GetMostRecentPlace();
