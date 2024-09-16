@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using TA;
 using UnityEngine;
+using static MotionForm;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -174,13 +175,12 @@ public class CursorMotionHelper : MonoBehaviour
         //TODO: cache acting character and their gravity on Activate?
         var src = Info.Type switch
         {
-            MotionType.Down => (target.locationPosition + new int3(0, 10, 0)).ToVector3() + CENTER,
+            DirectionType.Down => (target.locationPosition + new int3(0, 10, 0)).ToVector3() + CENTER,
             _ when Info.FromOrigin => AimedPosition.ToVector3() + CENTER,
             _ => PositioningService.ComputeGravityCenterPosition(ActingCharacter)
         };
 
-
-        var reverse = Info.Type == MotionType.Pull;
+        var reverse = Info.Type == DirectionType.Pull;
         var distance = Info.Distance;
         if (EnvService.ComputePushDestination(src, target, distance, reverse, PositioningService, out var dst, out _))
         {
@@ -259,20 +259,22 @@ public class CursorMotionHelper : MonoBehaviour
         if (effect == null) { return null; }
 
         //TODO: check special cases like Eldritch Blast with invocations
+        //TODO: check MotionForm.MotionType.PushFromWall
         var motion = effect.EffectDescription.effectForms
             .Where(f => f.FormType == EffectForm.EffectFormType.Motion)
             .Select(f => f.MotionForm)
-            .FirstOrDefault();
+            .FirstOrDefault(m => m.Type
+                is MotionType.DragToOrigin or MotionType.PushFromOrigin or (MotionType)ExtraMotionType.PushDown);
 
         if (motion == null) { return null; }
 
         var fromOrigin = effect.SourceDefinition.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>();
 
-        MotionType type = motion.Type switch
+        DirectionType type = motion.Type switch
         {
-            (MotionForm.MotionType)ExtraMotionType.PushDown => MotionType.Down,
-            MotionForm.MotionType.DragToOrigin => MotionType.Pull,
-            _ => MotionType.Push
+            (MotionType)ExtraMotionType.PushDown => DirectionType.Down,
+            MotionType.DragToOrigin => DirectionType.Pull,
+            _ => DirectionType.Push
         };
 
         return new MotionInfo { Distance = motion.Distance, Type = type, FromOrigin = fromOrigin };
@@ -282,11 +284,11 @@ public class CursorMotionHelper : MonoBehaviour
 internal class MotionInfo
 {
     public int Distance;
-    public MotionType Type;
+    public DirectionType Type;
     public bool FromOrigin;
 }
 
-internal enum MotionType
+internal enum DirectionType
 {
     Push, Pull, Down
 }
