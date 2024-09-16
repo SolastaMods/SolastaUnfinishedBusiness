@@ -191,7 +191,10 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    internal static InvocationDefinition BuildGraspingBlast()
+    private static InvocationDefinition _graspingBlast;
+    public static InvocationDefinition GraspingBlast => _graspingBlast ??= BuildGraspingBlast();
+    
+    private static InvocationDefinition BuildGraspingBlast()
     {
         const string NAME = "InvocationGraspingBlast";
 
