@@ -29,6 +29,7 @@
 - fixed Transmuted metamagic only changing first target damage type with AoE spells
 - fixed Wrathful Smite to do a wisdom ability check against caster DC
 - improved combat log so players can see when characters use dash action [VANILLA]
+- improved hero positioning on party spawning with parties bigger than 4
 - improved location gadgets to trigger "try alter save outcome" reactions [VANILLA]
 - improved Maneuvering Attack, and Martial Warlord strategic repositioning to use a run stance
 - improved mod UI to ensure all settings required to be in sync on MP sessions are now under Gameplay
