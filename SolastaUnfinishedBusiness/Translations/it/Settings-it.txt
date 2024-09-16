@@ -302,6 +302,7 @@ ModUi/&ShowChannelDivinityOnPortrait=Mostra quanti usi di <color=#D89555>Canale 
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato vicino all'oggetto della ricetta nel negozio e nell'inventario <i><color=#F0DAA0>[Passando il mouse sopra verrà mostrato un suggerimento per l'oggetto creato]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione nelle descrizioni comandi dettagliate
 ModUi/&ShowDescriptions=Mostra descrizioni
+ModUi/&ShowMotionFormPreview=Mostra l'anteprima degli effetti <b>Push</b> e <b>Pull</b>
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro del livello dell'incantesimo</color> <color=#F0DAA0>[-1 mostra tutto]</color></i></b>
 ModUi/&SpellsMenu=Incantesimi
 ModUi/&StealthBreaksWhenAttackHits=Abilita la perdita furtiva quando l'arma o l'attacco con incantesimo colpisce

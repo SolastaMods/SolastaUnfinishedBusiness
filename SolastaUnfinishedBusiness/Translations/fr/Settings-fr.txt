@@ -302,6 +302,7 @@ ModUi/&ShowChannelDivinityOnPortrait=Montrez combien de <color=#D89555>Channel D
 ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué à proximité de l'objet de recette dans la boutique et l'inventaire <i><color=#F0DAA0>[En passant la souris dessus, l'info-bulle de l'objet fabriqué s'affichera]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette de fabrication dans des info-bulles détaillées
 ModUi/&ShowDescriptions=Afficher les descriptions
+ModUi/&ShowMotionFormPreview=Afficher l'aperçu des effets <b>Push</b> et <b>Pull</b>
 ModUi/&SpellLevelFilter=<b><i><color=white>Filtre de niveau de sort</color> <color=#F0DAA0>[-1 affiche tout]</color></i></b>
 ModUi/&SpellsMenu=Sorts
 ModUi/&StealthBreaksWhenAttackHits=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort frappe

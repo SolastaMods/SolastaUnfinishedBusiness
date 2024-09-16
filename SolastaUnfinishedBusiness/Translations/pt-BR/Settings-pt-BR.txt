@@ -302,6 +302,7 @@ ModUi/&ShowChannelDivinityOnPortrait=Mostre quantos usos de <color=#D89555>Canal
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar ícone de item criado próximo ao item de receita na loja e no inventário <i><color=#F0DAA0>[Passar o mouse sobre ele exibirá uma dica para o item criado]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de artesanato em dicas detalhadas
 ModUi/&ShowDescriptions=Mostrar descrições
+ModUi/&ShowMotionFormPreview=Mostrar pré-visualização dos efeitos <b>Push</b> e <b>Pull</b>
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> <color=#F0DAA0>[-1 exibe tudo]</color></i></b>
 ModUi/&SpellsMenu=Feitiços
 ModUi/&StealthBreaksWhenAttackHits=Ative a perda furtiva quando o ataque de arma ou feitiço atingir

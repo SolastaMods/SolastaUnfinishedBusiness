@@ -302,6 +302,7 @@ ModUi/&ShowChannelDivinityOnPortrait=Показывать на портрете 
 ModUi/&ShowCraftedItemOnRecipeIcon=Показывать иконку создаваемого предмета рядом с рецептом в магазине и инвентаре <i><color=#F0DAA0>[При наведении курсора будет отображаться информация о создаваемом предмете]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Показывать рецепт создания в подробных подсказках
 ModUi/&ShowDescriptions=Показывать описания
+ModUi/&ShowMotionFormPreview=Показать предварительный просмотр эффектов <b>Push</b> и <b>Pull</b>
 ModUi/&SpellLevelFilter=<b><i><color=white>Уровень заклинаний</color> <color=#F0DAA0>[-1 отображает все]</color></i></b>
 ModUi/&SpellsMenu=Заклинания
 ModUi/&StealthBreaksWhenAttackHits=Включить потерю скрытности при попадании атаки оружием или заклинанием

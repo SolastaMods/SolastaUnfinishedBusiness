@@ -302,6 +302,7 @@ ModUi/&ShowChannelDivinityOnPortrait=ヒーローがポートレートに持っ�
 ModUi/&ShowCraftedItemOnRecipeIcon=ショップやインベントリのレシピ アイテムの近くに作成されたアイテムのアイコンを表示します <i><color=#F0DAA0>[カーソルを合わせると作成されたアイテムのツールチップが表示されます]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=詳細なツールチップにクラフトレシピを表示
 ModUi/&ShowDescriptions=説明を表示
+ModUi/&ShowMotionFormPreview=<b>プッシュ</b>と<b>プル</b>効果のプレビューを表示
 ModUi/&SpellLevelFilter=<b><i><color=white>スペル レベル フィルタ</color> <color=#F0DAA0>[-1 がすべて表示]</color></i></b>
 ModUi/&SpellsMenu=呪文
 ModUi/&StealthBreaksWhenAttackHits=武器または呪文攻撃がヒットしたときにステルス喪失を有効にする

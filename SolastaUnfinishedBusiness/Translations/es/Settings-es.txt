@@ -302,6 +302,7 @@ ModUi/&ShowChannelDivinityOnPortrait=Muestra cuántos usos de <color=#D89555>Cha
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar el icono del artículo elaborado cerca del artículo de receta en la tienda y el inventario <i><color=#F0DAA0>[Al pasar el cursor sobre él se mostrará información sobre herramientas para el artículo elaborado]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receta de elaboración en información sobre herramientas detallada
 ModUi/&ShowDescriptions=Mostrar descripciones
+ModUi/&ShowMotionFormPreview=Mostrar vista previa de los efectos <b>Push</b> y <b>Pull</b>
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <color=#F0DAA0>[-1 muestra todo]</color></i></b>
 ModUi/&SpellsMenu=Hechizos
 ModUi/&StealthBreaksWhenAttackHits=Habilite la pérdida de sigilo cuando se produzca un ataque con arma o hechizo.
