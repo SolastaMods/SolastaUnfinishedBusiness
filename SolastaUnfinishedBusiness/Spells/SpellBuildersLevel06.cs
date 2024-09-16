@@ -10,10 +10,10 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -296,10 +296,9 @@ internal static partial class SpellBuilders
             var positioningCharacterService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var dummy = locationCharacterService.DummyCharacter;
 
-            // collect all covered positions except for the one under the caster
-            var positions = CharacterActionMagicEffectPatcher.CoveredFloorPositions
-                .Where(x => x != actingCharacter.LocationPosition)
-                .ToList();
+            // collect all covered positions
+            var positions =
+                GetAffectedPositions(action.ActingCharacter, action.ActionParams, positioningCharacterService);
 
             // collect all contenders that should be dragged
             var targets = GetPullTargets(actingCharacter, positions, locationCharacterService)
@@ -383,6 +382,48 @@ internal static partial class SpellBuilders
             return affectedPositions
                 .OrderBy(t => (t.ToVector3() - center).magnitude)
                 .FirstOrDefault();
+        }
+
+        internal static List<int3> GetAffectedPositions(
+            GameLocationCharacter actingCharacter,
+            CharacterActionParams actionParams,
+            IGameLocationPositioningService positioningService
+        )
+        {
+            var targetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
+            var rulesetEffect = actionParams.RulesetEffect;
+            var origin = new Vector3();
+            var direction = new Vector3();
+            List<int3> positions = [];
+            List<GameLocationCharacter> affectedCharacters = [];
+
+            var impactPoint = positioningService.GetWorldPositionFromGridPosition(actionParams.Positions[0]);
+
+            targetingService.ComputeTargetingParameters(
+                impactPoint,
+                actingCharacter,
+                actingCharacter.LocationPosition,
+                MetricsDefinitions.GeometricShapeType.Line,
+                rulesetEffect.EffectDescription.RangeType,
+                ref origin,
+                ref direction);
+
+            targetingService.ComputeTargetsOfAreaOfEffect(
+                origin,
+                direction,
+                impactPoint,
+                MetricsDefinitions.GeometricShapeType.Line,
+                actingCharacter.Side,
+                rulesetEffect.EffectDescription,
+                rulesetEffect.ComputeTargetParameter(),
+                rulesetEffect.ComputeTargetParameter2(),
+                affectedCharacters,
+                false,
+                actingCharacter,
+                coveredFloorPositions: positions,
+                groundOnly: false);
+
+            return positions;
         }
     }
 
@@ -513,7 +554,7 @@ internal static partial class SpellBuilders
 
         conditionMark.GuiPresentation.description = Gui.EmptyContent;
 
-        var lightSourceForm = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+        var lightSourceForm = SpellDefinitions.Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -529,7 +570,7 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Light)
+                    .Create(SpellDefinitions.Light)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(
