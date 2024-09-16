@@ -95,7 +95,6 @@ internal static class Main
         }
 
         EnsureFolderExists(SettingsFolder);
-        DocumentationContext.EnsureFolderExists();
         PortraitsContext.EnsureFolderExists();
         SaveByLocationContext.EnsureFoldersExist();
 
