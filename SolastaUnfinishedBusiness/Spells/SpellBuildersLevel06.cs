@@ -241,7 +241,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(EffectDescriptionBuilder.Create(Earthquake)
                 // only required to get the SFX in this particular scenario to activate
                 .SetDurationData(DurationType.Round)
-                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Line, 12)
+                .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Line, 12, onlyGround: true)
                 .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                     EffectDifficultyClassComputation.SpellCastingFeature)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
@@ -418,7 +418,7 @@ internal static partial class SpellBuilders
                 false,
                 actingCharacter,
                 coveredFloorPositions: positions,
-                groundOnly: false);
+                groundOnly: true);
 
             return [.. positions.OrderBy(a => int3.Distance(castingPosition, a))];
         }
