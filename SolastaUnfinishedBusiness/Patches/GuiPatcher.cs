@@ -4,8 +4,10 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
+using static MotionForm;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -58,6 +60,9 @@ public static class GuiPatcher
                     Gui.FormatDistance(motionForm.Distance)),
                 ExtraMotionType.PushDown => Gui.Format("Rules/&MotionFormPushDownFormat",
                     Gui.FormatDistance(motionForm.Distance)),
+                (ExtraMotionType)MotionType.DragToOrigin
+                    when motionForm.Distance == VerticalPushPullMotion.PullOntoCaster
+                    => Gui.Localize("Rules/&MotionFormPullOnTop"),
                 _ => __result
             };
         }

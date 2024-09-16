@@ -8,6 +8,8 @@ namespace SolastaUnfinishedBusiness.Behaviors;
 
 internal static class VerticalPushPullMotion
 {
+    //If this is used as pull distance, it will pull not next to caster, but on top of caster
+    public const int PullOntoCaster = -100;
     private const double Epsilon = 0.015;
     private const double StepHigh = 0.4 - Epsilon;
     private const double StepLow = 0.1 - Epsilon;
@@ -28,6 +30,8 @@ internal static class VerticalPushPullMotion
         {
             direction = -direction;
             var b = (int)direction.Manhattan() - 1;
+            if (distance == PullOntoCaster) { b += 1; } //if we have magic number - pull right on top of source
+
             distance = distance <= 0 ? b : Mathf.Min(distance, b);
         }
         else
