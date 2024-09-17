@@ -274,16 +274,20 @@ internal static class LightingAndObscurementContext
             }
         }
 
+        //check line of sight
+        if (!instance.IsCellPerceivedByCharacter(cellPosition, finalSensor))
+        {
+            return false;
+        }
+
         // use the improved lighting state detection to diff between darkness and heavily obscured
         var targetLightingState = ComputeLightingStateOnTargetPosition(finalSensor, cellPosition);
 
         // use vanilla if setting is off but still supporting additionalBlockedLightingState logic
         if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
-            var result = instance.IsCellPerceivedByCharacter(cellPosition, finalSensor);
-
             // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
-            return result && (additionalBlockedLightingState == LightingState.Darkness ||
+            return (additionalBlockedLightingState == LightingState.Darkness ||
                               targetLightingState != additionalBlockedLightingState);
         }
 
