@@ -84,7 +84,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position, requireVisibility: true)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                 .SetEffectForms(
                     EffectFormBuilder.MotionForm(MotionForm.MotionType.TeleportToDestination),
                     EffectFormBuilder.AddConditionForm(conditionSilhouetteStep, true, true)
