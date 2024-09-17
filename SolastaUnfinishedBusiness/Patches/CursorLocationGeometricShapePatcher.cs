@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -125,6 +127,40 @@ public static class CursorLocationGeometricShapePatcher
         public static void Postfix(CursorLocationGeometricShape __instance)
         {
             CursorMotionHelper.RefreshHover(__instance);
+        }
+
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            const int LOAD_SHIFT = 10;
+            const int COMPUTE_SHIFT = 25;
+
+            var code = instructions.ToList();
+            var loadParam =
+                code.FindIndex(i => i.Calls(nameof(IGameLocationTargetingService.ComputeTargetingParameters)));
+            var callCompute = code.FindIndex(i =>
+                i.Calls(nameof(IGameLocationTargetingService.ComputeTargetsOfAreaOfEffect)));
+
+            if (loadParam >= LOAD_SHIFT && callCompute >= COMPUTE_SHIFT)
+            {
+                code[callCompute - COMPUTE_SHIFT] = code[loadParam - LOAD_SHIFT];
+            }
+            else
+            {
+                Main.Error("Failed to apply transpiler patch [CursorLocationGeometricShape.RefreshHover.1]!");
+                Main.Error($"Couldn't find some insertion points load:{loadParam} compute:{callCompute}");
+            }
+
+            var oldGetter = typeof(CursorLocation).GetProperty(nameof(CursorLocation.HoveredPosition))!.GetGetMethod();
+            var newGetter = new Func<CursorLocation, Vector3>(GetHoveredPosition).Method;
+
+            return code.ReplaceCall(oldGetter, 1, "CursorLocationGeometricShape.RefreshHover.2",
+                new CodeInstruction(OpCodes.Call, newGetter));
+        }
+
+        private static Vector3 GetHoveredPosition(CursorLocation cursor)
+        {
+            return cursor.HoveredPosition + CursorMotionHelper.CursorHoverShift;
         }
     }
 }
