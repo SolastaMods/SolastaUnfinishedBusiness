@@ -157,6 +157,16 @@ internal class EffectFormBuilder
             .Build();
     }
 
+    internal static EffectForm AddConditionForm(
+        ConditionDefinition condition,
+        bool applyToSelf = false,
+        bool forceOnSelf = false,
+        params ConditionDefinition[] conditionsList)
+    {
+        return ConditionForm(condition, global::ConditionForm.ConditionOperation.Add, applyToSelf, forceOnSelf,
+            conditionsList);
+    }
+
 #if false
     internal EffectFormBuilder OverrideSavingThrowInfo(
         string savingThrowAbility,
