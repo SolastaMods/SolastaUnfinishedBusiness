@@ -301,9 +301,9 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (!action.ActionParams.TargetAction.Countered ||
-                (action.ActionParams.RulesetEffect.SourceDefinition != Counterspell &&
-                 action.ActionParams.RulesetEffect.SourceDefinition != powerCounterSpell))
+            if ((action.ActionParams.RulesetEffect.SourceDefinition != Counterspell &&
+                 action.ActionParams.RulesetEffect.SourceDefinition != powerCounterSpell)
+                || action.ActionParams.TargetAction?.Countered != true)
             {
                 yield break;
             }
