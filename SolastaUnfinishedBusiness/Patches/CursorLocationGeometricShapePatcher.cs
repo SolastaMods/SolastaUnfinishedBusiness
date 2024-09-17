@@ -151,16 +151,36 @@ public static class CursorLocationGeometricShapePatcher
                 Main.Error($"Couldn't find some insertion points load:{loadParam} compute:{callCompute}");
             }
 
+            var magnetic = code.FindIndex(i =>
+                i.opcode == OpCodes.Stfld && i.operand.ToString().Contains("hasMagneticTargeting"));
+            if (magnetic >= 0)
+            {
+                var newMagnetic = new Action<CursorLocationGeometricShape, bool>(InitMagnetic).Method;
+                code[magnetic] = new CodeInstruction(OpCodes.Call, newMagnetic);
+            }
+            else
+            {
+                Main.Error("Failed to apply transpiler patch [CursorLocationGeometricShape.RefreshHover.2]!");
+                Main.Error($"Couldn't find magnetic:{loadParam} point");
+            }
+
             var oldGetter = typeof(CursorLocation).GetProperty(nameof(CursorLocation.HoveredPosition))!.GetGetMethod();
             var newGetter = new Func<CursorLocation, Vector3>(GetHoveredPosition).Method;
 
-            return code.ReplaceCall(oldGetter, 1, "CursorLocationGeometricShape.RefreshHover.2",
+            return code.ReplaceCall(oldGetter, 1, "CursorLocationGeometricShape.RefreshHover.3",
                 new CodeInstruction(OpCodes.Call, newGetter));
         }
 
         private static Vector3 GetHoveredPosition(CursorLocation cursor)
         {
             return cursor.HoveredPosition + CursorMotionHelper.CursorHoverShift;
+        }
+
+        private static void InitMagnetic(CursorLocationGeometricShape cursor, bool _)
+        {
+            cursor.hasMagneticTargeting = Main.Settings.ShiftToSnapLineSpells
+                                          && Global.IsShiftPressed
+                                          && cursor.shapeType == MetricsDefinitions.GeometricShapeType.Line;
         }
     }
 }

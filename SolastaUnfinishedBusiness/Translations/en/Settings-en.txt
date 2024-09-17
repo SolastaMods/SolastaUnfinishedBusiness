@@ -297,6 +297,7 @@ ModUi/&SettingsLoad=• Load an exported setting
 ModUi/&SettingsOpenFolder=Open exported settings folder
 ModUi/&SettingsRefresh=Refresh
 ModUi/&SettingsRemove=Remove
+ModUi/&ShiftToSnapLineSpells=Hold <color=#1E81B0>SHIFT</color> to snap line spells to grid. <i><color=#F0DAA0>[Without snapping actual line placement might differ from preview.]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Show button that opens info about controlled monster <i><color=#F0DAA0>[wild-shaped druids, summons, NPC followers, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Show how many <color=#D89555>Channel Divinity</color> uses a hero has on their portrait, similar to sorcery points
 ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory <i><color=#F0DAA0>[Hovering over it will show tooltip for crafted item]</color></i>

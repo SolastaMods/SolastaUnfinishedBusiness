@@ -298,9 +298,10 @@ internal static partial class SpellBuilders
             var dummy = locationCharacterService.DummyCharacter;
 
             // collect all covered positions
-            var positions =
-                GetAffectedPositions(action.ActingCharacter, action.ActionParams.RulesetEffect,
-                    action.ActionParams.CursorHoveredPosition);
+            var actionParams = action.ActionParams;
+            var positions = GetAffectedPositions(action.ActingCharacter, actionParams.RulesetEffect,
+                actionParams.hasMagneticTargeting, actionParams.Positions[0], actionParams.CursorHoveredPosition,
+                positioningCharacterService);
 
             // collect all contenders that should be dragged
             var targets = GetPullTargets(actingCharacter, positions, locationCharacterService)
@@ -313,14 +314,14 @@ internal static partial class SpellBuilders
             var usablePower = PowerProvider.Get(powerDrag, rulesetCharacter);
 
             // use spentPoints to store effect level to be used later by power
-            usablePower.spentPoints = action.ActionParams.RulesetEffect.EffectLevel;
+            usablePower.spentPoints = actionParams.RulesetEffect.EffectLevel;
 
             // drag each contender to the selected position starting with the ones closer to the line
             foreach (var x in targets
                          .Where(x => x.Value != int3.invalid)
                          .OrderBy(x => int3.Distance(x.Key.LocationPosition, x.Value)))
             {
-                var actionParams = new CharacterActionParams(actingCharacter, Id.SpendPower)
+                var pullParams = new CharacterActionParams(actingCharacter, Id.SpendPower)
                 {
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect =
@@ -330,7 +331,7 @@ internal static partial class SpellBuilders
                     Positions = { x.Value }
                 };
 
-                actionService.ExecuteInstantSingleAction(actionParams);
+                actionService.ExecuteInstantSingleAction(pullParams);
             }
 
             // clean up the house as a good guest
@@ -406,19 +407,29 @@ internal static partial class SpellBuilders
             }
         }
 
-        internal static List<int3> GetAffectedPositions(
+        private static List<int3> GetAffectedPositions(
             GameLocationCharacter actingCharacter,
             RulesetEffect rulesetEffect,
-            Vector3 impactPoint)
+            bool hasMagneticTargeting,
+            int3 worldPoint,
+            Vector3 cursorHoveredPosition,
+            IGameLocationPositioningService positioningService)
         {
             var targetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
             var origin = new Vector3();
             var direction = new Vector3();
             List<int3> positions = [];
             List<GameLocationCharacter> affectedCharacters = [];
+            
 
             EffectDescription effectDescription = rulesetEffect.EffectDescription;
             var castingPosition = actingCharacter.LocationPosition;
+            var useFloatingImpactPoint =
+                IsUsingFloatingImpactPoint(effectDescription.RangeType, effectDescription.TargetType);
+
+            var impactPoint = !hasMagneticTargeting && useFloatingImpactPoint
+                ? cursorHoveredPosition
+                : positioningService.GetWorldPositionFromGridPosition(worldPoint);
 
             targetingService.ComputeTargetingParameters(
                 impactPoint,
