@@ -272,12 +272,8 @@ public class CursorMotionHelper : MonoBehaviour
             return affectedTargets;
         }
 
-        _gravityFissureTiles.Clear();
-
         var caster = ActingCharacter;
-        var cursorHovered = cursor.HoveredPosition + CursorHoverShift;
-        _gravityFissureTiles.AddRange(GravityFissure.GetAffectedPositions(ActingCharacter,
-            _cursor.ActionParams.RulesetEffect, cursorHovered));
+        _gravityFissureTiles.SetRange(cursor.coveredPlanePositions);
 
         var targets = GravityFissure.GetPullTargets(caster, _gravityFissureTiles, _characterService);
 
