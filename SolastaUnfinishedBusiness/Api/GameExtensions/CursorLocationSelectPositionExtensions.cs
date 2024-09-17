@@ -24,7 +24,6 @@ internal static class CursorLocationSelectPositionExtensions
         var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
         var visibilityService =
             ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
-        var locationService = ServiceRepository.GetService<IGameLocationService>();
         var onlyFeedbackGroundCells = __instance.isTeleportingSpell;
 
         foreach (var int3 in boxInt.EnumerateAllPositionsWithin())
@@ -42,10 +41,9 @@ internal static class CursorLocationSelectPositionExtensions
                 positioningService.CanCharacterStayAtPosition_Floor(
                     locationCharacter, int3, onlyCheckCellsWithRealGround: onlyFeedbackGroundCells))
             {
-                if (!__instance.requiresVisibilityForPosition
-                        ? new GridAccessor(locationService).Visited(int3)
-                        : visibilityService.MyIsCellPerceivedByCharacter(
-                            int3, locationCharacter, additionalBlockedLightingState: additionalBlockedState))
+                if (visibilityService.MyIsCellPerceivedByCharacter(int3, locationCharacter,
+                        additionalBlockedLightingState: additionalBlockedState,
+                        requireLineOfSight: __instance.requiresVisibilityForPosition))
                 {
                     __instance.validPositionsCache.Add(int3);
                 }

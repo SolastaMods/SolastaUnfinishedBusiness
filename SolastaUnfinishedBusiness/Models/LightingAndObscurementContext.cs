@@ -248,7 +248,8 @@ internal static class LightingAndObscurementContext
         int3 cellPosition,
         GameLocationCharacter sensor,
         GameLocationCharacter target = null,
-        LightingState additionalBlockedLightingState = LightingState.Darkness)
+        LightingState additionalBlockedLightingState = LightingState.Darkness,
+        bool requireLineOfSight = true)
     {
         // gadgets cannot perceive anything
         if (sensor.RulesetActor is RulesetGadget)
@@ -275,7 +276,8 @@ internal static class LightingAndObscurementContext
         }
 
         //check line of sight
-        if (!instance.IsCellPerceivedByCharacter(cellPosition, finalSensor))
+        if ((requireLineOfSight || !Main.Settings.UseOfficialLightingObscurementAndVisionRules) 
+            && !instance.IsCellPerceivedByCharacter(cellPosition, finalSensor))
         {
             return false;
         }
