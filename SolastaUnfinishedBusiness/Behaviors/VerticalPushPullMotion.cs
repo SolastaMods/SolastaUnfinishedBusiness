@@ -84,15 +84,6 @@ internal static class VerticalPushPullMotion
             }
         }
 
-        //TODO: remove after testing
-#if DEBUG
-        var applied = target.LocationPosition.ChessboardDistance(destination);
-        var dir = reverse ? "Pull" : "Push";
-        Main.Log(
-            $"{dir}:{distance}\u25ce [{target.Name}]  moved: {applied}\u25ce, source: {sourceCenter}, target: {targetCenter}, destination: {destination}",
-            true);
-#endif
-
         return result;
     }
 
