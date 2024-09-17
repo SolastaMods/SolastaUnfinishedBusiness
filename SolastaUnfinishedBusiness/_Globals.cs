@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness;
 
@@ -45,4 +46,6 @@ internal static class Global
     {
         SelectedLocationCharacter?.RulesetCharacter?.RefreshAll();
     }
+
+    internal static bool IsShiftPressed => Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 }

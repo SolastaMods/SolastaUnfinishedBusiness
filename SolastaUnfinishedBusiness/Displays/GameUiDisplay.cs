@@ -170,6 +170,13 @@ internal static class GameUiDisplay
         {
             Main.Settings.ShowMotionFormPreview = toggle;
         }
+        
+        //TODO: not sure where to put this
+        toggle = Main.Settings.ShiftToSnapLineSpells;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShiftToSnapLineSpells"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShiftToSnapLineSpells = toggle;
+        }
 
         toggle = Main.Settings.DontFollowCharacterInBattle;
         if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))

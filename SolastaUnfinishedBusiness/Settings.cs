@@ -410,6 +410,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Battle
     public bool ShowMotionFormPreview { get; set; }
+    public bool ShiftToSnapLineSpells { get; set; } //TODO: not sure where to put this
     public bool DontFollowCharacterInBattle { get; set; }
     public bool NeverMoveCameraOnEnemyTurn { get; set; }
     public int DontFollowMargin { get; set; } = 5;
