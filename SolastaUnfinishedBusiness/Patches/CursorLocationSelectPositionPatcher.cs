@@ -1,8 +1,13 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Interfaces;
+using TA;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -170,38 +175,15 @@ public static class CursorLocationSelectPositionPatcher
                 //PATCH: supports IFilterTargetingPosition
                 var triggerDefaultCompute = true;
 
-                switch (__instance.ActionParams)
+                var filterTargetingPosition = __instance.ActionParams.RulesetEffect?.SourceDefinition
+                    .GetFirstSubFeatureOfType<IFilterTargetingPosition>();
+
+                if (filterTargetingPosition != null)
                 {
-                    case { RulesetEffect: RulesetEffectPower rulesetEffectPower }:
-                    {
-                        var filterTargetingPosition =
-                            rulesetEffectPower.PowerDefinition.GetFirstSubFeatureOfType<IFilterTargetingPosition>();
+                    triggerDefaultCompute = false;
 
-                        if (filterTargetingPosition != null)
-                        {
-                            triggerDefaultCompute = false;
-
-                            __instance.validCellsComputationCoroutine.Start(
-                                filterTargetingPosition.ComputeValidPositions(__instance));
-                        }
-
-                        break;
-                    }
-                    case { RulesetEffect: RulesetEffectSpell rulesetEffectSpell }:
-                    {
-                        var filterTargetingPosition =
-                            rulesetEffectSpell.SpellDefinition.GetFirstSubFeatureOfType<IFilterTargetingPosition>();
-
-                        if (filterTargetingPosition != null)
-                        {
-                            triggerDefaultCompute = false;
-
-                            __instance.validCellsComputationCoroutine.Start(
-                                filterTargetingPosition.ComputeValidPositions(__instance));
-                        }
-
-                        break;
-                    }
+                    __instance.validCellsComputationCoroutine.Start(
+                        filterTargetingPosition.ComputeValidPositions(__instance));
                 }
 
                 if (triggerDefaultCompute)
@@ -241,6 +223,41 @@ public static class CursorLocationSelectPositionPatcher
             }
 
             return false;
+        }
+    }
+
+
+    [HarmonyPatch(typeof(CursorLocationSelectPosition), nameof(CursorLocationSelectPosition.RefreshHover))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshHover_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var oldMethod = typeof(IGameLocationVisibilityService)
+                .GetMethod(nameof(IGameLocationVisibilityService
+                    .IsCellPerceivedByCharacter));
+
+            var newMethod = new Func<
+                IGameLocationVisibilityService,
+                int3,
+                GameLocationCharacter,
+                CursorLocationSelectPosition,
+                bool
+            >(CustomIsPerceived).Method;
+
+            return instructions.ReplaceCall(oldMethod, 1, "CursorLocationSelectPosition.RefreshHover",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, newMethod));
+        }
+
+        private static bool CustomIsPerceived(IGameLocationVisibilityService service, int3 cell,
+            GameLocationCharacter character, CursorLocationSelectPosition cursor)
+        {
+            //two-fold effect - use custom position validation results
+            // + do not validate cell again, since all valid ones should be in this cache anyway
+            return cursor.validPositionsCache.Contains(cell);
         }
     }
 
