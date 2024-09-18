@@ -224,3 +224,16 @@ public static class TooltipPanelPatcher
         }
     }
 }
+
+//TODO: move to separate file
+[HarmonyPatch(typeof(TooltipFeaturePowerParameters), nameof(TooltipFeaturePowerParameters.Bind))]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+[UsedImplicitly]
+public static class TooltipFeaturePowerParameters_Bind_Patch
+{
+    [UsedImplicitly]
+    public static void Postfix(TooltipFeaturePowerParameters __instance)
+    {
+        Tooltips.ModifyWidth<TooltipFeaturePowerParamsWidthMod, TooltipFeaturePowerParameters>(__instance);
+    }
+}

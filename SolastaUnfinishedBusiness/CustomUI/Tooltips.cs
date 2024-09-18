@@ -721,3 +721,26 @@ internal class TooltipFeatureLightSourceParamsWidthMod : BaseTooltipWidthModifie
         SizeWithAnchors(Rect(Parent, HeaderLabel), values[Table]);
     }
 }
+
+internal class TooltipFeaturePowerParamsWidthMod : BaseTooltipWidthModifier<TooltipFeaturePowerParameters>
+{
+    private const string Table = "Table";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Table, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[Table] = Defaults[Self];
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        for (var i = 0; i < Parent.verticalLayout.childCount; i++)
+        {
+            SizeWithAnchors(Parent.verticalLayout.GetChild(i), values[Table]);
+        }
+    }
+}
