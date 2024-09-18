@@ -123,13 +123,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .Create($"Power{Name}ArcaneBackslashCounterSpell")
             .SetGuiPresentation(Counterspell.GuiPresentation)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(
-                        EffectDescriptionBuilder
-                            .Create(Counterspell)
-                            .Build())
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create(Counterspell).Build())
             .AddToDB();
 
         powerArcaneBackslashCounterSpell.AddCustomSubFeatures(
