@@ -225,7 +225,8 @@ internal class EffectDescriptionBuilder
         int targetParameter = 1,
         int targetParameter2 = 2,
         ActionDefinitions.ItemSelectionType itemSelectionType = ActionDefinitions.ItemSelectionType.None,
-        bool onlyGround = false)
+        bool onlyGround = false,
+        bool requireVisibility = true)
     {
         _effect.targetSide = targetSide;
         _effect.rangeType = rangeType;
@@ -235,6 +236,7 @@ internal class EffectDescriptionBuilder
         _effect.targetParameter2 = targetParameter2;
         _effect.itemSelectionType = itemSelectionType;
         _effect.affectOnlyGround = onlyGround;
+        _effect.requiresVisibilityForPosition = requireVisibility;
         return this;
     }
 
