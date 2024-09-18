@@ -261,4 +261,318 @@ internal static class Tooltips
             ? characterName.Substring(0, 9) + "..."
             : characterName;
     }
+
+    internal static void ModifyWidth<TMod, TParent>(TParent parent)
+        where TMod : BaseTooltipWidthModifier<TParent>
+        where TParent : MonoBehaviour
+    {
+        if (!parent.TryGetComponent<TMod>(out var component))
+        {
+            Main.Log2($"Add <{typeof(TMod).Name}> to <{typeof(TParent).Name}>");
+            component = parent.gameObject.AddComponent<TMod>();
+            component.Init(parent);
+        }
+
+        component.Apply();
+    }
+
+    internal static TooltipFeatureWidthMod ModifyWidth(TooltipFeature parent)
+    {
+        if (!parent.TryGetComponent<TooltipFeatureWidthMod>(out var component))
+        {
+            Main.Log2($"Add to <{parent.GetType().Name}> p:{parent}");
+            component = parent.gameObject.AddComponent<TooltipFeatureWidthMod>();
+            component.Init(parent);
+        }
+
+        component.Apply();
+        return component;
+    }
+}
+
+internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : MonoBehaviour
+{
+    protected const int DEF_WIDTH = 340;
+    protected const int WIDTH = (int)(1.5 * DEF_WIDTH);
+    protected const int PAD = 30; // default is 30?
+
+    protected readonly Dictionary<string, float> Defaults = new();
+    protected T Parent;
+    protected abstract Dictionary<string, float> Modified { get; }
+    protected const string Self = "Self";
+
+    internal void Apply()
+    {
+        Modify(Main.Settings.WidenTooltips ? Modified : Defaults);
+    }
+
+    internal void Init(T parent)
+    {
+        if (parent is TooltipFeature feature && this is not TooltipFeatureWidthMod)
+        {
+            var component = Tooltips.ModifyWidth(feature);
+            Defaults[Self] = component.Defaults[Self];
+            Modified[Self] = component.Modified[Self];
+        }
+
+        Parent = parent;
+        Init();
+    }
+
+    protected abstract void Init();
+    protected abstract void Modify(Dictionary<string, float> values);
+
+    protected static void SizeWithAnchors(Transform t, float width)
+    {
+        if (!t) { return; }
+
+        SizeWithAnchors(t.GetComponent<RectTransform>(), width);
+    }
+
+    protected static void SizeWithAnchors(RectTransform rt, float width)
+    {
+        if (!rt) { return; }
+
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+    }
+
+    protected static void FromEdge(RectTransform rt, float pad, float width)
+    {
+        if (!rt) { return; }
+
+        rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, pad, width);
+    }
+
+    protected RectTransform Rect(Transform t, string path = null)
+    {
+        if (!t) { return null; }
+
+        if (path == null) { return t.GetComponent<RectTransform>(); }
+
+        t = t.Find(path);
+        return !t ? null : t.GetComponent<RectTransform>();
+    }
+
+    protected RectTransform Rect(MonoBehaviour b, string path = null)
+    {
+        return Rect(b.transform, path);
+    }
+}
+
+internal class TooltipPanelWidthModifier : BaseTooltipWidthModifier<TooltipPanel>
+{
+    protected const string Size = "Size";
+    private const string BackgroundBlur = "BackgroundBlur";
+    private const string Frame = "Frame";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Size, WIDTH }
+    };
+
+    protected override void Init()
+    {
+        var t = Parent.transform;
+
+        Defaults.Add(Size, Rect(t).sizeDelta.x);
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        var t = Parent.transform;
+        var width = values[Size];
+
+        // Modify(Rect(t), width);
+        SizeWithAnchors(Rect(t, BackgroundBlur), width);
+        SizeWithAnchors(Parent.featuresTable, width);
+
+        var frame = Rect(t, Frame);
+        if (frame) { SizeWithAnchors(frame, width); }
+    }
+}
+
+internal class TooltipFeatureWidthMod : BaseTooltipWidthModifier<TooltipFeature>
+{
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Self, WIDTH }
+    };
+
+    protected override void Init()
+    {
+        Defaults[Self] = Parent.RectTransform.sizeDelta.x;
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        SizeWithAnchors(Parent.RectTransform, values[Self]);
+    }
+}
+
+internal class TooltipFeatureEffectsEnumWidthMod : BaseTooltipWidthModifier<TooltipFeatureEffectsEnumerator>
+{
+    private const string Effects = "Effects";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Effects, WIDTH - 2 * PAD }
+    };
+
+    protected override void Init()
+    {
+        Defaults[Effects] = Defaults[Self] - 2 * PAD;
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        var table = Parent.effectFormater.Table;
+        var width = values[Effects];
+        SizeWithAnchors(table, width);
+        for (var i = 0; i < table.childCount; i++)
+        {
+            var line = table.GetChild(i).GetComponent<FeatureElementEffectLine>();
+            if (!line) { continue; }
+
+            SizeWithAnchors(line.RectTransform, width);
+            SizeWithAnchors(line.effectLabel.RectTransform, width);
+            SizeWithAnchors(line.effectDescription.RectTransform, width);
+        }
+    }
+}
+
+internal class TooltipSubSpellEnumWidthModifier : BaseTooltipWidthModifier<TooltipFeatureSubSpellsEnumerator>
+{
+    private const string Size = "Size";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Size, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        var table = Parent.table;
+        Defaults[Size] = table.sizeDelta.x;
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        var table = Parent.table;
+        var width = values[Size];
+        SizeWithAnchors(table, width);
+        for (var i = 0; i < table.childCount; i++)
+        {
+            var line = table.GetChild(i).GetComponent<FeatureElementSubSpell>();
+            if (!line) { continue; }
+
+            SizeWithAnchors(line.RectTransform, width);
+        }
+    }
+}
+
+internal class TooltipFeatureSpellParamsWidthModifier : BaseTooltipWidthModifier<TooltipFeatureSpellParameters>
+{
+    private const string VerticalLayout = "VerticalLayout";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { VerticalLayout, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[VerticalLayout] = Rect(Parent, VerticalLayout).sizeDelta.x;
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        var width = values[VerticalLayout];
+        SizeWithAnchors(Rect(Parent, VerticalLayout), width);
+
+        for (var i = 0; i < Parent.verticalLayout.childCount; i++)
+        {
+            SizeWithAnchors(Parent.verticalLayout.GetChild(i), width);
+        }
+    }
+}
+
+internal class
+    TooltipFeatureBaseMagicParamsWidthModifier : BaseTooltipWidthModifier<TooltipFeatureBaseMagicParameters>
+{
+    private const string Table = "Table";
+    private const string Pad = "Pad";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Table, WIDTH - 2 * PAD },
+        { Pad, PAD },
+    };
+
+    protected override void Init()
+    {
+        var rect = Rect(Parent, Table);
+        Defaults[Table] = rect.sizeDelta.x;
+        //TODO: find proper way of getting this
+        Defaults[Pad] = PAD; //rect.rect.x + rect.sizeDelta.x / 2;
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        var width = values[Table];
+        var pad = values[Pad];
+        FromEdge(Rect(Parent, Table), pad, width);
+    }
+}
+
+internal class TooltipFeatureTagsEnumWidthModifier : BaseTooltipWidthModifier<TooltipFeatureTagsEnumerator>
+{
+    private const string Table = "Table";
+    private const string Label = "Background/PropertiesLabel";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Table, WIDTH - 2 * PAD },
+        { Label, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[Table] = Parent.table.sizeDelta.x;
+        Defaults[Label] = Rect(Parent, Label).sizeDelta.x;
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        SizeWithAnchors(Parent.table, values[Table]);
+        SizeWithAnchors(Rect(Parent, Label), values[Label]);
+    }
+}
+
+internal class TooltipFeatureSpellAdvancementWidthMod : BaseTooltipWidthModifier<TooltipFeatureSpellAdvancement>
+{
+    private const string Title = "Title";
+    private const string Label = "AdvancementLabel";
+    private const string Pad = "Pad";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Title, WIDTH - 2 * PAD },
+        { Label, WIDTH - 2 * PAD },
+        { Pad, PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[Title] = Rect(Parent, Title).sizeDelta.x;
+        Defaults[Label] = Rect(Parent, Label).sizeDelta.x;
+        //TODO: find proper way of getting this
+        Defaults[Pad] = PAD;
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        var pad = values[Pad];
+        FromEdge(Rect(Parent, Title), pad, values[Title]);
+        FromEdge(Rect(Parent, Label), pad, values[Label]);
+    }
 }

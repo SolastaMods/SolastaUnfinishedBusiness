@@ -456,6 +456,7 @@ public class Settings : UnityModManager.ModSettings
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
     public bool InvertAltBehaviorOnTooltips { get; set; }
+    public bool WidenTooltips { get; set; }
     public bool EnableHotkeySwapFormationSets { get; set; }
     public bool EnableHotkeyToggleHud { get; set; }
     public bool EnableCharacterExport { get; set; }
