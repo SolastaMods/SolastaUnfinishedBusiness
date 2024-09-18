@@ -134,19 +134,15 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeForce, 1, DieType.D6)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 2, 2)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(conditionDistractingAmbush))
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                .SetEffectForms(EffectFormBuilder.Create()
+                        .SetDamageForm(DamageTypeForce, 1, DieType.D6)
+                        .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 2, 2)
+                        .Build(),
+                    EffectFormBuilder.ConditionForm(conditionDistractingAmbush))
+                .Build())
             .AddToDB();
 
         powerArcaneBacklashSneakDamage.AddCustomSubFeatures(
@@ -170,33 +166,27 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .Create($"AdditionalDamage{Name}Possessed")
             .SetGuiPresentation($"Condition{Name}Possessed", Category.Condition)
             .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionPossessed))
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(conditionPossessed))
+                .Build())
             .AddToDB();
 
         var powerEssenceTheft = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EssenceTheft")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDiceAdvancement(LevelSourceType.CharacterLevel, 1, 1, 2, 19)
-                            .SetDamageForm(DamageTypeForce, 4, DieType.D6)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(conditionDistractingAmbush))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                .SetEffectForms(EffectFormBuilder.Create()
+                        .SetDiceAdvancement(LevelSourceType.CharacterLevel, 1, 1, 2, 19)
+                        .SetDamageForm(DamageTypeForce, 4, DieType.D6)
+                        .Build(),
+                    EffectFormBuilder.ConditionForm(conditionDistractingAmbush))
+                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
+                .Build())
             .AddToDB();
 
         powerEssenceTheft.AddCustomSubFeatures(
