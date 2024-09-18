@@ -17,9 +17,6 @@ public static class TooltipPanelPatcher
         [UsedImplicitly]
         public static void Prefix(TooltipPanel __instance, ref TooltipDefinitions.Scope scope)
         {
-            var features = __instance.featuresTable.GetComponentsInChildren<TooltipFeature>();
-            Main.Log2($"TT [{string.Join(", ", features.Select(f => f.GetType().Name))}]", true);
-
             Tooltips.ModifyWidth<TooltipPanelWidthModifier, TooltipPanel>(__instance);
 
             //PATCH: swaps holding ALT behavior for tooltips

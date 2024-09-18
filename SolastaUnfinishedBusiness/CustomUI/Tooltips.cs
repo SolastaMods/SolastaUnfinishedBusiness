@@ -268,7 +268,6 @@ internal static class Tooltips
     {
         if (!parent.TryGetComponent<TMod>(out var component))
         {
-            Main.Log2($"Add <{typeof(TMod).Name}> to <{typeof(TParent).Name}>");
             component = parent.gameObject.AddComponent<TMod>();
             component.Init(parent);
         }
@@ -280,7 +279,6 @@ internal static class Tooltips
     {
         if (!parent.TryGetComponent<TooltipFeatureWidthMod>(out var component))
         {
-            Main.Log2($"Add to <{parent.GetType().Name}> p:{parent}");
             component = parent.gameObject.AddComponent<TooltipFeatureWidthMod>();
             component.Init(parent);
         }
@@ -292,7 +290,7 @@ internal static class Tooltips
 
 internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : MonoBehaviour
 {
-    protected const int DEF_WIDTH = 340;
+    private const int DEF_WIDTH = 340;
     protected const int WIDTH = (int)(1.5 * DEF_WIDTH);
     protected const int PAD = 30; // default is 30?
 
@@ -666,7 +664,6 @@ internal class TooltipFeatureItemStatsWidthMod : BaseTooltipWidthModifier<Toolti
 internal class TooltipFeatureWeaponParametersWidthMod : BaseTooltipWidthModifier<TooltipFeatureWeaponParameters>
 {
     private const string Table = "Table";
-    private const string SecondTable = "VerticalLayout/SecondTable";
 
     protected override Dictionary<string, float> Modified { get; } = new()
     {
@@ -681,7 +678,6 @@ internal class TooltipFeatureWeaponParametersWidthMod : BaseTooltipWidthModifier
     protected override void Modify(Dictionary<string, float> values)
     {
         SizeWithAnchors(Parent.masterTable, values[Table]);
-        // SizeWithAnchors(Rect(Parent, SecondTable), values[Table]);
     }
 }
 
