@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -17,8 +16,6 @@ public static class TooltipPanelPatcher
         [UsedImplicitly]
         public static void Prefix(TooltipPanel __instance, ref TooltipDefinitions.Scope scope)
         {
-            Tooltips.ModifyWidth<TooltipPanelWidthModifier, TooltipPanel>(__instance);
-
             //PATCH: swaps holding ALT behavior for tooltips
             if (!Main.Settings.InvertAltBehaviorOnTooltips)
             {
@@ -31,6 +28,12 @@ public static class TooltipPanelPatcher
                 TooltipDefinitions.Scope.Detailed => TooltipDefinitions.Scope.Simplified,
                 _ => scope
             };
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(TooltipPanel __instance)
+        {
+            Tooltips.ModifyWidth<TooltipPanelWidthModifier, TooltipPanel>(__instance);
         }
     }
 

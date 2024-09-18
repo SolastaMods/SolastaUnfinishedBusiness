@@ -370,21 +370,18 @@ internal class TooltipPanelWidthModifier : BaseTooltipWidthModifier<TooltipPanel
 
     protected override void Init()
     {
-        var t = Parent.transform;
-
-        Defaults.Add(Size, Rect(t).sizeDelta.x);
+        Defaults[Size] = Parent.RectTransform.sizeDelta.x;
     }
 
     protected override void Modify(Dictionary<string, float> values)
     {
-        var t = Parent.transform;
         var width = values[Size];
 
-        // Modify(Rect(t), width);
-        SizeWithAnchors(Rect(t, BackgroundBlur), width);
+        SizeWithAnchors(Parent.RectTransform, width);
+        SizeWithAnchors(Rect(Parent, BackgroundBlur), width);
         SizeWithAnchors(Parent.featuresTable, width);
 
-        var frame = Rect(t, Frame);
+        var frame = Rect(Parent, Frame);
         if (frame) { SizeWithAnchors(frame, width); }
     }
 }
