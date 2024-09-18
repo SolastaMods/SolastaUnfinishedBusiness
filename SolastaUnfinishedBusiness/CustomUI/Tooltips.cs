@@ -13,6 +13,9 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal static class Tooltips
 {
+    public const float MinScale = 1f;
+    public const float MaxScale = 2f;
+    public const float DefScale = 1f;
     private static GameObject _tooltipInfoCharacterDescription;
     private static GameObject _distanceTextObject;
     private static TextMeshProUGUI _tmpUGui;
@@ -291,34 +294,23 @@ internal static class Tooltips
 internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : MonoBehaviour
 {
     private const int DEF_WIDTH = 340;
-    protected const int WIDTH = (int)(1.5 * DEF_WIDTH);
-    protected const int PAD = 30; // default is 30?
+    private const int PAD = 30; // default is 30?
+    protected static int WIDTH => (int)(Main.Settings.TooltipWidth * DEF_WIDTH);
+    protected static int PADDED => WIDTH - 2 * PAD;
 
-    protected readonly Dictionary<string, float> Defaults = new();
     protected T Parent;
-    protected abstract Dictionary<string, float> Modified { get; }
-    protected const string Self = "Self";
 
     internal void Apply()
     {
-        Modify(Main.Settings.WidenTooltips ? Modified : Defaults);
+        Modify();
     }
 
     internal void Init(T parent)
     {
-        if (parent is TooltipFeature feature && this is not TooltipFeatureWidthMod)
-        {
-            var component = Tooltips.ModifyWidth(feature);
-            Defaults[Self] = component.Defaults[Self];
-            Modified[Self] = component.Modified[Self];
-        }
-
         Parent = parent;
-        Init();
     }
 
-    protected abstract void Init();
-    protected abstract void Modify(Dictionary<string, float> values);
+    protected abstract void Modify();
 
     protected static void SizeWithAnchors(Transform t, float width)
     {
@@ -334,7 +326,7 @@ internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : Mo
         rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
     }
 
-    protected static void FromEdge(RectTransform rt, float pad, float width)
+    protected static void FromEdge(RectTransform rt, float width, float pad = PAD)
     {
         if (!rt) { return; }
 
@@ -359,23 +351,12 @@ internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : Mo
 
 internal class TooltipPanelWidthModifier : BaseTooltipWidthModifier<TooltipPanel>
 {
-    protected const string Size = "Size";
     private const string BackgroundBlur = "BackgroundBlur";
     private const string Frame = "Frame";
 
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Size, WIDTH }
-    };
-
-    protected override void Init()
-    {
-        Defaults[Size] = Parent.RectTransform.sizeDelta.x;
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        var width = values[Size];
+        var width = WIDTH;
 
         SizeWithAnchors(Parent.RectTransform, width);
         SizeWithAnchors(Rect(Parent, BackgroundBlur), width);
@@ -388,40 +369,18 @@ internal class TooltipPanelWidthModifier : BaseTooltipWidthModifier<TooltipPanel
 
 internal class TooltipFeatureWidthMod : BaseTooltipWidthModifier<TooltipFeature>
 {
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Self, WIDTH }
-    };
-
-    protected override void Init()
-    {
-        Defaults[Self] = Parent.RectTransform.sizeDelta.x;
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        SizeWithAnchors(Parent.RectTransform, values[Self]);
+        SizeWithAnchors(Parent.RectTransform, WIDTH);
     }
 }
 
 internal class TooltipFeatureEffectsEnumWidthMod : BaseTooltipWidthModifier<TooltipFeatureEffectsEnumerator>
 {
-    private const string Effects = "Effects";
-
-    protected override Dictionary<string, float> Modified { get; } = new()
-    {
-        { Effects, WIDTH - 2 * PAD }
-    };
-
-    protected override void Init()
-    {
-        Defaults[Effects] = Defaults[Self] - 2 * PAD;
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
+    protected override void Modify()
     {
         var table = Parent.effectFormater.Table;
-        var width = values[Effects];
+        var width = PADDED;
         SizeWithAnchors(table, width);
         for (var i = 0; i < table.childCount; i++)
         {
@@ -437,23 +396,10 @@ internal class TooltipFeatureEffectsEnumWidthMod : BaseTooltipWidthModifier<Tool
 
 internal class TooltipSubSpellEnumWidthModifier : BaseTooltipWidthModifier<TooltipFeatureSubSpellsEnumerator>
 {
-    private const string Size = "Size";
-
-    protected override Dictionary<string, float> Modified { get; } = new()
-    {
-        { Size, WIDTH - 2 * PAD },
-    };
-
-    protected override void Init()
+    protected override void Modify()
     {
         var table = Parent.table;
-        Defaults[Size] = table.sizeDelta.x;
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        var table = Parent.table;
-        var width = values[Size];
+        var width = PADDED;
         SizeWithAnchors(table, width);
         for (var i = 0; i < table.childCount; i++)
         {
@@ -469,19 +415,9 @@ internal class TooltipFeatureSpellParamsWidthModifier : BaseTooltipWidthModifier
 {
     private const string VerticalLayout = "VerticalLayout";
 
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { VerticalLayout, WIDTH - 2 * PAD },
-    };
-
-    protected override void Init()
-    {
-        Defaults[VerticalLayout] = Rect(Parent, VerticalLayout).sizeDelta.x;
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        var width = values[VerticalLayout];
+        var width = PADDED;
         SizeWithAnchors(Rect(Parent, VerticalLayout), width);
 
         for (var i = 0; i < Parent.verticalLayout.childCount; i++)
@@ -491,55 +427,27 @@ internal class TooltipFeatureSpellParamsWidthModifier : BaseTooltipWidthModifier
     }
 }
 
-internal class
-    TooltipFeatureBaseMagicParamsWidthModifier : BaseTooltipWidthModifier<TooltipFeatureBaseMagicParameters>
+internal class TooltipFeatureBaseMagicParamsWidthModifier
+    : BaseTooltipWidthModifier<TooltipFeatureBaseMagicParameters>
 {
     private const string Table = "Table";
-    private const string Pad = "Pad";
 
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Table, WIDTH - 2 * PAD },
-        { Pad, PAD },
-    };
-
-    protected override void Init()
-    {
-        var rect = Rect(Parent, Table);
-        Defaults[Table] = rect.sizeDelta.x;
-        //TODO: find proper way of getting this
-        Defaults[Pad] = PAD; //rect.rect.x + rect.sizeDelta.x / 2;
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        var width = values[Table];
-        var pad = values[Pad];
-        FromEdge(Rect(Parent, Table), pad, width);
+        FromEdge(Rect(Parent, Table), PADDED);
     }
 }
 
 internal class TooltipFeatureTagsEnumWidthModifier : BaseTooltipWidthModifier<TooltipFeatureTagsEnumerator>
 {
-    private const string Table = "Table";
     private const string Label = "Background/PropertiesLabel";
 
-    protected override Dictionary<string, float> Modified { get; } = new()
-    {
-        { Table, WIDTH - 2 * PAD },
-        { Label, WIDTH - 2 * PAD },
-    };
 
-    protected override void Init()
+    protected override void Modify()
     {
-        Defaults[Table] = Parent.table.sizeDelta.x;
-        Defaults[Label] = Rect(Parent, Label).sizeDelta.x;
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        SizeWithAnchors(Parent.table, values[Table]);
-        SizeWithAnchors(Rect(Parent, Label), values[Label]);
+        var width = PADDED;
+        SizeWithAnchors(Parent.table, width);
+        SizeWithAnchors(Rect(Parent, Label), width);
     }
 }
 
@@ -547,200 +455,93 @@ internal class TooltipFeatureSpellAdvancementWidthMod : BaseTooltipWidthModifier
 {
     private const string Title = "Title";
     private const string Label = "AdvancementLabel";
-    private const string Pad = "Pad";
 
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Title, WIDTH - 2 * PAD },
-        { Label, WIDTH - 2 * PAD },
-        { Pad, PAD },
-    };
-
-    protected override void Init()
-    {
-        Defaults[Title] = Rect(Parent, Title).sizeDelta.x;
-        Defaults[Label] = Rect(Parent, Label).sizeDelta.x;
-        //TODO: find proper way of getting this
-        Defaults[Pad] = PAD;
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        var pad = values[Pad];
-        FromEdge(Rect(Parent, Title), pad, values[Title]);
-        FromEdge(Rect(Parent, Label), pad, values[Label]);
+        var width = PADDED;
+        FromEdge(Rect(Parent, Title), width);
+        FromEdge(Rect(Parent, Label), width);
     }
 }
 
 internal class TooltipFeatureDeviceParametersWidthMod : BaseTooltipWidthModifier<TooltipFeatureDeviceParameters>
 {
-    private const string Table = "Table";
-
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Table, WIDTH - 2 * PAD },
-    };
-
-    protected override void Init()
-    {
-        Defaults[Table] = Defaults[Self];
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        SizeWithAnchors(Parent.usageGroup, values[Table]);
+        SizeWithAnchors(Parent.usageGroup, PADDED);
     }
 }
 
 internal class
     TooltipFeatureItemPropertiesEnumWidthMod : BaseTooltipWidthModifier<TooltipFeatureItemPropertiesEnumerator>
 {
-    private const string Table = "Table";
-
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Table, WIDTH - 2 * PAD },
-    };
-
-    protected override void Init()
-    {
-        Defaults[Table] = Defaults[Self];
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        SizeWithAnchors(Parent.propertiesTable, values[Table]);
-        // FromEdge(Rect(Parent, Title), pad, values[Title]);
-        // FromEdge(Rect(Parent, Label), pad, values[Label]);
+        SizeWithAnchors(Parent.propertiesTable, PADDED);
     }
 }
 
-internal class
-    TooltipFeatureDeviceFunctionsEnumWidthMod : BaseTooltipWidthModifier<TooltipFeatureDeviceFunctionsEnumerator>
+internal class TooltipFeatureDeviceFunctionsEnumWidthMod
+    : BaseTooltipWidthModifier<TooltipFeatureDeviceFunctionsEnumerator>
 {
-    private const string Table = "Table";
-
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Table, WIDTH - 2 * PAD },
-    };
-
-    protected override void Init()
-    {
-        Defaults[Table] = Defaults[Self];
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        SizeWithAnchors(Parent.functionsTable, values[Table]);
+        SizeWithAnchors(Parent.functionsTable, PADDED);
     }
 }
 
 internal class TooltipFeatureItemStatsWidthMod : BaseTooltipWidthModifier<TooltipFeatureItemStats>
 {
-    private const string Table = "Table";
     private const string SecondTable = "VerticalLayout/SecondTable";
 
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Table, WIDTH - 2 * PAD },
-    };
-
-    protected override void Init()
-    {
-        Defaults[Table] = Defaults[Self];
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        SizeWithAnchors(Parent.topTable, values[Table]);
-        SizeWithAnchors(Rect(Parent, SecondTable), values[Table]);
+        var width = PADDED;
+        SizeWithAnchors(Parent.topTable, width);
+        SizeWithAnchors(Rect(Parent, SecondTable), width);
     }
 }
 
 internal class TooltipFeatureWeaponParametersWidthMod : BaseTooltipWidthModifier<TooltipFeatureWeaponParameters>
 {
-    private const string Table = "Table";
-
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Table, WIDTH - 2 * PAD },
-    };
-
-    protected override void Init()
-    {
-        Defaults[Table] = Defaults[Self];
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        SizeWithAnchors(Parent.masterTable, values[Table]);
+        SizeWithAnchors(Parent.masterTable, PADDED);
     }
 }
 
 internal class TooltipFeatureArmorParamsWidthMod : BaseTooltipWidthModifier<TooltipFeatureArmorParameters>
 {
-    private const string Table = "Table";
     private const string HeaderLabel = "HeaderLabel";
 
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Table, WIDTH - 2 * PAD },
-    };
-
-    protected override void Init()
-    {
-        Defaults[Table] = Defaults[Self];
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        SizeWithAnchors(Parent.descriptionLabel.transform, values[Table]);
-        SizeWithAnchors(Rect(Parent, HeaderLabel), values[Table]);
+        var width = PADDED;
+        SizeWithAnchors(Parent.descriptionLabel.transform, width);
+        SizeWithAnchors(Rect(Parent, HeaderLabel), width);
     }
 }
 
 internal class TooltipFeatureLightSourceParamsWidthMod : BaseTooltipWidthModifier<TooltipFeatureLightSourceParameters>
 {
-    private const string Table = "Table";
     private const string HeaderLabel = "HeaderLabel";
 
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Table, WIDTH - 2 * PAD },
-    };
-
-    protected override void Init()
-    {
-        Defaults[Table] = Defaults[Self];
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
-        SizeWithAnchors(Parent.descriptionLabel.transform, values[Table]);
-        SizeWithAnchors(Rect(Parent, HeaderLabel), values[Table]);
+        var width = PADDED;
+        SizeWithAnchors(Parent.descriptionLabel.transform, width);
+        SizeWithAnchors(Rect(Parent, HeaderLabel), width);
     }
 }
 
 internal class TooltipFeaturePowerParamsWidthMod : BaseTooltipWidthModifier<TooltipFeaturePowerParameters>
 {
-    private const string Table = "Table";
-
-    protected override Dictionary<string, float> Modified { get; } = new()
+    protected override void Modify()
     {
-        { Table, WIDTH - 2 * PAD },
-    };
-
-    protected override void Init()
-    {
-        Defaults[Table] = Defaults[Self];
-    }
-
-    protected override void Modify(Dictionary<string, float> values)
-    {
+        var width = PADDED;
         for (var i = 0; i < Parent.verticalLayout.childCount; i++)
         {
-            SizeWithAnchors(Parent.verticalLayout.GetChild(i), values[Table]);
+            SizeWithAnchors(Parent.verticalLayout.GetChild(i), width);
         }
     }
 }

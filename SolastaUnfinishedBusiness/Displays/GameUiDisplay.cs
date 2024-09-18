@@ -283,11 +283,15 @@ internal static class GameUiDisplay
             Main.Settings.InvertAltBehaviorOnTooltips = toggle;
         }
 
-        toggle = Main.Settings.WidenTooltips;
-        if (UI.Toggle(Gui.Localize("ModUi/&WidenTooltips"), ref toggle, UI.AutoWidth()))
+        var floatValue = Main.Settings.TooltipWidth;
+
+        if (UI.Slider(Gui.Localize("ModUi/&WidenTooltips"), ref floatValue, Tooltips.MinScale, Tooltips.MaxScale,
+                Tooltips.DefScale, 1, string.Empty, UI.AutoWidth()))
         {
-            Main.Settings.WidenTooltips = toggle;
+            Main.Settings.TooltipWidth = floatValue;
         }
+        
+        UI.Label();
 
         toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
         if (UI.Toggle(Gui.Localize("ModUi/&AltOnlyHighlightItemsInPartyFieldOfView"), ref toggle, UI.AutoWidth()))
