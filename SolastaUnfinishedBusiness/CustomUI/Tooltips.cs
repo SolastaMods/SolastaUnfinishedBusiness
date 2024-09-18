@@ -576,3 +576,155 @@ internal class TooltipFeatureSpellAdvancementWidthMod : BaseTooltipWidthModifier
         FromEdge(Rect(Parent, Label), pad, values[Label]);
     }
 }
+
+internal class TooltipFeatureDeviceParametersWidthMod : BaseTooltipWidthModifier<TooltipFeatureDeviceParameters>
+{
+    private const string Table = "Table";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Table, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[Table] = Defaults[Self];
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        SizeWithAnchors(Parent.usageGroup, values[Table]);
+    }
+}
+
+internal class
+    TooltipFeatureItemPropertiesEnumWidthMod : BaseTooltipWidthModifier<TooltipFeatureItemPropertiesEnumerator>
+{
+    private const string Table = "Table";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Table, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[Table] = Defaults[Self];
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        SizeWithAnchors(Parent.propertiesTable, values[Table]);
+        // FromEdge(Rect(Parent, Title), pad, values[Title]);
+        // FromEdge(Rect(Parent, Label), pad, values[Label]);
+    }
+}
+
+internal class
+    TooltipFeatureDeviceFunctionsEnumWidthMod : BaseTooltipWidthModifier<TooltipFeatureDeviceFunctionsEnumerator>
+{
+    private const string Table = "Table";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Table, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[Table] = Defaults[Self];
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        SizeWithAnchors(Parent.functionsTable, values[Table]);
+    }
+}
+
+internal class TooltipFeatureItemStatsWidthMod : BaseTooltipWidthModifier<TooltipFeatureItemStats>
+{
+    private const string Table = "Table";
+    private const string SecondTable = "VerticalLayout/SecondTable";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Table, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[Table] = Defaults[Self];
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        SizeWithAnchors(Parent.topTable, values[Table]);
+        SizeWithAnchors(Rect(Parent, SecondTable), values[Table]);
+    }
+}
+
+internal class TooltipFeatureWeaponParametersWidthMod : BaseTooltipWidthModifier<TooltipFeatureWeaponParameters>
+{
+    private const string Table = "Table";
+    private const string SecondTable = "VerticalLayout/SecondTable";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Table, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[Table] = Defaults[Self];
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        SizeWithAnchors(Parent.masterTable, values[Table]);
+        // SizeWithAnchors(Rect(Parent, SecondTable), values[Table]);
+    }
+}
+
+internal class TooltipFeatureArmorParamsWidthMod : BaseTooltipWidthModifier<TooltipFeatureArmorParameters>
+{
+    private const string Table = "Table";
+    private const string HeaderLabel = "HeaderLabel";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Table, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[Table] = Defaults[Self];
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        SizeWithAnchors(Parent.descriptionLabel.transform, values[Table]);
+        SizeWithAnchors(Rect(Parent, HeaderLabel), values[Table]);
+    }
+}
+
+internal class TooltipFeatureLightSourceParamsWidthMod : BaseTooltipWidthModifier<TooltipFeatureLightSourceParameters>
+{
+    private const string Table = "Table";
+    private const string HeaderLabel = "HeaderLabel";
+
+    protected override Dictionary<string, float> Modified { get; } = new()
+    {
+        { Table, WIDTH - 2 * PAD },
+    };
+
+    protected override void Init()
+    {
+        Defaults[Table] = Defaults[Self];
+    }
+
+    protected override void Modify(Dictionary<string, float> values)
+    {
+        SizeWithAnchors(Parent.descriptionLabel.transform, values[Table]);
+        SizeWithAnchors(Rect(Parent, HeaderLabel), values[Table]);
+    }
+}

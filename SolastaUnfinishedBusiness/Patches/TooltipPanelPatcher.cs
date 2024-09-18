@@ -129,4 +129,98 @@ public static class TooltipPanelPatcher
         }
     }
 
+    //TODO: move to separate file
+    [HarmonyPatch(typeof(TooltipFeatureDeviceParameters), nameof(TooltipFeatureDeviceParameters.Bind))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TooltipFeatureDeviceParameters_Bind_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(TooltipFeatureDeviceParameters __instance)
+        {
+            Tooltips.ModifyWidth<TooltipFeatureDeviceParametersWidthMod, TooltipFeatureDeviceParameters>(__instance);
+        }
+    }
+
+    //TODO: move to separate file
+    [HarmonyPatch(typeof(TooltipFeatureItemPropertiesEnumerator), nameof(TooltipFeatureItemPropertiesEnumerator.Bind))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TooltipFeatureItemPropertiesEnumerator_Bind_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(TooltipFeatureItemPropertiesEnumerator __instance)
+        {
+            Tooltips.ModifyWidth<TooltipFeatureItemPropertiesEnumWidthMod, TooltipFeatureItemPropertiesEnumerator>(
+                __instance);
+        }
+    }
+
+    //TODO: move to separate file
+    [HarmonyPatch(typeof(TooltipFeatureDeviceFunctionsEnumerator),
+        nameof(TooltipFeatureDeviceFunctionsEnumerator.Bind))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TooltipFeatureDeviceFunctionsEnumerator_Bind_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(TooltipFeatureDeviceFunctionsEnumerator __instance)
+        {
+            Tooltips.ModifyWidth<TooltipFeatureDeviceFunctionsEnumWidthMod, TooltipFeatureDeviceFunctionsEnumerator>(
+                __instance);
+        }
+    }
+
+    //TODO: move to separate file
+    [HarmonyPatch(typeof(TooltipFeatureItemStats), nameof(TooltipFeatureItemStats.Bind))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TooltipFeatureItemStats_Bind_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(TooltipFeatureItemStats __instance)
+        {
+            Tooltips.ModifyWidth<TooltipFeatureItemStatsWidthMod, TooltipFeatureItemStats>(__instance);
+        }
+    }
+
+    //TODO: move to separate file
+    [HarmonyPatch(typeof(TooltipFeatureWeaponParameters), nameof(TooltipFeatureWeaponParameters.Bind))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TooltipFeatureWeaponParameters_Bind_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(TooltipFeatureWeaponParameters __instance)
+        {
+            Tooltips.ModifyWidth<TooltipFeatureWeaponParametersWidthMod, TooltipFeatureWeaponParameters>(__instance);
+        }
+    }
+
+    //TODO: move to separate file
+    [HarmonyPatch(typeof(TooltipFeatureArmorParameters), nameof(TooltipFeatureArmorParameters.Bind))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TooltipFeatureArmorParameters_Bind_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(TooltipFeatureArmorParameters __instance)
+        {
+            Tooltips.ModifyWidth<TooltipFeatureArmorParamsWidthMod, TooltipFeatureArmorParameters>(__instance);
+        }
+    }
+
+    //TODO: move to separate file
+    [HarmonyPatch(typeof(TooltipFeatureLightSourceParameters), nameof(TooltipFeatureLightSourceParameters.Bind))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TooltipFeatureLightSourceParameters_Bind_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(TooltipFeatureLightSourceParameters __instance)
+        {
+            Tooltips.ModifyWidth<TooltipFeatureLightSourceParamsWidthMod, TooltipFeatureLightSourceParameters>(
+                __instance);
+        }
+    }
 }
