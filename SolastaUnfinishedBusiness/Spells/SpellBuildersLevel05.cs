@@ -1009,8 +1009,7 @@ internal static partial class SpellBuilders
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService =
-                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
             var actingCharacter = action.ActingCharacter;
 

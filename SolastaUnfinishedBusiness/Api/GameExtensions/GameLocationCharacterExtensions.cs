@@ -453,8 +453,7 @@ public static class GameLocationCharacterExtensions
         }
 
         // can only perceive targets on cells that can be perceived
-        var visibilityService =
-            ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+        var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
         return visibilityService.MyIsCellPerceivedByCharacter(target.LocationPosition, __instance, target);
     }

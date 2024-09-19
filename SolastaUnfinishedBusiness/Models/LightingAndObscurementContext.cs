@@ -244,7 +244,7 @@ internal static class LightingAndObscurementContext
     // most of the usages is to determine if a character can perceive a cell in teleport scenarios
     // when target not null it helps determine visibility on attacks and effects targeting scenarios
     internal static bool MyIsCellPerceivedByCharacter(
-        this GameLocationVisibilityManager instance,
+        this IGameLocationVisibilityService instance,
         int3 cellPosition,
         GameLocationCharacter sensor,
         GameLocationCharacter target = null,

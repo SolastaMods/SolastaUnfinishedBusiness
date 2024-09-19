@@ -450,8 +450,7 @@ public sealed class MartialWarlord : AbstractSubclass
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
             var targetCharacter = cursorLocationSelectPosition.ActionParams.TargetCharacters[0];
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService =
-                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
             var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);

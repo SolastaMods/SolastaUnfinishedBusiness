@@ -24,8 +24,7 @@ public static class ConsiderationCanPerceiveCellPatcher
                 return true;
             }
 
-            var visibilityService =
-                parameters.situationalInformation.VisibilityService as GameLocationVisibilityManager;
+            var visibilityService = parameters.situationalInformation.VisibilityService;
             var position = context.position;
             var locationCharacter = parameters.character.GameLocationCharacter;
             var score = visibilityService.MyIsCellPerceivedByCharacter(position, locationCharacter);
