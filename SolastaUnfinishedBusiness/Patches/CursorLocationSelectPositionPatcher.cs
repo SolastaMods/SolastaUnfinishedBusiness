@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using TA;
 using static RuleDefinitions;
 
@@ -255,9 +256,11 @@ public static class CursorLocationSelectPositionPatcher
         private static bool CustomIsPerceived(IGameLocationVisibilityService service, int3 cell,
             GameLocationCharacter character, CursorLocationSelectPosition cursor)
         {
-            //two-fold effect - use custom position validation results
-            // + do not validate cell again, since all valid ones should be in this cache anyway
-            return cursor.validPositionsCache.Contains(cell);
+            //two-fold effect - use custom position validation
+            // + do not validate cell again, if we have cached valid positions
+            return cursor.validPositionsCache.Empty()
+                ? service.MyIsCellPerceivedByCharacter(cell, character)
+                : cursor.validPositionsCache.Contains(cell);
         }
     }
 
