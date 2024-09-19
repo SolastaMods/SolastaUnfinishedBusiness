@@ -312,6 +312,13 @@ internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : Mo
 
     protected abstract void Modify();
 
+    protected void SizeWithAnchors(GuiBehaviour obj, int width)
+    {
+        if (!obj) { return; }
+
+        SizeWithAnchors(obj.GetComponent<RectTransform>(), width);
+    }
+
     protected static void SizeWithAnchors(Transform t, float width)
     {
         if (!t) { return; }
@@ -468,7 +475,9 @@ internal class TooltipFeatureDeviceParametersWidthMod : BaseTooltipWidthModifier
 {
     protected override void Modify()
     {
-        SizeWithAnchors(Parent.usageGroup, PADDED);
+        var width = PADDED;
+        SizeWithAnchors(Parent.usageGroup, width);
+        SizeWithAnchors(Parent.attunementLabel, width);
     }
 }
 
@@ -517,7 +526,7 @@ internal class TooltipFeatureArmorParamsWidthMod : BaseTooltipWidthModifier<Tool
     protected override void Modify()
     {
         var width = PADDED;
-        SizeWithAnchors(Parent.descriptionLabel.transform, width);
+        SizeWithAnchors(Parent.descriptionLabel, width);
         SizeWithAnchors(Rect(Parent, HeaderLabel), width);
     }
 }
@@ -529,7 +538,7 @@ internal class TooltipFeatureLightSourceParamsWidthMod : BaseTooltipWidthModifie
     protected override void Modify()
     {
         var width = PADDED;
-        SizeWithAnchors(Parent.descriptionLabel.transform, width);
+        SizeWithAnchors(Parent.descriptionLabel, width);
         SizeWithAnchors(Rect(Parent, HeaderLabel), width);
     }
 }
@@ -543,5 +552,17 @@ internal class TooltipFeaturePowerParamsWidthMod : BaseTooltipWidthModifier<Tool
         {
             SizeWithAnchors(Parent.verticalLayout.GetChild(i), width);
         }
+    }
+}
+
+internal class TooltipFeaturePrerequisitesWidthMod : BaseTooltipWidthModifier<TooltipFeaturePrerequisites>
+{
+    private const string Header = "PrerequisitesTitle";
+
+    protected override void Modify()
+    {
+        var width = PADDED;
+        SizeWithAnchors(Rect(Parent, Header), width);
+        SizeWithAnchors(Parent.prerequisitesValue, width);
     }
 }
