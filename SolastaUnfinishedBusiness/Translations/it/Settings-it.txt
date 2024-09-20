@@ -297,6 +297,7 @@ ModUi/&SettingsLoad=• Caricare un'impostazione esportata
 ModUi/&SettingsOpenFolder=Apri la cartella delle impostazioni esportate
 ModUi/&SettingsRefresh=Ricaricare
 ModUi/&SettingsRemove=Rimuovere
+ModUi/&ShiftToSnapLineSpells=Tieni premuto <color=#1E81B0>MAIUSC</color> per agganciare gli incantesimi lineari alla griglia. <i><color=#F0DAA0>[Senza agganciare, il posizionamento effettivo della linea potrebbe differire dall'anteprima.]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Mostra il pulsante che apre le informazioni sui mostri controllati <i><color=#F0DAA0>[druidi dalla forma selvaggia, evocazioni, seguaci NPC, ecc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostra quanti usi di <color=#D89555>Canale Divinità</color> ha un eroe sul suo ritratto, in modo simile ai punti stregoneria
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato vicino all'oggetto della ricetta nel negozio e nell'inventario <i><color=#F0DAA0>[Passando il mouse sopra verrà mostrato un suggerimento per l'oggetto creato]</color></i>
@@ -348,4 +349,5 @@ ModUi/&UseOfficialObscurementRules=Utilizza le regole ufficiali di combattimento
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[l'attaccante che percepisce il difensore che non può percepirlo ottiene ADV, e l'attaccante che non percepisce il difensore che può percepirlo ottiene DIS\n le aree fortemente oscurate infliggono una condizione di accecato, dove i tiri di attacco contro la creatura ha ADV e i tiri per colpire della creatura hanno DIS\n tutti gli incantesimi a distanza che hanno come bersaglio individui non possono essere lanciati se l'attaccante non ha vista, ad eccezione di quelli che chiaramente non indicano che la vista è richiesta]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilizza le regole ufficiali delle <color=#D89555>piccole razze</color> quando impugni armi pesanti <i><color=#F0DAA0>[i tuoi attacchi hanno svantaggio]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&WidenTooltips=<color=white>Moltiplica la larghezza del suggerimento per:</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Imposta la soglia di probabilità di dado <color=#D89555>Magia selvaggia dello stregone</color>:</color>{0}<i><color=#F0DAA0>[L'ondata selvaggia si attiva se il tiro è inferiore o uguale alla soglia]</color></i>

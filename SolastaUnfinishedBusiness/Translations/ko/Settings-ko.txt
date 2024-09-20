@@ -297,6 +297,7 @@ ModUi/&SettingsLoad=• 내보낸 설정 로드
 ModUi/&SettingsOpenFolder=내보낸 설정 폴더 열기
 ModUi/&SettingsRefresh=새로 고치다
 ModUi/&SettingsRemove=제거하다
+ModUi/&ShiftToSnapLineSpells=<color=#1E81B0>SHIFT</color>를 누르고 있으면 선 주문이 격자에 맞춰 정렬됩니다. <i><color=#F0DAA0>[스냅하지 않으면 실제 선 배치가 미리보기와 다를 수 있습니다.]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=조종되는 몬스터 <i><color=#F0DAA0>[야생 모양의 드루이드, 소환수, NPC 추종자 등]</color></i>에 대한 정보를 여는 표시 버튼
 ModUi/&ShowChannelDivinityOnPortrait=영웅의 초상화에 얼마나 많은 <color=#D89555>채널 신성</color>을 사용했는지 표시합니다. 이는 마법 포인트와 유사합니다.
 ModUi/&ShowCraftedItemOnRecipeIcon=상점과 인벤토리의 제작 아이템 근처에 제작 아이템 아이콘 표시 <i><color=#F0DAA0>[마우스를 위에 올리면 제작 아이템에 대한 툴팁이 표시됩니다]</color></i>
@@ -348,4 +349,5 @@ ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시�
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[인지할 수 없는 방어자를 감지한 공격자는 ADV를 얻고, 감지할 수 있는 방어자를 감지하지 못한 공격자는 DIS를 얻습니다.\n 심하게 가려진 영역은 실명 상태를 유발합니다. 생물에는 ADV가 있고 생물의 공격 굴림에는 DIS가 있습니다.\n 개인을 대상으로 하는 모든 거리 주문은 공격자가 시력이 없으면 시전할 수 없습니다. 단, 시력이 필요하다고 명확하게 명시하지 않은 주문은 제외합니다.]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족</color> 규칙을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>시각적:</color> <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
+ModUi/&WidenTooltips=<color=white>도구 설명 너비를 곱합니다:</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>마법사 야생 마법</color> 확률 주사위 임계값 설정:</color>\n<i><color=#F0DAA0>[임계값 이하로 굴리면 야생 급증이 발동]</color></i>

@@ -297,6 +297,7 @@ ModUi/&SettingsLoad=• エクスポートした設定をロードする
 ModUi/&SettingsOpenFolder=エクスポートされた設定フォルダーを開く
 ModUi/&SettingsRefresh=リフレッシュ
 ModUi/&SettingsRemove=取り除く
+ModUi/&ShiftToSnapLineSpells=<color=#1E81B0>SHIFT</color> キーを押すと、ライン スペルがグリッドにスナップします。<i><color=#F0DAA0>[スナップしない場合、実際のライン配置はプレビューと異なる場合があります。]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=制御モンスターに関する情報を開くボタンを表示します<i><color=#F0DAA0>[野生のドルイド僧、召喚獣、NPC フォロワーなど]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=ヒーローがポートレートに持っている<color=#D89555>神性チャンネル</color>の使用数を表示します（ソーサリーポイントと同様）
 ModUi/&ShowCraftedItemOnRecipeIcon=ショップやインベントリのレシピ アイテムの近くに作成されたアイテムのアイコンを表示します <i><color=#F0DAA0>[カーソルを合わせると作成されたアイテムのツールチップが表示されます]</color></i>
@@ -348,4 +349,5 @@ ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>照明、遮蔽、視
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[それを知覚する攻撃者は ADV を獲得し、それを知覚しない攻撃者は DIS を獲得します。それを知覚できる防御者は DIS を獲得します\n 非常に隠された領域は盲目状態を引き起こし、クリーチャーに対する攻撃ロールには ADV が付与され、クリーチャーの攻撃ロールには DIS が付与されます\n 攻撃者に視力がない場合、個人をターゲットとするすべての遠距離呪文は発動できません。ただし、視力が必要であると明確に述べられていない呪文は除きます]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは<color=#D89555>小種族</color>の公式ルールを使用してください<i><color=#F0DAA0>[攻撃には不利]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&WidenTooltips=<color=white>ツールチップの幅を次の値で乗算します:</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>{0}<i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>

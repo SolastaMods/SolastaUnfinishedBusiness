@@ -297,6 +297,7 @@ ModUi/&SettingsLoad=• Carregar uma configuração exportada
 ModUi/&SettingsOpenFolder=Abra a pasta de configurações exportadas
 ModUi/&SettingsRefresh=Atualizar
 ModUi/&SettingsRemove=Remover
+ModUi/&ShiftToSnapLineSpells=Segure <color=#1E81B0>SHIFT</color> para encaixar as linhas de feitiços na grade. <i><color=#F0DAA0>[Sem encaixar, o posicionamento real das linhas pode ser diferente da visualização.]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Mostrar botão que abre informações sobre monstros controlados <i><color=#F0DAA0>[druidas em forma selvagem, invocações, seguidores de NPCs, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostre quantos usos de <color=#D89555>Canal Divindade</color> um herói tem em seu retrato, semelhante a pontos de feitiçaria
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar ícone de item criado próximo ao item de receita na loja e no inventário <i><color=#F0DAA0>[Passar o mouse sobre ele exibirá uma dica para o item criado]</color></i>
@@ -348,4 +349,5 @@ ModUi/&UseOfficialObscurementRules=Use regras oficiais de combate de <color=#D89
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[o atacante que percebe o defensor que não consegue perceber recebe ADV, e o atacante que não percebe o defensor que consegue perceber recebe DIS\n áreas fortemente obscurecidas infligem condição cega, onde jogadas de ataque contra o a criatura tem ADV e as jogadas de ataque da criatura têm DIS\n todos os feitiços de distância direcionados a indivíduos não podem ser lançados se o atacante não tiver visão, exceto aqueles que claramente não declaram que a visão é necessária]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use as regras oficiais das <color=#D89555>raças pequenas</color> ao empunhar armas pesadas <i><color=#F0DAA0>[seus ataques têm desvantagem]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&WidenTooltips=<color=white>Multiplicar a largura da dica de ferramenta por:</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Definir limite de dado de chance de <color=#D89555>Magia Selvagem do Feiticeiro</color>:</color>\n<i><color=#F0DAA0>[onda selvagem é acionada se a rolagem for menor ou igual ao limite]</color></i>
