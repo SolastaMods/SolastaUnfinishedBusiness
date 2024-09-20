@@ -52,27 +52,19 @@ internal static partial class SpellBuilders
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetRequiresConcentration(true)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 6, 8)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetSummonEffectProxyForm(effectProxy)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeRadiant, 4, DieType.D10)
-                            .Build())
-                    .SetParticleEffectParameters(Daylight)
-                    .SetImpactEffectParameters(Sunburst)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 6, 8)
+                .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd)
+                .SetEffectForms(
+                    EffectFormBuilder.SummonEffectProxyForm(effectProxy),
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .DamageForm(DamageTypeRadiant, 4, DieType.D10))
+                .SetParticleEffectParameters(Daylight)
+                .SetImpactEffectParameters(Sunburst)
+                .Build())
             .AddToDB();
 
         spell.EffectDescription.effectParticleParameters.activeEffectImpactParticleReference =
@@ -99,31 +91,21 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeThunder, 5, DieType.D6)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeRadiant, 5, DieType.D6)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetMotionForm(MotionForm.MotionType.FallProne)
-                            .Build())
-                    .SetParticleEffectParameters(HolyAura)
-                    .SetImpactEffectParameters(Sunburst)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
+                .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .DamageForm(DamageTypeThunder, 5, DieType.D6),
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .DamageForm(DamageTypeRadiant, 5, DieType.D6),
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.Negates)
+                        .SetMotionForm(MotionForm.MotionType.FallProne)
+                        .Build())
+                .SetParticleEffectParameters(HolyAura)
+                .SetImpactEffectParameters(Sunburst)
+                .Build())
             .AddToDB();
 
         var spellNecrotic = SpellDefinitionBuilder
@@ -136,30 +118,20 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeThunder, 5, DieType.D6)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeNecrotic, 5, DieType.D6)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetMotionForm(MotionForm.MotionType.FallProne)
-                            .Build())
-                    .SetParticleEffectParameters(HolyAura)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
+                .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .DamageForm(DamageTypeThunder, 5, DieType.D6),
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .DamageForm(DamageTypeNecrotic, 5, DieType.D6),
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.Negates)
+                        .SetMotionForm(MotionForm.MotionType.FallProne)
+                        .Build())
+                .SetParticleEffectParameters(HolyAura)
+                .Build())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -173,25 +145,19 @@ internal static partial class SpellBuilders
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSubSpells(spellNecrotic, spellRadiant)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeThunder, 5, DieType.D6)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetMotionForm(MotionForm.MotionType.FallProne)
-                            .Build())
-                    .SetParticleEffectParameters(HolyAura)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
+                .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .WithSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .DamageForm(DamageTypeThunder, 5, DieType.D6),
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.Negates)
+                        .SetMotionForm(MotionForm.MotionType.FallProne)
+                        .Build())
+                .SetParticleEffectParameters(HolyAura)
+                .Build())
             .AddToDB();
 
         return spell;
@@ -223,23 +189,15 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetRequiresConcentration(true)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true)
-                            .Build())
-                    .SetParticleEffectParameters(MistyStep)
-                    .UseQuickAnimations()
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
+                .SetEffectForms(
+                    EffectFormBuilder.MotionForm(MotionForm.MotionType.TeleportToDestination),
+                    EffectFormBuilder.AddConditionForm(condition, true, true))
+                .SetParticleEffectParameters(MistyStep)
+                .UseQuickAnimations()
+                .Build())
             .AddToDB();
     }
 
@@ -279,27 +237,18 @@ internal static partial class SpellBuilders
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetRequiresConcentration(true)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(Light)
+            .SetEffectDescription(EffectDescriptionBuilder.Create(Light)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeFire, 8, DieType.D6)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                        EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .DamageForm(DamageTypeFire, 8, DieType.D6),
+                        EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionIncineration, ConditionForm.ConditionOperation.Add)
                             .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                        EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.Negates)
                             .SetLightSourceForm(
                                 LightSourceType.Basic, 6, 6, lightSourceForm.Color,
                                 lightSourceForm.graphicsPrefabReference)
@@ -900,31 +849,22 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}")
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerHolyWeapon, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeRadiant, 4, DieType.D8)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetParticleEffectParameters(FaerieFire)
-                    .SetCasterEffectParameters(PowerOathOfDevotionTurnUnholy)
-                    .SetImpactEffectParameters(
-                        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
-                    .SetConditionEffectParameters(ConditionDefinitions.ConditionBlinded)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .DamageForm(DamageTypeRadiant, 4, DieType.D8),
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                        .SetConditionForm(ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .SetParticleEffectParameters(FaerieFire)
+                .SetCasterEffectParameters(PowerOathOfDevotionTurnUnholy)
+                .SetImpactEffectParameters(FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite)
+                .SetConditionEffectParameters(ConditionDefinitions.ConditionBlinded)
+                .Build())
             .AddCustomSubFeatures(new CustomBehaviorHolyWeapon(additionalDamage))
             .AddToDB();
 
@@ -936,7 +876,7 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
-        var lightSourceForm = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+        var light = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource).lightSourceForm;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -949,29 +889,18 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetRequiresConcentration(true)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(Light)
-                    .SetDurationData(DurationType.Hour, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.Item,
-                        itemSelectionType: ActionDefinitions.ItemSelectionType.EquippedNoLightSource)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetLightSourceForm(
-                                LightSourceType.Basic, 6, 6,
-                                lightSourceForm.lightSourceForm.color,
-                                lightSourceForm.lightSourceForm.graphicsPrefabReference)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetItemPropertyForm(
-                                ItemPropertyUsage.Unlimited, 0, new FeatureUnlockByLevel(additionalDamage, 0))
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true))
-                    .SetCasterEffectParameters(HolyAura)
-                    .SetEffectEffectParameters(PowerOathOfJugementPurgeCorruption)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create(Light)
+                .SetDurationData(DurationType.Hour, 1)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.Item,
+                    itemSelectionType: ActionDefinitions.ItemSelectionType.EquippedNoLightSource)
+                .SetEffectForms(
+                    EffectFormBuilder.LightSourceForm(LightSourceType.Basic, 6, 6, light.color,
+                        light.graphicsPrefabReference),
+                    EffectFormBuilder.ItemPropertyForm(ItemPropertyUsage.Unlimited, 0, additionalDamage),
+                    EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true))
+                .SetCasterEffectParameters(HolyAura)
+                .SetEffectEffectParameters(PowerOathOfJugementPurgeCorruption)
+                .Build())
             .AddToDB();
 
         return spell;
@@ -1030,17 +959,11 @@ internal static partial class SpellBuilders
             .Create($"Power{Name}Teleport")
             .SetGuiPresentation(Category.Feature, PowerMelekTeleport)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
-                            .Build())
-                    .SetParticleEffectParameters(PowerMelekTeleport)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
+                .SetEffectForms(EffectFormBuilder.MotionForm(MotionForm.MotionType.TeleportToDestination))
+                .SetParticleEffectParameters(PowerMelekTeleport)
+                .Build())
             .AddCustomSubFeatures(new FilterTargetingPositionSteelWhirlwind())
             .AddToDB();
 
@@ -1064,18 +987,15 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(false)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique, 5)
-                    .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeForce, 6, DieType.D10),
-                        EffectFormBuilder.ConditionForm(
-                            conditionTeleport, ConditionForm.ConditionOperation.Add, true))
-                    .SetParticleEffectParameters(GravitySlam)
-                    .SetImpactEffectParameters(ArcaneSword)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round)
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique, 5)
+                .SetEffectForms(
+                    EffectFormBuilder.DamageForm(DamageTypeForce, 6, DieType.D10),
+                    EffectFormBuilder.ConditionForm(conditionTeleport, applyToSelf: true))
+                .SetParticleEffectParameters(GravitySlam)
+                .SetImpactEffectParameters(ArcaneSword)
+                .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSteelWhirlwind())
             .AddToDB();
 
@@ -1089,8 +1009,7 @@ internal static partial class SpellBuilders
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService =
-                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
             var actingCharacter = action.ActingCharacter;
 

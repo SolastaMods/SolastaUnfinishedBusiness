@@ -31,6 +31,18 @@ internal class EffectFormBuilder
         return new EffectFormBuilder();
     }
 
+    internal static EffectFormBuilder WithSavingThrow(
+        EffectSavingThrowType savingThrowAffinity,
+        TurnOccurenceType saveOccurence = TurnOccurenceType.EndOfTurn,
+        bool canSaveToCancel = false)
+    {
+        return Create().HasSavingThrow(
+            savingThrowAffinity,
+            saveOccurence,
+            canSaveToCancel
+        );
+    }
+
     internal EffectFormBuilder HasSavingThrow(
         EffectSavingThrowType savingThrowAffinity,
         TurnOccurenceType saveOccurence = TurnOccurenceType.EndOfTurn,
@@ -200,40 +212,41 @@ internal class EffectFormBuilder
         return this;
     }
 
+    internal EffectForm DamageForm(string damageType = DamageTypeBludgeoning,
+        int diceNumber = 0,
+        DieType dieType = DieType.D1,
+        int bonusDamage = 0,
+        HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
+        bool overrideWithBardicInspirationDie = false)
+    {
+        return DamageForm(damageType,
+            diceNumber,
+            dieType,
+            bonusDamage,
+            healFromInflictedDamage,
+            overrideWithBardicInspirationDie,
+            this);
+    }
+
     internal static EffectForm DamageForm(string damageType = DamageTypeBludgeoning,
         int diceNumber = 0,
         DieType dieType = DieType.D1,
         int bonusDamage = 0,
         HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
-        bool overrideWithBardicInspirationDie = false)
+        bool overrideWithBardicInspirationDie = false,
+        // ReSharper disable once MethodOverloadWithOptionalParameter
+        EffectFormBuilder builder = null)
     {
-        return CreateDamageForm(
-            damageType,
-            diceNumber,
-            dieType,
-            bonusDamage,
-            healFromInflictedDamage,
-            overrideWithBardicInspirationDie
-        ).Build();
+        return (builder ?? Create())
+            .SetDamageForm(
+                damageType,
+                diceNumber,
+                dieType,
+                bonusDamage,
+                healFromInflictedDamage,
+                overrideWithBardicInspirationDie
+            ).Build();
     }
-
-    internal static EffectFormBuilder CreateDamageForm(string damageType = DamageTypeBludgeoning,
-        int diceNumber = 0,
-        DieType dieType = DieType.D1,
-        int bonusDamage = 0,
-        HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
-        bool overrideWithBardicInspirationDie = false)
-    {
-        return Create().SetDamageForm(
-            damageType,
-            diceNumber,
-            dieType,
-            bonusDamage,
-            healFromInflictedDamage,
-            overrideWithBardicInspirationDie
-        );
-    }
-
 
     internal EffectFormBuilder SetDamageForm(
         string damageType = DamageTypeBludgeoning,
@@ -316,6 +329,39 @@ internal class EffectFormBuilder
         _effectForm.healingForm = healingForm;
         _effectForm.FormType = EffectForm.EffectFormType.Healing;
         return this;
+    }
+
+    // Unlocks al features at level 0
+    internal static EffectForm ItemPropertyForm(
+        ItemPropertyUsage usageLimitation,
+        int useAmount,
+        params FeatureDefinition[] features)
+    {
+        return ItemPropertyForm(
+            usageLimitation,
+            useAmount,
+            features.Select(f => new FeatureUnlockByLevel(f, 0)).ToArray()
+        );
+    }
+
+    internal static EffectForm ItemPropertyForm(
+        ItemPropertyUsage usageLimitation,
+        int useAmount,
+        params (FeatureDefinition feature, int level)[] featureBySlotLevel)
+    {
+        return ItemPropertyForm(
+            usageLimitation,
+            useAmount,
+            featureBySlotLevel.Select(f => new FeatureUnlockByLevel(f.feature, f.level)).ToArray()
+        );
+    }
+
+    internal static EffectForm ItemPropertyForm(
+        ItemPropertyUsage usageLimitation,
+        int useAmount,
+        params FeatureUnlockByLevel[] featureBySlotLevel)
+    {
+        return Create().SetItemPropertyForm(usageLimitation, useAmount, featureBySlotLevel).Build();
     }
 
     internal EffectFormBuilder SetItemPropertyForm(
@@ -489,6 +535,11 @@ internal class EffectFormBuilder
         _effectForm.summonForm = summonForm;
         _effectForm.FormType = EffectForm.EffectFormType.Summon;
         return this;
+    }
+
+    internal static EffectForm SummonEffectProxyForm(EffectProxyDefinition effectProxyDefinition)
+    {
+        return Create().SetSummonEffectProxyForm(effectProxyDefinition).Build();
     }
 
     internal EffectFormBuilder SetSummonEffectProxyForm(EffectProxyDefinition effectProxyDefinition)

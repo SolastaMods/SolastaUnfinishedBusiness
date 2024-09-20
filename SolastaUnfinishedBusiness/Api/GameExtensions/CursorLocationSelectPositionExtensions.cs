@@ -22,8 +22,7 @@ internal static class CursorLocationSelectPositionExtensions
         boxInt.Inflate(maxDistance);
 
         var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-        var visibilityService =
-            ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+        var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
         var onlyFeedbackGroundCells = __instance.isTeleportingSpell;
 
         foreach (var int3 in boxInt.EnumerateAllPositionsWithin())

@@ -1260,8 +1260,7 @@ internal static class InvocationsBuilders
             }
 
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService =
-                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
