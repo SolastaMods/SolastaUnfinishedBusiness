@@ -1097,7 +1097,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 bool firstTarget,
                 bool criticalHit)
             {
-                if (attacker.IsOppositeSide(defender.Side) ||
+                if (!attacker.IsOppositeSide(defender.Side) ||
                     attacker.RulesetCharacter.IsDeadOrDying ||
                     defender.RulesetCharacter.IsDeadOrDying)
                 {
