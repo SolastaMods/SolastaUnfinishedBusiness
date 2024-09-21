@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Models;
 using UnityModManagerNet;
@@ -410,7 +411,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Battle
     public bool ShowMotionFormPreview { get; set; }
-    public bool ShiftToSnapLineSpells { get; set; } //TODO: not sure where to put this
+    public bool ShiftToSnapLineSpells { get; set; }
     public bool DontFollowCharacterInBattle { get; set; }
     public bool NeverMoveCameraOnEnemyTurn { get; set; }
     public int DontFollowMargin { get; set; } = 5;
@@ -456,7 +457,7 @@ public class Settings : UnityModManager.ModSettings
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
     public bool InvertAltBehaviorOnTooltips { get; set; }
-    public float TooltipWidth { get; set; }
+    public float TooltipWidth { get; set; } = Tooltips.DefScale;
     public bool EnableHotkeySwapFormationSets { get; set; }
     public bool EnableHotkeyToggleHud { get; set; }
     public bool EnableCharacterExport { get; set; }
