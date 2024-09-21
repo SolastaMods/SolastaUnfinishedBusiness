@@ -297,7 +297,7 @@ ModUi/&SettingsLoad=• Laden Sie eine exportierte Einstellung
 ModUi/&SettingsOpenFolder=Öffnen Sie den Ordner mit den exportierten Einstellungen
 ModUi/&SettingsRefresh=Aktualisierung
 ModUi/&SettingsRemove=Entfernen
-ModUi/&ShiftToSnapLineSpells=Halten Sie <color=#1E81B0>UMSCHALT</color> gedrückt, um Linienzauber am Raster auszurichten. <i><color=#F0DAA0>[Ohne Ausrichten kann die tatsächliche Linienplatzierung von der Vorschau abweichen.]</color></i>
+ModUi/&ShiftToSnapLineSpells1=Halten Sie <color=#1E81B0>UMSCHALT</color> gedrückt, um Linienzauber am Raster auszurichten. <i><color=#F0DAA0>[Ohne Ausrichten kann die tatsächliche Linienplatzierung von der Vorschau abweichen.]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Schaltfläche anzeigen, die Informationen über das kontrollierte Monster <i><color=#F0DAA0>[wildförmige Druiden, Beschwörungen, NPC-Anhänger usw.]</color></i> öffnet
 ModUi/&ShowChannelDivinityOnPortrait=Zeigt an, wie viele <color=#D89555>Channel Divinity</color>-Einsätze ein Held auf seinem Porträt hat, ähnlich wie Zauberpunkte
 ModUi/&ShowCraftedItemOnRecipeIcon=Symbol für hergestellte Gegenstände neben Rezeptgegenständen im Shop und Inventar anzeigen <i><color=#F0DAA0>[Wenn Sie mit der Maus darüber fahren, wird ein Tooltip für hergestellte Gegenstände angezeigt]</color></i>

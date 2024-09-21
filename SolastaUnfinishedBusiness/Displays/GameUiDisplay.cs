@@ -165,19 +165,6 @@ internal static class GameUiDisplay
 
         int intValue;
 
-        toggle = Main.Settings.ShowMotionFormPreview;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowMotionFormPreview"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShowMotionFormPreview = toggle;
-        }
-        
-        //TODO: not sure where to put this
-        toggle = Main.Settings.ShiftToSnapLineSpells;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShiftToSnapLineSpells"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShiftToSnapLineSpells = toggle;
-        }
-
         toggle = Main.Settings.DontFollowCharacterInBattle;
         if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
         {
@@ -212,6 +199,18 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
         {
             Main.Settings.EnableDistanceOnTooltip = toggle;
+        }
+
+        toggle = Main.Settings.ShiftToSnapLineSpells;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShiftToSnapLineSpells"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShiftToSnapLineSpells = toggle;
+        }
+
+        toggle = Main.Settings.ShowMotionFormPreview;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowMotionFormPreview"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowMotionFormPreview = toggle;
         }
 
         UI.Label();
@@ -290,7 +289,7 @@ internal static class GameUiDisplay
         {
             Main.Settings.TooltipWidth = floatValue;
         }
-        
+
         UI.Label();
 
         toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
