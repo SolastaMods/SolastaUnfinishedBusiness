@@ -57,6 +57,13 @@ internal static class CharacterDisplay
             CharacterContext.SwitchProneAction();
         }
 
+        toggle = Main.Settings.AddGrappleActionToAllRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddGrappleActionToAllRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddGrappleActionToAllRaces = toggle;
+            CharacterContext.SwitchGrappleAction();
+        }
+
         toggle = Main.Settings.AddHelpActionToAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {

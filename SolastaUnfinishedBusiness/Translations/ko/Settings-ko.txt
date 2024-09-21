@@ -7,6 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>Darkelf</color>, <color=#
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=적에게 DEX 수정치를 추가합니다 <color=#D89555>이니셔티브 롤</color>
 ModUi/&AddFallProneActionToAllRaces=모든 플레이 가능한 종족에 <color=#D89555>엎드려 넘어지기</color> 액션을 추가합니다. <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>파이터</color>를 활성화하여 클래스 레벨을 <color=#D89555>불굴의 저항</color> 저장 던지기 재굴림에 보너스로 추가하세요.
+ModUi/&AddGrappleActionToAllRaces=모든 플레이 가능한 종족에 <color=#D89555>Grapple</color> 액션을 추가합니다.
 ModUi/&AddHelpActionToAllRaces=플레이 가능한 모든 종족에 <color=#D89555>도움말</color> 액션을 추가하세요. <i><color=#F0DAA0>[당신은 1셀 내의 생물을 공격하는 아군 생물을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 인간형 선호 적 활성화
 ModUi/&AddNewBrightEyeColors=새로운 밝은 눈 색깔 추가

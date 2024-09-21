@@ -24,6 +24,32 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationCharacterPatcher
 {
+    //PATCH: support Grapple action behavior
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.UpdateAttachedPositions), [])]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class UpdateAttachedPositions_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(GameLocationCharacter __instance)
+        {
+            var rulesetMover = __instance.RulesetCharacter;
+
+            if (!rulesetMover.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, CharacterContext.ConditionGrappleSourceName) ||
+                !CharacterContext.GetGrappledActor(rulesetMover, out var rulesetTarget, out _))
+            {
+                return;
+            }
+
+            var target = GameLocationCharacter.GetFromActor(rulesetTarget);
+
+            //TODO: improve positioning to be the position source is moving from
+            //TODO: decide between teleport or tactical move, and maybe have another setting for that
+            target.StartTeleportTo(__instance.LocationPosition, __instance.Orientation);
+        }
+    }
+
     //PATCH: supports IForceLightingState
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.LightingState), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

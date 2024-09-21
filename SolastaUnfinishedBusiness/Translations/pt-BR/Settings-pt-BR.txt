@@ -7,6 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Ative <color=#D89555>Darkness Perceptive
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicionado modificador de DES aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
 ModUi/&AddFallProneActionToAllRaces=Adicione a ação <color=#D89555>Cair De bruços</color> a todas as raças jogáveis ​​<i><color=#F0DAA0>[você pode cair de bruços sem custo]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Habilite <color=#D89555>Lutador</color> para adicionar o nível de classe como um bônus na nova rolagem do teste de resistência de <color=#D89555>Resistência Indomável</color>
+ModUi/&AddGrappleActionToAllRaces=Adicione a ação <color=#D89555>Agarrar</color> a todas as raças jogáveis
 ModUi/&AddHelpActionToAllRaces=Adicionada a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1 espaço de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ativar inimigos humanóides preferidos do <color=#D89555>Ranger</color>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes

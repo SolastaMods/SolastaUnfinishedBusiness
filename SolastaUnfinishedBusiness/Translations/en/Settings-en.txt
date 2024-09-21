@@ -7,6 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptiv
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Add DEX modifier to enemies <color=#D89555>Initiative Roll</color>
 ModUi/&AddFallProneActionToAllRaces=Add the <color=#D89555>Fall Prone</color> action to all playable races <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Enable <color=#D89555>Fighter</color> to add the class level as a bonus to <color=#D89555>Indomitable Resistance</color> saving throw reroll
+ModUi/&AddGrappleActionToAllRaces=Add the <color=#D89555>Grapple</color> action to all playable races
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Ranger</color> humanoid preferred enemies
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors

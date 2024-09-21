@@ -198,6 +198,7 @@ internal static partial class CharacterContext
         LoadAdditionalNames();
         LoadEpicArray();
         LoadFeatsPointPools();
+        LoadGrapple();
         LoadMonkHeightenedMetabolism();
         LoadMonkWeaponSpecialization();
         LoadSorcererQuickened();
@@ -1319,4 +1320,237 @@ internal static partial class CharacterContext
                     FeatureDefinitionAttributeModifiers.AttributeModifierFighterIndomitable));
         }
     }
+
+    #region Grapple
+
+    internal const string ConditionGrappleSourceName = "ConditionGrappleSource";
+    private const string ConditionGrappleTargetName = "ConditionGrappleTarget";
+
+    private static ActionDefinition _actionGrapple;
+    private static ActionDefinition _actionDisableGrapple;
+
+    internal static void SwitchGrappleAction()
+    {
+        _actionGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
+            ? ActionDefinitions.ActionFormType.Large
+            : ActionDefinitions.ActionFormType.Invisible;
+
+        _actionDisableGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
+            ? ActionDefinitions.ActionFormType.Large
+            : ActionDefinitions.ActionFormType.Invisible;
+    }
+
+    private static void LoadGrapple()
+    {
+        const string GrappleName = "Grapple";
+        const string DisableGrappleName = "DisableGrapple";
+
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionGrappleSourceName)
+            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionEncumbered)
+            .SetConditionType(ConditionType.Neutral)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create("MovementAffinityGrappleSource")
+                    .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedMultiplicativeModifier(0.5f)
+                    .AddToDB())
+            .AddToDB();
+
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName);
+
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionGrappleTargetName)
+            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionHindered)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetBrain(battlePackage, true)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create("MovementAffinityGrappleTarget")
+                    .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedMultiplicativeModifier(0)
+                    .AddToDB())
+            .AddToDB();
+
+        //TODO: allow reach distance
+        var powerGrapple = FeatureDefinitionPowerBuilder
+            .Create($"Power{GrappleName}")
+            .SetGuiPresentation($"Action{GrappleName}", Category.Action, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .Build())
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(
+                    ValidatorsCharacter.HasMainAttackAvailable,
+                    c => c.HasFreeHandSlot(),
+                    ValidatorsCharacter.HasNoneOfConditions(ConditionGrappleSourceName)),
+                new CustomBehaviorGrapple())
+            .AddToDB();
+
+        _actionGrapple = ActionDefinitionBuilder
+            .Create($"Action{GrappleName}")
+            .SetGuiPresentation(Category.Action, AttackFree)
+            .OverrideClassName("UsePower")
+            .SetActivatedPower(powerGrapple)
+            .SetActionId(ExtraActionId.Grapple)
+            .SetActionScope(ActionDefinitions.ActionScope.All)
+            .SetActionType(ActionDefinitions.ActionType.NoCost)
+            .SetFormType(ActionDefinitions.ActionFormType.Large)
+            .RequiresAuthorization()
+            .AddToDB();
+
+        var powerDisableGrapple = FeatureDefinitionPowerBuilder
+            .Create($"Power{DisableGrappleName}")
+            .SetGuiPresentation($"Action{DisableGrappleName}", Category.Action, hidden: true)
+            .SetShowCasting(false)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
+            .AddCustomSubFeatures(
+                ValidatorsCharacter.HasAnyOfConditions(ConditionGrappleSourceName),
+                new PowerOrSpellFinishedByMeDisableGrapple())
+            .AddToDB();
+
+        _actionDisableGrapple = ActionDefinitionBuilder
+            .Create($"Action{DisableGrappleName}")
+            .SetGuiPresentation(Category.Action, AttackFree)
+            .OverrideClassName("UsePower")
+            .SetActivatedPower(powerDisableGrapple)
+            .SetActionId(ExtraActionId.DisableGrapple)
+            .SetActionScope(ActionDefinitions.ActionScope.All)
+            .SetActionType(ActionDefinitions.ActionType.NoCost)
+            .SetFormType(ActionDefinitions.ActionFormType.Large)
+            .RequiresAuthorization()
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorGrapple : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            var rulesetTarget = target.RulesetCharacter;
+
+            if (rulesetTarget == null)
+            {
+                return false;
+            }
+
+            var isValid = __instance.ActionParams.ActingCharacter.RulesetCharacter.SizeDefinition.WieldingSize -
+                rulesetTarget.SizeDefinition.WieldingSize < -1;
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustBeNoMoreThanOneSizeLarger");
+            }
+
+            return isValid;
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var attacker = action.ActingCharacter;
+            var defender = action.ActionParams.TargetCharacters[0];
+            var abilityCheckData = new AbilityCheckData();
+
+            yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
+                attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
+
+            var success = abilityCheckData.AbilityCheckRollOutcome
+                is RollOutcome.Success
+                or RollOutcome.CriticalSuccess;
+
+            if (success)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            attacker.BurnOneMainAttack();
+            rulesetAttacker.InflictCondition(
+                ConditionGrappleSourceName,
+                DurationType.UntilAnyRest,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionGrappleSourceName,
+                0,
+                0,
+                0);
+
+            rulesetDefender.InflictCondition(
+                ConditionGrappleTargetName,
+                DurationType.UntilAnyRest,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionGrappleTargetName,
+                0,
+                0,
+                0);
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeDisableGrapple : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName, out var activeConditionSource))
+            {
+                rulesetAttacker.RemoveCondition(activeConditionSource);
+            }
+
+            if (GetGrappledActor(rulesetAttacker, out var rulesetDefender, out var activeConditionTarget))
+            {
+                rulesetDefender.RemoveCondition(activeConditionTarget);
+            }
+
+            yield break;
+        }
+    }
+
+    internal static bool GetGrappledActor(
+        RulesetCharacter rulesetSource,
+        out RulesetCharacter rulesetTarget,
+        out RulesetCondition rulesetTargetCondition)
+    {
+        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var contenders =
+            Gui.Battle?.AllContenders ??
+            locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
+
+        RulesetCondition foundCondition = null;
+
+        rulesetTarget = contenders.FirstOrDefault(x =>
+            x.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionGrappleTargetName, out foundCondition) &&
+            foundCondition.SourceGuid == rulesetSource.Guid)?.RulesetCharacter;
+
+        var found = rulesetTarget != null;
+
+        rulesetTargetCondition = found ? foundCondition : null;
+
+        return found;
+    }
+
+    #endregion
 }

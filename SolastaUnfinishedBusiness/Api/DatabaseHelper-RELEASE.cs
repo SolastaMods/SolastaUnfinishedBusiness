@@ -27,6 +27,7 @@ internal static partial class DatabaseHelper
     internal static class ActionDefinitions
     {
         internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
+        internal static ActionDefinition AttackFree { get; } = GetDefinition<ActionDefinition>("AttackFree");
         internal static ActionDefinition CastMain { get; } = GetDefinition<ActionDefinition>("CastMain");
         internal static ActionDefinition CastBonus { get; } = GetDefinition<ActionDefinition>("CastBonus");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");

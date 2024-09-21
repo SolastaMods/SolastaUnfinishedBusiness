@@ -1,5 +1,6 @@
 1.5.97.32:
 
+- added General > Character > 'Add grapple action to all playable races'
 - added Interface > Game UI > 'Hold SHIFT to snap line spells to grid'
 - fixed Path of the Wild Magic wild surge retribution also damaging self
 - fixed Roguish Arcane Scoundrel arcane backslash causing any scoundrel spell to crash game

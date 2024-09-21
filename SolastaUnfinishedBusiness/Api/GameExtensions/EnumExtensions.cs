@@ -73,6 +73,8 @@ internal enum ExtraActionId
     WildSurgeReroll,
     CastQuickened,
     ZenShotToggle,
+    Grapple,
+    DisableGrapple,
     PrioritizeAction = 10000
 }
 

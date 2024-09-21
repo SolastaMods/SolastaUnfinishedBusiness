@@ -7,6 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness P
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=DEX-Modifikator zu Feinden hinzufügen <color=#D89555>Initiative Roll</color>
 ModUi/&AddFallProneActionToAllRaces=Füge die Aktion <color=#D89555>In den Bauch fallen</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[du kannst kostenlos in den Bauch fallen]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Aktivieren Sie <color=#D89555>Kämpfer</color>, um die Klassenstufe als Bonus zur Wiederholung des <color=#D89555>Unbezwingbaren Widerstands</color>-Rettungswurfs hinzuzufügen
+ModUi/&AddGrappleActionToAllRaces=Füge die Aktion <color=#D89555>Greifen</color> zu allen spielbaren Rennen hinzu.
 ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur innerhalb einer Zelle um dich anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Ranger</color> humanoide bevorzugte Feinde
 ModUi/&AddNewBrightEyeColors=Fügen Sie neue leuchtende Augenfarben hinzu

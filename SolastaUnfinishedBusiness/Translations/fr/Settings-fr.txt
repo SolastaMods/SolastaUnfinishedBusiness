@@ -7,6 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Activez <color=#D89555>Darkness Percepti
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Ajoutez un modificateur DEX aux ennemis <color=#D89555>Initiative Roll</color>
 ModUi/&AddFallProneActionToAllRaces=Ajoutez l'action <color=#D89555>Tomber à terre</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez tomber à terre sans frais]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Activez <color=#D89555>Combattant</color> pour ajouter le niveau de classe en bonus à la relance du jet de sauvegarde de la <color=#D89555>Résistance indomptable</color>.
+ModUi/&AddGrappleActionToAllRaces=Ajoutez l'action <color=#D89555>Grappin</color> à toutes les races jouables
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature amie à attaquer une créature à moins d'une cellule de vous]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Activer les ennemis préférés humanoïdes <color=#D89555>Ranger</color>
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs d'yeux vives
