@@ -1339,6 +1339,7 @@ internal static partial class CharacterContext
             EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                .SetImpactEffectParameters(Knock)
                 .Build())
         .AddCustomSubFeatures(new CustomBehaviorGrapple())
         .AddToDB();
@@ -1352,6 +1353,7 @@ internal static partial class CharacterContext
             EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetImpactEffectParameters(Slow)
                 .Build())
         .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDisableGrapple())
         .AddToDB();
@@ -1382,12 +1384,13 @@ internal static partial class CharacterContext
     {
         var battlePackage = AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName);
 
-        _ = ConditionDefinitionBuilder
+        var conditionGrappleTarget = ConditionDefinitionBuilder
             .Create(ConditionGrappleTargetName)
-            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionHindered)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHindered)
             .SetConditionType(ConditionType.Detrimental)
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics)
             .SetBrain(battlePackage, true)
+            .SetSpecialDuration(DurationType.UntilAnyRest)
             .SetFeatures(
                 FeatureDefinitionActionAffinitys.ActionAffinityGrappled,
                 FeatureDefinitionMovementAffinityBuilder
@@ -1396,17 +1399,25 @@ internal static partial class CharacterContext
                     .SetBaseSpeedMultiplicativeModifier(0)
                     .AddToDB())
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedConditionGrappleTarget())
+            .SetConditionParticleReference(ConditionDefinitions.ConditionRestrained)
             .AddToDB();
 
         _ = ConditionDefinitionBuilder
             .Create(ConditionGrappleSourceName)
-            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionEncumbered)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityGrappleSource")
                     .SetGuiPresentationNoContent(true)
                     .SetForbiddenActions(ActionDefinitions.Id.Climb, ActionDefinitions.Id.Jump)
+                    .AddToDB(),
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create("CombatAffinityGrappleSource")
+                    .SetGuiPresentationNoContent(true)
+                    //TODO: improve this as it will prevent any grappled creature from attacking a grappler
+                    .SetSituationalContext(SituationalContext.TargetHasCondition, conditionGrappleTarget)
+                    .SetAttackOfOpportunityImmunity(true)
                     .AddToDB(),
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityGrappleSource")
@@ -1415,6 +1426,7 @@ internal static partial class CharacterContext
                     .AddToDB())
             .AddCustomSubFeatures(new CustomBehaviorConditionGrappleSource())
             .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
     }
 
@@ -1510,6 +1522,8 @@ internal static partial class CharacterContext
             var defender = action.ActionParams.TargetCharacters[0];
             var abilityCheckData = new AbilityCheckData();
 
+            attacker.BurnOneMainAttack();
+
             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
                 attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
 
@@ -1524,7 +1538,6 @@ internal static partial class CharacterContext
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            attacker.BurnOneMainAttack();
             rulesetAttacker.InflictCondition(
                 ConditionGrappleSourceName,
                 DurationType.UntilAnyRest,

@@ -12,10 +12,10 @@
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
+  "specialDuration": true,
+  "durationType": "UntilAnyRest",
   "durationParameterDie": "D4",
-  "durationParameter": 1,
+  "durationParameter": 0,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
@@ -41,21 +41,21 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "d8e73c164ff3dad4197a0e0830c6573e",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "b8867e443cbc9024db3ffd55201414b1",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "637c9a990c79eb249beaf07c80aae51a",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
@@ -132,7 +132,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionGrappleTargetTitle",
-    "description": "-",
+    "description": "Condition/&ConditionGrappleTargetDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "57125544a666ad64195b2eddc133deb4",

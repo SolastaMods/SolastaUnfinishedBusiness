@@ -5,6 +5,7 @@
   "conditionType": "Neutral",
   "features": [
     "Definition:ActionAffinityGrappleSource:63eda617-950c-54d4-a756-57dee8962676",
+    "Definition:CombatAffinityGrappleSource:b3a42936-7287-5088-aaa8-9f188c06c75c",
     "Definition:MovementAffinityGrappleSource:ea9dc190-cfe6-5f62-a748-bcc5493c6b62"
   ],
   "allowMultipleInstances": false,
@@ -43,21 +44,21 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "d9377d04deadc8444adfc6f7c1e52424",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "fe51b1cfa45cd1f45b80259db41225b7",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "70b9b11d1ff7cd54babdb987562cd07e",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
@@ -134,7 +135,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionGrappleSourceTitle",
-    "description": "-",
+    "description": "Condition/&ConditionGrappleSourceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f554d88f62e1e2346a7e7420f554ce64",

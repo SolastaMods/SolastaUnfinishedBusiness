@@ -3,13 +3,14 @@
 - added General > Character > 'Add grapple action to all playable races'
 - added Interface > Game UI > 'Hold SHIFT to snap line spells to grid'
 - fixed Circle of the Stars chalice healing power bleeding on action bar
+- fixed Lightning and Obscurement rules not applying line of sight checks
 - fixed Path of the Wild Magic wild surge retribution also damaging self
 - fixed Roguish Arcane Scoundrel arcane backslash causing any scoundrel spell to crash game
 - fixed Sorcerous Wild Magic bend luck inverted save behavior
 - improved backgrounds documentation dump to include cantrips, proficiencies, pools, equipment, etc.
 - improved consistency between highlighted and actual tiles when casting line spells
 - improved Gravity Fissure spell by using angle to the line as a tiebreaker to which cell should pull
-- improved tooltips to be wider, and better fully render on lower resolutions as one in Steam Deck
+- improved tooltips to be wider, and better fully render at 1080p or lower resolutions as one in Steam Deck
 
 1.5.97.31:
 
