@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 public static class Vector3Extensions
 {
     /// <summary>
-    /// Returns Chessboard/Chebyshev length of this vector
+    ///     Returns Chessboard/Chebyshev length of this vector
     /// </summary>
     public static float ChessboardLength(this Vector3 self)
     {

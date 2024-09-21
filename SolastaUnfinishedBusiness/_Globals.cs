@@ -42,10 +42,10 @@ internal static class Global
     internal static RulesetCharacter CurrentCharacter =>
         InspectedHero ?? LevelUpHero ?? SelectedLocationCharacter?.RulesetCharacter;
 
+    internal static bool IsShiftPressed => Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
     internal static void RefreshControlledCharacter()
     {
         SelectedLocationCharacter?.RulesetCharacter?.RefreshAll();
     }
-
-    internal static bool IsShiftPressed => Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 }

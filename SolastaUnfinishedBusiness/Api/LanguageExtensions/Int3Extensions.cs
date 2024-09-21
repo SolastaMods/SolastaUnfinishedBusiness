@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 public static class Int3Extensions
 {
     /// <summary>
-    /// Returns Chessboard/Chebyshev length of this vector
+    ///     Returns Chessboard/Chebyshev length of this vector
     /// </summary>
     [UsedImplicitly]
     public static int ChessboardLength(this int3 self)
@@ -17,7 +17,7 @@ public static class Int3Extensions
     }
 
     /// <summary>
-    /// Returns Chessboard/Chebyshev distance between 2 points
+    ///     Returns Chessboard/Chebyshev distance between 2 points
     /// </summary>
     [UsedImplicitly]
     public static int ChessboardDistance(this int3 self, int3 other)

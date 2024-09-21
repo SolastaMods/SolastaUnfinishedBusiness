@@ -358,16 +358,22 @@ internal static partial class SpellBuilders
             dummy.LocationPosition = int3.zero;
             return targets;
 
-            bool Valid(IEnumerable<float> values)
+            static bool Valid(IEnumerable<float> values)
             {
                 var flag = false;
+
                 foreach (var value in values)
                 {
-                    // don't include affected contenders
-                    if (value < 1) { return false; }
-
-                    // include actions within 2 cells range
-                    if (value <= 2) { flag = true; }
+                    switch (value)
+                    {
+                        // don't include affected contenders
+                        case < 1:
+                            return false;
+                        // include actions within 2 cells range
+                        case <= 2:
+                            flag = true;
+                            break;
+                    }
                 }
 
                 return flag;
@@ -403,7 +409,7 @@ internal static partial class SpellBuilders
                 if (line == Vector3.zero) { return result; }
 
                 v.y = 0;
-                return 1000000 * result + Math.Abs(Vector3.Angle(line, v) - 90);
+                return (1000000 * result) + Math.Abs(Vector3.Angle(line, v) - 90);
             }
         }
 
@@ -420,9 +426,9 @@ internal static partial class SpellBuilders
             var direction = new Vector3();
             List<int3> positions = [];
             List<GameLocationCharacter> affectedCharacters = [];
-            
 
-            EffectDescription effectDescription = rulesetEffect.EffectDescription;
+
+            var effectDescription = rulesetEffect.EffectDescription;
             var castingPosition = actingCharacter.LocationPosition;
             var useFloatingImpactPoint =
                 IsUsingFloatingImpactPoint(effectDescription.RangeType, effectDescription.TargetType);

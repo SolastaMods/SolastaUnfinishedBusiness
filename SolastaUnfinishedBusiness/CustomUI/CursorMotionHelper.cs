@@ -19,7 +19,7 @@ public class CursorMotionHelper : MonoBehaviour
 {
     private static GameObject _chainHelperPrefab;
     internal static readonly Vector3 Center = new(0.5f, 0.5f, 0.5f);
-    internal static readonly Vector3 CursorHoverShift = new (0.0f, 0.5f, 0.0f);
+    internal static readonly Vector3 CursorHoverShift = new(0.0f, 0.5f, 0.0f);
 
     private readonly List<int3> _gravityFissureTiles = [];
 
@@ -34,7 +34,7 @@ public class CursorMotionHelper : MonoBehaviour
 
     private bool _isGravityFissure;
     private IGameLocationPositioningService _positioningService;
-    private string _positionsKey = "";
+    private string _positionsKey = string.Empty;
     private IGameLocationSelectionService _selectionService;
 
     private GameLocationCharacter ActingCharacter => _cursor.ActionParams.ActingCharacter;

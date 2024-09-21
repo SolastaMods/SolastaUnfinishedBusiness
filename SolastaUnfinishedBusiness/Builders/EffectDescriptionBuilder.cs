@@ -147,7 +147,7 @@ internal class EffectDescriptionBuilder
     {
         return SetImpactEffectParameters(reference.EffectDescription.EffectParticleParameters.impactParticleReference);
     }
-    
+
     internal EffectDescriptionBuilder SetImpactEffectParameters(FeatureDefinitionAdditionalDamage reference)
     {
         return SetImpactEffectParameters(reference.impactParticleReference);

@@ -344,6 +344,7 @@ internal class EffectFormBuilder
         );
     }
 
+    [UsedImplicitly]
     internal static EffectForm ItemPropertyForm(
         ItemPropertyUsage usageLimitation,
         int useAmount,

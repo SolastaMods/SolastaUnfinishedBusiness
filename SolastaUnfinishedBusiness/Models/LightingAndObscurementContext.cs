@@ -276,7 +276,7 @@ internal static class LightingAndObscurementContext
         }
 
         //check line of sight
-        if ((requireLineOfSight || !Main.Settings.UseOfficialLightingObscurementAndVisionRules) 
+        if ((requireLineOfSight || !Main.Settings.UseOfficialLightingObscurementAndVisionRules)
             && !instance.IsCellPerceivedByCharacter(cellPosition, finalSensor))
         {
             return false;
@@ -289,8 +289,8 @@ internal static class LightingAndObscurementContext
         if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
             // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
-            return (additionalBlockedLightingState == LightingState.Darkness ||
-                              targetLightingState != additionalBlockedLightingState);
+            return additionalBlockedLightingState == LightingState.Darkness ||
+                   targetLightingState != additionalBlockedLightingState;
         }
 
         // determine constraints

@@ -238,23 +238,23 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder.Create(Light)
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .DamageForm(DamageTypeFire, 8, DieType.D6),
-                        EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(conditionIncineration, ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.Negates)
-                            .SetLightSourceForm(
-                                LightSourceType.Basic, 6, 6, lightSourceForm.Color,
-                                lightSourceForm.graphicsPrefabReference)
-                            .Build())
-                    .SetParticleEffectParameters(Fireball)
-                    .Build())
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
+                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .DamageForm(DamageTypeFire, 8, DieType.D6),
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.Negates)
+                        .SetConditionForm(conditionIncineration, ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder.WithSavingThrow(EffectSavingThrowType.Negates)
+                        .SetLightSourceForm(
+                            LightSourceType.Basic, 6, 6, lightSourceForm.Color,
+                            lightSourceForm.graphicsPrefabReference)
+                        .Build())
+                .SetParticleEffectParameters(Fireball)
+                .Build())
             .AddToDB();
 
         return spell;
