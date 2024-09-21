@@ -297,7 +297,7 @@ ModUi/&SettingsLoad=• Caricare un'impostazione esportata
 ModUi/&SettingsOpenFolder=Apri la cartella delle impostazioni esportate
 ModUi/&SettingsRefresh=Ricaricare
 ModUi/&SettingsRemove=Rimuovere
-ModUi/&ShiftToSnapLineSpells1=Tieni premuto <color=#1E81B0>MAIUSC</color> per agganciare gli incantesimi lineari alla griglia <i><color=#F0DAA0>[Senza agganciare il posizionamento effettivo della linea potrebbe differire dall'anteprima.]</color></i>
+ModUi/&ShiftToSnapLineSpells=Tieni premuto <color=#1E81B0>MAIUSC</color> per agganciare gli incantesimi lineari alla griglia <i><color=#F0DAA0>[Senza agganciare il posizionamento effettivo della linea potrebbe differire dall'anteprima.]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Mostra il pulsante che apre le informazioni sui mostri controllati <i><color=#F0DAA0>[druidi dalla forma selvaggia, evocazioni, seguaci NPC, ecc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostra quanti usi di <color=#D89555>Canale Divinità</color> ha un eroe sul suo ritratto, in modo simile ai punti stregoneria
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato vicino all'oggetto della ricetta nel negozio e nell'inventario <i><color=#F0DAA0>[Passando il mouse sopra verrà mostrato un suggerimento per l'oggetto creato]</color></i>

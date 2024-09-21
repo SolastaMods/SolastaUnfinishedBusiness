@@ -3,7 +3,7 @@
 Artificers are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 
 
-## Level 1
+### Level 1
 
 * Artificer Armor Proficiencies
 
@@ -38,7 +38,7 @@ Constitution,Intelligence
 Can cast spells from the Artificer Spells list. You can use item that bears your infusion or any universal focus as a focus for your spells. You can cast a spell as a ritual if the spell has the ritual tag, and you have it prepared.
 
 
-## Level 2
+### Level 2
 
 * Infusions
 
@@ -46,7 +46,7 @@ You've gained the ability to imbue mundane items with certain magical infusions,
 After each long rest you can infuse 2 items. If you try to exceed your maximum amount of infused object, the oldest infusion ends and then new infusion applies. The infusion also vanishes if you replace your knowledge of the infusion.
 
 
-## Level 3
+### Level 3
 
 * Field Of Study
 
@@ -57,14 +57,14 @@ Select Field Of Study to focus on.
 Choose one of these tools: Disguise Kit,Manacalon Rosary,Herbalism Kit,Poisoner's Kit,Scroll Kit
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 6
+### Level 6
 
 * Artificer Tool Expertise
 
@@ -79,21 +79,21 @@ You can have 1 more item infused at a time.
 Select 2 new infusions to learn.
 
 
-## Level 7
+### Level 7
 
 * Flash of Genius
 
 When ally in 30ft fails saving throw by less than your Intelligence modifier, you can use your reaction to improvise help that would give that roll a bonus equal to your Intelligence modifier. You can use this ability Intelligence modifier times per long rest.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 10
+### Level 10
 
 * Infusion Limit Increase
 
@@ -110,21 +110,21 @@ You have achieved a profound understanding of how to use and make magic items:
 • You craft items in quarter of the normal time.
 
 
-## Level 11
+### Level 11
 
 * Spell-Storing Wand
 
 Create a wand that can cast one of the 1st or 2nd level Artificer spells. Wand uses your Artificer spell attack modifier and save DC. Wand will disappear when all charges are spent or if you create new wand.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 14
+### Level 14
 
 * Infusion Limit Increase
 
@@ -141,14 +141,14 @@ Your skill with magic items deepens more:
 • You ignore class requirements on attuning to a magic item.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 18
+### Level 18
 
 * Infusion Limit Increase
 
@@ -159,14 +159,14 @@ You can have 1 more item infused at a time.
 Select 2 new infusions to learn.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Soul of Artifice
 
@@ -181,7 +181,7 @@ You develop a mystical connection to your magic items, which you can draw on for
 Barbarians are fierce warriors from the edge of civilization. Their battle rage makes them dangerous combatants.
 
 
-## Level 1
+### Level 1
 
 * Barbarian Armor Proficiencies
 
@@ -209,7 +209,7 @@ Strength,Constitution
 When you are not wearing armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
 
 
-## Level 2
+### Level 2
 
 * Danger Sense
 
@@ -220,7 +220,7 @@ You have advantage on Dexterity saving throws for effects and spells, as long as
 Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 
 
-## Level 3
+### Level 3
 
 * Additional Rage Use
 
@@ -231,14 +231,14 @@ You can rage one additional time per long rest.
 At 3rd level, you choose a path that shapes the nature of your rage.
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 5
+### Level 5
 
 * Extra Attack
 
@@ -249,28 +249,28 @@ You can attack twice, rather than once, when you use the attack or shove actions
 Your speed increases by 2 cells if you are not wearing heavy armor.
 
 
-## Level 6
+### Level 6
 
 * Additional Rage Use
 
 You can rage one additional time per long rest.
 
 
-## Level 7
+### Level 7
 
 * Feral Instinct
 
 Your instincts are so honed that you have advantage on initiative rolls. Additionally, if you are surprised at the beginning of combat and are not incapacitated, you can act normally on your first turn, but only if you enter rage before doing anything else on that turn.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 9
+### Level 9
 
 * Additional Rage Damage
 
@@ -281,14 +281,14 @@ Increase your rage damage by +1
 You can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.
 
 
-## Level 11
+### Level 11
 
 * Relentless Rage
 
 If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
@@ -299,21 +299,21 @@ Choose between increasing your ability scores or gaining a bonus feat.
 You can rage one additional time per long rest.
 
 
-## Level 13
+### Level 13
 
 * Brutal Critical (Advanced)
 
 Add another damage die to critical hits.
 
 
-## Level 15
+### Level 15
 
 * Persistent Rage
 
 You have advantage on strength saves and checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, choose to end it or 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
@@ -324,7 +324,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Increase your rage damage by +1
 
 
-## Level 17
+### Level 17
 
 * Additional Rage Use
 
@@ -335,21 +335,21 @@ You can rage one additional time per long rest.
 Add another damage die to critical hits.
 
 
-## Level 18
+### Level 18
 
 * Indomitable Might
 
 If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Primal Champion
 
@@ -362,7 +362,7 @@ Starting at 20th level, you embody the power of the wilds. Your Strength and Con
 While they are capable fighters, the true power of bards lies in their words and music. They can inspire those who hear them, raise their spirits, and affect their minds in other ways. They are well-versed in lore and magic, as well.
 
 
-## Level 1
+### Level 1
 
 * Bard Armor Proficiencies
 
@@ -393,7 +393,7 @@ Dexterity,Charisma
 Cast bard spells.
 
 
-## Level 2
+### Level 2
 
 * Jack of All Trades
 
@@ -404,7 +404,7 @@ Add half your proficiency bonus to any ability check you make that doesn't alrea
 During a short rest, each ally rolls an additional hit die when spending hit die to regain hit points.
 
 
-## Level 3
+### Level 3
 
 * Bard Colleges
 
@@ -415,14 +415,14 @@ At level 3, you delve into the advanced techniques of a bard college of your cho
 At the 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At the 10th level, you can choose another two skill proficiencies to gain this benefit.
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 5
+### Level 5
 
 * Bardic Inspiration (D8)
 
@@ -433,21 +433,21 @@ Your Bardic Inspiration die is now a D8.
 You regain all your expended uses of Bardic Inspiration when you finish a short or long rest.
 
 
-## Level 6
+### Level 6
 
 * Countercharm
 
 Start a performance that lasts until the end of your next turn. During that time, all allies within 6 cells have advantage on saving throws against being frightened or charmed.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 10
+### Level 10
 
 * Bard Expertise
 
@@ -462,49 +462,49 @@ Your Bardic Inspiration die is now a D10.
 Choose two spells from any class and include them in your spell list.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 14
+### Level 14
 
 * Magical Secrets
 
 Choose two spells from any class and include them in your spell list.
 
 
-## Level 15
+### Level 15
 
 * Bardic Inspiration (D12)
 
 Your Bardic Inspiration die is now a D12.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 18
+### Level 18
 
 * Magical Secrets
 
 Choose two spells from any class and include them in your spell list.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Superior Inspiration
 
@@ -517,7 +517,7 @@ When you roll initiative and have no uses of Bardic Inspiration left, you regain
 Clerics are the servants of their chosen deity. In exchange for their faith and service they are granted miraculous powers, as long as they constrain themselves to following their god's creed and perform their religion's rituals.
 
 
-## Level 1
+### Level 1
 
 * Cleric Armor Proficiencies
 
@@ -552,7 +552,7 @@ You have been trained to scribe magic scrolls.
 Can cast spells from the Cleric Spells list
 
 
-## Level 2
+### Level 2
 
 * Channel Divinity
 
@@ -563,14 +563,14 @@ Can use Channel Divinity actions once between rests.
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 5
+### Level 5
 
 * Turn Undead (Destroy)
 
@@ -578,14 +578,14 @@ Channel Divinity to force undead creatures within 6 cells who can see you to fle
  Undead creatures with a challenge rating of 0.5 or lower that fail the saving throw are instead destroyed.
 
 
-## Level 6
+### Level 6
 
 * Channel Divinity (increased)
 
 +1 Channel Divinity use between rests.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
@@ -597,7 +597,7 @@ Channel Divinity to force undead creatures within 6 cells who can see you to fle
  Undead creatures with a challenge rating of 1 or lower that fail the saving throw are instead destroyed.
 
 
-## Level 11
+### Level 11
 
 * Turn Undead (Destroy)
 
@@ -605,14 +605,14 @@ Channel Divinity to force undead creatures within 6 cells who can see you to fle
  Undead creatures with a challenge rating of 2 or lower that fail the saving throw are instead destroyed.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 14
+### Level 14
 
 * Turn Undead (Destroy)
 
@@ -620,14 +620,14 @@ Channel Divinity to force undead creatures within 6 cells who can see you to fle
  Undead creatures with a challenge rating of 3 or lower that fail the saving throw are instead destroyed.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 17
+### Level 17
 
 * Turn Undead (Destroy)
 
@@ -635,14 +635,14 @@ Channel Divinity to force undead creatures within 6 cells who can see you to fle
  Undead creatures with a challenge rating of 4 or lower that fail the saving throw are instead destroyed.
 
 
-## Level 18
+### Level 18
 
 * Channel Divinity (increased)
 
 +1 Channel Divinity use between rests.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
@@ -655,7 +655,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Druids are part of an ancient order dedicated to nature. Their powers and spells are attuned to animals, plants and the elemental forces.
 
 
-## Level 1
+### Level 1
 
 * Druid Armor Proficiencies
 
@@ -687,7 +687,7 @@ Intelligence,Wisdom
 Can cast spells from the Druid Spells list
 
 
-## Level 2
+### Level 2
 
 * Druid Circle
 
@@ -698,49 +698,49 @@ At 2nd level, you choose a Druid Circle that further expresses your relationship
 You can use your action to magically assume the shape of a beast defined by your druid level. Higher levels allow stronger shapes or forms of motion. You can use this feature twice. You regain expanded uses when you finish a short or long rest.
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 18
+### Level 18
 
 * Beast Spells
 
 You can cast many of your druid spells in any shape you assume using Wild Shape. You can perform the somatic and verbal components of a druid spell while in a beast shape, but you aren't able to provide material components.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Arch Druid
 
@@ -753,7 +753,7 @@ You can use your Wildshape an unlimited number of times. Additionally, you can i
 Fighters are trained in the arts of combat. They are adept with most weapons, but often choose to specialize. All fighters can use armor, shields, and ranged weapons.
 
 
-## Level 1
+### Level 1
 
 * Fighter Armor Proficiencies
 
@@ -784,91 +784,91 @@ Regain (1d10 + level) HP as a bonus action.
 You are trained to craft basic ammunition with smith's tools: arrows and bolts.
 
 
-## Level 2
+### Level 2
 
 * Action Surge
 
 Regain a main action immediately. Take a short or long rest to recover this power.
 
 
-## Level 3
+### Level 3
 
 * Martial Archetypes
 
 Select a Martial Archetype.
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 5
+### Level 5
 
 * Extra Attack
 
 You can attack twice, rather than once, when you use the attack or shove actions.
 
 
-## Level 6
+### Level 6
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 9
+### Level 9
 
 * Indomitable
 
 You can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest.
 
 
-## Level 11
+### Level 11
 
 * Extra Attack
 
 You can attack twice, rather than once, when you use the attack or shove actions.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 13
+### Level 13
 
 * Indomitable (advanced)
 
 You can use Indomitable resistance one additional time between long rests.
 
 
-## Level 14
+### Level 14
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 17
+### Level 17
 
 * Action Surge
 
@@ -879,14 +879,14 @@ Regain a main action immediately. Take a short or long rest to recover this powe
 You can use Indomitable resistance one additional time between long rests.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Extra Attack
 
@@ -899,7 +899,7 @@ You can attack twice, rather than once, when you use the attack or shove actions
 Despite their name, not all monks live a contemplative, religious life. However, all have devoted themselves to training their minds and bodies to near perfection, enabling them to perform feats that leave others speechless with awe.
 
 
-## Level 1
+### Level 1
 
 * Martial Arts
 
@@ -930,7 +930,7 @@ Strength,Dexterity
 When you are not wearing armor, your armor class equals 10 + your dexterity modifier + your wisdom modifier. You cannot use a shield to gain this benefit.
 
 
-## Level 2
+### Level 2
 
 * Flurry of Blows
 
@@ -953,7 +953,7 @@ You can spend 1 Ki point to take the Disengage or Dash action as a bonus action 
 Starting at level 2, your speed increases by 2 cells while you're not wearing armor or wielding a shield. This bonus becomes 3 cells at level 6, 4 cells at level 10, and 5 cells at level 14).
 
 
-## Level 3
+### Level 3
 
 * Deflect Missiles
 
@@ -965,7 +965,7 @@ Starting at the 3rd level, you can use your reaction to deflect or catch the mis
 Determines the tradition you have chosen.
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
@@ -976,7 +976,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Starting at the 4th level, you can use your reaction when you fall to reduce any fall damage you take by an amount equal to five times your monk level. Additionally, you don't become prone when landing.
 
 
-## Level 5
+### Level 5
 
 * Extra Attack
 
@@ -987,14 +987,14 @@ You can attack twice, rather than once, when you use the attack or shove actions
 Starting at the 5th level, you can interfere with the flow of Ki in an opponent's body. When you hit another creature with a melee weapon attack, you can spend 1 Ki point to attempt a stunning strike. The target must succeed on a constitution saving throw or be stunned until the end of your next turn.
 
 
-## Level 6
+### Level 6
 
 * Ki-Empowered Strikes
 
 Starting at the 6th level, your unarmed strikes count as magical for the purposes of overcoming resistance and immunity to non-magical attacks and damage.
 
 
-## Level 7
+### Level 7
 
 * Evasion
 
@@ -1005,49 +1005,49 @@ At the 7th level, your instinctive agility lets you dodge out of the way of cert
 Starting at the 7th level, you become immune to being charmed or frightened.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 9
+### Level 9
 
 * Unarmored Movement - Improved
 
 Starting at the 9th level, climbing becomes second nature to you. Climbing no longer costs you extra movement.
 
 
-## Level 10
+### Level 10
 
 * Purity of Body
 
 At the 10th level, your mastery of the Ki flowing through you makes you immune to disease and poison.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 13
+### Level 13
 
 * Tongue of the Sun and Moon
 
 Starting at level 13, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
 
 
-## Level 14
+### Level 14
 
 * Diamond Soul
 
 Starting at level 14, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki Point to reroll it and take the second result.
 
 
-## Level 15
+### Level 15
 
 * Timeless Body
 
@@ -1057,28 +1057,28 @@ At the 15th level, you gain the following benefits:
   - You don't require a food ration anymore to take a long rest
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 18
+### Level 18
 
 * Empty Body
 
 You can use your action to spend 4 Ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Perfect Self
 
@@ -1091,7 +1091,7 @@ When you start battle and have no Ki points remaining, you regain 4 Ki points.
 Paladins are elite warriors who have sworn unbreakable holy oaths to fight evil. In addition to their weapons and armor, they wield divine powers and clerical spells.
 
 
-## Level 1
+### Level 1
 
 * Cure Disease
 
@@ -1130,7 +1130,7 @@ Simple Weapons,Martial Weapons
 Wisdom,Charisma
 
 
-## Level 2
+### Level 2
 
 * Divine Smite
 
@@ -1145,7 +1145,7 @@ Choose a fighting style as a specialty.
 Can cast spells from the Paladin Spells list
 
 
-## Level 3
+### Level 3
 
 * Channel Divinity
 
@@ -1156,70 +1156,70 @@ Can use Channel Divinity actions once between rests.
 Select and swear the sacred oath that binds you as a paladin forever!
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 5
+### Level 5
 
 * Extra Attack
 
 You can attack twice, rather than once, when you use the attack or shove actions.
 
 
-## Level 6
+### Level 6
 
 * Aura of Protection
 
 Grants a saving throw bonus to your surrounding allies, equal to your CHA modifier (min 1).
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 10
+### Level 10
 
 * Aura of Courage
 
 You and allies within 2 cells cannot be frightened while you are conscious. At the 18th level, the range becomes 6 cells.
 
 
-## Level 11
+### Level 11
 
 * Improved Divine Smite
 
 Whenever you hit a creature with a melee weapon, the creature takes an extra 1d8 radiant damage, whether you are spending a spell slot to smite or not
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 14
+### Level 14
 
 * Cleansing Touch
 
 Starting at level 14, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 18
+### Level 18
 
 * Improved Aura of Courage
 
@@ -1230,7 +1230,7 @@ Grant a saving throw bonus to allies within 30ft.
 You and your allies within 30ft cannot be frightened.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
@@ -1243,7 +1243,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Wanderers of Solasta's wilderness, rangers are trained survivalists, fierce in battle, and stealthy hunters. Excellent trackers and archers, they also have some spellcasting ability.
 
 
-## Level 1
+### Level 1
 
 * Favored Enemy
 
@@ -1274,7 +1274,7 @@ Strength,Dexterity
 You are trained to craft basic ammunition with smith's tools: arrows and bolts.
 
 
-## Level 2
+### Level 2
 
 * Fighting Style
 
@@ -1285,7 +1285,7 @@ Choose a fighting style as a specialty.
 Can cast spells from the Ranger Spells list
 
 
-## Level 3
+### Level 3
 
 * Primeval Awareness
 
@@ -1296,21 +1296,21 @@ Detects the presence of certain creature types in the location.
 Select a Ranger Archetype that will guide you in your travels.
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 5
+### Level 5
 
 * Extra Attack
 
 You can attack twice, rather than once, when you use the attack or shove actions.
 
 
-## Level 6
+### Level 6
 
 * Favored Enemy
 
@@ -1321,14 +1321,14 @@ Gain advantage on ability checks towards this creature type, and additional dama
 You are adept at living and traveling in a certain type of terrain.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 10
+### Level 10
 
 * Hide in Plain Sight
 
@@ -1339,14 +1339,14 @@ You can spend 1 minute creating camouflage for yourself. Once camouflaged, you g
 You are adept at living and traveling in a certain type of terrain.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 14
+### Level 14
 
 * Favored Enemy
 
@@ -1357,28 +1357,28 @@ Gain advantage on ability checks towards this creature type, and additional dama
 Starting at level 14, you can use the Hide action as a bonus action on your turn.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 18
+### Level 18
 
 * Feral Senses
 
 You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you cannot see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Foe Slayer
 
@@ -1391,7 +1391,7 @@ You become an unparalleled hunter of your enemies. All your attacks deal additio
 Rogues are versatile first and foremost. They use their natural talents to master various skills and find their own way to thrive. Generally resourceful, they are known for their cunning and their ability to launch deadly sneak attacks.
 
 
-## Level 1
+### Level 1
 
 * Expertise
 
@@ -1426,112 +1426,112 @@ You are trained to craft basic ammunition with smith's tools: arrows and bolts.
 1d6 extra damage (+1d6 every 2 levels) to one creature you hit with advantage using a finesse or ranged weapon, once per turn. No need for advantage if an active ally is next to the target.
 
 
-## Level 2
+### Level 2
 
 * Cunning Action
 
 You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.
 
 
-## Level 3
+### Level 3
 
 * Roguish Archetypes
 
 Select a Roguish Archetype that will steer your talents in varying directions.
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 5
+### Level 5
 
 * Uncanny Dodge
 
 When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage.
 
 
-## Level 6
+### Level 6
 
 * Expertise
 
 Select 2 proficient skills or tools to double their proficiency bonus.
 
 
-## Level 7
+### Level 7
 
 * Evasion
 
 When you are subjected to an area of effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 10
+### Level 10
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 11
+### Level 11
 
 * Reliable Talent
 
 Whenever your make an ability check that lets you add your proficiency bonus, you can treat a d20 roll of 9 or lower as a 10.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 14
+### Level 14
 
 * Blindsense
 
 You are aware of the location of any hidden or invisible creature within 2 cells of you.
 
 
-## Level 15
+### Level 15
 
 * Slippery Mind
 
 You have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 18
+### Level 18
 
 * Elusive
 
 You are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren't incapacitated.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Stroke of Luck
 
@@ -1544,7 +1544,7 @@ You have an uncanny knack for succeeding when you need to. If your attack misses
 Sorcerers have an innate ability to channel arcane magic, usually through a supernatural origin. Sorcerers are also able to alter the fabric of magic using sorcery points.
 
 
-## Level 1
+### Level 1
 
 * Magical Crafting
 
@@ -1571,7 +1571,7 @@ Different sorcerers claim different origins for their innate magic.
 Can cast spells from the Sorcerer Spells list
 
 
-## Level 2
+### Level 2
 
 * Flexible Casting
 
@@ -1582,63 +1582,63 @@ Allows the conversion of spell slots into sorcery points and vice versa, as a bo
 A pool of internal power which can be used to alter magic spells, 1 point per Sorcerer level. Restored at long rest.
 
 
-## Level 3
+### Level 3
 
 * Metamagic
 
 You gain the ability to twist your spells to suit your needs. You gain two Metamagic options of your choice
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 10
+### Level 10
 
 * Additional Metamagic
 
 Learn another metamagic option
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 17
+### Level 17
 
 * Additional Metamagic
 
 Learn another metamagic option
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Sorcerous Restoration
 
@@ -1651,7 +1651,7 @@ Regain 4 sorcery points during a short rest.
 Where wizards draw their magical power from study and sorcerers from magical bloodlines, warlocks gain power through a pact with a powerful patron: a fiend, perhaps, or some other powerful entity. The nature of a warlock's powers varies depending on the nature of the patron and the details of the pact.
 
 
-## Level 1
+### Level 1
 
 * Otherworldly Patrons
 
@@ -1678,63 +1678,63 @@ Simple Weapons
 Can cast spells from the Warlock Spells list
 
 
-## Level 2
+### Level 2
 
 * Eldritch Invocations
 
 Learn Eldritch Invocations to acquire new abilities or spells granted by your patron. Some invocations require a prerequisite to be trained.
 
 
-## Level 3
+### Level 3
 
 * Pact Boon
 
 At the 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You gain one of the following features of your choice: Pact of the Tome, Pact of the Chain, Pact of the Blade.
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 5
+### Level 5
 
 * Eldritch Invocation
 
 Learn an additional Eldritch Invocation
 
 
-## Level 7
+### Level 7
 
 * Eldritch Invocation
 
 Learn an additional Eldritch Invocation
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 9
+### Level 9
 
 * Eldritch Invocation
 
 Learn an additional Eldritch Invocation
 
 
-## Level 11
+### Level 11
 
 * Mystic Arcanum (6th Level)
 
 Choose one spell of the specified level from the warlock spell list as this arcanum. You can cast this arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
@@ -1745,14 +1745,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Learn an additional Eldritch Invocation
 
 
-## Level 13
+### Level 13
 
 * Mystic Arcanum (7th Level)
 
 Choose one spell of the specified level from the warlock spell list as this arcanum. You can cast this arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
 
 
-## Level 15
+### Level 15
 
 * Eldritch Invocation
 
@@ -1763,35 +1763,35 @@ Learn an additional Eldritch Invocation
 Choose one spell of the specified level from the warlock spell list as this arcanum. You can cast this arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 17
+### Level 17
 
 * Mystic Arcanum (9th Level)
 
 Choose one spell of the specified level from the warlock spell list as this arcanum. You can cast this arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
 
 
-## Level 18
+### Level 18
 
 * Eldritch Invocation
 
 Learn an additional Eldritch Invocation
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Eldritch Master
 
@@ -1804,7 +1804,7 @@ You can draw on your inner reserve of mystical power while entreating your patro
 Wizards spend their lives studying magic, learning more and more powerful and wondrous spells. Despite their weakness in physical combat, their magical abilities make them dangerous foes.
 
 
-## Level 1
+### Level 1
 
 * Magical Crafting
 
@@ -1831,7 +1831,7 @@ Dagger,Dart,Quarterstaff,Light Crossbow,Conjured Weapons
 Can cast spells from the Wizard Spells list
 
 
-## Level 2
+### Level 2
 
 * Arcane Recovery
 
@@ -1842,49 +1842,49 @@ Once per day when you complete a short rest, you can recover a number of expende
 Grants you specialization with a certain kind of magic.
 
 
-## Level 4
+### Level 4
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 8
+### Level 8
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 12
+### Level 12
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 16
+### Level 16
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 18
+### Level 18
 
 * Spell Mastery
 
 You have achieved such mastery over certain spells that you can cast them at will. Choose two 1st-level or 2nd-level wizard spells that are in your spellbook. You can cast those spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal.
 
 
-## Level 19
+### Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 20
+### Level 20
 
 * Signature Spells
 

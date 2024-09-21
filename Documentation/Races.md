@@ -3,7 +3,7 @@
 Aasimar are divine creations formed in the shape of men to perform the will of their Deities. When they mature, they are able to take an Angelic Form depending on their nature.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -41,7 +41,7 @@ Common and one language of your choice.
 You know the Light cantrip.
 
 
-## Level 3
+### Level 3
 
 * Angelic Form
 
@@ -54,7 +54,7 @@ You may choose one of Aasimar's Angelic Forms.
 One of the ancient dwellers of Solasta, dwarves are naturally skilled miners and craftsmen. Blocky and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -84,7 +84,7 @@ Unaffected by heavy armor penalties.
 Elves are some of the most ancient dwellers on Solasta, and used to rule a powerful empire before the Cataclysm. They are naturally gifted with magic, agile, and fast. They have innate resistances and keen senses.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -114,7 +114,7 @@ Proficient with the Perception skill.
 The Feywild is home to many fantastic peoples, including fairies. Fairies are a wee folk, but not nearly as much so as their pixie and sprite friends. The first fairies spoke Elvish, Goblin, or Sylvan, and encounters with human visitors prompted many of them to learn Common as well.
 
 
-## Level 1
+### Level 1
 
 * Ability Scores
 
@@ -147,7 +147,7 @@ You know the Word of Radiance cantrip. At 3rd level you learn Faerie Fire and at
 Filborgs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, filborgs demonstrate formidable skills with weapons and nature magic.
 
 
-## Level 1
+### Level 1
 
 * Attribute Increase
 
@@ -188,7 +188,7 @@ Originating from the mountains bordering the Inner Sea, gnomes
   with dwarves is a fascination for tinkering.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -213,7 +213,7 @@ You have advantage on all Intelligence, Wisdom, and Charisma saving throws again
 Goliaths share ancestry with the giants that live in the northern regions of Solasta.
 
 
-## Level 1
+### Level 1
 
 * Attribute Increase
 
@@ -254,7 +254,7 @@ When you are attacked, you can use your reaction to roll a d12. Add your Constit
 The original halflings evolved in the marshes on the northeastern part of Solasta, before spreading south, following the river, and reaching the sea. They are short and nimble, and known for their bravery despite their size.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -283,7 +283,7 @@ When you roll a 1 on an attack roll, ability check, or saving throw, reroll and 
 Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
 
 
-## Level 1
+### Level 1
 
 * Darkvision
 
@@ -304,7 +304,7 @@ Common and one language of your choice.
 Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
 
-## Level 1
+### Level 1
 
 * Darkvision
 
@@ -325,7 +325,7 @@ Common, Draconic.
 The saurian lizardfolk are thought by some sages to be distant cousins of dragonborn and kobolds. Despite their resemblance to those other scaled folk, however, lizardfolk are their own people and have lived on the worlds of the Material Plane since the worlds' creation. Gifted by the gods with remarkable physical defenses and a mystical connection to the natural world, lizardfolk can survive with just their wits in situations that would be deadly for other folk. Because of that fact, many lizardfolk myths state that their people were placed by the gods in the Material Plane to guard its natural wonders.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -366,7 +366,7 @@ You are proficient with one of the following skills of your choice: Animal Handl
 Oni are Demon-like creatures from far eastern island kingdom of Himoto. They came to Solasta through activated major gates.
 
 
-## Level 1
+### Level 1
 
 * Attribute Increase
 
@@ -403,7 +403,7 @@ At 3rd level, you can cast Thunderous Smite once per long rest. Wisdom is your s
 The battleborn are results of arcane experiments, blending flesh, alchemy and magic to create perfect battlefield soldiers. Created to serve as weapons, they must now find a purpose beyond war. A battleborn can be a loyal ally, a cold-hearted killing machine, or a wandering soul-searching for purpose and meaning.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -436,7 +436,7 @@ You gain one skill proficiency and one tool proficiency of your choice.
 Wendigos arrived in Solasta through the rift during the Cataclysm. Stealthy despite their size, Wendigos would lunge at unsuspecting victims with their long arms.
 
 
-## Level 1
+### Level 1
 
 * Attribute Increase
 
@@ -481,7 +481,7 @@ On the first round of combat, if you hit a creature with an attack roll, and it'
 Wildlings are offsprings of humans and tieflings that mostly inherited the tiefling parent's feral characteristics. Different in looks and nature, wildlings have spent most of their lives in forests or other less inhabited regions of Solasta as self-sufficient hunters and travelers.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -522,7 +522,7 @@ You have proficiency in Perception and Stealth skills.
 Wyrmkins are larger cousins of Dragonborns descended from another race of dragons. Unlike Dragonborns, they can see in the dark.
 
 
-## Level 1
+### Level 1
 
 * Darkvision
 

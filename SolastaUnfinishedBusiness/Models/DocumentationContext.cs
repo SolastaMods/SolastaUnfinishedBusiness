@@ -123,7 +123,7 @@ internal static class DocumentationContext
             if (level != featureUnlockByLevel.level)
             {
                 outString.AppendLine();
-                outString.AppendLine($"## Level {featureUnlockByLevel.level}");
+                outString.AppendLine($"### Level {featureUnlockByLevel.level}");
                 outString.AppendLine();
                 level = featureUnlockByLevel.level;
             }

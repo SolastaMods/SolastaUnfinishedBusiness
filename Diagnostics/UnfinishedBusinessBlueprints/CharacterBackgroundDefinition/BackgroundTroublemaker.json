@@ -34,8 +34,8 @@
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "GenericItem",
-              "itemReference": "Definition:10_Gold_Coins:f21522223d6f7b14a9e5f34420c62865",
-              "defaultChoice": "10_Gold_Coins",
+              "itemReference": "Definition:StartingWealth_10GP:1e47663441f2b71469c67e49b32966bc",
+              "defaultChoice": "StartingWealth_10GP",
               "number": 1
             }
           ]

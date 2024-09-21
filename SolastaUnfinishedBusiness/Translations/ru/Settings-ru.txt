@@ -297,7 +297,7 @@ ModUi/&SettingsLoad=• Загрузить экспортированные на
 ModUi/&SettingsOpenFolder=Открыть папку экспортированных настроек
 ModUi/&SettingsRefresh=Обновить
 ModUi/&SettingsRemove=Удалить
-ModUi/&ShiftToSnapLineSpells1=Удерживайте <color=#1E81B0>SHIFT</color>, чтобы привязать заклинания линий к сетке <i><color=#F0DAA0>[Без привязки фактическое размещение линий может отличаться от предварительного просмотра.]</color></i>
+ModUi/&ShiftToSnapLineSpells=Удерживайте <color=#1E81B0>SHIFT</color>, чтобы привязать заклинания линий к сетке <i><color=#F0DAA0>[Без привязки фактическое размещение линий может отличаться от предварительного просмотра.]</color></i>
 ModUi/&ShiftToSnapLineSpells=Удерживайте <color=#1E81B0>SHIFT</color> для привязки заклинаний в форме линий к сетке <i><color=#F0DAA0>[Без привязки фактическое положение линий может отличаться от предварительного просмотра.]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Показать кнопку, открывающую информацию о контролируемом монстре <i><color=#F0DAA0>[друиды в облике зверя, призванные, НИП-спутники и т.д.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Показывать на портрете героя, сколько использований <color=#D89555>Божественного Канала</color> у него осталось (как очки чародейства у чародеев)

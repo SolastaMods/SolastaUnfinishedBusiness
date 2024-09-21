@@ -297,7 +297,7 @@ ModUi/&SettingsLoad=• Cargar una configuración exportada
 ModUi/&SettingsOpenFolder=Abrir la carpeta de configuración exportada
 ModUi/&SettingsRefresh=Actualizar
 ModUi/&SettingsRemove=Eliminar
-ModUi/&ShiftToSnapLineSpells1=Mantenga presionada la tecla <color=#1E81B0>SHIFT</color> para ajustar los hechizos de línea a la cuadrícula. <i><color=#F0DAA0>[Sin ajuste, la ubicación real de la línea puede diferir de la vista previa.]</color></i>
+ModUi/&ShiftToSnapLineSpells=Mantenga presionada la tecla <color=#1E81B0>SHIFT</color> para ajustar los hechizos de línea a la cuadrícula. <i><color=#F0DAA0>[Sin ajuste, la ubicación real de la línea puede diferir de la vista previa.]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Mostrar botón que abre información sobre el monstruo controlado <i><color=#F0DAA0>[druidas de forma salvaje, invocaciones, seguidores de NPC, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Muestra cuántos usos de <color=#D89555>Channel Divinity</color> tiene un héroe en su retrato, similar a los puntos de hechicería.
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar el icono del artículo elaborado cerca del artículo de receta en la tienda y el inventario <i><color=#F0DAA0>[Al pasar el cursor sobre él se mostrará información sobre herramientas para el artículo elaborado]</color></i>

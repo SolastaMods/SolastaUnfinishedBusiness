@@ -49,7 +49,7 @@ internal static partial class BackgroundsBuilders
             {
                 EquipmentOptionsBuilder.Option(ClothesNoble_Valley_Red, EquipmentDefinitions.OptionArmor, 1),
                 EquipmentOptionsBuilder.Option(Rapier, EquipmentDefinitions.OptionWeapon, 1),
-                EquipmentOptionsBuilder.Option(_10_Gold_Coins, EquipmentDefinitions.OptionGenericItem, 1)
+                EquipmentOptionsBuilder.Option(StartingWealth_10GP, EquipmentDefinitions.OptionGenericItem, 1)
             })
             .AddToDB();
     }

@@ -51,7 +51,7 @@ internal static partial class BackgroundsBuilders
             .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
             {
                 EquipmentOptionsBuilder.Option(Torch, EquipmentDefinitions.OptionGenericItem, 3),
-                EquipmentOptionsBuilder.Option(_10_Gold_Coins, EquipmentDefinitions.OptionGenericItem, 1)
+                EquipmentOptionsBuilder.Option(StartingWealth_10GP, EquipmentDefinitions.OptionGenericItem, 1)
             })
             .AddToDB();
     }

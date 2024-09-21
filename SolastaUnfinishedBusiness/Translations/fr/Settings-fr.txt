@@ -297,7 +297,7 @@ ModUi/&SettingsLoad=• Charger un paramètre exporté
 ModUi/&SettingsOpenFolder=Ouvrir le dossier des paramètres exportés
 ModUi/&SettingsRefresh=Rafraîchir
 ModUi/&SettingsRemove=Retirer
-ModUi/&ShiftToSnapLineSpells1=Maintenez la touche <color=#1E81B0>MAJ</color> enfoncée pour aligner les sorts de ligne sur la grille <i><color=#F0DAA0>[Sans alignement, le placement réel des lignes peut différer de l'aperçu.]</color></i>
+ModUi/&ShiftToSnapLineSpells=Maintenez la touche <color=#1E81B0>MAJ</color> enfoncée pour aligner les sorts de ligne sur la grille <i><color=#F0DAA0>[Sans alignement, le placement réel des lignes peut différer de l'aperçu.]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Afficher le bouton qui ouvre les informations sur les monstres contrôlés <i><color=#F0DAA0>[druides de forme sauvage, invocations, adeptes PNJ, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Montrez combien de <color=#D89555>Channel Divinity</color> utilise un héros sur son portrait, semblable aux points de sorcellerie.
 ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué à proximité de l'objet de recette dans la boutique et l'inventaire <i><color=#F0DAA0>[En passant la souris dessus, l'info-bulle de l'objet fabriqué s'affichera]</color></i>

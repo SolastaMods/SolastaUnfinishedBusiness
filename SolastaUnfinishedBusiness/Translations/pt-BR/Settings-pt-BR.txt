@@ -297,7 +297,7 @@ ModUi/&SettingsLoad=• Carregar uma configuração exportada
 ModUi/&SettingsOpenFolder=Abra a pasta de configurações exportadas
 ModUi/&SettingsRefresh=Atualizar
 ModUi/&SettingsRemove=Remover
-ModUi/&ShiftToSnapLineSpells1=Segure <color=#1E81B0>SHIFT</color> para encaixar as linhas de feitiços na grade <i><color=#F0DAA0>[Sem encaixar, o posicionamento real das linhas pode ser diferente da visualização.]</color></i>
+ModUi/&ShiftToSnapLineSpells=Segure <color=#1E81B0>SHIFT</color> para encaixar as linhas de feitiços na grade <i><color=#F0DAA0>[Sem encaixar, o posicionamento real das linhas pode ser diferente da visualização.]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Mostrar botão que abre informações sobre monstros controlados <i><color=#F0DAA0>[druidas em forma selvagem, invocações, seguidores de NPCs, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostre quantos usos de <color=#D89555>Canal Divindade</color> um herói tem em seu retrato, semelhante a pontos de feitiçaria
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar ícone de item criado próximo ao item de receita na loja e no inventário <i><color=#F0DAA0>[Passar o mouse sobre ele exibirá uma dica para o item criado]</color></i>
