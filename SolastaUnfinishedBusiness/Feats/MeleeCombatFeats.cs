@@ -489,7 +489,7 @@ internal static class MeleeCombatFeats
             var itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? rulesetItem?.ItemDefinition;
 
             return
-                character.HasFreeHandSlot() &&
+                ValidatorsCharacter.HasFreeHand(character) &&
                 ((attackMode != null && ValidatorsWeapon.IsMelee(attackMode)) ||
                  (attackMode == null && ValidatorsWeapon.IsMelee(character.GetMainWeapon()))) &&
                 ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy,
