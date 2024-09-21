@@ -4,6 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
+    "Definition:ActionAffinityGrappled:1c2c02a0e9f823c489b3d62d03534617",
     "Definition:MovementAffinityGrappleTarget:4f505d22-32d0-5920-a9b1-98996d09e9ae"
   ],
   "allowMultipleInstances": false,
@@ -88,8 +89,8 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": "None",
-  "baseAmount": 0,
+  "amountOrigin": "Fixed",
+  "baseAmount": 40,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
   "subsequentOnRemoval": null,

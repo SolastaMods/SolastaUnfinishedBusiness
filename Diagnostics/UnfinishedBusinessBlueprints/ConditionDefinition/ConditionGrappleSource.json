@@ -4,6 +4,7 @@
   "parentCondition": null,
   "conditionType": "Neutral",
   "features": [
+    "Definition:ActionAffinityGrappleSource:63eda617-950c-54d4-a756-57dee8962676",
     "Definition:MovementAffinityGrappleSource:ea9dc190-cfe6-5f62-a748-bcc5493c6b62"
   ],
   "allowMultipleInstances": false,
@@ -26,7 +27,9 @@
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:ConditionIncapacitated:24d96cfe3b77b9a4b951bfb0e02fc018"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
