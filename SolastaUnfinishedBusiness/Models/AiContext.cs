@@ -147,6 +147,7 @@ internal static class AiContext
     {
         DoNoCheckAndRemoveCondition = 10,
         DoStrengthCheckAgainstCasterDC = 20,
-        DoWisdomCheckAgainstCasterDC = 30
+        DoWisdomCheckAgainstCasterDC = 30,
+        DoStrengthOrDexterityContestCheckAgainstStrengthAthletics = 40
     }
 }

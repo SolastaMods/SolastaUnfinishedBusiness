@@ -1324,25 +1324,73 @@ internal static partial class CharacterContext
 
     #region Grapple
 
-    private const string ConditionGrappleSourceName = "ConditionGrappleSource";
+    private const string GrappleName = "Grapple";
+    private const string DisableGrappleName = "DisableGrapple";
+
+    internal const string ConditionGrappleSourceName = "ConditionGrappleSource";
     private const string ConditionGrappleTargetName = "ConditionGrappleTarget";
 
-    private static ActionDefinition _actionGrapple;
-    private static ActionDefinition _actionDisableGrapple;
+    //TODO: allow reach distance
+    private static readonly FeatureDefinitionPower PowerGrapple = FeatureDefinitionPowerBuilder
+        .Create($"Power{GrappleName}")
+        .SetGuiPresentation($"Action{GrappleName}", Category.Action, hidden: true)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                .Build())
+        .AddCustomSubFeatures(new CustomBehaviorGrapple())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerDisableGrapple = FeatureDefinitionPowerBuilder
+        .Create($"Power{DisableGrappleName}")
+        .SetGuiPresentation($"Action{DisableGrappleName}", Category.Action, hidden: true)
+        .SetShowCasting(false)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .Build())
+        .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDisableGrapple())
+        .AddToDB();
+
+    private static readonly ActionDefinition ActionGrapple = ActionDefinitionBuilder
+        .Create($"Action{GrappleName}")
+        .SetGuiPresentation(Category.Action, AttackFree)
+        .OverrideClassName("UsePower")
+        .SetActivatedPower(PowerGrapple)
+        .SetActionId(ExtraActionId.Grapple)
+        .SetActionScope(ActionDefinitions.ActionScope.All)
+        .SetActionType(ActionDefinitions.ActionType.NoCost)
+        .SetFormType(ActionDefinitions.ActionFormType.Large)
+        .AddToDB();
+
+    private static readonly ActionDefinition ActionDisableGrapple = ActionDefinitionBuilder
+        .Create($"Action{DisableGrappleName}")
+        .SetGuiPresentation(Category.Action, AttackFree)
+        .OverrideClassName("UsePower")
+        .SetActivatedPower(PowerDisableGrapple)
+        .SetActionId(ExtraActionId.DisableGrapple)
+        .SetActionScope(ActionDefinitions.ActionScope.All)
+        .SetActionType(ActionDefinitions.ActionType.NoCost)
+        .SetFormType(ActionDefinitions.ActionFormType.Large)
+        .AddToDB();
 
     private static void LoadGrapple()
     {
-        const string GrappleName = "Grapple";
-        const string DisableGrappleName = "DisableGrapple";
-
         var battlePackage = AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName);
 
-        var conditionGrappleTarget = ConditionDefinitionBuilder
+        _ = ConditionDefinitionBuilder
             .Create(ConditionGrappleTargetName)
             .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionHindered)
             .SetConditionType(ConditionType.Detrimental)
+            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics)
             .SetBrain(battlePackage, true)
             .SetFeatures(
+                FeatureDefinitionActionAffinitys.ActionAffinityGrappled,
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityGrappleTarget")
                     .SetGuiPresentationNoContent(true)
@@ -1366,76 +1414,17 @@ internal static partial class CharacterContext
                     .SetBaseSpeedMultiplicativeModifier(0.5f)
                     .AddToDB())
             .AddCustomSubFeatures(new CustomBehaviorConditionGrappleSource())
-            .SetCancellingConditions(conditionGrappleTarget, ConditionDefinitions.ConditionIncapacitated)
-            .AddToDB();
-
-        //TODO: allow reach distance
-        var powerGrapple = FeatureDefinitionPowerBuilder
-            .Create($"Power{GrappleName}")
-            .SetGuiPresentation($"Action{GrappleName}", Category.Action, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                    .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(
-                    ValidatorsCharacter.HasMainAttackAvailable,
-                    c => c.HasFreeHandSlot(),
-                    ValidatorsCharacter.HasNoneOfConditions(ConditionGrappleSourceName)),
-                new CustomBehaviorGrapple())
-            .AddToDB();
-
-        _actionGrapple = ActionDefinitionBuilder
-            .Create($"Action{GrappleName}")
-            .SetGuiPresentation(Category.Action, AttackFree)
-            .OverrideClassName("UsePower")
-            .SetActivatedPower(powerGrapple)
-            .SetActionId(ExtraActionId.Grapple)
-            .SetActionScope(ActionDefinitions.ActionScope.All)
-            .SetActionType(ActionDefinitions.ActionType.NoCost)
-            .SetFormType(ActionDefinitions.ActionFormType.Large)
-            .AddToDB();
-
-        var powerDisableGrapple = FeatureDefinitionPowerBuilder
-            .Create($"Power{DisableGrappleName}")
-            .SetGuiPresentation($"Action{DisableGrappleName}", Category.Action, hidden: true)
-            .SetShowCasting(false)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .Build())
-            .AddCustomSubFeatures(
-                ValidatorsCharacter.HasAnyOfConditions(ConditionGrappleSourceName),
-                new PowerOrSpellFinishedByMeDisableGrapple())
-            .AddToDB();
-
-        _actionDisableGrapple = ActionDefinitionBuilder
-            .Create($"Action{DisableGrappleName}")
-            .SetGuiPresentation(Category.Action, AttackFree)
-            .OverrideClassName("UsePower")
-            .SetActivatedPower(powerDisableGrapple)
-            .SetActionId(ExtraActionId.DisableGrapple)
-            .SetActionScope(ActionDefinitions.ActionScope.All)
-            .SetActionType(ActionDefinitions.ActionType.NoCost)
-            .SetFormType(ActionDefinitions.ActionFormType.Large)
-            .AddCustomSubFeatures(
-                ValidatorsCharacter.HasAnyOfConditions(ConditionGrappleSourceName),
-                new PowerOrSpellFinishedByMeDisableGrapple())
+            .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
             .AddToDB();
     }
 
     internal static void SwitchGrappleAction()
     {
-        _actionGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
+        ActionGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
             ? ActionDefinitions.ActionFormType.Large
             : ActionDefinitions.ActionFormType.Invisible;
 
-        _actionDisableGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
+        ActionDisableGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
             ? ActionDefinitions.ActionFormType.Large
             : ActionDefinitions.ActionFormType.Invisible;
     }
@@ -1463,17 +1452,17 @@ internal static partial class CharacterContext
                 return false;
             }
 
-            isValid = rulesetTarget.HasConditionOfCategoryAndType(
+            isValid = !rulesetTarget.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, ConditionGrappleTargetName);
-            
-            if (!isValid)
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetCannotBeGrappled");
 
-                return false;
+            if (isValid)
+            {
+                return true;
             }
-            
-            return true;
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetCannotBeGrappled");
+
+            return false;
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1522,7 +1511,7 @@ internal static partial class CharacterContext
                 rulesetAttacker.CurrentFaction.Name,
                 1,
                 ConditionGrappleTargetName,
-                0,
+                40,
                 0,
                 0);
         }
@@ -1548,7 +1537,7 @@ internal static partial class CharacterContext
             yield break;
         }
     }
-    
+
     private sealed class CustomBehaviorConditionGrappleSource : IMoveStepFinished
     {
         public void MoveStepFinished(GameLocationCharacter mover, int3 previousPosition)
@@ -1567,7 +1556,7 @@ internal static partial class CharacterContext
             target.StartTeleportTo(previousPosition, mover.Orientation);
         }
     }
-    
+
     private static bool GetGrappledActor(
         RulesetCharacter rulesetSource,
         out RulesetCharacter rulesetTarget,

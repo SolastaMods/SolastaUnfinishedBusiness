@@ -36,20 +36,13 @@ internal static class TryAlterOutcomeAttributeCheck
         GameLocationCharacter actor,
         GameLocationCharacter opponent,
         ActionDefinitions.Id actionId,
-        AbilityCheckData abilityCheckData)
+        AbilityCheckData abilityCheckData,
+        string opponentAbilityScoreName = "")
     {
         var actionModifierActorStrength = new ActionModifier();
-        var actionModifierOpponentStrength = new ActionModifier();
-        var actionModifierOpponentDexterity = new ActionModifier();
         var abilityCheckBonusActorStrength = actor.RulesetCharacter.ComputeBaseAbilityCheckBonus(
             AttributeDefinitions.Strength, actionModifierActorStrength.AbilityCheckModifierTrends,
             SkillDefinitions.Athletics);
-        var abilityCheckBonusOpponentStrength = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(
-            AttributeDefinitions.Strength, actionModifierOpponentStrength.AbilityCheckModifierTrends,
-            SkillDefinitions.Athletics);
-        var abilityCheckBonusOpponentDexterity = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(
-            AttributeDefinitions.Dexterity, actionModifierOpponentDexterity.AbilityCheckModifierTrends,
-            SkillDefinitions.Acrobatics);
 
         var contextFieldActor = 0;
 
@@ -60,18 +53,6 @@ internal static class TryAlterOutcomeAttributeCheck
 
         actor.ComputeAbilityCheckActionModifier(
             AttributeDefinitions.Strength, SkillDefinitions.Athletics, actionModifierActorStrength, contextFieldActor);
-
-        var contextFieldOpponent = 1;
-
-        if (!opponent.RulesetCharacter.IsWearingHeavyArmor())
-        {
-            contextFieldOpponent |= 64;
-        }
-
-        opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Strength, SkillDefinitions.Athletics,
-            actionModifierOpponentStrength, contextFieldOpponent);
-        opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics,
-            actionModifierOpponentDexterity, contextFieldOpponent);
 
         actor.RulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
             actor.RulesetCharacter.FeaturesToBrowse, actor.RulesetCharacter.FeaturesOrigin);
@@ -95,20 +76,61 @@ internal static class TryAlterOutcomeAttributeCheck
             }
         }
 
-        var opponentAbilityScoreName = AttributeDefinitions.Strength;
-        var opponentProficiencyName = SkillDefinitions.Athletics;
+        //
+        // handle opponent
+        //
+
+        var actionModifierOpponentStrength = new ActionModifier();
+        var actionModifierOpponentDexterity = new ActionModifier();
+
+        var abilityCheckBonusOpponentStrength = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(
+            AttributeDefinitions.Strength, actionModifierOpponentStrength.AbilityCheckModifierTrends,
+            SkillDefinitions.Athletics);
+        var abilityCheckBonusOpponentDexterity = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(
+            AttributeDefinitions.Dexterity, actionModifierOpponentDexterity.AbilityCheckModifierTrends,
+            SkillDefinitions.Acrobatics);
+
+        var contextFieldOpponent = 1;
+
+        if (!opponent.RulesetCharacter.IsWearingHeavyArmor())
+        {
+            contextFieldOpponent |= 64;
+        }
+
+        opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Strength, SkillDefinitions.Athletics,
+            actionModifierOpponentStrength, contextFieldOpponent);
+        opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics,
+            actionModifierOpponentDexterity, contextFieldOpponent);
+
         var actionModifierOpponent = actionModifierOpponentStrength;
         var opponentBaseBonus = abilityCheckBonusOpponentStrength;
+        var opponentProficiencyName = SkillDefinitions.Athletics;
 
-        if (abilityCheckBonusOpponentDexterity + actionModifierOpponentDexterity.AbilityCheckModifier +
-            (actionModifierOpponentDexterity.AbilityCheckAdvantageTrend * 5) > abilityCheckBonusOpponentStrength +
-            actionModifierOpponentStrength.AbilityCheckModifier +
-            (actionModifierOpponentStrength.AbilityCheckAdvantageTrend * 5))
+        switch (opponentAbilityScoreName)
         {
-            opponentAbilityScoreName = AttributeDefinitions.Dexterity;
-            opponentProficiencyName = SkillDefinitions.Acrobatics;
-            actionModifierOpponent = actionModifierOpponentDexterity;
-            opponentBaseBonus = abilityCheckBonusOpponentDexterity;
+            case "":
+            {
+                opponentAbilityScoreName = AttributeDefinitions.Strength;
+
+                if (abilityCheckBonusOpponentDexterity + actionModifierOpponentDexterity.AbilityCheckModifier +
+                    (actionModifierOpponentDexterity.AbilityCheckAdvantageTrend * 5) >
+                    abilityCheckBonusOpponentStrength +
+                    actionModifierOpponentStrength.AbilityCheckModifier +
+                    (actionModifierOpponentStrength.AbilityCheckAdvantageTrend * 5))
+                {
+                    opponentAbilityScoreName = AttributeDefinitions.Dexterity;
+                    opponentProficiencyName = SkillDefinitions.Acrobatics;
+                    actionModifierOpponent = actionModifierOpponentDexterity;
+                    opponentBaseBonus = abilityCheckBonusOpponentDexterity;
+                }
+
+                break;
+            }
+            case AttributeDefinitions.Dexterity:
+                opponentProficiencyName = SkillDefinitions.Acrobatics;
+                actionModifierOpponent = actionModifierOpponentDexterity;
+                opponentBaseBonus = abilityCheckBonusOpponentDexterity;
+                break;
         }
 
         yield return ResolveContestCheck(

@@ -374,6 +374,39 @@ public static class GameLocationCharacterPatcher
 
             ActionSwitching.CheckSpellcastingAvailability(__instance, actionId, scope, ref __result);
 
+            //PATCH: support grapple
+            if (Main.Settings.AddGrappleActionToAllRaces)
+            {
+                var rulesetCharacter = __instance.RulesetCharacter;
+                var hasGrappleSource = rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, CharacterContext.ConditionGrappleSourceName);
+
+                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                switch (actionId)
+                {
+                    case (ActionDefinitions.Id)ExtraActionId.Grapple:
+                    {
+                        if (hasGrappleSource ||
+                            !rulesetCharacter.HasFreeHandSlot() ||
+                            !ValidatorsCharacter.HasMainAttackAvailable(rulesetCharacter))
+                        {
+                            __result = ActionDefinitions.ActionStatus.Unavailable;
+                        }
+
+                        break;
+                    }
+                    case (ActionDefinitions.Id)ExtraActionId.DisableGrapple:
+                    {
+                        if (!hasGrappleSource)
+                        {
+                            __result = ActionDefinitions.ActionStatus.Unavailable;
+                        }
+
+                        break;
+                    }
+                }
+            }
+
             //PATCH: support `EnableMonkDoNotRequireAttackActionForFlurry`
             if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry &&
                 actionId

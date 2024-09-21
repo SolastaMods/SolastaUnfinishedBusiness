@@ -29,7 +29,8 @@ public static class CharacterActionBreakFreePatcher
 
         private static IEnumerator Process(CharacterActionBreakFree __instance)
         {
-            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+            var character = __instance.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
             var restrainingCondition = AiContext.GetRestrainingCondition(rulesetCharacter);
 
             if (restrainingCondition == null)
@@ -41,23 +42,53 @@ public static class CharacterActionBreakFreePatcher
             var action = (AiContext.BreakFreeType)restrainingCondition?.Amount;
             var actionModifier = new ActionModifier();
             var checkDC = 10;
+            var success = false;
             string abilityScoreName;
             string proficiencyName;
 
             switch (action)
             {
                 case AiContext.BreakFreeType.DoNoCheckAndRemoveCondition:
-                    __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
+                    rulesetCharacter.RemoveCondition(restrainingCondition);
                     yield break;
 
                 case AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC:
                 {
                     CalculateDC(AttributeDefinitions.Strength);
+                    yield return RollAbilityCheck();
                     break;
                 }
                 case AiContext.BreakFreeType.DoWisdomCheckAgainstCasterDC:
                 {
                     CalculateDC(AttributeDefinitions.Wisdom);
+                    yield return RollAbilityCheck();
+                    break;
+                }
+                case AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics:
+                {
+                    var rulesetSource = EffectHelpers.GetCharacterByGuid(sourceGuid);
+                    var source = GameLocationCharacter.GetFromActor(rulesetSource);
+                    var abilityCheckData = new AbilityCheckData
+                    {
+                        AbilityCheckActionModifier = actionModifier, Action = __instance
+                    };
+
+                    abilityScoreName =
+                        __instance.ActionParams.BreakFreeMode == ActionDefinitions.BreakFreeMode.Athletics
+                            ? AttributeDefinitions.Strength
+                            : AttributeDefinitions.Dexterity;
+
+                    yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
+                        source, character, ActionDefinitions.Id.BreakFree, abilityCheckData, abilityScoreName);
+
+                    __instance.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+                    __instance.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                    __instance.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
+
+                    // this is the success of the opponent
+                    success = __instance.AbilityCheckRollOutcome
+                        is not (RollOutcome.Success or RollOutcome.CriticalSuccess);
+
                     break;
                 }
                 default:
@@ -89,49 +120,17 @@ public static class CharacterActionBreakFreePatcher
                         }
                     }
 
+                    yield return RollAbilityCheck();
                     break;
                 }
             }
 
-            var abilityCheckRoll = __instance.ActingCharacter.RollAbilityCheck(
-                abilityScoreName,
-                proficiencyName,
-                checkDC,
-                AdvantageType.None,
-                actionModifier,
-                false,
-                -1,
-                out var rollOutcome,
-                out var successDelta,
-                true);
-
-            //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
-            var abilityCheckData = new AbilityCheckData
-            {
-                AbilityCheckRoll = abilityCheckRoll,
-                AbilityCheckRollOutcome = rollOutcome,
-                AbilityCheckSuccessDelta = successDelta,
-                AbilityCheckActionModifier = actionModifier,
-                Action = __instance
-            };
-
-            yield return TryAlterOutcomeAttributeCheck
-                .HandleITryAlterOutcomeAttributeCheck(__instance.ActingCharacter, abilityCheckData);
-
-            __instance.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
-            __instance.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
-            __instance.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
-
-            var success = __instance.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
-
             if (success)
             {
-                __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
+                rulesetCharacter.RemoveCondition(restrainingCondition);
             }
 
-            var breakFreeExecuted = __instance.ActingCharacter.RulesetCharacter.BreakFreeExecuted;
-
-            breakFreeExecuted?.Invoke(__instance.ActingCharacter.RulesetCharacter, success);
+            rulesetCharacter.BreakFreeExecuted?.Invoke(__instance.ActingCharacter.RulesetCharacter, success);
 
             yield break;
 
@@ -155,6 +154,40 @@ public static class CharacterActionBreakFreePatcher
 
                 abilityScoreName = newAbilityScoreName;
                 proficiencyName = string.Empty;
+            }
+
+            IEnumerator RollAbilityCheck()
+            {
+                var abilityCheckRoll = __instance.ActingCharacter.RollAbilityCheck(
+                    abilityScoreName,
+                    proficiencyName,
+                    checkDC,
+                    AdvantageType.None,
+                    actionModifier,
+                    false,
+                    -1,
+                    out var rollOutcome,
+                    out var successDelta,
+                    true);
+
+                //PATCH: support for Bardic Inspiration roll off battle and ITryAlterOutcomeAttributeCheck
+                var abilityCheckData = new AbilityCheckData
+                {
+                    AbilityCheckRoll = abilityCheckRoll,
+                    AbilityCheckRollOutcome = rollOutcome,
+                    AbilityCheckSuccessDelta = successDelta,
+                    AbilityCheckActionModifier = actionModifier,
+                    Action = __instance
+                };
+
+                yield return TryAlterOutcomeAttributeCheck
+                    .HandleITryAlterOutcomeAttributeCheck(__instance.ActingCharacter, abilityCheckData);
+
+                __instance.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+                __instance.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                __instance.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
+
+                success = __instance.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
             }
         }
     }
