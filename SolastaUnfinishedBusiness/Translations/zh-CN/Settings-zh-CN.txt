@@ -297,7 +297,7 @@ ModUi/&SettingsLoad=•加载导出的设置
 ModUi/&SettingsOpenFolder=打开导出的设置文件夹
 ModUi/&SettingsRefresh=刷新
 ModUi/&SettingsRemove=移除
-ModUi/&ShiftToSnapLineSpells=按住 <color=#1E81B0>SHIFT</color> 将线条捕捉到网格<i><color=#F0DAA0>[如果不捕捉，实际线条位置可能与预览不同。]</color></i>
+ModUi/&ShiftToSnapLineSpells=按住 <color=#1E81B0>SHIFT</color> 将线条捕捉到网格 <i><color=#F0DAA0>[不捕捉时实际线条位置可能与预览不同]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[测试]</color></b>显示按钮，打开有关受控怪物的信息<i><color=#F0DAA0>[荒野形态德鲁伊、召唤物、NPC追随者等。]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=在英雄头像上显示<color=#D89555>引导神力</color>次数，类似于法术位
 ModUi/&ShowCraftedItemOnRecipeIcon=在商店和库存中的配方项目附近显示制作的项目图标 <i><color=#F0DAA0>[将鼠标悬停在它上面将显示制作物品的工具提示]</color></i>

@@ -297,7 +297,7 @@ ModUi/&SettingsLoad=• 내보낸 설정 로드
 ModUi/&SettingsOpenFolder=내보낸 설정 폴더 열기
 ModUi/&SettingsRefresh=새로 고치다
 ModUi/&SettingsRemove=제거하다
-ModUi/&ShiftToSnapLineSpells=<color=#1E81B0>SHIFT</color>를 누르고 있으면 선 주문이 격자에 맞춰집니다. <i><color=#F0DAA0>[스냅하지 않으면 실제 선의 배치가 미리보기와 다를 수 있습니다.]</color></i>
+ModUi/&ShiftToSnapLineSpells=<color=#1E81B0>SHIFT</color>를 누르고 있으면 선 주문이 격자에 맞춰집니다. <i><color=#F0DAA0>[스냅하지 않으면 실제 선 배치가 미리 보기와 다를 수 있음]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=조종되는 몬스터 <i><color=#F0DAA0>[야생 모양의 드루이드, 소환수, NPC 추종자 등]</color></i>에 대한 정보를 여는 표시 버튼
 ModUi/&ShowChannelDivinityOnPortrait=영웅의 초상화에 얼마나 많은 <color=#D89555>채널 신성</color>을 사용했는지 표시합니다. 이는 마법 포인트와 유사합니다.
 ModUi/&ShowCraftedItemOnRecipeIcon=상점과 인벤토리의 제작 아이템 근처에 제작 아이템 아이콘 표시 <i><color=#F0DAA0>[마우스를 위에 올리면 제작 아이템에 대한 툴팁이 표시됩니다]</color></i>

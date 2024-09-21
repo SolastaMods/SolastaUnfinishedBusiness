@@ -297,7 +297,7 @@ ModUi/&SettingsLoad=• エクスポートした設定をロードする
 ModUi/&SettingsOpenFolder=エクスポートされた設定フォルダーを開く
 ModUi/&SettingsRefresh=リフレッシュ
 ModUi/&SettingsRemove=取り除く
-ModUi/&ShiftToSnapLineSpells=<color=#1E81B0>SHIFT</color> キーを押すと、ライン スペルがグリッドにスナップします <i><color=#F0DAA0>[スナップしない場合、実際のライン配置はプレビューと異なる場合があります。]</color></i>
+ModUi/&ShiftToSnapLineSpells=<color=#1E81B0>SHIFT</color> キーを押したままにして、ライン スペルをグリッドにスナップします <i><color=#F0DAA0>[スナップしない場合、実際のライン配置はプレビューと異なる場合があります]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=制御モンスターに関する情報を開くボタンを表示します<i><color=#F0DAA0>[野生のドルイド僧、召喚獣、NPC フォロワーなど]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=ヒーローがポートレートに持っている<color=#D89555>神性チャンネル</color>の使用数を表示します（ソーサリーポイントと同様）
 ModUi/&ShowCraftedItemOnRecipeIcon=ショップやインベントリのレシピ アイテムの近くに作成されたアイテムのアイコンを表示します <i><color=#F0DAA0>[カーソルを合わせると作成されたアイテムのツールチップが表示されます]</color></i>
