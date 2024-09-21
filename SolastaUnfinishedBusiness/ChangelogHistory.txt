@@ -4,6 +4,7 @@
 - fixed Path of the Wild Magic retribution feature damaging self
 - fixed Roguish Arcane Scoundrel arcane backslash crashing on any spell cast
 - fixed Way of the Silhouette shadow step not requiring line of sight to teleport location
+- improved backgrounds documentation dump to include proficiencies, pools, equipment, etc.
 - improved consistency between highlighted and actual tiles when casting line spells
 - improved Gravity Fissure spell by using angle to the line as a tiebreaker to which cell should pull
 - improved tooltips to be wider, and better fully render on lower resolutions as one in Steam Deck

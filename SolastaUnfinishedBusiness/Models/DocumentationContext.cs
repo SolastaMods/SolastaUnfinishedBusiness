@@ -53,7 +53,7 @@ internal static class DocumentationContext
                  !x.Name.EndsWith("_B")));
 
         DumpOthers<CharacterBackgroundDefinition>("Backgrounds",
-            _ => true);
+            x => x.ContentPack == CeContentPackContext.CeContentPack || !x.GuiPresentation.Hidden);
         DumpOthers<FeatDefinition>("Feats",
             x => FeatsContext.Feats.Contains(x) ||
                  x.ContentPack != CeContentPackContext.CeContentPack);
@@ -318,23 +318,24 @@ internal static class DocumentationContext
         var db = DatabaseRepository.GetDatabase<T>();
         var counter = 1;
 
-        foreach (var featureDefinition in db
+        foreach (var definition in db
                      .Where(filter)
                      .OrderBy(x =>
                          x is SpellDefinition spellDefinition
                              ? spellDefinition.SpellLevel + x.FormatTitle()
                              : x.FormatTitle()))
         {
-            var title = featureDefinition.FormatTitle();
+            var title = definition.FormatTitle();
 
-            if (ModUi.TabletopDefinitionNames.Contains(featureDefinition.Name))
+            if (ModUi.TabletopDefinitionNames.Contains(definition.Name))
             {
                 title = $"*{title}* \u00a9";
             }
 
-            var description = LazyManStripXml(featureDefinition.FormatDescription());
+            var description = LazyManStripXml(definition.FormatDescription());
 
-            if (featureDefinition is SpellDefinition spellDefinition)
+            //TODO: refactor this out with a proper optional change description action
+            if (definition is SpellDefinition spellDefinition)
             {
                 var components = " (";
 
@@ -365,9 +366,43 @@ internal static class DocumentationContext
                 description = GetClassesWhichCanCastSpell(spellDefinition) + Environment.NewLine + description;
             }
 
-            outString.AppendLine($"# {counter++}. - {title} {GetTag(featureDefinition)}");
+            outString.AppendLine($"# {counter++}. - {title} {GetTag(definition)}");
             outString.AppendLine();
             outString.AppendLine(description);
+            outString.AppendLine();
+
+            //TODO: refactor this out with a proper optional footer action
+            if (definition is not CharacterBackgroundDefinition backgroundDefinition)
+            {
+                continue;
+            }
+
+            var details = new StringBuilder();
+
+            foreach (var featureDefinition in backgroundDefinition.Features
+                         .Where(featureDefinition => featureDefinition is not FeatureDefinitionAttackModifier))
+            {
+                details.AppendLine($"- {featureDefinition.FormatDescription()}");
+            }
+
+            details.Append("- ");
+
+            foreach (var equipment in backgroundDefinition.EquipmentRows
+                         .SelectMany(x => x.EquipmentColumns)
+                         .SelectMany(x => x.EquipmentOptions))
+            {
+                var quantity = equipment.Number;
+                var itemTitle = equipment.ItemDefinition.FormatTitle();
+
+                details.Append($"{quantity} x {itemTitle}");
+                details.Append(", ");
+            }
+
+            var finalDetails = details.ToString();
+
+            finalDetails = finalDetails.Substring(0, finalDetails.Length - 2);
+
+            outString.AppendLine(LazyManStripXml(finalDetails));
             outString.AppendLine();
         }
 
