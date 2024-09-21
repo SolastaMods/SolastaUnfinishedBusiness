@@ -1107,7 +1107,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 var dieRoll = rulesetHelper.RollDie(
                     DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
 
-                if (helper.Side == attacker?.Side)
+                if (helper.Side == defender.Side)
                 {
                     savingThrowData.SaveOutcomeDelta += dieRoll;
                     savingThrowData.SaveOutcome =
