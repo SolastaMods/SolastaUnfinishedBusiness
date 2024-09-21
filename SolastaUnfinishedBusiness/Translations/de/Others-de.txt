@@ -319,6 +319,7 @@ Tooltip/&SecondTargetNotWithinRange=Dieses Ziel kann nicht ausgewählt werden, d
 Tooltip/&Tag9000Title=Benutzerdefinierter Effekt
 Tooltip/&TagDamageChaosBoltTitle=Chaotischer Schaden
 Tooltip/&TagUnfinishedBusinessTitle=Unerledigte Aufgabe
+Tooltip/&TargetCannotBeGrappled=Ziel kann nicht festgehalten werden
 Tooltip/&TargetMeleeWeaponError=Auf dieses Ziel kann kein Nahkampfangriff ausgeführt werden, da es sich nicht innerhalb von {0} befindet
 Tooltip/&TargetMustBeNoMoreThanOneSizeLarger=Das Ziel darf nicht mehr als eine Nummer größer sein
 Tooltip/&TargetMustHaveHolyWeapon=Ziel muss heilige Waffe besitzen

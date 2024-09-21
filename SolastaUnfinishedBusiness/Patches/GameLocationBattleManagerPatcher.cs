@@ -261,10 +261,6 @@ public static class GameLocationBattleManagerPatcher
             GameLocationCharacter mover,
             int3 destination)
         {
-            //PATCH: support for Polearm Expert AoO
-            //Stores character movements to be processed later
-            AttacksOfOpportunity.ProcessOnCharacterMoveStart(mover, destination);
-
             //PATCH: records on StraightLine special feature how many cells a hero moved in a straight line
             //Stores character last straight line distance to be processed later
             MeleeCombatFeats.PhysicalAttackBeforeHitConfirmedOnEnemyCharger.RecordStraightLine(mover, destination);
@@ -294,9 +290,11 @@ public static class GameLocationBattleManagerPatcher
             }
             else
             {
+                MoveStepFinished.TryGetMovement(mover.Guid, out var movement);
+
                 foreach (var moveStepFinished in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepFinished>())
                 {
-                    moveStepFinished.MoveStepFinished(mover);
+                    moveStepFinished.MoveStepFinished(mover, movement.Item1);
                 }
             }
 
@@ -334,20 +332,6 @@ public static class GameLocationBattleManagerPatcher
 
             cursorLocationBattleFriendlyTurn.dirty = true;
             cursorLocationBattleFriendlyTurn.ComputeValidDestinations();
-        }
-    }
-
-    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.PrepareBattleEnd))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class PrepareBattleEnd_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix()
-        {
-            //PATCH: support for Polearm Expert AoO
-            //clears movement cache on battle end
-            AttacksOfOpportunity.CleanMovingCache();
         }
     }
 

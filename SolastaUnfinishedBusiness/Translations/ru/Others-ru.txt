@@ -319,6 +319,7 @@ Tooltip/&SecondTargetNotWithinRange=Невозможно выбрать эту �
 Tooltip/&Tag9000Title=Кастомный эффект
 Tooltip/&TagDamageChaosBoltTitle=Хаотичный урон
 Tooltip/&TagUnfinishedBusinessTitle=Неоконченное Дело
+Tooltip/&TargetCannotBeGrappled=Цель не может быть захвачена
 Tooltip/&TargetMeleeWeaponError=Невозможно провести атаку ближнего боя по этой цели, так как она находится вне пределов {0}
 Tooltip/&TargetMustBeNoMoreThanOneSizeLarger=Цель должна быть не более чем на один размер больше
 Tooltip/&TargetMustHaveHolyWeapon=У цели должно быть священное оружие

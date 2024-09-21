@@ -221,6 +221,7 @@ internal static partial class CharacterContext
         SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
         SwitchProneAction();
+        SwitchGrappleAction();
         SwitchHelpPower();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
@@ -1323,43 +1324,20 @@ internal static partial class CharacterContext
 
     #region Grapple
 
-    internal const string ConditionGrappleSourceName = "ConditionGrappleSource";
+    private const string ConditionGrappleSourceName = "ConditionGrappleSource";
     private const string ConditionGrappleTargetName = "ConditionGrappleTarget";
 
     private static ActionDefinition _actionGrapple;
     private static ActionDefinition _actionDisableGrapple;
-
-    internal static void SwitchGrappleAction()
-    {
-        _actionGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
-            ? ActionDefinitions.ActionFormType.Large
-            : ActionDefinitions.ActionFormType.Invisible;
-
-        _actionDisableGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
-            ? ActionDefinitions.ActionFormType.Large
-            : ActionDefinitions.ActionFormType.Invisible;
-    }
 
     private static void LoadGrapple()
     {
         const string GrappleName = "Grapple";
         const string DisableGrappleName = "DisableGrapple";
 
-        _ = ConditionDefinitionBuilder
-            .Create(ConditionGrappleSourceName)
-            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionEncumbered)
-            .SetConditionType(ConditionType.Neutral)
-            .SetFeatures(
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create("MovementAffinityGrappleSource")
-                    .SetGuiPresentationNoContent(true)
-                    .SetBaseSpeedMultiplicativeModifier(0.5f)
-                    .AddToDB())
-            .AddToDB();
-
         var battlePackage = AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName);
 
-        _ = ConditionDefinitionBuilder
+        var conditionGrappleTarget = ConditionDefinitionBuilder
             .Create(ConditionGrappleTargetName)
             .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionHindered)
             .SetConditionType(ConditionType.Detrimental)
@@ -1370,6 +1348,25 @@ internal static partial class CharacterContext
                     .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedMultiplicativeModifier(0)
                     .AddToDB())
+            .AddToDB();
+
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionGrappleSourceName)
+            .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionEncumbered)
+            .SetConditionType(ConditionType.Neutral)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ActionAffinityGrappleSource")
+                    .SetGuiPresentationNoContent(true)
+                    .SetForbiddenActions(ActionDefinitions.Id.Climb, ActionDefinitions.Id.Jump)
+                    .AddToDB(),
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create("MovementAffinityGrappleSource")
+                    .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedMultiplicativeModifier(0.5f)
+                    .AddToDB())
+            .AddCustomSubFeatures(new CustomBehaviorConditionGrappleSource())
+            .SetCancellingConditions(conditionGrappleTarget, ConditionDefinitions.ConditionIncapacitated)
             .AddToDB();
 
         //TODO: allow reach distance
@@ -1400,7 +1397,6 @@ internal static partial class CharacterContext
             .SetActionScope(ActionDefinitions.ActionScope.All)
             .SetActionType(ActionDefinitions.ActionType.NoCost)
             .SetFormType(ActionDefinitions.ActionFormType.Large)
-            .RequiresAuthorization()
             .AddToDB();
 
         var powerDisableGrapple = FeatureDefinitionPowerBuilder
@@ -1427,8 +1423,21 @@ internal static partial class CharacterContext
             .SetActionScope(ActionDefinitions.ActionScope.All)
             .SetActionType(ActionDefinitions.ActionType.NoCost)
             .SetFormType(ActionDefinitions.ActionFormType.Large)
-            .RequiresAuthorization()
+            .AddCustomSubFeatures(
+                ValidatorsCharacter.HasAnyOfConditions(ConditionGrappleSourceName),
+                new PowerOrSpellFinishedByMeDisableGrapple())
             .AddToDB();
+    }
+
+    internal static void SwitchGrappleAction()
+    {
+        _actionGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
+            ? ActionDefinitions.ActionFormType.Large
+            : ActionDefinitions.ActionFormType.Invisible;
+
+        _actionDisableGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
+            ? ActionDefinitions.ActionFormType.Large
+            : ActionDefinitions.ActionFormType.Invisible;
     }
 
     private sealed class CustomBehaviorGrapple : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
@@ -1445,14 +1454,26 @@ internal static partial class CharacterContext
             }
 
             var isValid = __instance.ActionParams.ActingCharacter.RulesetCharacter.SizeDefinition.WieldingSize -
-                rulesetTarget.SizeDefinition.WieldingSize < -1;
+                rulesetTarget.SizeDefinition.WieldingSize >= -1;
 
             if (!isValid)
             {
                 __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustBeNoMoreThanOneSizeLarger");
+
+                return false;
             }
 
-            return isValid;
+            isValid = rulesetTarget.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionGrappleTargetName);
+            
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetCannotBeGrappled");
+
+                return false;
+            }
+            
+            return true;
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1527,8 +1548,27 @@ internal static partial class CharacterContext
             yield break;
         }
     }
+    
+    private sealed class CustomBehaviorConditionGrappleSource : IMoveStepFinished
+    {
+        public void MoveStepFinished(GameLocationCharacter mover, int3 previousPosition)
+        {
+            var rulesetMover = mover.RulesetCharacter;
 
-    internal static bool GetGrappledActor(
+            if (!rulesetMover.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName) ||
+                !GetGrappledActor(rulesetMover, out var rulesetTarget, out _))
+            {
+                return;
+            }
+
+            var target = GameLocationCharacter.GetFromActor(rulesetTarget);
+
+            target.StartTeleportTo(previousPosition, mover.Orientation);
+        }
+    }
+    
+    private static bool GetGrappledActor(
         RulesetCharacter rulesetSource,
         out RulesetCharacter rulesetTarget,
         out RulesetCondition rulesetTargetCondition)

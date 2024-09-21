@@ -319,6 +319,7 @@ Tooltip/&SecondTargetNotWithinRange=最初の範囲内にないため、この�
 Tooltip/&Tag9000Title=カスタムエフェクト
 Tooltip/&TagDamageChaosBoltTitle=カオスダメージ
 Tooltip/&TagUnfinishedBusinessTitle=未完の仕事
+Tooltip/&TargetCannotBeGrappled=ターゲットを掴むことができない
 Tooltip/&TargetMeleeWeaponError={0} 内にないため、このターゲットに近接攻撃を実行できません
 Tooltip/&TargetMustBeNoMoreThanOneSizeLarger=ターゲットは1サイズ以上大きくてはいけません
 Tooltip/&TargetMustHaveHolyWeapon=対象は聖なる武器を持っている必要があります

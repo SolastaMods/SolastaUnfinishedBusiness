@@ -17,7 +17,6 @@ internal static class AttacksOfOpportunity
     internal const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
     internal static readonly IIgnoreAoOImmunity IgnoreDisengage = new IgnoreDisengage();
     internal static readonly object SentinelFeatMarker = new SentinelFeatMarker();
-    private static readonly Dictionary<ulong, (int3, int3)> MovingCharactersCache = [];
 
     internal static IEnumerator ProcessOnCharacterAttackFinished(
         GameLocationBattleManager battleManager,
@@ -52,11 +51,6 @@ internal static class AttacksOfOpportunity
         }
     }
 
-    internal static void ProcessOnCharacterMoveStart([NotNull] GameLocationCharacter mover, int3 destination)
-    {
-        MovingCharactersCache.AddOrReplace(mover.Guid, (mover.locationPosition, destination));
-    }
-
     internal static IEnumerator ProcessOnCharacterMoveEnd(
         GameLocationBattleManager battleManager,
         GameLocationCharacter mover)
@@ -72,7 +66,7 @@ internal static class AttacksOfOpportunity
         {
             if (mover == unit ||
                 mover.Side == unit.Side ||
-                !MovingCharactersCache.TryGetValue(mover.Guid, out var movement))
+                !MoveStepFinished.TryGetMovement(mover.Guid, out var movement))
             {
                 continue;
             }
@@ -83,11 +77,6 @@ internal static class AttacksOfOpportunity
                 yield return brace.Process(unit, mover, movement, battleManager, actionManager, brace.AllowRange);
             }
         }
-    }
-
-    internal static void CleanMovingCache()
-    {
-        MovingCharactersCache.Clear();
     }
 
     internal static bool IsSubjectToAttackOfOpportunity(

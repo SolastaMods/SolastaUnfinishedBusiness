@@ -319,6 +319,7 @@ Tooltip/&SecondTargetNotWithinRange=Can't select this target as not within range
 Tooltip/&Tag9000Title=Custom Effect
 Tooltip/&TagDamageChaosBoltTitle=Chaotic Damage
 Tooltip/&TagUnfinishedBusinessTitle=Unfinished Business
+Tooltip/&TargetCannotBeGrappled=Target cannot be grappled
 Tooltip/&TargetMeleeWeaponError=Can't perform melee attack on this target as not within {0}
 Tooltip/&TargetMustBeNoMoreThanOneSizeLarger=Target must be no more than one size larger
 Tooltip/&TargetMustHaveHolyWeapon=Target must have holy weapon

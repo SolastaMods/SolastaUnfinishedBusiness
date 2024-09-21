@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -525,10 +526,9 @@ internal static partial class SpellBuilders
     }
 
     private sealed class MoveStepFinishedAshardalonStride(
-        FeatureDefinitionPower powerDamage,
-        ConditionDefinition conditionMark) : IMoveStepFinished
+        FeatureDefinitionPower powerDamage, ConditionDefinition conditionMark) : IMoveStepFinished
     {
-        public void MoveStepFinished(GameLocationCharacter mover)
+        public void MoveStepFinished(GameLocationCharacter mover, int3 previousPosition)
         {
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var targets =

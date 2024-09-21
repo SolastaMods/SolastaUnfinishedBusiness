@@ -319,6 +319,7 @@ Tooltip/&SecondTargetNotWithinRange=Impossible de sélectionner cette cible car 
 Tooltip/&Tag9000Title=Effet personnalisé
 Tooltip/&TagDamageChaosBoltTitle=Dégâts chaotiques
 Tooltip/&TagUnfinishedBusinessTitle=Inachevé
+Tooltip/&TargetCannotBeGrappled=La cible ne peut pas être saisie
 Tooltip/&TargetMeleeWeaponError=Impossible d'effectuer une attaque au corps à corps sur cette cible car elle se trouve à {0}
 Tooltip/&TargetMustBeNoMoreThanOneSizeLarger=La cible ne doit pas être plus grande qu'une taille
 Tooltip/&TargetMustHaveHolyWeapon=La cible doit avoir une arme sacrée

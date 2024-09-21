@@ -319,6 +319,7 @@ Tooltip/&SecondTargetNotWithinRange=첫 번째 범위 내에 있지 않으므로
 Tooltip/&Tag9000Title=맞춤 효과
 Tooltip/&TagDamageChaosBoltTitle=혼돈스러운 피해
 Tooltip/&TagUnfinishedBusinessTitle=끝나지 않은 사업
+Tooltip/&TargetCannotBeGrappled=타겟을 잡을 수 없습니다
 Tooltip/&TargetMeleeWeaponError={0} 내에 없기 때문에 이 대상에 근접 공격을 수행할 수 없습니다.
 Tooltip/&TargetMustBeNoMoreThanOneSizeLarger=타겟은 한 사이즈 이상 커야 합니다.
 Tooltip/&TargetMustHaveHolyWeapon=대상은 신성한 무기를 가지고 있어야 합니다.

@@ -319,6 +319,7 @@ Tooltip/&SecondTargetNotWithinRange=Impossibile selezionare questo bersaglio per
 Tooltip/&Tag9000Title=Effetto personalizzato
 Tooltip/&TagDamageChaosBoltTitle=Danno caotico
 Tooltip/&TagUnfinishedBusinessTitle=Lavoro incompleto
+Tooltip/&TargetCannotBeGrappled=Il bersaglio non può essere afferrato
 Tooltip/&TargetMeleeWeaponError=Non è possibile eseguire un attacco corpo a corpo su questo bersaglio poiché non si trova entro {0}
 Tooltip/&TargetMustBeNoMoreThanOneSizeLarger=Il bersaglio non deve essere più grande di una taglia
 Tooltip/&TargetMustHaveHolyWeapon=Il bersaglio deve avere un'arma sacra

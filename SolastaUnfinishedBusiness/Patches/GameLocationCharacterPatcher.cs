@@ -25,28 +25,15 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class GameLocationCharacterPatcher
 {
     //PATCH: support Grapple action behavior
-    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.UpdateAttachedPositions), [])]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.FinishMoveTo))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class UpdateAttachedPositions_Patch
+    public static class FinishMoveTo_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(GameLocationCharacter __instance)
+        public static void Prefix(GameLocationCharacter __instance, int3 destination)
         {
-            var rulesetMover = __instance.RulesetCharacter;
-
-            if (!rulesetMover.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, CharacterContext.ConditionGrappleSourceName) ||
-                !CharacterContext.GetGrappledActor(rulesetMover, out var rulesetTarget, out _))
-            {
-                return;
-            }
-
-            var target = GameLocationCharacter.GetFromActor(rulesetTarget);
-
-            //TODO: improve positioning to be the position source is moving from
-            //TODO: decide between teleport or tactical move, and maybe have another setting for that
-            target.StartTeleportTo(__instance.LocationPosition, __instance.Orientation);
+            MoveStepFinished.RecordMovement(__instance, destination);
         }
     }
 

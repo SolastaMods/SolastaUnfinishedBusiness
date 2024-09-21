@@ -319,6 +319,7 @@ Tooltip/&SecondTargetNotWithinRange=无法选择此目标，因为不在第一�
 Tooltip/&Tag9000Title=自定义效果
 Tooltip/&TagDamageChaosBoltTitle=混沌伤害
 Tooltip/&TagUnfinishedBusinessTitle=未竟之业
+Tooltip/&TargetCannotBeGrappled=目标无法被擒抱
 Tooltip/&TargetMeleeWeaponError=无法对该目标进行近战攻击，因为目标不在{0}内
 Tooltip/&TargetMustBeNoMoreThanOneSizeLarger=目标尺寸不得大于一个尺寸
 Tooltip/&TargetMustHaveHolyWeapon=目标必须持有神圣武器

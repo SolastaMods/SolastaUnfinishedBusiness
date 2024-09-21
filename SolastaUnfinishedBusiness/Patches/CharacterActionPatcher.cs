@@ -254,6 +254,12 @@ public static class CharacterActionPatcher
                 rulesetCharacter.ProcessConditionsMatchingInterruption(
                     (ConditionInterruption)ExtraConditionInterruption.UsesBonusAction);
             }
+
+            //PATCH: support for MoveStepFinished => clears movement cache on move step end
+            if (__instance is CharacterActionMoveStepBase)
+            {
+                MoveStepFinished.CleanMovementCache();   
+            }
         }
     }
 

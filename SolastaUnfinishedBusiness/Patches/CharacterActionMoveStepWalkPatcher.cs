@@ -23,9 +23,11 @@ public static class CharacterActionMoveStepWalkPatcher
 
             var mover = __instance.ActingCharacter;
 
+            MoveStepFinished.TryGetMovement(mover.Guid, out var movement);
+
             foreach (var moveStepFinished in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepFinished>())
             {
-                moveStepFinished.MoveStepFinished(mover);
+                moveStepFinished.MoveStepFinished(mover, movement.Item1);
             }
         }
     }
