@@ -1330,7 +1330,6 @@ internal static partial class CharacterContext
     internal const string ConditionGrappleSourceName = "ConditionGrappleSource";
     private const string ConditionGrappleTargetName = "ConditionGrappleTarget";
 
-    //TODO: allow reach distance
     private static readonly FeatureDefinitionPower PowerGrapple = FeatureDefinitionPowerBuilder
         .Create($"Power{GrappleName}")
         .SetGuiPresentation($"Action{GrappleName}", Category.Action, hidden: true)
@@ -1396,6 +1395,7 @@ internal static partial class CharacterContext
                     .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedMultiplicativeModifier(0)
                     .AddToDB())
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedConditionGrappleTarget())
             .AddToDB();
 
         _ = ConditionDefinitionBuilder
@@ -1429,7 +1429,8 @@ internal static partial class CharacterContext
             : ActionDefinitions.ActionFormType.Invisible;
     }
 
-    private sealed class CustomBehaviorGrapple : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
+    private sealed class CustomBehaviorGrapple
+        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe, IModifyEffectDescription
     {
         public bool EnforceFullSelection => false;
 
@@ -1465,6 +1466,44 @@ internal static partial class CharacterContext
             return false;
         }
 
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == PowerGrapple;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var actingCharacter = GameLocationCharacter.GetFromActor(character);
+
+            if (actingCharacter == null)
+            {
+                return effectDescription;
+            }
+
+            RulesetAttackMode attackMode;
+
+            if (character.GetMainWeapon()?.ItemDefinition == ItemDefinitions.UnarmedStrikeBase)
+            {
+                attackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            }
+            else if (character.GetOffhandWeapon()?.ItemDefinition == ItemDefinitions.UnarmedStrikeBase)
+            {
+                attackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+            }
+            else
+            {
+                return effectDescription;
+            }
+
+            effectDescription.rangeParameter = attackMode.ReachRange;
+
+            return effectDescription;
+        }
+
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
@@ -1475,10 +1514,9 @@ internal static partial class CharacterContext
                 attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
 
             var success = abilityCheckData.AbilityCheckRollOutcome
-                is RollOutcome.Success
-                or RollOutcome.CriticalSuccess;
+                is RollOutcome.Success or RollOutcome.CriticalSuccess;
 
-            if (success)
+            if (!success)
             {
                 yield break;
             }
@@ -1523,14 +1561,9 @@ internal static partial class CharacterContext
         {
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
-            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName, out var activeConditionSource))
-            {
-                rulesetAttacker.RemoveCondition(activeConditionSource);
-            }
-
             if (GetGrappledActor(rulesetAttacker, out var rulesetDefender, out var activeConditionTarget))
             {
+                // this will also take care of removing the source condition at OnConditionAddedOrRemovedConditionGrappleTarget
                 rulesetDefender.RemoveCondition(activeConditionTarget);
             }
 
@@ -1538,7 +1571,26 @@ internal static partial class CharacterContext
         }
     }
 
-    private sealed class CustomBehaviorConditionGrappleSource : IMoveStepFinished
+    private sealed class OnConditionAddedOrRemovedConditionGrappleTarget : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            if (rulesetSource.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName, out var activeConditionSource))
+            {
+                rulesetSource.RemoveCondition(activeConditionSource);
+            }
+        }
+    }
+
+    private sealed class CustomBehaviorConditionGrappleSource : IMoveStepFinished, IOnItemEquipped
     {
         public void MoveStepFinished(GameLocationCharacter mover, int3 previousPosition)
         {
@@ -1554,6 +1606,16 @@ internal static partial class CharacterContext
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
 
             target.StartTeleportTo(previousPosition, mover.Orientation);
+        }
+
+        public void OnItemEquipped(RulesetCharacterHero hero)
+        {
+            if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionGrappleSourceName) &&
+                !ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(hero) &&
+                GetGrappledActor(hero, out var rulesetTarget, out var activeCondition))
+            {
+                rulesetTarget.RemoveCondition(activeCondition);
+            }
         }
     }
 

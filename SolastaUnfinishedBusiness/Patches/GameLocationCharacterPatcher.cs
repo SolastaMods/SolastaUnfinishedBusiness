@@ -381,29 +381,13 @@ public static class GameLocationCharacterPatcher
                 var hasGrappleSource = rulesetCharacter.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, CharacterContext.ConditionGrappleSourceName);
 
-                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                switch (actionId)
+                if ((actionId == (ActionDefinitions.Id)ExtraActionId.Grapple &&
+                     (hasGrappleSource ||
+                      !ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(rulesetCharacter) ||
+                      !ValidatorsCharacter.HasMainAttackAvailable(rulesetCharacter))) ||
+                    (actionId == (ActionDefinitions.Id)ExtraActionId.DisableGrapple && !hasGrappleSource))
                 {
-                    case (ActionDefinitions.Id)ExtraActionId.Grapple:
-                    {
-                        if (hasGrappleSource ||
-                            !rulesetCharacter.HasFreeHandSlot() ||
-                            !ValidatorsCharacter.HasMainAttackAvailable(rulesetCharacter))
-                        {
-                            __result = ActionDefinitions.ActionStatus.Unavailable;
-                        }
-
-                        break;
-                    }
-                    case (ActionDefinitions.Id)ExtraActionId.DisableGrapple:
-                    {
-                        if (!hasGrappleSource)
-                        {
-                            __result = ActionDefinitions.ActionStatus.Unavailable;
-                        }
-
-                        break;
-                    }
+                    __result = ActionDefinitions.ActionStatus.Unavailable;
                 }
             }
 
