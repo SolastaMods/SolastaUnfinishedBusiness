@@ -401,7 +401,8 @@
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
     <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
-    <AddFallProneActionToAllRaces>false</AddFallProneActionToAllRaces>
+    <AddFallProneActionToAllRaces>true</AddFallProneActionToAllRaces>
+    <AddGrappleActionToAllRaces>true</AddGrappleActionToAllRaces>
     <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
     <EnableAlternateHuman>true</EnableAlternateHuman>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
@@ -1768,6 +1769,8 @@
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
     <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
+    <ShowMotionFormPreview>true</ShowMotionFormPreview>
+    <ShiftToSnapLineSpells>false</ShiftToSnapLineSpells>
     <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
     <NeverMoveCameraOnEnemyTurn>true</NeverMoveCameraOnEnemyTurn>
     <DontFollowMargin>5</DontFollowMargin>
@@ -1969,6 +1972,7 @@
     </FormationGridSets>
     <AltOnlyHighlightItemsInPartyFieldOfView>true</AltOnlyHighlightItemsInPartyFieldOfView>
     <InvertAltBehaviorOnTooltips>true</InvertAltBehaviorOnTooltips>
+    <TooltipWidth>1</TooltipWidth>
     <EnableHotkeySwapFormationSets>true</EnableHotkeySwapFormationSets>
     <EnableHotkeyToggleHud>true</EnableHotkeyToggleHud>
     <EnableCharacterExport>true</EnableCharacterExport>
