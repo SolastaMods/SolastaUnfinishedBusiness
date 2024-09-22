@@ -3805,6 +3805,7 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition Levitate { get; } = GetDefinition<SpellDefinition>("Levitate");
         internal static SpellDefinition Light { get; } = GetDefinition<SpellDefinition>("Light");
+        internal static SpellDefinition Light_Monk_NoFocus { get; } = GetDefinition<SpellDefinition>("Light_Monk_NoFocus");
         internal static SpellDefinition LightningBolt { get; } = GetDefinition<SpellDefinition>("LightningBolt");
         internal static SpellDefinition Longstrider { get; } = GetDefinition<SpellDefinition>("Longstrider");
         internal static SpellDefinition MageArmor { get; } = GetDefinition<SpellDefinition>("MageArmor");
