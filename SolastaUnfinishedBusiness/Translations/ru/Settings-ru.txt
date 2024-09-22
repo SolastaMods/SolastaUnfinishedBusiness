@@ -7,7 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Включить <color=#D89555>Восп
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Добавлять модификатор Ловкости к <color=#D89555>броскам Инициативы</color> противников
 ModUi/&AddFallProneActionToAllRaces=Добавить действие <color=#D89555>Упасть ничком</color> всем игровым расам <i><color=#F0DAA0>[вы можете упасть ничком без затрат каких-либо действий]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Включить <color=#D89555>Воинам</color> добавление уровня класса к повторным спасброскам умения <color=#D89555>Упорный</color>
-ModUi/&AddGrappleActionToAllRaces=Добавить действие <color=#D89555>Grapple</color> ко всем игровым расам
+ModUi/&AddGrappleActionToAllRaces=Добавить действие <color=#D89555>Захват</color> всем игровым расам
 ModUi/&AddHelpActionToAllRaces=Добавить действие <color=#D89555>Помощь</color> всем игровым расам <i><color=#F0DAA0>[вы можете помочь дружественному существу атаковать другое существо, находящееся в пределах 1 клетки от вас]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Включить гуманоидов в список предпочтительных противников для <color=#D89555>Следопытам</color>
 ModUi/&AddNewBrightEyeColors=Добавить новые яркие цвета глаз
