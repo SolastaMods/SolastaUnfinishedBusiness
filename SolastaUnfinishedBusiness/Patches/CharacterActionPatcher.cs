@@ -258,7 +258,7 @@ public static class CharacterActionPatcher
             //PATCH: support for MoveStepFinished => clears movement cache on move step end
             if (__instance is CharacterActionMoveStepBase)
             {
-                MoveStepFinished.CleanMovementCache();   
+                MovementTracker.CleanMovementCache();
             }
         }
     }

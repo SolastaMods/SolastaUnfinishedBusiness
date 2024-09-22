@@ -290,7 +290,7 @@ public static class GameLocationBattleManagerPatcher
             }
             else
             {
-                MoveStepFinished.TryGetMovement(mover.Guid, out var movement);
+                MovementTracker.TryGetMovement(mover.Guid, out var movement);
 
                 foreach (var moveStepFinished in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepFinished>())
                 {

@@ -24,7 +24,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationCharacterPatcher
 {
-    //PATCH: support Grapple action behavior
+    //PATCH: support for MovementTracker
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.FinishMoveTo))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -33,7 +33,7 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static void Prefix(GameLocationCharacter __instance, int3 destination)
         {
-            MoveStepFinished.RecordMovement(__instance, destination);
+            MovementTracker.RecordMovement(__instance, destination);
         }
     }
 

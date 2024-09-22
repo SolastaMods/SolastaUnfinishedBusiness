@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -23,7 +24,7 @@ public static class CharacterActionMoveStepWalkPatcher
 
             var mover = __instance.ActingCharacter;
 
-            MoveStepFinished.TryGetMovement(mover.Guid, out var movement);
+            MovementTracker.TryGetMovement(mover.Guid, out var movement);
 
             foreach (var moveStepFinished in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepFinished>())
             {
