@@ -576,8 +576,8 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    internal sealed class PhysicalAttackBeforeHitConfirmedOnEnemyCharger(FeatureDefinitionPower powerPool)
-        : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyCharger(FeatureDefinitionPower powerPool)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IMoveStepStarted
     {
         private const string DirX = "DirectionX";
         private const string DirY = "DirectionY";
@@ -588,6 +588,30 @@ internal static class MeleeCombatFeats
             .Create()
             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
             .Build();
+
+        public void MoveStepStarted(GameLocationCharacter mover, int3 source, int3 destination)
+        {
+            InitDirections(mover);
+
+            var previousDirectionX = mover.UsedSpecialFeatures[DirX];
+            var previousDirectionY = mover.UsedSpecialFeatures[DirY];
+            var previousDirectionZ = mover.UsedSpecialFeatures[DirZ];
+
+            var directionX = Math.Sign(source.x - destination.x);
+            var directionY = Math.Sign(source.y - destination.y);
+            var directionZ = Math.Sign(source.z - destination.z);
+
+            mover.UsedSpecialFeatures[DirX] = directionX;
+            mover.UsedSpecialFeatures[DirY] = directionY;
+            mover.UsedSpecialFeatures[DirZ] = directionZ;
+
+            mover.UsedSpecialFeatures[StraightLine] =
+                previousDirectionX == directionX &&
+                previousDirectionY == directionY &&
+                previousDirectionZ == directionZ
+                    ? mover.UsedSpecialFeatures[StraightLine] + 1
+                    : 1;
+        }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -655,32 +679,6 @@ internal static class MeleeCombatFeats
             mover.UsedSpecialFeatures.TryAdd(DirY, 0);
             mover.UsedSpecialFeatures.TryAdd(DirZ, 0);
             mover.UsedSpecialFeatures.TryAdd(StraightLine, 0);
-        }
-
-        internal static void RecordStraightLine(GameLocationCharacter mover, int3 destination)
-        {
-            InitDirections(mover);
-
-            var origin = mover.LocationPosition;
-
-            var previousDirectionX = mover.UsedSpecialFeatures[DirX];
-            var previousDirectionY = mover.UsedSpecialFeatures[DirY];
-            var previousDirectionZ = mover.UsedSpecialFeatures[DirZ];
-
-            var directionX = Math.Sign(origin.x - destination.x);
-            var directionY = Math.Sign(origin.y - destination.y);
-            var directionZ = Math.Sign(origin.z - destination.z);
-
-            mover.UsedSpecialFeatures[DirX] = directionX;
-            mover.UsedSpecialFeatures[DirY] = directionY;
-            mover.UsedSpecialFeatures[DirZ] = directionZ;
-
-            mover.UsedSpecialFeatures[StraightLine] =
-                previousDirectionX == directionX &&
-                previousDirectionY == directionY &&
-                previousDirectionZ == directionZ
-                    ? mover.UsedSpecialFeatures[StraightLine] + 1
-                    : 1;
         }
     }
 

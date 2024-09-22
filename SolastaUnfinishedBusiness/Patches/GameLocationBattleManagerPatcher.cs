@@ -251,22 +251,6 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterMoveStart))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class HandleCharacterMoveStart_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(
-            GameLocationCharacter mover,
-            int3 destination)
-        {
-            //PATCH: records on StraightLine special feature how many cells a hero moved in a straight line
-            //Stores character last straight line distance to be processed later
-            MeleeCombatFeats.PhysicalAttackBeforeHitConfirmedOnEnemyCharger.RecordStraightLine(mover, destination);
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterMoveEnd))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -281,21 +265,6 @@ public static class GameLocationBattleManagerPatcher
             while (values.MoveNext())
             {
                 yield return values.Current;
-            }
-
-            //PATCH: support for `IMoveStepFinished`
-            if (CharacterActionMoveStepWalkPatcher.IsCharacterActionMoveStepWalk)
-            {
-                CharacterActionMoveStepWalkPatcher.IsCharacterActionMoveStepWalk = false;
-            }
-            else
-            {
-                MovementTracker.TryGetMovement(mover.Guid, out var movement);
-
-                foreach (var moveStepFinished in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepFinished>())
-                {
-                    moveStepFinished.MoveStepFinished(mover, movement.Item1);
-                }
             }
 
             if (__instance.Battle == null ||
@@ -315,8 +284,8 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for Circle of Wildfire proxies
             yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(mover);
 
-            //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord
-            if (mover.IsMyTurn() || mover.Side != Side.Ally)
+            //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord, or enemy moved by other means
+            if (mover.IsMyTurn())
             {
                 yield break;
             }
