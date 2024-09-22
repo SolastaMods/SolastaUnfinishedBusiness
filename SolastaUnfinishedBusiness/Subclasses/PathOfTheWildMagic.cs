@@ -1239,20 +1239,20 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             if (hero == null)
             {
-                __instance.actionModifier.FailureFlags.Add($"Tooltip/&{Name}NotAHero");
+                __instance.actionModifier.FailureFlags.Add($"Failure/&{Name}NotAHero");
                 return false;
             }
 
             if (hero.HasAnyConditionOfType(_conditionNames))
             {
-                __instance.actionModifier.FailureFlags.Add($"Tooltip/&{Name}AlreadyBolstered");
+                __instance.actionModifier.FailureFlags.Add($"Failure/&{Name}AlreadyBolstered");
                 return false;
             }
 
             // ReSharper disable once InvertIf
             if (!hero.CanCastSpells())
             {
-                __instance.actionModifier.FailureFlags.Add($"Tooltip/&{Name}CannotCastSpells");
+                __instance.actionModifier.FailureFlags.Add($"Failure/&{Name}CannotCastSpells");
                 return false;
             }
 

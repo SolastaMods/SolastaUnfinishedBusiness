@@ -1,5 +1,6 @@
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Du erleidest am Ende jedes deiner Züge 1W6 nekrotischen Schaden, bist verängstigt und Feuerangriffe vom Marker umgehen deinen Widerstand.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Gezeichnet von den Verdammten
+Failure/&MustHaveDammingStrikeCondition=Ist nicht durch Damning Strike markiert
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Wenn du in deinem Zug zum ersten Mal eine Kreatur mit einem Angriff triffst, kannst du sie zwingen, einen Konstitutionsrettungswurf gegen deinen Zauber-SG erfolgreich zu bestehen oder sie markieren lassen. Solange eine Kreatur auf diese Weise markiert ist, erleidet sie zu Beginn jedes Zuges 1 Minute lang 1W6 Feuerschaden. Am Ende jedes Zuges kann die Kreatur diesen Rettungswurf wiederholen und die Effekte bei Erfolg beenden.
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=Verdammender Schlag
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=Du kannst <b>Sapping Sting</b> als Aktion wirken und Bonuszauber erhalten, die für dich als Ranger-Zauber gelten und nicht auf die Anzahl der Zauber angerechnet werden, die du kennst:\n{0}
@@ -18,4 +19,3 @@ Monster/&MonsterMarilithDescription=Von der Hüfte aufwärts sahen Mariliths aus
 Monster/&MonsterMarilithTitle=Marilith
 Subclass/&RangerHellWalkerDescription=Sie sind ein Hellwalker, ein Ranger, der in die Magie der Unteren Ebenen gehüllt ist. Wie Sie mit dieser Magie in Verbindung gebracht wurden, wissen nur Sie selbst. Vielleicht war Ihr Urahn dämonischer Herkunft, oder vielleicht liegt auf Ihrer Blutlinie ein dämonischer Fluch. Was auch immer der Grund sein mag, die Magie ist nun untrennbar mit Ihnen verbunden, Ihre eigene Präsenz für immer mit den höllischen Wesen unter Ihnen verbunden.
 Subclass/&RangerHellWalkerTitle=Höllenwandler
-Tooltip/&MustHaveDammingStrikeCondition=Ist nicht durch Damning Strike markiert

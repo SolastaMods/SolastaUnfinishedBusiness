@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=拘束されるだけでなく、移動制限に対する免疫も付与されます。
 Condition/&ConditionFeatMobileAfterDashTitle=自由
+Failure/&MustBeHumanoid=人型でなければならない
+Failure/&MustNotHaveMenacingMark=威嚇マークがあってはなりません
 Feat/&FeatAcrobatDescription=より機敏になり、次のようなメリットが得られます。\n• 器用さが 1 増加し、最大 20 になります。\n• すでに熟練している場合は、アクロバット スキルまたは専門知識に習熟します。\n•ボーナス アクションでは、難易度 15 の器用さ (軽業) チェックを行うことができます。成功すると、現在のターンが終了するまで、難しい地形でも追加の移動コストがかかりません。
 Feat/&FeatAcrobatTitle=アクロバット
 Feat/&FeatAlertDescription=常に危険に注意を払うと、次のような利点が得られます:\n・意識がある間は驚かない。\n・主導権に +5 ボーナスを得る。\n・他のクリーチャーには与えられない。あなたに気づかれないことで、あなたに対する攻撃ロールで有利になります。
@@ -165,5 +167,3 @@ Reaction/&WarcasterAttackTitle=攻撃
 Tag/&InitiateCantripSpecialTagTitle=キャントリップを開始する
 Tag/&InitiateSpellSpecialTagTitle=呪文を唱える
 Tag/&SniperCantripSpecialTagTitle=スナイパーキャントリップ
-Tooltip/&MustBeHumanoid=人型でなければならない
-Tooltip/&MustNotHaveMenacingMark=威嚇マークがあってはなりません

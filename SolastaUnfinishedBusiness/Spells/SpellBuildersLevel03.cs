@@ -526,7 +526,8 @@ internal static partial class SpellBuilders
     }
 
     private sealed class MoveStepFinishedAshardalonStride(
-        FeatureDefinitionPower powerDamage, ConditionDefinition conditionMark) : IMoveStepFinished
+        FeatureDefinitionPower powerDamage,
+        ConditionDefinition conditionMark) : IMoveStepFinished
     {
         public void MoveStepFinished(GameLocationCharacter mover, int3 previousPosition)
         {
@@ -659,7 +660,7 @@ internal static partial class SpellBuilders
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeAuraOfLife");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeAuraOfLife");
             }
 
             return isValid;
@@ -761,7 +762,7 @@ internal static partial class SpellBuilders
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeWithin5ft");
             }
 
             return isValid;

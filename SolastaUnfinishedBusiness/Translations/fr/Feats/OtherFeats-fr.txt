@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Accorde l'immunité aux restrictions de mouvement ainsi qu'à la contention.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberté
+Failure/&MustBeHumanoid=Doit être humanoïde
+Failure/&MustNotHaveMenacingMark=Ne doit pas avoir de marque menaçante
 Feat/&FeatAcrobatDescription=Vous devenez plus agile, ce qui vous permet d'obtenir les avantages suivants :\n• Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\n• Vous obtenez la maîtrise de la compétence ou de l'expertise Acrobaties si vous êtes déjà compétent.\n• En tant qu'action bonus, vous pouvez effectuer un test de Dextérité (Acrobaties) DD 15. Si vous réussissez, les terrains difficiles ne vous coûtent pas de déplacement supplémentaire jusqu'à la fin du tour en cours.
 Feat/&FeatAcrobatTitle=Acrobate
 Feat/&FeatAlertDescription=Toujours à l'affût du danger, vous bénéficiez des avantages suivants :\n• Vous ne pouvez pas être surpris lorsque vous êtes conscient.\n• Vous bénéficiez d'un bonus de +5 à l'initiative.\n• Les autres créatures ne bénéficient pas d'avantage sur les jets d'attaque contre vous car vous ne les percevez pas.
@@ -165,5 +167,3 @@ Reaction/&WarcasterAttackTitle=Attaque
 Tag/&InitiateCantripSpecialTagTitle=Initier des tours de passe-passe
 Tag/&InitiateSpellSpecialTagTitle=Lancer des sorts
 Tag/&SniperCantripSpecialTagTitle=Tours de passe-passe du tireur d'élite
-Tooltip/&MustBeHumanoid=Doit être humanoïde
-Tooltip/&MustNotHaveMenacingMark=Ne doit pas avoir de marque menaçante

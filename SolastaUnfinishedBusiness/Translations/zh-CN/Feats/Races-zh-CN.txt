@@ -1,5 +1,6 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=任何距离你 5 尺以内的生物如果用近战攻击击中你，都会受到 1d4 火焰伤害。
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=弗莱格索斯之焰
+Failure/&AllyMustBeAbleToChargeTarget=无法对目标冲锋
 Feat/&FeatBountifulLuckDescription=你的人民拥有非凡的运气，当你看到你的同伴步履蹒跚时，你学会了神秘地把这种运气借给他们。你不确定如何做到这一点，你只是希望它发生，它就会发生。这无疑是命运眷顾的标志！\n• 当你在 30 尺范围内看到的盟友在 d20 上投掷 1 进行攻击检定、能力检定或豁免检定时，你可以使用你的反应来重新投掷骰子。盟友必须使用新的掷骰结果。\n• 当你使用此能力时，你无法在下一回合结束之前使用你的幸运种族特质。
 Feat/&FeatBountifulLuckTitle=好运连连
 Feat/&FeatDarkElfMagicDescription=你会学到更多黑暗精灵典型的魔法。你学会了 <b>侦测魔法</b> 法术并且可以随意施展它，而不需要消耗法术位。你还可以学习 <b>浮空术</b> 和 <b>解除魔法</b>，每一种魔法你都可以施展一次，而不需要消耗法术位。当你完成长休后，你将重新获得以这种方式施展法术的能力。魅力是你施展这些法术的属性。
@@ -92,4 +93,3 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=点燃弗莱格索斯�
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=弗莱格索斯之焰
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=弗莱格索斯之焰
 Tag/&WoodElfMagicCantripSpecialTagTitle=木精灵魔法戏法
-Tooltip/&AllyMustBeAbleToChargeTarget=无法对目标冲锋

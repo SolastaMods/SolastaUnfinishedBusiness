@@ -686,7 +686,7 @@ internal static class OtherFeats
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveMenacingMark");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustNotHaveMenacingMark");
 
                 return false;
             }
@@ -698,7 +698,7 @@ internal static class OtherFeats
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeHumanoid");
+            __instance.actionModifier.FailureFlags.Add("Failure/&MustBeHumanoid");
 
             return false;
         }

@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Обеспечивает иммунитет к ограничению передвижения, а также к состоянию "Опутанный".
 Condition/&ConditionFeatMobileAfterDashTitle=Свобода
+Failure/&MustBeHumanoid=Должен быть гуманоидом
+Failure/&MustNotHaveMenacingMark=Не может быть напуган вами
 Feat/&FeatAcrobatDescription=Вы становитесь более проворным, получая следующие преимущества:\n• Увеличьте значение вашей Ловкости на 1 при максимуме 20.\n• Вы получаете владение навыком Акробатика или компетентность в нём, если уже владеет им.\n• Бонусным действием вы можете совершить проверку Ловкости (Акробатика) Сл 15. Если вы преуспели в броске, то вы двигаетесь без штрафов по труднопроходимой местности до конца текущего хода.
 Feat/&FeatAcrobatTitle=Акробат
 Feat/&FeatAlertDescription=Вы всегда готовы к опасностям и получаете следующие преимущества:\n• Вас не могут застать врасплох, пока вы в сознании.\n• Вы получаете бонус +5 к проверкам инициативы.\n• Другие существа не получают преимущество для бросков атаки по вам за то, что вы их не видите.
@@ -165,5 +167,3 @@ Reaction/&WarcasterAttackTitle=Атака
 Tag/&InitiateCantripSpecialTagTitle=Заговоры посвящённого
 Tag/&InitiateSpellSpecialTagTitle=Заклинания посвящённого
 Tag/&SniperCantripSpecialTagTitle=Заговоры меткого заклинателя
-Tooltip/&MustBeHumanoid=Должен быть гуманоидом
-Tooltip/&MustNotHaveMenacingMark=Не может быть напуган вами

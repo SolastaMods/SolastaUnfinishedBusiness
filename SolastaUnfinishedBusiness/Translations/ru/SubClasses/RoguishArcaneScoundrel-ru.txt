@@ -2,6 +2,7 @@ Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Вы со
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Отвлекающая засада
 Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=Ваша жизненная эссенция была украдена для причинения вреда другому существу.
 Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=Истощённая сущность
+Failure/&MustNotHavePossessedCondition=Эссенция уже была украдена, не может быть целью
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Начиная с 9-го уровня, каждый раз, когда вы наносите существу урон скрытой атакой, это существо получает помеху на следующий спасбросок или проверку характеристики до конца вашего следующего хода.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Отвлекающая засада
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Вы можете накладывать заклинания и заговоры Волшебника.
@@ -22,4 +23,3 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Враждебное наложение заклинания
 Subclass/&RoguishArcaneScoundrelDescription=С помощью быстрых ног и острого ума Магические прохвосты используют множество волшебных трюков, чтобы перехитрить и обезвредить своих противников.
 Subclass/&RoguishArcaneScoundrelTitle=Магический прохвост
-Tooltip/&MustNotHavePossessedCondition=Эссенция уже была украдена, не может быть целью

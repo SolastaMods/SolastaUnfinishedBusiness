@@ -348,7 +348,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeWithin5ft");
             }
 
             return isValid;
@@ -389,7 +389,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeWithin5ft");
             }
 
             return isValid;

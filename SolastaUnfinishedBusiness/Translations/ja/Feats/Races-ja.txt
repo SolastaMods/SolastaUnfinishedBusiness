@@ -1,5 +1,6 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=あなたから 5 フィート以内にいるクリーチャーが近接攻撃で攻撃すると、1d4 の火ダメージを受けます。
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=フレゲトスの炎
+Failure/&AllyMustBeAbleToChargeTarget=ターゲットにチャージできません
 Feat/&FeatBountifulLuckDescription=あなたの部下は並外れた幸運に恵まれています。仲間が弱っているのを見ると、あなたはその幸運を神秘的に仲間に貸し出すことを学んできました。どうやってそうするのかはわかりませんが、ただ願うだけで、それが起こります。確かに幸運の兆しです！\n• 30 フィート以内にいる味方が攻撃ロール、能力値チェック、セーヴィング スローで d20 で 1 を振った場合、あなたは反応を使用してダイスを再度振ることができます。味方は新しいロールを使用する必要があります。\n• この能力を使用するとき、次のターンの終了まで幸運の種族特性を使用することはできません。
 Feat/&FeatBountifulLuckTitle=豊かな幸運
 Feat/&FeatDarkElfMagicDescription=ダークエルフに特有の魔法をさらに学びます。あなたは Detect Magic 呪文を学び、呪文スロットを消費することなく、自由にそれを唱えることができます。また、Levitate と Dispel Magic も学びます。これらはそれぞれ、呪文スロットを消費せずに 1 回唱えることができます。長い休息を終えると、この方法で呪文を唱える能力が回復します。カリスマ性は、これらの呪文を唱える能力です。
@@ -92,4 +93,3 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=フレゲトスの炎�
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=フレゲトスの炎
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=フレゲトスの炎
 Tag/&WoodElfMagicCantripSpecialTagTitle=ウッドエルフの魔法のキャントリップ
-Tooltip/&AllyMustBeAbleToChargeTarget=ターゲットにチャージできません

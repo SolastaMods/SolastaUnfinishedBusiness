@@ -718,7 +718,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             {
                 if (!target.RulesetCharacter.HasConditionOfType(condition))
                 {
-                    __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustHaveInfectiousFury");
+                    __instance.actionModifier.FailureFlags.Add("Failure/&TargetMustHaveInfectiousFury");
 
                     return false;
                 }
@@ -726,7 +726,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 // ReSharper disable once InvertIf
                 if (!target.CanReact())
                 {
-                    __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");
+                    __instance.actionModifier.FailureFlags.Add("Failure/&AllyMustBeAbleToReact");
 
                     return false;
                 }
@@ -741,7 +741,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             if (attackMode == null ||
                 !IsValidAttack(__instance, attackMode, selectedTarget, target))
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeAbleToAttackTarget");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeAbleToAttackTarget");
 
                 return false;
             }

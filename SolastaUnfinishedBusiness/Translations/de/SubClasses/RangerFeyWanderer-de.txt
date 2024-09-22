@@ -1,3 +1,4 @@
+Failure/&MustBeWithin5ft=Muss innerhalb von 5 Fuß liegen
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesDescription=Sie können Ihre Waffenschläge mit geistzerstörender Magie verstärken, die Sie aus den düsteren Tiefen der Fey-Wildnis beziehen. Wenn Sie eine Kreatur mit einer Waffe treffen, können Sie dem Ziel zusätzlich 1W4 psychischen Schaden zufügen, das diesen zusätzlichen Schaden nur einmal pro Runde erleiden kann. Der zusätzliche Schaden erhöht sich auf 1W6, wenn Sie die 11. Stufe dieser Klasse erreichen.
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesTitle=Schreckliche Schläge
 Feature/&AutoPreparedSpellsRangerFeyWandererDescription=Du erhältst Bonuszauber, die für dich als Ranger-Zauber gelten. Sie sind immer vorbereitet und werden nicht auf die Anzahl der Ranger-Zauber angerechnet, die du kennst:\n{0}\n\n
@@ -22,4 +23,3 @@ Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistReactTitle
 Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistTitle=Betörende Wendung
 Subclass/&RangerFeyWandererDescription=Dank der Gabe eines Erzfeen, der glänzenden Frucht, die Sie von einem sprechenden Baum gegessen haben, der magischen Quelle, in der Sie geschwommen sind oder eines anderen glückverheißenden Ereignisses umgibt Sie eine mystische Feenwelt. Wie auch immer Sie Ihre Feenmagie erlangt haben, Sie sind jetzt ein Feenwanderer, ein Waldläufer, der sowohl die Welt der Sterblichen als auch die der Feen repräsentiert. Während Sie durch das Multiversum wandern, erhellt Ihr freudiges Lachen die Herzen der Unterdrückten und Ihre Kampfkünste versetzen Ihre Feinde in Angst und Schrecken, denn groß ist die Fröhlichkeit der Feen und furchterregend ihre Wut.
 Subclass/&RangerFeyWandererTitle=Feenhafter Wanderer
-Tooltip/&MustBeWithin5ft=Muss innerhalb von 5 Fuß liegen

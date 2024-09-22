@@ -1,5 +1,6 @@
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Vous subissez 1d6 dégâts nécrotiques à la fin de chacun de vos tours, vous êtes effrayé et les attaques de feu du marqueur contournent votre résistance.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Marqué par les damnés
+Failure/&MustHaveDammingStrikeCondition=N'est pas marqué par Damning Strike
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Lorsque vous attaquez une créature pour la première fois pendant votre tour, vous pouvez la forcer à réussir un jet de sauvegarde de Constitution contre le DD de votre sort ou la faire marquer. Tant qu'une créature est marquée de cette façon, elle subit 1d6 dégâts de feu au début de chacun de ses tours pendant 1 minute. À la fin de chacun de ses tours, la créature peut répéter ce jet de sauvegarde, mettant fin aux effets en cas de réussite.
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=Frappe damnante
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=Vous pouvez lancer <b>Dard de sape</b> en tant qu'action et gagner des sorts bonus qui sont considérés comme des sorts de rôdeur pour vous et ne comptent pas dans le nombre de sorts que vous connaissez :\n{0}
@@ -18,4 +19,3 @@ Monster/&MonsterMarilithDescription=À partir de la taille, les mariliths ressem
 Monster/&MonsterMarilithTitle=Marilith
 Subclass/&RangerHellWalkerDescription=Vous êtes un Hellwalker, un ranger enveloppé dans la magie des Plans Inférieurs. Vous seul savez comment vous en êtes venu à être associé à cette magie. Peut-être que votre grand ancêtre était d'origine démoniaque, ou peut-être que votre lignée porte une malédiction démoniaque. Quelle que soit la raison, la magie est désormais inextricablement liée à vous, votre propre présence étant à jamais liée aux êtres infernaux d'en bas.
 Subclass/&RangerHellWalkerTitle=Marcheur des Enfers
-Tooltip/&MustHaveDammingStrikeCondition=N'est pas marqué par Damning Strike

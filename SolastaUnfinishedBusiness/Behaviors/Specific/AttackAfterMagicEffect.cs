@@ -30,7 +30,7 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 
         var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
 
-        __instance.actionModifier.FailureFlags.Add(Gui.Format("Tooltip/&TargetMeleeWeaponError", text));
+        __instance.actionModifier.FailureFlags.Add(Gui.Format("Failure/&TargetMeleeWeaponError", text));
 
         return false;
     }

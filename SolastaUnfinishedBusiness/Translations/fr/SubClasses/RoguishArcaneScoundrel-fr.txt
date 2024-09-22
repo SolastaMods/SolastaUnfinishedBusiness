@@ -2,6 +2,7 @@ Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Vous subi
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Embuscade distrayante
 Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=Votre essence vitale a été volée pour nuire à une autre créature.
 Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=Essence drainée
+Failure/&MustNotHavePossessedCondition=L'essence vitale a été volée et ne peut pas être visée
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=À partir du niveau 9, chaque fois que vous infligez des dégâts d'attaque sournoise à une créature, cette créature subit un désavantage lors de son prochain jet de sauvegarde ou test de caractéristique jusqu'à la fin de votre prochain tour.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Embuscade distrayante
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Lancez des sorts et des tours de magie du sorcier.
@@ -22,4 +23,3 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Lancer des sorts hostiles
 Subclass/&RoguishArcaneScoundrelDescription=Avec rapidité de mouvement et vivacité d'esprit, les Scoundrels des Arcanes utilisent une série de tours magiques pour déjouer et affaiblir leurs adversaires.
 Subclass/&RoguishArcaneScoundrelTitle=Scélérat arcanique
-Tooltip/&MustNotHavePossessedCondition=L'essence vitale a été volée et ne peut pas être visée

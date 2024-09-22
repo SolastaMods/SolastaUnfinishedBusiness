@@ -1,5 +1,6 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=Cualquier criatura a 5 pies de ti que te golpee con un ataque cuerpo a cuerpo recibe 1d4 de daño por fuego.
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=Llamas de Flegethos
+Failure/&AllyMustBeAbleToChargeTarget=No se puede cargar el objetivo
 Feat/&FeatBountifulLuckDescription=Tu gente tiene una suerte extraordinaria, que has aprendido a otorgarles místicamente a tus compañeros cada vez que los ves flaquear. No estás seguro de cómo lo haces, simplemente lo deseas y sucede. ¡Sin duda, una señal del favor de la fortuna!\n• Cuando un aliado que puedes ver a 30 pies o menos de ti saca un 1 en el d20 en una tirada de ataque, una prueba de característica o una tirada de salvación, puedes usar tu reacción para volver a tirar el dado. El aliado debe usar la nueva tirada.\n• Cuando usas esta habilidad, no puedes usar tu rasgo racial Afortunado antes del final de tu siguiente turno.
 Feat/&FeatBountifulLuckTitle=Suerte abundante
 Feat/&FeatDarkElfMagicDescription=Aprendes más sobre la magia típica de los elfos oscuros. Aprendes el hechizo Detectar magia y puedes lanzarlo a voluntad, sin gastar un espacio de hechizo. También aprendes Levitar y Disipar magia, cada uno de los cuales puedes lanzar una vez sin gastar un espacio de hechizo. Recuperas la capacidad de lanzar el hechizo de esta manera cuando terminas un descanso prolongado. El carisma es tu capacidad de lanzamiento de hechizos para estos hechizos.
@@ -92,4 +93,3 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=Puedes encender tus Lla
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Llamas de Flegethos
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Llamas de Flegethos
 Tag/&WoodElfMagicCantripSpecialTagTitle=Trucos de magia de los elfos del bosque
-Tooltip/&AllyMustBeAbleToChargeTarget=No se puede cargar el objetivo

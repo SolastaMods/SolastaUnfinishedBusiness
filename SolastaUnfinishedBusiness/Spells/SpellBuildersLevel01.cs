@@ -988,7 +988,7 @@ internal static partial class SpellBuilders
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveChaosBoltMark");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustNotHaveChaosBoltMark");
             }
 
             return isValid;
@@ -1510,7 +1510,7 @@ internal static partial class SpellBuilders
             var failureFlags = __instance.actionModifier.FailureFlags;
             if (selectedTargets.Any(selectedTarget => !target.IsWithinRange(selectedTarget, 6)))
             {
-                failureFlags.Add("Tooltip/&SecondTargetNotWithinRange");
+                failureFlags.Add("Failure/&SecondTargetNotWithinRange");
                 return false;
             }
 
@@ -2918,7 +2918,7 @@ internal static partial class SpellBuilders
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWitchBolt");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeWitchBolt");
             }
 
             return isValid;

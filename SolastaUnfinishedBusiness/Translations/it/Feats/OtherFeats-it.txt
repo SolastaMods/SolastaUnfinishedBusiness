@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Garantisce l'immunità alle restrizioni di movimento e all'essere trattenuto.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertà
+Failure/&MustBeHumanoid=Deve essere umanoide
+Failure/&MustNotHaveMenacingMark=Non deve avere un segno minaccioso
 Feat/&FeatAcrobatDescription=Diventi più agile, ottenendo i seguenti benefici:\n• Aumenta la tua Destrezza di 1, fino a un massimo di 20.\n• Ottieni competenza con l'abilità o l'esperienza Acrobatica se sei già competente.\n• Come azione bonus, puoi effettuare una prova di Destrezza (Acrobazia) CD 15. Se hai successo, il terreno difficile non ti costerà movimento extra fino alla fine del turno corrente.
 Feat/&FeatAcrobatTitle=Acrobata
 Feat/&FeatAlertDescription=Sempre all'erta per il pericolo, ottieni i seguenti benefici:\n• Non puoi essere sorpreso mentre sei cosciente.\n• Ottieni un bonus di +5 all'iniziativa.\n• Le altre creature non ottengono vantaggio sui tiri per colpire contro di te perché non sono state percepite da te.
@@ -165,5 +167,3 @@ Reaction/&WarcasterAttackTitle=Attacco
 Tag/&InitiateCantripSpecialTagTitle=Inizia Trucchetti
 Tag/&InitiateSpellSpecialTagTitle=Avviare incantesimi
 Tag/&SniperCantripSpecialTagTitle=Trucchetti da cecchino
-Tooltip/&MustBeHumanoid=Deve essere umanoide
-Tooltip/&MustNotHaveMenacingMark=Non deve avere un segno minaccioso

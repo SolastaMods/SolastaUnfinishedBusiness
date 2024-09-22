@@ -2,6 +2,7 @@ Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=당신은
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=주의를 산만하게 하는 매복
 Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=당신의 생명 정수는 다른 생명체에게 해를 끼치기 위해 도난당했습니다.
 Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=흡수된 정수
+Failure/&MustNotHavePossessedCondition=생명의 정수를 훔쳐서 조준할 수 없습니다.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=9레벨부터, 당신이 생물에게 몰래 공격 피해를 입힐 때마다, 그 생물은 당신의 다음 턴이 끝날 때까지 다음 내성 굴림이나 능력 체크에서 불이익을 받습니다.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=주의를 산만하게 하는 매복
 Feature/&CastSpellRoguishArcaneScoundrelDescription=마법사 주문과 캔트립을 시전합니다.
@@ -22,4 +23,3 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=적대적인 주문 시전
 Subclass/&RoguishArcaneScoundrelDescription=빠른 발과 예리한 재치를 갖춘 Arcane Scoundrels는 일련의 마법 기술을 활용하여 상대를 압도하고 약화시킵니다.
 Subclass/&RoguishArcaneScoundrelTitle=신비한 악당
-Tooltip/&MustNotHavePossessedCondition=생명의 정수를 훔쳐서 조준할 수 없습니다.

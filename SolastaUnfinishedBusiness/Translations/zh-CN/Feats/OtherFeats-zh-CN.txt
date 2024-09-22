@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=免疫束缚及移动限制效应。
 Condition/&ConditionFeatMobileAfterDashTitle=行动自如
+Failure/&MustBeHumanoid=必须是类人生物
+Failure/&MustNotHaveMenacingMark=不得有威胁标记
 Feat/&FeatAcrobatDescription=你会变得更加敏捷，并获得以下好处：\n• 你的敏捷 +1，上限为 20。\n• 你获得特技熟练项，如果已有熟练项，则获得专精。\n• 以一个附赠动作，你可以进行 DC 15 敏捷（特技）检定。如果你成功了，困难的地形不会花费你额外的移动力，直到当前回合结束。
 Feat/&FeatAcrobatTitle=特技演员
 Feat/&FeatAlertDescription=时刻警惕危险。你获得以下好处：\n• 你在意识清醒时无法被突袭。\n• 你的先攻获得 +5 加值。\n• 你看不到的其他生物对你发动攻击检定时，它们无法因此获得优势。
@@ -165,5 +167,3 @@ Reaction/&WarcasterAttackTitle=攻击
 Tag/&InitiateCantripSpecialTagTitle=魔法学徒
 Tag/&InitiateSpellSpecialTagTitle=魔法学徒
 Tag/&SniperCantripSpecialTagTitle=法术狙手
-Tooltip/&MustBeHumanoid=必须是类人生物
-Tooltip/&MustNotHaveMenacingMark=不得有威胁标记

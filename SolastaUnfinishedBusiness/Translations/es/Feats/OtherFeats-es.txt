@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Otorga inmunidad a las restricciones de movimiento, así como a la inmovilización.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertad
+Failure/&MustBeHumanoid=Debe ser humanoide
+Failure/&MustNotHaveMenacingMark=No debe tener una marca amenazante.
 Feat/&FeatAcrobatDescription=Te vuelves más ágil y obtienes los siguientes beneficios:\n• Aumentas tu Destreza en 1, hasta un máximo de 20.\n• Obtienes competencia con la habilidad o pericia en Acrobacias si ya eres competente.\n• Como acción adicional, puedes realizar una prueba de Destreza (Acrobacias) CD 15. Si tienes éxito, el terreno difícil no te costará movimiento adicional hasta el final del turno actual.
 Feat/&FeatAcrobatTitle=Acróbata
 Feat/&FeatAlertDescription=Siempre atento al peligro, obtienes los siguientes beneficios:\n• No te pueden sorprender mientras estás consciente.\n• Obtienes un bonificador +5 a la iniciativa.\n• Otras criaturas no obtienen ventaja en las tiradas de ataque contra ti como resultado de no ser percibidas por ti.
@@ -165,5 +167,3 @@ Reaction/&WarcasterAttackTitle=Ataque
 Tag/&InitiateCantripSpecialTagTitle=Iniciar trucos
 Tag/&InitiateSpellSpecialTagTitle=Iniciar hechizos
 Tag/&SniperCantripSpecialTagTitle=Trucos de francotirador
-Tooltip/&MustBeHumanoid=Debe ser humanoide
-Tooltip/&MustNotHaveMenacingMark=No debe tener una marca amenazante.

@@ -1135,14 +1135,14 @@ internal static class GambitsBuilders
                     return true;
                 }
 
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");
+                __instance.actionModifier.FailureFlags.Add("Failure/&AllyMustBeAbleToReact");
 
                 return false;
             }
 
             if (target.Side != Side.Enemy && !target.CanReact())
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");
+                __instance.actionModifier.FailureFlags.Add("Failure/&AllyMustBeAbleToReact");
 
                 return false;
             }
@@ -1155,14 +1155,14 @@ internal static class GambitsBuilders
 
             if (selectedTarget.Side != Side.Enemy && target.Side != Side.Enemy)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&AlreadySelectedAnAlly");
+                __instance.actionModifier.FailureFlags.Add("Failure/&AlreadySelectedAnAlly");
 
                 return false;
             }
 
             if (selectedTarget.Side == Side.Enemy && target.Side == Side.Enemy)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&AlreadySelectedAnEnemy");
+                __instance.actionModifier.FailureFlags.Add("Failure/&AlreadySelectedAnEnemy");
 
                 return false;
             }
@@ -1185,7 +1185,7 @@ internal static class GambitsBuilders
             // ReSharper disable once InvertIf
             if (attackMode == null || !IsValidAttack(__instance, attackMode, ally, enemy))
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeAbleToAttackTarget");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeAbleToAttackTarget");
 
                 return false;
             }
@@ -1451,7 +1451,7 @@ internal static class GambitsBuilders
                  target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
                      ConditionIncapacitated, ConditionParalyzed, ConditionRestrained)))
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
+                __instance.actionModifier.FailureFlags.Add("Failure/&SelfOrTargetCannotAct");
 
                 return false;
             }
@@ -1873,7 +1873,7 @@ internal static class GambitsBuilders
 
             if (!target.CanReact())
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");
+                __instance.actionModifier.FailureFlags.Add("Failure/&AllyMustBeAbleToReact");
 
                 return false;
             }
@@ -1884,7 +1884,7 @@ internal static class GambitsBuilders
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
+            __instance.actionModifier.FailureFlags.Add("Failure/&SelfOrTargetCannotAct");
 
             return false;
         }
@@ -2015,7 +2015,7 @@ internal static class GambitsBuilders
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAdjacentToFirstTarget");
+            __instance.actionModifier.FailureFlags.Add("Failure/&AllyMustBeAdjacentToFirstTarget");
 
             return false;
         }

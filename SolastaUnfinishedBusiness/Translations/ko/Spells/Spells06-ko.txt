@@ -1,6 +1,8 @@
 Condition/&ConditionHeroicInfusionDescription=당신은 마법에 힘입어 지구력과 무술의 기량을 자신에게 부여합니다.
 Condition/&ConditionHeroicInfusionTitle=텐서의 변환
 Condition/&ConditionShelterFromEnergyTitle={0} 저항
+Failure/&MustBeLargeOrSmaller=크기가 크거나 작아야 조준할 수 있습니다.
+Failure/&MustNotHaveFizbanPlatinumShield=Fizban의 백금 방패가 없어야 합니다.
 Feature/&PowerRingOfBladesDescription=보너스 행동으로, 당신은 칼날검 중 하나를 사용하여 당신으로부터 60피트 내의 생물에게 원거리 주문 공격을 할 수 있습니다.
 Feature/&PowerRingOfBladesTitle=칼날의 반지
 Feedback/&AdditionalDamageHeroicInfusionFormat=텐서의 변신!
@@ -28,5 +30,3 @@ Spell/&ScatterDescription=범위 내에서 볼 수 있는 최대 5개의 생물�
 Spell/&ScatterTitle=흩어지게하다
 Spell/&ShelterFromEnergyDescription=산성, 냉기, 불, 번개, 괴사, 복사, 천둥 등 피해 유형 중 하나를 선택한 다음 범위 내에서 볼 수 있는 의지가 있는 생물을 최대 6개까지 선택하세요. 1시간 동안 대상은 해당 피해 유형에 대한 저항력을 갖습니다. 7레벨 이상의 주문 슬롯을 사용하여 이 주문을 시전할 때, 6레벨 이상의 각 슬롯 레벨에 대해 최대 한 명의 의지가 있는 생물을 추가로 목표로 삼을 수 있습니다.
 Spell/&ShelterFromEnergyTitle=에너지로부터의 대피소
-Tooltip/&MustBeLargeOrSmaller=크기가 크거나 작아야 조준할 수 있습니다.
-Tooltip/&MustNotHaveFizbanPlatinumShield=Fizban의 백금 방패가 없어야 합니다.

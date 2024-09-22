@@ -1460,7 +1460,7 @@ internal static partial class CharacterContext
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustBeNoMoreThanOneSizeLarger");
+                __instance.actionModifier.FailureFlags.Add("Failure/&TargetMustBeNoMoreThanOneSizeLarger");
 
                 return false;
             }
@@ -1473,7 +1473,7 @@ internal static partial class CharacterContext
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetCannotBeGrappled");
+            __instance.actionModifier.FailureFlags.Add("Failure/&TargetCannotBeGrappled");
 
             return false;
         }

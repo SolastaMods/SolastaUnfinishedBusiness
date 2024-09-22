@@ -1,5 +1,6 @@
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Recibes 1d6 de daño necrótico al final de cada uno de tus turnos, tienes miedo y los ataques de fuego del marcador pasan por alto tu resistencia.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Marcado por los Dammed
+Failure/&MustHaveDammingStrikeCondition=No está marcado por Damning Strike
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Cuando golpeas por primera vez a una criatura con un ataque en tu turno, puedes obligarla a que tenga éxito en una tirada de salvación de Constitución contra la CD de tu hechizo o hacer que quede marcada. Mientras una criatura esté marcada de esta manera, sufre 1d6 puntos de daño por fuego al comienzo de cada uno de sus turnos durante 1 minuto. Al final de cada uno de sus turnos, la criatura puede repetir esta tirada de salvación, terminando los efectos en caso de éxito.
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=Huelga condenatoria
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=Puedes lanzar <b>Aguijón debilitador</b> como acción y obtener hechizos adicionales que se consideran hechizos de explorador para ti y no cuentan para la cantidad de hechizos que conoces:\n{0}
@@ -18,4 +19,3 @@ Monster/&MonsterMarilithDescription=De cintura para arriba, las mariliths parec�
 Monster/&MonsterMarilithTitle=Marilith
 Subclass/&RangerHellWalkerDescription=Eres un Caminante del infierno, un explorador envuelto en la magia de los Planos Inferiores. Solo tú sabes cómo llegaste a estar asociado con esta magia. Quizás tu gran antepasado era de origen demoníaco, o tal vez tu linaje lleva una maldición demoníaca. Cualquiera sea la razón, la magia ahora está inextricablemente ligada a ti, tu propia presencia está atada para siempre a los seres infernales de abajo.
 Subclass/&RangerHellWalkerTitle=Caminante del infierno
-Tooltip/&MustHaveDammingStrikeCondition=No está marcado por Damning Strike

@@ -667,7 +667,7 @@ internal static partial class SpellBuilders
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveFizbanPlatinumShield");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustNotHaveFizbanPlatinumShield");
             }
 
             return isValid;
@@ -806,7 +806,7 @@ internal static partial class SpellBuilders
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeLargeOrSmaller");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeLargeOrSmaller");
             }
 
             return isValid;

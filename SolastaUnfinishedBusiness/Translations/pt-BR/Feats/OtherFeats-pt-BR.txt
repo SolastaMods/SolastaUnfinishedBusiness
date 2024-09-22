@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Concede imunidade a restrições de movimento, além de ser contido.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberdade
+Failure/&MustBeHumanoid=Deve ser humanoide
+Failure/&MustNotHaveMenacingMark=Não deve ter marca ameaçadora
 Feat/&FeatAcrobatDescription=Você se torna mais ágil, ganhando os seguintes benefícios:\n• Aumente sua Destreza em 1, até um máximo de 20.\n• Você ganha proficiência com perícia Acrobática ou perícia se já for proficiente.\n• Como uma ação bônus, você pode fazer um teste de Destreza (Acrobacia) CD 15. Se for bem-sucedido, terrenos difíceis não custam movimento extra até o final do turno atual.
 Feat/&FeatAcrobatTitle=Acrobata
 Feat/&FeatAlertDescription=Sempre atento ao perigo, você ganha os seguintes benefícios:\n• Você não pode ser surpreendido enquanto estiver consciente.\n• Você ganha um bônus de +5 na iniciativa.\n• Outras criaturas não ganham vantagem em jogadas de ataque contra você por não serem percebidas por você.
@@ -165,5 +167,3 @@ Reaction/&WarcasterAttackTitle=Ataque
 Tag/&InitiateCantripSpecialTagTitle=Iniciar truques
 Tag/&InitiateSpellSpecialTagTitle=Iniciar feitiços
 Tag/&SniperCantripSpecialTagTitle=Truques de Sniper
-Tooltip/&MustBeHumanoid=Deve ser humanoide
-Tooltip/&MustNotHaveMenacingMark=Não deve ter marca ameaçadora

@@ -1182,7 +1182,7 @@ internal static class InvocationsBuilders
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveMaledictionCurseOrHex");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustHaveMaledictionCurseOrHex");
             }
 
             return isValid;
@@ -1206,7 +1206,7 @@ internal static class InvocationsBuilders
         var isSoulblade = hero.GetSubclassLevel(CharacterClassDefinitions.Warlock, PatronSoulBlade.FullName) > 0;
         var hasHex = hasMalediction || hasBestowCurse || hasSignIllOmen || isSoulblade;
 
-        var guiFormat = Gui.Localize("Tooltip/&MustHaveMaledictionCurseOrHex");
+        var guiFormat = Gui.Localize("Failure/&MustHaveMaledictionCurseOrHex");
 
         return !hasHex ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
     }

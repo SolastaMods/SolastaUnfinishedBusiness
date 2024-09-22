@@ -1,5 +1,6 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=Any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=Flames of Phlegethos
+Failure/&AllyMustBeAbleToChargeTarget=Cannot charge target
 Feat/&FeatBountifulLuckDescription=Your people have extraordinary luck, which you have learned to mystically lend to your companions whenever you see them falter. You're not sure how you do it, you just wish it, and it happens. Surely a sign of fortune's favor!\n• When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to reroll the die. The ally must use the new roll.\n• When you use this ability, you can't use your Lucky racial trait before the end of your next turn.
 Feat/&FeatBountifulLuckTitle=Bountiful Luck
 Feat/&FeatDarkElfMagicDescription=You learn more of the magic typical of dark elves. You learn the Detect Magic spell and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Charisma is your spellcasting ability for these spells.
@@ -92,4 +93,3 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=You can ignite your Fla
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Flames of Phlegethos
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Flames of Phlegethos
 Tag/&WoodElfMagicCantripSpecialTagTitle=Wood-Elf Magic Cantrips
-Tooltip/&AllyMustBeAbleToChargeTarget=Cannot charge target

@@ -957,7 +957,7 @@ internal static class SrdAndHouseRulesContext
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&SecondTargetNotWithinRange");
+                __instance.actionModifier.FailureFlags.Add("Failure/&SecondTargetNotWithinRange");
             }
 
             return isValid;

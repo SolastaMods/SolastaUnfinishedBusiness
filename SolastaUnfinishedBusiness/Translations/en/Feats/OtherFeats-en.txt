@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Grants immunity to movement restrictions as well as being restrained.
 Condition/&ConditionFeatMobileAfterDashTitle=Freedom
+Failure/&MustBeHumanoid=Must be humanoid
+Failure/&MustNotHaveMenacingMark=Must not have Menacing mark
 Feat/&FeatAcrobatDescription=You become more nimble, gaining the following benefits:\n• Increase your Dexterity by 1, to a maximum of 20.\n• You gain proficiency with Acrobatic skill or expertise if you are already proficient.\n• As a bonus action, you can make a DC 15 Dexterity (Acrobatics) check. If you succeed, difficult terrain doesn't cost you extra movement until the end of the current turn.
 Feat/&FeatAcrobatTitle=Acrobat
 Feat/&FeatAlertDescription=Always on the lookout for danger, you gain the following benefits:\n• You can't be surprised while you are conscious.\n• You gain a +5 bonus to initiative.\n• Other creatures don't gain advantage on attack rolls against you as a result of not being perceived by you.
@@ -165,5 +167,3 @@ Reaction/&WarcasterAttackTitle=Attack
 Tag/&InitiateCantripSpecialTagTitle=Initiate Cantrips
 Tag/&InitiateSpellSpecialTagTitle=Initiate Spells
 Tag/&SniperCantripSpecialTagTitle=Sniper Cantrips
-Tooltip/&MustBeHumanoid=Must be humanoid
-Tooltip/&MustNotHaveMenacingMark=Must not have Menacing mark

@@ -925,7 +925,7 @@ internal static partial class SpellBuilders
 
             if (!hasHolyWeapon)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustHaveHolyWeapon");
+                __instance.actionModifier.FailureFlags.Add("Failure/&TargetMustHaveHolyWeapon");
             }
 
             return hasHolyWeapon;

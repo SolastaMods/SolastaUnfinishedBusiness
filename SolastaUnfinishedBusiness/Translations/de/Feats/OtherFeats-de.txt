@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Verleiht Immunität gegen Bewegungseinschränkungen und Fesselung.
 Condition/&ConditionFeatMobileAfterDashTitle=Freiheit
+Failure/&MustBeHumanoid=Muss humanoid sein
+Failure/&MustNotHaveMenacingMark=Darf kein bedrohliches Zeichen haben
 Feat/&FeatAcrobatDescription=Sie werden flinker und erhalten die folgenden Vorteile:\n• Steigern Sie Ihre Geschicklichkeit um 1, bis zu einem Maximum von 20.\n• Sie erlangen Kenntnisse in akrobatischer Fertigkeit oder Expertise, wenn Sie bereits darin geübt sind.\n• Als Bonusaktion können Sie einen Geschicklichkeitswurf (Akrobatik) mit SG 15 durchführen. Wenn Sie erfolgreich sind, kostet Sie schwieriges Gelände bis zum Ende des aktuellen Zuges keine zusätzliche Bewegung.
 Feat/&FeatAcrobatTitle=Akrobat
 Feat/&FeatAlertDescription=Da Sie immer auf der Hut vor Gefahren sind, profitieren Sie von den folgenden Vorteilen:\n• Solange Sie bei Bewusstsein sind, können Sie nicht überrascht werden.\n• Sie erhalten einen Initiativebonus von +5.\n• Andere Kreaturen erlangen bei Angriffswürfen gegen Sie keinen Vorteil, weil Sie sie nicht wahrnehmen.
@@ -165,5 +167,3 @@ Reaction/&WarcasterAttackTitle=Attacke
 Tag/&InitiateCantripSpecialTagTitle=Cantrips einleiten
 Tag/&InitiateSpellSpecialTagTitle=Zauber einleiten
 Tag/&SniperCantripSpecialTagTitle=Scharfschützen-Cantrips
-Tooltip/&MustBeHumanoid=Muss humanoid sein
-Tooltip/&MustNotHaveMenacingMark=Darf kein bedrohliches Zeichen haben

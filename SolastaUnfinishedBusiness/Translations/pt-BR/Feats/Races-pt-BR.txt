@@ -1,5 +1,6 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=Qualquer criatura a até 1,5 m de você que lhe atingir com um ataque corpo a corpo sofre 1d4 de dano de fogo.
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=Chamas de Phlegethos
+Failure/&AllyMustBeAbleToChargeTarget=Não é possível carregar o alvo
 Feat/&FeatBountifulLuckDescription=Seu povo tem uma sorte extraordinária, que você aprendeu a emprestar misticamente aos seus companheiros sempre que os vê vacilar. Você não tem certeza de como fazer isso, você apenas deseja, e acontece. Certamente um sinal de favor da fortuna!\n• Quando um aliado que você pode ver a até 30 pés de você rola 1 no d20 para uma jogada de ataque, um teste de habilidade ou um teste de resistência, você pode usar sua reação para rolar o dado novamente. O aliado deve usar a nova jogada.\n• Quando você usa esta habilidade, você não pode usar sua característica racial Sortudo antes do fim do seu próximo turno.
 Feat/&FeatBountifulLuckTitle=Sorte abundante
 Feat/&FeatDarkElfMagicDescription=Você aprende mais sobre a magia típica dos elfos negros. Você aprende a magia Detect Magic e pode conjurá-la à vontade, sem gastar um espaço de magia. Você também aprende Levitate e Dispel Magic, cada uma das quais você pode conjurar uma vez sem gastar um espaço de magia. Você recupera a habilidade de conjurar a magia dessa forma quando termina um descanso longo. Charisma é sua habilidade de conjuração para essas magias.
@@ -92,4 +93,3 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=Você pode acender suas
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Chamas de Phlegethos
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Chamas de Phlegethos
 Tag/&WoodElfMagicCantripSpecialTagTitle=Truques mágicos dos elfos da floresta
-Tooltip/&AllyMustBeAbleToChargeTarget=Não é possível carregar o alvo

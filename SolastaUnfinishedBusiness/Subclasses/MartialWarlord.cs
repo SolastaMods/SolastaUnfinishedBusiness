@@ -437,7 +437,7 @@ public sealed class MartialWarlord : AbstractSubclass
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
+                __instance.actionModifier.FailureFlags.Add("Failure/&SelfOrTargetCannotAct");
             }
 
             return isValid;

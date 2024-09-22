@@ -1958,7 +1958,7 @@ internal static class Level20SubclassesContext
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveQuiveringPalmCondition");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustHaveQuiveringPalmCondition");
             }
 
             return isValid;

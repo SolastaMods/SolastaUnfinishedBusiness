@@ -1,6 +1,8 @@
 Condition/&ConditionHeroicInfusionDescription=Vous vous dotez d'endurance et de prouesses martiales alimentées par la magie.
 Condition/&ConditionHeroicInfusionTitle=Transformation de Tenser
 Condition/&ConditionShelterFromEnergyTitle={0} Résistance
+Failure/&MustBeLargeOrSmaller=Doit être de grande taille ou plus petit pour être visé
+Failure/&MustNotHaveFizbanPlatinumShield=Ne doit pas avoir le bouclier de platine de Fizban
 Feature/&PowerRingOfBladesDescription=En tant qu'action bonus, vous pouvez effectuer une attaque de sort à distance sur une créature à moins de 60 pieds de vous, en utilisant l'une de vos épées de l'Anneau de Lames.
 Feature/&PowerRingOfBladesTitle=Anneau de Lames
 Feedback/&AdditionalDamageHeroicInfusionFormat=La transformation de Tenser !
@@ -28,5 +30,3 @@ Spell/&ScatterDescription=L'air tremble autour de cinq créatures de votre choix
 Spell/&ScatterTitle=Dispersion
 Spell/&ShelterFromEnergyDescription=Choisissez l'un des types de dégâts suivants : acide, froid, feu, foudre, nécrotique, radiant ou tonnerre, puis choisissez jusqu'à six créatures consentantes que vous pouvez voir à portée. Pendant 1 heure, les cibles ont une résistance à ce type de dégâts. Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 7 ou supérieur, vous pouvez cibler jusqu'à une créature consentante supplémentaire pour chaque niveau d'emplacement au-dessus du niveau 6.
 Spell/&ShelterFromEnergyTitle=Abri contre l'énergie
-Tooltip/&MustBeLargeOrSmaller=Doit être de grande taille ou plus petit pour être visé
-Tooltip/&MustNotHaveFizbanPlatinumShield=Ne doit pas avoir le bouclier de platine de Fizban

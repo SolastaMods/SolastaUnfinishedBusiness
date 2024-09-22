@@ -319,7 +319,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHavePossessedCondition");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustNotHavePossessedCondition");
             }
 
             return isValid;

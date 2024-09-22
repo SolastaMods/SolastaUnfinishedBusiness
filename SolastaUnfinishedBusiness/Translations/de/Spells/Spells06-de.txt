@@ -1,6 +1,8 @@
 Condition/&ConditionHeroicInfusionDescription=Sie verleihen sich durch Magie Ausdauer und Kampfkunst.
 Condition/&ConditionHeroicInfusionTitle=Tensers Verwandlung
 Condition/&ConditionShelterFromEnergyTitle={0} Widerstand
+Failure/&MustBeLargeOrSmaller=Muss groß oder kleiner sein, um gezielt eingesetzt werden zu können
+Failure/&MustNotHaveFizbanPlatinumShield=Darf nicht Fizbans Platinschild haben
 Feature/&PowerRingOfBladesDescription=Als Bonusaktion können Sie mit einem Ihrer Ring of Blades-Schwerter einen Fernzauberangriff auf eine Kreatur in einem Umkreis von 60 Fuß um Sie herum ausführen.
 Feature/&PowerRingOfBladesTitle=Ring der Klingen
 Feedback/&AdditionalDamageHeroicInfusionFormat=Tensers Verwandlung!
@@ -28,5 +30,3 @@ Spell/&ScatterDescription=Die Luft zittert um bis zu fünf Kreaturen deiner Wahl
 Spell/&ScatterTitle=Streuen
 Spell/&ShelterFromEnergyDescription=Wähle eine der folgenden Schadensarten: Säure, Kälte, Feuer, Blitz, Nekrotik, Strahlung oder Donner und wähle dann bis zu sechs willige Kreaturen aus, die du in Reichweite sehen kannst. Ziele sind 1 Stunde lang gegen diese Schadensart resistent. Wenn du diesen Zauber mit einem Zauberplatz der 7. Stufe oder höher wirkst, kannst du für jeden Platzlevel über der 6. bis zu eine weitere willige Kreatur als Ziel wählen.
 Spell/&ShelterFromEnergyTitle=Schutz vor Energie
-Tooltip/&MustBeLargeOrSmaller=Muss groß oder kleiner sein, um gezielt eingesetzt werden zu können
-Tooltip/&MustNotHaveFizbanPlatinumShield=Darf nicht Fizbans Platinschild haben

@@ -1,5 +1,6 @@
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=あなたは各ターンの終わりに 1d6 の壊死ダメージを受け、恐怖を感じ、マーカーからの火攻撃はあなたの抵抗を回避します。
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=ダムドのマーク
+Failure/&MustHaveDammingStrikeCondition=ダミングストライクでマークされていない
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=自分のターンに最初にクリーチャーに攻撃を当てたとき、呪文難易度に対する耐久セーヴィング・スローを強制的に成功させるか、マークを付けておくことができます。クリーチャーがこの方法でマークされている間、クリーチャーは各ターンの開始時に1分間、1d6の火ダメージを受ける。各ターンの終わりに、クリーチャーはこのセーヴィング・スローを繰り返すことができ、成功すると効果が終了します。
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=ダムニングストライク
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=アクションとして <b>Sapping Sting</b> を唱えると、自分にとってレンジャー呪文とみなされ、知っている呪文の数にカウントされないボーナス呪文を獲得できます:\n{0}
@@ -18,4 +19,3 @@ Monster/&MonsterMarilithDescription=マリリスは、腰から上は 6 本の�
 Monster/&MonsterMarilithTitle=マリリス
 Subclass/&RangerHellWalkerDescription=あなたはヘルウォーカー、下界の魔法を身にまとったレンジャーです。あなたがどのようにしてこの魔法と関わるようになったのかは、あなた自身だけが知っています。おそらくあなたの偉大な祖先は悪魔の起源であるか、あるいはあなたの血統には悪魔の呪いが宿っているのかもしれません。理由が何であれ、魔法は今やあなたと密接に結びついており、あなた自身の存在は下にある地獄のような存在たちと永遠に結びついています。
 Subclass/&RangerHellWalkerTitle=ヘルウォーカー
-Tooltip/&MustHaveDammingStrikeCondition=ダミングストライクでマークされていない
