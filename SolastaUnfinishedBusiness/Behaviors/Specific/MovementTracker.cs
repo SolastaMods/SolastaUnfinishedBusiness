@@ -22,7 +22,9 @@ internal static class MovementTracker
 
     internal static void RecordMovement([NotNull] GameLocationCharacter mover, int3 destination)
     {
-        MovementCache.AddOrReplace(mover.Guid, (mover.locationPosition, destination));
+        var movement = (mover.LocationPosition, destination);
+
+        MovementCache.AddOrReplace(mover.Guid, movement);
     }
 
     internal static void CleanMovementCache()

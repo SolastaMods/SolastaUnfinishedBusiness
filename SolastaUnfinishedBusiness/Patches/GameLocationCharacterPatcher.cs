@@ -24,19 +24,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationCharacterPatcher
 {
-    //PATCH: support for MovementTracker
-    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.FinishMoveTo))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class FinishMoveTo_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(GameLocationCharacter __instance, int3 destination)
-        {
-            MovementTracker.RecordMovement(__instance, destination);
-        }
-    }
-
     //PATCH: supports IForceLightingState
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.LightingState), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

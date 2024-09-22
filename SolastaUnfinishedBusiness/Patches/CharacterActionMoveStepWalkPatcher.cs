@@ -9,8 +9,30 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionMoveStepWalkPatcher
 {
-    internal static bool IsCharacterActionMoveStepWalk;
+    //PATCH: support for `IMoveStepStarted`
+    [HarmonyPatch(typeof(CharacterActionMoveStepWalk),
+        nameof(CharacterActionMoveStepWalk.ChangeStartProneStatusIfNecessary))]
+    [UsedImplicitly]
+    public static class ChangeStartProneStatusIfNecessary_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(CharacterActionMoveStepWalk __instance,
+            CharacterActionMoveStepWalk.MoveStep currentStep)
+        {
+            var mover = __instance.ActingCharacter;
+            var source = mover.LocationPosition;
+            var destination = currentStep.position;
 
+            MovementTracker.RecordMovement(mover, destination);
+
+            foreach (var moveStepStarted in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepStarted>())
+            {
+                moveStepStarted.MoveStepStarted(mover, source, destination);
+            }
+        }
+    }
+
+#if false
     //PATCH: support for `IMoveStepFinished`
     [HarmonyPatch(typeof(CharacterActionMoveStepWalk),
         nameof(CharacterActionMoveStepWalk.ChangeEndProneStatusIfNecessary))]
@@ -20,16 +42,21 @@ public static class CharacterActionMoveStepWalkPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterActionMoveStepWalk __instance)
         {
-            IsCharacterActionMoveStepWalk = true;
-
             var mover = __instance.ActingCharacter;
 
-            MovementTracker.TryGetMovement(mover.Guid, out var movement);
+            if (!MovementTracker.TryGetMovement(mover.Guid, out var movement))
+            {
+                return;
+            }
+
+            var source = movement.Item1;
+            var destination = movement.Item2;
 
             foreach (var moveStepFinished in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepFinished>())
             {
-                moveStepFinished.MoveStepFinished(mover, movement.Item1);
+                moveStepFinished.MoveStepFinished(mover, source, destination);
             }
         }
     }
+#endif
 }

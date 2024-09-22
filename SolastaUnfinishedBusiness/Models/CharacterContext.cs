@@ -1603,9 +1603,9 @@ internal static partial class CharacterContext
         }
     }
 
-    private sealed class CustomBehaviorConditionGrappleSource : IMoveStepFinished, IOnItemEquipped
+    private sealed class CustomBehaviorConditionGrappleSource : IMoveStepStarted, IOnItemEquipped
     {
-        public void MoveStepFinished(GameLocationCharacter mover, int3 previousPosition)
+        public void MoveStepStarted(GameLocationCharacter mover, int3 source, int3 destination)
         {
             var rulesetMover = mover.RulesetCharacter;
 
@@ -1618,7 +1618,8 @@ internal static partial class CharacterContext
 
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
 
-            target.StartTeleportTo(previousPosition, mover.Orientation);
+            target.StartTeleportTo(source, mover.Orientation);
+            target.FinishMoveTo(source, mover.Orientation);
         }
 
         public void OnItemEquipped(RulesetCharacterHero hero)
