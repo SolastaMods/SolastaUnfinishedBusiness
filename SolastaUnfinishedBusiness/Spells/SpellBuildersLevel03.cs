@@ -1355,15 +1355,19 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var diceNumber = MainTargetDiceNumber + (activeCondition.EffectLevel - 3);
             var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-            if (pos >= 0)
+            if (pos < 0)
             {
-                actualEffectForms.Insert(
-                    pos + 1,
-                    EffectFormBuilder.DamageForm(DamageTypeLightning, diceNumber, DieType.D8));
+                yield break;
             }
+
+            var diceNumber = MainTargetDiceNumber + (activeCondition.EffectLevel - 3);
+            var effectForm = EffectFormBuilder.DamageForm(DamageTypeLightning, diceNumber, DieType.D8);
+
+            effectForm.DamageForm.IgnoreCriticalDoubleDice = true;
+
+            actualEffectForms.Insert(pos + 1, effectForm);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
