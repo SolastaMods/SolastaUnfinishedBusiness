@@ -157,7 +157,7 @@ internal static class Tooltips
                 return;
             }
 
-            // don't use ? on a type deriving from an unity object
+            // don't use ? on a type deriving from a unity object
             if (_tooltipInfoCharacterDescription)
             {
                 _tmpUGui ??= _tooltipInfoCharacterDescription.transform.GetComponentInChildren<TextMeshProUGUI>();
@@ -172,7 +172,7 @@ internal static class Tooltips
                 UpdateDistanceText(distance, characterToMeasureFrom);
             }
 
-            // don't use ? on a type deriving from an unity object
+            // don't use ? on a type deriving from a unity object
 #pragma warning disable IDE0031
             if (_distanceTextObject)
 #pragma warning restore IDE0031
@@ -182,7 +182,7 @@ internal static class Tooltips
         }
         else if (!Main.Settings.EnableDistanceOnTooltip || battleService.Battle is null)
         {
-            // don't use ? on a type deriving from an unity object
+            // don't use ? on a type deriving from a unity object
 #pragma warning disable IDE0031
             if (_distanceTextObject)
 #pragma warning restore IDE0031
@@ -293,12 +293,12 @@ internal static class Tooltips
 
 internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private const int DEF_WIDTH = 340;
-    private const int PAD = 30; // default is 30?
-    protected static int WIDTH => (int)(Main.Settings.TooltipWidth * DEF_WIDTH);
-    protected static int PADDED => WIDTH - 2 * PAD;
+    private const int DefWidth = 340;
+    private const int Pad = 30; // default is 30?
 
     protected T Parent;
+    protected static int FinalWidth => (int)(Main.Settings.TooltipWidth * DefWidth);
+    protected static int PaddedWidth => FinalWidth - (2 * Pad);
 
     internal void Apply()
     {
@@ -312,7 +312,7 @@ internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : Mo
 
     protected abstract void Modify();
 
-    protected void SizeWithAnchors(GuiBehaviour obj, int width)
+    protected static void SizeWithAnchors(GuiBehaviour obj, int width)
     {
         if (!obj) { return; }
 
@@ -333,14 +333,14 @@ internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : Mo
         rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
     }
 
-    protected static void FromEdge(RectTransform rt, float width, float pad = PAD)
+    protected static void FromEdge(RectTransform rt, float width, float pad = Pad)
     {
         if (!rt) { return; }
 
         rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, pad, width);
     }
 
-    protected RectTransform Rect(Transform t, string path = null)
+    private static RectTransform Rect(Transform t, string path = null)
     {
         if (!t) { return null; }
 
@@ -350,7 +350,7 @@ internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : Mo
         return !t ? null : t.GetComponent<RectTransform>();
     }
 
-    protected RectTransform Rect(MonoBehaviour b, string path = null)
+    protected static RectTransform Rect(MonoBehaviour b, string path = null)
     {
         return Rect(b.transform, path);
     }
@@ -363,7 +363,7 @@ internal class TooltipPanelWidthModifier : BaseTooltipWidthModifier<TooltipPanel
 
     protected override void Modify()
     {
-        var width = WIDTH;
+        var width = FinalWidth;
 
         SizeWithAnchors(Parent.RectTransform, width);
         SizeWithAnchors(Rect(Parent, BackgroundBlur), width);
@@ -378,7 +378,7 @@ internal class TooltipFeatureWidthMod : BaseTooltipWidthModifier<TooltipFeature>
 {
     protected override void Modify()
     {
-        SizeWithAnchors(Parent.RectTransform, WIDTH);
+        SizeWithAnchors(Parent.RectTransform, FinalWidth);
     }
 }
 
@@ -387,7 +387,7 @@ internal class TooltipFeatureEffectsEnumWidthMod : BaseTooltipWidthModifier<Tool
     protected override void Modify()
     {
         var table = Parent.effectFormater.Table;
-        var width = PADDED;
+        var width = PaddedWidth;
         SizeWithAnchors(table, width);
         for (var i = 0; i < table.childCount; i++)
         {
@@ -406,7 +406,7 @@ internal class TooltipSubSpellEnumWidthModifier : BaseTooltipWidthModifier<Toolt
     protected override void Modify()
     {
         var table = Parent.table;
-        var width = PADDED;
+        var width = PaddedWidth;
         SizeWithAnchors(table, width);
         for (var i = 0; i < table.childCount; i++)
         {
@@ -424,7 +424,7 @@ internal class TooltipFeatureSpellParamsWidthModifier : BaseTooltipWidthModifier
 
     protected override void Modify()
     {
-        var width = PADDED;
+        var width = PaddedWidth;
         SizeWithAnchors(Rect(Parent, VerticalLayout), width);
 
         for (var i = 0; i < Parent.verticalLayout.childCount; i++)
@@ -441,7 +441,7 @@ internal class TooltipFeatureBaseMagicParamsWidthModifier
 
     protected override void Modify()
     {
-        FromEdge(Rect(Parent, Table), PADDED);
+        FromEdge(Rect(Parent, Table), PaddedWidth);
     }
 }
 
@@ -452,7 +452,7 @@ internal class TooltipFeatureTagsEnumWidthModifier : BaseTooltipWidthModifier<To
 
     protected override void Modify()
     {
-        var width = PADDED;
+        var width = PaddedWidth;
         SizeWithAnchors(Parent.table, width);
         SizeWithAnchors(Rect(Parent, Label), width);
     }
@@ -465,7 +465,7 @@ internal class TooltipFeatureSpellAdvancementWidthMod : BaseTooltipWidthModifier
 
     protected override void Modify()
     {
-        var width = PADDED;
+        var width = PaddedWidth;
         FromEdge(Rect(Parent, Title), width);
         FromEdge(Rect(Parent, Label), width);
     }
@@ -475,7 +475,7 @@ internal class TooltipFeatureDeviceParametersWidthMod : BaseTooltipWidthModifier
 {
     protected override void Modify()
     {
-        var width = PADDED;
+        var width = PaddedWidth;
         SizeWithAnchors(Parent.usageGroup, width);
         SizeWithAnchors(Parent.attunementLabel, width);
     }
@@ -486,7 +486,7 @@ internal class
 {
     protected override void Modify()
     {
-        SizeWithAnchors(Parent.propertiesTable, PADDED);
+        SizeWithAnchors(Parent.propertiesTable, PaddedWidth);
     }
 }
 
@@ -495,7 +495,7 @@ internal class TooltipFeatureDeviceFunctionsEnumWidthMod
 {
     protected override void Modify()
     {
-        SizeWithAnchors(Parent.functionsTable, PADDED);
+        SizeWithAnchors(Parent.functionsTable, PaddedWidth);
     }
 }
 
@@ -505,7 +505,7 @@ internal class TooltipFeatureItemStatsWidthMod : BaseTooltipWidthModifier<Toolti
 
     protected override void Modify()
     {
-        var width = PADDED;
+        var width = PaddedWidth;
         SizeWithAnchors(Parent.topTable, width);
         SizeWithAnchors(Rect(Parent, SecondTable), width);
     }
@@ -515,7 +515,7 @@ internal class TooltipFeatureWeaponParametersWidthMod : BaseTooltipWidthModifier
 {
     protected override void Modify()
     {
-        SizeWithAnchors(Parent.masterTable, PADDED);
+        SizeWithAnchors(Parent.masterTable, PaddedWidth);
     }
 }
 
@@ -525,7 +525,7 @@ internal class TooltipFeatureArmorParamsWidthMod : BaseTooltipWidthModifier<Tool
 
     protected override void Modify()
     {
-        var width = PADDED;
+        var width = PaddedWidth;
         SizeWithAnchors(Parent.descriptionLabel, width);
         SizeWithAnchors(Rect(Parent, HeaderLabel), width);
     }
@@ -537,7 +537,7 @@ internal class TooltipFeatureLightSourceParamsWidthMod : BaseTooltipWidthModifie
 
     protected override void Modify()
     {
-        var width = PADDED;
+        var width = PaddedWidth;
         SizeWithAnchors(Parent.descriptionLabel, width);
         SizeWithAnchors(Rect(Parent, HeaderLabel), width);
     }
@@ -547,7 +547,7 @@ internal class TooltipFeaturePowerParamsWidthMod : BaseTooltipWidthModifier<Tool
 {
     protected override void Modify()
     {
-        var width = PADDED;
+        var width = PaddedWidth;
         for (var i = 0; i < Parent.verticalLayout.childCount; i++)
         {
             SizeWithAnchors(Parent.verticalLayout.GetChild(i), width);
@@ -561,7 +561,7 @@ internal class TooltipFeaturePrerequisitesWidthMod : BaseTooltipWidthModifier<To
 
     protected override void Modify()
     {
-        var width = PADDED;
+        var width = PaddedWidth;
         SizeWithAnchors(Rect(Parent, Header), width);
         SizeWithAnchors(Parent.prerequisitesValue, width);
     }
