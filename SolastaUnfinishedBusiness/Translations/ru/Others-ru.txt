@@ -74,7 +74,6 @@ Failure/&FailureFlagMustKnowLanguage=Вы должны владеть языко
 Failure/&FailureFlagTargetMustNotBeSurprised=Цель не должна быть застигнута врасплох
 Failure/&FailureFlagTargetMustUnderstandYou=Цель должна понимать ваш приказ
 Failure/&SecondTargetNotWithinRange=Невозможно выбрать эту цель, поскольку она находится вне досягаемости
-Failure/&TargetCannotBeGrappled=Цель не может быть схвачена
 Failure/&TargetMeleeWeaponError=Невозможно провести атаку ближнего боя по этой цели, так как она находится вне пределов {0}
 Failure/&TargetMustBeNoMoreThanOneSizeLarger=Цель должна быть не более чем на одну категорию больше вас
 Failure/&TargetMustHaveHolyWeapon=У цели должно быть священное оружие

@@ -1455,25 +1455,16 @@ internal static partial class CharacterContext
                 return false;
             }
 
-            var isValid = __instance.ActionParams.ActingCharacter.RulesetCharacter.SizeDefinition.WieldingSize -
+            var isValid =
+                __instance.ActionParams.ActingCharacter.RulesetCharacter.SizeDefinition.WieldingSize -
                 rulesetTarget.SizeDefinition.WieldingSize >= -1;
-
-            if (!isValid)
-            {
-                __instance.actionModifier.FailureFlags.Add("Failure/&TargetMustBeNoMoreThanOneSizeLarger");
-
-                return false;
-            }
-
-            isValid = !rulesetTarget.HasConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, ConditionGrappleTargetName);
 
             if (isValid)
             {
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Failure/&TargetCannotBeGrappled");
+            __instance.actionModifier.FailureFlags.Add("Failure/&TargetMustBeNoMoreThanOneSizeLarger");
 
             return false;
         }
@@ -1586,11 +1577,22 @@ internal static partial class CharacterContext
 
     private sealed class OnConditionAddedOrRemovedConditionGrappleTarget : IOnConditionAddedOrRemoved
     {
+        // should only be grappled by one grappler at a time, last wins
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            // empty
+            var conditionsToRemove = target.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .Where(x => x.ConditionDefinition.Name == ConditionGrappleTargetName &&
+                            x.SourceGuid != rulesetCondition.SourceGuid)
+                .ToList();
+
+            foreach (var condition in conditionsToRemove)
+            {
+                target.RemoveCondition(condition);
+            }
         }
 
+        // should remove source tracker condition as well
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
@@ -1603,33 +1605,66 @@ internal static partial class CharacterContext
         }
     }
 
-    private sealed class CustomBehaviorConditionGrappleSource : IMoveStepStarted, IOnItemEquipped
+    private sealed class CustomBehaviorConditionGrappleSource
+        : IMoveStepStarted, IOnItemEquipped, IPhysicalAttackInitiatedByMe
     {
+        // should drag target whenever move
         public void MoveStepStarted(GameLocationCharacter mover, int3 source, int3 destination)
         {
             var rulesetMover = mover.RulesetCharacter;
 
             if (!rulesetMover.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, ConditionGrappleSourceName) ||
-                !GetGrappledActor(rulesetMover, out var rulesetTarget, out _))
+                !GetGrappledActor(rulesetMover, out var rulesetTarget, out var activeCondition))
             {
                 return;
             }
 
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
 
-            target.StartTeleportTo(source, mover.Orientation);
-            target.FinishMoveTo(source, mover.Orientation);
+            // be safe and if moving through an allie cell or cannot place as enemy is larger or bigger, get rid of it
+            if (positioningService.CanPlaceCharacter(target, source, CellHelpers.PlacementMode.Station))
+            {
+                target.StartTeleportTo(source, mover.Orientation);
+                target.FinishMoveTo(source, mover.Orientation);
+            }
+            else
+            {
+                rulesetTarget.RemoveCondition(activeCondition);
+            }
         }
 
+        // should lose grapple if no free hand anymore
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
-            if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionGrappleSourceName) &&
-                !ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(hero) &&
+            if (!ValidatorsCharacter.HasFreeHand(hero) &&
                 GetGrappledActor(hero, out var rulesetTarget, out var activeCondition))
             {
                 rulesetTarget.RemoveCondition(activeCondition);
             }
+        }
+
+        // should lose grapple if attacks with two-handed or with the free hand
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if ((ValidatorsWeapon.HasAnyWeaponTag(
+                     rulesetAttacker.GetMainWeapon()?.ItemDefinition, TagsDefinitions.WeaponTagTwoHanded) ||
+                 ValidatorsWeapon.IsUnarmed(attackMode)) &&
+                GetGrappledActor(rulesetAttacker, out var rulesetTarget, out var activeCondition))
+            {
+                rulesetTarget.RemoveCondition(activeCondition);
+            }
+
+            yield break;
         }
     }
 

@@ -74,7 +74,6 @@ Failure/&FailureFlagMustKnowLanguage=Debes dominar el idioma {0} para poder dar 
 Failure/&FailureFlagTargetMustNotBeSurprised=El objetivo no debe sorprenderse
 Failure/&FailureFlagTargetMustUnderstandYou=El objetivo debe comprender tu orden
 Failure/&SecondTargetNotWithinRange=No se puede seleccionar este objetivo porque no está dentro del alcance del primero.
-Failure/&TargetCannotBeGrappled=No se puede agarrar el objetivo
 Failure/&TargetMeleeWeaponError=No se puede realizar un ataque cuerpo a cuerpo contra este objetivo porque no está dentro de {0}
 Failure/&TargetMustBeNoMoreThanOneSizeLarger=El objetivo no debe ser más de una talla más grande
 Failure/&TargetMustHaveHolyWeapon=El objetivo debe tener un arma sagrada.

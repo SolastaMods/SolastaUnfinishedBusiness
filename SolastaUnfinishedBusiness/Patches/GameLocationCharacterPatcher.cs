@@ -370,7 +370,7 @@ public static class GameLocationCharacterPatcher
 
                 if ((actionId == (ActionDefinitions.Id)ExtraActionId.Grapple &&
                      (hasGrappleSource ||
-                      !ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(rulesetCharacter) ||
+                      !ValidatorsCharacter.HasFreeHand(rulesetCharacter) ||
                       !ValidatorsCharacter.HasMainAttackAvailable(rulesetCharacter))) ||
                     (actionId == (ActionDefinitions.Id)ExtraActionId.DisableGrapple && !hasGrappleSource))
                 {

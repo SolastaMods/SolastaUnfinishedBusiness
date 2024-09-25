@@ -74,7 +74,6 @@ Failure/&FailureFlagMustKnowLanguage=你必须精通{0}语言才能指挥这个�
 Failure/&FailureFlagTargetMustNotBeSurprised=目标不能感到惊讶
 Failure/&FailureFlagTargetMustUnderstandYou=目标必须理解你的命令
 Failure/&SecondTargetNotWithinRange=无法选择此目标，因为不在第一个范围内
-Failure/&TargetCannotBeGrappled=目标无法被擒抱
 Failure/&TargetMeleeWeaponError=无法对该目标进行近战攻击，因为目标不在{0}内
 Failure/&TargetMustBeNoMoreThanOneSizeLarger=目标尺寸不得大于一个尺寸
 Failure/&TargetMustHaveHolyWeapon=目标必须持有神圣武器

@@ -74,7 +74,6 @@ Failure/&FailureFlagMustKnowLanguage=Vous devez maîtriser la langue {0} pour co
 Failure/&FailureFlagTargetMustNotBeSurprised=La cible ne doit pas être surprise
 Failure/&FailureFlagTargetMustUnderstandYou=La cible doit comprendre votre commande
 Failure/&SecondTargetNotWithinRange=Impossible de sélectionner cette cible car elle n'est pas à portée de la première
-Failure/&TargetCannotBeGrappled=La cible ne peut pas être saisie
 Failure/&TargetMeleeWeaponError=Impossible d'effectuer une attaque au corps à corps sur cette cible car elle se trouve à {0}
 Failure/&TargetMustBeNoMoreThanOneSizeLarger=La cible ne doit pas être plus grande qu'une taille
 Failure/&TargetMustHaveHolyWeapon=La cible doit avoir une arme sacrée

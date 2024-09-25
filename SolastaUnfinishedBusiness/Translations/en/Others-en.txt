@@ -74,7 +74,6 @@ Failure/&FailureFlagMustKnowLanguage=You must be proficient in {0} language to c
 Failure/&FailureFlagTargetMustNotBeSurprised=Target must not be surprised
 Failure/&FailureFlagTargetMustUnderstandYou=Target must understand your command
 Failure/&SecondTargetNotWithinRange=Can't select this target as not within range of first
-Failure/&TargetCannotBeGrappled=Target cannot be grappled
 Failure/&TargetMeleeWeaponError=Can't perform melee attack on this target as not within {0}
 Failure/&TargetMustBeNoMoreThanOneSizeLarger=Target must be no more than one size larger
 Failure/&TargetMustHaveHolyWeapon=Target must have holy weapon

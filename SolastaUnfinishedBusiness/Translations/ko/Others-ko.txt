@@ -74,7 +74,6 @@ Failure/&FailureFlagMustKnowLanguage=이 생물을 지휘하려면 {0} 언어에
 Failure/&FailureFlagTargetMustNotBeSurprised=타겟은 놀라지 않아야 합니다.
 Failure/&FailureFlagTargetMustUnderstandYou=타겟은 당신의 명령을 이해해야 합니다
 Failure/&SecondTargetNotWithinRange=첫 번째 범위 내에 있지 않으므로 이 대상을 선택할 수 없습니다.
-Failure/&TargetCannotBeGrappled=타겟을 잡을 수 없습니다
 Failure/&TargetMeleeWeaponError={0} 내에 없기 때문에 이 대상에 근접 공격을 수행할 수 없습니다.
 Failure/&TargetMustBeNoMoreThanOneSizeLarger=타겟은 한 사이즈 이상 커야 합니다.
 Failure/&TargetMustHaveHolyWeapon=대상은 신성한 무기를 가지고 있어야 합니다.

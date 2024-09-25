@@ -74,7 +74,6 @@ Failure/&FailureFlagMustKnowLanguage=Devi essere competente nella lingua {0} per
 Failure/&FailureFlagTargetMustNotBeSurprised=Il bersaglio non deve essere sorpreso
 Failure/&FailureFlagTargetMustUnderstandYou=Il bersaglio deve capire il tuo comando
 Failure/&SecondTargetNotWithinRange=Impossibile selezionare questo bersaglio perché non è nel raggio del primo
-Failure/&TargetCannotBeGrappled=Il bersaglio non può essere afferrato
 Failure/&TargetMeleeWeaponError=Non è possibile eseguire un attacco corpo a corpo su questo bersaglio poiché non si trova entro {0}
 Failure/&TargetMustBeNoMoreThanOneSizeLarger=Il bersaglio non deve essere più grande di una taglia
 Failure/&TargetMustHaveHolyWeapon=Il bersaglio deve avere un'arma sacra
