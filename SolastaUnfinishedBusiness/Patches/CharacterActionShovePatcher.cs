@@ -3,7 +3,9 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -132,6 +134,31 @@ public static class CharacterActionShovePatcher
 
             yield return actingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(
                 GameLocationCharacterEventSystem.Event.RotationEnd);
+
+            //PATCH: support for Poisonous feat
+            if (target.IsOppositeSide(Side.Ally))
+            {
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var ally in Gui.Battle.GetOpposingContenders(characterActionShove.ActingCharacter.Side))
+                {
+                    var rulesetAlly = ally.RulesetCharacter;
+                    var rulesetAllyHero = rulesetAlly.GetOriginalHero();
+
+                    if (rulesetAllyHero != null &&
+                        rulesetAllyHero.TrainedFeats.Contains(OtherFeats.FeatPoisonousSkin))
+                    {
+                        yield return OtherFeats.HandleFeatPoisonousSkin(characterActionShove, ally);
+                    }
+                }
+            }
+
+            //PATCH: support for Circle of the Wildfire cauterizing flames
+            foreach (var targetCharacter in characterActionShove.ActionParams.TargetCharacters)
+            {
+                yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(targetCharacter);
+            }
+
+            //END PATCH
 
             var guard = 1000;
 

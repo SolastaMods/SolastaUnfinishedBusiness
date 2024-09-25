@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -140,14 +139,6 @@ public static class CharacterActionPatcher
 
             switch (__instance)
             {
-#if false
-                case CharacterActionCastSpell or CharacterActionSpendSpellSlot:
-                    //PATCH: Hold the state of the SHIFT key on bool 5 to determine which slot to use on MC Warlock
-                    var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-
-                    __instance.actionParams.BoolParameter5 = isShiftPressed;
-                    break;
-#endif
                 case CharacterActionReady:
                     CustomReactionsContext.ReadReadyActionPreferredCantrip(__instance.actionParams);
                     break;
@@ -184,6 +175,12 @@ public static class CharacterActionPatcher
                 }
             }
 
+            //PATCH: support for MoveStepFinished => clears movement cache on move step end
+            if (__instance is CharacterActionMoveStepBase)
+            {
+                MovementTracker.CleanMovementCache();
+            }
+
             if (Gui.Battle == null)
             {
                 yield break;
@@ -195,56 +192,21 @@ public static class CharacterActionPatcher
                 FlankingAndHigherGround.ClearFlankingDeterminationCache();
             }
 
-            if (actingCharacter.IsOppositeSide(Side.Ally))
+            //PATCH: support for Old Tactics feat
+            if (actingCharacter.IsOppositeSide(Side.Ally) && __instance is CharacterActionStandUp)
             {
-                switch (__instance)
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var ally in Gui.Battle.GetOpposingContenders(__instance.ActingCharacter.Side))
                 {
-                    //PATCH: support for Old Tactics feat
-                    case CharacterActionStandUp:
+                    var rulesetAlly = ally.RulesetCharacter;
+                    var rulesetAllyHero = rulesetAlly.GetOriginalHero();
+
+                    if (rulesetAllyHero != null &&
+                        (rulesetAllyHero.TrainedFeats.Contains(MeleeCombatFeats.FeatOldTacticsDex) ||
+                         rulesetAllyHero.TrainedFeats.Contains(MeleeCombatFeats.FeatOldTacticsStr)))
                     {
-                        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                        foreach (var ally in Gui.Battle.GetOpposingContenders(__instance.ActingCharacter.Side))
-                        {
-                            var rulesetAlly = ally.RulesetCharacter;
-                            var rulesetAllyHero = rulesetAlly.GetOriginalHero();
-
-                            if (rulesetAllyHero != null &&
-                                (rulesetAllyHero.TrainedFeats.Contains(MeleeCombatFeats.FeatOldTacticsDex) ||
-                                 rulesetAllyHero.TrainedFeats.Contains(MeleeCombatFeats.FeatOldTacticsStr)))
-                            {
-                                yield return MeleeCombatFeats.HandleFeatOldTactics(__instance, ally);
-                            }
-                        }
-
-                        break;
+                        yield return MeleeCombatFeats.HandleFeatOldTactics(__instance, ally);
                     }
-                    //PATCH: support for Poisonous feat
-                    case CharacterActionShove:
-                    {
-                        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                        foreach (var ally in Gui.Battle.GetOpposingContenders(__instance.ActingCharacter.Side))
-                        {
-                            var rulesetAlly = ally.RulesetCharacter;
-                            var rulesetAllyHero = rulesetAlly.GetOriginalHero();
-
-                            if (rulesetAllyHero != null &&
-                                rulesetAllyHero.TrainedFeats.Contains(OtherFeats.FeatPoisonousSkin))
-                            {
-                                yield return OtherFeats.HandleFeatPoisonousSkin(__instance, ally);
-                            }
-                        }
-
-                        break;
-                    }
-                }
-            }
-
-            if (__instance is CharacterActionShove)
-            {
-                foreach (var targetCharacter in __instance.ActionParams.TargetCharacters)
-                {
-                    //PATCH: support for Circle of the Wildfire cauterizing flames
-                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(targetCharacter);
                 }
             }
 
@@ -253,12 +215,6 @@ public static class CharacterActionPatcher
             {
                 rulesetCharacter.ProcessConditionsMatchingInterruption(
                     (ConditionInterruption)ExtraConditionInterruption.UsesBonusAction);
-            }
-
-            //PATCH: support for MoveStepFinished => clears movement cache on move step end
-            if (__instance is CharacterActionMoveStepBase)
-            {
-                MovementTracker.CleanMovementCache();
             }
         }
     }
