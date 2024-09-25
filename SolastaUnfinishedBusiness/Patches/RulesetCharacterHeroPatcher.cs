@@ -1211,9 +1211,28 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacterHero __instance)
         {
-            //TODO: add slot and item to the interface?
             __instance.GetSubFeaturesByType<IOnItemEquipped>()
                 .ForEach(f => f.OnItemEquipped(__instance));
+
+            //BUGFIX: fix a prepared spells exploit in vanilla
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var repertoire in __instance.SpellRepertoires)
+            {
+                if (repertoire.SpellCastingFeature.SpellReadyness != SpellReadyness.Prepared)
+                {
+                    continue;
+                }
+
+                var preparedSpells = repertoire.PreparedSpells;
+                var maxPreparedSpells = __instance.ComputeMaxPreparedSpells(repertoire);
+
+                repertoire.maxPreparedSpells = maxPreparedSpells;
+
+                while (preparedSpells.Count > maxPreparedSpells)
+                {
+                    preparedSpells.RemoveAt(preparedSpells.Count - 1);
+                }
+            }
         }
     }
 
