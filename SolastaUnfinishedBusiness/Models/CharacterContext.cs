@@ -1487,22 +1487,7 @@ internal static partial class CharacterContext
                 return effectDescription;
             }
 
-            RulesetAttackMode attackMode;
-
-            if (character.GetMainWeapon()?.ItemDefinition == ItemDefinitions.UnarmedStrikeBase)
-            {
-                attackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-            }
-            else if (character.GetOffhandWeapon()?.ItemDefinition == ItemDefinitions.UnarmedStrikeBase)
-            {
-                attackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
-            }
-            else
-            {
-                return effectDescription;
-            }
-
-            effectDescription.rangeParameter = attackMode.ReachRange;
+            effectDescription.rangeParameter = GetUnarmedReachRange(actingCharacter);
 
             return effectDescription;
         }
@@ -1606,8 +1591,14 @@ internal static partial class CharacterContext
     }
 
     private sealed class CustomBehaviorConditionGrappleSource
-        : IMoveStepStarted, IOnItemEquipped, IPhysicalAttackInitiatedByMe
+        : IModifyWeaponAttackMode, IMoveStepStarted, IOnItemEquipped, IPhysicalAttackInitiatedByMe
     {
+        // should not use a versatile weapon in two-handed mode
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            attackMode.UseVersatileDamage = false;
+        }
+
         // should drag target whenever move
         public void MoveStepStarted(GameLocationCharacter mover, int3 source, int3 destination)
         {
@@ -1692,5 +1683,63 @@ internal static partial class CharacterContext
         return found;
     }
 
+    internal static void ValidateGrappleAfterForcedMove(List<GameLocationCharacter> targets)
+    {
+        foreach (var target in targets
+                     .Where(x =>
+                         x.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false }))
+        {
+            var rulesetTarget = target.RulesetCharacter;
+
+            if (rulesetTarget.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName))
+            {
+                if (!GetGrappledActor(
+                        rulesetTarget, out var rulesetGrappled, out var activeCondition))
+                {
+                    continue;
+                }
+
+                var grappled = GameLocationCharacter.GetFromActor(rulesetGrappled);
+
+                if (!target.IsWithinRange(grappled, 1))
+                {
+                    rulesetGrappled.RemoveCondition(activeCondition);
+                }
+            }
+
+            // ReSharper disable once InvertIf
+            if (rulesetTarget.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionGrappleTargetName, out var activeCondition1))
+            {
+                var rulesetGrappler = EffectHelpers.GetCharacterByGuid(activeCondition1.SourceGuid);
+                var grappler = GameLocationCharacter.GetFromActor(rulesetGrappler);
+
+                if (!target.IsWithinRange(grappler, 1))
+                {
+                    rulesetTarget.RemoveCondition(activeCondition1);
+                }
+            }
+        }
+    }
+
+    private static int GetUnarmedReachRange(GameLocationCharacter character)
+    {
+        var rulesetCharacter = character.RulesetCharacter;
+
+        RulesetAttackMode attackMode = null;
+
+        if (rulesetCharacter.GetMainWeapon()?.ItemDefinition == ItemDefinitions.UnarmedStrikeBase)
+        {
+            attackMode = character.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+        }
+        else if (rulesetCharacter.GetOffhandWeapon()?.ItemDefinition == ItemDefinitions.UnarmedStrikeBase)
+        {
+            attackMode = character.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+        }
+
+        return attackMode?.ReachRange ?? 0;
+    }
+    
     #endregion
 }

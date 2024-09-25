@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
@@ -153,10 +154,10 @@ public static class CharacterActionShovePatcher
             }
 
             //PATCH: support for Circle of the Wildfire cauterizing flames
-            foreach (var targetCharacter in characterActionShove.ActionParams.TargetCharacters)
-            {
-                yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(targetCharacter);
-            }
+            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(target);
+
+            //PATCH: support grapple scenarios
+            CharacterContext.ValidateGrappleAfterForcedMove([target]);
 
             //END PATCH
 

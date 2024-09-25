@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
 using UnityEngine;
 using static RuleDefinitions;
@@ -873,6 +874,12 @@ public static class CharacterActionAttackPatcher
 
                 rulesetDefender.matchingInterruptionConditions.Clear();
                 rulesetDefender.matchingInterruption = false;
+            }
+
+            //PATCH: support grapple scenarios
+            if (isResultingActionSpendPowerWithMotionForm)
+            {
+                CharacterContext.ValidateGrappleAfterForcedMove(targets);
             }
 
             //PATCH: Allows condition interruption after target was attacked

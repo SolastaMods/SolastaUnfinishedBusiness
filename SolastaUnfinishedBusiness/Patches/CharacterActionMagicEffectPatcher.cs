@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using TA;
 using UnityEngine;
 using static RuleDefinitions;
@@ -966,6 +967,12 @@ public static class CharacterActionMagicEffectPatcher
                             .ExecuteAction(actionParam, null, true);
                     }
                 }
+            }
+
+            //PATCH: support grapple scenarios
+            if (__instance.isResultingActionSpendPowerWithMotionForm)
+            {
+                CharacterContext.ValidateGrappleAfterForcedMove(targets);
             }
 
             // END PATCH
