@@ -8,7 +8,7 @@
 - fixed Lightning and Obscurement rules not applying line of sight checks
 - fixed Path of the Wild Magic wild surge retribution also damaging self
 - fixed Roguish Arcane Scoundrel arcane backslash crashing the game on casting
-- fixed Sorcerous Wild Magic bend luck inverted save behavior
+- fixed Sorcerous Wild Magic bend luck inverted save behavior, and combat log rolled d4 colors
 - improved backgrounds documentation dump to include cantrips, proficiencies, pools, equipment, etc.
 - improved consistency between highlighted and actual tiles when casting line spells
 - improved Gravity Fissure spell by using angle to the line as a tiebreaker to which cell should pull
