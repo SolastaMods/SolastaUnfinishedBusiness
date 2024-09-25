@@ -31,6 +31,8 @@ public static class GameLocationCharacterExtensions
         return actionModifiers;
     }
 
+    #region Actions
+
     internal static void MyExecuteActionAttack(
         this GameLocationCharacter attacker,
         Id actionId,
@@ -150,9 +152,9 @@ public static class GameLocationCharacterExtensions
             new CharacterActionChainParams(actionParams.ActingCharacter, actionParams), null, false);
     }
 
-    //
-    // mod custom reactions
-    //
+    #endregion
+
+    #region Reactions
 
     internal static IEnumerator MyReactForOpportunityAttack(
         this GameLocationCharacter attacker,
@@ -174,7 +176,6 @@ public static class GameLocationCharacterExtensions
             yield break;
         }
 
-        var count = actionManager.PendingReactionRequestGroups.Count;
         var reactionParams = new CharacterActionParams(
             attacker,
             Id.AttackOpportunity,
@@ -183,6 +184,7 @@ public static class GameLocationCharacterExtensions
             actionModifier) { StringParameter2 = stringParameter2 };
         var reactionRequest =
             new ReactionRequestReactionAttack(stringParameter2, reactionParams) { Resource = resource };
+        var count = actionManager.PendingReactionRequestGroups.Count;
 
         actionManager.AddInterruptRequest(reactionRequest);
 
@@ -260,15 +262,15 @@ public static class GameLocationCharacterExtensions
             yield break;
         }
 
+        var reactionParams = new CharacterActionParams(character, (Id)actionId) { StringParameter = stringParameter };
+        var reactionRequest = new ReactionRequestCustom(type, reactionParams) { Resource = resource };
         var count = actionManager.PendingReactionRequestGroups.Count;
-        var actionParams = new CharacterActionParams(character, (Id)actionId) { StringParameter = stringParameter };
-        var reactionRequest = new ReactionRequestCustom(type, actionParams) { Resource = resource };
 
         actionManager.AddInterruptRequest(reactionRequest);
 
         yield return battleManager.WaitForReactions(waiter, actionManager, count);
 
-        if (actionParams.ReactionValidated)
+        if (reactionParams.ReactionValidated)
         {
             reactionValidated?.Invoke();
         }
@@ -295,9 +297,8 @@ public static class GameLocationCharacterExtensions
         }
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
         var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-        var actionParams = new CharacterActionParams(character, Id.SpendPower)
+        var reactionParams = new CharacterActionParams(character, Id.SpendPower)
         {
             StringParameter = stringParameter,
             StringParameter2 = stringParameter2,
@@ -306,12 +307,13 @@ public static class GameLocationCharacterExtensions
             UsablePower = usablePower,
             SkipAnimationsAndVFX = true
         };
+        var count = actionService.PendingReactionRequestGroups.Count;
 
-        actionService.ReactToSpendPower(actionParams);
+        actionService.ReactToSpendPower(reactionParams);
 
         yield return battleManager.WaitForReactions(waiter, actionService, count);
 
-        if (actionParams.ReactionValidated)
+        if (reactionParams.ReactionValidated)
         {
             reactionValidated?.Invoke();
         }
@@ -337,22 +339,21 @@ public static class GameLocationCharacterExtensions
             yield break;
         }
 
-        var count = actionManager.PendingReactionRequestGroups.Count;
-        var actionModifiers = GetActionModifiers(targets.Count);
         var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-        var actionParams = new CharacterActionParams(character, Id.SpendPower)
+        var reactionParams = new CharacterActionParams(character, Id.SpendPower)
         {
             StringParameter = stringParameter,
             StringParameter2 = stringParameter2,
-            ActionModifiers = actionModifiers,
+            ActionModifiers = GetActionModifiers(targets.Count),
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
             targetCharacters = targets,
             SkipAnimationsAndVFX = true
         };
-        var reactionRequest = new ReactionRequestSpendBundlePower(
-            actionParams, reactionValidated, reactionNotValidated);
+        var reactionRequest =
+            new ReactionRequestSpendBundlePower(reactionParams, reactionValidated, reactionNotValidated);
+        var count = actionManager.PendingReactionRequestGroups.Count;
 
         actionManager.AddInterruptRequest(reactionRequest);
 
@@ -378,20 +379,18 @@ public static class GameLocationCharacterExtensions
         }
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
-        var actionModifiers = GetActionModifiers(targets.Count);
         var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
         var actionParams = new CharacterActionParams(character, actionId)
         {
             StringParameter = stringParameter,
             StringParameter2 = stringParameter2,
-            ActionModifiers = actionModifiers,
+            ActionModifiers = GetActionModifiers(targets.Count),
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
             targetCharacters = targets
         };
+        var count = actionService.PendingReactionRequestGroups.Count;
 
         actionService.ReactToUsePower(actionParams, "UsePower", character);
 
@@ -402,6 +401,8 @@ public static class GameLocationCharacterExtensions
             reactionValidated?.Invoke();
         }
     }
+
+    #endregion
 
     internal static GameLocationCharacter GetEffectControllerOrSelf(this GameLocationCharacter character)
     {

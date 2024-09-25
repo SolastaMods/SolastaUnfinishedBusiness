@@ -3,6 +3,7 @@
 - added General > Character > 'Add grapple action to all playable races'
 - added Interface > Game UI > 'Hold SHIFT to snap line spells to grid'
 - fixed Aasimar race to learn a light cantrip with no focus requirements
+- fixed chain reactions leading to an instability under complex scenarios
 - fixed Circle of the Stars chalice healing power bleeding on action bar
 - fixed Lightning and Obscurement rules not applying line of sight checks
 - fixed Path of the Wild Magic wild surge retribution also damaging self
