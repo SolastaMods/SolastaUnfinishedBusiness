@@ -926,8 +926,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
                             (action.AttackSuccessDelta >= 0
-                                ? ConsoleStyleDuplet.ParameterType.Positive
-                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                                ? ConsoleStyleDuplet.ParameterType.Negative
+                                : ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
                         ]);
                 }
             }
@@ -1041,8 +1041,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
                             (abilityCheckData.AbilityCheckSuccessDelta >= 0
-                                ? ConsoleStyleDuplet.ParameterType.Positive
-                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                                ? ConsoleStyleDuplet.ParameterType.Negative
+                                : ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
                         ]);
                 }
             }
@@ -1141,8 +1141,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
                             (savingThrowData.SaveOutcomeDelta >= 0
-                                ? ConsoleStyleDuplet.ParameterType.Positive
-                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                                ? ConsoleStyleDuplet.ParameterType.Negative
+                                : ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
                         ]);
                 }
             }
