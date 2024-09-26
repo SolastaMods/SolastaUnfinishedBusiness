@@ -51,9 +51,9 @@ internal static class Main
         ModEntry.Logger.Error(ex.ToString());
     }
 
-    internal static void Error(string msg)
+    internal static void Error(string msg, bool stack = false)
     {
-        ModEntry.Logger.Error(msg);
+        ModEntry.Logger.Error(msg + (stack ? Environment.StackTrace : ""));
     }
 
     internal static void Info(string msg)
