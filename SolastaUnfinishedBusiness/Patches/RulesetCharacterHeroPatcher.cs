@@ -110,7 +110,19 @@ public static class RulesetCharacterHeroPatcher
                 Main.Error("Couldn't patch RulesetCharacterHero.RefreshArmorClass");
             }
 
-            return codes;
+            //PATCH: clear all modifiers tagged 09Health - fixes extra large AC that sometimes happens after respec
+            //TODO: find out how/why 09Health modifiers are added to AC attribute
+            var oldMethod = typeof(RulesetAttribute).GetProperty(nameof(RulesetAttribute.ValueTrends))!.GetGetMethod();
+            var newMethod = new Func<RulesetAttribute, List<TrendInfo>>(ClearHealth).Method;
+
+            return codes.ReplaceCall(oldMethod, 1, "RulesetCharacterHero.RefreshArmorClass.09Health",
+                new CodeInstruction(OpCodes.Call, newMethod));
+        }
+
+        private static List<TrendInfo> ClearHealth(RulesetAttribute self)
+        {
+            self.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
+            return self.ValueTrends;
         }
 
         [UsedImplicitly]
