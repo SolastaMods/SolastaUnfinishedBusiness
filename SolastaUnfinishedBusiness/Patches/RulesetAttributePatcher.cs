@@ -21,6 +21,15 @@ public static class RulesetAttributePatcher
             {
                 modifier.Tags.TryAdd("SetLowest");
             }
+
+            if (__instance.Name == AttributeDefinitions.ArmorClass
+                && modifier.tags.Contains(AttributeDefinitions.TagHealth))
+            {
+                //TODO: add popup to urge players to share this log
+                Main.Error(
+                    $"[{__instance.Name}] <{modifier.Operation}> v:{modifier.Value} source:'{modifier.sourceAbility}' tags:[{string.Join(", ", modifier.Tags)}]",
+                    true);
+            }
         }
     }
 }
