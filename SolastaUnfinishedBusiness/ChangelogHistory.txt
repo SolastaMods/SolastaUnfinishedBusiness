@@ -2,16 +2,15 @@
 
 - added General > Character > 'Add grapple action to all playable races'
 - added Interface > Game UI > 'Hold SHIFT to snap line spells to grid'
-- fixed Aasimar race to learn a light cantrip with no focus requirements
-- fixed an exploit allowing memorized spells to be kept when removing an item that affects the casting attr. [VANILLA]
+- fixed an exploit keeping memorized spells when removing attribute enhancement items [VANILLA]
 - fixed chain reactions leading to an instability under complex scenarios
-- fixed Circle of the Stars chalice healing power bleeding on action bar
 - fixed Lightning and Obscurement rules not applying line of sight checks
 - fixed Path of the Wild Magic wild surge retribution also damaging self
-- fixed Roguish Arcane Scoundrel arcane backslash crashing the game on casting
-- fixed Sorcerous Wild Magic bend luck inverted save behavior, and combat log rolled d4 colors
+- fixed Roguish Arcane Scoundrel arcane backslash leading to an instability on casting
+- fixed Sorcerous Wild Magic bend luck save behavior, and combat log rolled die colors
+- improved Aasimar race to learn a light cantrip with no focus requirements
 - improved backgrounds documentation dump to include cantrips, proficiencies, pools, equipment, etc.
-- improved consistency between highlighted and actual tiles when casting line spells
+- improved consistency between highlighted and actual tiles when casting line spells [VANILLA]
 - improved Gravity Fissure spell by using angle to the line as a tiebreaker to which cell should pull
 - improved tooltips to be wider, and better fully render at 1080p or lower resolutions as one in Steam Deck
 

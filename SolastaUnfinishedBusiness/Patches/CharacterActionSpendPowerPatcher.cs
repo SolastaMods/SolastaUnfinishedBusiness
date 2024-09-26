@@ -8,6 +8,8 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -367,6 +369,17 @@ public static class CharacterActionSpendPowerPatcher
 
             actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
                 (RuleDefinitions.ConditionInterruption)ExtraConditionInterruption.SpendPowerExecuted);
+
+            //PATCH: support grapple and wildfire scenarios
+            if (rulesetEffect.EffectDescription.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Motion))
+            {
+                CharacterContext.ValidateGrappleAfterForcedMove(targets);
+
+                foreach (var target in targets)
+                {
+                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(target);
+                }
+            }
 
             __instance.PersistantEffectAction();
         }

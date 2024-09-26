@@ -1218,7 +1218,10 @@ public static class RulesetCharacterHeroPatcher
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var repertoire in __instance.SpellRepertoires)
             {
-                if (repertoire.SpellCastingFeature.SpellReadyness != SpellReadyness.Prepared)
+                var spellCastingFeature = repertoire.SpellCastingFeature;
+
+                if (spellCastingFeature.SpellKnowledge is not (SpellKnowledge.Spellbook or SpellKnowledge.WholeList) ||
+                    spellCastingFeature.SpellReadyness != SpellReadyness.Prepared)
                 {
                     continue;
                 }
