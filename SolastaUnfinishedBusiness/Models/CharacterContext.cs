@@ -1338,7 +1338,7 @@ internal static partial class CharacterContext
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                 .SetImpactEffectParameters(Knock)
                 .Build())
         .AddCustomSubFeatures(new CustomBehaviorGrapple())
@@ -1441,8 +1441,7 @@ internal static partial class CharacterContext
             : ActionDefinitions.ActionFormType.Invisible;
     }
 
-    private sealed class CustomBehaviorGrapple
-        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe, IModifyEffectDescription
+    private sealed class CustomBehaviorGrapple : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -1455,41 +1454,30 @@ internal static partial class CharacterContext
                 return false;
             }
 
+            var actingCharacter = __instance.ActionParams.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var isValid =
-                __instance.ActionParams.ActingCharacter.RulesetCharacter.SizeDefinition.WieldingSize -
-                rulesetTarget.SizeDefinition.WieldingSize >= -1;
+                rulesetCharacter.SizeDefinition.WieldingSize - rulesetTarget.SizeDefinition.WieldingSize >= -1;
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Failure/&TargetMustBeNoMoreThanOneSizeLarger");
+
+                return false;
+            }
+
+            var allowedRange = GetUnarmedReachRange(actingCharacter);
+
+            isValid = actingCharacter.IsWithinRange(target, allowedRange);
 
             if (isValid)
             {
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Failure/&TargetMustBeNoMoreThanOneSizeLarger");
+            __instance.actionModifier.FailureFlags.Add("Failure/&FailureFlagNoReachForTargetDescription");
 
             return false;
-        }
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == PowerGrapple;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var actingCharacter = GameLocationCharacter.GetFromActor(character);
-
-            if (actingCharacter == null)
-            {
-                return effectDescription;
-            }
-
-            effectDescription.rangeParameter = GetUnarmedReachRange(actingCharacter);
-
-            return effectDescription;
         }
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1503,8 +1491,8 @@ internal static partial class CharacterContext
             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
                 attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
 
-            var success = abilityCheckData.AbilityCheckRollOutcome
-                is RollOutcome.Success or RollOutcome.CriticalSuccess;
+            var success =
+                abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
 
             if (!success)
             {
@@ -1514,6 +1502,18 @@ internal static partial class CharacterContext
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
+            // remove any other grappled condition
+            var conditionsToRemove = rulesetDefender.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .Where(x => x.ConditionDefinition.Name == ConditionGrappleTargetName)
+                .ToList();
+
+            foreach (var condition in conditionsToRemove)
+            {
+                rulesetDefender.RemoveCondition(condition);
+            }
+
+            // apply new grappler condition
             rulesetAttacker.InflictCondition(
                 ConditionGrappleSourceName,
                 DurationType.UntilAnyRest,
@@ -1528,6 +1528,7 @@ internal static partial class CharacterContext
                 0,
                 0);
 
+            // apply new grappled condition
             rulesetDefender.InflictCondition(
                 ConditionGrappleTargetName,
                 DurationType.UntilAnyRest,
@@ -1565,16 +1566,7 @@ internal static partial class CharacterContext
         // should only be grappled by one grappler at a time, last wins
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var conditionsToRemove = target.ConditionsByCategory
-                .SelectMany(x => x.Value)
-                .Where(x => x.ConditionDefinition.Name == ConditionGrappleTargetName &&
-                            x.SourceGuid != rulesetCondition.SourceGuid)
-                .ToList();
-
-            foreach (var condition in conditionsToRemove)
-            {
-                target.RemoveCondition(condition);
-            }
+            // empty
         }
 
         // should remove source tracker condition as well
@@ -1583,7 +1575,8 @@ internal static partial class CharacterContext
             var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
             if (rulesetSource.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName, out var activeConditionSource))
+                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName, out var activeConditionSource) &&
+                activeConditionSource.SourceGuid == rulesetCondition.SourceGuid)
             {
                 rulesetSource.RemoveCondition(activeConditionSource);
             }
@@ -1614,8 +1607,8 @@ internal static partial class CharacterContext
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
 
-            // be safe and if moving through an allie cell or cannot place as enemy is larger or bigger, get rid of it
-            if (positioningService.CanPlaceCharacter(target, source, CellHelpers.PlacementMode.Station))
+            // be safe and if it cannot place target, get rid of grapple to avoid sploits
+            if (positioningService.CanPlaceCharacter(target, source, CellHelpers.PlacementMode.IgnoreOccupantsMoving))
             {
                 target.StartTeleportTo(source, mover.Orientation);
                 target.FinishMoveTo(source, mover.Orientation);
@@ -1648,7 +1641,7 @@ internal static partial class CharacterContext
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if ((ValidatorsWeapon.HasAnyWeaponTag(
-                     rulesetAttacker.GetMainWeapon()?.ItemDefinition, TagsDefinitions.WeaponTagTwoHanded) ||
+                     attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagTwoHanded) ||
                  ValidatorsWeapon.IsUnarmed(attackMode)) &&
                 GetGrappledActor(rulesetAttacker, out var rulesetTarget, out var activeCondition))
             {
@@ -1701,8 +1694,9 @@ internal static partial class CharacterContext
                 }
 
                 var grappled = GameLocationCharacter.GetFromActor(rulesetGrappled);
+                var allowedRange = GetUnarmedReachRange(target);
 
-                if (!target.IsWithinRange(grappled, 1))
+                if (!target.IsWithinRange(grappled, allowedRange))
                 {
                     rulesetGrappled.RemoveCondition(activeCondition);
                 }
@@ -1714,8 +1708,9 @@ internal static partial class CharacterContext
             {
                 var rulesetGrappler = EffectHelpers.GetCharacterByGuid(activeCondition1.SourceGuid);
                 var grappler = GameLocationCharacter.GetFromActor(rulesetGrappler);
+                var allowedRange = GetUnarmedReachRange(grappler);
 
-                if (!target.IsWithinRange(grappler, 1))
+                if (!target.IsWithinRange(grappler, allowedRange))
                 {
                     rulesetTarget.RemoveCondition(activeCondition1);
                 }
@@ -1725,21 +1720,21 @@ internal static partial class CharacterContext
 
     private static int GetUnarmedReachRange(GameLocationCharacter character)
     {
-        var rulesetCharacter = character.RulesetCharacter;
+        var attackMode = character.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+        var itemDefinition = attackMode?.SourceDefinition as ItemDefinition;
 
-        RulesetAttackMode attackMode = null;
-
-        if (rulesetCharacter.GetMainWeapon()?.ItemDefinition == ItemDefinitions.UnarmedStrikeBase)
+        if (!itemDefinition)
         {
-            attackMode = character.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-        }
-        else if (rulesetCharacter.GetOffhandWeapon()?.ItemDefinition == ItemDefinitions.UnarmedStrikeBase)
-        {
-            attackMode = character.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+            return attackMode?.ReachRange ?? 1;
         }
 
-        return attackMode?.ReachRange ?? 0;
+        if (!itemDefinition.IsWeapon)
+        {
+            return attackMode.ReachRange;
+        }
+
+        return attackMode.ReachRange - itemDefinition.WeaponDescription.ReachRange + 1;
     }
-    
+
     #endregion
 }
