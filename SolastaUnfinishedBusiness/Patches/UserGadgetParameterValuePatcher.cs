@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class UserGadgetParameterValuePatcher
 {
-    private static readonly Regex MatchPlaceholders = new(@"\{\w+?\}", RegexOptions.Compiled);
+    private static readonly Regex MatchPlaceholders = new(@"\{[^}]+?\}", RegexOptions.Compiled);
 
     private static string ReplacePlaceholders(string userContent)
     {
