@@ -1393,10 +1393,10 @@ internal static partial class CharacterContext
             .SetSpecialDuration(DurationType.UntilAnyRest)
             .SetFeatures(
                 FeatureDefinitionActionAffinitys.ActionAffinityGrappled,
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create("MovementAffinityGrappleTarget")
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ActionAffinityGrappleTarget")
                     .SetGuiPresentationNoContent(true)
-                    .SetBaseSpeedMultiplicativeModifier(0)
+                    .SetRestrictedActions(ActionDefinitions.Id.TacticalMove, ActionDefinitions.Id.SpecialMove)
                     .AddToDB())
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedConditionGrappleTarget())
             .SetConditionParticleReference(ConditionDefinitions.ConditionRestrained)

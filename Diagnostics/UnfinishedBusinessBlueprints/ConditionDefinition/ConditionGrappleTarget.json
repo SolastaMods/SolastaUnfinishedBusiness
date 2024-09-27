@@ -5,7 +5,7 @@
   "conditionType": "Detrimental",
   "features": [
     "Definition:ActionAffinityGrappled:1c2c02a0e9f823c489b3d62d03534617",
-    "Definition:MovementAffinityGrappleTarget:4f505d22-32d0-5920-a9b1-98996d09e9ae"
+    "Definition:ActionAffinityGrappleTarget:7d52efc0-c9c9-56d9-b529-3f916e546906"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
