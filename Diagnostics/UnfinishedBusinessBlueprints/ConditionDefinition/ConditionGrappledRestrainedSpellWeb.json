@@ -4,6 +4,7 @@
   "parentCondition": "Definition:ConditionRestrained:ec9fa707d4174c54bbdecde60a860c2c",
   "conditionType": "Detrimental",
   "features": [
+    "Definition:AbilityCheckAffinityLightlyObscured:8973e9df-edcf-5021-b87a-188a040215a6",
     "Definition:ActionAffinityGrappled:1c2c02a0e9f823c489b3d62d03534617"
   ],
   "allowMultipleInstances": false,

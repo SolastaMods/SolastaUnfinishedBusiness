@@ -429,6 +429,7 @@ internal static partial class SpellBuilders
             .SetBrain(battlePackage, true)
             .SetSpecialDuration(DurationType.Hour, 1)
             .SetFeatures(ActionAffinityGrappled)
+            .AddFeatures([.. LightingAndObscurementContext.ConditionLightlyObscured.Features])
             .AddToDB();
 
         var conditionAffinityGrappledRestrainedSpellWebImmunity = FeatureDefinitionConditionAffinityBuilder

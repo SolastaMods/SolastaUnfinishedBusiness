@@ -685,7 +685,7 @@ internal static class LightingAndObscurementContext
         .AddFeatures(ActionAffinityConditionRetchingReeling)
         .AddToDB();
 
-    private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
+    internal static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
         .Create(ConditionHeavilyObscured, "ConditionLightlyObscured")
         .SetOrUpdateGuiPresentation(Category.Condition)
         .SetFeatures(
