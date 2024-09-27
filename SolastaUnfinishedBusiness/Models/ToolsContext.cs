@@ -136,14 +136,18 @@ internal static class ToolsContext
         internal static bool IsRespecing { get; private set; }
         internal static string OldHeroName { get; private set; }
 
-        public override IEnumerator Execute(FunctorParametersDescription functorParameters,
-            FunctorExecutionContext context)
+        public override IEnumerator Execute(
+            FunctorParametersDescription functorParameters, FunctorExecutionContext context)
         {
+            var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
             var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
-            var gameLocationScreenExplorationVisible =
-                gameLocationScreenExploration && gameLocationScreenExploration.Visible;
 
-            if (!gameLocationScreenExplorationVisible)
+            if (!guiConsoleScreen || !gameLocationScreenExploration)
+            {
+                yield break;
+            }
+
+            if (!gameLocationScreenExploration.Visible)
             {
                 Gui.GuiService.ShowMessage(
                     MessageModal.Severity.Informative1,
@@ -156,11 +160,12 @@ internal static class ToolsContext
 
             IsRespecing = true;
 
-            var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
             var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
             var oldHero = functorParameters.RestingHero;
             var newHero = characterBuildingService.CreateNewCharacter().HeroCharacter;
-            newHero.Register(true); //register generating new guid
+
+            //Register generating new guid
+            newHero.Register(true);
 
             OldHeroName = oldHero.Name;
 
@@ -180,8 +185,8 @@ internal static class ToolsContext
 
         private static IEnumerator StartRespec(RulesetCharacterHero hero)
         {
-            var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
             var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
+            var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
 
             restModalScreen.KeepCurrentState = true;
             restModalScreen.Hide(true);
@@ -195,71 +200,84 @@ internal static class ToolsContext
             }
 
             characterCreationScreen.Hide();
+            characterCreationScreen.RestoreOriginScreen();
+            restModalScreen.Refresh();
             IsRespecing = !hero.TryGetHeroBuildingData(out _);
         }
 
-        private static void FinalizeRespec([NotNull] RulesetCharacterHero oldHero,
+        private static void FinalizeRespec(
+            [NotNull] RulesetCharacterHero oldHero,
             [NotNull] RulesetCharacterHero newHero)
         {
-            var tags = oldHero.Tags;
-            var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
-            var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
+            //Init RESPEC
             var characterManager =
                 ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
+            var entityFactoryManager =
+                ServiceRepository.GetService<IWorldLocationEntityFactoryService>() as
+                    WorldLocationEntityFactoryManager;
 
-            if (characterManager)
+            if (!characterManager || !entityFactoryManager)
             {
-                var gameLocationCharacter = GameLocationCharacter.GetFromActor(oldHero);
+                IsRespecing = false;
 
-                var oldGuid = oldHero.Guid;
-                var newGuid = newHero.Guid;
-
-                //Terminate all effects started by old character
-                EffectHelpers.GetAllEffectsBySourceGuid(oldGuid).ForEach(e => e.DoTerminate(oldHero));
-                //Replace source for all effects of new character
-                EffectHelpers.GetAllEffectsBySourceGuid(newGuid).ForEach(e => e.SetGuid(oldGuid));
-                //Replace source for all conditions of new character
-                EffectHelpers.GetAllConditionsBySourceGuid(newGuid).ForEach(c => c.sourceGuid = oldGuid);
-
-                newHero.Unregister(); //unregister under new guid
-                //Replace old character with new
-                ServiceRepository.GetService<IRulesetEntityService>().SwapEntities(oldHero, newHero);
-                newHero.Register(false); //register again under old guid
-
-                newHero.Tags.AddRange(tags);
-                newHero.Attributes[AttributeDefinitions.Experience] = experience;
-                newHero.criticalHits = oldHero.criticalHits;
-                newHero.criticalFailures = oldHero.criticalFailures;
-                newHero.inflictedDamage = oldHero.inflictedDamage;
-                newHero.slainEnemies = oldHero.slainEnemies;
-                newHero.sustainedInjuries = oldHero.sustainedInjuries;
-                newHero.restoredHealth = oldHero.restoredHealth;
-                newHero.usedMagicAndPowers = oldHero.usedMagicAndPowers;
-                newHero.knockOuts = oldHero.knockOuts;
-
-                TransferConditionsOfCategory(oldHero, newHero, AttributeDefinitions.TagEffect);
-                CleanupOldHeroConditions(oldHero, newHero);
-
-                CopyInventoryOver(oldHero, gameLocationCharacter.LocationPosition);
-
-                gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
-
-                UpdateRestPanelUi(gameCampaignCharacters);
-
-                gameLocationCharacter.SetRuleset(newHero);
-
-                var worldLocationEntityFactoryService =
-                    ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
-
-                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter,
-                        out var worldLocationCharacter))
-                {
-                    worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
-                }
-
-                characterManager.dirtyParty = true;
-                characterManager.RefreshAllCharacters();
+                return;
             }
+
+            var oldCharacter = GameLocationCharacter.GetFromActor(oldHero);
+            var oldExperience = oldHero.GetAttribute(AttributeDefinitions.Experience);
+            var oldGuid = oldHero.Guid;
+            var newGuid = newHero.Guid;
+
+            //Terminate all effects started by old character
+            EffectHelpers.GetAllEffectsBySourceGuid(oldGuid).ForEach(e => e.DoTerminate(oldHero));
+
+            //Replace source for all effects of new character
+            EffectHelpers.GetAllEffectsBySourceGuid(newGuid).ForEach(e => e.SetGuid(oldGuid));
+
+            //Replace source for all conditions of new character
+            EffectHelpers.GetAllConditionsBySourceGuid(newGuid).ForEach(c => c.sourceGuid = oldGuid);
+
+            //Unregister under new guid and assign older hero guid
+            newHero.Unregister();
+
+            //Create character will register new hero with oldGuid later on
+            ServiceRepository.GetService<IRulesetEntityService>().SwapEntities(oldHero, newHero);
+
+            //Copy tags and campaign stats
+            newHero.Tags.AddRange(oldHero.Tags);
+            newHero.Attributes[AttributeDefinitions.Experience] = oldExperience;
+            newHero.criticalHits = oldHero.criticalHits;
+            newHero.criticalFailures = oldHero.criticalFailures;
+            newHero.inflictedDamage = oldHero.inflictedDamage;
+            newHero.slainEnemies = oldHero.slainEnemies;
+            newHero.sustainedInjuries = oldHero.sustainedInjuries;
+            newHero.restoredHealth = oldHero.restoredHealth;
+            newHero.usedMagicAndPowers = oldHero.usedMagicAndPowers;
+            newHero.knockOuts = oldHero.knockOuts;
+
+            //Handle conditions
+            TransferConditionsOfCategory(oldHero, newHero, AttributeDefinitions.TagEffect);
+            CleanupOldHeroConditions(oldHero, newHero);
+
+            //Handle inventory
+            DropInventoryOnFloor(oldCharacter);
+
+            //Create new character, spawn it, replace, and destroy old one
+            var newCharacter = characterManager.CreateCharacter(oldCharacter.ControllerId, newHero, Side.Ally);
+
+            TransferRelevantPersistentData(oldCharacter, newCharacter);
+            entityFactoryManager.SpawnCharacter(newCharacter);
+            entityFactoryManager.FinalizeSpawnCharacter(newCharacter);
+            characterManager.ReplaceCharacter(oldCharacter, newCharacter);
+            entityFactoryManager.DestroyCharacter(oldCharacter);
+
+            //Update game campaign party
+            var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
+
+            gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
+
+            //Finalize RESPEC
+            UpdateRestPanelUi(gameCampaignCharacters);
 
             Gui.GuiService.ShowMessage(
                 MessageModal.Severity.Informative1,
@@ -268,6 +286,16 @@ internal static class ToolsContext
                 null, null);
 
             IsRespecing = false;
+        }
+
+        private static void TransferRelevantPersistentData(
+            GameLocationCharacter oldCharacter, GameLocationCharacter newCharacter)
+        {
+            newCharacter.ControllerId = oldCharacter.ControllerId;
+            newCharacter.Orientation = oldCharacter.Orientation;
+            newCharacter.LocationPosition = oldCharacter.LocationPosition;
+            newCharacter.PerceptionState = oldCharacter.PerceptionState;
+            newCharacter.ContextualFormation = oldCharacter.ContextualFormation;
         }
 
         private static void TransferConditionsOfCategory(RulesetActor oldHero, RulesetActor newHero, string category)
@@ -294,8 +322,10 @@ internal static class ToolsContext
             oldHero.ConditionsByCategory.Clear();
         }
 
-        private static void CopyInventoryOver([NotNull] RulesetCharacter oldHero, int3 position)
+        private static void DropInventoryOnFloor([NotNull] GameLocationCharacter oldCharacter)
         {
+            var oldHero = oldCharacter.RulesetCharacter;
+            var position = oldCharacter.LocationPosition;
             var personalSlots = oldHero.CharacterInventory.PersonalContainer.InventorySlots;
             var slotsByName = oldHero.CharacterInventory.InventorySlotsByName;
 
@@ -322,9 +352,9 @@ internal static class ToolsContext
                              .Select(spellDefinition =>
                                  DatabaseRepository.GetDatabase<ItemDefinition>()
                                      .FirstOrDefault(item =>
-                                         item.IsUsableDevice
-                                         && item.UsableDeviceDescription.UsableDeviceTags.Contains("Scroll")
-                                         && item.UsableDeviceDescription.DeviceFunctions.Any(function =>
+                                         item.IsUsableDevice &&
+                                         item.UsableDeviceDescription.UsableDeviceTags.Contains("Scroll") &&
+                                         item.UsableDeviceDescription.DeviceFunctions.Any(function =>
                                              function.SpellDefinition == spellDefinition)))
                              .Where(scrollDefinition => scrollDefinition))
                 {
@@ -343,8 +373,7 @@ internal static class ToolsContext
         {
             var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
             var restAfterPanel = restModalScreen.restAfterPanel;
-            var characterPlatesTable =
-                restAfterPanel.characterPlatesTable;
+            var characterPlatesTable = restAfterPanel.characterPlatesTable;
 
             for (var index = 0; index < characterPlatesTable.childCount; ++index)
             {

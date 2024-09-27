@@ -13,6 +13,7 @@
 - improved backgrounds documentation dump to include cantrips, proficiencies, pools, equipment, etc.
 - improved consistency between highlighted and actual tiles when casting line spells [VANILLA]
 - improved Gravity Fissure spell by using angle to the line as a tiebreaker to which cell should pull
+- improved RESPEC to notify all services about new hero, and properly render it on UI
 - improved tooltips to be wider, and better fully render at 1080p or lower resolutions as one in Steam Deck
 
 KNOWN ISSUES:
