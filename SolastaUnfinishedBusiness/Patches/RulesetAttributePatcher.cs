@@ -15,20 +15,22 @@ public static class RulesetAttributePatcher
         [UsedImplicitly]
         public static void Postfix(RulesetAttribute __instance, RulesetAttributeModifier modifier)
         {
-            //PATCH: fixes Critical Threshold SET operations to apply lowest value
-            if (__instance.Name == AttributeDefinitions.CriticalThreshold
-                && modifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set)
+            switch (__instance.Name)
             {
-                modifier.Tags.TryAdd("SetLowest");
-            }
+                //PATCH: fixes Critical Threshold SET operations to apply the lowest value
+                case AttributeDefinitions.CriticalThreshold
+                    when modifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set:
 
-            if (__instance.Name == AttributeDefinitions.ArmorClass
-                && modifier.tags.Contains(AttributeDefinitions.TagHealth))
-            {
-                //TODO: add popup to urge players to share this log
-                Main.Error(
-                    $"[{__instance.Name}] <{modifier.Operation}> v:{modifier.Value} source:'{modifier.sourceAbility}' tags:[{string.Join(", ", modifier.Tags)}]",
-                    true);
+                    modifier.Tags.TryAdd("SetLowest");
+                    break;
+
+                //PATCH: fix a RESPEC issue until we cannot down to the source cause
+                case AttributeDefinitions.ArmorClass
+                    when modifier.tags.Contains(AttributeDefinitions.TagHealth):
+                    Main.Error(
+                        $"[{__instance.Name}] <{modifier.Operation}> v:{modifier.Value} source:'{modifier.sourceAbility}' tags:[{string.Join(", ", modifier.Tags)}]",
+                        true);
+                    break;
             }
         }
     }

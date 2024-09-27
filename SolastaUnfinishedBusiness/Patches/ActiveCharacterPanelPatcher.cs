@@ -23,6 +23,11 @@ public static class ActiveCharacterPanelPatcher
         [UsedImplicitly]
         public static void Postfix(ActiveCharacterPanel __instance)
         {
+            if (__instance.GuiCharacter.RulesetCharacter is not { IsDeadOrDying: false })
+            {
+                return;
+            }
+
             //PATCH: support for custom point pools and concentration powers on portrait
             IconsOnPortrait.CharacterPanelRefresh(__instance);
 
