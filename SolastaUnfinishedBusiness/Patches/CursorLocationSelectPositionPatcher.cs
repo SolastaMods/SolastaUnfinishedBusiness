@@ -259,7 +259,7 @@ public static class CursorLocationSelectPositionPatcher
             //two-fold effect - use custom position validation
             // + do not validate cell again, if we have cached valid positions
             return cursor.validPositionsCache.Empty()
-                ? service.MyIsCellPerceivedByCharacter(cell, character)
+                ? service.MyIsCellPerceivedByCharacter(cell, character, requireLineOfSight: true)
                 : cursor.validPositionsCache.Contains(cell);
         }
     }
