@@ -6,6 +6,7 @@
 - fixed chain reactions leading to an instability under complex scenarios
 - fixed custom campaigns translator missing set location status names in quest steps outcome
 - fixed Lightning and Obscurement rules not applying line of sight checks
+- fixed Oath of Thunder and Martial Weapon master applying attack modifiers to magical ones as well
 - fixed Path of the Wild Magic wild surge retribution also damaging self
 - fixed Roguish Arcane Scoundrel arcane backslash leading to an instability on casting
 - fixed Sentinel feat allowing reach opportunity attacks on 3rd benefit instead of 5ft only

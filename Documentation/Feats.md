@@ -626,7 +626,7 @@ Increase your Dexterity, Constitution, or Charisma by 1, to a maximum of 20. Whe
 You have mastered techniques to take advantage of every drop in any enemy's guard:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
-• You can use your reaction to make a melee weapon attack against the attacking creature when a creature makes an attack against a target other than you.
+• When a creature within 5 feet of you makes an attack against a target other than you, you can use your reaction to make a melee weapon attack against the attacking creature.
 
 # 129. - *Sharpshooter* © [UB]
 

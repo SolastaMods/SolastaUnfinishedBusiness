@@ -7,8 +7,8 @@
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:DecisionBreakFreeConditionRestrainedByEntangle:2a416669-5ec8-53c1-b07b-8fe6f29da4d2",
-        "weight": 2.0,
-        "cooldown": 0,
+        "weight": 10.0,
+        "cooldown": 1,
         "dynamicCooldown": false
       }
     ]

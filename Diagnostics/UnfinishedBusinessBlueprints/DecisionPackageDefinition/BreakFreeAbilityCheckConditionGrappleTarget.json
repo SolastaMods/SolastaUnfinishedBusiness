@@ -7,8 +7,8 @@
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:DecisionBreakFreeConditionGrappleTarget:b84b18f7-e427-5c41-a48c-5b161013a057",
-        "weight": 2.0,
-        "cooldown": 0,
+        "weight": 10.0,
+        "cooldown": 1,
         "dynamicCooldown": false
       }
     ]
