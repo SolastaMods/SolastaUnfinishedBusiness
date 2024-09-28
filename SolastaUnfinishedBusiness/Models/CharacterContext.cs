@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
@@ -1676,64 +1677,54 @@ internal static partial class CharacterContext
         return found;
     }
 
-    internal static void ValidateGrappleAfterForcedMove(List<GameLocationCharacter> targets)
+    internal static void ValidateGrappleAfterForcedMove(GameLocationCharacter target)
     {
-        foreach (var target in targets
-                     .Where(x =>
-                         x.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false }))
+        var rulesetTarget = target.RulesetCharacter;
+
+        if (rulesetTarget is not { IsDeadOrDying: false })
         {
-            var rulesetTarget = target.RulesetCharacter;
+            return;
+        }
 
-            if (rulesetTarget.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName))
+        if (rulesetTarget.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionGrappleSourceName) &&
+            GetGrappledActor(rulesetTarget, out var rulesetGrappled, out var activeCondition))
+        {
+            var grappled = GameLocationCharacter.GetFromActor(rulesetGrappled);
+            var allowedRange = GetUnarmedReachRange(target);
+
+            if (!target.IsWithinRange(grappled, allowedRange))
             {
-                if (!GetGrappledActor(
-                        rulesetTarget, out var rulesetGrappled, out var activeCondition))
-                {
-                    continue;
-                }
-
-                var grappled = GameLocationCharacter.GetFromActor(rulesetGrappled);
-                var allowedRange = GetUnarmedReachRange(target);
-
-                if (!target.IsWithinRange(grappled, allowedRange))
-                {
-                    rulesetGrappled.RemoveCondition(activeCondition);
-                }
+                rulesetGrappled.RemoveCondition(activeCondition);
             }
+        }
 
-            // ReSharper disable once InvertIf
-            if (rulesetTarget.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionGrappleTargetName, out var activeCondition1))
+        // ReSharper disable once InvertIf
+        if (rulesetTarget.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionGrappleTargetName, out var activeConditionTarget))
+        {
+            var rulesetGrappler = EffectHelpers.GetCharacterByGuid(activeConditionTarget.SourceGuid);
+            var grappler = GameLocationCharacter.GetFromActor(rulesetGrappler);
+            var allowedRange = GetUnarmedReachRange(grappler);
+
+            if (!target.IsWithinRange(grappler, allowedRange))
             {
-                var rulesetGrappler = EffectHelpers.GetCharacterByGuid(activeCondition1.SourceGuid);
-                var grappler = GameLocationCharacter.GetFromActor(rulesetGrappler);
-                var allowedRange = GetUnarmedReachRange(grappler);
-
-                if (!target.IsWithinRange(grappler, allowedRange))
-                {
-                    rulesetTarget.RemoveCondition(activeCondition1);
-                }
+                rulesetTarget.RemoveCondition(activeConditionTarget);
             }
         }
     }
 
+    // only Astral Reach grants reach on unarmed
     private static int GetUnarmedReachRange(GameLocationCharacter character)
     {
-        var attackMode = character.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-        var itemDefinition = attackMode?.SourceDefinition as ItemDefinition;
+        var hero = character.RulesetCharacter.GetOriginalHero();
 
-        if (!itemDefinition)
+        if (hero != null &&
+            hero.GetFeaturesByType<FeatureDefinition>().Any(x => x.Name == $"Feature{AstralReach.AstralReachName}"))
         {
-            return attackMode?.ReachRange ?? 1;
+            return 2;
         }
 
-        if (!itemDefinition.IsWeapon)
-        {
-            return attackMode.ReachRange;
-        }
-
-        return attackMode.ReachRange - itemDefinition.WeaponDescription.ReachRange + 1;
+        return 1;
     }
 
     #endregion

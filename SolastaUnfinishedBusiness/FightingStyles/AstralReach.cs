@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class AstralReach : AbstractFightingStyle
 {
-    private const string AstralReachName = "AstralReach";
+    internal const string AstralReachName = "AstralReach";
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(AstralReachName)

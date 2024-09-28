@@ -124,11 +124,12 @@ internal static class AiContext
                 floatParameter: 3f)
             .AddToDB();
 
-        // use weight 2f to ensure scenarios that don't prevent enemies from take actions to still consider this
+        // use weight 10f to ensure scenarios that don't prevent enemies from take actions to still consider this
+        // and also force a cooldown of 1 turn whenever tried
         var packageBreakFree = DecisionPackageDefinitionBuilder
             .Create($"BreakFreeAbilityCheck{conditionName}")
             .SetGuiPresentationNoContent(true)
-            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decisionBreakFree, weight = 2f })
+            .SetWeightedDecisions(new WeightedDecisionDescription(decisionBreakFree, 10f, 1, true))
             .AddToDB();
 
         return packageBreakFree;
