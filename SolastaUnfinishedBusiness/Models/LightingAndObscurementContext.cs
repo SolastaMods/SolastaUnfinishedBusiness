@@ -249,7 +249,7 @@ internal static class LightingAndObscurementContext
         GameLocationCharacter sensor,
         GameLocationCharacter target = null,
         LightingState additionalBlockedLightingState = LightingState.Darkness,
-        bool requireLineOfSight = true)
+        bool requireLineOfSight = false)
     {
         // gadgets cannot perceive anything
         if (sensor.RulesetActor is RulesetGadget)
