@@ -245,8 +245,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker, withinRange: 2).ToArray();
 
-            // forceful step apply is a use at will power
-            attacker.MyExecuteActionSpendPower(usablePower, targets);
+            // forceful step apply is a power with a motion form so don't use SpendPower
+            attacker.MyExecuteActionPowerNoCost(usablePower, targets);
         }
     }
 }

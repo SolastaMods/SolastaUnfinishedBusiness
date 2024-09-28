@@ -665,6 +665,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerPsionicAdept, rulesetAttacker);
 
+            //TODO: double check this behavior with a push from origin power
             yield return attacker.MyReactToSpendPowerBundle(
                 usablePower,
                 [defender],

@@ -16,7 +16,8 @@ public static class CharacterActionMoveStepWalkPatcher
     public static class ChangeStartProneStatusIfNecessary_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(CharacterActionMoveStepWalk __instance,
+        public static void Prefix(
+            CharacterActionMoveStepWalk __instance,
             CharacterActionMoveStepWalk.MoveStep currentStep)
         {
             var mover = __instance.ActingCharacter;
