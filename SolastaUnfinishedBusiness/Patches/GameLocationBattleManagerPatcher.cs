@@ -281,9 +281,6 @@ public static class GameLocationBattleManagerPatcher
                 yield return extraEvents.Current;
             }
 
-            //PATCH: support for Circle of Wildfire proxies
-            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(mover);
-
             //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord, or enemy moved by other means
             if (mover.IsMyTurn())
             {

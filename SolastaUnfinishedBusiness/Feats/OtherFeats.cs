@@ -2514,7 +2514,7 @@ internal static class OtherFeats
         .SetFeatures(PowerFeatPoisonousSkin)
         .AddToDB();
 
-    private static IEnumerator PoisonTarget(GameLocationCharacter me, GameLocationCharacter target)
+    internal static IEnumerator PoisonTarget(GameLocationCharacter me, GameLocationCharacter target)
     {
         var rulesetMe = me.RulesetCharacter;
         var rulesetTarget = target.RulesetCharacter;
@@ -2529,27 +2529,10 @@ internal static class OtherFeats
         me.MyExecuteActionSpendPower(usablePower, target);
     }
 
-    //Poison character that shoves me
-    internal static IEnumerator HandleFeatPoisonousSkin(CharacterAction action, GameLocationCharacter target)
-    {
-        if (action is not CharacterActionShove)
-        {
-            yield break;
-        }
-
-        if (action.ActionParams.TargetCharacters == null ||
-            !action.ActionParams.TargetCharacters.Contains(target))
-        {
-            yield break;
-        }
-
-        yield return PoisonTarget(target, action.ActingCharacter);
-    }
-
     private class CustomBehaviorFeatPoisonousSkin
         : IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe
     {
-        //Poison characters that I shove
+        //Poison defender if feat owner shoves
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionShove)
@@ -2557,62 +2540,46 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var actingCharacter = action.ActingCharacter;
-
-            foreach (var target in action.actionParams.TargetCharacters)
-            {
-                yield return PoisonTarget(actingCharacter, target);
-            }
+            yield return PoisonTarget(action.ActingCharacter, action.actionParams.TargetCharacters[0]);
         }
 
-        //Poison target if I attack with unarmed
+        //Poison defender if feat owner attacks with unarmed
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            //Missed: skipping
-            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 yield break;
             }
 
-            //Not unarmed attack: skipping
-            if (!ValidatorsWeapon.IsUnarmed(attackMode))
-            {
-                yield break;
-            }
-
-            yield return PoisonTarget(me, target);
+            yield return PoisonTarget(attacker, defender);
         }
 
-        //Poison melee attacker
+        //Poison attacker if it uses melee against feat owner
         public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
+            GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             RollOutcome rollOutcome,
             int damageAmount)
         {
             //Missed: skipping
-            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                !ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
             }
 
-            //Not melee attack: skipping
-            if (!ValidatorsWeapon.IsMelee(attackMode))
-            {
-                yield break;
-            }
-
-            yield return PoisonTarget(me, attacker);
+            yield return PoisonTarget(defender, attacker);
         }
     }
 

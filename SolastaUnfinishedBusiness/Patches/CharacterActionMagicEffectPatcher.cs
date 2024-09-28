@@ -11,8 +11,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine;
 using static RuleDefinitions;
@@ -967,17 +965,6 @@ public static class CharacterActionMagicEffectPatcher
                         ServiceRepository.GetService<IGameLocationActionService>()
                             .ExecuteAction(actionParam, null, true);
                     }
-                }
-            }
-
-            //PATCH: support grapple and wildfire scenarios
-            if (rulesetEffect.EffectDescription.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Motion))
-            {
-                CharacterContext.ValidateGrappleAfterForcedMove(targets);
-
-                foreach (var target in targets)
-                {
-                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(target);
                 }
             }
 

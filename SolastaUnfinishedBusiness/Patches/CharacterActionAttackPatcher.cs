@@ -6,9 +6,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
-using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 using static RuleDefinitions;
 using Coroutine = TA.Coroutine;
@@ -875,13 +873,6 @@ public static class CharacterActionAttackPatcher
 
                 rulesetDefender.matchingInterruptionConditions.Clear();
                 rulesetDefender.matchingInterruption = false;
-            }
-
-            //PATCH: support grapple and wildfire scenarios
-            if (attackMode.EffectDescription.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Motion))
-            {
-                CharacterContext.ValidateGrappleAfterForcedMove(targets);
-                yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(target);
             }
 
             //PATCH: Allows condition interruption after target was attacked

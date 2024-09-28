@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -165,49 +166,40 @@ public static class CharacterActionPatcher
             var actingCharacter = __instance.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            foreach (var actionFinished in rulesetCharacter
+                         .GetEffectControllerOrSelf()
+                         .GetSubFeaturesByType<IActionFinishedByMe>())
             {
-                foreach (var actionFinished in rulesetCharacter
-                             .GetEffectControllerOrSelf()
-                             .GetSubFeaturesByType<IActionFinishedByMe>())
+                yield return actionFinished.OnActionFinishedByMe(__instance);
+            }
+
+            switch (__instance)
+            {
+                //PATCH: support for MovementTracker => clears movement cache on move step base end
+                case CharacterActionMoveStepBase:
+                case CharacterActionMagicEffect { isPostSpecialMove: true }:
+                    MovementTracker.CleanMovementCache();
+                    break;
+
+                //PATCH: support for Circle of the Wildfire cauterizing flames, and grapple scenarios
+                case CharacterActionPushed or CharacterActionPushedCustom or CharacterActionShove:
                 {
-                    yield return actionFinished.OnActionFinishedByMe(__instance);
+                    var target = __instance.ActionParams.TargetCharacters[0];
+
+                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(target);
+
+                    CharacterContext.ValidateGrappleAfterForcedMove(target);
+                    break;
                 }
             }
 
-            //PATCH: support for MoveStepFinished => clears movement cache on move step end
-            if (__instance is CharacterActionMoveStepBase)
-            {
-                MovementTracker.CleanMovementCache();
-            }
-
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
+            //PATCH: support for Old Tactics feat
+            yield return MeleeCombatFeats.HandleFeatOldTactics(__instance);
 
             //PATCH: support for Official Flanking Rules
             if (Main.Settings.UseOfficialFlankingRules)
             {
                 FlankingAndHigherGround.ClearFlankingDeterminationCache();
-            }
-
-            //PATCH: support for Old Tactics feat
-            if (actingCharacter.IsOppositeSide(Side.Ally) && __instance is CharacterActionStandUp)
-            {
-                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                foreach (var ally in Gui.Battle.GetOpposingContenders(__instance.ActingCharacter.Side))
-                {
-                    var rulesetAlly = ally.RulesetCharacter;
-                    var rulesetAllyHero = rulesetAlly.GetOriginalHero();
-
-                    if (rulesetAllyHero != null &&
-                        (rulesetAllyHero.TrainedFeats.Contains(MeleeCombatFeats.FeatOldTacticsDex) ||
-                         rulesetAllyHero.TrainedFeats.Contains(MeleeCombatFeats.FeatOldTacticsStr)))
-                    {
-                        yield return MeleeCombatFeats.HandleFeatOldTactics(__instance, ally);
-                    }
-                }
             }
 
             //PATCH: support for `ExtraConditionInterruption.UsesBonusAction`

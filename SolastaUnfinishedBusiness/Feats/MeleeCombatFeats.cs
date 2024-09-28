@@ -791,21 +791,21 @@ internal static class MeleeCombatFeats
 
     #region Old Tactics
 
-    internal static readonly FeatDefinition FeatOldTacticsStr = FeatDefinitionBuilder
+    private static readonly FeatDefinition FeatOldTacticsStr = FeatDefinitionBuilder
         .Create("FeatOldTacticsStr")
         .SetGuiPresentation(Category.Feat)
         .SetFeatures(AttributeModifierCreed_Of_Einar)
         .SetFeatFamily(GroupFeats.OldTactics)
         .AddToDB();
 
-    internal static readonly FeatDefinition FeatOldTacticsDex = FeatDefinitionBuilder
+    private static readonly FeatDefinition FeatOldTacticsDex = FeatDefinitionBuilder
         .Create("FeatOldTacticsDex")
         .SetGuiPresentation(Category.Feat)
         .SetFeatures(AttributeModifierCreed_Of_Misaye)
         .SetFeatFamily(GroupFeats.OldTactics)
         .AddToDB();
 
-    internal static IEnumerator HandleFeatOldTactics(CharacterAction characterAction, GameLocationCharacter target)
+    internal static IEnumerator HandleFeatOldTactics(CharacterAction action)
     {
         var battleManager =
             ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -815,45 +815,58 @@ internal static class MeleeCombatFeats
             yield break;
         }
 
-        if (characterAction.ActionId != Id.StandUp)
+        var standingUpCharacter = action.ActingCharacter;
+
+        if (Gui.Battle == null ||
+            action.ActionId != Id.StandUp ||
+            standingUpCharacter.Side == Side.Ally)
         {
             yield break;
         }
 
-        if (target.IsMyTurn() ||
-            !target.CanReact())
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+        foreach (var ally in Gui.Battle.GetOpposingContenders(standingUpCharacter.Side))
         {
-            yield break;
-        }
+            if (ally.IsMyTurn() ||
+                !ally.CanReact())
+            {
+                continue;
+            }
 
-        var enemy = characterAction.ActingCharacter;
+            var rulesetAllyHero = ally.RulesetCharacter.GetOriginalHero();
 
-        if (!target.IsWithinRange(enemy, 1))
-        {
-            yield break;
-        }
+            if (rulesetAllyHero == null ||
+                !ally.IsWithinRange(standingUpCharacter, 1) ||
+                (!rulesetAllyHero.TrainedFeats.Contains(FeatOldTacticsDex) &&
+                 !rulesetAllyHero.TrainedFeats.Contains(FeatOldTacticsStr)))
+            {
+                continue;
+            }
 
-        var (retaliationMode, retaliationModifier) = target.GetFirstMeleeModeThatCanAttack(enemy, battleManager);
-
-        if (retaliationMode == null)
-        {
-            (retaliationMode, retaliationModifier) = target.GetFirstRangedModeThatCanAttack(enemy, battleManager);
+            var (retaliationMode, retaliationModifier) =
+                ally.GetFirstMeleeModeThatCanAttack(standingUpCharacter, battleManager);
 
             if (retaliationMode == null)
             {
-                yield break;
+                (retaliationMode, retaliationModifier) =
+                    ally.GetFirstRangedModeThatCanAttack(standingUpCharacter, battleManager);
+
+                if (retaliationMode == null)
+                {
+                    continue;
+                }
             }
+
+            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+
+            yield return ally.MyReactForOpportunityAttack(
+                standingUpCharacter,
+                standingUpCharacter,
+                retaliationMode,
+                retaliationModifier,
+                "OldTactics",
+                battleManager: battleManager);
         }
-
-        retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
-
-        yield return target.MyReactForOpportunityAttack(
-            enemy,
-            enemy,
-            retaliationMode,
-            retaliationModifier,
-            "OldTactics",
-            battleManager: battleManager);
     }
 
     #endregion

@@ -5,8 +5,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -137,27 +135,14 @@ public static class CharacterActionShovePatcher
                 GameLocationCharacterEventSystem.Event.RotationEnd);
 
             //PATCH: support for Poisonous feat
-            if (target.IsOppositeSide(Side.Ally))
+            //Poison attacker if feat owner gets shoved
+            var rulesetTargetHero = target.RulesetCharacter.GetOriginalHero();
+
+            if (rulesetTargetHero != null &&
+                rulesetTargetHero.TrainedFeats.Contains(OtherFeats.FeatPoisonousSkin))
             {
-                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                foreach (var ally in Gui.Battle.GetOpposingContenders(characterActionShove.ActingCharacter.Side))
-                {
-                    var rulesetAlly = ally.RulesetCharacter;
-                    var rulesetAllyHero = rulesetAlly.GetOriginalHero();
-
-                    if (rulesetAllyHero != null &&
-                        rulesetAllyHero.TrainedFeats.Contains(OtherFeats.FeatPoisonousSkin))
-                    {
-                        yield return OtherFeats.HandleFeatPoisonousSkin(characterActionShove, ally);
-                    }
-                }
+                yield return OtherFeats.PoisonTarget(target, actingCharacter);
             }
-
-            //PATCH: support for Circle of the Wildfire cauterizing flames
-            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(target);
-
-            //PATCH: support grapple scenarios
-            CharacterContext.ValidateGrappleAfterForcedMove([target]);
 
             //END PATCH
 
