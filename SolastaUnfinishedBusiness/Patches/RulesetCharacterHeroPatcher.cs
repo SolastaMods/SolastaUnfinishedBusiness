@@ -1239,6 +1239,9 @@ public static class RulesetCharacterHeroPatcher
                 }
 
                 var preparedSpells = repertoire.PreparedSpells;
+                
+                __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(__instance.FeaturesToBrowse);
+                
                 var maxPreparedSpells = __instance.ComputeMaxPreparedSpells(repertoire);
 
                 repertoire.maxPreparedSpells = maxPreparedSpells;
