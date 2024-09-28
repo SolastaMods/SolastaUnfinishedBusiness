@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -175,14 +176,49 @@ public static class CharacterActionPatcher
 
             switch (__instance)
             {
-                //PATCH: support for MovementTracker => clears movement cache on move step base end
                 case CharacterActionMoveStepBase:
                 case CharacterActionMagicEffect { isPostSpecialMove: true }:
+                {
+                    //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
+                    var extraAoOEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(actingCharacter);
+
+                    while (extraAoOEvents.MoveNext())
+                    {
+                        yield return extraAoOEvents.Current;
+                    }
+
+                    //PATCH: support for MovementTracker
                     MovementTracker.CleanMovementCache();
+
+                    //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord, or enemy moved by other means
+                    if (!actingCharacter.IsMyTurn())
+                    {
+                        var cursorService = ServiceRepository.GetService<ICursorService>();
+                        var cursorLocationBattleFriendlyTurn =
+                            cursorService.AllCursors.OfType<CursorLocationBattleFriendlyTurn>().First();
+
+                        if (!cursorLocationBattleFriendlyTurn.Active)
+                        {
+                            yield break;
+                        }
+
+                        cursorLocationBattleFriendlyTurn.dirty = true;
+                        cursorLocationBattleFriendlyTurn.ComputeValidDestinations();
+                    }
+
                     break;
+                }
 
                 //PATCH: support for Circle of the Wildfire cauterizing flames, and grapple scenarios
-                case CharacterActionPushed or CharacterActionPushedCustom or CharacterActionShove:
+                case CharacterActionPushed:
+                case CharacterActionPushedCustom:
+                {
+                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(actingCharacter);
+
+                    CharacterContext.ValidateGrappleAfterForcedMove(actingCharacter);
+                    break;
+                }
+                case CharacterActionShove:
                 {
                     var target = __instance.ActionParams.TargetCharacters[0];
 

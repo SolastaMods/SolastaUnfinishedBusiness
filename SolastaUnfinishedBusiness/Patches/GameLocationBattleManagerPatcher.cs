@@ -251,56 +251,6 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterMoveEnd))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class HandleCharacterMoveEnd_Patch
-    {
-        [UsedImplicitly]
-        public static IEnumerator Postfix(
-            IEnumerator values,
-            GameLocationBattleManager __instance,
-            GameLocationCharacter mover)
-        {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            if (__instance.Battle == null ||
-                mover.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
-            var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
-
-            while (extraEvents.MoveNext())
-            {
-                yield return extraEvents.Current;
-            }
-
-            //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord, or enemy moved by other means
-            if (mover.IsMyTurn())
-            {
-                yield break;
-            }
-
-            var cursorService = ServiceRepository.GetService<ICursorService>();
-            var cursorLocationBattleFriendlyTurn =
-                cursorService.AllCursors.OfType<CursorLocationBattleFriendlyTurn>().First();
-
-            if (!cursorLocationBattleFriendlyTurn.Active)
-            {
-                yield break;
-            }
-
-            cursorLocationBattleFriendlyTurn.dirty = true;
-            cursorLocationBattleFriendlyTurn.ComputeValidDestinations();
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationBattleManager),
         nameof(GameLocationBattleManager.HandleCharacterAttackHitConfirmed))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

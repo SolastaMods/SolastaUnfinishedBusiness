@@ -52,12 +52,16 @@ internal static class AttacksOfOpportunity
         }
     }
 
-    internal static IEnumerator ProcessOnCharacterMoveEnd(
-        GameLocationBattleManager battleManager,
-        GameLocationCharacter mover)
+    internal static IEnumerator ProcessOnCharacterMoveEnd(GameLocationCharacter mover)
     {
-        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+        if (Gui.Battle == null ||
+            mover.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+        {
+            yield break;
+        }
 
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
         var units = Gui.Battle.AllContenders
             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             .ToList(); // avoid changing enumerator
@@ -72,10 +76,11 @@ internal static class AttacksOfOpportunity
                 continue;
             }
 
-            foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<CanMakeAoOOnReachEntered>()
+            foreach (var canMakeAoOOnReachEntered in unit.RulesetActor.GetSubFeaturesByType<CanMakeAoOOnReachEntered>()
                          .Where(feature => feature.IsValid(unit, mover)))
             {
-                yield return brace.Process(unit, mover, movement, battleManager, actionManager, brace.AllowRange);
+                yield return canMakeAoOOnReachEntered.Process(
+                    unit, mover, movement, battleManager, actionManager, canMakeAoOOnReachEntered.AllowRange);
             }
         }
     }
