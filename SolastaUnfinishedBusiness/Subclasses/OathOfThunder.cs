@@ -290,7 +290,7 @@ public sealed class OathOfThunder : AbstractSubclass
             string effectName,
             ref ActionModifier attackModifier)
         {
-            if (IsOathOfThunderWeapon(attackMode, null, myself))
+            if (attackMode == null || IsOathOfThunderWeapon(attackMode, null, myself))
             {
                 return;
             }

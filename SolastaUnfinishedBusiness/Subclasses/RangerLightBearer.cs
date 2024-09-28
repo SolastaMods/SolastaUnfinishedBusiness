@@ -464,7 +464,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             string effectName,
             ref ActionModifier attackModifier)
         {
-            attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
+            attackMode?.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
         }
     }
 

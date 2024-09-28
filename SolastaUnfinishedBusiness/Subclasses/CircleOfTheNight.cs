@@ -408,7 +408,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             if (myself.HasConditionOfType(ConditionWildShapeSubstituteForm)
                 && attackProximity == BattleDefinitions.AttackProximity.PhysicalReach)
             {
-                attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
+                attackMode?.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
             }
         }
     }

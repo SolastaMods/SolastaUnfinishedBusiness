@@ -244,7 +244,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             string effectName,
             ref ActionModifier attackModifier)
         {
-            if (HasSpecializedWeapon(myself, attackMode))
+            if (attackMode == null || HasSpecializedWeapon(myself, attackMode))
             {
                 return;
             }
@@ -316,7 +316,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             string effectName,
             ref ActionModifier attackModifier)
         {
-            if (!HasSpecializedWeapon(myself, attackMode))
+            if (attackMode == null || !HasSpecializedWeapon(myself, attackMode))
             {
                 return;
             }
