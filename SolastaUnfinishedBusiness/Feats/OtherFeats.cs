@@ -43,6 +43,18 @@ internal static class OtherFeats
     internal const string FeatMagicInitiateTag = "Initiate";
     internal const string FeatSpellSniperTag = "Sniper";
 
+    #region Grappler
+
+    // it's all handled in grapplerContext except for strength increase
+    internal static readonly FeatDefinition FeatGrappler = FeatDefinitionBuilder
+        .Create("FeatGrappler")
+        .SetGuiPresentation(Category.Feat)
+        .AddFeatures(AttributeModifierCreed_Of_Einar)
+        .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+        .AddToDB();
+
+    #endregion
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featAcrobat = BuildAcrobat();
@@ -89,6 +101,7 @@ internal static class OtherFeats
             featEldritchAdept,
             featFrostAdaptation,
             featGiftOfTheChromaticDragon,
+            FeatGrappler,
             featHealer,
             featInfusionAdept,
             featInspiringLeader,
@@ -145,6 +158,7 @@ internal static class OtherFeats
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featGiftOfTheChromaticDragon,
             chefGroup,
+            FeatGrappler,
             featHealer,
             featInspiringLeader,
             featLucky,

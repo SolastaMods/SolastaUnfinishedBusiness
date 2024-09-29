@@ -1,6 +1,7 @@
 1.5.97.32:
 
 - added General > Character > 'Add grapple action to all playable races'
+- added homebrew Grappler feat [TT one is really meh]
 - added Interface > Game UI > 'Hold SHIFT to snap line spells to grid'
 - fixed an exploit keeping memorized spells when removing attribute enhancement items [VANILLA]
 - fixed an instability on action bar when ally NPCs or summons die
@@ -18,6 +19,7 @@
 - improved consistency between highlighted and actual tiles when casting line spells [VANILLA]
 - improved Gravity Fissure spell by using angle to the line as a tiebreaker to which cell should pull
 - improved RESPEC to properly render new hero on UI, and fixed absurd AC under certain scenarios
+- improved slot type SHIFT key modifier to only require the press on modals confirmation or spell selection
 - improved tooltips to be wider, and better fully render at 1080p or lower resolutions as one in Steam Deck
 
 KNOWN ISSUES:

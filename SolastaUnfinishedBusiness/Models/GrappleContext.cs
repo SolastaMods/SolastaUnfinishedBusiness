@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
@@ -14,20 +14,22 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Behaviors.Specific.DistanceCalculation;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class GrappleContext
 {
-    private const string GrappleName = "Grapple";
-    private const string DisableGrappleName = "DisableGrapple";
-
-    internal const string ConditionGrappleSourceName = $"Condition{GrappleName}Source";
-    private const string ConditionGrappleTargetName = $"Condition{GrappleName}Target";
+    private const string Grapple = "Grapple";
+    private const string DisableGrapple = "DisableGrapple";
+    private const string ConditionGrappleSourceName = $"Condition{Grapple}Source";
+    private const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
+    private const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
+    private const string ConditionGrappleTargetName = $"Condition{Grapple}Target";
 
     private static readonly FeatureDefinitionPower PowerGrapple = FeatureDefinitionPowerBuilder
-        .Create($"Power{GrappleName}")
-        .SetGuiPresentation($"Action{GrappleName}", Category.Action, hidden: true)
+        .Create($"Power{Grapple}")
+        .SetGuiPresentation($"Action{Grapple}", Category.Action, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost)
         .SetShowCasting(false)
         .SetEffectDescription(
@@ -40,8 +42,8 @@ internal static class GrappleContext
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerDisableGrapple = FeatureDefinitionPowerBuilder
-        .Create($"Power{DisableGrappleName}")
-        .SetGuiPresentation($"Action{DisableGrappleName}", Category.Action, hidden: true)
+        .Create($"Power{DisableGrapple}")
+        .SetGuiPresentation($"Action{DisableGrapple}", Category.Action, hidden: true)
         .SetShowCasting(false)
         .SetUsesFixed(ActivationTime.NoCost)
         .SetEffectDescription(
@@ -54,7 +56,7 @@ internal static class GrappleContext
         .AddToDB();
 
     private static readonly ActionDefinition ActionGrapple = ActionDefinitionBuilder
-        .Create($"Action{GrappleName}")
+        .Create($"Action{Grapple}")
         .SetGuiPresentation(Category.Action, AttackFree)
         .OverrideClassName("UsePower")
         .SetActivatedPower(PowerGrapple)
@@ -65,7 +67,7 @@ internal static class GrappleContext
         .AddToDB();
 
     private static readonly ActionDefinition ActionDisableGrapple = ActionDefinitionBuilder
-        .Create($"Action{DisableGrappleName}")
+        .Create($"Action{DisableGrapple}")
         .SetGuiPresentation(Category.Action, AttackFree)
         .OverrideClassName("UsePower")
         .SetActivatedPower(PowerDisableGrapple)
@@ -94,25 +96,69 @@ internal static class GrappleContext
             .SetConditionParticleReference(ConditionDefinitions.ConditionRestrained)
             .AddToDB();
 
+        const SituationalContext TARGET_HAS_CONDITION_FROM_SOURCE =
+            (SituationalContext)ExtraSituationalContext.TargetHasConditionFromSource;
+
+        var actionAffinityGrappleSource = FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityGrappleSource")
+            .SetGuiPresentationNoContent(true)
+            .SetForbiddenActions(ActionDefinitions.Id.Climb)
+            .AddToDB();
+
+        var combatAffinityGrappleSource = FeatureDefinitionCombatAffinityBuilder
+            .Create("CombatAffinityGrappleSource")
+            .SetGuiPresentationNoContent(true)
+            .SetSituationalContext(TARGET_HAS_CONDITION_FROM_SOURCE, conditionGrappleTarget)
+            .SetAttackOfOpportunityImmunity(true)
+            .AddToDB();
+
+        var combatAffinityGrappleSourceWithGrappler = FeatureDefinitionCombatAffinityBuilder
+            .Create("CombatAffinityGrappleSourceWithGrappler")
+            .SetGuiPresentationNoContent(true)
+            .SetSituationalContext(TARGET_HAS_CONDITION_FROM_SOURCE, conditionGrappleTarget)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .AddToDB();
+
         _ = ConditionDefinitionBuilder
             .Create(ConditionGrappleSourceName)
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create("ActionAffinityGrappleSource")
-                    .SetGuiPresentationNoContent(true)
-                    .SetForbiddenActions(ActionDefinitions.Id.Climb, ActionDefinitions.Id.Jump)
-                    .AddToDB(),
-                //TODO: improve this as it will prevent any grappled creature from attacking any grappler
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create("CombatAffinityGrappleSource")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSituationalContext(SituationalContext.TargetHasCondition, conditionGrappleTarget)
-                    .SetAttackOfOpportunityImmunity(true)
-                    .AddToDB(),
+                actionAffinityGrappleSource,
+                combatAffinityGrappleSource,
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
-            .AddCustomSubFeatures(new CustomBehaviorConditionGrappleSource())
+            .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
+            .SetCancellingConditions(
+                DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
+                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+            .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
+            .AddToDB();
+
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionGrappleSourceWithGrapplerName)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionReckless)
+            .SetConditionType(ConditionType.Neutral)
+            .SetFeatures(
+                actionAffinityGrappleSource,
+                combatAffinityGrappleSource,
+                combatAffinityGrappleSourceWithGrappler)
+            .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
+            .SetCancellingConditions(
+                DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
+                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+            .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
+            .AddToDB();
+
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionGrappleSourceWithGrapplerLargerName)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSlowed)
+            .SetConditionType(ConditionType.Neutral)
+            .SetFeatures(
+                actionAffinityGrappleSource,
+                combatAffinityGrappleSource,
+                combatAffinityGrappleSourceWithGrappler,
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
+            .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
                     x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
@@ -164,6 +210,16 @@ internal static class GrappleContext
                 rulesetTarget.RemoveCondition(activeConditionTarget);
             }
         }
+    }
+
+    internal static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
+    {
+        return rulesetCharacter.HasConditionOfCategoryAndType(
+                   AttributeDefinitions.TagEffect, ConditionGrappleSourceName) ||
+               rulesetCharacter.HasConditionOfCategoryAndType(
+                   AttributeDefinitions.TagEffect, ConditionGrappleSourceWithGrapplerName) ||
+               rulesetCharacter.HasConditionOfCategoryAndType(
+                   AttributeDefinitions.TagEffect, ConditionGrappleSourceWithGrapplerLargerName);
     }
 
     private static bool GetGrappledActor(
@@ -276,9 +332,19 @@ internal static class GrappleContext
                 rulesetDefender.RemoveCondition(condition);
             }
 
-            // apply new grappler condition
+            // apply new grappler condition taking if hero has Grappler feat into consideration as well as target size
+            var sourceConditionName = ConditionGrappleSourceName;
+
+            if (rulesetAttacker.GetOriginalHero()?.TrainedFeats.Contains(OtherFeats.FeatAlert) == true)
+            {
+                sourceConditionName =
+                    rulesetAttacker.SizeDefinition.WieldingSize < rulesetDefender.SizeDefinition.WieldingSize
+                        ? ConditionGrappleSourceWithGrapplerLargerName
+                        : ConditionGrappleSourceWithGrapplerName;
+            }
+
             rulesetAttacker.InflictCondition(
-                ConditionGrappleSourceName,
+                sourceConditionName,
                 DurationType.UntilAnyRest,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -286,7 +352,7 @@ internal static class GrappleContext
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                ConditionGrappleSourceName,
+                sourceConditionName,
                 0,
                 0,
                 0);
@@ -326,6 +392,13 @@ internal static class GrappleContext
 
     private sealed class OnConditionAddedOrRemovedConditionGrappleTarget : IOnConditionAddedOrRemoved
     {
+        private static readonly string[] PossibleConditionsToRemove =
+        [
+            ConditionGrappleSourceName,
+            ConditionGrappleSourceWithGrapplerName,
+            ConditionGrappleSourceWithGrapplerLargerName
+        ];
+
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -336,11 +409,14 @@ internal static class GrappleContext
         {
             var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
-            if (rulesetSource.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName, out var activeConditionSource) &&
-                activeConditionSource.SourceGuid == rulesetCondition.SourceGuid)
+            foreach (var conditionName in PossibleConditionsToRemove)
             {
-                rulesetSource.RemoveCondition(activeConditionSource);
+                if (rulesetSource.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionName, out var activeConditionSource) &&
+                    activeConditionSource.SourceGuid == rulesetCondition.SourceGuid)
+                {
+                    rulesetSource.RemoveCondition(activeConditionSource);
+                }
             }
         }
     }
@@ -349,6 +425,8 @@ internal static class GrappleContext
         : IModifyWeaponAttackMode, IMoveStepStarted, IOnItemEquipped, IPhysicalAttackInitiatedByMe,
             IOnConditionAddedOrRemoved
     {
+        internal static readonly CustomBehaviorConditionGrappleSource Marker = new();
+
         // should not use a versatile weapon in two-handed mode
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
@@ -365,25 +443,40 @@ internal static class GrappleContext
                 return;
             }
 
-            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
 
+            // ensure there is a non-blocked path for this movement to handle enemies larger than 1x1 cell
+            var validPositions = GetValidPositionsWithinOneCell(target);
+
+            if (!validPositions.Contains(source))
+            {
+                EjectCharactersInArea(mover, target);
+                rulesetTarget.RemoveCondition(activeCondition);
+
+                return;
+            }
+
             // be safe and if it cannot place target, get rid of grapple to avoid exploits
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+
             if (positioningService.CanPlaceCharacter(target, source, CellHelpers.PlacementMode.IgnoreOccupantsMoving))
             {
                 target.StartTeleportTo(source, mover.Orientation, false);
                 target.FinishMoveTo(source, mover.Orientation);
                 target.StopMoving(mover.Orientation);
 
-                var isLastStep = DistanceCalculation.GetDistanceFromCharacter(mover, mover.DestinationPosition) <= 1;
+                var isLastStep = GetDistanceFromCharacter(mover, mover.DestinationPosition) <= 1;
 
                 if (isLastStep)
                 {
                     EjectCharactersInArea(mover, target);
                 }
+
+                return;
             }
-            else if (DistanceCalculation.GetDistanceFromCharacter(target, mover.DestinationPosition) >
-                     GetUnarmedReachRange(mover))
+
+            // remove condition if grappler cannot reach anymore after all of above
+            if (GetDistanceFromCharacter(target, mover.DestinationPosition) > GetUnarmedReachRange(mover))
             {
                 rulesetTarget.RemoveCondition(activeCondition);
             }
@@ -433,6 +526,43 @@ internal static class GrappleContext
             }
 
             yield break;
+        }
+
+        private static List<int3> GetValidPositionsWithinOneCell(GameLocationCharacter character)
+        {
+            var positions = new List<int3>();
+            var gridAccessor = GridAccessor.Default;
+            var boxInt = new BoxInt(character.LocationPosition, character.LocationPosition);
+
+            boxInt.Inflate(1, 0, 1);
+
+            foreach (var position in boxInt.EnumerateAllPositionsWithin())
+            {
+                var magnitude = (position - character.LocationPosition).magnitude;
+
+                if (magnitude > 1 || magnitude < 1 || // floats...
+                    character.LocationPosition == position)
+                {
+                    continue;
+                }
+
+                gridAccessor.FetchSector(position);
+
+                if (gridAccessor.sector == null)
+                {
+                    continue;
+                }
+
+                gridAccessor.sector.GetValidAltitudeRangeAtPosition(
+                    position, out var minAltitude, out var maxAltitude);
+
+                if ((maxAltitude != short.MaxValue && minAltitude != maxAltitude) || minAltitude != short.MinValue)
+                {
+                    positions.Add(new int3(position.x, maxAltitude, position.z));
+                }
+            }
+
+            return positions;
         }
 
         private static void EjectCharactersInArea(
