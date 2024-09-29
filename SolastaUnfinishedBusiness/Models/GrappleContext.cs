@@ -188,12 +188,12 @@ internal static class GrappleContext
         return found;
     }
 
-    // only Astral Reach grants reach on unarmed
     private static int GetUnarmedReachRange(GameLocationCharacter character)
     {
         var hero = character.RulesetCharacter.GetOriginalHero();
 
         if (hero != null &&
+            // only Astral Reach grants reach on unarmed
             hero.GetFeaturesByType<FeatureDefinition>().Any(x => x.Name == AstralReach.AstralReachFeatureName))
         {
             return 2;
@@ -267,7 +267,7 @@ internal static class GrappleContext
             var conditionsToRemove = rulesetDefender.ConditionsByCategory
                 .SelectMany(x => x.Value)
                 .Where(x => x.ConditionDefinition.Name == ConditionGrappleTargetName)
-                .ToList();
+                .ToArray();
 
             foreach (var condition in conditionsToRemove)
             {
@@ -364,11 +364,9 @@ internal static class GrappleContext
 
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
-            var canPlaceCharacter =
-                positioningService.CanPlaceCharacter(target, source, CellHelpers.PlacementMode.IgnoreOccupantsMoving);
 
             // be safe and if it cannot place target, get rid of grapple to avoid exploits
-            if (canPlaceCharacter)
+            if (positioningService.CanPlaceCharacter(target, source, CellHelpers.PlacementMode.IgnoreOccupantsMoving))
             {
                 target.StartTeleportTo(source, mover.Orientation, false);
                 target.FinishMoveTo(source, mover.Orientation);
@@ -381,7 +379,8 @@ internal static class GrappleContext
                     EjectCharactersInArea(mover, target);
                 }
             }
-            else
+            else if (DistanceCalculation.GetDistanceFromCharacter(target, mover.DestinationPosition) >
+                     GetUnarmedReachRange(mover))
             {
                 rulesetTarget.RemoveCondition(activeCondition);
             }
