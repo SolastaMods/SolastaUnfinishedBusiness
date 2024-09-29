@@ -4,8 +4,9 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
+    "Definition:ActionAffinityConditionRestrained:0a11d859909c2624086506f327824de8",
     "Definition:ActionAffinityGrappled:1c2c02a0e9f823c489b3d62d03534617",
-    "Definition:ActionAffinityGrappleTarget:7d52efc0-c9c9-56d9-b529-3f916e546906"
+    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

@@ -6,7 +6,7 @@
   "features": [
     "Definition:ActionAffinityGrappleSource:63eda617-950c-54d4-a756-57dee8962676",
     "Definition:CombatAffinityGrappleSource:b3a42936-7287-5088-aaa8-9f188c06c75c",
-    "Definition:MovementAffinityGrappleSource:ea9dc190-cfe6-5f62-a748-bcc5493c6b62"
+    "Definition:MovementAffinityConditionSlowed:d1cc31d667617454e9751c34328770d4"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

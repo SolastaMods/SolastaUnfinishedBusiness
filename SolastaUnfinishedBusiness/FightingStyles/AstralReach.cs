@@ -12,17 +12,18 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class AstralReach : AbstractFightingStyle
 {
-    internal const string AstralReachName = "AstralReach";
+    private const string AstralReachName = "AstralReach";
+    internal const string AstralReachFeatureName = $"Feature{AstralReachName}";
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(AstralReachName)
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(AstralReachName, Resources.Lunger, 256))
         .SetFeatures(
             FeatureDefinitionBuilder
-                .Create($"Feature{AstralReachName}")
+                .Create(AstralReachFeatureName)
                 .SetGuiPresentationNoContent(true)
-                .AddCustomSubFeatures(new IncreaseWeaponReach(1, (attackMode, _, _) =>
-                    ValidatorsWeapon.IsUnarmed(attackMode)))
+                .AddCustomSubFeatures(
+                    new IncreaseWeaponReach(1, (attackMode, _, _) => ValidatorsWeapon.IsUnarmed(attackMode)))
                 .AddToDB())
         .AddToDB();
 

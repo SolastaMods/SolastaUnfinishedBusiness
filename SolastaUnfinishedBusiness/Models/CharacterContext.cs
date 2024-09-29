@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -1394,11 +1395,8 @@ internal static partial class CharacterContext
             .SetSpecialDuration(DurationType.UntilAnyRest)
             .SetFeatures(
                 FeatureDefinitionActionAffinitys.ActionAffinityGrappled,
-                FeatureDefinitionActionAffinityBuilder
-                    .Create("ActionAffinityGrappleTarget")
-                    .SetGuiPresentationNoContent(true)
-                    .SetRestrictedActions(ActionDefinitions.Id.TacticalMove, ActionDefinitions.Id.SpecialMove)
-                    .AddToDB())
+                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained,
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedConditionGrappleTarget())
             .SetConditionParticleReference(ConditionDefinitions.ConditionRestrained)
             .AddToDB();
@@ -1413,18 +1411,14 @@ internal static partial class CharacterContext
                     .SetGuiPresentationNoContent(true)
                     .SetForbiddenActions(ActionDefinitions.Id.Climb, ActionDefinitions.Id.Jump)
                     .AddToDB(),
+                //TODO: improve this as it will prevent any grappled creature from attacking any grappler
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityGrappleSource")
                     .SetGuiPresentationNoContent(true)
-                    //TODO: improve this as it will prevent any grappled creature from attacking a grappler
                     .SetSituationalContext(SituationalContext.TargetHasCondition, conditionGrappleTarget)
                     .SetAttackOfOpportunityImmunity(true)
                     .AddToDB(),
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create("MovementAffinityGrappleSource")
-                    .SetGuiPresentationNoContent(true)
-                    .SetBaseSpeedMultiplicativeModifier(0.5f)
-                    .AddToDB())
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
             .AddCustomSubFeatures(new CustomBehaviorConditionGrappleSource())
             .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
@@ -1503,7 +1497,7 @@ internal static partial class CharacterContext
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            // remove any other grappled condition
+            // should only be grappled by one grappler at a time, last wins
             var conditionsToRemove = rulesetDefender.ConditionsByCategory
                 .SelectMany(x => x.Value)
                 .Where(x => x.ConditionDefinition.Name == ConditionGrappleTargetName)
@@ -1564,7 +1558,6 @@ internal static partial class CharacterContext
 
     private sealed class OnConditionAddedOrRemovedConditionGrappleTarget : IOnConditionAddedOrRemoved
     {
-        // should only be grappled by one grappler at a time, last wins
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -1598,9 +1591,7 @@ internal static partial class CharacterContext
         {
             var rulesetMover = mover.RulesetCharacter;
 
-            if (!rulesetMover.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName) ||
-                !GetGrappledActor(rulesetMover, out var rulesetTarget, out var activeCondition))
+            if (!GetGrappledActor(rulesetMover, out var rulesetTarget, out var activeCondition))
             {
                 return;
             }
@@ -1608,11 +1599,18 @@ internal static partial class CharacterContext
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
 
-            // be safe and if it cannot place target, get rid of grapple to avoid sploits
+            // be safe and if it cannot place target, get rid of grapple to avoid exploits
             if (positioningService.CanPlaceCharacter(target, source, CellHelpers.PlacementMode.IgnoreOccupantsMoving))
             {
-                target.StartTeleportTo(source, mover.Orientation);
+                target.StartTeleportTo(source, mover.Orientation, false);
                 target.FinishMoveTo(source, mover.Orientation);
+                target.StopMoving(mover.Orientation);
+
+                // only eject characters when mover is about to complete last step
+                if (DistanceCalculation.GetDistanceFromCharacter(mover, mover.DestinationPosition) <= 1)
+                {
+                    EjectCharactersInArea(mover, target);
+                }
             }
             else
             {
@@ -1630,7 +1628,7 @@ internal static partial class CharacterContext
             }
         }
 
-        // should lose grapple if attacks with two-handed or with the free hand
+        // should lose grapple if attacks with two-handed or with any free hand
         public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1650,6 +1648,114 @@ internal static partial class CharacterContext
             }
 
             yield break;
+        }
+
+        private static void EjectCharactersInArea(
+            GameLocationCharacter grappleSource, GameLocationCharacter grappleTarget)
+        {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var targetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
+            var boxArea = grappleTarget.LocationBoundingBox;
+            var affectedCharacters = new List<GameLocationCharacter>();
+
+            targetingService.ComputeTargetsOfAreaOfEffect(boxArea, affectedCharacters, null);
+
+            foreach (var affectedCharacter in affectedCharacters)
+            {
+                if (affectedCharacter == grappleSource ||
+                    affectedCharacter == grappleTarget ||
+                    affectedCharacter.RulesetCharacter == null ||
+                    !affectedCharacter.RulesetActor.CanReceiveMotion)
+                {
+                    continue;
+                }
+
+                var horizontalBoxArea = boxArea;
+
+                horizontalBoxArea.Min.y = affectedCharacter.LocationPosition.y;
+                horizontalBoxArea.Max.y = affectedCharacter.LocationPosition.y;
+
+                if (!ComputeEjectDestination(
+                        horizontalBoxArea,
+                        affectedCharacter,
+                        affectedCharacter.LocationPosition,
+                        false,
+                        positioningService,
+                        grappleSource.DestinationPosition,
+                        out var destination))
+                {
+                    continue;
+                }
+
+                var actionParams =
+                    new CharacterActionParams(affectedCharacter, ActionDefinitions.Id.ExplorationMove, destination);
+
+                actionService.ExecuteAction(actionParams, null, false);
+            }
+        }
+
+        private static bool ComputeEjectDestination(
+            BoxInt boxArea,
+            GameLocationCharacter character,
+            int3 currentPosition,
+            bool canStandOnly,
+            IGameLocationPositioningService positioningService,
+            int3 forbiddenPosition,
+            out int3 destination)
+        {
+            var boxInt = boxArea;
+            var ejectDestination = false;
+
+            boxInt.Inflate(1, 0, 1);
+
+            destination = currentPosition;
+
+            foreach (var candidateDestination in boxInt.EnumerateAllPositionsWithin())
+            {
+                if (boxArea.Contains(candidateDestination) ||
+                    candidateDestination == currentPosition ||
+                    candidateDestination == forbiddenPosition)
+                {
+                    continue;
+                }
+
+                var other = new BoxInt(
+                    candidateDestination + character.SizeParameters.minExtent,
+                    candidateDestination + character.SizeParameters.maxExtent);
+                var doNotIntersect = !boxArea.Intersects(other);
+
+
+                if (!doNotIntersect ||
+                    !positioningService.CanPlaceCharacter(
+                        character, candidateDestination, CellHelpers.PlacementMode.Station) ||
+                    positioningService.RaycastGrid(
+                        currentPosition,
+                        candidateDestination,
+                        CellFlags.Surface.MovementBlocker,
+                        CellFlags.Side.AllHorizontalSides) ||
+                    (canStandOnly &&
+                     !positioningService.CanCharacterStayAtPosition_Floor(character, candidateDestination, true)))
+                {
+                    continue;
+                }
+
+                if (ejectDestination)
+                {
+                    var magnitudeCandidate = (candidateDestination - currentPosition).magnitude2DSqr;
+                    var magnitudeDestination = (destination - currentPosition).magnitude2DSqr;
+
+                    if (!magnitudeCandidate.IsReallyInferior(magnitudeDestination))
+                    {
+                        continue;
+                    }
+                }
+
+                destination = candidateDestination;
+                ejectDestination = true;
+            }
+
+            return ejectDestination;
         }
     }
 
@@ -1686,8 +1792,7 @@ internal static partial class CharacterContext
             return;
         }
 
-        if (rulesetTarget.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionGrappleSourceName) &&
-            GetGrappledActor(rulesetTarget, out var rulesetGrappled, out var activeCondition))
+        if (GetGrappledActor(rulesetTarget, out var rulesetGrappled, out var activeCondition))
         {
             var grappled = GameLocationCharacter.GetFromActor(rulesetGrappled);
             var allowedRange = GetUnarmedReachRange(target);
@@ -1719,7 +1824,7 @@ internal static partial class CharacterContext
         var hero = character.RulesetCharacter.GetOriginalHero();
 
         if (hero != null &&
-            hero.GetFeaturesByType<FeatureDefinition>().Any(x => x.Name == $"Feature{AstralReach.AstralReachName}"))
+            hero.GetFeaturesByType<FeatureDefinition>().Any(x => x.Name == AstralReach.AstralReachFeatureName))
         {
             return 2;
         }
