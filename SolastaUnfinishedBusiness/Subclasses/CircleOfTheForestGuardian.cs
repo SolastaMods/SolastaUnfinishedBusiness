@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -69,7 +70,9 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .Create($"Condition{Name}BarkWard")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
-            .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .SetCancellingConditions(
+                DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
+                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
             .AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard))
             .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();
@@ -78,7 +81,9 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .Create($"Condition{Name}ImprovedBarkWard")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
-            .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .SetCancellingConditions(
+                DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
+                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
             .SetParentCondition(conditionBarkWard)
             .SetFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity)
             .AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard))

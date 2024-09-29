@@ -370,7 +370,9 @@ public sealed class MartialForceKnight : AbstractSubclass
             .Create($"Condition{Name}ForceBulwarkSelf")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .SetCancellingConditions(
+                DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
+                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedForceBulwark(conditionForceBulwark))
             .AddToDB();
 
