@@ -21,13 +21,20 @@ public static class ActiveCharacterPanelPatcher
     public static class Refresh_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(ActiveCharacterPanel __instance)
+        public static bool Prefix(ActiveCharacterPanel __instance)
         {
             //prevent null check issues
             if (__instance.GuiCharacter?.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                return false;
             }
+
+            return true;
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(ActiveCharacterPanel __instance)
+        {
 
             //PATCH: support for custom point pools and concentration powers on portrait
             IconsOnPortrait.CharacterPanelRefresh(__instance);
