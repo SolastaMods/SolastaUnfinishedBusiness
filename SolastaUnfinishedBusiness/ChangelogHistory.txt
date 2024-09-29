@@ -3,6 +3,7 @@
 - added General > Character > 'Add grapple action to all playable races'
 - added Interface > Game UI > 'Hold SHIFT to snap line spells to grid'
 - fixed an exploit keeping memorized spells when removing attribute enhancement items [VANILLA]
+- fixed an instability on action bar when ally NPCs or summons die
 - fixed chain reactions leading to an instability under complex scenarios
 - fixed custom campaigns translator missing set location status names in quest steps outcome
 - fixed Lightning and Obscurement rules not applying line of sight checks

@@ -8,13 +8,7 @@ internal static class IconsOnPortrait
 {
     internal static void CharacterPanelRefresh(ActiveCharacterPanel panel)
     {
-        var character = panel.GuiCharacter?.RulesetCharacter;
-
-        if (character is null or { IsDeadOrDyingOrUnconscious: true })
-        {
-            return;
-        }
-
+        var character = panel.GuiCharacter.RulesetCharacter;
         var poolPrefab = panel.sorceryPointsBox.gameObject;
         var concentrationPrefab = panel.concentrationGroup.gameObject;
         var layout = panel.transform.Find("RightLayout");

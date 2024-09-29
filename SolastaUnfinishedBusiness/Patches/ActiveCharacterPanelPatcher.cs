@@ -23,7 +23,8 @@ public static class ActiveCharacterPanelPatcher
         [UsedImplicitly]
         public static void Postfix(ActiveCharacterPanel __instance)
         {
-            if (__instance.GuiCharacter.RulesetCharacter is not { IsDeadOrDying: false })
+            //prevent null check issues
+            if (__instance.GuiCharacter?.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
