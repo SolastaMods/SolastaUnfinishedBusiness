@@ -278,7 +278,7 @@ internal static class Tooltips
         component.Apply();
     }
 
-    internal static TooltipFeatureWidthMod ModifyWidth(TooltipFeature parent)
+    internal static void ModifyWidth(TooltipFeature parent)
     {
         if (!parent.TryGetComponent<TooltipFeatureWidthMod>(out var component))
         {
@@ -287,7 +287,6 @@ internal static class Tooltips
         }
 
         component.Apply();
-        return component;
     }
 }
 

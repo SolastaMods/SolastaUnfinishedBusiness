@@ -39,7 +39,7 @@ public static class CharacterActionBreakFreePatcher
             }
 
             var sourceGuid = restrainingCondition.SourceGuid;
-            var action = (AiContext.BreakFreeType)restrainingCondition?.Amount;
+            var action = (AiContext.BreakFreeType)restrainingCondition.Amount;
             var actionModifier = new ActionModifier();
             var checkDC = 10;
             var success = false;
