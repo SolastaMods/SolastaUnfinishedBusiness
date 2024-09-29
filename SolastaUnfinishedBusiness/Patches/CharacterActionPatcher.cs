@@ -145,10 +145,6 @@ public static class CharacterActionPatcher
                     CustomReactionsContext.ReadReadyActionPreferredCantrip(__instance.actionParams);
                     break;
 
-                case CharacterActionSpendPower spendPower:
-                    PowerBundle.SpendBundledPowerIfNeeded(spendPower);
-                    break;
-
                 case CharacterActionMoveStepBase characterActionMoveStepBase:
                     OtherFeats.NotifyFeatStealth(characterActionMoveStepBase);
                     break;

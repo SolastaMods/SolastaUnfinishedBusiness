@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 
@@ -86,6 +87,11 @@ public static class CharacterActionSpendPowerPatcher
             }
 
             var actionModifier = new ActionModifier();
+
+            // BEGIN PATCH
+            PowerBundle.SpendBundledPowerIfNeeded(__instance);
+
+            // END PATCH
 
             // Spend the power, if this does not come from an item
             if (activePower is { OriginItem: null })
