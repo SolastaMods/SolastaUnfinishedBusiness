@@ -75,9 +75,10 @@ internal static class GrappleContext
         .SetFormType(ActionDefinitions.ActionFormType.Large)
         .AddToDB();
 
-    internal static void LoadGrapple()
+    internal static void LateLoad()
     {
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName);
+        var battlePackage =
+            AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName, AiContext.RandomType.RandomMediumLow);
 
         var conditionGrappleTarget = ConditionDefinitionBuilder
             .Create(ConditionGrappleTargetName)
@@ -85,7 +86,6 @@ internal static class GrappleContext
             .SetConditionType(ConditionType.Detrimental)
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics)
             .SetBrain(battlePackage, true)
-            .SetSpecialDuration(DurationType.UntilAnyRest)
             .SetFeatures(
                 FeatureDefinitionActionAffinitys.ActionAffinityGrappled,
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained,
@@ -113,7 +113,9 @@ internal static class GrappleContext
                     .AddToDB(),
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
             .AddCustomSubFeatures(new CustomBehaviorConditionGrappleSource())
-            .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .SetCancellingConditions(
+                DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
+                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
     }
@@ -344,7 +346,8 @@ internal static class GrappleContext
     }
 
     private sealed class CustomBehaviorConditionGrappleSource
-        : IModifyWeaponAttackMode, IMoveStepStarted, IOnItemEquipped, IPhysicalAttackInitiatedByMe
+        : IModifyWeaponAttackMode, IMoveStepStarted, IOnItemEquipped, IPhysicalAttackInitiatedByMe,
+            IOnConditionAddedOrRemoved
     {
         // should not use a versatile weapon in two-handed mode
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
@@ -383,6 +386,20 @@ internal static class GrappleContext
                      GetUnarmedReachRange(mover))
             {
                 rulesetTarget.RemoveCondition(activeCondition);
+            }
+        }
+
+        public void OnConditionAdded(RulesetCharacter source, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        // remove grappled on target if source becomes incapacitated or unconscious
+        public void OnConditionRemoved(RulesetCharacter source, RulesetCondition rulesetCondition)
+        {
+            if (GetGrappledActor(source, out var target, out var activeConditionTarget))
+            {
+                target.RemoveCondition(activeConditionTarget);
             }
         }
 

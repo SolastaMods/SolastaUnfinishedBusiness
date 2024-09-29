@@ -195,10 +195,10 @@ internal static partial class CharacterContext
         FlexibleBackgroundsContext.Load();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
+        GrappleContext.SwitchGrappleAction();
         LoadAdditionalNames();
         LoadEpicArray();
         LoadFeatsPointPools();
-        GrappleContext.LoadGrapple();
         LoadMonkHeightenedMetabolism();
         LoadMonkWeaponSpecialization();
         LoadSorcererQuickened();
@@ -221,7 +221,6 @@ internal static partial class CharacterContext
         SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
         SwitchProneAction();
-        GrappleContext.SwitchGrappleAction();
         SwitchHelpPower();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
