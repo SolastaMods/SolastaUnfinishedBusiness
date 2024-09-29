@@ -200,7 +200,8 @@ internal enum ExtraSituationalContext
     WearingNoArmorOrLightArmorWithoutShield = 9014,
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 9015,
     IsNotConditionSourceNotRanged = 9016,
-    IsConcentratingOnSpell = 9017
+    IsConcentratingOnSpell = 9017,
+    TargetHasConditionFromSource = 9018
 }
 
 internal enum ExtraTurnOccurenceType

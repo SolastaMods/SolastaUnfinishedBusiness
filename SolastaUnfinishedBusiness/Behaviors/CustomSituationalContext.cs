@@ -89,7 +89,13 @@ internal static class CustomSituationalContext
 
             ExtraSituationalContext.IsConcentratingOnSpell =>
                 contextParams.source.ConcentratedSpell != null,
-
+            
+            ExtraSituationalContext.TargetHasConditionFromSource =>
+                contextParams.target.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    contextParams.condition?.Name ?? string.Empty,
+                    out var activeCondition) &&
+                activeCondition.SourceGuid == contextParams.source.Guid,
             _ => def
         };
     }
