@@ -217,7 +217,7 @@ public static class RulesetActorPatcher
             var reduction = FeatureDefinitionReduceDamage.DamageReduction(formsParams, rolledDamage, damageType);
 
             rolledDamage -= reduction;
-            rollInfo.modifier -= reduction;
+            //rollInfo.modifier -= reduction;
         }
     }
 
