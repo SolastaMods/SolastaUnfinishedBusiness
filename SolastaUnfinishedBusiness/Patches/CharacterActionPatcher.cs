@@ -215,7 +215,7 @@ public static class CharacterActionPatcher
                 {
                     yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(actingCharacter);
 
-                    CharacterContext.ValidateGrappleAfterForcedMove(actingCharacter);
+                    GrappleContext.ValidateGrappleAfterForcedMove(actingCharacter);
                     break;
                 }
                 case CharacterActionShove:
@@ -224,7 +224,7 @@ public static class CharacterActionPatcher
 
                     yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(target);
 
-                    CharacterContext.ValidateGrappleAfterForcedMove(target);
+                    GrappleContext.ValidateGrappleAfterForcedMove(target);
                     break;
                 }
             }

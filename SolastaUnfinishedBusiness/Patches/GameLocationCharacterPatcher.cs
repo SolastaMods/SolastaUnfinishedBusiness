@@ -366,7 +366,7 @@ public static class GameLocationCharacterPatcher
             {
                 var rulesetCharacter = __instance.RulesetCharacter;
                 var hasGrappleSource = rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, CharacterContext.ConditionGrappleSourceName);
+                    AttributeDefinitions.TagEffect, GrappleContext.ConditionGrappleSourceName);
 
                 if ((actionId == (ActionDefinitions.Id)ExtraActionId.Grapple &&
                      (hasGrappleSource ||

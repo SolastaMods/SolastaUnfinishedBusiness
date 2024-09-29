@@ -61,7 +61,7 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddGrappleActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddGrappleActionToAllRaces = toggle;
-            CharacterContext.SwitchGrappleAction();
+            GrappleContext.SwitchGrappleAction();
         }
 
         toggle = Main.Settings.AddHelpActionToAllRaces;
