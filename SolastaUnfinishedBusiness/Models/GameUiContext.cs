@@ -259,6 +259,11 @@ internal static class GameUiContext
 
     internal static void SpellSelectionPanelMultilineUnbind()
     {
+        if (Main.Settings.DisableMultilineSpellOffering)
+        {
+            return;
+        }
+
         foreach (var spellTable in SpellLineTables
                      .Where(spellTable =>
                          spellTable && spellTable.gameObject.activeSelf && spellTable.childCount > 0))
@@ -278,6 +283,11 @@ internal static class GameUiContext
         ActionDefinitions.ActionType actionType,
         bool cantripOnly)
     {
+        if (Main.Settings.DisableMultilineSpellOffering)
+        {
+            return;
+        }
+
         var spellRepertoireLines = __instance.spellRepertoireLines;
         var spellRepertoireSecondaryLine = __instance.spellRepertoireSecondaryLine;
         var spellRepertoireLinesTable = __instance.spellRepertoireLinesTable;

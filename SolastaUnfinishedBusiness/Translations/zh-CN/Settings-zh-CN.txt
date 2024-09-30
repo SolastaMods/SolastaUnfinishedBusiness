@@ -72,6 +72,7 @@ ModUi/&DisableAutoEquip=禁用自动装备物品栏中的物品
 ModUi/&DisableBarbarianBrutalCritical=<i>+ 同时在<color=#D89555>野蛮人</color> 9、13 和 17 级禁用<b>凶蛮重击</b></i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=禁用此模组提供的专长的施法先决条件<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=禁用此模组提供的职业专长的等级前提条件
+ModUi/&DisableMultilineSpellOffering=禁用操作栏上的多行法术提供<i><color=#F0DAA0>[主要针对使用非多路施法者英雄的控制器用户]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=禁用此模组提供的专长的种族前提条件
 ModUi/&DisableSenseDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>强化黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
@@ -100,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=•这些设置不需要玩家安装这个模组
 ModUi/&DungeonMakerMenu=地城编辑器
 ModUi/&Effects=效果
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后服</color>外观
-ModUi/&EnableActionSwitching=启用动作切换栏<i><color=#F0DAA0>[在主要动作之前急于使用加速动作时有用]</color></i>
+ModUi/&EnableActionSwitching=启用操作切换栏<i><color=#F0DAA0>[有助于完全控制您的操作序列]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=在背景检查中启用额外的背景故事显示
 ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和传送器启用额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=将经过修改的物品添加到编辑器

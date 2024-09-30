@@ -72,6 +72,7 @@ ModUi/&DisableAutoEquip=Desative o equipamento automático de itens no inventár
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Desative também <color=#D89555>Bárbaro</color> <b>Brutal Critical</b> nos níveis 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desative os pré-requisitos de lançamento de feitiço em <color=#D89555>talentos</color> fornecidos por este mod <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível em <color=#D89555>talentos</color> fornecidos por este mod
+ModUi/&DisableMultilineSpellOffering=Desabilitar oferta de magia multi-linha na barra de ação <i><color=#F0DAA0>[principalmente para usuários de controle que usam heróis não multicaster]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Desative os pré-requisitos de corrida em <color=#D89555>talentos</color> fornecidos por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desativar <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -100,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• Essas configurações não exigirão que o joga
 ModUi/&DungeonMakerMenu=Criador de Masmorras
 ModUi/&Effects=Efeitos
 ModUi/&EmpressGarbAppearance=Aparência do <color=#D89555>Traje de Imperatriz</color>
-ModUi/&EnableActionSwitching=Ativar barra de alternância de ação <i><color=#F0DAA0>[útil quando estiver com pressa para usar a ação rápida antes da ação principal]</color></i>
+ModUi/&EnableActionSwitching=Habilitar a barra de alternância de ações <i><color=#F0DAA0>[útil para ter controle total sobre sua sequência de ações]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Habilitar exibição adicional de histórico na inspeção de histórico
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampamentos, saídas e teletransportadores no mapa de níveis
 ModUi/&EnableAdditionalItemsInDungeonMaker=Adicione itens modificados ao Editor

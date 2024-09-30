@@ -72,6 +72,7 @@ ModUi/&DisableAutoEquip=Отключить автонадевание предм
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Также отключить <color=#D89555>Варварам</color> <b>Сильный критический удар</b> на уровнях 9, 13 и 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Отключить обязательные условия наложения заклинаний для <color=#D89555>черт</color> из этого мода <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Отключить требования по уровню для <color=#D89555>черт</color> из этого мода
+ModUi/&DisableMultilineSpellOffering=Отключить многострочное предложение заклинаний на панели действий <i><color=#F0DAA0>[в основном для пользователей контроллеров, использующих героев без многопользовательского режима]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Отключить требования по расе для <color=#D89555>черт</color> из этого мода
 ModUi/&DisableSenseDarkVisionFromAllRaces=Отключить <color=#D89555>Тёмное зрение</color> для всех игровых рас <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Отключить <color=#D89555>Улучшенное тёмное зрение</color> для всех игровых рас <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
@@ -100,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• Эти настройки не потребую
 ModUi/&DungeonMakerMenu=Создатель Подземелий
 ModUi/&Effects=Эффекты
 ModUi/&EmpressGarbAppearance=Внешний вид <color=#D89555>Кольчужной рубахи императрицы</color>
-ModUi/&EnableActionSwitching=Включить панель переключения действий <i><color=#F0DAA0>[полезно при ускорении, чтобы использовать дополнительное действие перед основным]</color></i>
+ModUi/&EnableActionSwitching=Включить панель переключения действий <i><color=#F0DAA0>[полезно для полного контроля над последовательностью действий]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Включить отображение дополнительной предыстории при просмотре происхождения
 ModUi/&EnableAdditionalIconsOnLevelMap=Включить дополнительные значки для лагерей, выходов и телепортов на карте уровня
 ModUi/&EnableAdditionalItemsInDungeonMaker=Добавить предметы мода в редактор

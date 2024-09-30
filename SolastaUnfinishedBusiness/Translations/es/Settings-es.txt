@@ -72,6 +72,7 @@ ModUi/&DisableAutoEquip=Deshabilitar el autoequipamiento de artículos en el inv
 ModUi/&DisableBarbarianBrutalCritical=<i>+ También desactiva <color=#D89555>Bárbaro</color> <b>Crítico Brutal</b> en los niveles 9, 13 y 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desactiva los requisitos previos para lanzar hechizos en <color=#D89555>dotes</color> proporcionadas por este mod <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Desactiva los requisitos previos de nivel en las <color=#D89555>dotes</color> proporcionadas por este mod
+ModUi/&DisableMultilineSpellOffering=Deshabilitar la oferta de hechizos multilínea en la barra de acción <i><color=#F0DAA0>[principalmente para usuarios de controlador que usan héroes que no son multicaster]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Desactiva los requisitos previos de carrera en las <color=#D89555>dotes</color> proporcionadas por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desactiva <color=#D89555>Detectar visión oscura</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desactiva <color=#D89555>Superior Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -100,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• Estas configuraciones no requerirán que el rep
 ModUi/&DungeonMakerMenu=Creador de mazmorras
 ModUi/&Effects=Efectos
 ModUi/&EmpressGarbAppearance=<color=#D89555>Traje de emperatriz</color> apariencia
-ModUi/&EnableActionSwitching=Habilitar la barra de cambio de acción <i><color=#F0DAA0>[útil cuando se tiene prisa por usar la acción de prisa antes de la acción principal]</color></i>
+ModUi/&EnableActionSwitching=Habilitar la barra de cambio de acciones <i><color=#F0DAA0>[útil para tener control total sobre tu secuencia de acciones]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Habilitar la visualización de antecedentes adicionales en la inspección de antecedentes
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campamentos, salidas y teletransportadores en el mapa de niveles
 ModUi/&EnableAdditionalItemsInDungeonMaker=Agregar elementos modificados al Editor

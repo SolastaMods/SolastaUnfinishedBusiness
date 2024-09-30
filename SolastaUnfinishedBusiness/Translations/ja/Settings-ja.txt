@@ -72,6 +72,7 @@ ModUi/&DisableAutoEquip=インベントリ内のアイテムの自動装備を�
 ModUi/&DisableBarbarianBrutalCritical=<i>+ レベル 9、13、17 で<color=#D89555>バーバリアン</color>の<b>ブルータル クリティカル</b>も無効化します</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=この MOD によって提供される<color=#D89555>特技</color>の呪文の前提条件を無効にします<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=この MOD によって提供される<color=#D89555>特技</color>のレベルの前提条件を無効にします
+ModUi/&DisableMultilineSpellOffering=アクションバーでの複数行の呪文の提供を無効にする <i><color=#F0DAA0>[主に非マルチキャスターヒーローを使用するコントローラーユーザー向け]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=この MOD によって提供される<color=#D89555>特技</color>のレースの前提条件を無効にします
 ModUi/&DisableSenseDarkVisionFromAllRaces=プレイ可能なすべての種族の <color=#D89555>暗視感知</color> を無効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=プレイ可能なすべての種族の<color=#D89555>優れた感覚ダークビジョン</color>を無効にする<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
@@ -100,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• これらの設定では、プレーヤーが�
 ModUi/&DungeonMakerMenu=ダンジョンメーカー
 ModUi/&Effects=効果
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后の衣装</color>の外観
-ModUi/&EnableActionSwitching=アクション切り替えバーを有効にする <i><color=#F0DAA0>[メイン アクションの前に急いでアクションを使用する場合に便利]</color></i>
+ModUi/&EnableActionSwitching=アクション切り替えバーを有効にします <i><color=#F0DAA0>[アクションシーケンスを完全に制御するのに便利です]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=バックグラウンド検査で追加のバックストーリー表示を有効にする
 ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、出口、テレポーターの追加アイコンを有効にする
 ModUi/&EnableAdditionalItemsInDungeonMaker=エディターに改造アイテムを追加する

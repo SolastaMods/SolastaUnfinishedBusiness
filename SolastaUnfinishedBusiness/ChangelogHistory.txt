@@ -2,6 +2,7 @@
 
 - added General > Character > 'Add grapple action to all playable races'
 - added homebrew Grappler feat [TT one is very low GPA]
+- added Interface > Game UI > 'Disable multi-line spell offering on action bar [mainly for controller users]'
 - added Interface > Game UI > 'Hold SHIFT to snap line spells to grid'
 - fixed an exploit keeping memorized spells when removing attribute enhancement items [VANILLA]
 - fixed an instability on action bar when ally NPCs or summons die

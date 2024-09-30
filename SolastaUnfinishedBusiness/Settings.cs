@@ -403,9 +403,10 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAlternateVotingSystem { get; set; }
     public bool EnableSumD20OnAlternateVotingSystem { get; set; }
     public bool AllowMoreRealStateOnRestPanel { get; set; }
+    public bool EnableRespec { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnableActionSwitching { get; set; }
-    public bool EnableRespec { get; set; }
+    public bool DisableMultilineSpellOffering { get; set; }
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableCustomPortraits { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }

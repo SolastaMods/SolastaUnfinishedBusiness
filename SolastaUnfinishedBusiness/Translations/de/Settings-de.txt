@@ -72,6 +72,7 @@ ModUi/&DisableAutoEquip=Deaktivieren Sie die automatische Ausrüstung von Gegens
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Deaktivieren Sie außerdem <color=#D89555>Barbar</color> <b>Brutal Critical</b> auf den Stufen 9, 13 und 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Deaktivieren Sie die Zaubervoraussetzungen für <color=#D89555>Talente</color>, die von diesem Mod bereitgestellt werden <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Levelvoraussetzungen für die von diesem Mod bereitgestellten <color=#D89555>Talente</color>.
+ModUi/&DisableMultilineSpellOffering=Deaktivieren Sie das Anbieten von mehrzeiligen Zaubersprüchen in der Aktionsleiste <i><color=#F0DAA0>[hauptsächlich für Controller-Benutzer, die Helden ohne Multicaster verwenden]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für <color=#D89555>Talente</color>, die von diesem Mod bereitgestellt werden
 ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Sense Dark Vision</color> für alle spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktivieren Sie <color=#D89555>Superior Sense Dark Vision</color> für alle spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -100,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• Für diese Einstellungen ist es nicht erforderl
 ModUi/&DungeonMakerMenu=Dungeon-Ersteller
 ModUi/&Effects=Auswirkungen
 ModUi/&EmpressGarbAppearance=<color=#D89555>Kaiserin-Gewand</color> Aussehen
-ModUi/&EnableActionSwitching=Aktivieren Sie die Aktionswechselleiste <i><color=#F0DAA0>[nützlich, wenn Sie die Eile-Aktion vor der Hauptaktion schnell verwenden möchten]</color></i>
+ModUi/&EnableActionSwitching=Aktivieren Sie die Aktionswechselleiste <i><color=#F0DAA0>[nützlich, um die volle Kontrolle über Ihre Aktionsabfolge zu haben]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die zusätzliche Anzeige von Hintergrundgeschichten bei der Hintergrundinspektion
 ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
 ModUi/&EnableAdditionalItemsInDungeonMaker=Modifizierte Elemente zum Editor hinzufügen

@@ -72,6 +72,7 @@ ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des articles en in
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Désactivez également <color=#D89555>Barbare</color> <b>Critique brutal</b> aux niveaux 9, 13 et 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Désactivez les pré-requis pour lancer des sorts sur les <color=#D89555>exploits</color> fournis par ce mod <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les pré-requis de niveau sur les <color=#D89555>exploits</color> fournis par ce mod
+ModUi/&DisableMultilineSpellOffering=Désactiver l'offre de sorts multilignes sur la barre d'action <i><color=#F0DAA0>[principalement pour les utilisateurs de contrôleur utilisant des héros non multicasters]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Désactivez les pré-requis de course sur les <color=#D89555>exploits</color> fournis par ce mod.
 ModUi/&DisableSenseDarkVisionFromAllRaces=Désactivez <color=#D89555>Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactivez la <color=#D89555>Vision dans les ténèbres supérieure</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -100,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• Ces paramètres ne nécessiteront pas que le jo
 ModUi/&DungeonMakerMenu=Créateur de donjon
 ModUi/&Effects=Effets
 ModUi/&EmpressGarbAppearance=Apparence de l'<color=#D89555>Vêtement d'impératrice</color>
-ModUi/&EnableActionSwitching=Activer la barre de changement d'action <i><color=#F0DAA0>[utile lorsqu'on est pressé d'utiliser une action de hâte avant l'action principale]</color></i>
+ModUi/&EnableActionSwitching=Activer la barre de changement d'action <i><color=#F0DAA0>[utile pour avoir un contrôle total sur votre séquence d'actions]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage supplémentaire de l'histoire lors de l'inspection en arrière-plan
 ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte des niveaux
 ModUi/&EnableAdditionalItemsInDungeonMaker=Ajouter des éléments modifiés à l'éditeur

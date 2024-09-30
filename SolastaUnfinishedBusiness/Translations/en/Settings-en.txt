@@ -72,6 +72,7 @@ ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Also disable <color=#D89555>Barbarian</color> <b>Brutal Critical</b> at levels 9, 13 and 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on <color=#D89555>feats</color> provided by this mod <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on <color=#D89555>feats</color> provided by this mod
+ModUi/&DisableMultilineSpellOffering=Disable multi-line spell offering on action bar <i><color=#F0DAA0>[mainly for controller users using non multicaster heroes]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable race pre-requisites on <color=#D89555>feats</color> provided by this mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -100,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• These settings won't require the player to have
 ModUi/&DungeonMakerMenu=Dungeon Maker
 ModUi/&Effects=Effects
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
-ModUi/&EnableActionSwitching=Enable action switching bar <i><color=#F0DAA0>[useful when hasted to use haste action before main action]</color></i>
+ModUi/&EnableActionSwitching=Enable the action switching bar <i><color=#F0DAA0>[useful to have full control over your actions sequence]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on background inspection
 ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAdditionalItemsInDungeonMaker=Add modded items to Editor

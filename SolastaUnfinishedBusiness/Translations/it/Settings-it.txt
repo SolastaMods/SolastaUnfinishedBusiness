@@ -72,6 +72,7 @@ ModUi/&DisableAutoEquip=Disabilita l'equipaggiamento automatico degli oggetti ne
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Disabilita anche <color=#D89555>Barbaro</color> <b>Critico Brutale</b> ai livelli 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disabilita i prerequisiti di lancio degli incantesimi sui <color=#D89555>talenti</color> forniti da questo mod <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui <color=#D89555>talenti</color> forniti da questo mod
+ModUi/&DisableMultilineSpellOffering=Disabilita l'offerta di incantesimi multi-linea sulla barra delle azioni <i><color=#F0DAA0>[principalmente per gli utenti controller che usano eroi non multicaster]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui <color=#D89555> talenti</color> forniti da questo mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disattiva <color=#D89555>Percepire visione oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Senso superiore, visione oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -100,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• Queste impostazioni non richiedono che il gioca
 ModUi/&DungeonMakerMenu=Creatore di dungeon
 ModUi/&Effects=Effetti
 ModUi/&EmpressGarbAppearance=Aspetto <color=#D89555>Abito dell'Imperatrice</color>
-ModUi/&EnableActionSwitching=Abilita la barra di cambio azione <i><color=#F0DAA0>[utile quando si ha fretta per usare l'azione veloce prima dell'azione principale]</color></i>
+ModUi/&EnableActionSwitching=Abilita la barra di cambio azione <i><color=#F0DAA0>[utile per avere il pieno controllo sulla sequenza delle tue azioni]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva del retroscena durante l'ispezione in background
 ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti, uscite e teletrasporti sulla mappa dei livelli
 ModUi/&EnableAdditionalItemsInDungeonMaker=Aggiungi elementi modificati all'editor

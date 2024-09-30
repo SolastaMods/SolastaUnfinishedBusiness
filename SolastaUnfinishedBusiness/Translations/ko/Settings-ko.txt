@@ -72,6 +72,7 @@ ModUi/&DisableAutoEquip=인벤토리 내 아이템 자동 장착 비활성화
 ModUi/&DisableBarbarianBrutalCritical=<i>+ 또한 레벨 9, 13, 17에서 <color=#D89555>야만인</color> <b>잔혹한 치명적</b>을 비활성화합니다.</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=이 모드에서 제공하는 <color=#D89555>feats</color>에 대한 시전 주문 전제 조건을 비활성화합니다. <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=이 모드에서 제공하는 <color=#D89555>feats</color>에 대한 레벨 전제 조건을 비활성화합니다.
+ModUi/&DisableMultilineSpellOffering=액션 바에서 다중 줄 주문 제공 비활성화 <i><color=#F0DAA0>[주로 멀티캐스터 영웅을 사용하지 않는 컨트롤러 사용자를 위해]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=이 모드에서 제공하는 <color=#D89555>feats</color>에 대한 레이스 전제 조건을 비활성화합니다.
 ModUi/&DisableSenseDarkVisionFromAllRaces=모든 플레이 가능한 종족에서 <color=#D89555>암흑 비전 감지</color>를 비활성화합니다. <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=플레이 가능한 모든 종족에서 <color=#D89555>Superior Sense Dark Vision</color>을 비활성화합니다. <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
@@ -100,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• 이 설정에서는 플레이어에 이 모드�
 ModUi/&DungeonMakerMenu=던전메이커
 ModUi/&Effects=효과
 ModUi/&EmpressGarbAppearance=<color=#D89555>복 황후</color> 등장
-ModUi/&EnableActionSwitching=동작 전환 막대 활성화 <i><color=#F0DAA0>[주 동작 전에 서둘러 동작을 사용해야 할 때 유용함]</color></i>
+ModUi/&EnableActionSwitching=동작 전환 막대 활성화 <i><color=#F0DAA0>[동작 순서를 완벽하게 제어하는 ​​데 유용함]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=배경 검사 시 추가 배경 스토리 표시 활성화
 ModUi/&EnableAdditionalIconsOnLevelMap=레벨 맵에서 캠프, 출구 및 텔레포터에 대한 추가 아이콘을 활성화합니다.
 ModUi/&EnableAdditionalItemsInDungeonMaker=편집기에 수정된 항목 추가
