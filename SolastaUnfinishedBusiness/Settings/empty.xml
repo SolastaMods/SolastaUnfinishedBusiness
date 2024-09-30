@@ -262,9 +262,11 @@
         <string>PowerCollegeOfAudacityDefensiveWhirl</string>
         <string>PowerCollegeOfAudacityMobileWhirl</string>
         <string>PowerCollegeOfValianceHeroicInspiration</string>
+        <string>PowerDisableGrapple</string>
         <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
         <string>PowerFeatChefCookMeal</string>
         <string>PowerFeatOrcishAggression</string>
+        <string>PowerGrapple</string>
         <string>PowerInnovationWeaponArcaneJolt</string>
         <string>PowerOathOfJugementPurgeCorruption</string>
         <string>PowerOathOfJugementRetribution</string>
@@ -869,9 +871,10 @@
     <EnableAlternateVotingSystem>false</EnableAlternateVotingSystem>
     <EnableSumD20OnAlternateVotingSystem>false</EnableSumD20OnAlternateVotingSystem>
     <AllowMoreRealStateOnRestPanel>false</AllowMoreRealStateOnRestPanel>
+    <EnableRespec>false</EnableRespec>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
     <EnableActionSwitching>false</EnableActionSwitching>
-    <EnableRespec>false</EnableRespec>
+    <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
     <EnableStatsOnHeroTooltip>false</EnableStatsOnHeroTooltip>
     <EnableCustomPortraits>false</EnableCustomPortraits>
     <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
@@ -1114,4 +1117,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

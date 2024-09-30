@@ -11,8 +11,7 @@
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
   "forbiddenActions": [
-    "Climb",
-    "Jump"
+    "Climb"
   ],
   "authorizedActions": [],
   "restrictedActions": [],

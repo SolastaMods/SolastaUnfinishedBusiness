@@ -312,9 +312,11 @@
         <string>PowerCollegeOfAudacityDefensiveWhirl</string>
         <string>PowerCollegeOfAudacityMobileWhirl</string>
         <string>PowerCollegeOfValianceHeroicInspiration</string>
+        <string>PowerDisableGrapple</string>
         <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
         <string>PowerFeatChefCookMeal</string>
         <string>PowerFeatOrcishAggression</string>
+        <string>PowerGrapple</string>
         <string>PowerInnovationWeaponArcaneJolt</string>
         <string>PowerOathOfJugementPurgeCorruption</string>
         <string>PowerOathOfJugementRetribution</string>
@@ -1056,7 +1058,6 @@
         <string>FeatWhirlWindAttackDex</string>
         <string>FeatGroupBlessedSoul</string>
         <string>FeatBountifulLuck</string>
-        <string>FeatBowMastery</string>
         <string>FeatCallForCharge</string>
         <string>FeatCharger</string>
         <string>FeatGroupChef</string>
@@ -1088,6 +1089,7 @@
         <string>FeatGroupFlamesOfPhlegethos</string>
         <string>FeatFrostAdaptation</string>
         <string>FeatGiftOfTheChromaticDragon</string>
+        <string>FeatGrappler</string>
         <string>FeatCleavingAttack</string>
         <string>FeatGroupGrudgeBearer</string>
         <string>FeatGroupHardy</string>
@@ -1122,6 +1124,7 @@
         <string>FeatPowerAttack</string>
         <string>FeatGroupPrecisionFocused</string>
         <string>FeatGroupPrimalRage</string>
+        <string>FeatBowMastery</string>
         <string>FeatRecklessAttack</string>
         <string>FeatGroupRevenantGreatSword</string>
         <string>FeatSavageAttack</string>
@@ -1761,9 +1764,10 @@
     <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
     <EnableSumD20OnAlternateVotingSystem>true</EnableSumD20OnAlternateVotingSystem>
     <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
+    <EnableRespec>true</EnableRespec>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
     <EnableActionSwitching>true</EnableActionSwitching>
-    <EnableRespec>true</EnableRespec>
+    <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
     <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
     <EnableCustomPortraits>true</EnableCustomPortraits>
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
