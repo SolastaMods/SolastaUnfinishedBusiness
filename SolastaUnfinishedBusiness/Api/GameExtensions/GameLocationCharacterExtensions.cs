@@ -404,6 +404,26 @@ public static class GameLocationCharacterExtensions
 
     #endregion
 
+    #region Shift Key Status
+
+    private const string ShiftKeyState = "ShiftKeyState";
+
+    internal static bool GetAndClearShiftState(this GameLocationCharacter character)
+    {
+        var result = character.GetSpecialFeatureUses(ShiftKeyState) == 1;
+
+        character.SetSpecialFeatureUses(ShiftKeyState, 0);
+
+        return result;
+    }
+
+    internal static void RegisterShiftState(this GameLocationCharacter character)
+    {
+        character.SetSpecialFeatureUses(ShiftKeyState, Global.IsShiftPressed ? 1 : 0);
+    }
+
+    #endregion
+
     internal static GameLocationCharacter GetEffectControllerOrSelf(this GameLocationCharacter character)
     {
         if (character.RulesetCharacter is not RulesetCharacterEffectProxy effectProxy)

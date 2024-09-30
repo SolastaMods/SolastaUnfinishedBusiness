@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
@@ -50,6 +51,27 @@ public static class SpellActivationBoxPatcher
             return instructions.ReplaceCalls(uniqueLevelSlotsMethod, "SpellActivationBox.BindSpell",
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, myUniqueLevelSlotsMethod));
+        }
+    }
+
+    //PATCH: register on acting character if SHIFT is pressed on spell box activation
+    [HarmonyPatch(typeof(SpellActivationBox), nameof(SpellActivationBox.OnActivateCb))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class OnActivateCb_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(SpellActivationBox __instance)
+        {
+            if (__instance.spellRepertoire == null)
+            {
+                return;
+            }
+
+            var rulesetCaster = __instance.spellRepertoire.GetCasterHero();
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+
+            caster.RegisterShiftState();
         }
     }
 }

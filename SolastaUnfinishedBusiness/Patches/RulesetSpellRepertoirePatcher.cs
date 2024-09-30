@@ -190,14 +190,16 @@ public static class RulesetSpellRepertoirePatcher
             var sharedMaxSlots = totalMaxSlots - pactMaxSlots;
             var sharedUsedSlots = totalUsedSlots - pactUsedSlots;
 
-            var isShiftPressed = !Global.IsMultiplayer
-                                 && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+            // collect shift key state registered on spell activation box, reaction, and flexible casting modals
+            var glc = GameLocationCharacter.GetFromActor(hero);
+            var wasShiftPressed = glc.GetAndClearShiftState();
 
+            // determine if a pact slot should be forced
             var forceConsumePactSlot = sharedUsedSlots == sharedMaxSlots ||
                                        (__instance.SpellCastingClass !=
-                                           DatabaseHelper.CharacterClassDefinitions.Warlock && isShiftPressed) ||
+                                           DatabaseHelper.CharacterClassDefinitions.Warlock && wasShiftPressed) ||
                                        (__instance.SpellCastingClass ==
-                                           DatabaseHelper.CharacterClassDefinitions.Warlock && !isShiftPressed);
+                                           DatabaseHelper.CharacterClassDefinitions.Warlock && !wasShiftPressed);
 
             // uses short rest slots across all non race repertoires
             if (canConsumePactSlot && forceConsumePactSlot)
