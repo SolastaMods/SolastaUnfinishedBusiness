@@ -1,10 +1,10 @@
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Ganhe desvantagens em ataques contra todos, exceto contra a fonte desta aura.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Ganhe desvantagens em ataques contra todos, exceto a fonte.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Aura de Urso Afiado
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=Ganhe a habilidade de voar.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Voo da águia afiada
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=Ganhe a habilidade de empurrar como uma ação bônus.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfTitle=Golpe de Lobo Afiado
-Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=O espírito do lobo lhe concede vantagem em jogadas de ataque corpo a corpo.
+Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=O espírito do lobo lhe concede vantagem em ataques corpo a corpo, a menos que você seja a fonte.
 Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=Espírito do Lobo
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=O espírito da águia faz de você um predador ágil que pode atravessar a briga com facilidade. Você pode pegar dash, disengage ou hide como uma ação bônus.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Espírito da Águia

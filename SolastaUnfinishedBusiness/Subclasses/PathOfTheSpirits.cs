@@ -295,14 +295,6 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
         combatAffinityWolfLeadershipPack.requiredCondition = conditionPathOfTheSpiritsWolfLeadershipPack;
 
-        // need this as ExcludeCaster has no effect on recurring conditions set on self
-        var conditionAffinityWolfLeadershipPack = FeatureDefinitionConditionAffinityBuilder
-            .Create($"ConditionAffinity{Name}WolfLeadershipPack")
-            .SetGuiPresentationNoContent(true)
-            .SetConditionType(conditionPathOfTheSpiritsWolfLeadershipPack)
-            .SetConditionAffinityType(ConditionAffinityType.Immunity)
-            .AddToDB();
-
         var powerPathOfTheSpiritsWolfLeadership = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}WolfLeadership")
             .SetGuiPresentation(Category.Feature)
@@ -322,13 +314,13 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         var featureSetWolfLeadership = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}WolfLeadership")
             .SetGuiPresentation($"Power{Name}WolfLeadership", Category.Feature)
-            .AddFeatureSet(powerPathOfTheSpiritsWolfLeadership, conditionAffinityWolfLeadershipPack)
+            .AddFeatureSet(powerPathOfTheSpiritsWolfLeadership)
             .AddToDB();
 
         return featureSetWolfLeadership;
     }
 
-    private static FeatureDefinition[] PowerPathOfTheSpiritsHonedBear()
+    private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedBear()
     {
         var combatAffinityHonedAnimalAspectsBear = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}HonedAnimalAspectsBear")
@@ -349,14 +341,6 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
         combatAffinityHonedAnimalAspectsBear.requiredCondition = conditionHonedAnimalAspectsBear;
 
-        // need this as ExcludeCaster has no effect on recurring conditions set on self
-        var conditionAffinityHonedAnimalAspectsBear = FeatureDefinitionConditionAffinityBuilder
-            .Create($"ConditionAffinity{Name}HonedAnimalAspectsBear")
-            .SetGuiPresentationNoContent(true)
-            .SetConditionType(conditionHonedAnimalAspectsBear)
-            .SetConditionAffinityType(ConditionAffinityType.Immunity)
-            .AddToDB();
-
         var powerHonedAnimalAspectsBear = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HonedAnimalAspectsBear")
             .SetGuiPresentation(Category.Feature)
@@ -373,7 +357,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        return [powerHonedAnimalAspectsBear, conditionAffinityHonedAnimalAspectsBear];
+        return powerHonedAnimalAspectsBear;
     }
 
     private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedEagle()

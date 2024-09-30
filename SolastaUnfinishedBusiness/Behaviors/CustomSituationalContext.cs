@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -59,23 +60,14 @@ internal static class CustomSituationalContext
                 ValidatorsCharacter.HasTwoHandedQuarterstaff(contextParams.source),
 
             ExtraSituationalContext.IsNotConditionSource =>
-                // this is required whenever there is a SetMyAttackAdvantage (Taunted, Illuminating Strike, Honed Bear)
-                contextParams.target.Guid != contextParams.source.ConditionsByCategory
-                    .SelectMany(x => x.Value)
-                    .FirstOrDefault(x =>
-                        x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
-                // this is required whenever there is a SetAttackOnMeAdvantage (Press the Advantage, Gambit Blind)
-                contextParams.source.Guid != contextParams.target.ConditionsByCategory
-                    .SelectMany(x => x.Value)
-                    .FirstOrDefault(x =>
-                        x.ConditionDefinition == contextParams.condition)?.SourceGuid,
+                // this is required whenever condition is on target
+                !IsConditionSource(contextParams.target, contextParams.condition, contextParams.source) &&
+                // this is required whenever condition is on source
+                !IsConditionSource(contextParams.source, contextParams.condition, contextParams.source),
 
             ExtraSituationalContext.IsNotConditionSourceNotRanged =>
-                // this is required whenever there is a SetMyAttackAdvantage (Wolf Leadership)
-                contextParams.source.Guid != contextParams.source.ConditionsByCategory
-                    .SelectMany(x => x.Value)
-                    .FirstOrDefault(x =>
-                        x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
+                // this is required whenever condition is on source
+                !IsConditionSource(contextParams.source, contextParams.condition, contextParams.source) &&
                 !contextParams.rangedAttack,
 
             ExtraSituationalContext.TargetIsFavoriteEnemy =>
@@ -89,15 +81,20 @@ internal static class CustomSituationalContext
 
             ExtraSituationalContext.IsConcentratingOnSpell =>
                 contextParams.source.ConcentratedSpell != null,
-            
-            ExtraSituationalContext.TargetHasConditionFromSource =>
-                contextParams.target.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    contextParams.condition?.Name ?? string.Empty,
-                    out var activeCondition) &&
-                activeCondition.SourceGuid == contextParams.source.Guid,
+
+            ExtraSituationalContext.IsConditionSource =>
+                // this is required whenever condition is on source
+                IsConditionSource(contextParams.source, contextParams.condition, contextParams.source),
             _ => def
         };
+    }
+
+    private static bool IsConditionSource(
+        RulesetCharacter target, [CanBeNull] ConditionDefinition condition, RulesetCharacter source)
+    {
+        return target.TryGetConditionOfCategoryAndType(
+                   AttributeDefinitions.TagEffect, condition?.Name ?? string.Empty, out var activeCondition) &&
+               activeCondition.SourceGuid == source.Guid;
     }
 
     private static bool AttackerNextToTargetOrYeomanWithLongbow(

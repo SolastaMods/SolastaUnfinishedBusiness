@@ -97,7 +97,7 @@ internal static class GrappleContext
             .AddToDB();
 
         const SituationalContext TARGET_HAS_CONDITION_FROM_SOURCE =
-            (SituationalContext)ExtraSituationalContext.TargetHasConditionFromSource;
+            (SituationalContext)ExtraSituationalContext.IsConditionSource;
 
         var actionAffinityGrappleSource = FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityGrappleSource")
@@ -445,7 +445,7 @@ internal static class GrappleContext
 
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
 
-            // ensure there is a non-blocked path for this movement to handle enemies larger than 1x1 cell
+            // ensure there is a non-blocked path for this movement
             var validPositions = GetValidPositionsWithinOneCell(target);
 
             if (!validPositions.Contains(source))
@@ -540,7 +540,8 @@ internal static class GrappleContext
             {
                 var magnitude = (position - character.LocationPosition).magnitude;
 
-                if (magnitude > 1 || magnitude < 1 || // floats...
+                if (magnitude < 1 ||
+                    magnitude > 2 ||
                     character.LocationPosition == position)
                 {
                     continue;

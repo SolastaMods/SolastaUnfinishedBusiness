@@ -1,10 +1,10 @@
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Erhalten Sie Nachteile bei Angriffen gegen alles außer der Quelle dieser Aura.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Erhalten Sie Nachteile bei Angriffen gegen alle außer der Quelle.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Geschärfte Bärenaura
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=Erlangen Sie die Fähigkeit zu fliegen.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Gestochener Adlerflug
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=Erhalten Sie als Bonusaktion die Fähigkeit zum Schubsen.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfTitle=Verfeinerter Wolfsschlag
-Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=Der Geist des Wolfes verschafft Ihnen einen Vorteil bei Nahkampfangriffswürfen.
+Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=Der Geist des Wolfes verschafft Ihnen einen Vorteil bei Nahkampfangriffswürfen, sofern Sie nicht die Quelle sind.
 Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=Wolfsgeist
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=Der Geist des Adlers macht Sie zu einem flinken Raubtier, das sich mühelos durch das Gefecht schlängelt. Als Bonusaktion können Sie sprinten, sich zurückziehen oder sich verstecken.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Adlergeist

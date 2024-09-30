@@ -1,10 +1,10 @@
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Ottieni svantaggi sugli attacchi contro tutti tranne che contro la fonte di questa aura.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Ottieni svantaggi negli attacchi contro tutti tranne la fonte.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Aura d'orso levigata
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=Ottieni la capacità di volare.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Volo dell'aquila affilato
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=Ottieni la capacità di spingere come azione bonus.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfTitle=Lupo affilato Bash
-Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=Lo spirito del lupo ti garantisce vantaggio nei tiri per gli attacchi in mischia.
+Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=Lo spirito del lupo ti garantisce vantaggio sui tiri per gli attacchi in mischia, a meno che tu non ne sia la fonte.
 Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=Spirito del lupo
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=Lo spirito dell'aquila ti trasforma in un predatore agile che può districarsi nella mischia con facilità. Puoi usare scatto, disimpegnarti o nasconderti come azione bonus.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Spirito dell'aquila

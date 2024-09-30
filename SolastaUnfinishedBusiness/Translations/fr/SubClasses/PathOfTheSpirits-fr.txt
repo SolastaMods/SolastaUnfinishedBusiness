@@ -1,10 +1,10 @@
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Bénéficiez de désavantages sur les attaques contre tous, sauf contre la source de cette aura.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Bénéficiez de désavantages sur les attaques contre tous, sauf la source.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Aura de l'ours aiguisée
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=Acquérir la capacité de voler.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Vol d'aigle perfectionné
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=Obtenez la capacité de pousser en tant qu'action bonus.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfTitle=Coup de loup perfectionné
-Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=L'esprit du loup vous confère un avantage sur les jets d'attaque au corps à corps.
+Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=L'esprit du loup vous confère un avantage sur les jets d'attaque au corps à corps, sauf si vous en êtes la source.
 Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=Esprit du loup
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=L'esprit de l'aigle fait de vous un prédateur agile qui peut se faufiler facilement dans la mêlée. Vous pouvez foncer, vous désengager ou vous cacher en tant qu'action bonus.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Esprit de l'aigle
