@@ -6,6 +6,7 @@
 - added Interface > Game UI > 'Hold SHIFT to snap line spells to grid'
 - fixed an exploit keeping memorized spells when removing attribute enhancement items [VANILLA]
 - fixed an instability on action bar when ally NPCs or summons die
+- fixed an instability when a gadget is damaged and an auto power is triggered
 - fixed Armor of Agathys spell to only remove self condition after enemy action infringing damage is complete
 - fixed chain reactions leading to an instability under complex scenarios
 - fixed custom campaigns translator missing set location status names in quest steps outcome

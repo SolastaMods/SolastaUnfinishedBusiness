@@ -247,7 +247,8 @@ public static class CharacterActionSpendPowerPatcher
                         effectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
                     var targetWasDeadOrDyingOrUnconscious =
                         target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: true };
-                    var targetCurrentHitPoints = target.RulesetCharacter.CurrentHitPoints;
+                    //don't use rulesetCharacter here
+                    var targetCurrentHitPoints = target.RulesetActor.CurrentHitPoints;
                     //END BUGFIX
 
                     //BEGIN PATCH
@@ -282,7 +283,8 @@ public static class CharacterActionSpendPowerPatcher
                             target,
                             rulesetEffect,
                             targetWasDeadOrDyingOrUnconscious,
-                            targetCurrentHitPoints - target.RulesetCharacter.CurrentHitPoints,
+                            //don't use rulesetCharacter here
+                            targetCurrentHitPoints - target.RulesetActor.CurrentHitPoints,
                             damageAbsorbedByTemporaryHitPoints,
                             effectDamageTypes);
                     }
