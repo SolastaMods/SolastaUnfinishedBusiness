@@ -335,7 +335,7 @@ internal static class GrappleContext
             // apply new grappler condition taking if hero has Grappler feat into consideration as well as target size
             var sourceConditionName = ConditionGrappleSourceName;
 
-            if (rulesetAttacker.GetOriginalHero()?.TrainedFeats.Contains(OtherFeats.FeatAlert) == true)
+            if (rulesetAttacker.GetOriginalHero()?.TrainedFeats.Contains(OtherFeats.FeatGrappler) == true)
             {
                 sourceConditionName =
                     rulesetAttacker.SizeDefinition.WieldingSize < rulesetDefender.SizeDefinition.WieldingSize

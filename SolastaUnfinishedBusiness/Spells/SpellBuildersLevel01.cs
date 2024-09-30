@@ -219,7 +219,6 @@ internal static partial class SpellBuilders
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .SetBrain(battlePackage, true)
-            .SetSpecialDuration(DurationType.Minute, 1)
             .SetFeatures(ActionAffinityGrappled)
             .CopyParticleReferences(Entangle)
             .SetRecurrentEffectForms(
@@ -457,7 +456,6 @@ internal static partial class SpellBuilders
             .SetParentCondition(ConditionDefinitions.ConditionFrightened)
             .SetFixedAmount((int)AiContext.BreakFreeType.DoWisdomCheckAgainstCasterDC)
             .SetBrain(battlePackage, true)
-            .SetSpecialDuration(DurationType.Minute, 1)
             .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
 
@@ -647,7 +645,8 @@ internal static partial class SpellBuilders
     {
         const string NAME = "VileBrew";
 
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}");
+        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
+            $"Condition{NAME}", AiContext.RandomType.NoRandom);
 
         var conditionVileBrew = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -655,7 +654,6 @@ internal static partial class SpellBuilders
             .SetConditionType(ConditionType.Detrimental)
             .SetFixedAmount((int)AiContext.BreakFreeType.DoNoCheckAndRemoveCondition)
             .SetBrain(battlePackage, true)
-            .SetSpecialDuration(DurationType.Minute, 1)
             .SetFeatures(ActionAffinityGrappled)
             .SetConditionParticleReference(ConditionOnAcidPilgrim)
             .SetRecurrentEffectForms(
@@ -1281,7 +1279,6 @@ internal static partial class SpellBuilders
             .SetGuiPresentation($"{NAME}Approach", Category.Spell, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
-            .SetSpecialDuration()
             .SetBrain(packageApproach, forceBehavior: true, fearSource: true)
             .AddToDB();
 
@@ -1325,7 +1322,6 @@ internal static partial class SpellBuilders
             .SetGuiPresentation($"{NAME}Flee", Category.Spell, ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
-            .SetSpecialDuration()
             .SetBrain(DecisionPackageDefinitions.Fear, forceBehavior: true, fearSource: true)
             .SetFeatures(MovementAffinityConditionDashing)
             .AddToDB();

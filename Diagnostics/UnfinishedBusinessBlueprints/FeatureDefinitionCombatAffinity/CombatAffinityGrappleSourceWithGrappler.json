@@ -2,14 +2,14 @@
   "$type": "FeatureDefinitionCombatAffinity, Assembly-CSharp",
   "initiativeAffinity": "None",
   "canRageToOvercomeSurprise": false,
-  "attackOfOpportunityImmunity": true,
+  "attackOfOpportunityImmunity": false,
   "attackOfOpportunityOnMeAdvantageType": "None",
   "attackOnMeAdvantage": "None",
   "attackOnMeCountLimit": -1,
   "autoCritical": false,
   "criticalHitImmunity": false,
   "myAttackAffinityFilter": "Always",
-  "myAttackAdvantage": "None",
+  "myAttackAdvantage": "Advantage",
   "ignoreCover": false,
   "permanentCover": "None",
   "ignoreRangeAdvantage": false,
@@ -56,7 +56,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b3a42936-7287-5088-aaa8-9f188c06c75c",
+  "guid": "7bd0115c-74ec-51ad-9ab7-8c9e509fc893",
   "contentPack": 9999,
-  "name": "CombatAffinityGrappleSource"
+  "name": "CombatAffinityGrappleSourceWithGrappler"
 }

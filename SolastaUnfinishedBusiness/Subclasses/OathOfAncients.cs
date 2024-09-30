@@ -73,7 +73,6 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .SetBrain(battlePackage, true)
-            .SetSpecialDuration(DurationType.Minute, 1)
             .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
 

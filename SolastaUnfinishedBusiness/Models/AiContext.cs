@@ -77,16 +77,17 @@ internal static class AiContext
                ?? throw new Exception();
     }
 
-    internal static DecisionPackageDefinition BuildDecisionPackageBreakFree(string conditionName,
-        RandomType randomType = RandomType.RandomMediumHigh)
+    internal static DecisionPackageDefinition BuildDecisionPackageBreakFree(
+        string conditionName, RandomType randomType = RandomType.RandomMediumHigh)
     {
         var getDefinition = DatabaseHelper.GetDefinition<DecisionDefinition>;
         var baseDecision = getDefinition("BreakConcentration_FlyingInMelee");
         var decisionWithRandom = randomType switch
         {
             RandomType.RandomMediumLow => getDefinition("Move_RestlessLightSensitive"),
+            RandomType.RandomMedium => getDefinition("CastMagic_Blindness"),
             RandomType.RandomMediumHigh => getDefinition("CastMagic_Buff_AoE"),
-            _ => getDefinition("CastMagic_Blindness")
+            _ => null
         };
 
         var wcdHasCondition = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
@@ -119,22 +120,26 @@ internal static class AiContext
                     floatParameter = 1f
                 }), 1f);
 
-        var wcdRandom = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
-            decisionWithRandom, "Random");
-
-        var random = new WeightedConsiderationDescription(
-            CreateConsiderationDefinition(
-                $"Random{randomType}",
-                new ConsiderationDescription
-                {
-                    considerationType = nameof(Random), curve = wcdRandom.Consideration.curve
-                }), 1f);
-
         var scorerBreakFree = CreateActivityScorer(baseDecision, $"BreakFree{conditionName}", true,
             hasConditionBreakFree,
-            mainActionNotFullyConsumed,
-            random);
+            mainActionNotFullyConsumed);
+        
+        if (decisionWithRandom)
+        {
+            var wcdRandom = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
+                decisionWithRandom, "Random");
 
+            var random = new WeightedConsiderationDescription(
+                CreateConsiderationDefinition(
+                    $"Random{randomType}",
+                    new ConsiderationDescription
+                    {
+                        considerationType = nameof(Random), curve = wcdRandom.Consideration.curve
+                    }), 1f);
+
+            scorerBreakFree.Scorer.WeightedConsiderations.Add(random);
+        }
+        
         var decisionBreakFree = DecisionDefinitionBuilder
             .Create($"DecisionBreakFree{conditionName}")
             .SetGuiPresentationNoContent(true)
@@ -167,9 +172,10 @@ internal static class AiContext
 
     internal enum RandomType
     {
-        RandomMediumLow,
+        [UsedImplicitly] NoRandom,
+        [UsedImplicitly] RandomMediumLow,
         [UsedImplicitly] RandomMedium,
-        RandomMediumHigh
+        [UsedImplicitly] RandomMediumHigh
     }
 
     internal enum BreakFreeType

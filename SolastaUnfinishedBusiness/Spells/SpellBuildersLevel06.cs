@@ -743,7 +743,6 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .SetBrain(battlePackage, true)
-            .SetSpecialDuration(DurationType.Minute, 1)
             .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
 
