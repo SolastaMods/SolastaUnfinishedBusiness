@@ -1,7 +1,6 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ConditionAffinityPathOfTheSpiritsWolfLeadershipPack:56bca621-33a9-53f3-b952-a2c14dc55a8e",
     "Definition:PowerPathOfTheSpiritsWolfLeadership:e47c29ae-454d-5117-9da9-2c107c6e7e6a"
   ],
   "mode": "Union",
