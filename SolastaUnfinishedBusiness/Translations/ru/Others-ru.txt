@@ -74,6 +74,7 @@ ContentPack/&9999Title=Мод Неоконченное Дело
 Equipment/&BeltOfRegeneration_Function_Description=Восстанавливает 5 хитов за раунд в течение одной минуты.
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=Ваши атаки становятся критическими попаданиями при бросках 18, 19 или 20, пока вы используете это оружие и настроены на него.
 Failure/&FailureFlagCannotTargetUndead=Нежить не может быть целью
+Failure/&FailureFlagMaterialComponentHandsFull=Нет свободы действий для использования материальных компонентов заклинаний.
 Failure/&FailureFlagMustKnowLanguage=Вы должны владеть языком {0}, чтобы приказывать этому существу
 Failure/&FailureFlagTargetMustNotBeSurprised=Цель не должна быть застигнута врасплох
 Failure/&FailureFlagTargetMustUnderstandYou=Цель должна понимать ваш приказ

@@ -74,6 +74,7 @@ ContentPack/&9999Title=미완성 비즈니스 팩
 Equipment/&BeltOfRegeneration_Function_Description=1분 동안 라운드당 5개의 체력을 재생합니다.
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=이 무기를 휘두르고 그에 맞춰 조정하는 동안 공격은 18, 19 또는 20에 치명타를 기록합니다.
 Failure/&FailureFlagCannotTargetUndead=언데드 생물을 대상으로 할 수 없습니다.
+Failure/&FailureFlagMaterialComponentHandsFull=재료 주문 구성 요소를 자유롭게 사용할 수 없습니다.
 Failure/&FailureFlagMustKnowLanguage=이 생물을 지휘하려면 {0} 언어에 능통해야 합니다.
 Failure/&FailureFlagTargetMustNotBeSurprised=타겟은 놀라지 않아야 합니다.
 Failure/&FailureFlagTargetMustUnderstandYou=타겟은 당신의 명령을 이해해야 합니다

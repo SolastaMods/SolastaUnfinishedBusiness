@@ -99,12 +99,6 @@ internal static class GrappleContext
         const SituationalContext TARGET_HAS_CONDITION_FROM_SOURCE =
             (SituationalContext)ExtraSituationalContext.IsConditionSource;
 
-        var actionAffinityGrappleSource = FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinityGrappleSource")
-            .SetGuiPresentationNoContent(true)
-            .SetForbiddenActions(ActionDefinitions.Id.Climb)
-            .AddToDB();
-
         var combatAffinityGrappleSource = FeatureDefinitionCombatAffinityBuilder
             .Create("CombatAffinityGrappleSource")
             .SetGuiPresentationNoContent(true)
@@ -124,7 +118,8 @@ internal static class GrappleContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
-                actionAffinityGrappleSource,
+                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
+                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
                 combatAffinityGrappleSource,
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
@@ -139,7 +134,8 @@ internal static class GrappleContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionReckless)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
-                actionAffinityGrappleSource,
+                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
+                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
                 combatAffinityGrappleSource,
                 combatAffinityGrappleSourceWithGrappler)
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
@@ -154,7 +150,8 @@ internal static class GrappleContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSlowed)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
-                actionAffinityGrappleSource,
+                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
+                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
                 combatAffinityGrappleSource,
                 combatAffinityGrappleSourceWithGrappler,
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
@@ -210,6 +207,30 @@ internal static class GrappleContext
                 rulesetTarget.RemoveCondition(activeConditionTarget);
             }
         }
+    }
+
+    internal static void ValidateIfBothHandsFree(
+        RulesetCharacter caster, ref bool result, ref string failure, bool isSomaticCheck = false)
+    {
+        if (!HasGrappleSource(caster) ||
+            ServiceRepository.GetService<IGameSettingsService>().MaterialComponent ==
+            SettingDefinitions.SomaticComponentDisabled)
+        {
+            return;
+        }
+
+        var mainHand = caster.GetMainWeapon();
+        var offHand = caster.GetOffhandWeapon();
+
+        if (ValidatorsWeapon.IsUnarmed(offHand?.ItemDefinition) && ValidatorsWeapon.IsUnarmed(mainHand?.ItemDefinition))
+        {
+            return;
+        }
+
+        result = false;
+        failure = isSomaticCheck
+            ? "Failure/&FailureFlagSomaticComponentHandsFull"
+            : "Failure/&FailureFlagMaterialComponentHandsFull";
     }
 
     internal static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
@@ -423,7 +444,7 @@ internal static class GrappleContext
 
     private sealed class CustomBehaviorConditionGrappleSource
         : IModifyWeaponAttackMode, IMoveStepStarted, IOnItemEquipped, IPhysicalAttackInitiatedByMe,
-            IOnConditionAddedOrRemoved
+            IOnConditionAddedOrRemoved, IOnReducedToZeroHpByEnemy
     {
         internal static readonly CustomBehaviorConditionGrappleSource Marker = new();
 
@@ -445,15 +466,18 @@ internal static class GrappleContext
 
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
 
-            // ensure there is a non-blocked path for this movement
-            var validPositions = GetValidPositionsWithinOneCell(target);
-
-            if (!validPositions.Contains(source))
+            // ensure there is a non-blocked path for this movement if a creature larger than 1x1 cell on 2d plane
+            if (target.LocationBoundingBox.Size.x > 1 || target.LocationBoundingBox.Size.y > 1)
             {
-                EjectCharactersInArea(mover, target);
-                rulesetTarget.RemoveCondition(activeCondition);
+                var validPositions = GetValidPositionsWithinOneCell(target);
 
-                return;
+                if (!validPositions.Contains(source))
+                {
+                    EjectCharactersInArea(mover, target);
+                    rulesetTarget.RemoveCondition(activeCondition);
+
+                    return;
+                }
             }
 
             // be safe and if it cannot place target, get rid of grapple to avoid exploits
@@ -487,7 +511,7 @@ internal static class GrappleContext
             // empty
         }
 
-        // remove grappled on target if source becomes incapacitated or unconscious
+        // remove grappled on target if source becomes incapacitated
         public void OnConditionRemoved(RulesetCharacter source, RulesetCondition rulesetCondition)
         {
             if (GetGrappledActor(source, out var target, out var activeConditionTarget))
@@ -504,6 +528,21 @@ internal static class GrappleContext
             {
                 rulesetTarget.RemoveCondition(activeCondition);
             }
+        }
+
+        // remove grappled on target if source becomes unconscious
+        public IEnumerator HandleReducedToZeroHpByEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter source,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (GetGrappledActor(source.RulesetCharacter, out var target, out var activeConditionTarget))
+            {
+                target.RemoveCondition(activeConditionTarget);
+            }
+
+            yield break;
         }
 
         // should lose grapple if attacks with two-handed or with any free hand
@@ -541,7 +580,7 @@ internal static class GrappleContext
                 var magnitude = (position - character.LocationPosition).magnitude;
 
                 if (magnitude < 1 ||
-                    magnitude > 2 ||
+                    magnitude > 1 || // float numbers don't like equalities
                     character.LocationPosition == position)
                 {
                     continue;

@@ -74,6 +74,7 @@ ContentPack/&9999Title=未完成ビジネスパック
 Equipment/&BeltOfRegeneration_Function_Description=1分間、ラウンドごとに5ヒットポイントを回復します。
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=この武器を使用し、それに同調している間、攻撃は 18、19、または 20 でクリティカル ヒットを獲得します。
 Failure/&FailureFlagCannotTargetUndead=アンデッドクリーチャーをターゲットにできない
+Failure/&FailureFlagMaterialComponentHandsFull=マテリアル呪文コンポーネントを使用するための自由な手がありません。
 Failure/&FailureFlagMustKnowLanguage=この生物を指揮するには{0}言語に堪能でなければなりません
 Failure/&FailureFlagTargetMustNotBeSurprised=ターゲットは驚いてはいけない
 Failure/&FailureFlagTargetMustUnderstandYou=ターゲットはあなたのコマンドを理解する必要があります

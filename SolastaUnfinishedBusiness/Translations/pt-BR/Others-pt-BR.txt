@@ -74,6 +74,7 @@ ContentPack/&9999Title=Pacote de negócios inacabados
 Equipment/&BeltOfRegeneration_Function_Description=Regenera 5 pontos de vida por rodada durante um minuto.
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=Seus ataques causam um acerto crítico de 18, 19 ou 20 enquanto você estiver empunhando esta arma e estiver sintonizado com ela.
 Failure/&FailureFlagCannotTargetUndead=Não é possível mirar em criaturas mortas-vivas
+Failure/&FailureFlagMaterialComponentHandsFull=Não há liberdade para usar componentes materiais da magia.
 Failure/&FailureFlagMustKnowLanguage=Você deve ser proficiente em {0} idioma para comandar esta criatura
 Failure/&FailureFlagTargetMustNotBeSurprised=O alvo não deve ser surpreendido
 Failure/&FailureFlagTargetMustUnderstandYou=O alvo deve entender seu comando
