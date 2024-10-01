@@ -244,11 +244,12 @@ internal static class LightingAndObscurementContext
     // most of the usages is to determine if a character can perceive a cell in teleport scenarios
     // when target not null it helps determine visibility on attacks and effects targeting scenarios
     internal static bool MyIsCellPerceivedByCharacter(
-        this GameLocationVisibilityManager instance,
+        this IGameLocationVisibilityService instance,
         int3 cellPosition,
         GameLocationCharacter sensor,
         GameLocationCharacter target = null,
-        LightingState additionalBlockedLightingState = LightingState.Darkness)
+        LightingState additionalBlockedLightingState = LightingState.Darkness,
+        bool requireLineOfSight = false)
     {
         // gadgets cannot perceive anything
         if (sensor.RulesetActor is RulesetGadget)
@@ -274,17 +275,22 @@ internal static class LightingAndObscurementContext
             }
         }
 
+        //check line of sight
+        if ((requireLineOfSight || !Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+            && !instance.IsCellPerceivedByCharacter(cellPosition, finalSensor))
+        {
+            return false;
+        }
+
         // use the improved lighting state detection to diff between darkness and heavily obscured
         var targetLightingState = ComputeLightingStateOnTargetPosition(finalSensor, cellPosition);
 
         // use vanilla if setting is off but still supporting additionalBlockedLightingState logic
         if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
-            var result = instance.IsCellPerceivedByCharacter(cellPosition, finalSensor);
-
             // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
-            return result && (additionalBlockedLightingState == LightingState.Darkness ||
-                              targetLightingState != additionalBlockedLightingState);
+            return additionalBlockedLightingState == LightingState.Darkness ||
+                   targetLightingState != additionalBlockedLightingState;
         }
 
         // determine constraints
@@ -679,7 +685,7 @@ internal static class LightingAndObscurementContext
         .AddFeatures(ActionAffinityConditionRetchingReeling)
         .AddToDB();
 
-    private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
+    internal static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
         .Create(ConditionHeavilyObscured, "ConditionLightlyObscured")
         .SetOrUpdateGuiPresentation(Category.Condition)
         .SetFeatures(

@@ -1,5 +1,6 @@
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=매 턴이 끝날 때마다 1d6의 괴사 피해를 입고 겁에 질려 마커의 불 공격이 저항을 우회합니다.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Dammed의 표시
+Failure/&MustHaveDammingStrikeCondition=Damning Strike의 표시가 없습니다.
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=당신의 턴에 공격으로 생물을 처음 공격할 때, 당신은 그것이 당신의 주문 DC에 대한 헌법 내성 굴림에서 성공하도록 강제하거나 표시하도록 할 수 있습니다. 생물이 이런 식으로 표시되어 있는 동안, 1분 동안 각 턴이 시작될 때 1d6의 화염 피해를 입습니다. 매 턴이 끝날 때마다 생물은 이 내성 굴림을 반복하여 성공에 대한 효과를 끝낼 수 있습니다.
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=저주의 일격
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=<b>Sapping Sting</b>을 행동으로 시전하면 레인저 주문으로 간주되고 알고 있는 주문 수에 포함되지 않는 보너스 주문을 얻을 수 있습니다.\n{0}
@@ -18,4 +19,3 @@ Monster/&MonsterMarilithDescription=허리 위로는 팔이 여섯 개인 매력
 Monster/&MonsterMarilithTitle=마릴리스
 Subclass/&RangerHellWalkerDescription=당신은 하층계의 마법을 두른 레인저인 헬워커입니다. 당신이 어떻게 이 마법과 연관되게 되었는지는 당신 자신만이 알고 있습니다. 어쩌면 당신의 위대한 조상이 악마 출신이었을 수도 있고, 어쩌면 당신의 혈통이 악마 저주를 물려받았을 수도 있습니다. 이유가 무엇이든, 마법은 이제 당신과 불가분하게 연결되어 있으며, 당신의 존재는 아래의 지옥 같은 존재들과 영원히 연결되어 있습니다.
 Subclass/&RangerHellWalkerTitle=헬워커
-Tooltip/&MustHaveDammingStrikeCondition=Damning Strike의 표시가 없습니다.

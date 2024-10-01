@@ -1,23 +1,10 @@
-﻿using System;
+﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using TA;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
 internal static class DistanceCalculation
 {
-    private static float GetDistanceFromPositions(int3 position1, int3 position2) //, bool useDefault = false)
-    {
-        // if (useDefault)
-        // {
-        //     return int3.Distance(position1, position2);
-        // }
-
-        var rawDistance = position1 - position2;
-        var distance = Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
-
-        return distance;
-    }
-
     internal static float GetDistanceFromCharacters(
         GameLocationCharacter character1,
         GameLocationCharacter character2)
@@ -33,9 +20,14 @@ internal static class DistanceCalculation
         var character1ClosestCube = GetCharacterClosestCubeToPosition(character1, GetPositionCenter(character2));
         var character2ClosestCube = GetCharacterClosestCubeToPosition(character2, character1ClosestCube);
 
-        var distance = GetDistanceFromPositions(character1ClosestCube, character2ClosestCube);
+        return character1ClosestCube.ChessboardDistance(character2ClosestCube);
+    }
 
-        return distance;
+    internal static float GetDistanceFromCharacter(GameLocationCharacter character, int3 target)
+    {
+        var characterClosestCube = GetCharacterClosestCubeToPosition(character, target);
+
+        return characterClosestCube.ChessboardDistance(target);
     }
 
     private static int3 GetCharacterClosestCubeToPosition(GameLocationCharacter character1, int3 position)
@@ -51,6 +43,25 @@ internal static class DistanceCalculation
             ? closestCharacter1Position
             : GetBigCharacterClosestCubePosition(character1, position, closestDistance, closestCharacter1Position);
     }
+
+#if false
+    internal static float DistanceFromLine(int3 a, int3 b, int3 p)
+    {
+        if (a == b) { return float.PositiveInfinity; }
+
+        return DistanceFromLine(a.ToVector3(), b.ToVector3(), p.ToVector3());
+    }
+
+    internal static float DistanceFromLine(Vector3 a, Vector3 b, Vector3 p)
+    {
+        if (a == b) { return float.PositiveInfinity; }
+
+        var d = (b - a) / (b - a).magnitude;
+        var v = p - a;
+        var t = Vector3.Dot(v, d);
+        return (a + t * d - p).magnitude;
+    }
+#endif
 
     private static int3 GetBigCharacterClosestCubePosition(
         GameLocationCharacter character1,

@@ -3,7 +3,7 @@
 Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -30,7 +30,7 @@ Starting at 3rd level, you may choose one of the following effects whenever you 
 - Spite: When your ally hits an assisted target, the target will have disadvantage on the first attack roll it makes within 1 minute.
 
 
-## Level 3
+### Level 3
 
 * Assist - Hospitality
 
@@ -51,7 +51,7 @@ As a bonus action, assist an ally in attacking an enemy within 5 feet of you in 
 Cave Wyrmkins are wyrms that have adapted living in vast underground network of caves. They are born with strong sense of direction in order to navigate skillfully, and use their powerful claws to dig tunnels.
 
 
-## Level 1
+### Level 1
 
 * Attribute Increase
 
@@ -80,7 +80,7 @@ You can use your claws to make unarmed strike. Attacking with them deals 1d6 + y
 Wyrmkins are larger cousins of Dragonborns descended from another race of dragons. Unlike Dragonborns, they can see in the dark.
 
 
-## Level 1
+### Level 1
 
 * Attribute Increase
 
@@ -105,7 +105,7 @@ You are proficient with one of the following skills of your choice: Animal Handl
 Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -138,7 +138,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 Dark Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -163,7 +163,7 @@ A creature with Pack Tactics has advantage on an attack roll against a creature 
 Tieflings with a lineage connected to Malcanthet or other Succubi inherit a fragment of their magical ability to charm and manipulate others.
 
 
-## Level 1
+### Level 1
 
 * Devil's Tongue Attribute Increase
 
@@ -180,7 +180,7 @@ You know the Vicious Mockery cantrip. At 3rd level you learn Charm Person and at
 Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -201,7 +201,7 @@ You know one cantrip of your choice from the Sorcerer spell list. Charisma is yo
 The Dragonborn came into being as the fruit of the dalliances of polymorphed dragons with humanoid lineages. Well accepted in the Manacalon Empire, they became secretive and reclusive after the Cataclysm, self-reliant but keeping to themselves.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -230,7 +230,7 @@ You can use your action to exhale destructive energy based on your draconic ance
 These tieflings display features and abilities which make them much more characteristically demonic such as a forked tail and large bat-like wings. Because of this, many feral tieflings are forced to hide to avoid scrutiny or being hunted while others embrace this fiendish nature.
 
 
-## Level 1
+### Level 1
 
 * Demonic Wings
 
@@ -251,7 +251,7 @@ You know the Produce Flame cantrip. At 3rd level you learn Burning Hands. It can
 Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -277,7 +277,7 @@ You use your bonus action to Disengage or Hide.
 The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -300,14 +300,14 @@ Common, Dwarvish
 You have Disadvantage on Wisdom (Perception) checks in bright light and suffers a -1d4 penalty on attack rolls.
 
 
-## Level 3
+### Level 3
 
 * Stone Strength
 
 As a bonus action, you take on the Strength of stone for 1 minute. You have advantage on Strength checks and Strength saving throws. You also deal an extra 1d4 damage with Strength based melee weapons. Once you use this ability, you can't use it again until you finish a short or long rest.
 
 
-## Level 5
+### Level 5
 
 * Invisibility
 
@@ -320,7 +320,7 @@ You can magically turn invisible for up to 1 minute. This invisibility breaks if
 Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 
 
-## Level 1
+### Level 1
 
 * Move
 
@@ -337,7 +337,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 Offspring of the human refugees from Tirmar and the Solastan elves, half-elves have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -371,7 +371,7 @@ Common, Elvish, and one language of your choice
 Offspring of the human refugees from Tirmar and the Solastan elves, half-elves have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -397,7 +397,7 @@ Common, Elvish, and one language of your choice
 Half-High elves are trained to use magic very early.
 
 
-## Level 1
+### Level 1
 
 * Move
 
@@ -414,7 +414,7 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 Offspring of humans and orcs, half-orcs often have a history of violence rather than romance. Rejected by both their parent's families, they tend to rely on strength to get on in life.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -447,7 +447,7 @@ When you score a critical hit with a melee weapon attack, you can roll one of th
 Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 
 
-## Level 1
+### Level 1
 
 * Move
 
@@ -460,7 +460,7 @@ Half-Sylvan elves are trained to survive in the wilds and are particularly apt t
 High elves are the descendants of the people who ruled Solasta for centuries. They are trained to use magic very early, and have a gift for languages. They receive the traditional martial training of their people with swords and bows.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -489,7 +489,7 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 High Wyrmkins descended from a race of wyrms that have psionic abilities. Instead of dragon's breath, they can use their psionic powers to deal damage.
 
 
-## Level 1
+### Level 1
 
 * Attribute Increase
 
@@ -514,7 +514,7 @@ When a creature hits you with an attack, you can use your reaction to attack the
 Hill dwarves are naturally skilled miners and craftsmen, gifted with keen senses, deep intuition, and remarkable resilience. Blocky and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -539,7 +539,7 @@ Common, Dwarvish
 Originally born on Tirmar and brought to Solasta before the Cataclysm, humans have adapted to their new world thanks to their unique talents. Able to live anywhere and take any job, they are versatile above all else.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -560,7 +560,7 @@ Common and one language of your choice.
 Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -581,7 +581,7 @@ You know the Vicious Mockery cantrip. When you reach level 3, you can cast Invis
 Strong and hardy, the Ironborn Dwarves live among, but often apart from, their cousins the Snow Dwarves. Clannish and aloof, they nevertheless can be counted on to stand shoulder to brawny shoulder with any in the Snow Alliance.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -606,7 +606,7 @@ Common, Dwarvish
 Island halflings are the children of adventurous halflings who left the Northern Marshes to venture south and settle in the sunny islands. Discreet and brave, they are inclined to be affable and get along well with others.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -627,7 +627,7 @@ Advantage on Dexterity checks (Acrobatics)
 Marsh halflings have lived in the tradition of their ancestors, who used to move, fight, and even sleep in swamp terrain. They are particularly sturdy compared to their island cousins, while being generally less likable and certainly no less courageous.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -652,7 +652,7 @@ Areas with marshes and ponds and a humid atmosphere are considered swamp terrain
 Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
 
 
-## Level 1
+### Level 1
 
 * Mephistopheles Attribute Increase
 
@@ -669,7 +669,7 @@ You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th 
 In ages past, a group of dwarves was enslaved by fire giants as miners and craftsmen. The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors. The dwarves rebelled, won their freedom, and retreated to the Badlands. Calling themselves the Obsidian Dwarves, they have grown and prospered.
 
 
-## Level 1
+### Level 1
 
 * Badlands Brawn
 
@@ -695,7 +695,7 @@ Living inside mountains made of rock, gnomes are hardy and inventive. They
   can live under the sky, but underground is home.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -716,7 +716,7 @@ You have proficiency with artisan's tools (smith's tools). Using these tools, yo
 Shadar-kai are the elves of the Shadowfell, originally drawn to that dread realm by the Raven Queen. Over the centuries, some of them have continued to serve her, while others have ventured into the Material Plane to forge their own destinies.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -749,7 +749,7 @@ You have resistance to necrotic damage.
 While rock gnomes chose to settle underground, shadow gnomes used a natural ability to hide in plain sight. As such, they weathered the Cataclysm in improbable places. Seemingly shy and aloof, their talent for stealth makes them feared practical jokers.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -770,7 +770,7 @@ You know the Annoying Bee cantrip. Intelligence is your spellcasting ability for
 Snow dwarves are sturdy and adventurous, adapted to harsh terrain and low temperatures. Blocky, agile, and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -807,7 +807,7 @@ Immune to the effects of moderately cold weather.
 Born and raised in the eastern forests of Solasta, sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their high elf cousins, they are trained to fight with swords and bows since childhood.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -837,7 +837,7 @@ Proficient with Survival and Athletics.
 One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -870,7 +870,7 @@ You know the Produce Flame cantrip. When you reach level 3, you can cast the Hel
 One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
 
 
-## Level 1
+### Level 1
 
 * Ability Score Increase
 
@@ -895,7 +895,7 @@ You have resistance to fire damage.
 Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 
 
-## Level 1
+### Level 1
 
 * Zariel Attribute Increase
 

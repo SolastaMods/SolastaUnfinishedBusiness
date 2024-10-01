@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -114,7 +115,7 @@ public static class GameLocationActionManagerPatcher
     [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.CharacterDamageReceivedAsync))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class IsAnyMetamagicOptionAvailable_Patch
+    public static class CharacterDamageReceivedAsync_Patch
     {
         [UsedImplicitly]
         public static IEnumerator Postfix(
@@ -158,6 +159,67 @@ public static class GameLocationActionManagerPatcher
             while (values.MoveNext())
             {
                 yield return values.Current;
+            }
+        }
+    }
+
+    //PATCH: supports for unique request groups, except if an opportunity attack, otherwise battle crashes...
+    // ...under advanced reaction scenarios when someone reacts in the middle of another reaction
+    // i.e.: an attack before hit offers a reaction which forces an enemy to roll a save,
+    // which an ally could change from success to failure, and only after that pop up a maneuver usage
+    [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.AddInterruptRequest))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class AddInterruptRequest_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationActionManager __instance, ReactionRequest reactionRequest)
+        {
+            AddInterruptRequest(__instance, reactionRequest);
+
+            return false;
+        }
+
+        // vanilla code except for BEGIN/END patch block
+        private static void AddInterruptRequest(GameLocationActionManager __instance, ReactionRequest reactionRequest)
+        {
+            reactionRequest.AssignGuid(__instance.currentReactionGuid++);
+
+            if (__instance.pendingReactionRequestGroups.Count > 0 &&
+                __instance.pendingReactionRequestGroups.Peek().ReactionDefinitionName == reactionRequest.DefinitionName)
+            {
+                var isSameCharacter = __instance.pendingReactionRequestGroups.Peek().Requests
+                    .Any(request => request.Character == reactionRequest.Character);
+
+                if (!isSameCharacter)
+                {
+                    //BEGIN PATCH
+                    // add a new unique request group to avoid reactions grouping and,
+                    // enforce the desired sequence if not an opportunity attack
+                    if (reactionRequest.ReactionParams.ActionDefinition.Id != ActionDefinitions.Id.AttackOpportunity)
+                    {
+                        __instance.pendingReactionRequestGroups.Push(
+                            new ReactionRequestGroup(reactionRequest.DefinitionName));
+                    }
+                    //END PATCH
+
+                    __instance.pendingReactionRequestGroups.Peek().Requests.Add(reactionRequest);
+                }
+            }
+            else
+            {
+                __instance.pendingReactionRequestGroups.Push(new ReactionRequestGroup(reactionRequest.DefinitionName));
+                __instance.pendingReactionRequestGroups.Peek().Requests.Add(reactionRequest);
+            }
+
+            if (!reactionRequest.Automated)
+            {
+                __instance.ReactionTriggered?.Invoke(reactionRequest);
+            }
+            else
+            {
+                __instance.unstoppableCoroutines.Add(
+                    __instance.DelayedProcessAutomatedReactionRequest(reactionRequest));
             }
         }
     }

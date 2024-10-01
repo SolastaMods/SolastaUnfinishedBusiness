@@ -1162,7 +1162,7 @@ internal static partial class SpellBuilders
 
                 var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
 
-                __instance.actionModifier.FailureFlags.Add(Gui.Format("Tooltip/&TargetMeleeWeaponError", text));
+                __instance.actionModifier.FailureFlags.Add(Gui.Format("Failure/&TargetMeleeWeaponError", text));
 
                 return false;
             }
@@ -1172,7 +1172,7 @@ internal static partial class SpellBuilders
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&SecondTargetNotWithinRange");
+            __instance.actionModifier.FailureFlags.Add("Failure/&SecondTargetNotWithinRange");
 
             return false;
         }

@@ -1,14 +1,18 @@
 {
-  "$type": "FeatureDefinitionConditionAffinity, Assembly-CSharp",
-  "conditionType": "ConditionPathOfTheSpiritsHonedAnimalAspectsBear",
-  "savingThrowAdvantageType": "None",
-  "savingThrowModifier": 0,
-  "conditionAffinityType": "Immunity",
-  "silent": false,
-  "rerollSaveWhenGained": false,
-  "rerollAdvantageType": "None",
-  "myselfFamilyRestrictions": [],
-  "otherCharacterFamilyRestrictions": [],
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DecisionBreakFreeConditionGrappleTarget:b84b18f7-e427-5c41-a48c-5b161013a057",
+        "weight": 10.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      }
+    ]
+  },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -33,7 +37,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "99aef076-2914-5b24-bd13-b09f4cf95bf0",
+  "guid": "b3dda95b-b6b0-5304-816f-615712840fbe",
   "contentPack": 9999,
-  "name": "ConditionAffinityPathOfTheSpiritsHonedAnimalAspectsBear"
+  "name": "BreakFreeAbilityCheckConditionGrappleTarget"
 }

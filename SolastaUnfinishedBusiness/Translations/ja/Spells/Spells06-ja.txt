@@ -1,6 +1,8 @@
 Condition/&ConditionHeroicInfusionDescription=あなたは魔法によって強化された持久力と武勇を自分に与えます。
 Condition/&ConditionHeroicInfusionTitle=テンサーの変身
 Condition/&ConditionShelterFromEnergyTitle={0} 抵抗
+Failure/&MustBeLargeOrSmaller=狙うには大きいサイズか小さいサイズでなければなりません
+Failure/&MustNotHaveFizbanPlatinumShield=フィズバンのプラチナシールドを持ってはいけません
 Feature/&PowerRingOfBladesDescription=ボーナス アクションとして、Ring of Blades の剣の 1 つを使用して、自分から 60 フィート以内のクリーチャーに遠隔呪文攻撃を行うことができます。
 Feature/&PowerRingOfBladesTitle=刃のリング
 Feedback/&AdditionalDamageHeroicInfusionFormat=テンサー変身！
@@ -28,5 +30,3 @@ Spell/&ScatterDescription=範囲内にいる、あなたが選択した最大 5 
 Spell/&ScatterTitle=散らばる
 Spell/&ShelterFromEnergyDescription=酸、冷気、火、稲妻、壊死、光、雷のいずれかのダメージ タイプを選択し、範囲内にいる最大 6 体の自発的なクリーチャーを選択します。1 時間の間、ターゲットはそのダメージ タイプに対する耐性を持ちます。7 レベル以上の呪文スロットを使用してこの呪文を発動する場合、6 レベルを超えるスロット レベルごとに最大 1 体の自発的なクリーチャーを追加でターゲットにすることができます。
 Spell/&ShelterFromEnergyTitle=エネルギーからの避難所
-Tooltip/&MustBeLargeOrSmaller=狙うには大きいサイズか小さいサイズでなければなりません
-Tooltip/&MustNotHaveFizbanPlatinumShield=フィズバンのプラチナシールドを持ってはいけません

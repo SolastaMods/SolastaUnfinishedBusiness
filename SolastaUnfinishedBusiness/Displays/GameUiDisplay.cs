@@ -83,6 +83,15 @@ internal static class GameUiDisplay
             Main.Settings.AllowMoreRealStateOnRestPanel = toggle;
         }
 
+        toggle = Main.Settings.EnableRespec;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRespec"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRespec = toggle;
+            ToolsContext.SwitchRespec();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.AddPaladinSmiteToggle;
         if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
         {
@@ -95,11 +104,10 @@ internal static class GameUiDisplay
             Main.Settings.EnableActionSwitching = toggle;
         }
 
-        toggle = Main.Settings.EnableRespec;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRespec"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.DisableMultilineSpellOffering;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableMultilineSpellOffering"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableRespec = toggle;
-            ToolsContext.SwitchRespec();
+            Main.Settings.DisableMultilineSpellOffering = toggle;
         }
 
         UI.Label();
@@ -165,12 +173,6 @@ internal static class GameUiDisplay
 
         int intValue;
 
-        toggle = Main.Settings.ShowMotionFormPreview;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowMotionFormPreview"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShowMotionFormPreview = toggle;
-        }
-
         toggle = Main.Settings.DontFollowCharacterInBattle;
         if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
         {
@@ -205,6 +207,18 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
         {
             Main.Settings.EnableDistanceOnTooltip = toggle;
+        }
+
+        toggle = Main.Settings.ShiftToSnapLineSpells;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShiftToSnapLineSpells"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShiftToSnapLineSpells = toggle;
+        }
+
+        toggle = Main.Settings.ShowMotionFormPreview;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowMotionFormPreview"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowMotionFormPreview = toggle;
         }
 
         UI.Label();
@@ -275,6 +289,16 @@ internal static class GameUiDisplay
         {
             Main.Settings.InvertAltBehaviorOnTooltips = toggle;
         }
+
+        var floatValue = Main.Settings.TooltipWidth;
+
+        if (UI.Slider(Gui.Localize("ModUi/&WidenTooltips"), ref floatValue, Tooltips.MinScale, Tooltips.MaxScale,
+                Tooltips.DefScale, 1, string.Empty, UI.AutoWidth()))
+        {
+            Main.Settings.TooltipWidth = floatValue;
+        }
+
+        UI.Label();
 
         toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
         if (UI.Toggle(Gui.Localize("ModUi/&AltOnlyHighlightItemsInPartyFieldOfView"), ref toggle, UI.AutoWidth()))

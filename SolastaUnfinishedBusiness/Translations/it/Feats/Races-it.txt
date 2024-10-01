@@ -1,5 +1,6 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=Qualsiasi creatura entro 1,5 metri da te che ti colpisce con un attacco in mischia subisce 1d4 danni da fuoco.
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=Fiamme di Flegeto
+Failure/&AllyMustBeAbleToChargeTarget=Impossibile caricare il bersaglio
 Feat/&FeatBountifulLuckDescription=La tua gente ha una fortuna straordinaria, che hai imparato a prestare misticamente ai tuoi compagni ogni volta che li vedi vacillare. Non sai come ci riesci, lo desideri e basta, e succede. Sicuramente un segno del favore della fortuna!\n• Quando un alleato che puoi vedere entro 30 piedi da te tira un 1 sul d20 per un tiro di attacco, una prova di abilità o un tiro salvezza, puoi usare la tua reazione per rilanciare il dado. L'alleato deve usare il nuovo tiro.\n• Quando usi questa abilità, non puoi usare il tuo tratto razziale Fortunato prima della fine del tuo turno successivo.
 Feat/&FeatBountifulLuckTitle=Fortuna abbondante
 Feat/&FeatDarkElfMagicDescription=Impari di più sulla magia tipica degli elfi oscuri. Apprendi l'incantesimo Individuazione della Magia e puoi lanciarlo a piacimento, senza spendere uno slot incantesimo. Imparerai anche Levitazione e Dissolvi Magia, ognuno dei quali puoi lanciare una volta senza spendere uno slot incantesimo. Riacquisti la capacità di lanciare l'incantesimo in questo modo quando termini un riposo lungo. Il carisma è la tua abilità da incantatore per questi incantesimi.
@@ -92,4 +93,3 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=Puoi accendere le tue F
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Fiamme di Flegeto
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Fiamme di Flegeto
 Tag/&WoodElfMagicCantripSpecialTagTitle=Trucchetti magici degli elfi dei boschi
-Tooltip/&AllyMustBeAbleToChargeTarget=Impossibile caricare il bersaglio

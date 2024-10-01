@@ -82,21 +82,15 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .Create($"Power{Name}SilhouetteStep")
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite(Name, Resources.PowerSilhouetteStep, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(
-                            conditionSilhouetteStep,
-                            ConditionForm.ConditionOperation.Add, true, true))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishDarkweaverShadowy)
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
+                .SetEffectForms(
+                    EffectFormBuilder.MotionForm(MotionForm.MotionType.TeleportToDestination),
+                    EffectFormBuilder.AddConditionForm(conditionSilhouetteStep, true, true)
+                )
+                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishDarkweaverShadowy)
+                .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight),
                 new FilterTargetingPositionSilhouetteStep())

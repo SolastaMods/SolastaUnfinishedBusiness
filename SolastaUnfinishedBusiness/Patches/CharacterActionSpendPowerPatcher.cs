@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 
@@ -86,6 +87,11 @@ public static class CharacterActionSpendPowerPatcher
             }
 
             var actionModifier = new ActionModifier();
+
+            // BEGIN PATCH
+            PowerBundle.SpendBundledPowerIfNeeded(__instance);
+
+            // END PATCH
 
             // Spend the power, if this does not come from an item
             if (activePower is { OriginItem: null })
@@ -241,13 +247,16 @@ public static class CharacterActionSpendPowerPatcher
                         effectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
                     var targetWasDeadOrDyingOrUnconscious =
                         target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: true };
-                    var targetCurrentHitPoints = target.RulesetCharacter.CurrentHitPoints;
+                    //don't use rulesetCharacter here
+                    var targetCurrentHitPoints = target.RulesetActor.CurrentHitPoints;
                     //END BUGFIX
 
                     //BEGIN PATCH
-                    var positions = __instance.ActionParams.Positions;
 
+                    //PATCH: support for `ForcePushOrDragFromEffectPoint`
+                    var positions = __instance.ActionParams.Positions;
                     var sourceDefinition = activePower.SourceDefinition;
+
                     if (positions.Count != 0 && sourceDefinition.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>())
                     {
                         applyFormsParams.position = positions[0];
@@ -274,7 +283,8 @@ public static class CharacterActionSpendPowerPatcher
                             target,
                             rulesetEffect,
                             targetWasDeadOrDyingOrUnconscious,
-                            targetCurrentHitPoints - target.RulesetCharacter.CurrentHitPoints,
+                            //don't use rulesetCharacter here
+                            targetCurrentHitPoints - target.RulesetActor.CurrentHitPoints,
                             damageAbsorbedByTemporaryHitPoints,
                             effectDamageTypes);
                     }

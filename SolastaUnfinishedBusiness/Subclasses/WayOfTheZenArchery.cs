@@ -263,6 +263,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
             var effectDamageForm = EffectFormBuilder.DamageForm(
                 firstDamageForm!.DamageForm.DamageType, 1, dieType, wisMod);
 
+            effectDamageForm.DamageForm.IgnoreCriticalDoubleDice = true;
+
             actualEffectForms.Insert(index + 1, effectDamageForm);
             attacker.UsedSpecialFeatures.TryAdd("ZenShot", 0);
             rulesetAttacker.UsePower(usablePower);

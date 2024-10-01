@@ -7,6 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Ative <color=#D89555>Darkness Perceptive
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicionado modificador de DES aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
 ModUi/&AddFallProneActionToAllRaces=Adicione a ação <color=#D89555>Cair De bruços</color> a todas as raças jogáveis ​​<i><color=#F0DAA0>[você pode cair de bruços sem custo]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Habilite <color=#D89555>Lutador</color> para adicionar o nível de classe como um bônus na nova rolagem do teste de resistência de <color=#D89555>Resistência Indomável</color>
+ModUi/&AddGrappleActionToAllRaces=Adicione a ação <color=#D89555>Agarrar</color> a todas as raças jogáveis
 ModUi/&AddHelpActionToAllRaces=Adicionada a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1 espaço de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ativar inimigos humanóides preferidos do <color=#D89555>Ranger</color>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
@@ -71,6 +72,7 @@ ModUi/&DisableAutoEquip=Desative o equipamento automático de itens no inventár
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Desative também <color=#D89555>Bárbaro</color> <b>Brutal Critical</b> nos níveis 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desative os pré-requisitos de lançamento de feitiço em <color=#D89555>talentos</color> fornecidos por este mod <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível em <color=#D89555>talentos</color> fornecidos por este mod
+ModUi/&DisableMultilineSpellOffering=Desabilitar oferta de magia multi-linha na barra de ação <i><color=#F0DAA0>[principalmente para usuários de controle que usam heróis não multicaster]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Desative os pré-requisitos de corrida em <color=#D89555>talentos</color> fornecidos por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desativar <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -99,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• Essas configurações não exigirão que o joga
 ModUi/&DungeonMakerMenu=Criador de Masmorras
 ModUi/&Effects=Efeitos
 ModUi/&EmpressGarbAppearance=Aparência do <color=#D89555>Traje de Imperatriz</color>
-ModUi/&EnableActionSwitching=Ativar barra de alternância de ação <i><color=#F0DAA0>[útil quando estiver com pressa para usar a ação rápida antes da ação principal]</color></i>
+ModUi/&EnableActionSwitching=Habilitar a barra de alternância de ações <i><color=#F0DAA0>[útil para ter controle total sobre sua sequência de ações]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Habilitar exibição adicional de histórico na inspeção de histórico
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampamentos, saídas e teletransportadores no mapa de níveis
 ModUi/&EnableAdditionalItemsInDungeonMaker=Adicione itens modificados ao Editor
@@ -297,6 +299,7 @@ ModUi/&SettingsLoad=• Carregar uma configuração exportada
 ModUi/&SettingsOpenFolder=Abra a pasta de configurações exportadas
 ModUi/&SettingsRefresh=Atualizar
 ModUi/&SettingsRemove=Remover
+ModUi/&ShiftToSnapLineSpells=Segure <color=#1E81B0>SHIFT</color> para encaixar as linhas de feitiços na grade <i><color=#F0DAA0>[sem encaixar, o posicionamento real das linhas pode ser diferente da visualização]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Mostrar botão que abre informações sobre monstros controlados <i><color=#F0DAA0>[druidas em forma selvagem, invocações, seguidores de NPCs, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostre quantos usos de <color=#D89555>Canal Divindade</color> um herói tem em seu retrato, semelhante a pontos de feitiçaria
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar ícone de item criado próximo ao item de receita na loja e no inventário <i><color=#F0DAA0>[Passar o mouse sobre ele exibirá uma dica para o item criado]</color></i>
@@ -348,4 +351,5 @@ ModUi/&UseOfficialObscurementRules=Use regras oficiais de combate de <color=#D89
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[o atacante que percebe o defensor que não consegue perceber recebe ADV, e o atacante que não percebe o defensor que consegue perceber recebe DIS\n áreas fortemente obscurecidas infligem condição cega, onde jogadas de ataque contra o a criatura tem ADV e as jogadas de ataque da criatura têm DIS\n todos os feitiços de distância direcionados a indivíduos não podem ser lançados se o atacante não tiver visão, exceto aqueles que claramente não declaram que a visão é necessária]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use as regras oficiais das <color=#D89555>raças pequenas</color> ao empunhar armas pesadas <i><color=#F0DAA0>[seus ataques têm desvantagem]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&WidenTooltips=<color=white>Multiplicar a largura da dica de ferramenta por:</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Definir limite de dado de chance de <color=#D89555>Magia Selvagem do Feiticeiro</color>:</color>\n<i><color=#F0DAA0>[onda selvagem é acionada se a rolagem for menor ou igual ao limite]</color></i>

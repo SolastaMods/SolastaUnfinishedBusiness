@@ -1,5 +1,6 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=Jede Kreatur im Umkreis von 1,5 m um Sie herum, die Sie mit einem Nahkampfangriff trifft, erleidet 1W4 Feuerschaden.
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=Flammen von Phlegethos
+Failure/&AllyMustBeAbleToChargeTarget=Ziel kann nicht angegriffen werden
 Feat/&FeatBountifulLuckDescription=Ihr Volk hat außergewöhnliches Glück, und Sie haben gelernt, es Ihren Gefährten auf mystische Weise zu verleihen, wann immer Sie sehen, dass sie schwächeln. Sie sind sich nicht sicher, wie Sie das machen, Sie wünschen es sich einfach und es passiert. Sicherlich ein Zeichen für die Gunst des Schicksals!\n• Wenn ein Verbündeter, den Sie innerhalb von 30 Fuß von sich aus sehen, bei einem Angriffswurf, einer Fähigkeitsüberprüfung oder einem Rettungswurf eine 1 auf dem W20 würfelt, können Sie Ihre Reaktion nutzen, um den Würfel erneut zu würfeln. Der Verbündete muss den neuen Wurf verwenden.\n• Wenn Sie diese Fähigkeit nutzen, können Sie Ihre Rasseneigenschaft „Glücklich“ nicht vor dem Ende Ihres nächsten Zuges nutzen.
 Feat/&FeatBountifulLuckTitle=Reichhaltiges Glück
 Feat/&FeatDarkElfMagicDescription=Du lernst mehr von der typischen Magie der Dunkelelfen. Du lernst den Zauber „Magie entdecken“ und kannst ihn nach Belieben wirken, ohne einen Zauberplatz zu verbrauchen. Du lernst auch „Schweben“ und „Magie bannen“, die du jeweils einmal wirken kannst, ohne einen Zauberplatz zu verbrauchen. Du erhältst die Fähigkeit zurück, den Zauber auf diese Weise zu wirken, wenn du eine lange Pause beendest. Charisma ist deine Zauberfähigkeit für diese Zauber.
@@ -92,4 +93,3 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=Sie können Ihre Flamme
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Flammen von Phlegethos
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Flammen von Phlegethos
 Tag/&WoodElfMagicCantripSpecialTagTitle=Zaubertricks der Waldelfen
-Tooltip/&AllyMustBeAbleToChargeTarget=Ziel kann nicht angegriffen werden

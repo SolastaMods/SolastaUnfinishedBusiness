@@ -114,7 +114,7 @@
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
           "type": "DragToOrigin",
-          "distance": 2,
+          "distance": -100,
           "forceTurnTowardsSourceCharacterAfterPush": false,
           "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },

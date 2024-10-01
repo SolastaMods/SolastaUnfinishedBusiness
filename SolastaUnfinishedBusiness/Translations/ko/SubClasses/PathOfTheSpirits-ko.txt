@@ -1,10 +1,10 @@
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=이 오라의 근원지를 제외한 모든 공격에 대해 불이익을 받습니다.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=출처를 제외한 모든 공격에 대해 불이익을 얻습니다.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=연마된 곰 오라
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=비행 능력을 얻습니다.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=연마된 독수리 비행
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=보너스 액션으로 밀어내는 능력을 얻습니다.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfTitle=연마된 늑대 강타
-Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=늑대의 정신은 근접 공격 굴림에서 이점을 제공합니다.
+Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=늑대의 영혼은 당신이 근원이 아닌 이상 근접 공격 굴림에서 유리하게 작용합니다.
 Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=늑대 정령
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=독수리의 정신은 당신을 쉽게 전투를 헤쳐나갈 수 있는 민첩한 포식자로 만듭니다. 보너스 행동으로 돌진, 이탈, 숨기를 할 수 있습니다.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=독수리 정신

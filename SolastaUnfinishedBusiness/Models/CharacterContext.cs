@@ -195,6 +195,7 @@ internal static partial class CharacterContext
         FlexibleBackgroundsContext.Load();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
+        GrappleContext.SwitchGrappleAction();
         LoadAdditionalNames();
         LoadEpicArray();
         LoadFeatsPointPools();

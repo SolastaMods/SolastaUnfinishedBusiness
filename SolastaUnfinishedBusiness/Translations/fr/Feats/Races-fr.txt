@@ -1,5 +1,6 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=Toute créature à moins de 1,50 mètre de vous qui vous frappe avec une attaque au corps à corps subit 1d4 dégâts de feu.
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=Flammes de Phlégéthos
+Failure/&AllyMustBeAbleToChargeTarget=Impossible de charger la cible
 Feat/&FeatBountifulLuckDescription=Votre peuple a une chance extraordinaire, que vous avez appris à prêter mystiquement à vos compagnons chaque fois que vous les voyez faiblir. Vous ne savez pas comment faire, vous le souhaitez simplement et cela arrive. Sûrement un signe de faveur de la fortune !\n• Lorsqu'un allié que vous pouvez voir à moins de 9 mètres de vous obtient un 1 sur le d20 pour un jet d'attaque, un test de capacité ou un jet de sauvegarde, vous pouvez utiliser votre réaction pour relancer le mourir. L'allié doit utiliser le nouveau jet.\n• Lorsque vous utilisez cette capacité, vous ne pouvez pas utiliser votre trait racial Chanceux avant la fin de votre prochain tour.
 Feat/&FeatBountifulLuckTitle=Chance abondante
 Feat/&FeatDarkElfMagicDescription=Vous apprenez davantage de magie typique des elfes noirs. Vous apprenez le sort Détection de la magie et pouvez le lancer à volonté, sans dépenser d'emplacement de sort. Vous apprenez également Lévitation et Dissipation de la magie, que vous pouvez lancer une fois sans dépenser d'emplacement de sort. Vous récupérez la capacité de lancer le sort de cette manière lorsque vous terminez un repos long. Le Charisme est votre capacité de lancer ces sorts.
@@ -92,4 +93,3 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=Vous pouvez allumer vos
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Flammes de Phlégéthos
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Flammes de Phlégéthos
 Tag/&WoodElfMagicCantripSpecialTagTitle=Les tours de magie des elfes des bois
-Tooltip/&AllyMustBeAbleToChargeTarget=Impossible de charger la cible

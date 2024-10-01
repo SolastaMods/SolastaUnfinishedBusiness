@@ -7,6 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptiv
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Add DEX modifier to enemies <color=#D89555>Initiative Roll</color>
 ModUi/&AddFallProneActionToAllRaces=Add the <color=#D89555>Fall Prone</color> action to all playable races <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Enable <color=#D89555>Fighter</color> to add the class level as a bonus to <color=#D89555>Indomitable Resistance</color> saving throw reroll
+ModUi/&AddGrappleActionToAllRaces=Add the <color=#D89555>Grapple</color> action to all playable races
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Ranger</color> humanoid preferred enemies
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors
@@ -71,6 +72,7 @@ ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Also disable <color=#D89555>Barbarian</color> <b>Brutal Critical</b> at levels 9, 13 and 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on <color=#D89555>feats</color> provided by this mod <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on <color=#D89555>feats</color> provided by this mod
+ModUi/&DisableMultilineSpellOffering=Disable multi-line spell offering on action bar <i><color=#F0DAA0>[mainly for controller users using non multicaster heroes]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable race pre-requisites on <color=#D89555>feats</color> provided by this mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -99,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• These settings won't require the player to have
 ModUi/&DungeonMakerMenu=Dungeon Maker
 ModUi/&Effects=Effects
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
-ModUi/&EnableActionSwitching=Enable action switching bar <i><color=#F0DAA0>[useful when hasted to use haste action before main action]</color></i>
+ModUi/&EnableActionSwitching=Enable the action switching bar <i><color=#F0DAA0>[useful to have full control over your actions sequence]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on background inspection
 ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAdditionalItemsInDungeonMaker=Add modded items to Editor
@@ -226,7 +228,7 @@ ModUi/&InitialChoices=<color=#F0DAA0>Creation:</color>
 ModUi/&Input=<color=#F0DAA0>Input:</color>
 ModUi/&Interface=Interface
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventory and items:</color>
-ModUi/&InvertAltBehaviorOnTooltips=Invert <color=#1E81B0>ALT</color> key behavior on tooltips
+ModUi/&InvertAltBehaviorOnTooltips=Invert <color=#1E81B0>ALT</color> key behavior on tooltips. <i><color=#F0DAA0>[Will show extended tooltip by default]</color></i>
 ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&ItemInDm=Items in DM
 ModUi/&Items=<color=#F0DAA0>Items:</color>
@@ -297,6 +299,7 @@ ModUi/&SettingsLoad=• Load an exported setting
 ModUi/&SettingsOpenFolder=Open exported settings folder
 ModUi/&SettingsRefresh=Refresh
 ModUi/&SettingsRemove=Remove
+ModUi/&ShiftToSnapLineSpells=Hold <color=#1E81B0>SHIFT</color> to snap line spells to grid <i><color=#F0DAA0>[without snapping actual line placement might differ from preview]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Show button that opens info about controlled monster <i><color=#F0DAA0>[wild-shaped druids, summons, NPC followers, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Show how many <color=#D89555>Channel Divinity</color> uses a hero has on their portrait, similar to sorcery points
 ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory <i><color=#F0DAA0>[Hovering over it will show tooltip for crafted item]</color></i>
@@ -348,4 +351,5 @@ ModUi/&UseOfficialObscurementRules=Use official <color=#D89555>lighting, obscure
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[attacker who perceive defender who cannot perceive it gets ADV, and attacker who doesn't perceive defender who can perceive it gets DIS\n heavily obscured areas inflict blinded condition, where attack rolls against the creature have ADV, and the creature's attack rolls have DIS\n all distance spells targeting individuals cannot be cast if attacker has no sight, except for the ones that clearly don't state sight is required]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use official <color=#D89555>small races</color> rules when wielding heavy weapons <i><color=#F0DAA0>[your attacks have disadvantage]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&WidenTooltips=<color=white>Multiply tooltip width by:</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Set <color=#D89555>Sorcerer Wild Magic</color> chance die threshold:</color>\n<i><color=#F0DAA0>[wild surge triggers if rolls less or equal threshold]</color></i>

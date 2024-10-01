@@ -7,6 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>Darkelf</color>, <color=#
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=적에게 DEX 수정치를 추가합니다 <color=#D89555>이니셔티브 롤</color>
 ModUi/&AddFallProneActionToAllRaces=모든 플레이 가능한 종족에 <color=#D89555>엎드려 넘어지기</color> 액션을 추가합니다. <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>파이터</color>를 활성화하여 클래스 레벨을 <color=#D89555>불굴의 저항</color> 저장 던지기 재굴림에 보너스로 추가하세요.
+ModUi/&AddGrappleActionToAllRaces=모든 플레이 가능한 종족에 <color=#D89555>Grapple</color> 액션을 추가합니다.
 ModUi/&AddHelpActionToAllRaces=플레이 가능한 모든 종족에 <color=#D89555>도움말</color> 액션을 추가하세요. <i><color=#F0DAA0>[당신은 1셀 내의 생물을 공격하는 아군 생물을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 인간형 선호 적 활성화
 ModUi/&AddNewBrightEyeColors=새로운 밝은 눈 색깔 추가
@@ -71,6 +72,7 @@ ModUi/&DisableAutoEquip=인벤토리 내 아이템 자동 장착 비활성화
 ModUi/&DisableBarbarianBrutalCritical=<i>+ 또한 레벨 9, 13, 17에서 <color=#D89555>야만인</color> <b>잔혹한 치명적</b>을 비활성화합니다.</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=이 모드에서 제공하는 <color=#D89555>feats</color>에 대한 시전 주문 전제 조건을 비활성화합니다. <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=이 모드에서 제공하는 <color=#D89555>feats</color>에 대한 레벨 전제 조건을 비활성화합니다.
+ModUi/&DisableMultilineSpellOffering=액션 바에서 다중 줄 주문 제공 비활성화 <i><color=#F0DAA0>[주로 멀티캐스터 영웅을 사용하지 않는 컨트롤러 사용자를 위해]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=이 모드에서 제공하는 <color=#D89555>feats</color>에 대한 레이스 전제 조건을 비활성화합니다.
 ModUi/&DisableSenseDarkVisionFromAllRaces=모든 플레이 가능한 종족에서 <color=#D89555>암흑 비전 감지</color>를 비활성화합니다. <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=플레이 가능한 모든 종족에서 <color=#D89555>Superior Sense Dark Vision</color>을 비활성화합니다. <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
@@ -99,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• 이 설정에서는 플레이어에 이 모드�
 ModUi/&DungeonMakerMenu=던전메이커
 ModUi/&Effects=효과
 ModUi/&EmpressGarbAppearance=<color=#D89555>복 황후</color> 등장
-ModUi/&EnableActionSwitching=동작 전환 막대 활성화 <i><color=#F0DAA0>[주 동작 전에 서둘러 동작을 사용해야 할 때 유용함]</color></i>
+ModUi/&EnableActionSwitching=동작 전환 막대 활성화 <i><color=#F0DAA0>[동작 순서를 완벽하게 제어하는 ​​데 유용함]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=배경 검사 시 추가 배경 스토리 표시 활성화
 ModUi/&EnableAdditionalIconsOnLevelMap=레벨 맵에서 캠프, 출구 및 텔레포터에 대한 추가 아이콘을 활성화합니다.
 ModUi/&EnableAdditionalItemsInDungeonMaker=편집기에 수정된 항목 추가
@@ -297,6 +299,7 @@ ModUi/&SettingsLoad=• 내보낸 설정 로드
 ModUi/&SettingsOpenFolder=내보낸 설정 폴더 열기
 ModUi/&SettingsRefresh=새로 고치다
 ModUi/&SettingsRemove=제거하다
+ModUi/&ShiftToSnapLineSpells=<color=#1E81B0>SHIFT</color>를 누르고 있으면 선 주문이 격자에 맞춰집니다. <i><color=#F0DAA0>[스냅하지 않으면 실제 선 배치가 미리 보기와 다를 수 있음]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=조종되는 몬스터 <i><color=#F0DAA0>[야생 모양의 드루이드, 소환수, NPC 추종자 등]</color></i>에 대한 정보를 여는 표시 버튼
 ModUi/&ShowChannelDivinityOnPortrait=영웅의 초상화에 얼마나 많은 <color=#D89555>채널 신성</color>을 사용했는지 표시합니다. 이는 마법 포인트와 유사합니다.
 ModUi/&ShowCraftedItemOnRecipeIcon=상점과 인벤토리의 제작 아이템 근처에 제작 아이템 아이콘 표시 <i><color=#F0DAA0>[마우스를 위에 올리면 제작 아이템에 대한 툴팁이 표시됩니다]</color></i>
@@ -348,4 +351,5 @@ ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시�
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[인지할 수 없는 방어자를 감지한 공격자는 ADV를 얻고, 감지할 수 있는 방어자를 감지하지 못한 공격자는 DIS를 얻습니다.\n 심하게 가려진 영역은 실명 상태를 유발합니다. 생물에는 ADV가 있고 생물의 공격 굴림에는 DIS가 있습니다.\n 개인을 대상으로 하는 모든 거리 주문은 공격자가 시력이 없으면 시전할 수 없습니다. 단, 시력이 필요하다고 명확하게 명시하지 않은 주문은 제외합니다.]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족</color> 규칙을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>시각적:</color> <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
+ModUi/&WidenTooltips=<color=white>도구 설명 너비를 곱합니다:</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>마법사 야생 마법</color> 확률 주사위 임계값 설정:</color>\n<i><color=#F0DAA0>[임계값 이하로 굴리면 야생 급증이 발동]</color></i>

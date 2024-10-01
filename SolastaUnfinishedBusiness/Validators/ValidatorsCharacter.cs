@@ -15,6 +15,55 @@ internal delegate bool IsCharacterValidHandler(RulesetCharacter character);
 
 internal static class ValidatorsCharacter
 {
+    internal static readonly IsCharacterValidHandler HasTacticalMovesAvailable = character =>
+    {
+        var glc = GameLocationCharacter.GetFromActor(character);
+
+        return Gui.Battle == null || glc is { RemainingTacticalMoves: > 0 };
+    };
+
+    internal static readonly IsCharacterValidHandler HasBonusAttackAvailable = character =>
+    {
+        if (Gui.Battle == null)
+        {
+            return true;
+        }
+
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+        if (gameLocationCharacter == null ||
+            gameLocationCharacter.GetActionStatus(Id.AttackOff, ActionScope.Battle) != ActionStatus.Available)
+        {
+            return false;
+        }
+
+        var maxAttacksNumber = character.AttackModes
+            .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Bonus)?.AttacksNumber ?? 0;
+
+        return maxAttacksNumber - gameLocationCharacter.UsedBonusAttacks > 0;
+    };
+
+    internal static readonly IsCharacterValidHandler HasMainAttackAvailable = character =>
+    {
+        if (Gui.Battle == null)
+        {
+            return true;
+        }
+
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+        if (gameLocationCharacter == null ||
+            gameLocationCharacter.GetActionStatus(Id.AttackMain, ActionScope.Battle) != ActionStatus.Available)
+        {
+            return false;
+        }
+
+        var maxAttacksNumber = character.AttackModes
+            .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
+
+        return maxAttacksNumber - gameLocationCharacter.UsedMainAttacks > 0;
+    };
+
     internal static readonly IsCharacterValidHandler HasAvailableMoves = character =>
     {
         var locationCharacter = GameLocationCharacter.GetFromActor(character);

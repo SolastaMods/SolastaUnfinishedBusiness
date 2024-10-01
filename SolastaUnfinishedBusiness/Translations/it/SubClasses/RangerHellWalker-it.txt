@@ -1,5 +1,6 @@
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Subisci 1d6 danni necrotici alla fine di ogni tuo turno, sei spaventato e gli attacchi di fuoco del segnalino aggirano la tua resistenza.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Segnato dai dannati
+Failure/&MustHaveDammingStrikeCondition=Non è contrassegnato da Colpo Dannante
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Quando colpisci per la prima volta una creatura con un attacco nel tuo turno, puoi costringerla a superare un tiro salvezza su Costituzione contro la tua CD dell'incantesimo o farla marchiare. Mentre una creatura è marchiata in questo modo, subisce 1d6 danni da fuoco all'inizio di ogni suo turno per 1 minuto. Alla fine di ogni suo turno, la creatura può ripetere questo tiro salvezza, terminando gli effetti in caso di successo.
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=Colpo di dannazione
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=Puoi lanciare <b>Puntura indebolitrice</b> come azione e ottenere incantesimi bonus che sono considerati incantesimi da ranger per te e non contano nel numero di incantesimi che conosci:\n{0}
@@ -18,4 +19,3 @@ Monster/&MonsterMarilithDescription=Dalla vita in su, le marilith sembravano don
 Monster/&MonsterMarilithTitle=Marilite
 Subclass/&RangerHellWalkerDescription=Tu sei un Hellwalker, un ranger ammantato dalla magia dei Piani Inferiori. Come tu sia arrivato ad essere associato a questa magia lo sai solo tu. Forse il tuo grande antenato era di origine demoniaca, o forse la tua stirpe porta con sé una maledizione demoniaca. Qualunque sia la ragione, la magia è ora inestricabilmente legata a te, la tua stessa presenza è per sempre legata agli esseri infernali sottostanti.
 Subclass/&RangerHellWalkerTitle=Camminatore dell'Inferno
-Tooltip/&MustHaveDammingStrikeCondition=Non è contrassegnato da Colpo Dannante

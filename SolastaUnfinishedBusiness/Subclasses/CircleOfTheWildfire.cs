@@ -690,7 +690,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeWithin5ft");
             }
 
             return isValid;
@@ -765,9 +765,11 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             }
 
             var index = actualEffectForms.IndexOf(firstDamageForm);
+            var newDamageForm = EffectFormBuilder.DamageForm(firstDamageForm.DamageForm.DamageType, 1, DieType.D8);
 
-            actualEffectForms.Insert(index + 1,
-                EffectFormBuilder.DamageForm(firstDamageForm.DamageForm.DamageType, 1, DieType.D8));
+            newDamageForm.DamageForm.IgnoreCriticalDoubleDice = true;
+
+            actualEffectForms.Insert(index + 1, newDamageForm);
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(

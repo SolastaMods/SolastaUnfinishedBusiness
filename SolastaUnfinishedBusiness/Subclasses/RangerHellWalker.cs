@@ -293,7 +293,7 @@ public sealed class RangerHellWalker : AbstractSubclass
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveDammingStrikeCondition");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustHaveDammingStrikeCondition");
             }
 
             return isValid;

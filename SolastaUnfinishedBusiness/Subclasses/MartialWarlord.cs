@@ -437,7 +437,7 @@ public sealed class MartialWarlord : AbstractSubclass
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
+                __instance.actionModifier.FailureFlags.Add("Failure/&SelfOrTargetCannotAct");
             }
 
             return isValid;
@@ -450,8 +450,7 @@ public sealed class MartialWarlord : AbstractSubclass
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
             var targetCharacter = cursorLocationSelectPosition.ActionParams.TargetCharacters[0];
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService =
-                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
             var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
@@ -629,16 +628,16 @@ public sealed class MartialWarlord : AbstractSubclass
 
                 var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity)
                 {
-                    StringParameter2 = "CoordinatedAssault", BoolParameter4 = mode == null // true means no attack
+                    ActionModifiers = { modifier ?? new ActionModifier() },
+                    StringParameter2 = "CoordinatedAssault",
+                    TargetCharacters = { defender },
+                    BoolParameter4 = mode == null // true means no attack
                 };
-
-                reactionParams.targetCharacters.Add(defender);
-                reactionParams.actionModifiers.Add(modifier ?? new ActionModifier());
 
                 if (mode != null)
                 {
-                    reactionParams.attackMode = RulesetAttackMode.AttackModesPool.Get();
-                    reactionParams.attackMode.Copy(mode);
+                    reactionParams.AttackMode = RulesetAttackMode.AttackModesPool.Get();
+                    reactionParams.AttackMode.Copy(mode);
                 }
 
                 reactions.Add(reactionParams);
@@ -659,9 +658,7 @@ public sealed class MartialWarlord : AbstractSubclass
 
             yield return battleManager.WaitForReactions(attacker, actionService, count);
 
-            var firstValidatedReaction = reactions.FirstOrDefault(x => x.ReactionValidated);
-
-            if (firstValidatedReaction == null)
+            if (!reactions.Any(x => x.ReactionValidated))
             {
                 yield break;
             }

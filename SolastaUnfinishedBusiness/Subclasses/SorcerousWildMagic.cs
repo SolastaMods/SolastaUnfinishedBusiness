@@ -899,7 +899,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         extra:
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                            (action.AttackRollOutcome > 0
+                            (action.AttackSuccessDelta >= 0
                                 ? ConsoleStyleDuplet.ParameterType.Positive
                                 : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
                         ]);
@@ -925,9 +925,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         extra:
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                            (action.AttackRollOutcome > 0
-                                ? ConsoleStyleDuplet.ParameterType.Positive
-                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                            (action.AttackSuccessDelta >= 0
+                                ? ConsoleStyleDuplet.ParameterType.Negative
+                                : ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
                         ]);
                 }
             }
@@ -1013,7 +1013,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         extra:
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                            (abilityCheckData.AbilityCheckRollOutcome > 0
+                            (abilityCheckData.AbilityCheckSuccessDelta >= 0
                                 ? ConsoleStyleDuplet.ParameterType.Positive
                                 : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
                         ]);
@@ -1040,9 +1040,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         extra:
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                            (abilityCheckData.AbilityCheckRollOutcome > 0
-                                ? ConsoleStyleDuplet.ParameterType.Positive
-                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                            (abilityCheckData.AbilityCheckSuccessDelta >= 0
+                                ? ConsoleStyleDuplet.ParameterType.Negative
+                                : ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
                         ]);
                 }
             }
@@ -1107,7 +1107,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 var dieRoll = rulesetHelper.RollDie(
                     DieType.D4, RollContext.None, false, AdvantageType.None, out _, out _);
 
-                if (helper.Side == attacker?.Side)
+                if (helper.Side == defender.Side)
                 {
                     savingThrowData.SaveOutcomeDelta += dieRoll;
                     savingThrowData.SaveOutcome =
@@ -1121,7 +1121,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         extra:
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                            (savingThrowData.SaveOutcome > 0
+                            (savingThrowData.SaveOutcomeDelta >= 0
                                 ? ConsoleStyleDuplet.ParameterType.Positive
                                 : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
                         ]);
@@ -1140,9 +1140,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         extra:
                         [
                             (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
-                            (savingThrowData.SaveOutcome > 0
-                                ? ConsoleStyleDuplet.ParameterType.Positive
-                                : ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                            (savingThrowData.SaveOutcomeDelta >= 0
+                                ? ConsoleStyleDuplet.ParameterType.Negative
+                                : ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
                         ]);
                 }
             }

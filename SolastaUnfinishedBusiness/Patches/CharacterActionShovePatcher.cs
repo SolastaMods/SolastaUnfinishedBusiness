@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 
@@ -132,6 +133,18 @@ public static class CharacterActionShovePatcher
 
             yield return actingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(
                 GameLocationCharacterEventSystem.Event.RotationEnd);
+
+            //PATCH: support for Poisonous feat
+            //Poison attacker if feat owner gets shoved
+            var rulesetTargetHero = target.RulesetCharacter.GetOriginalHero();
+
+            if (rulesetTargetHero != null &&
+                rulesetTargetHero.TrainedFeats.Contains(OtherFeats.FeatPoisonousSkin))
+            {
+                yield return OtherFeats.PoisonTarget(target, actingCharacter);
+            }
+
+            //END PATCH
 
             var guard = 1000;
 

@@ -428,7 +428,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     {
         var powerChalice = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Chalice")
-            .SetGuiPresentation(Category.Feature, PowerPaladinLayOnHands)
+            .SetGuiPresentation(Category.Feature, PowerPaladinLayOnHands, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetEffectDescription(

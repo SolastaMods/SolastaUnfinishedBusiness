@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -140,20 +141,8 @@ public static class CharacterActionPatcher
 
             switch (__instance)
             {
-#if false
-                case CharacterActionCastSpell or CharacterActionSpendSpellSlot:
-                    //PATCH: Hold the state of the SHIFT key on bool 5 to determine which slot to use on MC Warlock
-                    var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-
-                    __instance.actionParams.BoolParameter5 = isShiftPressed;
-                    break;
-#endif
                 case CharacterActionReady:
                     CustomReactionsContext.ReadReadyActionPreferredCantrip(__instance.actionParams);
-                    break;
-
-                case CharacterActionSpendPower spendPower:
-                    PowerBundle.SpendBundledPowerIfNeeded(spendPower);
                     break;
 
                 case CharacterActionMoveStepBase characterActionMoveStepBase:
@@ -174,78 +163,75 @@ public static class CharacterActionPatcher
             var actingCharacter = __instance.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            foreach (var actionFinished in rulesetCharacter
+                         .GetEffectControllerOrSelf()
+                         .GetSubFeaturesByType<IActionFinishedByMe>())
             {
-                foreach (var actionFinished in rulesetCharacter
-                             .GetEffectControllerOrSelf()
-                             .GetSubFeaturesByType<IActionFinishedByMe>())
+                yield return actionFinished.OnActionFinishedByMe(__instance);
+            }
+
+            switch (__instance)
+            {
+                case CharacterActionMoveStepBase:
+                case CharacterActionMagicEffect { isPostSpecialMove: true }:
                 {
-                    yield return actionFinished.OnActionFinishedByMe(__instance);
+                    //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
+                    var extraAoOEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(actingCharacter);
+
+                    while (extraAoOEvents.MoveNext())
+                    {
+                        yield return extraAoOEvents.Current;
+                    }
+
+                    //PATCH: support for MovementTracker
+                    MovementTracker.CleanMovementCache();
+
+                    //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord, or enemy moved by other means
+                    if (!actingCharacter.IsMyTurn())
+                    {
+                        var cursorService = ServiceRepository.GetService<ICursorService>();
+                        var cursorLocationBattleFriendlyTurn =
+                            cursorService.AllCursors.OfType<CursorLocationBattleFriendlyTurn>().First();
+
+                        if (!cursorLocationBattleFriendlyTurn.Active)
+                        {
+                            yield break;
+                        }
+
+                        cursorLocationBattleFriendlyTurn.dirty = true;
+                        cursorLocationBattleFriendlyTurn.ComputeValidDestinations();
+                    }
+
+                    break;
+                }
+
+                //PATCH: support for Circle of the Wildfire cauterizing flames, and grapple scenarios
+                case CharacterActionPushed:
+                case CharacterActionPushedCustom:
+                {
+                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(actingCharacter);
+
+                    GrappleContext.ValidateGrappleAfterForcedMove(actingCharacter);
+                    break;
+                }
+                case CharacterActionShove:
+                {
+                    var target = __instance.ActionParams.TargetCharacters[0];
+
+                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(target);
+
+                    GrappleContext.ValidateGrappleAfterForcedMove(target);
+                    break;
                 }
             }
 
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
+            //PATCH: support for Old Tactics feat
+            yield return MeleeCombatFeats.HandleFeatOldTactics(__instance);
 
             //PATCH: support for Official Flanking Rules
             if (Main.Settings.UseOfficialFlankingRules)
             {
                 FlankingAndHigherGround.ClearFlankingDeterminationCache();
-            }
-
-            if (actingCharacter.IsOppositeSide(Side.Ally))
-            {
-                switch (__instance)
-                {
-                    //PATCH: support for Old Tactics feat
-                    case CharacterActionStandUp:
-                    {
-                        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                        foreach (var ally in Gui.Battle.GetOpposingContenders(__instance.ActingCharacter.Side))
-                        {
-                            var rulesetAlly = ally.RulesetCharacter;
-                            var rulesetAllyHero = rulesetAlly.GetOriginalHero();
-
-                            if (rulesetAllyHero != null &&
-                                (rulesetAllyHero.TrainedFeats.Contains(MeleeCombatFeats.FeatOldTacticsDex) ||
-                                 rulesetAllyHero.TrainedFeats.Contains(MeleeCombatFeats.FeatOldTacticsStr)))
-                            {
-                                yield return MeleeCombatFeats.HandleFeatOldTactics(__instance, ally);
-                            }
-                        }
-
-                        break;
-                    }
-                    //PATCH: support for Poisonous feat
-                    case CharacterActionShove:
-                    {
-                        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                        foreach (var ally in Gui.Battle.GetOpposingContenders(__instance.ActingCharacter.Side))
-                        {
-                            var rulesetAlly = ally.RulesetCharacter;
-                            var rulesetAllyHero = rulesetAlly.GetOriginalHero();
-
-                            if (rulesetAllyHero != null &&
-                                rulesetAllyHero.TrainedFeats.Contains(OtherFeats.FeatPoisonousSkin))
-                            {
-                                yield return OtherFeats.HandleFeatPoisonousSkin(__instance, ally);
-                            }
-                        }
-
-                        break;
-                    }
-                }
-            }
-
-            if (__instance is CharacterActionShove)
-            {
-                foreach (var targetCharacter in __instance.ActionParams.TargetCharacters)
-                {
-                    //PATCH: support for Circle of the Wildfire cauterizing flames
-                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(targetCharacter);
-                }
             }
 
             //PATCH: support for `ExtraConditionInterruption.UsesBonusAction`

@@ -1,5 +1,6 @@
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=你在你的每个回合结束时受到 1d6 黯蚀伤害，你感到恐慌，来自标记的火焰攻击会忽视你的抗性。
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=斥逐印记
+Failure/&MustHaveDammingStrikeCondition=没有被斥逐打击标记
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=当你在你的回合中第一次用攻击击中一个生物时，你可以迫使它通过一次对抗你的法术 DC 的体质豁免检定或对其进行标记。当一个生物被这样标记时，它会在其每个回合开始时受到 1d6 火焰伤害，持续 1 分钟。在它的每个回合结束时，该生物可以重复该豁免检定，成功则结束该效果。
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=斥逐打击
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=你可以获得额外 <b>削弱芒刺</b> 法术并作为一个动作施放，这些法术对你来说被视为游侠法术，并且不计入你已知的法术数量：\n{0}
@@ -18,4 +19,3 @@ Monster/&MonsterMarilithDescription=从腰部以上看，六臂蛇魔似乎是�
 Monster/&MonsterMarilithTitle=六臂蛇魔
 Subclass/&RangerHellWalkerDescription=你是一名地狱行者，一名隐藏在下层位面魔法中的游侠。你是如何与这种魔法联系在一起的，只有你自己知道。或许你的高祖是魔族出身，又或许你的血脉带有魔族诅咒。不管是什么原因，魔法现在与你密不可分，你自己的存在永远与地狱之底的生物联系在一起。
 Subclass/&RangerHellWalkerTitle=地狱行者
-Tooltip/&MustHaveDammingStrikeCondition=没有被斥逐打击标记

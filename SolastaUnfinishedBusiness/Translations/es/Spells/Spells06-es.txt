@@ -1,6 +1,8 @@
 Condition/&ConditionHeroicInfusionDescription=Te dotas de resistencia y destreza marcial impulsadas por la magia.
 Condition/&ConditionHeroicInfusionTitle=La transformación de Tenser
 Condition/&ConditionShelterFromEnergyTitle={0} Resistencia
+Failure/&MustBeLargeOrSmaller=Debe ser de tamaño grande o más pequeño para apuntar
+Failure/&MustNotHaveFizbanPlatinumShield=No debe tener el escudo platino de Fizban
 Feature/&PowerRingOfBladesDescription=Como acción adicional, puedes realizar un ataque con hechizo a distancia a una criatura que se encuentre a 60 pies de ti, usando una de tus espadas de Anillo de Espadas.
 Feature/&PowerRingOfBladesTitle=Anillo de espadas
 Feedback/&AdditionalDamageHeroicInfusionFormat=¡La transformación de Tenser!
@@ -28,5 +30,3 @@ Spell/&ScatterDescription=El aire se estremece alrededor de hasta cinco criatura
 Spell/&ScatterTitle=Dispersión
 Spell/&ShelterFromEnergyDescription=Elige uno de los siguientes tipos de daño: ácido, frío, fuego, relámpago, necrótico, radiante o trueno, y luego elige hasta seis criaturas voluntarias que puedas ver dentro del alcance. Durante 1 hora, los objetivos tienen resistencia a ese tipo de daño. Cuando lanzas este hechizo usando un espacio de hechizo de nivel 7 o superior, puedes seleccionar como objetivo hasta una criatura voluntaria adicional por cada nivel de espacio por encima del 6.
 Spell/&ShelterFromEnergyTitle=Refugio de la energía
-Tooltip/&MustBeLargeOrSmaller=Debe ser de tamaño grande o más pequeño para apuntar
-Tooltip/&MustNotHaveFizbanPlatinumShield=No debe tener el escudo platino de Fizban

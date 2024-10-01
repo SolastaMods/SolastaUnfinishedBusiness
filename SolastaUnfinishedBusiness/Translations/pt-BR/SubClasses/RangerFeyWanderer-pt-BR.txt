@@ -1,3 +1,4 @@
+Failure/&MustBeWithin5ft=Deve estar dentro de 5 pés
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesDescription=Você pode aumentar seus ataques de arma com magia de cicatrizar a mente, retirada das profundezas sombrias da selva Fey. Quando você acerta uma criatura com uma arma, você pode causar 1d4 de dano psíquico extra ao alvo, que pode receber esse dano extra apenas uma vez por turno. O dano extra aumenta para 1d6 quando você alcança o 11º nível nesta classe.
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesTitle=Greves Terríveis
 Feature/&AutoPreparedSpellsRangerFeyWandererDescription=Você ganha magias bônus que são consideradas magias de Ranger para você, elas estão sempre preparadas e não contam para o número de magias de Ranger que você conhece:\n{0}\n\n
@@ -22,4 +23,3 @@ Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistReactTitle
 Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistTitle=Reviravolta sedutora
 Subclass/&RangerFeyWandererDescription=Uma mística feérica o cerca, graças à bênção de um arqui-fey, à fruta brilhante que você comeu de uma árvore falante, à fonte mágica em que você nadou ou a algum outro evento auspicioso. No entanto, você adquiriu sua magia feérica, agora você é um Fey Wanderer, um ranger que representa os reinos mortal e feérico. Conforme você vagueia pelo multiverso, sua risada alegre ilumina os corações dos oprimidos, e sua destreza marcial causa terror em seus inimigos, pois grande é a alegria dos feéricos e terrível é sua fúria.
 Subclass/&RangerFeyWandererTitle=Andarilho Feérico
-Tooltip/&MustBeWithin5ft=Deve estar dentro de 5 pés

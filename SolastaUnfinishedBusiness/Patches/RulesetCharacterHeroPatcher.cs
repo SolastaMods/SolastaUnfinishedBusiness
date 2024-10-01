@@ -110,7 +110,19 @@ public static class RulesetCharacterHeroPatcher
                 Main.Error("Couldn't patch RulesetCharacterHero.RefreshArmorClass");
             }
 
-            return codes;
+            //PATCH: clear all modifiers tagged 09Health - fixes extra large AC that sometimes happens after respec
+            //TODO: find out how/why 09Health modifiers are added to AC attribute
+            var oldMethod = typeof(RulesetAttribute).GetProperty(nameof(RulesetAttribute.ValueTrends))!.GetGetMethod();
+            var newMethod = new Func<RulesetAttribute, List<TrendInfo>>(ClearHealth).Method;
+
+            return codes.ReplaceCall(oldMethod, 1, "RulesetCharacterHero.RefreshArmorClass.09Health",
+                new CodeInstruction(OpCodes.Call, newMethod));
+        }
+
+        private static List<TrendInfo> ClearHealth(RulesetAttribute self)
+        {
+            self.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
+            return self.ValueTrends;
         }
 
         [UsedImplicitly]
@@ -1211,9 +1223,34 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacterHero __instance)
         {
-            //TODO: add slot and item to the interface?
             __instance.GetSubFeaturesByType<IOnItemEquipped>()
                 .ForEach(f => f.OnItemEquipped(__instance));
+
+            //BUGFIX: fix a prepared spells exploit in vanilla
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var repertoire in __instance.SpellRepertoires)
+            {
+                var spellCastingFeature = repertoire.SpellCastingFeature;
+
+                if (spellCastingFeature.SpellKnowledge is not (SpellKnowledge.Spellbook or SpellKnowledge.WholeList) ||
+                    spellCastingFeature.SpellReadyness != SpellReadyness.Prepared)
+                {
+                    continue;
+                }
+
+                var preparedSpells = repertoire.PreparedSpells;
+                
+                __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(__instance.FeaturesToBrowse);
+                
+                var maxPreparedSpells = __instance.ComputeMaxPreparedSpells(repertoire);
+
+                repertoire.maxPreparedSpells = maxPreparedSpells;
+
+                while (preparedSpells.Count > maxPreparedSpells)
+                {
+                    preparedSpells.RemoveAt(preparedSpells.Count - 1);
+                }
+            }
         }
     }
 

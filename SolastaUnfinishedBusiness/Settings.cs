@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Models;
 using UnityModManagerNet;
@@ -118,9 +119,11 @@ public class Settings : UnityModManager.ModSettings
         "PowerCollegeOfAudacityDefensiveWhirl",
         "PowerCollegeOfAudacityMobileWhirl",
         "PowerCollegeOfValianceHeroicInspiration",
+        "PowerDisableGrapple",
         "PowerDomainElementalHeraldOfTheElementsThunder",
         "PowerFeatChefCookMeal",
         "PowerFeatOrcishAggression",
+        "PowerGrapple",
         "PowerInnovationWeaponArcaneJolt",
         "PowerOathOfJugementPurgeCorruption",
         "PowerOathOfJugementRetribution",
@@ -174,6 +177,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableSenseDarkVisionFromAllRaces { get; set; }
     public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool AddFallProneActionToAllRaces { get; set; }
+    public bool AddGrappleActionToAllRaces { get; set; }
     public bool AddHelpActionToAllRaces { get; set; }
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleRaces { get; set; }
@@ -399,9 +403,10 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAlternateVotingSystem { get; set; }
     public bool EnableSumD20OnAlternateVotingSystem { get; set; }
     public bool AllowMoreRealStateOnRestPanel { get; set; }
+    public bool EnableRespec { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnableActionSwitching { get; set; }
-    public bool EnableRespec { get; set; }
+    public bool DisableMultilineSpellOffering { get; set; }
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableCustomPortraits { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }
@@ -410,6 +415,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Battle
     public bool ShowMotionFormPreview { get; set; }
+    public bool ShiftToSnapLineSpells { get; set; }
     public bool DontFollowCharacterInBattle { get; set; }
     public bool NeverMoveCameraOnEnemyTurn { get; set; }
     public int DontFollowMargin { get; set; } = 5;
@@ -455,6 +461,7 @@ public class Settings : UnityModManager.ModSettings
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
     public bool InvertAltBehaviorOnTooltips { get; set; }
+    public float TooltipWidth { get; set; } = Tooltips.DefScale;
     public bool EnableHotkeySwapFormationSets { get; set; }
     public bool EnableHotkeyToggleHud { get; set; }
     public bool EnableCharacterExport { get; set; }

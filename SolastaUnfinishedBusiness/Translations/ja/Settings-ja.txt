@@ -7,6 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=敵に DEX 修飾子を追加する <color=#D89555>イニシアティブ ロール</color>
 ModUi/&AddFallProneActionToAllRaces=すべてのプレイ可能な種族に <color=#D89555>うつ伏せになる</color> アクションを追加します <i><color=#F0DAA0>[コストをかけずにうつ伏せになることができます]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>ファイター</color>を有効にして、<color=#D89555>不屈の抵抗</color>セービングスローのリロールにボーナスとしてクラスレベルを追加します
+ModUi/&AddGrappleActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>グラップル</color>アクションを追加します
 ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加します<i><color=#F0DAA0>[味方のクリーチャーが自分の1マス以内にいるクリーチャーを攻撃するのを助けることができます]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color> が好む人型の敵を有効にする
 ModUi/&AddNewBrightEyeColors=新しい明るい目の色を追加
@@ -71,6 +72,7 @@ ModUi/&DisableAutoEquip=インベントリ内のアイテムの自動装備を�
 ModUi/&DisableBarbarianBrutalCritical=<i>+ レベル 9、13、17 で<color=#D89555>バーバリアン</color>の<b>ブルータル クリティカル</b>も無効化します</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=この MOD によって提供される<color=#D89555>特技</color>の呪文の前提条件を無効にします<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=この MOD によって提供される<color=#D89555>特技</color>のレベルの前提条件を無効にします
+ModUi/&DisableMultilineSpellOffering=アクションバーでの複数行の呪文の提供を無効にする <i><color=#F0DAA0>[主に非マルチキャスターヒーローを使用するコントローラーユーザー向け]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=この MOD によって提供される<color=#D89555>特技</color>のレースの前提条件を無効にします
 ModUi/&DisableSenseDarkVisionFromAllRaces=プレイ可能なすべての種族の <color=#D89555>暗視感知</color> を無効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=プレイ可能なすべての種族の<color=#D89555>優れた感覚ダークビジョン</color>を無効にする<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
@@ -99,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• これらの設定では、プレーヤーが�
 ModUi/&DungeonMakerMenu=ダンジョンメーカー
 ModUi/&Effects=効果
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后の衣装</color>の外観
-ModUi/&EnableActionSwitching=アクション切り替えバーを有効にする <i><color=#F0DAA0>[メイン アクションの前に急いでアクションを使用する場合に便利]</color></i>
+ModUi/&EnableActionSwitching=アクション切り替えバーを有効にします <i><color=#F0DAA0>[アクションシーケンスを完全に制御するのに便利です]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=バックグラウンド検査で追加のバックストーリー表示を有効にする
 ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、出口、テレポーターの追加アイコンを有効にする
 ModUi/&EnableAdditionalItemsInDungeonMaker=エディターに改造アイテムを追加する
@@ -297,6 +299,7 @@ ModUi/&SettingsLoad=• エクスポートした設定をロードする
 ModUi/&SettingsOpenFolder=エクスポートされた設定フォルダーを開く
 ModUi/&SettingsRefresh=リフレッシュ
 ModUi/&SettingsRemove=取り除く
+ModUi/&ShiftToSnapLineSpells=<color=#1E81B0>SHIFT</color> キーを押したままにして、ライン スペルをグリッドにスナップします <i><color=#F0DAA0>[スナップしない場合、実際のライン配置はプレビューと異なる場合があります]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=制御モンスターに関する情報を開くボタンを表示します<i><color=#F0DAA0>[野生のドルイド僧、召喚獣、NPC フォロワーなど]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=ヒーローがポートレートに持っている<color=#D89555>神性チャンネル</color>の使用数を表示します（ソーサリーポイントと同様）
 ModUi/&ShowCraftedItemOnRecipeIcon=ショップやインベントリのレシピ アイテムの近くに作成されたアイテムのアイコンを表示します <i><color=#F0DAA0>[カーソルを合わせると作成されたアイテムのツールチップが表示されます]</color></i>
@@ -348,4 +351,5 @@ ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>照明、遮蔽、視
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[それを知覚する攻撃者は ADV を獲得し、それを知覚しない攻撃者は DIS を獲得します。それを知覚できる防御者は DIS を獲得します\n 非常に隠された領域は盲目状態を引き起こし、クリーチャーに対する攻撃ロールには ADV が付与され、クリーチャーの攻撃ロールには DIS が付与されます\n 攻撃者に視力がない場合、個人をターゲットとするすべての遠距離呪文は発動できません。ただし、視力が必要であると明確に述べられていない呪文は除きます]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは<color=#D89555>小種族</color>の公式ルールを使用してください<i><color=#F0DAA0>[攻撃には不利]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&WidenTooltips=<color=white>ツールチップの幅を次の値で乗算します:</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>{0}<i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>

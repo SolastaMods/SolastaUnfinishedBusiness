@@ -2,6 +2,7 @@ Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=You suffe
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Distracting Ambush
 Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=Your life essence was stolen to harm another creature.
 Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=Drained Essence
+Failure/&MustNotHavePossessedCondition=Had life essence stolen and cannot be aimed
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Starting at 9th level, whenever you deal sneak attack damage to a creature, that creature suffers disadvantage on their next saving throw or ability check until the end of your next turn.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Distracting Ambush
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Cast Wizard spells and cantrips.
@@ -22,4 +23,3 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Hostile Spell Casting
 Subclass/&RoguishArcaneScoundrelDescription=With quickness of feet and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
 Subclass/&RoguishArcaneScoundrelTitle=Arcane Scoundrel
-Tooltip/&MustNotHavePossessedCondition=Had life essence stolen and cannot be aimed

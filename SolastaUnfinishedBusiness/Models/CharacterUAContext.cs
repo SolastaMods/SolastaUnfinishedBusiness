@@ -703,7 +703,9 @@ internal static partial class CharacterContext
                                     DamageAffinitySlashingResistanceTrue,
                                     DamageAffinityThunderResistance)
                                 .SetConditionParticleReference(ConditionDefinitions.ConditionHolyAura)
-                                .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+                                .SetCancellingConditions(
+                                    DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
+                                        x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add)
                         .Build())
@@ -1664,8 +1666,7 @@ internal static partial class CharacterContext
 
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService =
-                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
             var halfMaxTacticalMoves = (actingCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
             var boxInt = new BoxInt(actingCharacter.LocationPosition, int3.zero, int3.zero);

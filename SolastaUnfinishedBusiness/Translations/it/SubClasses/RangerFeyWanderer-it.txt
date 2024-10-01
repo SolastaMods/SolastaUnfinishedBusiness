@@ -1,3 +1,4 @@
+Failure/&MustBeWithin5ft=Deve essere entro 5 piedi
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesDescription=Puoi potenziare i tuoi colpi con l'arma con la magia che segna la mente, tratta dalle cupe cavità della natura selvaggia dei Fey. Quando colpisci una creatura con un'arma, puoi infliggere 1d4 danni psichici extra al bersaglio, che può subire questo danno extra solo una volta per turno. Il danno extra aumenta a 1d6 quando raggiungi l'11° livello in questa classe.
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesTitle=Colpi terribili
 Feature/&AutoPreparedSpellsRangerFeyWandererDescription=Ottieni incantesimi bonus che sono considerati incantesimi Ranger per te, sono sempre preparati e non contano nel numero di incantesimi Ranger che conosci:\n{0}\n\n
@@ -22,4 +23,3 @@ Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistReactTitle
 Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistTitle=Colpo di scena accattivante
 Subclass/&RangerFeyWandererDescription=Un'aura mistica fatata ti circonda, grazie al dono di un'arcifata, al frutto luminoso che hai mangiato da un albero parlante, alla sorgente magica in cui hai nuotato o a qualche altro evento di buon auspicio. Tuttavia, hai acquisito la tua magia fatata, ora sei un Vagabondo Fatato, un ranger che rappresenta sia il regno dei mortali che quello fatato. Mentre vaghi per il multiverso, la tua risata gioiosa illumina i cuori degli oppressi e la tua abilità marziale incute terrore nei tuoi nemici, perché grande è l'allegria delle fate e terribile è la loro furia.
 Subclass/&RangerFeyWandererTitle=Vagabondo fatato
-Tooltip/&MustBeWithin5ft=Deve essere entro 5 piedi

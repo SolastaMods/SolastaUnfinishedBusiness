@@ -1,3 +1,4 @@
+Failure/&MustBeWithin5ft=Debe estar a menos de 5 pies
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesDescription=Puedes aumentar los golpes de tus armas con magia que deja cicatrices mentales, extraída de los sombríos huecos de la naturaleza feérica. Cuando golpeas a una criatura con un arma, puedes causarle 1d4 puntos de daño psíquico adicional al objetivo, que puede recibir este daño adicional solo una vez por turno. El daño adicional aumenta a 1d6 cuando alcanzas el nivel 11 en esta clase.
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesTitle=Golpes terribles
 Feature/&AutoPreparedSpellsRangerFeyWandererDescription=Obtienes hechizos adicionales que se consideran hechizos de Explorador para ti, siempre están preparados y no cuentan para la cantidad de hechizos de Explorador que conoces:\n{0}\n\n
@@ -22,4 +23,3 @@ Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistReactTitle
 Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistTitle=Giro seductor
 Subclass/&RangerFeyWandererDescription=Una mística feérica te rodea gracias a la bendición de un archifeérico, la fruta brillante que comiste de un árbol parlante, el manantial mágico en el que nadaste o algún otro evento auspicioso. Sin embargo, hayas adquirido tu magia feérica, ahora eres un Vagabundo Feérico, un explorador que representa tanto el reino de los mortales como el de los feéricos. Mientras deambulas por el multiverso, tu alegre risa ilumina los corazones de los oprimidos y tu destreza marcial infunde terror en tus enemigos, pues grande es la alegría de los feéricos y terrible su furia.
 Subclass/&RangerFeyWandererTitle=Vagabundo Fey
-Tooltip/&MustBeWithin5ft=Debe estar a menos de 5 pies

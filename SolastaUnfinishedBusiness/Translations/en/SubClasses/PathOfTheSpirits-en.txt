@@ -1,10 +1,10 @@
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Gain disadvantages on attacks against all except on the source of this aura.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Gain disadvantages on attacks against all except the source.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Honed Bear Aura
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=Gain the ability to fly.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Honed Eagle Flight
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=Gain the ability to shove as a bonus action.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfTitle=Honed Wolf Bash
-Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=The spirit of the wolf grants you advantage on melee attack rolls.
+Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=The spirit of the wolf grants you advantage on melee attack rolls unless you're the source.
 Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=Wolf Spirit
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=The spirit of the eagle makes you into a nimble predator who can weave through the fray with ease. You can take dash, disengage, or hide as a bonus action.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Eagle Spirit

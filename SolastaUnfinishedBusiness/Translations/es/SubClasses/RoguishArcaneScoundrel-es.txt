@@ -2,6 +2,7 @@ Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Sufres de
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada que distrae
 Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=Tu esencia vital fue robada para dañar a otra criatura.
 Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=Esencia drenada
+Failure/&MustNotHavePossessedCondition=Me robaron la esencia vital y no puedo apuntarle.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=A partir del nivel 9, cada vez que infliges daño de ataque furtivo a una criatura, esa criatura sufre desventaja en su siguiente tirada de salvación o prueba de habilidad hasta el final de tu siguiente turno.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada que distrae
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Lanza hechizos y trucos de mago.
@@ -22,4 +23,3 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Lanzamiento de hechizos hostiles
 Subclass/&RoguishArcaneScoundrelDescription=Con rapidez de pies y agudeza de ingenio, los Canalla Arcano utilizan una serie de trucos mágicos para burlar y debilitar a sus oponentes.
 Subclass/&RoguishArcaneScoundrelTitle=Sinvergüenza arcano
-Tooltip/&MustNotHavePossessedCondition=Me robaron la esencia vital y no puedo apuntarle.

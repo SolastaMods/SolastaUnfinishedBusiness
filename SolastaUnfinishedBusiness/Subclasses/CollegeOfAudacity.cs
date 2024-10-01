@@ -380,6 +380,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     var damageType = firstDamageForm.DamageForm.DamageType;
                     var effectDamageForm = EffectFormBuilder.DamageForm(damageType, 1, DieType.D6);
 
+                    effectDamageForm.DamageForm.IgnoreCriticalDoubleDice = true;
                     effectDamageForm.DamageForm.OverrideWithBardicInspirationDie = !isMasterfulWhirl;
 
                     if (reactionRequest.SelectedSubOption == 0)

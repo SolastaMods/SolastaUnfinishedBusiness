@@ -193,6 +193,8 @@ internal static class SubraceGrayDwarfBuilder
                 .SetDamageForm(damageEffectForm.DamageForm.DamageType, 1, DieType.D4)
                 .Build();
 
+            additionalDice.DamageForm.IgnoreCriticalDoubleDice = true;
+
             actualEffectForms.Insert(index + 1, additionalDice);
         }
     }

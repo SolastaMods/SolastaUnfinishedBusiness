@@ -2,6 +2,7 @@ Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Você sof
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada Distrativa
 Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=Sua essência vital foi roubada para prejudicar outra criatura.
 Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=Essência Drenada
+Failure/&MustNotHavePossessedCondition=A essência da vida foi roubada e não pode ser direcionada
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=A partir do 9º nível, sempre que você causar dano de ataque furtivo a uma criatura, essa criatura sofrerá desvantagem em seu próximo teste de resistência ou habilidade até o final do seu próximo turno.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada Distrativa
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Lance magias e truques de mago.
@@ -22,4 +23,3 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Lançamento de feitiços hostis
 Subclass/&RoguishArcaneScoundrelDescription=Com rapidez de pés e inteligência aguçada, os Arcane Scoundrels utilizam uma série de truques mágicos para enganar e debilitar seus oponentes.
 Subclass/&RoguishArcaneScoundrelTitle=Canalha Arcano
-Tooltip/&MustNotHavePossessedCondition=A essência da vida foi roubada e não pode ser direcionada

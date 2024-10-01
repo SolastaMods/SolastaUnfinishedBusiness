@@ -35,7 +35,14 @@ public static class GuiFeatDefinitionPatcher
             var (result, output) = featDefinitionWithPrerequisites.Validate(featDefinitionWithPrerequisites, hero);
 
             __result = __result && result;
-            prerequisiteOutput += '\n' + output;
+            if (string.IsNullOrEmpty(output)) { return; }
+
+            if (!string.IsNullOrEmpty(prerequisiteOutput))
+            {
+                output = '\n' + output;
+            }
+
+            prerequisiteOutput += output;
         }
 
         [NotNull]

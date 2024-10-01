@@ -43,6 +43,18 @@ internal static class OtherFeats
     internal const string FeatMagicInitiateTag = "Initiate";
     internal const string FeatSpellSniperTag = "Sniper";
 
+    #region Grappler
+
+    // it's all handled in grapplerContext except for strength increase
+    internal static readonly FeatDefinition FeatGrappler = FeatDefinitionBuilder
+        .Create("FeatGrappler")
+        .SetGuiPresentation(Category.Feat)
+        .AddFeatures(AttributeModifierCreed_Of_Einar)
+        .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+        .AddToDB();
+
+    #endregion
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featAcrobat = BuildAcrobat();
@@ -89,6 +101,7 @@ internal static class OtherFeats
             featEldritchAdept,
             featFrostAdaptation,
             featGiftOfTheChromaticDragon,
+            FeatGrappler,
             featHealer,
             featInfusionAdept,
             featInspiringLeader,
@@ -145,6 +158,7 @@ internal static class OtherFeats
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featGiftOfTheChromaticDragon,
             chefGroup,
+            FeatGrappler,
             featHealer,
             featInspiringLeader,
             featLucky,
@@ -686,7 +700,7 @@ internal static class OtherFeats
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveMenacingMark");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustNotHaveMenacingMark");
 
                 return false;
             }
@@ -698,7 +712,7 @@ internal static class OtherFeats
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeHumanoid");
+            __instance.actionModifier.FailureFlags.Add("Failure/&MustBeHumanoid");
 
             return false;
         }
@@ -2514,7 +2528,7 @@ internal static class OtherFeats
         .SetFeatures(PowerFeatPoisonousSkin)
         .AddToDB();
 
-    private static IEnumerator PoisonTarget(GameLocationCharacter me, GameLocationCharacter target)
+    internal static IEnumerator PoisonTarget(GameLocationCharacter me, GameLocationCharacter target)
     {
         var rulesetMe = me.RulesetCharacter;
         var rulesetTarget = target.RulesetCharacter;
@@ -2529,27 +2543,10 @@ internal static class OtherFeats
         me.MyExecuteActionSpendPower(usablePower, target);
     }
 
-    //Poison character that shoves me
-    internal static IEnumerator HandleFeatPoisonousSkin(CharacterAction action, GameLocationCharacter target)
-    {
-        if (action is not CharacterActionShove)
-        {
-            yield break;
-        }
-
-        if (action.ActionParams.TargetCharacters == null ||
-            !action.ActionParams.TargetCharacters.Contains(target))
-        {
-            yield break;
-        }
-
-        yield return PoisonTarget(target, action.ActingCharacter);
-    }
-
     private class CustomBehaviorFeatPoisonousSkin
         : IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe
     {
-        //Poison characters that I shove
+        //Poison defender if feat owner shoves
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionShove)
@@ -2557,62 +2554,46 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var actingCharacter = action.ActingCharacter;
-
-            foreach (var target in action.actionParams.TargetCharacters)
-            {
-                yield return PoisonTarget(actingCharacter, target);
-            }
+            yield return PoisonTarget(action.ActingCharacter, action.actionParams.TargetCharacters[0]);
         }
 
-        //Poison target if I attack with unarmed
+        //Poison defender if feat owner attacks with unarmed
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            //Missed: skipping
-            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 yield break;
             }
 
-            //Not unarmed attack: skipping
-            if (!ValidatorsWeapon.IsUnarmed(attackMode))
-            {
-                yield break;
-            }
-
-            yield return PoisonTarget(me, target);
+            yield return PoisonTarget(attacker, defender);
         }
 
-        //Poison melee attacker
+        //Poison attacker if it uses melee against feat owner
         public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
+            GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             RollOutcome rollOutcome,
             int damageAmount)
         {
             //Missed: skipping
-            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                !ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
             }
 
-            //Not melee attack: skipping
-            if (!ValidatorsWeapon.IsMelee(attackMode))
-            {
-                yield break;
-            }
-
-            yield return PoisonTarget(me, attacker);
+            yield return PoisonTarget(defender, attacker);
         }
     }
 

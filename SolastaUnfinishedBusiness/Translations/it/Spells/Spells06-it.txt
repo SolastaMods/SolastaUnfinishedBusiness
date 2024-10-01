@@ -1,6 +1,8 @@
 Condition/&ConditionHeroicInfusionDescription=Ti doti di resistenza e abilità marziale alimentate dalla magia.
 Condition/&ConditionHeroicInfusionTitle=La trasformazione di Tenser
 Condition/&ConditionShelterFromEnergyTitle={0} Resistenza
+Failure/&MustBeLargeOrSmaller=Deve essere di grandi dimensioni o più piccolo per essere mirato
+Failure/&MustNotHaveFizbanPlatinumShield=Non deve avere lo scudo di platino di Fizban
 Feature/&PowerRingOfBladesDescription=Come azione bonus, puoi effettuare un attacco magico a distanza contro una creatura entro 18 metri da te, usando una delle tue spade dell'Anello delle Lame.
 Feature/&PowerRingOfBladesTitle=Anello delle Lame
 Feedback/&AdditionalDamageHeroicInfusionFormat=La trasformazione di Tenser!
@@ -28,5 +30,3 @@ Spell/&ScatterDescription=L'aria trema attorno a un massimo di cinque creature a
 Spell/&ScatterTitle=Disperdere
 Spell/&ShelterFromEnergyDescription=Scegli uno dei seguenti tipi di danno: acido, freddo, fuoco, fulmine, necrotico, radiante o tuono, quindi scegli fino a sei creature consenzienti che puoi vedere entro il raggio d'azione. Per 1 ora, i bersagli hanno resistenza a quel tipo di danno. Quando lanci questo incantesimo usando uno slot incantesimo di 7° livello o superiore, puoi prendere di mira fino a un'ulteriore creatura consenziente per ogni livello di slot superiore al 6°.
 Spell/&ShelterFromEnergyTitle=Rifugio dall'energia
-Tooltip/&MustBeLargeOrSmaller=Deve essere di grandi dimensioni o più piccolo per essere mirato
-Tooltip/&MustNotHaveFizbanPlatinumShield=Non deve avere lo scudo di platino di Fizban

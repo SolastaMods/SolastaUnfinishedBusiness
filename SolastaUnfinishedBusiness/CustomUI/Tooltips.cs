@@ -13,6 +13,9 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal static class Tooltips
 {
+    public const float MinScale = 1f;
+    public const float MaxScale = 2f;
+    public const float DefScale = 1f;
     private static GameObject _tooltipInfoCharacterDescription;
     private static GameObject _distanceTextObject;
     private static TextMeshProUGUI _tmpUGui;
@@ -154,7 +157,7 @@ internal static class Tooltips
                 return;
             }
 
-            // don't use ? on a type deriving from an unity object
+            // don't use ? on a type deriving from a unity object
             if (_tooltipInfoCharacterDescription)
             {
                 _tmpUGui ??= _tooltipInfoCharacterDescription.transform.GetComponentInChildren<TextMeshProUGUI>();
@@ -169,7 +172,7 @@ internal static class Tooltips
                 UpdateDistanceText(distance, characterToMeasureFrom);
             }
 
-            // don't use ? on a type deriving from an unity object
+            // don't use ? on a type deriving from a unity object
 #pragma warning disable IDE0031
             if (_distanceTextObject)
 #pragma warning restore IDE0031
@@ -179,7 +182,7 @@ internal static class Tooltips
         }
         else if (!Main.Settings.EnableDistanceOnTooltip || battleService.Battle is null)
         {
-            // don't use ? on a type deriving from an unity object
+            // don't use ? on a type deriving from a unity object
 #pragma warning disable IDE0031
             if (_distanceTextObject)
 #pragma warning restore IDE0031
@@ -260,5 +263,305 @@ internal static class Tooltips
         return characterName.Length >= 12
             ? characterName.Substring(0, 9) + "..."
             : characterName;
+    }
+
+    internal static void ModifyWidth<TMod, TParent>(TParent parent)
+        where TMod : BaseTooltipWidthModifier<TParent>
+        where TParent : MonoBehaviour
+    {
+        if (!parent.TryGetComponent<TMod>(out var component))
+        {
+            component = parent.gameObject.AddComponent<TMod>();
+            component.Init(parent);
+        }
+
+        component.Apply();
+    }
+
+    internal static void ModifyWidth(TooltipFeature parent)
+    {
+        if (!parent.TryGetComponent<TooltipFeatureWidthMod>(out var component))
+        {
+            component = parent.gameObject.AddComponent<TooltipFeatureWidthMod>();
+            component.Init(parent);
+        }
+
+        component.Apply();
+    }
+}
+
+internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : MonoBehaviour
+{
+    private const int DefWidth = 340;
+    private const int Pad = 30; // default is 30?
+
+    protected T Parent;
+    protected static int FinalWidth => (int)(Main.Settings.TooltipWidth * DefWidth);
+    protected static int PaddedWidth => FinalWidth - (2 * Pad);
+
+    internal void Apply()
+    {
+        Modify();
+    }
+
+    internal void Init(T parent)
+    {
+        Parent = parent;
+    }
+
+    protected abstract void Modify();
+
+    protected static void SizeWithAnchors(GuiBehaviour obj, int width)
+    {
+        if (!obj) { return; }
+
+        SizeWithAnchors(obj.GetComponent<RectTransform>(), width);
+    }
+
+    protected static void SizeWithAnchors(Transform t, float width)
+    {
+        if (!t) { return; }
+
+        SizeWithAnchors(t.GetComponent<RectTransform>(), width);
+    }
+
+    protected static void SizeWithAnchors(RectTransform rt, float width)
+    {
+        if (!rt) { return; }
+
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+    }
+
+    protected static void FromEdge(RectTransform rt, float width, float pad = Pad)
+    {
+        if (!rt) { return; }
+
+        rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, pad, width);
+    }
+
+    private static RectTransform Rect(Transform t, string path = null)
+    {
+        if (!t) { return null; }
+
+        if (path == null) { return t.GetComponent<RectTransform>(); }
+
+        t = t.Find(path);
+        return !t ? null : t.GetComponent<RectTransform>();
+    }
+
+    protected static RectTransform Rect(MonoBehaviour b, string path = null)
+    {
+        return Rect(b.transform, path);
+    }
+}
+
+internal class TooltipPanelWidthModifier : BaseTooltipWidthModifier<TooltipPanel>
+{
+    private const string BackgroundBlur = "BackgroundBlur";
+    private const string Frame = "Frame";
+
+    protected override void Modify()
+    {
+        var width = FinalWidth;
+
+        SizeWithAnchors(Parent.RectTransform, width);
+        SizeWithAnchors(Rect(Parent, BackgroundBlur), width);
+        SizeWithAnchors(Parent.featuresTable, width);
+
+        var frame = Rect(Parent, Frame);
+        if (frame) { SizeWithAnchors(frame, width); }
+    }
+}
+
+internal class TooltipFeatureWidthMod : BaseTooltipWidthModifier<TooltipFeature>
+{
+    protected override void Modify()
+    {
+        SizeWithAnchors(Parent.RectTransform, FinalWidth);
+    }
+}
+
+internal class TooltipFeatureEffectsEnumWidthMod : BaseTooltipWidthModifier<TooltipFeatureEffectsEnumerator>
+{
+    protected override void Modify()
+    {
+        var table = Parent.effectFormater.Table;
+        var width = PaddedWidth;
+        SizeWithAnchors(table, width);
+        for (var i = 0; i < table.childCount; i++)
+        {
+            var line = table.GetChild(i).GetComponent<FeatureElementEffectLine>();
+            if (!line) { continue; }
+
+            SizeWithAnchors(line.RectTransform, width);
+            SizeWithAnchors(line.effectLabel.RectTransform, width);
+            SizeWithAnchors(line.effectDescription.RectTransform, width);
+        }
+    }
+}
+
+internal class TooltipSubSpellEnumWidthModifier : BaseTooltipWidthModifier<TooltipFeatureSubSpellsEnumerator>
+{
+    protected override void Modify()
+    {
+        var table = Parent.table;
+        var width = PaddedWidth;
+        SizeWithAnchors(table, width);
+        for (var i = 0; i < table.childCount; i++)
+        {
+            var line = table.GetChild(i).GetComponent<FeatureElementSubSpell>();
+            if (!line) { continue; }
+
+            SizeWithAnchors(line.RectTransform, width);
+        }
+    }
+}
+
+internal class TooltipFeatureSpellParamsWidthModifier : BaseTooltipWidthModifier<TooltipFeatureSpellParameters>
+{
+    private const string VerticalLayout = "VerticalLayout";
+
+    protected override void Modify()
+    {
+        var width = PaddedWidth;
+        SizeWithAnchors(Rect(Parent, VerticalLayout), width);
+
+        for (var i = 0; i < Parent.verticalLayout.childCount; i++)
+        {
+            SizeWithAnchors(Parent.verticalLayout.GetChild(i), width);
+        }
+    }
+}
+
+internal class TooltipFeatureBaseMagicParamsWidthModifier
+    : BaseTooltipWidthModifier<TooltipFeatureBaseMagicParameters>
+{
+    private const string Table = "Table";
+
+    protected override void Modify()
+    {
+        FromEdge(Rect(Parent, Table), PaddedWidth);
+    }
+}
+
+internal class TooltipFeatureTagsEnumWidthModifier : BaseTooltipWidthModifier<TooltipFeatureTagsEnumerator>
+{
+    private const string Label = "Background/PropertiesLabel";
+
+
+    protected override void Modify()
+    {
+        var width = PaddedWidth;
+        SizeWithAnchors(Parent.table, width);
+        SizeWithAnchors(Rect(Parent, Label), width);
+    }
+}
+
+internal class TooltipFeatureSpellAdvancementWidthMod : BaseTooltipWidthModifier<TooltipFeatureSpellAdvancement>
+{
+    private const string Title = "Title";
+    private const string Label = "AdvancementLabel";
+
+    protected override void Modify()
+    {
+        var width = PaddedWidth;
+        FromEdge(Rect(Parent, Title), width);
+        FromEdge(Rect(Parent, Label), width);
+    }
+}
+
+internal class TooltipFeatureDeviceParametersWidthMod : BaseTooltipWidthModifier<TooltipFeatureDeviceParameters>
+{
+    protected override void Modify()
+    {
+        var width = PaddedWidth;
+        SizeWithAnchors(Parent.usageGroup, width);
+        SizeWithAnchors(Parent.attunementLabel, width);
+    }
+}
+
+internal class
+    TooltipFeatureItemPropertiesEnumWidthMod : BaseTooltipWidthModifier<TooltipFeatureItemPropertiesEnumerator>
+{
+    protected override void Modify()
+    {
+        SizeWithAnchors(Parent.propertiesTable, PaddedWidth);
+    }
+}
+
+internal class TooltipFeatureDeviceFunctionsEnumWidthMod
+    : BaseTooltipWidthModifier<TooltipFeatureDeviceFunctionsEnumerator>
+{
+    protected override void Modify()
+    {
+        SizeWithAnchors(Parent.functionsTable, PaddedWidth);
+    }
+}
+
+internal class TooltipFeatureItemStatsWidthMod : BaseTooltipWidthModifier<TooltipFeatureItemStats>
+{
+    private const string SecondTable = "VerticalLayout/SecondTable";
+
+    protected override void Modify()
+    {
+        var width = PaddedWidth;
+        SizeWithAnchors(Parent.topTable, width);
+        SizeWithAnchors(Rect(Parent, SecondTable), width);
+    }
+}
+
+internal class TooltipFeatureWeaponParametersWidthMod : BaseTooltipWidthModifier<TooltipFeatureWeaponParameters>
+{
+    protected override void Modify()
+    {
+        SizeWithAnchors(Parent.masterTable, PaddedWidth);
+    }
+}
+
+internal class TooltipFeatureArmorParamsWidthMod : BaseTooltipWidthModifier<TooltipFeatureArmorParameters>
+{
+    private const string HeaderLabel = "HeaderLabel";
+
+    protected override void Modify()
+    {
+        var width = PaddedWidth;
+        SizeWithAnchors(Parent.descriptionLabel, width);
+        SizeWithAnchors(Rect(Parent, HeaderLabel), width);
+    }
+}
+
+internal class TooltipFeatureLightSourceParamsWidthMod : BaseTooltipWidthModifier<TooltipFeatureLightSourceParameters>
+{
+    private const string HeaderLabel = "HeaderLabel";
+
+    protected override void Modify()
+    {
+        var width = PaddedWidth;
+        SizeWithAnchors(Parent.descriptionLabel, width);
+        SizeWithAnchors(Rect(Parent, HeaderLabel), width);
+    }
+}
+
+internal class TooltipFeaturePowerParamsWidthMod : BaseTooltipWidthModifier<TooltipFeaturePowerParameters>
+{
+    protected override void Modify()
+    {
+        var width = PaddedWidth;
+        for (var i = 0; i < Parent.verticalLayout.childCount; i++)
+        {
+            SizeWithAnchors(Parent.verticalLayout.GetChild(i), width);
+        }
+    }
+}
+
+internal class TooltipFeaturePrerequisitesWidthMod : BaseTooltipWidthModifier<TooltipFeaturePrerequisites>
+{
+    private const string Header = "PrerequisitesTitle";
+
+    protected override void Modify()
+    {
+        var width = PaddedWidth;
+        SizeWithAnchors(Rect(Parent, Header), width);
+        SizeWithAnchors(Parent.prerequisitesValue, width);
     }
 }

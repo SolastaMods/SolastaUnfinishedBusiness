@@ -553,9 +553,13 @@ internal static class TranslatorContext
                 });
         }
 
-        private static IEnumerator TranslateUserCampaignRoutine(string languageCode, [NotNull] string exportName,
+        private static IEnumerator TranslateUserCampaignRoutine(
+            string languageCode,
+            [NotNull] string exportName,
             UserCampaign userCampaign)
         {
+            const string SetLocationStatus = "SetLocationStatus";
+
             yield return null;
 
             var current = 0;
@@ -646,13 +650,10 @@ internal static class TranslatorContext
                         dialogLine.TextLine = Translate(dialogLine.TextLine, languageCode);
                     }
 
-                    foreach (var functor in userDialogState.functors)
+                    foreach (var functor in userDialogState.functors
+                                 .Where(functor => functor.type == SetLocationStatus))
                     {
-                        functor.StringParameter = functor.type switch
-                        {
-                            "SetLocationStatus" => Translate(functor.StringParameter, languageCode),
-                            _ => functor.StringParameter
-                        };
+                        functor.StringParameter = Translate(functor.StringParameter, languageCode);
                     }
                 }
             }
@@ -686,15 +687,10 @@ internal static class TranslatorContext
                     userQuestStep.Title = Translate(userQuestStep.Title, languageCode);
                     userQuestStep.Description = Translate(userQuestStep.Description, languageCode);
 
-                    foreach (var outStart in userQuestStep.onStartFunctors)
+                    foreach (var outStart in userQuestStep.onStartFunctors
+                                 .Where(outStart => outStart.type == SetLocationStatus))
                     {
-                        yield return Update();
-
-
-                        if (outStart.type == "SetLocationStatus")
-                        {
-                            outStart.StringParameter = Translate(outStart.StringParameter, languageCode);
-                        }
+                        outStart.StringParameter = Translate(outStart.StringParameter, languageCode);
                     }
 
                     foreach (var outcome in userQuestStep.OutcomesTable)
@@ -710,6 +706,12 @@ internal static class TranslatorContext
                                     outcome.validatorDescription.StringParameter, languageCode),
                             _ => outcome.validatorDescription.StringParameter
                         };
+
+                        foreach (var outComplete in outcome.OnCompleteFunctors
+                                     .Where(outComplete => outComplete.type == SetLocationStatus))
+                        {
+                            outComplete.StringParameter = Translate(outComplete.StringParameter, languageCode);
+                        }
                     }
                 }
             }

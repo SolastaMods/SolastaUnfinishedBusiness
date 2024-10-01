@@ -1,13 +1,40 @@
-1.5.97.31:
+1.5.97.32:
 
-- added Interface > Game UI > 'Show preview of Push and Pull effects'
-- fixed mod initialization sequence introduced on previous version
+- added General > Character > 'Add grapple action to all playable races'
+- added homebrew Grappler feat [TT one is very low GPA]
+- added Interface > Game UI > 'Disable multi-line spell offering on action bar [mainly for controller users]'
+- added Interface > Game UI > 'Hold SHIFT to snap line spells to grid'
+- fixed an exploit keeping memorized spells when removing attribute enhancement items [VANILLA]
+- fixed an instability on action bar when ally NPCs or summons die
+- fixed an instability when a gadget is damaged and an auto power is triggered
+- fixed Armor of Agathys spell to only remove self condition after enemy action infringing damage is complete
+- fixed chain reactions leading to an instability under complex scenarios
+- fixed custom campaigns translator missing set location status names in quest steps outcome
+- fixed Lightning and Obscurement rules not applying line of sight checks
+- fixed Oath of Thunder and Martial Weapon master applying attack modifiers to magical ones as well
+- fixed Path of the Wild Magic wild surge retribution also damaging self
+- fixed Roguish Arcane Scoundrel arcane backslash leading to an instability on casting
+- fixed Sentinel feat allowing reach opportunity attacks on 3rd benefit instead of 5ft only
+- fixed Sorcerous Wild Magic bend luck save behavior, and combat log rolled die colors
+- fixed Web spell missing lightly obscured debuff on restrained by web condition
+- improved Aasimar race to learn a light cantrip with no focus requirements
+- improved backgrounds documentation dump to include cantrips, proficiencies, pools, equipment, etc.
+- improved consistency between highlighted and actual tiles when casting line spells [VANILLA]
+- improved encounters to use better decision packages based on enemy type or class
+- improved Gravity Fissure spell by using angle to the line as a tiebreaker to which cell should pull
+- improved RESPEC to properly render new hero on UI, and fixed absurd AC under certain scenarios
+- improved slot type SHIFT key modifier to only require the key pressed on modals clicks, and also work on multiplayer
+- improved tooltips to be wider, and better fully render at 1080p or lower resolutions as one in Steam Deck
 
 KNOWN ISSUES:
 
 - Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
 - Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
-- Show preview of Push and Pull effects still need some tweaks to integrate correctly with Gravity Fissure
+
+1.5.97.31:
+
+- added Interface > Game UI > 'Show preview of Push and Pull effects'
+- fixed mod initialization sequence introduced on previous version
 
 1.5.97.30:
 

@@ -5,11 +5,13 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -525,19 +527,19 @@ internal static partial class SpellBuilders
     }
 
     private sealed class MoveStepFinishedAshardalonStride(
-        FeatureDefinitionPower powerDamage,
-        ConditionDefinition conditionMark) : IMoveStepFinished
+        FeatureDefinitionPower powerDamage, ConditionDefinition conditionMark) : IMoveStepStarted
     {
-        public void MoveStepFinished(GameLocationCharacter mover)
+        public void MoveStepStarted(GameLocationCharacter mover, int3 source, int3 destination)
         {
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var targets =
                 (Gui.Battle?.AllContenders ??
                  locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .Where(x => x.IsWithinRange(mover, 1) &&
-                            x != mover &&
-                            !x.RulesetCharacter.HasConditionOfCategoryAndType(
-                                AttributeDefinitions.TagEffect, conditionMark.Name))
+                .Where(x =>
+                    x != mover &&
+                    DistanceCalculation.GetDistanceFromCharacter(x, destination) <= 1 &&
+                    !x.RulesetCharacter.HasConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionMark.Name))
                 .ToArray();
 
             var rulesetAttacker = mover.RulesetCharacter;
@@ -659,7 +661,7 @@ internal static partial class SpellBuilders
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeAuraOfLife");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeAuraOfLife");
             }
 
             return isValid;
@@ -761,7 +763,7 @@ internal static partial class SpellBuilders
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeWithin5ft");
             }
 
             return isValid;
@@ -1353,15 +1355,19 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var diceNumber = MainTargetDiceNumber + (activeCondition.EffectLevel - 3);
             var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-            if (pos >= 0)
+            if (pos < 0)
             {
-                actualEffectForms.Insert(
-                    pos + 1,
-                    EffectFormBuilder.DamageForm(DamageTypeLightning, diceNumber, DieType.D8));
+                yield break;
             }
+
+            var diceNumber = MainTargetDiceNumber + (activeCondition.EffectLevel - 3);
+            var effectForm = EffectFormBuilder.DamageForm(DamageTypeLightning, diceNumber, DieType.D8);
+
+            effectForm.DamageForm.IgnoreCriticalDoubleDice = true;
+
+            actualEffectForms.Insert(pos + 1, effectForm);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(

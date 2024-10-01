@@ -73,6 +73,8 @@ internal enum ExtraActionId
     WildSurgeReroll,
     CastQuickened,
     ZenShotToggle,
+    Grapple,
+    DisableGrapple,
     PrioritizeAction = 10000
 }
 
@@ -198,7 +200,8 @@ internal enum ExtraSituationalContext
     WearingNoArmorOrLightArmorWithoutShield = 9014,
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 9015,
     IsNotConditionSourceNotRanged = 9016,
-    IsConcentratingOnSpell = 9017
+    IsConcentratingOnSpell = 9017,
+    IsConditionSource = 9018
 }
 
 internal enum ExtraTurnOccurenceType

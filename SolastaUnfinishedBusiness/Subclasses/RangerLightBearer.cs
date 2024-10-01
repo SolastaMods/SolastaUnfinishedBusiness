@@ -387,18 +387,22 @@ public sealed class RangerLightBearer : AbstractSubclass
                 damageForm.DamageForm.damageType = DamageTypeRadiant;
             }
 
+            rulesetDefender.RemoveCondition(activeCondition);
+
             // add additional radiant damage form
-            var diceNumber = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger) < 11 ? 1 : 2;
             var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-            if (pos >= 0)
+            if (pos < 0)
             {
-                actualEffectForms.Insert(
-                    pos + 1,
-                    EffectFormBuilder.DamageForm(DamageTypeRadiant, diceNumber, DieType.D8));
+                yield break;
             }
 
-            rulesetDefender.RemoveCondition(activeCondition);
+            var diceNumber = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger) < 11 ? 1 : 2;
+            var effectForm = EffectFormBuilder.DamageForm(DamageTypeRadiant, diceNumber, DieType.D8);
+
+            effectForm.DamageForm.IgnoreCriticalDoubleDice = true;
+
+            actualEffectForms.Insert(pos + 1, effectForm);
         }
     }
 
@@ -460,7 +464,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             string effectName,
             ref ActionModifier attackModifier)
         {
-            attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
+            attackMode?.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -8,6 +9,7 @@ using TA.AI.Activities;
 using TA.AI.Considerations;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using Random = TA.AI.Considerations.Random;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -75,9 +77,18 @@ internal static class AiContext
                ?? throw new Exception();
     }
 
-    internal static DecisionPackageDefinition BuildDecisionPackageBreakFree(string conditionName)
+    internal static DecisionPackageDefinition BuildDecisionPackageBreakFree(
+        string conditionName, RandomType randomType = RandomType.RandomMediumHigh)
     {
-        var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
+        var getDefinition = DatabaseHelper.GetDefinition<DecisionDefinition>;
+        var baseDecision = getDefinition("BreakConcentration_FlyingInMelee");
+        var decisionWithRandom = randomType switch
+        {
+            RandomType.RandomMediumLow => getDefinition("Move_RestlessLightSensitive"),
+            RandomType.RandomMedium => getDefinition("CastMagic_Blindness"),
+            RandomType.RandomMediumHigh => getDefinition("CastMagic_Buff_AoE"),
+            _ => null
+        };
 
         var wcdHasCondition = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
             baseDecision, "HasCondition");
@@ -112,7 +123,23 @@ internal static class AiContext
         var scorerBreakFree = CreateActivityScorer(baseDecision, $"BreakFree{conditionName}", true,
             hasConditionBreakFree,
             mainActionNotFullyConsumed);
+        
+        if (decisionWithRandom)
+        {
+            var wcdRandom = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
+                decisionWithRandom, "Random");
 
+            var random = new WeightedConsiderationDescription(
+                CreateConsiderationDefinition(
+                    $"Random{randomType}",
+                    new ConsiderationDescription
+                    {
+                        considerationType = nameof(Random), curve = wcdRandom.Consideration.curve
+                    }), 1f);
+
+            scorerBreakFree.Scorer.WeightedConsiderations.Add(random);
+        }
+        
         var decisionBreakFree = DecisionDefinitionBuilder
             .Create($"DecisionBreakFree{conditionName}")
             .SetGuiPresentationNoContent(true)
@@ -124,11 +151,11 @@ internal static class AiContext
                 floatParameter: 3f)
             .AddToDB();
 
-        // use weight 2f to ensure scenarios that don't prevent enemies from take actions to still consider this
+        // use weight 10f to ensure scenarios that don't prevent enemies from take actions to still consider this
         var packageBreakFree = DecisionPackageDefinitionBuilder
             .Create($"BreakFreeAbilityCheck{conditionName}")
             .SetGuiPresentationNoContent(true)
-            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decisionBreakFree, weight = 2f })
+            .SetWeightedDecisions(new WeightedDecisionDescription(decisionBreakFree, 10f, 1, false))
             .AddToDB();
 
         return packageBreakFree;
@@ -143,10 +170,19 @@ internal static class AiContext
             .FirstOrDefault(rulesetCondition => rulesetCondition != null);
     }
 
+    internal enum RandomType
+    {
+        [UsedImplicitly] NoRandom,
+        [UsedImplicitly] RandomMediumLow,
+        [UsedImplicitly] RandomMedium,
+        [UsedImplicitly] RandomMediumHigh
+    }
+
     internal enum BreakFreeType
     {
         DoNoCheckAndRemoveCondition = 10,
         DoStrengthCheckAgainstCasterDC = 20,
-        DoWisdomCheckAgainstCasterDC = 30
+        DoWisdomCheckAgainstCasterDC = 30,
+        DoStrengthOrDexterityContestCheckAgainstStrengthAthletics = 40
     }
 }

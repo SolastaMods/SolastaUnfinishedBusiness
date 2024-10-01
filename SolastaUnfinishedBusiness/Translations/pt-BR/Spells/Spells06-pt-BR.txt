@@ -1,6 +1,8 @@
 Condition/&ConditionHeroicInfusionDescription=Você se dota de resistência e destreza marcial alimentadas pela magia.
 Condition/&ConditionHeroicInfusionTitle=Transformação de Tenser
 Condition/&ConditionShelterFromEnergyTitle={0} Resistência
+Failure/&MustBeLargeOrSmaller=Deve ser de tamanho grande ou menor para ser direcionado
+Failure/&MustNotHaveFizbanPlatinumShield=Não deve ter o Escudo de Platina de Fizban
 Feature/&PowerRingOfBladesDescription=Como uma ação bônus, você pode fazer um ataque mágico à distância em uma criatura a até 18 metros de você, usando uma de suas espadas do Anel de Lâminas.
 Feature/&PowerRingOfBladesTitle=Anel de Lâminas
 Feedback/&AdditionalDamageHeroicInfusionFormat=Transformação de Tenser!
@@ -28,5 +30,3 @@ Spell/&ScatterDescription=O ar treme ao redor de até cinco criaturas de sua esc
 Spell/&ScatterTitle=Dispersão
 Spell/&ShelterFromEnergyDescription=Escolha um dos seguintes tipos de dano: ácido, frio, fogo, relâmpago, necrótico, radiante ou trovão, e então escolha até seis criaturas dispostas que você possa ver dentro do alcance. Por 1 hora, os alvos têm resistência àquele tipo de dano. Quando você conjura esta magia usando um espaço de magia de 7º nível ou superior, você pode escolher até uma criatura disposta adicional para cada nível de espaço acima de 6º.
 Spell/&ShelterFromEnergyTitle=Abrigo da Energia
-Tooltip/&MustBeLargeOrSmaller=Deve ser de tamanho grande ou menor para ser direcionado
-Tooltip/&MustNotHaveFizbanPlatinumShield=Não deve ter o Escudo de Platina de Fizban

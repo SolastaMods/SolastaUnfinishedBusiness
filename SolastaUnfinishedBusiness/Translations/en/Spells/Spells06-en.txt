@@ -1,6 +1,8 @@
 Condition/&ConditionHeroicInfusionDescription=You endow yourself with endurance and martial prowess fueled by magic.
 Condition/&ConditionHeroicInfusionTitle=Tenser's Transformation
 Condition/&ConditionShelterFromEnergyTitle={0} Resistance
+Failure/&MustBeLargeOrSmaller=Must be large size or smaller to be aimed
+Failure/&MustNotHaveFizbanPlatinumShield=Must not have Fizban's Platinum Shield
 Feature/&PowerRingOfBladesDescription=As a bonus action, you can make a ranged spell attack to a creature within 60 feet from you, using one of your Ring of Blades swords.
 Feature/&PowerRingOfBladesTitle=Ring of Blades
 Feedback/&AdditionalDamageHeroicInfusionFormat=Tenser's Transformation!
@@ -28,5 +30,3 @@ Spell/&ScatterDescription=The air quivers around up to five creatures of your ch
 Spell/&ScatterTitle=Scatter
 Spell/&ShelterFromEnergyDescription=Choose one of the following damage types: acid, cold, fire, lightning, necrotic, radiant, or thunder, and then choose up to six willing creatures that you can see within range. For 1 hour, targets have resistance to that damage type. When you cast this spell using a spell slot of 7th level or higher, you may target up to one additional willing creature for each slot level above 6th.
 Spell/&ShelterFromEnergyTitle=Shelter from Energy
-Tooltip/&MustBeLargeOrSmaller=Must be large size or smaller to be aimed
-Tooltip/&MustNotHaveFizbanPlatinumShield=Must not have Fizban's Platinum Shield

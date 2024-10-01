@@ -122,6 +122,7 @@ internal static class BootContext
             SubclassesContext.LateLoad();
             InventorClass.LateLoadSpellStoringItem();
             LightingAndObscurementContext.LateLoad();
+            GrappleContext.LateLoad();
 
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();

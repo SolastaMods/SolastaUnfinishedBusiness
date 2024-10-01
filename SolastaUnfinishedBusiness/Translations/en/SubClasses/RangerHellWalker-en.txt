@@ -1,5 +1,6 @@
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=You take 1d6 necrotic damage at the end of each of your turns, you are frightened, and fire attacks from the marker bypass your resistance.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Marked by the Dammed
+Failure/&MustHaveDammingStrikeCondition=Isn't marked by Damning Strike
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=When you first hit a creature with an attack on your turn, you can force it to succeed on a Constitution saving throw against your spell DC or have it marked. While a creature is marked this way, it takes 1d6 fire damage at the start of each of its turns for 1 minute. At the end of each of its turns, the creature can repeat this saving throw, ending the effects on a success.
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=Damning Strike
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=You can cast <b>Sapping Sting</b> as an action and gain bonus spells that are considered ranger spells for you and don't count against the number of spells you know:\n{0}
@@ -18,4 +19,3 @@ Monster/&MonsterMarilithDescription=From the waist up, mariliths appeared to be 
 Monster/&MonsterMarilithTitle=Marilith
 Subclass/&RangerHellWalkerDescription=You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
 Subclass/&RangerHellWalkerTitle=Hellwalker
-Tooltip/&MustHaveDammingStrikeCondition=Isn't marked by Damning Strike

@@ -1387,7 +1387,7 @@ internal static class RaceFeats
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToChargeTarget");
+            __instance.actionModifier.FailureFlags.Add("Failure/&AllyMustBeAbleToChargeTarget");
 
             return false;
         }

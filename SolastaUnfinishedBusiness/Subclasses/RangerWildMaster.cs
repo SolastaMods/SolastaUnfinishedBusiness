@@ -390,7 +390,7 @@ public sealed class RangerWildMaster : AbstractSubclass
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeBeastCompanion");
+                __instance.actionModifier.FailureFlags.Add("Failure/&MustBeBeastCompanion");
             }
 
             return isValid;

@@ -470,7 +470,7 @@ internal static class RaceImpBuilder
                     __instance.actionModifier.FailureFlags.Add("Tooltip/&SelectAnAlly");
                     return false;
                 case > 0 when target.Side != Side.Enemy:
-                    __instance.actionModifier.FailureFlags.Add("Tooltip/&AlreadySelectedAnAlly");
+                    __instance.actionModifier.FailureFlags.Add("Failure/&AlreadySelectedAnAlly");
                     return false;
             }
 
@@ -482,14 +482,14 @@ internal static class RaceImpBuilder
                     return true;
                 }
 
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetAlreadyAssisted");
+                __instance.actionModifier.FailureFlags.Add("Failure/&TargetAlreadyAssisted");
                 return false;
             }
 
             // only allow enemy within reach
             if (!__instance.ActionParams.actingCharacter.IsWithinRange(target, 1))
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetOutOfRange");
+                __instance.actionModifier.FailureFlags.Add("Failure/&TargetOutOfRange");
                 return false;
             }
 
@@ -498,7 +498,7 @@ internal static class RaceImpBuilder
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetAlreadyAssisted");
+            __instance.actionModifier.FailureFlags.Add("Failure/&TargetAlreadyAssisted");
 
             return false;
         }

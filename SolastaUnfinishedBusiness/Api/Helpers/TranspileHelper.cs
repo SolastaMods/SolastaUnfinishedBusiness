@@ -161,6 +161,12 @@ internal static class TranspileHelper
         return code;
     }
 
+    public static bool Calls(this CodeInstruction instruction, string method)
+    {
+        return (instruction.opcode == OpCodes.Callvirt || instruction.opcode == OpCodes.Call)
+               && instruction.operand.ToString().Contains(method);
+    }
+
     // ReSharper disable once ReturnTypeCanBeEnumerable.Local
     private static List<CodeInstruction> ReplaceCodeImpl(
         this IEnumerable<CodeInstruction> instructions,

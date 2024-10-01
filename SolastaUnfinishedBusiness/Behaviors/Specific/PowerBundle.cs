@@ -553,9 +553,17 @@ internal static class PowerBundle
 
         var usablePower = activePower.UsablePower;
 
-        if (usablePower.OriginClass
-            || usablePower.OriginRace
-            || usablePower.PowerDefinition.RechargeRate == RechargeRate.AtWill)
+        if (usablePower.OriginClass)
+        {
+            return;
+        }
+
+        if (usablePower.OriginRace)
+        {
+            return;
+        }
+
+        if (usablePower.PowerDefinition.RechargeRate == RechargeRate.AtWill)
         {
             return;
         }

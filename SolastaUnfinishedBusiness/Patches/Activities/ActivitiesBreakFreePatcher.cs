@@ -52,6 +52,23 @@ public static class BreakFreePatcher
                     yield return RollAttributeCheck(AttributeDefinitions.Wisdom);
                     break;
 
+                case AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics:
+                    var rulesetSource = EffectHelpers.GetCharacterByGuid(restrainingCondition.SourceGuid);
+                    var source = GameLocationCharacter.GetFromActor(rulesetSource);
+                    var abilityCheckData = new AbilityCheckData
+                    {
+                        AbilityCheckActionModifier = new ActionModifier(), Action = null
+                    };
+
+                    yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
+                        source, gameLocationCharacter, ActionDefinitions.Id.BreakFree, abilityCheckData);
+
+                    // this is the success of the opponent
+                    success = abilityCheckData.AbilityCheckRollOutcome
+                        is not (RollOutcome.Success or RollOutcome.CriticalSuccess);
+
+                    break;
+
                 default:
                     while (values.MoveNext())
                     {
@@ -119,8 +136,7 @@ public static class BreakFreePatcher
                     .HandleITryAlterOutcomeAttributeCheck(gameLocationCharacter, abilityCheckData);
 
                 success = abilityCheckData.AbilityCheckRollOutcome
-                    is RollOutcome.Success
-                    or RollOutcome.CriticalSuccess;
+                    is RollOutcome.Success or RollOutcome.CriticalSuccess;
             }
         }
     }

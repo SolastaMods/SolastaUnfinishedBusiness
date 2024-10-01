@@ -6091,7 +6091,7 @@ Your innate magic comes from the wild forces of chaos that underlie the order of
 
 * Tides of Chaos
 
-You can manipulate the forces of chance and chaos to reroll with advantage a failed attack roll or saving throw. You can use this feature once per long rest. You can also, once during your turn as a free action, roll on the Wild Magic Surge table and regain one use of it.
+You can manipulate the forces of chance and chaos to reroll with advantage a failed attack roll, attribute check, or saving throw. You can use this feature once per long rest. You can also, once during your turn as a free action, roll on the Wild Magic Surge table and regain one use of it.
 
 * Wild Magic Surge
 

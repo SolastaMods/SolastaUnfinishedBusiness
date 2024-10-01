@@ -2,6 +2,7 @@ Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Sie sind 
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Ablenkender Hinterhalt
 Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=Ihre Lebensessenz wurde gestohlen, um einem anderen Lebewesen zu schaden.
 Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=Ausgelaugte Essenz
+Failure/&MustNotHavePossessedCondition=Lebensessenz wurde gestohlen und kann nicht gezielt werden
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Ab der 9. Stufe gilt: Wann immer Sie einer Kreatur durch einen hinterhältigen Angriff Schaden zufügen, erleidet diese Kreatur bis zum Ende Ihres nächsten Zuges einen Nachteil bei ihrem nächsten Rettungswurf oder Fähigkeitstest.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Ablenkender Hinterhalt
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Wirke Zaubersprüche und Zaubertricks des Zauberers.
@@ -22,4 +23,3 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Feindliches Zaubern
 Subclass/&RoguishArcaneScoundrelDescription=Mit ihrer Schnelligkeit und ihrem scharfen Verstand nutzen Arcane Scoundrels eine Reihe magischer Tricks, um ihre Gegner auszutricksen und zu schwächen.
 Subclass/&RoguishArcaneScoundrelTitle=Arkaner Schurke
-Tooltip/&MustNotHavePossessedCondition=Lebensessenz wurde gestohlen und kann nicht gezielt werden

@@ -67,7 +67,7 @@ internal static class RaceMalakhBuilder
             .AddToDB();
 
         // Use instead of bonus cantrip to add spell casting ability
-        spellListMalakh.SpellsByLevel[0].Spells = [SpellDefinitions.Light];
+        spellListMalakh.SpellsByLevel[0].Spells = [SpellDefinitions.Light_Monk_NoFocus];
 
         var castSpellMalakhMagic = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellTiefling, $"CastSpell{Name}Magic")

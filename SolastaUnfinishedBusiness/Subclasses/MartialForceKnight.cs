@@ -370,7 +370,9 @@ public sealed class MartialForceKnight : AbstractSubclass
             .Create($"Condition{Name}ForceBulwarkSelf")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .SetCancellingConditions(
+                DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
+                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedForceBulwark(conditionForceBulwark))
             .AddToDB();
 
@@ -665,6 +667,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerPsionicAdept, rulesetAttacker);
 
+            //TODO: double check this behavior with a push from origin power
             yield return attacker.MyReactToSpendPowerBundle(
                 usablePower,
                 [defender],

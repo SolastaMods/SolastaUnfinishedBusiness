@@ -1,5 +1,6 @@
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Você sofre 1d6 de dano necrótico no final de cada um dos seus turnos, fica assustado e os ataques de fogo do marcador ignoram sua resistência.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Marcado pelos Represados
+Failure/&MustHaveDammingStrikeCondition=Não é marcado por Damning Strike
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Quando você atinge uma criatura pela primeira vez com um ataque no seu turno, você pode forçá-la a ter sucesso em um teste de resistência de Constituição contra sua CD de magia ou tê-la marcada. Enquanto uma criatura estiver marcada dessa forma, ela sofre 1d6 de dano de fogo no início de cada um dos seus turnos por 1 minuto. No final de cada um dos seus turnos, a criatura pode repetir esse teste de resistência, encerrando os efeitos em um sucesso.
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=Greve Condenável
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=Você pode conjurar <b>Ferida Saciante</b> como uma ação e ganhar magias bônus que são consideradas magias de patrulheiro para você e não contam para o número de magias que você conhece:\n{0}
@@ -18,4 +19,3 @@ Monster/&MonsterMarilithDescription=Da cintura para cima, as mariliths pareciam 
 Monster/&MonsterMarilithTitle=Marilith
 Subclass/&RangerHellWalkerDescription=Você é um Hellwalker, um ranger que está envolto na magia dos Planos Inferiores. Como você veio a ser associado a essa magia, só você mesmo sabe. Talvez seu grande ancestral fosse de origem demoníaca, ou talvez sua linhagem carregue uma maldição demoníaca. Seja qual for a razão, a magia agora está inextricavelmente ligada a você, sua própria presença para sempre ligada aos seres infernais abaixo.
 Subclass/&RangerHellWalkerTitle=Andarilho do Inferno
-Tooltip/&MustHaveDammingStrikeCondition=Não é marcado por Damning Strike

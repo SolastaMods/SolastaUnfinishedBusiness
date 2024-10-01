@@ -2,6 +2,7 @@ Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Subisci s
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Agguato di distrazione
 Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=La tua essenza vitale è stata rubata per danneggiare un'altra creatura.
 Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=Essenza prosciugata
+Failure/&MustNotHavePossessedCondition=L'essenza vitale è stata rubata e non può essere mirata
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=A partire dal 9° livello, ogni volta che infliggi danni da attacco furtivo a una creatura, quella creatura subisce svantaggio al suo prossimo tiro salvezza o prova di caratteristica fino alla fine del tuo prossimo turno.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Agguato di distrazione
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Lancia incantesimi e trucchetti da mago.
@@ -22,4 +23,3 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Lancio di incantesimi ostili
 Subclass/&RoguishArcaneScoundrelDescription=Grazie alla loro rapidità di movimento e alla loro arguzia, gli Arcane Scoundrels utilizzano una serie di trucchi magici per superare in astuzia e indebolire i loro avversari.
 Subclass/&RoguishArcaneScoundrelTitle=Mascalzone Arcano
-Tooltip/&MustNotHavePossessedCondition=L'essenza vitale è stata rubata e non può essere mirata

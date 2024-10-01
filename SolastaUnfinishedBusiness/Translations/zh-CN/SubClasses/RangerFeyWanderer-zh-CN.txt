@@ -1,3 +1,4 @@
+Failure/&MustBeWithin5ft=必须在 5 尺以内
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesDescription=你能够使用来自妖精荒野中黑暗空洞的摄心魔法以强化你的武器攻击。当你用武器击中生物时，你可以对目标造成额外的 1d4 心灵伤害，该目标每回合只能承受一次额外伤害。当你达到该职业的 11 级时，额外伤害将提升至 1d6。
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesTitle=哀惧灵袭
 Feature/&AutoPreparedSpellsRangerFeyWandererDescription=你获得额外法术，这些法术对你而言被视为游侠法术，它们始终处于准备状态，且不计入你所掌握的游侠法术数量：\n{0}\n\n
@@ -22,4 +23,3 @@ Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistReactTitle
 Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistTitle=妖思魅缕
 Subclass/&RangerFeyWandererDescription=或来自一位至高妖精的恩惠，或是来自你食用的一枚从能言之树上取下的闪亮果实，或是来自你曾浸游于中的魔法清泉，或是来自其它妙事，你的身侧因那次奇遇而有妖精的魔力缠绕。无论你是怎么得到你来自妖精的魔法的，你现在是一名代表了凡间与妖精国度双方的游侠妖精漫游者。你漫步于多元宇宙之时，你轻快的笑声为受压迫者们带来欣喜的希望，你英勇的技艺直击你敌人的恐惧，你所就的伟绩乃是妖精的喜悦，你散步的恐惧乃是妖精的愤怒。
 Subclass/&RangerFeyWandererTitle=妖精漫游者
-Tooltip/&MustBeWithin5ft=必须在 5 尺以内

@@ -606,28 +606,30 @@ public static class RulesetCharacterPatcher
         public static void Postfix(
             RulesetCharacter __instance, ref bool __result, SpellDefinition spellDefinition, ref string failure)
         {
-            if (__result)
-            {
-                return;
-            }
-
-            //PATCH: Allows valid Somatic component if specific material component is held in main hand or off hand slots
+            //PATCH: Allows valid Somatic component if specific material component is held in main hand or off-hand slots
             // allows casting somatic spells with full hands if one of the hands holds material component for the spell
             ValidateIfMaterialInHand(__instance, spellDefinition, ref __result, ref failure);
 
             if (__result)
             {
+                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure, true);
+
                 return;
             }
 
-            //PATCH: Allows valid Somatic component if Inventor has infused item in main hand or off hand slots
+            //PATCH: Allows valid Somatic component if Inventor has infused item in main hand or off-hand slots
             // allows casting somatic spells with full hands if one of the hands holds item infused by the caster
             ValidateIfInfusedInHand(__instance, ref __result, ref failure);
+
+            if (__result)
+            {
+                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure, true);
+            }
         }
 
         //TODO: move to separate file
-        private static void ValidateIfMaterialInHand(RulesetCharacter caster, SpellDefinition spellDefinition,
-            ref bool result, ref string failure)
+        private static void ValidateIfMaterialInHand(
+            RulesetCharacter caster, SpellDefinition spellDefinition, ref bool result, ref string failure)
         {
             if (spellDefinition.MaterialComponentType != MaterialComponentType.Specific)
             {
@@ -635,8 +637,8 @@ public static class RulesetCharacterPatcher
             }
 
             var materialTag = spellDefinition.SpecificMaterialComponentTag;
-            var mainHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
-            var offHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
+            var mainHand = caster.GetMainWeapon();
+            var offHand = caster.GetOffhandWeapon();
             var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();
 
             mainHand?.FillTags(tagsMap, caster, true);
@@ -653,12 +655,10 @@ public static class RulesetCharacterPatcher
 
         //TODO: move to separate file
         private static void ValidateIfInfusedInHand(
-            RulesetCharacter caster,
-            ref bool result,
-            ref string failure)
+            RulesetCharacter caster, ref bool result, ref string failure)
         {
-            var mainHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
-            var offHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
+            var mainHand = caster.GetMainWeapon();
+            var offHand = caster.GetOffhandWeapon();
 
             if (!caster.HoldsMyInfusion(mainHand) && !caster.HoldsMyInfusion(offHand))
             {
@@ -687,6 +687,8 @@ public static class RulesetCharacterPatcher
 
             if (__result)
             {
+                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure);
+
                 return;
             }
 
@@ -696,12 +698,19 @@ public static class RulesetCharacterPatcher
 
             if (__result)
             {
+                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure);
+
                 return;
             }
 
             //PATCH: Allows spells to satisfy mundane material components if Inventor has infused item equipped
             //Used mostly for melee cantrips requiring melee weapon to cast
             ValidateInfusedFocus(__instance, spellDefinition, ref __result, ref failure);
+
+            if (__result)
+            {
+                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure);
+            }
         }
 
         //TODO: move to separate file

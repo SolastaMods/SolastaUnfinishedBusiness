@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -44,8 +45,12 @@ public static class ReactionModalPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterReactionItem item)
         {
-            //PATCH: ensure whoever reacts first will get the reaction handled first by game
             var character = item.ReactionRequest.Character;
+
+            //PATCH: register on acting character if SHIFT is pressed on reaction confirmations
+            character.RegisterShiftState();
+
+            //PATCH: ensure whoever reacts first will get the reaction handled first by game
             var timestamp = (int)DateTime.Now.ToFileTimeUtc();
 
             if (!character.UsedSpecialFeatures.TryAdd(ReactionTimestamp, timestamp))

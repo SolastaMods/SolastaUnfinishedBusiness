@@ -7,6 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness P
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=DEX-Modifikator zu Feinden hinzufügen <color=#D89555>Initiative Roll</color>
 ModUi/&AddFallProneActionToAllRaces=Füge die Aktion <color=#D89555>In den Bauch fallen</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[du kannst kostenlos in den Bauch fallen]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Aktivieren Sie <color=#D89555>Kämpfer</color>, um die Klassenstufe als Bonus zur Wiederholung des <color=#D89555>Unbezwingbaren Widerstands</color>-Rettungswurfs hinzuzufügen
+ModUi/&AddGrappleActionToAllRaces=Füge die Aktion <color=#D89555>Greifen</color> zu allen spielbaren Rennen hinzu.
 ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur innerhalb einer Zelle um dich anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Ranger</color> humanoide bevorzugte Feinde
 ModUi/&AddNewBrightEyeColors=Fügen Sie neue leuchtende Augenfarben hinzu
@@ -71,6 +72,7 @@ ModUi/&DisableAutoEquip=Deaktivieren Sie die automatische Ausrüstung von Gegens
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Deaktivieren Sie außerdem <color=#D89555>Barbar</color> <b>Brutal Critical</b> auf den Stufen 9, 13 und 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Deaktivieren Sie die Zaubervoraussetzungen für <color=#D89555>Talente</color>, die von diesem Mod bereitgestellt werden <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Levelvoraussetzungen für die von diesem Mod bereitgestellten <color=#D89555>Talente</color>.
+ModUi/&DisableMultilineSpellOffering=Deaktivieren Sie das Anbieten von mehrzeiligen Zaubersprüchen in der Aktionsleiste <i><color=#F0DAA0>[hauptsächlich für Controller-Benutzer, die Helden ohne Multicaster verwenden]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für <color=#D89555>Talente</color>, die von diesem Mod bereitgestellt werden
 ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Sense Dark Vision</color> für alle spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktivieren Sie <color=#D89555>Superior Sense Dark Vision</color> für alle spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -99,7 +101,7 @@ ModUi/&DungeonMakerBasicHelp=• Für diese Einstellungen ist es nicht erforderl
 ModUi/&DungeonMakerMenu=Dungeon-Ersteller
 ModUi/&Effects=Auswirkungen
 ModUi/&EmpressGarbAppearance=<color=#D89555>Kaiserin-Gewand</color> Aussehen
-ModUi/&EnableActionSwitching=Aktivieren Sie die Aktionswechselleiste <i><color=#F0DAA0>[nützlich, wenn Sie die Eile-Aktion vor der Hauptaktion schnell verwenden möchten]</color></i>
+ModUi/&EnableActionSwitching=Aktivieren Sie die Aktionswechselleiste <i><color=#F0DAA0>[nützlich, um die volle Kontrolle über Ihre Aktionsabfolge zu haben]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die zusätzliche Anzeige von Hintergrundgeschichten bei der Hintergrundinspektion
 ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
 ModUi/&EnableAdditionalItemsInDungeonMaker=Modifizierte Elemente zum Editor hinzufügen
@@ -297,6 +299,7 @@ ModUi/&SettingsLoad=• Laden Sie eine exportierte Einstellung
 ModUi/&SettingsOpenFolder=Öffnen Sie den Ordner mit den exportierten Einstellungen
 ModUi/&SettingsRefresh=Aktualisierung
 ModUi/&SettingsRemove=Entfernen
+ModUi/&ShiftToSnapLineSpells=Halten Sie <color=#1E81B0>UMSCHALT</color> gedrückt, um Linienzauber am Raster auszurichten <i><color=#F0DAA0>[ohne Ausrichten kann die tatsächliche Linienplatzierung von der Vorschau abweichen]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Schaltfläche anzeigen, die Informationen über das kontrollierte Monster <i><color=#F0DAA0>[wildförmige Druiden, Beschwörungen, NPC-Anhänger usw.]</color></i> öffnet
 ModUi/&ShowChannelDivinityOnPortrait=Zeigt an, wie viele <color=#D89555>Channel Divinity</color>-Einsätze ein Held auf seinem Porträt hat, ähnlich wie Zauberpunkte
 ModUi/&ShowCraftedItemOnRecipeIcon=Symbol für hergestellte Gegenstände neben Rezeptgegenständen im Shop und Inventar anzeigen <i><color=#F0DAA0>[Wenn Sie mit der Maus darüber fahren, wird ein Tooltip für hergestellte Gegenstände angezeigt]</color></i>
@@ -348,4 +351,5 @@ ModUi/&UseOfficialObscurementRules=Benutze die offiziellen Kampfregeln für <col
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[Angreifer, der wahrnimmt, Verteidiger, der es nicht wahrnehmen kann, erhält ADV, und Angreifer, der es nicht wahrnimmt, Verteidiger, der es wahrnehmen kann, erhält DIS\n stark verdeckte Bereiche verursachen den Zustand der Erblindung, wobei Angriffswürfe gegen die Kreatur ADV haben und die Angriffswürfe der Kreatur DIS\n alle Distanzzauber, die auf Einzelpersonen zielen, können nicht gewirkt werden, wenn der Angreifer keine Sicht hat, außer denen, bei denen nicht klar angegeben ist, dass Sicht erforderlich ist]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Befolgen Sie die offiziellen Regeln für <color=#D89555>kleine Rassen</color>, wenn Sie schwere Waffen einsetzen <i><color=#F0DAA0>[Ihre Angriffe haben Nachteile]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&WidenTooltips=<color=white>Tooltip-Breite multiplizieren mit:</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Setze den Schwellenwert für die Chance des <color=#D89555>Sorcerer Wild Magic</color>-Würfels:</color>\n<i><color=#F0DAA0>[Wild Surge wird ausgelöst, wenn der Würfel kleiner oder gleich dem Schwellenwert ist]</color></i>

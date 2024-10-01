@@ -1,10 +1,10 @@
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Obtienes desventajas en los ataques contra todos excepto contra la fuente de esta aura.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Obtén desventajas en los ataques contra todos excepto la fuente.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Aura de oso perfeccionada
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=Adquiera la habilidad de volar.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Vuelo del águila afinada
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=Obtén la habilidad de empujar como acción adicional.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfTitle=Golpe de lobo perfeccionado
-Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=El espíritu del lobo te otorga ventaja en las tiradas de ataque cuerpo a cuerpo.
+Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=El espíritu del lobo te otorga ventaja en las tiradas de ataque cuerpo a cuerpo a menos que seas la fuente.
 Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=Espíritu de lobo
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=El espíritu del águila te convierte en un ágil depredador que puede abrirse paso entre la refriega con facilidad. Puedes realizar una acción adicional como correr, retirarte o esconderte.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Espíritu del águila

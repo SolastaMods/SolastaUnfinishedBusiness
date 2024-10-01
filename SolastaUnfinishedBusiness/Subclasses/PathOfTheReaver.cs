@@ -192,6 +192,8 @@ public sealed class PathOfTheReaver : AbstractSubclass
             var effectForm =
                 EffectFormBuilder.DamageForm(DamageTypeNecrotic, 0, DieType.D1, totalDamageOrHealing);
 
+            effectForm.DamageForm.IgnoreCriticalDoubleDice = true;
+
             actualEffectForms.Insert(index + 1, effectForm);
             ReceiveHealing(attacker, totalDamageOrHealing);
         }

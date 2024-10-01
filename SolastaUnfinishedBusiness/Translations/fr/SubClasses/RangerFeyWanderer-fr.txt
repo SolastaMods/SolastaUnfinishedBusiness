@@ -1,3 +1,4 @@
+Failure/&MustBeWithin5ft=Doit être à moins de 5 pieds
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesDescription=Vous pouvez augmenter vos frappes d'armes avec une magie effrayante, tirée des creux sombres de la nature sauvage de Fey. Lorsque vous touchez une créature avec une arme, vous pouvez infliger 1d4 dégâts psychiques supplémentaires à la cible, qui ne peut subir ces dégâts supplémentaires qu'une seule fois par tour. Les dégâts supplémentaires augmentent à 1d6 lorsque vous atteignez le niveau 11 dans cette classe.
 Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesTitle=Des grèves terribles
 Feature/&AutoPreparedSpellsRangerFeyWandererDescription=Vous gagnez des sorts bonus qui sont considérés comme des sorts de Ranger pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de Ranger que vous connaissez :\n{0}\n\n
@@ -22,4 +23,3 @@ Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistReactTitle
 Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistTitle=Un tournant séduisant
 Subclass/&RangerFeyWandererDescription=Une mystique féerique vous entoure, grâce à la bénédiction d'une fée archaïque, aux fruits brillants que vous avez mangés d'un arbre parlant, à la source magique dans laquelle vous avez nagé ou à tout autre événement de bon augure. Cependant, vous avez acquis votre magie féerique, vous êtes maintenant un Fey Wanderer, un rôdeur qui représente à la fois le royaume des mortels et celui des fées. Tandis que vous parcourez le multivers, votre rire joyeux illumine le cœur des opprimés et vos prouesses martiales sèment la terreur chez vos ennemis, car grande est la gaieté des fées et terrible est leur fureur.
 Subclass/&RangerFeyWandererTitle=Fée vagabonde
-Tooltip/&MustBeWithin5ft=Doit être à moins de 5 pieds
