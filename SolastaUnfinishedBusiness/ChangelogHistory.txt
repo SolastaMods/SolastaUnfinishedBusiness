@@ -1,3 +1,7 @@
+1.5.97.33:
+
+- added Brawler feat
+
 1.5.97.32:
 
 - added General > Character > 'Add grapple action to all playable races'

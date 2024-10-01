@@ -79,6 +79,19 @@ internal static class GrappleContext
 
     internal static void LateLoad()
     {
+        // support for Brawler feat
+        _ = ActionDefinitionBuilder
+            .Create($"Action{Grapple}Bonus")
+            .SetGuiPresentation(Category.Action, AttackFree)
+            .OverrideClassName("UsePower")
+            .SetActivatedPower(PowerGrapple)
+            .SetActionId(ExtraActionId.GrappleBonus)
+            .SetActionScope(ActionDefinitions.ActionScope.All)
+            .SetActionType(ActionDefinitions.ActionType.Bonus)
+            .SetFormType(ActionDefinitions.ActionFormType.Large)
+            .RequiresAuthorization()
+            .AddToDB();
+
         var battlePackage =
             AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName, AiContext.RandomType.RandomMediumLow);
 
@@ -209,6 +222,29 @@ internal static class GrappleContext
         }
     }
 
+    internal static void ValidateActionAvailability(
+        GameLocationCharacter __instance,
+        ref ActionDefinitions.ActionStatus __result,
+        ActionDefinitions.Id actionId)
+    {
+        if (!Main.Settings.AddGrappleActionToAllRaces)
+        {
+            return;
+        }
+
+        var rulesetCharacter = __instance.RulesetCharacter;
+        var hasGrappleSource = GrappleContext.HasGrappleSource(rulesetCharacter);
+
+        if (((ExtraActionId)actionId is ExtraActionId.Grapple or ExtraActionId.GrappleBonus &&
+             (hasGrappleSource ||
+              !ValidatorsCharacter.HasFreeHand(rulesetCharacter) ||
+              !ValidatorsCharacter.HasMainAttackAvailable(rulesetCharacter))) ||
+            ((ExtraActionId)actionId == ExtraActionId.DisableGrapple && !hasGrappleSource))
+        {
+            __result = ActionDefinitions.ActionStatus.Unavailable;
+        }
+    }
+    
     internal static void ValidateIfBothHandsFree(
         RulesetCharacter caster, ref bool result, ref string failure, bool isSomaticCheck = false)
     {

@@ -8,15 +8,18 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "TavernBrawler",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityGrappleBonus:a73ae254-e62d-55fb-b92b-27123d538336",
+    "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupSupportCombatTitle",
-    "description": "Battle Fervor, Brawler, Call for Charge, Chef, Gift of the Chromatic Dragon, Grappler, Hardy, Healer, Improved Critical, Inspiring Leader, Lucky, Mage Slayer, Menacing, Mender, Merciless, Poisoner, Precision Focused, Sentinel, Superior Critical, Thrown Weapons Master, Weapon Master",
+    "title": "Feat/&FeatBrawlerConTitle",
+    "description": "Feat/&FeatBrawlerConDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1db5b688-e646-5e50-bdb0-1187118afb67",
+  "guid": "16d9de1c-dbf4-5c6a-bc73-1ae2e9b6a28c",
   "contentPack": 9999,
-  "name": "FeatGroupSupportCombat"
+  "name": "FeatBrawlerCon"
 }

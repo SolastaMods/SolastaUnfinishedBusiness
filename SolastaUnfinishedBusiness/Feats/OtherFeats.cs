@@ -59,6 +59,8 @@ internal static class OtherFeats
     {
         var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
+        var featBrawlerStr = BuildBrawlerStr();
+        var featBrawlerCon = BuildBrawlerCon();
         var featDungeonDelver = BuildDungeonDelver();
         var featEldritchAdept = BuildEldritchAdept();
         var featFightingInitiate = BuildFightingInitiate();
@@ -97,6 +99,8 @@ internal static class OtherFeats
             featAcrobat,
             FeatAlert,
             featArcaneArcherAdept,
+            featBrawlerStr,
+            featBrawlerCon,
             featDungeonDelver,
             featEldritchAdept,
             featFrostAdaptation,
@@ -124,6 +128,10 @@ internal static class OtherFeats
             featTough,
             featVersatilityAdept,
             featWarCaster);
+
+        var featGroupBrawler = GroupFeats.MakeGroup("FeatGroupBrawler", GroupFeats.TavernBrawler,
+            featBrawlerStr,
+            featBrawlerCon);
 
         GroupFeats.FeatGroupBodyResilience.AddFeats(
             athleteGroup,
@@ -157,6 +165,7 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featGiftOfTheChromaticDragon,
+            featGroupBrawler,
             chefGroup,
             FeatGrappler,
             featHealer,
@@ -591,6 +600,66 @@ internal static class OtherFeats
                         new AddPolearmFollowUpAttack(LongMaceWeaponType))
                     .AddToDB())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Brawler
+
+    private const string BrawlerHit = "BrawlerHit";
+
+    private static FeatDefinition BuildBrawlerStr()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatBrawlerStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, ActionAffinityGrappleBonus)
+            .SetFeatFamily(GroupFeats.TavernBrawler)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildBrawlerCon()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatBrawlerCon")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, ActionAffinityGrappleBonus)
+            .SetFeatFamily(GroupFeats.TavernBrawler)
+            .AddToDB();
+    }
+
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityGrappleBonus =
+        FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityGrappleBonus")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.GrappleBonus)
+            .AddCustomSubFeatures(
+                new PhysicalAttackBeforeHitConfirmedOnEnemyBrawler(),
+                new ValidateDefinitionApplication(c =>
+                    GameLocationCharacter.GetFromActor(c)?.GetSpecialFeatureUses(BrawlerHit) == 0))
+            .AddToDB();
+
+    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyBrawler : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!ValidatorsWeapon.IsUnarmed(attackMode))
+            {
+                yield break;
+            }
+
+            attacker.SetSpecialFeatureUses(BrawlerHit, 0);
+        }
     }
 
     #endregion

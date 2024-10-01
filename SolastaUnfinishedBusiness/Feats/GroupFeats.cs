@@ -16,6 +16,7 @@ internal static class GroupFeats
     internal const string Crusher = "Crusher";
     internal const string DevastatingStrikes = "DevastatingStrikes";
     internal const string OldTactics = "OldTactics";
+    internal const string TavernBrawler = "TavernBrawler";
     internal const string FightingStyle = "FightingStyle";
 
     internal static List<FeatDefinition> Groups { get; } = [];
