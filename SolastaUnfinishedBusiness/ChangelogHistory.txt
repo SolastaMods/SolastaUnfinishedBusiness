@@ -20,6 +20,7 @@
 - improved Aasimar race to learn a light cantrip with no focus requirements
 - improved backgrounds documentation dump to include cantrips, proficiencies, pools, equipment, etc.
 - improved consistency between highlighted and actual tiles when casting line spells [VANILLA]
+- improved encounters to use better decision packages based on enemy type or class
 - improved Gravity Fissure spell by using angle to the line as a tiebreaker to which cell should pull
 - improved RESPEC to properly render new hero on UI, and fixed absurd AC under certain scenarios
 - improved slot type SHIFT key modifier to only require the key pressed on modals clicks, and also work on multiplayer

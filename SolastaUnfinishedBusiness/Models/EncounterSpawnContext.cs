@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Classes;
 using TA;
+using TA.AI;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -148,6 +151,60 @@ internal static class EncountersSpawnContext
         return new int3(x, 0, z);
     }
 
+    private static DecisionPackageDefinition GetBestDecisionPackage(RulesetCharacter __instance)
+    {
+        var package = DefaultMeleeWithBackupRangeDecisions;
+
+        switch (__instance)
+        {
+            case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Cleric):
+                package = ClericCombatDecisions;
+                break;
+            case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Fighter):
+                package = FighterCombatDecisions;
+                break;
+            case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Paladin):
+                package = PaladinCombatDecisions;
+                break;
+            case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Rogue):
+                package = RogueCombatDecisions;
+                break;
+            case RulesetCharacterHero rulesetHero when rulesetHero.ClassesHistory.Contains(Druid):
+                package = CasterCombatDecisions;
+                break;
+            case RulesetCharacterHero rulesetHero:
+            {
+                if (rulesetHero.ClassesHistory.Contains(InventorClass.Class) ||
+                    rulesetHero.ClassesHistory.Contains(Bard) ||
+                    rulesetHero.ClassesHistory.Contains(Sorcerer) ||
+                    rulesetHero.ClassesHistory.Contains(Warlock) ||
+                    rulesetHero.ClassesHistory.Contains(Wizard))
+                {
+                    package = OffensiveCasterCombatDecisions;
+                }
+
+                break;
+            }
+            case RulesetCharacterMonster rulesetMonster:
+            {
+                if (rulesetMonster.MonsterDefinition.Features.Any(x => x is FeatureDefinitionCastSpell))
+                {
+                    package = DefaultSupportCasterWithBackupAttacksDecisions;
+                }
+
+                if (rulesetMonster.MonsterDefinition.AttackIterations.Any(x =>
+                        x.MonsterAttackDefinition.Proximity == AttackProximity.Range))
+                {
+                    package = DefaultRangeWithBackupMeleeDecisions;
+                }
+
+                break;
+            }
+        }
+
+        return package;
+    }
+
     private static void StageEncounter(int3 position)
     {
         var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
@@ -173,7 +230,7 @@ internal static class EncountersSpawnContext
                              {
                                  BattleStartBehavior =
                                      GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
-                                 DecisionPackageDefinition = IdleGuard_Default,
+                                 DecisionPackageDefinition = GetBestDecisionPackage(character),
                                  EncounterId = EncounterId++,
                                  FormationDefinition = DatabaseHelper.FormationDefinitions.Column2
                              })))

@@ -3639,6 +3639,7 @@ internal static partial class DatabaseHelper
     {
         internal static SpellDefinition DelayedBlastFireball { get; } =
             GetDefinition<SpellDefinition>("DelayedBlastFireball");
+
         internal static SpellDefinition Knock { get; } = GetDefinition<SpellDefinition>("Knock");
         internal static SpellDefinition Earthquake { get; } = GetDefinition<SpellDefinition>("Earthquake");
         internal static SpellDefinition AcidArrow { get; } = GetDefinition<SpellDefinition>("AcidArrow");
@@ -3805,7 +3806,10 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition Levitate { get; } = GetDefinition<SpellDefinition>("Levitate");
         internal static SpellDefinition Light { get; } = GetDefinition<SpellDefinition>("Light");
-        internal static SpellDefinition Light_Monk_NoFocus { get; } = GetDefinition<SpellDefinition>("Light_Monk_NoFocus");
+
+        internal static SpellDefinition Light_Monk_NoFocus { get; } =
+            GetDefinition<SpellDefinition>("Light_Monk_NoFocus");
+
         internal static SpellDefinition LightningBolt { get; } = GetDefinition<SpellDefinition>("LightningBolt");
         internal static SpellDefinition Longstrider { get; } = GetDefinition<SpellDefinition>("Longstrider");
         internal static SpellDefinition MageArmor { get; } = GetDefinition<SpellDefinition>("MageArmor");
@@ -3963,6 +3967,30 @@ internal static partial class DatabaseHelper
         internal static DecisionPackageDefinition Fear { get; } = GetDefinition<DecisionPackageDefinition>("Fear");
 
         internal static DecisionPackageDefinition IdleGuard_Default { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
+
+        internal static DecisionPackageDefinition ClericCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
+
+        internal static DecisionPackageDefinition FighterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
+
+        internal static DecisionPackageDefinition PaladinCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
+
+        internal static DecisionPackageDefinition RogueCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
+
+        internal static DecisionPackageDefinition CasterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
+
+        internal static DecisionPackageDefinition OffensiveCasterCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
+
+        internal static DecisionPackageDefinition DefaultSupportCasterWithBackupAttacksDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
+
+        internal static DecisionPackageDefinition DefaultRangeWithBackupMeleeDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
     }
 
