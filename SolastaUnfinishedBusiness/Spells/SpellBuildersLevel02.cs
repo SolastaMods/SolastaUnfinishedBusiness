@@ -283,7 +283,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionNoxiousSpray.specialDuration = false;
-        
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.NoxiousSpray, 128))

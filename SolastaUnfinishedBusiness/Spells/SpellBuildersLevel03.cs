@@ -527,7 +527,8 @@ internal static partial class SpellBuilders
     }
 
     private sealed class MoveStepFinishedAshardalonStride(
-        FeatureDefinitionPower powerDamage, ConditionDefinition conditionMark) : IMoveStepStarted
+        FeatureDefinitionPower powerDamage,
+        ConditionDefinition conditionMark) : IMoveStepStarted
     {
         public void MoveStepStarted(GameLocationCharacter mover, int3 source, int3 destination)
         {
