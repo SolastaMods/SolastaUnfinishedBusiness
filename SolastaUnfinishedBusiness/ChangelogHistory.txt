@@ -1,6 +1,7 @@
 1.5.97.33:
 
 - added Brawler feat
+- fixed an instability when NPCs are in play and some mod settings are enabled
 
 1.5.97.32:
 

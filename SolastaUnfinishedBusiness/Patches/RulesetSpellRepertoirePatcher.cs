@@ -38,14 +38,14 @@ public static class RulesetSpellRepertoirePatcher
         [UsedImplicitly]
         public static bool Prefix(RulesetSpellRepertoire __instance, ref int __result)
         {
-            var caster = __instance.GetCasterHero();
+            var character = __instance.GetCaster();
 
-            if (caster == null)
+            if (character == null)
             {
                 return true;
             }
 
-            if (Level20Context.WizardSpellMastery.IsPreparation(caster, out var maxSpellMastery))
+            if (Level20Context.WizardSpellMastery.IsPreparation(character, out var maxSpellMastery))
             {
                 __result = maxSpellMastery;
 
@@ -53,7 +53,7 @@ public static class RulesetSpellRepertoirePatcher
             }
 
             // ReSharper disable once InvertIf
-            if (Level20Context.WizardSignatureSpells.IsPreparation(caster, out var maxSignatureSpells))
+            if (Level20Context.WizardSignatureSpells.IsPreparation(character, out var maxSignatureSpells))
             {
                 __result = maxSignatureSpells;
 
@@ -95,7 +95,7 @@ public static class RulesetSpellRepertoirePatcher
                 return;
             }
 
-            var hero = __instance.GetCasterHero();
+            var character = __instance.GetCaster();
 
             // vanilla behavior if a race or monster origin
             if (__instance.SpellCastingFeature.SpellCastingOrigin
@@ -107,7 +107,14 @@ public static class RulesetSpellRepertoirePatcher
                 return;
             }
 
-            var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
+            var hero = character as RulesetCharacterHero;
+
+            RulesetSpellRepertoire warlockSpellRepertoire = null;
+
+            if (hero != null)
+            {
+                warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
+            }
 
             // handle single caster scenarios both alternate system and vanilla
             if (!SharedSpellsContext.IsMulticaster(hero))
@@ -130,14 +137,14 @@ public static class RulesetSpellRepertoirePatcher
             {
                 var consume = true;
 
-                foreach (var spellRepertoire in hero.SpellRepertoires
+                foreach (var spellRepertoire in character.SpellRepertoires
                              .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
                                          FeatureDefinitionCastSpell.CastingOrigin.Race))
                 {
                     if (Main.Settings.UseAlternateSpellPointsSystem)
                     {
                         SpellPointsContext.ConsumeSlotsAtLevelsPointsCannotCastAnymore(
-                            hero, spellRepertoire, slotLevel, consume, true);
+                            character, spellRepertoire, slotLevel, consume, true);
 
                         consume = false;
                     }
@@ -263,7 +270,7 @@ public static class RulesetSpellRepertoirePatcher
                 return;
             }
 
-            var heroWithSpellRepertoire = __instance.GetCasterHero();
+            var heroWithSpellRepertoire = __instance.GetCaster() as RulesetCharacterHero;
 
             if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
@@ -292,19 +299,17 @@ public static class RulesetSpellRepertoirePatcher
                 return true;
             }
 
-            var heroWithSpellRepertoire = __instance.GetCasterHero();
-
-            if (heroWithSpellRepertoire == null)
+            if (__instance.GetCaster() is not RulesetCharacterHero hero)
             {
                 return true;
             }
 
-            if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+            if (!SharedSpellsContext.IsMulticaster(hero))
             {
                 return true;
             }
 
-            foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires)
+            foreach (var spellRepertoire in hero.SpellRepertoires)
             {
                 var usedSpellsSlots = spellRepertoire.usedSpellsSlots;
 
@@ -347,7 +352,7 @@ public static class RulesetSpellRepertoirePatcher
                 return;
             }
 
-            var heroWithSpellRepertoire = __instance.GetCasterHero();
+            var heroWithSpellRepertoire = __instance.GetCaster() as RulesetCharacterHero;
 
             if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
@@ -399,7 +404,7 @@ public static class RulesetSpellRepertoirePatcher
         public static bool Prefix(RulesetSpellRepertoire __instance, ref int __result)
         {
             //PATCH: ensures MC Warlock will cast spells using a correct slot level (MULTICLASS)
-            var hero = __instance.GetCasterHero();
+            var hero = __instance.GetCaster() as RulesetCharacterHero;
 
             // get off here if not multicaster
             if (!SharedSpellsContext.IsMulticaster(hero))

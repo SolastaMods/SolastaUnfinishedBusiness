@@ -45,17 +45,17 @@ public static class ReactionModalPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterReactionItem item)
         {
-            var character = item.ReactionRequest.Character;
+            var caster = item.ReactionRequest.Character;
 
             //PATCH: register on acting character if SHIFT is pressed on reaction confirmations
-            character.RegisterShiftState();
+            caster.RegisterShiftState();
 
             //PATCH: ensure whoever reacts first will get the reaction handled first by game
             var timestamp = (int)DateTime.Now.ToFileTimeUtc();
 
-            if (!character.UsedSpecialFeatures.TryAdd(ReactionTimestamp, timestamp))
+            if (!caster.UsedSpecialFeatures.TryAdd(ReactionTimestamp, timestamp))
             {
-                character.UsedSpecialFeatures[ReactionTimestamp] = timestamp;
+                caster.UsedSpecialFeatures[ReactionTimestamp] = timestamp;
             }
         }
     }
