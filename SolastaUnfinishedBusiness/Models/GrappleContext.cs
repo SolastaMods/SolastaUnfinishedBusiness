@@ -233,7 +233,7 @@ internal static class GrappleContext
         }
 
         var rulesetCharacter = __instance.RulesetCharacter;
-        var hasGrappleSource = GrappleContext.HasGrappleSource(rulesetCharacter);
+        var hasGrappleSource = HasGrappleSource(rulesetCharacter);
 
         if (((ExtraActionId)actionId is ExtraActionId.Grapple or ExtraActionId.GrappleBonus &&
              (hasGrappleSource ||
@@ -244,11 +244,15 @@ internal static class GrappleContext
             __result = ActionDefinitions.ActionStatus.Unavailable;
         }
     }
-    
+
     internal static void ValidateIfBothHandsFree(
-        RulesetCharacter caster, ref bool result, ref string failure, bool isSomaticCheck = false)
+        RulesetCharacter caster, SpellDefinition spell, ref bool result, ref string failure,
+        SpellValidationType validationType)
     {
         if (!HasGrappleSource(caster) ||
+            (validationType == SpellValidationType.Somatic && !spell.SomaticComponent) ||
+            (validationType == SpellValidationType.Material &&
+             spell.MaterialComponentType == MaterialComponentType.None) ||
             ServiceRepository.GetService<IGameSettingsService>().MaterialComponent ==
             SettingDefinitions.SomaticComponentDisabled)
         {
@@ -264,12 +268,12 @@ internal static class GrappleContext
         }
 
         result = false;
-        failure = isSomaticCheck
+        failure = validationType == SpellValidationType.Somatic
             ? "Failure/&FailureFlagSomaticComponentHandsFull"
             : "Failure/&FailureFlagMaterialComponentHandsFull";
     }
 
-    internal static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
+    private static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
     {
         return rulesetCharacter.HasConditionOfCategoryAndType(
                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName) ||
@@ -315,6 +319,12 @@ internal static class GrappleContext
         }
 
         return 1;
+    }
+
+    internal enum SpellValidationType
+    {
+        Somatic,
+        Material
     }
 
     private sealed class CustomBehaviorGrapple : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe

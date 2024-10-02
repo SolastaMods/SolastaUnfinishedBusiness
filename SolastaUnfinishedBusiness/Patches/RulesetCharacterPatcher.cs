@@ -612,7 +612,8 @@ public static class RulesetCharacterPatcher
 
             if (__result)
             {
-                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure, true);
+                GrappleContext.ValidateIfBothHandsFree(__instance,
+                    spellDefinition, ref __result, ref failure, GrappleContext.SpellValidationType.Somatic);
 
                 return;
             }
@@ -623,7 +624,8 @@ public static class RulesetCharacterPatcher
 
             if (__result)
             {
-                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure, true);
+                GrappleContext.ValidateIfBothHandsFree(__instance,
+                    spellDefinition, ref __result, ref failure, GrappleContext.SpellValidationType.Somatic);
             }
         }
 
@@ -687,7 +689,8 @@ public static class RulesetCharacterPatcher
 
             if (__result)
             {
-                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure);
+                GrappleContext.ValidateIfBothHandsFree(__instance,
+                    spellDefinition, ref __result, ref failure, GrappleContext.SpellValidationType.Material);
 
                 return;
             }
@@ -698,7 +701,8 @@ public static class RulesetCharacterPatcher
 
             if (__result)
             {
-                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure);
+                GrappleContext.ValidateIfBothHandsFree(__instance,
+                    spellDefinition, ref __result, ref failure, GrappleContext.SpellValidationType.Material);
 
                 return;
             }
@@ -709,7 +713,8 @@ public static class RulesetCharacterPatcher
 
             if (__result)
             {
-                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure);
+                GrappleContext.ValidateIfBothHandsFree(__instance,
+                    spellDefinition, ref __result, ref failure, GrappleContext.SpellValidationType.Material);
             }
         }
 
