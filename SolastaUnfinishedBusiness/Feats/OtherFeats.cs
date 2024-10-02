@@ -59,8 +59,7 @@ internal static class OtherFeats
     {
         var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
-        var featBrawlerStr = BuildBrawlerStr();
-        var featBrawlerCon = BuildBrawlerCon();
+        var featBrawler = BuildBrawler();
         var featDungeonDelver = BuildDungeonDelver();
         var featEldritchAdept = BuildEldritchAdept();
         var featFightingInitiate = BuildFightingInitiate();
@@ -99,8 +98,7 @@ internal static class OtherFeats
             featAcrobat,
             FeatAlert,
             featArcaneArcherAdept,
-            featBrawlerStr,
-            featBrawlerCon,
+            featBrawler,
             featDungeonDelver,
             featEldritchAdept,
             featFrostAdaptation,
@@ -128,10 +126,6 @@ internal static class OtherFeats
             featTough,
             featVersatilityAdept,
             featWarCaster);
-
-        var featGroupBrawler = GroupFeats.MakeGroup("FeatGroupBrawler", GroupFeats.TavernBrawler,
-            featBrawlerStr,
-            featBrawlerCon);
 
         GroupFeats.FeatGroupBodyResilience.AddFeats(
             athleteGroup,
@@ -165,7 +159,7 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featGiftOfTheChromaticDragon,
-            featGroupBrawler,
+            featBrawler,
             chefGroup,
             FeatGrappler,
             featHealer,
@@ -608,36 +602,31 @@ internal static class OtherFeats
 
     private const string BrawlerHit = "BrawlerHit";
 
-    private static FeatDefinition BuildBrawlerStr()
+    private static FeatDefinition BuildBrawler()
     {
+        const string Name = "FeatBrawler";
+
+        var actionAffinityGrappleBonus =
+            FeatureDefinitionActionAffinityBuilder
+                .Create($"ActionAffinity{Name}GrappleBonus")
+                .SetGuiPresentationNoContent(true)
+                .SetAuthorizedActions((Id)ExtraActionId.GrappleBonus)
+                .AddCustomSubFeatures(
+                    new PhysicalAttackBeforeHitConfirmedOnEnemyBrawler(),
+                    new AddExtraUnarmedAttack(ActionType.Bonus),
+                    new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D8),
+                        ValidatorsWeapon.IsOfWeaponType(UnarmedStrikeType)),
+                    new ValidateDefinitionApplication(c =>
+                        GameLocationCharacter.GetFromActor(c)?.GetSpecialFeatureUses(BrawlerHit) == 0))
+                .AddToDB();
+
         return FeatDefinitionBuilder
-            .Create("FeatBrawlerStr")
+            .Create(Name)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, ActionAffinityGrappleBonus)
-            .SetFeatFamily(GroupFeats.TavernBrawler)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, actionAffinityGrappleBonus)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
     }
-
-    private static FeatDefinition BuildBrawlerCon()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatBrawlerCon")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Arun, ActionAffinityGrappleBonus)
-            .SetFeatFamily(GroupFeats.TavernBrawler)
-            .AddToDB();
-    }
-
-    private static readonly FeatureDefinitionActionAffinity ActionAffinityGrappleBonus =
-        FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinityGrappleBonus")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((Id)ExtraActionId.GrappleBonus)
-            .AddCustomSubFeatures(
-                new PhysicalAttackBeforeHitConfirmedOnEnemyBrawler(),
-                new ValidateDefinitionApplication(c =>
-                    GameLocationCharacter.GetFromActor(c)?.GetSpecialFeatureUses(BrawlerHit) == 0))
-            .AddToDB();
 
     private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyBrawler : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
