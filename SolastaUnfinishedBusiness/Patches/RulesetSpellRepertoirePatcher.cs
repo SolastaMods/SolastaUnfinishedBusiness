@@ -400,14 +400,13 @@ public static class RulesetSpellRepertoirePatcher
     [UsedImplicitly]
     public static class GetLowestAvailableSlotLevel_Patch
     {
+        //PATCH: ensures MC Warlock will cast spells using a correct slot level (MULTICLASS)
         [UsedImplicitly]
         public static bool Prefix(RulesetSpellRepertoire __instance, ref int __result)
         {
-            //PATCH: ensures MC Warlock will cast spells using a correct slot level (MULTICLASS)
-            var hero = __instance.GetCaster() as RulesetCharacterHero;
-
             // get off here if not multicaster
-            if (!SharedSpellsContext.IsMulticaster(hero))
+            if (__instance.GetCaster() is not RulesetCharacterHero hero ||
+                !SharedSpellsContext.IsMulticaster(hero))
             {
                 return true;
             }

@@ -23,8 +23,8 @@ internal static class GrappleContext
     private const string Grapple = "Grapple";
     private const string DisableGrapple = "DisableGrapple";
     private const string ConditionGrappleSourceName = $"Condition{Grapple}Source";
-    private const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
-    private const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
+    internal const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
+    internal const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
     private const string ConditionGrappleTargetName = $"Condition{Grapple}Target";
 
     private static readonly FeatureDefinitionPower PowerGrapple = FeatureDefinitionPowerBuilder
@@ -82,7 +82,7 @@ internal static class GrappleContext
         // support for Brawler feat
         _ = ActionDefinitionBuilder
             .Create($"Action{Grapple}Bonus")
-            .SetGuiPresentation(Category.Action, AttackFree)
+            .SetGuiPresentation($"Action{Grapple}", Category.Action, AttackFree)
             .OverrideClassName("UsePower")
             .SetActivatedPower(PowerGrapple)
             .SetActionId(ExtraActionId.GrappleBonus)
@@ -262,7 +262,8 @@ internal static class GrappleContext
         var mainHand = caster.GetMainWeapon();
         var offHand = caster.GetOffhandWeapon();
 
-        if (ValidatorsWeapon.IsUnarmed(offHand?.ItemDefinition) && ValidatorsWeapon.IsUnarmed(mainHand?.ItemDefinition))
+        if (ValidatorsWeapon.IsUnarmed(offHand) &&
+            ValidatorsWeapon.IsUnarmed(mainHand))
         {
             return;
         }
@@ -399,16 +400,12 @@ internal static class GrappleContext
                 rulesetDefender.RemoveCondition(condition);
             }
 
-            // apply new grappler condition taking if hero has Grappler feat into consideration as well as target size
+            // apply new grappler condition
             var sourceConditionName = ConditionGrappleSourceName;
 
-            if (rulesetAttacker.GetOriginalHero()?.TrainedFeats.Contains(OtherFeats.FeatGrappler) == true)
-            {
-                sourceConditionName =
-                    rulesetAttacker.SizeDefinition.WieldingSize < rulesetDefender.SizeDefinition.WieldingSize
-                        ? ConditionGrappleSourceWithGrapplerLargerName
-                        : ConditionGrappleSourceWithGrapplerName;
-            }
+            // factor in Grappler feat
+            OtherFeats.MaybeChangeGrapplerConditionForGrappleFeatBehavior(
+                rulesetAttacker, rulesetDefender, ref sourceConditionName);
 
             rulesetAttacker.InflictCondition(
                 sourceConditionName,

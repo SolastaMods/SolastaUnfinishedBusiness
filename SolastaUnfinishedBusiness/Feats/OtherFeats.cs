@@ -43,18 +43,6 @@ internal static class OtherFeats
     internal const string FeatMagicInitiateTag = "Initiate";
     internal const string FeatSpellSniperTag = "Sniper";
 
-    #region Grappler
-
-    // it's all handled in grapplerContext except for strength increase
-    internal static readonly FeatDefinition FeatGrappler = FeatDefinitionBuilder
-        .Create("FeatGrappler")
-        .SetGuiPresentation(Category.Feat)
-        .AddFeatures(AttributeModifierCreed_Of_Einar)
-        .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-        .AddToDB();
-
-    #endregion
-
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featAcrobat = BuildAcrobat();
@@ -103,7 +91,8 @@ internal static class OtherFeats
             featEldritchAdept,
             featFrostAdaptation,
             featGiftOfTheChromaticDragon,
-            FeatGrappler,
+            FeatGrapplerStr,
+            FeatGrapplerDex,
             featHealer,
             featInfusionAdept,
             featInspiringLeader,
@@ -126,6 +115,10 @@ internal static class OtherFeats
             featTough,
             featVersatilityAdept,
             featWarCaster);
+
+        var featGroupGrappler = GroupFeats.MakeGroup("FeatGroupGrappler", GroupFeats.Grappler,
+            FeatGrapplerStr,
+            FeatGrapplerDex);
 
         GroupFeats.FeatGroupBodyResilience.AddFeats(
             athleteGroup,
@@ -161,7 +154,7 @@ internal static class OtherFeats
             featGiftOfTheChromaticDragon,
             featBrawler,
             chefGroup,
-            FeatGrappler,
+            featGroupGrappler,
             featHealer,
             featInspiringLeader,
             featLucky,
@@ -594,6 +587,44 @@ internal static class OtherFeats
                         new AddPolearmFollowUpAttack(LongMaceWeaponType))
                     .AddToDB())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Grappler
+
+    private static readonly FeatDefinition FeatGrapplerDex = FeatDefinitionBuilder
+        .Create("FeatGrapplerDex")
+        .SetGuiPresentation(Category.Feat)
+        .AddFeatures(AttributeModifierCreed_Of_Misaye)
+        .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+        .SetFeatFamily(GroupFeats.Grappler)
+        .AddToDB();
+
+    private static readonly FeatDefinition FeatGrapplerStr = FeatDefinitionBuilder
+        .Create("FeatGrapplerStr")
+        .SetGuiPresentation(Category.Feat)
+        .AddFeatures(AttributeModifierCreed_Of_Einar)
+        .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+        .SetFeatFamily(GroupFeats.Grappler)
+        .AddToDB();
+
+    internal static void MaybeChangeGrapplerConditionForGrappleFeatBehavior(
+        RulesetCharacter attacker,
+        RulesetCharacter defender,
+        ref string sourceConditionName)
+    {
+        var hero = attacker.GetOriginalHero();
+
+        if (hero != null &&
+            (hero.TrainedFeats.Contains(FeatGrapplerDex) ||
+             hero.TrainedFeats.Contains(FeatGrapplerStr)))
+        {
+            sourceConditionName =
+                attacker.SizeDefinition.WieldingSize < defender.SizeDefinition.WieldingSize
+                    ? GrappleContext.ConditionGrappleSourceWithGrapplerLargerName
+                    : GrappleContext.ConditionGrappleSourceWithGrapplerName;
+        }
     }
 
     #endregion

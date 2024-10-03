@@ -83,6 +83,8 @@ internal static class CustomSituationalContext
                 contextParams.source.ConcentratedSpell != null,
 
             ExtraSituationalContext.IsConditionSource =>
+                // this is required whenever condition is on target
+                IsConditionSource(contextParams.target, contextParams.condition, contextParams.source) ||
                 // this is required whenever condition is on source
                 IsConditionSource(contextParams.source, contextParams.condition, contextParams.source),
             _ => def

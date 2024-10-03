@@ -164,20 +164,11 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsUnarmed(
-        [CanBeNull] ItemDefinition itemDefinition,
-        [CanBeNull] RulesetAttackMode attackMode = null)
+    private static bool IsUnarmed([CanBeNull] ItemDefinition itemDefinition)
     {
-        if (attackMode is { SourceDefinition: MonsterAttackDefinition { proximity: AttackProximity.Melee } })
-        {
-            return true;
-        }
-
-        itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? itemDefinition;
-
         if (!itemDefinition)
         {
-            return false;
+            return true;
         }
 
         return
@@ -187,9 +178,20 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsUnarmed([CanBeNull] RulesetItem rulesetItem)
+    {
+        return rulesetItem == null || (rulesetItem.ItemDefinition is { } itemDefinition && IsUnarmed(itemDefinition));
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsUnarmed([CanBeNull] RulesetAttackMode attackMode)
     {
-        return IsUnarmed(null, attackMode);
+        if (attackMode is { SourceDefinition: MonsterAttackDefinition { proximity: AttackProximity.Melee } })
+        {
+            return true;
+        }
+
+        return attackMode?.SourceDefinition is ItemDefinition itemDefinition && IsUnarmed(itemDefinition);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
