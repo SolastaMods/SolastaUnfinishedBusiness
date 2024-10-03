@@ -1,18 +1,18 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9073,
-  "actionType": "NoCost",
+  "id": 9072,
+  "actionType": "Bonus",
   "actionScope": "All",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
   "classNameOverride": "UsePower",
-  "requiresAuthorization": false,
+  "requiresAuthorization": true,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",
   "iterativeTargeting": false,
   "canTriggerBattle": false,
   "parameter": "ActivatePower",
-  "formType": "Invisible",
+  "formType": "Large",
   "overrideGuiActionType": false,
   "overridenGuiActionType": "Main",
   "focusCameraOnAction": true,
@@ -20,7 +20,7 @@
   "removedConditionName": "",
   "preventsSerialization": false,
   "baseActionForFailureTooltips": null,
-  "activatedPower": "Definition:PowerDisableGrapple:fbc0f28b-15c7-57e2-9d49-c17d6ef1dae3",
+  "activatedPower": "Definition:PowerGrapple:b821a1e4-f0ec-55e4-8424-907b7dfb1a86",
   "displayPowerTooltip": true,
   "dieType": "D10",
   "abilityScore": "Dexterity",
@@ -34,8 +34,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Action/&ActionDisableGrappleTitle",
-    "description": "Action/&ActionDisableGrappleDescription",
+    "title": "Action/&ActionGrappleTitle",
+    "description": "Action/&ActionGrappleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f7a20282a4fded54ea666c159ba6dacf",
@@ -55,7 +55,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bee24977-3a49-577e-9737-ed40cdce58ee",
+  "guid": "b278218f-d923-537b-ab83-89f96390a545",
   "contentPack": 9999,
-  "name": "ActionDisableGrapple"
+  "name": "ActionGrappleBonus"
 }

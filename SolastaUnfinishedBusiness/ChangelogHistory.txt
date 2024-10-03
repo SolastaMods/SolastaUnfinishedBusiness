@@ -1,7 +1,8 @@
 1.5.97.33:
 
-- added Brawler feat
-- fixed an instability when NPCs are in play and some mod settings are enabled
+- added Brawler, and improved Grappler feats
+- changed Pugilist to be a feat instead of a FS
+- fixed an instability with NPCs spell casting
 
 1.5.97.32:
 

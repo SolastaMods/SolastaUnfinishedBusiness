@@ -3,20 +3,22 @@
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScorePrerequisite": true,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
+  "minimalAbilityScoreName": "Dexterity",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "TavernBrawler",
+  "familyTag": "Grappler",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupBrawlerTitle",
-    "description": "Accustomed to the rough-and-tumble fighting using whatever weapons happen to be at hand, you gain the following benefits:\n• Increase your Strength or Constitution by 1, to a maximum of 20.\n• Your unarmed strikes deal an additional 1d4 bludgeoning damage.\n• When you hit a creature with an unarmed strike on your turn, you can use a bonus action to attempt to grapple the target.",
+    "title": "Feat/&FeatGrapplerDexTitle",
+    "description": "Feat/&FeatGrapplerDexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2ba1cc60-403c-5380-887c-c42db58fe64e",
+  "guid": "a6556423-cbd8-522e-b0d1-4fcab9085b33",
   "contentPack": 9999,
-  "name": "FeatGroupBrawler"
+  "name": "FeatGrapplerDex"
 }

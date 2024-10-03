@@ -12,13 +12,14 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
+    "Definition:ActionAffinityFeatBrawlerGrappleBonus:8e727fcd-2e11-5f21-878a-4d0dac2ff39c",
     "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGrapplerTitle",
-    "description": "Feat/&FeatGrapplerDescription",
+    "title": "Feat/&FeatBrawlerTitle",
+    "description": "Feat/&FeatBrawlerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2fa5d9ee-088f-520e-97e1-c5bb75856eec",
+  "guid": "7620b360-906f-504d-b24e-0db6a2895373",
   "contentPack": 9999,
-  "name": "FeatGrappler"
+  "name": "FeatBrawler"
 }
