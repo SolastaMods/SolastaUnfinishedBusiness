@@ -1226,6 +1226,7 @@ public static class RulesetCharacterHeroPatcher
             __instance.GetSubFeaturesByType<IOnItemEquipped>()
                 .ForEach(f => f.OnItemEquipped(__instance));
 
+#if false
             //BUGFIX: fix a prepared spells exploit in vanilla
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var repertoire in __instance.SpellRepertoires)
@@ -1251,6 +1252,7 @@ public static class RulesetCharacterHeroPatcher
                     preparedSpells.RemoveAt(preparedSpells.Count - 1);
                 }
             }
+#endif
         }
     }
 
