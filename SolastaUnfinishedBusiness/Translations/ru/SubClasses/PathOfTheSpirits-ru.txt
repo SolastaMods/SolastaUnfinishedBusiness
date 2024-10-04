@@ -1,10 +1,10 @@
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Получает помеху на броски атаки по всем, кроме источника этой ауры.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Получает помеху на броски атаки по всем, кроме источника.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Совершенная аура медведя
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=Получает возможность летать.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Совершенный полёт орла
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=Получает возможность совершить Толчок бонусным действием.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfTitle=Совершенный удар волка
-Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=Дух волка дарует вам преимущество на броски рукопашной атаки, если только вы не являетесь ее источником.
+Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=Дух волка дарует вам преимущество на броски рукопашной атаки, если только вы не являетесь источником.
 Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=Дух волка
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=Дух орла превращает вас в проворного хищника, который может с лёгкостью пробираться сквозь ряды врагов. Бонусным действием вы можете совершить Рывок, Отход или уйти в Засаду.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Дух орла
