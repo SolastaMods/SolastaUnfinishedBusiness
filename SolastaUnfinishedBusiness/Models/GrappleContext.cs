@@ -123,6 +123,7 @@ internal static class GrappleContext
             .Create("CombatAffinityGrappleSourceWithGrappler")
             .SetGuiPresentationNoContent(true)
             .SetSituationalContext(TARGET_HAS_CONDITION_FROM_SOURCE, conditionGrappleTarget)
+            .SetAttackOfOpportunityImmunity(true)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
@@ -149,7 +150,6 @@ internal static class GrappleContext
             .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
                 FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
-                combatAffinityGrappleSource,
                 combatAffinityGrappleSourceWithGrappler)
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
@@ -165,7 +165,6 @@ internal static class GrappleContext
             .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
                 FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
-                combatAffinityGrappleSource,
                 combatAffinityGrappleSourceWithGrappler,
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
@@ -245,11 +244,12 @@ internal static class GrappleContext
         }
     }
 
-    internal static void ValidateIfBothHandsFree(
+    internal static void ValidateIfCastingValid(
         RulesetCharacter caster, SpellDefinition spell, ref bool result, ref string failure,
         SpellValidationType validationType)
     {
-        if (!HasGrappleSource(caster) ||
+        if (!result ||
+            !HasGrappleSource(caster) ||
             (validationType == SpellValidationType.Somatic && !spell.SomaticComponent) ||
             (validationType == SpellValidationType.Material &&
              spell.MaterialComponentType == MaterialComponentType.None) ||
@@ -259,11 +259,7 @@ internal static class GrappleContext
             return;
         }
 
-        var mainHand = caster.GetMainWeapon();
-        var offHand = caster.GetOffhandWeapon();
-
-        if (ValidatorsWeapon.IsUnarmed(offHand) &&
-            ValidatorsWeapon.IsUnarmed(mainHand))
+        if (HasBothHandsFree(caster) || caster.HasSubFeatureOfType<OtherFeats.WarCasterMarker>())
         {
             return;
         }
@@ -272,6 +268,14 @@ internal static class GrappleContext
         failure = validationType == SpellValidationType.Somatic
             ? "Failure/&FailureFlagSomaticComponentHandsFull"
             : "Failure/&FailureFlagMaterialComponentHandsFull";
+    }
+
+    private static bool HasBothHandsFree(RulesetCharacter character)
+    {
+        var mainHand = character.GetMainWeapon();
+        var offHand = character.GetOffhandWeapon();
+
+        return ValidatorsWeapon.IsUnarmed(offHand) && ValidatorsWeapon.IsUnarmed(mainHand);
     }
 
     private static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
@@ -465,12 +469,14 @@ internal static class GrappleContext
 
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            // empty
+            target.ContestCheckRolled += ContestCheckRolledHandler;
         }
 
         // should remove source tracker condition as well
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            target.ContestCheckRolled -= ContestCheckRolledHandler;
+
             var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
             foreach (var conditionName in PossibleConditionsToRemove)
@@ -482,6 +488,26 @@ internal static class GrappleContext
                     rulesetSource.RemoveCondition(activeConditionSource);
                 }
             }
+        }
+
+        private static void ContestCheckRolledHandler(
+            RulesetCharacter character,
+            RulesetCharacter opponent,
+            string abilityScoreName,
+            string skillName,
+            string opponentAbilityScoreName,
+            string opponentSkillName,
+            RollOutcome outcome,
+            int totalRoll,
+            int rawRoll,
+            int opponentTotalRoll,
+            int opponentRawRoll,
+            List<TrendInfo> advantageTrends,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> opponentAdvantageTrends,
+            List<TrendInfo> opponentModifierTrends)
+        {
+            Main.Info($"{character.Name} rolled context check");
         }
     }
 
@@ -512,7 +538,7 @@ internal static class GrappleContext
             // ensure there is a non-blocked path for this movement if a creature larger than 1x1 cell on 2d plane
             if (target.LocationBoundingBox.Size.x > 1 || target.LocationBoundingBox.Size.y > 1)
             {
-                var validPositions = GetValidPositionsWithinOneCell(target);
+                var validPositions = GetValidPositionsWithinOneCell(target, source);
 
                 if (!validPositions.Contains(source))
                 {
@@ -601,7 +627,7 @@ internal static class GrappleContext
 
             if ((ValidatorsWeapon.HasAnyWeaponTag(
                      attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagTwoHanded) ||
-                 ValidatorsWeapon.IsUnarmed(attackMode)) &&
+                 !HasBothHandsFree(rulesetAttacker)) &&
                 GetGrappledActor(rulesetAttacker, out var rulesetTarget, out var activeCondition))
             {
                 rulesetTarget.RemoveCondition(activeCondition);
@@ -610,38 +636,54 @@ internal static class GrappleContext
             yield break;
         }
 
-        private static List<int3> GetValidPositionsWithinOneCell(GameLocationCharacter character)
+        private static List<int3> GetValidPositionsWithinOneCell(GameLocationCharacter character, int3 destination)
         {
             var positions = new List<int3>();
             var gridAccessor = GridAccessor.Default;
-            var boxInt = new BoxInt(character.LocationPosition, character.LocationPosition);
+            var box = character.LocationBoundingBox;
+            var horizontalBox = box;
 
-            boxInt.Inflate(1, 0, 1);
+            horizontalBox.Min.y = character.LocationPosition.y;
+            horizontalBox.Max.y = character.LocationPosition.y;
 
-            foreach (var position in boxInt.EnumerateAllPositionsWithin())
+            var allCharacterPositions = new List<int3>();
+
+            foreach (var position in horizontalBox.EnumerateAllPositionsWithin())
             {
-                var magnitude = (position - character.LocationPosition).magnitude;
+                allCharacterPositions.Add(position);
+            }
 
-                if (magnitude < 1 ||
-                    magnitude > 1 || // float numbers don't like equalities
-                    character.LocationPosition == position)
+            foreach (var characterPosition in allCharacterPositions)
+            {
+                var positionBox = new BoxInt(characterPosition, int3.zero, int3.zero);
+
+                positionBox.Inflate(1, 0, 1);
+
+                var maxMagnitude = (characterPosition - destination).magnitude2DSqr;
+
+                foreach (var position in positionBox.EnumerateAllPositionsWithin())
                 {
-                    continue;
-                }
+                    var magnitude = (position - character.LocationPosition).magnitude2DSqr;
 
-                gridAccessor.FetchSector(position);
+                    if (magnitude < 1 || magnitude > maxMagnitude)
+                    {
+                        continue;
+                    }
 
-                if (gridAccessor.sector == null)
-                {
-                    continue;
-                }
+                    gridAccessor.FetchSector(position);
 
-                gridAccessor.sector.GetValidAltitudeRangeAtPosition(
-                    position, out var minAltitude, out var maxAltitude);
+                    if (gridAccessor.sector == null)
+                    {
+                        continue;
+                    }
 
-                if ((maxAltitude != short.MaxValue && minAltitude != maxAltitude) || minAltitude != short.MinValue)
-                {
-                    positions.Add(new int3(position.x, maxAltitude, position.z));
+                    gridAccessor.sector.GetValidAltitudeRangeAtPosition(
+                        position, out var minAltitude, out var maxAltitude);
+
+                    if ((maxAltitude != short.MaxValue && minAltitude != maxAltitude) || minAltitude != short.MinValue)
+                    {
+                        positions.Add(new int3(position.x, maxAltitude, position.z));
+                    }
                 }
             }
 

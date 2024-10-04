@@ -631,7 +631,12 @@ internal static class OtherFeats
 
     #region Brawler
 
-    private const string BrawlerHit = "BrawlerHit";
+    private static bool IsUnarmed(
+        RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter rulesetCharacter)
+    {
+        return attackMode?.SourceDefinition is ItemDefinition itemDefinition &&
+               itemDefinition == ItemDefinitions.UnarmedStrikeBase;
+    }
 
     private static FeatDefinition BuildBrawler()
     {
@@ -643,12 +648,10 @@ internal static class OtherFeats
                 .SetGuiPresentationNoContent(true)
                 .SetAuthorizedActions((Id)ExtraActionId.GrappleBonus)
                 .AddCustomSubFeatures(
-                    new PhysicalAttackBeforeHitConfirmedOnEnemyBrawler(),
-                    new AddExtraUnarmedAttack(ActionType.Bonus),
-                    new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D8),
-                        ValidatorsWeapon.IsOfWeaponType(UnarmedStrikeType)),
-                    new ValidateDefinitionApplication(c =>
-                        GameLocationCharacter.GetFromActor(c)?.GetSpecialFeatureUses(BrawlerHit) == 0))
+                    new AddExtraUnarmedAttack(
+                        ActionType.Bonus, ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
+                    new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D8), IsUnarmed),
+                    new ValidateDefinitionApplication(ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand))
                 .AddToDB();
 
         return FeatDefinitionBuilder
@@ -657,29 +660,6 @@ internal static class OtherFeats
             .SetFeatures(AttributeModifierCreed_Of_Einar, actionAffinityGrappleBonus)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
-    }
-
-    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyBrawler : IPhysicalAttackBeforeHitConfirmedOnEnemy
-    {
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (!ValidatorsWeapon.IsUnarmed(attackMode))
-            {
-                yield break;
-            }
-
-            attacker.SetSpecialFeatureUses(BrawlerHit, 0);
-        }
     }
 
     #endregion

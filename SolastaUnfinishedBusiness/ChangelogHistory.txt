@@ -1,8 +1,9 @@
 1.5.97.33:
 
-- added Brawler, and improved Grappler feats
-- changed Pugilist to be a feat instead of a FS
+- added homebrew Brawler feat
+- changed Pugilist fighting style to a feat
 - fixed an instability with NPCs spell casting
+- improved Grapple action, and grappler feat
 
 1.5.97.32:
 
