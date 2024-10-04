@@ -1,9 +1,14 @@
 1.5.97.33:
 
 - added homebrew Brawler feat
-- changed Pugilist fighting style to a feat
-- fixed an instability with NPCs spell casting
-- improved Grapple action, and grappler feat
+- fixed NPCs spell casting instability
+- improved Grapple action, and Grappler feat
+
+known issues:
+
+- Armor of Agathys is broken
+- Haven't implemented Grapple behavior when grappler is flying
+- Haven't implemented Grapple behavior over dangerous zones
 
 1.5.97.32:
 

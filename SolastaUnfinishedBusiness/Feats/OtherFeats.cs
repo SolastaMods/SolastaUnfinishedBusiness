@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -591,6 +592,39 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Brawler
+
+    private static FeatDefinition BuildBrawler()
+    {
+        const string Name = "FeatBrawler";
+
+        var actionAffinityGrappleBonus =
+            FeatureDefinitionActionAffinityBuilder
+                .Create($"ActionAffinity{Name}GrappleBonus")
+                .SetGuiPresentationNoContent(true)
+                .SetAuthorizedActions((Id)ExtraActionId.GrappleBonus)
+                .AddCustomSubFeatures(
+                    new ValidateDefinitionApplication(ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
+                    new AddExtraUnarmedAttack(
+                        ActionType.Bonus, ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
+                    new UpgradeWeaponDice((_, d) => (Math.Max(1, d.DiceNumber), DieType.D6, DieType.D6),
+                        (a, _, _) => a
+                                         ?.SourceDefinition is ItemDefinition itemDefinition &&
+                                     itemDefinition == ItemDefinitions.UnarmedStrikeBase),
+                    new UpgradeWeaponDice((_, d) => (Math.Max(1, d.DiceNumber), DieType.D8, DieType.D8),
+                        (_, _, c) => ValidatorsCharacter.HasBothHandsFree(c)))
+                .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, actionAffinityGrappleBonus)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Grappler
 
     private static readonly FeatDefinition FeatGrapplerDex = FeatDefinitionBuilder
@@ -625,41 +659,6 @@ internal static class OtherFeats
                     ? GrappleContext.ConditionGrappleSourceWithGrapplerLargerName
                     : GrappleContext.ConditionGrappleSourceWithGrapplerName;
         }
-    }
-
-    #endregion
-
-    #region Brawler
-
-    private static bool IsUnarmed(
-        RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter rulesetCharacter)
-    {
-        return attackMode?.SourceDefinition is ItemDefinition itemDefinition &&
-               itemDefinition == ItemDefinitions.UnarmedStrikeBase;
-    }
-
-    private static FeatDefinition BuildBrawler()
-    {
-        const string Name = "FeatBrawler";
-
-        var actionAffinityGrappleBonus =
-            FeatureDefinitionActionAffinityBuilder
-                .Create($"ActionAffinity{Name}GrappleBonus")
-                .SetGuiPresentationNoContent(true)
-                .SetAuthorizedActions((Id)ExtraActionId.GrappleBonus)
-                .AddCustomSubFeatures(
-                    new AddExtraUnarmedAttack(
-                        ActionType.Bonus, ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
-                    new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D8), IsUnarmed),
-                    new ValidateDefinitionApplication(ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand))
-                .AddToDB();
-
-        return FeatDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, actionAffinityGrappleBonus)
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-            .AddToDB();
     }
 
     #endregion

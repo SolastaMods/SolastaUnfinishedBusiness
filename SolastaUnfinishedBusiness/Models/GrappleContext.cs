@@ -259,7 +259,8 @@ internal static class GrappleContext
             return;
         }
 
-        if (HasBothHandsFree(caster) || caster.HasSubFeatureOfType<OtherFeats.WarCasterMarker>())
+        if (ValidatorsCharacter.HasBothHandsFree(caster) ||
+            caster.HasSubFeatureOfType<OtherFeats.WarCasterMarker>())
         {
             return;
         }
@@ -268,14 +269,6 @@ internal static class GrappleContext
         failure = validationType == SpellValidationType.Somatic
             ? "Failure/&FailureFlagSomaticComponentHandsFull"
             : "Failure/&FailureFlagMaterialComponentHandsFull";
-    }
-
-    private static bool HasBothHandsFree(RulesetCharacter character)
-    {
-        var mainHand = character.GetMainWeapon();
-        var offHand = character.GetOffhandWeapon();
-
-        return ValidatorsWeapon.IsUnarmed(offHand) && ValidatorsWeapon.IsUnarmed(mainHand);
     }
 
     private static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
@@ -625,9 +618,7 @@ internal static class GrappleContext
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if ((ValidatorsWeapon.HasAnyWeaponTag(
-                     attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagTwoHanded) ||
-                 !HasBothHandsFree(rulesetAttacker)) &&
+            if (!ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(rulesetAttacker) &&
                 GetGrappledActor(rulesetAttacker, out var rulesetTarget, out var activeCondition))
             {
                 rulesetTarget.RemoveCondition(activeCondition);

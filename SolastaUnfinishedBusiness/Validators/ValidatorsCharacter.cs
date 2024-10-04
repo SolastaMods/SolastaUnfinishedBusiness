@@ -118,13 +118,29 @@ internal static class ValidatorsCharacter
         character is RulesetCharacterHero && character.GetOffhandWeapon()?.ItemDefinition.IsLightSourceItem == true;
 
     internal static readonly IsCharacterValidHandler HasFreeHandWithoutTwoHandedInMain = character =>
-        character.HasFreeHandSlot() &&
-        !ValidatorsWeapon.HasAnyWeaponTag(
-            character.GetMainWeapon()?.ItemDefinition, TagsDefinitions.WeaponTagTwoHanded);
+        HasFreeHand(character) &&
+        (character.GetMainWeapon()?.ItemDefinition is not { } itemDefinition ||
+         !ValidatorsWeapon.HasAnyWeaponTag(
+             itemDefinition, TagsDefinitions.WeaponTagTwoHanded));
 
     internal static readonly IsCharacterValidHandler HasFreeHand = character =>
-        character.HasFreeHandSlot() ||
-        character is RulesetCharacterMonster;
+    {
+        var mainHand = character.GetMainWeapon();
+        var offHand = character.GetOffhandWeapon();
+
+        return ValidatorsWeapon.IsUnarmed(offHand) ||
+               ValidatorsWeapon.IsUnarmed(mainHand) ||
+               character is RulesetCharacterMonster;
+    };
+
+    internal static readonly IsCharacterValidHandler HasBothHandsFree = character =>
+    {
+        var mainHand = character.GetMainWeapon();
+        var offHand = character.GetOffhandWeapon();
+
+        return (ValidatorsWeapon.IsUnarmed(offHand) && ValidatorsWeapon.IsUnarmed(mainHand)) ||
+               character is RulesetCharacterMonster;
+    };
 
     internal static readonly IsCharacterValidHandler HasTwoHandedQuarterstaff = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) && IsFreeOffhand(character);
