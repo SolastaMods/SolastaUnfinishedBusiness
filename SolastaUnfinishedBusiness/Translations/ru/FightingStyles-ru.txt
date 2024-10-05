@@ -49,4 +49,4 @@ Reaction/&ReactionAttackAoOEnterTitle=Атака по возможности
 Reaction/&ReactionAttackSentinelDescription={0} атаковал одного из ваших союзников, в ответ вы можете атаковать реакцией.
 Reaction/&ReactionAttackSentinelReactDescription=Используйте реакцию для атаки.
 Reaction/&ReactionAttackSentinelReactTitle=Атака
-Reaction/&ReactionAttackSentinelTitle=Перехват
+Reaction/&ReactionAttackSentinelTitle=Страж

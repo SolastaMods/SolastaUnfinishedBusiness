@@ -49,4 +49,4 @@ Reaction/&ReactionAttackAoOEnterTitle=Gelegenheitsangriff
 Reaction/&ReactionAttackSentinelDescription={0} hat einen deiner Verbündeten angegriffen. Als Antwort kannst du deine Reaktion zum Angriff nutzen.
 Reaction/&ReactionAttackSentinelReactDescription=Nutzen Sie die Reaktion zum Angriff.
 Reaction/&ReactionAttackSentinelReactTitle=Attacke
-Reaction/&ReactionAttackSentinelTitle=Abfangen
+Reaction/&ReactionAttackSentinelTitle=Wächter

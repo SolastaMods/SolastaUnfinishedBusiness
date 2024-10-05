@@ -49,4 +49,4 @@ Reaction/&ReactionAttackAoOEnterTitle=Attaque d'opportunité
 Reaction/&ReactionAttackSentinelDescription={0} a attaqué l'un de vos alliés, en réponse vous pouvez utiliser votre réaction pour attaquer.
 Reaction/&ReactionAttackSentinelReactDescription=Utilisez la réaction pour attaquer.
 Reaction/&ReactionAttackSentinelReactTitle=Attaque
-Reaction/&ReactionAttackSentinelTitle=Interception
+Reaction/&ReactionAttackSentinelTitle=Sentinelle
