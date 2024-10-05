@@ -16,6 +16,45 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetEffectSpellPatcher
 {
+     //PATCH: supports CasterLevelTable with recurrent effects
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.ApplyEffectOnCharacter))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    // ReSharper disable once InconsistentNaming
+    public static class ApplyEffectOnCharacter_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var computeAdditionalDiceBySlotDeltaMethod =
+                typeof(EffectAdvancement).GetMethod("ComputeAdditionalDiceBySlotDelta");
+            var myComputeAdditionalDiceBySlotDeltaMethod =
+                new Func<EffectAdvancement, int, RulesetEffectSpell, int>(MyComputeAdditionalDiceBySlotDelta)
+                    .Method;
+
+            return instructions.ReplaceCalls(computeAdditionalDiceBySlotDeltaMethod,
+                "RulesetEffectSpell.ApplyEffectOnCharacter",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myComputeAdditionalDiceBySlotDeltaMethod));
+        }
+
+        private static int MyComputeAdditionalDiceBySlotDelta(
+            EffectAdvancement effectAdvancement,
+            int delta,
+            RulesetEffectSpell rulesetEffectSpell)
+        {
+            var characterLevel = rulesetEffectSpell.caster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+
+            if (characterLevel == 0 ||
+                effectAdvancement.EffectIncrementMethod != EffectIncrementMethod.CasterLevelTable)
+            {
+                return effectAdvancement.ComputeAdditionalDiceBySlotDelta(delta);
+            }
+
+            return effectAdvancement.ComputeAdditionalDiceByCasterLevel(characterLevel - 1);
+        }
+    }
+
     //PATCH: support for `ICustomMagicEffectBasedOnCaster` and `IModifySpellEffect` 
     [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.EffectDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
