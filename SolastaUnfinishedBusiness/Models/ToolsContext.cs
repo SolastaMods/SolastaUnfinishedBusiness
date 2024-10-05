@@ -205,11 +205,15 @@ internal static class ToolsContext
             IsRespecing = !hero.TryGetHeroBuildingData(out _);
         }
 
+        //TODO: prefer to use below code once I identify why RESPEC saves break on load
+#if false
         private static void FinalizeRespec(
             [NotNull] RulesetCharacterHero oldHero,
             [NotNull] RulesetCharacterHero newHero)
         {
             //Init RESPEC
+            var locationManager =
+                ServiceRepository.GetService<IGameLocationService>() as GameLocationManager;
             var characterManager =
                 ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
             var entityFactoryManager =
@@ -260,7 +264,7 @@ internal static class ToolsContext
             CleanupOldHeroConditions(oldHero, newHero);
 
             //Handle inventory
-            DropInventoryOnFloor(oldCharacter);
+            //DropInventoryOnFloor(oldCharacter);
 
             //Create new character, spawn it, replace, and destroy old one
             var newCharacter = characterManager.CreateCharacter(oldCharacter.ControllerId, newHero, Side.Ally);
@@ -269,8 +273,10 @@ internal static class ToolsContext
             entityFactoryManager.SpawnCharacter(newCharacter);
             entityFactoryManager.FinalizeSpawnCharacter(newCharacter);
             characterManager.ReplaceCharacter(oldCharacter, newCharacter);
-            entityFactoryManager.DestroyCharacter(oldCharacter);
-
+            characterManager.RemoveCharacterFromTheGame(oldCharacter);
+            characterManager.KillCharacter(oldCharacter, true, true, true, true);
+            //entityFactoryManager.DestroyCharacter(oldCharacter);
+            
             //Update game campaign party
             var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
 
@@ -287,7 +293,8 @@ internal static class ToolsContext
 
             IsRespecing = false;
         }
-
+        
+                
         private static void TransferRelevantPersistentData(
             GameLocationCharacter oldCharacter, GameLocationCharacter newCharacter)
         {
@@ -296,6 +303,80 @@ internal static class ToolsContext
             newCharacter.LocationPosition = oldCharacter.LocationPosition;
             newCharacter.PerceptionState = oldCharacter.PerceptionState;
             newCharacter.ContextualFormation = oldCharacter.ContextualFormation;
+        }
+#endif
+
+        private static void FinalizeRespec(
+            [NotNull] RulesetCharacterHero oldHero,
+            [NotNull] RulesetCharacterHero newHero)
+        {
+            var tags = oldHero.Tags;
+            var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
+            var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
+            var characterManager =
+                ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
+
+            if (characterManager)
+            {
+                var gameLocationCharacter = GameLocationCharacter.GetFromActor(oldHero);
+
+                var oldGuid = oldHero.Guid;
+                var newGuid = newHero.Guid;
+
+                //Terminate all effects started by old character
+                EffectHelpers.GetAllEffectsBySourceGuid(oldGuid).ForEach(e => e.DoTerminate(oldHero));
+                //Replace source for all effects of new character
+                EffectHelpers.GetAllEffectsBySourceGuid(newGuid).ForEach(e => e.SetGuid(oldGuid));
+                //Replace source for all conditions of new character
+                EffectHelpers.GetAllConditionsBySourceGuid(newGuid).ForEach(c => c.sourceGuid = oldGuid);
+
+                newHero.Unregister(); //unregister under new guid
+                //Replace old character with new
+                ServiceRepository.GetService<IRulesetEntityService>().SwapEntities(oldHero, newHero);
+                newHero.Register(false); //register again under old guid
+
+                newHero.Tags.AddRange(tags);
+                newHero.Attributes[AttributeDefinitions.Experience] = experience;
+                newHero.criticalHits = oldHero.criticalHits;
+                newHero.criticalFailures = oldHero.criticalFailures;
+                newHero.inflictedDamage = oldHero.inflictedDamage;
+                newHero.slainEnemies = oldHero.slainEnemies;
+                newHero.sustainedInjuries = oldHero.sustainedInjuries;
+                newHero.restoredHealth = oldHero.restoredHealth;
+                newHero.usedMagicAndPowers = oldHero.usedMagicAndPowers;
+                newHero.knockOuts = oldHero.knockOuts;
+
+                TransferConditionsOfCategory(oldHero, newHero, AttributeDefinitions.TagEffect);
+                CleanupOldHeroConditions(oldHero, newHero);
+
+                DropInventoryOnFloor(gameLocationCharacter);
+
+                gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
+
+                UpdateRestPanelUi(gameCampaignCharacters);
+
+                gameLocationCharacter.SetRuleset(newHero);
+
+                var worldLocationEntityFactoryService =
+                    ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
+
+                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter,
+                        out var worldLocationCharacter))
+                {
+                    worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
+                }
+
+                characterManager.dirtyParty = true;
+                characterManager.RefreshAllCharacters();
+            }
+
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Informative1,
+                "RestActivity/&RestActivityRespecTitle", "Message/&RespecSuccessfulDescription",
+                "Message/&MessageOkTitle", string.Empty,
+                null, null);
+
+            IsRespecing = false;
         }
 
         private static void TransferConditionsOfCategory(RulesetActor oldHero, RulesetActor newHero, string category)
