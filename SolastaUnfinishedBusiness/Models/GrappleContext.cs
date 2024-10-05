@@ -516,7 +516,7 @@ internal static class GrappleContext
             attackMode.UseVersatileDamage = false;
         }
 
-        // should drag target whenever move
+        // should drag target whenever move considering all movement blockers as well
         public void MoveStepStarted(GameLocationCharacter mover, int3 source, int3 destination)
         {
             var rulesetMover = mover.RulesetCharacter;
@@ -526,29 +526,24 @@ internal static class GrappleContext
                 return;
             }
 
+            var pathfindingService = ServiceRepository.GetService<IGameLocationPathfindingService>();
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
+            var targetPosition = target.LocationPosition;
+            var targetDestinationPosition = targetPosition + destination - source;
+            
+            pathfindingService
+                .ComputeValidDestinationsAsync(target, target.LocationPosition, 1, 0, true, true)
+                .ExecuteUntilDone();
 
-            // ensure there is a non-blocked path for this movement if a creature larger than 1x1 cell on 2d plane
-            if (target.LocationBoundingBox.Size.x > 1 || target.LocationBoundingBox.Size.y > 1)
+            var validPositions = pathfindingService.ValidDestinations
+                .Where(x => x.moveMode is MoveMode.Walk or MoveMode.Fly)
+                .Select(x => x.position)
+                .ToArray();
+
+            if (validPositions.Contains(targetDestinationPosition))
             {
-                var validPositions = GetValidPositionsWithinOneCell(target, source);
-
-                if (!validPositions.Contains(source))
-                {
-                    EjectCharactersInArea(mover, target);
-                    rulesetTarget.RemoveCondition(activeCondition);
-
-                    return;
-                }
-            }
-
-            // be safe and if it cannot place target, get rid of grapple to avoid exploits
-            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-
-            if (positioningService.CanPlaceCharacter(target, source, CellHelpers.PlacementMode.IgnoreOccupantsMoving))
-            {
-                target.StartTeleportTo(source, mover.Orientation, false);
-                target.FinishMoveTo(source, mover.Orientation);
+                target.StartTeleportTo(targetDestinationPosition, mover.Orientation, false);
+                target.FinishMoveTo(targetDestinationPosition, mover.Orientation);
                 target.StopMoving(mover.Orientation);
 
                 var isLastStep = GetDistanceFromCharacter(mover, mover.DestinationPosition) <= 1;
@@ -557,12 +552,13 @@ internal static class GrappleContext
                 {
                     EjectCharactersInArea(mover, target);
                 }
-
-                return;
+            }
+            else
+            {
+                EjectCharactersInArea(mover, target);
             }
 
-            // remove condition if grappler cannot reach anymore after all of above
-            if (GetDistanceFromCharacter(target, mover.DestinationPosition) > GetUnarmedReachRange(mover))
+            if (GetDistanceFromCharacter(target, destination) > GetUnarmedReachRange(mover))
             {
                 rulesetTarget.RemoveCondition(activeCondition);
             }
@@ -625,60 +621,6 @@ internal static class GrappleContext
             }
 
             yield break;
-        }
-
-        private static List<int3> GetValidPositionsWithinOneCell(GameLocationCharacter character, int3 destination)
-        {
-            var positions = new List<int3>();
-            var gridAccessor = GridAccessor.Default;
-            var box = character.LocationBoundingBox;
-            var horizontalBox = box;
-
-            horizontalBox.Min.y = character.LocationPosition.y;
-            horizontalBox.Max.y = character.LocationPosition.y;
-
-            var allCharacterPositions = new List<int3>();
-
-            foreach (var position in horizontalBox.EnumerateAllPositionsWithin())
-            {
-                allCharacterPositions.Add(position);
-            }
-
-            foreach (var characterPosition in allCharacterPositions)
-            {
-                var positionBox = new BoxInt(characterPosition, int3.zero, int3.zero);
-
-                positionBox.Inflate(1, 0, 1);
-
-                var maxMagnitude = (characterPosition - destination).magnitude2DSqr;
-
-                foreach (var position in positionBox.EnumerateAllPositionsWithin())
-                {
-                    var magnitude = (position - character.LocationPosition).magnitude2DSqr;
-
-                    if (magnitude < 1 || magnitude > maxMagnitude)
-                    {
-                        continue;
-                    }
-
-                    gridAccessor.FetchSector(position);
-
-                    if (gridAccessor.sector == null)
-                    {
-                        continue;
-                    }
-
-                    gridAccessor.sector.GetValidAltitudeRangeAtPosition(
-                        position, out var minAltitude, out var maxAltitude);
-
-                    if ((maxAltitude != short.MaxValue && minAltitude != maxAltitude) || minAltitude != short.MinValue)
-                    {
-                        positions.Add(new int3(position.x, maxAltitude, position.z));
-                    }
-                }
-            }
-
-            return positions;
         }
 
         private static void EjectCharactersInArea(
