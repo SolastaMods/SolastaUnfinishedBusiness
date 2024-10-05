@@ -529,8 +529,8 @@ internal static class GrappleContext
             var pathfindingService = ServiceRepository.GetService<IGameLocationPathfindingService>();
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
             var targetPosition = target.LocationPosition;
-            var targetDestinationPosition = targetPosition + destination - source;
-            
+            var targetDestinationPosition = source;
+
             pathfindingService
                 .ComputeValidDestinationsAsync(target, target.LocationPosition, 1, 0, true, true)
                 .ExecuteUntilDone();
@@ -538,7 +538,21 @@ internal static class GrappleContext
             var validPositions = pathfindingService.ValidDestinations
                 .Where(x => x.moveMode is MoveMode.Walk or MoveMode.Fly)
                 .Select(x => x.position)
-                .ToArray();
+                .ToList();
+
+            // handle better movement on larger enemies by applying same movement directions as source
+            if (target.SizeParameters.maxExtent.x > 0 ||
+                target.SizeParameters.maxExtent.y > 0 ||
+                target.SizeParameters.maxExtent.z > 0)
+            {
+                targetDestinationPosition = targetPosition + destination - source;
+            }
+            // for an unknown reason ComputeValidDestinationsAsync isn't adding the mover one even when flagging ignoreOccupants
+            // fix it here to avoid breaking one cell targets
+            else
+            {
+                validPositions.Add(source);
+            }
 
             if (validPositions.Contains(targetDestinationPosition))
             {
@@ -555,12 +569,8 @@ internal static class GrappleContext
             }
             else
             {
-                EjectCharactersInArea(mover, target);
-            }
-
-            if (GetDistanceFromCharacter(target, destination) > GetUnarmedReachRange(mover))
-            {
                 rulesetTarget.RemoveCondition(activeCondition);
+                EjectCharactersInArea(mover, target);
             }
         }
 
