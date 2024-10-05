@@ -1635,7 +1635,7 @@ internal static partial class CharacterContext
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            if (characterAction is not CharacterActionMove)
+            if (characterAction is not (CharacterActionMove or CharacterActionDash))
             {
                 yield break;
             }

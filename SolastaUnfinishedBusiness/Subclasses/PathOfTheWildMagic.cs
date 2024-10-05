@@ -138,7 +138,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            if (characterAction.ActionId != Id.RageStart)
+            if (characterAction is not CharacterActionCombatRageStart)
             {
                 yield break;
             }

@@ -355,9 +355,7 @@ public sealed class MartialWarlord : AbstractSubclass
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action.ActionParams.RulesetEffect?.SourceDefinition.Name is not (
-                "PowerMartialWarlordCoveringStrike" or
-                "PowerMartialWarlordExploitOpening" or
-                "PowerMartialWarlordPredictAttack"))
+                $"Power{Name}CoveringStrike" or $"Power{Name}ExploitOpening" or $"Power{Name}PredictAttack"))
             {
                 yield break;
             }
