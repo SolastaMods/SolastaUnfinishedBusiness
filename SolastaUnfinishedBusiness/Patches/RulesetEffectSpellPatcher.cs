@@ -51,7 +51,7 @@ public static class RulesetEffectSpellPatcher
                 return effectAdvancement.ComputeAdditionalDiceBySlotDelta(delta);
             }
 
-            return effectAdvancement.ComputeAdditionalDiceByCasterLevel(characterLevel - 1);
+            return effectAdvancement.ComputeAdditionalDiceByCasterLevel(characterLevel);
         }
     }
 
