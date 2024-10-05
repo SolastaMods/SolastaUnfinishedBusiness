@@ -921,7 +921,7 @@ internal static class RaceFeats
                     .Build())
             .AddToDB();
 
-        power.AddCustomSubFeatures(new MagicEffectFinishedByMeAnyDragonFear(power));
+        power.AddCustomSubFeatures(new MagicEffectFinishedByMeDragonFear(power));
 
         var featDragonFearStr = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatDragonFearStr")
@@ -958,17 +958,21 @@ internal static class RaceFeats
             featDragonFearCha);
     }
 
-    private sealed class MagicEffectFinishedByMeAnyDragonFear(
-        FeatureDefinitionPower powerDragonFear) : IActionFinishedByMe
+    private sealed class MagicEffectFinishedByMeDragonFear(
+        FeatureDefinitionPower powerDragonFear) : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
         {
-            if (action.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower)
+            if (action.ActionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
             {
                 yield break;
             }
 
             RulesetUsablePower usablePower;
+
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
             if (rulesetEffectPower.PowerDefinition.Name.StartsWith("PowerDragonbornBreathWeapon"))
