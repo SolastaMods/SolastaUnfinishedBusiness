@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionCombatAffinity, Assembly-CSharp",
   "initiativeAffinity": "None",
   "canRageToOvercomeSurprise": false,
-  "attackOfOpportunityImmunity": false,
+  "attackOfOpportunityImmunity": true,
   "attackOfOpportunityOnMeAdvantageType": "None",
   "attackOnMeAdvantage": "None",
   "attackOnMeCountLimit": -1,

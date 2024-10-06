@@ -356,11 +356,9 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker)
                 .Where(x =>
-                    x.RulesetActor.ConditionsByCategory
-                        .SelectMany(y => y.Value)
-                        .Any(z =>
-                            z.ConditionDefinition == conditionEyeOfTheStorm &&
-                            z.SourceGuid == rulesetAttacker.Guid))
+                    x.RulesetActor.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionEyeOfTheStorm.Name, out var activeCondition) &&
+                    activeCondition.SourceGuid == rulesetAttacker.Guid)
                 .ToArray();
 
             // eye of the storm leap is a use at will power
