@@ -69,8 +69,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     private static readonly FeatureDefinitionMoveMode MoveModeEldritchCannon =
         FeatureDefinitionMoveModeBuilder
-            .Create($"MoveMode{Name}{EldritchCannon}")
-            .SetGuiPresentationNoContent(true)
+            .Create("MoveModeWalk3")
+            .SetGuiPresentation(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove12.GuiPresentation)
             .SetMode(MoveMode.Walk, 3)
             .AddToDB();
 

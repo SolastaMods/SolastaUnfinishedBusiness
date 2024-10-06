@@ -63,12 +63,8 @@ public sealed class CircleOfTheLife : AbstractSubclass
             .AddToDB();
 
         var conditionVerdancy14 = ConditionDefinitionBuilder
-            .Create(ConditionVerdancy14)
-            .SetGuiPresentation(ConditionVerdancy, Category.Condition, ConditionChildOfDarkness_DimLight)
+            .Create(conditionVerdancy, ConditionVerdancy14)
             .SetSpecialDuration(DurationType.Round, 5, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
-            .SetPossessive()
-            .CopyParticleReferences(ConditionAided)
-            .AllowMultipleInstances()
             .AddCustomSubFeatures(OnConditionAddedOrRemovedVerdancy.Marker, CharacterTurnStartListenerVerdancy.Marker)
             .AddToDB();
 
@@ -225,7 +221,8 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
             foreach (var rulesetCondition in rulesetCharacter.ConditionsByCategory
                          .SelectMany(x => x.Value)
-                         .Where(x => x.ConditionDefinition.Name is ConditionVerdancy or ConditionVerdancy14))
+                         .Where(x => x.ConditionDefinition.Name is ConditionVerdancy or ConditionVerdancy14)
+                         .ToArray())
             {
                 var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
