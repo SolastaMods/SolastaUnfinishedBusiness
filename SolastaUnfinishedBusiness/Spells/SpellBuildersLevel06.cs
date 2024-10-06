@@ -748,7 +748,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.FLashFreeze, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.FlashFreeze, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(6)
             .SetCastingTime(ActivationTime.Action)
