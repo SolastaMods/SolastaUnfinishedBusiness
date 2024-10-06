@@ -13,6 +13,8 @@ using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Behaviors.Specific.DistanceCalculation;
 
@@ -26,6 +28,12 @@ internal static class GrappleContext
     internal const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
     internal const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
     private const string ConditionGrappleTargetName = $"Condition{Grapple}Target";
+
+    internal static readonly FeatureDefinitionMoveMode MoveModeFly0 = FeatureDefinitionMoveModeBuilder
+        .Create("MoveModeFly0")
+        .SetGuiPresentation(FeatureDefinitionMoveModes.MoveModeFly12.GuiPresentation)
+        .SetMode(MoveMode.Fly, 0)
+        .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerGrapple = FeatureDefinitionPowerBuilder
         .Create($"Power{Grapple}")
@@ -79,18 +87,8 @@ internal static class GrappleContext
 
     internal static void LateLoad()
     {
-        // support for Brawler feat
-        _ = ActionDefinitionBuilder
-            .Create($"Action{Grapple}Bonus")
-            .SetGuiPresentation($"Action{Grapple}", Category.Action, AttackFree)
-            .OverrideClassName("UsePower")
-            .SetActivatedPower(PowerGrapple)
-            .SetActionId(ExtraActionId.GrappleBonus)
-            .SetActionScope(ActionDefinitions.ActionScope.All)
-            .SetActionType(ActionDefinitions.ActionType.Bonus)
-            .SetFormType(ActionDefinitions.ActionFormType.Large)
-            .RequiresAuthorization()
-            .AddToDB();
+        const SituationalContext TARGET_HAS_CONDITION_FROM_SOURCE =
+            (SituationalContext)ExtraSituationalContext.IsConditionSource;
 
         var battlePackage =
             AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName, AiContext.RandomType.RandomMediumLow);
@@ -102,15 +100,13 @@ internal static class GrappleContext
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics)
             .SetBrain(battlePackage, true)
             .SetFeatures(
-                FeatureDefinitionActionAffinitys.ActionAffinityGrappled,
-                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained,
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained)
+                MoveModeFly0,
+                ActionAffinityGrappled,
+                ActionAffinityConditionRestrained,
+                MovementAffinityConditionRestrained)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedConditionGrappleTarget())
             .SetConditionParticleReference(ConditionDefinitions.ConditionRestrained)
             .AddToDB();
-
-        const SituationalContext TARGET_HAS_CONDITION_FROM_SOURCE =
-            (SituationalContext)ExtraSituationalContext.IsConditionSource;
 
         var combatAffinityGrappleSource = FeatureDefinitionCombatAffinityBuilder
             .Create("CombatAffinityGrappleSource")
@@ -132,10 +128,10 @@ internal static class GrappleContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                MovementAffinityNoClimb,
+                MovementAffinityNoSpecialMoves,
                 combatAffinityGrappleSource,
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
+                MovementAffinityConditionSlowed)
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
@@ -148,8 +144,8 @@ internal static class GrappleContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionReckless)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                MovementAffinityNoClimb,
+                MovementAffinityNoSpecialMoves,
                 combatAffinityGrappleSourceWithGrappler)
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
@@ -163,15 +159,28 @@ internal static class GrappleContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSlowed)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                MovementAffinityNoClimb,
+                MovementAffinityNoSpecialMoves,
                 combatAffinityGrappleSourceWithGrappler,
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
+                MovementAffinityConditionSlowed)
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
                     x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
+            .AddToDB();
+
+        // Brawler feat
+        _ = ActionDefinitionBuilder
+            .Create($"Action{Grapple}Bonus")
+            .SetGuiPresentation($"Action{Grapple}", Category.Action, AttackFree)
+            .OverrideClassName("UsePower")
+            .SetActivatedPower(PowerGrapple)
+            .SetActionId(ExtraActionId.GrappleBonus)
+            .SetActionScope(ActionDefinitions.ActionScope.All)
+            .SetActionType(ActionDefinitions.ActionType.Bonus)
+            .SetFormType(ActionDefinitions.ActionFormType.Large)
+            .RequiresAuthorization()
             .AddToDB();
     }
 
@@ -526,6 +535,8 @@ internal static class GrappleContext
                 return;
             }
 
+            var environmentManager =
+                ServiceRepository.GetService<IGameLocationEnvironmentService>() as GameLocationEnvironmentManager;
             var pathfindingService = ServiceRepository.GetService<IGameLocationPathfindingService>();
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
             var targetPosition = target.LocationPosition;
@@ -559,6 +570,8 @@ internal static class GrappleContext
                 target.StartTeleportTo(targetDestinationPosition, mover.Orientation, false);
                 target.FinishMoveTo(targetDestinationPosition, mover.Orientation);
                 target.StopMoving(mover.Orientation);
+                environmentManager!.UpdateAffectedCharactersOfGlobalEffects(RecurrentEffect.OnEnter, target);
+                environmentManager!.UpdateAffectedCharactersOfGlobalEffects(RecurrentEffect.OnMove, target);
 
                 var isLastStep = GetDistanceFromCharacter(mover, mover.DestinationPosition) <= 1;
 

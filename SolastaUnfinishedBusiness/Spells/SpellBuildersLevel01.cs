@@ -2264,12 +2264,11 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.WhenAdded)
             .SetPossessive()
             .SetFeatures(damageAffinitySkinOfRetribution)
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedSkinOfRetribution())
             .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 
-        powerSkinOfRetribution.AddCustomSubFeatures(
-            new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
+        conditionSkinOfRetribution.AddCustomSubFeatures(
+            new CustomBehaviorSkinOfRetribution(conditionSkinOfRetribution, powerSkinOfRetribution));
 
         return SpellDefinitionBuilder
             .Create(NAME)
@@ -2301,9 +2300,11 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    private sealed class OnConditionAddedOrRemovedSkinOfRetribution
+    private sealed class CustomBehaviorSkinOfRetribution(
+        ConditionDefinition conditionSkinOfRetribution,
+        FeatureDefinitionPower powerSkinOfRetribution)
         : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe,
-            IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe
+            IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe, IModifyEffectDescription
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -2315,9 +2316,12 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            RecordHandler(defender);
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
 
-            yield break;
+            RecordHandler(defender);
         }
 
         public IEnumerator OnMagicEffectFinishedOnMe(
@@ -2329,6 +2333,34 @@ internal static partial class SpellBuilders
             ResolveHandler(defender);
 
             yield break;
+        }
+
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition == powerSkinOfRetribution;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (!character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionSkinOfRetribution.Name, out var activeCondition))
+            {
+                return effectDescription;
+            }
+
+            var effectLevel = activeCondition.EffectLevel;
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            damageForm.BonusDamage = TempHpPerLevelSkinOfRetribution * effectLevel;
+
+            return effectDescription;
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
@@ -2391,7 +2423,7 @@ internal static partial class SpellBuilders
 
         private static void ResolveHandler(GameLocationCharacter defender)
         {
-            if (defender.GetSpecialFeatureUses("RemoveSkinOfRetribution") == 0)
+            if (defender.GetSpecialFeatureUses("RemoveSkinOfRetribution") <= 0)
             {
                 return;
             }
@@ -2400,38 +2432,6 @@ internal static partial class SpellBuilders
 
             rulesetDefender.RemoveAllConditionsOfCategoryAndType(
                 AttributeDefinitions.TagEffect, "ConditionSkinOfRetribution");
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionSkinOfRetribution(ConditionDefinition conditionSkinOfRetribution)
-        : IModifyEffectDescription
-    {
-        public bool IsValid(
-            BaseDefinition definition,
-            RulesetCharacter character,
-            EffectDescription effectDescription)
-        {
-            return effectDescription.HasDamageForm() && character.HasConditionOfType(conditionSkinOfRetribution);
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var rulesetCondition =
-                character.ConditionsByCategory
-                    .SelectMany(x => x.Value)
-                    .FirstOrDefault(x =>
-                        x.ConditionDefinition == conditionSkinOfRetribution);
-            var effectLevel = rulesetCondition!.EffectLevel;
-
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            damageForm.BonusDamage = TempHpPerLevelSkinOfRetribution * effectLevel;
-
-            return effectDescription;
         }
     }
 

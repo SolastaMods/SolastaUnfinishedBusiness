@@ -1160,16 +1160,10 @@ internal static partial class SpellBuilders
     {
         const string Name = "Telekinesis";
 
-        var moveMode = FeatureDefinitionMoveModeBuilder
-            .Create($"MoveMode{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetMode(MoveMode.Fly, 0)
-            .AddToDB();
-
         var conditionTelekinesisRestrained = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRestrained, ConditionTelekinesisRestrainedName)
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFeatures(moveMode)
+            .SetFeatures(GrappleContext.MoveModeFly0)
             .AddToDB();
 
         // there is indeed a typo on tag

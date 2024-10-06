@@ -1,10 +1,10 @@
 1.5.97.33:
 
-- added homebrew Brawler feat
+- added Brawler feat
 - fixed controlled guests spell casting soft locking the game
 - fixed Create Bonfire cantrip recurrent damage dice number determination
 - fixed RESPEC invalid save state introduced on v32 [broken saves cannot be fixed, sorry]
-- improved Grapple action, and Grappler feat
+- improved grapple animation, pathfinding, interaction with recurrent effects on enter, and flying
 
 KNOWN ISSUES:
 
