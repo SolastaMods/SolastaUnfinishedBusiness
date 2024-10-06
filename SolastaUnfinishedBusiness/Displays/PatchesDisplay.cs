@@ -182,11 +182,10 @@ internal static class PatchesDisplay
         {
             var patches = Harmony.GetPatchInfo(method);
 
-            _patches.Add(method, patches.Prefixes
+            _patches.Add(method, [.. patches.Prefixes
                 .Concat(patches.Transpilers)
                 .Concat(patches.Postfixes)
-                .OrderByDescending(patch => patch.priority)
-                .ToList());
+                .OrderByDescending(patch => patch.priority)]);
         }
     }
 }
