@@ -31,12 +31,6 @@ internal static class GrappleContext
     internal const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
     internal const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
 
-    internal static readonly FeatureDefinitionMoveMode MoveModeFly0 = FeatureDefinitionMoveModeBuilder
-        .Create("MoveModeFly0")
-        .SetGuiPresentation(FeatureDefinitionMoveModes.MoveModeFly12.GuiPresentation)
-        .SetMode(MoveMode.Fly, 0)
-        .AddToDB();
-
     private static readonly FeatureDefinitionPower PowerGrapple = FeatureDefinitionPowerBuilder
         .Create($"Power{Grapple}")
         .SetGuiPresentation($"Action{Grapple}", Category.Action, hidden: true)
@@ -102,7 +96,6 @@ internal static class GrappleContext
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics)
             .SetBrain(battlePackage, true)
             .SetFeatures(
-                MoveModeFly0,
                 ActionAffinityGrappled,
                 ActionAffinityConditionRestrained,
                 MovementAffinityConditionRestrained)
@@ -137,7 +130,7 @@ internal static class GrappleContext
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+                    x.IsSubtypeOf(ConditionIncapacitated) || x.IsSubtypeOf(ConditionFlying)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
@@ -152,7 +145,7 @@ internal static class GrappleContext
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+                    x.IsSubtypeOf(ConditionIncapacitated) || x.IsSubtypeOf(ConditionFlying)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
@@ -168,7 +161,7 @@ internal static class GrappleContext
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+                    x.IsSubtypeOf(ConditionIncapacitated) || x.IsSubtypeOf(ConditionFlying)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 

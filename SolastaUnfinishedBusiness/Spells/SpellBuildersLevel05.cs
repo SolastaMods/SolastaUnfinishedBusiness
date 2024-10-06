@@ -1163,7 +1163,12 @@ internal static partial class SpellBuilders
         var conditionTelekinesisRestrained = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRestrained, ConditionTelekinesisRestrainedName)
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFeatures(GrappleContext.MoveModeFly0)
+            .SetFeatures(
+                FeatureDefinitionMoveModeBuilder
+                    .Create("MoveModeFly0")
+                    .SetGuiPresentation(FeatureDefinitionMoveModes.MoveModeFly12.GuiPresentation)
+                    .SetMode(MoveMode.Fly, 0)
+                    .AddToDB())
             .AddToDB();
 
         // there is indeed a typo on tag
