@@ -1552,9 +1552,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] FLashFreeze {
+        public static byte[] FlashFreeze {
             get {
-                object obj = ResourceManager.GetObject("FLashFreeze", resourceCulture);
+                object obj = ResourceManager.GetObject("FlashFreeze", resourceCulture);
                 return ((byte[])(obj));
             }
         }
