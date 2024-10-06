@@ -882,7 +882,7 @@ internal static class LevelUpContext
         foreach (var pair in data.levelupTrainedFeats)
         {
             //Grant invocations from feat features
-            var features = pair.Value.SelectMany(f => f.Features).ToList();
+            var features = pair.Value.SelectMany(f => f.Features).ToArray();
 
             FeatureDefinitionGrantInvocations.GrantInvocations(hero, pair.Key, features);
 

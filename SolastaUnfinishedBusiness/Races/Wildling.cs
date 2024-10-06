@@ -116,7 +116,7 @@ internal static class RaceWildlingBuilder
 
         availableMorphotypeCategories.Add(MorphotypeElementDefinition.ElementCategory.Horns);
 
-        racePresentation.availableMorphotypeCategories = availableMorphotypeCategories.ToArray();
+        racePresentation.availableMorphotypeCategories = [.. availableMorphotypeCategories];
         racePresentation.maleHornsOptions = [];
         racePresentation.hornsTailAssetPrefix =
             CharacterRaceDefinitions.Tiefling.RacePresentation.hornsTailAssetPrefix;

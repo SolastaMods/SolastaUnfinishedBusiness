@@ -118,7 +118,7 @@ public static class RulesetImplementationManagerLocationPatcher
                         x.ConditionDefinition.IsSubtypeOf(ConditionRestrained) &&
                         (character.Side == Side.Ally ||
                          x.ConditionDefinition.Name != SpellBuilders.ConditionTelekinesisRestrainedName))
-                    .ToList();
+                    .ToArray();
 
                 foreach (var activeCondition in conditionsToRemove)
                 {

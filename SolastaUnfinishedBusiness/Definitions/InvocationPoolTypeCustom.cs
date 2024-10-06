@@ -108,7 +108,7 @@ internal class InvocationPoolTypeCustom
     {
         var invocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
             .OfType<InvocationDefinitionCustom>()
-            .ToList();
+            .ToArray();
 
         foreach (var pool in PrivatePools)
         {

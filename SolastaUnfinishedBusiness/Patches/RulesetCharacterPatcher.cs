@@ -458,7 +458,7 @@ public static class RulesetCharacterPatcher
             foreach (var targetRulesetCharacter in characterService.AllValidEntities
                          .Select(x => x.RulesetActor)
                          .OfType<RulesetCharacter>()
-                         .ToList())
+                         .ToArray())
             {
                 // need ToList to avoid enumerator issues with RemoveCondition
                 foreach (var rulesetCondition in targetRulesetCharacter.ConditionsByCategory
@@ -467,7 +467,7 @@ public static class RulesetCharacterPatcher
                                  x.ConditionDefinition.SpecialInterruptions.Contains(
                                      (ConditionInterruption)ExtraConditionInterruption.SourceRageStop) &&
                                  x.SourceGuid == sourceCharacter.Guid)
-                             .ToList())
+                             .ToArray())
                 {
                     targetRulesetCharacter.RemoveCondition(rulesetCondition);
 
@@ -478,7 +478,7 @@ public static class RulesetCharacterPatcher
 
                     foreach (var effect in targetRulesetCharacter.PowersUsedByMe
                                  .Where(x => x.Name == rulesetCondition.EffectDefinitionName)
-                                 .ToList())
+                                 .ToArray())
                     {
                         targetRulesetCharacter.TerminatePower(effect);
                     }
@@ -1619,7 +1619,7 @@ public static class RulesetCharacterPatcher
             // Hide the features that use the pool from the UI.
             foreach (var feature in __instance.RecoveredFeatures
                          .Where(f => f is FeatureDefinitionPowerSharedPool)
-                         .ToList())
+                         .ToArray())
             {
                 __instance.RecoveredFeatures.Remove(feature);
             }

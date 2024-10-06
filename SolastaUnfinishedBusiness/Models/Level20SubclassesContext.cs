@@ -1600,9 +1600,9 @@ internal static class Level20SubclassesContext
             var contenders =
                 (Gui.Battle?.AllContenders ??
                  locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
+                .ToArray();
 
-            if (contenders.Count != 0)
+            if (contenders.Length != 0)
             {
                 rulesetAlly.LogCharacterUsedFeature(featureKeeperOfOblivion);
             }
@@ -1613,7 +1613,7 @@ internal static class Level20SubclassesContext
                              x.Side == ally.Side &&
                              x.IsWithinRange(ally, 6))
                          .OrderByDescending(x => x.RulesetCharacter.MissingHitPoints)
-                         .ToList())
+                         .ToArray())
             {
                 var rulesetUnit = unit.RulesetCharacter;
 
@@ -2067,9 +2067,9 @@ internal static class Level20SubclassesContext
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x.RulesetCharacter.HasConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect, "ConditionHitByDirtyFighting"))
-                .ToList();
+                .ToArray();
 
-            if (targets.Count == 0)
+            if (targets.Length == 0)
             {
                 yield break;
             }

@@ -144,9 +144,9 @@ internal static class GroupFeats
                     AttributeDefinitions.AbilityScoreNames.Contains(y.ModifiedAttribute) &&
                     y.ModifierOperation == AttributeModifierOperation.Additive &&
                     y.ModifierValue == 1)
-                .ToList();
+                .ToArray();
 
-            if (attributeModifiers.Count != 1)
+            if (attributeModifiers.Length != 1)
             {
                 continue;
             }

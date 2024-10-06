@@ -326,11 +326,11 @@ internal static class CustomConditionsContext
             }
             else
             {
-                // need ToList to avoid enumerator issues with RemoveCondition
+                // need ToArray to avoid enumerator issues with RemoveCondition
                 foreach (var condition in target.ConditionsByCategory
                              .SelectMany(x => x.Value)
                              .Where(condition => condition.ConditionDefinition.IsSubtypeOf("ConditionFlying"))
-                             .ToList())
+                             .ToArray())
                 {
                     //We are not interested in permanent effects
                     if (condition.DurationType == DurationType.Permanent)
@@ -518,7 +518,7 @@ internal static class CustomConditionsContext
             var actingCharacter = characterAction.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            // need ToList to avoid enumerator issues with RemoveCondition
+            // need ToArray to avoid enumerator issues with RemoveCondition
             foreach (var rulesetCondition in rulesetCharacter.ConditionsByCategory
                          .SelectMany(x => x.Value)
                          .Where(x => x.ConditionDefinition.Name == Taunted.Name)
@@ -529,7 +529,7 @@ internal static class CustomConditionsContext
                              // ruleset amount carries the max range for the condition
                              t.caster != null && !t.caster.IsWithinRange(actingCharacter, t.b.a.Amount))
                          .Select(c => c.b.a)
-                         .ToList())
+                         .ToArray())
             {
                 rulesetCharacter.RemoveCondition(rulesetCondition);
             }

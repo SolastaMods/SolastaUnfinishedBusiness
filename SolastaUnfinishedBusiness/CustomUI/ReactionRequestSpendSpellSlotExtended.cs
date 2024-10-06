@@ -78,6 +78,6 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
 
     public override void SelectSubOption(int option)
     {
-        ReactionParams.IntParameter = SubOptionsAvailability.Keys.ToList()[option];
+        ReactionParams.IntParameter = SubOptionsAvailability.Keys.ToArray()[option];
     }
 }

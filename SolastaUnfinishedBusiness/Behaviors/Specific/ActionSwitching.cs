@@ -407,7 +407,7 @@ public static class ActionSwitching
     {
         var features = allFeatures
             .Where(x => x.feature is IAdditionalActionsProvider f && f.ActionType == type)
-            .ToList();
+            .ToArray();
         var filters = character.ActionPerformancesByType[type];
         var filtersCount = filters.Count;
 
@@ -435,9 +435,9 @@ public static class ActionSwitching
         // ReSharper disable once InvocationIsSkipped
         Main.Log($"ResortPerformancesOfType [{character.Name}] {type} : [{string.Join(", ", list)}] rank: {rank}");
 
-        var sorted = list.Select(k => filters[k]).ToList();
+        var sorted = list.Select(k => filters[k]).ToArray();
 
-        if (rank < sorted.Count)
+        if (rank < sorted.Length)
         {
             var data = PerformanceFilterExtraData.GetData(sorted[rank]);
 

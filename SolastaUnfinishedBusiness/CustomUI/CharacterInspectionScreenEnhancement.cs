@@ -299,8 +299,8 @@ internal static class CharacterInspectionScreenEnhancement
             labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
         }
 
-        var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToList();
-        var classesCount = classesTitles.Count;
+        var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToArray();
+        var classesCount = classesTitles.Length;
 
         for (var i = 0; i < classesCount; i++)
         {

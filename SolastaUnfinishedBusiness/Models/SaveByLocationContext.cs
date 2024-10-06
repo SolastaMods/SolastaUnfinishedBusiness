@@ -68,12 +68,12 @@ internal static class SaveByLocationContext
 
     private static SavePlace MostRecentFile(string dir, LocationType type)
     {
-        var files = Directory.EnumerateFiles(dir, "*.sav").ToList();
+        var files = Directory.EnumerateFiles(dir, "*.sav").ToArray();
         var place = new SavePlace
         {
             Name = type == LocationType.Default ? DefaultName : Path.GetFileName(dir),
             Path = dir,
-            Count = files.Count,
+            Count = files.Length,
             Date = files.Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
             Type = type
         };
@@ -111,7 +111,7 @@ internal static class SaveByLocationContext
                 .OrderBy(p => p)
                 .Select(LocationOptionData.Create)
                 .Cast<TMP_Dropdown.OptionData>()
-                .ToList());
+                .ToArray());
 
         // Get the current campaign location and select it in the dropdown
         var selectedCampaign = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();

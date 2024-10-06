@@ -14,9 +14,9 @@ internal class FeatureDefinitionGrantInvocations : FeatureDefinition
     {
         var features = grantedFeatures
             .OfType<FeatureDefinitionGrantInvocations>()
-            .ToList();
+            .ToArray();
 
-        if (features.Count == 0)
+        if (features.Length == 0)
         {
             return;
         }
@@ -36,9 +36,9 @@ internal class FeatureDefinitionGrantInvocations : FeatureDefinition
     {
         var features = removedFeatures
             .OfType<FeatureDefinitionGrantInvocations>()
-            .ToList();
+            .ToArray();
 
-        if (features.Count == 0)
+        if (features.Length == 0)
         {
             return;
         }

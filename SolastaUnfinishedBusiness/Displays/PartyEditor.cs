@@ -178,7 +178,7 @@ public static class PartyEditor
                             var expertisesHash = hero.TrainedExpertises.ToHashSet();
                             var currentSkills = hero.TrainedSkills.Cast<BaseDefinition>();
                             var currentTools = hero.TrainedToolTypes.Cast<BaseDefinition>();
-                            var current = currentSkills.Union(currentTools).ToList();
+                            var current = currentSkills.Union(currentTools).ToArray();
 
                             Browser<RulesetCharacterHero, BaseDefinition, BaseDefinition>.OnGUI(
                                 _selectedToggle.ToString(), ref changed,

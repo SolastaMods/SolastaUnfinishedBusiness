@@ -269,10 +269,10 @@ internal static class SpellPointsContext
     {
         var usablePower = PowerProvider.Get(PowerSpellPoints, character);
 
-        // need ToList to avoid enumerator issues with RemoveCondition
+        // need ToArray to avoid enumerator issues with RemoveCondition
         foreach (var activeCondition in character.ConditionsByCategory
                      .SelectMany(x => x.Value)
-                     .ToList())
+                     .ToArray())
         {
             var removeCondition = false;
 

@@ -32,7 +32,7 @@ internal class TrackItemsCarefully
             .GetService<IRulesetEntityService>()
             .RulesetEntities.Values.OfType<RulesetItemProperty>()
             .Where(IsOrphaned)
-            .ToList();
+            .ToArray();
 
         foreach (var property in properties)
         {
@@ -60,11 +60,11 @@ internal class TrackItemsCarefully
     {
         var characters = allEntities?
             .OfType<RulesetCharacter>()
-            .ToList();
+            .ToArray();
 
         var containers = allEntities?
             .OfType<RulesetContainer>()
-            .ToList();
+            .ToArray();
 
         var itemService = ServiceRepository.GetService<IGameLocationItemService>();
 
@@ -112,14 +112,14 @@ internal class TrackItemsCarefully
             return;
         }
 
-        var items = allEntities.OfType<RulesetItem>().ToList();
+        var items = allEntities.OfType<RulesetItem>().ToArray();
 
         foreach (var item in items)
         {
             var propertyGuids = activeEffect.trackedItemPropertyGuids;
             var properties = item.DynamicItemProperties
                 .Where(p => propertyGuids.Contains(p.guid))
-                .ToList();
+                .ToArray();
 
             foreach (var itemProperty in properties)
             {

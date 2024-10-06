@@ -418,7 +418,7 @@ internal static class SpellsContext
 
             foreach (var name in Main.Settings.SpellListSpellEnabled[spellListName]
                          .Where(name => Spells.All(x => x.Name != name))
-                         .ToList())
+                         .ToArray())
             {
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(name);
             }

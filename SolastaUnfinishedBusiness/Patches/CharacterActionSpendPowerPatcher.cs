@@ -364,7 +364,7 @@ public static class CharacterActionSpendPowerPatcher
             foreach (var ally in contenders
                          .Where(x => x.Side == actingCharacter.Side
                                      && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList())
+                         .ToArray())
             {
                 foreach (var magicEffectFinishedByMeOrAlly in ally.RulesetCharacter
                              .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAlly>())

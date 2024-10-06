@@ -2066,11 +2066,11 @@ internal static partial class SpellBuilders
                 .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
                 .Select(x => x.DamageForm.DamageType)
                 .Distinct()
-                .ToList();
+                .ToArray();
 
-            var resistanceDamageTypes = AllowedDamageTypes.Intersect(attackDamageTypes).ToList();
+            var resistanceDamageTypes = AllowedDamageTypes.Intersect(attackDamageTypes).ToArray();
 
-            if (resistanceDamageTypes.Count == 0)
+            if (resistanceDamageTypes.Length == 0)
             {
                 yield break;
             }

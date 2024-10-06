@@ -397,7 +397,7 @@ internal static class ToolsContext
             oldHero.ConditionsByCategory
                 .SelectMany(x => x.Value)
                 .Where(c => !newHero.ConditionsByCategory.SelectMany(x => x.Value).Contains(c))
-                .ToList()
+                .ToArray()
                 .Do(c => c.Unregister());
             oldHero.AllConditions.Clear();
             oldHero.ConditionsByCategory.Clear();

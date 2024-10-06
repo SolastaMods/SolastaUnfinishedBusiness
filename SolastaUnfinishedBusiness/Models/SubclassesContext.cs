@@ -45,7 +45,7 @@ internal static class SubclassesContext
             .Where(name => KlassListContextTab
                 .SelectMany(x => x.Value.AllSubClasses)
                 .All(y => y.Name != name))
-            .ToList();
+            .ToArray();
 
         foreach (var kvp in Main.Settings.KlassListSubclassEnabled)
         {

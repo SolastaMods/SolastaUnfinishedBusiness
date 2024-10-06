@@ -67,7 +67,7 @@ internal static class InvocationsContext
         // settings paring
         foreach (var name in Main.Settings.InvocationEnabled
                      .Where(name => Invocations.All(x => x.Name != name))
-                     .ToList())
+                     .ToArray())
         {
             Main.Settings.InvocationEnabled.Remove(name);
         }

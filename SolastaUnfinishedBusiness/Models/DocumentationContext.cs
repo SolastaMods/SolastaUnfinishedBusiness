@@ -481,7 +481,7 @@ internal static class DocumentationContext
         FeatureDefinitionCastSpell featureDefinitionCastSpell = null;
 
         foreach (var featureDefinition in monsterDefinition.Features
-                     .Where(x => x != null)
+                     .Where(x => x)
                      .OrderBy(x => x.Name))
         {
             switch (featureDefinition)

@@ -137,7 +137,7 @@ internal static class ItemRecipeGenerationHelper
                     .SetCraftedItem(item)
                     .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType)
                     .AddToDB())
-            .ToList();
+            .ToArray();
 
         const string GROUP_KEY = "EnchantingIngredients";
 

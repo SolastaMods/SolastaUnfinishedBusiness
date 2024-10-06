@@ -372,9 +372,7 @@ internal class EffectFormBuilder
     {
         var itemForm = new ItemPropertyForm
         {
-            usageLimitation = usageLimitation,
-            useAmount = useAmount,
-            featureBySlotLevel = featureBySlotLevel.ToList()
+            usageLimitation = usageLimitation, useAmount = useAmount, featureBySlotLevel = [.. featureBySlotLevel]
         };
 
         _effectForm.itemPropertyForm = itemForm;
@@ -457,7 +455,7 @@ internal class EffectFormBuilder
         {
             maxSecondsSinceDeath = secondsSinceDeath,
             reviveHitPoints = reviveHitPoints,
-            removedConditions = removedConditions.ToList()
+            removedConditions = [.. removedConditions]
         };
 
         _effectForm.reviveForm = reviveForm;

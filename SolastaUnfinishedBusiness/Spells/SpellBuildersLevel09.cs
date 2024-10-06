@@ -482,7 +482,7 @@ internal static partial class SpellBuilders
             var contenders =
                 (Gui.Battle?.AllContenders ??
                  locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
+                .ToArray();
 
             foreach (var rulesetContender in contenders
                          .Select(contender => contender.RulesetCharacter))

@@ -55,25 +55,27 @@ public static class RulesetActorPatcher
             damageTypes.AddRange(effectForms
                 .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
                 .Select(x => x.DamageForm.DamageType)
-                .ToList());
+                .ToArray());
 
             var proxies = effectForms
                 .Where(x => x.FormType == EffectForm.EffectFormType.Summon &&
                             x.SummonForm.SummonType == SummonForm.Type.EffectProxy)
                 .Select(x =>
                     DatabaseHelper.GetDefinition<EffectProxyDefinition>(x.SummonForm.EffectProxyDefinitionName))
-                .ToList();
+                .ToArray();
 
             var damageTypesFromProxyAttacks = proxies
                 .Where(x => x.canAttack && x.attackMethod == ProxyAttackMethod.CasterSpellAbility)
-                .Select(x => x.DamageType).ToList();
+                .Select(x => x.DamageType)
+                .ToArray();
 
             var damageTypesFromProxyAttackPowers = proxies
                 .Where(x => x.attackPower)
                 .Select(x => x.attackPower)
                 .SelectMany(x => x.EffectDescription.EffectForms)
                 .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
-                .Select(x => x.DamageForm.DamageType).ToList();
+                .Select(x => x.DamageForm.DamageType)
+                .ToArray();
 
             damageTypes.AddRange(damageTypesFromProxyAttacks);
             damageTypes.AddRange(damageTypesFromProxyAttackPowers);
@@ -330,7 +332,7 @@ public static class RulesetActorPatcher
 
             foreach (var contender in Gui.Battle.AllContenders
                          .Where(x => x is { destroying: false, destroyedBody: false, RulesetActor: not null })
-                         .ToList())
+                         .ToArray())
             {
                 var conditionsToRemove = new List<RulesetCondition>();
 

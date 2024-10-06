@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -47,9 +48,9 @@ internal static class DmProEditorContext
         var backupFiles = Directory
             .EnumerateFiles(backupDirectory, compliantTitle + "*")
             .OrderBy(f => f)
-            .ToList();
+            .ToArray();
 
-        for (var i = 0; i <= backupFiles.Count - MaxBackupFilesPerLocationCampaign; i++)
+        for (var i = 0; i <= backupFiles.Length - MaxBackupFilesPerLocationCampaign; i++)
         {
             File.Delete(backupFiles[i]);
         }
@@ -359,8 +360,8 @@ internal static class DmProEditorContext
         var dbGadgetBlueprint = DatabaseRepository.GetDatabase<GadgetBlueprint>();
 
         dbGadgetBlueprint
-            .Where(x => x.Name.EndsWith("MOD")).ToList()
-            .ForEach(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
+            .Where(x => x.Name.EndsWith("MOD")).ToArray()
+            .Do(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
     }
 
     private static void SetModdedPropsHiddenStatus()
@@ -368,8 +369,8 @@ internal static class DmProEditorContext
         var dbPropBlueprint = DatabaseRepository.GetDatabase<PropBlueprint>();
 
         dbPropBlueprint
-            .Where(x => x.Name.EndsWith("MOD")).ToList()
-            .ForEach(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
+            .Where(x => x.Name.EndsWith("MOD")).ToArray()
+            .Do(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
     }
 
     private static void SetModdedRoomsHiddenStatus()
@@ -377,12 +378,12 @@ internal static class DmProEditorContext
         var dbRoomBlueprint = DatabaseRepository.GetDatabase<RoomBlueprint>();
 
         dbRoomBlueprint
-            .Where(x => x.Name.EndsWith("MOD")).ToList()
-            .ForEach(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
+            .Where(x => x.Name.EndsWith("MOD")).ToArray()
+            .Do(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
 
         dbRoomBlueprint
-            .Where(x => x.Name.StartsWith("Flat")).ToList()
-            .ForEach(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
+            .Where(x => x.Name.StartsWith("Flat")).ToArray()
+            .Do(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
     }
 
     private enum ExtendedDungeonSize

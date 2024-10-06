@@ -272,7 +272,7 @@ public static class CharacterBuildingManagerPatcher
                 var goodTag =
                     AttributeDefinitions.GetClassTag(DatabaseHelper.CharacterClassDefinitions.Warlock, levels);
 
-                foreach (var badKey in pointPoolStack.ActivePools.Keys.Where(x => x != goodTag).ToList())
+                foreach (var badKey in pointPoolStack.ActivePools.Keys.Where(x => x != goodTag).ToArray())
                 {
                     pointPoolStack.ActivePools.Remove(badKey);
                 }

@@ -1010,7 +1010,7 @@ internal static class InvocationsBuilders
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             foreach (var power in rulesetCharacter.usablePowers
-                         .ToList()) // required ToList() to avoid list was changed when Far Step in play
+                         .ToArray()) // required ToArray() to avoid list was changed when Far Step in play
             {
                 if (rulesetCharacter.IsPowerActive(power))
                 {

@@ -22,7 +22,7 @@ internal static class BackgroundsContext
         // settings paring
         foreach (var name in Main.Settings.BackgroundEnabled
                      .Where(name => Backgrounds.All(x => x.Name != name))
-                     .ToList())
+                     .ToArray())
         {
             Main.Settings.BackgroundEnabled.Remove(name);
         }

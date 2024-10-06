@@ -604,7 +604,7 @@ internal static partial class CharacterContext
             .Select(x => x.FeatureDefinition == FeatureSetKindredSpiritChoice
                 ? new FeatureUnlockByLevel(InvocationPoolKindredSpiritChoice, x.Level)
                 : x)
-            .ToList();
+            .ToArray();
 
         CircleKindred.FeatureUnlocks.SetRange(replacedFeatures);
     }
@@ -815,7 +815,7 @@ internal static partial class CharacterContext
             .Select(x => x.FeatureDefinition == PathOfTheElements.FeatureSetElementalFury
                 ? new FeatureUnlockByLevel(InvocationPoolPathOfTheElementsElementalFuryChoice, x.Level)
                 : x)
-            .ToList();
+            .ToArray();
 
         subclass.FeatureUnlocks.SetRange(replacedFeatures);
     }
@@ -922,7 +922,7 @@ internal static partial class CharacterContext
                     : x.FeatureDefinition == AdditionalDamageRangerFavoredEnemyChoice
                         ? new FeatureUnlockByLevel(InvocationPoolRangerPreferredEnemy, x.Level)
                         : x)
-            .ToList();
+            .ToArray();
 
         Ranger.FeatureUnlocks.SetRange(replacedFeatures);
 
@@ -935,7 +935,7 @@ internal static partial class CharacterContext
                 x.FeatureDefinition == AdditionalDamageRangerFavoredEnemyChoice
                     ? new FeatureUnlockByLevel(InvocationPoolRangerPreferredEnemy, x.Level)
                     : x)
-            .ToList();
+            .ToArray();
 
         rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
     }
@@ -1026,7 +1026,7 @@ internal static partial class CharacterContext
             .Select(x => x.FeatureDefinition == featureDefinitionFeatureSet
                 ? new FeatureUnlockByLevel(featureDefinitionCustomInvocationPool, x.Level)
                 : x)
-            .ToList();
+            .ToArray();
 
         characterSubclassDefinition.FeatureUnlocks.SetRange(replacedFeatures);
     }

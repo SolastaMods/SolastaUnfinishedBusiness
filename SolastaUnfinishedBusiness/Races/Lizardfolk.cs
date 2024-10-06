@@ -114,9 +114,9 @@ internal static class RaceLizardfolkBuilder
             var targets = action.ActionParams.TargetCharacters
                 .Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                .ToList();
+                .ToArray();
 
-            if (targets.Count == 0)
+            if (targets.Length == 0)
             {
                 yield break;
             }

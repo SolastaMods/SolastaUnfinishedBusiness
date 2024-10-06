@@ -86,9 +86,9 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         var caster = actionParams.ActingCharacter;
         var targets = actionParams.TargetCharacters
             .Where(t => CanAttack(caster, t))
-            .ToList();
+            .ToArray();
 
-        if (targets.Count == 0)
+        if (targets.Length == 0)
         {
             return attacks;
         }

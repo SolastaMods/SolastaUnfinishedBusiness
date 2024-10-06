@@ -802,7 +802,7 @@ internal static partial class SpellBuilders
                 var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
                 var contenders =
                     locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
-                        .ToList();
+                        .ToArray();
 
                 foreach (var contender in contenders)
                 {

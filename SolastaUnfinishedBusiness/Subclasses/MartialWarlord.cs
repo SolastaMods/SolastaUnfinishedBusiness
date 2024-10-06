@@ -563,7 +563,7 @@ public sealed class MartialWarlord : AbstractSubclass
             var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var allies = new List<GameLocationCharacter>();
 
-            foreach (var guestCharacter in characterService.GuestCharacters.ToList())
+            foreach (var guestCharacter in characterService.GuestCharacters.ToArray())
             {
                 if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
                 {

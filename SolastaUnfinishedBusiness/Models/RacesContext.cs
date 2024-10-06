@@ -56,14 +56,14 @@ internal static class RacesContext
         // settings paring
         foreach (var name in Main.Settings.RaceEnabled
                      .Where(name => Races.All(x => x.Name != name))
-                     .ToList())
+                     .ToArray())
         {
             Main.Settings.RaceEnabled.Remove(name);
         }
 
         foreach (var name in Main.Settings.SubraceEnabled
                      .Where(name => Subraces.All(x => x.Name != name))
-                     .ToList())
+                     .ToArray())
         {
             Main.Settings.SubraceEnabled.Remove(name);
         }

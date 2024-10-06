@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -202,7 +201,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var targets = action.ActionParams.TargetCharacters.ToList();
+            var targets = action.ActionParams.TargetCharacters.ToArray();
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
             foreach (var target in targets)
@@ -409,7 +408,7 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var targets = action.ActionParams.TargetCharacters.ToList();
+            var targets = action.ActionParams.TargetCharacters.ToArray();
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
             foreach (var target in targets)

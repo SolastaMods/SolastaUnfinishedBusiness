@@ -16,7 +16,7 @@ public class AddUsablePowersFromCondition : IOnConditionAddedOrRemoved
         //assuming mod won't have any case where same power is added twice to a condition
         var powers = target.UsablePowers
             .Select(x => x.PowerDefinition)
-            .ToList(); // avoid change enumerator
+            .ToArray(); // avoid changing enumerator
 
         foreach (var power in rulesetCondition.ConditionDefinition.Features
                      .OfType<FeatureDefinitionPower>()
@@ -33,7 +33,7 @@ public class AddUsablePowersFromCondition : IOnConditionAddedOrRemoved
 
         foreach (var usablePower in target.UsablePowers
                      .Where(x => powers.Contains(x.PowerDefinition))
-                     .ToList())
+                     .ToArray())
         {
             var effectPower = target.PowersUsedByMe
                 .FirstOrDefault(x => x.UsablePower == usablePower);

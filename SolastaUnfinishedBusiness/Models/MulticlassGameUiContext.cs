@@ -667,10 +667,10 @@ internal static class MulticlassGameUiContext
         //Select allowed spells - all spells if list is overriden by the pool, or all allowed spells of current level
         var allowedSpells = spellsOverriden
             ? [..allSpells]
-            : LevelUpContext.GetAllowedSpells(caster).Where(x => x.SpellLevel == spellLevel).ToList();
+            : LevelUpContext.GetAllowedSpells(caster).Where(x => x.SpellLevel == spellLevel).ToArray();
 
         var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(caster)
-            .Where(x => x.Key.SpellLevel == spellLevel).ToList();
+            .Where(x => x.Key.SpellLevel == spellLevel).ToArray();
 
         allSpells.RemoveAll(x => !allowedSpells.Contains(x) && otherClassesKnownSpells.All(p => p.Key != x));
 

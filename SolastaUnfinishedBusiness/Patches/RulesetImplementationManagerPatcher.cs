@@ -405,7 +405,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 __instance.conditionGuidsToProcess.AddRange(activeEffect.TrackedConditionGuids);
 
-                foreach (var guid in __instance.conditionGuidsToProcess.ToList())
+                foreach (var guid in __instance.conditionGuidsToProcess.ToArray())
                 {
                     RulesetCondition rulesetCondition = null;
                     ref var local = ref rulesetCondition;
@@ -421,7 +421,7 @@ public static class RulesetImplementationManagerPatcher
                     }
                 }
 
-                foreach (var guid in __instance.conditionGuidsToProcess.ToList())
+                foreach (var guid in __instance.conditionGuidsToProcess.ToArray())
                 {
                     RulesetCondition rulesetCondition = null;
                     ref var local = ref rulesetCondition;
@@ -458,7 +458,7 @@ public static class RulesetImplementationManagerPatcher
 
             __instance.summonedItemGuidsToProcess.AddRange(activeEffect.TrackedSummonedItemGuids);
 
-            foreach (var guid in __instance.summonedItemGuidsToProcess.ToList())
+            foreach (var guid in __instance.summonedItemGuidsToProcess.ToArray())
             {
                 RulesetItem rulesetItem = null;
                 ref var local = ref rulesetItem;
@@ -469,7 +469,7 @@ public static class RulesetImplementationManagerPatcher
                 }
             }
 
-            foreach (var guid in __instance.summonedItemGuidsToProcess.ToList())
+            foreach (var guid in __instance.summonedItemGuidsToProcess.ToArray())
             {
                 RulesetItem itemToLose = null;
                 ref var local = ref itemToLose;
@@ -501,7 +501,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 var service = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
-                foreach (var trackedLightSourceGuid in activeEffect.TrackedLightSourceGuids.ToList())
+                foreach (var trackedLightSourceGuid in activeEffect.TrackedLightSourceGuids.ToArray())
                 {
                     RulesetLightSource rulesetLightSource = null;
                     ref var local = ref rulesetLightSource;
@@ -567,7 +567,7 @@ public static class RulesetImplementationManagerPatcher
                 return;
             }
 
-            foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids.ToList())
+            foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids.ToArray())
             {
                 RulesetItemProperty rulesetItemProperty = null;
                 ref var local = ref rulesetItemProperty;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
@@ -113,9 +114,9 @@ internal static class CharacterExportContext
         var hitPoints = heroCharacter.CurrentHitPoints;
 
         // record current conditions, powers, spells and attunements
-        var conditions = heroCharacter.ConditionsByCategory.ToList();
-        var powers = heroCharacter.PowersUsedByMe.ToList();
-        var spells = heroCharacter.SpellsCastByMe.ToList();
+        var conditions = heroCharacter.ConditionsByCategory.ToArray();
+        var powers = heroCharacter.PowersUsedByMe.ToArray();
+        var spells = heroCharacter.SpellsCastByMe.ToArray();
         var inventoryItems = new List<RulesetItem>();
 
         heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
@@ -127,7 +128,7 @@ internal static class CharacterExportContext
             ? inventoryItems.FindAll(i =>
                 Gui.GameLocation.UserCampaign?.UserItems?.Exists(ui =>
                     ui.ReferenceItemDefinition == i.ItemDefinition) == true)
-            : Enumerable.Empty<RulesetItem>()).ToList();
+            : Enumerable.Empty<RulesetItem>()).ToArray();
 
         var heroItemGuids = heroCharacter.Items.ConvertAll(i => new { Item = i, i.Guid });
         var inventoryItemGuids = inventoryItems.ConvertAll(i => new { Item = i, i.Guid });
@@ -138,7 +139,7 @@ internal static class CharacterExportContext
             heroCharacter.SurName = newSurname;
             heroCharacter.BuiltIn = false;
 
-            customItems.ForEach(x => inventoryItems.Remove(x));
+            customItems.Do(x => inventoryItems.Remove(x));
 
             // change attunement to the new character name
             foreach (var item in attunedItems)
@@ -163,7 +164,7 @@ internal static class CharacterExportContext
             heroCharacter.SurName = surName;
             heroCharacter.BuiltIn = builtin;
 
-            customItems.ForEach(x => inventoryItems.Add(x));
+            customItems.Do(x => inventoryItems.Add(x));
 
             // restore conditions
             foreach (var kvp in conditions)
