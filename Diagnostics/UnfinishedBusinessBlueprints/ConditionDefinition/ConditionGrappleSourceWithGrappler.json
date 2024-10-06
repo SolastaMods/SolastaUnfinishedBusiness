@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Neutral",
   "features": [
-     "Definition:CombatAffinityGrappleSourceWithGrappler:7bd0115c-74ec-51ad-9ab7-8c9e509fc893",
+    "Definition:CombatAffinityGrappleSourceWithGrappler:7bd0115c-74ec-51ad-9ab7-8c9e509fc893",
     "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
     "Definition:MovementAffinityNoSpecialMoves:0cd5ea35f59f7e84fa3a0c6615abf781"
   ],
