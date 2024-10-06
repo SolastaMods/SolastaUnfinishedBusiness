@@ -27,12 +27,12 @@ internal class RestrictEffectToNotTerminateWhileUnconscious
         }
 
         //store and remove spell effects that don't need termination
-        var spells = character.spellsCastByMe.Where(Match).ToList();
+        var spells = character.spellsCastByMe.Where(Match).ToArray();
 
         character.spellsCastByMe.RemoveAll(Match);
 
         //store and remove power effects that don't need termination
-        var powers = character.powersUsedByMe.Where(Match).ToList();
+        var powers = character.powersUsedByMe.Where(Match).ToArray();
         character.powersUsedByMe.RemoveAll(Match);
 
         //call default method

@@ -19,7 +19,7 @@ internal static class DeitiesContext
         // settings paring
         foreach (var name in Main.Settings.DeityEnabled
                      .Where(name => Deities.All(x => x.Name != name))
-                     .ToList())
+                     .ToArray())
         {
             Main.Settings.DeityEnabled.Remove(name);
         }

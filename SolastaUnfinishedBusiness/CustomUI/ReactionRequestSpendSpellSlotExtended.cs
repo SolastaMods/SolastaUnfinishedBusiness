@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Models;
@@ -41,7 +42,7 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
     }
 
     public override int SelectedSubOption =>
-        SubOptionsAvailability.Keys.ToList().FindIndex(v => v == ReactionParams.IntParameter);
+        Array.IndexOf([.. SubOptionsAvailability.Keys], ReactionParams.IntParameter);
 
     public override string SuboptionTag => ReactionParams.StringParameter;
 
@@ -78,6 +79,6 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
 
     public override void SelectSubOption(int option)
     {
-        ReactionParams.IntParameter = SubOptionsAvailability.Keys.ToList()[option];
+        ReactionParams.IntParameter = SubOptionsAvailability.Keys.ToArray()[option];
     }
 }

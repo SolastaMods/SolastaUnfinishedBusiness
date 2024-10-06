@@ -1,17 +1,17 @@
 {
   "$type": "FeatureDefinitionMoveMode, Assembly-CSharp",
-  "moveMode": "Fly",
-  "speed": 0,
+  "moveMode": "Walk",
+  "speed": 3,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&MoveTitle",
+    "description": "Feature/&MoveWalkDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -26,7 +26,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f32a5326-5471-53f8-80fa-86098b13d002",
+  "guid": "06707649-6e35-5412-8940-ce97a7b6829c",
   "contentPack": 9999,
-  "name": "MoveModeTelekinesis"
+  "name": "MoveModeWalk3"
 }

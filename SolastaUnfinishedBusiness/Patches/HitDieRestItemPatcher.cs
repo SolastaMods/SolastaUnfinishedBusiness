@@ -65,7 +65,8 @@ public static class HitDiceRestItemPatcher
             }
 
             var restHealingBonusList = __instance.restHealingBonuses
-                .Where(restHealingBonus => restHealingBonus.Die != 0).ToList();
+                .Where(restHealingBonus => restHealingBonus.Die != 0)
+                .ToArray();
 
             var classHitDiceIndex = 0;
             var bonusHitDiceIndex = 0;

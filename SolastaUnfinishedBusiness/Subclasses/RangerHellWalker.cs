@@ -214,7 +214,7 @@ public sealed class RangerHellWalker : AbstractSubclass
                             .Build())
                     .AddToDB())
             .Cast<FeatureDefinitionPower>()
-            .ToList();
+            .ToArray();
 
         PowerBundle.RegisterPowerBundle(powerFiendishSpawnPool, true, powerFiendishSpawnList);
 

@@ -43,10 +43,11 @@ internal static class UpcastConjureElementalAndFey
     internal static List<SpellDefinition> SubspellsList([NotNull] SpellDefinition masterSpell, int slotLevel)
     {
         var subspellsList = masterSpell.SubspellsList;
-        var mySlotLevel = masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name
-                          || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
-            ? slotLevel
-            : -1;
+        var mySlotLevel =
+            masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name ||
+            masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
+                ? slotLevel
+                : -1;
 
         if (!Main.Settings.EnableUpcastConjureElementalAndFey || mySlotLevel < 0 || subspellsList == null ||
             subspellsList.Count == 0)
@@ -82,11 +83,10 @@ internal static class UpcastConjureElementalAndFey
                     .OrderBy(s => Gui.Localize(s.GuiPresentation.Title))
             })
             .Where(s => s.ChallengeRating <= mySlotLevel)
-            .OrderByDescending(s => s.ChallengeRating)
-            .ToList();
+            .OrderByDescending(s => s.ChallengeRating);
 
         var allOrMostPowerful = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey
-            ? subspellsGroupedAndFilteredByCR.Take(1).ToList()
+            ? subspellsGroupedAndFilteredByCR.Take(1)
             : subspellsGroupedAndFilteredByCR;
 
         _filteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();

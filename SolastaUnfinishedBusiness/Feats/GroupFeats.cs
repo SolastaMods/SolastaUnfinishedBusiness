@@ -15,6 +15,7 @@ internal static class GroupFeats
     internal const string Piercer = "Piercer";
     internal const string Crusher = "Crusher";
     internal const string DevastatingStrikes = "DevastatingStrikes";
+    internal const string Grappler = "Grappler";
     internal const string OldTactics = "OldTactics";
     internal const string FightingStyle = "FightingStyle";
 
@@ -143,9 +144,9 @@ internal static class GroupFeats
                     AttributeDefinitions.AbilityScoreNames.Contains(y.ModifiedAttribute) &&
                     y.ModifierOperation == AttributeModifierOperation.Additive &&
                     y.ModifierValue == 1)
-                .ToList();
+                .ToArray();
 
-            if (attributeModifiers.Count != 1)
+            if (attributeModifiers.Length != 1)
             {
                 continue;
             }

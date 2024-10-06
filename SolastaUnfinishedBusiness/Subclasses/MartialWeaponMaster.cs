@@ -220,7 +220,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             .GetSubFeaturesByType<ModifyWeaponAttackModeSpecialization>()
             .Where(x => !weaponTypeDefinition || x.WeaponTypeDefinition == weaponTypeDefinition)
             .Select(x => x.WeaponTypeDefinition)
-            .ToList();
+            .ToArray();
 
         return rulesetAttackMode != null
             ? specializedWeapons.Any(x => ValidatorsWeapon.IsOfWeaponType(x)(rulesetAttackMode, null, null))

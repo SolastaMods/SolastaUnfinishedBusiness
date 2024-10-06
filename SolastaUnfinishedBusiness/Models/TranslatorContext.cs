@@ -446,9 +446,9 @@ internal static class TranslatorContext
             return;
         }
 
-        var termsToAdd = englishTerms.Keys.Except(currentLanguageTerms.Keys).ToList();
+        var termsToAdd = englishTerms.Keys.Except(currentLanguageTerms.Keys).ToArray();
 
-        if (termsToAdd.Count != 0)
+        if (termsToAdd.Length != 0)
         {
             Main.Info("ADD THESE TERMS:");
 

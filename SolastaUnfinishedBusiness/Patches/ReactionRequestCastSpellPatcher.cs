@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -120,7 +121,7 @@ public static class ReactionRequestCastSpellPatcher
                 return true;
             }
 
-            __result = __instance.SubOptionsAvailability.Keys.ToList().FindIndex(v => v == spellEffect.SlotLevel);
+            __result = Array.IndexOf([.. __instance.SubOptionsAvailability.Keys], spellEffect.SlotLevel);
 
             return false;
         }

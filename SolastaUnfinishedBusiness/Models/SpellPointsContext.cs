@@ -94,10 +94,11 @@ internal static class SpellPointsContext
         return remainingUsesOfPower;
     }
 
-    internal static void HideSpellSlots(RulesetCharacterHero hero, RectTransform table)
+    internal static void HideSpellSlots(RulesetCharacter character, RectTransform table)
     {
         if (!Main.Settings.UseAlternateSpellPointsSystem ||
-            SharedSpellsContext.GetWarlockSpellRepertoire(hero) != null)
+            (character is RulesetCharacterHero hero &&
+             SharedSpellsContext.GetWarlockSpellRepertoire(hero) != null))
         {
             return;
         }
@@ -136,6 +137,7 @@ internal static class SpellPointsContext
             Gui.Format("Screen/&SpellAlternatePointsTooltip", remainingSpellPoints);
     }
 
+    // NPCs don't have an inspection screen so safe to have a hero here
     internal static void DisplayMaxSpellPointsOnInspectionScreen(
         CharacterInspectionScreen __instance, RulesetCharacterHero heroCharacter)
     {
@@ -177,29 +179,39 @@ internal static class SpellPointsContext
             spellsAtLevel < 2 ? cost : Gui.Format("Screen/&SpellAlternatePointsCostTooltip", cost);
     }
 
-    internal static void GrantPowerSpellPoints(RulesetCharacterHero hero)
+    internal static void GrantPowerSpellPoints(RulesetCharacter character)
     {
-        if (hero.HasAnyFeature(PowerSpellPoints))
+        if (character.HasAnyFeature(PowerSpellPoints))
         {
             return;
         }
 
-        hero.ActiveFeatures[AttributeDefinitions.TagRace].Add(PowerSpellPoints);
+        switch (character)
+        {
+            case RulesetCharacterHero hero:
+                hero.ActiveFeatures[AttributeDefinitions.TagRace].Add(PowerSpellPoints);
+                break;
+            case RulesetCharacterMonster monster:
+                monster.ActiveFeatures.Add(PowerSpellPoints);
+                break;
+            default:
+                return;
+        }
 
-        var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
-        var poolSize = hero.GetMaxUsesOfPower(usablePower);
+        var usablePower = PowerProvider.Get(PowerSpellPoints, character);
+        var poolSize = character.GetMaxUsesOfPower(usablePower);
 
         usablePower.remainingUses = poolSize;
-        hero.UsablePowers.Add(usablePower);
+        character.UsablePowers.Add(usablePower);
     }
 
     internal static void ConsumeSlotsAtLevelsPointsCannotCastAnymore(
-        RulesetCharacterHero hero,
+        RulesetCharacter character,
         RulesetSpellRepertoire repertoire,
         int slotLevel, bool consume = true, bool isMulticaster = false)
     {
         // consume points
-        var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
+        var usablePower = PowerProvider.Get(PowerSpellPoints, character);
 
         if (consume)
         {
@@ -207,6 +219,9 @@ internal static class SpellPointsContext
 
             usablePower.remainingUses -= cost;
         }
+
+        // NPCs cannot be multicasters so try to get a hero here
+        var hero = character as RulesetCharacterHero;
 
         // consume spell slots at levels points cannot cast anymore
         var level = isMulticaster
@@ -250,14 +265,14 @@ internal static class SpellPointsContext
         }
     }
 
-    internal static void ConvertAdditionalSlotsIntoSpellPointsBeforeRefreshSpellRepertoire(RulesetCharacterHero hero)
+    internal static void ConvertAdditionalSlotsIntoSpellPointsBeforeRefreshSpellRepertoire(RulesetCharacter character)
     {
-        var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
+        var usablePower = PowerProvider.Get(PowerSpellPoints, character);
 
-        // need ToList to avoid enumerator issues with RemoveCondition
-        foreach (var activeCondition in hero.ConditionsByCategory
+        // need ToArray to avoid enumerator issues with RemoveCondition
+        foreach (var activeCondition in character.ConditionsByCategory
                      .SelectMany(x => x.Value)
-                     .ToList())
+                     .ToArray())
         {
             var removeCondition = false;
 
@@ -280,7 +295,7 @@ internal static class SpellPointsContext
 
             if (removeCondition)
             {
-                hero.RemoveCondition(activeCondition);
+                character.RemoveCondition(activeCondition);
             }
         }
     }
@@ -347,10 +362,21 @@ internal static class SpellPointsContext
 
         public int PoolChangeAmount(RulesetCharacter character)
         {
-            var hero = character.GetOriginalHero();
-            var casterLevel = GetCasterLevel(hero);
+            switch (character)
+            {
+                case RulesetCharacterHero hero:
+                {
+                    var casterLevel = GetCasterLevel(hero);
 
-            return SpellPointsByLevel[casterLevel];
+                    return SpellPointsByLevel[casterLevel];
+                }
+                case RulesetCharacterMonster monster when
+                    monster.SpellRepertoires.Count > 0:
+
+                    return SpellPointsByLevel[monster.SpellRepertoires[0].MaxSpellLevelOfSpellCastingLevel];
+                default:
+                    return 0;
+            }
         }
 
         private static int GetCasterLevel(RulesetCharacterHero hero)

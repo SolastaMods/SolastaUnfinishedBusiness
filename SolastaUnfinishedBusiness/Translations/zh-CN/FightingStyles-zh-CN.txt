@@ -49,4 +49,4 @@ Reaction/&ReactionAttackAoOEnterTitle=借机攻击
 Reaction/&ReactionAttackSentinelDescription={0} 攻击了你的一个盟友，作为回应，你可以使用你的反应来攻击。
 Reaction/&ReactionAttackSentinelReactDescription=使用反应来攻击。
 Reaction/&ReactionAttackSentinelReactTitle=攻击
-Reaction/&ReactionAttackSentinelTitle=哨兵反应
+Reaction/&ReactionAttackSentinelTitle=哨兵

@@ -357,7 +357,7 @@ internal static class TryAlterOutcomeAttributeCheck
 
         foreach (var unit in contenders
                      .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                     .ToList())
+                     .ToArray())
         {
             var hasUnit =
                 actionService.PendingReactionRequestGroups.Count > 0 &&

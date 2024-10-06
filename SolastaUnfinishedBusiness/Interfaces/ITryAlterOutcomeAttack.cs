@@ -43,7 +43,7 @@ internal static class TryAlterOutcomeAttack
 
         foreach (var unit in contenders
                      .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                     .ToList())
+                     .ToArray())
         {
             Handlers.AddRange(unit.RulesetCharacter.GetSubFeaturesByType<ITryAlterOutcomeAttack>()
                 .Select(handler => (handler, unit)));

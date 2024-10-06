@@ -22,9 +22,9 @@ public static class CharacterReactionSubitemPatcher
             RulesetSpellRepertoire spellRepertoire,
             int slotLevel)
         {
-            var hero = spellRepertoire?.GetCasterHero();
+            var character = spellRepertoire?.GetCaster();
 
-            if (hero == null)
+            if (character == null)
             {
                 return;
             }
@@ -34,7 +34,11 @@ public static class CharacterReactionSubitemPatcher
                 return;
             }
 
-            if (!SharedSpellsContext.IsMulticaster(hero))
+            // NPCs cannot be multicasters so try to get a hero here
+            // don't use GetOriginalHero here
+            var hero = character as RulesetCharacterHero;
+
+            if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
             {
                 //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
                 SpellPointsContext.HideSpellSlots(hero, __instance.slotStatusTable);

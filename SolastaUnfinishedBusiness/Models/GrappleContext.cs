@@ -13,6 +13,8 @@ using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Behaviors.Specific.DistanceCalculation;
 
@@ -22,10 +24,12 @@ internal static class GrappleContext
 {
     private const string Grapple = "Grapple";
     private const string DisableGrapple = "DisableGrapple";
-    private const string ConditionGrappleSourceName = $"Condition{Grapple}Source";
-    private const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
-    private const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
+
     private const string ConditionGrappleTargetName = $"Condition{Grapple}Target";
+    private const string ConditionGrappleSourceName = $"Condition{Grapple}Source";
+
+    internal const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
+    internal const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
 
     private static readonly FeatureDefinitionPower PowerGrapple = FeatureDefinitionPowerBuilder
         .Create($"Power{Grapple}")
@@ -79,6 +83,9 @@ internal static class GrappleContext
 
     internal static void LateLoad()
     {
+        const SituationalContext TARGET_HAS_CONDITION_FROM_SOURCE =
+            (SituationalContext)ExtraSituationalContext.IsConditionSource;
+
         var battlePackage =
             AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName, AiContext.RandomType.RandomMediumLow);
 
@@ -89,15 +96,12 @@ internal static class GrappleContext
             .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics)
             .SetBrain(battlePackage, true)
             .SetFeatures(
-                FeatureDefinitionActionAffinitys.ActionAffinityGrappled,
-                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained,
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained)
+                ActionAffinityGrappled,
+                ActionAffinityConditionRestrained,
+                MovementAffinityConditionRestrained)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedConditionGrappleTarget())
             .SetConditionParticleReference(ConditionDefinitions.ConditionRestrained)
             .AddToDB();
-
-        const SituationalContext TARGET_HAS_CONDITION_FROM_SOURCE =
-            (SituationalContext)ExtraSituationalContext.IsConditionSource;
 
         var combatAffinityGrappleSource = FeatureDefinitionCombatAffinityBuilder
             .Create("CombatAffinityGrappleSource")
@@ -110,6 +114,7 @@ internal static class GrappleContext
             .Create("CombatAffinityGrappleSourceWithGrappler")
             .SetGuiPresentationNoContent(true)
             .SetSituationalContext(TARGET_HAS_CONDITION_FROM_SOURCE, conditionGrappleTarget)
+            .SetAttackOfOpportunityImmunity(true)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
@@ -118,14 +123,14 @@ internal static class GrappleContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                MovementAffinityNoClimb,
+                MovementAffinityNoSpecialMoves,
                 combatAffinityGrappleSource,
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
+                MovementAffinityConditionSlowed)
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+                    x.IsSubtypeOf(ConditionIncapacitated) || x.IsSubtypeOf(ConditionFlying)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
@@ -134,14 +139,13 @@ internal static class GrappleContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionReckless)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
-                combatAffinityGrappleSource,
+                MovementAffinityNoClimb,
+                MovementAffinityNoSpecialMoves,
                 combatAffinityGrappleSourceWithGrappler)
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+                    x.IsSubtypeOf(ConditionIncapacitated) || x.IsSubtypeOf(ConditionFlying)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
@@ -150,16 +154,28 @@ internal static class GrappleContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSlowed)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
-                combatAffinityGrappleSource,
+                MovementAffinityNoClimb,
+                MovementAffinityNoSpecialMoves,
                 combatAffinityGrappleSourceWithGrappler,
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
+                MovementAffinityConditionSlowed)
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+                    x.IsSubtypeOf(ConditionIncapacitated) || x.IsSubtypeOf(ConditionFlying)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
+            .AddToDB();
+
+        // Brawler feat
+        _ = ActionDefinitionBuilder
+            .Create($"Action{Grapple}Bonus")
+            .SetGuiPresentation($"Action{Grapple}", Category.Action, AttackFree)
+            .OverrideClassName("UsePower")
+            .SetActivatedPower(PowerGrapple)
+            .SetActionId(ExtraActionId.GrappleBonus)
+            .SetActionScope(ActionDefinitions.ActionScope.All)
+            .SetActionType(ActionDefinitions.ActionType.Bonus)
+            .SetFormType(ActionDefinitions.ActionFormType.Large)
+            .RequiresAuthorization()
             .AddToDB();
     }
 
@@ -209,31 +225,58 @@ internal static class GrappleContext
         }
     }
 
-    internal static void ValidateIfBothHandsFree(
-        RulesetCharacter caster, ref bool result, ref string failure, bool isSomaticCheck = false)
+    internal static void ValidateActionAvailability(
+        GameLocationCharacter __instance,
+        ref ActionDefinitions.ActionStatus __result,
+        ActionDefinitions.Id actionId)
     {
-        if (!HasGrappleSource(caster) ||
+        if (!Main.Settings.AddGrappleActionToAllRaces)
+        {
+            return;
+        }
+
+        var rulesetCharacter = __instance.RulesetCharacter;
+        var hasGrappleSource = HasGrappleSource(rulesetCharacter);
+        var extraActionId = (ExtraActionId)actionId;
+
+        if ((extraActionId is ExtraActionId.Grapple or ExtraActionId.GrappleBonus &&
+             (hasGrappleSource ||
+              !ValidatorsCharacter.HasFreeHand(rulesetCharacter) ||
+              !ValidatorsCharacter.HasMainAttackAvailable(rulesetCharacter))) ||
+            (extraActionId == ExtraActionId.DisableGrapple && !hasGrappleSource))
+        {
+            __result = ActionDefinitions.ActionStatus.Unavailable;
+        }
+    }
+
+    internal static void ValidateIfCastingValid(
+        RulesetCharacter caster, SpellDefinition spell, ref bool result, ref string failure,
+        SpellValidationType validationType)
+    {
+        if (!result ||
+            !HasGrappleSource(caster) ||
+            (validationType == SpellValidationType.Somatic && !spell.SomaticComponent) ||
+            (validationType == SpellValidationType.Material &&
+             spell.MaterialComponentType == MaterialComponentType.None) ||
             ServiceRepository.GetService<IGameSettingsService>().MaterialComponent ==
             SettingDefinitions.SomaticComponentDisabled)
         {
             return;
         }
 
-        var mainHand = caster.GetMainWeapon();
-        var offHand = caster.GetOffhandWeapon();
-
-        if (ValidatorsWeapon.IsUnarmed(offHand?.ItemDefinition) && ValidatorsWeapon.IsUnarmed(mainHand?.ItemDefinition))
+        if (ValidatorsCharacter.HasBothHandsFree(caster) ||
+            caster.HasSubFeatureOfType<OtherFeats.WarCasterMarker>())
         {
             return;
         }
 
         result = false;
-        failure = isSomaticCheck
+        failure = validationType == SpellValidationType.Somatic
             ? "Failure/&FailureFlagSomaticComponentHandsFull"
             : "Failure/&FailureFlagMaterialComponentHandsFull";
     }
 
-    internal static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
+    private static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
     {
         return rulesetCharacter.HasConditionOfCategoryAndType(
                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName) ||
@@ -279,6 +322,12 @@ internal static class GrappleContext
         }
 
         return 1;
+    }
+
+    internal enum SpellValidationType
+    {
+        Somatic,
+        Material
     }
 
     private sealed class CustomBehaviorGrapple : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
@@ -353,16 +402,12 @@ internal static class GrappleContext
                 rulesetDefender.RemoveCondition(condition);
             }
 
-            // apply new grappler condition taking if hero has Grappler feat into consideration as well as target size
+            // apply new grappler condition
             var sourceConditionName = ConditionGrappleSourceName;
 
-            if (rulesetAttacker.GetOriginalHero()?.TrainedFeats.Contains(OtherFeats.FeatGrappler) == true)
-            {
-                sourceConditionName =
-                    rulesetAttacker.SizeDefinition.WieldingSize < rulesetDefender.SizeDefinition.WieldingSize
-                        ? ConditionGrappleSourceWithGrapplerLargerName
-                        : ConditionGrappleSourceWithGrapplerName;
-            }
+            // factor in Grappler feat
+            OtherFeats.MaybeChangeGrapplerConditionForGrappleFeatBehavior(
+                rulesetAttacker, rulesetDefender, ref sourceConditionName);
 
             rulesetAttacker.InflictCondition(
                 sourceConditionName,
@@ -454,7 +499,7 @@ internal static class GrappleContext
             attackMode.UseVersatileDamage = false;
         }
 
-        // should drag target whenever move
+        // should drag target whenever move considering all movement blockers as well
         public void MoveStepStarted(GameLocationCharacter mover, int3 source, int3 destination)
         {
             var rulesetMover = mover.RulesetCharacter;
@@ -464,29 +509,42 @@ internal static class GrappleContext
                 return;
             }
 
+            var pathfindingService = ServiceRepository.GetService<IGameLocationPathfindingService>();
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
+            var targetPosition = target.LocationPosition;
+            var targetDestinationPosition = source;
 
-            // ensure there is a non-blocked path for this movement if a creature larger than 1x1 cell on 2d plane
-            if (target.LocationBoundingBox.Size.x > 1 || target.LocationBoundingBox.Size.y > 1)
+            pathfindingService
+                .ComputeValidDestinationsAsync(target, target.LocationPosition, 1, 0, true, true)
+                .ExecuteUntilDone();
+
+            var validPositions = pathfindingService.ValidDestinations
+                .Where(x => x.moveMode is MoveMode.Walk or MoveMode.Fly)
+                .Select(x => x.position)
+                .ToArray();
+
+            bool canTeleport;
+
+            // handle better movement on larger enemies by applying same movement directions as source
+            if (target.SizeParameters.maxExtent.x > 0 ||
+                target.SizeParameters.maxExtent.y > 0 ||
+                target.SizeParameters.maxExtent.z > 0)
             {
-                var validPositions = GetValidPositionsWithinOneCell(target);
+                targetDestinationPosition = targetPosition + destination - source;
 
-                if (!validPositions.Contains(source))
-                {
-                    EjectCharactersInArea(mover, target);
-                    rulesetTarget.RemoveCondition(activeCondition);
-
-                    return;
-                }
+                canTeleport = validPositions.Contains(targetDestinationPosition);
+            }
+            // for an unknown reason ComputeValidDestinationsAsync isn't adding the mover one even when flagging ignoreOccupants
+            // fix it here to avoid breaking one cell targets
+            else
+            {
+                canTeleport = true;
             }
 
-            // be safe and if it cannot place target, get rid of grapple to avoid exploits
-            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-
-            if (positioningService.CanPlaceCharacter(target, source, CellHelpers.PlacementMode.IgnoreOccupantsMoving))
+            if (canTeleport)
             {
-                target.StartTeleportTo(source, mover.Orientation, false);
-                target.FinishMoveTo(source, mover.Orientation);
+                target.StartTeleportTo(targetDestinationPosition, mover.Orientation, false);
+                target.FinishMoveTo(targetDestinationPosition, mover.Orientation);
                 target.StopMoving(mover.Orientation);
 
                 var isLastStep = GetDistanceFromCharacter(mover, mover.DestinationPosition) <= 1;
@@ -495,14 +553,11 @@ internal static class GrappleContext
                 {
                     EjectCharactersInArea(mover, target);
                 }
-
-                return;
             }
-
-            // remove condition if grappler cannot reach anymore after all of above
-            if (GetDistanceFromCharacter(target, mover.DestinationPosition) > GetUnarmedReachRange(mover))
+            else
             {
                 rulesetTarget.RemoveCondition(activeCondition);
+                EjectCharactersInArea(mover, target);
             }
         }
 
@@ -556,53 +611,13 @@ internal static class GrappleContext
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if ((ValidatorsWeapon.HasAnyWeaponTag(
-                     attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagTwoHanded) ||
-                 ValidatorsWeapon.IsUnarmed(attackMode)) &&
+            if (!ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(rulesetAttacker) &&
                 GetGrappledActor(rulesetAttacker, out var rulesetTarget, out var activeCondition))
             {
                 rulesetTarget.RemoveCondition(activeCondition);
             }
 
             yield break;
-        }
-
-        private static List<int3> GetValidPositionsWithinOneCell(GameLocationCharacter character)
-        {
-            var positions = new List<int3>();
-            var gridAccessor = GridAccessor.Default;
-            var boxInt = new BoxInt(character.LocationPosition, character.LocationPosition);
-
-            boxInt.Inflate(1, 0, 1);
-
-            foreach (var position in boxInt.EnumerateAllPositionsWithin())
-            {
-                var magnitude = (position - character.LocationPosition).magnitude;
-
-                if (magnitude < 1 ||
-                    magnitude > 1 || // float numbers don't like equalities
-                    character.LocationPosition == position)
-                {
-                    continue;
-                }
-
-                gridAccessor.FetchSector(position);
-
-                if (gridAccessor.sector == null)
-                {
-                    continue;
-                }
-
-                gridAccessor.sector.GetValidAltitudeRangeAtPosition(
-                    position, out var minAltitude, out var maxAltitude);
-
-                if ((maxAltitude != short.MaxValue && minAltitude != maxAltitude) || minAltitude != short.MinValue)
-                {
-                    positions.Add(new int3(position.x, maxAltitude, position.z));
-                }
-            }
-
-            return positions;
         }
 
         private static void EjectCharactersInArea(

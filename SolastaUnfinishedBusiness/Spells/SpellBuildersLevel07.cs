@@ -270,7 +270,7 @@ internal static partial class SpellBuilders
                     x.CanPerceiveTarget(defender) &&
                     x.RulesetCharacter.UsableSpells.Contains(_rescueTheDying) &&
                     x.RulesetCharacter.AreSpellComponentsValid(_rescueTheDying))
-                .ToList();
+                .ToArray();
 
             foreach (var contender in contenders)
             {

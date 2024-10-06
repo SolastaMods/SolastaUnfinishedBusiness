@@ -73,9 +73,8 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .Create($"Feature{Name}WrathAndFury")
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
-                //new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
-                new UpgradeWeaponDice(GeUpgradedDice, ValidatorsWeapon.AlwaysValid,
-                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand),
+                new UpgradeWeaponDice(GeUpgradedDice, (_, _, c) =>
+                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(c)),
                 new ActionFinishedByMeWrathAndFury())
             .AddToDB();
 

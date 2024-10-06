@@ -33,7 +33,7 @@ internal static class AttacksOfOpportunity
 
         var units = Gui.Battle.AllContenders
             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            .ToList(); // avoid changing enumerator
+            .ToArray(); // avoid changing enumerator
 
         //Process other participants of the battle
         foreach (var unit in units
@@ -64,7 +64,7 @@ internal static class AttacksOfOpportunity
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
         var units = Gui.Battle.AllContenders
             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            .ToList(); // avoid changing enumerator
+            .ToArray(); // avoid changing enumerator
 
         //Process other participants of the battle
         foreach (var unit in units)

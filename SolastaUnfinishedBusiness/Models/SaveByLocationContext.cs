@@ -40,7 +40,7 @@ internal static class SaveByLocationContext
         Main.EnsureFolderExists(CampaignSaveGameDirectory);
     }
 
-    private static List<SavePlace> GetAllSavePlaces()
+    private static SavePlace[] GetAllSavePlaces()
     {
         // Find the most recently touched save file and select the correct location/campaign for that save
         return EnumerateDirectories(LocationSaveGameDirectory, LocationType.UserLocation)
@@ -48,7 +48,7 @@ internal static class SaveByLocationContext
             .Concat(EnumerateDirectories(OfficialSaveGameDirectory, LocationType.StandardCampaign))
             .Append(MostRecentFile(DefaultSaveGameDirectory, LocationType.Default))
             .Where(d => d.Available)
-            .ToList();
+            .ToArray();
     }
 
     internal static SavePlace GetMostRecentPlace()
@@ -68,12 +68,12 @@ internal static class SaveByLocationContext
 
     private static SavePlace MostRecentFile(string dir, LocationType type)
     {
-        var files = Directory.EnumerateFiles(dir, "*.sav").ToList();
+        var files = Directory.EnumerateFiles(dir, "*.sav").ToArray();
         var place = new SavePlace
         {
             Name = type == LocationType.Default ? DefaultName : Path.GetFileName(dir),
             Path = dir,
-            Count = files.Count,
+            Count = files.Length,
             Date = files.Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
             Type = type
         };
@@ -111,7 +111,7 @@ internal static class SaveByLocationContext
                 .OrderBy(p => p)
                 .Select(LocationOptionData.Create)
                 .Cast<TMP_Dropdown.OptionData>()
-                .ToList());
+                .ToArray());
 
         // Get the current campaign location and select it in the dropdown
         var selectedCampaign = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();

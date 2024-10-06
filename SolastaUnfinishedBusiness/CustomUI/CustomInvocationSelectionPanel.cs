@@ -285,7 +285,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         var command = ServiceRepository.GetService<IHeroBuildingCommandService>();
 
         //remove all trained custom invocations
-        var entries = heroBuildingData.levelupTrainedInvocations.ToList();
+        var entries = heroBuildingData.levelupTrainedInvocations.ToArray();
 
         foreach (var entry in entries)
         {
@@ -305,7 +305,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         }
 
         //remove all unlearned custom invocations
-        entries = heroBuildingData.unlearnedInvocations.ToList();
+        entries = [.. heroBuildingData.unlearnedInvocations];
 
         foreach (var entry in entries)
         {

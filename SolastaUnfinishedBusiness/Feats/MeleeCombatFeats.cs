@@ -565,7 +565,7 @@ internal static class MeleeCombatFeats
             .AddCustomSubFeatures(
                 new AddExtraMainHandAttack(
                     ActionType.Bonus,
-                    ValidatorsCharacter.HasMeleeWeaponOrUnarmedInMainHand,
+                    ValidatorsCharacter.HasMeleeWeaponInMainHandOrUnarmed,
                     ValidatorsCharacter.HasAnyOfConditions(ConditionDashing)))
             .AddToDB();
 

@@ -123,9 +123,9 @@ public static class GameLocationBattlePatcher
             }
 
             foreach (var (character, features) in __instance.InitiativeSortedContenders
-                         .ToList()
                          .Select(character =>
-                             (character, character.RulesetCharacter.GetSubFeaturesByType<IInitiativeEndListener>())))
+                             (character, character.RulesetCharacter.GetSubFeaturesByType<IInitiativeEndListener>()))
+                         .ToArray())
             {
                 //PATCH: supports `SenseNormalVisionRangeMultiplier`
                 var multiplier = Main.Settings.SenseNormalVisionRangeMultiplier;

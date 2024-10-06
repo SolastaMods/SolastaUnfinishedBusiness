@@ -35,16 +35,16 @@ public class ForceConcentrationCheck
 
         var effects = rulesetCharacter.EnumerateActiveEffectsActivatedByMe()
             .Where(e => e.SourceDefinition.HasSubFeatureOfType<ForceConcentrationCheck>())
-            .ToList();
+            .ToArray();
 
-        if (effects.Count == 0)
+        if (effects.Length == 0)
         {
             return;
         }
 
         var handler = rulesetCharacter.ConcentrationCheckRolled;
 
-        effects.ForEach(effect => RollConcentration(effect, rulesetCharacter, damage, damageType, stillConscious));
+        effects.Do(effect => RollConcentration(effect, rulesetCharacter, damage, damageType, stillConscious));
         rulesetCharacter.ConcentrationCheckRolled = handler;
     }
 

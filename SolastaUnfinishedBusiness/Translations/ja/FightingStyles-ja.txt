@@ -49,4 +49,4 @@ Reaction/&ReactionAttackAoOEnterTitle=チャンスの攻撃
 Reaction/&ReactionAttackSentinelDescription={0} が味方の 1 人を攻撃しました。それに応じて、自分の反応を攻撃に利用できます。
 Reaction/&ReactionAttackSentinelReactDescription=反応を利用して攻撃します。
 Reaction/&ReactionAttackSentinelReactTitle=攻撃
-Reaction/&ReactionAttackSentinelTitle=傍受
+Reaction/&ReactionAttackSentinelTitle=センチネル

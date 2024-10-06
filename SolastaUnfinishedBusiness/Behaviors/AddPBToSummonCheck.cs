@@ -24,9 +24,9 @@ public class AddPBToSummonCheck(int multiplier, params string[] abilities)
 
         monster.EnumerateFeaturesToBrowse<T>(features);
 
-        var mods = features.SelectMany(f => f.GetAllSubFeaturesOfType<AddPBToSummonCheck>()).ToList();
+        var mods = features.SelectMany(f => f.GetAllSubFeaturesOfType<AddPBToSummonCheck>()).ToArray();
 
-        if (mods.Count == 0)
+        if (mods.Length == 0)
         {
             return;
         }

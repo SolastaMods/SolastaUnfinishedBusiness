@@ -32,8 +32,8 @@ public static class FunctorPatcher
 
             // only conjured units should teleport with the party
             foreach (var guestCharacter in characterService.GuestCharacters
-                         .ToList()
-                         .Where(x => x.RulesetCharacter.Tags.Contains(AttributeDefinitions.TagConjure)))
+                         .Where(x => x.RulesetCharacter.Tags.Contains(AttributeDefinitions.TagConjure))
+                         .ToArray())
             {
                 var rulesetCharacter = guestCharacter.RulesetCharacter;
 

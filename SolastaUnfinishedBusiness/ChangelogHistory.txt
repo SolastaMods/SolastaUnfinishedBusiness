@@ -1,3 +1,19 @@
+1.5.97.33:
+
+- added homebrew Brawler feat
+- fixed Armor of Agathys spell condition removal, and damage determination logic
+- fixed guests, monsters, and NPCs spell casting soft locking the game
+- fixed Create Bonfire cantrip recurrent damage dice number determination
+- fixed RESPEC invalid save state introduced on v32 [doesn't fix broken saves]
+- improved Grapple behavior with larger targets pathfinding, and movement blockers
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+- Dissonant Whisper spell will de-synchronize sessions if under multiplayer
+- Grappled character won't trigger OnMove or OnEnter environment effects if dragged
+
 1.5.97.32:
 
 - added General > Character > 'Add grapple action to all playable races'
@@ -25,11 +41,6 @@
 - improved RESPEC to properly render new hero on UI, and fixed absurd AC under certain scenarios
 - improved slot type SHIFT key modifier to only require the key pressed on modals clicks, and also work on multiplayer
 - improved tooltips to be wider, and better fully render at 1080p or lower resolutions as one in Steam Deck
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force disadvantage if attack is within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses [won't fix]
 
 1.5.97.31:
 

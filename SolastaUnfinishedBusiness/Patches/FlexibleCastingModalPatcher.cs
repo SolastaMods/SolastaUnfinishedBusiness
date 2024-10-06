@@ -25,7 +25,7 @@ public static class FlexibleCastingModalPatcher
             var rulesetCaster = __instance.caster;
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
 
-            caster.RegisterShiftState();
+            caster?.RegisterShiftState();
         }
     }
 }

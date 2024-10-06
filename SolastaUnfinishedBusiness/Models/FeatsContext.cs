@@ -58,7 +58,7 @@ internal static class FeatsContext
                      .Where(featGroup =>
                          !string.IsNullOrEmpty(featGroup.FamilyTag) &&
                          featGroup.Name != "FeatGroupElementalTouch")
-                     .ToList())
+                     .ToArray())
         {
             FeatGroups.Remove(featGroup);
 
@@ -81,7 +81,7 @@ internal static class FeatsContext
         // settings paring feats
         foreach (var name in Main.Settings.FeatEnabled
                      .Where(name => Feats.All(x => x.Name != name))
-                     .ToList())
+                     .ToArray())
         {
             Main.Settings.FeatEnabled.Remove(name);
         }
@@ -89,7 +89,7 @@ internal static class FeatsContext
         // settings paring groups
         foreach (var name in Main.Settings.FeatGroupEnabled
                      .Where(name => FeatGroups.All(x => x.Name != name))
-                     .ToList())
+                     .ToArray())
         {
             Main.Settings.FeatGroupEnabled.Remove(name);
         }
@@ -247,7 +247,7 @@ internal static class FeatsContext
         var dbFeatDefinition = DatabaseRepository.GetDatabase<FeatDefinition>();
         var visibleFeats = dbFeatDefinition
             .Where(x => !x.GuiPresentation.Hidden)
-            .ToList();
+            .ToArray();
 
         panel.relevantFeats.SetRange(visibleFeats
             .Where(f => f.GetFirstSubFeatureOfType<IGroupedFeat>() is not { } group
@@ -269,9 +269,10 @@ internal static class FeatsContext
                 return;
             }
 
-            var trainedFeats = buildingData.LevelupTrainedFeats.SelectMany(x => x.Value).ToList();
-
-            trainedFeats.AddRange(hero.TrainedFeats);
+            var trainedFeats = buildingData.LevelupTrainedFeats
+                .SelectMany(x => x.Value)
+                .Union(hero.TrainedFeats)
+                .ToArray();
 
             var j = 0;
             RectTransform rect;

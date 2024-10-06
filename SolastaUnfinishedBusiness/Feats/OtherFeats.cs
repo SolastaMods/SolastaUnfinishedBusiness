@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -43,22 +44,11 @@ internal static class OtherFeats
     internal const string FeatMagicInitiateTag = "Initiate";
     internal const string FeatSpellSniperTag = "Sniper";
 
-    #region Grappler
-
-    // it's all handled in grapplerContext except for strength increase
-    internal static readonly FeatDefinition FeatGrappler = FeatDefinitionBuilder
-        .Create("FeatGrappler")
-        .SetGuiPresentation(Category.Feat)
-        .AddFeatures(AttributeModifierCreed_Of_Einar)
-        .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-        .AddToDB();
-
-    #endregion
-
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
+        var featBrawler = BuildBrawler();
         var featDungeonDelver = BuildDungeonDelver();
         var featEldritchAdept = BuildEldritchAdept();
         var featFightingInitiate = BuildFightingInitiate();
@@ -97,11 +87,13 @@ internal static class OtherFeats
             featAcrobat,
             FeatAlert,
             featArcaneArcherAdept,
+            featBrawler,
             featDungeonDelver,
             featEldritchAdept,
             featFrostAdaptation,
             featGiftOfTheChromaticDragon,
-            FeatGrappler,
+            FeatGrapplerStr,
+            FeatGrapplerDex,
             featHealer,
             featInfusionAdept,
             featInspiringLeader,
@@ -124,6 +116,10 @@ internal static class OtherFeats
             featTough,
             featVersatilityAdept,
             featWarCaster);
+
+        var featGroupGrappler = GroupFeats.MakeGroup("FeatGroupGrappler", GroupFeats.Grappler,
+            FeatGrapplerStr,
+            FeatGrapplerDex);
 
         GroupFeats.FeatGroupBodyResilience.AddFeats(
             athleteGroup,
@@ -157,8 +153,9 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featGiftOfTheChromaticDragon,
+            featBrawler,
             chefGroup,
-            FeatGrappler,
+            featGroupGrappler,
             featHealer,
             featInspiringLeader,
             featLucky,
@@ -591,6 +588,77 @@ internal static class OtherFeats
                         new AddPolearmFollowUpAttack(LongMaceWeaponType))
                     .AddToDB())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Brawler
+
+    private static FeatDefinition BuildBrawler()
+    {
+        const string Name = "FeatBrawler";
+
+        var actionAffinityGrappleBonus =
+            FeatureDefinitionActionAffinityBuilder
+                .Create($"ActionAffinity{Name}GrappleBonus")
+                .SetGuiPresentationNoContent(true)
+                .SetAuthorizedActions((Id)ExtraActionId.GrappleBonus)
+                .AddCustomSubFeatures(
+                    new ValidateDefinitionApplication(ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
+                    new AddExtraUnarmedAttack(
+                        ActionType.Bonus, ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
+                    new UpgradeWeaponDice((_, d) => (Math.Max(1, d.DiceNumber), DieType.D6, DieType.D6),
+                        (a, _, _) => a
+                                         ?.SourceDefinition is ItemDefinition itemDefinition &&
+                                     itemDefinition == ItemDefinitions.UnarmedStrikeBase),
+                    new UpgradeWeaponDice((_, d) => (Math.Max(1, d.DiceNumber), DieType.D8, DieType.D8),
+                        (_, _, c) => ValidatorsCharacter.HasBothHandsFree(c)))
+                .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, actionAffinityGrappleBonus)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Grappler
+
+    private static readonly FeatDefinition FeatGrapplerDex = FeatDefinitionBuilder
+        .Create("FeatGrapplerDex")
+        .SetGuiPresentation(Category.Feat)
+        .AddFeatures(AttributeModifierCreed_Of_Misaye)
+        .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+        .SetFeatFamily(GroupFeats.Grappler)
+        .AddToDB();
+
+    private static readonly FeatDefinition FeatGrapplerStr = FeatDefinitionBuilder
+        .Create("FeatGrapplerStr")
+        .SetGuiPresentation(Category.Feat)
+        .AddFeatures(AttributeModifierCreed_Of_Einar)
+        .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+        .SetFeatFamily(GroupFeats.Grappler)
+        .AddToDB();
+
+    internal static void MaybeChangeGrapplerConditionForGrappleFeatBehavior(
+        RulesetCharacter attacker,
+        RulesetCharacter defender,
+        ref string sourceConditionName)
+    {
+        var hero = attacker.GetOriginalHero();
+
+        if (hero != null &&
+            (hero.TrainedFeats.Contains(FeatGrapplerDex) ||
+             hero.TrainedFeats.Contains(FeatGrapplerStr)))
+        {
+            sourceConditionName =
+                attacker.SizeDefinition.WieldingSize < defender.SizeDefinition.WieldingSize
+                    ? GrappleContext.ConditionGrappleSourceWithGrapplerLargerName
+                    : GrappleContext.ConditionGrappleSourceWithGrapplerName;
+        }
     }
 
     #endregion

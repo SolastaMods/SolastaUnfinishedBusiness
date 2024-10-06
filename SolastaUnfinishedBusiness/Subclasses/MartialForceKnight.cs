@@ -250,14 +250,16 @@ public sealed class MartialForceKnight : AbstractSubclass
         // Psionic Propulsion
 
         _ = FeatureDefinitionMoveModeBuilder
-            .Create(FeatureDefinitionMoveModes.MoveModeFly2, "MoveModeFly14")
+            .Create("MoveModeFly14")
+            .SetGuiPresentation(FeatureDefinitionMoveModes.MoveModeFly12.GuiPresentation)
             .SetMode(MoveMode.Fly, 14)
             .AddToDB();
 
         for (var i = 14; i <= 18; i += 2)
         {
             _ = FeatureDefinitionMoveModeBuilder
-                .Create(FeatureDefinitionMoveModes.MoveModeMove2, $"MoveModeMove{i}")
+                .Create($"MoveModeMove{i}")
+                .SetGuiPresentation(FeatureDefinitionMoveModes.MoveModeMove12.GuiPresentation)
                 .SetMode(MoveMode.Walk, i)
                 .AddToDB();
         }

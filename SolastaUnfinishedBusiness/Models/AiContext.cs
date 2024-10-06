@@ -123,7 +123,7 @@ internal static class AiContext
         var scorerBreakFree = CreateActivityScorer(baseDecision, $"BreakFree{conditionName}", true,
             hasConditionBreakFree,
             mainActionNotFullyConsumed);
-        
+
         if (decisionWithRandom)
         {
             var wcdRandom = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
@@ -139,7 +139,7 @@ internal static class AiContext
 
             scorerBreakFree.Scorer.WeightedConsiderations.Add(random);
         }
-        
+
         var decisionBreakFree = DecisionDefinitionBuilder
             .Create($"DecisionBreakFree{conditionName}")
             .SetGuiPresentationNoContent(true)

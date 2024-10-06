@@ -89,7 +89,7 @@ internal static class TryAlterOutcomeSavingThrow
 
         foreach (var unit in contenders
                      .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                     .ToList())
+                     .ToArray())
         {
             foreach (var feature in unit.RulesetCharacter
                          .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())

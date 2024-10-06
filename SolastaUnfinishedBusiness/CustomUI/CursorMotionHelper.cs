@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -186,9 +187,9 @@ public class CursorMotionHelper : MonoBehaviour
 
     private void DestroyHelpers()
     {
-        var helpers = _helpers.Values.ToList();
+        var helpers = _helpers.Values.ToArray();
         _helpers.Clear();
-        helpers.ForEach(DestroyHelper);
+        helpers.Do(DestroyHelper);
     }
 
     private int3 GetTargetShift(GameLocationCharacter target)

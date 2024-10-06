@@ -23,7 +23,8 @@ public static class SlotStatusTablePatcher
             FeatureDefinitionCastSpell featureDefinitionCastSpell,
             RulesetSpellRepertoire rulesetSpellRepertoire)
         {
-            var hero = rulesetSpellRepertoire.GetCasterHero();
+            // NPCs cannot be multicasters so try to get a hero here
+            var hero = rulesetSpellRepertoire.GetCaster() as RulesetCharacterHero;
 
             //PATCH: displays slots on any multicaster hero so Warlocks can see their spell slots
             return featureDefinitionCastSpell.UniqueLevelSlots && !SharedSpellsContext.IsMulticaster(hero);
@@ -49,10 +50,10 @@ public static class SlotStatusTablePatcher
             List<SpellDefinition> spells,
             int spellLevel)
         {
-            var hero = spellRepertoire?.GetCasterHero();
+            var character = spellRepertoire?.GetCaster();
 
             // spellRepertoire is null during level up...
-            if (spellLevel == 0 || hero == null)
+            if (spellLevel == 0 || character == null)
             {
                 return;
             }
@@ -62,20 +63,23 @@ public static class SlotStatusTablePatcher
                 return;
             }
 
-            if (!SharedSpellsContext.IsMulticaster(hero))
+            // NPCs cannot be multicasters so try to get a hero here
+            if (character is not RulesetCharacterHero hero ||
+                !SharedSpellsContext.IsMulticaster(hero))
             {
                 //PATCH: support display cost on spell level blocks (SPELL_POINTS)
-                // ReSharper disable once InvertIf
-                if (Main.Settings.UseAlternateSpellPointsSystem &&
-                    spellRepertoire.spellCastingClass != Warlock)
+                if (!Main.Settings.UseAlternateSpellPointsSystem ||
+                    spellRepertoire.spellCastingClass == Warlock)
                 {
-                    for (var index = 0; index < __instance.table.childCount; ++index)
-                    {
-                        var component = __instance.table.GetChild(index).GetComponent<SlotStatus>();
+                    return;
+                }
 
-                        SpellPointsContext.DisplayCostOnSpellLevelBlocks(__instance, component, spellLevel,
-                            spells.Count);
-                    }
+                for (var index = 0; index < __instance.table.childCount; ++index)
+                {
+                    var component = __instance.table.GetChild(index).GetComponent<SlotStatus>();
+
+                    SpellPointsContext.DisplayCostOnSpellLevelBlocks(
+                        __instance, component, spellLevel, spells.Count);
                 }
 
                 return;

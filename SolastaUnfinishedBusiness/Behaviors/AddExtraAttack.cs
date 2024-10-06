@@ -149,10 +149,11 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
         }
 
         var originalHero = character.GetOriginalHero();
-        var mainHandItem = hero.GetMainWeapon();
-        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmed(mainHandItem.ItemDefinition);
+        var mainHand = hero.GetMainWeapon();
+        // although IsUnarmed can take null this is a special case: isUnarmedWeapon vs isUnarmed only
+        var isUnarmedWeapon = mainHand != null && ValidatorsWeapon.IsUnarmed(mainHand);
         var strikeDefinition = isUnarmedWeapon
-            ? mainHandItem.ItemDefinition
+            ? mainHand.ItemDefinition
             : originalHero != null
                 ? originalHero.UnarmedStrikeDefinition
                 : DatabaseHelper.ItemDefinitions.UnarmedStrikeBase;
@@ -168,7 +169,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             EquipmentDefinitions.SlotTypeMainHand,
             attackModifiers,
             character.FeaturesOrigin,
-            isUnarmedWeapon ? mainHandItem : null
+            isUnarmedWeapon ? mainHand : null
         );
 
         return [attackMode];

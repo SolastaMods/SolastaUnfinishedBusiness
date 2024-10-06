@@ -68,10 +68,10 @@ public static class SpellActivationBoxPatcher
                 return;
             }
 
-            var rulesetCaster = __instance.spellRepertoire.GetCasterHero();
+            var rulesetCaster = __instance.spellRepertoire.GetCaster();
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
 
-            caster.RegisterShiftState();
+            caster?.RegisterShiftState();
         }
     }
 }

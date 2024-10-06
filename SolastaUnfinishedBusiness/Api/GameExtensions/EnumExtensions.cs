@@ -74,6 +74,7 @@ internal enum ExtraActionId
     CastQuickened,
     ZenShotToggle,
     Grapple,
+    GrappleBonus,
     DisableGrapple,
     PrioritizeAction = 10000
 }

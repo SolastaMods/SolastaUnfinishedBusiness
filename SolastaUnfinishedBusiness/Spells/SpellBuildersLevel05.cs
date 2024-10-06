@@ -802,7 +802,7 @@ internal static partial class SpellBuilders
                 var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
                 var contenders =
                     locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
-                        .ToList();
+                        .ToArray();
 
                 foreach (var contender in contenders)
                 {
@@ -1160,16 +1160,15 @@ internal static partial class SpellBuilders
     {
         const string Name = "Telekinesis";
 
-        var moveMode = FeatureDefinitionMoveModeBuilder
-            .Create($"MoveMode{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetMode(MoveMode.Fly, 0)
-            .AddToDB();
-
         var conditionTelekinesisRestrained = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRestrained, ConditionTelekinesisRestrainedName)
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFeatures(moveMode)
+            .SetFeatures(
+                FeatureDefinitionMoveModeBuilder
+                    .Create("MoveModeFly0")
+                    .SetGuiPresentation(FeatureDefinitionMoveModes.MoveModeFly12.GuiPresentation)
+                    .SetMode(MoveMode.Fly, 0)
+                    .AddToDB())
             .AddToDB();
 
         // there is indeed a typo on tag

@@ -458,16 +458,16 @@ public static class RulesetCharacterPatcher
             foreach (var targetRulesetCharacter in characterService.AllValidEntities
                          .Select(x => x.RulesetActor)
                          .OfType<RulesetCharacter>()
-                         .ToList())
+                         .ToArray())
             {
-                // need ToList to avoid enumerator issues with RemoveCondition
+                // need ToArray to avoid enumerator issues with RemoveCondition
                 foreach (var rulesetCondition in targetRulesetCharacter.ConditionsByCategory
                              .SelectMany(x => x.Value)
                              .Where(x =>
                                  x.ConditionDefinition.SpecialInterruptions.Contains(
                                      (ConditionInterruption)ExtraConditionInterruption.SourceRageStop) &&
                                  x.SourceGuid == sourceCharacter.Guid)
-                             .ToList())
+                             .ToArray())
                 {
                     targetRulesetCharacter.RemoveCondition(rulesetCondition);
 
@@ -478,7 +478,7 @@ public static class RulesetCharacterPatcher
 
                     foreach (var effect in targetRulesetCharacter.PowersUsedByMe
                                  .Where(x => x.Name == rulesetCondition.EffectDefinitionName)
-                                 .ToList())
+                                 .ToArray())
                     {
                         targetRulesetCharacter.TerminatePower(effect);
                     }
@@ -606,32 +606,27 @@ public static class RulesetCharacterPatcher
         public static void Postfix(
             RulesetCharacter __instance, ref bool __result, SpellDefinition spellDefinition, ref string failure)
         {
+            //PATCH: Validates if casters have the other hand free if grappling
+            GrappleContext.ValidateIfCastingValid(__instance,
+                spellDefinition, ref __result, ref failure, GrappleContext.SpellValidationType.Somatic);
+
+#if false
             //PATCH: Allows valid Somatic component if specific material component is held in main hand or off-hand slots
             // allows casting somatic spells with full hands if one of the hands holds material component for the spell
             ValidateIfMaterialInHand(__instance, spellDefinition, ref __result, ref failure);
-
-            if (__result)
-            {
-                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure, true);
-
-                return;
-            }
+#endif
 
             //PATCH: Allows valid Somatic component if Inventor has infused item in main hand or off-hand slots
             // allows casting somatic spells with full hands if one of the hands holds item infused by the caster
             ValidateIfInfusedInHand(__instance, ref __result, ref failure);
-
-            if (__result)
-            {
-                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure, true);
-            }
         }
 
+#if false
         //TODO: move to separate file
         private static void ValidateIfMaterialInHand(
             RulesetCharacter caster, SpellDefinition spellDefinition, ref bool result, ref string failure)
         {
-            if (spellDefinition.MaterialComponentType != MaterialComponentType.Specific)
+            if (result || spellDefinition.MaterialComponentType != MaterialComponentType.Specific)
             {
                 return;
             }
@@ -652,11 +647,17 @@ public static class RulesetCharacterPatcher
             result = true;
             failure = string.Empty;
         }
+#endif
 
         //TODO: move to separate file
         private static void ValidateIfInfusedInHand(
             RulesetCharacter caster, ref bool result, ref string failure)
         {
+            if (result)
+            {
+                return;
+            }
+
             var mainHand = caster.GetMainWeapon();
             var offHand = caster.GetOffhandWeapon();
 
@@ -685,32 +686,17 @@ public static class RulesetCharacterPatcher
             //PATCH: Allow spells to satisfy material components by using stack of equal or greater value
             StackedMaterialComponent.IsComponentMaterialValid(__instance, spellDefinition, ref failure, ref __result);
 
-            if (__result)
-            {
-                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure);
-
-                return;
-            }
+            //PATCH: Validates if casters have the other hand free if grappling
+            GrappleContext.ValidateIfCastingValid(
+                __instance, spellDefinition, ref __result, ref failure, GrappleContext.SpellValidationType.Material);
 
             //PATCH: Allows spells to satisfy specific material components by actual active tags on an item that are not directly defined in ItemDefinition (like "Melee")
             //Used mostly for melee cantrips requiring melee weapon to cast
             ValidateSpecificComponentsByTags(__instance, spellDefinition, ref __result, ref failure);
 
-            if (__result)
-            {
-                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure);
-
-                return;
-            }
-
             //PATCH: Allows spells to satisfy mundane material components if Inventor has infused item equipped
             //Used mostly for melee cantrips requiring melee weapon to cast
             ValidateInfusedFocus(__instance, spellDefinition, ref __result, ref failure);
-
-            if (__result)
-            {
-                GrappleContext.ValidateIfBothHandsFree(__instance, ref __result, ref failure);
-            }
         }
 
         //TODO: move to separate file
@@ -720,7 +706,7 @@ public static class RulesetCharacterPatcher
             ref bool result,
             ref string failure)
         {
-            if (spell.MaterialComponentType != MaterialComponentType.Specific)
+            if (result || spell.MaterialComponentType != MaterialComponentType.Specific)
             {
                 return;
             }
@@ -758,7 +744,7 @@ public static class RulesetCharacterPatcher
             ref bool result,
             ref string failure)
         {
-            if (spell.MaterialComponentType != MaterialComponentType.Mundane)
+            if (result || spell.MaterialComponentType != MaterialComponentType.Mundane)
             {
                 return;
             }
@@ -1633,7 +1619,7 @@ public static class RulesetCharacterPatcher
             // Hide the features that use the pool from the UI.
             foreach (var feature in __instance.RecoveredFeatures
                          .Where(f => f is FeatureDefinitionPowerSharedPool)
-                         .ToList())
+                         .ToArray())
             {
                 __instance.RecoveredFeatures.Remove(feature);
             }

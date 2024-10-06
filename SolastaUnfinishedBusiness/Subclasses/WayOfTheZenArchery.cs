@@ -317,9 +317,9 @@ public sealed class WayOfZenArchery : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
             var targets = action.ActionParams.TargetCharacters
                 .Where(x => CanBowAttack(actingCharacter, x))
-                .ToList();
+                .ToArray();
 
-            if (targets.Count == 0)
+            if (targets.Length == 0)
             {
                 yield break;
             }

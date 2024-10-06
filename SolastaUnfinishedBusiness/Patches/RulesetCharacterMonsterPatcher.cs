@@ -168,8 +168,8 @@ public static class RulesetCharacterMonsterPatcher
 
             //PATCH: Allows adding extra attack modes
             __instance.GetSubFeaturesByType<IAddExtraAttack>()
-                .OrderBy(provider => provider.Priority()).ToList()
-                .ForEach(provider => provider.TryAddExtraAttack(__instance));
+                .OrderBy(provider => provider.Priority())
+                .Do(provider => provider.TryAddExtraAttack(__instance));
 
             //PATCH: Allows changing damage and other stats of an attack mode
             __instance.AttackModes

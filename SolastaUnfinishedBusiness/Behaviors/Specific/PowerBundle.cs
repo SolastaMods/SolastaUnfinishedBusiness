@@ -781,7 +781,7 @@ internal static class PowerBundle
             SubPowers = [..subPowers];
             TerminateAll = terminateAll;
 
-            var subSpells = SubPowers.Select(RegisterPower).ToList();
+            var subSpells = SubPowers.Select(RegisterPower).ToArray();
 
             Repertoire = new RulesetSpellRepertoire();
             Repertoire.KnownSpells.AddRange(subSpells);

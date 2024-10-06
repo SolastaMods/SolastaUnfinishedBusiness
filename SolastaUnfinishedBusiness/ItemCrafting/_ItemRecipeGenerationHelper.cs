@@ -137,7 +137,7 @@ internal static class ItemRecipeGenerationHelper
                     .SetCraftedItem(item)
                     .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType)
                     .AddToDB())
-            .ToList();
+            .ToArray();
 
         const string GROUP_KEY = "EnchantingIngredients";
 
@@ -228,17 +228,6 @@ internal static class ItemRecipeGenerationHelper
             { CaerLem_Gate_Plaque, Art_Item_25_GP_SilverChalice }
         };
 
-        var recipes = forgeryToIngredient.Keys
-            .Select(
-                item => RecipeDefinitionBuilder
-                    .Create("RecipeForgery" + item.Name)
-                    .AddIngredients(forgeryToIngredient[item])
-                    .SetCraftedItem(item)
-                    .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType)
-                    .SetGuiPresentation(item.GuiPresentation)
-                    .AddToDB())
-            .ToList();
-
         var scrollForgeries = new Dictionary<ItemDefinition, ItemDefinition>
         {
             { BONEKEEP_AkshasJournal, Ingredient_AngryViolet },
@@ -250,15 +239,25 @@ internal static class ItemRecipeGenerationHelper
             { CAERLEM_Daliat_Document, Ingredient_Skarn }
         };
 
-        recipes.AddRange(scrollForgeries.Keys
+        var recipes = forgeryToIngredient.Keys
             .Select(
                 item => RecipeDefinitionBuilder
                     .Create("RecipeForgery" + item.Name)
-                    .AddIngredients(scrollForgeries[item])
+                    .AddIngredients(forgeryToIngredient[item])
                     .SetCraftedItem(item)
-                    .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType)
+                    .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType)
                     .SetGuiPresentation(item.GuiPresentation)
-                    .AddToDB()));
+                    .AddToDB())
+            .Union(scrollForgeries.Keys
+                .Select(
+                    item => RecipeDefinitionBuilder
+                        .Create("RecipeForgery" + item.Name)
+                        .AddIngredients(scrollForgeries[item])
+                        .SetCraftedItem(item)
+                        .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType)
+                        .SetGuiPresentation(item.GuiPresentation)
+                        .AddToDB()))
+            .ToArray();
 
         const string GROUP_KEY = "RelicForgeries";
 

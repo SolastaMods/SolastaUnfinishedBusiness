@@ -298,7 +298,7 @@ public static class GameLocationBattleManagerPatcher
             {
                 foreach (var attackBeforeHitConfirmedOnMe in defender.RulesetCharacter.UsableSpells
                              .SelectMany(x => x.GetAllSubFeaturesOfType<IPhysicalAttackBeforeHitConfirmedOnMe>())
-                             .ToList())
+                             .ToArray())
                 {
                     yield return attackBeforeHitConfirmedOnMe.OnPhysicalAttackBeforeHitConfirmedOnMe(
                         __instance, attacker, defender, attackModifier, attackMode,
@@ -780,7 +780,7 @@ public static class GameLocationBattleManagerPatcher
             {
                 foreach (var magicalAttackBeforeHitConfirmedOnMe in defender.RulesetCharacter.UsableSpells
                              .SelectMany(x => x.GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnMe>())
-                             .ToList())
+                             .ToArray())
                 {
                     yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicEffectBeforeHitConfirmedOnMe(
                         __instance, attacker, defender, magicModifier, rulesetEffect, actualEffectForms,

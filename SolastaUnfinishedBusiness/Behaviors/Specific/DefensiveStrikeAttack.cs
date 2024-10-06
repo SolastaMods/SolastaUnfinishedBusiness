@@ -26,7 +26,7 @@ internal static class DefensiveStrikeAttack
 
         var units = Gui.Battle.AllContenders
             .Where(u => u.RulesetCharacter is { IsDeadOrUnconscious: false })
-            .ToList(); // avoid changing enumerator
+            .ToArray(); // avoid changing enumerator
 
         //Process other participants of the battle
         foreach (var unit in units

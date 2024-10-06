@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -318,7 +319,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             if (character.UsedSpecialFeatures.TryGetValue(WhirlDamageType, out var damageIndex))
             {
                 var damageTypeDefinition =
-                    DatabaseRepository.GetDatabase<DamageDefinition>().ToList().ElementAt(damageIndex);
+                    DatabaseRepository.GetDatabase<DamageDefinition>().ToArray().ElementAt(damageIndex);
 
                 damageForm.DamageType = damageTypeDefinition.Name;
             }
@@ -393,9 +394,9 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
                     actualEffectForms.Insert(index + 1, effectDamageForm);
 
-                    var damageTypes = DatabaseRepository.GetDatabase<DamageDefinition>().ToList();
+                    var damageTypes = DatabaseRepository.GetDatabase<DamageDefinition>().ToArray();
                     var damageTypeDefinition = damageTypes.FirstOrDefault(x => x.Name == damageType);
-                    var damageIndex = damageTypes.IndexOf(damageTypeDefinition);
+                    var damageIndex = Array.IndexOf(damageTypes, damageTypeDefinition);
 
                     attacker.UsedSpecialFeatures.TryAdd(WhirlDamageType, damageIndex);
                 }

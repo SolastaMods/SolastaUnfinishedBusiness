@@ -353,9 +353,9 @@ public sealed class DomainNature : AbstractSubclass
                     actualEffectForms
                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
                         .Select(x => x.DamageForm.DamageType))
-                .ToList();
+                .ToArray();
 
-            if (damageTypes.Count == 0)
+            if (damageTypes.Length == 0)
             {
                 yield break;
             }

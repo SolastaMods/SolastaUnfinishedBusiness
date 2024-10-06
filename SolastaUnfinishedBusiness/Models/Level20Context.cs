@@ -684,9 +684,9 @@ internal static class Level20Context
                     yield break;
                 }
 
-                var preparedSpellsClone = spellRepertoire.PreparedSpells.ToList();
+                var preparedSpellsClone = spellRepertoire.PreparedSpells.ToArray();
 
-                spellRepertoire.ExtraSpellsByTag.TryAdd(Mastery, spellRepertoire.AutoPreparedSpells.ToList());
+                spellRepertoire.ExtraSpellsByTag.TryAdd(Mastery, [.. spellRepertoire.AutoPreparedSpells]);
                 spellRepertoire.PreparedSpells.SetRange(spellRepertoire.ExtraSpellsByTag[Mastery]);
                 spellRepertoire.ExtraSpellsByTag[Mastery] = [];
 
@@ -847,9 +847,9 @@ internal static class Level20Context
                     yield break;
                 }
 
-                var preparedSpellsClone = spellRepertoire.PreparedSpells.ToList();
+                var preparedSpellsClone = spellRepertoire.PreparedSpells.ToArray();
 
-                spellRepertoire.ExtraSpellsByTag.TryAdd(Signature, spellRepertoire.AutoPreparedSpells.ToList());
+                spellRepertoire.ExtraSpellsByTag.TryAdd(Signature, [.. spellRepertoire.AutoPreparedSpells]);
                 spellRepertoire.PreparedSpells.SetRange(spellRepertoire.ExtraSpellsByTag[Signature]);
                 spellRepertoire.ExtraSpellsByTag[Signature] = [];
 

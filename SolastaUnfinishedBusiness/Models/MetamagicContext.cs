@@ -25,7 +25,7 @@ internal static class MetamagicContext
         // settings paring
         foreach (var name in Main.Settings.MetamagicEnabled
                      .Where(name => Metamagic.All(x => x.Name != name))
-                     .ToList())
+                     .ToArray())
         {
             Main.Settings.MetamagicEnabled.Remove(name);
         }

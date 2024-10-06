@@ -501,7 +501,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 character.LocationPosition == u.LocationPosition &&
                 u.RulesetActor is RulesetCharacterEffectProxy rulesetCharacterEffectProxy &&
                 rulesetCharacterEffectProxy.EffectProxyDefinition == EffectProxyCauterizingFlames)
-            .ToList(); // avoid changing enumerator
+            .ToArray(); // avoid changing enumerator
 
         foreach (var cauterizingFlamesProxy in cauterizingFlamesProxies)
         {

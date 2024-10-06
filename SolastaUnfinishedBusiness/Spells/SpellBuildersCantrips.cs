@@ -1217,18 +1217,19 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var diceNumber = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel) switch
-            {
-                >= 17 => 3,
-                >= 11 => 2,
-                >= 5 => 1,
-                _ => 0
-            };
-
+            var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             var damageForm = effectDescription.EffectForms[0].DamageForm;
 
-            damageForm.DiceNumber = diceNumber;
             damageForm.BonusDamage = CustomBehaviorResonatingStrike.SpellCastingModifier;
+
+            if (characterLevel == 0)
+            {
+                return effectDescription;
+            }
+
+            var diceNumber = effectDescription.EffectAdvancement.ComputeAdditionalDiceByCasterLevel(characterLevel);
+
+            damageForm.DiceNumber = diceNumber;
 
             return effectDescription;
         }

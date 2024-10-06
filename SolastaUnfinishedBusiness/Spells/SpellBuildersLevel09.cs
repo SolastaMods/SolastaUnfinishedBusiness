@@ -79,8 +79,7 @@ internal static partial class SpellBuilders
                             .SetGuiPresentationNoContent(true)
                             .SetDamageType(damageType.Name)
                             .SetDamageAffinityType(DamageAffinityType.Immunity)
-                            .AddToDB())
-                    .ToList())
+                            .AddToDB()))
             .CopyParticleReferences(DispelEvilAndGood)
             .AddToDB();
 
@@ -482,7 +481,7 @@ internal static partial class SpellBuilders
             var contenders =
                 (Gui.Battle?.AllContenders ??
                  locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
+                .ToArray();
 
             foreach (var rulesetContender in contenders
                          .Select(contender => contender.RulesetCharacter))

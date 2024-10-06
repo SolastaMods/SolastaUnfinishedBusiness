@@ -68,7 +68,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var featureDefinitionAncestry in DatabaseRepository.GetDatabase<FeatureDefinitionAncestry>()
                      .Where(x => x.Type == AncestryType.BarbarianClaw)
-                     .ToList())
+                     .ToArray())
         {
             var newAncestryName = featureDefinitionAncestry.Name.Replace("PathClaw", Name);
             var ancestry = FeatureDefinitionAncestryBuilder

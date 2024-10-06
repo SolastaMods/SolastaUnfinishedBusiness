@@ -115,7 +115,7 @@ internal static class FixesContext
             .SelectMany(a => a.FeatureUnlocks)
             .Select(b => b.FeatureDefinition);
 
-        var allFeatures = classesFeatures.Concat(subclassesFeatures).Concat(racesFeatures).ToList();
+        var allFeatures = classesFeatures.Concat(subclassesFeatures).Concat(racesFeatures).ToArray();
         var castSpellDefinitions = allFeatures.OfType<FeatureDefinitionCastSpell>();
         var magicAffinityDefinitions = allFeatures.OfType<FeatureDefinitionMagicAffinity>();
 

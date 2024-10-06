@@ -82,11 +82,11 @@ internal static partial class UI
             if (_showAll)
             {
                 UpdateSearchResults(_searchText, available, searchAndSortKey);
-                definitions = _filteredDefinitions.ToList();
+                definitions = [.._filteredDefinitions];
             }
             else
             {
-                definitions = currentDict.Keys.ToList();
+                definitions = [.. currentDict.Keys];
             }
 
             var terms = _searchText.Split(' ').Select(s => s.ToLower()).ToHashSet();

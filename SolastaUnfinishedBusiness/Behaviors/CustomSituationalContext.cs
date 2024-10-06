@@ -60,14 +60,16 @@ internal static class CustomSituationalContext
                 ValidatorsCharacter.HasTwoHandedQuarterstaff(contextParams.source),
 
             ExtraSituationalContext.IsNotConditionSource =>
-                // this is required whenever condition is on target
-                !IsConditionSource(contextParams.target, contextParams.condition, contextParams.source) &&
                 // this is required whenever condition is on source
-                !IsConditionSource(contextParams.source, contextParams.condition, contextParams.source),
+                IsNotConditionSource(contextParams.source, contextParams.condition, contextParams.target.guid) &&
+                // this is required whenever condition is on target
+                IsNotConditionSource(contextParams.target, contextParams.condition, contextParams.source.guid),
 
             ExtraSituationalContext.IsNotConditionSourceNotRanged =>
                 // this is required whenever condition is on source
-                !IsConditionSource(contextParams.source, contextParams.condition, contextParams.source) &&
+                IsNotConditionSource(contextParams.source, contextParams.condition, contextParams.target.guid) &&
+                // this is required whenever condition is on target
+                IsNotConditionSource(contextParams.target, contextParams.condition, contextParams.source.guid) &&
                 !contextParams.rangedAttack,
 
             ExtraSituationalContext.TargetIsFavoriteEnemy =>
@@ -83,18 +85,28 @@ internal static class CustomSituationalContext
                 contextParams.source.ConcentratedSpell != null,
 
             ExtraSituationalContext.IsConditionSource =>
+                // this is required whenever condition is on target
+                IsConditionSource(contextParams.source, contextParams.condition, contextParams.target.guid) ||
                 // this is required whenever condition is on source
-                IsConditionSource(contextParams.source, contextParams.condition, contextParams.source),
+                IsConditionSource(contextParams.target, contextParams.condition, contextParams.source.guid),
             _ => def
         };
     }
 
     private static bool IsConditionSource(
-        RulesetCharacter target, [CanBeNull] ConditionDefinition condition, RulesetCharacter source)
+        RulesetCharacter conditionHolder, [CanBeNull] ConditionDefinition condition, ulong guid)
     {
-        return target.TryGetConditionOfCategoryAndType(
+        return conditionHolder.TryGetConditionOfCategoryAndType(
                    AttributeDefinitions.TagEffect, condition?.Name ?? string.Empty, out var activeCondition) &&
-               activeCondition.SourceGuid == source.Guid;
+               activeCondition.SourceGuid == guid;
+    }
+
+    private static bool IsNotConditionSource(
+        RulesetCharacter conditionHolder, [CanBeNull] ConditionDefinition condition, ulong guid)
+    {
+        return !conditionHolder.TryGetConditionOfCategoryAndType(
+                   AttributeDefinitions.TagEffect, condition?.Name ?? string.Empty, out var activeCondition) ||
+               activeCondition.SourceGuid != guid;
     }
 
     private static bool AttackerNextToTargetOrYeomanWithLongbow(

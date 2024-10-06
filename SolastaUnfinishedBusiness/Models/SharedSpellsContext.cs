@@ -115,7 +115,7 @@ internal static class SharedSpellsContext
         return warlockLevel;
     }
 
-    internal static int GetWarlockSpellLevel(RulesetCharacterHero rulesetCharacterHero)
+    internal static int GetWarlockSpellLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
 

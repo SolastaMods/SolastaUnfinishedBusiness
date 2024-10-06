@@ -164,20 +164,11 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsUnarmed(
-        [CanBeNull] ItemDefinition itemDefinition,
-        [CanBeNull] RulesetAttackMode attackMode = null)
+    private static bool IsUnarmed([CanBeNull] ItemDefinition itemDefinition)
     {
-        if (attackMode is { SourceDefinition: MonsterAttackDefinition { proximity: AttackProximity.Melee } })
-        {
-            return true;
-        }
-
-        itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? itemDefinition;
-
         if (!itemDefinition)
         {
-            return false;
+            return true;
         }
 
         return
@@ -187,11 +178,23 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsUnarmed([CanBeNull] RulesetAttackMode attackMode)
+    internal static bool IsUnarmed([CanBeNull] RulesetItem rulesetItem)
     {
-        return IsUnarmed(null, attackMode);
+        return rulesetItem == null || (rulesetItem.ItemDefinition is { } itemDefinition && IsUnarmed(itemDefinition));
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsUnarmed([CanBeNull] RulesetAttackMode attackMode)
+    {
+        if (attackMode is { SourceDefinition: MonsterAttackDefinition { proximity: AttackProximity.Melee } })
+        {
+            return true;
+        }
+
+        return attackMode?.SourceDefinition is ItemDefinition itemDefinition && IsUnarmed(itemDefinition);
+    }
+
+    //ATT: don't use this to check on unarmed weapon types as there itemDefinition are null if not from an attackMode
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool HasAnyWeaponTag([CanBeNull] ItemDefinition itemDefinition, [NotNull] params string[] tags)
     {

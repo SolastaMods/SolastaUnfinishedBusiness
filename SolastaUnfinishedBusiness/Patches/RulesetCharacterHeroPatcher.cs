@@ -671,8 +671,8 @@ public static class RulesetCharacterHeroPatcher
 
             //PATCH: Allows adding extra attack modes
             __instance.GetSubFeaturesByType<IAddExtraAttack>()
-                .OrderBy(provider => provider.Priority()).ToList()
-                .ForEach(provider => provider.TryAddExtraAttack(__instance));
+                .OrderBy(provider => provider.Priority())
+                .Do(provider => provider.TryAddExtraAttack(__instance));
 
             //PATCH: Allows changing damage and other stats of an attack mode
             var modifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackMode>();
@@ -990,12 +990,9 @@ public static class RulesetCharacterHeroPatcher
                             var spells = __instance.Items
                                 .OfType<RulesetItemSpellbook>()
                                 .SelectMany(x => x.ScribedSpells)
-                                .ToList();
-
-                            spells = spells
                                 .Where(s => s.Ritual)
                                 .Where(s => maxSpellLevel >= s.SpellLevel)
-                                .ToList();
+                                .ToArray();
 
                             __instance.Items.Clear();
 
@@ -1226,6 +1223,7 @@ public static class RulesetCharacterHeroPatcher
             __instance.GetSubFeaturesByType<IOnItemEquipped>()
                 .ForEach(f => f.OnItemEquipped(__instance));
 
+#if false
             //BUGFIX: fix a prepared spells exploit in vanilla
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var repertoire in __instance.SpellRepertoires)
@@ -1239,9 +1237,9 @@ public static class RulesetCharacterHeroPatcher
                 }
 
                 var preparedSpells = repertoire.PreparedSpells;
-                
+
                 __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(__instance.FeaturesToBrowse);
-                
+
                 var maxPreparedSpells = __instance.ComputeMaxPreparedSpells(repertoire);
 
                 repertoire.maxPreparedSpells = maxPreparedSpells;
@@ -1251,6 +1249,7 @@ public static class RulesetCharacterHeroPatcher
                     preparedSpells.RemoveAt(preparedSpells.Count - 1);
                 }
             }
+#endif
         }
     }
 

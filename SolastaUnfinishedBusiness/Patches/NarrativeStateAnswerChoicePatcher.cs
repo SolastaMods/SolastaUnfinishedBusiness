@@ -110,7 +110,7 @@ public static class NarrativeStateAnswerChoicePatcher
             // add D20 rolls
             if (Main.Settings.EnableSumD20OnAlternateVotingSystem)
             {
-                foreach (var heroIndex in votes.Keys.ToList())
+                foreach (var heroIndex in votes.Keys.ToArray())
                 {
                     var hero = characterService.PartyCharacters[heroIndex];
 
