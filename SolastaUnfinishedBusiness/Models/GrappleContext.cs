@@ -24,10 +24,12 @@ internal static class GrappleContext
 {
     private const string Grapple = "Grapple";
     private const string DisableGrapple = "DisableGrapple";
+
+    private const string ConditionGrappleTargetName = $"Condition{Grapple}Target";
     private const string ConditionGrappleSourceName = $"Condition{Grapple}Source";
+
     internal const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
     internal const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
-    private const string ConditionGrappleTargetName = $"Condition{Grapple}Target";
 
     internal static readonly FeatureDefinitionMoveMode MoveModeFly0 = FeatureDefinitionMoveModeBuilder
         .Create("MoveModeFly0")
@@ -242,12 +244,13 @@ internal static class GrappleContext
 
         var rulesetCharacter = __instance.RulesetCharacter;
         var hasGrappleSource = HasGrappleSource(rulesetCharacter);
+        var extraActionId = (ExtraActionId)actionId;
 
-        if (((ExtraActionId)actionId is ExtraActionId.Grapple or ExtraActionId.GrappleBonus &&
+        if ((extraActionId is ExtraActionId.Grapple or ExtraActionId.GrappleBonus &&
              (hasGrappleSource ||
               !ValidatorsCharacter.HasFreeHand(rulesetCharacter) ||
               !ValidatorsCharacter.HasMainAttackAvailable(rulesetCharacter))) ||
-            ((ExtraActionId)actionId == ExtraActionId.DisableGrapple && !hasGrappleSource))
+            (extraActionId == ExtraActionId.DisableGrapple && !hasGrappleSource))
         {
             __result = ActionDefinitions.ActionStatus.Unavailable;
         }
@@ -471,14 +474,12 @@ internal static class GrappleContext
 
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            target.ContestCheckRolled += ContestCheckRolledHandler;
+            // empty
         }
 
         // should remove source tracker condition as well
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            target.ContestCheckRolled -= ContestCheckRolledHandler;
-
             var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
             foreach (var conditionName in PossibleConditionsToRemove)
@@ -490,26 +491,6 @@ internal static class GrappleContext
                     rulesetSource.RemoveCondition(activeConditionSource);
                 }
             }
-        }
-
-        private static void ContestCheckRolledHandler(
-            RulesetCharacter character,
-            RulesetCharacter opponent,
-            string abilityScoreName,
-            string skillName,
-            string opponentAbilityScoreName,
-            string opponentSkillName,
-            RollOutcome outcome,
-            int totalRoll,
-            int rawRoll,
-            int opponentTotalRoll,
-            int opponentRawRoll,
-            List<TrendInfo> advantageTrends,
-            List<TrendInfo> modifierTrends,
-            List<TrendInfo> opponentAdvantageTrends,
-            List<TrendInfo> opponentModifierTrends)
-        {
-            Main.Info($"{character.Name} rolled context check");
         }
     }
 
@@ -535,8 +516,6 @@ internal static class GrappleContext
                 return;
             }
 
-            var environmentManager =
-                ServiceRepository.GetService<IGameLocationEnvironmentService>() as GameLocationEnvironmentManager;
             var pathfindingService = ServiceRepository.GetService<IGameLocationPathfindingService>();
             var target = GameLocationCharacter.GetFromActor(rulesetTarget);
             var targetPosition = target.LocationPosition;
@@ -570,8 +549,6 @@ internal static class GrappleContext
                 target.StartTeleportTo(targetDestinationPosition, mover.Orientation, false);
                 target.FinishMoveTo(targetDestinationPosition, mover.Orientation);
                 target.StopMoving(mover.Orientation);
-                environmentManager!.UpdateAffectedCharactersOfGlobalEffects(RecurrentEffect.OnEnter, target);
-                environmentManager!.UpdateAffectedCharactersOfGlobalEffects(RecurrentEffect.OnMove, target);
 
                 var isLastStep = GetDistanceFromCharacter(mover, mover.DestinationPosition) <= 1;
 
