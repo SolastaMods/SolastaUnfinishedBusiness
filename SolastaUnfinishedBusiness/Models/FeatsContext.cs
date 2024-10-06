@@ -269,9 +269,10 @@ internal static class FeatsContext
                 return;
             }
 
-            var trainedFeats = buildingData.LevelupTrainedFeats.SelectMany(x => x.Value).ToList();
-
-            trainedFeats.AddRange(hero.TrainedFeats);
+            var trainedFeats = buildingData.LevelupTrainedFeats
+                .SelectMany(x => x.Value)
+                .Union(hero.TrainedFeats)
+                .ToArray();
 
             var j = 0;
             RectTransform rect;

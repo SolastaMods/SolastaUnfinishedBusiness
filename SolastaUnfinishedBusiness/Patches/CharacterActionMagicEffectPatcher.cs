@@ -88,9 +88,9 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     var attacker = actionMagicEffect.ActingCharacter;
                     var actionParams = actionMagicEffect.ActionParams;
-                    var currentTargets = actionParams.TargetCharacters.ToList();
+                    var currentTargets = actionParams.TargetCharacters.ToArray();
 
-                    for (var i = 0; i < currentTargets.Count; i++)
+                    for (var i = 0; i < currentTargets.Length; i++)
                     {
                         var currentTarget = currentTargets[i];
                         var actionModifier = actionParams.ActionModifiers[i];

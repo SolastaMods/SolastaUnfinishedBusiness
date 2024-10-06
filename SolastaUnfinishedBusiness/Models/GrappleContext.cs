@@ -528,7 +528,9 @@ internal static class GrappleContext
             var validPositions = pathfindingService.ValidDestinations
                 .Where(x => x.moveMode is MoveMode.Walk or MoveMode.Fly)
                 .Select(x => x.position)
-                .ToList();
+                .ToArray();
+
+            bool canTeleport;
 
             // handle better movement on larger enemies by applying same movement directions as source
             if (target.SizeParameters.maxExtent.x > 0 ||
@@ -536,15 +538,17 @@ internal static class GrappleContext
                 target.SizeParameters.maxExtent.z > 0)
             {
                 targetDestinationPosition = targetPosition + destination - source;
+
+                canTeleport = validPositions.Contains(targetDestinationPosition);
             }
             // for an unknown reason ComputeValidDestinationsAsync isn't adding the mover one even when flagging ignoreOccupants
             // fix it here to avoid breaking one cell targets
             else
             {
-                validPositions.Add(source);
+                canTeleport = true;
             }
 
-            if (validPositions.Contains(targetDestinationPosition))
+            if (canTeleport)
             {
                 target.StartTeleportTo(targetDestinationPosition, mover.Orientation, false);
                 target.FinishMoveTo(targetDestinationPosition, mover.Orientation);

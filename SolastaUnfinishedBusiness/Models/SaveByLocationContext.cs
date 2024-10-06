@@ -40,7 +40,7 @@ internal static class SaveByLocationContext
         Main.EnsureFolderExists(CampaignSaveGameDirectory);
     }
 
-    private static List<SavePlace> GetAllSavePlaces()
+    private static SavePlace[] GetAllSavePlaces()
     {
         // Find the most recently touched save file and select the correct location/campaign for that save
         return EnumerateDirectories(LocationSaveGameDirectory, LocationType.UserLocation)
@@ -48,7 +48,7 @@ internal static class SaveByLocationContext
             .Concat(EnumerateDirectories(OfficialSaveGameDirectory, LocationType.StandardCampaign))
             .Append(MostRecentFile(DefaultSaveGameDirectory, LocationType.Default))
             .Where(d => d.Available)
-            .ToList();
+            .ToArray();
     }
 
     internal static SavePlace GetMostRecentPlace()

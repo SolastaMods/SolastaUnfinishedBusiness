@@ -61,24 +61,7 @@ internal static class ForceGlobalUniqueEffects
         }
 
         var character = action.ActingCharacter.RulesetCharacter;
-        var effects = GetLimitedPowerEffects(character, limiter);
-
-        effects.Sort((a, b) => a.Guid.CompareTo(b.Guid));
-
-        var limit = limiter.GetLimit(character);
-        var remove = effects.Count - limit;
-
-        for (var i = 0; i < remove; i++)
-        {
-            character.TerminatePower(effects[i]);
-        }
-    }
-
-    private static List<RulesetEffectPower> GetLimitedPowerEffects(
-        RulesetEntity character,
-        ILimitEffectInstances limit)
-    {
-        return EffectHelpers.GetAllEffectsBySourceGuid(character.Guid)
+        var effects = EffectHelpers.GetAllEffectsBySourceGuid(character.Guid)
             .OfType<RulesetEffectPower>()
             .Where(powerEffect =>
             {
@@ -89,9 +72,18 @@ internal static class ForceGlobalUniqueEffects
                     return false;
                 }
 
-                return tmp.Name == limit.Name;
+                return tmp.Name == limiter.Name;
             })
-            .ToList();
+            .OrderBy(x => x.Guid)
+            .ToArray();
+
+        var limit = limiter.GetLimit(character);
+        var remove = effects.Length - limit;
+
+        for (var i = 0; i < remove; i++)
+        {
+            character.TerminatePower(effects[i]);
+        }
     }
 
     /**

@@ -671,8 +671,8 @@ public static class RulesetCharacterHeroPatcher
 
             //PATCH: Allows adding extra attack modes
             __instance.GetSubFeaturesByType<IAddExtraAttack>()
-                .OrderBy(provider => provider.Priority()).ToList()
-                .ForEach(provider => provider.TryAddExtraAttack(__instance));
+                .OrderBy(provider => provider.Priority())
+                .Do(provider => provider.TryAddExtraAttack(__instance));
 
             //PATCH: Allows changing damage and other stats of an attack mode
             var modifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackMode>();
@@ -990,12 +990,9 @@ public static class RulesetCharacterHeroPatcher
                             var spells = __instance.Items
                                 .OfType<RulesetItemSpellbook>()
                                 .SelectMany(x => x.ScribedSpells)
-                                .ToList();
-
-                            spells = spells
                                 .Where(s => s.Ritual)
                                 .Where(s => maxSpellLevel >= s.SpellLevel)
-                                .ToList();
+                                .ToArray();
 
                             __instance.Items.Clear();
 

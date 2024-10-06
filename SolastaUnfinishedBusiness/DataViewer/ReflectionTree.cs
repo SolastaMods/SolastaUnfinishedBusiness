@@ -483,6 +483,7 @@ internal abstract class GenericNode<TNode> : Node
                 FindOrCreateChildForValue(nodeType.MakeGenericType(Type, InstType, child.FieldType), this,
                     child.Name))
             .ToList();
+
         _fieldNodes.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
     }
 

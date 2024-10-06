@@ -79,8 +79,7 @@ internal static partial class SpellBuilders
                             .SetGuiPresentationNoContent(true)
                             .SetDamageType(damageType.Name)
                             .SetDamageAffinityType(DamageAffinityType.Immunity)
-                            .AddToDB())
-                    .ToList())
+                            .AddToDB()))
             .CopyParticleReferences(DispelEvilAndGood)
             .AddToDB();
 

@@ -460,7 +460,7 @@ public static class RulesetCharacterPatcher
                          .OfType<RulesetCharacter>()
                          .ToArray())
             {
-                // need ToList to avoid enumerator issues with RemoveCondition
+                // need ToArray to avoid enumerator issues with RemoveCondition
                 foreach (var rulesetCondition in targetRulesetCharacter.ConditionsByCategory
                              .SelectMany(x => x.Value)
                              .Where(x =>
