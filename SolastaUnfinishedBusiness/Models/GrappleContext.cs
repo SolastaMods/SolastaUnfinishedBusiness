@@ -97,6 +97,11 @@ internal static class GrappleContext
             .SetBrain(battlePackage, true)
             .SetFeatures(
                 ActionAffinityGrappled,
+                //prevent grappled target from falling while grappled
+                FeatureDefinitionMoveModeBuilder.Create($"{ConditionGrappleTargetName}Flying")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetMode(MoveMode.Fly, 0)
+                    .AddToDB(),
                 ActionAffinityConditionRestrained,
                 MovementAffinityConditionRestrained)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedConditionGrappleTarget())
