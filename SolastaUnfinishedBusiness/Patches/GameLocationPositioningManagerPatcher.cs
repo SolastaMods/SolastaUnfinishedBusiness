@@ -30,5 +30,19 @@ public static class GameLocationPositioningManagerPatcher
             return instructions.ReplaceCalls(logErrorMethod, "GameLocationPositioningManager.CharacterMoved",
                 new CodeInstruction(OpCodes.Pop));
         }
+
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter character,
+            int3 oldPosition,
+            int3 newPosition,
+            RulesetActor.SizeParameters oldSize,
+            RulesetActor.SizeParameters newSize)
+        {
+            //PATCH: process location change only if position or size has changed
+            //FIX: fixes Spike Growth and similar spells triggering twice on last tile of movement
+            return oldPosition != newPosition
+                   || oldSize.minExtent != newSize.minExtent
+                   || oldSize.maxExtent != newSize.maxExtent;
+        }
     }
 }
