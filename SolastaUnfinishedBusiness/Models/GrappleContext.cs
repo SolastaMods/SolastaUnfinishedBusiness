@@ -97,6 +97,11 @@ internal static class GrappleContext
             .SetBrain(battlePackage, true)
             .SetFeatures(
                 ActionAffinityGrappled,
+                //prevent grappled target from falling while grappled
+                FeatureDefinitionMoveModeBuilder.Create($"{ConditionGrappleTargetName}Flying")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetMode(MoveMode.Fly, 0)
+                    .AddToDB(),
                 ActionAffinityConditionRestrained,
                 MovementAffinityConditionRestrained)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedConditionGrappleTarget())
@@ -544,8 +549,10 @@ internal static class GrappleContext
             if (canTeleport)
             {
                 target.StartTeleportTo(targetDestinationPosition, mover.Orientation, false);
+                target.Pushed = true;
                 target.FinishMoveTo(targetDestinationPosition, mover.Orientation);
                 target.StopMoving(mover.Orientation);
+                target.Pushed = false;
 
                 var isLastStep = GetDistanceFromCharacter(mover, mover.DestinationPosition) <= 1;
 
