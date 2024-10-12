@@ -1078,6 +1078,8 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        powerResonatingStrikeDamage.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
+
         var additionalDamageResonatingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageResonatingStrike")
             .SetGuiPresentationNoContent(true)
