@@ -382,11 +382,17 @@ internal static class GrappleContext
 
             attacker.BurnOneMainAttack();
 
-            yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
+            var success = true;
 
-            var success =
-                abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+            // only roll a check if an enemy
+            if (defender.IsOppositeSide(attacker.Side))
+            {
+                yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
+                    attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
+
+                success =
+                    abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+            }
 
             if (!success)
             {
