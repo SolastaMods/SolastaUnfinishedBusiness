@@ -194,9 +194,13 @@ public static class GameLocationActionManagerPatcher
                 if (!isSameCharacter)
                 {
                     //BEGIN PATCH
-                    // add a new unique request group to avoid reactions grouping and,
-                    // enforce the desired sequence if not an opportunity attack
-                    if (reactionRequest.ReactionParams.ActionDefinition.Id != ActionDefinitions.Id.AttackOpportunity)
+                    // add a new unique request group to avoid reactions grouping and, enforce the desired sequence
+                    // if not an opportunity attack, ready attack, cast reaction, or ready cast
+                    if (reactionRequest.ReactionParams.ActionDefinition.Id is not (
+                        ActionDefinitions.Id.AttackOpportunity or
+                        ActionDefinitions.Id.AttackReadied or
+                        ActionDefinitions.Id.CastReaction or
+                        ActionDefinitions.Id.CastReadied))
                     {
                         __instance.pendingReactionRequestGroups.Push(
                             new ReactionRequestGroup(reactionRequest.DefinitionName));
