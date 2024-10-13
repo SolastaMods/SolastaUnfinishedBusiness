@@ -26,6 +26,7 @@ internal static class GrappleContext
     private const string DisableGrapple = "DisableGrapple";
 
     private const string ConditionGrappleTargetName = $"Condition{Grapple}Target";
+    private const string ConditionGrappleFlyingTargetName = $"Condition{Grapple}FlyingTarget";
     private const string ConditionGrappleSourceName = $"Condition{Grapple}Source";
 
     internal const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
@@ -89,6 +90,19 @@ internal static class GrappleContext
         var battlePackage =
             AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName, AiContext.RandomType.RandomMediumLow);
 
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionGrappleFlyingTargetName)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
+            .SetFeatures(
+                FeatureDefinitionMoveModeBuilder
+                    .Create($"{ConditionGrappleTargetName}Flying")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetMode(MoveMode.Fly, 0)
+                    .AddToDB())
+            .AddToDB();
+
         var conditionGrappleTarget = ConditionDefinitionBuilder
             .Create(ConditionGrappleTargetName)
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHindered)
@@ -97,11 +111,6 @@ internal static class GrappleContext
             .SetBrain(battlePackage, true)
             .SetFeatures(
                 ActionAffinityGrappled,
-                //prevent grappled target from falling while grappled
-                FeatureDefinitionMoveModeBuilder.Create($"{ConditionGrappleTargetName}Flying")
-                    .SetGuiPresentation(Category.Feature)
-                    .SetMode(MoveMode.Fly, 0)
-                    .AddToDB(),
                 ActionAffinityConditionRestrained,
                 MovementAffinityConditionRestrained)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedConditionGrappleTarget())
@@ -382,7 +391,7 @@ internal static class GrappleContext
 
             attacker.BurnOneMainAttack();
 
-             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
+            yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
                 attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
 
             var success =
@@ -475,9 +484,9 @@ internal static class GrappleContext
             // empty
         }
 
-        // should remove source tracker condition as well
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // should remove source tracker condition as well
             var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
             foreach (var conditionName in PossibleConditionsToRemove)
@@ -488,6 +497,13 @@ internal static class GrappleContext
                 {
                     rulesetSource.RemoveCondition(activeConditionSource);
                 }
+            }
+
+            // remove flying if any
+            if (target.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionGrappleFlyingTargetName, out var activeCondition))
+            {
+                target.RemoveCondition(activeCondition);
             }
         }
     }
@@ -548,8 +564,28 @@ internal static class GrappleContext
 
             if (canTeleport)
             {
-                target.StartTeleportTo(targetDestinationPosition, mover.Orientation, false);
+                var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+
+                // is not touching floor or not have flying yet so make defender fly
+                if (!positioningService.CanCharacterStayAtPosition_Floor(target, targetDestinationPosition, true))
+                {
+                    rulesetTarget.InflictCondition(
+                        ConditionGrappleFlyingTargetName,
+                        DurationType.Round,
+                        1,
+                        TurnOccurenceType.StartOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetMover.guid,
+                        rulesetMover.CurrentFaction.Name,
+                        1,
+                        ConditionGrappleFlyingTargetName,
+                        0,
+                        0,
+                        0);
+                }
+
                 target.Pushed = true;
+                target.StartTeleportTo(targetDestinationPosition, mover.Orientation);
                 target.FinishMoveTo(targetDestinationPosition, mover.Orientation);
                 target.StopMoving(mover.Orientation);
                 target.Pushed = false;

@@ -1,6 +1,7 @@
 1.5.97.35:
 
-- fixed campaigns translator missing LoreOperation functors StringParameter
+- fixed campaigns translator missing LoreOperation functors [i.e.: discover new locations]
+- fixed grappled actor interaction with flying grappler, and dangerous zones [i.e.: Spike Growth]
 
 KNOWN ISSUES:
 
