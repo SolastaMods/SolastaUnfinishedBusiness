@@ -1,12 +1,13 @@
 1.5.97.34:
 
 - added 'Allies don't resolve context rolls on grapple' setting
-- fixed Dissonant Whispers under multiplayer
-- fixed Circle of Wildfire enhanced bond
+- fixed Dissonant Whispers on multiplayer
+- fixed Circle of Nature level up instability when switching subclasses
+- fixed Circle of Wildfire enhanced bond on successful save, and first target only
 - fixed Green-Flame Blade 2nd target damage
 - fixed soft lock scenarios with reaction spells, and readied actions
 - fixed Spike Growth 2x damage on last tile move
-- fixed Wizard War Magic power surge
+- fixed Wizard War Magic power surge on successful save
 
 1.5.97.33:
 

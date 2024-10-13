@@ -24,6 +24,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class DomainNature : AbstractSubclass
 {
     private const string Name = "DomainNature";
+    private const string AcquiredCantripsPoolName = $"{AttributeDefinitions.TagSubclass}Cleric1{Name}{Name}";
 
     private static readonly string[] DampenElementsDamageTypes =
     [
@@ -274,12 +275,21 @@ public sealed class DomainNature : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
 
-    internal static void GrantCantrip(RulesetCharacterHero hero)
+    internal static void ResetCantripSubclassPool(RulesetCharacterHero hero)
+    {
+        var buildingData = hero.GetHeroBuildingData();
+
+        if (buildingData.PointPoolStacks.TryGetValue(HeroDefinitions.PointsPoolType.Cantrip, out var pointPool))
+        {
+            pointPool.ActivePools.Remove(AcquiredCantripsPoolName);
+        }
+    }
+
+    internal static void GrantCantripFromSubclassPool(RulesetCharacterHero hero)
     {
         var heroBuildingData = hero.GetHeroBuildingData();
 
-        if (!heroBuildingData.AcquiredCantrips.TryGetValue(
-                $"06SubclassCleric1{Name}{Name}", out var cantrips))
+        if (!heroBuildingData.AcquiredCantrips.TryGetValue(AcquiredCantripsPoolName, out var cantrips))
         {
             return;
         }
@@ -297,9 +307,7 @@ public sealed class DomainNature : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorDampenElements(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDampenElements)
+    private sealed class CustomBehaviorDampenElements(ConditionDefinition conditionDampenElements)
         : IMagicEffectBeforeHitConfirmedOnMe, ITryAlterOutcomeAttack
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
@@ -341,11 +349,9 @@ public sealed class DomainNature : AbstractSubclass
             yield return Handler(battleManager, attacker, defender, actualEffectForms);
         }
 
-        // ReSharper disable once ParameterTypeCanBeEnumerable.Local
         private IEnumerator Handler(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter defender,
             List<EffectForm> actualEffectForms)
         {
@@ -396,6 +402,7 @@ public sealed class DomainNature : AbstractSubclass
             {
                 EffectHelpers.StartVisualEffect(glc, defender, PowerPaladinNeutralizePoison,
                     EffectHelpers.EffectType.Effect);
+
                 foreach (var conditionName in damageTypes.Select(damageType => $"ConditionDomainNature{damageType}"))
                 {
                     rulesetDefender.InflictCondition(
