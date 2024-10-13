@@ -494,10 +494,6 @@ internal static class GrappleContext
                     rulesetSource.RemoveCondition(activeConditionSource);
                 }
             }
-
-            var glc = GameLocationCharacter.GetFromActor(target);
-            
-            glc.StopMoving(LocationDefinitions.Orientation.Down, CharacterAction.InterruptionType.ForcedMovement);
         }
     }
 

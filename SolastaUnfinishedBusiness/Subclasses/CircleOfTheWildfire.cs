@@ -774,7 +774,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             newDamageForm.DamageForm.IgnoreCriticalDoubleDice = true;
             newDamageForm.DamageForm.IgnoreSpellAdvancementDamageDice = true;
 
-            attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
             actualEffectForms.Insert(index + 1, newDamageForm);
         }
 
@@ -791,7 +790,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             }
 
             foreach (var rulesetCharacter in targets
-                         .Where(x => x.RulesetCharacter != null)
+                         .Where(x => x.RulesetActor is RulesetCharacter)
                          .Select(x => x.RulesetCharacter))
             {
                 rulesetCharacter.HealingReceived -= HealingReceived;
@@ -809,16 +808,22 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            var effectForms = activeEffect.EffectDescription.EffectForms;
-            var hasHealingForm = effectForms.Any(x => x.FormType == EffectForm.EffectFormType.Healing);
-
-            if (HasSpirit(attacker.Guid) && hasHealingForm)
+            if (HasSpirit(attacker.Guid))
             {
-                attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
+                var effectForms = activeEffect.EffectDescription.EffectForms;
+                var hasHealingForm = effectForms.Any(x => x.FormType == EffectForm.EffectFormType.Healing);
+                var hasDamageForm = effectForms.Any(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage &&
+                    x.DamageForm.DamageType == DamageTypeFire);
+
+                if (hasHealingForm || hasDamageForm)
+                {
+                    attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
+                }
             }
 
             foreach (var rulesetCharacter in targets
-                         .Where(x => x.RulesetCharacter != null)
+                         .Where(x => x.RulesetActor is RulesetCharacter)
                          .Select(x => x.RulesetCharacter))
             {
                 rulesetCharacter.HealingReceived += HealingReceived;
