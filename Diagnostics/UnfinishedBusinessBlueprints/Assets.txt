@@ -1255,7 +1255,6 @@ DecisionBreakFreeConditionRestrainedByEntangle	TA.AI.DecisionDefinition	TA.AI.De
 DecisionBreakFreeConditionVileBrew	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	4b3278e8-334a-58d6-8c75-2f48e28b4e54
 DecisionBreakFreeConditionWrathfulSmiteEnemy	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	6400794a-3234-55f7-973f-d443c38c9a20
 Move_Approach	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	5cb2a87f-09a4-5fae-9b74-10516ea8a8ab
-Move_DissonantWhispers	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	bdfa6649-5cad-5b35-a697-209ea53ca45d
 Approach	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	5043a0ec-c626-5877-bd87-c7bc0584366d
 BreakFreeAbilityCheckConditionFlashFreeze	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	5578aa14-4a4c-5aa0-b787-7203e14b8a36
 BreakFreeAbilityCheckConditionGrappledRestrainedEnsnared	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	bf1d4828-465e-5897-91ca-bc8094b3d20e
@@ -1267,7 +1266,6 @@ BreakFreeAbilityCheckConditionOathOfAncientsNaturesWrath	TA.AI.DecisionPackageDe
 BreakFreeAbilityCheckConditionRestrainedByEntangle	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	0d9623d9-0cd7-5c03-8275-e9e61f0f1b6a
 BreakFreeAbilityCheckConditionVileBrew	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	7b202c71-3241-5f80-8b02-ada4a0d9383f
 BreakFreeAbilityCheckConditionWrathfulSmiteEnemy	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	8952dfa4-c552-57f5-bf82-7e317c4e459d
-DissonantWhispers_Fear	TA.AI.DecisionPackageDefinition	TA.AI.DecisionPackageDefinition	dfe2cc9e-cc70-5cfe-9057-19454acb1068
 DieTypeD3	DieTypeDefinition	DieTypeDefinition	63dc904b-8d78-5406-90aa-e7e1f3eefd84
 ProxyCircleOfTheWildfireCauterizingFlames	EffectProxyDefinition	EffectProxyDefinition	5d3d90cd-1858-5044-b4f6-586754122132
 ProxyCreateBonfire	EffectProxyDefinition	EffectProxyDefinition	a84e5459-b44a-5dfd-9f27-c4a44b571c3a
