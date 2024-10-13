@@ -37,7 +37,7 @@
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Constitution",
-    "ignoreCover": false,
+    "ignoreCover": true,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
