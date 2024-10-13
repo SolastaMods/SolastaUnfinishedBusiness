@@ -19,6 +19,7 @@ ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color> <b><i><color=#C04040E0>[Neusta
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellungen erfordern, dass der Player diesen Mod installiert hat
 ModUi/&AllItemInDm=Alle Artikel in DM
 ModUi/&AllRecipesInDm=Alle Rezepte in DM
+ModUi/&AlliesDoNotResolveRollsWhenGrappled=<i>+ Verbündete führen in einer Grapple-Interaktion keine Kontextwürfe aus</i>
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Alle Spieler in Erzählsequenzen zulassen</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Erlaubt Verbündeten, <color=#D89555>Ranger GloomStalker</color> in natürlicher Dunkelheit wahrzunehmen
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Sylvan-Rüstung</color> oder <color=#D89555>Lichtbringer-Kleidung</color> zu tragen

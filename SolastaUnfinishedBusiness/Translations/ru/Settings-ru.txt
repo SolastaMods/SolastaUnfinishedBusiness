@@ -19,6 +19,7 @@ ModUi/&Advanced=<color=#F0DAA0>Продвинутый:</color> <b><i><color=#C04
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>ВНИМАНИЕ:</color></b> Для этих настроек необходимо, чтобы у игрока был установлен этот мод
 ModUi/&AllItemInDm=Все предметы в СП
 ModUi/&AllRecipesInDm=Все рецепты в СП
+ModUi/&AlliesDoNotResolveRollsWhenGrappled=<i>+ Союзники не выполняют броски контекста при взаимодействии с захватом</i>
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Позволить всем игрокам участвовать в нарративных последовательностях</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Позволить союзникам замечать <color=#D89555>Сумрачного охотника</color> в естественной темноте
 ModUi/&AllowAnyClassToWearSylvanArmor=Позволить всем классам носить <color=#D89555>Доспехи Сильвана</color> или <color=#D89555>Одежды Несущего свет</color>
