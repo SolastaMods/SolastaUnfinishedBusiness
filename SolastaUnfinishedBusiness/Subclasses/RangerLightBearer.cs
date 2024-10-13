@@ -390,9 +390,9 @@ public sealed class RangerLightBearer : AbstractSubclass
             rulesetDefender.RemoveCondition(activeCondition);
 
             // add additional radiant damage form
-            var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
+            var index = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-            if (pos < 0)
+            if (index < 0)
             {
                 yield break;
             }
@@ -402,7 +402,7 @@ public sealed class RangerLightBearer : AbstractSubclass
 
             effectForm.DamageForm.IgnoreCriticalDoubleDice = true;
 
-            actualEffectForms.Insert(pos + 1, effectForm);
+            actualEffectForms.Insert(index + 1, effectForm);
         }
     }
 

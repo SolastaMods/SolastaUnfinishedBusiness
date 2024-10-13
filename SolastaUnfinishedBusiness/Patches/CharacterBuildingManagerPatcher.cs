@@ -179,7 +179,7 @@ public static class CharacterBuildingManagerPatcher
         public static void Postfix(CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
             //PATCH: grants cantrip selected by a Domain Nature on level 1
-            DomainNature.GrantCantrip(hero);
+            DomainNature.GrantCantripFromSubclassPool(hero);
 
             //PATCH: grants spell repertoires and respective selected spells from feats
             LevelUpContext.GrantSpellsOrCantripsFromFeatCastSpell(__instance, hero);
@@ -374,6 +374,9 @@ public static class CharacterBuildingManagerPatcher
         [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
+            //PATCH: avoid Domain Nature to break level up with the cantrip it gets
+            DomainNature.ResetCantripSubclassPool(hero);
+
             //PATCH: un-captures the desired subclass
             LevelUpContext.SetSelectedSubclass(hero, null);
 

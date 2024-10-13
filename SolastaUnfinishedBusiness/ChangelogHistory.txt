@@ -1,3 +1,14 @@
+1.5.97.34:
+
+- fixed battles soft lock with reaction spells, and readied actions
+- fixed Circle of Nature level up instability when switching subclasses
+- fixed Circle of Wildfire enhanced bond on successful save, and damage on first target only
+- fixed Dissonant Whispers de-sync on multiplayer
+- fixed Green-Flame Blade 2nd target damage, and interaction with reaction powers
+- fixed override party size setting interaction with heroes selection on new multiplayer
+- fixed Spike Growth and similar 2x damage on last tile move
+- fixed Wizard War Magic power surge on successful save
+
 1.5.97.33:
 
 - added homebrew Brawler feat

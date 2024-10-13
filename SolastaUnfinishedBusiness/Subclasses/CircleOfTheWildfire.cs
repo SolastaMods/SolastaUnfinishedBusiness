@@ -750,24 +750,29 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (!HasSpirit(attacker.Guid))
+            if (!HasSpirit(attacker.Guid) || !firstTarget)
             {
                 yield break;
             }
 
-            var firstDamageForm = actualEffectForms.FirstOrDefault(x =>
+            var fireDamageForm = actualEffectForms.FirstOrDefault(x =>
                 x.FormType == EffectForm.EffectFormType.Damage &&
                 x.DamageForm.DamageType == DamageTypeFire);
 
-            if (firstDamageForm == null)
+            if (fireDamageForm == null)
             {
                 yield break;
             }
 
-            var index = actualEffectForms.IndexOf(firstDamageForm);
-            var newDamageForm = EffectFormBuilder.DamageForm(firstDamageForm.DamageForm.DamageType, 1, DieType.D8);
+            var index = actualEffectForms.IndexOf(fireDamageForm);
+            var newDamageForm = EffectFormBuilder
+                .Create()
+                .HasSavingThrow(EffectSavingThrowType.Negates)
+                .SetDamageForm(DamageTypeFire, 1, DieType.D12)
+                .Build();
 
             newDamageForm.DamageForm.IgnoreCriticalDoubleDice = true;
+            newDamageForm.DamageForm.IgnoreSpellAdvancementDamageDice = true;
 
             actualEffectForms.Insert(index + 1, newDamageForm);
         }
@@ -784,13 +789,10 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            foreach (var rulesetTarget in targets.Select(target => target.RulesetActor))
+            foreach (var rulesetCharacter in targets
+                         .Where(x => x.RulesetActor is RulesetCharacter)
+                         .Select(x => x.RulesetCharacter))
             {
-                if (rulesetTarget is not RulesetCharacter rulesetCharacter)
-                {
-                    continue;
-                }
-
                 rulesetCharacter.HealingReceived -= HealingReceived;
             }
         }
@@ -806,26 +808,24 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            var effectForms = activeEffect.EffectDescription.EffectForms;
-            var hasFireDamageForm = effectForms.Any(x =>
-                x.FormType == EffectForm.EffectFormType.Damage &&
-                x.DamageForm.DamageType == DamageTypeFire);
-            var hasHealingForm = effectForms.Any(x =>
-                x.FormType == EffectForm.EffectFormType.Healing);
-
-            if (HasSpirit(attacker.Guid) &&
-                (hasFireDamageForm || hasHealingForm))
+            if (HasSpirit(attacker.Guid))
             {
-                attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
+                var effectForms = activeEffect.EffectDescription.EffectForms;
+                var hasHealingForm = effectForms.Any(x => x.FormType == EffectForm.EffectFormType.Healing);
+                var hasDamageForm = effectForms.Any(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage &&
+                    x.DamageForm.DamageType == DamageTypeFire);
+
+                if (hasHealingForm || hasDamageForm)
+                {
+                    attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
+                }
             }
 
-            foreach (var rulesetTarget in targets.Select(target => target.RulesetActor))
+            foreach (var rulesetCharacter in targets
+                         .Where(x => x.RulesetActor is RulesetCharacter)
+                         .Select(x => x.RulesetCharacter))
             {
-                if (rulesetTarget is not RulesetCharacter rulesetCharacter)
-                {
-                    continue;
-                }
-
                 rulesetCharacter.HealingReceived += HealingReceived;
             }
         }

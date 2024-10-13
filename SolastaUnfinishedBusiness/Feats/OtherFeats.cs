@@ -2575,7 +2575,7 @@ internal static class OtherFeats
                 .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                 .SetSavingThrowData(false,
-                    AttributeDefinitions.Constitution, false,
+                    AttributeDefinitions.Constitution, true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Constitution, 8)
                 .SetEffectForms(

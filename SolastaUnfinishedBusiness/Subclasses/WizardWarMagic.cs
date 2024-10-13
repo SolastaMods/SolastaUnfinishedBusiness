@@ -431,8 +431,11 @@ public sealed class WizardWarMagic : AbstractSubclass
 
             var index = actualEffectForms.IndexOf(damageForm);
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Wizard);
-            var effectForm =
-                EffectFormBuilder.DamageForm(DamageTypeForce, 0, DieType.D1, classLevel);
+            var effectForm = EffectFormBuilder
+                .Create()
+                .HasSavingThrow(EffectSavingThrowType.Negates)
+                .SetDamageForm(DamageTypeForce, 0, DieType.D1, classLevel)
+                .Build();
 
             actualEffectForms.Insert(index + 1, effectForm);
         }

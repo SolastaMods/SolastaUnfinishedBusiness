@@ -176,7 +176,7 @@ internal static class CustomWeaponsContext
                                 .SetSavingThrowData(
                                     true,
                                     AttributeDefinitions.Strength,
-                                    false,
+                                    true,
                                     EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
                                 .SetEffectForms(
