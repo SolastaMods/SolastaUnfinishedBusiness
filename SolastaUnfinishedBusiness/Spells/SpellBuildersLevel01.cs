@@ -1635,31 +1635,6 @@ internal static partial class SpellBuilders
     {
         const string NAME = "DissonantWhispers";
 
-        #region Dissonant Whispers AI Behavior
-
-        var scorerDissonantWhispers = AiContext.CreateActivityScorer(
-            FixesContext.DecisionMoveAfraid, "MoveScorer_DissonantWhispers");
-
-        // remove IsCloseToMe
-        scorerDissonantWhispers.scorer.WeightedConsiderations.RemoveAt(3);
-
-        var decisionDissonantWhispers = DecisionDefinitionBuilder
-            .Create("Move_DissonantWhispers")
-            .SetGuiPresentationNoContent(true)
-            .SetDecisionDescription(
-                "Go as far as possible from enemies.",
-                nameof(Move),
-                scorerDissonantWhispers)
-            .AddToDB();
-
-        var packageDissonantWhispers = DecisionPackageDefinitionBuilder
-            .Create("DissonantWhispers_Fear")
-            .SetGuiPresentationNoContent(true)
-            .SetWeightedDecisions(new WeightedDecisionDescription { decision = decisionDissonantWhispers, weight = 9 })
-            .AddToDB();
-
-        #endregion
-
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.DissonantWhispers, 128))
@@ -1686,14 +1661,13 @@ internal static partial class SpellBuilders
                     .SetCasterEffectParameters(Feeblemind)
                     .SetEffectEffectParameters(PowerBardTraditionVerbalOnslaught)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDissonantWhispers(packageDissonantWhispers))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDissonantWhispers())
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class PowerOrSpellFinishedByMeDissonantWhispers(DecisionPackageDefinition packageDissonantWhispers)
-        : IPowerOrSpellFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeDissonantWhispers : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1716,25 +1690,32 @@ internal static partial class SpellBuilders
             target.UsedTacticalMoves = 0;
             target.UsedTacticalMovesChanged?.Invoke(target);
 
-            // use enemy brain to decide position to go based on Fear package
-            var aiService = ServiceRepository.GetService<IAiLocationService>();
+            var pathfindingService = ServiceRepository.GetService<IGameLocationPathfindingService>();
 
-            aiService.TryGetAiFromGameCharacter(target, out var aiTarget);
+            yield return pathfindingService
+                .ComputeValidDestinationsAsync(target, target.LocationPosition, target.MaxTacticalMoves * 2);
+            
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var casterPosition = action.ActingCharacter.LocationPosition;
+            var destinationPosition = target.LocationPosition;
+            var candidatePositions = pathfindingService.ValidDestinations
+                .Select(x => x.position)
+                .Where(x =>
+                    !positioningService.IsDangerousPosition(target, x) &&
+                    !positioningService.IsDifficultGroundOrThroughForCharacter(target, x));
 
-            var brain = aiTarget.BattleBrain;
+            foreach (var candidatePosition in candidatePositions)
+            {
+                var currentMagnitude = (destinationPosition - casterPosition).magnitude2DSqr;
+                var candidateMagnitude = (candidatePosition - casterPosition).magnitude2DSqr;
 
-            brain.StashDecisions();
-            brain.RemoveAllDecisions();
-            brain.AddDecisionPackage(packageDissonantWhispers);
-            brain.RegisterAllActiveDecisionPackages();
+                if (candidateMagnitude > currentMagnitude)
+                {
+                    destinationPosition = candidatePosition;
+                }
+            }
 
-            yield return brain.DecideNextActivity();
-
-            var position = brain.SelectedDecision.context.position;
-
-            brain.UnstashDecisions();
-
-            target.MyExecuteActionTacticalMove(position);
+            target.MyExecuteActionTacticalMove(destinationPosition);
         }
     }
 
