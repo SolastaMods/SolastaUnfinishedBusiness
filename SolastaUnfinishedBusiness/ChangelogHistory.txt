@@ -1,3 +1,13 @@
+1.5.97.35:
+
+- fixed campaigns translator missing LoreOperation functors StringParameter
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+- Grappled character won't trigger OnMove or OnEnter environment effects if dragged
+
 1.5.97.34:
 
 - fixed battles soft lock with reaction spells, and readied actions
@@ -17,13 +27,6 @@
 - fixed Create Bonfire cantrip recurrent damage dice number determination
 - fixed RESPEC invalid save state introduced on v32 [doesn't fix broken saves]
 - improved Grapple behavior with larger targets pathfinding, and movement blockers
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
-- Dissonant Whisper spell will de-synchronize sessions if under multiplayer
-- Grappled character won't trigger OnMove or OnEnter environment effects if dragged
 
 1.5.97.32:
 

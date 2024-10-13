@@ -558,6 +558,7 @@ internal static class TranslatorContext
             [NotNull] string exportName,
             UserCampaign userCampaign)
         {
+            const string LoreOperation = "LoreOperation";
             const string SetLocationStatus = "SetLocationStatus";
 
             yield return null;
@@ -590,7 +591,7 @@ internal static class TranslatorContext
             userCampaign.Description = Translate(userCampaign.Description, languageCode);
             userCampaign.TechnicalInfo = UbTranslationTag + Translate(userCampaign.TechnicalInfo, languageCode);
 
-            // magicSkySword : Translate location first, so that the translated cache of the location function can be used later
+            // Translate locations first, so that the translated cache of the location function can be used later
             // USER LOCATIONS
             foreach (var userLocation in userCampaign.UserLocations)
             {
@@ -651,7 +652,7 @@ internal static class TranslatorContext
                     }
 
                     foreach (var functor in userDialogState.functors
-                                 .Where(functor => functor.type == SetLocationStatus))
+                                 .Where(functor => functor.type is SetLocationStatus or LoreOperation))
                     {
                         functor.StringParameter = Translate(functor.StringParameter, languageCode);
                     }
@@ -676,7 +677,6 @@ internal static class TranslatorContext
             }
 
             // USER QUESTS
-            //YiTaiV : Fixed an issue where some translation modules for triggered tasks were not recognized
             foreach (var quest in userCampaign.UserQuests)
             {
                 quest.Title = Translate(quest.Title, languageCode);
@@ -688,7 +688,7 @@ internal static class TranslatorContext
                     userQuestStep.Description = Translate(userQuestStep.Description, languageCode);
 
                     foreach (var outStart in userQuestStep.onStartFunctors
-                                 .Where(outStart => outStart.type == SetLocationStatus))
+                                 .Where(outStart => outStart.type is SetLocationStatus or LoreOperation))
                     {
                         outStart.StringParameter = Translate(outStart.StringParameter, languageCode);
                     }
@@ -698,17 +698,18 @@ internal static class TranslatorContext
                         yield return Update();
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
-                        // magicSkySword : Only place parameters can be translated
                         outcome.validatorDescription.StringParameter = outcome.validatorDescription.type switch
                         {
-                            QuestDefinitions.QuestValidatorType.EnterLocation
-                                or QuestDefinitions.QuestValidatorType.LeaveLocation => Translate(
+                            QuestDefinitions.QuestValidatorType.EnterLocation or
+                                QuestDefinitions.QuestValidatorType.EnterCampaignMap or
+                                QuestDefinitions.QuestValidatorType.LeaveLocation or
+                                QuestDefinitions.QuestValidatorType.LeaveCampaignMap => Translate(
                                     outcome.validatorDescription.StringParameter, languageCode),
                             _ => outcome.validatorDescription.StringParameter
                         };
 
                         foreach (var outComplete in outcome.OnCompleteFunctors
-                                     .Where(outComplete => outComplete.type == SetLocationStatus))
+                                     .Where(outComplete => outComplete.type is SetLocationStatus or LoreOperation))
                         {
                             outComplete.StringParameter = Translate(outComplete.StringParameter, languageCode);
                         }
