@@ -384,8 +384,7 @@ internal static class GrappleContext
 
             var success = true;
 
-            // only roll a check if an enemy
-            if (defender.IsOppositeSide(attacker.Side))
+            if (!Main.Settings.AlliesDoNotResolveRollsWhenGrappled || defender.IsOppositeSide(attacker.Side))
             {
                 yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
                     attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
@@ -495,6 +494,10 @@ internal static class GrappleContext
                     rulesetSource.RemoveCondition(activeConditionSource);
                 }
             }
+
+            var glc = GameLocationCharacter.GetFromActor(target);
+            
+            glc.StopMoving(LocationDefinitions.Orientation.Down, CharacterAction.InterruptionType.ForcedMovement);
         }
     }
 

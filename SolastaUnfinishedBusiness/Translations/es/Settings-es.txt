@@ -19,7 +19,7 @@ ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color> <b><i><color=#C04040E0>[Requier
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATENCIÓN:</color></b> Esta configuración requerirá que el reproductor tenga instalado este mod.
 ModUi/&AllItemInDm=Todos los artículos en DM
 ModUi/&AllRecipesInDm=Todas las recetas en DM.
-ModUi/&AlliesDoNotResolveRollsWhenGrappled=<i>+ Los aliados no resuelven las tiradas de contexto en una interacción de agarre</i>
+ModUi/&AlliesDoNotResolveRollsWhenGrappled=<i>+ Los aliados no resuelven las tiradas de contexto al agarrar</i>
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir a todos los jugadores en secuencias narrativas</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Permitir que los aliados perciban a <color=#D89555>Ranger GloomStalker</color> cuando se encuentran en oscuridad natural
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que cualquier clase use <color=#D89555>Armadura Sylvan</color> o <color=#D89555>Ropa de Iluminador</color>

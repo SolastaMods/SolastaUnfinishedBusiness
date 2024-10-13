@@ -19,7 +19,7 @@ ModUi/&Advanced=<color=#F0DAA0>詳細:</color> <b><i><color=#C04040E0>[再起動
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>注意:</color></b> これらの設定を行うには、プレーヤーにこの MOD がインストールされている必要があります。
 ModUi/&AllItemInDm=DM内のすべてのアイテム
 ModUi/&AllRecipesInDm=すべてのレシピはDMにあります
-ModUi/&AlliesDoNotResolveRollsWhenGrappled=<i>+ 味方はグラップルインタラクションでコンテキストロールを解決しません</i>
+ModUi/&AlliesDoNotResolveRollsWhenGrappled=<i>+ 味方はグラップル時にコンテキストロールを解決しません</i>
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ すべてのプレイヤーに物語シーケンスを許可</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=自然の暗闇にいるときに味方が<color=#D89555>レンジャー グロウムストーカー</color>を感知できるようにする
 ModUi/&AllowAnyClassToWearSylvanArmor=どのクラスも<color=#D89555>森の鎧</color>または<color=#D89555>ライトブリンガーの服</color>を着用できるようにする

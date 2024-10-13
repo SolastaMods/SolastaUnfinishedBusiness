@@ -178,6 +178,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool AddFallProneActionToAllRaces { get; set; }
     public bool AddGrappleActionToAllRaces { get; set; }
+    public bool AlliesDoNotResolveRollsWhenGrappled { get; set; }
     public bool AddHelpActionToAllRaces { get; set; }
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleRaces { get; set; }

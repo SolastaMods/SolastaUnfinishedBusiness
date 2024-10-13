@@ -61,7 +61,17 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddGrappleActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddGrappleActionToAllRaces = toggle;
+            Main.Settings.AlliesDoNotResolveRollsWhenGrappled = false;
             GrappleContext.SwitchGrappleAction();
+        }
+
+        if (Main.Settings.AddGrappleActionToAllRaces)
+        {
+            toggle = Main.Settings.AlliesDoNotResolveRollsWhenGrappled;
+            if (UI.Toggle(Gui.Localize("ModUi/&AlliesDoNotResolveRollsWhenGrappled"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AlliesDoNotResolveRollsWhenGrappled = toggle;
+            }
         }
 
         toggle = Main.Settings.AddHelpActionToAllRaces;

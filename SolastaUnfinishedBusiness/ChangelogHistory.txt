@@ -1,3 +1,11 @@
+1.5.97.34:
+
+- added 'Allies don't resolve context rolls on grapple' setting
+- fixed Circle of Wildfire enhanced bond
+- fixed Green-Flame Blade 2nd target damage
+- fixed Spike Growth 2x damage on last tile move
+- fixed Wizard War Magic power surge
+
 1.5.97.33:
 
 - added homebrew Brawler feat
