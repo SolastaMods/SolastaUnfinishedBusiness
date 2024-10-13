@@ -27,6 +27,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAddit
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -75,6 +76,7 @@ internal static class FixesContext
         FixLanguagesPointPoolsToIncludeAllLanguages();
         FixMartialArtsProgression();
         FixMartialCommanderCoordinatedDefense();
+        FixMeleeRetaliationWithReach();
         FixMountaineerBonusShoveRestrictions();
         FixMummyDreadfulGlareSavingAttribute();
         FixPowerDragonbornBreathWeaponDiceProgression();
@@ -569,6 +571,16 @@ internal static class FixesContext
         {
             spell.EffectDescription.EffectAdvancement.alteredDuration = AdvancementDuration.None;
         }
+    }
+
+    private static void FixMeleeRetaliationWithReach()
+    {
+        // max possible reach in game is 15 ft
+        DamageAffinityFireImmunityRemorhaz.retaliateRangeCells = 3;
+        DamageAffinityFireImmunityYoungRemorhaz.retaliateRangeCells = 3;
+        DamageAffinityPatronTreePiercingBranch.retaliateRangeCells = 3;
+        DamageAffinityPatronTreePiercingBranchOneWithTheTree.retaliateRangeCells = 3;
+        DamageAffinityWightLord_NecroticImmunity.retaliateRangeCells = 3;
     }
 
     private static void FixMountaineerBonusShoveRestrictions()

@@ -1435,6 +1435,21 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionDamageAffinitys
     {
+        internal static FeatureDefinitionDamageAffinity DamageAffinityFireImmunityRemorhaz { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunityRemorhaz");
+
+        internal static FeatureDefinitionDamageAffinity DamageAffinityFireImmunityYoungRemorhaz { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunityYoungRemorhaz");
+
+        internal static FeatureDefinitionDamageAffinity DamageAffinityPatronTreePiercingBranch { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPatronTreePiercingBranch");
+
+        internal static FeatureDefinitionDamageAffinity DamageAffinityPatronTreePiercingBranchOneWithTheTree { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPatronTreePiercingBranchOneWithTheTree");
+
+        internal static FeatureDefinitionDamageAffinity DamageAffinityWightLord_NecroticImmunity { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityWightLord_NecroticImmunity");
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityConditionRagingBludgeoning { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityConditionRagingBludgeoning");
 

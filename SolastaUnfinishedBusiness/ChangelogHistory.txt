@@ -1,5 +1,7 @@
 1.5.97.35:
 
+- fixed Armor of Agathys, and Path of Wild Magic retribution damage to consider reach attacks
+- fixed Patron Tree, Remorhaz, Wight Lord, and Young Remorhaz retribution damage to consider reach attacks [VANILLA]
 - fixed campaigns translator missing LoreOperation functors [i.e.: discover new locations]
 - fixed grappled actor interaction with flying grappler, and dangerous zones [i.e.: Spike Growth]
 
@@ -7,7 +9,6 @@ KNOWN ISSUES:
 
 - Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
 - Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
-- Grappled character won't trigger OnMove or OnEnter environment effects if dragged
 
 1.5.97.34:
 

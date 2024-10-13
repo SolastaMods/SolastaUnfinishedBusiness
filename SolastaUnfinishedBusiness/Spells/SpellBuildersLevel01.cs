@@ -1694,7 +1694,7 @@ internal static partial class SpellBuilders
 
             yield return pathfindingService
                 .ComputeValidDestinationsAsync(target, target.LocationPosition, target.MaxTacticalMoves * 2);
- 
+
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var casterPosition = action.ActingCharacter.LocationPosition;
             var destinationPosition = target.LocationPosition;
@@ -2236,7 +2236,8 @@ internal static partial class SpellBuilders
         var damageAffinitySkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetRetaliate(powerSkinOfRetribution, 1)
+            // max possible reach in game is 15 ft
+            .SetRetaliate(powerSkinOfRetribution, 3)
             .AddToDB();
 
         var conditionSkinOfRetribution = ConditionDefinitionBuilder

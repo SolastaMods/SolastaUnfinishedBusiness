@@ -506,7 +506,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var featureWildSurgeRetributionMelee = FeatureDefinitionDamageAffinityBuilder
                 .Create($"DamageAffinity{Name}RetributionMelee")
                 .SetGuiPresentationNoContent(true)
-                .SetRetaliate(powerWildSurgeRetribution, 1)
+                // max possible reach in game is 15 ft
+                .SetRetaliate(powerWildSurgeRetribution, 3)
                 .AddToDB();
 
             featureWildSurgeRetributionMelee.retaliateProximity = AttackProximity.Melee;
