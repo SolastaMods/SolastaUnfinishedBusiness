@@ -1,6 +1,5 @@
 1.5.97.34:
 
-- added 'Allies don't resolve context rolls on grapple' setting
 - fixed battles soft lock with reaction spells, and readied actions
 - fixed Circle of Nature level up instability when switching subclasses
 - fixed Circle of Wildfire enhanced bond on successful save, and damage on first target only

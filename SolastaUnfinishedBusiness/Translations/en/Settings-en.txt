@@ -19,7 +19,6 @@ ModUi/&Advanced=<color=#F0DAA0>Advanced:</color> <b><i><color=#C04040E0>[Require
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
 ModUi/&AllItemInDm=All items in DM
 ModUi/&AllRecipesInDm=All recipes in DM
-ModUi/&AlliesDoNotResolveRollsWhenGrappled=<i>+ Allies don't resolve context rolls on grapple</i>
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Allow allies to perceive <color=#D89555>Ranger GloomStalker</color> when in natural darkness
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>

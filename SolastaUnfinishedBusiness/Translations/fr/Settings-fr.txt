@@ -19,7 +19,6 @@ ModUi/&Advanced=<color=#F0DAA0>Avancé :</color> <b><i><color=#C04040E0>[Néces
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENTION :</color></b> Ces paramètres nécessiteront que le joueur ait installé ce mod.
 ModUi/&AllItemInDm=Tous les articles en DM
 ModUi/&AllRecipesInDm=Toutes les recettes en DM
-ModUi/&AlliesDoNotResolveRollsWhenGrappled=<i>+ Les alliés ne résolvent pas les jets de contexte lors de la lutte</i>
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur les séquences narratives</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Permettre aux alliés de percevoir <color=#D89555>Ranger GloomStalker</color> lorsqu'ils sont dans l'obscurité naturelle
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser n'importe quelle classe à porter une <color=#D89555>armure sylvestre</color> ou des <color=#D89555>vêtements de porteur de lumière</color>
