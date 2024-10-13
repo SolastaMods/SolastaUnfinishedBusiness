@@ -1,16 +1,14 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
-  "conditionType": "Detrimental",
+  "parentCondition": "Definition:ConditionFlying:ec82fae48f9a55a41a49fd96d93b49b5",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityConditionRestrained:0a11d859909c2624086506f327824de8",
-    "Definition:ActionAffinityGrappled:1c2c02a0e9f823c489b3d62d03534617",
-    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc"
+    "Definition:ConditionGrappleTargetFlying:617fc4f1-520e-53b8-85bf-3dca03dc7231"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -42,21 +40,21 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "d8e73c164ff3dad4197a0e0830c6573e",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "b8867e443cbc9024db3ffd55201414b1",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "637c9a990c79eb249beaf07c80aae51a",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
@@ -90,8 +88,8 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": "Fixed",
-  "baseAmount": 40,
+  "amountOrigin": "None",
+  "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
   "subsequentOnRemoval": null,
@@ -101,10 +99,10 @@
   "subsequentDCIncrease": 5,
   "effectFormsOnRemoved": [],
   "forceBehavior": false,
-  "addBehavior": true,
+  "addBehavior": false,
   "fearSource": false,
-  "battlePackage": "Definition:BreakFreeAbilityCheckConditionGrappleTarget:b3dda95b-b6b0-5304-816f-615712840fbe",
-  "explorationPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
+  "battlePackage": null,
+  "explorationPackage": null,
   "removedFromTheGame": false,
   "permanentlyRemovedIfExtraPlanar": false,
   "refundReceivedDamageWhenRemoved": false,
@@ -131,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionGrappleTargetTitle",
-    "description": "Condition/&ConditionGrappleTargetDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "57125544a666ad64195b2eddc133deb4",
-      "m_SubObjectName": "RayOfFrostConditionHindered",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -153,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9394c6ee-622a-58b6-96cd-04d1f22adf70",
+  "guid": "21736dd5-789a-5dad-a1f9-4fa0775d3e29",
   "contentPack": 9999,
-  "name": "ConditionGrappleTarget"
+  "name": "ConditionGrappleFlyingTarget"
 }

@@ -14,7 +14,7 @@
   "healBackCap": 10,
   "retaliateWhenHit": true,
   "retaliateProximity": "Melee",
-  "retaliateRangeCells": 1,
+  "retaliateRangeCells": 3,
   "retaliatePower": "Definition:PowerSkinOfRetribution:88dab8ae-5388-555d-8212-b877be029dbc",
   "retaliateFromSource": false,
   "knockOutAffinity": "None",
