@@ -1099,7 +1099,6 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(additionalDamageResonatingStrike)
-            .SetSpecialInterruptions(ExtraConditionInterruption.SpendPowerExecuted)
             .AddToDB();
 
         conditionResonatingStrike.AddCustomSubFeatures(
@@ -1206,8 +1205,26 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorConditionResonatingStrike(
         ConditionDefinition conditionResonatingStrike,
-        FeatureDefinitionPower powerResonatingStrikeDamage) : IPhysicalAttackFinishedByMe, IModifyEffectDescription
+        FeatureDefinitionPower powerResonatingStrikeDamage)
+        : IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe, IModifyEffectDescription
     {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterAction action, GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            if (action.ActionParams.RulesetEffect.SourceDefinition != powerResonatingStrikeDamage)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionResonatingStrike.Name, out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+        }
+
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerResonatingStrikeDamage;
