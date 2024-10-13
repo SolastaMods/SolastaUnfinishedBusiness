@@ -1356,9 +1356,9 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
+            var index = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-            if (pos < 0)
+            if (index < 0)
             {
                 yield break;
             }
@@ -1368,7 +1368,7 @@ internal static partial class SpellBuilders
 
             effectForm.DamageForm.IgnoreCriticalDoubleDice = true;
 
-            actualEffectForms.Insert(pos + 1, effectForm);
+            actualEffectForms.Insert(index + 1, effectForm);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
