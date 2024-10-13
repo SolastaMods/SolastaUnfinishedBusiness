@@ -143,7 +143,7 @@ internal static class ValidatorsCharacter
     };
 
     internal static readonly IsCharacterValidHandler HasTwoHandedQuarterstaff = character =>
-        ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) && IsFreeOffhand(character);
+        ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) && IsFreeOffhandVanilla(character);
 
     internal static readonly IsCharacterValidHandler HasLongbow = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), LongbowType);
@@ -304,12 +304,6 @@ internal static class ValidatorsCharacter
 
         // does character have free offhand in TA's terms as used in RefreshAttackModes for Monk bonus unarmed attack?
         return offHand == null || !offHand.ItemDefinition.IsWeapon;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsFreeOffhand(RulesetCharacter character)
-    {
-        return character.GetOffhandWeapon() == null;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
