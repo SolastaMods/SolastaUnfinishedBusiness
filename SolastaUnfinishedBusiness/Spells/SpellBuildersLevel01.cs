@@ -1694,7 +1694,7 @@ internal static partial class SpellBuilders
 
             yield return pathfindingService
                 .ComputeValidDestinationsAsync(target, target.LocationPosition, target.MaxTacticalMoves * 2);
-            
+ 
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var casterPosition = action.ActingCharacter.LocationPosition;
             var destinationPosition = target.LocationPosition;

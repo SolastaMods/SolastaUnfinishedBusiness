@@ -241,7 +241,7 @@ internal static partial class SpellBuilders
                     .Create(WallOfFireLine)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube)
-                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetRecurrentEffect(
