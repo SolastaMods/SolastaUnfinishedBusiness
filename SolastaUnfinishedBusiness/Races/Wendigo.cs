@@ -73,7 +73,7 @@ internal static class RaceWendigoBuilder
         var featureWendigoNaturalLunger = FeatureDefinitionBuilder
             .Create("FeatureWendigoNaturalLunger")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee, Lunger.Name))
+            .AddCustomSubFeatures(new IncreaseWeaponReach(1, ValidatorsWeapon.AlwaysValid, Lunger.Name))
             .AddToDB();
 
         var racePresentation = Tiefling.RacePresentation.DeepCopy();

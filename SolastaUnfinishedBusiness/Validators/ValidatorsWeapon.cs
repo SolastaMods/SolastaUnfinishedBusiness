@@ -52,13 +52,8 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsTwoHandedRanged([CanBeNull] RulesetAttackMode attackMode)
     {
-        return IsTwoHandedRanged(attackMode?.SourceDefinition as ItemDefinition);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool IsTwoHandedRanged([CanBeNull] ItemDefinition itemDefinition)
-    {
-        return IsWeaponType(itemDefinition, LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
+        return IsWeaponType(attackMode?.SourceDefinition as ItemDefinition, LongbowType, ShortbowType,
+            HeavyCrossbowType, LightCrossbowType);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -81,7 +76,6 @@ internal static class ValidatorsWeapon
                 itemDefinition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee);
     }
 
-#pragma warning disable IDE0060
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee(
         [UsedImplicitly] [CanBeNull] RulesetAttackMode attackMode,
@@ -98,7 +92,6 @@ internal static class ValidatorsWeapon
         // don't use IsMelee(attackMode) in here as these are used before an attack initiates
         return IsMelee(attackModeRulesetItem ?? rulesetItem ?? rulesetCharacter?.GetMainWeapon());
     }
-#pragma warning restore IDE0060
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee([CanBeNull] RulesetItem rulesetItem)
