@@ -73,14 +73,15 @@ internal static class ValidatorsWeapon
 
         return itemDefinition.IsArmor ||
                (itemDefinition.WeaponDescription != null &&
+                itemDefinition.WeaponDescription.WeaponTypeDefinition != UnarmedStrikeType &&
                 itemDefinition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee(
-        [UsedImplicitly] [CanBeNull] RulesetAttackMode attackMode,
+        [CanBeNull] RulesetAttackMode attackMode,
         [CanBeNull] RulesetItem rulesetItem,
-        [UsedImplicitly] RulesetCharacter rulesetCharacter)
+        RulesetCharacter rulesetCharacter)
     {
         RulesetItem attackModeRulesetItem = null;
 
