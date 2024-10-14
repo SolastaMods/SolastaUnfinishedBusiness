@@ -2,9 +2,10 @@
 
 - fixed Armor of Agathys, and Path of Wild Magic retribution damage to consider reach attacks
 - fixed Patron Tree, Remorhaz, Wight Lord, and Young Remorhaz retribution damage to consider reach attacks [VANILLA]
-- fixed campaigns translator missing lore operations [i.e.: discover new locations]
+- fixed campaigns translator missing lore operations [i.e.: learn/unlearn/unchart locations]
 - fixed gadgets save soft lock under certain scenarios [i.e.: area activators]
 - fixed grappled actor interaction with flying grappler, and dangerous zones [i.e.: Spike Growth]
+- improved Grappler feat to be closer to One D&D
 
 KNOWN ISSUES:
 

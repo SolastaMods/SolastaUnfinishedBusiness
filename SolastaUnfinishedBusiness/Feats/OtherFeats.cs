@@ -54,6 +54,7 @@ internal static class OtherFeats
         var featFightingInitiate = BuildFightingInitiate();
         var featFrostAdaptation = BuildFrostAdaptation();
         var featGiftOfTheChromaticDragon = BuildGiftOfTheChromaticDragon();
+        var featGrappler = BuildGrappler();
         var featHealer = BuildHealer();
         var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
@@ -92,8 +93,7 @@ internal static class OtherFeats
             featEldritchAdept,
             featFrostAdaptation,
             featGiftOfTheChromaticDragon,
-            FeatGrapplerStr,
-            FeatGrapplerDex,
+            featGrappler,
             featHealer,
             featInfusionAdept,
             featInspiringLeader,
@@ -116,10 +116,6 @@ internal static class OtherFeats
             featTough,
             featVersatilityAdept,
             featWarCaster);
-
-        var featGroupGrappler = GroupFeats.MakeGroup("FeatGroupGrappler", GroupFeats.Grappler,
-            FeatGrapplerStr,
-            FeatGrapplerDex);
 
         GroupFeats.FeatGroupBodyResilience.AddFeats(
             athleteGroup,
@@ -155,7 +151,7 @@ internal static class OtherFeats
             featGiftOfTheChromaticDragon,
             featBrawler,
             chefGroup,
-            featGroupGrappler,
+            featGrappler,
             featHealer,
             featInspiringLeader,
             featLucky,
@@ -627,21 +623,46 @@ internal static class OtherFeats
 
     #region Grappler
 
-    private static readonly FeatDefinition FeatGrapplerDex = FeatDefinitionBuilder
-        .Create("FeatGrapplerDex")
-        .SetGuiPresentation(Category.Feat)
-        .AddFeatures(AttributeModifierCreed_Of_Misaye)
-        .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-        .SetFeatFamily(GroupFeats.Grappler)
-        .AddToDB();
+    private static FeatDefinition FeatGrappler { get; set; }
 
-    private static readonly FeatDefinition FeatGrapplerStr = FeatDefinitionBuilder
-        .Create("FeatGrapplerStr")
-        .SetGuiPresentation(Category.Feat)
-        .AddFeatures(AttributeModifierCreed_Of_Einar)
-        .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-        .SetFeatFamily(GroupFeats.Grappler)
-        .AddToDB();
+    private static readonly IsCharacterValidHandler IsValidGrappleOnUnarmedToggle = character =>
+    {
+        var glc = GameLocationCharacter.GetFromActor(character);
+
+        return Gui.Battle != null &&
+               character.AttackModes.Any(x =>
+                   ValidatorsWeapon.IsUnarmed(x) &&
+                   glc.GetActionTypeStatus(x.ActionType) == ActionStatus.Available) &&
+               glc.GetSpecialFeatureUses(FeatGrappler.Name) < 0;
+    };
+
+    private static FeatDefinition BuildGrappler()
+    {
+        var actionAffinityGrappleOnUnarmedToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityGrappleOnUnarmedToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.GrappleOnUnarmedToggle)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(IsValidGrappleOnUnarmedToggle),
+                new PhysicalAttackFinishedByMeGrappler())
+            .AddToDB();
+
+        // kept for backward compatibility
+        _ = FeatDefinitionBuilder
+            .Create("FeatGrapplerDex")
+            .SetGuiPresentation("FeatGrapplerStr", Category.Feat, hidden: true)
+            .SetFeatures(actionAffinityGrappleOnUnarmedToggle)
+            .AddToDB();
+
+        FeatGrappler = FeatDefinitionBuilder
+            .Create("FeatGrapplerStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(actionAffinityGrappleOnUnarmedToggle)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+            .AddToDB();
+
+        return FeatGrappler;
+    }
 
     internal static void MaybeChangeGrapplerConditionForGrappleFeatBehavior(
         RulesetCharacter attacker,
@@ -650,14 +671,52 @@ internal static class OtherFeats
     {
         var hero = attacker.GetOriginalHero();
 
-        if (hero != null &&
-            (hero.TrainedFeats.Contains(FeatGrapplerDex) ||
-             hero.TrainedFeats.Contains(FeatGrapplerStr)))
+        if (hero?.TrainedFeats.Contains(FeatGrappler) == true)
         {
             sourceConditionName =
                 attacker.SizeDefinition.WieldingSize < defender.SizeDefinition.WieldingSize
                     ? GrappleContext.ConditionGrappleSourceWithGrapplerLargerName
                     : GrappleContext.ConditionGrappleSourceWithGrapplerName;
+        }
+    }
+
+    private sealed class PhysicalAttackFinishedByMeGrappler : IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !ValidatorsWeapon.IsUnarmed(attackMode) ||
+                defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.GrappleOnUnarmedToggle) ||
+                attacker.GetSpecialFeatureUses(FeatGrappler.Name) >= 0)
+            {
+                yield break;
+            }
+
+            yield return attacker.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                attacker,
+                "Grappler",
+                "CustomReactionGrapplerDescription".Formatted(Category.Reaction, defender.Name),
+                ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                attacker.SetSpecialFeatureUses(FeatGrappler.Name, 0);
+                rulesetAttacker.DisableToggle((Id)ExtraActionId.GrappleOnUnarmedToggle);
+                GrappleContext.CustomBehaviorGrapple.ExecuteGrapple(attacker, defender).ExecuteUntilDone();
+            }
         }
     }
 

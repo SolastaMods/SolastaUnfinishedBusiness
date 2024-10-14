@@ -34,6 +34,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.ForcePoweredStrikeToggle,
         (Id)ExtraActionId.GloomBladeToggle,
+        (Id)ExtraActionId.GrappleOnUnarmedToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
         (Id)ExtraActionId.ImpishWrathToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,
@@ -358,6 +359,14 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.SupremeWillToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "GrappleOnUnarmedToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.GrappleOnUnarmedToggle)
             .OverrideClassName("Toggle")
             .AddToDB();
     }

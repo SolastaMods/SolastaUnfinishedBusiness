@@ -344,7 +344,7 @@ internal static class GrappleContext
         Material
     }
 
-    private sealed class CustomBehaviorGrapple : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
+    internal sealed class CustomBehaviorGrapple : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -387,9 +387,15 @@ internal static class GrappleContext
         {
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
-            var abilityCheckData = new AbilityCheckData();
 
             attacker.BurnOneMainAttack();
+
+            yield return ExecuteGrapple(attacker, defender);
+        }
+
+        public static IEnumerator ExecuteGrapple(GameLocationCharacter attacker, GameLocationCharacter defender)
+        {
+            var abilityCheckData = new AbilityCheckData();
 
             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
                 attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
