@@ -66,6 +66,20 @@ public static class GameLocationCharacterPatcher
             }
         }
     }
+    
+    
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CheckMotionValidity))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CheckMotionValidity_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter __instance)
+        {
+            //PATCH: always allow prone when grappled
+            return !__instance.Prone || !__instance.IsGrappled();
+        }
+    }
 
     //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
     //let ADV/DIS be handled elsewhere in `GLBM.CanAttack` if alternate lighting and obscurement rules in place
