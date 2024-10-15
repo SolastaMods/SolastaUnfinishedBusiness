@@ -31,6 +31,13 @@ internal static class GrappleContext
     internal const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
     internal const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
 
+    private static readonly string[] AllSourceGrappleConditionNames =
+    [
+        ConditionGrappleSourceName,
+        ConditionGrappleSourceWithGrapplerName,
+        ConditionGrappleSourceWithGrapplerLargerName
+    ];
+
     private static readonly FeatureDefinitionPower PowerGrapple = FeatureDefinitionPowerBuilder
         .Create($"Power{Grapple}")
         .SetGuiPresentation($"Action{Grapple}", Category.Action, hidden: true)
@@ -323,10 +330,15 @@ internal static class GrappleContext
 
         return 1;
     }
-    
+
     public static bool IsGrappled(this GameLocationCharacter character)
     {
         return character.RulesetCharacter.HasConditionOfType(ConditionGrappleTargetName);
+    }
+
+    public static void BreakGrapple(this GameLocationCharacter source)
+    {
+        source.RulesetCharacter.RemoveAllConditionsOfType(AllSourceGrappleConditionNames);
     }
 
     internal enum SpellValidationType

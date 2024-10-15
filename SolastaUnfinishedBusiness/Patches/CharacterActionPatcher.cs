@@ -148,6 +148,9 @@ public static class CharacterActionPatcher
                 case CharacterActionMoveStepBase characterActionMoveStepBase:
                     OtherFeats.NotifyFeatStealth(characterActionMoveStepBase);
                     break;
+                case CharacterActionFreeFall:
+                    actingCharacter.BreakGrapple();
+                    break;
             }
         }
 
