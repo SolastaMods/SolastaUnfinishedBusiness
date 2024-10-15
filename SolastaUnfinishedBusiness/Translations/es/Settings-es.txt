@@ -116,7 +116,6 @@ ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requie
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Habilite trucos para activar <color=#D89555>Magia de guerra</color> ataque adicional adicional
 ModUi/&EnableCharacterChecker=Habilite el botón Comprobador de personajes en la pantalla principal > Personajes
-ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar el carácter.
 ModUi/&EnableCharactersOnFireToEmitLight=Los personajes <color=#D89555>On Fire</color> deben emitir luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego y familia de condición en llamas]</color></i>
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Habilite la función <color=#1E81B0>CTRL</color> de clic y arrastre para omitir las comprobaciones de <color=#D89555>objetos de misión</color> al soltarlos
@@ -134,8 +133,6 @@ ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar 
 ModUi/&EnableGauntletMainAttacks=Permitir <b>Ataque sin armas</b> con acción principal para el personaje si es un <color=#D89555>Monje</color> o tiene <b>Manos</b> o <b>Guantelete</b> equipados
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permite que el héroe con mayor competencia elija opciones de diálogo. <i><color=#F0DAA0>[funciona, pero las narraciones se ven extrañas en las campañas oficiales]</color></i>
 ModUi/&EnableHigherGroundRules=Habilite reglas básicas más altas <i><color=#F0DAA0>[+1 para golpear si ataca desde un terreno más alto]</color></i>
-ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración
-ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar la visualización del HUD
 ModUi/&EnableInventoryFilteringAndSorting=Habilitar el filtrado y la clasificación de inventario
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tiñe de rojo cualquier objeto con el que el héroe no sea competente.
 ModUi/&EnableInventoryTintKnownRecipesRed=Teñir de rojo recetas conocidas
@@ -159,7 +156,6 @@ ModUi/&EnableOneDndHealingSpellsBuf=Habilite la mejora de dados de curación One
 ModUi/&EnablePcgRandom=Habilite un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Habilite los efectos de movimiento de empujar y tirar para que funcionen también en el eje arriba/abajo
 ModUi/&EnableRangerNatureShroudAt10=Activa la función <color=#D89555>Ranger</color> <b>Velo de la Naturaleza</b> en el nivel 10 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno. ]</color></i>
-ModUi/&EnableRejoinParty=Habilite <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirse al grupo alrededor del héroe seleccionado o del líder si no se selecciona ninguno <i><color=#F0DAA0>[útil con grupos de 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=Habilitar la selección de trucos o hechizos ya aprendidos de otras fuentes.
 ModUi/&EnableRespec=Habilite la acción <color=#D89555>RESPEC</color> después del descanso <i><color=#F0DAA0>[no use RESPEC durante una sesión multijugador]</color></i>
 ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Pícaro</color> <b>Golpe astuto</b> y <b>Golpe tortuoso</b> en los niveles 5 y 14 <i><color=#F0DAA0>[dejaste renunciar a 1 dados de ataque furtivo para efectos de golpe adicionales]</color></i>
@@ -173,13 +169,11 @@ ModUi/&EnableSorcererQuickenedAction=Habilitar la acción <color=#D89555>Hechizo
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de recursos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Muestra estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir: golpes críticos, fallos críticos, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe agrega una tirada D20 al peso para darle un poco de aleatoriedad <color=#F0DAA0>[peso elegido = votos * modificador de carisma del héroe + tirada D20]</color></i>
-ModUi/&EnableTeleportParty=Activa <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar al grupo <i><color=#F0DAA0>[podrías interrumpir las misiones si te teletransportas a un lugar desconocido]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Habilite <color=#D89555>Teletransporte</color> para eliminar todas las condiciones <color=#D89555>restringidas</color> del objetivo
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los cambios en el grupo de personajes para configurar su grupo de prueba y juego predeterminado
 ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas al pasar el cursor sobre un personaje en combate.
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar transmisión ascendente de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
-ModUi/&EnableVttCamera=Habilite <color=#1E81B0>CTRL-SHIFT-(V)</color> para alternar la cámara VTT <i><color=#F0DAA0>[haga clic derecho y arrastre para posicionar la cámara, WASD para desplazarse y Re Pág/ Avance de página para hacer zoom]</color></i>
 ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntuaciones de atributos y la selección de <color=#D89555>dotes</color> <i><color=#F0DAA0>[en lugar de una elección exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentaje de posibilidades de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros
@@ -201,7 +195,6 @@ ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante u
 ModUi/&FormationHelp1=• Utilice los botones numéricos para editar un conjunto determinado <i><color=#F0DAA0>[considere habilitar teclas de acceso rápido en entrada]</color></i>
 ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> representa posiciones relativas de héroe
 ModUi/&FormationHelp3=• Haga clic en 2 botones cualesquiera para intercambiar sus posiciones
-ModUi/&FormationHotkey=Habilita <color=#1E81B0>CTRL-SHIFT-(1..5)</color> para intercambiar conjuntos de formaciones en el juego.
 ModUi/&FormationResetAllSets=Resetear todo
 ModUi/&FormationResetThisSet=Restablecer esto
 ModUi/&FormationSelected=Conjunto de formación {0} seleccionado

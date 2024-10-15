@@ -306,46 +306,6 @@ internal static class GameUiDisplay
             Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
         }
 
-        UI.Label();
-
-        toggle = Main.Settings.EnableHotkeySwapFormationSets;
-        if (UI.Toggle(Gui.Localize("ModUi/&FormationHotkey"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableHotkeySwapFormationSets = toggle;
-        }
-
-        toggle = Main.Settings.EnableHotkeyToggleHud;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyToggleHud"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableHotkeyToggleHud = toggle;
-        }
-
-        toggle = Main.Settings.EnableCharacterExport;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharacterExport"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCharacterExport = toggle;
-        }
-
-        toggle = Main.Settings.EnableTeleportParty;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableTeleportParty"), ref toggle))
-        {
-            Main.Settings.EnableTeleportParty = toggle;
-        }
-
-        toggle = Main.Settings.EnableRejoinParty;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRejoinParty"), ref toggle))
-        {
-            Main.Settings.EnableRejoinParty = toggle;
-        }
-
-        toggle = Main.Settings.EnableVttCamera;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableVttCamera"), ref toggle))
-        {
-            Main.Settings.EnableVttCamera = toggle;
-        }
-
-        UI.Label();
-
         toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCancelEditOnRightMouseClick"), ref toggle))
         {

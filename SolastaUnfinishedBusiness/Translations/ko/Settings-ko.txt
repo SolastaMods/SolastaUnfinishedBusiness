@@ -116,7 +116,6 @@ ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[다�
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 버튼 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=<color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하려면 캔트립을 활성화하세요.
 ModUi/&EnableCharacterChecker=메인 화면 > 캐릭터에서 문자 검사기 버튼을 활성화하세요.
-ModUi/&EnableCharacterExport=캐릭터를 내보내려면 <color=#1E81B0>CTRL-SHIFT-(E)</color>를 활성화하세요.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태의 종족]</color></i>
 ModUi/&EnableCheatMenu=치트 메뉴 활성화
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=<color=#1E81B0>CTRL</color> 클릭-드래그를 활성화하여 드롭 시 <color=#D89555>퀘스트 아이템</color> 검사를 무시합니다.
@@ -134,8 +133,6 @@ ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[인종 
 ModUi/&EnableGauntletMainAttacks=<color=#D89555>수도사</color> 또는 <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우 캐릭터가 주요 행동으로 <b>비무장 공격</b>을 허용합니다.
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=가장 뛰어난 능력을 가진 영웅이 대화 선택을 할 수 있도록 합니다. <i><color=#F0DAA0>[작동하지만 공식 캠페인에서는 내레이션이 이상하게 보입니다.]</color></i>
 ModUi/&EnableHigherGroundRules=더 높은 지대 규칙 활성화 <i><color=#F0DAA0>[더 높은 지대에서 공격할 경우 적중률 +1]</color></i>
-ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 표시하려면 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 활성화하세요.
-ModUi/&EnableHotkeyToggleHud=HUD 디스플레이를 전환하려면 <color=#1E81B0>CTRL-SHIFT-(H)</color>를 활성화하세요.
 ModUi/&EnableInventoryFilteringAndSorting=재고 필터링 및 정렬 활성화
 ModUi/&EnableInventoryTaintNonProficientItemsRed=영웅이 능숙하지 않은 모든 아이템을 빨간색으로 물들입니다.
 ModUi/&EnableInventoryTintKnownRecipesRed=알려진 레시피를 빨간색으로 틴트
@@ -159,7 +156,6 @@ ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>상처 치료</color>, <color
 ModUi/&EnablePcgRandom=더 나은 무작위 생성기 알고리즘 활성화 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=위/아래 축에서도 푸시 및 풀 모션 효과를 작동하도록 설정
 ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>레인저</color> <b>자연의 장막</b> 기능을 활성화하세요. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법처럼 투명해질 수 있습니다 ]</color></i>
-ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color>을 활성화하면 선택한 영웅이나 리더를 중심으로 파티에 다시 합류할 수 있습니다. <i><color=#F0DAA0>[5인 또는 6인 파티에 유용합니다. ]</color></i>
 ModUi/&EnableRelearnSpells=다른 소스에서 이미 배운 캔트립이나 주문 선택 활성화
 ModUi/&EnableRespec=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
 ModUi/&EnableRogueCunningStrike=레벨 5와 14에서 <color=#D89555>도적</color> <b>교활한 일격</b> 및 <b>악랄한 일격</b>을 활성화하세요. <i><color=#F0DAA0>[1은 포기하세요. 추가 적중 효과를 위한 몰래 공격 주사위]</color></i>
@@ -173,13 +169,11 @@ ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 또한 각 영웅은 약간의 무작위성을 위해 가중치에 D20 롤을 추가합니다. <color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정자 + D20 롤]</color></i>
-ModUi/&EnableTeleportParty=파티를 순간이동하려면 <color=#1E81B0>CTRL-SHIFT-(T)</color>를 활성화하세요. <i><color=#F0DAA0>[발견되지 않은 장소로 순간이동하면 퀘스트가 중단될 수 있습니다]</color></color> 나>
 ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>텔레포트</color>를 활성화하여 대상의 <color=#D89555>제한</color> 조건을 모두 제거하세요.
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=기본 플레이 및 테스트 파티를 설정하려면 캐릭터 풀의 토글을 활성화하세요.
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위로 마우스를 가져갈 때 툴팁에 거리 표시 활성화
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 창조</color> 및 <color=#D89555>페이 창조</color>의 업캐스트를 활성화합니다.
 ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
-ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color>를 활성화하여 VTT 카메라를 전환합니다. <i><color=#F0DAA0>[카메라 위치를 마우스 오른쪽 버튼으로 클릭하고 드래그하고, 팬 및 페이지 위로 이동하려면 WASD/ 확대하려면 페이지를 아래로 내리세요]</color></i>
 ModUi/&EnablesAsiAndFeat=속성 점수 증가와 <color=#D89555>feats</color> 선택 <i><color=#F0DAA0>[독점 선택 대신]</color></i>을 모두 활성화합니다.
 ModUi/&EncounterPercentageChance=<color=white>무작위 만남 확률 설정</color>
 ModUi/&Encounters=만남
@@ -201,7 +195,6 @@ ModUi/&FormationError=<color=#C04040E0>멀티플레이어 게임 중에는 포�
 ModUi/&FormationHelp1=• 주어진 세트를 편집하려면 숫자 버튼을 사용하세요. <i><color=#F0DAA0>[입력 시 단축키 활성화를 고려하세요]</color></i>
 ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b>는 상대적 영웅 위치를 나타냅니다.
 ModUi/&FormationHelp3=• 위치를 바꾸려면 버튼 2개를 클릭하세요.
-ModUi/&FormationHotkey=게임에서 포메이션 세트를 교체하려면 <color=#1E81B0>CTRL-SHIFT-(1..5)</color>를 활성화하세요.
 ModUi/&FormationResetAllSets=모두 초기화
 ModUi/&FormationResetThisSet=재설정
 ModUi/&FormationSelected=포메이션 세트 {0} 선택됨

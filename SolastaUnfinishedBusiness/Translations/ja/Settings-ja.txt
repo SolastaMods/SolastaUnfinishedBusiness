@@ -116,7 +116,6 @@ ModUi/&EnableBetaContent=ベータ コンテンツを有効にする <b><i><colo
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックによるキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=キャントリップを有効にして<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動
 ModUi/&EnableCharacterChecker=メイン画面 > キャラクターでキャラクターチェッカーボタンを有効にします
-ModUi/&EnableCharacterExport=<color=#1E81B0>CTRL-SHIFT-(E)</color> を有効にして文字をエクスポートします
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
 ModUi/&EnableCheatMenu=チートメニューを有効にする
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=<color=#1E81B0>CTRL</color> クリックドラッグを有効にすると、ドロップ時の <color=#D89555>クエストアイテム</color> チェックをバイパスできます
@@ -134,8 +133,6 @@ ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[
 ModUi/&EnableGauntletMainAttacks=<color=#D89555>モンク</color>または<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合、キャラクターのメインアクションで<b>素手攻撃</b>が可能になります
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=最も熟練度の高いヒーローが会話の選択肢をロールできるようにします <i><color=#F0DAA0>[機能しますが、公式キャンペーンではナレーションが奇妙に見えます]</color></i>
 ModUi/&EnableHigherGroundRules=高地ルールを有効にする <i><color=#F0DAA0>[高地から攻撃する場合、ヒット数 +1]</color></i>
-ModUi/&EnableHotkeyDebugOverlay=<color=#1E81B0>CTRL-SHIFT-(D)</color> を有効にしてデバッグ オーバーレイを表示します
-ModUi/&EnableHotkeyToggleHud=<color=#1E81B0>CTRL-SHIFT-(H)</color> を有効にして HUD 表示を切り替えます
 ModUi/&EnableInventoryFilteringAndSorting=在庫のフィルタリングと並べ替えを有効にする
 ModUi/&EnableInventoryTaintNonProficientItemsRed=主人公が習熟していないアイテムを赤く染める
 ModUi/&EnableInventoryTintKnownRecipesRed=既知のレシピを赤に着色する
@@ -159,7 +156,6 @@ ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>Cure Wounds</color>、<color=
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=プッシュとプルのモーション効果を上下軸でも有効にします
 ModUi/&EnableRangerNatureShroudAt10=<color=#D89555>レンジャー</color> の<b>自然のベール</b>機能をレベル 10 で有効にします<i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法のように透明になることができます。 ]</color></i>
-ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color> を有効にすると、何も選択されていない場合、選択したヒーローまたはリーダーを中心としたパーティーに再参加できます<i><color=#F0DAA0>[5 人または 6 人のパーティーで便利です] ]</color></i>
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップまたは呪文の選択を有効にする
 ModUi/&EnableRespec=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
 ModUi/&EnableRogueCunningStrike=<color=#D89555>ローグ</color> の<b>狡猾な攻撃</b>と<b>邪悪な攻撃</b>をレベル5とレベル14で有効にします<i><color=#F0DAA0>[1を省略します]追加のヒット効果のための急所攻撃ダイス]</color></i>
@@ -173,13 +169,11 @@ ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>�
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセットのソートを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローは、ランダム性を高めるためにウェイトに D20 ロールを追加します<color=#F0DAA0>[ウェイトの選択 = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
-ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color> を有効にしてパーティをテレポートします。<i><color=#F0DAA0>[未発見の場所にテレポートするとクエストが中断される可能性があります]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>テレポート</color>を有効にすると、ターゲットからすべての<color=#D89555>拘束</color>状態が解除されます。
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=キャラクタープールの切り替えを有効にして、デフォルトのプレイおよびテストパーティーを設定します
 ModUi/&EnableTooltipDistance=戦闘中にキャラクターの上にマウスを置いたときにツールチップに距離を表示できるようになります
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>コンジュア・エレメンタル</color>と<color=#D89555>コンジュア・フェイ</color>のアップキャストを有効にする
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
-ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color> を有効にして VTT カメラを切り替えます<i><color=#F0DAA0>[右クリックしてドラッグしてカメラの位置を決め、WASD でパンして Page Up/ページを下に移動してズーム]</color></i>
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と<color=#D89555>特技</color>の選択<i><color=#F0DAA0>[排他的な選択肢の代わりに]</color></i>の両方を有効にします
 ModUi/&EncounterPercentageChance=<color=white>ランダムな遭遇確率を設定する</color>
 ModUi/&Encounters=出会い
@@ -201,7 +195,6 @@ ModUi/&FormationError=<color=#C04040E0>マルチプレイヤー ゲーム中に�
 ModUi/&FormationHelp1=• 数字ボタンを使用して特定のセットを編集します<i><color=#F0DAA0>[入力時にホットキーを有効にすることを検討してください]</color></i>
 ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> はヒーローの相対的な位置を表します
 ModUi/&FormationHelp3=• 任意の 2 つのボタンをクリックして位置を入れ替えます。
-ModUi/&FormationHotkey=<color=#1E81B0>CTRL-SHIFT-(1..5)</color> を有効にしてゲーム内でフォーメーション セットを交換します
 ModUi/&FormationResetAllSets=すべてリセット
 ModUi/&FormationResetThisSet=これをリセットします
 ModUi/&FormationSelected=フォーメーション セット {0} が選択されました

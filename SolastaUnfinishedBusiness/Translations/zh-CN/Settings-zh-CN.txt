@@ -116,7 +116,6 @@ ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重�
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
 ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>，可以用附赠动作发动一次武器攻击
 ModUi/&EnableCharacterChecker=在 主屏幕 > 角色 上启用角色检视按钮
-ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-(E)</color>导出角色
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
 ModUi/&EnableCheatMenu=启用作弊菜单
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=启用 <color=#1E81B0>CTRL</color> 单击拖动以绕过<color=#D89555>任务物品</color> 的丢弃检查
@@ -134,8 +133,6 @@ ModUi/&EnableFlexibleRaces=启用灵活的种族<i><color=#F0DAA0>[自由分配�
 ModUi/&EnableGauntletMainAttacks=如果角色是<color=#D89555>僧侣</color>或装备有<b>手巾</b>或<b>铁手套</b>，则允许角色在主要行动中进行<b>徒手攻击</b>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=让技能熟练度最高的英雄进行对话选择<i><color=#F0DAA0>[这可行，但在官方活动中叙述看起来很奇怪]</color></i>
 ModUi/&EnableHigherGroundRules=启用夹击规则<i><color=#F0DAA0>[从高处射击时 +1 命中，前后夹击敌人时 +1 命中，如果敌人被四个盟友包围则获得优势]</color></i>
-ModUi/&EnableHotkeyDebugOverlay=启用<color=#1E81B0>CTRL-SHIFT-(D)</color>以显示调试覆盖
-ModUi/&EnableHotkeyToggleHud=启用<color=#1E81B0>CTRL-SHIFT-(H)</color>切换HUD显示
 ModUi/&EnableInventoryFilteringAndSorting=启用库存过滤和排序
 ModUi/&EnableInventoryTaintNonProficientItemsRed=将英雄不擅长的任何物品染红
 ModUi/&EnableInventoryTintKnownRecipesRed=染红已知配方
@@ -159,7 +156,6 @@ ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>疗伤术</color>、<color
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=使推拉运动效果也适用于上/下轴
 ModUi/&EnableRangerNatureShroudAt10=在<color=#D89555>游侠</color> 10 级启用<b>自然面纱</b>特性<i><color=#F0DAA0>[作为附赠动作，你可以魔法地变得隐形，直到下回合开始]</color></i>
-ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于 5 人或 6 人的队伍]</color></i>
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的戏法或法术</i>
 ModUi/&EnableRespec=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
 ModUi/&EnableRogueCunningStrike=在<color=#D89555>游荡者</color> 5 级和 14 级时启用<b>诡诈打击</b>和<b>凶狡打击</b><i><color=#F0DAA0>[你放弃 1 个偷袭骰可获得额外的命中效果]</color></i>
@@ -173,13 +169,11 @@ ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>�
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=。此外，每个英雄都增加了 D20 骰子重量以获得一点随机性
-ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color>传送队伍<i><color=#F0DAA0>[如果你传送到一个未被发现的地方，你可能会破坏任务]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=启用<color=#D89555>传送</color>以移除目标的所有<color=#D89555>限制</color>条件
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池的切换来设置默认的游戏和测试队伍
 ModUi/&EnableTooltipDistance=在战斗中将鼠标悬停在角色上时启用在工具提示上显示距离
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素咒唤术</color>和<color=#D89555>精类咒唤术</color>的升环
 ModUi/&EnableVariablePlaceholdersOnTexts=在描述中启用变量占位符<i><color=#F0DAA0>[使用 {VARIABLE_NAME} 作为占位符]</color></i>
-ModUi/&EnableVttCamera=启用 <color=#1E81B0>CTRL-SHIFT-(V)</color> 切换 VTT 摄像头<i><color=#F0DAA0>[右键单击并拖动以定位摄像头，WASD 进行平移和 Page Up/向下翻页放大]</color></i>
 ModUi/&EnablesAsiAndFeat=启用属性值提升和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
 ModUi/&Encounters=遭遇
@@ -201,7 +195,6 @@ ModUi/&FormationError=<color=#C04040E0>你不能在多人游戏中改变你的�
 ModUi/&FormationHelp1=•使用数字按钮编辑给定的集合<i><color=#F0DAA0>[考虑在输入下启用热键]</color></i>
 ModUi/&FormationHelp2=•<b><color=#1E81B0>@</color></b>代表相对英雄位置
 ModUi/&FormationHelp3=•单击任意 2 个按钮以交换它们的位置
-ModUi/&FormationHotkey=启用<color=#1E81B0>CTRL-SHIFT-(1..5)</color>在游戏中交换阵型
 ModUi/&FormationResetAllSets=重置全部
 ModUi/&FormationResetThisSet=重置这个
 ModUi/&FormationSelected=已选择编队集{0}

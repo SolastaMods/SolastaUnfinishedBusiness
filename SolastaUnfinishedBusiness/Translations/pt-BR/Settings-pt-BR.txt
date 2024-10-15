@@ -116,7 +116,6 @@ ModUi/&EnableBetaContent=Ativar conteúdo beta <b><i><color=#C04040E0>[Requer re
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite ações de cancelamento com clique direito do mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Habilite truques para acionar ataque bônus extra de <color=#D89555>War Magic</color>
 ModUi/&EnableCharacterChecker=Habilite o botão Verificador de Caracteres na Tela Principal > Caracteres
-ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar o caractere
 ModUi/&EnableCharactersOnFireToEmitLight=Personagens <color=#D89555>Em Chamas</color> devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Elemental de Fogo, Bobo da Corte de Fogo, Águia Pescadora de Fogo, Aranha de Fogo e família de condição em chamas]</color></i>
 ModUi/&EnableCheatMenu=Habilite o menu de cheats
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Habilitar <color=#1E81B0>CTRL</color> clicar e arrastar para ignorar as verificações de <color=#D89555>itens de missão</color> ao soltar
@@ -134,8 +133,6 @@ ModUi/&EnableFlexibleRaces=Habilite corridas flexíveis <i><color=#F0DAA0>[atrib
 ModUi/&EnableGauntletMainAttacks=Permitir <b>Ataque Desarmado</b> com ação principal para o personagem se um <color=#D89555>Monge</color> ou tiver <b>Manoplas</b> ou <b>Manopla</b> equipada
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permita que o herói com melhor proficiência role escolhas de diálogo <i><color=#F0DAA0>[funciona, mas as narrações parecem estranhas em campanhas oficiais]</color></i>
 ModUi/&EnableHigherGroundRules=Habilite regras de terreno mais alto <i><color=#F0DAA0>[+1 para acertar se estiver atacando de um terreno mais alto]</color></i>
-ModUi/&EnableHotkeyDebugOverlay=Ative <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração
-ModUi/&EnableHotkeyToggleHud=Ative <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar a exibição do HUD
 ModUi/&EnableInventoryFilteringAndSorting=Ativar filtragem e classificação de inventário
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Pinte de vermelho qualquer item com o qual o herói não seja proficiente
 ModUi/&EnableInventoryTintKnownRecipesRed=Tinja receitas conhecidas de vermelho
@@ -159,7 +156,6 @@ ModUi/&EnableOneDndHealingSpellsBuf=Ative o bônus de dados de cura OneDnd em <c
 ModUi/&EnablePcgRandom=Habilite um algoritmo gerador aleatório melhor <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Habilitar efeitos de movimento de empurrar e puxar para também funcionarem no eixo para cima/baixo
 ModUi/&EnableRangerNatureShroudAt10=Habilite o recurso <color=#D89555>Ranger</color> <b>Nature's Veil</b> no nível 10 <i><color=#F0DAA0>[como uma ação bônus, você pode ficar invisível magicamente até o início do próximo turno ]</color></i>
-ModUi/&EnableRejoinParty=Ative <color=#1E81B0>CTRL-SHIFT-(R)</color> para voltar ao grupo em torno do herói ou líder selecionado se nenhum estiver selecionado <i><color=#F0DAA0>[útil com grupos de 5 ou 6 ]</color></i>
 ModUi/&EnableRelearnSpells=Habilite a seleção de truques ou feitiços já aprendidos de outras fontes
 ModUi/&EnableRespec=Ative a ação <color=#D89555>RESPEC</color> após descanso <i><color=#F0DAA0>[não use RESPEC durante uma sessão multijogador]</color></i>
 ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Rogue</color> <b>Cunning Strike</b> e <b>Devious Strike</b> nos níveis 5 e 14 <i><color=#F0DAA0>[você deixou de lado 1 dados de ataque furtivo para efeitos de acerto adicionais]</color></i>
@@ -173,13 +169,11 @@ ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Ac
 ModUi/&EnableSortingDungeonMakerAssets=Habilite a classificação de ativos no editor Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Além disso, cada herói adiciona um teste D20 ao peso para um pouco de aleatoriedade <color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói + teste D20]</color></i>
-ModUi/&EnableTeleportParty=Ative <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper as missões se se teletransportar para um lugar desconhecido]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Habilitar <color=#D89555>Teletransporte</color> para remover todas as condições <color=#D89555>restritas</color> do alvo
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative o conjunto de personagens para definir seu grupo de jogo e teste padrão
 ModUi/&EnableTooltipDistance=Ativar a exibição da distância nas dicas de ferramentas ao passar o mouse sobre um personagem em combate
 ModUi/&EnableUpcastConjureElementalAndFey=Ativar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posição variáveis ​​em descrições <i><color=#F0DAA0>[usar {VARIABLE_NAME} como marcador de posição]</color></i>
-ModUi/&EnableVttCamera=Ative <color=#1E81B0>CTRL-SHIFT-(V)</color> para alternar a câmera VTT <i><color=#F0DAA0>[clique com o botão direito e arraste para posicionar a câmera, WASD para panoramizar e Page Up/ Desça a página para ampliar]</color></i>
 ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleção de <color=#D89555>talentos</color> <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Definir chances percentuais de encontros aleatórios</color>
 ModUi/&Encounters=Encontros
@@ -201,7 +195,6 @@ ModUi/&FormationError=<color=#C04040E0>Você não pode alterar sua formação du
 ModUi/&FormationHelp1=• Use os botões numéricos para editar um determinado conjunto <i><color=#F0DAA0>[considere ativar teclas de atalho na entrada]</color></i>
 ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> representa posições relativas de heróis
 ModUi/&FormationHelp3=• Clique em quaisquer 2 botões para trocar suas posições
-ModUi/&FormationHotkey=Ative <color=#1E81B0>CTRL-SHIFT-(1..5)</color> para trocar conjuntos de formação no jogo
 ModUi/&FormationResetAllSets=Reiniciar tudo
 ModUi/&FormationResetThisSet=Redefinir isso
 ModUi/&FormationSelected=Conjunto de formação {0} selecionado

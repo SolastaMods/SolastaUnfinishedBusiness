@@ -1,12 +1,13 @@
 1.5.97.35:
 
 - fixed Armor of Agathys, and Path of Wild Magic retribution damage to consider reach attacks
-- fixed Patron Tree, Remorhaz, Wight Lord, and Young Remorhaz retribution damage to consider reach attacks [VANILLA]
 - fixed campaigns translator missing lore operations [i.e.: learn/unlearn/unchart locations]
+- fixed Defensive Duelist validating attacker wielded weapons instead of feat owner to present reaction
 - fixed gadgets save soft lock under certain scenarios [i.e.: area activators]
 - fixed grappled actor interaction with flying grappler, and dangerous zones [i.e.: Spike Growth]
-- fixed Defensive Duelist validating attacker wielded weapons instead of helper to present reaction
+- fixed Patron Tree, Remorhaz, Wight Lord, and Young Remorhaz retribution damage to consider reach attacks [VANILLA]
 - improved Grappler feat to be closer to One D&D
+- improved mod hotkey binding to be offered on game Settings > Keyboard for full integration with vanilla ones
 
 KNOWN ISSUES:
 

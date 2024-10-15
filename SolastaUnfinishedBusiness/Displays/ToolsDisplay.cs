@@ -205,12 +205,6 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableCheatMenu = toggle;
         }
-
-        toggle = Main.Settings.EnableHotkeyDebugOverlay;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyDebugOverlay"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableHotkeyDebugOverlay = toggle;
-        }
     }
 
     private static void DisplayAdventure()

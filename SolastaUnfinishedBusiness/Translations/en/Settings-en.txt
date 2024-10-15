@@ -116,7 +116,6 @@ ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Re
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Enable cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
 ModUi/&EnableCharacterChecker=Enable the Character Checker button on Main Screen > Characters
-ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to export the character
 ModUi/&EnableCharactersOnFireToEmitLight=Characters <color=#D89555>On Fire</color> should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=Enable the cheats menu
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Enable <color=#1E81B0>CTRL</color> click-drag to bypass <color=#D89555>quest items</color> checks on drop
@@ -134,8 +133,6 @@ ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign abili
 ModUi/&EnableGauntletMainAttacks=Allow <b>Unarmed Attack</b> with main action for character if a <color=#D89555>Monk</color> or has <b>Handwraps</b> or <b>Gauntlet</b> equipped
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Enable the hero with best proficiency to roll dialogue choices <i><color=#F0DAA0>[it works but narrations look odd on official campaigns]</color></i>
 ModUi/&EnableHigherGroundRules=Enable higher ground rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
-ModUi/&EnableHotkeyDebugOverlay=Enable <color=#1E81B0>CTRL-SHIFT-(D)</color> to display the debug overlay
-ModUi/&EnableHotkeyToggleHud=Enable <color=#1E81B0>CTRL-SHIFT-(H)</color> to toggle the HUD display
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tint red any item the hero isn't proficient with
 ModUi/&EnableInventoryTintKnownRecipesRed=Tint known recipes red
@@ -159,7 +156,6 @@ ModUi/&EnableOneDndHealingSpellsBuf=Enable OneDnd healing dice buff on <color=#D
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
 ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Ranger</color> <b>Nature's Veil</b> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
-ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party around the selected hero or the leader if none is selected <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespec=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
 ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Rogue</color> <b>Cunning Strike</b> and <b>Devious Strike</b> at levels 5 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
@@ -173,13 +169,11 @@ ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</colo
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>
-ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color> to teleport the party <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Enable <color=#D89555>Teleport</color> to remove all <color=#D89555>restrained</color> conditions from target
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
 ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descriptions <i><color=#F0DAA0>[use {VARIABLE_NAME} as placeholder]</color></i>
-ModUi/&EnableVttCamera=Enable <color=#1E81B0>CTRL-SHIFT-(V)</color> to toggle the VTT camera <i><color=#F0DAA0>[right-click and drag to position the camera, WASD to pan and Page Up/Page Down to zoom]</color></i>
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and <color=#D89555>feats</color> selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Encounters
@@ -201,7 +195,6 @@ ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a
 ModUi/&FormationHelp1=• Use the numeric buttons to edit a given set <i><color=#F0DAA0>[consider enabling hotkeys under input]</color></i>
 ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> represent relative hero positions
 ModUi/&FormationHelp3=• Click any 2 buttons to swap their positions
-ModUi/&FormationHotkey=Enable <color=#1E81B0>CTRL-SHIFT-(1..5)</color> to swap formation sets in game
 ModUi/&FormationResetAllSets=Reset all
 ModUi/&FormationResetThisSet=Reset this
 ModUi/&FormationSelected=Formation set {0} selected

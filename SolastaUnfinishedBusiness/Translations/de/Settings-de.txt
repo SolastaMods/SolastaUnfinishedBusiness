@@ -116,7 +116,6 @@ ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen per Rechtsklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Aktivieren Sie Cantrips, um einen zusätzlichen <color=#D89555>Kriegsmagie</color>-Bonusangriff auszulösen
 ModUi/&EnableCharacterChecker=Aktivieren Sie die Schaltfläche „Charakterprüfung“ auf dem Hauptbildschirm > Charaktere
-ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(E)</color>, um das Zeichen zu exportieren
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere, die <color=#D89555>in Flammen stehen</color>, sollten Licht ausstrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und Familie der in Flammen stehenden Personen]</color></i>
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheats-Menü
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Aktivieren Sie <color=#1E81B0>STRG</color> Klicken-Ziehen, um die Überprüfung auf <color=#D89555>Questgegenstände</color> beim Ablegen zu umgehen.
@@ -134,8 +133,6 @@ ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[Wei
 ModUi/&EnableGauntletMainAttacks=Erlaube <b>Unbewaffneten Angriff</b> mit Hauptaktion für den Charakter, wenn dieser ein <color=#D89555>Mönch</color> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet hat
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Ermöglichen Sie dem Helden mit der besten Fertigkeit, Dialogoptionen zu würfeln <i><color=#F0DAA0>[es funktioniert, aber die Erzählungen sehen bei offiziellen Kampagnen seltsam aus]</color></i>
 ModUi/&EnableHigherGroundRules=Aktivieren Sie höhere Bodenregeln <i><color=#F0DAA0>[+1 für Treffer, wenn Sie von einem höheren Boden aus angreifen]</color></i>
-ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(D)</color>, um das Debug-Overlay anzuzeigen
-ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(H)</color>, um die HUD-Anzeige umzuschalten
 ModUi/&EnableInventoryFilteringAndSorting=Aktivieren Sie die Filterung und Sortierung des Inventars
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Färbe alle Gegenstände rot, mit denen der Held nicht vertraut ist
 ModUi/&EnableInventoryTintKnownRecipesRed=Bekannte Rezepte rot tönen
@@ -159,7 +156,6 @@ ModUi/&EnableOneDndHealingSpellsBuf=Aktiviere den OneDnd-Heilwürfel-Buf für <c
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Aktivieren Sie Push- und Pull-Bewegungseffekte, damit diese auch auf der Auf-/Ab-Achse funktionieren
 ModUi/&EnableRangerNatureShroudAt10=Aktiviere die Funktion <color=#D89555>Waldläufer</color> <b>Naturschleier</b> auf Stufe 10 <i><color=#F0DAA0>[als Bonusaktion kannst du bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden ]</color></i>
-ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen von 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=Aktivieren Sie die Auswahl von Cantrips oder Zaubersprüchen, die bereits aus anderen Quellen gelernt wurden
 ModUi/&EnableRespec=Aktivieren Sie <color=#D89555>RESPEC</color> nach der Rest-Aktion <i><color=#F0DAA0>[RESPEC nicht während einer Multiplayer-Sitzung verwenden]</color></i>
 ModUi/&EnableRogueCunningStrike=Aktivieren Sie <color=#D89555>Rogue</color> <b>Cunning Strike</b> und <b>Devious Strike</b> auf Level 5 und 14 <i><color=#F0DAA0>[Sie lassen auf 1 verzichten Schleichangriffswürfel für zusätzliche Treffereffekte]</color></i>
@@ -173,13 +169,11 @@ ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Be
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Außerdem fügt jeder Held für ein wenig Zufälligkeit einen D20-Wurf zum Gewicht hinzu <color=#F0DAA0>[Auswahlgewicht = Stimmen * Helden-Charisma-Modifikator + D20-Wurf]</color></i>
-ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Aktivieren Sie <color=#D89555>Teleportieren</color>, um alle <color=#D89555>eingeschränkten</color> Bedingungen vom Ziel zu entfernen
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie die Schalter für den Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Entfernung in Tooltips, wenn Sie im Kampf mit der Maus über einen Charakter fahren
 ModUi/&EnableUpcastConjureElementalAndFey=Aktivieren Sie die Übertragung von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Fee beschwören</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Aktivieren Sie variable Platzhalter in Beschreibungen <i><color=#F0DAA0>[verwenden Sie {VARIABLE_NAME} als Platzhalter]</color></i>
-ModUi/&EnableVttCamera=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(V)</color>, um die VTT-Kamera umzuschalten <i><color=#F0DAA0>[rechtsklicken und ziehen, um die Kamera zu positionieren, WASD zum Schwenken und Bild auf/ Seite nach unten zum Vergrößern]</color></i>
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Auswahl von <color=#D89555>Leistungen</color> <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Legen Sie die prozentuale Chance auf zufällige Begegnungen fest</color>
 ModUi/&Encounters=Begegnungen
@@ -201,7 +195,6 @@ ModUi/&FormationError=<color=#C04040E0>Sie können Ihre Formation während eines
 ModUi/&FormationHelp1=• Verwenden Sie die Zifferntasten, um einen bestimmten Satz zu bearbeiten <i><color=#F0DAA0>[erwägen Sie die Aktivierung von Hotkeys unter der Eingabe]</color></i>
 ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> repräsentieren relative Heldenpositionen
 ModUi/&FormationHelp3=• Klicken Sie auf zwei beliebige Schaltflächen, um ihre Positionen zu tauschen
-ModUi/&FormationHotkey=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(1..5)</color>, um Formationssätze im Spiel auszutauschen
 ModUi/&FormationResetAllSets=Alles zurücksetzen
 ModUi/&FormationResetThisSet=Setzen Sie dies zurück
 ModUi/&FormationSelected=Formationssatz {0} ausgewählt

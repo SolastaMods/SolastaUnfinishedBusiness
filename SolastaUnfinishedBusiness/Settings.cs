@@ -159,7 +159,6 @@ public class Settings : UnityModManager.ModSettings
     public List<string> DefaultPartyHeroes { get; } = [];
     public bool EnableCharacterChecker { get; set; }
     public bool EnableCheatMenu { get; set; }
-    public bool EnableHotkeyDebugOverlay { get; set; }
     public bool NoExperienceOnLevelUp { get; set; }
     public bool OverrideMinMaxLevel { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
@@ -462,12 +461,6 @@ public class Settings : UnityModManager.ModSettings
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
     public bool InvertAltBehaviorOnTooltips { get; set; }
     public float TooltipWidth { get; set; } = Tooltips.DefScale;
-    public bool EnableHotkeySwapFormationSets { get; set; }
-    public bool EnableHotkeyToggleHud { get; set; }
-    public bool EnableCharacterExport { get; set; }
-    public bool EnableTeleportParty { get; set; }
-    public bool EnableRejoinParty { get; set; }
-    public bool EnableVttCamera { get; set; }
     public bool EnableCancelEditOnRightMouseClick { get; set; }
 
     // Inventory and Items
