@@ -26,11 +26,17 @@ internal static class GrappleContext
     private const string DisableGrapple = "DisableGrapple";
 
     private const string ConditionGrappleTargetName = $"Condition{Grapple}Target";
-    private const string ConditionGrappleFlyingTargetName = $"Condition{Grapple}FlyingTarget";
     private const string ConditionGrappleSourceName = $"Condition{Grapple}Source";
 
     internal const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
     internal const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
+
+    private static readonly string[] AllSourceGrappleConditionNames =
+    [
+        ConditionGrappleSourceName,
+        ConditionGrappleSourceWithGrapplerName,
+        ConditionGrappleSourceWithGrapplerLargerName
+    ];
 
     private static readonly FeatureDefinitionPower PowerGrapple = FeatureDefinitionPowerBuilder
         .Create($"Power{Grapple}")
@@ -89,19 +95,6 @@ internal static class GrappleContext
 
         var battlePackage =
             AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName, AiContext.RandomType.RandomMediumLow);
-
-        _ = ConditionDefinitionBuilder
-            .Create(ConditionGrappleFlyingTargetName)
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetParentCondition(ConditionDefinitions.ConditionFlying)
-            .SetFeatures(
-                FeatureDefinitionMoveModeBuilder
-                    .Create($"{ConditionGrappleTargetName}Flying")
-                    .SetGuiPresentation(Category.Feature)
-                    .SetMode(MoveMode.Fly, 0)
-                    .AddToDB())
-            .AddToDB();
 
         var conditionGrappleTarget = ConditionDefinitionBuilder
             .Create(ConditionGrappleTargetName)
@@ -338,6 +331,16 @@ internal static class GrappleContext
         return 1;
     }
 
+    public static bool IsGrappled(this GameLocationCharacter character)
+    {
+        return character.RulesetCharacter.HasConditionOfType(ConditionGrappleTargetName);
+    }
+
+    public static void BreakGrapple(this GameLocationCharacter source)
+    {
+        source.RulesetCharacter.RemoveAllConditionsOfType(AllSourceGrappleConditionNames);
+    }
+
     internal enum SpellValidationType
     {
         Somatic,
@@ -504,13 +507,6 @@ internal static class GrappleContext
                     rulesetSource.RemoveCondition(activeConditionSource);
                 }
             }
-
-            // remove flying if any
-            if (target.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionGrappleFlyingTargetName, out var activeCondition))
-            {
-                target.RemoveCondition(activeCondition);
-            }
         }
     }
 
@@ -570,26 +566,6 @@ internal static class GrappleContext
 
             if (canTeleport)
             {
-                var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-
-                // is not touching floor or not have flying yet so make defender fly
-                if (!positioningService.CanCharacterStayAtPosition_Floor(target, targetDestinationPosition, true))
-                {
-                    rulesetTarget.InflictCondition(
-                        ConditionGrappleFlyingTargetName,
-                        DurationType.Round,
-                        1,
-                        TurnOccurenceType.StartOfTurn,
-                        AttributeDefinitions.TagEffect,
-                        rulesetMover.guid,
-                        rulesetMover.CurrentFaction.Name,
-                        1,
-                        ConditionGrappleFlyingTargetName,
-                        0,
-                        0,
-                        0);
-                }
-
                 target.Pushed = true;
                 target.StartTeleportTo(targetDestinationPosition, mover.Orientation);
                 target.FinishMoveTo(targetDestinationPosition, mover.Orientation);
