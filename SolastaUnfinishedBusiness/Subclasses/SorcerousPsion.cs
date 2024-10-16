@@ -298,7 +298,8 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             attacker.UsedSpecialFeatures[MindSculptTag] = hasDamageChanged ? 1 : 0;
 
-            if (!firstTarget)
+            if (rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique &&
+                !firstTarget)
             {
                 yield break;
             }

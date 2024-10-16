@@ -750,7 +750,13 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (!HasSpirit(attacker.Guid) || !firstTarget)
+            if (!HasSpirit(attacker.Guid))
+            {
+                yield break;
+            }
+
+            if (rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique &&
+                !firstTarget)
             {
                 yield break;
             }
@@ -768,7 +774,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             var newDamageForm = EffectFormBuilder
                 .Create()
                 .HasSavingThrow(EffectSavingThrowType.Negates)
-                .SetDamageForm(DamageTypeFire, 1, DieType.D12)
+                .SetDamageForm(DamageTypeFire, 1, DieType.D8)
                 .Build();
 
             newDamageForm.DamageForm.IgnoreCriticalDoubleDice = true;

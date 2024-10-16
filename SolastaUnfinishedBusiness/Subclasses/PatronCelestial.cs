@@ -272,7 +272,8 @@ public class PatronCelestial : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (!firstTarget)
+            if (rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique &&
+                !firstTarget)
             {
                 yield break;
             }
