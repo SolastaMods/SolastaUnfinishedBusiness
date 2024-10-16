@@ -6,6 +6,13 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DecisionBreakFreeIfProneConditionGrappledRestrainedSpellWeb:d7a6b057-cf36-5ffb-88be-e438e92e14cd",
+        "weight": 15.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:DecisionBreakFreeConditionGrappledRestrainedSpellWeb:61e7fc96-8cb5-5c2b-8a67-75fbef4f333a",
         "weight": 10.0,
         "cooldown": 1,

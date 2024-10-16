@@ -6,6 +6,13 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DecisionBreakFreeIfProneConditionOathOfAncientsNaturesWrath:909ba6d6-b645-5358-91f3-3779292aed18",
+        "weight": 15.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:DecisionBreakFreeConditionOathOfAncientsNaturesWrath:25d7ad8d-27b8-5882-9bfb-acc37798812f",
         "weight": 10.0,
         "cooldown": 1,

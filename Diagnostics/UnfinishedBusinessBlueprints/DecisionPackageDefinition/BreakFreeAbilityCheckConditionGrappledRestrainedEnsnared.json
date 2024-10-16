@@ -6,6 +6,13 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DecisionBreakFreeIfProneConditionGrappledRestrainedEnsnared:f6a19109-a315-56a1-95ef-ab7539b2cbda",
+        "weight": 15.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:DecisionBreakFreeConditionGrappledRestrainedEnsnared:69855aed-d774-527f-9de3-8de1e5a9743f",
         "weight": 10.0,
         "cooldown": 1,
