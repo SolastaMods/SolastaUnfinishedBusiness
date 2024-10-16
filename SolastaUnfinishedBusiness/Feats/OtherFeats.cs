@@ -594,6 +594,25 @@ internal static class OtherFeats
     {
         const string Name = "FeatBrawler";
 
+        var dieRollModifierBrawler = FeatureDefinitionDieRollModifierBuilder
+            .Create($"DieRollModifier{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetModifiers(
+                RollContext.None,
+                1,
+                1,
+                1,
+                "Feedback/&DieRollModifierFeatBrawlerReroll")
+            .AddToDB();
+
+        var conditionBrawler = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(dieRollModifierBrawler)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
         var actionAffinityGrappleBonus =
             FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}GrappleBonus")
@@ -601,6 +620,7 @@ internal static class OtherFeats
                 .SetAuthorizedActions((Id)ExtraActionId.GrappleBonus)
                 .AddCustomSubFeatures(
                     new ValidateDefinitionApplication(ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
+                    new PhysicalAttackInitiatedByMeBrawler(conditionBrawler),
                     new AddExtraUnarmedAttack(
                         ActionType.Bonus, ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
                     new UpgradeWeaponDice((_, d) => (Math.Max(1, d.DiceNumber), DieType.D6, DieType.D6),
@@ -617,6 +637,40 @@ internal static class OtherFeats
             .SetFeatures(AttributeModifierCreed_Of_Einar, actionAffinityGrappleBonus)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
+    }
+
+    private sealed class PhysicalAttackInitiatedByMeBrawler(ConditionDefinition conditionBrawler)
+        : IPhysicalAttackInitiatedByMe
+    {
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            if (!ValidatorsWeapon.IsUnarmed(attackMode))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                conditionBrawler.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionBrawler.Name,
+                0,
+                0,
+                0);
+        }
     }
 
     #endregion
@@ -692,7 +746,7 @@ internal static class OtherFeats
             int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            
+
             if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 !ValidatorsWeapon.IsUnarmed(attackMode) ||
                 defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
