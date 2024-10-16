@@ -218,10 +218,8 @@ ModUi/&ImproveLevelUpFeaturesSelection=Улучшить выбор умений 
 ModUi/&IncreaseGameTimeBy=Увеличить время игры на
 ModUi/&IncreaseMaxAttunedItems=Увеличить максимальное возможное для <color=#D89555>Настройки</color> количество предметов до 4 на 10-м уровне и до 5 на 18-м уровне
 ModUi/&InitialChoices=<color=#F0DAA0>Создание:</color>
-ModUi/&Input=<color=#F0DAA0>Клавиши:</color>
 ModUi/&Interface=Интерфейс
 ModUi/&InventoryAndItems=<color=#F0DAA0>Инвентарь и предметы:</color>
-ModUi/&InvertAltBehaviorOnTooltips=Обратить поведение клавиши <color=#1E81B0>ALT</color> на всплывающих подсказках
 ModUi/&Invocations=<color=#F0DAA0>Воззвания</color>
 ModUi/&ItemInDm=Предметы в СП
 ModUi/&Items=<color=#F0DAA0>Предметы:</color>
@@ -344,5 +342,4 @@ ModUi/&UseOfficialObscurementRules=Использовать официальны
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[преимущество для атакующего, который видит цель, которая не видит его, и помеха для атакующего, который не видит цель, которая видит его\n сильно заслонённая местность накладывает состояние слепоты, при которой броски атаки по существу совершаются с преимуществом, а броски атаки существа совершаются с помехой\n дистанционные заклинания, целями которых являются существа, не могут быть наложены, если атакующий не видит цель, кроме тех, для которых не указано специально, что необходима видимость]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Использовать официальные правила <color=#D89555>рас маленького размера</color> при использовании тяжёлого оружия <i><color=#F0DAA0>[вы совершаете атаки с помехой]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Визуальные настройки:</color> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
-ModUi/&WidenTooltips=<color=white>Множитель ширины поля всплывающих подсказок:</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Установить пороговое значение вероятности срабатывания <color=#D89555>Дикой магии Чародея</color>:</color>\n<i><color=#F0DAA0>[Волна дикой магии срабатывает, если бросок меньше или равен пороговому значению]</color></i>

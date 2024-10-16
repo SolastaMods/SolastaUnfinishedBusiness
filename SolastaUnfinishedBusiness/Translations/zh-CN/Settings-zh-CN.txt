@@ -218,10 +218,8 @@ ModUi/&ImproveLevelUpFeaturesSelection=改进升级特性选择<b><i><color=#C04
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=将最大<color=#D89555>协调物品</color>增加至 10 级时的 4 个和 18 级时的 5 个
 ModUi/&InitialChoices=<color=#F0DAA0>创作：</color>
-ModUi/&Input=<color=#F0DAA0>输入：</color>
 ModUi/&Interface=界面
 ModUi/&InventoryAndItems=<color=#F0DAA0>库存和物品：</color>
-ModUi/&InvertAltBehaviorOnTooltips=反转工具提示上的<color=#1E81B0>ALT</color>键行为
 ModUi/&Invocations=<color=#F0DAA0>祈唤</color>
 ModUi/&ItemInDm=地城中的项目
 ModUi/&Items=<color=#F0DAA0>项目：</color>
@@ -344,5 +342,4 @@ ModUi/&UseOfficialObscurementRules=使用官方<color=#D89555>照明、遮蔽和
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[能感知到防御者但无法感知到攻击者的防御者会获得 ADV，无法感知到攻击者但可以感知到防御者会获得 DIS\n 被严重遮挡的区域会造成致盲状态，对生物的攻击掷骰获得 ADV，而生物的攻击掷骰获得 DIS\n 如果攻击者没有视力，则无法施放针对个人的所有远距离法术，除了那些明确未说明需要视力的法术]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型体型种族规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&WidenTooltips=<color=white>将工具提示宽度乘以：</color>
 ModUi/&WildSurgeDieRollThreshold=<color=white>设置<color=#D89555>巫师狂野魔法</color>几率骰子阈值：</color>{0}<i><color=#F0DAA0>[如果掷出的骰子小于或等于阈值，则触发狂野涌动]</color></i>

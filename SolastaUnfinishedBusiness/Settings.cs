@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Models;
 using UnityModManagerNet;
@@ -394,6 +393,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // Campaigns and Locations
+    public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
@@ -411,24 +411,22 @@ public class Settings : UnityModManager.ModSettings
     public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableExtendedProficienciesPanelDisplay { get; set; }
+    public bool EnableCancelEditOnRightMouseClick { get; set; }
 
     // Battle
-    public bool ShowMotionFormPreview { get; set; }
-    public bool ShiftToSnapLineSpells { get; set; }
     public bool DontFollowCharacterInBattle { get; set; }
+    public bool EnableElevationCameraToStayAtPosition { get; set; }
     public bool NeverMoveCameraOnEnemyTurn { get; set; }
     public int DontFollowMargin { get; set; } = 5;
     public int GridSelectedColor { get; set; } = 1;
     public int MovementGridWidthModifier { get; set; } = 100;
     public int OutlineGridWidthModifier { get; set; } = 100;
     public int OutlineGridWidthSpeed { get; set; } = 100;
-
     public bool EnableDistanceOnTooltip { get; set; }
+    public bool ShowMotionFormPreview { get; set; }
+    public bool ShiftToSnapLineSpells { get; set; }
     public int HighContrastTargetingAoeSelectedColor { get; set; }
     public int HighContrastTargetingSingleSelectedColor { get; set; }
-
-    // Camera
-    public bool EnableElevationCameraToStayAtPosition { get; set; }
 
     // Formation
     public int FormationGridSelectedSet { get; set; } = -1;
@@ -456,12 +454,6 @@ public class Settings : UnityModManager.ModSettings
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
         ]
     ];
-
-    // Input
-    public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
-    public bool InvertAltBehaviorOnTooltips { get; set; }
-    public float TooltipWidth { get; set; } = Tooltips.DefScale;
-    public bool EnableCancelEditOnRightMouseClick { get; set; }
 
     // Inventory and Items
     public bool AddCustomIconsToOfficialItems { get; set; }

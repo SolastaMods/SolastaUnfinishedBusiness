@@ -15,7 +15,13 @@ internal static class GameUiDisplay
         UI.Label(Gui.Localize("ModUi/&CampaignsAndLocations"));
         UI.Label();
 
-        var toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
+        var toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
+        if (UI.Toggle(Gui.Localize("ModUi/&AltOnlyHighlightItemsInPartyFieldOfView"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
+        }
+
+        toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalIconsOnLevelMap"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
@@ -163,6 +169,14 @@ internal static class GameUiDisplay
             Main.Settings.EnableExtendedProficienciesPanelDisplay = toggle;
         }
 
+        UI.Label();
+
+        toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCancelEditOnRightMouseClick"), ref toggle))
+        {
+            Main.Settings.EnableCancelEditOnRightMouseClick = toggle;
+        }
+
         #endregion
 
         #region Combat
@@ -274,42 +288,6 @@ internal static class GameUiDisplay
         {
             Main.Settings.OutlineGridWidthSpeed = intValue;
             GameUiContext.UpdateMovementGrid();
-        }
-
-        #endregion
-
-        #region Input
-
-        UI.Label();
-        UI.Label(Gui.Localize("ModUi/&Input"));
-        UI.Label();
-
-        toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-        if (UI.Toggle(Gui.Localize("ModUi/&InvertAltBehaviorOnTooltips"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.InvertAltBehaviorOnTooltips = toggle;
-        }
-
-        var floatValue = Main.Settings.TooltipWidth;
-
-        if (UI.Slider(Gui.Localize("ModUi/&WidenTooltips"), ref floatValue, Tooltips.MinScale, Tooltips.MaxScale,
-                Tooltips.DefScale, 1, string.Empty, UI.AutoWidth()))
-        {
-            Main.Settings.TooltipWidth = floatValue;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
-        if (UI.Toggle(Gui.Localize("ModUi/&AltOnlyHighlightItemsInPartyFieldOfView"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
-        }
-
-        toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCancelEditOnRightMouseClick"), ref toggle))
-        {
-            Main.Settings.EnableCancelEditOnRightMouseClick = toggle;
         }
 
         #endregion

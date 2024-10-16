@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 public static class InputContext
 {
-    internal const int ModCommandBaseline = 424200;
-    internal static SettingsContext.InputModManager InputModManagerInstance { get; } = new();
+    private const int ModCommandBaseline = 424200;
 
     internal static void Load()
     {
@@ -20,12 +17,26 @@ public static class InputContext
 
         commandByName.Remove(Max);
 
-        foreach (SettingsContext.InputCommandsExtra id in Enum.GetValues(typeof(SettingsContext.InputCommandsExtra)))
+        foreach (InputCommandsExtra id in Enum.GetValues(typeof(InputCommandsExtra)))
         {
             commandByName.Add(id.ToString(), (InputCommands.Id)id);
         }
 
         commandByName.Add(Max, (InputCommands.Id)commandByName.Count);
+
+        // register default commands
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.ToggleHud, (int)KeyCode.H);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.CharacterExport, (int)KeyCode.X);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.DebugOverlay, (int)KeyCode.O);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.TeleportParty, (int)KeyCode.T);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.RejoinParty, (int)KeyCode.R);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.SpawnEncounter, (int)KeyCode.P);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.VttCamera, (int)KeyCode.Backspace);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet1, -1);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet2, -1);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet3, -1);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet4, -1);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet5, -1);
     }
 
     // properly registers extended commands to use the InputModManager instance instead of the vanilla one
@@ -38,10 +49,10 @@ public static class InputContext
         var commandMapping = new InputCommands.CommandMapping();
         var isExtendedCommand = (int)command > ModCommandBaseline;
         var property = isExtendedCommand
-            ? typeof(SettingsContext.IInputModSettingsService).GetProperty(((SettingsContext.InputCommandsExtra)command)
+            ? typeof(SettingsContext.IInputModSettingsService).GetProperty(((InputCommandsExtra)command)
                 .ToString())
             : typeof(IInputSettingsService).GetProperty(command.ToString());
-        object finalInstance = isExtendedCommand ? InputModManagerInstance : __instance;
+        object finalInstance = isExtendedCommand ? SettingsContext.InputModManagerInstance : __instance;
 
         if (property != null)
         {
@@ -70,43 +81,43 @@ public static class InputContext
     {
         var isSinglePlayer = !Global.IsMultiplayer;
 
-        switch ((SettingsContext.InputCommandsExtra)command)
+        switch ((InputCommandsExtra)command)
         {
-            case SettingsContext.InputCommandsExtra.CharacterExport:
+            case InputCommandsExtra.CharacterExport:
                 CharacterExportContext.ExportInspectedCharacter();
                 return;
-            case SettingsContext.InputCommandsExtra.ToggleHud:
+            case InputCommandsExtra.ToggleHud:
                 GameUiContext.GameHud.ShowAll(gameLocationBaseScreen);
                 return;
-            case SettingsContext.InputCommandsExtra.DebugOverlay:
+            case InputCommandsExtra.DebugOverlay:
                 ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
                 return;
-            case SettingsContext.InputCommandsExtra.TeleportParty:
+            case InputCommandsExtra.TeleportParty:
                 GameUiContext.Teleporter.ConfirmTeleportParty(GameUiContext.Teleporter.GetEncounterPosition);
                 return;
-            case SettingsContext.InputCommandsExtra.RejoinParty:
+            case InputCommandsExtra.RejoinParty:
                 GameUiContext.Teleporter.ConfirmTeleportParty(GameUiContext.Teleporter.GetLeaderPosition);
                 return;
-            case SettingsContext.InputCommandsExtra.VttCamera:
+            case InputCommandsExtra.VttCamera:
                 GameUiContext.ToggleVttCamera();
                 return;
-            case SettingsContext.InputCommandsExtra.SpawnEncounter
+            case InputCommandsExtra.SpawnEncounter
                 when EncountersSpawnContext.EncounterCharacters.Count > 0:
                 EncountersSpawnContext.ConfirmStageEncounter();
                 return;
-            case SettingsContext.InputCommandsExtra.FormationSet1 when isSinglePlayer:
+            case InputCommandsExtra.FormationSet1 when isSinglePlayer:
                 GameUiContext.SetFormationGrid(0);
                 return;
-            case SettingsContext.InputCommandsExtra.FormationSet2 when isSinglePlayer:
+            case InputCommandsExtra.FormationSet2 when isSinglePlayer:
                 GameUiContext.SetFormationGrid(1);
                 return;
-            case SettingsContext.InputCommandsExtra.FormationSet3 when isSinglePlayer:
+            case InputCommandsExtra.FormationSet3 when isSinglePlayer:
                 GameUiContext.SetFormationGrid(2);
                 return;
-            case SettingsContext.InputCommandsExtra.FormationSet4 when isSinglePlayer:
+            case InputCommandsExtra.FormationSet4 when isSinglePlayer:
                 GameUiContext.SetFormationGrid(3);
                 return;
-            case SettingsContext.InputCommandsExtra.FormationSet5 when isSinglePlayer:
+            case InputCommandsExtra.FormationSet5 when isSinglePlayer:
                 GameUiContext.SetFormationGrid(4);
                 return;
             default:
@@ -114,29 +125,26 @@ public static class InputContext
         }
     }
 
-    internal static void AddKeybindingSettings(List<Setting> settingList)
-    {
-        const BindingFlags BindingAttr = BindingFlags.Instance | BindingFlags.Public |
-                                         BindingFlags.GetProperty | BindingFlags.SetProperty |
-                                         BindingFlags.FlattenHierarchy;
-
-        settingList.AddRange(
-            typeof(SettingsContext.IInputModSettingsService)
-                .GetProperties(BindingAttr)
-                .Select(property => new
-                {
-                    property,
-                    customAttributes =
-                        (SettingTypeAttribute[])property.GetCustomAttributes(typeof(SettingTypeAttribute), true)
-                })
-                .Where(t => t.customAttributes.Length != 0)
-                .Select(t => new Setting(InputModManagerInstance, t.property, t.customAttributes[0])));
-    }
-
     internal static string GetCommandName(InputCommands.Id command)
     {
         return (int)command > ModCommandBaseline
-            ? ((SettingsContext.InputCommandsExtra)command).ToString()
+            ? ((InputCommandsExtra)command).ToString()
             : command.ToString();
+    }
+
+    private enum InputCommandsExtra
+    {
+        CharacterExport = ModCommandBaseline + 1,
+        DebugOverlay,
+        RejoinParty,
+        SpawnEncounter,
+        TeleportParty,
+        ToggleHud,
+        VttCamera,
+        FormationSet1 = ModCommandBaseline + 11,
+        FormationSet2,
+        FormationSet3,
+        FormationSet4,
+        FormationSet5
     }
 }

@@ -34,30 +34,6 @@ public static class InputManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(InputManager), nameof(InputManager.ReadSettings))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class ReadSettings_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix()
-        {
-            InputContext.InputModManagerInstance.ReadSettings();
-        }
-    }
-
-    [HarmonyPatch(typeof(InputManager), nameof(InputManager.RegisterDefaultCommands))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class RegisterDefaultCommands_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(InputManager __instance)
-        {
-            SettingsContext.InputModManager.RegisterDefaultCommands(__instance);
-        }
-    }
-
     [HarmonyPatch(typeof(InputManager), nameof(InputManager.ResetDefaults))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -66,7 +42,7 @@ public static class InputManagerPatcher
         [UsedImplicitly]
         public static void Prefix()
         {
-            InputContext.InputModManagerInstance.ResetDefaults();
+            SettingsContext.InputModManagerInstance.ResetDefaults();
         }
     }
 }

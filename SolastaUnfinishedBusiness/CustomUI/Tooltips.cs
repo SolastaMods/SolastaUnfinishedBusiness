@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
+using SolastaUnfinishedBusiness.Models;
 using TMPro;
 using UnityEngine;
 using static RuleDefinitions.EffectDifficultyClassComputation;
@@ -13,9 +14,6 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal static class Tooltips
 {
-    public const float MinScale = 1f;
-    public const float MaxScale = 2f;
-    public const float DefScale = 1f;
     private static GameObject _tooltipInfoCharacterDescription;
     private static GameObject _distanceTextObject;
     private static TextMeshProUGUI _tmpUGui;
@@ -296,7 +294,7 @@ internal abstract class BaseTooltipWidthModifier<T> : MonoBehaviour where T : Mo
     private const int Pad = 30; // default is 30?
 
     protected T Parent;
-    protected static int FinalWidth => (int)(Main.Settings.TooltipWidth * DefWidth);
+    protected static int FinalWidth => (int)(SettingsContext.GuiModManagerInstance.TooltipWidth * DefWidth);
     protected static int PaddedWidth => FinalWidth - (2 * Pad);
 
     internal void Apply()
