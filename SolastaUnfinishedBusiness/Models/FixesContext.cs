@@ -91,6 +91,7 @@ internal static class FixesContext
         FixUncannyDodgeForRoguishDuelist();
         FixPaladinAurasDisplayOnActionBar();
         ReportDashing();
+        FixSpikeGrowthAffectingAir();
 
         // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
@@ -694,6 +695,11 @@ internal static class FixesContext
             condition.GuiPresentation.hidden = false;
             condition.silentWhenAdded = false;
         }
+    }
+
+    private static void FixSpikeGrowthAffectingAir()
+    {
+        SpikeGrowth.EffectDescription.affectOnlyGround = true;
     }
 
     private static void FixAdditionalDamageRogueSneakAttack()
