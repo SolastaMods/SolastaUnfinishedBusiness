@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using TA.AI;
 using TA.AI.Activities;
@@ -90,6 +91,39 @@ internal static class AiContext
             _ => null
         };
 
+        //
+        // common consideration to validate if main action there
+        //
+
+        var wcdActionTypeStatus = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
+            baseDecision, "ActionTypeStatus");
+
+        var mainActionNotFullyConsumed = new WeightedConsiderationDescription(
+            CreateConsiderationDefinition(
+                "MainActionNotFullyConsumed",
+                new ConsiderationDescription
+                {
+                    considerationType = nameof(ActionTypeStatus),
+                    curve = wcdActionTypeStatus.Consideration.curve,
+                    boolParameter = true,
+                    floatParameter = 1f
+                }), 1f);
+
+        var mainActionNotFullyConsumedIfProne = new WeightedConsiderationDescription(
+            CreateConsiderationDefinition(
+                "MainActionNotFullyConsumedIfProne",
+                new ConsiderationDescription
+                {
+                    considerationType = nameof(ActionTypeStatus),
+                    curve = wcdActionTypeStatus.Consideration.curve,
+                    boolParameter = true,
+                    floatParameter = 1f
+                }), 1f);
+
+        //
+        // Decision that might use a random consideration
+        //
+
         var wcdHasCondition = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
             baseDecision, "HasCondition");
 
@@ -104,20 +138,6 @@ internal static class AiContext
                     boolParameter = true,
                     intParameter = 2,
                     floatParameter = 2f
-                }), 1f);
-
-        var wcdActionTypeStatus = GetWeightedConsiderationDescriptionByDecisionAndConsideration(
-            baseDecision, "ActionTypeStatus");
-
-        var mainActionNotFullyConsumed = new WeightedConsiderationDescription(
-            CreateConsiderationDefinition(
-                "MainActionNotFullyConsumed",
-                new ConsiderationDescription
-                {
-                    considerationType = nameof(ActionTypeStatus),
-                    curve = wcdActionTypeStatus.Consideration.curve,
-                    boolParameter = true,
-                    floatParameter = 1f
                 }), 1f);
 
         var scorerBreakFree = CreateActivityScorer(baseDecision, $"BreakFree{conditionName}", true,
@@ -151,12 +171,55 @@ internal static class AiContext
                 floatParameter: 3f)
             .AddToDB();
 
+        //
+        // Decision that takes Prone into account and don't use a random consideration at all
+        //
+
+        var conditionProne = DatabaseHelper.ConditionDefinitions.ConditionProne;
+        var hasConditionProne = new WeightedConsiderationDescription(
+            CreateConsiderationDefinition(
+                $"Has{conditionProne.Name}",
+                new ConsiderationDescription
+                {
+                    considerationType = nameof(HasCondition),
+                    curve = wcdHasCondition.Consideration.curve,
+                    stringParameter = conditionProne.Name,
+                    boolParameter = true,
+                    intParameter = 2,
+                    floatParameter = 2f
+                }), 1f);
+
+        var scorerBreakFreeIfProne = CreateActivityScorer(baseDecision, $"BreakFreeIfProne{conditionName}", true,
+            hasConditionBreakFree,
+            hasConditionProne,
+            mainActionNotFullyConsumedIfProne);
+
+        var decisionBreakFreeIfProne = DecisionDefinitionBuilder
+            .Create($"DecisionBreakFreeIfProne{conditionName}")
+            .SetGuiPresentationNoContent(true)
+            .SetDecisionDescription(
+                $"if restrained from {conditionName}, is prone, and can use main action, try to break free",
+                nameof(BreakFree),
+                scorerBreakFreeIfProne,
+                enumParameter: 1,
+                floatParameter: 3f)
+            .AddToDB();
+
         // use weight 10f to ensure scenarios that don't prevent enemies from take actions to still consider this
         var packageBreakFree = DecisionPackageDefinitionBuilder
             .Create($"BreakFreeAbilityCheck{conditionName}")
             .SetGuiPresentationNoContent(true)
-            .SetWeightedDecisions(new WeightedDecisionDescription(decisionBreakFree, 10f, 1, false))
+            .SetWeightedDecisions(
+                new WeightedDecisionDescription(decisionBreakFree, 10f, 1, false))
             .AddToDB();
+
+        // only add the break free if prone if vanilla break free has random otherwise it's redundant
+        if (decisionWithRandom)
+        {
+            packageBreakFree.Package.WeightedDecisions.SetRange(
+                new WeightedDecisionDescription(decisionBreakFreeIfProne, 15f, 1, false),
+                new WeightedDecisionDescription(decisionBreakFree, 10f, 1, false));
+        }
 
         return packageBreakFree;
     }
