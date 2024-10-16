@@ -137,7 +137,7 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
             .Create($"Power{Name}DivineFount")
             .SetGuiPresentation(Category.Feature, BeaconOfHope)
             .SetUsesAbilityBonus(
-                ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+                ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

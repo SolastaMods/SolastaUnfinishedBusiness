@@ -54,7 +54,7 @@ public static class InputManagerPatcher
         [UsedImplicitly]
         public static void Prefix(InputManager __instance)
         {
-            InputContext.InputModManager.RegisterDefaultCommands(__instance);
+            SettingsContext.InputModManager.RegisterDefaultCommands(__instance);
         }
     }
 
