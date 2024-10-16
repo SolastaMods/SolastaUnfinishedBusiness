@@ -355,7 +355,7 @@ You've manifested some of the power of chromatic dragons, granting you the follo
 # 71. - Grappler [UB]
 
 You've developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:
-• Increase your Strength or Dexterity score by 1, to a maximum of 20. 
+• Once during your turn when you hit a creature with an unarmed strike, you can attempt to grapple it as a part of that attack.
 • You have advantage on attack rolls against a creature you are grappling. 
 • You no longer have movement penalties while grappling creatures of your size or smaller.
 
