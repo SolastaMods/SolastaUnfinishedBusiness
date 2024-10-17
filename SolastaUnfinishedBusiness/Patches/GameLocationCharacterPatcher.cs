@@ -66,8 +66,7 @@ public static class GameLocationCharacterPatcher
             }
         }
     }
-    
-    
+
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CheckMotionValidity))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

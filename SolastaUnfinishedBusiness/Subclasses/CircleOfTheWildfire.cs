@@ -134,7 +134,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             .SetBonusMode(AddBonusMode.Proficiency)
                             .SetDamageForm(DamageTypeFire, 1, DieType.D6)
                             .Build())
-                    .SetParticleEffectParameters(PowerDomainElementalFireBurst)
+                    .SetImpactEffectParameters(BurningHands)
                     .Build())
             .AddToDB();
 
