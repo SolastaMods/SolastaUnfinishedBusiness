@@ -134,6 +134,7 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupMeleeCombat.AddFeats(
             balefulScionGroup,
+            featBrawler,
             featPolearmExpert,
             featShieldExpert);
 
@@ -149,7 +150,6 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featGiftOfTheChromaticDragon,
-            featBrawler,
             chefGroup,
             featGrappler,
             featHealer,
@@ -610,7 +610,6 @@ internal static class OtherFeats
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(dieRollModifierBrawler)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
 
         var actionAffinityGrappleBonus =
@@ -640,8 +639,28 @@ internal static class OtherFeats
     }
 
     private sealed class PhysicalAttackInitiatedByMeBrawler(ConditionDefinition conditionBrawler)
-        : IPhysicalAttackInitiatedByMe
+        : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
     {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionBrawler.Name, out var activeCondition))
+            {
+                rulesetAttacker.RemoveCondition(activeCondition);
+            }
+
+            yield break;
+        }
+
         public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1992,6 +2011,7 @@ internal static class OtherFeats
             void ReactionValidated()
             {
                 defender.SpendActionType(ActionType.Reaction);
+                usablePower.Consume();
 
                 var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
 

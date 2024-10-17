@@ -844,12 +844,12 @@ public static class CharacterActionAttackPatcher
                 actingCharacter.MovingToDestination = false;
             }
 
-            target.RulesetActor.ProcessConditionsMatchingInterruption(
+            var rulesetDefender = target.RulesetActor;
+
+            rulesetDefender.ProcessConditionsMatchingInterruption(
                 ConditionInterruption.PhysicalAttackReceivedExecuted);
 
             //PATCH: allow condition interruption after target was attacked not by source
-            var rulesetDefender = target.RulesetActor;
-
             if (!rulesetDefender.matchingInterruption)
             {
                 rulesetDefender.matchingInterruption = true;
