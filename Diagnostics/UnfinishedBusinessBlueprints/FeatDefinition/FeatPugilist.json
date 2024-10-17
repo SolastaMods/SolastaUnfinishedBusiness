@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,20 +8,18 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "FightingStyle",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:ProficiencyFeatPugilist:a213f59d-9130-5168-a0ac-0ae7f54fcdb1"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "FightingStyle/&PugilistTitle",
-    "description": "FightingStyle/&PugilistDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4588cea5-c0a5-53ec-8d91-3229339c29ba",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

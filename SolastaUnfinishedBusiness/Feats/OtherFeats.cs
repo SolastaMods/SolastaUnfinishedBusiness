@@ -1758,7 +1758,9 @@ internal static class OtherFeats
         GroupFeats.FeatGroupFightingStyle.AddFeats(
             DatabaseRepository
                 .GetDatabase<FightingStyleDefinition>()
-                .Where(x => !FightingStyleContext.DemotedFightingStyles.Contains(x.Name))
+                .Where(x =>
+                    !FightingStyleContext.DemotedFightingStyles.Contains(x.Name) &&
+                    x.Name != FightingStyleContext.PugilistName)
                 .Select(BuildFightingStyleFeat)
                 .OfType<FeatDefinition>()
                 .ToArray());
