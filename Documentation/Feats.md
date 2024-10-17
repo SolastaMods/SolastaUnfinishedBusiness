@@ -102,6 +102,7 @@ Your people have extraordinary luck, which you have learned to mystically lend t
 You are an expert at hand-to-hand combat, gaining the following benefits: 
 • Your Unarmed Strikes deal 1d6+Strength modifier bludgeoning damage. If you aren't wielding any weapons or a shield when you make the attack roll, the d6 becomes a d8.
 • When you take the Attack action and got at least one free hand, you can use your bonus action to either make an unarmed strike or grapple a creature.
+• When you make an unarmed attack, you can reroll any 1s on damage dice you roll as a part of that attack and must take the new result.
 
 # 21. - Burning Touch [SOL]
 
@@ -307,8 +308,8 @@ You can use misty step once per short rest, and you can cast this spell with you
 You gain proficiency in Tirmarian.
 
 # 62. - *Fighting Initiate* © [UB]
-
-Archery, Astral Reach, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Protection, Pugilist, Superior Technique, Torchbearer, Two Weapon Fighting
+ 
+Archery, Astral Reach, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Protection, Superior Technique, Torchbearer, Two Weapon Fighting
 
 # 63. - *Flames of Phlegethos* © [UB]
 
