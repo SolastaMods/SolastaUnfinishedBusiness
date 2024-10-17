@@ -146,16 +146,22 @@ internal static class CommonBuilders
 
     internal static bool CanWeaponBeEnchanted(RulesetAttackMode mode, RulesetItem _, RulesetCharacter character)
     {
-        if (character is not RulesetCharacterHero hero || ValidatorsWeapon.HasTwoHandedTag(mode))
+        if (character is not RulesetCharacterHero hero)
         {
             return false;
         }
 
-        return mode.ActionType != ActionDefinitions.ActionType.Bonus ||
-               ValidatorsWeapon.IsPolearmType(mode) ||
-               ValidatorsWeapon.IsTwoHandedRanged(mode) ||
-               hero.TrainedFeats.Contains(MeleeCombatFeats.FeatFencer) ||
-               hero.TrainedFightingStyles.Contains(DatabaseHelper.FightingStyleDefinitions.TwoWeapon);
+        if (mode.ActionType != ActionDefinitions.ActionType.Bonus)
+        {
+            return !ValidatorsWeapon.IsTwoHanded(mode);
+        }
+
+        // only allows a weapon to be enchanted if a bonus action coming from these sources
+        return
+            ValidatorsWeapon.IsPolearmType(mode) ||
+            ValidatorsWeapon.IsTwoHandedRanged(mode) ||
+            hero.TrainedFeats.Contains(MeleeCombatFeats.FeatFencer) ||
+            hero.TrainedFightingStyles.Contains(DatabaseHelper.FightingStyleDefinitions.TwoWeapon);
     }
 
     private sealed class AttackReplaceWithCantrip : IAttackReplaceWithCantrip;

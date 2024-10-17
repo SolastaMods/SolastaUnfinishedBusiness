@@ -1274,7 +1274,7 @@ internal static class MeleeCombatFeats
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!ValidatorsWeapon.IsMelee(attackMode) ||
-                !ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(attackMode, null, null))
+                attackMode.EffectDescription.FindFirstDamageForm()?.DamageType != DamageTypeBludgeoning)
             {
                 yield break;
             }

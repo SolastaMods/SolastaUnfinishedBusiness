@@ -20,12 +20,6 @@ internal static class ValidatorsWeapon
     internal static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static IsWeaponValidHandler IsOfDamageType(string damageType)
-    {
-        return (attackMode, _, _) => attackMode?.EffectDescription.FindFirstDamageForm()?.DamageType == damageType;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsWeaponValidHandler IsOfWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
         return (attackMode, rulesetItem, _) =>
@@ -41,23 +35,15 @@ internal static class ValidatorsWeapon
                  ShieldAttack.IsMagicalShield(rulesetItem)));
     }
 
-#if false
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsTwoHandedRanged(RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter _)
-    {
-        return IsTwoHandedRanged(attackMode?.SourceDefinition as ItemDefinition ?? rulesetItem?.ItemDefinition);
-    }
-#endif
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsTwoHandedRanged([CanBeNull] RulesetAttackMode attackMode)
     {
-        return IsWeaponType(attackMode?.SourceDefinition as ItemDefinition, LongbowType, ShortbowType,
-            HeavyCrossbowType, LightCrossbowType);
+        return attackMode is { SourceDefinition: ItemDefinition itemDefinition, Ranged: true } &&
+               HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagTwoHanded);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool HasTwoHandedTag([CanBeNull] RulesetAttackMode attackMode)
+    internal static bool IsTwoHanded([CanBeNull] RulesetAttackMode attackMode)
     {
         return attackMode is { SourceDefinition: ItemDefinition itemDefinition } &&
                HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagTwoHanded);
@@ -83,15 +69,11 @@ internal static class ValidatorsWeapon
         [CanBeNull] RulesetItem rulesetItem,
         RulesetCharacter rulesetCharacter)
     {
-        RulesetItem attackModeRulesetItem = null;
-
-        if (attackMode?.SourceObject is RulesetItem rulesetItem1)
-        {
-            attackModeRulesetItem = rulesetItem1;
-        }
+        var finalRulesetItem =
+            attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? rulesetCharacter?.GetMainWeapon();
 
         // don't use IsMelee(attackMode) in here as these are used before an attack initiates
-        return IsMelee(attackModeRulesetItem ?? rulesetItem ?? rulesetCharacter?.GetMainWeapon());
+        return IsMelee(finalRulesetItem);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -110,7 +92,6 @@ internal static class ValidatorsWeapon
 
         return
             attackMode is { SourceDefinition: ItemDefinition itemDefinition, Ranged: false } &&
-            attackMode.AttackTags.Contains(TagsDefinitions.WeaponTagMelee) &&
             IsMelee(itemDefinition);
     }
 

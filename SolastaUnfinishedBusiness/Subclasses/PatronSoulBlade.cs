@@ -231,11 +231,16 @@ public sealed class PatronSoulBlade : AbstractSubclass
         }
 
         var canWeaponBeEmpowered = CanWeaponBeEnchanted(mode, item, character);
-        var canTwoHandedBeEmpowered =
-            ValidatorsWeapon.HasTwoHandedTag(mode) &&
-            hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade));
 
-        return canWeaponBeEmpowered || canTwoHandedBeEmpowered;
+        // give one last chance if a pact blade wielding a two handed
+        if (!canWeaponBeEmpowered)
+        {
+            canWeaponBeEmpowered =
+                ValidatorsWeapon.IsTwoHanded(mode) &&
+                hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade));
+        }
+
+        return canWeaponBeEmpowered;
     }
 
     private sealed class ModifyCriticalThresholdHex(
