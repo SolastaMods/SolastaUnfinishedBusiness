@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -17,26 +17,20 @@ internal sealed class Lunger : AbstractFightingStyle
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(Name)
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(Name, Resources.Lunger, 256))
-        .SetFeatures(
-            FeatureDefinitionBuilder
-                .Create("FeatureLunger")
-                .SetGuiPresentationNoContent(true)
-                .AddCustomSubFeatures(new IncreaseWeaponReach(1, (mode, rulesetItem, _) =>
-                    {
-                        RulesetItem attackModeRulesetItem = null;
+        .AddCustomSubFeatures(new IncreaseWeaponReach(1, (attackMode, rulesetItem, character) =>
+            {
+                // this extra code is required to properly validate before an attack
+                // same code as ValidatorsWeapon.IsMelee but need this later to check on weapon tag
+                var finalRulesetItem =
+                    attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? character?.GetMainWeapon();
 
-                        if (mode?.SourceObject is RulesetItem rulesetItem1)
-                        {
-                            attackModeRulesetItem = rulesetItem1;
-                        }
-
-                        var item = attackModeRulesetItem ?? rulesetItem;
-
-                        return ValidatorsWeapon.IsMelee(item) &&
-                               !ValidatorsWeapon.HasAnyWeaponTag(item?.ItemDefinition, TagsDefinitions.WeaponTagHeavy);
-                    },
-                    Name))
-                .AddToDB())
+                return
+                    ValidatorsCharacter.HasFreeHand(character) &&
+                    ValidatorsWeapon.IsMelee(finalRulesetItem) && 
+                    !ValidatorsWeapon.HasAnyWeaponTag(
+                        finalRulesetItem?.ItemDefinition, TagsDefinitions.WeaponTagHeavy);
+            },
+            Name))
         .AddToDB();
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
