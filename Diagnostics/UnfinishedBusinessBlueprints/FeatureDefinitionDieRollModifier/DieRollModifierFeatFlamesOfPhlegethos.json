@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 1,
+  "minRollValue": 0,
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
+  "rerollLocalizationKey": "Feedback/&FlamesOfPhlegethosReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "AttackDamageValueRoll",
+  "validityContext": "MagicDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Adept [Fire]",
-    "description": "Fire damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e37a7371-b93a-5718-a96c-aeca5d61ed28",
+  "guid": "62927d46-acf2-5883-9c65-d4ce78f03744",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageFire"
+  "name": "DieRollModifierFeatFlamesOfPhlegethos"
 }

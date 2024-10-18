@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 1,
+  "minRollValue": 0,
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalMasterReroll",
+  "rerollLocalizationKey": "Feedback/&FeatElementalAdeptReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "AttackRoll",
+  "validityContext": "MagicDamageValueRoll, AttackDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Master [Fire]",
-    "description": "Fire damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b9dd0f1e-c257-53ae-997b-e5b077c075d2",
+  "guid": "62f3e04b-01aa-5a44-bd8f-f4320a7e8260",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalMasterDamageFire"
+  "name": "DieRollModifierFeatElementalAdeptDamageLightning"
 }

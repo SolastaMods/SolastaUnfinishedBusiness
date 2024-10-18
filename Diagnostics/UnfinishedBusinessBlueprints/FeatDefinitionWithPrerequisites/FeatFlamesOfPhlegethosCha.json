@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:DieRollModifierFeatFlamesOfPhlegethosFire:40e36780-3ac8-57ef-adb4-49a992d5ed28",
+    "Definition:DieRollModifierFeatFlamesOfPhlegethos:62927d46-acf2-5883-9c65-d4ce78f03744",
     "Definition:PowerFeatFlamesOfPhlegethos:8dc5d818-588d-5ad6-85d1-9bb23a856c66"
   ],
   "guiPresentation": {

@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 1,
+  "minRollValue": 0,
   "maxRollValue": 0,
-  "minRerollValue": 1,
+  "minRerollValue": 3,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalMasterReroll",
+  "rerollLocalizationKey": "Feedback/&OathOfDemonHunterDemonSlayerReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "AttackRoll",
+  "validityContext": "MagicDamageValueRoll, AttackDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Master [Thunder]",
-    "description": "Thunder damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a36dee8e-f490-58a2-bd99-7fe78bd693e7",
+  "guid": "9da9aa52-ba53-5f0b-ba25-130dbf44f8f4",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalMasterDamageThunder"
+  "name": "FeatureOathOfDemonHunterDemonSlayer"
 }

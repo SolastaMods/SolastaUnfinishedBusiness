@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 3,
+  "minRollValue": 0,
   "maxRollValue": 0,
-  "minRerollValue": 3,
+  "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&DieRollModifierOathOfDemonHunterDemonSlayer",
+  "rerollLocalizationKey": "Feedback/&FeatElementalMasterReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "MagicDamageValueRoll",
+  "validityContext": "AttackRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&FeatureSetOathOfDemonHunterDemonSlayerTitle",
-    "description": "Feature/&FeatureSetOathOfDemonHunterDemonSlayerDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2bb84145-bd8e-5119-bd09-dbc1e0eb0018",
+  "guid": "0080e79d-b948-5219-90a7-916856f9015d",
   "contentPack": 9999,
-  "name": "FeatureOathOfDemonHunterDemonSlayerMagic"
+  "name": "DieRollModifierFeatElementalMasterDamageFire"
 }

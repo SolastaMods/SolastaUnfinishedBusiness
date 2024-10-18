@@ -15,7 +15,7 @@
   ],
   "features": [
     "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02",
-    "Definition:DieRollModifierDamageTypeDependentFeatElementalMasterDamageThunder:a36dee8e-f490-58a2-bd99-7fe78bd693e7"
+    "Definition:DieRollModifierFeatElementalMasterDamageThunder:d0f7b70d-ebf3-5d1f-9ddf-5d4e4a876271"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

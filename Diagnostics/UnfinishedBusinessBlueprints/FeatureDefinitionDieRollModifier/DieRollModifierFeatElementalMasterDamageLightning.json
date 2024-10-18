@@ -1,10 +1,10 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 1,
+  "minRollValue": 0,
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalMasterReroll",
+  "rerollLocalizationKey": "Feedback/&FeatElementalMasterReroll",
   "forcedDamageOnDice": "None",
   "validityContext": "AttackRoll",
   "validSkills": [],
@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Master [Lightning]",
-    "description": "Lightning damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "79da4630-7fbe-514f-8581-a20ee14bf5b5",
+  "guid": "6afc1513-7a53-503a-83af-a752ca2463da",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalMasterDamageLightning"
+  "name": "DieRollModifierFeatElementalMasterDamageLightning"
 }

@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 1,
+  "minRollValue": 0,
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feat/&FeatSavageAttackReroll",
+  "rerollLocalizationKey": "Feedback/&FeatElementalMasterReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "AttackDamageValueRoll",
+  "validityContext": "AttackRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "10aa4ff6-23ff-5bc7-8ce4-b1e54045a72a",
+  "guid": "5e6094ed-5b22-54a5-be33-999aa1133141",
   "contentPack": 9999,
-  "name": "DieRollModifierFeatSavageAttackNonMagic"
+  "name": "DieRollModifierFeatElementalMasterDamageCold"
 }

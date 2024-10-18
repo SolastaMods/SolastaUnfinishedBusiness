@@ -12,8 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:DieRollModifierFeatSavageAttackMagic:08d02a04-b835-5011-96aa-27c6da4d3d79",
-    "Definition:DieRollModifierFeatSavageAttackNonMagic:10aa4ff6-23ff-5bc7-8ce4-b1e54045a72a"
+    "Definition:DieRollModifierFeatSavageAttack:86abc9b9-b311-5c80-a080-c47f9c5f3502"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
