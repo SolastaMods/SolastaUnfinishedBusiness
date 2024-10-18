@@ -2,7 +2,6 @@
 
 - added final behaviors to Brawler, and Grappler feats [also demoted Pugilist fighting style]
 - fixed Armor of Agathys damage determination, and consideration on reach attacks
-    - fixed blade cantrips interaction with spell sniper if attacker has reach
 - fixed campaigns translator missing lore operations [i.e.: learn/unlearn/unchart locations]
 - fixed Chromatic Dragon power not tracking any usages instead of PB per long rest
 - fixed Defensive Duelist validating attacker wielded weapons instead of feat owner to present reaction

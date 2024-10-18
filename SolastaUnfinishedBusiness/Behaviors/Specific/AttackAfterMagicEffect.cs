@@ -40,6 +40,8 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
     {
         isReach = Main.Settings.AllowBladeCantripsToUseReach;
 
+        // still debatable
+#if false
         // Spell Sniper should allow reach
         if (!isReach)
         {
@@ -48,6 +50,7 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
             isReach = rulesetCaster.GetOriginalHero()?.TrainedFeats.Any(x => x.Name.StartsWith("FeatSpellSniper")) ??
                       false;
         }
+#endif
 
         var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 

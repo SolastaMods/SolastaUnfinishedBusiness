@@ -2362,6 +2362,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionDieRollModifiers
     {
+        internal static FeatureDefinitionDieRollModifier DieRollModifierFightingStyleGreatWeapon { get; } =
+            GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierFightingStyleGreatWeapon");
+
         internal static FeatureDefinitionDieRollModifier DieRollModifierHalfingLucky { get; } =
             GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierHalfingLucky");
     }
