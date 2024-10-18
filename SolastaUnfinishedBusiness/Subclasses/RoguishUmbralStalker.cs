@@ -77,21 +77,23 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetImpactParticleReference(Power_HornOfBlasting)
             .AddToDB();
 
-        additionalDamageGloomBlade.AddCustomSubFeatures(new CustomBehaviorGloomBlade(additionalDamageGloomBlade));
+        additionalDamageGloomBlade.AddCustomSubFeatures(
+            new ModifyAdditionalDamageGloomBlade(additionalDamageGloomBlade));
 
         var conditionGloomBlade = ConditionDefinitionBuilder
             .Create($"Condition{Name}GloomBlade")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(dieRollModifierDieRollModifier, additionalDamageGloomBlade)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
+
+        conditionGloomBlade.AddCustomSubFeatures(new AllowRerollDiceGloomBlade());
 
         var actionAffinityHailOfBladesToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityGloomBladeToggle")
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle)
-            .AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyGloomBlade(conditionGloomBlade))
+            .AddCustomSubFeatures(new CustomBehaviorGloomBlade(conditionGloomBlade))
             .AddToDB();
 
         // LEVEL 9
@@ -254,14 +256,17 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // Gloom Blade
     //
 
-    private sealed class CustomBehaviorGloomBlade(
-        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage, IAllowRerollDice
+    private sealed class AllowRerollDiceGloomBlade : IAllowRerollDice
     {
         public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
         {
-            return true;
+            return attackModeDamage;
         }
+    }
 
+    private sealed class ModifyAdditionalDamageGloomBlade(FeatureDefinitionAdditionalDamage additionalDamage)
+        : IModifyAdditionalDamage
+    {
         public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -287,8 +292,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         }
     }
 
-    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyGloomBlade(
-        ConditionDefinition conditionGloomBlade) : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    private sealed class CustomBehaviorGloomBlade(ConditionDefinition conditionGloomBlade)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -309,6 +314,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
+            // allow damage die reroll from this point on
             rulesetAttacker.InflictCondition(
                 conditionGloomBlade.Name,
                 DurationType.Round,
@@ -350,6 +356,26 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.Localize("Tooltip/&TagDamageNecroticTitle"))
                 ]);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionGloomBlade.Name, out var activeCondition))
+            {
+                rulesetAttacker.RemoveCondition(activeCondition);
+            }
+
+            yield break;
         }
     }
 

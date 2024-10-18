@@ -609,6 +609,8 @@ internal static class OtherFeats
             .SetFeatures(dieRollModifierBrawler)
             .AddToDB();
 
+        conditionBrawler.AddCustomSubFeatures(new AllowRerollDiceBrawler());
+
         var actionAffinityGrappleBonus =
             FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}GrappleBonus")
@@ -635,41 +637,28 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorBrawler(ConditionDefinition conditionBrawler)
-        : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe, IAllowRerollDice
+    private sealed class AllowRerollDiceBrawler : IAllowRerollDice
     {
         public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
         {
             return attackModeDamage;
         }
+    }
 
-        public IEnumerator OnPhysicalAttackFinishedByMe(
+    private sealed class CustomBehaviorBrawler(ConditionDefinition conditionBrawler)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
-        {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionBrawler.Name, out var activeCondition))
-            {
-                rulesetAttacker.RemoveCondition(activeCondition);
-            }
-
-            yield break;
-        }
-
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
             if (!ValidatorsWeapon.IsUnarmed(attackMode))
             {
@@ -691,6 +680,26 @@ internal static class OtherFeats
                 0,
                 0,
                 0);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionBrawler.Name, out var activeCondition))
+            {
+                rulesetAttacker.RemoveCondition(activeCondition);
+            }
+
+            yield break;
         }
     }
 
@@ -1674,6 +1683,11 @@ internal static class OtherFeats
     private sealed class ModifyDamageResistanceElementalAdept(params string[] damageTypes)
         : IModifyDamageAffinity, IValidateDieRollModifier, IAllowRerollDice
     {
+        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
+        {
+            return !attackModeDamage && damageTypes.Contains(damageForm.DamageType);
+        }
+
         public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
         {
             features.RemoveAll(x =>
@@ -1685,11 +1699,6 @@ internal static class OtherFeats
             RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypesRoll)
         {
             return damageTypes.Intersect(damageTypesRoll).Any();
-        }
-
-        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
-        {
-            return damageTypes.Contains(damageForm.DamageType);
         }
     }
 
@@ -1746,7 +1755,7 @@ internal static class OtherFeats
     }
 
     private sealed class ModifyDamageResistanceElementalMaster(params string[] damageTypes)
-        : IModifyDamageAffinity, IValidateDieRollModifier, IAllowRerollDice
+        : IModifyDamageAffinity, IValidateDieRollModifier
     {
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
@@ -1755,15 +1764,11 @@ internal static class OtherFeats
                 damageTypes.Contains(y.DamageType));
         }
 
+        //TODO: Elemental master is an attack roll so this never gets checked. To be fixed...
         public bool CanModifyRoll(
             RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypesRoll)
         {
             return damageTypes.Intersect(damageTypesRoll).Any();
-        }
-
-        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
-        {
-            return damageTypes.Contains(damageForm.DamageType);
         }
     }
 

@@ -58,10 +58,6 @@ internal static class FixesContext
         ConditionDefinitions.ConditionUnderDemonicInfluence.durationParameter = 1;
         ConditionDefinitions.ConditionUnderDemonicInfluence.possessive = true;
 
-        // fix Great Weapon FS die roll modifier
-        FeatureDefinitionDieRollModifiers.DieRollModifierFightingStyleGreatWeapon.AddCustomSubFeatures(
-            new AllowRerollDiceFightingStyleGreatWeapon());
-
         AddAdditionalActionTitles();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
@@ -752,14 +748,6 @@ internal static class FixesContext
         AdditionalActionHasted.GuiPresentation.Title = Haste.GuiPresentation.Title;
         AdditionalActionSurgedMain.GuiPresentation.Title =
             DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
-    }
-
-    private sealed class AllowRerollDiceFightingStyleGreatWeapon : IAllowRerollDice
-    {
-        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
-        {
-            return attackModeDamage;
-        }
     }
 
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe,
