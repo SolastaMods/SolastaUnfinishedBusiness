@@ -166,14 +166,10 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionDieRollModifierBuilder
-                    .Create("DieRollModifierFeatSavageAttackNonMagic")
+                    .Create("DieRollModifierFeatSavageAttack")
                     .SetGuiPresentationNoContent(true)
-                    .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
-                    .AddToDB(),
-                FeatureDefinitionDieRollModifierBuilder
-                    .Create("DieRollModifierFeatSavageAttackMagic")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
+                    .SetModifiers(AttackDamageValueRoll | MagicDamageValueRoll, 1, 0, 1,
+                        "Feedback/&FeatSavageAttackReroll")
                     .AddToDB())
             .AddToDB();
     }
@@ -1562,7 +1558,7 @@ internal static class MeleeCombatFeats
         FeatureDefinitionDieRollModifierBuilder
             .Create("FeatureFeatPiercer")
             .SetGuiPresentationNoContent(true)
-            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
+            .SetModifiers(AttackDamageValueRoll, 1, 0, 1, "Feedback/&FeatPiercerReroll")
             .AddCustomSubFeatures(
                 new CustomAdditionalDamageFeatPiercer(
                     FeatureDefinitionAdditionalDamageBuilder
@@ -1603,7 +1599,7 @@ internal static class MeleeCombatFeats
     private sealed class CustomAdditionalDamageFeatPiercer(IAdditionalDamageProvider provider)
         : CustomAdditionalDamage(provider), IValidateDieRollModifier, IAllowRerollDice
     {
-        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
         {
             return damageForm.DamageType == DamageTypePiercing;
         }

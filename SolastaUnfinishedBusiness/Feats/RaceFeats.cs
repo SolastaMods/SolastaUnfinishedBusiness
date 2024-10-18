@@ -1235,10 +1235,10 @@ internal static class RaceFeats
             new MagicEffectFinishedByMeFlamesOfPhlegethos(power));
 
         var dieRollModifierFire = FeatureDefinitionDieRollModifierBuilder
-            .Create($"DieRollModifier{Name}Fire")
-            .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat)
-            .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
-                "Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll")
+            .Create($"DieRollModifier{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetModifiers(RollContext.MagicDamageValueRoll, 1, 0, 1,
+                "Feedback/&FlamesOfPhlegethosReroll")
             .AddCustomSubFeatures(new ValidateDieRollModifierFlamesOfPhlegethos())
             .AddToDB();
 

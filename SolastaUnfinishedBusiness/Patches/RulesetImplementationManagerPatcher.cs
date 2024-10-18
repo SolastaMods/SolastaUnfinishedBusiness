@@ -246,7 +246,7 @@ public static class RulesetImplementationManagerPatcher
 
             if (rulesetCharacter
                 .GetSubFeaturesByType<IAllowRerollDice>()
-                .Any(x => x.IsValid(rulesetActor, damageForm)))
+                .Any(x => x.IsValid(rulesetActor, attackModeDamage, damageForm)))
             {
                 canRerollDice = true;
             }

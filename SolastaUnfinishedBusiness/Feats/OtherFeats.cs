@@ -598,11 +598,8 @@ internal static class OtherFeats
             .Create($"DieRollModifier{Name}")
             .SetGuiPresentationNoContent(true)
             .SetModifiers(
-                RollContext.None,
-                1,
-                1,
-                1,
-                "Feedback/&DieRollModifierFeatBrawlerReroll")
+                RollContext.AttackDamageValueRoll, 1, 0, 1,
+                "Feedback/&FeatBrawlerReroll")
             .AddToDB();
 
         var conditionBrawler = ConditionDefinitionBuilder
@@ -619,7 +616,7 @@ internal static class OtherFeats
                 .SetAuthorizedActions((Id)ExtraActionId.GrappleBonus)
                 .AddCustomSubFeatures(
                     new ValidateDefinitionApplication(ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
-                    new PhysicalAttackInitiatedByMeBrawler(conditionBrawler),
+                    new CustomBehaviorBrawler(conditionBrawler),
                     new AddExtraUnarmedAttack(
                         ActionType.Bonus, ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
                     new UpgradeWeaponDice((_, d) => (Math.Max(1, d.DiceNumber), DieType.D6, DieType.D6),
@@ -638,9 +635,14 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackInitiatedByMeBrawler(ConditionDefinition conditionBrawler)
-        : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorBrawler(ConditionDefinition conditionBrawler)
+        : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe, IAllowRerollDice
     {
+        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
+        {
+            return attackModeDamage;
+        }
+
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1641,27 +1643,17 @@ internal static class OtherFeats
         foreach (var damageType in damageTypes)
         {
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
-            var guiPresentation = new GuiPresentationBuilder(
-                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
-                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
-                .Build();
-
             var feat = FeatDefinitionBuilder
                 .Create($"{NAME}{damageType}")
-                .SetGuiPresentation(guiPresentation)
+                .SetGuiPresentation(
+                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
+                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
                 .SetFeatures(
                     FeatureDefinitionDieRollModifierBuilder
-                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalAdeptReroll")
-                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
-                        .AddToDB(),
-                    FeatureDefinitionDieRollModifierBuilder
-                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}Magic")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalAdeptReroll")
+                        .Create($"DieRollModifier{NAME}{damageType}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetModifiers(RollContext.AttackDamageValueRoll | RollContext.MagicDamageValueRoll, 1, 0, 1,
+                            "Feedback/&FeatElementalAdeptReroll")
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
                         .AddToDB())
                 .SetMustCastSpellsPrerequisite()
@@ -1680,7 +1672,7 @@ internal static class OtherFeats
     }
 
     private sealed class ModifyDamageResistanceElementalAdept(params string[] damageTypes)
-        : IModifyDamageAffinity, IValidateDieRollModifier
+        : IModifyDamageAffinity, IValidateDieRollModifier, IAllowRerollDice
     {
         public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
         {
@@ -1693,6 +1685,11 @@ internal static class OtherFeats
             RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypesRoll)
         {
             return damageTypes.Intersect(damageTypesRoll).Any();
+        }
+
+        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
+        {
+            return damageTypes.Contains(damageForm.DamageType);
         }
     }
 
@@ -1718,20 +1715,17 @@ internal static class OtherFeats
         foreach (var (damageType, featureResistance) in damageTypes)
         {
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
-            var guiPresentation = new GuiPresentationBuilder(
-                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
-                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
-                .Build();
-
             var feat = FeatDefinitionBuilder
                 .Create($"{NAME}{damageType}")
-                .SetGuiPresentation(guiPresentation)
+                .SetGuiPresentation(
+                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
+                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
                 .SetFeatures(
                     FeatureDefinitionDieRollModifierBuilder
-                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalMasterReroll")
+                        .Create($"DieRollModifier{NAME}{damageType}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetModifiers(RollContext.AttackRoll, 1, 0, 1,
+                            "Feedback/&FeatElementalMasterReroll")
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
                         .AddToDB(),
                     featureResistance)
@@ -1752,7 +1746,7 @@ internal static class OtherFeats
     }
 
     private sealed class ModifyDamageResistanceElementalMaster(params string[] damageTypes)
-        : IModifyDamageAffinity, IValidateDieRollModifier
+        : IModifyDamageAffinity, IValidateDieRollModifier, IAllowRerollDice
     {
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
@@ -1765,6 +1759,11 @@ internal static class OtherFeats
             RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypesRoll)
         {
             return damageTypes.Intersect(damageTypesRoll).Any();
+        }
+
+        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
+        {
+            return damageTypes.Contains(damageForm.DamageType);
         }
     }
 

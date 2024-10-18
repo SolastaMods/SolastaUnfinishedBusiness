@@ -64,7 +64,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         var dieRollModifierDieRollModifier = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}GloomBlade")
             .SetGuiPresentationNoContent(true)
-            .SetModifiers(AttackDamageValueRoll, 1, 1, 2, "Feature/&GloomBladeAttackReroll")
+            .SetModifiers(AttackDamageValueRoll, 1, 0, 2, "Feedback/&UmbralStalkerGloomBladeAttackReroll")
             .AddToDB();
 
         var additionalDamageGloomBlade = FeatureDefinitionAdditionalDamageBuilder
@@ -257,7 +257,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     private sealed class CustomBehaviorGloomBlade(
         FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage, IAllowRerollDice
     {
-        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
         {
             return true;
         }
