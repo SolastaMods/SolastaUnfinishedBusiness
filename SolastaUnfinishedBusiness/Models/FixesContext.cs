@@ -28,6 +28,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttac
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDieRollModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -73,6 +74,7 @@ internal static class FixesContext
         FixEagerForBattleTexts();
         FixFightingStyleArchery();
         FixGorillaWildShapeRocksToUnlimited();
+        FixGreatWeaponFightingStyle();
         FixLanguagesPointPoolsToIncludeAllLanguages();
         FixMartialArtsProgression();
         FixMartialCommanderCoordinatedDefense();
@@ -245,6 +247,19 @@ internal static class FixesContext
         SorcerousChildRift.FeatureUnlocks.RemoveAll(x => x.Level == 14);
         SorcerousChildRift.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetSorcererChildRiftRiftwalk, 14));
         FeatureSetSorcererChildRiftRiftwalk.GuiPresentation = PowerSorcererChildRiftRiftwalk.GuiPresentation;
+    }
+
+    private static void FixGreatWeaponFightingStyle()
+    {
+        var conditionGreatWeapon = ConditionDefinitionBuilder
+            .Create("ConditionGreatWeapon")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(DieRollModifierFightingStyleGreatWeapon)
+            .AddToDB();
+
+        DieRollModifierFightingStyleGreatWeapon.AddCustomSubFeatures(new AllowRerollDiceGreatWeapon());
+        FightingStyleDefinitions.GreatWeapon.AddCustomSubFeatures(new CustomBehaviorGreatWeapon(conditionGreatWeapon));
     }
 
     private static void FixLanguagesPointPoolsToIncludeAllLanguages()
@@ -748,6 +763,77 @@ internal static class FixesContext
         AdditionalActionHasted.GuiPresentation.Title = Haste.GuiPresentation.Title;
         AdditionalActionSurgedMain.GuiPresentation.Title =
             DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
+    }
+
+    private sealed class AllowRerollDiceGreatWeapon : IAllowRerollDice
+    {
+        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
+        {
+            return attackModeDamage;
+        }
+    }
+
+    private sealed class CustomBehaviorGreatWeapon(ConditionDefinition conditionGreatWeapon)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            
+            // is not Two-Handed and is not Versatile with free hand
+            if (!ValidatorsWeapon.IsTwoHanded(attackMode) &&
+                (!ValidatorsCharacter.HasFreeHand(rulesetAttacker) ||
+                 !ValidatorsWeapon.HasAnyWeaponTag(
+                     attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagVersatile)))
+            {
+                yield break;
+            }
+
+            // allow damage die reroll from this point on
+            rulesetAttacker.InflictCondition(
+                conditionGreatWeapon.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionGreatWeapon.Name,
+                0,
+                0,
+                0);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    TagEffect, conditionGreatWeapon.Name, out var activeCondition))
+            {
+                rulesetAttacker.RemoveCondition(activeCondition);
+            }
+
+            yield break;
+        }
     }
 
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe,

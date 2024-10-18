@@ -5,13 +5,14 @@
 - fixed campaigns translator missing lore operations [i.e.: learn/unlearn/unchart locations]
 - fixed Chromatic Dragon power not tracking any usages instead of PB per long rest
 - fixed Defensive Duelist validating attacker wielded weapons instead of feat owner to present reaction
-- fixed Elemental Adept, and Elemental Master to reroll all damage dice of type instead of first only
+- fixed Elemental Adept, and Elemental Master to reroll all damage dice of type instead of first instance only
 - fixed Enhanced Bond, Mind Sculpt, Power Surge, and Radiant Soul effect range type damage determination
 - fixed gadgets save soft lock under certain scenarios [i.e.: area activators]
 - fixed grappled actor interaction with flying grappler, prone, and dangerous zones [i.e.: Spike Growth]
+- fixed Great Weapon to reroll all damage dice instead of first instance only [VANILLA]
 - fixed Patron Tree, Remorhaz, Wight Lord, and Young Remorhaz retribution consideration on reach attacks [VANILLA]
 - fixed Umbral Stalker shadow strike re-rolling damage dice on all attacks instead of sneak only
-- moved some mod settings to be offered under game official settings [check Gui, and Keyboard sections]
+- moved input mod settings to be offered under game official UI [check Gui, and Keyboard sections]
 
 KNOWN ISSUES:
 
