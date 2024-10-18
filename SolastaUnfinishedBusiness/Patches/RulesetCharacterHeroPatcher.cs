@@ -19,6 +19,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -816,6 +817,30 @@ public static class RulesetCharacterHeroPatcher
         {
             //PATCH: enables some corner-case fighting styles (like archery for hand crossbows and dual wielding for shield expert)
             FightingStyleContext.RefreshFightingStylesPatch(__instance);
+        }
+    }
+
+    //BUGFIX: allows gauntlet to be used by Druids
+    //as vanilla put them on simple weapon categories and Druids are proficient with specic ones
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsProficientWithItem))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsProficientWithItem_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetCharacterHero __instance, ref bool __result, ItemDefinition itemDefinition)
+        {
+            if (!itemDefinition.IsWeapon ||
+                itemDefinition.WeaponDescription.WeaponTypeDefinition != UnarmedStrikeType ||
+                __instance.weaponTypeProficiencies.Contains(
+                    DatabaseHelper.WeaponCategoryDefinitions.SimpleWeaponCategory.Name))
+            {
+                return true;
+            }
+
+            __result = true;
+
+            return false;
         }
     }
 
