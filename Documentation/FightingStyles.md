@@ -4,7 +4,7 @@ You gain a +2 bonus to attack rolls with ranged weapons.
 
 # 2. - Astral Reach [UB]
 
-Your Unarmed Strike reach increases by 5 ft while wielding no other weapon or shield.
+Your unarmed reach increases by 5ft as long as both of your hands are free.
 
 # 3. - *Blind Fighting* © [UB]
 
@@ -40,7 +40,7 @@ When a creature you can see hits a target, other than you, within 5 feet of you 
 
 # 11. - Lunger [UB]
 
-Your melee weapon reach increases by 5 ft while wielding a weapon without the heavy tag and no other weapon or shield.
+Your melee weapon reach increases by 5 ft as long as wielding a weapon without the heavy tag and your other hand is free.
 
 # 12. - Protection [SOL]
 
