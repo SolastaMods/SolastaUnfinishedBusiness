@@ -1,3 +1,7 @@
+Action/&CleavingAttackToggleDescription=Great Weapon Master aktivieren/deaktivieren
+Action/&CleavingAttackToggleTitle=Großer Waffenmeister
+Action/&PowerAttackToggleDescription=Power Attack aktivieren/deaktivieren
+Action/&PowerAttackToggleTitle=Mächtiger Angriff
 Condition/&ConditionFeatCleavingAttackFinishDescription=Lass sie kommen!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Großer Waffenmeister
 Condition/&ConditionFeatCrusherCriticalHitDescription=Sie wurden durch einen kritischen Treffer niedergestreckt und die Angriffe gegen Sie sind im Vorteil.

@@ -1,3 +1,7 @@
+Action/&CleavingAttackToggleDescription=그레이트 웨폰 마스터 활성화/비활성화
+Action/&CleavingAttackToggleTitle=위대한 무기의 달인
+Action/&PowerAttackToggleDescription=파워 어택 활성화/비활성화
+Action/&PowerAttackToggleTitle=파워 어택
 Condition/&ConditionFeatCleavingAttackFinishDescription=계속 오세요!
 Condition/&ConditionFeatCleavingAttackFinishTitle=위대한 무기 마스터
 Condition/&ConditionFeatCrusherCriticalHitDescription=당신은 치명타에 압도당했고 당신에 대한 공격이 유리합니다.

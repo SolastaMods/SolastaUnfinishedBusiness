@@ -1,3 +1,5 @@
+Action/&DeadeyeToggleDescription=Attiva/disattiva Sharpshooter
+Action/&DeadeyeToggleTitle=Tiratore scelto
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Hai vantaggio sul tuo prossimo tiro d'attacco.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Mira stabile
 Condition/&ConditionFeatSteadyAimRestrainedDescription=Non puoi muoverti fino alla fine del tuo turno.

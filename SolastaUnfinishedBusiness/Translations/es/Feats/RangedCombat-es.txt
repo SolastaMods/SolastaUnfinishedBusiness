@@ -1,3 +1,5 @@
+Action/&DeadeyeToggleDescription=Activar/desactivar Sharpshooter
+Action/&DeadeyeToggleTitle=Tirador de primera
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Tienes ventaja en tu siguiente tirada de ataque.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Buena puntería
 Condition/&ConditionFeatSteadyAimRestrainedDescription=No puedes moverte hasta el final de tu turno.

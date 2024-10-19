@@ -1,3 +1,7 @@
+Action/&CleavingAttackToggleDescription=Activer/désactiver le Maître des Grandes Armes
+Action/&CleavingAttackToggleTitle=Grand Maître d'Armes
+Action/&PowerAttackToggleDescription=Activer/désactiver l'attaque puissante
+Action/&PowerAttackToggleTitle=Attaque puissante
 Condition/&ConditionFeatCleavingAttackFinishDescription=Laissez-les venir!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Grand Maître d'Armes
 Condition/&ConditionFeatCrusherCriticalHitDescription=Vous avez été écrasé par un coup critique et les attaques contre vous ont l'avantage.

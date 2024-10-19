@@ -1,3 +1,5 @@
+Action/&DeadeyeToggleDescription=Scharfschütze aktivieren/deaktivieren
+Action/&DeadeyeToggleTitle=Scharfschütze
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Sie haben bei Ihrem nächsten Angriffswurf einen Vorteil.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Zielsicher
 Condition/&ConditionFeatSteadyAimRestrainedDescription=Bis zum Ende deines Zuges kannst du dich nicht bewegen.

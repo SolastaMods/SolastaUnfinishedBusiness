@@ -1,3 +1,5 @@
+Action/&DeadeyeToggleDescription=Ativar/desativar o Sharpshooter
+Action/&DeadeyeToggleTitle=Atirador de Elite
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Você tem vantagem na sua próxima jogada de ataque.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Mira firme
 Condition/&ConditionFeatSteadyAimRestrainedDescription=Você não pode se mover até o final do seu turno.

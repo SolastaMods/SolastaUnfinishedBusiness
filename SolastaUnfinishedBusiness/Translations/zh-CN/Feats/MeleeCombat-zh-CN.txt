@@ -1,3 +1,7 @@
+Action/&CleavingAttackToggleDescription=激活/停用大武器大师
+Action/&CleavingAttackToggleTitle=伟大的武器大师
+Action/&PowerAttackToggleDescription=激活/停用强力攻击
+Action/&PowerAttackToggleTitle=强力攻击
 Condition/&ConditionFeatCleavingAttackFinishDescription=让他们来吧！
 Condition/&ConditionFeatCleavingAttackFinishTitle=巨武器大师
 Condition/&ConditionFeatCrusherCriticalHitDescription=你被重击破碎，对你的攻击有优势。

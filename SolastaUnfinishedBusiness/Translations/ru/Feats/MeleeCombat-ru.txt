@@ -1,3 +1,7 @@
+Action/&CleavingAttackToggleDescription=Активировать/деактивировать Великого Мастера Оружия
+Action/&CleavingAttackToggleTitle=Великий Мастер Оружия
+Action/&PowerAttackToggleDescription=Активировать/деактивировать силовую атаку
+Action/&PowerAttackToggleTitle=Силовая атака
 Condition/&ConditionFeatCleavingAttackFinishDescription=Пускай подходят!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Мастер большого оружия
 Condition/&ConditionFeatCrusherCriticalHitDescription=Вас сокрушили критическим ударом, и атаки по вам совершаются с преимуществом.

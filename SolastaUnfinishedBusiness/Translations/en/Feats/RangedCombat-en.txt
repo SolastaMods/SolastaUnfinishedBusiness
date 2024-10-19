@@ -1,3 +1,5 @@
+Action/&DeadeyeToggleDescription=Activate/deactivate Sharpshooter
+Action/&DeadeyeToggleTitle=Sharpshooter
 Condition/&ConditionFeatSteadyAimAdvantageDescription=You have advantage on your next attack roll.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Steady Aim
 Condition/&ConditionFeatSteadyAimRestrainedDescription=You cannot move until the end of your turn.

@@ -1,3 +1,7 @@
+Action/&CleavingAttackToggleDescription=グレートウェポンマスターを有効化/無効化
+Action/&CleavingAttackToggleTitle=偉大な武器の達人
+Action/&PowerAttackToggleDescription=パワーアタックを有効化/無効化
+Action/&PowerAttackToggleTitle=パワーアタック
 Condition/&ConditionFeatCleavingAttackFinishDescription=これからも来てください！
 Condition/&ConditionFeatCleavingAttackFinishTitle=グレートウェポンマスター
 Condition/&ConditionFeatCrusherCriticalHitDescription=あなたはクリティカルヒットで潰されており、あなたに対する攻撃が有利です。

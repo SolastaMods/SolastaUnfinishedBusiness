@@ -1,3 +1,7 @@
+Action/&CleavingAttackToggleDescription=Activar/desactivar Gran maestro de armas
+Action/&CleavingAttackToggleTitle=Gran maestro de armas
+Action/&PowerAttackToggleDescription=Activar/desactivar Ataque de Poder
+Action/&PowerAttackToggleTitle=Ataque de poder
 Condition/&ConditionFeatCleavingAttackFinishDescription=¡Manténlos viniendo!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Gran maestro de armas
 Condition/&ConditionFeatCrusherCriticalHitDescription=Has sido aplastado por un golpe crítico y los ataques contra ti tienen ventaja.

@@ -1,3 +1,7 @@
+Action/&CleavingAttackToggleDescription=Attiva/disattiva Grande Maestro d'Armi
+Action/&CleavingAttackToggleTitle=Grande Maestro d'Armi
+Action/&PowerAttackToggleDescription=Attiva/disattiva Attacco di potenza
+Action/&PowerAttackToggleTitle=Attacco di potenza
 Condition/&ConditionFeatCleavingAttackFinishDescription=Continua a farli venire!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Grande Maestro d'Armi
 Condition/&ConditionFeatCrusherCriticalHitDescription=Sei stato colpito da un colpo critico e gli attacchi contro di te hanno vantaggio.

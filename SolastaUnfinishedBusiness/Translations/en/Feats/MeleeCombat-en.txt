@@ -1,3 +1,7 @@
+Action/&CleavingAttackToggleDescription=Activate/deactivate Great Weapon Master
+Action/&CleavingAttackToggleTitle=Great Weapon Master
+Action/&PowerAttackToggleDescription=Activate/deactivate Power Attack
+Action/&PowerAttackToggleTitle=Power Attack
 Condition/&ConditionFeatCleavingAttackFinishDescription=Keep them coming!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Great Weapon Master
 Condition/&ConditionFeatCrusherCriticalHitDescription=You've been crushed by a critical hit and attacks against you have advantage.
