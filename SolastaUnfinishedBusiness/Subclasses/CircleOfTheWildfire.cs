@@ -482,13 +482,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         return GetMySpirit(guid) != null;
     }
 
-    internal static IEnumerator HandleCauterizingFlamesBehavior(IEnumerator values, GameLocationCharacter character)
+    internal static IEnumerator HandleCauterizingFlamesBehavior(GameLocationCharacter character)
     {
-        while (values.MoveNext())
-        {
-            yield return values.Current;
-        }
-        
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
         if (!battleManager ||

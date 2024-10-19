@@ -28,7 +28,12 @@ public static class AiLocationManagerPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(IEnumerator values, AiLocationManager __instance)
         {
-            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(values, __instance.battle.ActiveContender);
+            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(__instance.battle.ActiveContender);
+
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
         }
     }
 

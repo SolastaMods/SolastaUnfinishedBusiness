@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -207,16 +208,15 @@ public static class CharacterActionPatcher
                     break;
                 }
 
-                //PATCH: support for grapple scenarios
+                //PATCH: support for Circle of the Wildfire cauterizing flames, and grapple scenarios
+                //no need to handle shove as pushed will do it
                 case CharacterActionPushed:
                 case CharacterActionPushedCustom:
                 {
+                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(actingCharacter);
+
                     GrappleContext.ValidateGrappleAfterForcedMove(actingCharacter);
-                    break;
-                }
-                case CharacterActionShove:
-                {
-                    GrappleContext.ValidateGrappleAfterForcedMove(__instance.ActionParams.TargetCharacters[0]);
+
                     break;
                 }
             }

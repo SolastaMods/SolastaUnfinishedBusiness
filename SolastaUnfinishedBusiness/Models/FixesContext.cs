@@ -789,7 +789,7 @@ internal static class FixesContext
             bool criticalHit)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            
+
             // is not Two-Handed and is not Versatile with free hand
             if (!ValidatorsWeapon.IsTwoHanded(attackMode) &&
                 (!ValidatorsCharacter.HasFreeHand(rulesetAttacker) ||

@@ -44,7 +44,12 @@ public static class CharacterActionMoveStepWalkPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(IEnumerator values, CharacterActionMoveStepWalk __instance)
         {
-            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(values, __instance.ActingCharacter);
+            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(__instance.ActingCharacter);
+
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
         }
     }
 }

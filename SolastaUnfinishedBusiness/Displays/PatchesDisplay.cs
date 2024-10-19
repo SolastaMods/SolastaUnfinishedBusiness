@@ -176,16 +176,18 @@ internal static class PatchesDisplay
 
     private static void RefreshPatchInfoOfAllMods()
     {
-        _patches = new Dictionary<MethodBase, List<Patch>>();
+        _patches = [];
 
         foreach (var method in Harmony.GetAllPatchedMethods())
         {
             var patches = Harmony.GetPatchInfo(method);
 
-            _patches.Add(method, [.. patches.Prefixes
-                .Concat(patches.Transpilers)
-                .Concat(patches.Postfixes)
-                .OrderByDescending(patch => patch.priority)]);
+            _patches.Add(method, [
+                .. patches.Prefixes
+                    .Concat(patches.Transpilers)
+                    .Concat(patches.Postfixes)
+                    .OrderByDescending(patch => patch.priority)
+            ]);
         }
     }
 }

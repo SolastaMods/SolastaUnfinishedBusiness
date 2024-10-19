@@ -831,9 +831,7 @@ public static class RulesetCharacterHeroPatcher
         public static bool Prefix(RulesetCharacterHero __instance, ref bool __result, ItemDefinition itemDefinition)
         {
             if (!itemDefinition.IsWeapon ||
-                itemDefinition.WeaponDescription.WeaponTypeDefinition != UnarmedStrikeType ||
-                __instance.weaponTypeProficiencies.Contains(
-                    DatabaseHelper.WeaponCategoryDefinitions.SimpleWeaponCategory.Name))
+                itemDefinition.WeaponDescription.WeaponTypeDefinition != UnarmedStrikeType)
             {
                 return true;
             }

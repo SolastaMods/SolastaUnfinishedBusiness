@@ -56,6 +56,7 @@ public static class SettingsContext
     public interface IGuiModSettingsService
     {
         [SettingTypeHeader("ModHeader", SortOrder = 1000)]
+        [UsedImplicitly]
         bool ModHeader { get; set; }
 
         [SettingTypeToggle("InvertTooltipBehavior", SortOrder = 1001, DisplayFooter = true)]
