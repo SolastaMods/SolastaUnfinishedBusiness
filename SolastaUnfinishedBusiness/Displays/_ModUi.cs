@@ -98,6 +98,7 @@ internal static class ModUi
         "FeatEldritchAdept",
         "FeatFellHanded",
         "FeatGiftOfTheChromaticDragon",
+        "FeatGiftOfTheGemDragon",
         "FeatGroupAthlete",
         "FeatGroupBalefulScion",
         "FeatGroupChef",

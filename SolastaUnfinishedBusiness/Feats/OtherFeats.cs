@@ -76,6 +76,7 @@ internal static class OtherFeats
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
+        var giftOfTheGemDragonGroup = BuildGiftOfTheGemDragon(feats);
         var weaponMasterGroup = BuildWeaponMaster(feats);
 
         var featMerciless = BuildMerciless();
@@ -160,6 +161,7 @@ internal static class OtherFeats
             featMerciless,
             featRopeIpUp,
             featSentinel,
+            giftOfTheGemDragonGroup,
             weaponMasterGroup);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
@@ -584,6 +586,230 @@ internal static class OtherFeats
                         new AddPolearmFollowUpAttack(LongMaceWeaponType))
                     .AddToDB())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Gift of the Gem Dragon
+
+    private static FeatDefinition BuildGiftOfTheGemDragon(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatGiftOfTheGemDragon";
+
+        var powerInt = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation($"{Name}Int", Category.Feat, hidden: true)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Strength, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Intelligence, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 2, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerInt.AddCustomSubFeatures(new CustomBehaviorGiftOfTheGemDragon(powerInt));
+
+        var featInt = FeatDefinitionBuilder
+            .Create($"{Name}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, powerInt)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var powerWis = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Wis")
+            .SetGuiPresentation($"{Name}Wis", Category.Feat, hidden: true)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Strength, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Wisdom, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 2, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerWis.AddCustomSubFeatures(new CustomBehaviorGiftOfTheGemDragon(powerWis));
+
+        var featWis = FeatDefinitionBuilder
+            .Create($"{Name}Wis")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, powerWis)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var powerCha = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Cha")
+            .SetGuiPresentation($"{Name}Cha", Category.Feat, hidden: true)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Strength, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Wisdom, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 2, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerCha.AddCustomSubFeatures(new CustomBehaviorGiftOfTheGemDragon(powerCha));
+
+        var featCha = FeatDefinitionBuilder
+            .Create($"{Name}Cha")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Solasta, powerCha)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(featInt, featWis, featCha);
+
+        return GroupFeats.MakeGroup("FeatGroupGiftOfTheGemDragon", Name, featInt, featWis, featCha);
+    }
+
+    private sealed class CustomBehaviorGiftOfTheGemDragon(FeatureDefinitionPower powerGiftOfTheGemDragon)
+        : IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe,
+            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            defender.RulesetCharacter.DamageReceived += DamageReceived;
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicEffectFinishedOnMe(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
+        {
+            defender.RulesetCharacter.DamageReceived -= DamageReceived;
+
+            yield return HandleReaction(attacker, defender);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            defender.RulesetCharacter.DamageReceived += DamageReceived;
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            defender.RulesetCharacter.DamageReceived -= DamageReceived;
+
+            yield return HandleReaction(attacker, defender);
+        }
+
+        private static void DamageReceived(
+            RulesetActor rulesetActor,
+            int damage,
+            string damageType,
+            ulong sourceGuid,
+            RollInfo rollInfo)
+        {
+            var character = GameLocationCharacter.GetFromActor(rulesetActor);
+
+            character.SetSpecialFeatureUses("GiftOfTheGemDragon", 1);
+        }
+
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender)
+        {
+            if (defender.GetSpecialFeatureUses("GiftOfTheGemDragon") <= 0)
+            {
+                defender.SetSpecialFeatureUses("GiftOfTheGemDragon", 0);
+
+                yield break;
+            }
+            
+            defender.SetSpecialFeatureUses("GiftOfTheGemDragon", 0);
+            
+            var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerGiftOfTheGemDragon, rulesetDefender);
+
+            if (!defender.CanReact() ||
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            yield return defender.MyReactToUsePower(
+                Id.PowerReaction,
+                usablePower,
+                [attacker],
+                attacker,
+                "GiftOfTheGemDragon",
+                "SpendPowerGiftOfTheGemDragonDescription".Formatted(Category.Reaction, attacker.Name));
+        }
     }
 
     #endregion
