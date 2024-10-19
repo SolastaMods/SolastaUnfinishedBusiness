@@ -150,32 +150,6 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableUnofficialTranslations = toggle;
-            Main.Settings.FixAsianLanguagesTextWrap = !toggle;
-        }
-
-        if (!Main.Settings.DisableUnofficialTranslations)
-        {
-            toggle = Main.Settings.FixAsianLanguagesTextWrap;
-            if (UI.Toggle(Gui.Localize("ModUi/&FixAsianLanguagesTextWrap"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.FixAsianLanguagesTextWrap = toggle;
-            }
-        }
-
-#if false
-        toggle = Main.Settings.EnableBetaContent;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableBetaContent = toggle;
-        }
-#endif
-
-        UI.Label();
-
-        toggle = Main.Settings.EnablePcgRandom;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePcgRandom"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnablePcgRandom = toggle;
         }
     }
 
@@ -183,7 +157,13 @@ internal static class ToolsDisplay
     {
         UI.Label();
 
-        var toggle = Main.Settings.NoExperienceOnLevelUp;
+        var toggle = Main.Settings.EnablePcgRandom;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePcgRandom"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePcgRandom = toggle;
+        }
+
+        toggle = Main.Settings.NoExperienceOnLevelUp;
         if (UI.Toggle(Gui.Localize("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.NoExperienceOnLevelUp = toggle;
@@ -204,7 +184,7 @@ internal static class ToolsDisplay
             Main.Settings.MultiplyTheExperienceGainedBy = intValue;
         }
 
-        UI.Label();
+        //UI.Label();
 
         intValue = Main.Settings.OverridePartySize;
         if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
@@ -230,7 +210,7 @@ internal static class ToolsDisplay
             }
         }
 
-        UI.Label();
+        //UI.Label();
 
         var floatValue = Main.Settings.FasterTimeModifier;
         if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue,

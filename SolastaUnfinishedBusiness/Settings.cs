@@ -54,6 +54,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableSortingFutureFeatures { get; set; } = true;
+    public bool FixAsianLanguagesTextWrap { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp { get; set; } = true;
 
     // TA made level ups of more than 1 level at a time disallowing unlearning spells/invocations to streamline process
@@ -151,7 +152,6 @@ public class Settings : UnityModManager.ModSettings
 
     // General
     public bool DisableUnofficialTranslations { get; set; }
-    public bool FixAsianLanguagesTextWrap { get; set; }
     public bool EnablePcgRandom { get; set; }
     public bool NoExperienceOnLevelUp { get; set; }
     public bool OverrideMinMaxLevel { get; set; }
