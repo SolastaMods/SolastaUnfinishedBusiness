@@ -20,11 +20,14 @@ Setting/&FormationSet4Description=允许您选择阵型设置4。
 Setting/&FormationSet4Title=阵型组合 4
 Setting/&FormationSet5Description=允许您选择阵型设置 5。
 Setting/&FormationSet5Title=阵型组合 5
+Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=显示扩展工具提示而不是默认的汇总工具提示。
 Setting/&InvertTooltipBehaviorDescription=显示扩展的工具提示而不是默认的摘要工具提示。
 Setting/&InvertTooltipBehaviorTitle=反转工具提示行为
 Setting/&ModHeaderTitle=未竟事业
 Setting/&RejoinPartyDescription=允许您重新加入围绕第一个英雄的队伍，以防有人被困。
 Setting/&RejoinPartyTitle=重新加入派对
+Setting/&SelectCharacter5Title=选择角色 5
+Setting/&SelectCharacter6Title=选择角色 6
 Setting/&SpawnEncounterDescription=允许您在 Mod UI 遭遇选项卡上生成遭遇集。
 Setting/&SpawnEncounterTitle=重生遭遇
 Setting/&TeleportPartyDescription=允许您将派对传送到屏幕中心的位置。

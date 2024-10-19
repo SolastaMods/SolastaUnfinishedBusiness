@@ -20,11 +20,14 @@ Setting/&FormationSet4Description=Ermöglicht Ihnen, den Formationssatz 4 auszuw
 Setting/&FormationSet4Title=Formationssatz 4
 Setting/&FormationSet5Description=Ermöglicht Ihnen, den Formationssatz 5 auszuwählen.
 Setting/&FormationSet5Title=Formationssatz 5
+Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=Zeigt den erweiterten Tooltip an, statt des standardmäßigen zusammengefassten.
 Setting/&InvertTooltipBehaviorDescription=Zeigen Sie den erweiterten Tooltip anstelle des standardmäßigen zusammengefassten an.
 Setting/&InvertTooltipBehaviorTitle=Tooltips-Verhalten umkehren
 Setting/&ModHeaderTitle=Unerledigte Geschäfte
 Setting/&RejoinPartyDescription=Ermöglicht es Ihnen, sich wieder der Gruppe um den ersten Helden anzuschließen, falls jemand gefangen ist.
 Setting/&RejoinPartyTitle=Der Party wieder beitreten
+Setting/&SelectCharacter5Title=Wähle Charakter 5
+Setting/&SelectCharacter6Title=Wähle Charakter 6
 Setting/&SpawnEncounterDescription=Ermöglicht Ihnen, den Begegnungssatz auf der Registerkarte „Mod-UI-Begegnungen“ zu erzeugen.
 Setting/&SpawnEncounterTitle=Begegnung spawnen
 Setting/&TeleportPartyDescription=Ermöglicht Ihnen, die Gruppe zum Standort in der Bildschirmmitte zu teleportieren.

@@ -20,11 +20,14 @@ Setting/&FormationSet4Description=Позволяет выбрать боевой
 Setting/&FormationSet4Title=Боевой порядок 4
 Setting/&FormationSet5Description=Позволяет выбрать боевой порядок 5.
 Setting/&FormationSet5Title=Боевой порядок 5
+Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=Отображать расширенную подсказку вместо краткой подсказки по умолчанию.
 Setting/&InvertTooltipBehaviorDescription=Отображать расширенную всплывающую подсказку вместо обычной краткой.
 Setting/&InvertTooltipBehaviorTitle=Изменить поведение всплывающих подсказок
 Setting/&ModHeaderTitle=Неоконченное Дело
 Setting/&RejoinPartyDescription=Позволяет сгруппировать персонажей вокруг первого героя в случае, если кто-то застрял.
 Setting/&RejoinPartyTitle=Воссоединение группы
+Setting/&SelectCharacter5Title=Выберите символ 5
+Setting/&SelectCharacter6Title=Выберите символ 6
 Setting/&SpawnEncounterDescription=Позволяет вызвать набор событий из вкладки События в интерфейсе мода.
 Setting/&SpawnEncounterTitle=Вызвать событие
 Setting/&TeleportPartyDescription=Позволяет телепортировать группу в место в центре экрана.

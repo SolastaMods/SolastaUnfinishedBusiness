@@ -20,11 +20,14 @@ Setting/&FormationSet4Description=Permette di scegliere la formazione impostata 
 Setting/&FormationSet4Title=Formazione Set 4
 Setting/&FormationSet5Description=Permette di scegliere la formazione impostata 5.
 Setting/&FormationSet5Title=Formazione Set 5
+Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=Visualizza il suggerimento esteso anziché quello riepilogativo predefinito.
 Setting/&InvertTooltipBehaviorDescription=Visualizza il suggerimento esteso anziché quello riepilogativo predefinito.
 Setting/&InvertTooltipBehaviorTitle=Inverti il ​​comportamento dei suggerimenti
 Setting/&ModHeaderTitle=Affari incompiuti
 Setting/&RejoinPartyDescription=Ti consente di riunirti al gruppo attorno al primo eroe, nel caso in cui qualcuno rimanga intrappolato.
 Setting/&RejoinPartyTitle=Rientrare nel gruppo
+Setting/&SelectCharacter5Title=Seleziona il personaggio 5
+Setting/&SelectCharacter6Title=Seleziona il personaggio 6
 Setting/&SpawnEncounterDescription=Ti consente di generare il set di incontri nella scheda Incontri dell'interfaccia utente della Mod.
 Setting/&SpawnEncounterTitle=Incontro di spawn
 Setting/&TeleportPartyDescription=Permette di teletrasportare il gruppo nella posizione al centro dello schermo.

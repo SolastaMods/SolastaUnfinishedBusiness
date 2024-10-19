@@ -20,11 +20,13 @@ Setting/&FormationSet4Description=Allows you to choose the formation set 4.
 Setting/&FormationSet4Title=Formation Set 4
 Setting/&FormationSet5Description=Allows you to choose the formation set 5.
 Setting/&FormationSet5Title=Formation Set 5
-Setting/&InvertTooltipBehaviorDescription=Display the extended tooltip instead of the default summarized one.
+Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=Display the extended tooltip instead of the default summarized one.
 Setting/&InvertTooltipBehaviorTitle=Invert tooltips behavior
 Setting/&ModHeaderTitle=Unfinished Business
 Setting/&RejoinPartyDescription=Allows you to rejoin the party around the first hero, in case anyone gets trapped.
 Setting/&RejoinPartyTitle=Rejoin Party
+Setting/&SelectCharacter5Title=Select Character 5
+Setting/&SelectCharacter6Title=Select Character 6
 Setting/&SpawnEncounterDescription=Allows you to spawn the encounter set on the Mod UI Encounters tab.
 Setting/&SpawnEncounterTitle=Spawn Encounter
 Setting/&TeleportPartyDescription=Allows you to teleport the party to the location on center of screen.

@@ -20,11 +20,14 @@ Setting/&FormationSet4Description=フォーメーションセット4を選択で
 Setting/&FormationSet4Title=フォーメーションセット4
 Setting/&FormationSet5Description=フォーメーションセット5を選択できます。
 Setting/&FormationSet5Title=フォーメーションセット5
+Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=デフォルトの要約ツールチップの代わりに拡張ツールチップを表示します。
 Setting/&InvertTooltipBehaviorDescription=デフォルトの要約ツールチップの代わりに拡張ツールチップを表示します。
 Setting/&InvertTooltipBehaviorTitle=ツールチップの動作を反転する
 Setting/&ModHeaderTitle=未完の仕事
 Setting/&RejoinPartyDescription=誰かが閉じ込められた場合に備えて、最初のヒーローの周りのパーティーに再び参加できるようにします。
 Setting/&RejoinPartyTitle=パーティーに再参加
+Setting/&SelectCharacter5Title=キャラクター5を選択
+Setting/&SelectCharacter6Title=キャラクター6を選択
 Setting/&SpawnEncounterDescription=Mod UI の Encounters タブで設定されたエンカウンターを生成できます。
 Setting/&SpawnEncounterTitle=スポーンエンカウンター
 Setting/&TeleportPartyDescription=パーティを画面中央の場所にテレポートできます。
