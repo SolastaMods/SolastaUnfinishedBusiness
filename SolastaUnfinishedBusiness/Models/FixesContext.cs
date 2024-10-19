@@ -792,7 +792,7 @@ internal static class FixesContext
 
             // is not Two-Handed and is not Versatile with free hand
             if (!ValidatorsWeapon.IsTwoHanded(attackMode) &&
-                (!ValidatorsCharacter.HasFreeHand(rulesetAttacker) ||
+                (!ValidatorsCharacter.HasFreeHandConsiderGrapple(rulesetAttacker) ||
                  !ValidatorsWeapon.HasAnyWeaponTag(
                      attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagVersatile)))
             {

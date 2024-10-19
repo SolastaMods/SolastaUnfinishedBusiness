@@ -283,7 +283,7 @@ internal static class GrappleContext
             : "Failure/&FailureFlagMaterialComponentHandsFull";
     }
 
-    private static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
+    internal static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
     {
         return rulesetCharacter.HasConditionOfCategoryAndType(
                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName) ||

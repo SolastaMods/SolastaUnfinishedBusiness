@@ -25,7 +25,7 @@ internal sealed class Lunger : AbstractFightingStyle
                     attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? character?.GetMainWeapon();
 
                 return
-                    ValidatorsCharacter.HasFreeHand(character) &&
+                    ValidatorsCharacter.HasFreeHandConsiderGrapple(character) &&
                     ValidatorsWeapon.IsMelee(finalRulesetItem) &&
                     !ValidatorsWeapon.HasAnyWeaponTag(
                         finalRulesetItem?.ItemDefinition, TagsDefinitions.WeaponTagHeavy);

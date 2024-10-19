@@ -133,6 +133,31 @@ internal static class ValidatorsCharacter
                character is RulesetCharacterMonster;
     };
 
+    internal static readonly IsCharacterValidHandler HasFreeHandConsiderGrapple = character =>
+    {
+        var freeHands = 0;
+        var mainHand = character.GetMainWeapon();
+        var offHand = character.GetOffhandWeapon();
+        var hasGrappleSource = GrappleContext.HasGrappleSource(character);
+
+        if (ValidatorsWeapon.IsUnarmed(mainHand))
+        {
+            freeHands++;
+        }
+
+        if (ValidatorsWeapon.IsUnarmed(offHand))
+        {
+            freeHands++;
+        }
+
+        if (hasGrappleSource)
+        {
+            freeHands--;
+        }
+
+        return freeHands > 0 || character is RulesetCharacterMonster;
+    };
+
     internal static readonly IsCharacterValidHandler HasBothHandsFree = character =>
     {
         var mainHand = character.GetMainWeapon();

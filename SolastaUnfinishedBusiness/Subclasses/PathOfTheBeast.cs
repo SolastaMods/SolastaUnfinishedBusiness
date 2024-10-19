@@ -352,7 +352,8 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
         protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
-            if (character is not RulesetCharacterHero hero || !ValidatorsCharacter.HasFreeHand(character))
+            if (character is not RulesetCharacterHero hero ||
+                !ValidatorsCharacter.HasFreeHandConsiderGrapple(character))
             {
                 return null;
             }
