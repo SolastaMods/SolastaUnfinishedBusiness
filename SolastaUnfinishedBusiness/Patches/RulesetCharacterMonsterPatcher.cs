@@ -175,7 +175,7 @@ public static class RulesetCharacterMonsterPatcher
             __instance.AttackModes
                 .ForEach(attackMode =>
                     __instance.GetSubFeaturesByType<IModifyWeaponAttackMode>()
-                        .ForEach(provider => provider.ModifyAttackMode(__instance, attackMode)));
+                        .ForEach(provider => provider.ModifyWeaponAttackMode(__instance, attackMode, null, false)));
 
             //refresh character if needed after postfix
             if (_callRefresh)

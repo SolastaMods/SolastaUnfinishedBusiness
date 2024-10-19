@@ -1044,9 +1044,13 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         private sealed class WildSurgeWeaponModifyAttackMode : IModifyWeaponAttackMode
         {
-            public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+            public void ModifyWeaponAttackMode(
+                RulesetCharacter character,
+                RulesetAttackMode attackMode,
+                RulesetItem weapon,
+                bool canAddAbilityDamageBonus)
             {
-                if (attackMode?.SourceObject is not RulesetItem rulesetItem)
+                if (attackMode.SourceObject is not RulesetItem rulesetItem)
                 {
                     return;
                 }
@@ -1058,11 +1062,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     attackMode.thrown = true;
                     attackMode.closeRange = 4;
                     attackMode.maxRange = 12;
-                }
-
-                if (attackMode.EffectDescription?.EffectForms == null)
-                {
-                    return;
                 }
 
                 foreach (var damageForm in attackMode.EffectDescription.EffectForms

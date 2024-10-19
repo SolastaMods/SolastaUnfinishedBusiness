@@ -227,7 +227,11 @@ public sealed class OathOfDemonHunter : AbstractSubclass
 
     private sealed class ModifyCrossbowAttackModeDivineCrossbow : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (!IsOathOfDemonHunterWeapon(attackMode, null, null))
             {

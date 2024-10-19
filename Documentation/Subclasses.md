@@ -935,6 +935,10 @@ You may use a bonus action on your turn to assume a braced stance for one minute
 • Enemy ranged attacks with weapons against you have disadvantage.
 • You may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within 5 feet of you.
 
+* Disable Bulwark
+
+You may disable your Bulwark braced stance.
+
 
 ### Level 14
 

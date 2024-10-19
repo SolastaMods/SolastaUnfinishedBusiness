@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 
@@ -11,16 +10,22 @@ internal static class FeatHelpers
         FeatDefinition source,
         params WeaponTypeDefinition[] weaponTypeDefinition) : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        private readonly TrendInfo _trendInfo = new(1, FeatureSourceType.Feat, source.Name, source);
+
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
-            if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+            if (attackMode.SourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
                 !weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 return;
             }
 
             attackMode.ToHitBonus += 1;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.Feat, source.Name, source));
+            attackMode.ToHitBonusTrends.Add(_trendInfo);
         }
     }
 

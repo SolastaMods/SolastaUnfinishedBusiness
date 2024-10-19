@@ -65,6 +65,8 @@ internal static partial class DatabaseHelper
             GetDefinition<ActionDefinition>("UseIndomitableResistance");
 
         internal static ActionDefinition Volley { get; } = GetDefinition<ActionDefinition>("Volley");
+
+        internal static ActionDefinition WhirlwindAttack { get; } = GetDefinition<ActionDefinition>("WhirlwindAttack");
         internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
     }
 
@@ -2533,7 +2535,8 @@ internal static partial class DatabaseHelper
     internal static class FightingStyleDefinitions
     {
         internal static FightingStyleDefinition GreatWeapon { get; } =
-            GetDefinition<FightingStyleDefinition>("GreatWeapon"); 
+            GetDefinition<FightingStyleDefinition>("GreatWeapon");
+
         internal static FightingStyleDefinition TwoWeapon { get; } =
             GetDefinition<FightingStyleDefinition>("TwoWeapon");
     }

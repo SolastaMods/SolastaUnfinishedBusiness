@@ -12,14 +12,14 @@ public class CharacterActionMonsterSwapAttackToggle(CharacterActionParams action
     {
         var rulesetCharacter = ActingCharacter.RulesetCharacter;
 
-        if (rulesetCharacter is not RulesetCharacterMonster monster)
+        if (rulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
         {
             yield break;
         }
 
-        var monsterDef = monster.MonsterDefinition;
+        var monsterDefinition = rulesetCharacterMonster.MonsterDefinition;
 
-        if (monsterDef.AttackIterations.Count < 2)
+        if (monsterDefinition.AttackIterations.Count < 2)
         {
             yield break;
         }
@@ -31,9 +31,10 @@ public class CharacterActionMonsterSwapAttackToggle(CharacterActionParams action
             yield break;
         }
 
-        (monsterDef.AttackIterations[0], monsterDef.AttackIterations[1]) =
-            (monsterDef.AttackIterations[1], monsterDef.AttackIterations[0]);
+        (monsterDefinition.AttackIterations[0], monsterDefinition.AttackIterations[1]) =
+            (monsterDefinition.AttackIterations[1], monsterDefinition.AttackIterations[0]);
 
-        monster.RefreshAttackModes();
+        rulesetCharacterMonster.RefreshAttackModes();
+        rulesetCharacterMonster.CharacterRefreshed?.Invoke(rulesetCharacterMonster);
     }
 }

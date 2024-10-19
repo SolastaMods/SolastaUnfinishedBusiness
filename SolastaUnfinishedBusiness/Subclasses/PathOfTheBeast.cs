@@ -590,7 +590,11 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
     private class BestialSoulMagicalAttack : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (attackMode.sourceDefinition is not ItemDefinition item ||
                 !item.ItemTags.Contains(TagBeastWeapon))
@@ -598,7 +602,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 return;
             }
 
-            attackMode.AttackTags.Add("MagicalWeapon");
+            attackMode.AttackTags.Add(TagsDefinitions.MagicalWeapon);
         }
     }
 

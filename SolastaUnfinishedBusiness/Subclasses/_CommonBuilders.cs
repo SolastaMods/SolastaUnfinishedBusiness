@@ -204,22 +204,20 @@ internal static class CommonBuilders
 
     internal class ModifyWeaponAttackUnarmedStrikeDamage(DieType dieType) : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (!ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;
             }
 
-            var effectDescription = attackMode.EffectDescription;
-            var damage = effectDescription.FindFirstDamageForm();
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
-            if (damage == null)
-            {
-                return;
-            }
-
-            if (damage.DieType < dieType)
+            if (damage != null && damage.DieType < dieType)
             {
                 damage.DieType = dieType;
             }

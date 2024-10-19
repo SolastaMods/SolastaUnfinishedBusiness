@@ -10,16 +10,7 @@ namespace SolastaUnfinishedBusiness.Behaviors;
 
 internal delegate int CustomModifierProvider(RulesetCharacter rulesetCharacter);
 
-internal interface IModifyWeaponAttackAttribute
-{
-    void ModifyAttribute(
-        RulesetCharacter character,
-        RulesetAttackMode attackMode,
-        RulesetItem weapon,
-        bool canAddAbilityDamageBonus);
-}
-
-internal class CanUseAttribute : IModifyWeaponAttackAttribute
+internal class CanUseAttribute : IModifyWeaponAttackMode
 {
     private const string SpellCastingAbilityTag = "SpellCastingAbility";
 
@@ -39,10 +30,11 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
         _validators = validators;
     }
 
-    public void ModifyAttribute(
+    public void ModifyWeaponAttackMode(
         RulesetCharacter character,
         [CanBeNull] RulesetAttackMode attackMode,
-        RulesetItem weapon, bool canAddAbilityDamageBonus)
+        RulesetItem weapon,
+        bool canAddAbilityDamageBonus)
     {
         if (attackMode == null)
         {
@@ -171,7 +163,11 @@ internal abstract class ModifyWeaponAttackModeBase(
     {
     }
 
-    public void ModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode)
+    public void ModifyWeaponAttackMode(
+        RulesetCharacter character,
+        RulesetAttackMode attackMode,
+        RulesetItem weapon,
+        bool canAddAbilityDamageBonus)
     {
         //Doing this check at the very start since this one is least computation intensive
         if (unicityTag != null && attackMode.AttackTags.Contains(unicityTag))
@@ -216,9 +212,7 @@ internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
         _getWeaponDice = getWeaponDice;
     }
 
-    protected override void TryModifyAttackMode(
-        RulesetCharacter character,
-        RulesetAttackMode attackMode)
+    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
     {
         var effectDescription = attackMode.EffectDescription;
         var damage = effectDescription.FindFirstDamageForm();
@@ -251,9 +245,7 @@ internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
     }
 
     internal delegate (int number, DieType dieType, DieType versatileDieType)
-        GetWeaponDiceHandler(
-            RulesetCharacter character,
-            DamageForm damageForm);
+        GetWeaponDiceHandler(RulesetCharacter character, DamageForm damageForm);
 }
 
 internal sealed class AddTagToWeaponWeaponAttack : ModifyWeaponAttackModeBase
@@ -266,29 +258,11 @@ internal sealed class AddTagToWeaponWeaponAttack : ModifyWeaponAttackModeBase
         _tag = tag;
     }
 
-    protected override void TryModifyAttackMode(
-        RulesetCharacter character, RulesetAttackMode attackMode)
+    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
     {
         attackMode.AddAttackTagAsNeeded(_tag);
     }
 }
-
-// internal class AddEffectToWeaponAttack : ModifyAttackModeForWeaponBase
-// {
-//     private readonly EffectForm effect;
-//
-//     internal AddEffectToWeaponAttack(EffectForm effect, IsWeaponValidHandler isWeaponValid,
-//         params CharacterValidator[] validators) : base(isWeaponValid, validators)
-//     {
-//         this.effect = effect;
-//     }
-//
-//     protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
-//         RulesetItem weapon)
-//     {
-//         attackMode.EffectDescription.AddEffectForms(effect);
-//     }
-// }
 
 internal sealed class BumpWeaponWeaponAttackRangeToMax : ModifyWeaponAttackModeBase
 {
@@ -298,8 +272,7 @@ internal sealed class BumpWeaponWeaponAttackRangeToMax : ModifyWeaponAttackModeB
     {
     }
 
-    protected override void TryModifyAttackMode(
-        RulesetCharacter character, RulesetAttackMode attackMode)
+    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
     {
         attackMode.closeRange = attackMode.maxRange;
     }
@@ -320,9 +293,7 @@ internal sealed class IncreaseWeaponReach : ModifyWeaponAttackModeBase
         _bonus = bonus;
     }
 
-    protected override void TryModifyAttackMode(
-        RulesetCharacter character,
-        RulesetAttackMode attackMode)
+    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
     {
         //maybe I'm paranoid, but I think I saw reach being 0 in some cases, hence the Math.Max
         attackMode.reachRange = Math.Max(attackMode.reachRange, 1) + _bonus;

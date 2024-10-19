@@ -517,7 +517,11 @@ internal static class GrappleContext
         internal static readonly CustomBehaviorConditionGrappleSource Marker = new();
 
         // should not use a versatile weapon in two-handed mode
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             attackMode.UseVersatileDamage = false;
         }

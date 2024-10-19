@@ -793,7 +793,11 @@ public sealed class MartialForceKnight : AbstractSubclass
 
     private sealed class ModifyWeaponModifyAttackModeForceDrive : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             attackMode.reachRange += 6;
         }

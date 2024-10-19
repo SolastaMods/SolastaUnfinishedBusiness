@@ -142,9 +142,7 @@ internal static class RaceLizardfolkBuilder
 
             attackMode.HasPriority = true;
             attackMode.AddAttackTagAsNeeded(TagHungryJaws);
-            ApplyAttackModeModifiers(actingCharacter, attackMode);
 
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
             {
                 var attackModifier = new ActionModifier();
@@ -154,33 +152,6 @@ internal static class RaceLizardfolkBuilder
                     target,
                     attackMode,
                     attackModifier);
-            }
-        }
-
-        private static void ApplyAttackModeModifiers(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            GameLocationCharacter caster,
-            RulesetAttackMode attackMode)
-        {
-            // for handling Pugilist bonus damage specifically
-            if (caster.RulesetCharacter is not RulesetCharacterHero hero)
-            {
-                return;
-            }
-
-            var modifiers = hero.GetSubFeaturesByType<IModifyWeaponAttackMode>();
-
-            var mods = modifiers;
-
-            if (attackMode.sourceObject is RulesetItem item)
-            {
-                mods = item.GetSubFeaturesByType<IModifyWeaponAttackMode>();
-                mods.AddRange(modifiers);
-            }
-
-            foreach (var modifier in mods)
-            {
-                modifier.ModifyAttackMode(hero, attackMode);
             }
         }
     }

@@ -262,7 +262,11 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     {
         public readonly WeaponTypeDefinition WeaponTypeDefinition = weaponTypeDefinition;
 
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
@@ -287,12 +291,12 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                         : 1;
 
             attackMode.ToHitBonus += bonus;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
-                featureDefinition.Name, featureDefinition));
+            attackMode.ToHitBonusTrends.Add(
+                new TrendInfo(bonus, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
 
             damage.BonusDamage += bonus;
-            damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
-                featureDefinition.Name, featureDefinition));
+            damage.DamageBonusTrends.Add(
+                new TrendInfo(bonus, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
 
         private static bool IsWeaponMaster(RulesetCharacter rulesetCharacter)

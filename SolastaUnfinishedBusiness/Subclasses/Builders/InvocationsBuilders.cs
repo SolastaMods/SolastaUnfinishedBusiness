@@ -801,7 +801,6 @@ internal static class InvocationsBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(
                             conditionPerniciousCloak, ConditionForm.ConditionOperation.Remove),

@@ -600,7 +600,6 @@ internal static class OtherFeats
             .Create($"Power{Name}")
             .SetGuiPresentation($"{Name}Int", Category.Feat, hidden: true)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -613,17 +612,25 @@ internal static class OtherFeats
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypePsychic, 2, DieType.D8)
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D8)
                             .Build(),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
+                    .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                     .Build())
             .AddToDB();
 
         powerInt.AddCustomSubFeatures(new CustomBehaviorGiftOfTheGemDragon(powerInt));
+        powerInt.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference =
+            Counterspell.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference;
 
         var featInt = FeatDefinitionBuilder
             .Create($"{Name}Int")
@@ -636,7 +643,6 @@ internal static class OtherFeats
             .Create($"Power{Name}Wis")
             .SetGuiPresentation($"{Name}Wis", Category.Feat, hidden: true)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -649,17 +655,25 @@ internal static class OtherFeats
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypePsychic, 2, DieType.D8)
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D8)
                             .Build(),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
+                    .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                     .Build())
             .AddToDB();
 
         powerWis.AddCustomSubFeatures(new CustomBehaviorGiftOfTheGemDragon(powerWis));
+        powerWis.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference =
+            Counterspell.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference;
 
         var featWis = FeatDefinitionBuilder
             .Create($"{Name}Wis")
@@ -672,7 +686,6 @@ internal static class OtherFeats
             .Create($"Power{Name}Cha")
             .SetGuiPresentation($"{Name}Cha", Category.Feat, hidden: true)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -680,22 +693,30 @@ internal static class OtherFeats
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Wisdom, 8)
+                        AttributeDefinitions.Charisma, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypePsychic, 2, DieType.D8)
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D8)
                             .Build(),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
+                    .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                     .Build())
             .AddToDB();
 
         powerCha.AddCustomSubFeatures(new CustomBehaviorGiftOfTheGemDragon(powerCha));
+        powerCha.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference =
+            Counterspell.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference;
 
         var featCha = FeatDefinitionBuilder
             .Create($"{Name}Cha")
@@ -790,13 +811,14 @@ internal static class OtherFeats
 
                 yield break;
             }
-            
+
             defender.SetSpecialFeatureUses("GiftOfTheGemDragon", 0);
-            
+
             var rulesetDefender = defender.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerGiftOfTheGemDragon, rulesetDefender);
 
             if (!defender.CanReact() ||
+                !defender.IsWithinRange(attacker, 2) ||
                 rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
@@ -808,7 +830,7 @@ internal static class OtherFeats
                 [attacker],
                 attacker,
                 "GiftOfTheGemDragon",
-                "SpendPowerGiftOfTheGemDragonDescription".Formatted(Category.Reaction, attacker.Name));
+                "UseGiftOfTheGemDragonDescription".Formatted(Category.Reaction, attacker.Name));
         }
     }
 
@@ -1990,7 +2012,6 @@ internal static class OtherFeats
                 damageTypes.Contains(y.DamageType));
         }
 
-        //TODO: Elemental master is an attack roll so this never gets checked. To be fixed...
         public bool CanModifyRoll(
             RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypesRoll)
         {
@@ -3319,7 +3340,8 @@ internal static class OtherFeats
 
     private sealed class ModifyWeaponAttackModeRopeItUp : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (attackMode?.thrown != true)
             {

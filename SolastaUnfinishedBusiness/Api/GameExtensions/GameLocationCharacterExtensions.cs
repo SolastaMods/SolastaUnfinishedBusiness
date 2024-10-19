@@ -228,7 +228,8 @@ public static class GameLocationCharacterExtensions
             RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(ruleCaster, repertoire, spell, slotLevel, false),
             SpellRepertoire = repertoire,
-            TargetCharacters = { target }
+            TargetCharacters = { target },
+            IsReactionEffect = true
         };
         var count = actionService.PendingReactionRequestGroups.Count;
 
@@ -262,7 +263,10 @@ public static class GameLocationCharacterExtensions
             yield break;
         }
 
-        var reactionParams = new CharacterActionParams(character, (Id)actionId) { StringParameter = stringParameter };
+        var reactionParams = new CharacterActionParams(character, (Id)actionId)
+        {
+            StringParameter = stringParameter, IsReactionEffect = actionId == ExtraActionId.DoNothingReaction
+        };
         var reactionRequest = new ReactionRequestCustom(type, reactionParams) { Resource = resource };
         var count = actionManager.PendingReactionRequestGroups.Count;
 
@@ -388,7 +392,8 @@ public static class GameLocationCharacterExtensions
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets
+            targetCharacters = targets,
+            IsReactionEffect = actionId == Id.PowerReaction
         };
         var count = actionService.PendingReactionRequestGroups.Count;
 

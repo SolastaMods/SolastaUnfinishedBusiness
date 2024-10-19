@@ -299,7 +299,11 @@ public sealed class OathOfThunder : AbstractSubclass
                 new TrendInfo(-1, FeatureSourceType.CharacterFeature, featureHammersBoon.Name, featureHammersBoon));
         }
 
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (!IsOathOfThunderWeapon(attackMode, null, character))
             {

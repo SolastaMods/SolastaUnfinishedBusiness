@@ -901,27 +901,6 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
-  <data name="PowerAttackConcentrationIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Powers/PowerAttackConcentrationIcon.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b77a5c561934e089
-    </value>
-  </data>
-  <data name="PowerAttackIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Powers/PowerAttackIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
-  </data>
-  <data name="DeadeyeConcentrationIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Powers/DeadeyeConcentrationIcon.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
-  </data>
-  <data name="DeadeyeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Powers/DeadeyeIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
-  </data>
   <data name="Halberd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/Halberd.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089

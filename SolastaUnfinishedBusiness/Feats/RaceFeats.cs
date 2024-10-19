@@ -1054,7 +1054,11 @@ internal static class RaceFeats
 
     private sealed class ModifyWeaponAttackModeDragonHide : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (!ValidatorsWeapon.IsUnarmed(attackMode) ||
                 !character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DragonHideToggle))
@@ -1062,7 +1066,7 @@ internal static class RaceFeats
                 return;
             }
 
-            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {
