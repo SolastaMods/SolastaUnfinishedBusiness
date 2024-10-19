@@ -20,7 +20,7 @@ Setting/&FormationSet4Description=Permet de choisir l'ensemble de formation 4.
 Setting/&FormationSet4Title=Ensemble de formation 4
 Setting/&FormationSet5Description=Permet de choisir l'ensemble de formation 5.
 Setting/&FormationSet5Title=Formation Set 5
-Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=Afficher l'info-bulle étendue au lieu de l'info-bulle résumée par défaut.
+Setting/&HideTitle=Cacher
 Setting/&InvertTooltipBehaviorDescription=Afficher l'info-bulle étendue au lieu de l'info-bulle résumée par défaut.
 Setting/&InvertTooltipBehaviorTitle=Inverser le comportement des info-bulles
 Setting/&ModHeaderTitle=Affaires inachevées

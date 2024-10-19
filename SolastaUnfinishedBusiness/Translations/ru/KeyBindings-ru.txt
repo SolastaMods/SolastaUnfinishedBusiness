@@ -20,7 +20,7 @@ Setting/&FormationSet4Description=Позволяет выбрать боевой
 Setting/&FormationSet4Title=Боевой порядок 4
 Setting/&FormationSet5Description=Позволяет выбрать боевой порядок 5.
 Setting/&FormationSet5Title=Боевой порядок 5
-Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=Отображать расширенную подсказку вместо краткой подсказки по умолчанию.
+Setting/&HideTitle=Скрывать
 Setting/&InvertTooltipBehaviorDescription=Отображать расширенную всплывающую подсказку вместо обычной краткой.
 Setting/&InvertTooltipBehaviorTitle=Изменить поведение всплывающих подсказок
 Setting/&ModHeaderTitle=Неоконченное Дело

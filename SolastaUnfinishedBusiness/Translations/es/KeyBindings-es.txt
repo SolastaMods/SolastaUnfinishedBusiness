@@ -20,7 +20,7 @@ Setting/&FormationSet4Description=Permite elegir el conjunto de formación 4.
 Setting/&FormationSet4Title=Conjunto de formación 4
 Setting/&FormationSet5Description=Permite elegir el conjunto de formación 5.
 Setting/&FormationSet5Title=Conjunto de formación 5
-Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=Mostrar la información sobre herramientas extendida en lugar de la información resumida predeterminada.
+Setting/&HideTitle=Esconder
 Setting/&InvertTooltipBehaviorDescription=Muestra la información sobre herramientas extendida en lugar del resumen predeterminado.
 Setting/&InvertTooltipBehaviorTitle=Invertir el comportamiento de las descripciones emergentes
 Setting/&ModHeaderTitle=Asuntos pendientes

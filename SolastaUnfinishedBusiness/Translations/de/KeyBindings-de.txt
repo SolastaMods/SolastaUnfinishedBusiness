@@ -20,7 +20,7 @@ Setting/&FormationSet4Description=Ermöglicht Ihnen, den Formationssatz 4 auszuw
 Setting/&FormationSet4Title=Formationssatz 4
 Setting/&FormationSet5Description=Ermöglicht Ihnen, den Formationssatz 5 auszuwählen.
 Setting/&FormationSet5Title=Formationssatz 5
-Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=Zeigt den erweiterten Tooltip an, statt des standardmäßigen zusammengefassten.
+Setting/&HideTitle=Verstecken
 Setting/&InvertTooltipBehaviorDescription=Zeigen Sie den erweiterten Tooltip anstelle des standardmäßigen zusammengefassten an.
 Setting/&InvertTooltipBehaviorTitle=Tooltips-Verhalten umkehren
 Setting/&ModHeaderTitle=Unerledigte Geschäfte

@@ -20,7 +20,7 @@ Setting/&FormationSet4Description=允许您选择阵型设置4。
 Setting/&FormationSet4Title=阵型组合 4
 Setting/&FormationSet5Description=允许您选择阵型设置 5。
 Setting/&FormationSet5Title=阵型组合 5
-Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=显示扩展工具提示而不是默认的汇总工具提示。
+Setting/&HideTitle=隐藏
 Setting/&InvertTooltipBehaviorDescription=显示扩展的工具提示而不是默认的摘要工具提示。
 Setting/&InvertTooltipBehaviorTitle=反转工具提示行为
 Setting/&ModHeaderTitle=未竟事业

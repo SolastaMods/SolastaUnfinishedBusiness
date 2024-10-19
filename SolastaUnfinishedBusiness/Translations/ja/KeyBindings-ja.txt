@@ -20,7 +20,7 @@ Setting/&FormationSet4Description=フォーメーションセット4を選択で
 Setting/&FormationSet4Title=フォーメーションセット4
 Setting/&FormationSet5Description=フォーメーションセット5を選択できます。
 Setting/&FormationSet5Title=フォーメーションセット5
-Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=デフォルトの要約ツールチップの代わりに拡張ツールチップを表示します。
+Setting/&HideTitle=隠れる
 Setting/&InvertTooltipBehaviorDescription=デフォルトの要約ツールチップの代わりに拡張ツールチップを表示します。
 Setting/&InvertTooltipBehaviorTitle=ツールチップの動作を反転する
 Setting/&ModHeaderTitle=未完の仕事

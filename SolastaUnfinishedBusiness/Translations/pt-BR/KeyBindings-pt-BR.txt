@@ -20,7 +20,7 @@ Setting/&FormationSet4Description=Permite que você escolha o conjunto de forma�
 Setting/&FormationSet4Title=Conjunto de formação 4
 Setting/&FormationSet5Description=Permite que você escolha o conjunto de formação 5.
 Setting/&FormationSet5Title=Conjunto de formação 5
-Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=Exibir a dica de ferramenta estendida em vez da resumida padrão.
+Setting/&HideTitle=Esconder
 Setting/&InvertTooltipBehaviorDescription=Exiba a dica de ferramenta estendida em vez da resumida padrão.
 Setting/&InvertTooltipBehaviorTitle=Inverter comportamento de dicas de ferramentas
 Setting/&ModHeaderTitle=Negócios inacabados

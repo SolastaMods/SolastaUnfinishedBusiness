@@ -20,7 +20,7 @@ Setting/&FormationSet4Description=4개의 포메이션 세트를 선택할 수 �
 Setting/&FormationSet4Title=포메이션 세트 4
 Setting/&FormationSet5Description=5개의 포메이션 세트를 선택할 수 있습니다.
 Setting/&FormationSet5Title=포메이션 세트 5
-Setting/&HideTitle=HideSetting/&InvertTooltipBehaviorDescription=기본 요약된 도구 설명 대신 확장된 도구 설명을 표시합니다.
+Setting/&HideTitle=숨다
 Setting/&InvertTooltipBehaviorDescription=기본 요약된 설명 대신 확장된 도구 설명을 표시합니다.
 Setting/&InvertTooltipBehaviorTitle=도구 설명 동작 반전
 Setting/&ModHeaderTitle=미완의 사업
