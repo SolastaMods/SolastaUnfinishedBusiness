@@ -14,7 +14,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class AiLocationManagerPatcher
 {
-    //TODO: move to separate class?
     private static T CreateDelegate<T>(this MethodInfo method) where T : Delegate
     {
         return (T)Delegate.CreateDelegate(typeof(T), method);
@@ -29,15 +28,11 @@ public static class AiLocationManagerPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(IEnumerator values, AiLocationManager __instance)
         {
-            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(__instance.battle.ActiveContender);
-
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
+            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(values, __instance.battle.ActiveContender);
         }
     }
 
+    //PATCH: add mod activities to maps
     [HarmonyPatch(typeof(AiLocationManager), nameof(AiLocationManager.BuildActivitiesMaps))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -86,6 +81,7 @@ public static class AiLocationManagerPatcher
         }
     }
 
+    //PATCH: add mod considerations to maps
     [HarmonyPatch(typeof(AiLocationManager), nameof(AiLocationManager.BuildConsiderationsMap))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

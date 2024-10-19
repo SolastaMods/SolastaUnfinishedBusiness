@@ -65,7 +65,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         .SetBonusMode(AddBonusMode.AbilityBonus)
                         .SetDamageForm(DamageTypeFire, 2, DieType.D10)
                         .Build())
-                //.SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(FireBolt)
                 .Build())
         .AddToDB();
@@ -88,7 +87,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             HealingComputation.Dice, 0, DieType.D10, 1, false,
                             HealingCap.MaximumHitPoints)
                         .Build())
-                //.SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(CureWounds)
                 .Build())
         .AddToDB();
@@ -484,8 +482,13 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         return GetMySpirit(guid) != null;
     }
 
-    internal static IEnumerator HandleCauterizingFlamesBehavior(GameLocationCharacter character)
+    internal static IEnumerator HandleCauterizingFlamesBehavior(IEnumerator values, GameLocationCharacter character)
     {
+        while (values.MoveNext())
+        {
+            yield return values.Current;
+        }
+        
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
         if (!battleManager ||

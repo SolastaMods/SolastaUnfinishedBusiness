@@ -13,7 +13,6 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -208,22 +207,16 @@ public static class CharacterActionPatcher
                     break;
                 }
 
-                //PATCH: support for Circle of the Wildfire cauterizing flames, and grapple scenarios
+                //PATCH: support for grapple scenarios
                 case CharacterActionPushed:
                 case CharacterActionPushedCustom:
                 {
-                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(actingCharacter);
-
                     GrappleContext.ValidateGrappleAfterForcedMove(actingCharacter);
                     break;
                 }
                 case CharacterActionShove:
                 {
-                    var target = __instance.ActionParams.TargetCharacters[0];
-
-                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(target);
-
-                    GrappleContext.ValidateGrappleAfterForcedMove(target);
+                    GrappleContext.ValidateGrappleAfterForcedMove(__instance.ActionParams.TargetCharacters[0]);
                     break;
                 }
             }
@@ -260,8 +253,7 @@ public static class CharacterActionPatcher
             var computeStealthBreakValueMethod = typeof(GameLocationCharacter).GetMethod("ComputeStealthBreak");
             var myComputeStealthBreakValueMethod =
                 new Func<GameLocationCharacter, bool, ActionModifier, List<GameLocationCharacter>, CharacterAction,
-                    bool>(
-                    ComputeStealthBreak).Method;
+                    bool>(ComputeStealthBreak).Method;
 
             return instructions
                 .ReplaceCall(computeStealthBreakValueMethod,

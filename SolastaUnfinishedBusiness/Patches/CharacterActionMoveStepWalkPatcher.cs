@@ -1,8 +1,10 @@
-﻿using HarmonyLib;
+﻿using System.Collections;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -33,31 +35,16 @@ public static class CharacterActionMoveStepWalkPatcher
         }
     }
 
-#if false
-    //PATCH: support for `IMoveStepFinished`
+    //PATCH: support for Circle of the Wildfire cauterizing flames
     [HarmonyPatch(typeof(CharacterActionMoveStepWalk),
         nameof(CharacterActionMoveStepWalk.ChangeEndProneStatusIfNecessary))]
     [UsedImplicitly]
     public static class ChangeEndProneStatusIfNecessary_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(CharacterActionMoveStepWalk __instance)
+        public static IEnumerator Postfix(IEnumerator values, CharacterActionMoveStepWalk __instance)
         {
-            var mover = __instance.ActingCharacter;
-
-            if (!MovementTracker.TryGetMovement(mover.Guid, out var movement))
-            {
-                return;
-            }
-
-            var source = movement.Item1;
-            var destination = movement.Item2;
-
-            foreach (var moveStepFinished in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepFinished>())
-            {
-                moveStepFinished.MoveStepFinished(mover, source, destination);
-            }
+            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(values, __instance.ActingCharacter);
         }
     }
-#endif
 }
