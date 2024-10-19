@@ -8,17 +8,18 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatGiftOfTheGemDragon",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ActionAffinityCleavingAttackToggle:4bdf6060-103c-5ded-be1e-cf086c378b14"
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:PowerFeatGiftOfTheGemDragon:df3f3efc-b884-5c2b-a311-ac56a64eee4c"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatCleavingAttackTitle",
-    "description": "Feat/&FeatCleavingAttackDescription",
+    "title": "Feat/&FeatGiftOfTheGemDragonIntTitle",
+    "description": "Feat/&FeatGiftOfTheGemDragonIntDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1daf77b5-c8ca-570e-b5dc-72519a7c2196",
+  "guid": "c770ec76-ddd0-58e0-b18c-d54324d9de7e",
   "contentPack": 9999,
-  "name": "FeatCleavingAttack"
+  "name": "FeatGiftOfTheGemDragonInt"
 }

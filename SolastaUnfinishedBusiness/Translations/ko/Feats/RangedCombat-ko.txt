@@ -1,5 +1,5 @@
-Action/&DeadeyeToggleDescription=샤프슈터 활성화/비활성화
-Action/&DeadeyeToggleTitle=명사수
+Action/&DeadEyeToggleDescription=샤프슈터 활성화/비활성화
+Action/&DeadEyeToggleTitle=명사수
 Condition/&ConditionFeatSteadyAimAdvantageDescription=당신은 다음 공격 굴림에서 이점을 얻습니다.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=꾸준한 목표
 Condition/&ConditionFeatSteadyAimRestrainedDescription=자신의 턴이 끝날 때까지 이동할 수 없습니다.

@@ -12,8 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PowerFeatPowerAttack:e1511a66-bde7-544f-8baf-278e5c08e731",
-    "Definition:PowerFeatPowerAttackTurnOff:d5d3ae3a-b172-5540-9e82-4b06f7c657d4"
+    "Definition:ActionAffinityPowerAttackToggle:662a830a-0f98-5adb-805a-0fe7f8ecf5d7"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -28,6 +28,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheYeomanBulwarkTurnOff:db95a5fb-e030-5f0a-9849-cd62b3a37a59",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerPathOfTheYeomanMightyShot:d0ac6190-172a-51d3-853a-51f6b1cd2ae0",
       "level": 14
     }

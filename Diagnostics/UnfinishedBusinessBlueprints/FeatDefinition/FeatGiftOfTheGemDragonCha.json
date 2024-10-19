@@ -8,17 +8,18 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatGiftOfTheGemDragon",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ActionAffinityCleavingAttackToggle:4bdf6060-103c-5ded-be1e-cf086c378b14"
+    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
+    "Definition:PowerFeatGiftOfTheGemDragonCha:88cd7e64-ea28-5af7-b90d-9b7325154f04"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatCleavingAttackTitle",
-    "description": "Feat/&FeatCleavingAttackDescription",
+    "title": "Feat/&FeatGiftOfTheGemDragonChaTitle",
+    "description": "Feat/&FeatGiftOfTheGemDragonChaDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1daf77b5-c8ca-570e-b5dc-72519a7c2196",
+  "guid": "efe9cb2d-55fe-51a0-b8ff-312c3baf208e",
   "contentPack": 9999,
-  "name": "FeatCleavingAttack"
+  "name": "FeatGiftOfTheGemDragonCha"
 }
