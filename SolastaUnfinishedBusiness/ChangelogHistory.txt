@@ -13,7 +13,7 @@
 - fixed Great Weapon to reroll all damage dice instead of first instance only [VANILLA]
 - fixed Patron Tree, Remorhaz, Wight Lord, and Young Remorhaz retribution consideration on reach attacks [VANILLA]
 - fixed Umbral Stalker shadow strike re-rolling damage dice on all attacks instead of sneak only
-- moved input mod settings to be offered under game official UI [check Gui, and Keyboard sections]
+- moved some mod settings to be offered under game official UI [check gui, and keyboard sections]
 
 KNOWN ISSUES:
 

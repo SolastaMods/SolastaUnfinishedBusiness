@@ -59,11 +59,27 @@ public static class SettingsContext
         [UsedImplicitly]
         bool ModHeader { get; set; }
 
-        [SettingTypeToggle("InvertTooltipBehavior", SortOrder = 1001, DisplayFooter = true)]
+        [SettingTypeToggle("EnableCharacterChecker", SortOrder = 1011, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool EnableCharacterChecker { get; set; }
+
+        [SettingTypeToggle("EnableCheatMenu", SortOrder = 1012, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool EnableCheatMenu { get; set; }
+
+        [SettingTypeToggle("EnableSaveByLocation", SortOrder = 1013, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool EnableSaveByLocation { get; set; }
+
+        [SettingTypeToggle("EnablePartyToggles", SortOrder = 1014, DisplayFooter = false)]
+        [UsedImplicitly]
+        bool EnablePartyToggles { get; set; }
+
+        [SettingTypeToggle("InvertTooltipBehavior", SortOrder = 1021, DisplayFooter = true)]
         [UsedImplicitly]
         bool InvertTooltipBehavior { get; set; }
 
-        [SettingTypeSlider("TooltipWidth", SortOrder = 1002, MinValue = 1f, MaxValue = 2f, Default = 1f, Format = "0.0",
+        [SettingTypeSlider("TooltipWidth", SortOrder = 1022, MinValue = 1f, MaxValue = 2f, Default = 1f, Format = "0.0",
             DisplayFooter = false)]
         [UsedImplicitly]
         float TooltipWidth { get; set; }
@@ -71,6 +87,10 @@ public static class SettingsContext
 
     internal sealed class GuiModManager : IGuiModSettingsService
     {
+        private bool _enableCharacterChecker = UserPreferences.GetValue<bool>("Settings/Gui/EnableCharacterChecker");
+        private bool _enableCheatMenu = UserPreferences.GetValue<bool>("Settings/Gui/EnableCheatMenu");
+        private bool _enablePartyToggles = UserPreferences.GetValue<bool>("Settings/Gui/EnablePartyToggles");
+        private bool _enableSaveByLocation = UserPreferences.GetValue<bool>("Settings/Gui/EnableSaveByLocation");
         private bool _invertTooltipBehavior = UserPreferences.GetValue<bool>("Settings/Gui/InvertTooltipBehavior");
         private float _tooltipWidth = UserPreferences.GetValue<float>("Settings/Gui/TooltipWidth");
 
@@ -93,6 +113,46 @@ public static class SettingsContext
             {
                 _tooltipWidth = value;
                 UserPreferences.SetValue("Settings/Gui/TooltipWidth", _tooltipWidth);
+            }
+        }
+
+        public bool EnableSaveByLocation
+        {
+            get => _enableSaveByLocation;
+            set
+            {
+                _enableSaveByLocation = value;
+                UserPreferences.SetValue("Settings/Gui/EnableSaveByLocation", _enableSaveByLocation);
+            }
+        }
+
+        public bool EnablePartyToggles
+        {
+            get => _enablePartyToggles;
+            set
+            {
+                _enablePartyToggles = value;
+                UserPreferences.SetValue("Settings/Gui/EnablePartyToggles", _enablePartyToggles);
+            }
+        }
+
+        public bool EnableCharacterChecker
+        {
+            get => _enableCharacterChecker;
+            set
+            {
+                _enableCharacterChecker = value;
+                UserPreferences.SetValue("Settings/Gui/EnableCharacterChecker", _enableCharacterChecker);
+            }
+        }
+
+        public bool EnableCheatMenu
+        {
+            get => _enableCheatMenu;
+            set
+            {
+                _enableCheatMenu = value;
+                UserPreferences.SetValue("Settings/Gui/EnableCheatMenu", _enableCheatMenu);
             }
         }
     }

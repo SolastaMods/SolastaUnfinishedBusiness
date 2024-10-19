@@ -177,34 +177,6 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnablePcgRandom = toggle;
         }
-
-        toggle = Main.Settings.EnableSaveByLocation;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSaveByLocation"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableSaveByLocation = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableTogglesToOverwriteDefaultTestParty"), ref toggle))
-        {
-            Main.Settings.EnableTogglesToOverwriteDefaultTestParty = toggle;
-        }
-
-        toggle = Main.Settings.EnableCharacterChecker;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharacterChecker"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCharacterChecker = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.EnableCheatMenu;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCheatMenu"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCheatMenu = toggle;
-        }
     }
 
     private static void DisplayAdventure()

@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -16,7 +17,7 @@ public static class GameMenuModalPatcher
         public static void Postfix(GameMenuModal __instance, GameMenuModal.MenuButtonIndex index)
         {
             //PATCH: enables the cheats window during gameplay
-            if (!Main.Settings.EnableCheatMenu || index != GameMenuModal.MenuButtonIndex.Cheats)
+            if (!SettingsContext.GuiModManagerInstance.EnableCheatMenu || index != GameMenuModal.MenuButtonIndex.Cheats)
             {
                 return;
             }

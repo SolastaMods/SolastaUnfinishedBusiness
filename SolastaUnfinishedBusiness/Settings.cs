@@ -46,7 +46,7 @@ public class Settings : UnityModManager.ModSettings
     //
     // SETTINGS HIDDEN ON UI
     //
-
+    public List<string> DefaultPartyHeroes { get; } = [];
     public bool EnableCtrlClickOnlySwapsMainHand { get; set; } = true;
     public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
@@ -153,18 +153,12 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableUnofficialTranslations { get; set; }
     public bool FixAsianLanguagesTextWrap { get; set; }
     public bool EnablePcgRandom { get; set; }
-    public bool EnableSaveByLocation { get; set; }
-    public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
-    public List<string> DefaultPartyHeroes { get; } = [];
-    public bool EnableCharacterChecker { get; set; }
-    public bool EnableCheatMenu { get; set; }
     public bool NoExperienceOnLevelUp { get; set; }
     public bool OverrideMinMaxLevel { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
     public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
-    public int EncounterPercentageChance { get; set; } = 5;
 
     //
     // Gameplay - General

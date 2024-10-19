@@ -52,7 +52,7 @@ public static class CharactersPanelPatcher
         [UsedImplicitly]
         public static void Postfix(CharactersPanel __instance)
         {
-            if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
+            if (!SettingsContext.GuiModManagerInstance.EnablePartyToggles)
             {
                 ToolsContext.Disable(__instance.charactersTable);
 
@@ -104,7 +104,8 @@ public static class CharactersPanelPatcher
         [UsedImplicitly]
         public static void Postfix(CharactersPanel __instance)
         {
-            __instance.characterCheckerButton.gameObject.SetActive(Main.Settings.EnableCharacterChecker);
+            __instance.characterCheckerButton.gameObject.SetActive(
+                SettingsContext.GuiModManagerInstance.EnableCharacterChecker);
         }
     }
 }

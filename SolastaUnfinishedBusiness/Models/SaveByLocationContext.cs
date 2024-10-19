@@ -82,7 +82,7 @@ internal static class SaveByLocationContext
 
     internal static void LateLoad()
     {
-        if (!Main.Settings.EnableSaveByLocation)
+        if (!SettingsContext.GuiModManagerInstance.EnableSaveByLocation)
         {
             return;
         }

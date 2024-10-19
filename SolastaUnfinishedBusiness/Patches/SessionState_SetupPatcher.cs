@@ -27,7 +27,7 @@ public static class SessionState_SetupPatcher
             string filename,
             bool notify)
         {
-            if (Main.Settings.EnableTogglesToOverwriteDefaultTestParty &&
+            if (SettingsContext.GuiModManagerInstance.EnablePartyToggles &&
                 slotIndex < Main.Settings.DefaultPartyHeroes.Count)
             {
                 var name = Main.Settings.DefaultPartyHeroes.ElementAt(slotIndex);
