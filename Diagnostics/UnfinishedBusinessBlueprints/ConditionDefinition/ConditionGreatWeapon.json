@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageRoguishUmbralStalkerGloomBlade:29826fb3-e2c3-50df-b143-5165106ea6f2",
-    "Definition:DieRollModifierRoguishUmbralStalkerGloomBlade:95868c96-227e-5210-9c3e-5ef7e3e400cb"
+    "Definition:DieRollModifierFightingStyleGreatWeapon:3ae18874ff75d95478c32afeb9ca144e"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -152,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "90e4a2f8-5b7c-5f09-a9d6-ca6e92012e12",
+  "guid": "5bf3a74e-e67d-55d6-8862-91359e32db5c",
   "contentPack": 9999,
-  "name": "ConditionRoguishUmbralStalkerGloomBlade"
+  "name": "ConditionGreatWeapon"
 }
