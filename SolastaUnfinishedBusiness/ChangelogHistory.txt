@@ -1,6 +1,7 @@
 1.5.97.35:
 
 - added final behaviors to Brawler, and Grappler feats [demoted Pugilist fighting style as redundant now]
+- added Gift of the Gem Dragon feat [bumped with prone in addition to push]
 - added key bindings for Select Character 5, Select Character 6, and Hide action [official UI keyboard section]
 - fixed Armor of Agathys damage determination, and consideration on reach attacks
 - fixed campaigns translator missing lore operations [i.e.: learn/unlearn/unchart locations]
