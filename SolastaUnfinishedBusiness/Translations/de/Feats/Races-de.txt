@@ -57,7 +57,6 @@ Feat/&FeatWoodElfMagicDescription=Du lernst die Magie der Urwälder, die von dei
 Feat/&FeatWoodElfMagicTitle=Waldelfenmagie
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Solange Sie ein Großschwert halten, erhalten Sie einen Bonus von +1 auf die RK.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Wiedergängerklinge
-Feedback/&FlamesOfPhlegethosReroll={0} verwendet die Flammen des Phlegethos, um einen {1} magischen Schadenswürfel von {2} auf {3} neu zu würfeln.
 Feature/&PowerFeatDragonFearDescription=Du kannst eine Verwendung deiner Atemwaffe nutzen, um zu brüllen, wodurch jede Kreatur deiner Wahl innerhalb von 30 Fuß um dich herum einen Weisheitsrettungswurf machen muss (DC 8 + dein Kompetenzbonus + dein Charismamodifikator). Bei einem misslungenen Rettungswurf wird das Ziel für 1 Minute verängstigt. Wenn das verängstigte Ziel Schaden nimmt, kann es den Rettungswurf wiederholen und bei einem Erfolg den Effekt auf sich selbst beenden.
 Feature/&PowerFeatDragonFearTitle=Drachenangst
 Feature/&PowerFeatOrcishAggressionDescription=Wenn Sie in der Haupthand eine Nahkampfwaffe tragen, können Sie als Bonusaktion mit Ihrer Geschwindigkeit auf einen Feind Ihrer Wahl zustürmen und die Kreatur mit Ihrer Hauptwaffe frei angreifen.
@@ -68,6 +67,7 @@ Feedback/&BountifulLuckAttackToHitRoll={0} hat {1} verwendet und würfelt eine {
 Feedback/&BountifulLuckCheckToHitRoll={0} hat {1} verwendet und würfelt eine {2}, um {3} beim Kontrollwurf zu ersetzen.
 Feedback/&BountifulLuckSavingToHitRoll={0} hat {1} verwendet und würfelt beim Rettungswurf eine {2}, um {3} zu ersetzen
 Feedback/&DwarvenFortitudeHitDieRolled={0} hat eine {2} gewürfelt und {3} = {4} geheilt.
+Feedback/&FlamesOfPhlegethosReroll={0} verwendet die Flammen des Phlegethos, um einen {1} magischen Schadenswürfel von {2} auf {3} neu zu würfeln.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} haben {1} verfehlt. {2} kann reagieren, indem sie einen W20 würfeln und den Angriffswurf ersetzen.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Würfeln Sie einen W20, um den Angriffswurf zu ersetzen.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=Reichhaltiges Glück

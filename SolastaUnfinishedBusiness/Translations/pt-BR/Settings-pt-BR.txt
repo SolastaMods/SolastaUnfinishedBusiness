@@ -115,9 +115,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=Ative a <color=#D89555>Bard College of 
 ModUi/&EnableBetaContent=Ativar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite ações de cancelamento com clique direito do mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Habilite truques para acionar ataque bônus extra de <color=#D89555>War Magic</color>
-ModUi/&EnableCharacterChecker=Habilite o botão Verificador de Caracteres na Tela Principal > Caracteres
 ModUi/&EnableCharactersOnFireToEmitLight=Personagens <color=#D89555>Em Chamas</color> devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Elemental de Fogo, Bobo da Corte de Fogo, Águia Pescadora de Fogo, Aranha de Fogo e família de condição em chamas]</color></i>
-ModUi/&EnableCheatMenu=Habilite o menu de cheats
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Habilitar <color=#1E81B0>CTRL</color> clicar e arrastar para ignorar as verificações de <color=#D89555>itens de missão</color> ao soltar
 ModUi/&EnableCustomPortraits=Habilitar <color=#D89555>Retratos personalizados</color>
 ModUi/&EnableCustomPortraitsHelp=• Coloque seus retratos personalizados nas subpastas <i><b><color=#F0DAA0>Pessoal</color></b></i> ou <i><b><color=#F0DAA0>Pré-geração</color> </b></i>, nomeado após o nome do herói <i><color=#F0DAA0>[ou seja: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG imagens, tamanho 256 x 384 pixels, com uma camada de transparência <i><color=#F0DAA0>[use o GIMP para obter melhores resultados]</color></i>
@@ -162,7 +160,6 @@ ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Rogue</color> <b>Cunning
 ModUi/&EnableRogueFightingStyle=Habilite a escolha de <color=#D89555>Rogue</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Rogue</color> <b>Steady Aim</b> no nível 3 <i><color=#F0DAA0>[a ação bônus dá vantagem em sua próxima jogada de ataque no turno atual se você não tiver ainda não mudei]</color></i>
 ModUi/&EnableRogueStrSaving=Habilite <color=#D89555>Rogue</color> para usar modificadores de DES ou FOR em <b>Ataque Astuto/Tortuoso</b>, <b>Ataque Debilitante/Aprimorado</b> e <b>Golpe de Lâminas </b>
-ModUi/&EnableSaveByLocation=Ativar salvar por campanhas/locais
 ModUi/&EnableSignatureSpellsRelearn=Habilite que os feitiços característicos do <color=#D89555>Assistente</color> sejam preparados a cada descanso longo <i><color=#F0DAA0>[em vez de uma vez no nível 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> <b>do Feiticeiro</b> no nível 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada
@@ -170,7 +167,6 @@ ModUi/&EnableSortingDungeonMakerAssets=Habilite a classificação de ativos no e
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Além disso, cada herói adiciona um teste D20 ao peso para um pouco de aleatoriedade <color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói + teste D20]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Habilitar <color=#D89555>Teletransporte</color> para remover todas as condições <color=#D89555>restritas</color> do alvo
-ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative o conjunto de personagens para definir seu grupo de jogo e teste padrão
 ModUi/&EnableTooltipDistance=Ativar a exibição da distância nas dicas de ferramentas ao passar o mouse sobre um personagem em combate
 ModUi/&EnableUpcastConjureElementalAndFey=Ativar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posição variáveis ​​em descrições <i><color=#F0DAA0>[usar {VARIABLE_NAME} como marcador de posição]</color></i>

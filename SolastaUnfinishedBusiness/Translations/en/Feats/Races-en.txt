@@ -57,7 +57,6 @@ Feat/&FeatWoodElfMagicDescription=You learn the magic of the primeval woods, whi
 Feat/&FeatWoodElfMagicTitle=Wood-Elf Magic
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=While you are holding a great sword, you gain a +1 bonus to AC.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Revenant Blade
-Feedback/&FlamesOfPhlegethosReroll={0} uses Flames of Phlegethos to reroll a {1} magic damage die from {2} to {3}.
 Feature/&PowerFeatDragonFearDescription=You can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failed save, a target becomes frightened for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.
 Feature/&PowerFeatDragonFearTitle=Dragon Fear
 Feature/&PowerFeatOrcishAggressionDescription=As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and free attack the creature with your main weapon.
@@ -68,6 +67,7 @@ Feedback/&BountifulLuckAttackToHitRoll={0} used {1} and rolls a {2} to replace {
 Feedback/&BountifulLuckCheckToHitRoll={0} used {1} and rolls a {2} to replace {3} on the check roll
 Feedback/&BountifulLuckSavingToHitRoll={0} used {1} and rolls a {2} to replace {3} on the saving roll
 Feedback/&DwarvenFortitudeHitDieRolled={0} rolled a {2} and healed {3} = {4}.
+Feedback/&FlamesOfPhlegethosReroll={0} uses Flames of Phlegethos to reroll a {1} magic damage die from {2} to {3}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} have missed {1}. {2} can react to roll a d20 and replace the attack roll.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Roll a d20 to replace the attack roll.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=Bountiful Luck

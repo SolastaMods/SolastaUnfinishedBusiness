@@ -115,9 +115,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=Activer le <color=#D89555>Bard College 
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCantripsTriggeringOnWarMagic=Activer les cantrips pour déclencher une attaque bonus supplémentaire de <color=#D89555>Magie de guerre</color>
-ModUi/&EnableCharacterChecker=Activez le bouton Vérificateur de caractères sur l'écran principal > Personnages
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</color> doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Bouffon de feu, Balbuzard pêcheur de feu, Araignée de feu et famille de conditions en feu]</color></i>
-ModUi/&EnableCheatMenu=Activer le menu des astuces
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Activez le clic-glisser <color=#1E81B0>CTRL</color> pour contourner les vérifications des <color=#D89555>objets de quête</color> lors de la chute
 ModUi/&EnableCustomPortraits=Activer les <color=#D89555>portraits personnalisés</color>
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personnel</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>. </b></i>, nommé d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utiliser PNG images, d'une taille de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
@@ -162,7 +160,6 @@ ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Rogue</color> <b>Cunning 
 ModUi/&EnableRogueFightingStyle=Activer le choix <color=#D89555>Voleur</color> <b>Style de combat</b> au niveau 2
 ModUi/&EnableRogueSteadyAim=Activez <color=#D89555>Rogue</color> <b>Steady Aim</b> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage lors de votre prochain jet d'attaque dans le tour en cours si vous l'avez fait. il n'a pas encore bougé]</color></i>
 ModUi/&EnableRogueStrSaving=Activez <color=#D89555>Rogue</color> pour utiliser les modificateurs DEX ou STR sur <b>Frappe rusée/sournoise</b>, <b>Frappe débilitante/améliorée</b> et <b>Grêle de lames. </b>
-ModUi/&EnableSaveByLocation=Activer la sauvegarde par campagnes/emplacements
 ModUi/&EnableSignatureSpellsRelearn=Activer la préparation des sorts de signature de <color=#D89555>Assistant</color> à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Activer <color=#D89555>Sorcier</color> <b>Conseil magique</b> au niveau 5
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
@@ -170,7 +167,6 @@ ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des actifs sur l'éditeur 
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ De plus, chaque héros ajoute un jet de D20 au poids pour un peu de hasard <color=#F0DAA0>[poids du choix = votes * modificateur de Charisme du héros + jet de D20]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Activez la <color=#D89555>téléportation</color> pour supprimer toutes les conditions de <color=#D89555>restriction</color> de la cible
-ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activez les bascules sur le pool de personnages pour définir votre jeu par défaut et votre groupe de test
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bulles lors du survol d'un personnage en combat
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la diffusion ascendante de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Activer les espaces réservés aux variables dans les descriptions <i><color=#F0DAA0>[utiliser {VARIABLE_NAME} comme espace réservé]</color></i>

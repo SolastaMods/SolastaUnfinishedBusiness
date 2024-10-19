@@ -115,9 +115,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=Aktiviere <color=#D89555>Bard College o
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen per Rechtsklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Aktivieren Sie Cantrips, um einen zusätzlichen <color=#D89555>Kriegsmagie</color>-Bonusangriff auszulösen
-ModUi/&EnableCharacterChecker=Aktivieren Sie die Schaltfläche „Charakterprüfung“ auf dem Hauptbildschirm > Charaktere
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere, die <color=#D89555>in Flammen stehen</color>, sollten Licht ausstrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und Familie der in Flammen stehenden Personen]</color></i>
-ModUi/&EnableCheatMenu=Aktivieren Sie das Cheats-Menü
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Aktivieren Sie <color=#1E81B0>STRG</color> Klicken-Ziehen, um die Überprüfung auf <color=#D89555>Questgegenstände</color> beim Ablegen zu umgehen.
 ModUi/&EnableCustomPortraits=Aktivieren Sie <color=#D89555>Benutzerdefinierte Porträts</color>
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color> </b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[d. h.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG Bilder, 256 x 384 Pixel groß, mit einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
@@ -162,7 +160,6 @@ ModUi/&EnableRogueCunningStrike=Aktivieren Sie <color=#D89555>Rogue</color> <b>C
 ModUi/&EnableRogueFightingStyle=Aktivieren Sie die Wahl des <color=#D89555>Schurken</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Rogue</color> <b>Steady Aim</b> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft Ihnen einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie Haven haben Noch nicht verschoben]</color></i>
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <color=#D89555>Schurke</color>, um DEX- oder STR-Modifikatoren für <b>Listiger/hinterhältiger Schlag</b>, <b>Schwächender/verbesserter Schlag</b> und <b>Klingenhagel zu verwenden </b>
-ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Standorten
 ModUi/&EnableSignatureSpellsRelearn=Aktivieren Sie <color=#D89555>Zauberer</color>-Signaturzauber, die bei jeder langen Pause <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i> vorbereitet werden
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Zauberer</color> <b>Magische Führung</b> auf Stufe 5
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
@@ -170,7 +167,6 @@ ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Du
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Außerdem fügt jeder Held für ein wenig Zufälligkeit einen D20-Wurf zum Gewicht hinzu <color=#F0DAA0>[Auswahlgewicht = Stimmen * Helden-Charisma-Modifikator + D20-Wurf]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Aktivieren Sie <color=#D89555>Teleportieren</color>, um alle <color=#D89555>eingeschränkten</color> Bedingungen vom Ziel zu entfernen
-ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie die Schalter für den Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Entfernung in Tooltips, wenn Sie im Kampf mit der Maus über einen Charakter fahren
 ModUi/&EnableUpcastConjureElementalAndFey=Aktivieren Sie die Übertragung von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Fee beschwören</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Aktivieren Sie variable Platzhalter in Beschreibungen <i><color=#F0DAA0>[verwenden Sie {VARIABLE_NAME} als Platzhalter]</color></i>

@@ -57,7 +57,6 @@ Feat/&FeatWoodElfMagicDescription=Vous apprenez la magie des bois primitifs, qui
 Feat/&FeatWoodElfMagicTitle=Magie des elfes des bois
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Lorsque vous tenez une grande épée, vous obtenez un bonus de +1 à la CA.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Lame de Revenant
-Feedback/&FlamesOfPhlegethosReroll={0} utilise les Flammes de Phlégéthos pour relancer un dé de dégâts magiques {1} de {2} à {3}.
 Feature/&PowerFeatDragonFearDescription=Vous pouvez dépenser une utilisation de votre trait Souffle pour rugir, forçant chaque créature de votre choix à moins de 9 mètres de vous à effectuer un jet de sauvegarde de Sagesse (DD 8 + votre bonus de maîtrise + votre modificateur de Charisme). En cas d'échec, la cible devient effrayée pendant 1 minute. Si la cible effrayée subit des dégâts, elle peut répéter le jet de sauvegarde, mettant ainsi fin à l'effet sur elle-même en cas de réussite.
 Feature/&PowerFeatDragonFearTitle=Peur du dragon
 Feature/&PowerFeatOrcishAggressionDescription=En tant qu'action bonus, lorsque vous utilisez une arme de mêlée dans votre main principale, vous pouvez charger jusqu'à votre vitesse vers un ennemi de votre choix et attaquer gratuitement la créature avec votre arme principale.
@@ -68,6 +67,7 @@ Feedback/&BountifulLuckAttackToHitRoll={0} a utilisé {1} et lance un {2} pour r
 Feedback/&BountifulLuckCheckToHitRoll={0} a utilisé {1} et lance un {2} pour remplacer {3} sur le jet de contrôle
 Feedback/&BountifulLuckSavingToHitRoll={0} a utilisé {1} et lance un {2} pour remplacer {3} sur le jet de sauvegarde
 Feedback/&DwarvenFortitudeHitDieRolled={0} a lancé un {2} et a soigné {3} = {4}.
+Feedback/&FlamesOfPhlegethosReroll={0} utilise les Flammes de Phlégéthos pour relancer un dé de dégâts magiques {1} de {2} à {3}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} a raté {1}. {2} peut réagir pour lancer un d20 et remplacer le jet d'attaque.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Lancez un d20 pour remplacer le jet d'attaque.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=Chance abondante

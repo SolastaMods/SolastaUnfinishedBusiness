@@ -57,7 +57,6 @@ Feat/&FeatWoodElfMagicDescription=あなたは、人々に尊敬され守られ�
 Feat/&FeatWoodElfMagicTitle=ウッドエルフの魔法
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=あなたがグレートソードを持っている間、あなたはアーマークラスに+1のボーナスを獲得します。
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=レヴナントブレード
-Feedback/&FlamesOfPhlegethosReroll={0}はフレゲトスの炎を使用して、{1}魔法ダメージダイスを{2}から{3}に再ロールします。
 Feature/&PowerFeatDragonFearDescription=あなたはブレスウェポンの特性を使用して咆哮をあげることができ、あなたから30フィート以内にいるあなたが選んだ各クリーチャーに知恵のセーヴィングスローを強制することができます（DC 8 + 熟練度ボーナス + カリスマ修正値）。セーブに失敗すると、ターゲットは 1 分間怯えます。怯えたターゲットがダメージを受けた場合、セーヴィング・スローを繰り返し、成功すると自身への効果を終了することができます。
 Feature/&PowerFeatDragonFearTitle=ドラゴンフィアー
 Feature/&PowerFeatOrcishAggressionDescription=ボーナスアクションとして、メインハンドで近接武器を使用すると、選択した敵に向かって自分の速度までチャージし、メイン武器でクリーチャーをフリー攻撃することができます。
@@ -68,6 +67,7 @@ Feedback/&BountifulLuckAttackToHitRoll={0} は {1} を使用し、アタック�
 Feedback/&BountifulLuckCheckToHitRoll={0} は {1} を使用し、チェックロールの {3} を置き換えるために {2} をロールしました。
 Feedback/&BountifulLuckSavingToHitRoll={0} は {1} を使用し、セービング ロールの {3} を置き換えるために {2} をロールしました。
 Feedback/&DwarvenFortitudeHitDieRolled={0} は {2} を出して、{3} = {4} を回復しました。
+Feedback/&FlamesOfPhlegethosReroll={0}はフレゲトスの炎を使用して、{1}魔法ダメージダイスを{2}から{3}に再ロールします。
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} は {1} を欠席しました。 {2} は d20 のロールに反応して攻撃ロールを置き換えることができます。
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=D20をロールして攻撃ロールを置き換えます。
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=豊かな幸運

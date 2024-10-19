@@ -115,9 +115,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=Habilite <color=#D89555>Bard College of
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Habilite trucos para activar <color=#D89555>Magia de guerra</color> ataque adicional adicional
-ModUi/&EnableCharacterChecker=Habilite el botón Comprobador de personajes en la pantalla principal > Personajes
 ModUi/&EnableCharactersOnFireToEmitLight=Los personajes <color=#D89555>On Fire</color> deben emitir luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego y familia de condición en llamas]</color></i>
-ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Habilite la función <color=#1E81B0>CTRL</color> de clic y arrastre para omitir las comprobaciones de <color=#D89555>objetos de misión</color> al soltarlos
 ModUi/&EnableCustomPortraits=Habilitar <color=#D89555>Retratos personalizados</color>
 ModUi/&EnableCustomPortraitsHelp=• Coloque sus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color> </b></i>, que lleva el nombre del nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n• Utilice PNG imágenes, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[use GIMP para obtener mejores resultados]</color></i>
@@ -162,7 +160,6 @@ ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Pícaro</color> <b>Golpe
 ModUi/&EnableRogueFightingStyle=Habilita la elección de <color=#D89555>Pícaro</color> <b>Estilo de lucha</b> en el nivel 2.
 ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Rogue</color> <b>Steady Aim</b> en el nivel 3 <i><color=#F0DAA0>[la acción adicional te da ventaja en tu próxima tirada de ataque en el turno actual si ya lo has hecho. aún no se ha movido]</color></i>
 ModUi/&EnableRogueStrSaving=Habilite a <color=#D89555>Pícaro</color> para que use modificadores de DEX o STR en <b>Golpe astuto/desviado</b>, <b>Golpe debilitante/mejorado</b> y <b>Lluvia de espadas. </b>
-ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSignatureSpellsRelearn=Habilite los hechizos característicos del <color=#D89555>Mago</color> para que se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Guía mágica</color> del hechicero en el nivel 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar la acción <color=#D89555>Hechizo acelerado</color> para permitir lanzar un hechizo de acción principal con metamagia acelerada aplicada
@@ -170,7 +167,6 @@ ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de recursos e
 ModUi/&EnableStatsOnHeroTooltip=Muestra estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir: golpes críticos, fallos críticos, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe agrega una tirada D20 al peso para darle un poco de aleatoriedad <color=#F0DAA0>[peso elegido = votos * modificador de carisma del héroe + tirada D20]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Habilite <color=#D89555>Teletransporte</color> para eliminar todas las condiciones <color=#D89555>restringidas</color> del objetivo
-ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los cambios en el grupo de personajes para configurar su grupo de prueba y juego predeterminado
 ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas al pasar el cursor sobre un personaje en combate.
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar transmisión ascendente de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
