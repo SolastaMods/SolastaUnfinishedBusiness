@@ -16,6 +16,8 @@ public static class InputContext
         var commandByName = inputManager!.commandByName;
 
         commandByName.Remove(Max);
+        commandByName.Remove("SelectCharacter5");
+        commandByName.Remove("SelectCharacter6");
 
         foreach (InputCommandsExtra id in Enum.GetValues(typeof(InputCommandsExtra)))
         {
@@ -28,15 +30,19 @@ public static class InputContext
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.ToggleHud, (int)KeyCode.H);
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.CharacterExport, (int)KeyCode.X);
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.DebugOverlay, (int)KeyCode.O);
-        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.TeleportParty, (int)KeyCode.T);
-        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.RejoinParty, (int)KeyCode.R);
-        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.SpawnEncounter, (int)KeyCode.P);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.TeleportParty, -1);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.RejoinParty, -1);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.SpawnEncounter, -1);
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.VttCamera, (int)KeyCode.Backspace);
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet1, -1);
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet2, -1);
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet3, -1);
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet4, -1);
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet5, -1);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.FormationSet5, -1);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.SelectCharacter5, -1);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.SelectCharacter6, -1);
+        inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.Hide, -1);
     }
 
     // properly registers extended commands to use the InputModManager instance instead of the vanilla one
@@ -120,6 +126,36 @@ public static class InputContext
             case InputCommandsExtra.FormationSet5 when isSinglePlayer:
                 GameUiContext.SetFormationGrid(4);
                 return;
+            case InputCommandsExtra.Hide:
+                foreach (var selectedCharacter in ServiceRepository
+                             .GetService<IGameLocationSelectionService>().SelectedCharacters)
+                {
+                    if (Gui.Battle == null)
+                    {
+                        selectedCharacter.SetStealthy(!selectedCharacter.Stealthy);
+                    }
+                    else if (!selectedCharacter.Stealthy)
+                    {
+                        if (selectedCharacter.GetActionStatus(ActionDefinitions.Id.HideBonus,
+                                ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available)
+                        {
+                            selectedCharacter.SetStealthy(true);
+                            selectedCharacter.SpendActionType(ActionDefinitions.ActionType.Bonus);
+                        }
+                        else if (selectedCharacter.GetActionStatus(ActionDefinitions.Id.HideBonus,
+                                     ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available)
+                        {
+                            selectedCharacter.SetStealthy(true);
+                            selectedCharacter.SpendActionType(ActionDefinitions.ActionType.Main);
+                        }
+                    }
+                    else
+                    {
+                        selectedCharacter.SetStealthy(false);
+                    }
+                }
+
+                break;
             default:
                 return;
         }
@@ -132,7 +168,7 @@ public static class InputContext
             : command.ToString();
     }
 
-    private enum InputCommandsExtra
+    internal enum InputCommandsExtra
     {
         CharacterExport = ModCommandBaseline + 1,
         DebugOverlay,
@@ -145,6 +181,9 @@ public static class InputContext
         FormationSet2,
         FormationSet3,
         FormationSet4,
-        FormationSet5
+        FormationSet5,
+        SelectCharacter5,
+        SelectCharacter6,
+        Hide
     }
 }

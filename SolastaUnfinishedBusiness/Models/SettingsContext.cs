@@ -214,6 +214,21 @@ public static class SettingsContext
         [SettingTypeKeyMapping("FormationSet5", DisplayFooter = false, SortOrder = 1035)]
         [UsedImplicitly]
         string FormationSet5 { get; set; }
+
+        //
+        // these should blend with vanilla settings
+        //
+
+        // order here matters as the sort routine will revert items in the collection if same sort order
+
+        [SettingTypeKeyMapping("SelectCharacter6", DisplayFooter = true, SortOrder = 29)]
+        string SelectCharacter6 { get; set; }
+
+        [SettingTypeKeyMapping("SelectCharacter5", DisplayFooter = true, SortOrder = 29)]
+        string SelectCharacter5 { get; set; }
+
+        [SettingTypeKeyMapping("Hide", DisplayFooter = true, SortOrder = 22)]
+        string Hide { get; set; }
     }
 
     internal sealed class InputModManager : IInputModSettingsService
@@ -231,8 +246,11 @@ public static class SettingsContext
         private string _formationSet4 = UserPreferences.GetValue("Settings/Keyboard/FormationSet4");
 
         private string _formationSet5 = UserPreferences.GetValue("Settings/Keyboard/FormationSet5");
+        private string _hide = UserPreferences.GetValue("Settings/Keyboard/Hide");
 
         private string _rejoinParty = UserPreferences.GetValue("Settings/Keyboard/RejoinParty");
+        private string _selectCharacter5 = UserPreferences.GetValue("Settings/Keyboard/SelectCharacter5");
+        private string _selectCharacter6 = UserPreferences.GetValue("Settings/Keyboard/SelectCharacter6");
 
         private string _spawnEncounter = UserPreferences.GetValue("Settings/Keyboard/SpawnEncounter");
 
@@ -361,6 +379,36 @@ public static class SettingsContext
             {
                 _formationSet5 = value;
                 UserPreferences.SetValue<string>("Settings/Keyboard/FormationSet5", _formationSet5);
+            }
+        }
+
+        public string SelectCharacter5
+        {
+            get => _selectCharacter5;
+            set
+            {
+                _selectCharacter5 = value;
+                UserPreferences.SetValue<string>("Settings/Keyboard/SelectCharacter5", _selectCharacter5);
+            }
+        }
+
+        public string SelectCharacter6
+        {
+            get => _selectCharacter6;
+            set
+            {
+                _selectCharacter6 = value;
+                UserPreferences.SetValue<string>("Settings/Keyboard/SelectCharacter6", _selectCharacter6);
+            }
+        }
+
+        public string Hide
+        {
+            get => _hide;
+            set
+            {
+                _hide = value;
+                UserPreferences.SetValue<string>("Settings/Keyboard/Hide", _hide);
             }
         }
 
