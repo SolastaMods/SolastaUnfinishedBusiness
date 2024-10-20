@@ -10,7 +10,6 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=将<color=#D89555>战士</color>
 ModUi/&AddGrappleActionToAllRaces=为所有可玩种族添加<color=#D89555>抓钩</color>动作
 ModUi/&AddHelpActionToAllRaces=为所有可玩种族添加<color=#D89555>帮助</color>动作<i><color=#F0DAA0>[你可以帮助友方生物攻击距离你5尺以内的生物]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>游侠</color>类人生物宿敌
-ModUi/&AddNewBrightEyeColors=添加新的亮色眼睛颜色
 ModUi/&AddNewWeaponsAndRecipesToShops=向商店添加新的武器和配方<i><color=#F0DAA0>[护腕、戟、长矛、长狼牙棒、手弩]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣武士</color>仅在暴击时启用至圣斩<i><color=#F0DAA0>[有助于减少反应动作提示]</color></i>
 ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<i><color=#F0DAA0>[建议<color=#D89555>扒窃</color>专长开启时启用]</color></i>
@@ -22,7 +21,6 @@ ModUi/&AllRecipesInDm=冒险中的所有配方
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序列</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=允许盟友在自然黑暗中感知<color=#D89555>Ranger GloomStalker</color>
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿<color=#D89555>森林之甲</color>或<color=#D89555>光明使者之衣</color>
-ModUi/&AllowBeardlessDwarves=允许无须<color=#D89555>矮人</color>
 ModUi/&AllowBladeCantripsToUseReach=允许<color=#D89555>剑术戏法</color>使用触及范围，而不是 5 英尺
 ModUi/&AllowClubsToBeThrown=允许将<color=#D89555>棍棒</color>像<color=#D89555>匕首</color>或<color=#D89555>手斧</color>一样投掷
 ModUi/&AllowDisplayingNonSuggestedSpells=允许在每个列表上使用 mod 非建议的法术
@@ -36,7 +34,6 @@ ModUi/&AllowHornsOnAllRaces=允许所有种族长角<i><color=#F0DAA0>[根据种
 ModUi/&AllowMoreRealStateOnRestPanel=允许在休息面板上显示更多真实状态<i><color=#F0DAA0>[在面板打开后隐藏休息动作，在面板关闭后恢复功能]</color></i>
 ModUi/&AllowStackedMaterialComponent=允许堆叠材料组件<i><color=#F0DAA0>[例如2x500gp钻石相当于1000gp钻石]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施展<color=#D89555>连锁闪电</color>法术时选择目标
-ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有起源标记和纹身
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=按<color=#1E81B0>ALT</color>键只高亮队伍视野中的可用物品<i><color=#F0DAA0>[仅限自定义地下城]</color></i>
 ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任何职业同调
 ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
@@ -93,7 +90,6 @@ ModUi/&DocsSubclasses=文档：子职
 ModUi/&DocsSubraces=文档：亚种
 ModUi/&DocsVersatilities=多功能性
 ModUi/&Donate=<b><color=#D89555>捐赠：</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=不要在图形角色上显示<color=#D89555>头盔</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DontEndTurnAfterReady=使用<color=#D89555>准备行动</color>后不要结束回合<i><color=#F0DAA0>[允许使用奖励行动或任何来自加速或其他来源的额外主要行动]</color></i>
 ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕边缘的%范围内</color></i>
@@ -134,7 +130,6 @@ ModUi/&EnableHigherGroundRules=启用夹击规则<i><color=#F0DAA0>[从高处射
 ModUi/&EnableInventoryFilteringAndSorting=启用库存过滤和排序
 ModUi/&EnableInventoryTaintNonProficientItemsRed=将英雄不擅长的任何物品染红
 ModUi/&EnableInventoryTintKnownRecipesRed=染红已知配方
-ModUi/&EnableInvisibleCrownOfTheMagister=隐藏游戏界面上的<color=#D89555>魔导师之冠</color>
 ModUi/&EnableLevel20=启用20级<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=在叙述序列期间启用日志对话到游戏控制台
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义活动中启用记录无效引用
@@ -235,7 +230,6 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>点击法术会反转消耗
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>乘以获得的经验</color><color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敌人回合时镜头永不移动</i>
 ModUi/&NoExperienceOnLevelUp=升级不需要经验
-ModUi/&OfferAdditionalLoreFriendlyNames=在角色创建时提供额外的知识友好名称
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 取消对目盲、隐形和感知到的<color=#D89555>优势/劣势</color><color=#F0DAA0>[与官方<color=#D89555>优势/劣势</color>规则结合使用]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ 将<color=#D89555>重度遮蔽</color>区域更改为射弹阻挡器<color=#F0DAA0>[<color=#D89555>死云术</color>、<color=#D89555>云雾术</color>、<color=#D89555>焚云术</color>、<color=#D89555>花瓣风暴</color>、<color=#D89555>雪雨暴</color>、<color=#D89555>臭云术</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 隐形生物被重度遮蔽，可以成为目标，针对该生物的攻击检定具有劣势，而该生物的攻击检定具有优势</i>
@@ -315,12 +309,6 @@ ModUi/&TranslateCancel=取消翻译 {0} 进度 {1}
 ModUi/&Translations=翻译
 ModUi/&UnleashEnemyAsNpc=允许在NPC小工具上选择怪物
 ModUi/&UnleashNpcAsEnemy=解锁怪物选择
-ModUi/&UnlockAllNpcFaces=解锁NPC面孔
-ModUi/&UnlockEyeStyles=解锁眼睛样式
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=解锁所有亮色的标记和纹身
-ModUi/&UnlockGlowingEyeColors=添加亮色的眼睛
-ModUi/&UnlockMarkAndTattoosForAllCharacters=解锁所有角色的<color=#D89555>术士</color>起源标记和纹身
-ModUi/&UnlockSkinColors=解锁肤色
 ModUi/&Update=<b><color=#D89555>更新</color></b>
 ModUi/&UseAlternateSpellPointsSystem=使用官方<color=#D89555>变体法术点</color>规则
 ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[你拥有随着施法者等级提升而增加的法术点数池\nL01：<color=white>04</color> L02：<color=white>06</color> L03：<color=white>14</color> L04：<color=white>17</color> L05：<color=white>27</color> L06：<color=white>32</color> L07：<color=white>38</color> L08：<color=white>44</color> L09：<color=white>57</color> L10：<color=white>64</color>\nL11：<color=white>73</color> L12：<color=white>73</color> L13：<color=white>83</color> L14：<color=white>83</color> L15：<color=white>94</color> L16：<color=white>94</color> L17：<color=white>107</color> L18：<color=white>114</color> L19：<color=white>123</color> L20：<color=white>133</color>\n施放法术的费用为 SL1：<color=white>2</color> SL2：<color=white>3</color> SL3：<color=white>5</color> SL4：<color=white>6</color> SL5：<color=white>7</color> SL6：<color=white>9</color> SL7：<color=white>10</color> SL8：<color=white>11</color> SL9：<color=white>13</color>\n在此系统下不会触发短暂休息槽恢复功能]</color></i>
@@ -336,5 +324,4 @@ ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到 2 磅
 ModUi/&UseOfficialObscurementRules=使用官方<color=#D89555>照明、遮蔽和视觉</color>战斗规则
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[能感知到防御者但无法感知到攻击者的防御者会获得 ADV，无法感知到攻击者但可以感知到防御者会获得 DIS\n 被严重遮挡的区域会造成致盲状态，对生物的攻击掷骰获得 ADV，而生物的攻击掷骰获得 DIS\n 如果攻击者没有视力，则无法施放针对个人的所有远距离法术，除了那些明确未说明需要视力的法术]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型体型种族规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
-ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&WildSurgeDieRollThreshold=<color=white>设置<color=#D89555>巫师狂野魔法</color>几率骰子阈值：</color>{0}<i><color=#F0DAA0>[如果掷出的骰子小于或等于阈值，则触发狂野涌动]</color></i>

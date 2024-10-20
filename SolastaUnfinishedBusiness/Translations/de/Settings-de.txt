@@ -10,7 +10,6 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=Aktivieren Sie <color=#D89555>K�
 ModUi/&AddGrappleActionToAllRaces=Füge die Aktion <color=#D89555>Greifen</color> zu allen spielbaren Rennen hinzu.
 ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur innerhalb einer Zelle um dich anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Ranger</color> humanoide bevorzugte Feinde
-ModUi/&AddNewBrightEyeColors=Fügen Sie neue leuchtende Augenfarben hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge neue Waffen und Rezepte zu Shops hinzu <i><color=#F0DAA0>[Handwickel, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Paladinen</color> zu erlauben, nur bei kritischen Treffern Schläge zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddPickPocketableLoot=Füge Taschendieb-Beute hinzu <i><color=#F0DAA0>[empfohlen, wenn das Talent <color=#D89555>Taschendieb</color> aktiviert ist]</color></i>
@@ -22,7 +21,6 @@ ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Alle Spieler in Erzählsequenzen zulassen</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Erlaubt Verbündeten, <color=#D89555>Ranger GloomStalker</color> in natürlicher Dunkelheit wahrzunehmen
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Sylvan-Rüstung</color> oder <color=#D89555>Lichtbringer-Kleidung</color> zu tragen
-ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
 ModUi/&AllowBladeCantripsToUseReach=Erlaube <color=#D89555>Blade Cantrips</color>, eine Reichweite statt 5 Fuß zu verwenden.
 ModUi/&AllowClubsToBeThrown=Ermöglicht das Werfen von <color=#D89555>Keulen</color> wie <color=#D89555>Dolche</color> oder <color=#D89555>Faustäxte</color>.
 ModUi/&AllowDisplayingNonSuggestedSpells=Erlaube nicht vom Mod vorgeschlagene Zauber auf jeder Liste
@@ -36,7 +34,6 @@ ModUi/&AllowHornsOnAllRaces=Erlaube Hörner bei allen Rennen <i><color=#F0DAA0>[
 ModUi/&AllowMoreRealStateOnRestPanel=Ermöglichen Sie einen realistischeren Status im Ruhebereich <i><color=#F0DAA0>[Aktionen nach Ruhe im Bereich vor dem Bereich ausblenden und Wiederherstellungsfunktionen im Bereich nach dem Bereich ausblenden]</color></i>
 ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente <i><color=#F0DAA0> zulassen[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Erlaubt Zielauswahl beim Wirken des Zaubers <color=#D89555>Kettenblitzschlag</color>
-ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Sorcerer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Ermöglichen Sie die Abstimmung von <color=#D89555>Arkaner Schildstab</color> durch jede Klasse
 ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe</color>
@@ -93,7 +90,6 @@ ModUi/&DocsSubclasses=Unterklassen
 ModUi/&DocsSubraces=Subraces
 ModUi/&DocsVersatilities=Vielseitigkeit
 ModUi/&Donate=<b><color=#D89555>Spenden:</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=Keine <color=#D89555>Helme</color> auf Grafikcharakteren anzeigen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht nach der Verwendung von <color=#D89555>Bereitschaftsaktion</color> <i><color=#F0DAA0>[ermöglicht die Verwendung von Bonusaktionen oder zusätzlichen Hauptaktionen aus Eile oder anderen Quellen]</color></i>
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
 ModUi/&DontFollowMargin=<i><color=white>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</color></i>
@@ -134,7 +130,6 @@ ModUi/&EnableHigherGroundRules=Aktivieren Sie höhere Bodenregeln <i><color=#F0D
 ModUi/&EnableInventoryFilteringAndSorting=Aktivieren Sie die Filterung und Sortierung des Inventars
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Färbe alle Gegenstände rot, mit denen der Held nicht vertraut ist
 ModUi/&EnableInventoryTintKnownRecipesRed=Bekannte Rezepte rot tönen
-ModUi/&EnableInvisibleCrownOfTheMagister=Verstecke die <color=#D89555>Krone des Magisters</color> auf der Spieloberfläche
 ModUi/&EnableLevel20=Aktivieren Sie Level 20 <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie die Protokollierung von Dialogen während Erzählsequenzen auf der Spielekonsole
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Aktivieren Sie die Protokollierung ungültiger Referenzen in benutzerdefinierten Kampagnen
@@ -235,7 +230,6 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>UMSCHALT</color>-Klick auf einen Zauber 
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplizieren Sie die gewonnene Erfahrung mit</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Die Kamera bewegt sich nie während der Züge des Gegners</i>
 ModUi/&NoExperienceOnLevelUp=Für den Levelaufstieg ist keine Erfahrung erforderlich
-ModUi/&OfferAdditionalLoreFriendlyNames=Bieten Sie bei der Charaktererstellung zusätzliche Lore-freundliche Namen an
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Abbrechen <color=#D89555>Vorteil/Nachteil</color> geblendete, unsichtbare und wahrgenommene Paare <color=#F0DAA0>[nützlich in Verbindung mit offiziellem <color=#D89555>Vorteil/Nachteil</color> Regeln]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Ändern Sie <color=#D89555>stark verdeckte</color> Bereiche in Projektilblocker <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Nebelwolke </color>, <color=#D89555>Brandwolke</color>, <color=#D89555>Blütenblattsturm</color>, <color=#D89555>Graupelsturm</color>, <color=#D89555> Stinkende Wolke</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Unsichtbare Kreaturen sind stark verdeckt und können als Ziel ausgewählt werden, Angriffswürfe gegen die Kreatur haben einen Nachteil und die Angriffswürfe der Kreatur haben einen Vorteil</i>
@@ -315,12 +309,6 @@ ModUi/&TranslateCancel=Stornieren Sie {0} um {1}
 ModUi/&Translations=Übersetzungen
 ModUi/&UnleashEnemyAsNpc=Ermöglicht die Auswahl von Monstern auf NPC-Gadgets
 ModUi/&UnleashNpcAsEnemy=Schalte die Monsterauswahl frei
-ModUi/&UnlockAllNpcFaces=Schalte NPC-Gesichter frei
-ModUi/&UnlockEyeStyles=Schalten Sie Augenstile frei
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Schalten Sie leuchtende Farben für alle Markierungen und Tätowierungen frei
-ModUi/&UnlockGlowingEyeColors=Fügen Sie leuchtende Augenfarben hinzu
-ModUi/&UnlockMarkAndTattoosForAllCharacters=Schalte <color=#D89555>Zauberer</color>-Ursprungsmarkierungen und Tätowierungen für alle Charaktere frei
-ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&Update=<b><color=#D89555>Aktualisieren</color></b>
 ModUi/&UseAlternateSpellPointsSystem=Benutze offizielle <color=#D89555>Varianten-Zauberpunkt-Regeln</color>
 ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[Sie verfügen über einen Pool an Zauberpunkten, der mit der Zauberstufe steigt\nL01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\nKosten zum Wirken von Zaubersprüchen sind SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nDie Wiederherstellungsfunktionen für kurze Ruheslots werden unter diesem System nicht ausgelöst]</color></i>
@@ -336,5 +324,4 @@ ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>
 ModUi/&UseOfficialObscurementRules=Benutze die offiziellen Kampfregeln für <color=#D89555>Beleuchtung, Verdunkelung und Sicht</color>
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[Angreifer, der wahrnimmt, Verteidiger, der es nicht wahrnehmen kann, erhält ADV, und Angreifer, der es nicht wahrnimmt, Verteidiger, der es wahrnehmen kann, erhält DIS\n stark verdeckte Bereiche verursachen den Zustand der Erblindung, wobei Angriffswürfe gegen die Kreatur ADV haben und die Angriffswürfe der Kreatur DIS\n alle Distanzzauber, die auf Einzelpersonen zielen, können nicht gewirkt werden, wenn der Angreifer keine Sicht hat, außer denen, bei denen nicht klar angegeben ist, dass Sicht erforderlich ist]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Befolgen Sie die offiziellen Regeln für <color=#D89555>kleine Rassen</color>, wenn Sie schwere Waffen einsetzen <i><color=#F0DAA0>[Ihre Angriffe haben Nachteile]</color></i>
-ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Setze den Schwellenwert für die Chance des <color=#D89555>Sorcerer Wild Magic</color>-Würfels:</color>\n<i><color=#F0DAA0>[Wild Surge wird ausgelöst, wenn der Würfel kleiner oder gleich dem Schwellenwert ist]</color></i>

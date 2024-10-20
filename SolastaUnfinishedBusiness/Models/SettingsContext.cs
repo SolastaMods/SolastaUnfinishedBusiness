@@ -83,6 +83,54 @@ public static class SettingsContext
             DisplayFooter = false)]
         [UsedImplicitly]
         float TooltipWidth { get; set; }
+
+        [SettingTypeToggle("UnlockAdditionalLoreFriendlyNames", SortOrder = 1031, DisplayFooter = false)]
+        [UsedImplicitly]
+        bool UnlockAdditionalLoreFriendlyNames { get; set; }
+
+        [SettingTypeToggle("UnlockAllNpcFaces", SortOrder = 1041, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool UnlockAllNpcFaces { get; set; }
+
+        [SettingTypeToggle("UnlockUnmarkedSorcerers", SortOrder = 1042, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool UnlockUnmarkedSorcerers { get; set; }
+
+        [SettingTypeToggle("UnlockMarkAndTattoosForAllCharacters", SortOrder = 1043, DisplayFooter = false)]
+        [UsedImplicitly]
+        bool UnlockMarkAndTattoosForAllCharacters { get; set; }
+
+        [SettingTypeToggle("UnlockEyeStyles", SortOrder = 1051, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool UnlockEyeStyles { get; set; }
+
+        [SettingTypeToggle("UnlockNewBrightEyeColors", SortOrder = 1052, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool UnlockNewBrightEyeColors { get; set; }
+
+        [SettingTypeToggle("UnlockGlowingEyeColors", SortOrder = 1053, DisplayFooter = false)]
+        [UsedImplicitly]
+        bool UnlockGlowingEyeColors { get; set; }
+
+        [SettingTypeToggle("UnlockGlowingColorsForAllMarksAndTattoos", SortOrder = 1061, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
+
+        [SettingTypeToggle("UnlockSkinColors", SortOrder = 1062, DisplayFooter = false)]
+        [UsedImplicitly]
+        bool UnlockSkinColors { get; set; }
+
+        [SettingTypeToggle("HideCrownOfMagister", SortOrder = 1071, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool HideCrownOfMagister { get; set; }
+
+        [SettingTypeToggle("HideHelmets", SortOrder = 1072, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool HideHelmets { get; set; }
+
+        [SettingTypeToggle("UnlockBeardlessDwarves", SortOrder = 1073, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool UnlockBeardlessDwarves { get; set; }
     }
 
     internal sealed class GuiModManager : IGuiModSettingsService
@@ -91,10 +139,156 @@ public static class SettingsContext
         private bool _enableCheatMenu = UserPreferences.GetValue<bool>("Settings/Gui/EnableCheatMenu");
         private bool _enablePartyToggles = UserPreferences.GetValue<bool>("Settings/Gui/EnablePartyToggles");
         private bool _enableSaveByLocation = UserPreferences.GetValue<bool>("Settings/Gui/EnableSaveByLocation");
+        private bool _hideCrownOfMagister = UserPreferences.GetValue<bool>("Settings/Gui/HideCrownOfMagister");
+        private bool _hideHelmets = UserPreferences.GetValue<bool>("Settings/Gui/HideHelmets");
         private bool _invertTooltipBehavior = UserPreferences.GetValue<bool>("Settings/Gui/InvertTooltipBehavior");
         private float _tooltipWidth = UserPreferences.GetValue<float>("Settings/Gui/TooltipWidth");
 
+        private bool _unlockAdditionalLoreFriendlyNames =
+            UserPreferences.GetValue<bool>("Settings/Gui/UnlockAdditionalLoreFriendlyNames");
+
+        private bool _unlockAllNpcFaces = UserPreferences.GetValue<bool>("Settings/Gui/UnlockAllNpcFaces");
+        private bool _unlockBeardlessDwarves = UserPreferences.GetValue<bool>("Settings/Gui/UnlockBeardlessDwarves");
+        private bool _unlockEyeStyles = UserPreferences.GetValue<bool>("Settings/Gui/UnlockEyeStyles");
+
+        private bool _unlockGlowingColorsForAllMarksAndTattoos =
+            UserPreferences.GetValue<bool>("Settings/Gui/UnlockGlowingColorsForAllMarksAndTattoos");
+
+        private bool _unlockGlowingEyeColors = UserPreferences.GetValue<bool>("Settings/Gui/UnlockGlowingEyeColors");
+
+        private bool _unlockMarkAndTattoosForAllCharacters =
+            UserPreferences.GetValue<bool>("Settings/Gui/UnlockMarkAndTattoosForAllCharacters");
+
+        private bool _unlockNewBrightEyeColors =
+            UserPreferences.GetValue<bool>("Settings/Gui/UnlockNewBrightEyeColors");
+
+        private bool _unlockSkinColors = UserPreferences.GetValue<bool>("Settings/Gui/UnlockSkinColors");
+        private bool _unlockUnmarkedSorcerers = UserPreferences.GetValue<bool>("Settings/Gui/UnlockUnmarkedSorcerers");
+
         public bool ModHeader { get; set; }
+
+        public bool HideCrownOfMagister
+        {
+            get => _hideCrownOfMagister;
+            set
+            {
+                _hideCrownOfMagister = value;
+                UserPreferences.SetValue("Settings/Gui/HideCrownOfMagister", _hideCrownOfMagister);
+            }
+        }
+
+        public bool HideHelmets
+        {
+            get => _hideHelmets;
+            set
+            {
+                _hideHelmets = value;
+                UserPreferences.SetValue("Settings/Gui/HideHelmets", _hideHelmets);
+            }
+        }
+
+        public bool UnlockBeardlessDwarves
+        {
+            get => _unlockBeardlessDwarves;
+            set
+            {
+                _unlockBeardlessDwarves = value;
+                UserPreferences.SetValue("Settings/Gui/UnlockBeardlessDwarves", _unlockBeardlessDwarves);
+            }
+        }
+
+        public bool UnlockSkinColors
+        {
+            get => _unlockSkinColors;
+            set
+            {
+                _unlockSkinColors = value;
+                UserPreferences.SetValue("Settings/Gui/UnlockSkinColors", _unlockSkinColors);
+            }
+        }
+
+        public bool UnlockGlowingColorsForAllMarksAndTattoos
+        {
+            get => _unlockGlowingColorsForAllMarksAndTattoos;
+            set
+            {
+                _unlockGlowingColorsForAllMarksAndTattoos = value;
+                UserPreferences.SetValue("Settings/Gui/UnlockGlowingColorsForAllMarksAndTattoos",
+                    _unlockGlowingColorsForAllMarksAndTattoos);
+            }
+        }
+
+        public bool UnlockGlowingEyeColors
+        {
+            get => _unlockGlowingEyeColors;
+            set
+            {
+                _unlockGlowingEyeColors = value;
+                UserPreferences.SetValue("Settings/Gui/UnlockGlowingEyeColors", _unlockGlowingEyeColors);
+            }
+        }
+
+        public bool UnlockNewBrightEyeColors
+        {
+            get => _unlockNewBrightEyeColors;
+            set
+            {
+                _unlockNewBrightEyeColors = value;
+                UserPreferences.SetValue("Settings/Gui/UnlockNewBrightEyeColors", _unlockNewBrightEyeColors);
+            }
+        }
+
+        public bool UnlockEyeStyles
+        {
+            get => _unlockEyeStyles;
+            set
+            {
+                _unlockEyeStyles = value;
+                UserPreferences.SetValue("Settings/Gui/UnlockEyeStyles", _unlockEyeStyles);
+            }
+        }
+
+        public bool UnlockMarkAndTattoosForAllCharacters
+        {
+            get => _unlockMarkAndTattoosForAllCharacters;
+            set
+            {
+                _unlockMarkAndTattoosForAllCharacters = value;
+                UserPreferences.SetValue("Settings/Gui/UnlockMarkAndTattoosForAllCharacters",
+                    _unlockMarkAndTattoosForAllCharacters);
+            }
+        }
+
+        public bool UnlockUnmarkedSorcerers
+        {
+            get => _unlockUnmarkedSorcerers;
+            set
+            {
+                _unlockUnmarkedSorcerers = value;
+                UserPreferences.SetValue("Settings/Gui/UnlockUnmarkedSorcerers", _unlockUnmarkedSorcerers);
+            }
+        }
+
+        public bool UnlockAllNpcFaces
+        {
+            get => _unlockAllNpcFaces;
+            set
+            {
+                _unlockAllNpcFaces = value;
+                UserPreferences.SetValue("Settings/Gui/UnlockAllNpcFaces", _unlockAllNpcFaces);
+            }
+        }
+
+        public bool UnlockAdditionalLoreFriendlyNames
+        {
+            get => _unlockAdditionalLoreFriendlyNames;
+            set
+            {
+                _unlockAdditionalLoreFriendlyNames = value;
+                UserPreferences.SetValue("Settings/Gui/UnlockAdditionalLoreFriendlyNames",
+                    _unlockAdditionalLoreFriendlyNames);
+            }
+        }
 
         public bool InvertTooltipBehavior
         {

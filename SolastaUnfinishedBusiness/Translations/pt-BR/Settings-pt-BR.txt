@@ -10,7 +10,6 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=Habilite <color=#D89555>Lutador<
 ModUi/&AddGrappleActionToAllRaces=Adicione a ação <color=#D89555>Agarrar</color> a todas as raças jogáveis
 ModUi/&AddHelpActionToAllRaces=Adicionada a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1 espaço de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ativar inimigos humanóides preferidos do <color=#D89555>Ranger</color>
-ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens, alabardas, lanças, maças longas, bestas manuais]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicionado um botão para permitir que <color=#D89555>Paladinos</color> ativem golpes apenas em acertos críticos <i><color=#F0DAA0>[útil para minimizar avisos de reação]</color></i>
 ModUi/&AddPickPocketableLoot=Adicionar itens que podem ser roubados <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Pickpocket</color> estiver ativado]</color></i>
@@ -22,7 +21,6 @@ ModUi/&AllRecipesInDm=Todas as receitas em DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Permitir que os aliados percebam <color=#D89555>Ranger GloomStalker</color> quando na escuridão natural
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que qualquer classe use <color=#D89555>Armadura Sylvan</color> ou <color=#D89555>Roupas Lightbringer</color>
-ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Anões</color> sem barba
 ModUi/&AllowBladeCantripsToUseReach=Permitir que <color=#D89555>Blade Cantrips</color> usem alcance em vez de 5 pés
 ModUi/&AllowClubsToBeThrown=Permitir que <color=#D89555>Clubs</color> sejam lançados como <color=#D89555>Daggers</color> ou <color=#D89555>Hand Axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Permitir mods de feitiços não sugeridos em cada lista
@@ -36,7 +34,6 @@ ModUi/&AllowHornsOnAllRaces=Permitir buzinas em todas as corridas <i><color=#F0D
 ModUi/&AllowMoreRealStateOnRestPanel=Permitir mais estado real no painel de descanso <i><color=#F0DAA0>[ocultar ações após o descanso no painel anterior e recursos de recuperação no painel posterior]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material empilhado <i><color=#F0DAA0>[por exemplo Um diamante de 2x500gp equivale a um diamante de 1000gp]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir seleção de alvo ao lançar o feitiço <color=#D89555>Chain Lightning</color>
-ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Feiticeiro</color> sem marcas de origem e tatuagens
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente masmorras personalizadas]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permitir que <color=#D89555>Cajado de Escudo Arcano</color> seja sintonizado por qualquer classe
 ModUi/&Backgrounds=<color=#F0DAA0>Planos de fundo</color>
@@ -93,7 +90,6 @@ ModUi/&DocsSubclasses=Subclasses
 ModUi/&DocsSubraces=Sub-raças
 ModUi/&DocsVersatilities=Versatilidades
 ModUi/&Donate=<b><color=#D89555>Doe:</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=Não exibir <color=#D89555>capacetes</color> em personagens gráficos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Não termine o turno após usar <color=#D89555>Ação Pronta</color> <i><color=#F0DAA0>[permite usar Ação Bônus ou quaisquer ações Principais extras de Aceleração ou outras fontes]</color></i>
 ModUi/&DontFollowCharacterInBattle=A câmera de batalha não segue quando o personagem já está na tela
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que o herói esteja desligado ou dentro de % da borda da tela</color></i>
@@ -134,7 +130,6 @@ ModUi/&EnableHigherGroundRules=Habilite regras de terreno mais alto <i><color=#F
 ModUi/&EnableInventoryFilteringAndSorting=Ativar filtragem e classificação de inventário
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Pinte de vermelho qualquer item com o qual o herói não seja proficiente
 ModUi/&EnableInventoryTintKnownRecipesRed=Tinja receitas conhecidas de vermelho
-ModUi/&EnableInvisibleCrownOfTheMagister=Oculte a <color=#D89555>Coroa do Magister</color> na UI do jogo
 ModUi/&EnableLevel20=Ativar nível 20 <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Habilite diálogos de registro no console de jogos durante sequências narrativas
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Ativar o registro de referências inválidas em campanhas personalizadas
@@ -235,7 +230,6 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clicar em um feitiço inve
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ A câmera nunca se move durante os turnos do inimigo</i>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
-ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes adicionais amigáveis à história na criação de personagens
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancelar <color=#D89555>vantagem/desvantagem</color> pares cegos, invisíveis e percebidos <color=#F0DAA0>[útil em conjunto com <color=#D89555>vantagem/desvantagem</color> oficial regras]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Alterar áreas <color=#D89555>fortemente obscurecidas</color> para serem bloqueadores de projéteis <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Fog Cloud </color>, <color=#D89555>Nuvem Incendiária</color>, <color=#D89555>Tempestade de Pétalas</color>, <color=#D89555>Tempestade de Granizo</color>, <color=#D89555> Nuvem fedorenta</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Criaturas invisíveis são fortemente obscurecidas e podem ser alvo, as jogadas de ataque contra a criatura têm desvantagem e as jogadas de ataque da criatura têm vantagem</i>
@@ -315,12 +309,6 @@ ModUi/&TranslateCancel=Cancelar {0} em {1}
 ModUi/&Translations=Traduções
 ModUi/&UnleashEnemyAsNpc=Permitir que monstros sejam selecionados em dispositivos NPC
 ModUi/&UnleashNpcAsEnemy=Desbloquear seleção de monstros
-ModUi/&UnlockAllNpcFaces=Desbloquear rostos de NPCs
-ModUi/&UnlockEyeStyles=Desbloqueie estilos de olhos
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Desbloqueie cores brilhantes para todas as marcações e tatuagens
-ModUi/&UnlockGlowingEyeColors=Adicione cores de olhos brilhantes
-ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloqueie marcas de origem e tatuagens do <color=#D89555>Feiticeiro</color> para todos os personagens
-ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&Update=<b><color=#D89555>Atualização</color></b>
 ModUi/&UseAlternateSpellPointsSystem=Use regras oficiais de <color=#D89555>pontos de feitiço variantes</color>
 ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[Você tem um conjunto de pontos de feitiço que aumenta com o nível de conjurador\nL01: <color=white>04</color> L02: <color=white>06</color> L03 : <color=branco>14</color> L04: <color=branco>17</color> L05: <color=branco>27</color> L06: <color=branco>32</color> L07: < color=branco>38</color> L08: <color=branco>44</color> L09: <color=branco>57</color> L10: <color=branco>64</color>\nL11: <color=branco>73</color> L12: <color=branco>73</color> L13: <color=branco>83</color> L14: <color=branco>83</color> L15: <cor =branco>94</color> L16: <color=branco>94</color> L17: <color=branco>107</color> L18: <color=branco>114</color> L19: <color=branco >123</color> L20: <color=white>133</color>\nO custo para lançar feitiços é SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=branco>5</color> SL4: <color=branco>6</color> SL5: <color=branco>7</color> SL6: <color=branco>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nOs recursos de recuperação de intervalos de descanso curtos não serão acionados neste sistema ]</color></i>
@@ -336,5 +324,4 @@ ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color>
 ModUi/&UseOfficialObscurementRules=Use regras oficiais de combate de <color=#D89555>iluminação, obscurecimento e visão</color>
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[o atacante que percebe o defensor que não consegue perceber recebe ADV, e o atacante que não percebe o defensor que consegue perceber recebe DIS\n áreas fortemente obscurecidas infligem condição cega, onde jogadas de ataque contra o a criatura tem ADV e as jogadas de ataque da criatura têm DIS\n todos os feitiços de distância direcionados a indivíduos não podem ser lançados se o atacante não tiver visão, exceto aqueles que claramente não declaram que a visão é necessária]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use as regras oficiais das <color=#D89555>raças pequenas</color> ao empunhar armas pesadas <i><color=#F0DAA0>[seus ataques têm desvantagem]</color></i>
-ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Definir limite de dado de chance de <color=#D89555>Magia Selvagem do Feiticeiro</color>:</color>\n<i><color=#F0DAA0>[onda selvagem é acionada se a rolagem for menor ou igual ao limite]</color></i>

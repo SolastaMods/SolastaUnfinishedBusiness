@@ -10,7 +10,6 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=Enable <color=#D89555>Fighter</c
 ModUi/&AddGrappleActionToAllRaces=Add the <color=#D89555>Grapple</color> action to all playable races
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Ranger</color> humanoid preferred enemies
-ModUi/&AddNewBrightEyeColors=Add new bright eye colors
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
 ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
@@ -22,7 +21,6 @@ ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Allow allies to perceive <color=#D89555>Ranger GloomStalker</color> when in natural darkness
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
-ModUi/&AllowBeardlessDwarves=Allow beardless <color=#D89555>Dwarves</color>
 ModUi/&AllowBladeCantripsToUseReach=Allow <color=#D89555>Blade Cantrips</color> to use reach instead of 5 ft
 ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>Clubs</color> to be thrown like <color=#D89555>Daggers</color> or <color=#D89555>Hand Axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each list
@@ -36,7 +34,6 @@ ModUi/&AllowHornsOnAllRaces=Allow horns on all races <i><color=#F0DAA0>[results 
 ModUi/&AllowMoreRealStateOnRestPanel=Allow more real state on rest panel <i><color=#F0DAA0>[hide after rest actions on before panel and recovery features on after panel]</color></i>
 ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=#F0DAA0>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=#D89555>Chain Lightning</color> spell
-ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
 ModUi/&Backgrounds=<color=#F0DAA0>Backgrounds</color>
@@ -93,7 +90,6 @@ ModUi/&DocsSubclasses=Subclasses
 ModUi/&DocsSubraces=Subraces
 ModUi/&DocsVersatilities=Versatilities
 ModUi/&Donate=<b><color=#D89555>Donate:</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=Don't display <color=#D89555>helmets</color> on graphic characters <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>Ready Action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
@@ -134,7 +130,6 @@ ModUi/&EnableHigherGroundRules=Enable higher ground rules <i><color=#F0DAA0>[+1 
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tint red any item the hero isn't proficient with
 ModUi/&EnableInventoryTintKnownRecipesRed=Tint known recipes red
-ModUi/&EnableInvisibleCrownOfTheMagister=Hide the <color=#D89555>Crown of the Magister</color> on game UI
 ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Enable logging invalid references in custom campaigns
@@ -235,7 +230,6 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts t
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Camera never moves during enemy turns</i>
 ModUi/&NoExperienceOnLevelUp=No experience is required to level up
-ModUi/&OfferAdditionalLoreFriendlyNames=Offer additional lore friendly names on character creation
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancel <color=#D89555>advantage / disadvantage</color> blinded, invisible, and perceived pairs <color=#F0DAA0>[useful in conjunction with official <color=#D89555>advantage / disadvantage</color> rules]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Change <color=#D89555>heavily obscured</color> areas to be projectile blockers <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Fog Cloud</color>, <color=#D89555>Incendiary Cloud</color>, <color=#D89555>Petal Storm</color>, <color=#D89555>Sleet Storm</color>, <color=#D89555>Stinking Cloud</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Invisible creatures are heavily obscured and can be target, attack rolls against the creature have disadvantage, and the creature's attack rolls have advantage</i>
@@ -315,12 +309,6 @@ ModUi/&TranslateCancel=Cancel {0} at {1}
 ModUi/&Translations=Translations
 ModUi/&UnleashEnemyAsNpc=Allow monsters to be selected on NPC gadgets
 ModUi/&UnleashNpcAsEnemy=Unlock monsters selection
-ModUi/&UnlockAllNpcFaces=Unlock NPC faces
-ModUi/&UnlockEyeStyles=Unlock eye styles
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all markings and tattoos
-ModUi/&UnlockGlowingEyeColors=Add glowing eye colors
-ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
-ModUi/&UnlockSkinColors=Unlock skin colors
 ModUi/&Update=<b><color=#D89555>Update</color></b>
 ModUi/&UseAlternateSpellPointsSystem=Use official <color=#D89555>variant spell points</color> rules
 ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[You have a pool of spell points that increases with caster level\nL01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\nCost to cast spells is SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nShort rest slots recovery features won't be triggered under this system]</color></i>
@@ -336,5 +324,4 @@ ModUi/&UseOfficialFoodRationsWeight=Use official <color=#D89555>food ration</col
 ModUi/&UseOfficialObscurementRules=Use official <color=#D89555>lighting, obscurement, and vision</color> combat rules
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[attacker who perceive defender who cannot perceive it gets ADV, and attacker who doesn't perceive defender who can perceive it gets DIS\n heavily obscured areas inflict blinded condition, where attack rolls against the creature have ADV, and the creature's attack rolls have DIS\n all distance spells targeting individuals cannot be cast if attacker has no sight, except for the ones that clearly don't state sight is required]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use official <color=#D89555>small races</color> rules when wielding heavy weapons <i><color=#F0DAA0>[your attacks have disadvantage]</color></i>
-ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Set <color=#D89555>Sorcerer Wild Magic</color> chance die threshold:</color>\n<i><color=#F0DAA0>[wild surge triggers if rolls less or equal threshold]</color></i>

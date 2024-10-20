@@ -10,7 +10,6 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>ファイター</
 ModUi/&AddGrappleActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>グラップル</color>アクションを追加します
 ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加します<i><color=#F0DAA0>[味方のクリーチャーが自分の1マス以内にいるクリーチャーを攻撃するのを助けることができます]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color> が好む人型の敵を有効にする
-ModUi/&AddNewBrightEyeColors=新しい明るい目の色を追加
 ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加<i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0> [再起動が必要です]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>パラディン</color> がクリティカル ヒット時の打撃のみを有効にするためのトグルを追加しました<i><color=#F0DAA0>[反応プロンプトを最小限に抑えるのに役立ちます]</color></i>
 ModUi/&AddPickPocketableLoot=スリ可能な戦利品を追加<i><color=#F0DAA0>[<color=#D89555>スリ</color>特技が有効な場合に推奨]</color></i>
@@ -22,7 +21,6 @@ ModUi/&AllRecipesInDm=すべてのレシピはDMにあります
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ すべてのプレイヤーに物語シーケンスを許可</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=自然の暗闇にいるときに味方が<color=#D89555>レンジャー グロウムストーカー</color>を感知できるようにする
 ModUi/&AllowAnyClassToWearSylvanArmor=どのクラスも<color=#D89555>森の鎧</color>または<color=#D89555>ライトブリンガーの服</color>を着用できるようにする
-ModUi/&AllowBeardlessDwarves=ひげのない<color=#D89555>ドワーフ</color>を許可する
 ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>ブレード・カントリップ</color>が5フィートではなくリーチを使用できるようにする
 ModUi/&AllowClubsToBeThrown=<color=#D89555>クラブ</color>を<color=#D89555>ダガー</color>や<color=#D89555>ハンドアックス</color>のように投げられるようになります
 ModUi/&AllowDisplayingNonSuggestedSpells=各リストで MOD 非推奨呪文を許可する
@@ -36,7 +34,6 @@ ModUi/&AllowHornsOnAllRaces=すべての種族で角を許可します <i><color
 ModUi/&AllowMoreRealStateOnRestPanel=残りのパネルでより実際の状態を許可します<i><color=#F0DAA0>[前のパネルでは休憩後のアクションを非表示にし、後のパネルでは回復機能を非表示にします]</color></i>
 ModUi/&AllowStackedMaterialComponent=スタックされたマテリアル コンポーネントを許可します<i><color=#F0DAA0>[例: 2x500gp ダイヤモンドは 1000gp ダイヤモンドに相当します]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>チェインライトニング</color>呪文を唱える際にターゲット選択を許可します
-ModUi/&AllowUnmarkedSorcerers=起源のマークやタトゥーのない<color=#D89555>魔術師</color>を許可する
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> キーはパーティの視野内のガジェットのみを強調表示します<i><color=#F0DAA0>[カスタム ダンジョンのみ]</color></i>
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>アルケイン・シールドスタッフ</color>をどのクラスでも調整できるようにする
 ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
@@ -93,7 +90,6 @@ ModUi/&DocsSubclasses=サブクラス
 ModUi/&DocsSubraces=サブレース
 ModUi/&DocsVersatilities=多用途性
 ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=グラフィック キャラクターに <color=#D89555>ヘルメット</color> を表示しない <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DontEndTurnAfterReady=<color=#D89555>準備アクション</color>を使用した後にターンを終了しない <i><color=#F0DAA0>[ボーナスアクションまたはヘイストやその他のソースからの追加のメインアクションの使用を許可する]</color></i>
 ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にある場合、戦闘カメラが追従しない
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローがオフまたは画面端の % 以内でない場合</color></i>
@@ -134,7 +130,6 @@ ModUi/&EnableHigherGroundRules=高地ルールを有効にする <i><color=#F0DA
 ModUi/&EnableInventoryFilteringAndSorting=在庫のフィルタリングと並べ替えを有効にする
 ModUi/&EnableInventoryTaintNonProficientItemsRed=主人公が習熟していないアイテムを赤く染める
 ModUi/&EnableInventoryTintKnownRecipesRed=既知のレシピを赤に着色する
-ModUi/&EnableInvisibleCrownOfTheMagister=ゲーム UI の<color=#D89555>魔術師の冠</color>を非表示にします
 ModUi/&EnableLevel20=レベル 20 <b><i><color=#C04040E0>[再起動が必要]</color></i></b> を有効にする
 ModUi/&EnableLogDialoguesToConsole=物語シーケンス中にゲームコンソールへのログダイアログを有効にする
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=カスタム キャンペーンで無効な参照のログを有効にする
@@ -235,7 +230,6 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> で呪文をクリック�
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>得られる経験値を</color> <color=#C04040E0>[%]</color>で倍増します
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敵のターン中はカメラが動かない</i>
 ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
-ModUi/&OfferAdditionalLoreFriendlyNames=キャラクター作成時に追加の伝承にわかりやすい名前を提供する
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 盲目、不可視、認識された<color=#D89555>有利 / 不利</color>のペアをキャンセル<color=#F0DAA0>[公式の<color=#D89555>有利/不利</color>と併用すると便利]ルール]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+<color=#D89555>非常に遮蔽された</color>エリアを発射物ブロッカーに変更<color=#F0DAA0>[<color=#D89555>クラウドキル</color>、<color=#D89555>フォグクラウド</color>、<color=#D89555>焼夷雲</color>、<color=#D89555>ペタルストーム</color>、<color=#D89555>みぞれの嵐</color>、<color=#D89555>臭い雲</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 目に見えないクリーチャーは大きく隠されており、対象となる可能性があり、そのクリーチャーに対する攻撃ロールは不利になり、クリーチャーの攻撃ロールは有利になります</i>
@@ -315,12 +309,6 @@ ModUi/&TranslateCancel={1} で {0} をキャンセル
 ModUi/&Translations=翻訳
 ModUi/&UnleashEnemyAsNpc=NPC ガジェットでモンスターを選択できるようにします
 ModUi/&UnleashNpcAsEnemy=モンスター選択のロックを解除する
-ModUi/&UnlockAllNpcFaces=NPCの顔のロックを解除する
-ModUi/&UnlockEyeStyles=目のスタイルのロックを解除する
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=すべてのマーキングとタトゥーの輝く色のロックを解除します
-ModUi/&UnlockGlowingEyeColors=輝く目の色を追加する
-ModUi/&UnlockMarkAndTattoosForAllCharacters=すべてのキャラクターの<color=#D89555>ソーサラー</color>のオリジンマークとタトゥーをロック解除する
-ModUi/&UnlockSkinColors=肌の色のロックを解除する
 ModUi/&Update=<b><color=#D89555>更新</color></b>
 ModUi/&UseAlternateSpellPointsSystem=公式の<color=#D89555>バリアントスペルポイント</color>ルールを使用する
 ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[呪文ポイントのプールがあり、術者レベルに応じて増加します\nL01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\n呪文を唱えるためのコストは SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nこのシステムでは、短い休憩スロットの回復機能はトリガーされません]</color></i>
@@ -336,5 +324,4 @@ ModUi/&UseOfficialFoodRationsWeight=公式の<color=#D89555>食料配給量</col
 ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>照明、遮蔽、視覚</color>戦闘ルールを使用する
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[それを知覚する攻撃者は ADV を獲得し、それを知覚しない攻撃者は DIS を獲得します。それを知覚できる防御者は DIS を獲得します\n 非常に隠された領域は盲目状態を引き起こし、クリーチャーに対する攻撃ロールには ADV が付与され、クリーチャーの攻撃ロールには DIS が付与されます\n 攻撃者に視力がない場合、個人をターゲットとするすべての遠距離呪文は発動できません。ただし、視力が必要であると明確に述べられていない呪文は除きます]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは<color=#D89555>小種族</color>の公式ルールを使用してください<i><color=#F0DAA0>[攻撃には不利]</color></i>
-ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>{0}<i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>

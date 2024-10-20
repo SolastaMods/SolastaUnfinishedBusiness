@@ -219,18 +219,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
 
-    // Visuals
-    public bool OfferAdditionalLoreFriendlyNames { get; set; }
-    public bool UnlockAllNpcFaces { get; set; }
-    public bool AllowUnmarkedSorcerers { get; set; }
-    public bool UnlockMarkAndTattoosForAllCharacters { get; set; }
-    public bool UnlockEyeStyles { get; set; }
-    public bool AddNewBrightEyeColors { get; set; }
-    public bool UnlockGlowingEyeColors { get; set; }
-    public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
-    public bool UnlockSkinColors { get; set; }
-    public bool AllowBeardlessDwarves { get; set; }
-
     //
     // Gameplay - Rules
     //
@@ -452,12 +440,10 @@ public class Settings : UnityModManager.ModSettings
     // Inventory and Items
     public bool AddCustomIconsToOfficialItems { get; set; }
     public bool DisableAutoEquip { get; set; }
-    public bool EnableCtrlClickDragToBypassQuestItemsOnDrop { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
-    public bool EnableInvisibleCrownOfTheMagister { get; set; }
-    public bool DontDisplayHelmets { get; set; }
+    public bool EnableCtrlClickDragToBypassQuestItemsOnDrop { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public bool ShowCraftedItemOnRecipeIcon { get; set; }
     public bool SwapCraftedItemAndRecipeIcons { get; set; }

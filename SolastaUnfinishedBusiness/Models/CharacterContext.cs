@@ -280,7 +280,7 @@ internal static partial class CharacterContext
 
     private static void LoadAdditionalNames()
     {
-        if (!Main.Settings.OfferAdditionalLoreFriendlyNames)
+        if (!SettingsContext.GuiModManagerInstance.UnlockAdditionalLoreFriendlyNames)
         {
             return;
         }
@@ -396,7 +396,7 @@ internal static partial class CharacterContext
     {
         var dbMorphotypeElementDefinition = DatabaseRepository.GetDatabase<MorphotypeElementDefinition>();
 
-        if (Main.Settings.UnlockSkinColors)
+        if (SettingsContext.GuiModManagerInstance.UnlockSkinColors)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(
                          x => x.Category == MorphotypeElementDefinition.ElementCategory.Skin &&
@@ -417,7 +417,7 @@ internal static partial class CharacterContext
             }
         }
 
-        if (Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos)
+        if (SettingsContext.GuiModManagerInstance.UnlockGlowingColorsForAllMarksAndTattoos)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(
                          x => x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecorationColor &&
@@ -432,7 +432,7 @@ internal static partial class CharacterContext
 
         Morphotypes.CreateBrightEyes(brightEyes);
 
-        if (!Main.Settings.AddNewBrightEyeColors)
+        if (!SettingsContext.GuiModManagerInstance.UnlockNewBrightEyeColors)
         {
             foreach (var morphotype in brightEyes)
             {
@@ -444,7 +444,7 @@ internal static partial class CharacterContext
 
         Morphotypes.CreateGlowingEyes(glowingEyes);
 
-        if (!Main.Settings.UnlockGlowingEyeColors)
+        if (!SettingsContext.GuiModManagerInstance.UnlockGlowingEyeColors)
         {
             foreach (var morphotype in glowingEyes)
             {
@@ -452,7 +452,7 @@ internal static partial class CharacterContext
             }
         }
 
-        if (Main.Settings.UnlockEyeStyles)
+        if (SettingsContext.GuiModManagerInstance.UnlockEyeStyles)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
                          x.Category == MorphotypeElementDefinition.ElementCategory.Eye))
@@ -479,7 +479,7 @@ internal static partial class CharacterContext
             }
         }
 
-        if (Main.Settings.UnlockAllNpcFaces)
+        if (SettingsContext.GuiModManagerInstance.UnlockAllNpcFaces)
         {
             HalfElf.RacePresentation.FemaleFaceShapeOptions.Add("FaceShape_NPC_Princess");
             HalfElf.RacePresentation.MaleFaceShapeOptions.Add("FaceShape_HalfElf_NPC_Bartender");
@@ -494,7 +494,7 @@ internal static partial class CharacterContext
             }
         }
 
-        if (Main.Settings.AllowBeardlessDwarves)
+        if (SettingsContext.GuiModManagerInstance.UnlockBeardlessDwarves)
         {
             Dwarf.RacePresentation.needBeard = false;
             DwarfHill.RacePresentation.needBeard = false;
@@ -505,7 +505,7 @@ internal static partial class CharacterContext
             Dwarf.RacePresentation.MaleBeardShapeOptions.Add(BeardShape_None.Name);
         }
 
-        if (Main.Settings.UnlockMarkAndTattoosForAllCharacters)
+        if (SettingsContext.GuiModManagerInstance.UnlockMarkAndTattoosForAllCharacters)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
                          x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecoration))
@@ -514,7 +514,7 @@ internal static partial class CharacterContext
             }
         }
 
-        if (!Main.Settings.AllowUnmarkedSorcerers)
+        if (!SettingsContext.GuiModManagerInstance.UnlockUnmarkedSorcerers)
         {
             return;
         }

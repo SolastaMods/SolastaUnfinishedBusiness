@@ -775,7 +775,7 @@ internal static class GameUiContext
         {
             var maleBodyPartBehaviours = itemPresentation.GetBodyPartBehaviours(CreatureSex.Male);
 
-            maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister
+            maleBodyPartBehaviours[0] = SettingsContext.GuiModManagerInstance.HideCrownOfMagister
                 ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape
                 : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
         }

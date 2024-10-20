@@ -10,7 +10,6 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>파이터</color>
 ModUi/&AddGrappleActionToAllRaces=모든 플레이 가능한 종족에 <color=#D89555>Grapple</color> 액션을 추가합니다.
 ModUi/&AddHelpActionToAllRaces=플레이 가능한 모든 종족에 <color=#D89555>도움말</color> 액션을 추가하세요. <i><color=#F0DAA0>[당신은 1셀 내의 생물을 공격하는 아군 생물을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 인간형 선호 적 활성화
-ModUi/&AddNewBrightEyeColors=새로운 밝은 눈 색깔 추가
 ModUi/&AddNewWeaponsAndRecipesToShops=상점에 새로운 무기와 제조법 추가 <i><color=#F0DAA0>[핸드 랩, 미늘창, 창, 긴 철퇴, 손 석궁]</color></i> <b><i><color=#C04040E0> [재시작 필요]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>팔라딘</color>이 치명타 시에만 강타를 활성화할 수 있도록 토글을 추가하세요. <i><color=#F0DAA0>[반응 메시지를 최소화하는 데 유용함]</color></i>
 ModUi/&AddPickPocketableLoot=소매치기 가능한 전리품 추가 <i><color=#F0DAA0>[<color=#D89555>소매치기</color> 기능이 활성화된 경우 권장]</color></i>
@@ -22,7 +21,6 @@ ModUi/&AllRecipesInDm=모든 레시피는 DM에 있어요
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 내러티브 시퀀스에서 모든 플레이어 허용</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=자연스러운 어둠 속에서 아군이 <color=#D89555>레인저 글룸스토커</color>를 인식하도록 허용합니다.
 ModUi/&AllowAnyClassToWearSylvanArmor=모든 클래스가 <color=#D89555>실반 갑옷</color> 또는 <color=#D89555>빛의 인도자 옷</color>을 착용할 수 있도록 허용합니다.
-ModUi/&AllowBeardlessDwarves=수염이 없는 <color=#D89555>드워프</color> 허용
 ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>블레이드 캔트립</color>이 5피트 대신 리치를 사용하도록 허용
 ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color>이나 <color=#D89555>손도끼</color>처럼 던질 수 있도록 허용합니다.
 ModUi/&AllowDisplayingNonSuggestedSpells=각 목록에서 Mod가 제안하지 않은 주문을 허용합니다.
@@ -36,7 +34,6 @@ ModUi/&AllowHornsOnAllRaces=모든 인종에 경적 허용 <i><color=#F0DAA0>[�
 ModUi/&AllowMoreRealStateOnRestPanel=나머지 패널에서 더 많은 실제 상태 허용 <i><color=#F0DAA0>[전 패널의 휴식 작업 후 숨기기 및 후 패널의 복구 기능]</color></i>
 ModUi/&AllowStackedMaterialComponent=스택된 재료 구성요소 허용 <i><color=#F0DAA0>[예: 2x500gp 다이아몬드는 1000gp 다이아몬드와 같습니다.]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>연쇄 번개</color> 주문 시전 시 대상 선택 허용
-ModUi/&AllowUnmarkedSorcerers=원산지 표시와 문신 없이 <color=#D89555>Sorcerer</color>를 허용합니다.
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 키만 파티 시야에 있는 가젯을 강조 표시합니다. <i><color=#F0DAA0>[사용자 정의 던전만 해당]</color></i>
 ModUi/&ArcaneShieldstaffOptions=모든 클래스가 <color=#D89555>아케인 쉴드스태프</color>를 조정할 수 있도록 허용
 ModUi/&Backgrounds=<color=#F0DAA0>배경</color>
@@ -93,7 +90,6 @@ ModUi/&DocsSubclasses=서브클래스
 ModUi/&DocsSubraces=하위 경주
 ModUi/&DocsVersatilities=다양성
 ModUi/&Donate=<b><color=#D89555>기부:</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=그래픽 캐릭터에 <color=#D89555>헬멧</color>을 표시하지 마세요 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&DontEndTurnAfterReady=<color=#D89555>준비 행동</color>을 사용한 후에 턴을 끝내지 마세요 <i><color=#F0DAA0>[서둘러서 또는 다른 출처에서 보너스 행동이나 추가 주요 행동을 사용할 수 있음]</color></i>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있으면 전투 카메라가 따라오지 않습니다.
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 꺼져 있거나 화면 가장자리의 % 내에 있지 않은 경우</color></i>
@@ -134,7 +130,6 @@ ModUi/&EnableHigherGroundRules=더 높은 지대 규칙 활성화 <i><color=#F0D
 ModUi/&EnableInventoryFilteringAndSorting=재고 필터링 및 정렬 활성화
 ModUi/&EnableInventoryTaintNonProficientItemsRed=영웅이 능숙하지 않은 모든 아이템을 빨간색으로 물들입니다.
 ModUi/&EnableInventoryTintKnownRecipesRed=알려진 레시피를 빨간색으로 틴트
-ModUi/&EnableInvisibleCrownOfTheMagister=게임 UI에서 <color=#D89555>마지스터의 왕관</color> 숨기기
 ModUi/&EnableLevel20=레벨 20 활성화 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=내러티브 시퀀스 중에 게임 콘솔에 대한 로그 대화 활성화
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=맞춤 캠페인에서 잘못된 참조 기록 활성화
@@ -235,7 +230,6 @@ ModUi/&MulticlassKeyHelp=주문을 <color=#1E81B0>SHIFT</color> 클릭하면 소
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>경험치 획득량</color> <color=#C04040E0>[%]</color> 곱하기
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 적의 턴 중에는 카메라가 움직이지 않습니다</i>
 ModUi/&NoExperienceOnLevelUp=레벨업에는 경험치가 필요하지 않습니다.
-ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 추가 지식 친화적인 이름 제공
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ <color=#D89555>장점 / 단점</color> 취소 눈먼, 보이지 않는 및 인지된 쌍 <color=#F0DAA0>[공식 <color=#D89555>장점 / 단점</color>과 함께 유용함 규칙]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ <color=#D89555>심하게 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>안개 구름 </color>, <color=#D89555>발화구름</color>, <color=#D89555>꽃잎 폭풍</color>, <color=#D89555>진눈깨비</color>, <color=#D89555> 악취나는 구름</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 투명 생물은 심하게 가려져 표적이 될 수 있으며 생물에 대한 공격 굴림에는 불리한 점이 있고 생물의 공격 굴림에는 이점이 있습니다.</i>
@@ -315,12 +309,6 @@ ModUi/&TranslateCancel={1}에 {0} 취소
 ModUi/&Translations=번역
 ModUi/&UnleashEnemyAsNpc=NPC 가젯에서 몬스터를 선택할 수 있도록 허용
 ModUi/&UnleashNpcAsEnemy=몬스터 선택 잠금 해제
-ModUi/&UnlockAllNpcFaces=NPC 얼굴 잠금 해제
-ModUi/&UnlockEyeStyles=눈 스타일 잠금 해제
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=모든 표시와 문신에 대해 빛나는 색상을 잠금 해제하세요.
-ModUi/&UnlockGlowingEyeColors=빛나는 눈 색깔 추가
-ModUi/&UnlockMarkAndTattoosForAllCharacters=모든 캐릭터의 <color=#D89555>소서러</color> 원산지 표시와 문신을 잠금 해제하세요.
-ModUi/&UnlockSkinColors=피부색 잠금 해제
 ModUi/&Update=<b><color=#D89555>업데이트</color></b>
 ModUi/&UseAlternateSpellPointsSystem=공식 <color=#D89555>변형 주문 포인트</color> 규칙을 사용하세요.
 ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[시전자 레벨에 따라 증가하는 주문 포인트 풀이 있습니다.\nL01: <color=white>04</color> L02: <color=white>06</color> L03 : <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: < color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color =white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white >123</color> L20: <color=white>133</color>\n주문 시전 비용은 SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\n이 시스템에서는 짧은 휴식 슬롯 복구 기능이 실행되지 않습니다. ]</color></i>
@@ -336,5 +324,4 @@ ModUi/&UseOfficialFoodRationsWeight=공식 <color=#D89555>식량 배급</color> 
 ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시야</color> 전투 규칙을 사용하세요.
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[인지할 수 없는 방어자를 감지한 공격자는 ADV를 얻고, 감지할 수 있는 방어자를 감지하지 못한 공격자는 DIS를 얻습니다.\n 심하게 가려진 영역은 실명 상태를 유발합니다. 생물에는 ADV가 있고 생물의 공격 굴림에는 DIS가 있습니다.\n 개인을 대상으로 하는 모든 거리 주문은 공격자가 시력이 없으면 시전할 수 없습니다. 단, 시력이 필요하다고 명확하게 명시하지 않은 주문은 제외합니다.]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족</color> 규칙을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
-ModUi/&Visuals=<color=#F0DAA0>시각적:</color> <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>마법사 야생 마법</color> 확률 주사위 임계값 설정:</color>\n<i><color=#F0DAA0>[임계값 이하로 굴리면 야생 급증이 발동]</color></i>

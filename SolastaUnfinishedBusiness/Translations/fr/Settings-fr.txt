@@ -10,7 +10,6 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=Activez <color=#D89555>Combattan
 ModUi/&AddGrappleActionToAllRaces=Ajoutez l'action <color=#D89555>Grappin</color> à toutes les races jouables
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature amie à attaquer une créature à moins d'une cellule de vous]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Activer les ennemis préférés humanoïdes <color=#D89555>Ranger</color>
-ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs d'yeux vives
 ModUi/&AddNewWeaponsAndRecipesToShops=Ajoutez de nouvelles armes et recettes aux boutiques <i><color=#F0DAA0>[enveloppements pour les mains, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Ajoutez une option permettant aux <color=#D89555>Paladins</color> d'activer uniquement les châtiments sur les coups critiques <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
 ModUi/&AddPickPocketableLoot=Ajouter du butin pickpocketable <i><color=#F0DAA0>[suggéré si la fonctionnalité <color=#D89555>Pickpocket</color> est activée]</color></i>
@@ -22,7 +21,6 @@ ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur les séquences narratives</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Permettre aux alliés de percevoir <color=#D89555>Ranger GloomStalker</color> lorsqu'ils sont dans l'obscurité naturelle
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser n'importe quelle classe à porter une <color=#D89555>armure sylvestre</color> ou des <color=#D89555>vêtements de porteur de lumière</color>
-ModUi/&AllowBeardlessDwarves=Autoriser les <color=#D89555>Nains</color> imberbes
 ModUi/&AllowBladeCantripsToUseReach=Autoriser les <color=#D89555>sorties de lame</color> à utiliser la portée au lieu de 1,50 m
 ModUi/&AllowClubsToBeThrown=Autoriser les <color=#D89555>matraques</color> à être lancées comme des <color=#D89555>dagues</color> ou des <color=#D89555>haches à main</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Autoriser les sorts mod non suggérés sur chaque liste
@@ -36,7 +34,6 @@ ModUi/&AllowHornsOnAllRaces=Autoriser les klaxons sur toutes les courses <i><col
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser davantage d'état réel sur le panneau de repos <i><color=#F0DAA0>[masquer les actions après le repos sur le panneau avant et les fonctionnalités de récupération sur le panneau après]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser les composants de matériaux empilés <i><color=#F0DAA0>[par ex. 2x500gp diamant équivaut à 1000gp diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection de cible lors du lancement du sort <color=#D89555>Chaîne d'éclairs</color>
-ModUi/&AllowUnmarkedSorcerers=Autoriser <color=#D89555>Sorcier</color> sans marques d'origine ni tatouages
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permettre au <color=#D89555>Bâton de bouclier arcanique</color> d'être harmonisé par n'importe quelle classe.
 ModUi/&Backgrounds=<color=#F0DAA0>Arrière-plans</color>
@@ -93,7 +90,6 @@ ModUi/&DocsSubclasses=Sous-classes
 ModUi/&DocsSubraces=Sous-races
 ModUi/&DocsVersatilities=Polyvalences
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
-ModUi/&DontDisplayHelmets=Ne pas afficher les <color=#D89555>casques</color> sur les personnages graphiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir utilisé <color=#D89555>Action Prête</color> <i><color=#F0DAA0>[permet d'utiliser une Action Bonus ou toute action Principale supplémentaire à partir de la Hâte ou d'autres sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à % du bord de l'écran</color></i>
@@ -134,7 +130,6 @@ ModUi/&EnableHigherGroundRules=Activer les règles de terrain plus élevées <i>
 ModUi/&EnableInventoryFilteringAndSorting=Activer le filtrage et le tri des stocks
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Teinter en rouge tout objet avec lequel le héros ne maîtrise pas
 ModUi/&EnableInventoryTintKnownRecipesRed=Teinter les recettes connues en rouge
-ModUi/&EnableInvisibleCrownOfTheMagister=Masquer la <color=#D89555>Couronne du Magister</color> sur l'interface utilisateur du jeu
 ModUi/&EnableLevel20=Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Activer les dialogues de journal sur la console de jeu pendant les séquences narratives
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Activer la journalisation des références invalides dans les campagnes personnalisées
@@ -235,7 +230,6 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour 
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La caméra ne bouge jamais pendant les tours ennemis</i>
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour passer au niveau supérieur
-ModUi/&OfferAdditionalLoreFriendlyNames=Proposer des noms supplémentaires conviviaux lors de la création de personnages
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Annuler l'<color=#D89555>avantage/inconvénient</color> les paires aveuglées, invisibles et perçues <color=#F0DAA0>[utile en conjonction avec l'<color=#D89555>avantage/inconvénient</color> officiel règles]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Remplacer les zones <color=#D89555>fortement obscurcies</color> par des bloqueurs de projectiles <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Nuage de brouillard </color>, <color=#D89555>Nuage incendiaire</color>, <color=#D89555>Tempête de pétales</color>, <color=#D89555>Tempête de grésil</color>, <color=#D89555> Nuage puant</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Les créatures invisibles sont fortement obscurcies et peuvent être ciblées, les jets d'attaque contre la créature ont un désavantage et les jets d'attaque de la créature ont un avantage</i>
@@ -315,12 +309,6 @@ ModUi/&TranslateCancel=Annuler {0} à {1}
 ModUi/&Translations=Traductions
 ModUi/&UnleashEnemyAsNpc=Autoriser la sélection de monstres sur les gadgets des PNJ
 ModUi/&UnleashNpcAsEnemy=Débloquez la sélection de monstres
-ModUi/&UnlockAllNpcFaces=Débloquez les visages des PNJ
-ModUi/&UnlockEyeStyles=Débloquez des styles d'yeux
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages et tatouages
-ModUi/&UnlockGlowingEyeColors=Ajoutez des couleurs d'yeux éclatantes
-ModUi/&UnlockMarkAndTattoosForAllCharacters=Débloquez les marques et tatouages d'origine <color=#D89555>Sorcier</color> pour tous les personnages.
-ModUi/&UnlockSkinColors=Débloquez les couleurs de peau
 ModUi/&Update=<b><color=#D89555>Mise à jour</color></b>
 ModUi/&UseAlternateSpellPointsSystem=Utiliser les règles officielles des <color=#D89555>variantes de points de sort</color>
 ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[Vous disposez d'une réserve de points de sort qui augmente avec le niveau du lanceur de sorts\nL01 : <color=white>04</color> L02 : <color=white>06</color> L03 : <color=white>14</color> L04 : <color=white>17</color> L05 : <color=white>27</color> L06 : <color=white>32</color> L07 : < color=white>38</color> L08 : <color=white>44</color> L09 : <color=white>57</color> L10 : <color=white>64</color>\nL11 : <color=white>73</color> L12 : <color=white>73</color> L13 : <color=white>83</color> L14 : <color=white>83</color> L15 : <couleur =blanc>94</color> L16 : <color=white>94</color> L17 : <color=white>107</color> L18 : <color=white>114</color> L19 : <color=blanc >123</color> L20 : <color=white>133</color>\nLe coût pour lancer des sorts est SL1 : <color=white>2</color> SL2 : <color=white>3</color> SL3 : <color=white>5</color> SL4 : <color=white>6</color> SL5 : <color=white>7</color> SL6 : <color=white>9</color> SL7 : <color=white>10</color> SL8 : <color=white>11</color> SL9 : <color=white>13</color>\nLes fonctionnalités de récupération des créneaux de repos courts ne seront pas déclenchées avec ce système ]</color></i>
@@ -336,5 +324,4 @@ ModUi/&UseOfficialFoodRationsWeight=Utilisez une <color=#D89555>ration alimentai
 ModUi/&UseOfficialObscurementRules=Utilisez les règles officielles de combat <color=#D89555>d'éclairage, d'obscurcissement et de vision</color>.
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[l'attaquant qui perçoit le défenseur qui ne peut pas le percevoir obtient l'ADV, et l'attaquant qui ne perçoit pas le défenseur qui peut le percevoir obtient le DIS\n les zones fortement obscurcies infligent un état aveuglé, où l'attaque lance un jet contre le la créature a ADV, et les jets d'attaque de la créature ont DIS\n tous les sorts à distance ciblant des individus ne peuvent pas être lancés si l'attaquant n'a pas de vue, sauf ceux qui n'indiquent clairement pas que la vue est requise]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilisez les règles officielles des <color=#D89555>petites races</color> lorsque vous maniez des armes lourdes <i><color=#F0DAA0>[vos attaques ont un désavantage]</color></i>
-ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Définissez le seuil de chances de dé de <color=#D89555>Magie sauvage du sorcier</color> :</color>\n<i><color=#F0DAA0>[la poussée sauvage se déclenche si le résultat est inférieur ou égal au seuil]</color></i>

@@ -125,7 +125,7 @@ internal static class RaceWyrmkinBuilder
 
         var caveWyrmkinRacePresentation = Dragonborn.RacePresentation.DeepCopy();
 
-        caveWyrmkinRacePresentation.preferedSkinColors = Main.Settings.UnlockSkinColors
+        caveWyrmkinRacePresentation.preferedSkinColors = SettingsContext.GuiModManagerInstance.UnlockSkinColors
             ? new RangedInt(48, 53)
             : new RangedInt(14, 14);
 
@@ -202,7 +202,7 @@ internal static class RaceWyrmkinBuilder
 
 
         highWyrmkinRacePresentation.preferedSkinColors =
-            Main.Settings.UnlockSkinColors ? new RangedInt(65, 65) : new RangedInt(11, 11);
+            SettingsContext.GuiModManagerInstance.UnlockSkinColors ? new RangedInt(65, 65) : new RangedInt(11, 11);
 
         var raceHighWyrmkin = CharacterRaceDefinitionBuilder
             .Create(characterRaceDefinition, $"Race{Name}")
@@ -459,7 +459,7 @@ internal static class RaceWyrmkinBuilder
                 actionAffinityCrystalWyrmkinCrystalDefense,
                 pointPoolCrystalWyrmkinInnateKnowledge)
             .AddToDB();
-        raceCrystalWyrmkin.RacePresentation.preferedSkinColors = Main.Settings.UnlockSkinColors
+        raceCrystalWyrmkin.RacePresentation.preferedSkinColors = SettingsContext.GuiModManagerInstance.UnlockSkinColors
             ? new RangedInt(57, 59)
             : new RangedInt(3, 5);
 

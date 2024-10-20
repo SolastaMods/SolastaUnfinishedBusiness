@@ -333,24 +333,10 @@ internal static class GameUiDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.DontDisplayHelmets;
-        if (UI.Toggle(Gui.Localize("ModUi/&DontDisplayHelmets"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DontDisplayHelmets = toggle;
-            ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
-        }
-
         toggle = Main.Settings.EnableCtrlClickDragToBypassQuestItemsOnDrop;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableCtrlClickDragToBypassQuestItemsOnDrop = toggle;
-        }
-
-        toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableInvisibleCrownOfTheMagister"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
-            GameUiContext.SwitchCrownOfTheMagister();
         }
 
         UI.Label();

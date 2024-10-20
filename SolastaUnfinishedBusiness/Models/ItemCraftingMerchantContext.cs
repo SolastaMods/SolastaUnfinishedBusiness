@@ -53,7 +53,7 @@ internal static class ItemCraftingMerchantContext
 
     private static void LoadDontDisplayHelmets()
     {
-        if (!Main.Settings.DontDisplayHelmets)
+        if (!SettingsContext.GuiModManagerInstance.HideHelmets)
         {
             return;
         }

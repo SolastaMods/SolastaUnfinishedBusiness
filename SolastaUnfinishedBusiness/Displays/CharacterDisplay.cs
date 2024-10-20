@@ -175,7 +175,6 @@ internal static class CharacterDisplay
 
             UI.Label();
             UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
-            UI.Label();
         }
 
         UI.Label();
@@ -395,76 +394,6 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueStrSaving"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRogueStrSaving = toggle;
-        }
-
-        UI.Label();
-        UI.Label(Gui.Localize("ModUi/&Visuals"));
-        UI.Label();
-
-        toggle = Main.Settings.AllowBeardlessDwarves;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowBeardlessDwarves"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowBeardlessDwarves = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
-        if (UI.Toggle(Gui.Localize("ModUi/&OfferAdditionalLoreFriendlyNames"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.OfferAdditionalLoreFriendlyNames = toggle;
-        }
-
-        toggle = Main.Settings.UnlockAllNpcFaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockAllNpcFaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UnlockAllNpcFaces = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AllowUnmarkedSorcerers;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowUnmarkedSorcerers"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowUnmarkedSorcerers = toggle;
-        }
-
-        toggle = Main.Settings.UnlockMarkAndTattoosForAllCharacters;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockMarkAndTattoosForAllCharacters"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UnlockMarkAndTattoosForAllCharacters = toggle;
-        }
-
-        toggle = Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingColorsForAllMarksAndTattoos"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.UnlockGlowingEyeColors;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockGlowingEyeColors"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UnlockGlowingEyeColors = toggle;
-        }
-
-        toggle = Main.Settings.AddNewBrightEyeColors;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddNewBrightEyeColors"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddNewBrightEyeColors = toggle;
-        }
-
-        toggle = Main.Settings.UnlockEyeStyles;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockEyeStyles"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UnlockEyeStyles = toggle;
-        }
-
-        toggle = Main.Settings.UnlockSkinColors;
-        if (UI.Toggle(Gui.Localize("ModUi/&UnlockSkinColors"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UnlockSkinColors = toggle;
         }
 
         UI.Label();
