@@ -173,6 +173,7 @@ public static class SettingsContext
             set
             {
                 _hideCrownOfMagister = value;
+                GameUiContext.SwitchCrownOfTheMagister();
                 UserPreferences.SetValue("Settings/Gui/HideCrownOfMagister", _hideCrownOfMagister);
             }
         }
@@ -364,11 +365,11 @@ public static class SettingsContext
         [SettingTypeToggle("EnableCtrlClickDragToBypassQuestItemsOnDrop", SortOrder = 901, DisplayFooter = true)]
         [UsedImplicitly]
         bool EnableCtrlClickDragToBypassQuestItemsOnDrop { get; set; }
-        
+
         [SettingTypeToggle("EnableShiftToSnapLineSpells", SortOrder = 902, DisplayFooter = false)]
         [UsedImplicitly]
         bool EnableShiftToSnapLineSpells { get; set; }
-        
+
         [SettingTypeKeyMapping("DebugOverlay", DisplayFooter = true, SortOrder = 1001)]
         [UsedImplicitly]
         string DebugOverlay { get; set; }
@@ -424,47 +425,43 @@ public static class SettingsContext
         // order here matters as the sort routine will revert items in the collection if same sort order
 
         [SettingTypeKeyMapping("SelectCharacter6", DisplayFooter = true, SortOrder = 29)]
+        [UsedImplicitly]
         string SelectCharacter6 { get; set; }
 
         [SettingTypeKeyMapping("SelectCharacter5", DisplayFooter = true, SortOrder = 29)]
+        [UsedImplicitly]
         string SelectCharacter5 { get; set; }
 
         [SettingTypeKeyMapping("Hide", DisplayFooter = true, SortOrder = 22)]
+        [UsedImplicitly]
         string Hide { get; set; }
     }
 
     internal sealed class InputModManager : IInputModSettingsService
     {
         private string _characterExport = UserPreferences.GetValue("Settings/Keyboard/CharacterExport");
-
         private string _debugOverlay = UserPreferences.GetValue("Settings/Keyboard/DebugOverlay");
 
+        private bool _enableCtrlClickDragToBypassQuestItemsOnDrop =
+            UserPreferences.GetValue<bool>("Settings/Keyboard/EnableCtrlClickDragToBypassQuestItemsOnDrop");
+
+        private bool _enableShiftToSnapLineSpells =
+            UserPreferences.GetValue<bool>("Settings/Keyboard/EnableShiftToSnapLineSpells");
+
         private string _formationSet1 = UserPreferences.GetValue("Settings/Keyboard/FormationSet1");
-
         private string _formationSet2 = UserPreferences.GetValue("Settings/Keyboard/FormationSet2");
-
         private string _formationSet3 = UserPreferences.GetValue("Settings/Keyboard/FormationSet3");
-
         private string _formationSet4 = UserPreferences.GetValue("Settings/Keyboard/FormationSet4");
-
         private string _formationSet5 = UserPreferences.GetValue("Settings/Keyboard/FormationSet5");
         private string _hide = UserPreferences.GetValue("Settings/Keyboard/Hide");
-
         private string _rejoinParty = UserPreferences.GetValue("Settings/Keyboard/RejoinParty");
         private string _selectCharacter5 = UserPreferences.GetValue("Settings/Keyboard/SelectCharacter5");
         private string _selectCharacter6 = UserPreferences.GetValue("Settings/Keyboard/SelectCharacter6");
-
         private string _spawnEncounter = UserPreferences.GetValue("Settings/Keyboard/SpawnEncounter");
-
         private string _teleportParty = UserPreferences.GetValue("Settings/Keyboard/TeleportParty");
-
         private string _toggleHud = UserPreferences.GetValue("Settings/Keyboard/ToggleHud");
-
         private string _vttCamera = UserPreferences.GetValue("Settings/Keyboard/VttCamera");
 
-        private bool _enableCtrlClickDragToBypassQuestItemsOnDrop = UserPreferences.GetValue<bool>("Settings/Keyboard/EnableCtrlClickDragToBypassQuestItemsOnDrop");
-        private bool _enableShiftToSnapLineSpells = UserPreferences.GetValue<bool>("Settings/Keyboard/EnableShiftToSnapLineSpells");
-        
         public bool ModHeader { get; set; }
 
         public bool EnableCtrlClickDragToBypassQuestItemsOnDrop
@@ -473,10 +470,12 @@ public static class SettingsContext
             set
             {
                 _enableCtrlClickDragToBypassQuestItemsOnDrop = value;
-                UserPreferences.SetValue("Settings/Keyboard/EnableCtrlClickDragToBypassQuestItemsOnDrop", _enableCtrlClickDragToBypassQuestItemsOnDrop);
+                UserPreferences.SetValue(
+                    "Settings/Keyboard/EnableCtrlClickDragToBypassQuestItemsOnDrop",
+                    _enableCtrlClickDragToBypassQuestItemsOnDrop);
             }
         }
-        
+
         public bool EnableShiftToSnapLineSpells
         {
             get => _enableShiftToSnapLineSpells;
@@ -486,7 +485,7 @@ public static class SettingsContext
                 UserPreferences.SetValue("Settings/Keyboard/EnableShiftToSnapLineSpells", _enableShiftToSnapLineSpells);
             }
         }
-        
+
         public string CharacterExport
         {
             get => _characterExport;

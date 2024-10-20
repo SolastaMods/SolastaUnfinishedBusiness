@@ -8,7 +8,7 @@ internal static class BackgroundsAndRacesDisplay
 {
     private static bool _displayTabletop;
 
-    internal static void DisplayBackgroundsAndDeities()
+    internal static void DisplayBackgroundsAndRaces()
     {
         UI.Label();
         UI.Label();

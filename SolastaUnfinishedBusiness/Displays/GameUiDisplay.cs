@@ -169,14 +169,6 @@ internal static class GameUiDisplay
             Main.Settings.EnableExtendedProficienciesPanelDisplay = toggle;
         }
 
-        UI.Label();
-
-        toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCancelEditOnRightMouseClick"), ref toggle))
-        {
-            Main.Settings.EnableCancelEditOnRightMouseClick = toggle;
-        }
-
         #endregion
 
         #region Combat
@@ -217,6 +209,12 @@ internal static class GameUiDisplay
             UI.Label();
         }
 
+        toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCancelEditOnRightMouseClick"), ref toggle))
+        {
+            Main.Settings.EnableCancelEditOnRightMouseClick = toggle;
+        }
+
         toggle = Main.Settings.EnableDistanceOnTooltip;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
         {
@@ -248,8 +246,6 @@ internal static class GameUiDisplay
             Main.Settings.HighContrastTargetingSingleSelectedColor =
                 (Main.Settings.HighContrastTargetingSingleSelectedColor + 1) % GameUiContext.HighContrastColors.Length;
         }, UI.Width(300f));
-
-        UI.Label();
 
         color = GameUiContext.GridColorStrings[Main.Settings.GridSelectedColor];
         title = Gui.Localize("ModUi/&GridSelectedColor").Replace("$$$$$$", color);

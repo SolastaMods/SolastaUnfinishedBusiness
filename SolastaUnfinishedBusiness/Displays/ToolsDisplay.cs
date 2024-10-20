@@ -125,7 +125,6 @@ internal static class ToolsDisplay
     internal static void DisplayTools()
     {
         DisplayGeneral();
-        DisplayAdventure();
         DisplaySettings();
         UI.Label();
     }
@@ -151,13 +150,8 @@ internal static class ToolsDisplay
         {
             Main.Settings.DisableUnofficialTranslations = toggle;
         }
-    }
 
-    private static void DisplayAdventure()
-    {
-        UI.Label();
-
-        var toggle = Main.Settings.EnablePcgRandom;
+        toggle = Main.Settings.EnablePcgRandom;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePcgRandom"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablePcgRandom = toggle;
@@ -184,8 +178,6 @@ internal static class ToolsDisplay
             Main.Settings.MultiplyTheExperienceGainedBy = intValue;
         }
 
-        //UI.Label();
-
         intValue = Main.Settings.OverridePartySize;
         if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
                 ToolsContext.MinPartySize, ToolsContext.MaxPartySize,
@@ -210,8 +202,6 @@ internal static class ToolsDisplay
             }
         }
 
-        //UI.Label();
-
         var floatValue = Main.Settings.FasterTimeModifier;
         if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue,
                 DefaultFastTimeModifier, 10f, DefaultFastTimeModifier, 1, string.Empty, UI.AutoWidth()))
@@ -235,17 +225,6 @@ internal static class ToolsDisplay
         }
 
         #endregion
-
-#if false
-        UI.Label();
-
-        intValue = Main.Settings.EncounterPercentageChance;
-        if (UI.Slider(Gui.Localize("ModUi/&EncounterPercentageChance"), ref intValue, 0, 100, 5, string.Empty,
-                UI.AutoWidth()))
-        {
-            Main.Settings.EncounterPercentageChance = intValue;
-        }
-#endif
 
         if (!Gui.GameCampaign)
         {
@@ -306,13 +285,12 @@ internal static class ToolsDisplay
             }, UI.Width(292f));
         }
 
-        UI.Label();
-
         if (Main.SettingsFiles.Length == 0)
         {
             return;
         }
 
+        UI.Label();
         UI.Label(Gui.Localize("ModUi/&SettingsLoad"));
         UI.Label();
 

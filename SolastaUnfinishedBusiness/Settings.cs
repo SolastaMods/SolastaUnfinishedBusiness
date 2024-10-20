@@ -160,7 +160,7 @@ public class Settings : UnityModManager.ModSettings
     public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
-    
+
     // Formation
     public int FormationGridSelectedSet { get; set; } = -1;
 
@@ -187,7 +187,7 @@ public class Settings : UnityModManager.ModSettings
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
         ]
     ];
-    
+
     //
     // Gameplay - General
     //

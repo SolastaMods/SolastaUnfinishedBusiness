@@ -5,11 +5,11 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<col
 ModUi/&AddCustomIconsToOfficialItems=公式ゲーム アイテム <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要] にカスタム アイコンを追加します。 </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>闇の知覚</color>を有効にするcolor> <i><color=#F0DAA0>\n[照明が当たっていないとき、または魔法の暗闇の下で知覚チェックで有利になる]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=敵に DEX 修飾子を追加する <color=#D89555>イニシアティブ ロール</color>
-ModUi/&AddFallProneActionToAllRaces=すべてのプレイ可能な種族に <color=#D89555>うつ伏せになる</color> アクションを追加します <i><color=#F0DAA0>[コストをかけずにうつ伏せになることができます]</color></i>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>ファイター</color>を有効にして、<color=#D89555>不屈の抵抗</color>セービングスローのリロールにボーナスとしてクラスレベルを追加します
-ModUi/&AddGrappleActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>グラップル</color>アクションを追加します
-ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加します<i><color=#F0DAA0>[味方のクリーチャーが自分の1マス以内にいるクリーチャーを攻撃するのを助けることができます]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color> が好む人型の敵を有効にする
+ModUi/&AddFallProneActionToAllRaces=すべてのクラスに <color=#D89555>うつ伏せになる</color> アクションを追加します <i><color=#F0DAA0>[コストをかけずにうつ伏せになることができます]</color></i>
+ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>不屈の抵抗</color>セーヴィングスローの再ロールにクラスレベルをボーナスとして追加します
+ModUi/&AddGrappleActionToAllRaces=すべてのクラスに<color=#D89555>グラップル</color>アクションを追加します
+ModUi/&AddHelpActionToAllRaces=すべてのクラスに <color=#D89555>ヘルプ</color> アクションを追加します <i><color=#F0DAA0>[1 セル以内のクリーチャーを攻撃する友好的なクリーチャーを支援できます]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>ヒューマノイド</color>優先敵を有効にする
 ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加<i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0> [再起動が必要です]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>パラディン</color> がクリティカル ヒット時の打撃のみを有効にするためのトグルを追加しました<i><color=#F0DAA0>[反応プロンプトを最小限に抑えるのに役立ちます]</color></i>
 ModUi/&AddPickPocketableLoot=スリ可能な戦利品を追加<i><color=#F0DAA0>[<color=#D89555>スリ</color>特技が有効な場合に推奨]</color></i>
@@ -51,7 +51,7 @@ ModUi/&ChangeSleetStormToCube=<color=#D89555>みぞれの嵐</color>を円柱の
 ModUi/&Changelog=<b><color=#D89555>変更ログ</color></b>
 ModUi/&Character=キャラクター
 ModUi/&CharactersPool=キャラクタープール
-ModUi/&Classes=<color=#F0DAA0>クラス</color>
+ModUi/&Classes=クラス
 ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>寒さに対する耐性</color>は、冷蔵および冷凍状態に対する耐性も付与します。
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>耐寒性</color>は、低温状態に対する耐性を与え、凍結状態を冷却状態に軽減します。
 ModUi/&Combat=<color=#F0DAA0>戦闘:</color>
@@ -66,7 +66,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 可能な限り最高の
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 追加のサイコロを振る代わりに、攻撃の合計ダメージが2倍になります。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>神々</color>
 ModUi/&DisableAutoEquip=インベントリ内のアイテムの自動装備を無効にする
-ModUi/&DisableBarbarianBrutalCritical=<i>+ レベル 9、13、17 で<color=#D89555>バーバリアン</color>の<b>ブルータル クリティカル</b>も無効化します</i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ レベル 9、13、17 で <b>Brutal Critical</b> も無効にします</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=この MOD によって提供される<color=#D89555>特技</color>の呪文の前提条件を無効にします<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=この MOD によって提供される<color=#D89555>特技</color>のレベルの前提条件を無効にします
 ModUi/&DisableMultilineSpellOffering=アクションバーでの複数行の呪文の提供を無効にする <i><color=#F0DAA0>[主に非マルチキャスターヒーローを使用するコントローラーユーザー向け]</color></i>
@@ -103,10 +103,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、�
 ModUi/&EnableAdditionalItemsInDungeonMaker=エディターに改造アイテムを追加する
 ModUi/&EnableAlternateHuman=代替の<color=#D89555>人間</color><i><color=#F0DAA0>[特技+1 / 属性選択+2 / スキル+1]</color></i>を有効にする
 ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i><color=#F0DAA0>[選択の重み = 投票数 * ヒーローのカリスマ修飾子]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=レベル9、13、17で<color=#D89555>バーバリアン</color>の<b>ブルータルストライク</b>と<b>ブルータルストライクの改善</b>を有効にします
-ModUi/&EnableBarbarianFightingStyle=レベル 2 で<color=#D89555>野蛮人</color>の<b>戦闘スタイル</b>の選択が可能になります
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>野蛮人</color> の<b>無謀な攻撃</b>のバフとデバフを有効にし、次のターンの開始時に終了します
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 7 で、<color=#D89555>バーバリアン</color> が短い休憩中に 1 回の <b>怒り</b> 使用を回復できるようになります。
+ModUi/&EnableBarbarianBrutalStrike=レベル9、13、17で<b>残忍な一撃</b>と<b>残忍な一撃の改善</b>を有効にする
+ModUi/&EnableBarbarianFightingStyle=レベル2で<b>戦闘スタイル</b>の選択を有効にする
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<b>無謀な攻撃</b>のバフとデバフを有効にして、次のターンの開始時に終了します
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 7 で、短い休憩中に 1 回の <b>Rage</b> 使用を回復できるようになります。
 ModUi/&EnableBardHealingBalladOnLongRest=長い休憩時に<color=#D89555>希望の吟遊詩人大学</color>の<b>癒しのバラード</b>を有効にする
 ModUi/&EnableBetaContent=ベータ コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックによるキャンセルアクションを有効にする
@@ -120,7 +120,7 @@ ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと�
 ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネル表示を有効にする <i><color=#F0DAA0>[秘術ショット、注入、マニューバー、多用途性]</color></i>\n<b><i><color=#C04040E0>[パフォーマンス]文字検査でヒットしました。ご自身の責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル 2、10、18 で<color=#D89555>特技</color>の選択を有効にします
 ModUi/&EnableFeatsAtEvenLevelsMiddle=レベル6と14で<color=#D89555>特技</color>の選択を有効にします
-ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <color=#D89555>ファイター</color> の<b>武器スペシャライゼーション</b>を有効にします<i><color=#F0DAA0>[攻撃力とダメージ力が +1 されますが、他の武器では不利になります。タイプ]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <b>武器特化</b> を有効にします <i><color=#F0DAA0>[命中とダメージが +1 になりますが、他の武器タイプでは不利になります]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[スキルとツールの習熟度を背景から選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトの代わりに能力スコア ポイントを割り当てる]</color></i>
 ModUi/&EnableGauntletMainAttacks=<color=#D89555>モンク</color>または<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合、キャラクターのメインアクションで<b>素手攻撃</b>が可能になります
@@ -133,27 +133,27 @@ ModUi/&EnableLevel20=レベル 20 <b><i><color=#C04040E0>[再起動が必要]</c
 ModUi/&EnableLogDialoguesToConsole=物語シーケンス中にゲームコンソールへのログダイアログを有効にする
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=カスタム キャンペーンで無効な参照のログを有効にする
 ModUi/&EnableMinInOutAttributes=<i>+ 前提条件の内外での能力スコアの最小値を強制する</i>
-ModUi/&EnableMonkAbundantKi=<color=#D89555>モンク</color> の<b>豊富な気力</b>をレベル 2 で有効にします<i><color=#F0DAA0>[熟練度ボーナスの切り上げの半分に等しい追加気力を獲得]</color> </i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=レベル 20 で<color=#D89555>モンク</color>の<b>肉体と精神</b>を<b>完璧な自己</b>に置き換えられるようにします
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>モンク</color>の<b>格闘技 - ボーナス素手攻撃</b>を有効にすると、使用前に攻撃アクションが不要になります。
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>モンク</color> の<b>連打</b>を有効にして、使用前に攻撃アクションを必要としないようにします
-ModUi/&EnableMonkFightingStyle=レベル 2 で<color=#D89555>モンク</color>の<b>戦闘スタイル</b>の選択が可能になります
+ModUi/&EnableMonkAbundantKi=レベル 2 で <b>豊富な気力</b> を有効にする <i><color=#F0DAA0>[熟練度ボーナスの半分を切り上げた値に等しい追加の気力を獲得]</color></i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=レベル20で<b>ボディ＆マインド</b>を<b>パーフェクトセルフ</b>と交換可能にする
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<b>格闘技 - ボーナス素手打撃</b>を有効にすると、使用前に攻撃アクションが不要になります
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<b>Flurry of Blows</b> を有効にすると、使用前に攻撃アクションが不要になります
+ModUi/&EnableMonkFightingStyle=レベル2で<b>戦闘スタイル</b>の選択を有効にする
 ModUi/&EnableMonkHandwrapsUseGauntletSlot=<color=#D89555>モンク</color>の<b>ハンドラップ</b>と<b>ガントレット</b>をガントレットスロットで機能させる
-ModUi/&EnableMonkHeightenedMetabolism=<color=#D89555>モンク</color> の<b>新陳代謝の向上</b>をレベル 10 で有効にします。 <i><color=#F0DAA0>[<b>連打</b>、<b>患者の防御力] </b> と <b>風のステップ</b> には追加のメリットが得られます]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>モンク</color> の<b>非武装での移動の改善</b>が可能になり、落下せずに垂直面に沿って移動できるようになります
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>モンク</color>の<b>優れた防御力</b>を有効にして<b>空の体</b>を置き換えます。
-ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で<color=#D89555>モンク</color>の<b>武器特化</b>を有効にします<i><color=#F0DAA0>[選択した武器タイプがモンク武器になります]</color></i>
+ModUi/&EnableMonkHeightenedMetabolism=レベル 10 で <b>代謝の強化</b> を有効にします <i><color=#F0DAA0>[<b>連打</b>、<b>忍耐強い防御</b>、<b>風のステップ</b> が追加のメリットを得ます]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<b>改良型非装甲移動</b>を有効にすると、落下せずに垂直面に沿って移動できます。
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<b>空っぽの体</b>の代わりに<b>優れた防御力</b>を有効にする
+ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で <b>武器特化</b> を有効にします <i><color=#F0DAA0>[選択した武器の種類がモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=マルチクラス <b><i><color=#C04040E0>[再起動が必要]</color></i></b> を有効にする
 ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>Cure Wounds</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> で OneDnd ヒーリング ダイス バッファーを有効にします。
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=プッシュとプルのモーション効果を上下軸でも有効にします
-ModUi/&EnableRangerNatureShroudAt10=<color=#D89555>レンジャー</color> の<b>自然のベール</b>機能をレベル 10 で有効にします<i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法のように透明になることができます。 ]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=レベル 10 で <b>自然のベール</b> 機能を有効にします <i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法的に透明になることができます]</color></i>
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップまたは呪文の選択を有効にする
 ModUi/&EnableRespec=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
-ModUi/&EnableRogueCunningStrike=<color=#D89555>ローグ</color> の<b>狡猾な攻撃</b>と<b>邪悪な攻撃</b>をレベル5とレベル14で有効にします<i><color=#F0DAA0>[1を省略します]追加のヒット効果のための急所攻撃ダイス]</color></i>
-ModUi/&EnableRogueFightingStyle=レベル 2 で<color=#D89555>ローグ</color>の<b>戦闘スタイル</b>の選択が可能になります
-ModUi/&EnableRogueSteadyAim=<color=#D89555>ローグ</color> の<b>ステディエイム</b>をレベル 3 で有効にします。<i><color=#F0DAA0>[ボーナスアクションにより、現在のターンの次の攻撃ロールで有利になります。まだ移動していません]</color></i>
-ModUi/&EnableRogueStrSaving=<color=#D89555>ローグ</color>が<b>狡猾/邪悪な一撃</b>、<b>衰弱/改善された一撃</b>、<b>刃の雹でDEXまたはSTR修正を使用できるようにします</b>
+ModUi/&EnableRogueCunningStrike=レベル 5 と 14 で <b>Cunning Strike</b> と <b>Devious Strike</b> を有効にします <i><color=#F0DAA0>[追加のヒット効果を得るために、1 つのスニーク アタック ダイスを放棄します]</color></i>
+ModUi/&EnableRogueFightingStyle=レベル2で<b>戦闘スタイル</b>の選択を有効にする
+ModUi/&EnableRogueSteadyAim=レベル 3 で <b>Steady Aim</b> を有効にします <i><color=#F0DAA0>[ボーナス アクションにより、まだ移動していない場合、現在のターンの次の攻撃ロールにアドバンテージが与えられます]</color></i>
+ModUi/&EnableRogueStrSaving=<b>狡猾な一撃/悪意ある一撃</b>、<b>衰弱/強化された一撃</b>、<b>ヘイル オブ ブレード</b>に DEX または STR の修飾子を有効にします。
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>ウィザード</color>の特徴的な呪文を<i><color=#F0DAA0>[レベル20で1回ではなく]長い休憩ごとに準備できるようにする</color></i>
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>ソーサラー</color>の<b>魔法のガイダンス</b>を有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。

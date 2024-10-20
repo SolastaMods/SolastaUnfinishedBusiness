@@ -5,11 +5,11 @@ ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555> San
 ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate agli oggetti di gioco ufficiali <i><color=#F0DAA0>[munizioni, ricette, kit, ecc.]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percettivo dell'oscurità</color> su <color=#D89555>Elfo Oscuro</color>, <color=#D89555>Coboldo Oscuro</color> e <color=#D89555>Nano Grigio</color> <i><color=#F0DAA0>\n[concede vantaggio alle prove di percezione quando spento o nell'oscurità magica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Aggiungi modificatore DEX al tiro di iniziativa dei nemici <color=#D89555>
-ModUi/&AddFallProneActionToAllRaces=Aggiungi l'azione <color=#D89555>Cadere prono</color> a tutte le razze giocabili <i><color=#F0DAA0>[puoi cadere prono senza alcun costo]</color></i>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=Abilita <color=#D89555>Guerriero</color> per aggiungere il livello di classe come bonus al tiro salvezza di <color=#D89555>Resistenza indomabile</color>
-ModUi/&AddGrappleActionToAllRaces=Aggiungi l'azione <color=#D89555>Afferrare</color> a tutte le razze giocabili
-ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze giocabili <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1 cella da te]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti umanoidi <color=#D89555>Ranger</color>
+ModUi/&AddFallProneActionToAllRaces=Aggiungi l'azione <color=#D89555>Cadere prono</color> a tutte le classi <i><color=#F0DAA0>[puoi cadere prono senza alcun costo]</color></i>
+ModUi/&AddFighterLevelToIndomitableSavingReroll=Aggiungere il livello di classe come bonus al tiro salvezza ripetuto di <b>Resistenza indomabile</b>
+ModUi/&AddGrappleActionToAllRaces=Aggiungere l'azione <color=#D89555>Lotta</color> a tutte le classi
+ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le classi <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1 cella da te]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti <b>umanoidi</b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce, alabarde, picche, mazze lunghe, balestre a mano]</color></i> <b><i><color=#C04040E0> [Richiede il riavvio]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Aggiungi un interruttore per consentire ai <color=#D89555>Paladini</color> di abilitare le punizioni solo sui colpi critici <i><color=#F0DAA0>[utile per ridurre al minimo le richieste di reazione]</color></i>
 ModUi/&AddPickPocketableLoot=Aggiungi bottino borseggiabile <i><color=#F0DAA0>[suggerito se il talento <color=#D89555>Borseggiatore</color> è abilitato]</color></i>
@@ -51,7 +51,7 @@ ModUi/&ChangeSleetStormToCube=Cambia <color=#D89555>Tempesta di nevischio</color
 ModUi/&Changelog=<b><color=#D89555>Registro modifiche</color></b>
 ModUi/&Character=Carattere
 ModUi/&CharactersPool=Piscina di personaggi
-ModUi/&Classes=<color=#F0DAA0>Classi</color>
+ModUi/&Classes=Lezioni
 ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Immunità al freddo</color> garantisce anche l'immunità alle condizioni fredde e congelate
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resistenza al freddo</color> garantisce inoltre l'immunità alla condizione di freddo e riduce il congelamento a freddo
 ModUi/&Combat=<color=#F0DAA0>Combattimento:</color>
@@ -66,7 +66,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il l
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di lanciare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinità</color>
 ModUi/&DisableAutoEquip=Disabilita l'equipaggiamento automatico degli oggetti nell'inventario
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Disabilita anche <color=#D89555>Barbaro</color> <b>Critico Brutale</b> ai livelli 9, 13 e 17</i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Disattiva anche <b>Brutal Critical</b> ai livelli 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disabilita i prerequisiti di lancio degli incantesimi sui <color=#D89555>talenti</color> forniti da questo mod <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui <color=#D89555>talenti</color> forniti da questo mod
 ModUi/&DisableMultilineSpellOffering=Disabilita l'offerta di incantesimi multi-linea sulla barra delle azioni <i><color=#F0DAA0>[principalmente per gli utenti controller che usano eroi non multicaster]</color></i>
@@ -103,10 +103,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti
 ModUi/&EnableAdditionalItemsInDungeonMaker=Aggiungi elementi modificati all'editor
 ModUi/&EnableAlternateHuman=Abilita l'<color=#D89555>Umano</color> alternativo <i><color=#F0DAA0>[+1 talento / +2 scelte di attributo / +1 abilità]</color></i>
 ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><color=#F0DAA0>[peso scelta = voti * modificatore carisma eroe]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Abilita <color=#D89555>Barbaro</color> <b>Colpo Brutale</b> e <b>Miglioramento Colpo Brutale</b> ai livelli 9, 13 e 17
-ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Barbaro</color> <b>Stile di combattimento</b> al livello 2
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <color=#D89555>Barbaro</color> <b>Attacco spericolato</b> per terminare all'inizio del turno successivo
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita <color=#D89555>Barbaro</color> e recupera un utilizzo di <b>Furia</b> durante un breve riposo al livello 7
+ModUi/&EnableBarbarianBrutalStrike=Abilita <b>Colpo Brutale</b> e <b>Miglioramento Colpo Brutale</b> ai livelli 9, 13 e 17
+ModUi/&EnableBarbarianFightingStyle=Abilita la scelta dello <b>stile di combattimento</b> al livello 2
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <b>Attacco spericolato</b> per terminare all'inizio del turno successivo
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita il recupero di un utilizzo di <b>Rabbia</b> durante un breve riposo al livello 7
 ModUi/&EnableBardHealingBalladOnLongRest=Abilita <color=#D89555>Bard College of Hope</color> <b>Ballata Curativa</b> con riposo lungo
 ModUi/&EnableBetaContent=Abilita contenuto beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
@@ -120,7 +120,7 @@ ModUi/&EnableEpicPointsAndArray=Abilita un sistema di acquisto epico da 35 punti
 ModUi/&EnableExtendedProficienciesPanelDisplay=Abilita la visualizzazione del pannello delle competenze estese <i><color=#F0DAA0>[Tiri arcani, infusioni, manovre e versatilità]</color></i>\n<b><i><color=#C04040E0>[prestazioni colpo sull'ispezione del carattere. utilizzare a proprio rischio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Abilita la selezione dei <color=#D89555>talenti</color> ai livelli 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione dei <color=#D89555>talenti</color> ai livelli 6 e 14
-ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Combattente</color> <b>specializzazione arma</b> ai livelli 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altra arma tipo]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=Abilita la <b>Specializzazione delle armi</b> ai livelli 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altro tipo di arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona abilità e competenze negli strumenti dagli sfondi]</color></i>
 ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti di abilità invece delle impostazioni razziali predefinite]</color></i>
 ModUi/&EnableGauntletMainAttacks=Consenti <b>Attacco disarmato</b> con azione principale per il personaggio se è un <color=#D89555>monaco</color> o ha <b>fasce</b> o <b>guanto</b> equipaggiati
@@ -133,27 +133,27 @@ ModUi/&EnableLevel20=Abilita il livello 20 <b><i><color=#C04040E0>[Richiede il r
 ModUi/&EnableLogDialoguesToConsole=Abilita i dialoghi di registro sulla console di gioco durante le sequenze narrative
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Abilita la registrazione dei riferimenti non validi nelle campagne personalizzate
 ModUi/&EnableMinInOutAttributes=<i>+ Applica i prerequisiti minimi di entrata e uscita dei punteggi di abilità</i>
-ModUi/&EnableMonkAbundantKi=Abilita <color=#D89555>Monaco</color> <b>Ki abbondante</b> al livello 2 <i><color=#F0DAA0>[ottieni Ki aggiuntivo pari alla metà del bonus di competenza arrotondato per eccesso]</color> </i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Abilita <color=#D89555>Mistico</color> <b>Corpo e Mente</b> per sostituire <b>Sé Perfetto</b> al livello 20
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Abilita <color=#D89555>Monaco</color> <b>Arti marziali - Colpi senz'armi bonus</b> per non richiedere un'azione di attacco prima dell'uso
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Abilita <color=#D89555>Mistico</color> <b>Raffica di Colpi</b> per non richiedere un'azione di attacco prima dell'uso
-ModUi/&EnableMonkFightingStyle=Abilita la scelta dello <color=#D89555>Mistico</color> <b>Stile di combattimento</b> al livello 2
+ModUi/&EnableMonkAbundantKi=Abilita <b>Ki abbondante</b> al livello 2 <i><color=#F0DAA0>[guadagna Ki aggiuntivo pari alla metà del bonus di competenza arrotondato per eccesso]</color></i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Abilita <b>Corpo e Mente</b> per sostituire <b>Sé Perfetto</b> al livello 20
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Abilita <b>Arti marziali - Bonus colpi senz'armi</b> per non richiedere un'azione di attacco prima dell'utilizzo
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Abilita <b>Flurry of Blows</b> per non richiedere un'azione di attacco prima dell'utilizzo
+ModUi/&EnableMonkFightingStyle=Abilita la scelta dello <b>stile di combattimento</b> al livello 2
 ModUi/&EnableMonkHandwrapsUseGauntletSlot=Abilita le <b>fasce</b> e i <b>guanti</b> del <color=#D89555>monaco</color> per funzionare nello slot del guanto
-ModUi/&EnableMonkHeightenedMetabolism=Abilita <color=#D89555>Mistico</color> <b>Metabolismo potenziato</b> al livello 10 <i><color=#F0DAA0>[<b>Raffica di colpi</b>, <b>Difesa del paziente </b> e <b>Step of the Wind</b> ottengono ulteriori vantaggi]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Abilita <color=#D89555>Mistico</color> <b>Movimento senza armatura migliorato</b> per muoversi lungo superfici verticali senza cadere
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Abilita <color=#D89555>Mistico</color> <b>Difesa superiore</b> per sostituire <b>Corpo Vuoto</b> al livello 18
-ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>specializzazione arma</b> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
+ModUi/&EnableMonkHeightenedMetabolism=Abilita <b>Metabolismo elevato</b> al livello 10 <i><color=#F0DAA0>[<b>Raffica di colpi</b>, <b>Difesa paziente</b> e <b>Passo del vento</b> ottengono ulteriori benefici]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Abilita <b>Movimento non corazzato migliorato</b> per muoverti lungo le superfici verticali senza cadere
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Abilita <b>Difesa superiore</b> per sostituire <b>Corpo vuoto</b> al livello 18
+ModUi/&EnableMonkWeaponSpecialization=Abilita la <b>Specializzazione delle armi</b> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Abilita il potenziamento dei dadi di guarigione OneDnd su <color=#D89555> Cura ferite</color>, <color=#D89555> Parola curativa</color>, <color=#D89555> Cura ferite di massa</color> e <color= #D89555>Parola di guarigione di massa</color>
 ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Abilita gli effetti di movimento push e pull per funzionare anche sull'asse su/giù
-ModUi/&EnableRangerNatureShroudAt10=Abilita la funzione <color=#D89555>Ranger</color> <b>Velo della Natura</b> al livello 10 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo ]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Abilita la funzione <b>Velo della Natura</b> al livello 10 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo]</color></i>
 ModUi/&EnableRelearnSpells=Abilita la selezione di trucchetti o incantesimi già appresi da altre fonti
 ModUi/&EnableRespec=Abilita <color=#D89555>RESPEC</color> dopo l'azione di riposo <i><color=#F0DAA0>[non usare RESPEC durante una sessione multigiocatore]</color></i>
-ModUi/&EnableRogueCunningStrike=Abilita <color=#D89555>Ladro</color> <b>Colpo astuto</b> e <b>Colpo subdolo</b> ai livelli 5 e 14 <i><color=#F0DAA0>[hai lasciato rinunciare 1 dadi di attacco furtivo per effetti di colpo aggiuntivi]</color></i>
-ModUi/&EnableRogueFightingStyle=Abilita la scelta dello <color=#D89555>Ladro</color> <b>Stile di combattimento</b> al livello 2
-ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Ladro</color> <b>Mira costante</b> al livello 3 <i><color=#F0DAA0>[l'azione bonus dà vantaggio al tuo prossimo tiro per colpire nel turno corrente se hai non ancora spostato]</color></i>
-ModUi/&EnableRogueStrSaving=Abilita <color=#D89555>Ladro</color> per usare i modificatori DEX o FOR su <b>Colpo astuto/subdolo</b>, <b>Colpo debilitante/migliorato</b> e <b>Pianta di lame </b>
+ModUi/&EnableRogueCunningStrike=Abilita <b>Colpo astuto</b> e <b>Colpo subdolo</b> ai livelli 5 e 14 <i><color=#F0DAA0>[rinuncia a 1 dado di attacco furtivo per effetti di colpo aggiuntivi]</color></i>
+ModUi/&EnableRogueFightingStyle=Abilita la scelta dello <b>stile di combattimento</b> al livello 2
+ModUi/&EnableRogueSteadyAim=Abilita <b>Mira Fissa</b> al livello 3 <i><color=#F0DAA0>[l'azione bonus fornisce vantaggio al tuo prossimo tiro di attacco nel turno corrente se non ti sei ancora mosso]</color></i>
+ModUi/&EnableRogueStrSaving=Abilita i modificatori DEX o STR su <b>Colpo astuto/subdolo</b>, <b>Colpo debilitante/migliorato</b> e <b>Grandine di lame</b>
 ModUi/&EnableSignatureSpellsRelearn=Abilita gli incantesimi distintivi <color=#D89555>Mago</color> da preparare ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Stregone</color> <b>Guida magica</b> al livello 5
 ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo accelerato</color> per consentire il lancio dell'incantesimo di azione principale con metamagia accelerata applicata

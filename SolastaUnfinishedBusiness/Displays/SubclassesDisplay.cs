@@ -11,14 +11,8 @@ internal static class SubclassesDisplay
     {
         UI.Label();
 
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton("Classes Docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Classes.md"), UI.Width(200f));
-            20.Space();
-            UI.ActionButton("Subclasses Docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Subclasses.md"), UI.Width(200f));
-        }
+        UI.ActionButton("Sub Classes Docs".Bold().Khaki(),
+            () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(200f));
 
         UI.Label();
 

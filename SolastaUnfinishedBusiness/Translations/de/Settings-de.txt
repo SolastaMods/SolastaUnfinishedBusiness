@@ -5,11 +5,11 @@ ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blut
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness Perceptive</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> und <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[Gewährt Vorteil bei Wahrnehmungsprüfungen, wenn es nicht beleuchtet ist oder sich in magischer Dunkelheit befindet]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=DEX-Modifikator zu Feinden hinzufügen <color=#D89555>Initiative Roll</color>
-ModUi/&AddFallProneActionToAllRaces=Füge die Aktion <color=#D89555>In den Bauch fallen</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[du kannst kostenlos in den Bauch fallen]</color></i>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=Aktivieren Sie <color=#D89555>Kämpfer</color>, um die Klassenstufe als Bonus zur Wiederholung des <color=#D89555>Unbezwingbaren Widerstands</color>-Rettungswurfs hinzuzufügen
-ModUi/&AddGrappleActionToAllRaces=Füge die Aktion <color=#D89555>Greifen</color> zu allen spielbaren Rennen hinzu.
-ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur innerhalb einer Zelle um dich anzugreifen]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Ranger</color> humanoide bevorzugte Feinde
+ModUi/&AddFallProneActionToAllRaces=Füge allen Klassen die Aktion <color=#D89555>In die Hocke fallen</color> hinzu <i><color=#F0DAA0>[Du kannst kostenlos in die Hocke fallen]</color></i>
+ModUi/&AddFighterLevelToIndomitableSavingReroll=Füge die Klassenstufe als Bonus zur Wiederholung des Rettungswurfs für <b>Unbezwingbaren Widerstand</b> hinzu
+ModUi/&AddGrappleActionToAllRaces=Fügen Sie allen Klassen die Aktion <color=#D89555>Greifen</color> hinzu
+ModUi/&AddHelpActionToAllRaces=Füge allen Klassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur innerhalb von 1 Zelle von dir anzugreifen]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Aktivieren Sie <b>Humanoide</b> bevorzugte Feinde
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge neue Waffen und Rezepte zu Shops hinzu <i><color=#F0DAA0>[Handwickel, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Paladinen</color> zu erlauben, nur bei kritischen Treffern Schläge zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddPickPocketableLoot=Füge Taschendieb-Beute hinzu <i><color=#F0DAA0>[empfohlen, wenn das Talent <color=#D89555>Taschendieb</color> aktiviert ist]</color></i>
@@ -51,7 +51,7 @@ ModUi/&ChangeSleetStormToCube=Ändern Sie <color=#D89555>Seet Storm</color>, um 
 ModUi/&Changelog=<b><color=#D89555>Änderungsprotokoll</color></b>
 ModUi/&Character=Charakter
 ModUi/&CharactersPool=Zeichenpool
-ModUi/&Classes=<color=#F0DAA0>Klassen</color>
+ModUi/&Classes=Klassen
 ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Kälteimmunität</color> gewährt auch Immunität gegen gekühlte und gefrorene Bedingungen
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Kälteresistenz</color> gewährt außerdem Immunität gegen den gekühlten Zustand und reduziert den Zustand „gefroren“ auf „gekühlt“.
 ModUi/&Combat=<color=#F0DAA0>Kampf:</color>
@@ -66,7 +66,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: Wirf alle Schadenswürfe
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Verdoppeln Sie den Gesamtschaden Ihres Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Gottheiten</color>
 ModUi/&DisableAutoEquip=Deaktivieren Sie die automatische Ausrüstung von Gegenständen im Inventar
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Deaktivieren Sie außerdem <color=#D89555>Barbar</color> <b>Brutal Critical</b> auf den Stufen 9, 13 und 17</i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Deaktivieren Sie außerdem <b>Brutal Critical</b> auf den Stufen 9, 13 und 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Deaktivieren Sie die Zaubervoraussetzungen für <color=#D89555>Talente</color>, die von diesem Mod bereitgestellt werden <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Levelvoraussetzungen für die von diesem Mod bereitgestellten <color=#D89555>Talente</color>.
 ModUi/&DisableMultilineSpellOffering=Deaktivieren Sie das Anbieten von mehrzeiligen Zaubersprüchen in der Aktionsleiste <i><color=#F0DAA0>[hauptsächlich für Controller-Benutzer, die Helden ohne Multicaster verwenden]</color></i>
@@ -103,10 +103,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für 
 ModUi/&EnableAdditionalItemsInDungeonMaker=Modifizierte Elemente zum Editor hinzufügen
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen <color=#D89555>Mensch</color> <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
 ModUi/&EnableAlternateVotingSystem=Aktivieren Sie das alternative Abstimmungssystem <i><color=#F0DAA0>[choiceweight = votes * hero Charisma modifier]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Barbar</color> <b>Brutal Strike</b> und <b>Brutal Strike Improvement</b> auf den Stufen 9, 13 und 17
-ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie die Stärkung und Schwächung von <color=#D89555>Barbar</color> <b>Rücksichtsloser Angriff</b>, damit sie zu Beginn der nächsten Runde endet
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Aktivieren Sie <color=#D89555>Barbaren</color>, um auf Stufe 7 während einer kurzen Pause eine <b>Wut</b>-Anwendung zurückzugewinnen
+ModUi/&EnableBarbarianBrutalStrike=Aktiviere <b>Brutal Strike</b> und <b>Brutal Strike Improvement</b> auf den Leveln 9, 13 und 17.
+ModUi/&EnableBarbarianFightingStyle=Aktiviere die Auswahl des <b>Kampfstils</b> auf Stufe 2.
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie den Buff und Debuff von <b>Reckless Attack</b>, um ihn zu Beginn der nächsten Runde zu beenden.
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Aktiviere die Wiedererlangung einer <b>Wut</b>-Anwendung während einer kurzen Pause auf Level 7
 ModUi/&EnableBardHealingBalladOnLongRest=Aktiviere <color=#D89555>Bard College of Hope</color> <b>Heilende Ballade</b> bei langer Pause
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen per Rechtsklick aktivieren
@@ -120,7 +120,7 @@ ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem
 ModUi/&EnableExtendedProficienciesPanelDisplay=Aktivieren Sie die Anzeige der erweiterten Kompetenzen <i><color=#F0DAA0>[Arkane Schüsse, Infusionen, Manöver und Vielseitigkeiten]</color></i>\n<b><i><color=#C04040E0>[Leistung Treffer bei der Charakterinspektion. Nutzung auf eigene Gefahr]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Auswahl von <color=#D89555>Talenten</color> auf den Stufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktiviere die Auswahl von <color=#D89555>Fähigkeiten</color> auf den Stufen 6 und 14.
-ModUi/&EnableFighterWeaponSpecialization=Aktivieren Sie <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf den Stufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, aber einen Nachteil bei jeder anderen Waffe Typ]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=Aktivieren Sie die <b>Waffenspezialisierung</b> auf den Stufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, sind Sie jedoch bei allen anderen Waffentypen im Nachteil]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[wählen Sie Fähigkeiten und Werkzeugkenntnisse aus Hintergründen aus]</color></i>
 ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[Weisen Sie Fähigkeitspunktepunkte anstelle der Rassenstandards zu]</color></i>
 ModUi/&EnableGauntletMainAttacks=Erlaube <b>Unbewaffneten Angriff</b> mit Hauptaktion für den Charakter, wenn dieser ein <color=#D89555>Mönch</color> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet hat
@@ -133,27 +133,27 @@ ModUi/&EnableLevel20=Aktivieren Sie Level 20 <b><i><color=#C04040E0>[Neustart er
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie die Protokollierung von Dialogen während Erzählsequenzen auf der Spielekonsole
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Aktivieren Sie die Protokollierung ungültiger Referenzen in benutzerdefinierten Kampagnen
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestfähigkeitswerte für die Teilnahme und den Abschluss von Vorbedingungen durchsetzen</i>
-ModUi/&EnableMonkAbundantKi=Aktivieren Sie <color=#D89555>Mönch</color> <b>reichlich vorhandenes Ki</b> auf Stufe 2 <i><color=#F0DAA0>[Sie erhalten zusätzliches Ki, das der Hälfte des aufgerundeten Fähigkeitsbonus entspricht]</color> </i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Aktiviere <color=#D89555>Mönch</color> <b>Körper und Geist</b>, um <b>Perfektes Selbst</b> auf Stufe 20 zu ersetzen
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Aktivieren Sie <color=#D89555>Mönch</color> <b>Kampfkunst – Bonus für unbewaffnete Schläge</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Aktivieren Sie <color=#D89555>Mönch</color> <b>Flurry of Blows</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist
-ModUi/&EnableMonkFightingStyle=Aktiviere die Wahl des <color=#D89555>Mönchs</color> <b>Kampfstils</b> auf Stufe 2
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=Aktivieren Sie <color=#D89555>Mönchs</color>-<b>Handwickel</b> und <b>Stulpen</b>, damit diese im Stulpenschlitz funktionieren
-ModUi/&EnableMonkHeightenedMetabolism=Aktiviere <color=#D89555>Mönch</color> <b>Erhöhter Stoffwechsel</b> auf Stufe 10 <i><color=#F0DAA0>[<b>Schlaghagel</b>, <b>Geduldige Verteidigung </b> und <b>Schritt des Windes</b> erhalten zusätzliche Vorteile]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Aktivieren Sie <color=#D89555>Mönch</color> <b>Verbesserte ungepanzerte Bewegung</b>, um sich entlang vertikaler Flächen zu bewegen, ohne zu fallen
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Aktivieren Sie <color=#D89555>Mönch</color> <b>Überlegene Verteidigung</b>, um <b>Leeren Körper</b> auf Stufe 18 zu ersetzen
-ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf den Stufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
+ModUi/&EnableMonkAbundantKi=Aktiviere <b>Reichlich Ki</b> auf Level 2 <i><color=#F0DAA0>[erhalte zusätzliches Ki in Höhe der Hälfte des aufgerundeten Kompetenzbonus]</color></i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Aktiviere <b>Körper und Geist</b>, um <b>Perfektes Selbst</b> auf Stufe 20 zu ersetzen.
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Aktivieren Sie <b>Kampfkunst – Bonus für unbewaffnete Schläge</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist.
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Aktivieren Sie <b>Flurry of Blows</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist.
+ModUi/&EnableMonkFightingStyle=Aktiviere die Auswahl des <b>Kampfstils</b> auf Stufe 2.
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Aktivieren Sie <color=#D89555>Mönch</color>-<b>Handwickel</b> und <b>Stulpen</b>, damit diese im Stulpenschlitz funktionieren
+ModUi/&EnableMonkHeightenedMetabolism=Aktiviere <b>Erhöhten Stoffwechsel</b> auf Stufe 10 <i><color=#F0DAA0>[<b>Schlaghagel</b>, <b>Geduldige Verteidigung</b> und <b>Schritt des Windes</b> erhalten zusätzliche Vorteile]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Aktivieren Sie die <b>Verbesserte Bewegung ohne Panzerung</b>, um sich an vertikalen Oberflächen zu bewegen, ohne zu fallen.
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Aktiviere <b>Überlegene Verteidigung</b>, um <b>Leeren Körper</b> auf Level 18 zu ersetzen.
+ModUi/&EnableMonkWeaponSpecialization=Aktiviere <b>Waffenspezialisierung</b> auf den Stufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie Multiclass <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Aktiviere den OneDnd-Heilwürfel-Buf für <color=#D89555>Wunden heilen</color>, <color=#D89555>Heilendes Wort</color>, <color=#D89555>Massenhafte Wunden heilen</color> und <color=#D89555>Massenhaftes Heilendes Wort</color>
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Aktivieren Sie Push- und Pull-Bewegungseffekte, damit diese auch auf der Auf-/Ab-Achse funktionieren
-ModUi/&EnableRangerNatureShroudAt10=Aktiviere die Funktion <color=#D89555>Waldläufer</color> <b>Naturschleier</b> auf Stufe 10 <i><color=#F0DAA0>[als Bonusaktion kannst du bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden ]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Aktivieren Sie die Funktion <b>Nature's Veil</b> auf Stufe 10 <i><color=#F0DAA0>[als Bonusaktion können Sie bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden]</color></i>
 ModUi/&EnableRelearnSpells=Aktivieren Sie die Auswahl von Cantrips oder Zaubersprüchen, die bereits aus anderen Quellen gelernt wurden
 ModUi/&EnableRespec=Aktivieren Sie <color=#D89555>RESPEC</color> nach der Rest-Aktion <i><color=#F0DAA0>[RESPEC nicht während einer Multiplayer-Sitzung verwenden]</color></i>
-ModUi/&EnableRogueCunningStrike=Aktivieren Sie <color=#D89555>Rogue</color> <b>Cunning Strike</b> und <b>Devious Strike</b> auf Level 5 und 14 <i><color=#F0DAA0>[Sie lassen auf 1 verzichten Schleichangriffswürfel für zusätzliche Treffereffekte]</color></i>
-ModUi/&EnableRogueFightingStyle=Aktivieren Sie die Wahl des <color=#D89555>Schurken</color> <b>Kampfstils</b> auf Stufe 2
-ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Rogue</color> <b>Steady Aim</b> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft Ihnen einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie Haven haben Noch nicht verschoben]</color></i>
-ModUi/&EnableRogueStrSaving=Aktivieren Sie <color=#D89555>Schurke</color>, um DEX- oder STR-Modifikatoren für <b>Listiger/hinterhältiger Schlag</b>, <b>Schwächender/verbesserter Schlag</b> und <b>Klingenhagel zu verwenden </b>
+ModUi/&EnableRogueCunningStrike=Aktiviere <b>Cunning Strike</b> und <b>Devious Strike</b> auf den Leveln 5 und 14 <i><color=#F0DAA0>[du lässt auf 1 Schleichangriffswürfel für zusätzliche Treffereffekte verzichten]</color></i>
+ModUi/&EnableRogueFightingStyle=Aktiviere die Auswahl des <b>Kampfstils</b> auf Stufe 2.
+ModUi/&EnableRogueSteadyAim=Aktivieren Sie <b>Zielen auf gleicher Stufe</b> <i><color=#F0DAA0>[Bonusaktion verschafft einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sich noch nicht bewegt haben]</color></i>
+ModUi/&EnableRogueStrSaving=Aktiviere DEX- oder STR-Modifikatoren für <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b> und <b>Hail of Blades</b>
 ModUi/&EnableSignatureSpellsRelearn=Aktivieren Sie <color=#D89555>Zauberer</color>-Signaturzauber, die bei jeder langen Pause <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i> vorbereitet werden
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Zauberer</color> <b>Magische Führung</b> auf Stufe 5
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.

@@ -5,11 +5,11 @@ ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangr
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munições, receitas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Ative <color=#D89555>Darkness Perceptive</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicionado modificador de DES aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
-ModUi/&AddFallProneActionToAllRaces=Adicione a ação <color=#D89555>Cair De bruços</color> a todas as raças jogáveis ​​<i><color=#F0DAA0>[você pode cair de bruços sem custo]</color></i>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=Habilite <color=#D89555>Lutador</color> para adicionar o nível de classe como um bônus na nova rolagem do teste de resistência de <color=#D89555>Resistência Indomável</color>
-ModUi/&AddGrappleActionToAllRaces=Adicione a ação <color=#D89555>Agarrar</color> a todas as raças jogáveis
-ModUi/&AddHelpActionToAllRaces=Adicionada a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1 espaço de você]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Ativar inimigos humanóides preferidos do <color=#D89555>Ranger</color>
+ModUi/&AddFallProneActionToAllRaces=Adicione a ação <color=#D89555>Cair Prostrado</color> a todas as classes <i><color=#F0DAA0>[você pode cair prostrado sem custo]</color></i>
+ModUi/&AddFighterLevelToIndomitableSavingReroll=Adicione o nível de classe como um bônus para a nova jogada de resistência de <color=#D89555>Resistência Indomável</color>
+ModUi/&AddGrappleActionToAllRaces=Adicione a ação <color=#D89555>Grapple</color> a todas as classes
+ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajudar</color> a todas as classes <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura dentro de 1 célula de você]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar inimigos preferenciais <color=#D89555>Humanoides</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens, alabardas, lanças, maças longas, bestas manuais]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicionado um botão para permitir que <color=#D89555>Paladinos</color> ativem golpes apenas em acertos críticos <i><color=#F0DAA0>[útil para minimizar avisos de reação]</color></i>
 ModUi/&AddPickPocketableLoot=Adicionar itens que podem ser roubados <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Pickpocket</color> estiver ativado]</color></i>
@@ -51,7 +51,7 @@ ModUi/&ChangeSleetStormToCube=Altere <color=#D89555>Sleet Storm</color> para usa
 ModUi/&Changelog=<b><color=#D89555>Registro de alterações</color></b>
 ModUi/&Character=Personagem
 ModUi/&CharactersPool=Conjunto de personagens
-ModUi/&Classes=<color=#F0DAA0>Aulas</color>
+ModUi/&Classes=Aulas
 ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Imunidade ao Frio</color> também concede imunidade a condições de resfriamento e congelamento
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resistência ao Frio</color> também concede imunidade à condição de resfriado e reduz a condição de congelado a resfriado
 ModUi/&Combat=<color=#F0DAA0>Combate:</color>
@@ -66,7 +66,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continue jogando novamen
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Dobre o dano total do seu ataque em vez de lançar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divindades</color>
 ModUi/&DisableAutoEquip=Desative o equipamento automático de itens no inventário
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Desative também <color=#D89555>Bárbaro</color> <b>Brutal Critical</b> nos níveis 9, 13 e 17</i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Também desabilite <b>Brutal Critical</b> nos níveis 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desative os pré-requisitos de lançamento de feitiço em <color=#D89555>talentos</color> fornecidos por este mod <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível em <color=#D89555>talentos</color> fornecidos por este mod
 ModUi/&DisableMultilineSpellOffering=Desabilitar oferta de magia multi-linha na barra de ação <i><color=#F0DAA0>[principalmente para usuários de controle que usam heróis não multicaster]</color></i>
@@ -103,10 +103,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampame
 ModUi/&EnableAdditionalItemsInDungeonMaker=Adicione itens modificados ao Editor
 ModUi/&EnableAlternateHuman=Habilite o <color=#D89555>Humano</color> <i><color=#F0DAA0>[+1 talento / +2 escolhas de atributos / +1 habilidade] alternativo]</color></i>
 ModUi/&EnableAlternateVotingSystem=Ativar sistema de votação alternativo <i><color=#F0DAA0>[peso da escolha = votos * modificador de carisma do herói]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Habilite <color=#D89555>Bárbaro</color> <b>Golpe Brutal</b> e <b>Melhoria de Ataque Brutal</b> nos níveis 9, 13 e 17
-ModUi/&EnableBarbarianFightingStyle=Habilite a escolha do <color=#D89555>Bárbaro</color> <b>Estilo de Luta</b> no nível 2
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Ative o buff e o debuff do <color=#D89555>Bárbaro</color> <b>Ataque Imprudente</b> para terminar no início do próximo turno
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Habilitar <color=#D89555>Bárbaro</color> para recuperar um uso de <b>Fúria</b> durante um descanso curto no nível 7
+ModUi/&EnableBarbarianBrutalStrike=Habilitar <b>Golpe Brutal</b> e <b>Melhoria do Golpe Brutal</b> nos níveis 9, 13 e 17
+ModUi/&EnableBarbarianFightingStyle=Habilitar a escolha de <b>Estilo de Luta</b> no nível 2
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar o bônus e o debuff <b>Reckless Attack</b> para terminar no início do próximo turno
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Habilitar recuperar um uso de <b>Fúria</b> durante um descanso curto no nível 7
 ModUi/&EnableBardHealingBalladOnLongRest=Ative a <color=#D89555>Bard College of Hope</color> <b>Healing Ballad</b> no descanso longo
 ModUi/&EnableBetaContent=Ativar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite ações de cancelamento com clique direito do mouse
@@ -120,7 +120,7 @@ ModUi/&EnableEpicPointsAndArray=Habilite um sistema e matriz de compra épico de
 ModUi/&EnableExtendedProficienciesPanelDisplay=Ative a exibição do painel de proficiências estendidas <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[desempenho acertar na inspeção do personagem. use por sua conta e risco]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Ative a seleção de <color=#D89555>talentos</color> nos níveis 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Ative a seleção de <color=#D89555>talentos</color> nos níveis 6 e 14
-ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Fighter</color> <b>Especialização em Armas</b> nos níveis 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas tenha desvantagem com qualquer outra arma tipo]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=Habilite <b>Especialização em Armas</b> nos níveis 8 e 16 <i><color=#F0DAA0>[receba +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite planos de fundo flexíveis <i><color=#F0DAA0>[selecione habilidades e proficiências em ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Habilite corridas flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
 ModUi/&EnableGauntletMainAttacks=Permitir <b>Ataque Desarmado</b> com ação principal para o personagem se um <color=#D89555>Monge</color> ou tiver <b>Manoplas</b> ou <b>Manopla</b> equipada
@@ -133,27 +133,27 @@ ModUi/&EnableLevel20=Ativar nível 20 <b><i><color=#C04040E0>[Requer reinicializ
 ModUi/&EnableLogDialoguesToConsole=Habilite diálogos de registro no console de jogos durante sequências narrativas
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Ativar o registro de referências inválidas em campanhas personalizadas
 ModUi/&EnableMinInOutAttributes=<i>+ Aplicar pontuações mínimas de habilidade nos pré-requisitos de entrada e saída</i>
-ModUi/&EnableMonkAbundantKi=Habilite <color=#D89555>Monge</color> <b>Ki Abundante</b> no nível 2 <i><color=#F0DAA0>[ganhe Ki adicional igual à metade do bônus de proficiência arredondado para cima]</color> </i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Habilite <color=#D89555>Monge</color> <b>Corpo e Mente</b> para substituir <b>Eu Perfeito</b> no nível 20
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Ative <color=#D89555>Monk</color> <b>Artes Marciais - Ataques Desarmados Bônus</b> para não exigir uma ação de ataque antes do uso
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Ative <color=#D89555>Monk</color> <b>Flurry of Blows</b> para não exigir uma ação de ataque antes do uso
-ModUi/&EnableMonkFightingStyle=Habilite a escolha de <color=#D89555>Monk</color> <b>Estilo de Luta</b> no nível 2
+ModUi/&EnableMonkAbundantKi=Habilite <b>Ki Abundante</b> no nível 2 <i><color=#F0DAA0>[ganhe Ki adicional igual à metade do bônus de proficiência arredondado para cima]</color></i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Habilitar <b>Corpo e Mente</b> para substituir <b>Eu Perfeito</b> no nível 20
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Habilitar <b>Artes Marciais - Ataques Desarmados Bônus</b> para não exigir uma ação de ataque antes do uso
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Habilitar <b>Rajada de Golpes</b> para não exigir uma ação de ataque antes do uso
+ModUi/&EnableMonkFightingStyle=Habilitar a escolha de <b>Estilo de Luta</b> no nível 2
 ModUi/&EnableMonkHandwrapsUseGauntletSlot=Habilitar <b>handwraps</b> e <b>manoplas</b> de <color=#D89555>Monge</color> para funcionar no slot de manopla
-ModUi/&EnableMonkHeightenedMetabolism=Ativar <color=#D89555>Monk</color> <b>Metabolismo Acelerado</b> no nível 10 <i><color=#F0DAA0>[<b>Rajada de Golpes</b>, <b>Defesa do Paciente </b> e <b>Passo do Vento</b> ganham benefícios adicionais]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Ative o <color=#D89555>Monk</color> <b>Movimento sem armadura aprimorado</b> para se mover em superfícies verticais sem cair
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilite <color=#D89555>Monk</color> <b>Defesa Superior</b> para substituir <b>Corpo Vazio</b> no nível 18
-ModUi/&EnableMonkWeaponSpecialization=Habilite <color=#D89555>Monk</color> <b>Especialização em Armas</b> nos níveis 2 e 11 <i><color=#F0DAA0>[o tipo de arma selecionado torna-se uma arma de monge para você]</color </i>
+ModUi/&EnableMonkHeightenedMetabolism=Habilite <b>Metabolismo Acelerado</b> no nível 10 <i><color=#F0DAA0>[<b>Rajada de Golpes</b>, <b>Defesa Paciente</b> e <b>Passo do Vento</b> ganham benefícios adicionais]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilitar <b>Movimento Desarmado Aprimorado</b> para se mover em superfícies verticais sem cair
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilitar <b>Defesa Superior</b> para substituir <b>Corpo Vazio</b> no nível 18
+ModUi/&EnableMonkWeaponSpecialization=Habilite <b>Especialização em Armas</b> nos níveis 2 e 11 <i><color=#F0DAA0>[o tipo de arma selecionado se torna uma arma de monge para você]</color></i>
 ModUi/&EnableMulticlass=Ativar multiclasse <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Ative o bônus de dados de cura OneDnd em <color=#D89555>Curar Feridas</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Feridas em Massa</color> e <color= #D89555>Palavra de Cura em Massa</color>
 ModUi/&EnablePcgRandom=Habilite um algoritmo gerador aleatório melhor <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Habilitar efeitos de movimento de empurrar e puxar para também funcionarem no eixo para cima/baixo
-ModUi/&EnableRangerNatureShroudAt10=Habilite o recurso <color=#D89555>Ranger</color> <b>Nature's Veil</b> no nível 10 <i><color=#F0DAA0>[como uma ação bônus, você pode ficar invisível magicamente até o início do próximo turno ]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Habilite o recurso <b>Véu da Natureza</b> no nível 10 <i><color=#F0DAA0>[como uma ação bônus, você pode magicamente ficar invisível até o início do próximo turno]</color></i>
 ModUi/&EnableRelearnSpells=Habilite a seleção de truques ou feitiços já aprendidos de outras fontes
 ModUi/&EnableRespec=Ative a ação <color=#D89555>RESPEC</color> após descanso <i><color=#F0DAA0>[não use RESPEC durante uma sessão multijogador]</color></i>
-ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Rogue</color> <b>Cunning Strike</b> e <b>Devious Strike</b> nos níveis 5 e 14 <i><color=#F0DAA0>[você deixou de lado 1 dados de ataque furtivo para efeitos de acerto adicionais]</color></i>
-ModUi/&EnableRogueFightingStyle=Habilite a escolha de <color=#D89555>Rogue</color> <b>Estilo de luta</b> no nível 2
-ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Rogue</color> <b>Steady Aim</b> no nível 3 <i><color=#F0DAA0>[a ação bônus dá vantagem em sua próxima jogada de ataque no turno atual se você não tiver ainda não mudei]</color></i>
-ModUi/&EnableRogueStrSaving=Habilite <color=#D89555>Rogue</color> para usar modificadores de DES ou FOR em <b>Ataque Astuto/Tortuoso</b>, <b>Ataque Debilitante/Aprimorado</b> e <b>Golpe de Lâminas </b>
+ModUi/&EnableRogueCunningStrike=Habilite <b>Cunning Strike</b> e <b>Devious Strike</b> nos níveis 5 e 14 <i><color=#F0DAA0>[você deixa de lado 1 dado de ataque furtivo para efeitos de acerto adicionais]</color></i>
+ModUi/&EnableRogueFightingStyle=Habilitar a escolha de <b>Estilo de Luta</b> no nível 2
+ModUi/&EnableRogueSteadyAim=Habilite <b>Miração Firme</b> no nível 3 <i><color=#F0DAA0>[ação bônus dá vantagem na sua próxima jogada de ataque no turno atual se você ainda não se moveu]</color></i>
+ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR em <b>Golpe Astuto/Desonesto</b>, <b>Golpe Debilitante/Aprimorado</b> e <b>Gravata de Lâminas</b>
 ModUi/&EnableSignatureSpellsRelearn=Habilite que os feitiços característicos do <color=#D89555>Assistente</color> sejam preparados a cada descanso longo <i><color=#F0DAA0>[em vez de uma vez no nível 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> <b>do Feiticeiro</b> no nível 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada

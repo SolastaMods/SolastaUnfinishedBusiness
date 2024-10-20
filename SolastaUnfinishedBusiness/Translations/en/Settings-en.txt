@@ -5,11 +5,11 @@ ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> co
 ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Add DEX modifier to enemies <color=#D89555>Initiative Roll</color>
-ModUi/&AddFallProneActionToAllRaces=Add the <color=#D89555>Fall Prone</color> action to all playable races <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=Enable <color=#D89555>Fighter</color> to add the class level as a bonus to <color=#D89555>Indomitable Resistance</color> saving throw reroll
-ModUi/&AddGrappleActionToAllRaces=Add the <color=#D89555>Grapple</color> action to all playable races
-ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Ranger</color> humanoid preferred enemies
+ModUi/&AddFallProneActionToAllRaces=Add the <color=#D89555>Fall Prone</color> action to all classes <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
+ModUi/&AddFighterLevelToIndomitableSavingReroll=Add the class level as a bonus to <b>Indomitable Resistance</b> saving throw reroll
+ModUi/&AddGrappleActionToAllRaces=Add the <color=#D89555>Grapple</color> action to all classes
+ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all classes <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <b>Humanoid</b> preferred enemies
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
 ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
@@ -51,7 +51,7 @@ ModUi/&ChangeSleetStormToCube=Change <color=#D89555>Sleet Storm</color> to use a
 ModUi/&Changelog=<b><color=#D89555>Change Log</color></b>
 ModUi/&Character=Character
 ModUi/&CharactersPool=Characters Pool
-ModUi/&Classes=<color=#F0DAA0>Classes</color>
+ModUi/&Classes=Classes
 ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Cold Immunity</color> also grants immunity to chilled and frozen conditions
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Cold Resistance</color> also grants immunity to chilled condition and reduces frozen to chilled
 ModUi/&Combat=<color=#F0DAA0>Combat:</color>
@@ -66,7 +66,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: keep re-rolling any dama
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deities</color>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Also disable <color=#D89555>Barbarian</color> <b>Brutal Critical</b> at levels 9, 13 and 17</i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Also disable <b>Brutal Critical</b> at levels 9, 13 and 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on <color=#D89555>feats</color> provided by this mod <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on <color=#D89555>feats</color> provided by this mod
 ModUi/&DisableMultilineSpellOffering=Disable multi-line spell offering on action bar <i><color=#F0DAA0>[mainly for controller users using non multicaster heroes]</color></i>
@@ -103,10 +103,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits 
 ModUi/&EnableAdditionalItemsInDungeonMaker=Add modded items to Editor
 ModUi/&EnableAlternateHuman=Enable the alternate <color=#D89555>Human</color> <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
 ModUi/&EnableAlternateVotingSystem=Enable alternate voting system <i><color=#F0DAA0>[choice weight = votes * hero Charisma modifier]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Barbarian</color> <b>Brutal Strike</b> and <b>Brutal Strike Improvement</b> at levels 9, 13 and 17
-ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Barbarian</color> <b>Fighting Style</b> choice at level 2
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Barbarian</color> <b>Reckless Attack</b> buff and debuff to finish at start of next turn
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable <color=#D89555>Barbarian</color> regain one <b>Rage</b> use over a short rest at level 7
+ModUi/&EnableBarbarianBrutalStrike=Enable <b>Brutal Strike</b> and <b>Brutal Strike Improvement</b> at levels 9, 13 and 17
+ModUi/&EnableBarbarianFightingStyle=Enable <b>Fighting Style</b> choice at level 2
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <b>Reckless Attack</b> buff and debuff to finish at start of next turn
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <b>Rage</b> use over a short rest at level 7
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <color=#D89555>Bard College of Hope</color> <b>Healing Ballad</b> on long rest
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
@@ -120,7 +120,7 @@ ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i
 ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable <color=#D89555>feats</color> selection at levels 2, 10 and 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selection at levels 6 and 14
-ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Fighter</color> <b>Weapon Specialization</b> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=Enable <b>Weapon Specialization</b> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
 ModUi/&EnableGauntletMainAttacks=Allow <b>Unarmed Attack</b> with main action for character if a <color=#D89555>Monk</color> or has <b>Handwraps</b> or <b>Gauntlet</b> equipped
@@ -133,27 +133,27 @@ ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Enable logging invalid references in custom campaigns
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
-ModUi/&EnableMonkAbundantKi=Enable <color=#D89555>Monk</color> <b>Abundant Ki</b> at level 2 <i><color=#F0DAA0>[gain additional Ki equals to half the proficiency bonus rounded up]</color></i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Enable <color=#D89555>Monk</color> <b>Body and Mind</b> to replace <b>Perfect Self</b> at level 20
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Enable <color=#D89555>Monk</color> <b>Martial Arts - Bonus Unarmed Strikes</b> to not require an attack action before usage
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Enable <color=#D89555>Monk</color> <b>Flurry of Blows</b> to not require an attack action before usage
-ModUi/&EnableMonkFightingStyle=Enable <color=#D89555>Monk</color> <b>Fighting Style</b> choice at level 2
+ModUi/&EnableMonkAbundantKi=Enable <b>Abundant Ki</b> at level 2 <i><color=#F0DAA0>[gain additional Ki equals to half the proficiency bonus rounded up]</color></i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Enable <b>Body and Mind</b> to replace <b>Perfect Self</b> at level 20
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Enable <b>Martial Arts - Bonus Unarmed Strikes</b> to not require an attack action before usage
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Enable <b>Flurry of Blows</b> to not require an attack action before usage
+ModUi/&EnableMonkFightingStyle=Enable <b>Fighting Style</b> choice at level 2
 ModUi/&EnableMonkHandwrapsUseGauntletSlot=Enable <color=#D89555>Monk</color> <b>handwraps</b> and <b>gauntlets</b> to work in gauntlet slot
-ModUi/&EnableMonkHeightenedMetabolism=Enable <color=#D89555>Monk</color> <b>Heightened Metabolism</b> at level 10 <i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional benefits]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>Monk</color> <b>Improved Unarmored Movement</b> to move along vertical surfaces without falling
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <color=#D89555>Monk</color> <b>Superior Defense</b> to replace <b>Empty Body</b> at level 18
-ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Monk</color> <b>Weapon Specialization</b> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
+ModUi/&EnableMonkHeightenedMetabolism=Enable <b>Heightened Metabolism</b> at level 10 <i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional benefits]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <b>Improved Unarmored Movement</b> to move along vertical surfaces without falling
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <b>Superior Defense</b> to replace <b>Empty Body</b> at level 18
+ModUi/&EnableMonkWeaponSpecialization=Enable <b>Weapon Specialization</b> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Enable OneDnd healing dice buff on <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color>
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
-ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Ranger</color> <b>Nature's Veil</b> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Enable <b>Nature's Veil</b> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespec=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
-ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Rogue</color> <b>Cunning Strike</b> and <b>Devious Strike</b> at levels 5 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
-ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Rogue</color> <b>Fighting Style</b> choice at level 2
-ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Rogue</color> <b>Steady Aim</b> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
-ModUi/&EnableRogueStrSaving=Enable <color=#D89555>Rogue</color> to use DEX or STR modifiers on <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b>, and <b>Hail of Blades</b>
+ModUi/&EnableRogueCunningStrike=Enable <b>Cunning Strike</b> and <b>Devious Strike</b> at levels 5 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
+ModUi/&EnableRogueFightingStyle=Enable <b>Fighting Style</b> choice at level 2
+ModUi/&EnableRogueSteadyAim=Enable <b>Steady Aim</b> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
+ModUi/&EnableRogueStrSaving=Enable DEX or STR modifiers on <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b>, and <b>Hail of Blades</b>
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Wizard</color> signature spells to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Sorcerer</color> <b>Magical Guidance</b> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied

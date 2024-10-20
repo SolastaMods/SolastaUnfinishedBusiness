@@ -5,11 +5,11 @@ ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>流血</color>状态添�
 ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>黑暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>黑暗感知</color><i><color=#F0DAA0>\n[在未照明或在魔法黑暗下时察觉检定具有优势]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=为敌人添加 DEX 修正值<color=#D89555>主动掷骰</color>
-ModUi/&AddFallProneActionToAllRaces=为所有可玩种族添加<color=#D89555>倒地</color>动作<i><color=#F0DAA0>[你可以无代价倒地]</color></i>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=将<color=#D89555>战士</color>等级添加到<color=#D89555>不屈</color>豁免重投中
-ModUi/&AddGrappleActionToAllRaces=为所有可玩种族添加<color=#D89555>抓钩</color>动作
-ModUi/&AddHelpActionToAllRaces=为所有可玩种族添加<color=#D89555>帮助</color>动作<i><color=#F0DAA0>[你可以帮助友方生物攻击距离你5尺以内的生物]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>游侠</color>类人生物宿敌
+ModUi/&AddFallProneActionToAllRaces=将<color=#D89555>倒地</color>动作添加到所有类别<i><color=#F0DAA0>[你可以无代价倒地]</color></i>
+ModUi/&AddFighterLevelToIndomitableSavingReroll=将职业等级作为奖励添加到<color=#D89555>不屈抵抗</color>豁免检定重掷中
+ModUi/&AddGrappleActionToAllRaces=为所有职业添加<color=#D89555>抓钩</color>动作
+ModUi/&AddHelpActionToAllRaces=为所有类别添加<color=#D89555>帮助</color>操作<i><color=#F0DAA0>[你可以协助友方生物攻击你 1 个单元格范围内的生物]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>人形</color>首选敌人
 ModUi/&AddNewWeaponsAndRecipesToShops=向商店添加新的武器和配方<i><color=#F0DAA0>[护腕、戟、长矛、长狼牙棒、手弩]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣武士</color>仅在暴击时启用至圣斩<i><color=#F0DAA0>[有助于减少反应动作提示]</color></i>
 ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<i><color=#F0DAA0>[建议<color=#D89555>扒窃</color>专长开启时启用]</color></i>
@@ -51,7 +51,7 @@ ModUi/&ChangeSleetStormToCube=将<color=#D89555>雪雨暴</color>更改为使用
 ModUi/&Changelog=<b><color=#D89555>更改日志</color></b>
 ModUi/&Character=特点
 ModUi/&CharactersPool=角色池
-ModUi/&Classes=<color=#F0DAA0>职业</color>
+ModUi/&Classes=课程
 ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>冷冻免疫</color>还赋予对冻寒和冻结条件的免疫
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>冷冻抗性</color>还可以增强对冻寒状态的免疫，并将冻结状态降低为冻寒状态
 ModUi/&Combat=<color=#F0DAA0>战斗：</color>
@@ -66,7 +66,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>：继续重新掷出任�
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>：将攻击的总伤害加倍，而不是掷额外的骰子。<i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>神灵</color>
 ModUi/&DisableAutoEquip=禁用自动装备物品栏中的物品
-ModUi/&DisableBarbarianBrutalCritical=<i>+ 同时在<color=#D89555>野蛮人</color> 9、13 和 17 级禁用<b>凶蛮重击</b></i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ 同时禁用 9、13 和 17 级的<b>残酷暴击</b></i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=禁用此模组提供的专长的施法先决条件<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=禁用此模组提供的职业专长的等级前提条件
 ModUi/&DisableMultilineSpellOffering=禁用操作栏上的多行法术提供<i><color=#F0DAA0>[主要针对使用非多路施法者英雄的控制器用户]</color></i>
@@ -103,10 +103,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和�
 ModUi/&EnableAdditionalItemsInDungeonMaker=将经过修改的物品添加到编辑器
 ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力调整值来确定选择权重]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=在<color=#D89555>野蛮人</color> 9、13 和 17 级启用<b>凶蛮打击</b>和<b>精通凶蛮打击</b>
-ModUi/&EnableBarbarianFightingStyle=在<color=#D89555>野蛮人</color> 2 级启用<b>战斗风格</b>
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>野蛮人</color><b>鲁莽攻击</b>增益和减益以在下一回合开始时完成
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=使<color=#D89555>野蛮人</color>在第 7 级短暂休息时重新获得一次<b>怒气</b>
+ModUi/&EnableBarbarianBrutalStrike=在 9、13 和 17 级时启用<b>残酷打击</b>和<b>残酷打击改进</b>
+ModUi/&EnableBarbarianFightingStyle=在第 2 级启用<b>战斗风格</b>选择
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<b>鲁莽攻击</b>增益效果和减益效果，在下一回合开始时结束
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 7 级时，短暂休息后即可恢复一次<b>怒气</b>
 ModUi/&EnableBardHealingBalladOnLongRest=在长休时启用<color=#D89555>吟游诗人希望学院</color><b>治愈歌谣</b>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
@@ -120,7 +120,7 @@ ModUi/&EnableEpicPointsAndArray=启用史诗级 35 点购点和默认骰<i><colo
 ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练面板显示<i><color=#F0DAA0>[奥术射击、注法、战技和多种功能]</color></i>\n<b><i><color=#C04040E0>[角色性能提升检查。使用风险自负]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在等级 2、10 和 18 级启用专长选择
 ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级启用专长选择
-ModUi/&EnableFighterWeaponSpecialization=在<color=#D89555>战士</color> 8 级和 16 级启用<b>武器专攻</b><i><color=#F0DAA0>[获得+1命中和伤害，但是使用其他武器时将获得劣势]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级时启用<b>武器专精</b><i><color=#F0DAA0>[命中和伤害 +1，但使用其他武器类型时处于劣势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活的背景<i><color=#F0DAA0>[自由选择背景提供的技能和工具熟练项]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活的种族<i><color=#F0DAA0>[自由分配种族属性加值]</color></i>
 ModUi/&EnableGauntletMainAttacks=如果角色是<color=#D89555>僧侣</color>或装备有<b>手巾</b>或<b>铁手套</b>，则允许角色在主要行动中进行<b>徒手攻击</b>
@@ -133,27 +133,27 @@ ModUi/&EnableLevel20=启用20级<b><i><color=#C04040E0>[需要重启]</color></i
 ModUi/&EnableLogDialoguesToConsole=在叙述序列期间启用日志对话到游戏控制台
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义活动中启用记录无效引用
 ModUi/&EnableMinInOutAttributes=<i>+强制属性值最低的前置条件</i>
-ModUi/&EnableMonkAbundantKi=在<color=#D89555>武僧</color> 1 级启用<b>丰富的气</b><i><color=#F0DAA0>[获得额外的等于熟练加值一半的气]</color> </i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=20 级时启用<color=#D89555>武僧</color><b>身心</b>取代<b>超凡入圣</b>
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=启用<color=#D89555>武僧</color><b>武术 - 额外徒手攻击</b>，在使用前不需要进行攻击动作
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=启用<color=#D89555>武僧</color><b>疾风连击</b>，在使用前不需要进行攻击动作
-ModUi/&EnableMonkFightingStyle=在<color=#D89555>武僧</color> 2 级启用<b>战斗风格</b>选择
+ModUi/&EnableMonkAbundantKi=在 2 级时启用<b>充沛的气</b> <i><color=#F0DAA0>[获得额外的气，等于熟练度奖励的一半，向上取整]</color></i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=在 20 级时启用<b>身心</b>来替代<b>完美自我</b>
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=启用<b>武术 - 奖励徒手攻击</b>，在使用前无需采取攻击行动
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=启用<b>Flurry of Blows</b>，在使用前无需采取攻击行动
+ModUi/&EnableMonkFightingStyle=在第 2 级启用<b>战斗风格</b>选择
 ModUi/&EnableMonkHandwrapsUseGauntletSlot=使<color=#D89555>Monk</color> <b>手套</b>和<b>护手</b>能够在护手槽中发挥作用
-ModUi/&EnableMonkHeightenedMetabolism=在 10 级时启用<color=#D89555>武僧</color> <b>气通周天</b> <i><color=#F0DAA0>[<b>疾风连击</b>、<b>坚强防御</b>和<b>飞檐走壁</b>获得额外好处]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>武僧</color><b>精通无甲移动</b>沿垂直表面移动而不会掉落
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=18 级时启用<color=#D89555>武僧</color><b>无懈可击</b>取代<b>空灵体</b>
-ModUi/&EnableMonkWeaponSpecialization=在<color=#D89555>武僧</color> 2 级和 11 级启用<b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的武僧武器]</color></i>
+ModUi/&EnableMonkHeightenedMetabolism=在 10 级时启用<b>增强新陈代谢</b> <i><color=#F0DAA0>[<b>连击</b>、<b>耐心防御</b>和<b>风之脚步</b>获得额外好处]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<b>改进的无装甲移动</b>以沿垂直表面移动而不会掉落
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=启用<b>超级防御</b>来替换 18 级时的<b>空虚之身</b>
+ModUi/&EnableMonkWeaponSpecialization=在 2 级和 11 级时启用<b>武器专精</b> <i><color=#F0DAA0>[所选武器类型将成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>疗伤术</color>、<color=#D89555>治愈真言</color>、<color=#D89555>群体疗伤术</color>和<color=#D89555>群体治愈真言</color>上启用 OneDnd 治疗骰增益
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=使推拉运动效果也适用于上/下轴
-ModUi/&EnableRangerNatureShroudAt10=在<color=#D89555>游侠</color> 10 级启用<b>自然面纱</b>特性<i><color=#F0DAA0>[作为附赠动作，你可以魔法地变得隐形，直到下回合开始]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=在 10 级时启用<b>自然面纱</b>功能<i><color=#F0DAA0>[作为奖励行动，你可以神奇地变得隐形，直到下一回合开始]</color></i>
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的戏法或法术</i>
 ModUi/&EnableRespec=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
-ModUi/&EnableRogueCunningStrike=在<color=#D89555>游荡者</color> 5 级和 14 级时启用<b>诡诈打击</b>和<b>凶狡打击</b><i><color=#F0DAA0>[你放弃 1 个偷袭骰可获得额外的命中效果]</color></i>
-ModUi/&EnableRogueFightingStyle=在<color=#D89555>游荡者</color> 2 级启用<b>战斗风格</b>选择
-ModUi/&EnableRogueSteadyAim=在<color=#D89555>游荡者</color> 3 级时启用<b>手稳就准</b><i><color=#F0DAA0>[作为附赠动作，在当前回合中为你的下一次攻击检定带来优势，如果你还没移动]</color></i>
-ModUi/&EnableRogueStrSaving=启用<color=#D89555>游荡者</color>在<b>诡诈/凶狡打击</b>、<b>虚弱/精通打击</b>和<b>剑刃如风</b>上使用敏捷或力量调整值
+ModUi/&EnableRogueCunningStrike=在 5 级和 14 级时启用<b>狡猾打击</b>和<b>阴险打击</b> <i><color=#F0DAA0>[你放弃 1 个偷袭骰子以获得额外的命中效果]</color></i>
+ModUi/&EnableRogueFightingStyle=在第 2 级启用<b>战斗风格</b>选择
+ModUi/&EnableRogueSteadyAim=在 3 级时启用<b>稳定瞄准</b> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>
+ModUi/&EnableRogueStrSaving=在<b>狡猾/狡诈打击</b>、<b>削弱/强化打击</b>和<b>剑雨</b>上启用 DEX 或 STR 修正
 ModUi/&EnableSignatureSpellsRelearn=启用<color=#D89555>法师</color>招牌法术，以便在每次长休时准备<i><color=#F0DAA0>[而不是在 20 级时一次]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=启用<color=#D89555>巫师</color> <b>魔法指引</b>至 5 级
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术

@@ -87,6 +87,7 @@ public static class InputContext
     {
         var isSinglePlayer = !Global.IsMultiplayer;
 
+        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         switch ((InputCommandsExtra)command)
         {
             case InputCommandsExtra.CharacterExport:

@@ -446,13 +446,6 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchUniversalSylvanArmorAndLightbringer();
         }
 
-        toggle = Main.Settings.AllowDruidToWearMetalArmor;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowDruidToWearMetalArmor = toggle;
-            SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
-        }
-
         toggle = Main.Settings.AllowClubsToBeThrown;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowClubsToBeThrown"), ref toggle, UI.AutoWidth()))
         {

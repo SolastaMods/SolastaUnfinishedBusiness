@@ -9,6 +9,7 @@ using UnityModManagerNet;
 using static SolastaUnfinishedBusiness.Displays.BackgroundsAndRacesDisplay;
 using static SolastaUnfinishedBusiness.Displays.BlueprintDisplay;
 using static SolastaUnfinishedBusiness.Displays.CharacterDisplay;
+using static SolastaUnfinishedBusiness.Displays.ClassesDisplay;
 using static SolastaUnfinishedBusiness.Displays.CreditsDisplay;
 using static SolastaUnfinishedBusiness.Displays.DungeonMakerDisplay;
 using static SolastaUnfinishedBusiness.Displays.EffectsDisplay;
@@ -536,7 +537,9 @@ internal sealed class CharacterViewer : IMenuSelectablePage
     {
         ModUi.DisplaySubMenu(ref _characterSelectedPane, Name,
             new NamedAction(Gui.Localize("ModUi/&BackgroundsAndRaces"),
-                DisplayBackgroundsAndDeities),
+                DisplayBackgroundsAndRaces),
+            new NamedAction(Gui.Localize("ModUi/&Classes"),
+                DisplayClasses),
             new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
                 DisplayProficiencies),
             new NamedAction(Gui.Localize("ModUi/&SpellsMenu"),
