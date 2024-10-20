@@ -1,4 +1,4 @@
-Action/&DeadEyeToggleDescription=Активировать/деактивировать Sharpshooter
+Action/&DeadEyeToggleDescription=Активировать/деактивировать Меткого стрелка
 Action/&DeadEyeToggleTitle=Меткий стрелок
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Вы обладаете преимуществом на следующий бросок атаки.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Точное прицеливание
