@@ -369,8 +369,8 @@ public static class GameLocationBattleManagerPatcher
             GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
+            [CanBeNull] RulesetAttackMode attackMode,
+            [CanBeNull] RulesetEffect rulesetEffect,
             ActionModifier attackModifier,
             bool rolledSavingThrow,
             bool saveOutcomeSuccess)
@@ -502,7 +502,7 @@ public static class GameLocationBattleManagerPatcher
 
                 var tag = $"{feature.Name}:{defender.Guid}:{totalReducedDamage}";
 
-                attackMode?.AttackTags.Add(tag);
+                attackMode?.AddAttackTagAsNeeded(tag);
                 rulesetEffect?.SourceTags.Add(tag);
 
                 defenderCharacter.DamageReduced(defenderCharacter, feature, totalReducedDamage);

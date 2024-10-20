@@ -1045,11 +1045,12 @@ internal static partial class SpellBuilders
         return new FeatureUnlockByLevel(attackModifierShadowBladeLevel, level);
     }
 
-    private sealed class ModifyAttackActionModifierShadowBlade(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        [NotNull] ItemDefinition itemShadowBlade)
+    private sealed class ModifyAttackActionModifierShadowBlade(ItemDefinition itemShadowBlade)
         : IModifyAttackActionModifier
     {
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.Equipment, itemShadowBlade.Name, itemShadowBlade);
+
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -1074,8 +1075,7 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Equipment, itemShadowBlade.Name, itemShadowBlade));
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
         }
     }
 

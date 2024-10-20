@@ -1038,6 +1038,9 @@ internal static class GambitsBuilders
     {
         private const int DaggerCloseRange = 4;
 
+        private readonly TrendInfo _trendInfo =
+            new(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null);
+
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -1058,8 +1061,7 @@ internal static class GambitsBuilders
                 glcDefender != null &&
                 !glcMyself.IsWithinRange(glcDefender, DaggerCloseRange))
             {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null));
+                attackModifier.AttackAdvantageTrends.Add(_trendInfo);
             }
         }
 
@@ -1272,6 +1274,9 @@ internal static class GambitsBuilders
     {
         private const string ConditionGambitFeint = "ConditionGambitFeint";
 
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.Condition, ConditionGambitFeint, null);
+
         public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -1286,8 +1291,7 @@ internal static class GambitsBuilders
                 return;
             }
 
-            attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Condition, ConditionGambitFeint, null));
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(

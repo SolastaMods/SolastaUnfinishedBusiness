@@ -99,7 +99,7 @@ public static class CharacterActionAttackPatcher
             // supports ValidatorsWeapon.IsMelee [dagger, dart, and javelin use cases which always have thrown on]
             if (actingCharacter.IsWithinRange(target, attackMode.ReachRange))
             {
-                attackMode.AttackTags.Add(TagsDefinitions.WeaponTagMelee);
+                attackMode.AddAttackTagAsNeeded(TagsDefinitions.WeaponTagMelee);
             }
             // END PATCH
 

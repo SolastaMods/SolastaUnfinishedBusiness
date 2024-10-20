@@ -546,6 +546,9 @@ internal static class RaceFeats
         FeatureDefinition featureDefinition,
         string familyName) : IModifyAttackActionModifier
     {
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition);
+
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -565,8 +568,7 @@ internal static class RaceFeats
             // always grant advantage on battle round zero
             if (battle == null)
             {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+                attackModifier.AttackAdvantageTrends.Add(_trendInfo);
 
                 return;
             }
@@ -577,8 +579,7 @@ internal static class RaceFeats
             }
 
             // battle round one from here
-            attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
         }
     }
 

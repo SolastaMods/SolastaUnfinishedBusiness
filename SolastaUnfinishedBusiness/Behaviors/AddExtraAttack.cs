@@ -220,7 +220,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
             mainHandItem
         );
 
-        attackMode.AttackTags.Add(UpgradeWeaponDice.AbortUpgradeWeaponDice);
+        attackMode.AddAttackTagAsNeeded(UpgradeWeaponDice.AbortUpgradeWeaponDice);
 
         return [attackMode];
     }
@@ -330,7 +330,7 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
         effectDamageForm.DamageForm.DiceNumber = 1;
         effectDamageForm.DamageForm.versatile = false;
         effectDamageForm.DamageForm.versatileDieType = effectDamageForm.DamageForm.DieType;
-        attackMode.AttackTags.Add(UpgradeWeaponDice.AbortUpgradeWeaponDice);
+        attackMode.AddAttackTagAsNeeded(UpgradeWeaponDice.AbortUpgradeWeaponDice);
 
         return [attackMode];
     }
@@ -391,7 +391,7 @@ internal sealed class AddWhirlWindFollowUpAttack : AddExtraAttackBase
         effectDamageForm.DamageForm.DiceNumber = 1;
         effectDamageForm.DamageForm.versatile = false;
         effectDamageForm.DamageForm.versatileDieType = effectDamageForm.DamageForm.DieType;
-        attackMode.AttackTags.Add(UpgradeWeaponDice.AbortUpgradeWeaponDice);
+        attackMode.AddAttackTagAsNeeded(UpgradeWeaponDice.AbortUpgradeWeaponDice);
 
         return [attackMode];
     }

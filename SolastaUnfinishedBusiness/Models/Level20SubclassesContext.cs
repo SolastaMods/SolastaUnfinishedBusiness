@@ -1681,6 +1681,9 @@ internal static class Level20SubclassesContext
     private sealed class ModifyAttackActionModifierInquisitorZeal(FeatureDefinition featureDefinition)
         : IModifyAttackActionModifier
     {
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition);
+
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -1701,8 +1704,7 @@ internal static class Level20SubclassesContext
                 return;
             }
 
-            attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
         }
     }
 

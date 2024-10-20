@@ -260,7 +260,7 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
 
                 if (equipedItem != null && equipedItem.ItemDefinition.IsArmor && equipedItem.ItemDefinition.Magical)
                 {
-                    attackMode.attackTags.Add(TagsDefinitions.MagicalWeapon);
+                    attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
                 }
             }
 

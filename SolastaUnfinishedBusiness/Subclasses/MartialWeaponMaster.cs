@@ -231,11 +231,12 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     // Specialization
     //
 
-    private sealed class ModifyAttackActionModifierSpecializationDisadvantage(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition)
+    private sealed class ModifyAttackActionModifierSpecializationDisadvantage(FeatureDefinition featureDefinition)
         : IModifyAttackActionModifier
     {
+        private readonly TrendInfo _trendInfo =
+            new(-1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition);
+
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -249,8 +250,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(-1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
         }
     }
 
@@ -309,10 +309,11 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     // Focused Strikes
     //
 
-    private sealed class CustomBehaviorFocusedStrikes(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition) : IModifyAttackActionModifier
+    private sealed class CustomBehaviorFocusedStrikes(FeatureDefinition featureDefinition) : IModifyAttackActionModifier
     {
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition);
+
         public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -325,8 +326,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
         }
     }
 

@@ -602,7 +602,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 return;
             }
 
-            attackMode.AttackTags.Add(TagsDefinitions.MagicalWeapon);
+            attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
         }
     }
 

@@ -277,11 +277,12 @@ public sealed class OathOfThunder : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyWeaponModifyAttackModeHammerAndAxeBoon(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureHammersBoon) :
-        IModifyWeaponAttackMode, IModifyAttackActionModifier
+    private sealed class ModifyWeaponModifyAttackModeHammerAndAxeBoon(FeatureDefinition featureHammersBoon)
+        : IModifyWeaponAttackMode, IModifyAttackActionModifier
     {
+        private readonly TrendInfo _trendInfo =
+            new(-1, FeatureSourceType.CharacterFeature, featureHammersBoon.Name, featureHammersBoon);
+
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -295,8 +296,7 @@ public sealed class OathOfThunder : AbstractSubclass
                 return;
             }
 
-            attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(-1, FeatureSourceType.CharacterFeature, featureHammersBoon.Name, featureHammersBoon));
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
         }
 
         public void ModifyWeaponAttackMode(

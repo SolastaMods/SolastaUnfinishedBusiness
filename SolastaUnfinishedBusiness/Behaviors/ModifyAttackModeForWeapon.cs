@@ -187,7 +187,7 @@ internal abstract class ModifyWeaponAttackModeBase(
 
         if (unicityTag != null)
         {
-            attackMode.AttackTags.TryAdd(unicityTag);
+            attackMode.AddAttackTagAsNeeded(unicityTag);
         }
 
         TryModifyAttackMode(character, attackMode);
