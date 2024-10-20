@@ -49,6 +49,7 @@ public class Settings : UnityModManager.ModSettings
     public List<string> DefaultPartyHeroes { get; } = [];
     public bool EnableCtrlClickOnlySwapsMainHand { get; set; } = true;
     public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
+    public bool EnableLevelUpFeaturesSelection { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSameWidthInvocationSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
@@ -174,7 +175,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleRaces { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }
-    public bool ImproveLevelUpFeaturesSelection { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
     public bool DisableLevelPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }

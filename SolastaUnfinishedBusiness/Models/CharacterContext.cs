@@ -594,8 +594,7 @@ internal static partial class CharacterContext
         }
 
         // replace the original features with custom invocation pools
-
-        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
+        if (!Main.Settings.EnableLevelUpFeaturesSelection)
         {
             return;
         }
@@ -805,7 +804,7 @@ internal static partial class CharacterContext
         }
 
         // replace the original features with custom invocation pools
-        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
+        if (!Main.Settings.EnableLevelUpFeaturesSelection)
         {
             return;
         }
@@ -907,8 +906,7 @@ internal static partial class CharacterContext
         }
 
         // replace the original features with custom invocation pools
-
-        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
+        if (!Main.Settings.EnableLevelUpFeaturesSelection)
         {
             return;
         }
@@ -1017,7 +1015,8 @@ internal static partial class CharacterContext
                 .AddToDB();
         }
 
-        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
+        // replace the original features with custom invocation pools
+        if (!Main.Settings.EnableLevelUpFeaturesSelection)
         {
             return;
         }

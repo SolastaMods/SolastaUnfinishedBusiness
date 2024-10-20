@@ -210,7 +210,6 @@ ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Aggiungi un potere per <color=#D89555>identificare gli oggetti magici</color> durante un riposo breve o lungo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per usare le <color=#D89555>balestre a mano</color>
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Gli incantesimi di illusione falliscono automaticamente contro bersagli con <color=#D89555>TrueSight</color> nel raggio d'azione
-ModUi/&ImproveLevelUpFeaturesSelection=Migliora la selezione delle funzionalità di aumento di livello <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>\n<i><color=#F0DAA0>[impatta <color=#D89555>Ranger</color> Nemico preferito e affinità con il terreno, <color=#D89555>Druido</color> Bestia affine, <color=#D89555>Barbaro</color> Sentiero degli Elementi e sottoclassi Scelte draconiche]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco di
 ModUi/&IncreaseMaxAttunedItems=Aumenta il numero massimo di <color=#D89555>Oggetti sintonizzati</color> a 4 al livello 10° e 5 al livello 18°
 ModUi/&InitialChoices=<color=#F0DAA0>Creazione:</color>

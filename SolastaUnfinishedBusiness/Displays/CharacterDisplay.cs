@@ -93,15 +93,6 @@ internal static class CharacterDisplay
             Main.Settings.EnableEpicPointsAndArray = toggle;
         }
 
-        toggle = Main.Settings.ImproveLevelUpFeaturesSelection;
-        if (UI.Toggle(Gui.Localize("ModUi/&ImproveLevelUpFeaturesSelection"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ImproveLevelUpFeaturesSelection = toggle;
-        }
-
-        UI.Label();
-        UI.Label();
-
         var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;
         if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFirstLevel"), ref intValue,
                 CharacterContext.MinInitialFeats, CharacterContext.MaxInitialFeats, 0, "",

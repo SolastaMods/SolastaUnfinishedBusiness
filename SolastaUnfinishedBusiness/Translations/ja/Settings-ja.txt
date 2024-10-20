@@ -210,7 +210,6 @@ ModUi/&House=<color=#F0DAA0>家:</color>
 ModUi/&IdentifyAfterRest=短いまたは長い休憩中に<color=#D89555>魔法のアイテムを識別</color>する能力を追加します
 ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>ハンドクロスボウ</color>を使用するのにフリーハンドは必要ありません
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=イリュージョン呪文は範囲内に<color=#D89555>トゥルーサイト</color>があるターゲットに対して自動的に失敗します。
-ModUi/&ImproveLevelUpFeaturesSelection=レベルアップ機能の選択を改善 <b><i><color=#C04040E0>[再起動が必要]</color></i></b>\n<i><color=#F0DAA0>[影響 <color=#D89555>レンジャー</color> 優先敵と地形親和性、<color=#D89555>ドルイド</color> 同族の獣、<color=#D89555>バーバリアン</color> エレメントとサブクラスのパス ドラコニックの選択]</b></i>
 ModUi/&IncreaseGameTimeBy=ゲーム時間を延長する
 ModUi/&IncreaseMaxAttunedItems=レベル 10 で最大 <color=#D89555>調整アイテム</color> を 4 個、レベル 18 で 5 個に増加
 ModUi/&InitialChoices=<color=#F0DAA0>作成:</color>

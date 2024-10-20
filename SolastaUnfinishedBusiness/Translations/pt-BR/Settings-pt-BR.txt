@@ -210,7 +210,6 @@ ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Adicionado um poder para <color=#D89555>identificar itens mágicos</color> durante um descanso curto ou longo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Não é necessário ter mão livre para usar <color=#D89555>Bestas de Mão</color>
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Feitiços de ilusão falham automaticamente contra alvos com <color=#D89555>TrueSight</color> ao alcance
-ModUi/&ImproveLevelUpFeaturesSelection=Melhorar a seleção de recursos para subir de nível <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[impactos <color=#D89555>Ranger</color> Inimigo Preferido e Afinidade com Terreno, <color=#D89555>Druida</color> Besta Membro, <color=#D89555>Bárbaro</color> Caminho dos Elementos e subclasses Escolhas Dracônicas]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
 ModUi/&IncreaseMaxAttunedItems=Aumentar o máximo de <color=#D89555>Itens Sintonizados</color> para 4 no nível 10 e 5 no nível 18
 ModUi/&InitialChoices=<color=#F0DAA0>Criação:</color>

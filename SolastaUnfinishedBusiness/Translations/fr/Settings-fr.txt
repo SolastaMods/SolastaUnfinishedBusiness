@@ -210,7 +210,6 @@ ModUi/&House=<color=#F0DAA0>Maison :</color>
 ModUi/&IdentifyAfterRest=Ajoute un pouvoir pour <color=#D89555>identifier les objets magiques</color> pendant un repos court ou long.
 ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas d'avoir les mains libres pour utiliser les <color=#D89555>arbalètes à main</color>.
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Les sorts d'illusion échouent automatiquement contre les cibles avec <color=#D89555>TrueSight</color> à portée.
-ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color=#D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Bête vampire, <color=#D89555>Barbare</color> Voie des éléments et sous-classes Choix draconiques]</color></i>
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmentez le nombre maximum d'<color=#D89555>objets adaptés</color> à 4 au niveau 10 et 5 au niveau 18.
 ModUi/&InitialChoices=<color=#F0DAA0>Création :</color>

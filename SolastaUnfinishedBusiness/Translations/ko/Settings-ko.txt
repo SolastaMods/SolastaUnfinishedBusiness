@@ -210,7 +210,6 @@ ModUi/&House=<color=#F0DAA0>집:</color>
 ModUi/&IdentifyAfterRest=짧거나 긴 휴식을 통해 <color=#D89555>마법 아이템을 식별</color>하는 능력을 추가하세요.
 ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>손석궁</color>을 사용하는 데 자유손이 필요하지 않습니다.
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=환영 주문은 범위 내에 <color=#D89555>TrueSight</color>가 있는 대상에게는 자동으로 실패합니다.
-ModUi/&ImproveLevelUpFeaturesSelection=레벨 업 기능 선택 개선 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>\n<i><color=#F0DAA0>[영향 <color=#D89555>레인저</color> 선호하는 적 및 지형 친화력, <color=#D89555>드루이드</color> 혈통 야수, <color=#D89555>야만인</color> 원소의 길 및 하위클래스 드라코닉 선택]</b></i>
 ModUi/&IncreaseGameTimeBy=게임 시간을 늘립니다.
 ModUi/&IncreaseMaxAttunedItems=레벨 10에서 최대 <color=#D89555>조정 아이템</color>을 4개로, 레벨 18에서 5개로 증가시킵니다.
 ModUi/&InitialChoices=<color=#F0DAA0>생성:</color>
