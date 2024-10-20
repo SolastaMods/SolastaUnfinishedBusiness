@@ -112,7 +112,6 @@ ModUi/&EnableBetaContent=Abilita contenuto beta <b><i><color=#C04040E0>[Richiede
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Abilita i trucchetti per attivare l'attacco bonus extra <color=#D89555>Magia di guerra</color>
 ModUi/&EnableCharactersOnFireToEmitLight=I personaggi <color=#D89555>In fiamme</color> dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di luce, Elementale di fuoco, Giullare di fuoco, Falco pescatore di fuoco, Ragno di fuoco e famiglia di condizioni in fiamme]</color></i>
-ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Abilita <color=#1E81B0>CTRL</color> clic-trascinamento per ignorare i controlli <color=#D89555>oggetti missione</color> al momento del rilascio
 ModUi/&EnableCustomPortraits=Abilita <color=#D89555>Ritratti personalizzati</color>
 ModUi/&EnableCustomPortraitsHelp=• Inserisci i tuoi ritratti personalizzati nelle sottocartelle <i><b><color=#F0DAA0>Personale</color></b></i> o <i><b><color=#F0DAA0>PreGen</color> </b></i>, che prende il nome dal nome dell'eroe <i><color=#F0DAA0>[es.: Anton, Celia, Nialla, ecc.]</color></i>\n• Usa PNG immagini, dimensioni 256 x 384 pixel, con un livello di trasparenza <i><color=#F0DAA0>[usa GIMP per i migliori risultati]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[include stanze piatte, dimensioni di dungeon 150x150 e 200x200 e senza fronzoli mescolando risorse da tutti gli ambienti]</color></i>
@@ -279,7 +278,6 @@ ModUi/&SettingsLoad=• Caricare un'impostazione esportata
 ModUi/&SettingsOpenFolder=Apri la cartella delle impostazioni esportate
 ModUi/&SettingsRefresh=Ricaricare
 ModUi/&SettingsRemove=Rimuovere
-ModUi/&ShiftToSnapLineSpells=Tieni premuto <color=#1E81B0>MAIUSC</color> per agganciare gli incantesimi lineari alla griglia <i><color=#F0DAA0>[senza agganciare il posizionamento effettivo della linea potrebbe differire dall'anteprima]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Mostra il pulsante che apre le informazioni sui mostri controllati <i><color=#F0DAA0>[druidi dalla forma selvaggia, evocazioni, seguaci NPC, ecc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostra quanti usi di <color=#D89555>Canale Divinità</color> ha un eroe sul suo ritratto, in modo simile ai punti stregoneria
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato vicino all'oggetto della ricetta nel negozio e nell'inventario <i><color=#F0DAA0>[Passando il mouse sopra verrà mostrato un suggerimento per l'oggetto creato]</color></i>

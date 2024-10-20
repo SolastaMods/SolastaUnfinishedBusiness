@@ -112,7 +112,6 @@ ModUi/&EnableBetaContent=ベータ コンテンツを有効にする <b><i><colo
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックによるキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=キャントリップを有効にして<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
-ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=<color=#1E81B0>CTRL</color> クリックドラッグを有効にすると、ドロップ時の <color=#D89555>クエストアイテム</color> チェックをバイパスできます
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタム ポートレートをサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color> に配置します。 </b></i>、主人公の名前にちなんで名付けられました <i><color=#F0DAA0>[例: アントン、セリア、ニアラなど]</color></i>\n• PNG を使用します画像、サイズ 256 x 384 ピクセル、透明レイヤーあり <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にする\n<i><color=#F0DAA0>[フラット ルーム、150x150 および 200x200 のダンジョン サイズ、あらゆる環境のアセットを簡単に混合する機能が含まれます]</color></i>
@@ -279,7 +278,6 @@ ModUi/&SettingsLoad=• エクスポートした設定をロードする
 ModUi/&SettingsOpenFolder=エクスポートされた設定フォルダーを開く
 ModUi/&SettingsRefresh=リフレッシュ
 ModUi/&SettingsRemove=取り除く
-ModUi/&ShiftToSnapLineSpells=<color=#1E81B0>SHIFT</color> キーを押したままにして、ライン スペルをグリッドにスナップします <i><color=#F0DAA0>[スナップしない場合、実際のライン配置はプレビューと異なる場合があります]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=制御モンスターに関する情報を開くボタンを表示します<i><color=#F0DAA0>[野生のドルイド僧、召喚獣、NPC フォロワーなど]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=ヒーローがポートレートに持っている<color=#D89555>神性チャンネル</color>の使用数を表示します（ソーサリーポイントと同様）
 ModUi/&ShowCraftedItemOnRecipeIcon=ショップやインベントリのレシピ アイテムの近くに作成されたアイテムのアイコンを表示します <i><color=#F0DAA0>[カーソルを合わせると作成されたアイテムのツールチップが表示されます]</color></i>

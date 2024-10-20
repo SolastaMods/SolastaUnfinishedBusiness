@@ -357,10 +357,18 @@ public static class SettingsContext
 
     internal interface IInputModSettingsService
     {
-        [SettingTypeHeader("ModHeader", SortOrder = 1000)]
+        [SettingTypeHeader("ModHeader", SortOrder = 500)]
         [UsedImplicitly]
         bool ModHeader { get; set; }
 
+        [SettingTypeToggle("EnableCtrlClickDragToBypassQuestItemsOnDrop", SortOrder = 901, DisplayFooter = true)]
+        [UsedImplicitly]
+        bool EnableCtrlClickDragToBypassQuestItemsOnDrop { get; set; }
+        
+        [SettingTypeToggle("EnableShiftToSnapLineSpells", SortOrder = 902, DisplayFooter = false)]
+        [UsedImplicitly]
+        bool EnableShiftToSnapLineSpells { get; set; }
+        
         [SettingTypeKeyMapping("DebugOverlay", DisplayFooter = true, SortOrder = 1001)]
         [UsedImplicitly]
         string DebugOverlay { get; set; }
@@ -454,8 +462,31 @@ public static class SettingsContext
 
         private string _vttCamera = UserPreferences.GetValue("Settings/Keyboard/VttCamera");
 
+        private bool _enableCtrlClickDragToBypassQuestItemsOnDrop = UserPreferences.GetValue<bool>("Settings/Keyboard/EnableCtrlClickDragToBypassQuestItemsOnDrop");
+        private bool _enableShiftToSnapLineSpells = UserPreferences.GetValue<bool>("Settings/Keyboard/EnableShiftToSnapLineSpells");
+        
         public bool ModHeader { get; set; }
 
+        public bool EnableCtrlClickDragToBypassQuestItemsOnDrop
+        {
+            get => _enableCtrlClickDragToBypassQuestItemsOnDrop;
+            set
+            {
+                _enableCtrlClickDragToBypassQuestItemsOnDrop = value;
+                UserPreferences.SetValue("Settings/Keyboard/EnableCtrlClickDragToBypassQuestItemsOnDrop", _enableCtrlClickDragToBypassQuestItemsOnDrop);
+            }
+        }
+        
+        public bool EnableShiftToSnapLineSpells
+        {
+            get => _enableShiftToSnapLineSpells;
+            set
+            {
+                _enableShiftToSnapLineSpells = value;
+                UserPreferences.SetValue("Settings/Keyboard/EnableShiftToSnapLineSpells", _enableShiftToSnapLineSpells);
+            }
+        }
+        
         public string CharacterExport
         {
             get => _characterExport;
@@ -620,6 +651,8 @@ public static class SettingsContext
             _teleportParty = string.Empty;
             _toggleHud = string.Empty;
             _vttCamera = string.Empty;
+            _enableShiftToSnapLineSpells = false;
+            _enableCtrlClickDragToBypassQuestItemsOnDrop = false;
         }
     }
 

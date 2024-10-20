@@ -112,7 +112,6 @@ ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[다�
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 버튼 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=<color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하려면 캔트립을 활성화하세요.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태의 종족]</color></i>
-ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=<color=#1E81B0>CTRL</color> 클릭-드래그를 활성화하여 드롭 시 <color=#D89555>퀘스트 아이템</color> 검사를 무시합니다.
 ModUi/&EnableCustomPortraits=<color=#D89555>맞춤 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 사용자 정의 초상화를 하위 폴더 <i><b><color=#F0DAA0>개인</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color> 아래에 배치하세요. </b></i>, 영웅의 이름을 따서 명명됨 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• PNG 사용 투명 레이어가 있는 256 x 384 픽셀 크기의 이미지 <i><color=#F0DAA0>[최상의 결과를 얻으려면 김프 사용]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 활성화\n<i><color=#F0DAA0>[플랫 룸, 150x150 및 200x200 던전 크기 및 모든 환경의 자산을 혼합하는 장식 없음]</color></i>
@@ -279,7 +278,6 @@ ModUi/&SettingsLoad=• 내보낸 설정 로드
 ModUi/&SettingsOpenFolder=내보낸 설정 폴더 열기
 ModUi/&SettingsRefresh=새로 고치다
 ModUi/&SettingsRemove=제거하다
-ModUi/&ShiftToSnapLineSpells=<color=#1E81B0>SHIFT</color>를 누르고 있으면 선 주문이 격자에 맞춰집니다. <i><color=#F0DAA0>[스냅하지 않으면 실제 선 배치가 미리 보기와 다를 수 있음]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=조종되는 몬스터 <i><color=#F0DAA0>[야생 모양의 드루이드, 소환수, NPC 추종자 등]</color></i>에 대한 정보를 여는 표시 버튼
 ModUi/&ShowChannelDivinityOnPortrait=영웅의 초상화에 얼마나 많은 <color=#D89555>채널 신성</color>을 사용했는지 표시합니다. 이는 마법 포인트와 유사합니다.
 ModUi/&ShowCraftedItemOnRecipeIcon=상점과 인벤토리의 제작 아이템 근처에 제작 아이템 아이콘 표시 <i><color=#F0DAA0>[마우스를 위에 올리면 제작 아이템에 대한 툴팁이 표시됩니다]</color></i>

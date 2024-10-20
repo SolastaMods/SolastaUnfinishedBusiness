@@ -223,12 +223,6 @@ internal static class GameUiDisplay
             Main.Settings.EnableDistanceOnTooltip = toggle;
         }
 
-        toggle = Main.Settings.ShiftToSnapLineSpells;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShiftToSnapLineSpells"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShiftToSnapLineSpells = toggle;
-        }
-
         toggle = Main.Settings.ShowMotionFormPreview;
         if (UI.Toggle(Gui.Localize("ModUi/&ShowMotionFormPreview"), ref toggle, UI.AutoWidth()))
         {
@@ -329,14 +323,6 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryTintKnownRecipesRed"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableInventoryTintKnownRecipesRed = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.EnableCtrlClickDragToBypassQuestItemsOnDrop;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCtrlClickDragToBypassQuestItemsOnDrop = toggle;
         }
 
         UI.Label();

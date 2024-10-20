@@ -112,7 +112,6 @@ ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Re
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Enable cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
 ModUi/&EnableCharactersOnFireToEmitLight=Characters <color=#D89555>On Fire</color> should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
-ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Enable <color=#1E81B0>CTRL</color> click-drag to bypass <color=#D89555>quest items</color> checks on drop
 ModUi/&EnableCustomPortraits=Enable <color=#D89555>Custom Portraits</color>
 ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
@@ -279,7 +278,6 @@ ModUi/&SettingsLoad=• Load an exported setting
 ModUi/&SettingsOpenFolder=Open exported settings folder
 ModUi/&SettingsRefresh=Refresh
 ModUi/&SettingsRemove=Remove
-ModUi/&ShiftToSnapLineSpells=Hold <color=#1E81B0>SHIFT</color> to snap line spells to grid <i><color=#F0DAA0>[without snapping actual line placement might differ from preview]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Show button that opens info about controlled monster <i><color=#F0DAA0>[wild-shaped druids, summons, NPC followers, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Show how many <color=#D89555>Channel Divinity</color> uses a hero has on their portrait, similar to sorcery points
 ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory <i><color=#F0DAA0>[Hovering over it will show tooltip for crafted item]</color></i>

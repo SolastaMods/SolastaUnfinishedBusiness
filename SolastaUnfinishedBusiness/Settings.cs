@@ -160,7 +160,34 @@ public class Settings : UnityModManager.ModSettings
     public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
+    
+    // Formation
+    public int FormationGridSelectedSet { get; set; } = -1;
 
+    public int[][][] FormationGridSets { get; set; } =
+    [
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ]
+    ];
+    
     //
     // Gameplay - General
     //
@@ -406,36 +433,8 @@ public class Settings : UnityModManager.ModSettings
     public int OutlineGridWidthSpeed { get; set; } = 100;
     public bool EnableDistanceOnTooltip { get; set; }
     public bool ShowMotionFormPreview { get; set; }
-    public bool ShiftToSnapLineSpells { get; set; }
     public int HighContrastTargetingAoeSelectedColor { get; set; }
     public int HighContrastTargetingSingleSelectedColor { get; set; }
-
-    // Formation
-    public int FormationGridSelectedSet { get; set; } = -1;
-
-    public int[][][] FormationGridSets { get; set; } =
-    [
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ]
-    ];
 
     // Inventory and Items
     public bool AddCustomIconsToOfficialItems { get; set; }
@@ -443,7 +442,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
-    public bool EnableCtrlClickDragToBypassQuestItemsOnDrop { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public bool ShowCraftedItemOnRecipeIcon { get; set; }
     public bool SwapCraftedItemAndRecipeIcons { get; set; }

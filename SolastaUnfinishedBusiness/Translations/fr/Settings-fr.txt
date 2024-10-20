@@ -112,7 +112,6 @@ ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Néces
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCantripsTriggeringOnWarMagic=Activer les cantrips pour déclencher une attaque bonus supplémentaire de <color=#D89555>Magie de guerre</color>
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</color> doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Bouffon de feu, Balbuzard pêcheur de feu, Araignée de feu et famille de conditions en feu]</color></i>
-ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Activez le clic-glisser <color=#1E81B0>CTRL</color> pour contourner les vérifications des <color=#D89555>objets de quête</color> lors de la chute
 ModUi/&EnableCustomPortraits=Activer les <color=#D89555>portraits personnalisés</color>
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personnel</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>. </b></i>, nommé d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utiliser PNG images, d'une taille de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclut des salles plates, des donjons de 150 x 150 et 200 x 200 et un mélange sans fioritures des ressources de tous les environnements]</color></i>
@@ -279,7 +278,6 @@ ModUi/&SettingsLoad=• Charger un paramètre exporté
 ModUi/&SettingsOpenFolder=Ouvrir le dossier des paramètres exportés
 ModUi/&SettingsRefresh=Rafraîchir
 ModUi/&SettingsRemove=Retirer
-ModUi/&ShiftToSnapLineSpells=Maintenez <color=#1E81B0>MAJ</color> enfoncé pour aligner les sorts de ligne sur la grille <i><color=#F0DAA0>[sans alignement, le placement réel des lignes peut différer de l'aperçu]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Afficher le bouton qui ouvre les informations sur les monstres contrôlés <i><color=#F0DAA0>[druides de forme sauvage, invocations, adeptes PNJ, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Montrez combien de <color=#D89555>Channel Divinity</color> utilise un héros sur son portrait, semblable aux points de sorcellerie.
 ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué à proximité de l'objet de recette dans la boutique et l'inventaire <i><color=#F0DAA0>[En passant la souris dessus, l'info-bulle de l'objet fabriqué s'affichera]</color></i>

@@ -83,7 +83,7 @@ public static class InventoryPanelPatcher
         [UsedImplicitly]
         public static void Prefix(InventoryPanel __instance, out bool __state)
         {
-            __state = Main.Settings.EnableCtrlClickDragToBypassQuestItemsOnDrop &&
+            __state = SettingsContext.InputModManagerInstance.EnableCtrlClickDragToBypassQuestItemsOnDrop &&
                       (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) &&
                       __instance.DraggedItem.ItemDefinition.ItemTags.Remove(TagsDefinitions.ItemTagQuest);
         }

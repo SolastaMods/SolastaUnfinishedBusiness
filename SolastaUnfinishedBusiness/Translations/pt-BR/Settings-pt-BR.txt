@@ -112,7 +112,6 @@ ModUi/&EnableBetaContent=Ativar conteúdo beta <b><i><color=#C04040E0>[Requer re
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite ações de cancelamento com clique direito do mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Habilite truques para acionar ataque bônus extra de <color=#D89555>War Magic</color>
 ModUi/&EnableCharactersOnFireToEmitLight=Personagens <color=#D89555>Em Chamas</color> devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Elemental de Fogo, Bobo da Corte de Fogo, Águia Pescadora de Fogo, Aranha de Fogo e família de condição em chamas]</color></i>
-ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=Habilitar <color=#1E81B0>CTRL</color> clicar e arrastar para ignorar as verificações de <color=#D89555>itens de missão</color> ao soltar
 ModUi/&EnableCustomPortraits=Habilitar <color=#D89555>Retratos personalizados</color>
 ModUi/&EnableCustomPortraitsHelp=• Coloque seus retratos personalizados nas subpastas <i><b><color=#F0DAA0>Pessoal</color></b></i> ou <i><b><color=#F0DAA0>Pré-geração</color> </b></i>, nomeado após o nome do herói <i><color=#F0DAA0>[ou seja: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG imagens, tamanho 256 x 384 pixels, com uma camada de transparência <i><color=#F0DAA0>[use o GIMP para obter melhores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura simples de recursos de todos os ambientes]</color></i>
@@ -279,7 +278,6 @@ ModUi/&SettingsLoad=• Carregar uma configuração exportada
 ModUi/&SettingsOpenFolder=Abra a pasta de configurações exportadas
 ModUi/&SettingsRefresh=Atualizar
 ModUi/&SettingsRemove=Remover
-ModUi/&ShiftToSnapLineSpells=Segure <color=#1E81B0>SHIFT</color> para encaixar as linhas de feitiços na grade <i><color=#F0DAA0>[sem encaixar, o posicionamento real das linhas pode ser diferente da visualização]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=Mostrar botão que abre informações sobre monstros controlados <i><color=#F0DAA0>[druidas em forma selvagem, invocações, seguidores de NPCs, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostre quantos usos de <color=#D89555>Canal Divindade</color> um herói tem em seu retrato, semelhante a pontos de feitiçaria
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar ícone de item criado próximo ao item de receita na loja e no inventário <i><color=#F0DAA0>[Passar o mouse sobre ele exibirá uma dica para o item criado]</color></i>

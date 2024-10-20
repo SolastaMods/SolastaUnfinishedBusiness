@@ -112,7 +112,6 @@ ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重�
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
 ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>，可以用附赠动作发动一次武器攻击
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
-ModUi/&EnableCtrlClickDragToBypassQuestItemsOnDrop=启用 <color=#1E81B0>CTRL</color> 单击拖动以绕过<color=#D89555>任务物品</color> 的丢弃检查
 ModUi/&EnableCustomPortraits=启用<color=#D89555>自定义肖像</color>
 ModUi/&EnableCustomPortraitsHelp=。将你的自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i>，以英雄名字<i><color=#F0DAA0>[即：Anton、Celia、Nialla 等]</color></i>\n 命名。使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 以获得最佳效果]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150 和 200x200 的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
@@ -279,7 +278,6 @@ ModUi/&SettingsLoad=•加载导出的设置
 ModUi/&SettingsOpenFolder=打开导出的设置文件夹
 ModUi/&SettingsRefresh=刷新
 ModUi/&SettingsRemove=移除
-ModUi/&ShiftToSnapLineSpells=按住 <color=#1E81B0>SHIFT</color> 将线条捕捉到网格 <i><color=#F0DAA0>[不捕捉时实际线条位置可能与预览不同]</color></i>
 ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[测试]</color></b>显示按钮，打开有关受控怪物的信息<i><color=#F0DAA0>[荒野形态德鲁伊、召唤物、NPC追随者等。]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=在英雄头像上显示<color=#D89555>引导神力</color>次数，类似于法术位
 ModUi/&ShowCraftedItemOnRecipeIcon=在商店和库存中的配方项目附近显示制作的项目图标 <i><color=#F0DAA0>[将鼠标悬停在它上面将显示制作物品的工具提示]</color></i>
