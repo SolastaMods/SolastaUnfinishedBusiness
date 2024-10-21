@@ -43,7 +43,7 @@ ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=The <color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
 ModUi/&Blueprints=Blueprints
-ModUi/&Campaigns=<color=#F0DAA0>Campaigns:</color>
+ModUi/&Campaigns=Campaigns
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campaigns and locations:</color>
 ModUi/&Category=Category
 ModUi/&ChangeDragonbornElementalBreathUsages=Change <color=#D89555>Dragonborn</color> elemental breath usages to Constitution modifier per short rest
@@ -190,7 +190,6 @@ ModUi/&FormationResetAllSets=Reset all
 ModUi/&FormationResetThisSet=Reset this
 ModUi/&FormationSelected=Formation set {0} selected
 ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
-ModUi/&GameUi=Campaigns
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
@@ -201,7 +200,6 @@ ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75%
 ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Hide this action when metamagic toggle is off</i>
 ModUi/&HighContrastTargetingAoeColor=Change AoE creatures <b><color=$$$$$$>highlight select color</color></b>
 ModUi/&HighContrastTargetingSingleColor=Change single creatures <b><color=$$$$$$>highlight select color</color></b>
-ModUi/&House=<color=#F0DAA0>House:</color>
 ModUi/&IdentifyAfterRest=Add a power to <color=#D89555>identify magic items</color> over a short or long rest
 ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use <color=#D89555>Hand Crossbows</color>
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusion spells automatically fail against targets with <color=#D89555>TrueSight</color> in range
@@ -262,7 +260,6 @@ ModUi/&RestockHelp=• Override defaults to force all merchant's stock to restoc
 ModUi/&RestockTowerOfKnowledge=Restock Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>Rollback</color></b>
 ModUi/&Rules=Rules
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i><color=#F0DAA0>[no more rounding errors when converting coin values]</color></i>
 ModUi/&SelectAll=Select All
 ModUi/&SelectDisplayed=Select Displayed
@@ -302,7 +299,7 @@ ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total <color=#D89555>feats</color> granted at first level</color>
 ModUi/&Translate=Translate
 ModUi/&TranslateCancel=Cancel {0} at {1}
-ModUi/&Translations=Translations
+ModUi/&Translations=<color=#F0DAA0>Translations:</color>
 ModUi/&UnleashEnemyAsNpc=Allow monsters to be selected on NPC gadgets
 ModUi/&UnleashNpcAsEnemy=Unlock monsters selection
 ModUi/&Update=<b><color=#D89555>Update</color></b>

@@ -11,6 +11,125 @@ internal static class SpellsDisplay
 
     internal static int SpellLevelFilter { get; private set; } = ShowAll;
 
+    private static void DisplaySpellsGeneral()
+    {
+        var toggle = Main.Settings.DisplaySpellsGeneralToggle;
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&General"), ref toggle, 200))
+        {
+            Main.Settings.DisplaySpellsGeneralToggle = toggle;
+        }
+
+        if (!Main.Settings.DisplaySpellsGeneralToggle)
+        {
+            return;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
+        if (UI.Toggle(Gui.Localize("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
+            SrdAndHouseRulesContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
+        }
+
+        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
+            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
+        }
+
+        toggle = Main.Settings.AddBleedingToLesserRestoration;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddBleedingToLesserRestoration = toggle;
+            SrdAndHouseRulesContext.SwitchAddBleedingToLesserRestoration();
+        }
+
+        toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
+        if (UI.Toggle(Gui.Localize("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
+        }
+
+        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
+            SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
+        }
+
+        toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableUpcastConjureElementalAndFey"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
+            Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = false;
+            SrdAndHouseRulesContext.SwitchEnableUpcastConjureElementalAndFey();
+        }
+
+        if (Main.Settings.EnableUpcastConjureElementalAndFey)
+        {
+            toggle = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey;
+            if (UI.Toggle(Gui.Localize("ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
+            }
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.ChangeSleetStormToCube;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeSleetStormToCube = toggle;
+            SrdAndHouseRulesContext.SwitchChangeSleetStormToCube();
+        }
+
+        toggle = Main.Settings.UseHeightOneCylinderEffect;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseHeightOneCylinderEffect = toggle;
+            SrdAndHouseRulesContext.SwitchUseHeightOneCylinderEffect();
+        }
+
+        toggle = Main.Settings.FixEldritchBlastRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixEldritchBlastRange = toggle;
+            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
+        }
+
+        UI.Label();
+
+        var intValue = SpellLevelFilter;
+        if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
+        {
+            SpellLevelFilter = intValue;
+            SpellsContext.RecalculateDisplayedSpells();
+        }
+    }
+
     internal static void DisplaySpells()
     {
         UI.Label();
@@ -18,6 +137,11 @@ internal static class SpellsDisplay
         UI.ActionButton(Gui.Localize("ModUi/&DocsSpells").Bold().Khaki(),
             () => UpdateContext.OpenDocumentation("Spells.md"), UI.Width(150f));
 
+        UI.Label();
+
+        DisplaySpellsGeneral();
+
+        
         UI.Label();
 
         var toggle = Main.Settings.AllowDisplayingOfficialSpells;
@@ -35,16 +159,7 @@ internal static class SpellsDisplay
             Main.Settings.AllowDisplayingNonSuggestedSpells = toggle;
             SpellsContext.RecalculateDisplayedSpells();
         }
-
-        UI.Label();
-
-        var intValue = SpellLevelFilter;
-        if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
-        {
-            SpellLevelFilter = intValue;
-            SpellsContext.RecalculateDisplayedSpells();
-        }
-
+        
         UI.Label();
 
         using (UI.HorizontalScope())
@@ -110,7 +225,7 @@ internal static class SpellsDisplay
 
             void AdditionalRendering()
             {
-                toggle = spellListContext.IsSuggestedSetSelected;
+                var toggle = spellListContext.IsSuggestedSetSelected;
                 if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
                 {
                     spellListContext.SelectSuggestedSetInternal(toggle);

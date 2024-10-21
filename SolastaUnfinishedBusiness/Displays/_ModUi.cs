@@ -14,14 +14,13 @@ using static SolastaUnfinishedBusiness.Displays.DungeonMakerDisplay;
 using static SolastaUnfinishedBusiness.Displays.EffectsDisplay;
 using static SolastaUnfinishedBusiness.Displays.EncountersDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameServicesDisplay;
-using static SolastaUnfinishedBusiness.Displays.GameUiDisplay;
+using static SolastaUnfinishedBusiness.Displays.CampaignsDisplay;
 using static SolastaUnfinishedBusiness.Displays.ItemsAndCraftingDisplay;
 using static SolastaUnfinishedBusiness.Displays.ProficienciesDisplay;
 using static SolastaUnfinishedBusiness.Displays.RulesDisplay;
 using static SolastaUnfinishedBusiness.Displays.SpellsDisplay;
 using static SolastaUnfinishedBusiness.Displays.SubclassesDisplay;
 using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
-using static SolastaUnfinishedBusiness.Displays.TranslationsDisplay;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -519,7 +518,7 @@ internal sealed class GameplayViewer : IMenuSelectablePage
         ModUi.DisplaySubMenu(ref _gamePlaySelectedPane, Name,
             new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayGameplay),
             new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
-            new NamedAction(Gui.Localize("ModUi/&GameUi"), DisplayGameUi),
+            new NamedAction(Gui.Localize("ModUi/&Campaigns"), DisplayGameUi),
             new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting),
             new NamedAction(Gui.Localize("ModUi/&DungeonMakerMenu"), DisplayDungeonMaker));
     }

@@ -8,23 +8,22 @@ internal static class BackgroundsAndRacesDisplay
 {
     private static bool _displayTabletop;
 
-    internal static void DisplayBackgroundsAndRaces()
+    private static void DisplayBackgroundsAndRacesGeneral()
     {
-        UI.Label();
-
-        using (UI.HorizontalScope())
+        var toggle = Main.Settings.DisplayBackgroundsAndRacesGeneralToggle;
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&General"), ref toggle, 200))
         {
-            UI.ActionButton(Gui.Localize("ModUi/&DocsBackgrounds").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Backgrounds.md"), UI.Width(150f));
-            UI.ActionButton(Gui.Localize("ModUi/&DocsRaces").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Races.md"), UI.Width(150f));
-            UI.ActionButton(Gui.Localize("ModUi/&DocsSubraces").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Subraces.md"), UI.Width(150f));
+            Main.Settings.DisplayBackgroundsAndRacesGeneralToggle = toggle;
+        }
+
+        if (!Main.Settings.DisplayBackgroundsAndRacesGeneralToggle)
+        {
+            return;
         }
 
         UI.Label();
 
-        var toggle = Main.Settings.EnableFlexibleBackgrounds;
+        toggle = Main.Settings.EnableFlexibleBackgrounds;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleBackgrounds"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableFlexibleBackgrounds = toggle;
@@ -87,11 +86,29 @@ internal static class BackgroundsAndRacesDisplay
         }
 
         UI.Label();
+    }
+
+    internal static void DisplayBackgroundsAndRaces()
+    {
         UI.Label();
 
         using (UI.HorizontalScope())
         {
-            toggle =
+            UI.ActionButton(Gui.Localize("ModUi/&DocsBackgrounds").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Backgrounds.md"), UI.Width(150f));
+            UI.ActionButton(Gui.Localize("ModUi/&DocsRaces").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Races.md"), UI.Width(150f));
+            UI.ActionButton(Gui.Localize("ModUi/&DocsSubraces").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Subraces.md"), UI.Width(150f));
+        }
+
+        UI.Label();
+        DisplayBackgroundsAndRacesGeneral();
+        UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            var toggle =
                 Main.Settings.DisplayBackgroundsToggle &&
                 Main.Settings.DisplayRacesToggle &&
                 Main.Settings.DisplaySubracesToggle;

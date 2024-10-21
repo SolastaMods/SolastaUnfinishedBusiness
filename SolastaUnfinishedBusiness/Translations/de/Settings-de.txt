@@ -43,7 +43,7 @@ ModUi/&Bestiary=Bestiarium
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Verfluchen</color> erfordert keine Konzentration, wenn es mit einem Zauberplatz L5+ gewirkt wird.
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Der Zustand <color=#D89555>Geblendet</color> erlaubt keinen Gelegenheitsangriff
 ModUi/&Blueprints=Blaupausen
-ModUi/&Campaigns=<color=#F0DAA0>Kampagnen:</color>
+ModUi/&Campaigns=Spiel-UI
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Kampagnen und Standorte:</color>
 ModUi/&Category=Kategorie
 ModUi/&ChangeDragonbornElementalBreathUsages=Ändere die Verwendung des Elementaratems von <color=#D89555>Dragonborn</color> in einen Konstitutionsmodifikator pro kurzer Pause.
@@ -78,6 +78,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Alle bekannten Zaubersprüche and
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ <color=#D89555>Warlock</color>-Paktplätze in der Zauberauswahl statt im Charakterfenster anzeigen</i>
 ModUi/&DocsArcaneShots=Arkane Schüsse
 ModUi/&DocsBackgrounds=Hintergründe
+ModUi/&DocsClasses=Klassen
 ModUi/&DocsFeats=Talente
 ModUi/&DocsFightingStyles=Kampfstile
 ModUi/&DocsInfusions=Infusionen
@@ -189,7 +190,6 @@ ModUi/&FormationResetAllSets=Alles zurücksetzen
 ModUi/&FormationResetThisSet=Setzen Sie dies zurück
 ModUi/&FormationSelected=Formationssatz {0} ausgewählt
 ModUi/&FullyControlConjurations=Vollständige Kontrolle über Beschwörungen <i><color=#F0DAA0>[Tiere, Elementare usw.]</color></i>
-ModUi/&GameUi=Spiel-UI
 ModUi/&Gameplay=Spielablauf
 ModUi/&General=<color=#F0DAA0>Allgemeines:</color>
 ModUi/&GeneralMenu=Allgemein
@@ -200,7 +200,6 @@ ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit von Monstern in Schritten von 2
 ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Diese Aktion verbergen, wenn die Metamagie-Umschaltung ausgeschaltet ist</i>
 ModUi/&HighContrastTargetingAoeColor=AoE-Kreaturen ändern <b><color=$$$$$$>Auswahlfarbe hervorheben</color></b>
 ModUi/&HighContrastTargetingSingleColor=Einzelne Kreaturen ändern <b><color=$$$$$$>Ausgewählte Farbe hervorheben</color></b>
-ModUi/&House=<color=#F0DAA0>Haus:</color>
 ModUi/&IdentifyAfterRest=Füge eine Kraft hinzu, um während einer kurzen oder langen Pause <color=#D89555>magische Gegenstände zu identifizieren</color>
 ModUi/&IgnoreHandXbowFreeHandRequirements=Für die Verwendung von <color=#D89555>Handarmbrüsten</color> ist keine freie Hand erforderlich.
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusionszauber schlagen automatisch fehl, wenn Ziele mit <color=#D89555>TrueSight</color> in Reichweite sind.
@@ -261,7 +260,6 @@ ModUi/&RestockHelp=• Überschreiben Sie die Standardeinstellungen, um zu erzwi
 ModUi/&RestockTowerOfKnowledge=Turm des Wissens auffüllen <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>Zurücksetzen</color></b>
 ModUi/&Rules=Regeln
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Händlerpreise richtig/genau skalieren <i><color=#F0DAA0>[keine Rundungsfehler mehr beim Umrechnen von Münzwerten]</color></i>
 ModUi/&SelectAll=Alles auswählen
 ModUi/&SelectDisplayed=Angezeigt auswählen

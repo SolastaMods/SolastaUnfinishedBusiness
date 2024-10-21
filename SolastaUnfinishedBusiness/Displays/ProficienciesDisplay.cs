@@ -8,6 +8,40 @@ internal static class ProficienciesDisplay
 {
     private static bool _displayTabletop;
 
+    private static void DisplayProficienciesGeneral()
+    {
+        var toggle = Main.Settings.DisplayProficienciesGeneralToggle;
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&General"), ref toggle, 200))
+        {
+            Main.Settings.DisplayProficienciesGeneralToggle = toggle;
+        }
+
+        if (!Main.Settings.DisplayProficienciesGeneralToggle)
+        {
+            return;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.DisableLevelPrerequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableClassPrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableLevelPrerequisitesOnModFeats = toggle;
+        }
+
+        toggle = Main.Settings.DisableRacePrerequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
+        }
+
+        toggle = Main.Settings.DisableCastSpellPreRequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableCastSpellPreRequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableCastSpellPreRequisitesOnModFeats = toggle;
+        }
+    }
+
     internal static void DisplayProficiencies()
     {
         UI.Label();
@@ -140,29 +174,13 @@ internal static class ProficienciesDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.DisableLevelPrerequisitesOnModFeats;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableClassPrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableLevelPrerequisitesOnModFeats = toggle;
-        }
-
-        toggle = Main.Settings.DisableRacePrerequisitesOnModFeats;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
-        }
-
-        toggle = Main.Settings.DisableCastSpellPreRequisitesOnModFeats;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableCastSpellPreRequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableCastSpellPreRequisitesOnModFeats = toggle;
-        }
+        DisplayProficienciesGeneral();
 
         UI.Label();
 
         using (UI.HorizontalScope())
         {
-            toggle =
+            var toggle =
                 Main.Settings.DisplayFeatsToggle &&
                 Main.Settings.DisplayFeatGroupsToggle &&
                 Main.Settings.DisplayFightingStylesToggle &&

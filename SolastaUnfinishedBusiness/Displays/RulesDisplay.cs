@@ -11,7 +11,6 @@ internal static class RulesDisplay
     internal static void DisplayRules()
     {
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&SRD"));
         UI.Label();
 
         var toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
@@ -164,6 +163,14 @@ internal static class RulesDisplay
             Main.Settings.KeepStealthOnHeroIfPerceivedDuringSurpriseAttack = toggle;
         }
 
+        toggle = Main.Settings.StealthDoesNotBreakWithSubtle;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthDoesNotBreakWithSubtle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthDoesNotBreakWithSubtle = toggle;
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.StealthBreaksWhenAttackHits;
         if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenAttackHits"), ref toggle, UI.AutoWidth()))
         {
@@ -174,6 +181,24 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenAttackMisses"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.StealthBreaksWhenAttackMisses = toggle;
+        }
+
+        toggle = Main.Settings.StealthBreaksWhenCastingMaterial;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingMaterial"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenCastingMaterial = toggle;
+        }
+
+        toggle = Main.Settings.StealthBreaksWhenCastingVerbose;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingVerbose"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenCastingVerbose = toggle;
+        }
+
+        toggle = Main.Settings.StealthBreaksWhenCastingSomatic;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingSomatic"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenCastingSomatic = toggle;
         }
 
         UI.Label();
@@ -223,103 +248,6 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
         }
 
-        UI.Label();
-
-        toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
-            SrdAndHouseRulesContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
-        }
-
-        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
-            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
-        }
-
-        toggle = Main.Settings.AddBleedingToLesserRestoration;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddBleedingToLesserRestoration = toggle;
-            SrdAndHouseRulesContext.SwitchAddBleedingToLesserRestoration();
-        }
-
-        toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
-        if (UI.Toggle(Gui.Localize("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
-        }
-
-        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
-            SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
-        }
-
-        toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableUpcastConjureElementalAndFey"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
-            Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = false;
-            SrdAndHouseRulesContext.SwitchEnableUpcastConjureElementalAndFey();
-        }
-
-        if (Main.Settings.EnableUpcastConjureElementalAndFey)
-        {
-            toggle = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey;
-            if (UI.Toggle(Gui.Localize("ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey"), ref toggle,
-                    UI.AutoWidth()))
-            {
-                Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
-            }
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.ChangeSleetStormToCube;
-        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ChangeSleetStormToCube = toggle;
-            SrdAndHouseRulesContext.SwitchChangeSleetStormToCube();
-        }
-
-        toggle = Main.Settings.UseHeightOneCylinderEffect;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseHeightOneCylinderEffect = toggle;
-            SrdAndHouseRulesContext.SwitchUseHeightOneCylinderEffect();
-        }
-
-        toggle = Main.Settings.FixEldritchBlastRange;
-        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FixEldritchBlastRange = toggle;
-            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
-        }
-
-        toggle = Main.Settings.FixRingOfRegenerationHealRate;
-        if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FixRingOfRegenerationHealRate = toggle;
-            SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
-        }
-
-        UI.Label();
-        UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label();
 
         var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;
@@ -383,32 +311,6 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.StealthBreaksWhenCastingMaterial;
-        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingMaterial"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.StealthBreaksWhenCastingMaterial = toggle;
-        }
-
-        toggle = Main.Settings.StealthBreaksWhenCastingVerbose;
-        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingVerbose"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.StealthBreaksWhenCastingVerbose = toggle;
-        }
-
-        toggle = Main.Settings.StealthBreaksWhenCastingSomatic;
-        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingSomatic"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.StealthBreaksWhenCastingSomatic = toggle;
-        }
-
-        toggle = Main.Settings.StealthDoesNotBreakWithSubtle;
-        if (UI.Toggle(Gui.Localize("ModUi/&StealthDoesNotBreakWithSubtle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.StealthDoesNotBreakWithSubtle = toggle;
-        }
-
-        UI.Label();
-
         toggle = Main.Settings.AllowBladeCantripsToUseReach;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowBladeCantripsToUseReach"), ref toggle, UI.AutoWidth()))
         {
@@ -458,6 +360,13 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
         }
 
+        toggle = Main.Settings.EnableGauntletMainAttacks;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableGauntletMainAttacks")), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableGauntletMainAttacks = toggle;
+        }
+
         toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
         if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
         {
@@ -471,11 +380,11 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchMagicStaffFoci();
         }
 
-        toggle = Main.Settings.EnableGauntletMainAttacks;
-        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableGauntletMainAttacks")), ref toggle,
-                UI.AutoWidth()))
+        toggle = Main.Settings.FixRingOfRegenerationHealRate;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableGauntletMainAttacks = toggle;
+            Main.Settings.FixRingOfRegenerationHealRate = toggle;
+            SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
         }
 
         UI.Label();
@@ -509,19 +418,6 @@ internal static class RulesDisplay
             }
         }
 
-        toggle = Main.Settings.EnableCharactersOnFireToEmitLight;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharactersOnFireToEmitLight"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCharactersOnFireToEmitLight = toggle;
-            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
-        }
-
-        toggle = Main.Settings.EnableHigherGroundRules;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableHigherGroundRules"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableHigherGroundRules = toggle;
-        }
-
         toggle = Main.Settings.EnablePullPushOnVerticalDirection;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePullPushOnVerticalDirection"), ref toggle, UI.AutoWidth()))
         {
@@ -539,12 +435,6 @@ internal static class RulesDisplay
             }
         }
 
-        toggle = Main.Settings.EnableTeleportToRemoveRestrained;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableTeleportToRemoveRestrained"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableTeleportToRemoveRestrained = toggle;
-        }
-
         toggle = Main.Settings.FullyControlConjurations;
         if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
         {
@@ -553,6 +443,27 @@ internal static class RulesDisplay
         }
 
         UI.Label();
+
+        toggle = Main.Settings.EnableHigherGroundRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHigherGroundRules"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHigherGroundRules = toggle;
+        }
+
+        toggle = Main.Settings.EnableTeleportToRemoveRestrained;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableTeleportToRemoveRestrained"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableTeleportToRemoveRestrained = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableCharactersOnFireToEmitLight;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharactersOnFireToEmitLight"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableCharactersOnFireToEmitLight = toggle;
+            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
+        }
 
         toggle = Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition;
         if (UI.Toggle(Gui.Localize("ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition"), ref toggle,
@@ -568,14 +479,6 @@ internal static class RulesDisplay
         {
             Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition = toggle;
             SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
-        if (UI.Toggle(Gui.Localize("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
         }
 
         UI.Label();

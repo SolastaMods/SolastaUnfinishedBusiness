@@ -43,7 +43,7 @@ ModUi/&Bestiary=動物図鑑
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>呪いの付与</color>は、L5以上の呪文スロットで唱える場合、集中力を必要としません。
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>状態は機会攻撃を許可しません
 ModUi/&Blueprints=設計図
-ModUi/&Campaigns=<color=#F0DAA0>キャンペーン:</color>
+ModUi/&Campaigns=ゲームUI
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>キャンペーンと場所:</color>
 ModUi/&Category=カテゴリ
 ModUi/&ChangeDragonbornElementalBreathUsages=<color=#D89555>Dragonborn</color> のエレメンタルブレスの使用量を、短い休憩ごとに体力補正に変更します
@@ -78,6 +78,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ レベルアップ中に他のク
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ キャラクターパネルの代わりに呪文選択時に <color=#D89555>ウォーロック</color> 契約スロットを表示する</i>
 ModUi/&DocsArcaneShots=アーケインショット
 ModUi/&DocsBackgrounds=背景
+ModUi/&DocsClasses=クラス
 ModUi/&DocsFeats=偉業
 ModUi/&DocsFightingStyles=戦闘スタイル
 ModUi/&DocsInfusions=点滴
@@ -189,7 +190,6 @@ ModUi/&FormationResetAllSets=すべてリセット
 ModUi/&FormationResetThisSet=これをリセット
 ModUi/&FormationSelected=フォーメーションセット{0}が選択されました
 ModUi/&FullyControlConjurations=召喚を完全に制御します <i><color=#F0DAA0>[動物、精霊など]</color></i>
-ModUi/&GameUi=ゲームUI
 ModUi/&Gameplay=ゲームプレイ
 ModUi/&General=<color=#F0DAA0>一般:</color>
 ModUi/&GeneralMenu=一般的な
@@ -200,7 +200,6 @@ ModUi/&HideMonsterHitPoints=モンスターの体力を正確なヒットポイ�
 ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ メタマジックトグルがオフのときはこのアクションを非表示にする</i>
 ModUi/&HighContrastTargetingAoeColor=AoE クリーチャーを変更する <b><color=$$$$$$>選択した色を強調表示</color></b>
 ModUi/&HighContrastTargetingSingleColor=単一のクリーチャーを変更する <b><color=$$$$$$>選択した色を強調表示</color></b>
-ModUi/&House=<color=#F0DAA0>家:</color>
 ModUi/&IdentifyAfterRest=短い休憩または長い休憩中に<color=#D89555>魔法のアイテムを識別する</color>パワーを追加します
 ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>ハンドクロスボウ</color>を使用するのに自由な手は必要ありません
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻惑呪文は範囲内の<color=#D89555>TrueSight</color>を持つターゲットに対しては自動的に失敗する
@@ -261,7 +260,6 @@ ModUi/&RestockHelp=• デフォルトを上書きして、すべての商人の
 ModUi/&RestockTowerOfKnowledge=知識の塔を補充 <i><color=#F0DAA0>[マディ・グリーンアイル]</color></i>
 ModUi/&Rollback=<b><color=#D89555>ロールバック</color></b>
 ModUi/&Rules=ルール
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=商人の価格を正確に調整します <i><color=#F0DAA0>[コイン値を変換する際の丸め誤差がなくなります]</color></i>
 ModUi/&SelectAll=すべて選択
 ModUi/&SelectDisplayed=表示を選択

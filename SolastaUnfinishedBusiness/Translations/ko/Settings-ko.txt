@@ -43,7 +43,7 @@ ModUi/&Bestiary=동물 우화집
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>저주 부여</color>는 L5+ 주문 슬롯으로 시전할 경우 집중이 필요하지 않습니다.
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>눈멀음</color> 상태에서는 기회공격이 허용되지 않습니다.
 ModUi/&Blueprints=청사진
-ModUi/&Campaigns=<color=#F0DAA0>캠페인:</color>
+ModUi/&Campaigns=게임 UI
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>캠페인 및 위치:</color>
 ModUi/&Category=범주
 ModUi/&ChangeDragonbornElementalBreathUsages=<color=#D89555>드래곤본</color> 원소 숨결 사용을 짧은 휴식당 체력 수정치로 변경
@@ -78,6 +78,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨업 중 다른 클래스의
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택에 <color=#D89555>워록</color> 계약 슬롯을 표시합니다.</i>
 ModUi/&DocsArcaneShots=아케인 샷
 ModUi/&DocsBackgrounds=배경
+ModUi/&DocsClasses=수업
 ModUi/&DocsFeats=업적
 ModUi/&DocsFightingStyles=격투 스타일
 ModUi/&DocsInfusions=주입
@@ -189,7 +190,6 @@ ModUi/&FormationResetAllSets=모두 재설정
 ModUi/&FormationResetThisSet=이것을 재설정
 ModUi/&FormationSelected=형성 세트 {0} 선택됨
 ModUi/&FullyControlConjurations=<i><color=#F0DAA0>[동물, 정령 등]</color></i>의 주문을 완벽하게 제어합니다.
-ModUi/&GameUi=게임 UI
 ModUi/&Gameplay=게임 플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반적인
@@ -200,7 +200,6 @@ ModUi/&HideMonsterHitPoints=정확한 체력 대신 25% / 50% / 75% / 100% 단�
 ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ 메타매직 토글이 꺼져 있을 때 이 동작을 숨깁니다.</i>
 ModUi/&HighContrastTargetingAoeColor=AoE 생물 변경 <b><color=$$$$$$>선택 색상 강조</color></b>
 ModUi/&HighContrastTargetingSingleColor=단일 생물 변경 <b><color=$$$$$$>선택 색상 강조</color></b>
-ModUi/&House=<color=#F0DAA0>집:</color>
 ModUi/&IdentifyAfterRest=짧은 휴식이나 긴 휴식 동안 <color=#D89555>마법 아이템 식별</color> 능력을 추가합니다.
 ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>손 석궁</color>을 사용할 때 자유로운 손이 필요하지 않습니다.
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=환상 주문은 범위 내에 <color=#D89555>TrueSight</color>가 있는 대상에 대해 자동으로 실패합니다.
@@ -261,7 +260,6 @@ ModUi/&RestockHelp=• 모든 상인의 재고가 시간이 지남에 따라 재
 ModUi/&RestockTowerOfKnowledge=지식의 탑 재보급 <i><color=#F0DAA0>[매디 그리니슬]</color></i>
 ModUi/&Rollback=<b><color=#D89555>롤백</color></b>
 ModUi/&Rules=규칙
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=상인 가격을 올바르게/정확하게 조정합니다. <i><color=#F0DAA0>[코인 가치를 변환할 때 더 이상 반올림 오류가 발생하지 않습니다.]</color></i>
 ModUi/&SelectAll=모두 선택
 ModUi/&SelectDisplayed=표시된 항목을 선택하세요

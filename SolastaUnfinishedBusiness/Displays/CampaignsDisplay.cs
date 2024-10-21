@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-internal static class GameUiDisplay
+internal static class CampaignsDisplay
 {
     private static bool _selectedForSwap;
     private static int _selectedX, _selectedY;

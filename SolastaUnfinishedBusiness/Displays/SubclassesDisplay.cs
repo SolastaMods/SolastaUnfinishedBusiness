@@ -7,16 +7,22 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class SubclassesDisplay
 {
-    internal static void DisplaySubclasses()
+    internal static void DisplaySubclassesGeneral()
     {
+        var toggle = Main.Settings.DisplaySubClassesGeneralToggle;
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&General"), ref toggle, 200))
+        {
+            Main.Settings.DisplaySubClassesGeneralToggle = toggle;
+        }
+
+        if (!Main.Settings.DisplaySubClassesGeneralToggle)
+        {
+            return;
+        }
+
         UI.Label();
 
-        UI.ActionButton(Gui.Localize("ModUi/&DocsSubclasses").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(150f));
-
-        UI.Label();
-
-        var toggle = Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness;
+        toggle = Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness"), ref toggle,
                 UI.AutoWidth()))
         {
@@ -43,12 +49,24 @@ internal static class SubclassesDisplay
             Main.Settings.RemoveSchoolRestrictionsFromSpellBlade = toggle;
             SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromSpellBlade();
         }
+    }
+
+    internal static void DisplaySubclasses()
+    {
+        UI.Label();
+
+        UI.ActionButton(Gui.Localize("ModUi/&DocsSubclasses").Bold().Khaki(),
+            () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(150f));
+
+        UI.Label();
+
+        DisplaySubclassesGeneral();
 
         UI.Label();
 
         using (UI.HorizontalScope())
         {
-            toggle = Main.Settings.DisplayKlassToggle.All(x => x.Value);
+            var toggle = Main.Settings.DisplayKlassToggle.All(x => x.Value);
             if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
                 foreach (var key in Main.Settings.DisplayKlassToggle.Keys.ToHashSet())

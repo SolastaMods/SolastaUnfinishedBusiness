@@ -28,11 +28,11 @@ internal static class ToolsDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton(Gui.Localize("ModUi/&Update"), () => UpdateContext.UpdateMod(),
-                UI.Width(225f));
+                UI.Width(240f));
             UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage,
-                UI.Width(225f));
+                UI.Width(240f));
             UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog,
-                UI.Width(225f));
+                UI.Width(240f));
         }
 
         UI.Label();

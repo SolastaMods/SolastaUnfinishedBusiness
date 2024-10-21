@@ -43,7 +43,7 @@ ModUi/&Bestiary=Bestiaire
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Conférer une malédiction</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort de niveau 5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condition <color=#D89555>Aveuglé</color> ne permet pas d'attaquer par opportunité
 ModUi/&Blueprints=Plans
-ModUi/&Campaigns=<color=#F0DAA0>Campagnes :</color>
+ModUi/&Campaigns=Interface utilisateur du jeu
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagnes et lieux :</color>
 ModUi/&Category=Catégorie
 ModUi/&ChangeDragonbornElementalBreathUsages=Changer les utilisations du souffle élémentaire de <color=#D89555>Dragonborn</color> en modificateur de Constitution par repos court
@@ -78,6 +78,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus de
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte du <color=#D89555>Démoniste</color> lors de la sélection des sorts au lieu du panneau de personnage</i>
 ModUi/&DocsArcaneShots=Tirs des arcanes
 ModUi/&DocsBackgrounds=Contexte
+ModUi/&DocsClasses=Cours
 ModUi/&DocsFeats=Exploits
 ModUi/&DocsFightingStyles=Styles de combat
 ModUi/&DocsInfusions=Infusions
@@ -189,7 +190,6 @@ ModUi/&FormationResetAllSets=Réinitialiser tout
 ModUi/&FormationResetThisSet=Réinitialiser ceci
 ModUi/&FormationSelected=Ensemble de formation {0} sélectionné
 ModUi/&FullyControlConjurations=Contrôlez entièrement les conjurations <i><color=#F0DAA0>[animaux, élémentaires, etc.]</color></i>
-ModUi/&GameUi=Interface utilisateur du jeu
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>Général :</color>
 ModUi/&GeneralMenu=Général
@@ -200,7 +200,6 @@ ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % 
 ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Masquer cette action lorsque la bascule métamagique est désactivée</i>
 ModUi/&HighContrastTargetingAoeColor=Changer les créatures AoE <b><color=$$$$$$>mettre en surbrillance la couleur de sélection</color></b>
 ModUi/&HighContrastTargetingSingleColor=Changer des créatures individuelles <b><color=$$$$$$>mettre en surbrillance la couleur de sélection</color></b>
-ModUi/&House=<color=#F0DAA0>Maison :</color>
 ModUi/&IdentifyAfterRest=Ajoutez un pouvoir pour <color=#D89555>identifier les objets magiques</color> lors d'un repos court ou long
 ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour utiliser les <color=#D89555>arbalètes à main</color>
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Les sorts d'illusion échouent automatiquement contre les cibles ayant <color=#D89555>TrueSight</color> à portée
@@ -261,7 +260,6 @@ ModUi/&RestockHelp=• Remplacer les valeurs par défaut pour forcer le réappro
 ModUi/&RestockTowerOfKnowledge=Réapprovisionner la Tour de la Connaissance <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>Retour en arrière</color></b>
 ModUi/&Rules=Règles
-ModUi/&SRD=<color=#F0DAA0>SRD :</color>
 ModUi/&ScaleMerchantPricesCorrectly=Échelle des prix marchands correctement / exactement <i><color=#F0DAA0>[plus d'erreurs d'arrondi lors de la conversion des valeurs des pièces]</color></i>
 ModUi/&SelectAll=Sélectionner tout
 ModUi/&SelectDisplayed=Sélectionner Affiché

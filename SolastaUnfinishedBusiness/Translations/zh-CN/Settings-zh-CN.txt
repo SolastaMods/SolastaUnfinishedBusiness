@@ -43,7 +43,7 @@ ModUi/&Bestiary=动物寓言集
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=使用 L5+ 法术位施放<color=#D89555>施放诅咒</color>时不需要集中注意力
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>失明</color>状态不允许借机攻击
 ModUi/&Blueprints=蓝图
-ModUi/&Campaigns=<color=#F0DAA0>活动：</color>
+ModUi/&Campaigns=游戏界面
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>活动和地点:</color>
 ModUi/&Category=类别
 ModUi/&ChangeDragonbornElementalBreathUsages=将<color=#D89555>龙裔</color>元素气息用法更改为每次短暂休息的体质修正
@@ -78,6 +78,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 升级时显示其他职业的所
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 在法术选择上显示<color=#D89555>术士</color>契约槽，而不是在角色面板上</i>
 ModUi/&DocsArcaneShots=秘法射击
 ModUi/&DocsBackgrounds=背景
+ModUi/&DocsClasses=课程
 ModUi/&DocsFeats=功绩
 ModUi/&DocsFightingStyles=格斗风格
 ModUi/&DocsInfusions=输液
@@ -189,7 +190,6 @@ ModUi/&FormationResetAllSets=全部重置
 ModUi/&FormationResetThisSet=重置
 ModUi/&FormationSelected=已选择阵型设置 {0}
 ModUi/&FullyControlConjurations=完全控制召唤术<i><color=#F0DAA0>[动物、元素等]</color></i>
-ModUi/&GameUi=游戏界面
 ModUi/&Gameplay=游戏玩法
 ModUi/&General=<color=#F0DAA0>常规：</color>
 ModUi/&GeneralMenu=一般的
@@ -200,7 +200,6 @@ ModUi/&HideMonsterHitPoints=以 25% / 50% / 75% / 100% 的步长显示怪物的�
 ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ 当 metamagic 切换关闭时隐藏此操作</i>
 ModUi/&HighContrastTargetingAoeColor=改变 AoE 生物<b><color=$$$$$$>突出显示选择颜色</color></b>
 ModUi/&HighContrastTargetingSingleColor=更改单个生物<b><color=$$$$$$>突出显示选择颜色</color></b>
-ModUi/&House=<color=#F0DAA0>房屋：</color>
 ModUi/&IdentifyAfterRest=增加在短暂或长时间休息期间<color=#D89555>识别魔法物品</color>的能力
 ModUi/&IgnoreHandXbowFreeHandRequirements=不需要腾出手来使用<color=#D89555>手弩</color>
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻术法术对范围内有 <color=#D89555>TrueSight</color> 的目标自动失效
@@ -261,7 +260,6 @@ ModUi/&RestockHelp=• 覆盖默认设置，强制所有商家的库存随时间
 ModUi/&RestockTowerOfKnowledge=重新进货知识塔<i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>回滚</color></b>
 ModUi/&Rules=规则
-ModUi/&SRD=<color=#F0DAA0>SRD：</color>
 ModUi/&ScaleMerchantPricesCorrectly=正确/精确地缩放商家价格<i><color=#F0DAA0>[转换硬币价值时不再出现舍入误差]</color></i>
 ModUi/&SelectAll=选择全部
 ModUi/&SelectDisplayed=选择显示

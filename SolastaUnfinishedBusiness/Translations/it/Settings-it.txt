@@ -43,7 +43,7 @@ ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Conferisci Maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condizione <color=#D89555>Accecato</color> non consente attacchi di opportunità
 ModUi/&Blueprints=Progetti
-ModUi/&Campaigns=<color=#F0DAA0>Campagne:</color>
+ModUi/&Campaigns=Interfaccia utente del gioco
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagne e luoghi:</color>
 ModUi/&Category=Categoria
 ModUi/&ChangeDragonbornElementalBreathUsages=Cambia l'uso del respiro elementale di <color=#D89555>Dragonborn</color> in modificatore di Costituzione per riposo breve
@@ -78,6 +78,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi cono
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Visualizza gli slot del patto <color=#D89555>Warlock</color> nella selezione degli incantesimi invece che nel pannello del personaggio</i>
 ModUi/&DocsArcaneShots=Colpi Arcani
 ModUi/&DocsBackgrounds=Sfondi
+ModUi/&DocsClasses=Lezioni
 ModUi/&DocsFeats=Imprese
 ModUi/&DocsFightingStyles=Stili di combattimento
 ModUi/&DocsInfusions=Infusi
@@ -189,7 +190,6 @@ ModUi/&FormationResetAllSets=Reimposta tutto
 ModUi/&FormationResetThisSet=Reimposta questo
 ModUi/&FormationSelected=Formazione impostata {0} selezionata
 ModUi/&FullyControlConjurations=Controllo completo delle evocazioni <i><color=#F0DAA0>[animali, elementali, ecc.]</color></i>
-ModUi/&GameUi=Interfaccia utente del gioco
 ModUi/&Gameplay=Modalità di gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
@@ -200,7 +200,6 @@ ModUi/&HideMonsterHitPoints=Visualizza la salute dei mostri in incrementi del 25
 ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ Nascondi questa azione quando l'interruttore metamagia è disattivato</i>
 ModUi/&HighContrastTargetingAoeColor=Cambia le creature AoE <b><color=$$$$$$>evidenzia seleziona colore</color></b>
 ModUi/&HighContrastTargetingSingleColor=Cambia le singole creature <b><color=$$$$$$>evidenzia seleziona colore</color></b>
-ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Aggiungi un potere per <color=#D89555>identificare oggetti magici</color> durante un riposo breve o lungo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessario avere la mano libera per usare le <color=#D89555>balestre a mano</color>
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Gli incantesimi di illusione falliscono automaticamente contro bersagli con <color=#D89555>TrueSight</color> nel raggio d'azione
@@ -261,7 +260,6 @@ ModUi/&RestockHelp=• Sostituisci le impostazioni predefinite per forzare il ri
 ModUi/&RestockTowerOfKnowledge=Rifornisci la Torre della Conoscenza <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>Ripristino</color></b>
 ModUi/&Rules=Regole
-ModUi/&SRD=<color=#F0DAA0>Scheda di distribuzione:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Scala i prezzi dei commercianti correttamente / esattamente <i><color=#F0DAA0>[non ci saranno più errori di arrotondamento quando si convertono i valori delle monete]</color></i>
 ModUi/&SelectAll=Seleziona tutto
 ModUi/&SelectDisplayed=Seleziona Visualizzato

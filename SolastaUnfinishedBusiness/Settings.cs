@@ -40,12 +40,17 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayFactionRelationsToggle { get; set; }
     public bool DisplayItemsToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; }
+    public bool DisplayBackgroundsAndRacesGeneralToggle { get; set; }
+    public bool DisplayProficienciesGeneralToggle { get; set; }
+    public bool DisplaySpellsGeneralToggle { get; set; }
+    public bool DisplaySubClassesGeneralToggle { get; set; }
     public SerializableDictionary<string, bool> DisplayKlassToggle { get; set; } = [];
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = [];
 
     //
     // SETTINGS HIDDEN ON UI
     //
+
     public List<string> DefaultPartyHeroes { get; } = [];
     public bool EnableCtrlClickOnlySwapsMainHand { get; set; } = true;
     public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
@@ -57,8 +62,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingFutureFeatures { get; set; } = true;
     public bool FixAsianLanguagesTextWrap { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp { get; set; } = true;
-
-    // TA made level ups of more than 1 level at a time disallowing unlearning spells/invocations to streamline process
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
 
     public HashSet<String> MonstersThatShouldHaveDarkvision { get; set; } =
@@ -148,10 +151,9 @@ public class Settings : UnityModManager.ModSettings
     ];
 
     //
-    // Gameplay - Tools
+    // Gameplay - General
     //
 
-    // Progression
     public bool EnableEpicPointsAndArray { get; set; }
     public bool EnableLevel20 { get; set; }
     public bool EnableMulticlass { get; set; }
@@ -160,8 +162,6 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
     public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; }
     public bool EnableMinInOutAttributes { get; set; }
-
-    // General
     public bool DisableUnofficialTranslations { get; set; }
     public bool EnablePcgRandom { get; set; }
     public bool NoExperienceOnLevelUp { get; set; }
@@ -171,38 +171,10 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
 
-    // Formation
-    public int FormationGridSelectedSet { get; set; } = -1;
-
-    public int[][][] FormationGridSets { get; set; } =
-    [
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ]
-    ];
-
     //
     // Gameplay - Rules
     //
 
-    // SRD
     public bool UseAlternateSpellPointsSystem { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
@@ -221,26 +193,17 @@ public class Settings : UnityModManager.ModSettings
     public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }
+    public bool StealthBreaksWhenCastingMaterial { get; set; }
+    public bool StealthBreaksWhenCastingVerbose { get; set; }
+    public bool StealthBreaksWhenCastingSomatic { get; set; }
+    public bool StealthDoesNotBreakWithSubtle { get; set; }
     public bool AddDexModifierToEnemiesInitiativeRoll { get; set; }
     public bool EnemiesAlwaysRollInitiative { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
-    public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
-    public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
-    public bool AddBleedingToLesserRestoration { get; set; }
-    public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
-    public bool RemoveRecurringEffectOnEntangle { get; set; }
-    public bool EnableUpcastConjureElementalAndFey { get; set; }
-    public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-    public bool ChangeSleetStormToCube { get; set; }
-    public bool UseHeightOneCylinderEffect { get; set; }
-    public bool FixEldritchBlastRange { get; set; }
     public bool FixRingOfRegenerationHealRate { get; set; }
-    public bool EnableOneDndHealingSpellsBuf { get; set; }
-
-    // House
     public int TotalFeatsGrantedFirstLevel { get; set; }
     public bool EnablesAsiAndFeat { get; set; }
     public bool EnableFeatsAtEveryFourLevels { get; set; }
@@ -250,10 +213,6 @@ public class Settings : UnityModManager.ModSettings
     public bool IdentifyAfterRest { get; set; }
     public bool IncreaseMaxAttunedItems { get; set; }
     public bool RemoveAttunementRequirements { get; set; }
-    public bool StealthBreaksWhenCastingMaterial { get; set; }
-    public bool StealthBreaksWhenCastingVerbose { get; set; }
-    public bool StealthBreaksWhenCastingSomatic { get; set; }
-    public bool StealthDoesNotBreakWithSubtle { get; set; }
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
     public bool AllowBladeCantripsToUseReach { get; set; }
     public bool AllowCantripsTriggeringOnWarMagic { get; set; }
@@ -309,6 +268,19 @@ public class Settings : UnityModManager.ModSettings
     public bool RestockArcaneum { get; set; }
     public bool RestockCircleOfDanantar { get; set; }
     public bool RestockTowerOfKnowledge { get; set; }
+
+    //
+    // Interface - Dungeon Maker
+    //
+
+    public bool EnableLoggingInvalidReferencesInUserCampaigns { get; set; }
+    public bool EnableSortingDungeonMakerAssets { get; set; }
+    public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
+    public bool UnleashEnemyAsNpc { get; set; }
+    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
+    public bool UnleashNpcAsEnemy { get; set; }
+    public bool EnableVariablePlaceholdersOnTexts { get; set; }
+    public bool EnableDungeonMakerModdedContent { get; set; }
 
     //
     // Characters - Classes
@@ -388,6 +360,17 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Spells
     //
 
+    public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
+    public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
+    public bool AddBleedingToLesserRestoration { get; set; }
+    public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
+    public bool RemoveRecurringEffectOnEntangle { get; set; }
+    public bool EnableUpcastConjureElementalAndFey { get; set; }
+    public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
+    public bool ChangeSleetStormToCube { get; set; }
+    public bool UseHeightOneCylinderEffect { get; set; }
+    public bool FixEldritchBlastRange { get; set; }
+    public bool EnableOneDndHealingSpellsBuf { get; set; }
     public bool AllowDisplayingOfficialSpells { get; set; }
     public bool AllowDisplayingNonSuggestedSpells { get; set; }
     public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = [];
@@ -441,6 +424,33 @@ public class Settings : UnityModManager.ModSettings
     public int HighContrastTargetingAoeSelectedColor { get; set; }
     public int HighContrastTargetingSingleSelectedColor { get; set; }
 
+    // Formation
+    public int FormationGridSelectedSet { get; set; } = -1;
+
+    public int[][][] FormationGridSets { get; set; } =
+    [
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ]
+    ];
+
     // Inventory and Items
     public bool AddCustomIconsToOfficialItems { get; set; }
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
@@ -457,23 +467,7 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveBugVisualModels { get; set; }
     public bool ShowButtonWithControlledMonsterInfo { get; set; }
 
-    //
-    // Interface - Dungeon Maker
-    //
-
-    public bool EnableLoggingInvalidReferencesInUserCampaigns { get; set; }
-    public bool EnableSortingDungeonMakerAssets { get; set; }
-    public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
-    public bool UnleashEnemyAsNpc { get; set; }
-    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
-    public bool UnleashNpcAsEnemy { get; set; }
-    public bool EnableVariablePlaceholdersOnTexts { get; set; }
-    public bool EnableDungeonMakerModdedContent { get; set; }
-
-    //
-    // Interface - Translations
-    //
-
+    // Translations
     public string SelectedLanguageCode { get; set; } = TranslatorContext.English;
 
     //
