@@ -425,7 +425,7 @@ internal static class ClassFeats
                 var (opportunityAttackMode, actionModifier) =
                     helper.GetFirstMeleeModeThatCanAttack(defender, battleManager);
 
-                if (opportunityAttackMode == null || actionModifier == null)
+                if (opportunityAttackMode == null)
                 {
                     continue;
                 }

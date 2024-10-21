@@ -2813,12 +2813,14 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var (attackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(caster, battleManager);
+            var (attackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(defender, battleManager);
 
             if (attackMode == null || !defender.CanReact())
             {
                 yield break;
             }
+
+            attackMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
             yield return defender.MyReactForOpportunityAttack(
                 caster,
