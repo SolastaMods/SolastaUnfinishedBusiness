@@ -485,12 +485,17 @@ public static class GameLocationCharacterExtensions
     }
 
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeModeThatCanAttack(
-        this GameLocationCharacter instance, GameLocationCharacter target, IGameLocationBattleService service)
+        this GameLocationCharacter instance,
+        GameLocationCharacter target,
+        IGameLocationBattleService service, bool allowUnarmed = false)
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
-            if (mode.SourceObject is not RulesetItem rulesetItem ||
-                !ValidatorsWeapon.IsMelee(rulesetItem))
+            var rulesetItem = mode.SourceObject as RulesetItem;
+
+            if (!ValidatorsWeapon.IsMelee(rulesetItem) &&
+                (!allowUnarmed ||
+                 !ValidatorsWeapon.IsUnarmed(rulesetItem)))
             {
                 continue;
             }
@@ -499,8 +504,8 @@ public static class GameLocationCharacterExtensions
             var attackParams = new BattleDefinitions.AttackEvaluationParams();
             var modifier = new ActionModifier();
 
-            attackParams.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
-                target, target.LocationPosition, modifier);
+            attackParams.FillForPhysicalReachAttack(
+                instance, instance.LocationPosition, mode, target, target.LocationPosition, modifier);
 
             // Check if the attack is possible and collect the attack modifier inside the attackParams
             if (service.CanAttack(attackParams))
@@ -517,7 +522,7 @@ public static class GameLocationCharacterExtensions
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
-            if (mode.Reach)
+            if (!mode.Ranged && !mode.Thrown)
             {
                 continue;
             }
@@ -526,8 +531,8 @@ public static class GameLocationCharacterExtensions
             var attackParams = new BattleDefinitions.AttackEvaluationParams();
             var modifier = new ActionModifier();
 
-            attackParams.FillForPhysicalRangeAttack(instance, instance.LocationPosition, mode,
-                target, target.LocationPosition, modifier);
+            attackParams.FillForPhysicalRangeAttack(
+                instance, instance.LocationPosition, mode, target, target.LocationPosition, modifier);
 
             // Check if the attack is possible and collect the attack modifier inside the attackParams
             if (service.CanAttack(attackParams))

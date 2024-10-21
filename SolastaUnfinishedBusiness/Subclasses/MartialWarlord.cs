@@ -573,8 +573,8 @@ public sealed class MartialWarlord : AbstractSubclass
 
                 if (!rulesetCharacterMonster.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
                         ConditionConjuredCreature,
-                        out var activeCondition)
-                    || activeCondition.SourceGuid != attacker.Guid)
+                        out var activeCondition) ||
+                    activeCondition.SourceGuid != attacker.Guid)
                 {
                     continue;
                 }
@@ -592,28 +592,13 @@ public sealed class MartialWarlord : AbstractSubclass
 
             foreach (var partyCharacter in allies)
             {
-                RulesetAttackMode mode;
-                ActionModifier modifier;
-
-                //prefer melee if main hand is melee or if enemy is close
-                var preferMelee =
-                    ValidatorsWeapon.IsMelee(partyCharacter.RulesetCharacter.GetMainWeapon()) ||
-                    partyCharacter.IsWithinRange(defender, 1);
-
-                var (meleeMode, meleeModifier) = partyCharacter.GetFirstMeleeModeThatCanAttack(defender, battleManager);
+                var (meleeMode, meleeModifier) =
+                    partyCharacter.GetFirstMeleeModeThatCanAttack(defender, battleManager, true);
                 var (rangedMode, rangedModifier) =
                     partyCharacter.GetFirstRangedModeThatCanAttack(defender, battleManager);
 
-                if (preferMelee)
-                {
-                    mode = meleeMode ?? rangedMode;
-                    modifier = meleeModifier ?? rangedModifier;
-                }
-                else
-                {
-                    mode = rangedMode ?? meleeMode;
-                    modifier = rangedModifier ?? meleeModifier;
-                }
+                var mode = meleeMode ?? rangedMode;
+                var modifier = meleeModifier ?? rangedModifier;
 
                 if (mode == null)
                 {
