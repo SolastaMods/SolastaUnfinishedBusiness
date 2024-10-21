@@ -44,7 +44,6 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Con
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condition <color=#D89555>Aveuglé</color> ne permet pas d'attaquer par opportunité
 ModUi/&Blueprints=Plans
 ModUi/&Campaigns=Interface utilisateur du jeu
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagnes et lieux :</color>
 ModUi/&Category=Catégorie
 ModUi/&ChangeDragonbornElementalBreathUsages=Changer les utilisations du souffle élémentaire de <color=#D89555>Dragonborn</color> en modificateur de Constitution par repos court
 ModUi/&ChangeSleetStormToCube=Changez <color=#D89555>Sleet Storm</color> pour utiliser un cube au lieu d'un cylindre
@@ -214,13 +213,13 @@ ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages 
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des éléments au conteneur au sol</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Activer l'utilisation des objets sans rompre l'<color=#D89555>invisibilité</color>
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Mettre à jour la furtivité du héros après une attaque si perçue lors d'un tour de surprise <i><color=#F0DAA0>[premier héros uniquement]</color></i>
+ModUi/&Locations=<color=#F0DAA0>Emplacements :</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Faites de tous les bâtons magiques des foyers arcaniques <i><color=#F0DAA0>[à l'exception du <color=#D89555>Bâton de guérison</color> qui est universel]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement des téléporteurs invisibles sur la carte du niveau après la découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Nombre maximal de cours autorisés</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
 ModUi/&ModifyGravitySlam=<i>+ Modifier le sort <color=#D89555>Gravity Slam</color> pour pousser les cibles affectées vers le bas et être un cylindre au lieu d'une sphère</i>
-ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et les autres dépensent des emplacements de sorts verts de pacte]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multijoueur :</color>

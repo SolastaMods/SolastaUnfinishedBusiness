@@ -44,7 +44,6 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Oto
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condición <color=#D89555>Cegado</color> no permite el ataque de oportunidad.
 ModUi/&Blueprints=Planos
 ModUi/&Campaigns=Interfaz de usuario del juego
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campañas y ubicaciones:</color>
 ModUi/&Category=Categoría
 ModUi/&ChangeDragonbornElementalBreathUsages=Cambiar los usos del aliento elemental de <color=#D89555>Dragonborn</color> a modificador de Constitución por cada descanso corto
 ModUi/&ChangeSleetStormToCube=Cambie <color=#D89555>Tormenta de aguanieve</color> para utilizar un cubo en lugar de un cilindro
@@ -214,13 +213,13 @@ ModUi/&ItemsHelp1=<color=#C04040E0>Abre la pantalla de inspección de personajes
 ModUi/&ItemsHelp2=<b>Presione + para agregar elementos al contenedor de tierra</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Habilitar el uso de elementos que no alteren la <color=#D89555>invisibilidad</color>
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Actualiza el sigilo del héroe después del ataque si lo percibes en una ronda sorpresa. <i><color=#F0DAA0>[solo el primer héroe]</color></i>
+ModUi/&Locations=<color=#F0DAA0>Ubicaciones:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Convierte todos los bastones mágicos en focos arcanos. <i><color=#F0DAA0>[excepto el <color=#D89555>Bastón de sanación</color>, que es universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marca la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamágica</color>
 ModUi/&ModifyGravitySlam=<i>+ Modificar el hechizo <color=#D89555>Golpe de gravedad</color> para empujar a los objetivos afectados hacia abajo y que sea un cilindro en lugar de una esfera</i>
-ModUi/&Monsters=<color=#F0DAA0>Monstruos:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula de movimiento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> hacer clic en un hechizo invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y los demás gastan espacios verdes del pacto]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multijugador:</color>

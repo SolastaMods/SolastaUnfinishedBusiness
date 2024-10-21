@@ -103,6 +103,12 @@ internal static class ToolsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.DisableMultilineSpellOffering;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableMultilineSpellOffering"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableMultilineSpellOffering = toggle;
+        }
+
         toggle = Main.Settings.DisableUnofficialTranslations;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslations"), ref toggle, UI.AutoWidth()))
         {

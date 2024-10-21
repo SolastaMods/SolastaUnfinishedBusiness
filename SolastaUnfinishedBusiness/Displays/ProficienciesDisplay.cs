@@ -40,6 +40,14 @@ internal static class ProficienciesDisplay
         {
             Main.Settings.DisableCastSpellPreRequisitesOnModFeats = toggle;
         }
+
+        UI.Label();
+
+        toggle = Main.Settings.AllowCantripsTriggeringOnWarMagic;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowCantripsTriggeringOnWarMagic = toggle;
+        }
     }
 
     internal static void DisplayProficiencies()

@@ -44,7 +44,6 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Con
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condizione <color=#D89555>Accecato</color> non consente attacchi di opportunità
 ModUi/&Blueprints=Progetti
 ModUi/&Campaigns=Interfaccia utente del gioco
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagne e luoghi:</color>
 ModUi/&Category=Categoria
 ModUi/&ChangeDragonbornElementalBreathUsages=Cambia l'uso del respiro elementale di <color=#D89555>Dragonborn</color> in modificatore di Costituzione per riposo breve
 ModUi/&ChangeSleetStormToCube=Cambia <color=#D89555>Tempesta di nevischio</color> per usare un cubo invece di un cilindro
@@ -214,13 +213,13 @@ ModUi/&ItemsHelp1=<color=#C04040E0>Apri la schermata di ispezione del personaggi
 ModUi/&ItemsHelp2=<b>Premi + per aggiungere elementi al contenitore di terra</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Abilita l'utilizzo degli oggetti senza interrompere <color=#D89555>Invisibilità</color>
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Aggiorna la furtività dell'eroe dopo l'attacco se percepito nel round a sorpresa <i><color=#F0DAA0>[solo primo eroe]</color></i>
+ModUi/&Locations=<color=#F0DAA0>Posizioni:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Rendi tutti i bastoni magici dei fuochi arcani <i><color=#F0DAA0>[tranne <color=#D89555>Bastone della Guarigione</color> che è Universale]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Segna anche la posizione dei teletrasporti invisibili sulla mappa del livello dopo la scoperta</i>
 ModUi/&MaxAllowedClasses=<color=white>Numero massimo di classi consentite</color>
 ModUi/&Merchants=<color=#F0DAA0>Commercianti:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&ModifyGravitySlam=<i>+ Modifica l'incantesimo <color=#D89555>Gravity Slam</color> per spingere verso il basso i bersagli colpiti e trasformarlo in un cilindro anziché in una sfera</i>
-ModUi/&Monsters=<color=#F0DAA0>Mostri:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAIUSC</color> fare clic su un incantesimo inverte il tipo di slot del repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spende gli slot incantesimo bianchi e gli altri spendono quelli verdi del patto]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multigiocatore:</color>

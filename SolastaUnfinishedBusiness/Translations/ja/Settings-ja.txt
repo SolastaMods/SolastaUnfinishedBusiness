@@ -44,7 +44,6 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>呪
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>状態は機会攻撃を許可しません
 ModUi/&Blueprints=設計図
 ModUi/&Campaigns=ゲームUI
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>キャンペーンと場所:</color>
 ModUi/&Category=カテゴリ
 ModUi/&ChangeDragonbornElementalBreathUsages=<color=#D89555>Dragonborn</color> のエレメンタルブレスの使用量を、短い休憩ごとに体力補正に変更します
 ModUi/&ChangeSleetStormToCube=<color=#D89555>Sleet Storm</color> を、円柱の代わりに立方体を使用するように変更します。
@@ -214,13 +213,13 @@ ModUi/&ItemsHelp1=<color=#C04040E0>キャラクター検査画面を開いてヒ
 ModUi/&ItemsHelp2=<b>+ を押すと地上コンテナにアイテムが追加されます</b>
 ModUi/&KeepInvisibilityWhenUsingItems=<color=#D89555>不可視性</color>を破壊しないアイテムの使用を有効にする
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=奇襲ラウンドで攻撃を察知した場合、攻撃後にヒーローのステルスを更新します <i><color=#F0DAA0>[最初のヒーローのみ]</color></i>
+ModUi/&Locations=<color=#F0DAA0>場所:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=すべての魔法の杖をアーケイン フォーカスにします <i><color=#F0DAA0>[ユニバーサルな <color=#D89555>治癒の杖</color> を除く]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 発見後、レベルマップ上に目に見えないテレポーターの位置もマークします</i>
 ModUi/&MaxAllowedClasses=<color=white>最大許容クラス数</color>
 ModUi/&Merchants=<color=#F0DAA0>商人:</color>
 ModUi/&Metamagic=<color=#F0DAA0>メタマジック</color>
 ModUi/&ModifyGravitySlam=<i>+ <color=#D89555>重力スラム</color> 呪文を変更して、影響を受けたターゲットを押し下げ、球体ではなく円筒形になるようにします</i>
-ModUi/&Monsters=<color=#F0DAA0>モンスター:</color>
 ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> キーを押しながら呪文をクリックすると、消費されるデフォルトのレパートリー スロットの種類が反転します{99><i><color=#F0DAA0>[<color=#D89555>ウォーロック</color> は白の呪文スロットを消費し、その他のプレイヤーはパクトの緑の呪文スロットを消費します]</color></i>
 ModUi/&Multiplayer=#F0DAA0>マルチプレイヤー:</color>

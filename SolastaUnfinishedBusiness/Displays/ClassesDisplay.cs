@@ -16,7 +16,16 @@ internal static class ClassesDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.AddFallProneActionToAllRaces;
+        var toggle = Main.Settings.EnableGauntletMainAttacks;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableGauntletMainAttacks")), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableGauntletMainAttacks = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddFallProneActionToAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&AddFallProneActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddFallProneActionToAllRaces = toggle;
@@ -57,6 +66,20 @@ internal static class ClassesDisplay
         {
             Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
             CharacterContext.SwitchScimitarWeaponSpecialization();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddPaladinSmiteToggle;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPaladinSmiteToggle = toggle;
+        }
+
+        toggle = Main.Settings.ShowChannelDivinityOnPortrait;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowChannelDivinityOnPortrait = toggle;
         }
 
         UI.Label();

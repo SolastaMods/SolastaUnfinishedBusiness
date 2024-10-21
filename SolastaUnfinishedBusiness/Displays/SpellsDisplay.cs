@@ -26,6 +26,13 @@ internal static class SpellsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AllowBladeCantripsToUseReach;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowBladeCantripsToUseReach"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowBladeCantripsToUseReach = toggle;
+            SrdAndHouseRulesContext.SwitchAllowBladeCantripsToUseReach();
+        }
+
         toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
         if (UI.Toggle(Gui.Localize("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
         {
@@ -122,6 +129,27 @@ internal static class SpellsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AllowHasteCasting;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowHasteCasting = toggle;
+            SrdAndHouseRulesContext.SwitchHastedCasing();
+        }
+
+        toggle = Main.Settings.AllowStackedMaterialComponent;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowStackedMaterialComponent = toggle;
+        }
+
+        toggle = Main.Settings.EnableRelearnSpells;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRelearnSpells = toggle;
+        }
+
+        UI.Label();
+
         var intValue = SpellLevelFilter;
         if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
         {
@@ -141,7 +169,7 @@ internal static class SpellsDisplay
 
         DisplaySpellsGeneral();
 
-        
+
         UI.Label();
 
         var toggle = Main.Settings.AllowDisplayingOfficialSpells;
@@ -159,7 +187,7 @@ internal static class SpellsDisplay
             Main.Settings.AllowDisplayingNonSuggestedSpells = toggle;
             SpellsContext.RecalculateDisplayedSpells();
         }
-        
+
         UI.Label();
 
         using (UI.HorizontalScope())

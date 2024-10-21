@@ -44,7 +44,6 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Ver
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Der Zustand <color=#D89555>Geblendet</color> erlaubt keinen Gelegenheitsangriff
 ModUi/&Blueprints=Blaupausen
 ModUi/&Campaigns=Spiel-UI
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>Kampagnen und Standorte:</color>
 ModUi/&Category=Kategorie
 ModUi/&ChangeDragonbornElementalBreathUsages=Ändere die Verwendung des Elementaratems von <color=#D89555>Dragonborn</color> in einen Konstitutionsmodifikator pro kurzer Pause.
 ModUi/&ChangeSleetStormToCube=Ändern Sie <color=#D89555>Schneeregen</color>, um einen Würfel statt eines Zylinders zu verwenden.
@@ -214,13 +213,13 @@ ModUi/&ItemsHelp1=<color=#C04040E0>Öffnen Sie den Charakterüberprüfungsbildsc
 ModUi/&ItemsHelp2=<b>Drücken Sie +, um Elemente zum Bodencontainer hinzuzufügen</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Aktivieren Sie die Verwendung von Elementen, ohne die <color=#D89555>Unsichtbarkeit</color> zu beeinträchtigen.
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Aktualisiere die Tarnung des Helden nach einem Angriff, wenn dieser in einer Überraschungsrunde wahrgenommen wird <i><color=#F0DAA0>[nur erster Held]</color></i>
+ModUi/&Locations=<color=#F0DAA0>Standorte:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Machen Sie alle Zauberstäbe zu arkanen Fokussen <i><color=#F0DAA0>[außer dem <color=#D89555>Stab der Heilung</color>, der universell ist]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie auch die Position unsichtbarer Teleporter auf der Levelkarte, nachdem Sie diese entdeckt haben</i>
 ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>
 ModUi/&Merchants=<color=#F0DAA0>Händler:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagie</color>
 ModUi/&ModifyGravitySlam=<i>+ Ändern Sie den Zauber <color=#D89555>Gravitationsschlag</color>, um betroffene Ziele nach unten zu drücken und einen Zylinder statt einer Kugel anzuzeigen</i>
-ModUi/&Monsters=<color=#F0DAA0>Monster:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Bewegungsrasters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=Ein <color=#1E81B0>SHIFT</color>-Klick auf einen Zauber kehrt den Typ des verbrauchten Repertoireplatzes um\n<i><color=#F0DAA0>[<color=#D89555>Hexenmeister</color> verbraucht weiße Zauberplätze und andere verbrauchen grüne Paktplätze]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Mehrspieler:</color>

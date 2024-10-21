@@ -19,7 +19,7 @@ ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENTION:</color></b> These setting
 ModUi/&AllItemInDm=All items in DM
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
-ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Allow allies to perceive <color=#D89555>Ranger GloomStalker</color> when in natural darkness
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Allow allies to perceive <color=#D89555>GloomStalker</color> when in natural darkness
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
 ModUi/&AllowBladeCantripsToUseReach=Allow <color=#D89555>Blade Cantrips</color> to use reach instead of 5 ft
 ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>Clubs</color> to be thrown like <color=#D89555>Daggers</color> or <color=#D89555>Hand Axes</color>
@@ -44,7 +44,7 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bes
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=The <color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
 ModUi/&Blueprints=Blueprints
 ModUi/&Campaigns=Campaigns
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campaigns and locations:</color>
+ModUi/&Locations=<color=#F0DAA0>Locations:</color>
 ModUi/&Category=Category
 ModUi/&ChangeDragonbornElementalBreathUsages=Change <color=#D89555>Dragonborn</color> elemental breath usages to Constitution modifier per short rest
 ModUi/&ChangeSleetStormToCube=Change <color=#D89555>Sleet Storm</color> to use a cube instead of a cylinder
@@ -108,7 +108,7 @@ ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Brutal Strike</color> a
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 7
-ModUi/&EnableBardHealingBalladOnLongRest=Enable <color=#D89555>Bard College of Hope</color> <b>Healing Ballad</b> on long rest
+ModUi/&EnableBardHealingBalladOnLongRest=Enable <color=#D89555>College of Hope</color> <b>Healing Ballad</b> on long rest
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Allow cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
@@ -220,7 +220,6 @@ ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagic</color>
 ModUi/&ModifyGravitySlam=<i>+ Modify <color=#D89555>Gravity Slam</color> spell to push affected targets down and be a cylinder instead of a sphere</i>
-ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiply the movement grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multiplayer:</color>

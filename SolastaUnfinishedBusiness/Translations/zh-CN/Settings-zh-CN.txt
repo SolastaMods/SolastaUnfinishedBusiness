@@ -44,7 +44,6 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=使用 L5+ 法术�
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>失明</color>状态不允许借机攻击
 ModUi/&Blueprints=蓝图
 ModUi/&Campaigns=游戏界面
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>活动和地点:</color>
 ModUi/&Category=类别
 ModUi/&ChangeDragonbornElementalBreathUsages=将<color=#D89555>龙裔</color>元素气息用法更改为每次短暂休息的体质修正
 ModUi/&ChangeSleetStormToCube=将 <color=#D89555>Sleet Storm</color> 改为使用立方体，而不是圆柱体
@@ -214,13 +213,13 @@ ModUi/&ItemsHelp1=<color=#C04040E0>打开角色检查屏幕为英雄添加物品
 ModUi/&ItemsHelp2=<b>按 + 将物品添加到地面容器</b>
 ModUi/&KeepInvisibilityWhenUsingItems=启用物品使用不会破坏<color=#D89555>隐形</color>
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=如果在突袭回合中察觉到攻击，则更新英雄的隐身状态<i><color=#F0DAA0>[仅限第一个英雄]</color></i>
+ModUi/&Locations=<color=#F0DAA0>地点:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=让所有魔法杖都成为奥术焦点<i><color=#F0DAA0>[除了<color=#D89555>治疗法杖</color>是通用的]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 发现后也在关卡地图上标记隐形传送器的位置</i>
 ModUi/&MaxAllowedClasses=<color=white>最大允许类别</color>
 ModUi/&Merchants=<color=#F0DAA0>商家：</color>
 ModUi/&Metamagic=<color=#F0DAA0>超魔法</color>
 ModUi/&ModifyGravitySlam=<i>+ 修改<color=#D89555>重力猛击</color>法术，将受影响的目标向下推，并将其变为圆柱体而不是球体</i>
-ModUi/&Monsters=<color=#F0DAA0>怪物：</color>
 ModUi/&MovementGridWidthModifier=<color=white>将移动网格宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 点击一个法术会反转所消耗的默认法术槽类型{99><i><color=#F0DAA0>[<color=#D89555>术士</color> 消耗白色法术槽，其他人消耗契约绿色法术槽]</color></i>
 ModUi/&Multiplayer=#F0DAA0>多人游戏：</color>

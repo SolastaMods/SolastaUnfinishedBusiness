@@ -20,6 +20,33 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialFlankingRulesAlsoForRanged = false;
         }
 
+        toggle = Main.Settings.UseOfficialFoodRationsWeight;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialFoodRationsWeight = toggle;
+            SrdAndHouseRulesContext.SwitchOfficialFoodRationsWeight();
+        }
+
+        toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
+        }
+
+        toggle = Main.Settings.UseAlternateSpellPointsSystem;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseAlternateSpellPointsSystem"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseAlternateSpellPointsSystem = toggle;
+            SpellPointsContext.SwitchFeatureDefinitionCastSpellSlots();
+        }
+
+        if (Main.Settings.UseAlternateSpellPointsSystem)
+        {
+            UI.Label(Gui.Localize("ModUi/&UseAlternateSpellPointsSystemHelp"));
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.UseOfficialFlankingRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRules"), ref toggle, UI.AutoWidth()))
         {
@@ -70,12 +97,7 @@ internal static class RulesDisplay
             }
         }
 
-        toggle = Main.Settings.UseOfficialFoodRationsWeight;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseOfficialFoodRationsWeight = toggle;
-            SrdAndHouseRulesContext.SwitchOfficialFoodRationsWeight();
-        }
+        UI.Label();
 
         toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
@@ -134,24 +156,6 @@ internal static class RulesDisplay
             {
                 UI.Label(Gui.Localize("ModUi/&OfficialObscurementRulesTweakMonstersHelp"));
             }
-        }
-
-        toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
-        }
-
-        toggle = Main.Settings.UseAlternateSpellPointsSystem;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseAlternateSpellPointsSystem"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseAlternateSpellPointsSystem = toggle;
-            SpellPointsContext.SwitchFeatureDefinitionCastSpellSlots();
-        }
-
-        if (Main.Settings.UseAlternateSpellPointsSystem)
-        {
-            UI.Label(Gui.Localize("ModUi/&UseAlternateSpellPointsSystemHelp"));
         }
 
         UI.Label();
@@ -311,41 +315,6 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AllowBladeCantripsToUseReach;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowBladeCantripsToUseReach"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowBladeCantripsToUseReach = toggle;
-            SrdAndHouseRulesContext.SwitchAllowBladeCantripsToUseReach();
-        }
-
-
-        toggle = Main.Settings.AllowCantripsTriggeringOnWarMagic;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowCantripsTriggeringOnWarMagic = toggle;
-        }
-
-        toggle = Main.Settings.AllowHasteCasting;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowHasteCasting = toggle;
-            SrdAndHouseRulesContext.SwitchHastedCasing();
-        }
-
-        toggle = Main.Settings.AllowStackedMaterialComponent;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowStackedMaterialComponent = toggle;
-        }
-
-        toggle = Main.Settings.EnableRelearnSpells;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRelearnSpells = toggle;
-        }
-
-        UI.Label();
-
         toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
         {
@@ -358,13 +327,6 @@ internal static class RulesDisplay
         {
             Main.Settings.AllowClubsToBeThrown = toggle;
             SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
-        }
-
-        toggle = Main.Settings.EnableGauntletMainAttacks;
-        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableGauntletMainAttacks")), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.EnableGauntletMainAttacks = toggle;
         }
 
         toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;

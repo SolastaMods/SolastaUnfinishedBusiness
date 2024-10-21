@@ -17,7 +17,7 @@ internal static class CampaignsDisplay
         #region Campaign
 
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&CampaignsAndLocations"));
+        UI.Label(Gui.Localize("ModUi/&Locations"));
         UI.Label();
 
         var toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
@@ -54,16 +54,16 @@ internal static class CampaignsDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.EnableHeroWithBestProficiencyToRollChoice;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableHeroWithBestProficiencyToRollChoice"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableHeroWithBestProficiencyToRollChoice = toggle;
-        }
-
         toggle = Main.Settings.EnableLogDialoguesToConsole;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableLogDialoguesToConsole = toggle;
+        }
+
+        toggle = Main.Settings.EnableHeroWithBestProficiencyToRollChoice;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHeroWithBestProficiencyToRollChoice"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHeroWithBestProficiencyToRollChoice = toggle;
         }
 
         toggle = Main.Settings.EnableAlternateVotingSystem;
@@ -88,30 +88,16 @@ internal static class CampaignsDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AddPaladinSmiteToggle;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableStatsOnHeroTooltip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AddPaladinSmiteToggle = toggle;
+            Main.Settings.EnableStatsOnHeroTooltip = toggle;
         }
 
         toggle = Main.Settings.EnableActionSwitching;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableActionSwitching"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableActionSwitching = toggle;
-        }
-
-        toggle = Main.Settings.DisableMultilineSpellOffering;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableMultilineSpellOffering"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableMultilineSpellOffering = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.EnableStatsOnHeroTooltip;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableStatsOnHeroTooltip = toggle;
         }
 
         toggle = Main.Settings.EnableCustomPortraits;
@@ -139,12 +125,6 @@ internal static class CampaignsDisplay
             UI.Label();
         }
 
-        toggle = Main.Settings.ShowChannelDivinityOnPortrait;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShowChannelDivinityOnPortrait = toggle;
-        }
-
         UI.Label();
 
         toggle = Main.Settings.AllowMoreRealStateOnRestPanel;
@@ -163,6 +143,30 @@ internal static class CampaignsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableExtendedProficienciesPanelDisplay"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableExtendedProficienciesPanelDisplay = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.HideMonsterHitPoints;
+        if (UI.Toggle(Gui.Localize("ModUi/&HideMonsterHitPoints"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.HideMonsterHitPoints = toggle;
+        }
+
+        toggle = Main.Settings.RemoveBugVisualModels;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBugVisualModels"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveBugVisualModels = toggle;
+        }
+
+        toggle = Main.Settings.ShowButtonWithControlledMonsterInfo;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowButtonWithControlledMonsterInfo"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowButtonWithControlledMonsterInfo = toggle;
+            if (!toggle)
+            {
+                CustomCharacterStatsPanel.MaybeInstance?.Unbind();
+            }
         }
 
         #endregion
@@ -277,7 +281,6 @@ internal static class CampaignsDisplay
         }
 
         #endregion
-
 
         #region Formation
 
@@ -399,36 +402,6 @@ internal static class CampaignsDisplay
             {
                 Main.Settings.EmpressGarbAppearanceIndex = intValue;
                 GameUiContext.SwitchEmpressGarb();
-            }
-        }
-
-        #endregion
-
-        #region Monster
-
-        UI.Label();
-        UI.Label(Gui.Localize("ModUi/&Monsters"));
-        UI.Label();
-
-        toggle = Main.Settings.HideMonsterHitPoints;
-        if (UI.Toggle(Gui.Localize("ModUi/&HideMonsterHitPoints"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.HideMonsterHitPoints = toggle;
-        }
-
-        toggle = Main.Settings.RemoveBugVisualModels;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBugVisualModels"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveBugVisualModels = toggle;
-        }
-
-        toggle = Main.Settings.ShowButtonWithControlledMonsterInfo;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowButtonWithControlledMonsterInfo"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShowButtonWithControlledMonsterInfo = toggle;
-            if (!toggle)
-            {
-                CustomCharacterStatsPanel.MaybeInstance?.Unbind();
             }
         }
 

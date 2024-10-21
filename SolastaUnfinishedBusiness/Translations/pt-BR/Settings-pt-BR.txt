@@ -44,7 +44,6 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Con
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=A condição <color=#D89555>Blinded</color> não permite ataque de oportunidade
 ModUi/&Blueprints=Projetos
 ModUi/&Campaigns=Interface do jogo
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campanhas e locais:</color>
 ModUi/&Category=Categoria
 ModUi/&ChangeDragonbornElementalBreathUsages=Alterar usos de sopro elemental de <color=#D89555>Dragonborn</color> para modificador de Constituição por descanso curto
 ModUi/&ChangeSleetStormToCube=Alterar <color=#D89555>Sleet Storm</color> para usar um cubo em vez de um cilindro
@@ -214,13 +213,13 @@ ModUi/&ItemsHelp1=<color=#C04040E0>Abra a tela de inspeção de personagem para 
 ModUi/&ItemsHelp2=<b>Pressione + para adicionar itens ao contêiner terrestre</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Habilitar o uso do item sem quebrar <color=#D89555>Invisibilidade</color>
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Atualizar a furtividade do herói após o ataque se percebido na rodada surpresa <i><color=#F0DAA0>[somente o primeiro herói]</color></i>
+ModUi/&Locations=<color=#F0DAA0>Localizações:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Faça todos os cajados mágicos focos arcanos <i><color=#F0DAA0>[exceto <color=#D89555>Cajado de Cura</color> que é Universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização dos teletransportadores invisíveis no mapa do nível após a descoberta</i>
 ModUi/&MaxAllowedClasses=<color=white>Máximo de classes permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamágica</color>
 ModUi/&ModifyGravitySlam=<i>+ Modificar o feitiço <color=#D89555>Gravity Slam</color> para empurrar os alvos afetados para baixo e torná-los um cilindro em vez de uma esfera</i>
-ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de movimento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clicar em uma magia inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de magia brancos e outros gastam slots de pacto verdes]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multijogador:</color>
