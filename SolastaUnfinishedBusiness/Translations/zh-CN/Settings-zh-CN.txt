@@ -114,10 +114,10 @@ ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战�
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
 ModUi/&EnableCustomPortraits=启用<color=#D89555>自定义肖像</color>
 ModUi/&EnableCustomPortraitsHelp=• 将自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i> 下，并以英雄名字命名<i><color=#F0DAA0>[例如：Anton、Celia、Nialla 等]</color></i>\n• 使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 可获得最佳效果]</color></i>
-ModUi/&EnableDungeonMakerModdedContent=启用 Dungeon Maker Pro{99><i><color=#F0DAA0>[包括平面房间、150x150 和 200x200 地牢大小，以及来自所有环境的简洁混合资产]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=启用 Dungeon Maker Pro\n<i><color=#F0DAA0>[包括平面房间、150x150 和 200x200 地牢大小，以及来自所有环境的简洁混合资产]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 战斗中启用仰角相机，禁用后可保持在原位，且范围增加三倍</i>
 ModUi/&EnableEpicPointsAndArray=启用史诗 35 点购买系统和阵列 <i><color=#F0DAA0>[17,15,13,​​12,10,8]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练度面板显示<i><color=#F0DAA0>[奥术射击、灌注、操控和多功能性]</color></i>{99><b><i><color=#C04040E0>[角色检查时性能受到影响。使用风险自负]</color></i></b>
+ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练度面板显示<i><color=#F0DAA0>[奥术射击、灌注、操控和多功能性]</color></i>\n<b><i><color=#C04040E0>[角色检查时性能受到影响。使用风险自负]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在 2、10 和 18 级启用<color=#D89555>专长</color>选择
 ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级时启用<color=#D89555>专长</color>选择
 ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[命中率和伤害 +1，但使用其他武器类型时处于劣势]</color></i>
@@ -221,7 +221,7 @@ ModUi/&Merchants=<color=#F0DAA0>商家：</color>
 ModUi/&Metamagic=<color=#F0DAA0>超魔法</color>
 ModUi/&ModifyGravitySlam=<i>+ 修改<color=#D89555>重力猛击</color>法术，将受影响的目标向下推，并将其变为圆柱体而不是球体</i>
 ModUi/&MovementGridWidthModifier=<color=white>将移动网格宽度乘以</color> <color=#C04040E0>[%]</color>
-ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 点击一个法术会反转所消耗的默认法术槽类型{99><i><color=#F0DAA0>[<color=#D89555>术士</color> 消耗白色法术槽，其他人消耗契约绿色法术槽]</color></i>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 点击一个法术会反转所消耗的默认法术槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color> 消耗白色法术槽，其他人消耗契约绿色法术槽]</color></i>
 ModUi/&Multiplayer=#F0DAA0>多人游戏：</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>将获得的经验乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敌人回合时镜头永不移动</i>
@@ -241,7 +241,7 @@ ModUi/&Patches=<color=#F0DAA0>补丁:</color>
 ModUi/&PortraitsOpenFolder=打开肖像文件夹
 ModUi/&PrimedItems=Prime 物品
 ModUi/&QuickCastLightCantripOnWornItemsFirst=启用快速施放<color=#D89555>Light Cantrip</color>以首先使用头部、颈部或躯干穿戴的物品
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=启用 <color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color> 和 <color=#D89555>Gray Dwarf</color> 上的 <color=#D89555>Light Sensitivity</color>，以便仅在户外触发{99><i><color=#F0DAA0>[无需加载屏幕即可进入的户外位置的室内区域被游戏引擎视为户外区域]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=启用 <color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color> 和 <color=#D89555>Gray Dwarf</color> 上的 <color=#D89555>Light Sensitivity</color>，以便仅在户外触发\n<i><color=#F0DAA0>[无需加载屏幕即可进入的户外位置的室内区域被游戏引擎视为户外区域]</color></i>
 ModUi/&Races=<color=#F0DAA0>种族</color>
 ModUi/&RecipeCost=<color=white>食谱成本</color>
 ModUi/&RecipesInDm=DM 中的食谱
@@ -316,4 +316,4 @@ ModUi/&UseOfficialFoodRationsWeight=使用重量为 2 磅的<color=#D89555>食�
 ModUi/&UseOfficialObscurementRules=使用<color=#D89555>照明、遮蔽和视觉</color>战斗规则
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[能感知到防御者但无法感知到攻击者的防御者会获得 ADV，无法感知到攻击者但可以感知到防御者会获得 DIS\n 被严重遮挡的区域会造成致盲状态，对生物的攻击掷骰获得 ADV，而生物的攻击掷骰获得 DIS\n 如果攻击者没有视力，则无法施放针对个人的所有远距离法术，除了那些明确未说明需要视力的法术]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时遵守<color=#D89555>小型种族</color>规则<i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
-ModUi/&WildSurgeDieRollThreshold=<color=white>设置<color=#D89555>巫师狂野魔法</color>几率骰子阈值：</color>{99><i><color=#F0DAA0>[如果掷出的骰子小于或等于阈值，则触发狂野涌动]</color></i>
+ModUi/&WildSurgeDieRollThreshold=<color=white>设置<color=#D89555>巫师狂野魔法</color>几率骰子阈值：</color>\n<i><color=#F0DAA0>[如果掷出的骰子小于或等于阈值，则触发狂野涌动]</color></i>

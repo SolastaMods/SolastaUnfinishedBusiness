@@ -114,10 +114,10 @@ ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発します。
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>
-ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にします{99><i><color=#F0DAA0>[フラットな部屋、150x150 および 200x200 のダンジョン サイズ、あらゆる環境からの無駄のない混合アセットを含む]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にします\n<i><color=#F0DAA0>[フラットな部屋、150x150 および 200x200 のダンジョン サイズ、あらゆる環境からの無駄のない混合アセットを含む]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 戦闘中に高度カメラを有効にすると、無効になった後もその位置に留まり、範囲が 3 倍になります</i>
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列を有効にします <i><color=#F0DAA0>[17,15,13,​​12,10,8]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネルの表示を有効にする <i><color=#F0DAA0>[アーケイン ショット、インフュージョン、マニューバ、および汎用性]</color></i>{99><b><i><color=#C04040E0>[キャラクター検査時にパフォーマンスが低下します。自己責任で使用してください]</color></i></b>
+ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネルの表示を有効にする <i><color=#F0DAA0>[アーケイン ショット、インフュージョン、マニューバ、および汎用性]</color></i>\n<b><i><color=#C04040E0>[キャラクター検査時にパフォーマンスが低下します。自己責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル2、10、18で<color=#D89555>特技</color>選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=レベル6と14で<color=#D89555>特技</color>選択を有効にする
 ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[命中とダメージが +1 になりますが、他の武器タイプでは不利になります]</color></i>
@@ -221,7 +221,7 @@ ModUi/&Merchants=<color=#F0DAA0>商人:</color>
 ModUi/&Metamagic=<color=#F0DAA0>メタマジック</color>
 ModUi/&ModifyGravitySlam=<i>+ <color=#D89555>重力スラム</color> 呪文を変更して、影響を受けたターゲットを押し下げ、球体ではなく円筒形になるようにします</i>
 ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
-ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> キーを押しながら呪文をクリックすると、消費されるデフォルトのレパートリー スロットの種類が反転します{99><i><color=#F0DAA0>[<color=#D89555>ウォーロック</color> は白の呪文スロットを消費し、その他のプレイヤーはパクトの緑の呪文スロットを消費します]</color></i>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> キーを押しながら呪文をクリックすると、消費されるデフォルトのレパートリー スロットの種類が反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color> は白の呪文スロットを消費し、その他のプレイヤーはパクトの緑の呪文スロットを消費します]</color></i>
 ModUi/&Multiplayer=#F0DAA0>マルチプレイヤー:</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>獲得経験値を</color> <color=#C04040E0>[%]</color> 倍にします
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敵のターン中はカメラが動かない</i>
@@ -241,7 +241,7 @@ ModUi/&Patches=<color=#F0DAA0>パッチ:</color>
 ModUi/&PortraitsOpenFolder=ポートレートフォルダを開く
 ModUi/&PrimedItems=プライムアイテム
 ModUi/&QuickCastLightCantripOnWornItemsFirst=クイックキャスト<color=#D89555>ライトカントリップ</color>を有効にすると、頭、首、または胴体に装備したアイテムを最初に使用できます。
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>、<color=#D89555>Gray Dwarf</color> の <color=#D89555>Light Sensitivity</color> を有効にすると、屋外でのみトリガーされます{99><i><color=#F0DAA0>[ロード画面なしでアクセス可能な屋外の場所の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>、<color=#D89555>Gray Dwarf</color> の <color=#D89555>Light Sensitivity</color> を有効にすると、屋外でのみトリガーされます\n<i><color=#F0DAA0>[ロード画面なしでアクセス可能な屋外の場所の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
 ModUi/&RecipeCost=<color=white>レシピのコスト</color>
 ModUi/&RecipesInDm=DMのレシピ
@@ -316,4 +316,4 @@ ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>食糧配給</color> 重量2�
 ModUi/&UseOfficialObscurementRules=<color=#D89555>照明、遮蔽、視界</color>の戦闘ルールを使用する
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[それを知覚する攻撃者は ADV を獲得し、それを知覚しない攻撃者は DIS を獲得します。それを知覚できる防御者は DIS を獲得します\n 非常に隠された領域は盲目状態を引き起こし、クリーチャーに対する攻撃ロールには ADV が付与され、クリーチャーの攻撃ロールには DIS が付与されます\n 攻撃者が視力を持たない場合、個人をターゲットとするすべての遠距離呪文は、視力が必要であると明確に述べられていない呪文を除いて、キャストできません]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは、<color=#D89555>小型種族</color>ルールを使用します <i><color=#F0DAA0>[攻撃に不利があります]</color></i>
-ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>{99><i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>
+ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>\n<i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>
