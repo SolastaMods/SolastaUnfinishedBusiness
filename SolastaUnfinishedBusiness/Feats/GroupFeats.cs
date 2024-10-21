@@ -15,7 +15,6 @@ internal static class GroupFeats
     internal const string Piercer = "Piercer";
     internal const string Crusher = "Crusher";
     internal const string DevastatingStrikes = "DevastatingStrikes";
-    internal const string Grappler = "Grappler";
     internal const string OldTactics = "OldTactics";
     internal const string FightingStyle = "FightingStyle";
 

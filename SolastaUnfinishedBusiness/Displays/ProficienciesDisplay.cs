@@ -8,6 +8,48 @@ internal static class ProficienciesDisplay
 {
     private static bool _displayTabletop;
 
+    private static void DisplayProficienciesGeneral()
+    {
+        var toggle = Main.Settings.DisplayProficienciesGeneralToggle;
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&General"), ref toggle, 200))
+        {
+            Main.Settings.DisplayProficienciesGeneralToggle = toggle;
+        }
+
+        if (!Main.Settings.DisplayProficienciesGeneralToggle)
+        {
+            return;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.DisableLevelPrerequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableClassPrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableLevelPrerequisitesOnModFeats = toggle;
+        }
+
+        toggle = Main.Settings.DisableRacePrerequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
+        }
+
+        toggle = Main.Settings.DisableCastSpellPreRequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableCastSpellPreRequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableCastSpellPreRequisitesOnModFeats = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AllowCantripsTriggeringOnWarMagic;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowCantripsTriggeringOnWarMagic = toggle;
+        }
+    }
+
     internal static void DisplayProficiencies()
     {
         UI.Label();
@@ -137,6 +179,10 @@ internal static class ProficienciesDisplay
             UI.ActionButton(Gui.Localize("ModUi/&DocsVersatilities").Bold().Khaki(),
                 () => UpdateContext.OpenDocumentation("Versatilities.md"), UI.Width(150f));
         }
+
+        UI.Label();
+
+        DisplayProficienciesGeneral();
 
         UI.Label();
 

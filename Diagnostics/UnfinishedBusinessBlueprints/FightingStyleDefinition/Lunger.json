@@ -1,8 +1,6 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
-  "features": [
-    "Definition:FeatureLunger:73ae516c-da77-567e-910d-3fc6fd8a5713"
-  ],
+  "features": [],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

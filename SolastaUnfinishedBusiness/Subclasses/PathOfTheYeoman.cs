@@ -104,18 +104,18 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .Create($"Condition{Name}Bulwark")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
             .SetPossessive()
-            .AddFeatures(
-                movementAffinityBulwark,
-                combatAffinityBulwark)
+            .AddFeatures(movementAffinityBulwark, combatAffinityBulwark)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
             .AddCustomSubFeatures(
                 new RemoveRangedAttackInMeleeDisadvantage(IsLongBow),
                 new CanMakeAoOOnReachEntered { WeaponValidator = IsLongBow, AllowRange = true })
             .AddToDB();
 
+        var sprite = Sprites.GetSprite("Bulwark", Resources.PowerBulwark, 256, 128);
+
         var powerBulwark = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Bulwark")
-            .SetGuiPresentation(Category.Feature, Sprites.GetSprite("Bulwark", Resources.PowerBulwark, 256, 128))
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Constitution)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -130,7 +130,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
 
         var powerBulwarkTurnOff = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BulwarkTurnOff")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -142,16 +142,9 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                             .SetConditionForm(conditionBulwark, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
+            .AddCustomSubFeatures(
+                IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
-
-        movementAffinityBulwark.AddCustomSubFeatures(new StopPowerConcentrationProvider(
-            "Bulwark",
-            "Tooltip/&BulwarkConcentration",
-            Sprites.GetSprite("FeatDeadeye", Resources.DeadeyeConcentrationIcon, 64, 64))
-        {
-            StopPower = powerBulwarkTurnOff
-        });
 
         // LEVEL 14
 
@@ -191,7 +184,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheYeoman, 256))
             .AddFeaturesAtLevel(3, proficiencyFletcher, featureStrongBow)
             .AddFeaturesAtLevel(6, actionAffinityStaggeringBlow, featureKeenEye)
-            .AddFeaturesAtLevel(10, powerBulwark)
+            .AddFeaturesAtLevel(10, powerBulwark, powerBulwarkTurnOff)
             .AddFeaturesAtLevel(14, powerMightyShot)
             .AddToDB();
     }

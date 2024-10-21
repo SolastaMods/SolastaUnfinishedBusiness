@@ -12,7 +12,6 @@ public class CharacterActionToggle(CharacterActionParams actionParams) : Charact
     public override IEnumerator ExecuteImpl()
     {
         var rulesetCharacter = ActingCharacter.RulesetCharacter;
-        // var id = (ExtraActionId)ActionId;
 
         if (rulesetCharacter.IsToggleEnabled(ActionId))
         {
@@ -22,6 +21,9 @@ public class CharacterActionToggle(CharacterActionParams actionParams) : Charact
         {
             rulesetCharacter.EnableToggle(ActionId);
         }
+
+        rulesetCharacter.RefreshAttackModes();
+        rulesetCharacter.CharacterRefreshed?.Invoke(rulesetCharacter);
 
         yield break;
     }

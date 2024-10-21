@@ -15,7 +15,7 @@
   ],
   "features": [
     "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
-    "Definition:DieRollModifierDamageTypeDependentFeatElementalMasterDamageFire:b9dd0f1e-c257-53ae-997b-e5b077c075d2"
+    "Definition:DieRollModifierFeatElementalMasterDamageFire:0080e79d-b948-5219-90a7-916856f9015d"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

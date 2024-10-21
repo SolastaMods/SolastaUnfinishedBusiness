@@ -506,7 +506,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var featureWildSurgeRetributionMelee = FeatureDefinitionDamageAffinityBuilder
                 .Create($"DamageAffinity{Name}RetributionMelee")
                 .SetGuiPresentationNoContent(true)
-                .SetRetaliate(powerWildSurgeRetribution, 1)
+                // max possible reach in game is 15 ft
+                .SetRetaliate(powerWildSurgeRetribution, 3)
                 .AddToDB();
 
             featureWildSurgeRetributionMelee.retaliateProximity = AttackProximity.Melee;
@@ -1043,9 +1044,13 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         private sealed class WildSurgeWeaponModifyAttackMode : IModifyWeaponAttackMode
         {
-            public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+            public void ModifyWeaponAttackMode(
+                RulesetCharacter character,
+                RulesetAttackMode attackMode,
+                RulesetItem weapon,
+                bool canAddAbilityDamageBonus)
             {
-                if (attackMode?.SourceObject is not RulesetItem rulesetItem)
+                if (attackMode.SourceObject is not RulesetItem rulesetItem)
                 {
                     return;
                 }
@@ -1057,11 +1062,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     attackMode.thrown = true;
                     attackMode.closeRange = 4;
                     attackMode.maxRange = 12;
-                }
-
-                if (attackMode.EffectDescription?.EffectForms == null)
-                {
-                    return;
                 }
 
                 foreach (var damageForm in attackMode.EffectDescription.EffectForms

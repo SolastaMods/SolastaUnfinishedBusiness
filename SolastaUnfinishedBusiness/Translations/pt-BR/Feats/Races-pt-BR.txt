@@ -57,7 +57,6 @@ Feat/&FeatWoodElfMagicDescription=Você aprende a magia das florestas primitivas
 Feat/&FeatWoodElfMagicTitle=Magia dos Elfos da Floresta
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Enquanto você estiver segurando uma espada grande, você ganha um bônus de +1 na CA.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Lâmina Revenant
-Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=Por causa das Chamas de Phlegethos, {0} repete o dado {1} de {2} para {3}.
 Feature/&PowerFeatDragonFearDescription=Você pode gastar um uso de sua característica Breath Weapon para rugir, forçando cada criatura de sua escolha a até 30 pés de você a fazer um teste de resistência de Sabedoria (CD 8 + seu bônus de proficiência + seu modificador de Carisma). Em um teste de resistência falho, um alvo fica assustado por 1 minuto. Se o alvo assustado receber qualquer dano, ele pode repetir o teste de resistência, encerrando o efeito sobre si mesmo em um sucesso.
 Feature/&PowerFeatDragonFearTitle=Medo de Dragão
 Feature/&PowerFeatOrcishAggressionDescription=Como uma ação bônus, ao empunhar uma arma corpo a corpo na mão principal, você pode avançar até sua velocidade em direção a um inimigo de sua escolha e atacar livremente a criatura com sua arma principal.
@@ -68,6 +67,7 @@ Feedback/&BountifulLuckAttackToHitRoll={0} usou {1} e rola um {2} para substitui
 Feedback/&BountifulLuckCheckToHitRoll={0} usou {1} e rola um {2} para substituir {3} no teste
 Feedback/&BountifulLuckSavingToHitRoll={0} usou {1} e rola um {2} para substituir {3} na jogada de salvamento
 Feedback/&DwarvenFortitudeHitDieRolled={0} rolou um {2} e curou {3} = {4}.
+Feedback/&FlamesOfPhlegethosReroll={0} usa Chamas de Phlegethos para rolar novamente um dado de dano mágico {1} de {2} para {3}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} errou {1}. {2} pode reagir rolando um d20 e substituindo a jogada de ataque.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Role um d20 para substituir a jogada de ataque.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=Sorte abundante

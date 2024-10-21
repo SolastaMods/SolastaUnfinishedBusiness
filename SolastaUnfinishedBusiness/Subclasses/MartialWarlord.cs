@@ -78,7 +78,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .AddCustomSubFeatures(
                 new MagicEffectFinishedByMePressTheAdvantage(),
                 new RestrictReactionAttackMode((_, attacker, _, mode, _) =>
-                    mode != null && // IsWeaponOrUnarmedAttack
+                    ValidatorsWeapon.IsMelee(mode) &&
                     attacker.OnceInMyTurnIsValid(PressTheAdvantageMarker) &&
                     attacker.RulesetCharacter.IsToggleEnabled(PressTheAdvantageToggle)))
             .AddToDB();
@@ -554,7 +554,8 @@ public sealed class MartialWarlord : AbstractSubclass
             var actionParams = action.actionParams;
 
             // non-reaction melee hits only
-            if (attackMode.ranged || rollOutcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
+            if (!ValidatorsWeapon.IsMelee(attackMode) ||
+                rollOutcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
                 actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
             {
                 yield break;
@@ -572,8 +573,8 @@ public sealed class MartialWarlord : AbstractSubclass
 
                 if (!rulesetCharacterMonster.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
                         ConditionConjuredCreature,
-                        out var activeCondition)
-                    || activeCondition.SourceGuid != attacker.Guid)
+                        out var activeCondition) ||
+                    activeCondition.SourceGuid != attacker.Guid)
                 {
                     continue;
                 }
@@ -591,28 +592,13 @@ public sealed class MartialWarlord : AbstractSubclass
 
             foreach (var partyCharacter in allies)
             {
-                RulesetAttackMode mode;
-                ActionModifier modifier;
-
-                //prefer melee if main hand is melee or if enemy is close
-                var preferMelee =
-                    ValidatorsWeapon.IsMelee(partyCharacter.RulesetCharacter.GetMainWeapon()) ||
-                    partyCharacter.IsWithinRange(defender, 1);
-
-                var (meleeMode, meleeModifier) = partyCharacter.GetFirstMeleeModeThatCanAttack(defender, battleManager);
+                var (meleeMode, meleeModifier) =
+                    partyCharacter.GetFirstMeleeModeThatCanAttack(defender, battleManager, true);
                 var (rangedMode, rangedModifier) =
                     partyCharacter.GetFirstRangedModeThatCanAttack(defender, battleManager);
 
-                if (preferMelee)
-                {
-                    mode = meleeMode ?? rangedMode;
-                    modifier = meleeModifier ?? rangedModifier;
-                }
-                else
-                {
-                    mode = rangedMode ?? meleeMode;
-                    modifier = rangedModifier ?? meleeModifier;
-                }
+                var mode = meleeMode ?? rangedMode;
+                var modifier = meleeModifier ?? rangedModifier;
 
                 if (mode == null)
                 {

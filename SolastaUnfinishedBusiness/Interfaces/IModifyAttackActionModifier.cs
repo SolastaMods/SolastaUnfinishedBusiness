@@ -1,4 +1,6 @@
-﻿namespace SolastaUnfinishedBusiness.Interfaces;
+﻿using JetBrains.Annotations;
+
+namespace SolastaUnfinishedBusiness.Interfaces;
 
 public interface IModifyAttackActionModifier
 {
@@ -6,7 +8,7 @@ public interface IModifyAttackActionModifier
         RulesetCharacter myself,
         RulesetCharacter defender,
         BattleDefinitions.AttackProximity attackProximity,
-        RulesetAttackMode attackMode,
+        [CanBeNull] RulesetAttackMode attackMode,
         string effectName,
         ref ActionModifier attackModifier);
 }

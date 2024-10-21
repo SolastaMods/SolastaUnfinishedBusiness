@@ -31,6 +31,13 @@ internal static class GrappleContext
     internal const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
     internal const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
 
+    private static readonly string[] AllSourceGrappleConditionNames =
+    [
+        ConditionGrappleSourceName,
+        ConditionGrappleSourceWithGrapplerName,
+        ConditionGrappleSourceWithGrapplerLargerName
+    ];
+
     private static readonly FeatureDefinitionPower PowerGrapple = FeatureDefinitionPowerBuilder
         .Create($"Power{Grapple}")
         .SetGuiPresentation($"Action{Grapple}", Category.Action, hidden: true)
@@ -97,11 +104,6 @@ internal static class GrappleContext
             .SetBrain(battlePackage, true)
             .SetFeatures(
                 ActionAffinityGrappled,
-                //prevent grappled target from falling while grappled
-                FeatureDefinitionMoveModeBuilder.Create($"{ConditionGrappleTargetName}Flying")
-                    .SetGuiPresentation(Category.Feature)
-                    .SetMode(MoveMode.Fly, 0)
-                    .AddToDB(),
                 ActionAffinityConditionRestrained,
                 MovementAffinityConditionRestrained)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedConditionGrappleTarget())
@@ -135,7 +137,7 @@ internal static class GrappleContext
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated) || x.IsSubtypeOf(ConditionFlying)).ToArray())
+                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
@@ -150,7 +152,7 @@ internal static class GrappleContext
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated) || x.IsSubtypeOf(ConditionFlying)).ToArray())
+                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
@@ -166,7 +168,7 @@ internal static class GrappleContext
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated) || x.IsSubtypeOf(ConditionFlying)).ToArray())
+                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
@@ -281,7 +283,7 @@ internal static class GrappleContext
             : "Failure/&FailureFlagMaterialComponentHandsFull";
     }
 
-    private static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
+    internal static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
     {
         return rulesetCharacter.HasConditionOfCategoryAndType(
                    AttributeDefinitions.TagEffect, ConditionGrappleSourceName) ||
@@ -329,13 +331,23 @@ internal static class GrappleContext
         return 1;
     }
 
+    public static bool IsGrappled(this GameLocationCharacter character)
+    {
+        return character.RulesetCharacter.HasConditionOfType(ConditionGrappleTargetName);
+    }
+
+    public static void BreakGrapple(this GameLocationCharacter source)
+    {
+        source.RulesetCharacter.RemoveAllConditionsOfType(AllSourceGrappleConditionNames);
+    }
+
     internal enum SpellValidationType
     {
         Somatic,
         Material
     }
 
-    private sealed class CustomBehaviorGrapple : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
+    internal sealed class CustomBehaviorGrapple : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -378,11 +390,17 @@ internal static class GrappleContext
         {
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
-            var abilityCheckData = new AbilityCheckData();
 
             attacker.BurnOneMainAttack();
 
-             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
+            yield return ExecuteGrapple(attacker, defender);
+        }
+
+        public static IEnumerator ExecuteGrapple(GameLocationCharacter attacker, GameLocationCharacter defender)
+        {
+            var abilityCheckData = new AbilityCheckData();
+
+            yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
                 attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
 
             var success =
@@ -475,9 +493,9 @@ internal static class GrappleContext
             // empty
         }
 
-        // should remove source tracker condition as well
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // should remove source tracker condition as well
             var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
             foreach (var conditionName in PossibleConditionsToRemove)
@@ -499,7 +517,11 @@ internal static class GrappleContext
         internal static readonly CustomBehaviorConditionGrappleSource Marker = new();
 
         // should not use a versatile weapon in two-handed mode
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             attackMode.UseVersatileDamage = false;
         }
@@ -548,8 +570,8 @@ internal static class GrappleContext
 
             if (canTeleport)
             {
-                target.StartTeleportTo(targetDestinationPosition, mover.Orientation, false);
                 target.Pushed = true;
+                target.StartTeleportTo(targetDestinationPosition, mover.Orientation);
                 target.FinishMoveTo(targetDestinationPosition, mover.Orientation);
                 target.StopMoving(mover.Orientation);
                 target.Pushed = false;

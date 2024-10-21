@@ -7,18 +7,60 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class SubclassesDisplay
 {
+    internal static void DisplaySubclassesGeneral()
+    {
+        var toggle = Main.Settings.DisplaySubClassesGeneralToggle;
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&General"), ref toggle, 200))
+        {
+            Main.Settings.DisplaySubClassesGeneralToggle = toggle;
+        }
+
+        if (!Main.Settings.DisplaySubClassesGeneralToggle)
+        {
+            return;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness = toggle;
+        }
+
+        toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
+            CharacterContext.SwitchBardHealingBalladOnLongRest();
+        }
+
+        toggle = Main.Settings.RemoveSchoolRestrictionsFromShadowCaster;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromShadowCaster"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveSchoolRestrictionsFromShadowCaster = toggle;
+            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromShadowCaster();
+        }
+
+        toggle = Main.Settings.RemoveSchoolRestrictionsFromSpellBlade;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromSpellBlade"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveSchoolRestrictionsFromSpellBlade = toggle;
+            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromSpellBlade();
+        }
+    }
+
     internal static void DisplaySubclasses()
     {
         UI.Label();
 
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton("Classes Docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Classes.md"), UI.Width(200f));
-            20.Space();
-            UI.ActionButton("Subclasses Docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Subclasses.md"), UI.Width(200f));
-        }
+        UI.ActionButton(Gui.Localize("ModUi/&DocsSubclasses").Bold().Khaki(),
+            () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(150f));
+
+        UI.Label();
+
+        DisplaySubclassesGeneral();
 
         UI.Label();
 

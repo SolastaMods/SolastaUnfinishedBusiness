@@ -438,7 +438,11 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
     private sealed class ModifyWeaponAttackModeChaosChanneling : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode
+        (RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (!ValidatorsWeapon.IsUnarmed(attackMode))
             {

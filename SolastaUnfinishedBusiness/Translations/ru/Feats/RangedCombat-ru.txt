@@ -1,3 +1,5 @@
+Action/&DeadEyeToggleDescription=Активировать/деактивировать Меткого стрелка
+Action/&DeadEyeToggleTitle=Меткий стрелок
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Вы обладаете преимуществом на следующий бросок атаки.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Точное прицеливание
 Condition/&ConditionFeatSteadyAimRestrainedDescription=Вы не можете двигаться до конца своего хода.

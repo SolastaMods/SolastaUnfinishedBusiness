@@ -935,6 +935,10 @@ You may use a bonus action on your turn to assume a braced stance for one minute
 • Enemy ranged attacks with weapons against you have disadvantage.
 • You may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within 5 feet of you.
 
+* Disable Bulwark
+
+You may disable your Bulwark braced stance.
+
 
 ### Level 14
 
@@ -3589,6 +3593,13 @@ You choose one type of dragon as your ancestor. The damage type associated with 
 Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses. At 17th level, the damage of your breath increases to four martial arts dice.
 
 
+### Level 6
+
+* Reactive Skin
+
+When you are attacked, you can use your reaction and pay 1 Ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they receive one martial arts die as damage type of your Dragon Ancestry feature each time they hit you.
+
+
 ### Level 11
 
 * Dragon's Fury
@@ -5668,7 +5679,7 @@ Your connection to the divine allows you to learn and cast Cleric spells as Sorc
 
 * Divine Fount
 
-As a Bonus Action, regain 1 sorcery point. Usable a number of times equal to your Wisdom bonus and all uses recharge after a long rest.
+As a Bonus Action, regain 1 sorcery point. Usable a number of times equal to your Charisma bonus and all uses recharge after a long rest.
 
 * Empowered Healing
 

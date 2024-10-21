@@ -348,19 +348,13 @@ public sealed class WizardWarMagic : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique)
+            if (rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique &&
+                !firstTarget)
             {
-                if (firstTarget)
-                {
-                    HandlePowerSurge(attacker, actualEffectForms);
-                }
-            }
-            else
-            {
-                HandlePowerSurge(attacker, actualEffectForms);
+                yield break;
             }
 
-            yield break;
+            HandlePowerSurge(attacker, actualEffectForms);
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(

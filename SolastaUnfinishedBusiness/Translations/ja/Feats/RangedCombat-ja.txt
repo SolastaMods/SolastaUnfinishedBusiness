@@ -1,3 +1,5 @@
+Action/&DeadEyeToggleDescription=シャープシューターを有効化/無効化
+Action/&DeadEyeToggleTitle=シャープシューター
 Condition/&ConditionFeatSteadyAimAdvantageDescription=次の攻撃ロールではあなたにアドバンテージがあります。
 Condition/&ConditionFeatSteadyAimAdvantageTitle=着実な狙い
 Condition/&ConditionFeatSteadyAimRestrainedDescription=ターン終了まで移動できません。

@@ -82,6 +82,11 @@ internal abstract class AddExtraAttackBase(
         return 0;
     }
 
+    internal static bool IsFreeOffhand(RulesetCharacter character)
+    {
+        return character.GetOffhandWeapon() == null;
+    }
+
     protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacter character);
 
     protected virtual AttackModeOrder GetOrder(RulesetCharacter character)
@@ -164,7 +169,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            ValidatorsCharacter.IsFreeOffhandVanilla(hero),
+            IsFreeOffhand(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             attackModifiers,
@@ -207,7 +212,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            ValidatorsCharacter.IsFreeOffhand(hero),
+            IsFreeOffhand(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             attackModifiers,
@@ -215,7 +220,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
             mainHandItem
         );
 
-        attackMode.AttackTags.Add(UpgradeWeaponDice.AbortUpgradeWeaponDice);
+        attackMode.AddAttackTagAsNeeded(UpgradeWeaponDice.AbortUpgradeWeaponDice);
 
         return [attackMode];
     }
@@ -252,7 +257,7 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            ValidatorsCharacter.IsFreeOffhand(hero),
+            IsFreeOffhand(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             hero.attackModifiers,
@@ -301,7 +306,7 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            ValidatorsCharacter.IsFreeOffhand(hero),
+            IsFreeOffhand(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             hero.attackModifiers,
@@ -325,7 +330,7 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
         effectDamageForm.DamageForm.DiceNumber = 1;
         effectDamageForm.DamageForm.versatile = false;
         effectDamageForm.DamageForm.versatileDieType = effectDamageForm.DamageForm.DieType;
-        attackMode.AttackTags.Add(UpgradeWeaponDice.AbortUpgradeWeaponDice);
+        attackMode.AddAttackTagAsNeeded(UpgradeWeaponDice.AbortUpgradeWeaponDice);
 
         return [attackMode];
     }
@@ -363,7 +368,7 @@ internal sealed class AddWhirlWindFollowUpAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            ValidatorsCharacter.IsFreeOffhand(hero),
+            IsFreeOffhand(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             hero.attackModifiers,
@@ -386,7 +391,7 @@ internal sealed class AddWhirlWindFollowUpAttack : AddExtraAttackBase
         effectDamageForm.DamageForm.DiceNumber = 1;
         effectDamageForm.DamageForm.versatile = false;
         effectDamageForm.DamageForm.versatileDieType = effectDamageForm.DamageForm.DieType;
-        attackMode.AttackTags.Add(UpgradeWeaponDice.AbortUpgradeWeaponDice);
+        attackMode.AddAttackTagAsNeeded(UpgradeWeaponDice.AbortUpgradeWeaponDice);
 
         return [attackMode];
     }
@@ -428,7 +433,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             ActionDefinitions.ActionType.Bonus,
             offHandItem.ItemDefinition,
             ShieldStrike.ShieldWeaponDescription,
-            ValidatorsCharacter.IsFreeOffhand(hero),
+            IsFreeOffhand(hero),
             true,
             EquipmentDefinitions.SlotTypeOffHand,
             attackModifiers,
@@ -497,7 +502,7 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            ValidatorsCharacter.IsFreeOffhand(hero),
+            IsFreeOffhand(hero),
             true,
             EquipmentDefinitions.SlotTypeOffHand,
             hero.attackModifiers,

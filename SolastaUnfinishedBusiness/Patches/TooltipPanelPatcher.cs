@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -14,10 +15,10 @@ public static class TooltipPanelPatcher
     public static class SetupFeatures_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(TooltipPanel __instance, ref TooltipDefinitions.Scope scope)
+        public static void Prefix(ref TooltipDefinitions.Scope scope)
         {
             //PATCH: swaps holding ALT behavior for tooltips
-            if (!Main.Settings.InvertAltBehaviorOnTooltips)
+            if (!SettingsContext.GuiModManagerInstance.InvertTooltipBehavior)
             {
                 return;
             }

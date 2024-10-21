@@ -14,7 +14,7 @@
   "healBackCap": 10,
   "retaliateWhenHit": true,
   "retaliateProximity": "Melee",
-  "retaliateRangeCells": 1,
+  "retaliateRangeCells": 3,
   "retaliatePower": "Definition:PowerPathOfTheWildMagicRetribution:bb1aeb6a-57bb-5757-aabf-a55ec0de8f8f",
   "retaliateFromSource": false,
   "knockOutAffinity": "None",

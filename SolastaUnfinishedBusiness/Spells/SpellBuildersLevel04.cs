@@ -1420,11 +1420,12 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ModifyAttackActionModifierBeast(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionBeast)
+    private sealed class ModifyAttackActionModifierBeast(ConditionDefinition conditionBeast)
         : IModifyAttackActionModifier
     {
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.Condition, conditionBeast.Name, conditionBeast);
+
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -1435,17 +1436,17 @@ internal static partial class SpellBuilders
         {
             if (attackMode?.AbilityScore == AttributeDefinitions.Strength)
             {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.Condition, conditionBeast.Name, conditionBeast));
+                attackModifier.AttackAdvantageTrends.Add(_trendInfo);
             }
         }
     }
 
-    private sealed class CustomBehaviorTree(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionTree)
+    private sealed class CustomBehaviorTree(ConditionDefinition conditionTree)
         : IModifyAttackActionModifier, IRollSavingThrowInitiated
     {
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.Condition, conditionTree.Name, conditionTree);
+
         public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -1460,8 +1461,7 @@ internal static partial class SpellBuilders
                 || attackProximity == BattleDefinitions.AttackProximity.MagicRange
                 || attackProximity == BattleDefinitions.AttackProximity.MagicReach)
             {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.Condition, conditionTree.Name, conditionTree));
+                attackModifier.AttackAdvantageTrends.Add(_trendInfo);
             }
         }
 

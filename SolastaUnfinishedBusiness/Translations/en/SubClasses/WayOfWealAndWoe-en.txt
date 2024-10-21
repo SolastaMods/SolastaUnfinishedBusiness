@@ -8,6 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=After you make an attack roll wit
 Feature/&FeatureWayOfWealAndWoeWealTitle=Weal
 Feature/&FeatureWayOfWealAndWoeWoeDescription=After you make an attack roll with a monk weapon or an unarmed attack, and critically miss, you take damage equal to one roll of your martial arts die.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
-Feedback/&WoeReroll=Because of {1} {0} re-rolls the attack roll die from a {2} to a {3}
+Feedback/&WoeReroll={0} uses Woe to reroll a {1} attack roll die from {2} to {3}.
 Subclass/&WayOfWealAndWoeDescription=Monks of the Way of Weal and Woe focus on both prosperity and adversity to engage their enemies in battle.
 Subclass/&WayOfWealAndWoeTitle=Way of Weal and Woe

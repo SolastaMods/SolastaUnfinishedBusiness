@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "minRollValue": 0,
+  "maxRollValue": 0,
+  "minRerollValue": 1,
+  "rerollCount": 1,
+  "rerollLocalizationKey": "Feedback/&FlamesOfPhlegethosReroll",
+  "forcedDamageOnDice": "None",
+  "validityContext": "MagicDamageValueRoll",
+  "validSkills": [],
+  "requireProficiency": false,
+  "bardicInspirationAddChoice": false,
+  "bardicInspirationForceMaxRoll": false,
+  "bardicInspirationAdvantage": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "62927d46-acf2-5883-9c65-d4ce78f03744",
+  "contentPack": 9999,
+  "name": "DieRollModifierFeatFlamesOfPhlegethos"
+}

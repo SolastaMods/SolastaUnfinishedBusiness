@@ -1133,7 +1133,7 @@ internal static partial class SpellBuilders
                 ActionType,
                 strikeDefinition,
                 strikeDefinition.WeaponDescription,
-                ValidatorsCharacter.IsFreeOffhand(hero),
+                ValidatorsCharacter.IsFreeOffhandVanilla(hero),
                 true,
                 EquipmentDefinitions.SlotTypeMainHand,
                 hero.attackModifiers,

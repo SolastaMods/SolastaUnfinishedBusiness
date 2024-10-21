@@ -54,6 +54,7 @@ internal static class OtherFeats
         var featFightingInitiate = BuildFightingInitiate();
         var featFrostAdaptation = BuildFrostAdaptation();
         var featGiftOfTheChromaticDragon = BuildGiftOfTheChromaticDragon();
+        var featGrappler = BuildGrappler();
         var featHealer = BuildHealer();
         var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
@@ -75,6 +76,7 @@ internal static class OtherFeats
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
+        var giftOfTheGemDragonGroup = BuildGiftOfTheGemDragon(feats);
         var weaponMasterGroup = BuildWeaponMaster(feats);
 
         var featMerciless = BuildMerciless();
@@ -92,8 +94,7 @@ internal static class OtherFeats
             featEldritchAdept,
             featFrostAdaptation,
             featGiftOfTheChromaticDragon,
-            FeatGrapplerStr,
-            FeatGrapplerDex,
+            featGrappler,
             featHealer,
             featInfusionAdept,
             featInspiringLeader,
@@ -117,10 +118,6 @@ internal static class OtherFeats
             featVersatilityAdept,
             featWarCaster);
 
-        var featGroupGrappler = GroupFeats.MakeGroup("FeatGroupGrappler", GroupFeats.Grappler,
-            FeatGrapplerStr,
-            FeatGrapplerDex);
-
         GroupFeats.FeatGroupBodyResilience.AddFeats(
             athleteGroup,
             featDungeonDelver,
@@ -138,6 +135,7 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupMeleeCombat.AddFeats(
             balefulScionGroup,
+            featBrawler,
             featPolearmExpert,
             featShieldExpert);
 
@@ -153,9 +151,8 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featGiftOfTheChromaticDragon,
-            featBrawler,
             chefGroup,
-            featGroupGrappler,
+            featGrappler,
             featHealer,
             featInspiringLeader,
             featLucky,
@@ -164,6 +161,7 @@ internal static class OtherFeats
             featMerciless,
             featRopeIpUp,
             featSentinel,
+            giftOfTheGemDragonGroup,
             weaponMasterGroup);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
@@ -592,11 +590,274 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Gift of the Gem Dragon
+
+    private static FeatDefinition BuildGiftOfTheGemDragon(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatGiftOfTheGemDragon";
+
+        var powerInt = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation($"{Name}Int", Category.Feat, hidden: true)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Strength, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Intelligence, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build())
+                    .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
+                    .Build())
+            .AddToDB();
+
+        powerInt.AddCustomSubFeatures(new CustomBehaviorGiftOfTheGemDragon(powerInt));
+        powerInt.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference =
+            Counterspell.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference;
+
+        var featInt = FeatDefinitionBuilder
+            .Create($"{Name}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, powerInt)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var powerWis = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Wis")
+            .SetGuiPresentation($"{Name}Wis", Category.Feat, hidden: true)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Strength, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Wisdom, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build())
+                    .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
+                    .Build())
+            .AddToDB();
+
+        powerWis.AddCustomSubFeatures(new CustomBehaviorGiftOfTheGemDragon(powerWis));
+        powerWis.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference =
+            Counterspell.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference;
+
+        var featWis = FeatDefinitionBuilder
+            .Create($"{Name}Wis")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, powerWis)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var powerCha = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Cha")
+            .SetGuiPresentation($"{Name}Cha", Category.Feat, hidden: true)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Strength, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Charisma, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build())
+                    .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
+                    .Build())
+            .AddToDB();
+
+        powerCha.AddCustomSubFeatures(new CustomBehaviorGiftOfTheGemDragon(powerCha));
+        powerCha.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference =
+            Counterspell.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference;
+
+        var featCha = FeatDefinitionBuilder
+            .Create($"{Name}Cha")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Solasta, powerCha)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(featInt, featWis, featCha);
+
+        return GroupFeats.MakeGroup("FeatGroupGiftOfTheGemDragon", Name, featInt, featWis, featCha);
+    }
+
+    private sealed class CustomBehaviorGiftOfTheGemDragon(FeatureDefinitionPower powerGiftOfTheGemDragon)
+        : IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe,
+            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            defender.RulesetCharacter.DamageReceived += DamageReceived;
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicEffectFinishedOnMe(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
+        {
+            defender.RulesetCharacter.DamageReceived -= DamageReceived;
+
+            yield return HandleReaction(attacker, defender);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            defender.RulesetCharacter.DamageReceived += DamageReceived;
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            defender.RulesetCharacter.DamageReceived -= DamageReceived;
+
+            yield return HandleReaction(attacker, defender);
+        }
+
+        private static void DamageReceived(
+            RulesetActor rulesetActor,
+            int damage,
+            string damageType,
+            ulong sourceGuid,
+            RollInfo rollInfo)
+        {
+            var character = GameLocationCharacter.GetFromActor(rulesetActor);
+
+            character.SetSpecialFeatureUses("GiftOfTheGemDragon", 1);
+        }
+
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender)
+        {
+            if (defender.GetSpecialFeatureUses("GiftOfTheGemDragon") <= 0)
+            {
+                defender.SetSpecialFeatureUses("GiftOfTheGemDragon", 0);
+
+                yield break;
+            }
+
+            defender.SetSpecialFeatureUses("GiftOfTheGemDragon", 0);
+
+            var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerGiftOfTheGemDragon, rulesetDefender);
+
+            if (!defender.CanReact() ||
+                !defender.IsWithinRange(attacker, 2) ||
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            yield return defender.MyReactToUsePower(
+                Id.PowerReaction,
+                usablePower,
+                [attacker],
+                attacker,
+                "GiftOfTheGemDragon",
+                "UseGiftOfTheGemDragonDescription".Formatted(Category.Reaction, attacker.Name));
+        }
+    }
+
+    #endregion
+
     #region Brawler
 
     private static FeatDefinition BuildBrawler()
     {
         const string Name = "FeatBrawler";
+
+        var dieRollModifierBrawler = FeatureDefinitionDieRollModifierBuilder
+            .Create($"DieRollModifier{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetModifiers(
+                RollContext.AttackDamageValueRoll, 1, 0, 1,
+                "Feedback/&FeatBrawlerReroll")
+            .AddToDB();
+
+        var conditionBrawler = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(dieRollModifierBrawler)
+            .AddToDB();
+
+        conditionBrawler.AddCustomSubFeatures(new AllowRerollDiceBrawler());
 
         var actionAffinityGrappleBonus =
             FeatureDefinitionActionAffinityBuilder
@@ -605,6 +866,7 @@ internal static class OtherFeats
                 .SetAuthorizedActions((Id)ExtraActionId.GrappleBonus)
                 .AddCustomSubFeatures(
                     new ValidateDefinitionApplication(ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
+                    new CustomBehaviorBrawler(conditionBrawler),
                     new AddExtraUnarmedAttack(
                         ActionType.Bonus, ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasFreeHand),
                     new UpgradeWeaponDice((_, d) => (Math.Max(1, d.DiceNumber), DieType.D6, DieType.D6),
@@ -623,25 +885,116 @@ internal static class OtherFeats
             .AddToDB();
     }
 
+    private sealed class AllowRerollDiceBrawler : IAllowRerollDice
+    {
+        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
+        {
+            return attackModeDamage;
+        }
+    }
+
+    private sealed class CustomBehaviorBrawler(ConditionDefinition conditionBrawler)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!ValidatorsWeapon.IsUnarmed(attackMode))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                conditionBrawler.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionBrawler.Name,
+                0,
+                0,
+                0);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionBrawler.Name, out var activeCondition))
+            {
+                rulesetAttacker.RemoveCondition(activeCondition);
+            }
+
+            yield break;
+        }
+    }
+
     #endregion
 
     #region Grappler
 
-    private static readonly FeatDefinition FeatGrapplerDex = FeatDefinitionBuilder
-        .Create("FeatGrapplerDex")
-        .SetGuiPresentation(Category.Feat)
-        .AddFeatures(AttributeModifierCreed_Of_Misaye)
-        .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-        .SetFeatFamily(GroupFeats.Grappler)
-        .AddToDB();
+    private static FeatDefinition FeatGrappler { get; set; }
 
-    private static readonly FeatDefinition FeatGrapplerStr = FeatDefinitionBuilder
-        .Create("FeatGrapplerStr")
-        .SetGuiPresentation(Category.Feat)
-        .AddFeatures(AttributeModifierCreed_Of_Einar)
-        .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-        .SetFeatFamily(GroupFeats.Grappler)
-        .AddToDB();
+    private static readonly IsCharacterValidHandler IsValidGrappleOnUnarmedToggle = character =>
+    {
+        var glc = GameLocationCharacter.GetFromActor(character);
+
+        return Gui.Battle != null &&
+               character.AttackModes.Any(x =>
+                   ValidatorsWeapon.IsUnarmed(x) &&
+                   glc.GetActionTypeStatus(x.ActionType) == ActionStatus.Available) &&
+               glc.GetSpecialFeatureUses(FeatGrappler.Name) < 0;
+    };
+
+    private static FeatDefinition BuildGrappler()
+    {
+        var actionAffinityGrappleOnUnarmedToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityGrappleOnUnarmedToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.GrappleOnUnarmedToggle)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(IsValidGrappleOnUnarmedToggle),
+                new PhysicalAttackFinishedByMeGrappler())
+            .AddToDB();
+
+        // kept for backward compatibility
+        _ = FeatDefinitionBuilder
+            .Create("FeatGrapplerDex")
+            .SetGuiPresentation("FeatGrapplerStr", Category.Feat, hidden: true)
+            .SetFeatures(actionAffinityGrappleOnUnarmedToggle)
+            .AddToDB();
+
+        FeatGrappler = FeatDefinitionBuilder
+            .Create("FeatGrapplerStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(actionAffinityGrappleOnUnarmedToggle)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+            .AddToDB();
+
+        return FeatGrappler;
+    }
 
     internal static void MaybeChangeGrapplerConditionForGrappleFeatBehavior(
         RulesetCharacter attacker,
@@ -650,14 +1003,52 @@ internal static class OtherFeats
     {
         var hero = attacker.GetOriginalHero();
 
-        if (hero != null &&
-            (hero.TrainedFeats.Contains(FeatGrapplerDex) ||
-             hero.TrainedFeats.Contains(FeatGrapplerStr)))
+        if (hero?.TrainedFeats.Contains(FeatGrappler) == true)
         {
             sourceConditionName =
                 attacker.SizeDefinition.WieldingSize < defender.SizeDefinition.WieldingSize
                     ? GrappleContext.ConditionGrappleSourceWithGrapplerLargerName
                     : GrappleContext.ConditionGrappleSourceWithGrapplerName;
+        }
+    }
+
+    private sealed class PhysicalAttackFinishedByMeGrappler : IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !ValidatorsWeapon.IsUnarmed(attackMode) ||
+                defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.GrappleOnUnarmedToggle) ||
+                attacker.GetSpecialFeatureUses(FeatGrappler.Name) >= 0)
+            {
+                yield break;
+            }
+
+            yield return attacker.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                attacker,
+                "Grappler",
+                "CustomReactionGrapplerDescription".Formatted(Category.Reaction, defender.Name),
+                ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                attacker.SetSpecialFeatureUses(FeatGrappler.Name, 0);
+                rulesetAttacker.DisableToggle((Id)ExtraActionId.GrappleOnUnarmedToggle);
+                GrappleContext.CustomBehaviorGrapple.ExecuteGrapple(attacker, defender).ExecuteUntilDone();
+            }
         }
     }
 
@@ -1509,27 +1900,17 @@ internal static class OtherFeats
         foreach (var damageType in damageTypes)
         {
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
-            var guiPresentation = new GuiPresentationBuilder(
-                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
-                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
-                .Build();
-
             var feat = FeatDefinitionBuilder
                 .Create($"{NAME}{damageType}")
-                .SetGuiPresentation(guiPresentation)
+                .SetGuiPresentation(
+                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
+                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
                 .SetFeatures(
                     FeatureDefinitionDieRollModifierBuilder
-                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalAdeptReroll")
-                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
-                        .AddToDB(),
-                    FeatureDefinitionDieRollModifierBuilder
-                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}Magic")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalAdeptReroll")
+                        .Create($"DieRollModifier{NAME}{damageType}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetModifiers(RollContext.AttackDamageValueRoll | RollContext.MagicDamageValueRoll, 1, 0, 1,
+                            "Feedback/&FeatElementalAdeptReroll")
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
                         .AddToDB())
                 .SetMustCastSpellsPrerequisite()
@@ -1548,8 +1929,13 @@ internal static class OtherFeats
     }
 
     private sealed class ModifyDamageResistanceElementalAdept(params string[] damageTypes)
-        : IModifyDamageAffinity, IValidateDieRollModifier
+        : IModifyDamageAffinity, IValidateDieRollModifier, IAllowRerollDice
     {
+        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
+        {
+            return !attackModeDamage && damageTypes.Contains(damageForm.DamageType);
+        }
+
         public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
         {
             features.RemoveAll(x =>
@@ -1586,20 +1972,17 @@ internal static class OtherFeats
         foreach (var (damageType, featureResistance) in damageTypes)
         {
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
-            var guiPresentation = new GuiPresentationBuilder(
-                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
-                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
-                .Build();
-
             var feat = FeatDefinitionBuilder
                 .Create($"{NAME}{damageType}")
-                .SetGuiPresentation(guiPresentation)
+                .SetGuiPresentation(
+                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
+                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
                 .SetFeatures(
                     FeatureDefinitionDieRollModifierBuilder
-                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalMasterReroll")
+                        .Create($"DieRollModifier{NAME}{damageType}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetModifiers(RollContext.AttackRoll, 1, 0, 1,
+                            "Feedback/&FeatElementalMasterReroll")
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
                         .AddToDB(),
                     featureResistance)
@@ -1645,7 +2028,9 @@ internal static class OtherFeats
         GroupFeats.FeatGroupFightingStyle.AddFeats(
             DatabaseRepository
                 .GetDatabase<FightingStyleDefinition>()
-                .Where(x => !FightingStyleContext.DemotedFightingStyles.Contains(x.Name))
+                .Where(x =>
+                    !FightingStyleContext.DemotedFightingStyles.Contains(x.Name) &&
+                    x.Name != FightingStyleContext.PugilistName)
                 .Select(BuildFightingStyleFeat)
                 .OfType<FeatDefinition>()
                 .ToArray());
@@ -1877,6 +2262,7 @@ internal static class OtherFeats
             void ReactionValidated()
             {
                 defender.SpendActionType(ActionType.Reaction);
+                usablePower.Consume();
 
                 var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
 
@@ -2427,12 +2813,14 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var (attackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(caster, battleManager);
+            var (attackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(defender, battleManager);
 
             if (attackMode == null || !defender.CanReact())
             {
                 yield break;
             }
+
+            attackMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
             yield return defender.MyReactForOpportunityAttack(
                 caster,
@@ -2954,7 +3342,8 @@ internal static class OtherFeats
 
     private sealed class ModifyWeaponAttackModeRopeItUp : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (attackMode?.thrown != true)
             {

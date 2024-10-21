@@ -76,6 +76,10 @@ internal enum ExtraActionId
     Grapple,
     GrappleBonus,
     DisableGrapple,
+    GrappleOnUnarmedToggle,
+    CleavingAttackToggle,
+    PowerAttackToggle,
+    DeadEyeToggle,
     PrioritizeAction = 10000
 }
 

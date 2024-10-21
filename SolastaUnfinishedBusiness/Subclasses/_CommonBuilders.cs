@@ -146,16 +146,22 @@ internal static class CommonBuilders
 
     internal static bool CanWeaponBeEnchanted(RulesetAttackMode mode, RulesetItem _, RulesetCharacter character)
     {
-        if (character is not RulesetCharacterHero hero || ValidatorsWeapon.HasTwoHandedTag(mode))
+        if (character is not RulesetCharacterHero hero)
         {
             return false;
         }
 
-        return mode.ActionType != ActionDefinitions.ActionType.Bonus ||
-               ValidatorsWeapon.IsPolearmType(mode) ||
-               ValidatorsWeapon.IsTwoHandedRanged(mode) ||
-               hero.TrainedFeats.Contains(MeleeCombatFeats.FeatFencer) ||
-               hero.TrainedFightingStyles.Contains(DatabaseHelper.FightingStyleDefinitions.TwoWeapon);
+        if (mode.ActionType != ActionDefinitions.ActionType.Bonus)
+        {
+            return !ValidatorsWeapon.IsTwoHanded(mode);
+        }
+
+        // only allows a weapon to be enchanted if a bonus action coming from these sources
+        return
+            ValidatorsWeapon.IsPolearmType(mode) ||
+            ValidatorsWeapon.IsTwoHandedRanged(mode) ||
+            hero.TrainedFeats.Contains(MeleeCombatFeats.FeatFencer) ||
+            hero.TrainedFightingStyles.Contains(DatabaseHelper.FightingStyleDefinitions.TwoWeapon);
     }
 
     private sealed class AttackReplaceWithCantrip : IAttackReplaceWithCantrip;
@@ -172,7 +178,7 @@ internal static class CommonBuilders
             if (Gui.Battle == null ||
                 action.ActionType is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus) ||
                 action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                (!Main.Settings.EnableCantripsTriggeringOnWarMagic &&
+                (!Main.Settings.AllowCantripsTriggeringOnWarMagic &&
                  rulesetEffectSpell.SpellDefinition.SpellLevel <= 0))
             {
                 yield break;
@@ -198,22 +204,20 @@ internal static class CommonBuilders
 
     internal class ModifyWeaponAttackUnarmedStrikeDamage(DieType dieType) : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (!ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;
             }
 
-            var effectDescription = attackMode.EffectDescription;
-            var damage = effectDescription.FindFirstDamageForm();
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
-            if (damage == null)
-            {
-                return;
-            }
-
-            if (damage.DieType < dieType)
+            if (damage != null && damage.DieType < dieType)
             {
                 damage.DieType = dieType;
             }

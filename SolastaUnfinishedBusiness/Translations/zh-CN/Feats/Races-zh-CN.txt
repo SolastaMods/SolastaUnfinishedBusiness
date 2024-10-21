@@ -57,7 +57,6 @@ Feat/&FeatWoodElfMagicDescription=你学习了原始森林的魔力，它们受�
 Feat/&FeatWoodElfMagicTitle=木精灵魔法
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=当你手持一把巨剑时，你的护甲等级获得 +1 加值。
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=英魂之刃
-Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=由于弗莱格索斯之焰，{0} 将 {1} 骰子从 {2} 重新投掷到 {3}。
 Feature/&PowerFeatDragonFearDescription=你可以使用一次喷吐武器特质来咆哮，迫使你选择的 30 尺范围内的每个生物进行一次感知豁免检定（DC 8 + 你的熟练加值 + 你的魅力调整值）。豁免失败后，目标会受到恐慌 1 分钟。如果恐慌的目标受到任何伤害，它可以重复豁免检定，成功后结束对自身的效果。
 Feature/&PowerFeatDragonFearTitle=龙之威怖
 Feature/&PowerFeatOrcishAggressionDescription=作为附赠动作，当你在主手中挥舞近战武器时，你可以以你的速度冲向你选择的敌人，并用你的主武器自由攻击该生物。
@@ -68,6 +67,7 @@ Feedback/&BountifulLuckAttackToHitRoll={0} 使用 {1} 并掷出 {2} 以替换攻
 Feedback/&BountifulLuckCheckToHitRoll={0} 使用 {1} 并掷出 {2} 以替换检定结果上的 {3}
 Feedback/&BountifulLuckSavingToHitRoll={0} 使用 {1} 并掷出 {2} 以替换豁免结果上的 {3}
 Feedback/&DwarvenFortitudeHitDieRolled={0}掷出{2}并治愈了{3} = {4}。
+Feedback/&FlamesOfPhlegethosReroll={0} 使用弗莱格索斯之焰重新掷出 {1} 个魔法伤害骰子，从 {2} 变为 {3}。
 Reaction/&CustomReactionBountifulLuckAttackDescription={0}未命中{1}。 {2} 可以作出反应来投掷 d20 以替换攻击检定。
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=投掷 d20 以替换攻击检定。
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=好运连连

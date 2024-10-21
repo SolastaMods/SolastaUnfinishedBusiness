@@ -6,13 +6,13 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -81,23 +81,23 @@ internal static class RangedCombatFeats
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isLongOrShortBowOrCrossbow(mode, null, character))),
                         new AddExtraRangedAttack(
-                            ActionDefinitions.ActionType.Bonus,
+                            ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(LongbowType),
                             ValidatorsCharacter.HasUsedWeaponType(LongbowType)),
                         new AddExtraRangedAttack(
-                            ActionDefinitions.ActionType.Bonus,
+                            ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(ShortbowType),
                             ValidatorsCharacter.HasUsedWeaponType(ShortbowType)),
                         new AddExtraRangedAttack(
-                            ActionDefinitions.ActionType.Bonus,
+                            ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(HeavyCrossbowType),
                             ValidatorsCharacter.HasUsedWeaponType(HeavyCrossbowType)),
                         new AddExtraRangedAttack(
-                            ActionDefinitions.ActionType.Bonus,
+                            ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(LightCrossbowType),
                             ValidatorsCharacter.HasUsedWeaponType(LightCrossbowType)),
                         new AddExtraRangedAttack(
-                            ActionDefinitions.ActionType.Bonus,
+                            ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
                             ValidatorsCharacter.HasUsedWeaponType(CustomWeaponsContext.HandXbowWeaponType)))
                     .AddToDB())
@@ -121,64 +121,36 @@ internal static class RangedCombatFeats
     {
         const string Name = "FeatDeadeye";
 
-        var concentrationProvider = new StopPowerConcentrationProvider(
-            "Deadeye",
-            "Tooltip/&DeadeyeConcentration",
-            Sprites.GetSprite(Name, Resources.DeadeyeConcentrationIcon, 64, 64));
-
-        var conditionDeadeye = ConditionDefinitionBuilder
+        // kept for backward compatibility
+        _ = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
-            .SetGuiPresentation(Name, Category.Feat,
-                DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentationNoContent(true)
+            .SetSpecialDuration()
             .AddToDB();
 
-        var powerDeadeye = FeatureDefinitionPowerBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Feat,
-                Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Permanent)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .AddCustomSubFeatures(
-                IgnoreInvisibilityInterruptionCheck.Marker,
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionDeadeye.Name)))
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
 
-        var powerTurnOffDeadeye = FeatureDefinitionPowerBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Remove)
-                            .Build())
-                    .Build())
-            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
+            .AddToDB();
+
+        var actionAffinityDeadEyeToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityDeadEyeToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.DeadEyeToggle)
             .AddToDB();
 
         var featDeadeye = FeatDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                powerDeadeye,
-                powerTurnOffDeadeye,
+                actionAffinityDeadEyeToggle,
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{Name}")
                     .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
@@ -187,9 +159,7 @@ internal static class RangedCombatFeats
                     .AddToDB())
             .AddToDB();
 
-        concentrationProvider.StopPower = powerTurnOffDeadeye;
-        conditionDeadeye.AddCustomSubFeatures(
-            concentrationProvider, new ModifyWeaponAttackModeFeatDeadeye(featDeadeye));
+        featDeadeye.AddCustomSubFeatures(new ModifyWeaponAttackModeFeatDeadeye(featDeadeye));
 
         return featDeadeye;
     }
@@ -210,11 +180,11 @@ internal static class RangedCombatFeats
                         ValidatorsCharacter.HasOffhandWeaponType(
                             CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType),
                         new RemoveRangedAttackInMeleeDisadvantage(),
-                        new InnovationArmor.AddLauncherAttack(ActionDefinitions.ActionType.Bonus,
+                        new InnovationArmor.AddLauncherAttack(ActionType.Bonus,
                             InnovationArmor.InInfiltratorMode,
                             ValidatorsCharacter.HasAttacked),
                         new AddExtraRangedAttack(
-                            ActionDefinitions.ActionType.Bonus,
+                            ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
                             ValidatorsCharacter.HasAttacked))
                     .AddToDB())
@@ -225,35 +195,45 @@ internal static class RangedCombatFeats
     // HELPERS
     //
 
-    private sealed class ModifyWeaponAttackModeFeatDeadeye(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatDefinition featDefinition) : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeFeatDeadeye(FeatDefinition featDefinition) : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        private const int ToHit = -5;
+        private const int ToDamage = +10;
+
+        private readonly TrendInfo _attackTrendInfo =
+            new(ToHit, FeatureSourceType.Feat, featDefinition.Name, featDefinition);
+
+        private readonly TrendInfo _damageTrendInfo =
+            new(ToDamage, FeatureSourceType.Feat, featDefinition.Name, featDefinition);
+
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
+            if (!character.IsToggleEnabled((Id)ExtraActionId.DeadEyeToggle))
+            {
+                return;
+            }
+
             if (!ValidatorsWeapon.IsOfWeaponType(DartType)(attackMode, null, null) &&
                 attackMode is not { ranged: true })
             {
                 return;
             }
 
-            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {
                 return;
             }
 
-            const int TO_HIT = -5;
-            const int TO_DAMAGE = +10;
-
-            attackMode.ToHitBonus += TO_HIT;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat, featDefinition.Name,
-                featDefinition));
-
-            damage.BonusDamage += TO_DAMAGE;
-            damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE, FeatureSourceType.Feat, featDefinition.Name,
-                featDefinition));
+            attackMode.ToHitBonus += ToHit;
+            attackMode.ToHitBonusTrends.Add(_attackTrendInfo);
+            damage.BonusDamage += ToDamage;
+            damage.DamageBonusTrends.Add(_damageTrendInfo);
         }
     }
 }

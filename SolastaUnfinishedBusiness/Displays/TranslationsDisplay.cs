@@ -11,7 +11,7 @@ internal static class TranslationsDisplay
     internal static void DisplayTranslations()
     {
         UI.Label();
-        UI.Label(Gui.Format("ModUi/&Campaigns"));
+        UI.Label(Gui.Format("ModUi/&Translations"));
         UI.Label();
 
         using (UI.HorizontalScope())

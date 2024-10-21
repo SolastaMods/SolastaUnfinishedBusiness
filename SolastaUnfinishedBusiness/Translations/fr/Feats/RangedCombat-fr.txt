@@ -1,3 +1,5 @@
+Action/&DeadEyeToggleDescription=Activer/désactiver Sharpshooter
+Action/&DeadEyeToggleTitle=Tireur d'élite
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Vous avez l'avantage sur votre prochain jet d'attaque.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Visez fermement
 Condition/&ConditionFeatSteadyAimRestrainedDescription=Vous ne pouvez pas bouger jusqu'à la fin de votre tour.

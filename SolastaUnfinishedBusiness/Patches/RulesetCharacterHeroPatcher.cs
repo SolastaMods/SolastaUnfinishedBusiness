@@ -19,6 +19,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -537,8 +538,8 @@ public static class RulesetCharacterHeroPatcher
             ref RulesetItem weapon)
         {
             //PATCH: allow hand wraps to be put into gauntlet slot
-            CustomWeaponsContext.ModifyUnarmedAttackWithGauntlet(__instance, ref itemDefinition, ref weaponDescription,
-                ref weapon);
+            CustomWeaponsContext.ModifyUnarmedAttackWithGauntlet(
+                __instance, ref itemDefinition, ref weaponDescription, ref weapon);
 
             //PATCH: validate damage features
             attackModifiers.RemoveAll(provider =>
@@ -553,20 +554,17 @@ public static class RulesetCharacterHeroPatcher
             bool canAddAbilityDamageBonus,
             RulesetItem weapon)
         {
-            //PATCH: Allows changing what attribute is used for weapon's attack and damage rolls
-            var modifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackAttribute>();
-
-            var mods = modifiers;
+            //PATCH: Allows changing damage and other stats of an attack mode
+            var weaponAttackModeModifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackMode>();
 
             if (__result.sourceObject is RulesetItem item)
             {
-                mods = item.GetSubFeaturesByType<IModifyWeaponAttackAttribute>();
-                mods.AddRange(modifiers);
+                weaponAttackModeModifiers.AddRange(item.GetSubFeaturesByType<IModifyWeaponAttackMode>());
             }
 
-            foreach (var modifier in mods)
+            foreach (var modifier in weaponAttackModeModifiers)
             {
-                modifier.ModifyAttribute(__instance, __result, weapon, canAddAbilityDamageBonus);
+                modifier.ModifyWeaponAttackMode(__instance, __result, weapon, canAddAbilityDamageBonus);
             }
         }
     }
@@ -674,34 +672,11 @@ public static class RulesetCharacterHeroPatcher
                 .OrderBy(provider => provider.Priority())
                 .Do(provider => provider.TryAddExtraAttack(__instance));
 
-            //PATCH: Allows changing damage and other stats of an attack mode
-            var modifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackMode>();
-
-            foreach (var attackMode in __instance.AttackModes)
-            {
-                var mods = modifiers;
-
-                if (attackMode.sourceObject is RulesetItem item)
-                {
-                    mods = item.GetSubFeaturesByType<IModifyWeaponAttackMode>();
-                    mods.AddRange(modifiers);
-                }
-
-                foreach (var modifier in mods)
-                {
-                    modifier.ModifyAttackMode(__instance, attackMode);
-                }
-            }
-
             //PATCH: add Main Action gauntlet attacks if needed
             CustomWeaponsContext.TryAddMainActionUnarmedAttacks(__instance);
 
-            //PATCH: remove invalid attacks
-            //used to prevent hand crossbows use with no free hand
+            //PATCH: remove invalid attacks to prevent hand crossbows use with no free hand
             __instance.AttackModes.RemoveAll(mode => SrdAndHouseRulesContext.IsAttackModeInvalid(__instance, mode));
-
-            //PATCH: support for IAdditionalActionAttackValidator
-            //ValidateAdditionalActionAttack.ValidateAttackModes(__instance);
 
             //refresh character if needed after postfix
             if (_callRefresh && __instance.CharacterRefreshed != null)
@@ -816,6 +791,28 @@ public static class RulesetCharacterHeroPatcher
         {
             //PATCH: enables some corner-case fighting styles (like archery for hand crossbows and dual wielding for shield expert)
             FightingStyleContext.RefreshFightingStylesPatch(__instance);
+        }
+    }
+
+    //BUGFIX: allows gauntlet to be used by Druids
+    //as vanilla put them on simple weapon categories and Druids are proficient with specic ones
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsProficientWithItem))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsProficientWithItem_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetCharacterHero __instance, ref bool __result, ItemDefinition itemDefinition)
+        {
+            if (!itemDefinition.IsWeapon ||
+                itemDefinition.WeaponDescription.WeaponTypeDefinition != UnarmedStrikeType)
+            {
+                return true;
+            }
+
+            __result = true;
+
+            return false;
         }
     }
 

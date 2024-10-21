@@ -8,11 +8,11 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "Grappler",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e"
+    "Definition:ActionAffinityGrappleOnUnarmedToggle:a4891995-4db5-5484-aabe-b86340b9fbe2"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

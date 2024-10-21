@@ -352,7 +352,8 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
         protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
-            if (character is not RulesetCharacterHero hero || !ValidatorsCharacter.HasFreeHand(character))
+            if (character is not RulesetCharacterHero hero ||
+                !ValidatorsCharacter.HasFreeHandConsiderGrapple(character))
             {
                 return null;
             }
@@ -589,7 +590,11 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
     private class BestialSoulMagicalAttack : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (attackMode.sourceDefinition is not ItemDefinition item ||
                 !item.ItemTags.Contains(TagBeastWeapon))
@@ -597,7 +602,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 return;
             }
 
-            attackMode.AttackTags.Add("MagicalWeapon");
+            attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
         }
     }
 

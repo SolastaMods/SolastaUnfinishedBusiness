@@ -425,7 +425,7 @@ internal static class ClassFeats
                 var (opportunityAttackMode, actionModifier) =
                     helper.GetFirstMeleeModeThatCanAttack(defender, battleManager);
 
-                if (opportunityAttackMode == null || actionModifier == null)
+                if (opportunityAttackMode == null)
                 {
                     continue;
                 }
@@ -829,11 +829,12 @@ internal static class ClassFeats
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
-                .AddCustomSubFeatures(new ModifyEffectDescriptionFeatPotentSpellcaster(classes[i]))
                 .SetValidators(validator)
                 .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
 
+            featPotentSpellcaster.AddCustomSubFeatures(
+                new CustomBehaviorFeatPotentSpellcaster(featPotentSpellcaster, classes[i]));
             potentSpellcasterFeats.Add(featPotentSpellcaster);
         }
 
@@ -846,8 +847,9 @@ internal static class ClassFeats
         return potentSpellcasterGroup;
     }
 
-    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster(CharacterClassDefinition castingClass)
-        : IModifyEffectDescription, IModifyWeaponAttackMode
+    private sealed class CustomBehaviorFeatPotentSpellcaster(
+        FeatDefinition featDefinition,
+        CharacterClassDefinition castingClass) : IModifyEffectDescription, IModifyWeaponAttackMode
     {
         public bool IsValid(
             BaseDefinition definition,
@@ -904,13 +906,17 @@ internal static class ClassFeats
             var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(attribute));
 
             damage.BonusDamage += bonus;
-            damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
-                "Feat/&FeatPotentSpellcasterTitle", null));
+            damage.DamageBonusTrends.Add(
+                new TrendInfo(bonus, FeatureSourceType.CharacterFeature, featDefinition.Name, featDefinition));
 
             return effectDescription;
         }
 
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (attackMode.SourceDefinition != CustomWeaponsContext.ProducedFlameDart)
             {
@@ -936,8 +942,8 @@ internal static class ClassFeats
             var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(attribute));
 
             damage.BonusDamage += bonus;
-            damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
-                "Feat/&FeatPotentSpellcasterTitle", null));
+            damage.DamageBonusTrends.Add(
+                new TrendInfo(bonus, FeatureSourceType.CharacterFeature, featDefinition.Name, featDefinition));
         }
     }
 

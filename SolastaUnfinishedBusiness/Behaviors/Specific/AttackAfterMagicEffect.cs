@@ -23,20 +23,35 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
             return true;
         }
 
-        if (CanAttack(__instance.ActionParams.ActingCharacter, target))
+        if (CanAttack(__instance.ActionParams.ActingCharacter, target, out var isReach))
         {
             return true;
         }
 
-        var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
+        var text = isReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
 
         __instance.actionModifier.FailureFlags.Add(Gui.Format("Failure/&TargetMeleeWeaponError", text));
 
         return false;
     }
 
-    internal static bool CanAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
+    internal static bool CanAttack(
+        [NotNull] GameLocationCharacter caster, GameLocationCharacter target, out bool isReach)
     {
+        isReach = Main.Settings.AllowBladeCantripsToUseReach;
+
+        // still debatable
+#if false
+        // Spell Sniper should allow reach
+        if (!isReach)
+        {
+            var rulesetCaster = caster.RulesetCharacter;
+
+            isReach = rulesetCaster.GetOriginalHero()?.TrainedFeats.Any(x => x.Name.StartsWith("FeatSpellSniper")) ??
+                      false;
+        }
+#endif
+
         var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
         if (attackMode == null)
@@ -51,8 +66,7 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         evalParams.FillForPhysicalReachAttack(
             caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
-        return battleService.CanAttack(evalParams) &&
-               (Main.Settings.AllowBladeCantripsToUseReach || caster.IsWithinRange(target, 1));
+        return battleService.CanAttack(evalParams) && (isReach || caster.IsWithinRange(target, 1));
     }
 
     internal static List<CharacterActionParams> PerformAttackAfterUse(CharacterActionMagicEffect actionMagicEffect)
@@ -85,7 +99,7 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 
         var caster = actionParams.ActingCharacter;
         var targets = actionParams.TargetCharacters
-            .Where(t => CanAttack(caster, t))
+            .Where(t => CanAttack(caster, t, out _))
             .ToArray();
 
         if (targets.Length == 0)

@@ -3,22 +3,22 @@
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Dexterity",
+  "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "Grappler",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
+    "Definition:ActionAffinityGrappleOnUnarmedToggle:a4891995-4db5-5484-aabe-b86340b9fbe2"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGrapplerDexTitle",
-    "description": "Feat/&FeatGrapplerDexDescription",
+    "title": "Feat/&FeatGrapplerStrTitle",
+    "description": "Feat/&FeatGrapplerStrDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

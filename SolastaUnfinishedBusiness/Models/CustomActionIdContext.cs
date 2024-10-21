@@ -34,6 +34,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.ForcePoweredStrikeToggle,
         (Id)ExtraActionId.GloomBladeToggle,
+        (Id)ExtraActionId.GrappleOnUnarmedToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
         (Id)ExtraActionId.ImpishWrathToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,
@@ -45,7 +46,10 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.QuiveringPalmToggle,
         (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.SupremeWillToggle,
-        (Id)ExtraActionId.ZenShotToggle
+        (Id)ExtraActionId.ZenShotToggle,
+        (Id)ExtraActionId.CleavingAttackToggle,
+        (Id)ExtraActionId.PowerAttackToggle,
+        (Id)ExtraActionId.DeadEyeToggle
     ];
 
     private static readonly List<Id> ExtraActionIdPowers =
@@ -358,6 +362,38 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.SupremeWillToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "GrappleOnUnarmedToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.GrappleOnUnarmedToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "CleavingAttackToggle")
+            .SetGuiPresentation(Category.Action, WhirlwindAttack)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CleavingAttackToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "PowerAttackToggle")
+            .SetGuiPresentation(Category.Action, WhirlwindAttack)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.PowerAttackToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "DeadEyeToggle")
+            .SetGuiPresentation(Category.Action, Volley)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.DeadEyeToggle)
             .OverrideClassName("Toggle")
             .AddToDB();
     }

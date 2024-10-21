@@ -7,6 +7,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Models.SaveByLocationContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -21,7 +22,7 @@ public static class LoadPanelPatcher
     {
         private static bool NeedsCustomLogic(LoadPanel panel)
         {
-            return Main.Settings.EnableSaveByLocation && !panel.ImportSaveMode;
+            return SettingsContext.GuiModManagerInstance.EnableSaveByLocation && !panel.ImportSaveMode;
         }
 
         [UsedImplicitly]

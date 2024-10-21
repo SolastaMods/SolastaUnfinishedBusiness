@@ -182,7 +182,11 @@ public sealed class WayOfZenArchery : AbstractSubclass
     // when attack tags have a proper hide tag
     private sealed class ModifyWeaponAttackModeFlurryOfArrows : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter rulesetCharacter,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
@@ -279,7 +283,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureUnerringPrecision) : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (!ValidatorsCharacter.HasBowWithoutArmor(character))
             {

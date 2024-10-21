@@ -60,6 +60,7 @@ internal static class BootContext
         CharacterExportContext.Load();
         DmProEditorContext.Load();
         GameUiContext.Load();
+        InputContext.Load();
 
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();

@@ -185,7 +185,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 .Create($"ActionAffinity{Name}{Flamethrower}Tiny")
                 .SetGuiPresentationNoContent(true)
                 .SetAuthorizedActions((Id)ExtraActionId.CannonFlamethrowerBonus)
-                .AddCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasFreeHand))
+                .AddCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasFreeHandConsiderGrapple))
                 .AddToDB();
 
         var actionAffinityForceBallistaTiny =
@@ -193,7 +193,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 .Create($"ActionAffinity{Name}{ForceBallista}Tiny")
                 .SetGuiPresentationNoContent(true)
                 .SetAuthorizedActions((Id)ExtraActionId.CannonForceBallistaBonus)
-                .AddCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasFreeHand))
+                .AddCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasFreeHandConsiderGrapple))
                 .AddToDB();
 
         var actionAffinityProtectorTiny =
@@ -201,7 +201,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 .Create($"ActionAffinity{Name}{Protector}Tiny")
                 .SetGuiPresentationNoContent(true)
                 .SetAuthorizedActions((Id)ExtraActionId.CannonProtectorBonus)
-                .AddCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasFreeHand))
+                .AddCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasFreeHandConsiderGrapple))
                 .AddToDB();
 
         // Medium Cannon Conditions

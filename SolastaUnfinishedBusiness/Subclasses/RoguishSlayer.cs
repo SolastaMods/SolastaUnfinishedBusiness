@@ -153,10 +153,12 @@ public sealed class RoguishSlayer : AbstractSubclass
     // Elimination
     //
 
-    private sealed class CustomBehaviorElimination(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition) : IModifyAttackActionModifier, IModifyAttackCriticalThreshold
+    private sealed class CustomBehaviorElimination(FeatureDefinition featureDefinition)
+        : IModifyAttackActionModifier, IModifyAttackCriticalThreshold
     {
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition);
+
         // Allow advantage if first round and higher initiative order vs defender
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
@@ -171,8 +173,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             // always grant advantage on battle round zero
             if (battle == null)
             {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+                attackModifier.AttackAdvantageTrends.Add(_trendInfo);
 
                 return;
             }
@@ -199,8 +200,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                 return;
             }
 
-            attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
         }
 
         public int GetCriticalThreshold(

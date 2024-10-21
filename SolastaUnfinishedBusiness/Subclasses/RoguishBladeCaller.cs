@@ -191,7 +191,11 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
     private sealed class ModifyWeaponAttackModeBladeBond : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (!IsBladeCallerWeapon(attackMode, null, character))
             {

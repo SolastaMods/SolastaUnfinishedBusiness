@@ -1,10 +1,10 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 1,
+  "minRollValue": 0,
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feat/&FeatPiercerReroll",
+  "rerollLocalizationKey": "Feedback/&FeatPiercerReroll",
   "forcedDamageOnDice": "None",
   "validityContext": "AttackDamageValueRoll",
   "validSkills": [],

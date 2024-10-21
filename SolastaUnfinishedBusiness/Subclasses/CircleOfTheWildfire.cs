@@ -65,7 +65,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         .SetBonusMode(AddBonusMode.AbilityBonus)
                         .SetDamageForm(DamageTypeFire, 2, DieType.D10)
                         .Build())
-                //.SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(FireBolt)
                 .Build())
         .AddToDB();
@@ -88,7 +87,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             HealingComputation.Dice, 0, DieType.D10, 1, false,
                             HealingCap.MaximumHitPoints)
                         .Build())
-                //.SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(CureWounds)
                 .Build())
         .AddToDB();
@@ -134,7 +132,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             .SetBonusMode(AddBonusMode.Proficiency)
                             .SetDamageForm(DamageTypeFire, 1, DieType.D6)
                             .Build())
-                    .SetParticleEffectParameters(PowerDomainElementalFireBurst)
+                    .SetImpactEffectParameters(BurningHands)
                     .Build())
             .AddToDB();
 
@@ -750,7 +748,13 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (!HasSpirit(attacker.Guid) || !firstTarget)
+            if (!HasSpirit(attacker.Guid))
+            {
+                yield break;
+            }
+
+            if (rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique &&
+                !firstTarget)
             {
                 yield break;
             }
@@ -768,7 +772,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             var newDamageForm = EffectFormBuilder
                 .Create()
                 .HasSavingThrow(EffectSavingThrowType.Negates)
-                .SetDamageForm(DamageTypeFire, 1, DieType.D12)
+                .SetDamageForm(DamageTypeFire, 1, DieType.D8)
                 .Build();
 
             newDamageForm.DamageForm.IgnoreCriticalDoubleDice = true;
@@ -867,10 +871,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         {
             var rulesetAlly = ally.RulesetCharacter;
 
-            if (downedCreature.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster ||
-                rulesetAlly.GetRemainingPowerUses(PowerCauterizingFlames) == 0 ||
-                (rulesetCharacterMonster.MonsterDefinition.SizeDefinition != CharacterSizeDefinitions.Small &&
-                 rulesetCharacterMonster.MonsterDefinition.SizeDefinition != CharacterSizeDefinitions.Medium))
+            if (downedCreature.RulesetCharacter is not RulesetCharacterMonster ||
+                rulesetAlly.GetRemainingPowerUses(PowerCauterizingFlames) == 0)
             {
                 yield break;
             }

@@ -1,8 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:FeatureOathOfDemonHunterDemonSlayerPhysics:dddc4f71-027a-5bb2-94f0-0b0284151bc9",
-    "Definition:FeatureOathOfDemonHunterDemonSlayerMagic:2bb84145-bd8e-5119-bd09-dbc1e0eb0018"
+    "Definition:FeatureOathOfDemonHunterDemonSlayer:9da9aa52-ba53-5f0b-ba25-130dbf44f8f4"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

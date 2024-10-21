@@ -74,92 +74,11 @@ internal static class ItemsAndCraftingDisplay
 
     internal static void DisplayItemsAndCrafting()
     {
-        DisplayGeneral();
         DisplayCrafting();
         DisplayFactionRelations();
         DisplayItems();
         DisplayMerchants();
         UI.Label();
-    }
-
-    private static void DisplayGeneral()
-    {
-        UI.Label();
-        UI.Label();
-
-        var toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
-        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
-        }
-
-        toggle = Main.Settings.AddPickPocketableLoot;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddPickPocketableLoot = toggle;
-            if (toggle)
-            {
-                PickPocketContext.Load();
-            }
-        }
-
-        toggle = Main.Settings.EnableMonkHandwrapsUseGauntletSlot;
-        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableMonkHandwrapsUseGauntletSlot")), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.EnableMonkHandwrapsUseGauntletSlot = toggle;
-            CustomWeaponsContext.UpdateHandWrapsUseGauntletSlot();
-        }
-
-        toggle = Main.Settings.EnableGauntletMainAttacks;
-        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableGauntletMainAttacks")), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.EnableGauntletMainAttacks = toggle;
-        }
-
-        UI.Label();
-
-        var intValue = Main.Settings.RecipeCost;
-        if (UI.Slider(Gui.Localize("ModUi/&RecipeCost"), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
-        {
-            Main.Settings.RecipeCost = intValue;
-            CraftingContext.UpdateRecipeCost();
-        }
-
-        UI.Label();
-
-        intValue = Main.Settings.TotalCraftingTimeModifier;
-        if (UI.Slider(Gui.Localize("ModUi/&TotalCraftingTimeModifier"), ref intValue, 0, 100, 0, "%", UI.AutoWidth()))
-        {
-            Main.Settings.TotalCraftingTimeModifier = intValue;
-        }
-
-        UI.Label();
-
-        intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
-        if (UI.Slider(Gui.Localize("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
-                0, 100, 50, "%", UI.Width(500f)))
-        {
-            Main.Settings.SetBeltOfDwarvenKindBeardChances = intValue;
-            ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
-        }
-
-        UI.Label();
-
-        using (UI.HorizontalScope())
-        {
-            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325f));
-
-            intValue = Main.Settings.EmpressGarbAppearanceIndex;
-            // ReSharper disable once InvertIf
-            if (UI.SelectionGrid(ref intValue, ItemCraftingMerchantContext.EmpressGarbAppearances,
-                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width(440f)))
-            {
-                Main.Settings.EmpressGarbAppearanceIndex = intValue;
-                GameUiContext.SwitchEmpressGarb();
-            }
-        }
     }
 
     private static void DisplayCrafting()
@@ -175,6 +94,21 @@ internal static class ItemsAndCraftingDisplay
         if (!Main.Settings.DisplayCraftingToggle)
         {
             return;
+        }
+
+        UI.Label();
+
+        var intValue = Main.Settings.RecipeCost;
+        if (UI.Slider(Gui.Localize("ModUi/&RecipeCost"), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
+        {
+            Main.Settings.RecipeCost = intValue;
+            CraftingContext.UpdateRecipeCost();
+        }
+
+        intValue = Main.Settings.TotalCraftingTimeModifier;
+        if (UI.Slider(Gui.Localize("ModUi/&TotalCraftingTimeModifier"), ref intValue, 0, 100, 0, "%", UI.AutoWidth()))
+        {
+            Main.Settings.TotalCraftingTimeModifier = intValue;
         }
 
         UI.Label();

@@ -1,10 +1,10 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 1,
+  "minRollValue": 0,
   "maxRollValue": 0,
   "minRerollValue": 2,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&GloomBladeAttackReroll",
+  "rerollLocalizationKey": "Feedback/&UmbralStalkerGloomBladeAttackReroll",
   "forcedDamageOnDice": "None",
   "validityContext": "AttackDamageValueRoll",
   "validSkills": [],

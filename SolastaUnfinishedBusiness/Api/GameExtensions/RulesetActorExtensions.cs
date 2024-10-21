@@ -352,4 +352,20 @@ internal static class RulesetActorExtensions
     {
         return actor is RulesetCharacter && conditions.Any(actor.HasConditionOfTypeOrSubType);
     }
+
+
+    internal static void RemoveAllConditionsOfType(this RulesetActor actor, params string[] conditions)
+    {
+        var conditionsToRemove = actor.ConditionsByCategory
+            .SelectMany(x => x.Value)
+            .Where(x => conditions.Contains(x.ConditionDefinition.Name))
+            .ToArray();
+
+        foreach (var condition in conditionsToRemove)
+        {
+            actor.RemoveCondition(condition, false);
+        }
+
+        actor.RefreshAll();
+    }
 }

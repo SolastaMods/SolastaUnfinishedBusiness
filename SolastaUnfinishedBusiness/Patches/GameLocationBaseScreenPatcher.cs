@@ -25,7 +25,7 @@ public static class GameLocationBaseScreenPatcher
             }
 
             //PATCH: handles all hotkeys defined in the mod
-            GameUiContext.HandleInput(__instance, command);
+            InputContext.HandleInput(__instance, command);
 
             return true;
         }

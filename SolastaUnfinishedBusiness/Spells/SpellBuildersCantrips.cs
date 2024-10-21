@@ -1156,12 +1156,12 @@ internal static partial class SpellBuilders
             // handle first target like AttackAfterMagicEffect
             if (__instance.SelectionService.SelectedTargets.Count == 0)
             {
-                if (AttackAfterMagicEffect.CanAttack(__instance.ActionParams.ActingCharacter, target))
+                if (AttackAfterMagicEffect.CanAttack(__instance.ActionParams.ActingCharacter, target, out var isReach))
                 {
                     return true;
                 }
 
-                var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
+                var text = isReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
 
                 __instance.actionModifier.FailureFlags.Add(Gui.Format("Failure/&TargetMeleeWeaponError", text));
 

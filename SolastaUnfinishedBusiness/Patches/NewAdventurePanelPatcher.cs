@@ -14,7 +14,8 @@ public static class NewAdventurePanelPatcher
 {
     private static void AssignDefaultHeroes(NewAdventurePanel __instance)
     {
-        var max = Math.Min(Main.Settings.DefaultPartyHeroes.Count,
+        var max = Math.Min(
+            Main.Settings.DefaultPartyHeroes.Count,
             __instance.characterSessionPlatesTable.childCount);
 
         __instance.RecreateSession();
@@ -103,7 +104,7 @@ public static class NewAdventurePanelPatcher
         [UsedImplicitly]
         public static void Postfix(NewAdventurePanel __instance)
         {
-            if (Global.IsMultiplayer || !Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
+            if (Global.IsMultiplayer || !SettingsContext.GuiModManagerInstance.EnablePartyToggles)
             {
                 return;
             }
@@ -121,7 +122,7 @@ public static class NewAdventurePanelPatcher
         [UsedImplicitly]
         public static void Postfix(NewAdventurePanel __instance)
         {
-            if (Global.IsMultiplayer || !Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
+            if (Global.IsMultiplayer || !SettingsContext.GuiModManagerInstance.EnablePartyToggles)
             {
                 return;
             }

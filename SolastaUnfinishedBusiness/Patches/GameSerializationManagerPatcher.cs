@@ -17,7 +17,7 @@ public static class GameSerializationManagerPatcher
         public static void Postfix(GameSerializationManager __instance)
         {
             //PATCH: update state of load buttons for SaveByLocation
-            if (!Main.Settings.EnableSaveByLocation) { return; }
+            if (!SettingsContext.GuiModManagerInstance.EnableSaveByLocation) { return; }
 
             __instance.hasSavedGames = SaveByLocationContext.GetMostRecentPlace().Count > 0;
         }
@@ -32,7 +32,7 @@ public static class GameSerializationManagerPatcher
         public static void Postfix(GameSerializationManager __instance)
         {
             //PATCH: update state of load buttons for SaveByLocation
-            if (!Main.Settings.EnableSaveByLocation) { return; }
+            if (!SettingsContext.GuiModManagerInstance.EnableSaveByLocation) { return; }
 
             __instance.hasSavedGames = SaveByLocationContext.GetMostRecentPlace().Count > 0;
         }

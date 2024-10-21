@@ -122,6 +122,6 @@ internal static class DungeonMakerDisplay
         }
 
         UI.Label();
-        UI.Label();
+        TranslationsDisplay.DisplayTranslations();
     }
 }

@@ -48,6 +48,38 @@ public static class GameLocationCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CanMoveInSituation))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CanMoveInSituation_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(GameLocationCharacter __instance, ref bool __result,
+            RulesetCharacter.MotionRange motionRange)
+        {
+            if (__result) { return; }
+
+            //PATCH: allow standing on air if grappled
+            if (motionRange == RulesetCharacter.MotionRange.AboveGround)
+            {
+                __result = __instance.IsGrappled();
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CheckMotionValidity))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CheckMotionValidity_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter __instance)
+        {
+            //PATCH: always allow prone when grappled
+            return !__instance.Prone || !__instance.IsGrappled();
+        }
+    }
+
     //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
     //let ADV/DIS be handled elsewhere in `GLBM.CanAttack` if alternate lighting and obscurement rules in place
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.ComputeLightingModifierForIlluminable))]

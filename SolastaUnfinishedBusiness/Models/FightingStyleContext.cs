@@ -10,6 +10,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FightingStyleContext
 {
+    internal const string PugilistName = "Pugilist";
+
     internal static readonly List<string> DemotedFightingStyles =
     [
         "Merciless",
@@ -26,6 +28,19 @@ internal static class FightingStyleContext
 
     internal static void Load()
     {
+        // kept for backward compatibility
+
+        FightingStyleBuilder
+            .Create(PugilistName)
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        FeatDefinitionBuilder
+            .Create($"Feat{PugilistName}")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        // load FS
         KeepDemotedFightingStylesBackwardCompatibility();
 
         LoadStyle(new AstralReach());
@@ -35,7 +50,6 @@ internal static class FightingStyleContext
         LoadStyle(new HandAndAHalf());
         LoadStyle(new Interception());
         LoadStyle(new Lunger());
-        LoadStyle(new Pugilist());
         LoadStyle(new RemarkableTechnique());
         LoadStyle(new Torchbearer());
 
@@ -55,7 +69,8 @@ internal static class FightingStyleContext
     {
         foreach (var name in DemotedFightingStyles)
         {
-            _ = FightingStyleBuilder.Create(name)
+            _ = FightingStyleBuilder
+                .Create(name)
                 .SetGuiPresentation(Category.FightingStyle, hidden: true)
                 .SetFeatures(FeatureDefinitionProficiencyBuilder
                     .Create($"ProficiencyFeat{name}")

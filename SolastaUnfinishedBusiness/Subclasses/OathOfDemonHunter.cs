@@ -131,26 +131,18 @@ public sealed class OathOfDemonHunter : AbstractSubclass
 
         const string DEMON_SLAYER_NAME = $"FeatureSet{Name}DemonSlayer";
 
-        var dieRollModifierDemonSlayerPhysics = FeatureDefinitionDieRollModifierBuilder
-            .Create($"Feature{Name}DemonSlayerPhysics")
-            .SetGuiPresentation(DEMON_SLAYER_NAME, Category.Feature, hidden: true)
-            .SetModifiers(RollContext.AttackDamageValueRoll, 1, 3, 3, $"Feature/&DieRollModifier{Name}DemonSlayer")
-            .AddCustomSubFeatures(ValidateDieRollModifierDemonSlayerDamageTypeRadiant.Marker)
-            .AddToDB();
-
-        var dieRollModifierDemonSlayerMagic = FeatureDefinitionDieRollModifierBuilder
-            .Create($"Feature{Name}DemonSlayerMagic")
-            .SetGuiPresentation(DEMON_SLAYER_NAME, Category.Feature, hidden: true)
-            .SetModifiers(RollContext.MagicDamageValueRoll, 1, 3, 3, $"Feature/&DieRollModifier{Name}DemonSlayer")
+        var dieRollModifierDemonSlayer = FeatureDefinitionDieRollModifierBuilder
+            .Create($"Feature{Name}DemonSlayer")
+            .SetGuiPresentationNoContent(true)
+            .SetModifiers(RollContext.AttackDamageValueRoll | RollContext.MagicDamageValueRoll, 1, 0, 3,
+                "Feedback/&OathOfDemonHunterDemonSlayerReroll")
             .AddCustomSubFeatures(ValidateDieRollModifierDemonSlayerDamageTypeRadiant.Marker)
             .AddToDB();
 
         var featureSetDemonSlayer = FeatureDefinitionFeatureSetBuilder
             .Create(DEMON_SLAYER_NAME)
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                dieRollModifierDemonSlayerPhysics,
-                dieRollModifierDemonSlayerMagic)
+            .AddFeatureSet(dieRollModifierDemonSlayer)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -235,7 +227,11 @@ public sealed class OathOfDemonHunter : AbstractSubclass
 
     private sealed class ModifyCrossbowAttackModeDivineCrossbow : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (!IsOathOfDemonHunterWeapon(attackMode, null, null))
             {
@@ -250,8 +246,8 @@ public sealed class OathOfDemonHunter : AbstractSubclass
     {
         internal static readonly ValidateDieRollModifierDemonSlayerDamageTypeRadiant Marker = new();
 
-        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
-            List<string> damageTypes)
+        public bool CanModifyRoll(
+            RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypes)
         {
             return damageTypes.Contains(DamageTypeRadiant);
         }

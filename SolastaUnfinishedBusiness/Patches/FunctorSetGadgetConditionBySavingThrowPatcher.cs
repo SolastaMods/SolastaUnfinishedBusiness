@@ -63,7 +63,10 @@ public static class FunctorSetGadgetConditionBySavingThrowPatcher
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var abilityScoreName = functorParameters.AbilityCheck.AbilityScoreName;
-            var gadgetDefinition = functorParameters.GadgetDefinition;
+            var worldGadget = !functorParameters.BoolParameter
+                ? functorParameters.TargetGadget
+                : functorParameters.SourceGadget;
+            var gadgetDefinition = functorParameters.GadgetDefinition ?? worldGadget.GadgetDefinition;
             var rolledSavingThrow = implementationService.TryRollSavingThrow(
                 null,
                 RuleDefinitions.Side.Enemy,
@@ -86,10 +89,6 @@ public static class FunctorSetGadgetConditionBySavingThrowPatcher
                 null,
                 out var saveOutcome,
                 out var saveOutcomeDelta);
-
-            var worldGadget = !functorParameters.BoolParameter
-                ? functorParameters.TargetGadget
-                : functorParameters.SourceGadget;
 
             if (rolledSavingThrow)
             {

@@ -546,6 +546,9 @@ internal static class RaceFeats
         FeatureDefinition featureDefinition,
         string familyName) : IModifyAttackActionModifier
     {
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition);
+
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -565,8 +568,7 @@ internal static class RaceFeats
             // always grant advantage on battle round zero
             if (battle == null)
             {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+                attackModifier.AttackAdvantageTrends.Add(_trendInfo);
 
                 return;
             }
@@ -577,8 +579,7 @@ internal static class RaceFeats
             }
 
             // battle round one from here
-            attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
         }
     }
 
@@ -1054,7 +1055,11 @@ internal static class RaceFeats
 
     private sealed class ModifyWeaponAttackModeDragonHide : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
             if (!ValidatorsWeapon.IsUnarmed(attackMode) ||
                 !character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DragonHideToggle))
@@ -1062,7 +1067,7 @@ internal static class RaceFeats
                 return;
             }
 
-            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {
@@ -1235,10 +1240,10 @@ internal static class RaceFeats
             new MagicEffectFinishedByMeFlamesOfPhlegethos(power));
 
         var dieRollModifierFire = FeatureDefinitionDieRollModifierBuilder
-            .Create($"DieRollModifier{Name}Fire")
-            .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat)
-            .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
-                "Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll")
+            .Create($"DieRollModifier{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetModifiers(RollContext.MagicDamageValueRoll, 1, 0, 1,
+                "Feedback/&FlamesOfPhlegethosReroll")
             .AddCustomSubFeatures(new ValidateDieRollModifierFlamesOfPhlegethos())
             .AddToDB();
 
@@ -1878,7 +1883,7 @@ internal static class RaceFeats
                         attackMode.ToHitBonusTrends,
                         false,
                         actionModifier.AttackAdvantageTrends,
-                        attackMode.ranged,
+                        attackMode.Ranged,
                         false,
                         actionModifier.AttackRollModifier,
                         out outcome,

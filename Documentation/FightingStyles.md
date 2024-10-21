@@ -4,7 +4,7 @@ You gain a +2 bonus to attack rolls with ranged weapons.
 
 # 2. - Astral Reach [UB]
 
-Your Unarmed Strike reach increases by 5 ft.
+Your unarmed reach increases by 5ft as long as both of your hands are free.
 
 # 3. - *Blind Fighting* © [UB]
 
@@ -40,27 +40,23 @@ When a creature you can see hits a target, other than you, within 5 feet of you 
 
 # 11. - Lunger [UB]
 
-Your melee weapon reach increases by 5 ft while wielding a weapon without the heavy tag and no other weapon or shield.
+Your melee weapon reach increases by 5 ft as long as wielding a weapon without the heavy tag and your other hand is free.
 
 # 12. - Protection [SOL]
 
 When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
 
-# 13. - Pugilist [UB]
-
-Your unarmed strikes deal an additional 1d4 bludgeoning damage, and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have no other weapon or shield.
-
-# 14. - *Superior Technique* © [UB]
+# 13. - *Superior Technique* © [UB]
 
 You have martial training that allows you to perform special combat techniques called maneuvers:
 • You learn one maneuver of your choice from the Battle Master subclass. The Maneuver DC of these maneuvers is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.
 • You gain 1 Superiority Die. The die is a d6, and it doesn't increase in size if you are not a Battle Master. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
 
-# 15. - Torchbearer [UB]
+# 14. - Torchbearer [UB]
 
 As a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 
-# 16. - Two Weapon Fighting [SOL]
+# 15. - Two Weapon Fighting [SOL]
 
 When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 

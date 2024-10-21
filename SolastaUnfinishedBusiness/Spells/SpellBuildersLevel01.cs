@@ -1694,7 +1694,7 @@ internal static partial class SpellBuilders
 
             yield return pathfindingService
                 .ComputeValidDestinationsAsync(target, target.LocationPosition, target.MaxTacticalMoves * 2);
- 
+
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var casterPosition = action.ActingCharacter.LocationPosition;
             var destinationPosition = target.LocationPosition;
@@ -2216,12 +2216,12 @@ internal static partial class SpellBuilders
 
     private const int TempHpPerLevelSkinOfRetribution = 5;
 
+    private const string SkinOfRetributionName = "SkinOfRetribution";
+
     internal static SpellDefinition BuildSkinOfRetribution()
     {
-        const string NAME = "SkinOfRetribution";
-
         var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
+            .Create($"Power{SkinOfRetributionName}")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
@@ -2233,14 +2233,18 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        powerSkinOfRetribution.AddCustomSubFeatures(
+            new ModifyEffectDescriptionSkinOfRetribution(powerSkinOfRetribution));
+
         var damageAffinitySkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
-            .Create($"DamageAffinity{NAME}")
+            .Create($"DamageAffinity{SkinOfRetributionName}")
             .SetGuiPresentationNoContent(true)
-            .SetRetaliate(powerSkinOfRetribution, 1)
+            // max possible reach in game is 15 ft
+            .SetRetaliate(powerSkinOfRetribution, 3)
             .AddToDB();
 
         var conditionSkinOfRetribution = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
+            .Create($"Condition{SkinOfRetributionName}")
             .SetGuiPresentation(Category.Condition,
                 Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32))
             .SetSilent(Silent.WhenAdded)
@@ -2250,11 +2254,12 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionSkinOfRetribution.AddCustomSubFeatures(
-            new CustomBehaviorSkinOfRetribution(conditionSkinOfRetribution, powerSkinOfRetribution));
+            new CustomBehaviorSkinOfRetribution(conditionSkinOfRetribution));
 
         return SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128))
+            .Create(SkinOfRetributionName)
+            .SetGuiPresentation(Category.Spell,
+                Sprites.GetSprite(SkinOfRetributionName, Resources.SkinOfRetribution, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -2282,50 +2287,9 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorSkinOfRetribution(
-        ConditionDefinition conditionSkinOfRetribution,
-        FeatureDefinitionPower powerSkinOfRetribution)
-        : IPhysicalAttackInitiatedOnMe, IMagicEffectAttackInitiatedOnMe,
-            IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe, IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionSkinOfRetribution(FeatureDefinitionPower powerSkinOfRetribution)
+        : IModifyEffectDescription
     {
-        public IEnumerator OnMagicEffectAttackInitiatedOnMe(
-            CharacterActionMagicEffect action,
-            RulesetEffect activeEffect,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            bool firstTarget,
-            bool checkMagicalAttackDamage)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionSkinOfRetribution.Name, out var activeCondition))
-            {
-                defender.SetSpecialFeatureUses("SkinOfRetribution", activeCondition.EffectLevel);
-            }
-
-            yield break;
-        }
-
-        public IEnumerator OnMagicEffectFinishedOnMe(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            List<GameLocationCharacter> targets)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.TemporaryHitPoints == 0 &&
-                rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionSkinOfRetribution.Name, out var activeCondition))
-            {
-                rulesetDefender.RemoveCondition(activeCondition);
-            }
-
-            yield break;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
@@ -2347,13 +2311,61 @@ internal static partial class SpellBuilders
                 return effectDescription;
             }
 
-            var effectLevel = glc.GetSpecialFeatureUses("SkinOfRetribution", 1);
+            var effectLevel = glc.GetSpecialFeatureUses(SkinOfRetributionName, 1);
             var damageForm = effectDescription.FindFirstDamageForm();
 
             damageForm.BonusDamage = TempHpPerLevelSkinOfRetribution * effectLevel;
 
             return effectDescription;
         }
+    }
+
+    private sealed class CustomBehaviorSkinOfRetribution(ConditionDefinition conditionSkinOfRetribution)
+        : IMagicEffectBeforeHitConfirmedOnMe, IMagicEffectFinishedOnMe,
+            IPhysicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            Set(defender);
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicEffectFinishedOnMe(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
+        {
+            Reset(defender.RulesetCharacter);
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget, bool criticalHit)
+        {
+            Set(defender);
+
+            yield break;
+        }
+
 
         public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
@@ -2364,35 +2376,30 @@ internal static partial class SpellBuilders
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.TemporaryHitPoints == 0 &&
-                rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionSkinOfRetribution.Name, out var activeCondition))
-            {
-                rulesetDefender.RemoveCondition(activeCondition);
-            }
+            Reset(defender.RulesetCharacter);
 
             yield break;
         }
 
-        public IEnumerator OnPhysicalAttackInitiatedOnMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
+        private void Set(GameLocationCharacter defender)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionSkinOfRetribution.Name, out var activeCondition))
             {
-                defender.SetSpecialFeatureUses("SkinOfRetribution", activeCondition.EffectLevel);
+                defender.SetSpecialFeatureUses(SkinOfRetributionName, activeCondition.EffectLevel);
             }
+        }
 
-            yield break;
+        private void Reset(RulesetCharacter rulesetDefender)
+        {
+            if (rulesetDefender.TemporaryHitPoints == 0 &&
+                rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionSkinOfRetribution.Name, out var activeCondition))
+            {
+                rulesetDefender.RemoveCondition(activeCondition);
+            }
         }
     }
 

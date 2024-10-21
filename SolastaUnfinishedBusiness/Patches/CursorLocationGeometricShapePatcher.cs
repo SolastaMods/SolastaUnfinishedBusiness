@@ -8,6 +8,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -178,7 +179,7 @@ public static class CursorLocationGeometricShapePatcher
 
         private static void InitMagnetic(CursorLocationGeometricShape cursor, bool _)
         {
-            cursor.hasMagneticTargeting = Main.Settings.ShiftToSnapLineSpells
+            cursor.hasMagneticTargeting = SettingsContext.InputModManagerInstance.EnableShiftToSnapLineSpells
                                           && Global.IsShiftPressed
                                           && cursor.shapeType == MetricsDefinitions.GeometricShapeType.Line;
         }

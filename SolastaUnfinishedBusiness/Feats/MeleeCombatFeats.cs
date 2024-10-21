@@ -166,14 +166,10 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionDieRollModifierBuilder
-                    .Create("DieRollModifierFeatSavageAttackNonMagic")
+                    .Create("DieRollModifierFeatSavageAttack")
                     .SetGuiPresentationNoContent(true)
-                    .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
-                    .AddToDB(),
-                FeatureDefinitionDieRollModifierBuilder
-                    .Create("DieRollModifierFeatSavageAttackMagic")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
+                    .SetModifiers(AttackDamageValueRoll | MagicDamageValueRoll, 1, 0, 1,
+                        "Feedback/&FeatSavageAttackReroll")
                     .AddToDB())
             .AddToDB();
     }
@@ -489,7 +485,7 @@ internal static class MeleeCombatFeats
             var itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? rulesetItem?.ItemDefinition;
 
             return
-                ValidatorsCharacter.HasFreeHand(character) &&
+                ValidatorsCharacter.HasFreeHandConsiderGrapple(character) &&
                 ((attackMode != null && ValidatorsWeapon.IsMelee(attackMode)) ||
                  (attackMode == null && ValidatorsWeapon.IsMelee(character.GetMainWeapon()))) &&
                 ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy,
@@ -750,7 +746,8 @@ internal static class MeleeCombatFeats
                 helper != defender ||
                 !helper.CanReact() ||
                 (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
-                !ValidatorsWeapon.IsMelee(attackMode))
+                !(ValidatorsWeapon.IsMelee(helper.RulesetCharacter.GetMainWeapon()) ||
+                  ValidatorsWeapon.IsMelee(helper.RulesetCharacter.GetOffhandWeapon())))
             {
                 yield break;
             }
@@ -1016,10 +1013,24 @@ internal static class MeleeCombatFeats
     {
         const string Name = "FeatCleavingAttack";
 
-        var concentrationProvider = new StopPowerConcentrationProvider(
-            Name,
-            "Tooltip/&CleavingAttackConcentration",
-            Sprites.GetSprite(Name, Resources.PowerAttackConcentrationIcon, 64, 64));
+        // kept for backward compatibility
+        _ = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetSpecialDuration()
+            .AddToDB();
+
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}TurnOff")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
 
         var conditionCleavingAttackFinish = ConditionDefinitionBuilder
             .Create($"Condition{Name}Finish")
@@ -1028,78 +1039,67 @@ internal static class MeleeCombatFeats
             .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionType.Bonus))
             .AddToDB();
 
-        var conditionCleavingAttack = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
-            .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        var powerCleavingAttack = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Feat,
-                Sprites.GetSprite(nameof(Resources.PowerAttackIcon), Resources.PowerAttackIcon, 128, 64))
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Permanent)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .AddCustomSubFeatures(
-                IgnoreInvisibilityInterruptionCheck.Marker,
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
-            .AddToDB();
-
-        var powerTurnOffCleavingAttack = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}TurnOff")
+        var actionAffinityCleavingAttackToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityCleavingAttackToggle")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Remove)
-                            .Build())
-                    .Build())
-            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
+            .SetAuthorizedActions((Id)ExtraActionId.CleavingAttackToggle)
             .AddToDB();
 
         var featCleavingAttack = FeatDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                powerCleavingAttack,
-                powerTurnOffCleavingAttack,
-                FeatureDefinitionBuilder
-                    .Create($"Feature{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .AddCustomSubFeatures(new CustomBehaviorCleaving(conditionCleavingAttackFinish))
-                    .AddToDB())
+            .SetFeatures(actionAffinityCleavingAttackToggle)
             .AddToDB();
 
-        concentrationProvider.StopPower = powerTurnOffCleavingAttack;
-        conditionCleavingAttack
-            .AddCustomSubFeatures(
-                concentrationProvider,
-                new ModifyWeaponAttackModeFeatCleavingAttack(featCleavingAttack));
+        featCleavingAttack.AddCustomSubFeatures(
+            new CustomBehaviorCleaving(featCleavingAttack, conditionCleavingAttackFinish));
 
         return featCleavingAttack;
     }
 
     private sealed class CustomBehaviorCleaving(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionCleavingAttackFinish) : IOnReducedToZeroHpByMe, IPhysicalAttackFinishedByMe
+        FeatDefinition featDefinition,
+        ConditionDefinition conditionCleavingAttackFinish)
+        : IOnReducedToZeroHpByMe, IPhysicalAttackFinishedByMe, IModifyWeaponAttackMode
     {
+        private const int ToHit = -5;
+        private const int ToDamage = +10;
+
+        private readonly TrendInfo _attackTrendInfo =
+            new(ToHit, FeatureSourceType.Feat, featDefinition.Name, featDefinition);
+
+        private readonly TrendInfo _damageTrendInfo =
+            new(ToDamage, FeatureSourceType.Feat, featDefinition.Name, featDefinition);
+
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
+        {
+            if (!character.IsToggleEnabled((Id)ExtraActionId.CleavingAttackToggle))
+            {
+                return;
+            }
+
+            if (!ValidateCleavingAttack(attackMode, true))
+            {
+                return;
+            }
+
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            attackMode.ToHitBonus += ToHit;
+            attackMode.ToHitBonusTrends.Add(_attackTrendInfo);
+            damage.BonusDamage += ToDamage;
+            damage.DamageBonusTrends.Add(_damageTrendInfo);
+        }
+
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -1147,35 +1147,6 @@ internal static class MeleeCombatFeats
                 0,
                 0,
                 0);
-        }
-    }
-
-    private sealed class ModifyWeaponAttackModeFeatCleavingAttack(FeatDefinition featDefinition)
-        : IModifyWeaponAttackMode
-    {
-        private const int ToHit = -5;
-        private const int ToDamage = +10;
-
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            if (!ValidateCleavingAttack(attackMode, true))
-            {
-                return;
-            }
-
-            attackMode.ToHitBonus += ToHit;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(ToHit, FeatureSourceType.Feat,
-                featDefinition.Name, featDefinition));
-            var damage = attackMode.EffectDescription.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return;
-            }
-
-            damage.BonusDamage += ToDamage;
-            damage.DamageBonusTrends.Add(new TrendInfo(ToDamage, FeatureSourceType.Feat,
-                featDefinition.Name, featDefinition));
         }
     }
 
@@ -1273,7 +1244,7 @@ internal static class MeleeCombatFeats
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!ValidatorsWeapon.IsMelee(attackMode) ||
-                !ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(attackMode, null, null))
+                attackMode.EffectDescription.FindFirstDamageForm()?.DamageType != DamageTypeBludgeoning)
             {
                 yield break;
             }
@@ -1561,7 +1532,7 @@ internal static class MeleeCombatFeats
         FeatureDefinitionDieRollModifierBuilder
             .Create("FeatureFeatPiercer")
             .SetGuiPresentationNoContent(true)
-            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
+            .SetModifiers(AttackDamageValueRoll, 1, 0, 1, "Feedback/&FeatPiercerReroll")
             .AddCustomSubFeatures(
                 new CustomAdditionalDamageFeatPiercer(
                     FeatureDefinitionAdditionalDamageBuilder
@@ -1602,7 +1573,7 @@ internal static class MeleeCombatFeats
     private sealed class CustomAdditionalDamageFeatPiercer(IAdditionalDamageProvider provider)
         : CustomAdditionalDamage(provider), IValidateDieRollModifier, IAllowRerollDice
     {
-        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        public bool IsValid(RulesetActor rulesetActor, bool attackModeDamage, DamageForm damageForm)
         {
             return damageForm.DamageType == DamageTypePiercing;
         }
@@ -1643,69 +1614,38 @@ internal static class MeleeCombatFeats
     {
         const string Name = "FeatPowerAttack";
 
-        var concentrationProvider = new StopPowerConcentrationProvider(
-            "PowerAttack",
-            "Tooltip/&PowerAttackConcentration",
-            Sprites.GetSprite("FeatCleavingAttack", Resources.PowerAttackConcentrationIcon, 64, 64));
-
-        var conditionPowerAttack = ConditionDefinitionBuilder
+        // kept for backward compatibility
+        _ = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
-            .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentationNoContent(true)
+            .SetSpecialDuration()
             .AddToDB();
 
-        var powerAttack = FeatureDefinitionPowerBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Feat,
-                Sprites.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Permanent)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .AddCustomSubFeatures(
-                IgnoreInvisibilityInterruptionCheck.Marker,
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
 
-        var powerTurnOffPowerAttack = FeatureDefinitionPowerBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
-                            .Build())
-                    .Build())
-            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
+            .AddToDB();
+
+        var actionAffinityPowerAttackToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityPowerAttackToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.PowerAttackToggle)
             .AddToDB();
 
         var featPowerAttack = FeatDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                powerAttack,
-                powerTurnOffPowerAttack)
+            .SetFeatures(actionAffinityPowerAttackToggle)
             .AddToDB();
 
-        concentrationProvider.StopPower = powerTurnOffPowerAttack;
-        conditionPowerAttack.AddCustomSubFeatures(
-            concentrationProvider,
-            new ModifyWeaponAttackModeFeatPowerAttack(featPowerAttack));
+        featPowerAttack.AddCustomSubFeatures(new ModifyWeaponAttackModeFeatPowerAttack(featPowerAttack));
 
         return featPowerAttack;
     }
@@ -1714,21 +1654,26 @@ internal static class MeleeCombatFeats
     {
         private const int ToHit = 3;
 
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        private readonly TrendInfo _attackTrendInfo =
+            new(-ToHit, FeatureSourceType.Feat, featDefinition.Name, featDefinition);
+
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
+            if (!character.IsToggleEnabled((Id)ExtraActionId.PowerAttackToggle))
+            {
+                return;
+            }
+
             // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
             if (!ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
                 !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;
             }
-
-            var proficiency = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var toDamage = ToHit + proficiency;
-
-            attackMode.ToHitBonus -= ToHit;
-            attackMode.ToHitBonusTrends.Add(
-                new TrendInfo(-ToHit, FeatureSourceType.Feat, featDefinition.Name, featDefinition));
 
             var damage = attackMode.EffectDescription?.FindFirstDamageForm();
 
@@ -1737,6 +1682,11 @@ internal static class MeleeCombatFeats
                 return;
             }
 
+            var proficiency = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var toDamage = ToHit + proficiency;
+
+            attackMode.ToHitBonus -= ToHit;
+            attackMode.ToHitBonusTrends.Add(_attackTrendInfo);
             damage.BonusDamage += toDamage;
             damage.DamageBonusTrends.Add(
                 new TrendInfo(toDamage, FeatureSourceType.Feat, featDefinition.Name, featDefinition));

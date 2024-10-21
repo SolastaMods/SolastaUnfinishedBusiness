@@ -148,6 +148,9 @@ public static class CharacterActionPatcher
                 case CharacterActionMoveStepBase characterActionMoveStepBase:
                     OtherFeats.NotifyFeatStealth(characterActionMoveStepBase);
                     break;
+                case CharacterActionFreeFall:
+                    actingCharacter.BreakGrapple();
+                    break;
             }
         }
 
@@ -206,21 +209,14 @@ public static class CharacterActionPatcher
                 }
 
                 //PATCH: support for Circle of the Wildfire cauterizing flames, and grapple scenarios
+                //no need to handle shove as pushed will do it
                 case CharacterActionPushed:
                 case CharacterActionPushedCustom:
                 {
                     yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(actingCharacter);
 
                     GrappleContext.ValidateGrappleAfterForcedMove(actingCharacter);
-                    break;
-                }
-                case CharacterActionShove:
-                {
-                    var target = __instance.ActionParams.TargetCharacters[0];
 
-                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(target);
-
-                    GrappleContext.ValidateGrappleAfterForcedMove(target);
                     break;
                 }
             }
@@ -257,8 +253,7 @@ public static class CharacterActionPatcher
             var computeStealthBreakValueMethod = typeof(GameLocationCharacter).GetMethod("ComputeStealthBreak");
             var myComputeStealthBreakValueMethod =
                 new Func<GameLocationCharacter, bool, ActionModifier, List<GameLocationCharacter>, CharacterAction,
-                    bool>(
-                    ComputeStealthBreak).Method;
+                    bool>(ComputeStealthBreak).Method;
 
             return instructions
                 .ReplaceCall(computeStealthBreakValueMethod,

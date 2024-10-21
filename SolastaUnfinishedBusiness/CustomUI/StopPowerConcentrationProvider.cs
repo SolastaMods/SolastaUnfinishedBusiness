@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿#if false
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using UnityEngine.AddressableAssets;
 
@@ -32,3 +33,4 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
         locationCharacter.MyExecuteActionSpendPower(usablePower, locationCharacter);
     }
 }
+#endif

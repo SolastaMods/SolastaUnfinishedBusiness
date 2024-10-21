@@ -23,7 +23,9 @@ internal sealed class AstralReach : AbstractFightingStyle
                 .Create(AstralReachFeatureName)
                 .SetGuiPresentationNoContent(true)
                 .AddCustomSubFeatures(
-                    new IncreaseWeaponReach(1, (attackMode, _, _) => ValidatorsWeapon.IsUnarmed(attackMode)))
+                    new IncreaseWeaponReach(1, (attackMode, _, character) =>
+                        ValidatorsCharacter.HasFreeHandConsiderGrapple(character) &&
+                        ValidatorsWeapon.IsUnarmed(attackMode)))
                 .AddToDB())
         .AddToDB();
 

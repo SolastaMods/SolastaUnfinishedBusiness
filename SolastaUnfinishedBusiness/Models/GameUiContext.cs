@@ -108,36 +108,16 @@ internal static class GameUiContext
 
     internal const int GridSize = 5;
 
-    // Toggle HUD components
-    private const InputCommands.Id CtrlShiftH = (InputCommands.Id)44440004;
-
-    // Debug Overlay
-    private const InputCommands.Id CtrlShiftD = (InputCommands.Id)44440005;
-
-    // Export Character
-    private const InputCommands.Id CtrlShiftE = (InputCommands.Id)44440006;
-
-    // Spawn Encounter
-    private const InputCommands.Id CtrlShiftS = (InputCommands.Id)44440007;
-
-    // Teleport Party
-    private const InputCommands.Id CtrlShiftT = (InputCommands.Id)44440008;
-
-    // Rejoin Party
-    private const InputCommands.Id CtrlShiftR = (InputCommands.Id)44440009;
-
-    // Formation
-    private const InputCommands.Id CtrlShift1 = (InputCommands.Id)44440010;
-    private const InputCommands.Id CtrlShift2 = (InputCommands.Id)44440011;
-    private const InputCommands.Id CtrlShift3 = (InputCommands.Id)44440012;
-    private const InputCommands.Id CtrlShift4 = (InputCommands.Id)44440013;
-    private const InputCommands.Id CtrlShift5 = (InputCommands.Id)44440014;
-
-    // VTT Tactical Mode
-    private const InputCommands.Id CtrlShiftV = (InputCommands.Id)44440015;
-
     private static readonly List<RectTransform> SpellLineTables = [];
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
+
+    internal static void ToggleVttCamera()
+    {
+        var cameraService = ServiceRepository.GetService<ICameraService>();
+
+        IsVttCameraEnabled = !IsVttCameraEnabled;
+        cameraService.DebugCameraEnabled = IsVttCameraEnabled;
+    }
 
     internal static IEnumerator SelectPosition(CharacterAction action, FeatureDefinitionPower power)
     {
@@ -795,7 +775,7 @@ internal static class GameUiContext
         {
             var maleBodyPartBehaviours = itemPresentation.GetBodyPartBehaviours(CreatureSex.Male);
 
-            maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister
+            maleBodyPartBehaviours[0] = SettingsContext.GuiModManagerInstance.HideCrownOfMagister
                 ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape
                 : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
         }
@@ -940,6 +920,12 @@ internal static class GameUiContext
     }
 #endif
 
+    internal static void SetFormationGrid(int set)
+    {
+        Main.Settings.FormationGridSelectedSet = set;
+        FillDefinitionFromFormationGrid();
+    }
+
     internal static void FillDefinitionFromFormationGrid()
     {
         var position = 0;
@@ -975,145 +961,64 @@ internal static class GameUiContext
         LoadFeatCrusherToggle();
         LoadPaladinSmiteToggle();
         LoadFormationGrid();
-
-        var inputService = ServiceRepository.GetService<IInputService>();
-
-        // Dungeon Maker
-        inputService.RegisterCommand(InputCommands.Id.EditorRotate, (int)KeyCode.R, (int)KeyCode.LeftShift);
-
-        // HUD
-        inputService.RegisterCommand(CtrlShiftH, (int)KeyCode.H, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-
-        // Debug Overlay
-        inputService.RegisterCommand(CtrlShiftD, (int)KeyCode.D, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-
-        // Export Character
-        inputService.RegisterCommand(CtrlShiftE, (int)KeyCode.E, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-
-        // Spawn Encounter
-        inputService.RegisterCommand(CtrlShiftS, (int)KeyCode.S, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-
-        // Teleport
-        inputService.RegisterCommand(CtrlShiftT, (int)KeyCode.T, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-
-        // Rejoin
-        inputService.RegisterCommand(CtrlShiftR, (int)KeyCode.R, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-
-        // Formation
-        inputService.RegisterCommand(CtrlShift1, (int)KeyCode.Alpha1, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(CtrlShift2, (int)KeyCode.Alpha2, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(CtrlShift3, (int)KeyCode.Alpha3, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(CtrlShift4, (int)KeyCode.Alpha4, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-        inputService.RegisterCommand(CtrlShift5, (int)KeyCode.Alpha5, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-
-        // VTT Tactical Mode
-        inputService.RegisterCommand(CtrlShiftV, (int)KeyCode.V, (int)KeyCode.LeftShift,
-            (int)KeyCode.LeftControl);
-    }
-
-    internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
-    {
-        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-        switch (command)
-        {
-            case CtrlShiftE when Main.Settings.EnableCharacterExport:
-                CharacterExportContext.ExportInspectedCharacter();
-                break;
-            case CtrlShiftH when Main.Settings.EnableHotkeyToggleHud:
-                GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
-                break;
-            case CtrlShiftD when Main.Settings.EnableHotkeyDebugOverlay:
-                ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
-                break;
-            case CtrlShiftT when Main.Settings.EnableTeleportParty:
-                Teleporter.ConfirmTeleportParty(Teleporter.GetEncounterPosition);
-                break;
-            case CtrlShiftR when Main.Settings.EnableRejoinParty:
-                Teleporter.ConfirmTeleportParty(Teleporter.GetLeaderPosition);
-                break;
-            case CtrlShiftV when Main.Settings.EnableVttCamera:
-                var cameraService = ServiceRepository.GetService<ICameraService>();
-
-                IsVttCameraEnabled = !IsVttCameraEnabled;
-                cameraService.DebugCameraEnabled = IsVttCameraEnabled;
-                break;
-            case CtrlShiftS when EncountersSpawnContext.EncounterCharacters.Count > 0:
-                EncountersSpawnContext.ConfirmStageEncounter();
-                break;
-            case CtrlShift1 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
-                Main.Settings.FormationGridSelectedSet = 0;
-                FillDefinitionFromFormationGrid();
-                break;
-            case CtrlShift2 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
-                Main.Settings.FormationGridSelectedSet = 1;
-                FillDefinitionFromFormationGrid();
-                break;
-            case CtrlShift3 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
-                Main.Settings.FormationGridSelectedSet = 2;
-                FillDefinitionFromFormationGrid();
-                break;
-            case CtrlShift4 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
-                Main.Settings.FormationGridSelectedSet = 3;
-                FillDefinitionFromFormationGrid();
-                break;
-            case CtrlShift5 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
-                Main.Settings.FormationGridSelectedSet = 4;
-                FillDefinitionFromFormationGrid();
-                break;
-        }
-
-        return;
-
-        [CanBeNull]
-        GuiPanel GetInitiativeOrPartyPanel()
-        {
-            return gameLocationBaseScreen switch
-            {
-                GameLocationScreenExploration gameLocationScreenExploration => gameLocationScreenExploration
-                    .partyControlPanel,
-                GameLocationScreenBattle gameLocationScreenBattle => gameLocationScreenBattle.initiativeTable,
-                _ => null
-            };
-        }
-
-        [CanBeNull]
-        TimeAndNavigationPanel GetTimeAndNavigationPanel()
-        {
-            return gameLocationBaseScreen switch
-            {
-                GameLocationScreenExploration gameLocationScreenExploration => gameLocationScreenExploration
-                    .timeAndNavigationPanel,
-                GameLocationScreenBattle gameLocationScreenBattle => gameLocationScreenBattle.timeAndNavigationPanel,
-                _ => null
-            };
-        }
     }
 
     internal static class GameHud
     {
-        internal static void ShowAll([NotNull] GameLocationBaseScreen gameLocationBaseScreen,
-            GuiPanel initiativeOrPartyPanel,
-            TimeAndNavigationPanel timeAndNavigationPanel)
+        internal static void ShowAll([NotNull] GameLocationBaseScreen gameLocationBaseScreen)
         {
+            var initiativeOrPartyPanel = GetInitiativeOrPartyPanel();
+            var timeAndNavigationPanel = GetTimeAndNavigationPanel();
             var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
-            var anyVisible = guiConsoleScreen.Visible || gameLocationBaseScreen.CharacterControlPanel.Visible ||
-                             initiativeOrPartyPanel.Visible || timeAndNavigationPanel.Visible;
+            var anyVisible = guiConsoleScreen.Visible || gameLocationBaseScreen.CharacterControlPanel.Visible;
+
+            if (!anyVisible)
+            {
+                if (initiativeOrPartyPanel)
+                {
+                    anyVisible = initiativeOrPartyPanel.Visible;
+                }
+            }
+
+            if (!anyVisible)
+            {
+                if (timeAndNavigationPanel)
+                {
+                    anyVisible = timeAndNavigationPanel.Visible;
+                }
+            }
 
             ShowCharacterControlPanel(gameLocationBaseScreen, anyVisible);
             TogglePanelVisibility(guiConsoleScreen, anyVisible);
             TogglePanelVisibility(initiativeOrPartyPanel);
             TogglePanelVisibility(timeAndNavigationPanel, anyVisible);
+
+            return;
+
+            [CanBeNull]
+            GuiPanel GetInitiativeOrPartyPanel()
+            {
+                return gameLocationBaseScreen switch
+                {
+                    GameLocationScreenExploration gameLocationScreenExploration => gameLocationScreenExploration
+                        .partyControlPanel,
+                    GameLocationScreenBattle gameLocationScreenBattle => gameLocationScreenBattle.initiativeTable,
+                    _ => null
+                };
+            }
+
+            [CanBeNull]
+            TimeAndNavigationPanel GetTimeAndNavigationPanel()
+            {
+                return gameLocationBaseScreen switch
+                {
+                    GameLocationScreenExploration gameLocationScreenExploration => gameLocationScreenExploration
+                        .timeAndNavigationPanel,
+                    GameLocationScreenBattle gameLocationScreenBattle =>
+                        gameLocationScreenBattle.timeAndNavigationPanel,
+                    _ => null
+                };
+            }
         }
 
         private static void ShowCharacterControlPanel([NotNull] GameLocationBaseScreen gameLocationBaseScreen,
@@ -1167,7 +1072,7 @@ internal static class GameUiContext
         }
     }
 
-    private static class Teleporter
+    internal static class Teleporter
     {
         internal static void ConfirmTeleportParty(Func<int3> getPosition)
         {

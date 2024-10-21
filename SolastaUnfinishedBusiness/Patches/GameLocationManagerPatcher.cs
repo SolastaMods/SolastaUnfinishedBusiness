@@ -30,7 +30,7 @@ public static class GameLocationManagerPatcher
             string userLocationName,
             string userCampaignName)
         {
-            if (!Main.Settings.EnableSaveByLocation)
+            if (!SettingsContext.GuiModManagerInstance.EnableSaveByLocation)
             {
                 return;
             }

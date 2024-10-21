@@ -992,9 +992,13 @@ internal static class Level20Context
     private sealed class ModifyWeaponAttackModeRangerFoeSlayer(FeatureDefinition featureDefinition)
         : IModifyWeaponAttackMode
     {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
         {
-            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {
@@ -1005,9 +1009,9 @@ internal static class Level20Context
             var wisdomModifier = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
 
             damage.BonusDamage += wisdomModifier;
-            damage.DamageBonusTrends.Add(new TrendInfo(wisdomModifier, FeatureSourceType.CharacterFeature,
-                featureDefinition.Name,
-                featureDefinition));
+            damage.DamageBonusTrends.Add(
+                new TrendInfo(wisdomModifier, FeatureSourceType.CharacterFeature,
+                    featureDefinition.Name, featureDefinition));
         }
     }
 

@@ -19,7 +19,7 @@ public static class MessageModalPatcher
         public static void Postfix(MessageModal __instance)
         {
             //PATCH: offers an input field when in the context of character export
-            if (!Main.Settings.EnableCharacterExport || __instance.contentLabel.Text != InputModalMark)
+            if (__instance.contentLabel.Text != InputModalMark)
             {
                 if (InputField)
                 {

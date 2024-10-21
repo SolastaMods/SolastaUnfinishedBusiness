@@ -6,6 +6,13 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DecisionBreakFreeIfProneConditionWrathfulSmiteEnemy:6d6e4da8-2b8c-53ba-ae3a-6342e9c0fe44",
+        "weight": 15.0,
+        "cooldown": 1,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:DecisionBreakFreeConditionWrathfulSmiteEnemy:6400794a-3234-55f7-973f-d443c38c9a20",
         "weight": 10.0,
         "cooldown": 1,

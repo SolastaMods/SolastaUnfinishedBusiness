@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Models.SaveByLocationContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -11,7 +12,7 @@ public static class TacticalAdventuresApplicationPatcher
     private static bool EnableSaveByLocation(ref string __result)
     {
         //PATCH: EnableSaveByLocation
-        if (!Main.Settings.EnableSaveByLocation)
+        if (!SettingsContext.GuiModManagerInstance.EnableSaveByLocation)
         {
             return true;
         }
