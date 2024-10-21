@@ -11,7 +11,7 @@ internal static class SubclassesDisplay
     {
         UI.Label();
 
-        UI.ActionButton("Sub Classes Docs".Bold().Khaki(),
+        UI.ActionButton(Gui.Localize("ModUi/&DocsSubclasses").Bold().Khaki(),
             () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(150f));
 
         UI.Label();
@@ -22,8 +22,6 @@ internal static class SubclassesDisplay
         {
             Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness = toggle;
         }
-
-        UI.Label();
 
         toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))

@@ -155,6 +155,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableEpicPointsAndArray { get; set; }
     public bool EnableLevel20 { get; set; }
     public bool EnableMulticlass { get; set; }
+    public bool EnableRespec { get; set; }
     public int MaxAllowedClasses { get; set; }
     public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
     public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; }
@@ -415,22 +416,21 @@ public class Settings : UnityModManager.ModSettings
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }
     public bool EnableSumD20OnAlternateVotingSystem { get; set; }
-    public bool AllowMoreRealStateOnRestPanel { get; set; }
-    public bool EnableRespec { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnableActionSwitching { get; set; }
     public bool DisableMultilineSpellOffering { get; set; }
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableCustomPortraits { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }
+    public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableExtendedProficienciesPanelDisplay { get; set; }
-    public bool EnableCancelEditOnRightMouseClick { get; set; }
 
     // Battle
     public bool DontFollowCharacterInBattle { get; set; }
     public bool EnableElevationCameraToStayAtPosition { get; set; }
     public bool NeverMoveCameraOnEnemyTurn { get; set; }
+    public bool EnableCancelEditOnRightMouseClick { get; set; }
     public int DontFollowMargin { get; set; } = 5;
     public int GridSelectedColor { get; set; } = 1;
     public int MovementGridWidthModifier { get; set; } = 100;

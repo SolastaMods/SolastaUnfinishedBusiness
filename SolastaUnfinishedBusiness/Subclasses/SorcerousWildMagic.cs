@@ -664,7 +664,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                         attackMode.ToHitBonusTrends,
                         false,
                         actionModifier.AttackAdvantageTrends,
-                        attackMode.ranged,
+                        attackMode.Ranged,
                         false,
                         actionModifier.AttackRollModifier,
                         out outcome,

@@ -871,10 +871,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         {
             var rulesetAlly = ally.RulesetCharacter;
 
-            if (downedCreature.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster ||
-                rulesetAlly.GetRemainingPowerUses(PowerCauterizingFlames) == 0 ||
-                (rulesetCharacterMonster.MonsterDefinition.SizeDefinition != CharacterSizeDefinitions.Small &&
-                 rulesetCharacterMonster.MonsterDefinition.SizeDefinition != CharacterSizeDefinitions.Medium))
+            if (downedCreature.RulesetCharacter is not RulesetCharacterMonster ||
+                rulesetAlly.GetRemainingPowerUses(PowerCauterizingFlames) == 0)
             {
                 yield break;
             }

@@ -1883,7 +1883,7 @@ internal static class RaceFeats
                         attackMode.ToHitBonusTrends,
                         false,
                         actionModifier.AttackAdvantageTrends,
-                        attackMode.ranged,
+                        attackMode.Ranged,
                         false,
                         actionModifier.AttackRollModifier,
                         out outcome,

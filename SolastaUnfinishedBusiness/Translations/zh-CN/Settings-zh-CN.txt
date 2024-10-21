@@ -1,322 +1,322 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=将基础武器的所有附加效果添加到<color=#D89555>后续打击</color>专长
-ModUi/&AccountForAllDiceOnSavageAttack=将所有添加武器伤害骰的特性以添加武器基础伤害骰取代只有 1 个骰<i><color=#F0DAA0>[半兽人的凶蛮攻击特性、双手武器等等]</color></i>
-ModUi/&AddAllToStore=全部添加到商店
-ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>流血</color>状态添加到<color=#D89555>高等复原术</color>和<color=#D89555>次级复原术</color>的移除列表里
-ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>黑暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>黑暗感知</color><i><color=#F0DAA0>\n[在未照明或在魔法黑暗下时察觉检定具有优势]</color></i>
+ModUi/&AccountForAllDiceOnFollowUpStrike=将基础武器的所有附加效果添加到<color=#D89555>后续打击</color>专长中
+ModUi/&AccountForAllDiceOnSavageAttack=将基础武器伤害中的所有骰子添加到添加基础武器伤害的功能中，而不仅仅是 1 个骰子<i><color=#F0DAA0>[野蛮攻击、双手武器等]</color></i>
+ModUi/&AddAllToStore=全部添加至商店
+ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>出血</color>状况添加到<color=#D89555>较大</color>和<color=#D89555>较小恢复</color>所消除的状况中
+ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>黑暗感知</color> <i><color=#F0DAA0>\n[在无光或在魔法黑暗下时在感知检查上获得优势]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=为敌人添加 DEX 修正值<color=#D89555>主动掷骰</color>
 ModUi/&AddFallProneActionToAllRaces=将<color=#D89555>倒地</color>动作添加到所有类别<i><color=#F0DAA0>[你可以无代价倒地]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=将职业等级作为奖励添加到<color=#D89555>不屈抵抗</color>豁免检定重掷中
 ModUi/&AddGrappleActionToAllRaces=为所有职业添加<color=#D89555>抓钩</color>动作
 ModUi/&AddHelpActionToAllRaces=为所有类别添加<color=#D89555>帮助</color>操作<i><color=#F0DAA0>[你可以协助友方生物攻击你 1 个单元格范围内的生物]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>人形</color>首选敌人
-ModUi/&AddNewWeaponsAndRecipesToShops=向商店添加新的武器和配方<i><color=#F0DAA0>[护腕、戟、长矛、长狼牙棒、手弩]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣武士</color>仅在暴击时启用至圣斩<i><color=#F0DAA0>[有助于减少反应动作提示]</color></i>
-ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<i><color=#F0DAA0>[建议<color=#D89555>扒窃</color>专长开启时启用]</color></i>
-ModUi/&AddToStore=添加到商店
-ModUi/&Advanced=<color=#F0DAA0>高级：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&AdvancedHelp=•<b><color=#C04040E0>注意：</color></b>这些设置将要求玩家安装此模组
-ModUi/&AllItemInDm=DM中的所有项目
-ModUi/&AllRecipesInDm=冒险中的所有配方
-ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序列</i>
+ModUi/&AddNewWeaponsAndRecipesToShops=在商店中添加新武器和配方<i><color=#F0DAA0>[手套、戟、长矛、长钉头锤、手弩]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣骑士</color>仅在暴击时启用惩击<i><color=#F0DAA0>[有助于最大限度地减少反应提示]</color></i>
+ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<i><color=#F0DAA0>[建议在启用<color=#D89555>扒窃</color>功能时添加]</color></i>
+ModUi/&AddToStore=添加至商店
+ModUi/&Advanced=<color=#F0DAA0>高级：</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&AdvancedHelp=• <b><color=#C04040E0>注意：</color></b>这些设置需要玩家安装此模组
+ModUi/&AllItemInDm=DM 中的所有商品
+ModUi/&AllRecipesInDm=所有食谱尽在DM
+ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 允许所有玩家参与叙事序列</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=允许盟友在自然黑暗中感知<color=#D89555>Ranger GloomStalker</color>
-ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿<color=#D89555>森林之甲</color>或<color=#D89555>光明使者之衣</color>
+ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿戴<color=#D89555>Sylvan Armor</color>或<color=#D89555>Lightbringer Clothes</color>
 ModUi/&AllowBladeCantripsToUseReach=允许<color=#D89555>剑术戏法</color>使用触及范围，而不是 5 英尺
 ModUi/&AllowClubsToBeThrown=允许将<color=#D89555>棍棒</color>像<color=#D89555>匕首</color>或<color=#D89555>手斧</color>一样投掷
-ModUi/&AllowDisplayingNonSuggestedSpells=允许在每个列表上使用 mod 非建议的法术
-ModUi/&AllowDisplayingOfficialSpells=允许每个列表中使用游戏官方法术
-ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>穿上金属盔甲
-ModUi/&AllowDungeonsMaxLevel20=允许最高等级为 20 的地城
-ModUi/&AllowFlightSuspend=允许暂时中止物品和法术的飞行<i><color=#F0DAA0>[不影响荒野形态或飞行种族]</color></i>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=在放置小工具或道具时启用<color=#1E81B0>CTRL</color>点击绕过任何检定
-ModUi/&AllowHasteCasting=允许使用加速术赋予的额外动作施法<color=#F0DAA0>（你仍然每轮只能释放一个标准动作法术）</color>
-ModUi/&AllowHornsOnAllRaces=允许所有种族长角<i><color=#F0DAA0>[根据种族、头和角的不同，结果可能看起来很怪]</color></i>
-ModUi/&AllowMoreRealStateOnRestPanel=允许在休息面板上显示更多真实状态<i><color=#F0DAA0>[在面板打开后隐藏休息动作，在面板关闭后恢复功能]</color></i>
-ModUi/&AllowStackedMaterialComponent=允许堆叠材料组件<i><color=#F0DAA0>[例如2x500gp钻石相当于1000gp钻石]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施展<color=#D89555>连锁闪电</color>法术时选择目标
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=按<color=#1E81B0>ALT</color>键只高亮队伍视野中的可用物品<i><color=#F0DAA0>[仅限自定义地下城]</color></i>
-ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任何职业同调
+ModUi/&AllowDisplayingNonSuggestedSpells=允许每个列表中的 mod 非建议咒语
+ModUi/&AllowDisplayingOfficialSpells=允许每个列表中的游戏官方咒语
+ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>穿戴金属盔甲
+ModUi/&AllowDungeonsMaxLevel20=允许最高等级为 20 的地下城
+ModUi/&AllowFlightSuspend=允许暂时中止因物品和法术而产生的飞行<i><color=#F0DAA0>[不影响野性变身或飞行种族]</color></i>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=启用<color=#1E81B0>CTRL</color>单击以在放置小工具或道具时绕过任何检查
+ModUi/&AllowHasteCasting=允许施放具有额外行动的法术而不会因加速而受到影响<color=#F0DAA0>[你每轮仍然被限制为 1 个主要行动法术]</color>
+ModUi/&AllowHornsOnAllRaces=允许所有种族拥有犄角<i><color=#F0DAA0>[结果可能看起来很糟糕，具体取决于种族、头部和犄角]</color></i>
+ModUi/&AllowMoreRealStateOnRestPanel=允许在休息面板上显示更多真实状态<i><color=#F0DAA0>[在前面板上隐藏休息后操作并在后面板上隐藏恢复功能]</color></i>
+ModUi/&AllowStackedMaterialComponent=允许堆叠材料成分<i><color=#F0DAA0>[例如 2x500gp 钻石相当于 1000gp 钻石]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=施放<color=#D89555>连锁闪电</color>法术时允许选择目标
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 键仅突出显示队伍视野内的装置<i><color=#F0DAA0>[仅限自定义地牢]</color></i>
+ModUi/&ArcaneShieldstaffOptions=允许任何职业调教<color=#D89555>奥术盾杖</color>
 ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
 ModUi/&BackgroundsAndRaces=背景与种族
 ModUi/&Basic=<color=#F0DAA0>基本：</color>
-ModUi/&Bestiary=怪物池
-ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>降咒</color>使用5环以上法术位施放时不需要专注
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=被<color=#D89555>致盲</color>时不允许借机攻击
+ModUi/&Bestiary=动物寓言集
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=使用 L5+ 法术位施放<color=#D89555>施放诅咒</color>时不需要集中注意力
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>失明</color>状态不允许借机攻击
 ModUi/&Blueprints=蓝图
-ModUi/&Campaigns=<color=#F0DAA0>战役：</color>
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>战役和地点：</color>
-ModUi/&Category=职业
-ModUi/&ChangeDragonbornElementalBreathUsages=将<color=#D89555>龙裔</color>元素吐息的使用次数改为每次短休后可使用体质调整值次数
-ModUi/&ChangeSleetStormToCube=将<color=#D89555>雪雨暴</color>更改为使用立方体而不是圆柱体
-ModUi/&Changelog=<b><color=#D89555>更改日志</color></b>
+ModUi/&Campaigns=<color=#F0DAA0>活动：</color>
+ModUi/&CampaignsAndLocations=<color=#F0DAA0>活动和地点:</color>
+ModUi/&Category=类别
+ModUi/&ChangeDragonbornElementalBreathUsages=将<color=#D89555>龙裔</color>元素气息用法更改为每次短暂休息的体质修正
+ModUi/&ChangeSleetStormToCube=将 <color=#D89555>Sleet Storm</color> 改为使用立方体，而不是圆柱体
+ModUi/&Changelog=<b><color=#D89555>变更日志</color></b>
 ModUi/&Character=特点
 ModUi/&CharactersPool=角色池
 ModUi/&Classes=课程
-ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>冷冻免疫</color>还赋予对冻寒和冻结条件的免疫
-ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>冷冻抗性</color>还可以增强对冻寒状态的免疫，并将冻结状态降低为冻寒状态
+ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>寒冷免疫</color>还能使人对寒冷和冰冻环境产生免疫力
+ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>抗寒性</color>还能使人免疫寒冷状态，并将冰冻状态降低为寒冷状态
 ModUi/&Combat=<color=#F0DAA0>战斗：</color>
 ModUi/&Crafting=<color=#F0DAA0>制作：</color>
-ModUi/&CraftingHelp=•按下按钮即可在当前队伍中立即学习配方\n。添加到商店的物品可能需要队伍离开该地点然后回来
-ModUi/&Credits=制作人员
-ModUi/&CreditsAndDiagnostics=制作人员与诊断
-ModUi/&Critical=<color=#F0DAA0>暴击：</color>
-ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>：游戏默认，掷任何伤害骰子两次，添加结果并添加修饰符<i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
-ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>：将伤害骰子的最大结果加到攻击伤害中<i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
-ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>：继续重新掷出任何可能获得最高结果的伤害骰子，并将其添加到总伤害中
-ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>：将攻击的总伤害加倍，而不是掷额外的骰子。<i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>神灵</color>
-ModUi/&DisableAutoEquip=禁用自动装备物品栏中的物品
+ModUi/&CraftingHelp=• 按下按钮即可立即学习活动派对上的食谱\n• 添加到商店的物品可能需要派对离开该位置并返回
+ModUi/&Credits=致谢
+ModUi/&CreditsAndDiagnostics=信用与诊断
+ModUi/&Critical=<color=#F0DAA0>致命一击：</color>
+ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>：游戏默认，掷任意伤害骰子两次，添加结果并添加修正<i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>：将伤害骰子的最大结果相加，并将其添加到攻击的伤害中<i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>：继续重新掷出任何掷出最高可能结果的伤害骰子，并将其添加到总伤害中
+ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>：将你的攻击总伤害加倍，而不是掷额外的骰子。<i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
+ModUi/&Deities=<color=#F0DAA0>神祇</color>
+ModUi/&DisableAutoEquip=禁用库存中的物品自动装备
 ModUi/&DisableBarbarianBrutalCritical=<i>+ 同时禁用 9、13 和 17 级的<b>残酷暴击</b></i>
-ModUi/&DisableCastSpellPreRequisitesOnModFeats=禁用此模组提供的专长的施法先决条件<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
-ModUi/&DisableClassPrerequisitesOnModFeats=禁用此模组提供的职业专长的等级前提条件
+ModUi/&DisableCastSpellPreRequisitesOnModFeats=禁用 mod <color=#D89555>feats</color> 上的施法先决条件<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&DisableClassPrerequisitesOnModFeats=禁用<color=#D89555>功绩</color>的级别先决条件
 ModUi/&DisableMultilineSpellOffering=禁用操作栏上的多行法术提供<i><color=#F0DAA0>[主要针对使用非多路施法者英雄的控制器用户]</color></i>
-ModUi/&DisableRacePrerequisitesOnModFeats=禁用此模组提供的专长的种族前提条件
-ModUi/&DisableSenseDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>强化黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&DisableUnofficialTranslations=禁用非官方翻译支持以加快启动速度并改善内存使用<i><color=#F0DAA0>[除非我使用意大利语、日语、韩语或西班牙语]</color></i>
-ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+在升级过程中显示其他职业的所有已知法术</i>
-ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+在法术选择而非角色面板上显示<color=#D89555>邪术士</color>契约槽位</i>
-ModUi/&DocsArcaneShots=文档：奥术射击
-ModUi/&DocsBackgrounds=文档：背景
-ModUi/&DocsFeats=文档：专长
-ModUi/&DocsFightingStyles=文档：战斗风格
-ModUi/&DocsInfusions=文档：注法
-ModUi/&DocsInvocations=文档：祈唤
-ModUi/&DocsManeuvers=文档：战技
-ModUi/&DocsMetamagic=文档：超魔
-ModUi/&DocsRaces=文档：种族
-ModUi/&DocsSpells=文档：法术
-ModUi/&DocsSubclasses=文档：子职
-ModUi/&DocsSubraces=文档：亚种
+ModUi/&DisableRacePrerequisitesOnModFeats=禁用<color=#D89555>功绩</color>的种族先决条件
+ModUi/&DisableSenseDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>感知黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>超级感知黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&DisableUnofficialTranslations=禁用非官方翻译支持以加快 mod <i><color=#F0DAA0>[除非我说中文、意大利语、日语、韩语或西班牙语]</color></i>
+ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 升级时显示其他职业的所有已知法术</i>
+ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 在法术选择上显示<color=#D89555>术士</color>契约槽，而不是在角色面板上</i>
+ModUi/&DocsArcaneShots=秘法射击
+ModUi/&DocsBackgrounds=背景
+ModUi/&DocsFeats=功绩
+ModUi/&DocsFightingStyles=格斗风格
+ModUi/&DocsInfusions=输液
+ModUi/&DocsInvocations=调用
+ModUi/&DocsManeuvers=机动
+ModUi/&DocsMetamagic=元魔法
+ModUi/&DocsRaces=赛事
+ModUi/&DocsSpells=法术
+ModUi/&DocsSubclasses=子类
+ModUi/&DocsSubraces=亚种
 ModUi/&DocsVersatilities=多功能性
-ModUi/&Donate=<b><color=#D89555>捐赠：</color></b> <i>{0}</i>
+ModUi/&Donate=<b><color=#D89555>捐赠：</color></b><i>{0></i>
 ModUi/&DontEndTurnAfterReady=使用<color=#D89555>准备行动</color>后不要结束回合<i><color=#F0DAA0>[允许使用奖励行动或任何来自加速或其他来源的额外主要行动]</color></i>
-ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
-ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕边缘的%范围内</color></i>
-ModUi/&DungeonMakerBasicHelp=•这些设置不需要玩家安装这个模组
-ModUi/&DungeonMakerMenu=地城编辑器
+ModUi/&DontFollowCharacterInBattle=当角色已出现在屏幕上时，战斗摄像机不会跟随
+ModUi/&DontFollowMargin=<i><color=white>+ 除非英雄不在屏幕边缘或在屏幕边缘的 % 范围内</color></i>
+ModUi/&DungeonMakerBasicHelp=• 这些设置不需要玩家安装此模组
+ModUi/&DungeonMakerMenu=地下城制造者
 ModUi/&Effects=效果
-ModUi/&EmpressGarbAppearance=<color=#D89555>皇后服</color>外观
+ModUi/&EmpressGarbAppearance=<color=#D89555>皇后服装</color>外观
 ModUi/&EnableActionSwitching=启用操作切换栏<i><color=#F0DAA0>[有助于完全控制您的操作序列]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=在背景检查中启用额外的背景故事显示
-ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和传送器启用额外的图标
+ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上启用营地、出口和传送器的附加图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=将经过修改的物品添加到编辑器
-ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
-ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力调整值来确定选择权重]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=在 9、13 和 17 级时启用<b>残酷打击</b>和<b>残酷打击改进</b>
-ModUi/&EnableBarbarianFightingStyle=在第 2 级启用<b>战斗风格</b>选择
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<b>鲁莽攻击</b>增益效果和减益效果，在下一回合开始时结束
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 7 级时，短暂休息后即可恢复一次<b>怒气</b>
-ModUi/&EnableBardHealingBalladOnLongRest=在长休时启用<color=#D89555>吟游诗人希望学院</color><b>治愈歌谣</b>
+ModUi/&EnableAlternateHuman=启用替代<color=#D89555>人类</color> <i><color=#F0DAA0>[+1 专长 / +2 属性选择 / +1 技能]</color></i>
+ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=在 9、13 和 17 级启用<color=#D89555>残酷打击</color>和<color=#D89555>残酷打击改进</color>
+ModUi/&EnableBarbarianFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 7 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
+ModUi/&EnableBardHealingBalladOnLongRest=长时间休息时启用<color=#D89555>希望吟游诗人学院</color> <b>治愈之歌</b>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
-ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>，可以用附赠动作发动一次武器攻击
+ModUi/&EnableCancelEditOnRightMouseClick=通过鼠标右键单击启用取消操作
+ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
 ModUi/&EnableCustomPortraits=启用<color=#D89555>自定义肖像</color>
-ModUi/&EnableCustomPortraitsHelp=。将你的自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i>，以英雄名字<i><color=#F0DAA0>[即：Anton、Celia、Nialla 等]</color></i>\n 命名。使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 以获得最佳效果]</color></i>
-ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150 和 200x200 的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
+ModUi/&EnableCustomPortraitsHelp=• 将自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i> 下，并以英雄名字命名<i><color=#F0DAA0>[例如：Anton、Celia、Nialla 等]</color></i>\n• 使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 可获得最佳效果]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=启用 Dungeon Maker Pro{99><i><color=#F0DAA0>[包括平面房间、150x150 和 200x200 地牢大小，以及来自所有环境的简洁混合资产]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 战斗中启用仰角相机，禁用后可保持在原位，且范围增加三倍</i>
-ModUi/&EnableEpicPointsAndArray=启用史诗级 35 点购点和默认骰<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练面板显示<i><color=#F0DAA0>[奥术射击、注法、战技和多种功能]</color></i>\n<b><i><color=#C04040E0>[角色性能提升检查。使用风险自负]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=在等级 2、10 和 18 级启用专长选择
-ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级启用专长选择
-ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级时启用<b>武器专精</b><i><color=#F0DAA0>[命中和伤害 +1，但使用其他武器类型时处于劣势]</color></i>
-ModUi/&EnableFlexibleBackgrounds=启用灵活的背景<i><color=#F0DAA0>[自由选择背景提供的技能和工具熟练项]</color></i>
-ModUi/&EnableFlexibleRaces=启用灵活的种族<i><color=#F0DAA0>[自由分配种族属性加值]</color></i>
+ModUi/&EnableEpicPointsAndArray=启用史诗 35 点购买系统和阵列 <i><color=#F0DAA0>[17,15,13,​​12,10,8]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练度面板显示<i><color=#F0DAA0>[奥术射击、灌注、操控和多功能性]</color></i>{99><b><i><color=#C04040E0>[角色检查时性能受到影响。使用风险自负]</color></i></b>
+ModUi/&EnableFeatsAtEvenLevels=在 2、10 和 18 级启用<color=#D89555>专长</color>选择
+ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级时启用<color=#D89555>专长</color>选择
+ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[命中率和伤害 +1，但使用其他武器类型时处于劣势]</color></i>
+ModUi/&EnableFlexibleBackgrounds=启用灵活背景<i><color=#F0DAA0>[从背景中选择技能和工具熟练程度]</color></i>
+ModUi/&EnableFlexibleRaces=启用灵活种族<i><color=#F0DAA0>[分配能力得分点而不是种族默认值]</color></i>
 ModUi/&EnableGauntletMainAttacks=如果角色是<color=#D89555>僧侣</color>或装备有<b>手巾</b>或<b>铁手套</b>，则允许角色在主要行动中进行<b>徒手攻击</b>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=让技能熟练度最高的英雄进行对话选择<i><color=#F0DAA0>[这可行，但在官方活动中叙述看起来很奇怪]</color></i>
-ModUi/&EnableHigherGroundRules=启用夹击规则<i><color=#F0DAA0>[从高处射击时 +1 命中，前后夹击敌人时 +1 命中，如果敌人被四个盟友包围则获得优势]</color></i>
+ModUi/&EnableHigherGroundRules=启用高地规则<i><color=#F0DAA0>[从高地攻击时 +1 命中]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=启用库存过滤和排序
-ModUi/&EnableInventoryTaintNonProficientItemsRed=将英雄不擅长的任何物品染红
-ModUi/&EnableInventoryTintKnownRecipesRed=染红已知配方
-ModUi/&EnableLevel20=启用20级<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&EnableLogDialoguesToConsole=在叙述序列期间启用日志对话到游戏控制台
-ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义活动中启用记录无效引用
-ModUi/&EnableMinInOutAttributes=<i>+强制属性值最低的前置条件</i>
-ModUi/&EnableMonkAbundantKi=在 2 级时启用<b>充沛的气</b> <i><color=#F0DAA0>[获得额外的气，等于熟练度奖励的一半，向上取整]</color></i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=在 20 级时启用<b>身心</b>来替代<b>完美自我</b>
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=启用<b>武术 - 奖励徒手攻击</b>，在使用前无需采取攻击行动
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=启用<b>Flurry of Blows</b>，在使用前无需采取攻击行动
-ModUi/&EnableMonkFightingStyle=在第 2 级启用<b>战斗风格</b>选择
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=使<color=#D89555>Monk</color> <b>手套</b>和<b>护手</b>能够在护手槽中发挥作用
-ModUi/&EnableMonkHeightenedMetabolism=在 10 级时启用<b>增强新陈代谢</b> <i><color=#F0DAA0>[<b>连击</b>、<b>耐心防御</b>和<b>风之脚步</b>获得额外好处]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<b>改进的无装甲移动</b>以沿垂直表面移动而不会掉落
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=启用<b>超级防御</b>来替换 18 级时的<b>空虚之身</b>
-ModUi/&EnableMonkWeaponSpecialization=在 2 级和 11 级时启用<b>武器专精</b> <i><color=#F0DAA0>[所选武器类型将成为你的武僧武器]</color></i>
-ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>疗伤术</color>、<color=#D89555>治愈真言</color>、<color=#D89555>群体疗伤术</color>和<color=#D89555>群体治愈真言</color>上启用 OneDnd 治疗骰增益
-ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableInventoryTaintNonProficientItemsRed=将英雄不熟练的任何物品染成红色
+ModUi/&EnableInventoryTintKnownRecipesRed=将已知食谱染成红色
+ModUi/&EnableLevel20=启用级别 20<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&EnableLogDialoguesToConsole=在叙事过程中启用游戏控制台日志对话
+ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义广告系列中启用记录无效引用
+ModUi/&EnableMinInOutAttributes=<i>+ 强制执行能力得分最低进出先决条件</i>
+ModUi/&EnableMonkAbundantKi=在 2 级时启用<color=#D89555>充沛的气</color> <i><color=#F0DAA0>[获得额外的气，等于熟练度奖励的一半，向上取整]</color></i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=在 20 级时启用<color=#D89555>身心</color>来替代<color=#D89555>完美自我</color>
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=启用<color=#D89555>武术 - 额外徒手攻击</color>，在使用前无需采取攻击行动
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=启用<color=#D89555>Flurry of Blows</color>，在使用前无需采取攻击行动
+ModUi/&EnableMonkFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=使<color=#D89555>手套</color>和<color=#D89555>护手</color>能够在护手槽中发挥作用
+ModUi/&EnableMonkHeightenedMetabolism=在 10 级时启用<color=#D89555>增强新陈代谢</color> <i><color=#F0DAA0>[<b>连击</b>、<b>耐心防御</b>和<b>风之脚步</b>获得额外好处]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>改进的无装甲移动</color>以沿垂直表面移动而不会掉落
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=在 18 级时启用<color=#D89555>超级防御</color>来替代<color=#D89555>空虚之身</color>
+ModUi/&EnableMonkWeaponSpecialization=在 2 级和 11 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[所选武器类型将成为你的武僧武器]</color></i>
+ModUi/&EnableMulticlass=启用多类<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>治疗伤口</color>、<color=#D89555>治疗之言</color>、<color=#D89555>群体治疗伤口</color>和<color=#D89555>群体治疗之言</color>上启用 OneDnd 治疗骰子增益
+ModUi/&EnablePcgRandom=启用更好的随机生成器算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=使推拉运动效果也适用于上/下轴
-ModUi/&EnableRangerNatureShroudAt10=在 10 级时启用<b>自然面纱</b>功能<i><color=#F0DAA0>[作为奖励行动，你可以神奇地变得隐形，直到下一回合开始]</color></i>
-ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的戏法或法术</i>
+ModUi/&EnableRangerNatureShroudAt10=在 10 级时启用<color=#D89555>自然面纱</color>功能<i><color=#F0DAA0>[作为奖励行动，您可以神奇地隐身，直到下一回合开始]</color></i>
+ModUi/&EnableRelearnSpells=可以选择已从其他来源学到的戏法或法术
 ModUi/&EnableRespec=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
-ModUi/&EnableRogueCunningStrike=在 5 级和 14 级时启用<b>狡猾打击</b>和<b>阴险打击</b> <i><color=#F0DAA0>[你放弃 1 个偷袭骰子以获得额外的命中效果]</color></i>
-ModUi/&EnableRogueFightingStyle=在第 2 级启用<b>战斗风格</b>选择
-ModUi/&EnableRogueSteadyAim=在 3 级时启用<b>稳定瞄准</b> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>
-ModUi/&EnableRogueStrSaving=在<b>狡猾/狡诈打击</b>、<b>削弱/强化打击</b>和<b>剑雨</b>上启用 DEX 或 STR 修正
-ModUi/&EnableSignatureSpellsRelearn=启用<color=#D89555>法师</color>招牌法术，以便在每次长休时准备<i><color=#F0DAA0>[而不是在 20 级时一次]</color></i>
-ModUi/&EnableSorcererMagicalGuidance=启用<color=#D89555>巫师</color> <b>魔法指引</b>至 5 级
+ModUi/&EnableRogueCunningStrike=在等级 5 和 14 时启用<color=#D89555>狡猾打击</color>和<color=#D89555>阴险打击</color> <i><color=#F0DAA0>[你放弃 1 个偷袭骰子以获得额外的命中效果]</color></i>
+ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
+ModUi/&EnableRogueSteadyAim=在 3 级时启用<color=#D89555>稳定瞄准</color> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>
+ModUi/&EnableRogueStrSaving=在<color=#D89555>狡猾/狡诈打击</color>、<color=#D89555>削弱/强化打击</color>和<color=#D89555>剑刃风暴</color>上启用 DEX 或 STR 修正
+ModUi/&EnableSignatureSpellsRelearn=允许每次长时间休息时准备<color=#D89555>巫师</color>标志性法术<i><color=#F0DAA0>[而不是在 20 级时准备一次]</color></i>
+ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术
-ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
-ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
-ModUi/&EnableSumD20OnAlternateVotingSystem=。此外，每个英雄都增加了 D20 骰子重量以获得一点随机性
+ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
+ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[例如：暴击、暴击失败等]</color></i>
+ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 此外，每个英雄都会增加一个 D20 掷骰来增加权重，以增加一点随机性 <color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值 + D20 掷骰]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=启用<color=#D89555>传送</color>以移除目标的所有<color=#D89555>限制</color>条件
 ModUi/&EnableTooltipDistance=在战斗中将鼠标悬停在角色上时启用在工具提示上显示距离
-ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素咒唤术</color>和<color=#D89555>精类咒唤术</color>的升环
+ModUi/&EnableUpcastConjureElementalAndFey=启用 <color=#D89555>Conjure Elemental</color> 和 <color=#D89555>Conjure Fey</color> 的向上转换
 ModUi/&EnableVariablePlaceholdersOnTexts=在描述中启用变量占位符<i><color=#F0DAA0>[使用 {VARIABLE_NAME} 作为占位符]</color></i>
-ModUi/&EnablesAsiAndFeat=启用属性值提升和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
-ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
+ModUi/&EnablesAsiAndFeat=同时启用属性得分增加和<color=#D89555>专长</color>选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
+ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇的百分比几率</color>
 ModUi/&Encounters=遭遇
-ModUi/&EnemiesAlwaysRollInitiative=<i>+敌人总是掷先攻而不是强制值<color=#F0DAA0>[即：索拉克刺客]</color></i>
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ 敌人总是会掷出主动权，而不是强制值<color=#F0DAA0>[例如：索拉克刺客]</color></i>
 ModUi/&ExpandAll=展开全部
-ModUi/&FactionHelp=<color=#C04040E0>加载官方战役游戏以修改派系关系...</color>
-ModUi/&FactionRelations=<color=#F0DAA0>派系：</color>
-ModUi/&FasterTimeModifier=<color=white>按下空格键时的游戏时间修改器</color>
-ModUi/&FeatGroups=<color=#F0DAA0>专长组</color>
-ModUi/&FeatGroupsHelp=•每个组都是相似专长的综合<i><color=#F0DAA0>[即：信条、战斗风格、超魔等]</color></i>\n• 这些组中的专长将不再直接显示在熟练程度选择阶段\n• 该组在被选中后会在下拉列表中提供它们以供选择。
-ModUi/&Feats=<color=#F0DAA0>专长</color>
-ModUi/&FightingStyles=<color=#F0DAA0>战斗风格</color>
+ModUi/&FactionHelp=<color=#C04040E0>加载官方战役游戏来修改派系关系...</color>
+ModUi/&FactionRelations=<color=#F0DAA0>派系:</color>
+ModUi/&FasterTimeModifier=<color=white>按空格键时游戏时间修改器</color>
+ModUi/&FeatGroups=<color=#F0DAA0>功绩团体</color>
+ModUi/&FeatGroupsHelp=• 每个组都是类似<color=#D89555>专长</color>的整合<i><color=#F0DAA0>[即：信条、格斗风格、超魔法等]</color></i>\n• 这些组中的专长将不再在熟练度选择阶段直接可见\n• 选择组后，会在下拉列表中提供这些专长，以使游戏屏幕更加简洁
+ModUi/&Feats=<color=#F0DAA0>壮举</color>
+ModUi/&FightingStyles=<color=#F0DAA0>格斗风格</color>
 ModUi/&FixAsianLanguagesTextWrap=修复亚洲语言的游戏 UI 文本换行<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&FixEldritchBlastRange=将<color=#D89555>魔能爆</color>范围更改为24<i><color=#F0DAA0>[而不是16]</color></i>
-ModUi/&FixRingOfRegenerationHealRate=将<color=#D89555>再生戒指</color>医疗率设置为每 3 分钟 1 点生命值
-ModUi/&FlightSuspendWingedBoots=<i>+使用飞翼之靴官方规则<color=#F0DAA0>[暂停飞行时不计算剩余时间]</color></i>
-ModUi/&Formation=<color=#F0DAA0>队形：</color>
-ModUi/&FormationError=<color=#C04040E0>你不能在多人游戏中改变你的阵型...</color>
-ModUi/&FormationHelp1=•使用数字按钮编辑给定的集合<i><color=#F0DAA0>[考虑在输入下启用热键]</color></i>
-ModUi/&FormationHelp2=•<b><color=#1E81B0>@</color></b>代表相对英雄位置
-ModUi/&FormationHelp3=•单击任意 2 个按钮以交换它们的位置
-ModUi/&FormationResetAllSets=重置全部
-ModUi/&FormationResetThisSet=重置这个
-ModUi/&FormationSelected=已选择编队集{0}
-ModUi/&FullyControlConjurations=完全控制咒唤物<i><color=#F0DAA0>[动物、元素等]</color></i>
+ModUi/&FixEldritchBlastRange=使用 24 个单元格范围与 <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[而不是 12 个]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=将<color=#D89555>再生之环</color>的治疗率设置为每 3 分钟 1 点生命值
+ModUi/&FlightSuspendWingedBoots=<i>+ 使用 Winged Boots 官方规则<color=#F0DAA0>[暂停飞行时不计算剩余时长]</color></i>
+ModUi/&Formation=<color=#F0DAA0>阵型:</color>
+ModUi/&FormationError=<color=#C04040E0>您无法在多人游戏中改变阵型...</color>
+ModUi/&FormationHelp1=• 使用数字按钮编辑给定的集合<i><color=#F0DAA0>[考虑在输入下启用热键]</color></i>
+ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> 表示相对英雄位置
+ModUi/&FormationHelp3=• 点击任意两个按钮即可交换其位置
+ModUi/&FormationResetAllSets=全部重置
+ModUi/&FormationResetThisSet=重置
+ModUi/&FormationSelected=已选择阵型设置 {0}
+ModUi/&FullyControlConjurations=完全控制召唤术<i><color=#F0DAA0>[动物、元素等]</color></i>
 ModUi/&GameUi=游戏界面
-ModUi/&Gameplay=玩法
-ModUi/&General=<color=#F0DAA0>通用：</color>
-ModUi/&GeneralMenu=通用
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=为<color=#D89555>吟游诗人</color>和<color=#D89555>游荡者</color>授予弯刀<b>武器专精</b>
+ModUi/&Gameplay=游戏玩法
+ModUi/&General=<color=#F0DAA0>常规：</color>
+ModUi/&GeneralMenu=一般的
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=授予弯刀<b>武器专长</b>给<color=#D89555>吟游诗人</color>和<color=#D89555>盗贼</color>
 ModUi/&GridSelectedColor=更改移动<b><color=$$$$$$>网格颜色</color></b>
-ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器视觉效果
-ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%的步骤显示怪物的生命值，而不是准确生命值
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器的视觉效果
+ModUi/&HideMonsterHitPoints=以 25% / 50% / 75% / 100% 的步长显示怪物的生命值，而不是精确的生命值
 ModUi/&HideQuickenedActionWhenMetamagicOff=<i>+ 当 metamagic 切换关闭时隐藏此操作</i>
-ModUi/&HighContrastTargetingAoeColor=更改 AoE 生物<b><color=$$$$$$>突出显示选择颜色</color></b>
+ModUi/&HighContrastTargetingAoeColor=改变 AoE 生物<b><color=$$$$$$>突出显示选择颜色</color></b>
 ModUi/&HighContrastTargetingSingleColor=更改单个生物<b><color=$$$$$$>突出显示选择颜色</color></b>
-ModUi/&House=<color=#F0DAA0>房规：</color>
-ModUi/&IdentifyAfterRest=通过短休或长休增加识别魔法物品的能力
-ModUi/&IgnoreHandXbowFreeHandRequirements=不需要空闲的手来使用手弩
-ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻术法术对范围内<color=#D89555>真实视觉</color>的目标自动失败
+ModUi/&House=<color=#F0DAA0>房屋：</color>
+ModUi/&IdentifyAfterRest=增加在短暂或长时间休息期间<color=#D89555>识别魔法物品</color>的能力
+ModUi/&IgnoreHandXbowFreeHandRequirements=不需要腾出手来使用<color=#D89555>手弩</color>
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻术法术对范围内有 <color=#D89555>TrueSight</color> 的目标自动失效
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=将最大<color=#D89555>协调物品</color>增加至 10 级时的 4 个和 18 级时的 5 个
 ModUi/&InventoryAndItems=<color=#F0DAA0>库存和物品：</color>
-ModUi/&Invocations=<color=#F0DAA0>祈唤</color>
-ModUi/&ItemInDm=地城中的项目
-ModUi/&Items=<color=#F0DAA0>项目：</color>
-ModUi/&ItemsCraftingMerchants=物品、手工艺和商人
-ModUi/&ItemsHelp1=<color=#C04040E0>打开角色检视界面为英雄添加物品...</color>
-ModUi/&ItemsHelp2=<b>按+将项目添加到地面容器</b>
+ModUi/&Invocations=<color=#F0DAA0>调用</color>
+ModUi/&ItemInDm=DM 中的项目
+ModUi/&Items=<color=#F0DAA0>商品:</color>
+ModUi/&ItemsCraftingMerchants=手工艺与商人
+ModUi/&ItemsHelp1=<color=#C04040E0>打开角色检查屏幕为英雄添加物品...</color>
+ModUi/&ItemsHelp2=<b>按 + 将物品添加到地面容器</b>
 ModUi/&KeepInvisibilityWhenUsingItems=启用物品使用不会破坏<color=#D89555>隐形</color>
-ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=如果在突袭回合中察觉到，则在攻击后更新英雄的隐匿状态<i><color=#F0DAA0>[仅限第一个英雄]</color></i>
-ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔法法杖成为奥术专用<i><color=#F0DAA0>[除了<color=#D89555>治疗法杖</color>是通用的]</color></i>
-ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+发现后在关卡地图上标记隐形传送器的位置</i>
-ModUi/&MaxAllowedClasses=<color=white>最大允许职业</color>
+ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=如果在突袭回合中察觉到攻击，则更新英雄的隐身状态<i><color=#F0DAA0>[仅限第一个英雄]</color></i>
+ModUi/&MakeAllMagicStaveArcaneFoci=让所有魔法杖都成为奥术焦点<i><color=#F0DAA0>[除了<color=#D89555>治疗法杖</color>是通用的]</color></i>
+ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 发现后也在关卡地图上标记隐形传送器的位置</i>
+ModUi/&MaxAllowedClasses=<color=white>最大允许类别</color>
 ModUi/&Merchants=<color=#F0DAA0>商家：</color>
-ModUi/&Metamagic=<color=#F0DAA0>超魔</color>
+ModUi/&Metamagic=<color=#F0DAA0>超魔法</color>
 ModUi/&ModifyGravitySlam=<i>+ 修改<color=#D89555>重力猛击</color>法术，将受影响的目标向下推，并将其变为圆柱体而不是球体</i>
 ModUi/&Monsters=<color=#F0DAA0>怪物：</color>
-ModUi/&MovementGridWidthModifier=<color=white>将移动格子宽度乘以</color> <color=#C04040E0>[%]</color>
-ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>点击法术会反转消耗的默认曲目槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color>消耗白色法术位，其他职业消耗绿色的]</color></i>
+ModUi/&MovementGridWidthModifier=<color=white>将移动网格宽度乘以</color> <color=#C04040E0>[%]</color>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 点击一个法术会反转所消耗的默认法术槽类型{99><i><color=#F0DAA0>[<color=#D89555>术士</color> 消耗白色法术槽，其他人消耗契约绿色法术槽]</color></i>
 ModUi/&Multiplayer=#F0DAA0>多人游戏：</color>
-ModUi/&MultiplyTheExperienceGainedBy=<color=white>乘以获得的经验</color><color=#C04040E0>[%]</color>
+ModUi/&MultiplyTheExperienceGainedBy=<color=white>将获得的经验乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敌人回合时镜头永不移动</i>
-ModUi/&NoExperienceOnLevelUp=升级不需要经验
-ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 取消对目盲、隐形和感知到的<color=#D89555>优势/劣势</color><color=#F0DAA0>[与官方<color=#D89555>优势/劣势</color>规则结合使用]</color></i>
-ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ 将<color=#D89555>重度遮蔽</color>区域更改为射弹阻挡器<color=#F0DAA0>[<color=#D89555>死云术</color>、<color=#D89555>云雾术</color>、<color=#D89555>焚云术</color>、<color=#D89555>花瓣风暴</color>、<color=#D89555>雪雨暴</color>、<color=#D89555>臭云术</color>]</color></i>
-ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 隐形生物被重度遮蔽，可以成为目标，针对该生物的攻击检定具有劣势，而该生物的攻击检定具有优势</i>
-ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ 将<color=#D89555>魔法遮蔽</color>区域更改为射弹阻挡器<color=#F0DAA0>[<color=#D89555>黑暗术</color>法术效果的任何来源]</color></i>
+ModUi/&NoExperienceOnLevelUp=无需经验即可升级
+ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 取消<color=#D89555>优势/劣势</color>盲注、隐形和感知对<color=#F0DAA0>[与官方<color=#D89555>优势/劣势</color>规则结合使用时有用]</color></i>
+ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ 将<color=#D89555>严重遮挡</color>的区域更改为投射物阻挡者<color=#F0DAA0>[<color=#D89555>云雾杀戮</color>、<color=#D89555>浓雾云</color>、<color=#D89555>燃烧云</color>、<color=#D89555>花瓣风暴</color>、<color=#D89555>雨夹雪风暴</color>、<color=#D89555>臭云</color>]</color></i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 隐形生物被严重遮挡，可成为目标，对该生物的攻击掷骰具有劣势，而该生物的攻击掷骰具有优势</i>
+ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ 将<color=#D89555>魔法遮蔽</color>区域更改为投射物阻挡者<color=#F0DAA0>[任何<color=#D89555>黑暗</color>法术效果来源]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 在适当的情况下为怪物和 NPC 添加 <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color> 和 <color=#D89555>TrueSight</color></i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[设置的集合<b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
-ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+只显示魔法列表中最强大的生物</i>
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 仅显示召唤列表中最强大的生物</i>
 ModUi/&OutlineGridWidthModifier=<color=white>将轮廓网格宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>将轮廓网格动画速度乘以</color> <color=#C04040E0>[%]</color>
-ModUi/&OverrideMinMaxLevel=开始新冒险时覆盖所需的最低和最高等级
-ModUi/&OverridePartySize=<color=white>覆盖队伍规模</color>
-ModUi/&Patches=<color=#F0DAA0>补丁：</color>
+ModUi/&OverrideMinMaxLevel=开始新冒险时覆盖所需的最小和最大级别
+ModUi/&OverridePartySize=<color=white>覆盖聚会规模</color>
+ModUi/&Patches=<color=#F0DAA0>补丁:</color>
 ModUi/&PortraitsOpenFolder=打开肖像文件夹
-ModUi/&PrimedItems=制备好的物品
+ModUi/&PrimedItems=Prime 物品
 ModUi/&QuickCastLightCantripOnWornItemsFirst=启用快速施放<color=#D89555>Light Cantrip</color>以首先使用头部、颈部或躯干穿戴的物品
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=对<color=#D89555>黑暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>光照敏感</color>仅在室外触发\n<i><color=#F0DAA0>[无需加载屏幕即可访问的室外位置的室内区域被游戏引擎视为室外]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=启用 <color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color> 和 <color=#D89555>Gray Dwarf</color> 上的 <color=#D89555>Light Sensitivity</color>，以便仅在户外触发{99><i><color=#F0DAA0>[无需加载屏幕即可进入的户外位置的室内区域被游戏引擎视为户外区域]</color></i>
 ModUi/&Races=<color=#F0DAA0>种族</color>
-ModUi/&RecipeCost=<color=white>配方成本</color>
-ModUi/&RecipesInDm=地城中的配方
-ModUi/&RelicForgeries=文物伪造品
-ModUi/&RemoveAttunementRequirements=删除同调要求<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&RecipeCost=<color=white>食谱成本</color>
+ModUi/&RecipesInDm=DM 中的食谱
+ModUi/&RelicForgeries=文物伪造
+ModUi/&RemoveAttunementRequirements=删除调谐要求<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&RemoveHumanoidFilterOnHideousLaughter=移除<color=#D89555>狂笑术</color>的类人敌人限制
-ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>缠绕</color>效果，并强制进行力量检定以挣脱藤蔓
-ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除<color=#D89555>暗影法师</color>的学派限制
-ModUi/&RemoveSchoolRestrictionsFromSpellBlade=移除<color=#D89555>法刃</color>的学派限制
-ModUi/&RestockAntiquarians=补货古文物协会<i><color=#F0DAA0>[Halman Summer]</color></i>
-ModUi/&RestockArcaneum=补货奥术协会<i><color=#F0DAA0>[Heddlon Surespell]</color></i>
-ModUi/&RestockCircleOfDanantar=补货丹塔尔之环<i><color=#F0DAA0>[Joriel Foxeye]</color></i>
-ModUi/&RestockHelp=•覆盖默认值以强制所有商家的库存随时间补货<i><color=#F0DAA0>[不包括手册和书籍]</color></i>\n。请注意，某些物品最多可能需要7个游戏日才能补货
-ModUi/&RestockTowerOfKnowledge=补货知识之塔<i><color=#F0DAA0>[Maddy Greenisle]</color></i>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter=删除<color=#D89555>Hideous Laughter</color>上的人形过滤器
+ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>纠缠</color>效果，并强制进行力量检查以摆脱藤蔓
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=删除 <color=#D89555>Shadowcaster</color> 中的学校限制
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=删除 <color=#D89555>Spellblade</color> 中的学校限制
+ModUi/&RestockAntiquarians=重新进货古董商<i><color=#F0DAA0>[Halman Summer]</color></i>
+ModUi/&RestockArcaneum=重新进货秘法 <i><color=#F0DAA0>[赫德隆绝法术]</color></i>
+ModUi/&RestockCircleOfDanantar=重新进货达南塔之环 <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
+ModUi/&RestockHelp=• 覆盖默认设置，强制所有商家的库存随时间补货<i><color=#F0DAA0>[不包括手册和书籍]</color></i>\n• 请注意，某些商品可能需要长达 7 个游戏日才能补货
+ModUi/&RestockTowerOfKnowledge=重新进货知识塔<i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>回滚</color></b>
 ModUi/&Rules=规则
 ModUi/&SRD=<color=#F0DAA0>SRD：</color>
-ModUi/&ScaleMerchantPricesCorrectly=正确/准确调整商家价格<i><color=#F0DAA0>[转换硬币价值时不再出现舍入错误]</color></i>
-ModUi/&SelectAll=全选
-ModUi/&SelectDisplayed=选择显示的
+ModUi/&ScaleMerchantPricesCorrectly=正确/精确地缩放商家价格<i><color=#F0DAA0>[转换硬币价值时不再出现舍入误差]</color></i>
+ModUi/&SelectAll=选择全部
+ModUi/&SelectDisplayed=选择显示
 ModUi/&SelectSuggested=选择建议
 ModUi/&SelectTabletop=选择桌面
-ModUi/&SenseNormalVisionRangeMultiplier=修改<color=#D89555>正常视力</color>范围<i><color=#F0DAA0>[仅在战斗中]</color></i>
+ModUi/&SenseNormalVisionRangeMultiplier=修改<color=#D89555>正常视觉</color>范围<i><color=#F0DAA0>[仅在战斗中]</color></i>
 ModUi/&Services=服务
-ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>矮人腰带</color><color=white>胡须出现几率</color>
-ModUi/&SettingsExport=导出
-ModUi/&SettingsHelp=•作为主机，你可以导出当前配置，打开导出文件夹并轻松与你的联机者共享\n•作为客机，你可以打开导出文件夹，从主机粘贴分享的设置文件并覆盖设置。<b><i><color=#C04040E0>[需要重启生效]</color></i></b>
-ModUi/&SettingsLoad=•加载导出的设置
+ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>矮人腰带</color> <color=white>胡须出现几率</color>
+ModUi/&SettingsExport=出口
+ModUi/&SettingsHelp=• 作为主持人，您可以导出当前配置，打开导出文件夹并轻松与同事共享\n• 作为来宾，您可以打开导出文件夹，从主持人粘贴共享文件并通过<b><i><color=#C04040E0>[需要重启]</color></i></b>加载它
+ModUi/&SettingsLoad=• 加载导出的设置
 ModUi/&SettingsOpenFolder=打开导出的设置文件夹
 ModUi/&SettingsRefresh=刷新
-ModUi/&SettingsRemove=移除
-ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[测试]</color></b>显示按钮，打开有关受控怪物的信息<i><color=#F0DAA0>[荒野形态德鲁伊、召唤物、NPC追随者等。]</color></i>
-ModUi/&ShowChannelDivinityOnPortrait=在英雄头像上显示<color=#D89555>引导神力</color>次数，类似于法术位
-ModUi/&ShowCraftedItemOnRecipeIcon=在商店和库存中的配方项目附近显示制作的项目图标 <i><color=#F0DAA0>[将鼠标悬停在它上面将显示制作物品的工具提示]</color></i>
+ModUi/&SettingsRemove=消除
+ModUi/&ShowButtonWithControlledMonsterInfo=显示打开有关控制怪物的信息的按钮<i><color=#F0DAA0>[野性德鲁伊、召唤物、NPC 追随者等]</color></i>
+ModUi/&ShowChannelDivinityOnPortrait=在英雄肖像上显示其拥有多少次<color=#D89555>引导神性</color>，类似于魔法点数
+ModUi/&ShowCraftedItemOnRecipeIcon=在商店和库存中的配方物品附近显示制作物品图标<i><color=#F0DAA0>[将鼠标悬停在其上将显示制作物品的工具提示]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细的工具提示中显示制作配方
-ModUi/&ShowDescriptions=显示说明
+ModUi/&ShowDescriptions=显示描述
 ModUi/&ShowMotionFormPreview=显示<b>推</b>和<b>拉</b>效果的预览
-ModUi/&SpellLevelFilter=<b><i><color=white>法术等级过滤器</color><color=#F0DAA0>[-1 显示全部]</color></i></b>
+ModUi/&SpellLevelFilter=<b><i><color=white>法术等级过滤器</color> <color=#F0DAA0>[-1 显示全部]</color></i></b>
 ModUi/&SpellsMenu=法术
-ModUi/&StealthBreaksWhenAttackHits=当武器或法术攻击命中时启用隐匿损失
-ModUi/&StealthBreaksWhenAttackMisses=当武器或法术攻击未命中时启用隐匿损失
+ModUi/&StealthBreaksWhenAttackHits=当武器或法术攻击命中时，隐身效果消失
+ModUi/&StealthBreaksWhenAttackMisses=当武器或法术攻击未命中时，隐身效果会消失
 ModUi/&StealthBreaksWhenCastingMaterial=施放<color=#D89555>材料</color>时启用隐身损失<i><color=#F0DAA0>[任何以全部或敌人为目标的非攻击性法术]</color></i>
 ModUi/&StealthBreaksWhenCastingSomatic=施放 <color=#D89555>Somatic</color> 时启用隐身丧失 <i><color=#F0DAA0>[任何以全部或敌人为目标的非攻击性法术]</color></i>
 ModUi/&StealthBreaksWhenCastingVerbose=施放<color=#D89555>口头</color>时启用隐身丧失<i><color=#F0DAA0>[任何以全部或敌人为目标的非攻击性法术]</color></i>
 ModUi/&StealthDoesNotBreakWithSubtle=如果 <color=#D89555>Subtle Metamagic</color> 且没有 <b>Material</b> 组件，则启用隐身而不是滚动
-ModUi/&StockGorimStoreWithAllNonMagicalClothing=格罗姆的商店出售所有非魔法服装<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&StockGorimStoreWithAllNonMagicalInstruments=格罗姆的商店出售所有非魔法乐器<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店将<color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color>和<color=#D89555>短棒</color>设置为法器项目
-ModUi/&Subclasses=<color=#F0DAA0>子职</color>
+ModUi/&StockGorimStoreWithAllNonMagicalClothing=将 Gorim 商店中的所有非魔法服装都存入库存<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&StockGorimStoreWithAllNonMagicalInstruments=将所有非魔法乐器存入 Gorim 商店<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&StockHugoStoreWithAdditionalFoci=将 <color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color> 和 <color=#D89555>棍棒</color> 设置为焦点物品，放入 Hugo 的商店
+ModUi/&Subclasses=<color=#F0DAA0>子类</color>
 ModUi/&Subraces=<color=#F0DAA0>亚种</color>
-ModUi/&SwapCraftedItemAndRecipeIcons=<i>+在商店中交换配方和制作的物品图标</i>
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 在商店中交换配方和制作物品图标</i>
 ModUi/&TargetLanguage=目标语言
 ModUi/&TotalCraftingTimeModifier=<color=white>减少制作时间</color>
-ModUi/&TotalFeatsGrantedFirstLevel=<color=white>一级授予的专长总数</color>
+ModUi/&TotalFeatsGrantedFirstLevel=<color=white>第一级授予的<color=#D89555>功绩</color>总数</color>
 ModUi/&Translate=翻译
-ModUi/&TranslateCancel=取消翻译 {0} 进度 {1}
+ModUi/&TranslateCancel=于 {1} 取消 {0}
 ModUi/&Translations=翻译
-ModUi/&UnleashEnemyAsNpc=允许在NPC小工具上选择怪物
+ModUi/&UnleashEnemyAsNpc=允许在 NPC 小工具上选择怪物
 ModUi/&UnleashNpcAsEnemy=解锁怪物选择
 ModUi/&Update=<b><color=#D89555>更新</color></b>
-ModUi/&UseAlternateSpellPointsSystem=使用官方<color=#D89555>变体法术点</color>规则
+ModUi/&UseAlternateSpellPointsSystem=使用<color=#D89555>变体法术点</color>规则
 ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[你拥有随着施法者等级提升而增加的法术点数池\nL01：<color=white>04</color> L02：<color=white>06</color> L03：<color=white>14</color> L04：<color=white>17</color> L05：<color=white>27</color> L06：<color=white>32</color> L07：<color=white>38</color> L08：<color=white>44</color> L09：<color=white>57</color> L10：<color=white>64</color>\nL11：<color=white>73</color> L12：<color=white>73</color> L13：<color=white>83</color> L14：<color=white>83</color> L15：<color=white>94</color> L16：<color=white>94</color> L17：<color=white>107</color> L18：<color=white>114</color> L19：<color=white>123</color> L20：<color=white>133</color>\n施放法术的费用为 SL1：<color=white>2</color> SL2：<color=white>3</color> SL3：<color=white>5</color> SL4：<color=white>6</color> SL5：<color=white>7</color> SL6：<color=white>9</color> SL7：<color=white>10</color> SL8：<color=white>11</color> SL9：<color=white>13</color>\n在此系统下不会触发短暂休息槽恢复功能]</color></i>
-ModUi/&UseElfFaceModelsOnTieflings=在<color=#D89555>提夫林</color>上使用<color=#D89555>精灵</color>的面部模型
-ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、纠缠、油腻</color><i><color=#F0DAA0>[方形]</color></i>或<color=#D89555>荆棘丛生</color><i><color=#F0DAA0>[圆形]</color></i>时使用高度为1的立体效果
-ModUi/&UseMathFlankingRules=<i>+ 使用精确的数学来确定侧翼 <color=#F0DAA0>[可能会对慢速机器产生性能影响]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方 DnD 优势/劣势规则<i><color=#F0DAA0>[如果同时具有优势和劣势，则视为既没有优势也没有劣势]</color></i>
-ModUi/&UseOfficialFlankingRules=使用官方 DnD 夹击规则<i><color=#F0DAA0>[如果与盟友前后夹击，攻击具有优势]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 还可以进行远程攻击<color=#F0DAA0>[禁用精确数学]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 还启用触及攻击<color=#F0DAA0>[禁用精确数学]</color></i>
-ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 将优势改为 +1 攻击掷骰</i>
-ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到 2 磅
-ModUi/&UseOfficialObscurementRules=使用官方<color=#D89555>照明、遮蔽和视觉</color>战斗规则
+ModUi/&UseElfFaceModelsOnTieflings=在 <color=#D89555>Tieflings</color> 上使用 <color=#D89555>Elf</color> 面部模型
+ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、缠绕、油脂</color> <i><color=#F0DAA0>[square]</color></i>或<color=#D89555>尖刺生长</color> <i><color=#F0DAA0>[round]</color></i>时使用高度为 1 的圆柱体效果
+ModUi/&UseMathFlankingRules=<i>+ 使用精确的数学运算来确定侧翼进攻<color=#F0DAA0>[可能会对速度较慢的机器产生性能影响]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=使用<color=#D89555>优势/劣势</color>规则<i><color=#F0DAA0>[如果情况导致掷骰结果同时存在两种情况，则视为你同时不存在这两种情况]</color></i>
+ModUi/&UseOfficialFlankingRules=使用<color=#D89555>侧翼进攻</color>规则<i><color=#F0DAA0>[如果盟友位于目标的另一侧，则攻击者具有优势]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 还启用远程攻击<color=#F0DAA0>[禁用精确数学]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 还启用延伸攻击 <color=#F0DAA0>[禁用精确数学]</color></i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 授予攻击掷骰 +1，而非优势</i>
+ModUi/&UseOfficialFoodRationsWeight=使用重量为 2 磅的<color=#D89555>食物配给</color>
+ModUi/&UseOfficialObscurementRules=使用<color=#D89555>照明、遮蔽和视觉</color>战斗规则
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[能感知到防御者但无法感知到攻击者的防御者会获得 ADV，无法感知到攻击者但可以感知到防御者会获得 DIS\n 被严重遮挡的区域会造成致盲状态，对生物的攻击掷骰获得 ADV，而生物的攻击掷骰获得 DIS\n 如果攻击者没有视力，则无法施放针对个人的所有远距离法术，除了那些明确未说明需要视力的法术]</color></i>
-ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型体型种族规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
-ModUi/&WildSurgeDieRollThreshold=<color=white>设置<color=#D89555>巫师狂野魔法</color>几率骰子阈值：</color>{0}<i><color=#F0DAA0>[如果掷出的骰子小于或等于阈值，则触发狂野涌动]</color></i>
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时遵守<color=#D89555>小型种族</color>规则<i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
+ModUi/&WildSurgeDieRollThreshold=<color=white>设置<color=#D89555>巫师狂野魔法</color>几率骰子阈值：</color>{99><i><color=#F0DAA0>[如果掷出的骰子小于或等于阈值，则触发狂野涌动]</color></i>

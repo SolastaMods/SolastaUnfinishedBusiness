@@ -78,7 +78,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .AddCustomSubFeatures(
                 new MagicEffectFinishedByMePressTheAdvantage(),
                 new RestrictReactionAttackMode((_, attacker, _, mode, _) =>
-                    mode != null && // IsWeaponOrUnarmedAttack
+                    ValidatorsWeapon.IsMelee(mode) &&
                     attacker.OnceInMyTurnIsValid(PressTheAdvantageMarker) &&
                     attacker.RulesetCharacter.IsToggleEnabled(PressTheAdvantageToggle)))
             .AddToDB();
@@ -554,7 +554,8 @@ public sealed class MartialWarlord : AbstractSubclass
             var actionParams = action.actionParams;
 
             // non-reaction melee hits only
-            if (attackMode.ranged || rollOutcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
+            if (!ValidatorsWeapon.IsMelee(attackMode) ||
+                rollOutcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
                 actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
             {
                 yield break;

@@ -74,54 +74,11 @@ internal static class ItemsAndCraftingDisplay
 
     internal static void DisplayItemsAndCrafting()
     {
-        DisplayGeneral();
         DisplayCrafting();
         DisplayFactionRelations();
         DisplayItems();
         DisplayMerchants();
         UI.Label();
-    }
-
-    private static void DisplayGeneral()
-    {
-        UI.Label();
-        UI.Label();
-
-        var toggle = Main.Settings.AddPickPocketableLoot;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddPickPocketableLoot = toggle;
-            if (toggle)
-            {
-                PickPocketContext.Load();
-            }
-        }
-
-        UI.Label();
-
-        var intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
-        if (UI.Slider(Gui.Localize("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
-                0, 100, 50, "%", UI.Width(500f)))
-        {
-            Main.Settings.SetBeltOfDwarvenKindBeardChances = intValue;
-            ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
-        }
-
-        UI.Label();
-
-        using (UI.HorizontalScope())
-        {
-            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325f));
-
-            intValue = Main.Settings.EmpressGarbAppearanceIndex;
-            // ReSharper disable once InvertIf
-            if (UI.SelectionGrid(ref intValue, ItemCraftingMerchantContext.EmpressGarbAppearances,
-                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width(440f)))
-            {
-                Main.Settings.EmpressGarbAppearanceIndex = intValue;
-                GameUiContext.SwitchEmpressGarb();
-            }
-        }
     }
 
     private static void DisplayCrafting()
@@ -148,16 +105,14 @@ internal static class ItemsAndCraftingDisplay
             CraftingContext.UpdateRecipeCost();
         }
 
-        UI.Label();
-        UI.Label(Gui.Localize("ModUi/&CraftingHelp"));
-        UI.Label();
-
         intValue = Main.Settings.TotalCraftingTimeModifier;
         if (UI.Slider(Gui.Localize("ModUi/&TotalCraftingTimeModifier"), ref intValue, 0, 100, 0, "%", UI.AutoWidth()))
         {
             Main.Settings.TotalCraftingTimeModifier = intValue;
         }
 
+        UI.Label();
+        UI.Label(Gui.Localize("ModUi/&CraftingHelp"));
         UI.Label();
 
         using (UI.HorizontalScope(UI.AutoWidth()))

@@ -287,7 +287,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                     attackModifier.AttacktoHitTrends,
                     false,
                     attackModifier.AttackAdvantageTrends,
-                    attackMode.ranged,
+                    attackMode.Ranged,
                     false,
                     attackModifier.AttackRollModifier,
                     out var outcome,

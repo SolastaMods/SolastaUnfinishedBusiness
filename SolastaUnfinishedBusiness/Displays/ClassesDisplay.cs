@@ -11,7 +11,7 @@ internal static class ClassesDisplay
     {
         UI.Label();
 
-        UI.ActionButton("Classes Docs".Bold().Khaki(),
+        UI.ActionButton(Gui.Localize("ModUi/&DocsClasses").Bold().Khaki(),
             () => UpdateContext.OpenDocumentation("Classes.md"), UI.Width(150f));
 
         UI.Label();

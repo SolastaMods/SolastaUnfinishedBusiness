@@ -15,8 +15,8 @@ internal static class SpellsDisplay
     {
         UI.Label();
 
-        UI.ActionButton("Spells docs".Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("Spells.md"), UI.Width(200f));
+        UI.ActionButton(Gui.Localize("ModUi/&DocsSpells").Bold().Khaki(),
+            () => UpdateContext.OpenDocumentation("Spells.md"), UI.Width(150f));
 
         UI.Label();
 

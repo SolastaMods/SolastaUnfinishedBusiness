@@ -567,19 +567,6 @@ internal sealed class EncountersViewer : IMenuSelectablePage
 }
 
 [UsedImplicitly]
-internal sealed class TranslationsViewer : IMenuSelectablePage
-{
-    public string Name => Gui.Localize("ModUi/&Translations");
-
-    public int Priority => 400;
-
-    public void OnGUI(UnityModManager.ModEntry modEntry)
-    {
-        DisplayTranslations();
-    }
-}
-
-[UsedImplicitly]
 internal sealed class CreditsAndDiagnosticsViewer : IMenuSelectablePage
 {
     private int _creditsSelectedPane;

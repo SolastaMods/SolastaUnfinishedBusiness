@@ -1093,10 +1093,10 @@ internal static class GambitsBuilders
             attackModeCopy.SourceDefinition = concealedDagger;
             attackModeCopy.EffectDescription = concealedDagger.WeaponDescription.EffectDescription;
             attackModeCopy.AttackTags.SetRange(concealedDagger.WeaponDescription.WeaponTags);
-            attackModeCopy.closeRange = DaggerCloseRange;
-            attackModeCopy.maxRange = 12;
-            attackModeCopy.thrown = true;
-            attackModeCopy.ranged = true;
+            attackModeCopy.CloseRange = DaggerCloseRange;
+            attackModeCopy.MaxRange = 12;
+            attackModeCopy.Thrown = true;
+            attackModeCopy.Ranged = true;
             attackModeCopy.EffectDescription.EffectForms.RemoveAll(x =>
                 x.FormType == EffectForm.EffectFormType.Damage);
             attackModeCopy.EffectDescription.EffectForms.AddRange(

@@ -78,6 +78,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from oth
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Display <color=#D89555>Warlock</color> pact slots on spell selection instead of character panel</i>
 ModUi/&DocsArcaneShots=Arcane Shots
 ModUi/&DocsBackgrounds=Backgrounds
+ModUi/&DocsClasses=Classes
 ModUi/&DocsFeats=Feats
 ModUi/&DocsFightingStyles=Fighting Styles
 ModUi/&DocsInfusions=Infusions
@@ -189,7 +190,7 @@ ModUi/&FormationResetAllSets=Reset all
 ModUi/&FormationResetThisSet=Reset this
 ModUi/&FormationSelected=Formation set {0} selected
 ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
-ModUi/&GameUi=Game UI
+ModUi/&GameUi=Campaigns
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
@@ -224,7 +225,7 @@ ModUi/&ModifyGravitySlam=<i>+ Modify <color=#D89555>Gravity Slam</color> spell t
 ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiply the movement grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
-ModUi/&Multiplayer=#F0DAA0>Multiplayer:</color>
+ModUi/&Multiplayer=<color=#F0DAA0>Multiplayer:</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Camera never moves during enemy turns</i>
 ModUi/&NoExperienceOnLevelUp=No experience is required to level up

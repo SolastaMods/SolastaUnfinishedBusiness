@@ -740,7 +740,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     attackModifier.AttacktoHitTrends,
                     attackModifier.IgnoreAdvantage,
                     attackModifier.AttackAdvantageTrends,
-                    attackMode.ranged,
+                    attackMode.Ranged,
                     false,
                     attackModifier.AttackRollModifier,
                     out var outcome,
