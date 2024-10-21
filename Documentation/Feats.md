@@ -195,7 +195,7 @@ When you are wielding a melee weapon with which you are proficient and another c
 
 Your melee attacks are especially deadly. You gain the following benefits:
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
-• Once per turn, when you hit a creature with a melee weapon attack, you deal additional damage equal to your proficiency bonus.
+• Once per turn, when you hit a creature with a melee weapon or unarmed attack, you deal additional damage equal to your proficiency bonus.
 • Whenever you land a critical hit with a melee weapon, you roll an additional weapon die and ignore target creature's resistances for that attack.
 
 # 40. - Discretion of the Coedymwarth [SOL]
@@ -356,7 +356,7 @@ You've manifested some of the power of chromatic dragons, granting you the follo
 # 71. - Gift of the Gem Dragon [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-• When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature takes 2d8 force damage, is pushed up to 10 feet away from you, and is forced prone. On a successful save, the creature takes half as much damage and isn't pushed. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+• When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature takes 2d8 force damage, is pushed up to 10 feet away from you, and is forced prone. On a successful save, the creature takes half as much damage and isn't pushed nor forced prone. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
 
 # 72. - Grappler [UB]
 

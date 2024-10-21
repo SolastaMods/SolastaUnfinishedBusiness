@@ -5,8 +5,8 @@
 - added key bindings for Select Character 5, Select Character 6, and Hide action [official UI keyboard section]
 - fixed Armor of Agathys damage determination, and consideration on reach attacks
 - fixed campaigns translator missing lore operations [i.e.: learn/unlearn/un-chart locations]
-- fixed Circle of Wildfire cauterizing flames not triggering on actor move step
 - fixed Chromatic Dragon power not tracking any usages instead of PB per long rest
+- fixed Circle of Wildfire cauterizing flames not triggering on actor move step
 - fixed Defensive Duelist validating attacker wielded weapons instead of feat owner to present reaction
 - fixed Elemental Adept, and Elemental Master to reroll all damage dice of type instead of first instance only
 - fixed Enhanced Bond, Mind Sculpt, Power Surge, and Radiant Soul effect range type damage determination
