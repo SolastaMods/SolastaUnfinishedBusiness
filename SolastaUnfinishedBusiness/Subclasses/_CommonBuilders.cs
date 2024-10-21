@@ -178,7 +178,7 @@ internal static class CommonBuilders
             if (Gui.Battle == null ||
                 action.ActionType is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus) ||
                 action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                (!Main.Settings.EnableCantripsTriggeringOnWarMagic &&
+                (!Main.Settings.AllowCantripsTriggeringOnWarMagic &&
                  rulesetEffectSpell.SpellDefinition.SpellLevel <= 0))
             {
                 yield break;

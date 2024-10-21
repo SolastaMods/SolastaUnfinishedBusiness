@@ -206,8 +206,6 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=不需要空闲的手来使用手弩
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻术法术对范围内<color=#D89555>真实视觉</color>的目标自动失败
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=将最大<color=#D89555>协调物品</color>增加至 10 级时的 4 个和 18 级时的 5 个
-ModUi/&InitialChoices=<color=#F0DAA0>创作：</color>
-ModUi/&Interface=界面
 ModUi/&InventoryAndItems=<color=#F0DAA0>库存和物品：</color>
 ModUi/&Invocations=<color=#F0DAA0>祈唤</color>
 ModUi/&ItemInDm=地城中的项目
@@ -226,6 +224,7 @@ ModUi/&ModifyGravitySlam=<i>+ 修改<color=#D89555>重力猛击</color>法术，
 ModUi/&Monsters=<color=#F0DAA0>怪物：</color>
 ModUi/&MovementGridWidthModifier=<color=white>将移动格子宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>点击法术会反转消耗的默认曲目槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color>消耗白色法术位，其他职业消耗绿色的]</color></i>
+ModUi/&Multiplayer=#F0DAA0>多人游戏：</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>乘以获得的经验</color><color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敌人回合时镜头永不移动</i>
 ModUi/&NoExperienceOnLevelUp=升级不需要经验
@@ -243,7 +242,6 @@ ModUi/&OverridePartySize=<color=white>覆盖队伍规模</color>
 ModUi/&Patches=<color=#F0DAA0>补丁：</color>
 ModUi/&PortraitsOpenFolder=打开肖像文件夹
 ModUi/&PrimedItems=制备好的物品
-ModUi/&Progression=<color=#F0DAA0>进度：</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=启用快速施放<color=#D89555>Light Cantrip</color>以首先使用头部、颈部或躯干穿戴的物品
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=对<color=#D89555>黑暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>光照敏感</color>仅在室外触发\n<i><color=#F0DAA0>[无需加载屏幕即可访问的室外位置的室内区域被游戏引擎视为室外]</color></i>
 ModUi/&Races=<color=#F0DAA0>种族</color>
@@ -299,7 +297,6 @@ ModUi/&Subclasses=<color=#F0DAA0>子职</color>
 ModUi/&Subraces=<color=#F0DAA0>亚种</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+在商店中交换配方和制作的物品图标</i>
 ModUi/&TargetLanguage=目标语言
-ModUi/&Tools=工具
 ModUi/&TotalCraftingTimeModifier=<color=white>减少制作时间</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>一级授予的专长总数</color>
 ModUi/&Translate=翻译

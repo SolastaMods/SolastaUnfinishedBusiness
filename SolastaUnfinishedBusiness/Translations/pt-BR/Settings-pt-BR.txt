@@ -206,8 +206,6 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Não é necessário ter mão livre par
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Feitiços de ilusão falham automaticamente contra alvos com <color=#D89555>TrueSight</color> ao alcance
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
 ModUi/&IncreaseMaxAttunedItems=Aumentar o máximo de <color=#D89555>Itens Sintonizados</color> para 4 no nível 10 e 5 no nível 18
-ModUi/&InitialChoices=<color=#F0DAA0>Criação:</color>
-ModUi/&Interface=Interface
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventário e itens:</color>
 ModUi/&Invocations=<color=#F0DAA0>Invocações</color>
 ModUi/&ItemInDm=Itens em DM
@@ -226,6 +224,7 @@ ModUi/&ModifyGravitySlam=<i>+ Modificar o feitiço <color=#D89555>Gravity Slam</
 ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de movimento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clicar em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam os verdes do pacto]</color></i>
+ModUi/&Multiplayer=#F0DAA0>Multijogador:</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ A câmera nunca se move durante os turnos do inimigo</i>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
@@ -243,7 +242,6 @@ ModUi/&OverridePartySize=<color=white>Substituir o tamanho do grupo</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Abra a pasta de retratos
 ModUi/&PrimedItems=Itens preparados
-ModUi/&Progression=<color=#F0DAA0>Progressão:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=Habilite o lançamento rápido <color=#D89555>Light Cantrip</color> para usar itens usados na cabeça, pescoço ou tronco primeiro
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Ative a <color=#D89555>Sensibilidade à Luz</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</color> para acionar apenas em ambientes externos\n<i><color=#F0DAA0>[áreas internas em locais externos acessíveis sem uma tela de carregamento são consideradas externas pelo mecanismo de jogo]</color></i>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
@@ -299,7 +297,6 @@ ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Sub-raças</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Trocar receitas e ícones de itens criados na loja</i>
 ModUi/&TargetLanguage=Idioma alvo
-ModUi/&Tools=Ferramentas
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduza o tempo de elaboração</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total de <color=#D89555>talentos</color> concedidos no primeiro nível</color>
 ModUi/&Translate=Traduzir

@@ -151,6 +151,15 @@ public class Settings : UnityModManager.ModSettings
     // Gameplay - Tools
     //
 
+    // Progression
+    public bool EnableEpicPointsAndArray { get; set; }
+    public bool EnableLevel20 { get; set; }
+    public bool EnableMulticlass { get; set; }
+    public int MaxAllowedClasses { get; set; }
+    public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
+    public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; }
+    public bool EnableMinInOutAttributes { get; set; }
+
     // General
     public bool DisableUnofficialTranslations { get; set; }
     public bool EnablePcgRandom { get; set; }
@@ -187,64 +196,6 @@ public class Settings : UnityModManager.ModSettings
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
         ]
     ];
-
-    //
-    // Gameplay - General
-    //
-
-    // Creation
-    public bool EnableFlexibleBackgrounds { get; set; }
-    public bool DisableSenseDarkVisionFromAllRaces { get; set; }
-    public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
-    public bool AddFallProneActionToAllRaces { get; set; }
-    public bool AddGrappleActionToAllRaces { get; set; }
-    public bool AddHelpActionToAllRaces { get; set; }
-    public bool EnableAlternateHuman { get; set; }
-    public bool EnableFlexibleRaces { get; set; }
-    public bool EnableEpicPointsAndArray { get; set; }
-    public int TotalFeatsGrantedFirstLevel { get; set; }
-    public bool DisableLevelPrerequisitesOnModFeats { get; set; }
-    public bool DisableRacePrerequisitesOnModFeats { get; set; }
-    public bool DisableCastSpellPreRequisitesOnModFeats { get; set; }
-
-    // Progression
-    public bool EnableLevel20 { get; set; }
-    public bool EnableMulticlass { get; set; }
-    public int MaxAllowedClasses { get; set; }
-    public bool EnableMinInOutAttributes { get; set; }
-    public bool EnableRelearnSpells { get; set; }
-    public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
-    public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; }
-    public bool EnablesAsiAndFeat { get; set; }
-    public bool EnableFeatsAtEveryFourLevels { get; set; }
-    public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
-    public bool EnableBardHealingBalladOnLongRest { get; set; }
-    public bool GrantScimitarSpecializationToBardRogue { get; set; }
-    public bool EnableBarbarianBrutalStrike { get; set; }
-    public bool DisableBarbarianBrutalCritical { get; set; }
-    public bool EnableBarbarianFightingStyle { get; set; }
-    public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
-    public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
-    public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
-    public bool EnableFighterWeaponSpecialization { get; set; }
-    public bool AddHumanoidFavoredEnemyToRanger { get; set; }
-    public bool EnableRangerNatureShroudAt10 { get; set; }
-    public bool EnableMonkAbundantKi { get; set; }
-    public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack { get; set; }
-    public bool EnableMonkDoNotRequireAttackActionForFlurry { get; set; }
-    public bool EnableMonkFightingStyle { get; set; }
-    public bool EnableMonkImprovedUnarmoredMovementToMoveOnTheWall { get; set; }
-    public bool EnableMonkHeightenedMetabolism { get; set; }
-    public bool EnableMonkSuperiorDefenseToReplaceEmptyBody { get; set; }
-    public bool EnableMonkBodyAndMindToReplacePerfectSelf { get; set; }
-    public bool EnableMonkWeaponSpecialization { get; set; }
-    public bool EnableRogueCunningStrike { get; set; }
-    public bool EnableRogueFightingStyle { get; set; }
-    public bool EnableRogueSteadyAim { get; set; }
-    public bool EnableRogueStrSaving { get; set; }
-    public bool EnableSorcererMagicalGuidance { get; set; }
-    public bool EnableSorcererQuickenedAction { get; set; }
-    public bool HideQuickenedActionWhenMetamagicOff { get; set; }
 
     //
     // Gameplay - Rules
@@ -289,6 +240,11 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableOneDndHealingSpellsBuf { get; set; }
 
     // House
+    public int TotalFeatsGrantedFirstLevel { get; set; }
+    public bool EnablesAsiAndFeat { get; set; }
+    public bool EnableFeatsAtEveryFourLevels { get; set; }
+    public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
+    public bool EnableRelearnSpells { get; set; }
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
     public bool IdentifyAfterRest { get; set; }
     public bool IncreaseMaxAttunedItems { get; set; }
@@ -299,20 +255,17 @@ public class Settings : UnityModManager.ModSettings
     public bool StealthDoesNotBreakWithSubtle { get; set; }
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
     public bool AllowBladeCantripsToUseReach { get; set; }
+    public bool AllowCantripsTriggeringOnWarMagic { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
-    public bool EnableCantripsTriggeringOnWarMagic { get; set; }
-    public bool RemoveSchoolRestrictionsFromShadowCaster { get; set; }
-    public bool RemoveSchoolRestrictionsFromSpellBlade { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
-    public bool AllowDruidToWearMetalArmor { get; set; }
     public bool AllowClubsToBeThrown { get; set; }
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
+    public bool EnableGauntletMainAttacks { get; set; }
     public int WildSurgeDieRollThreshold { get; set; } = 2;
     public bool AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness { get; set; }
     public bool ChangeDragonbornElementalBreathUsages { get; set; }
-    public bool EnableSignatureSpellsRelearn { get; set; }
     public bool AccountForAllDiceOnFollowUpStrike { get; set; }
     public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowFlightSuspend { get; set; }
@@ -325,8 +278,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableTeleportToRemoveRestrained { get; set; }
     public bool ColdResistanceAlsoGrantsImmunityToChilledCondition { get; set; }
     public bool ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition { get; set; }
-    public bool AddDarknessPerceptiveToDarkRaces { get; set; }
-    public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
     public int SenseNormalVisionRangeMultiplier { get; set; } = 1;
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }
@@ -335,16 +286,14 @@ public class Settings : UnityModManager.ModSettings
     //
     // Gameplay - Items, Crafting & Merchants
     //
-    public bool AddNewWeaponsAndRecipesToShops { get; set; }
-    public bool EnableMonkHandwrapsUseGauntletSlot { get; set; }
-    public bool EnableGauntletMainAttacks { get; set; }
+
     public bool AddPickPocketableLoot { get; set; }
-    public int RecipeCost { get; set; } = 200;
-    public int TotalCraftingTimeModifier { get; set; }
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
     public int EmpressGarbAppearanceIndex { get; set; }
 
     // Crafting
+    public int RecipeCost { get; set; } = 200;
+    public int TotalCraftingTimeModifier { get; set; }
     public List<string> CraftingInStore { get; } = [];
     public List<string> CraftingItemsInDm { get; } = [];
     public List<string> CraftingRecipesInDm { get; } = [];
@@ -361,22 +310,68 @@ public class Settings : UnityModManager.ModSettings
     public bool RestockTowerOfKnowledge { get; set; }
 
     //
-    // Characters - Races, Classes & Subclasses
+    // Characters - Classes
     //
 
+    public bool AddFallProneActionToAllRaces { get; set; }
+    public bool AddGrappleActionToAllRaces { get; set; }
+    public bool AddHelpActionToAllRaces { get; set; }
+    public bool AllowDruidToWearMetalArmor { get; set; }
+    public bool EnableSignatureSpellsRelearn { get; set; }
+    public bool GrantScimitarSpecializationToBardRogue { get; set; }
+    public bool EnableBarbarianBrutalStrike { get; set; }
+    public bool DisableBarbarianBrutalCritical { get; set; }
+    public bool EnableBarbarianFightingStyle { get; set; }
+    public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
+    public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
+    public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
+    public bool EnableFighterWeaponSpecialization { get; set; }
+    public bool AddHumanoidFavoredEnemyToRanger { get; set; }
+    public bool EnableRangerNatureShroudAt10 { get; set; }
+    public bool EnableMonkAbundantKi { get; set; }
+    public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack { get; set; }
+    public bool EnableMonkDoNotRequireAttackActionForFlurry { get; set; }
+    public bool EnableMonkFightingStyle { get; set; }
+    public bool EnableMonkImprovedUnarmoredMovementToMoveOnTheWall { get; set; }
+    public bool EnableMonkHandwrapsUseGauntletSlot { get; set; }
+    public bool EnableMonkHeightenedMetabolism { get; set; }
+    public bool EnableMonkSuperiorDefenseToReplaceEmptyBody { get; set; }
+    public bool EnableMonkBodyAndMindToReplacePerfectSelf { get; set; }
+    public bool EnableMonkWeaponSpecialization { get; set; }
+    public bool EnableRogueCunningStrike { get; set; }
+    public bool EnableRogueFightingStyle { get; set; }
+    public bool EnableRogueSteadyAim { get; set; }
+    public bool EnableRogueStrSaving { get; set; }
+    public bool EnableSorcererMagicalGuidance { get; set; }
+    public bool EnableSorcererQuickenedAction { get; set; }
+    public bool HideQuickenedActionWhenMetamagicOff { get; set; }
+
+    //
+    // Characters - Backgrounds, Races & Subraces
+    //
+
+    public bool EnableFlexibleBackgrounds { get; set; }
+    public bool DisableSenseDarkVisionFromAllRaces { get; set; }
+    public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
+    public bool AddDarknessPerceptiveToDarkRaces { get; set; }
+    public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
+    public bool EnableAlternateHuman { get; set; }
+    public bool EnableFlexibleRaces { get; set; }
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = [];
     public int SubraceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> SubraceEnabled { get; } = [];
     public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> BackgroundEnabled { get; } = [];
-    public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
-    public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];
+
 
     //
     // Characters - Feats, Groups, Fighting Styles, Invocations and Metamagic
     //
 
+    public bool DisableLevelPrerequisitesOnModFeats { get; set; }
+    public bool DisableRacePrerequisitesOnModFeats { get; set; }
+    public bool DisableCastSpellPreRequisitesOnModFeats { get; set; }
     public int FeatSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> FeatEnabled { get; } = [];
     public int FeatGroupSliderPosition { get; set; } = ModUi.DontDisplayDescription;
@@ -396,6 +391,16 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowDisplayingNonSuggestedSpells { get; set; }
     public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = [];
+
+    //
+    // Characters - Subclasses
+    //
+
+    public bool EnableBardHealingBalladOnLongRest { get; set; }
+    public bool RemoveSchoolRestrictionsFromShadowCaster { get; set; }
+    public bool RemoveSchoolRestrictionsFromSpellBlade { get; set; }
+    public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
+    public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];
 
     //
     // Interface - Game UI
@@ -438,6 +443,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Inventory and Items
     public bool AddCustomIconsToOfficialItems { get; set; }
+    public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool DisableAutoEquip { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
@@ -477,14 +483,14 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableEnemiesControlledByPlayer { get; set; }
     public bool EnableHeroesControlledByComputer { get; set; }
 
+    //
     // Debug
+    //
+
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
 
 #if DEBUG
     public int WildSurgeEffectDie { get; set; }
-#endif
-
-#if DEBUG
     public bool DebugLogDefinitionCreation { get; set; }
     public bool DebugLogFieldInitialization { get; set; }
     public bool DebugLogVariantMisuse { get; set; }

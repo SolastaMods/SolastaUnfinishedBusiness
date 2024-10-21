@@ -12,13 +12,45 @@ internal static class SubclassesDisplay
         UI.Label();
 
         UI.ActionButton("Sub Classes Docs".Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(200f));
+            () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(150f));
+
+        UI.Label();
+
+        var toggle = Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
+            CharacterContext.SwitchBardHealingBalladOnLongRest();
+        }
+
+        toggle = Main.Settings.RemoveSchoolRestrictionsFromShadowCaster;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromShadowCaster"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveSchoolRestrictionsFromShadowCaster = toggle;
+            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromShadowCaster();
+        }
+
+        toggle = Main.Settings.RemoveSchoolRestrictionsFromSpellBlade;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromSpellBlade"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveSchoolRestrictionsFromSpellBlade = toggle;
+            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromSpellBlade();
+        }
 
         UI.Label();
 
         using (UI.HorizontalScope())
         {
-            var toggle = Main.Settings.DisplayKlassToggle.All(x => x.Value);
+            toggle = Main.Settings.DisplayKlassToggle.All(x => x.Value);
             if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
                 foreach (var key in Main.Settings.DisplayKlassToggle.Keys.ToHashSet())

@@ -206,8 +206,6 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas d'avoir les mains li
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Les sorts d'illusion échouent automatiquement contre les cibles avec <color=#D89555>TrueSight</color> à portée.
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmentez le nombre maximum d'<color=#D89555>objets adaptés</color> à 4 au niveau 10 et 5 au niveau 18.
-ModUi/&InitialChoices=<color=#F0DAA0>Création :</color>
-ModUi/&Interface=Interface
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventaire et articles :</color>
 ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&ItemInDm=Articles en DM
@@ -226,6 +224,7 @@ ModUi/&ModifyGravitySlam=<i>+ Modifier le sort <color=#D89555>Gravity Slam</colo
 ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des verts du pacte]</color></i>
+ModUi/&Multiplayer=#F0DAA0>Multijoueur :</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La caméra ne bouge jamais pendant les tours ennemis</i>
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour passer au niveau supérieur
@@ -243,7 +242,6 @@ ModUi/&OverridePartySize=<color=white>Remplacer la taille du groupe</color>
 ModUi/&Patches=<color=#F0DAA0>Corrections :</color>
 ModUi/&PortraitsOpenFolder=Ouvrir le dossier des portraits
 ModUi/&PrimedItems=Articles préparés
-ModUi/&Progression=<color=#F0DAA0>Progression :</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=Activez l'incantation rapide <color=#D89555>Cantrip léger</color> pour utiliser d'abord les objets portés sur la tête, le cou ou le torse
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Activez la <color=#D89555>Sensibilité à la lumière</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Grey Dwarf</color> pour déclencher uniquement en extérieur\n<i><color=#F0DAA0>[les zones intérieures des emplacements extérieurs accessibles sans écran de chargement sont considérées comme extérieures par le moteur de jeu]</color></i>
 ModUi/&Races=<color=#F0DAA0>Courses</color>
@@ -299,7 +297,6 @@ ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
 ModUi/&Subraces=<color=#F0DAA0>Sous-accolades</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
 ModUi/&TargetLanguage=Langue cible
-ModUi/&Tools=Outils
 ModUi/&TotalCraftingTimeModifier=<color=white>Réduisez le temps de fabrication de</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total des <color=#D89555>exploits</color> accordés au premier niveau</color>
 ModUi/&Translate=Traduire

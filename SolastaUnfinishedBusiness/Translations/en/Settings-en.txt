@@ -6,10 +6,10 @@ ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Add DEX modifier to enemies <color=#D89555>Initiative Roll</color>
 ModUi/&AddFallProneActionToAllRaces=Add the <color=#D89555>Fall Prone</color> action to all classes <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=Add the class level as a bonus to <b>Indomitable Resistance</b> saving throw reroll
+ModUi/&AddFighterLevelToIndomitableSavingReroll=Add the class level as a bonus to <color=#D89555>Indomitable Resistance</color> saving throw reroll
 ModUi/&AddGrappleActionToAllRaces=Add the <color=#D89555>Grapple</color> action to all classes
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all classes <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <b>Humanoid</b> preferred enemies
+ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Humanoid</color> preferred enemies
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
 ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
@@ -67,10 +67,10 @@ ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's tot
 ModUi/&Deities=<color=#F0DAA0>Deities</color>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Also disable <b>Brutal Critical</b> at levels 9, 13 and 17</i>
-ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on <color=#D89555>feats</color> provided by this mod <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on <color=#D89555>feats</color> provided by this mod
+ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on mod <color=#D89555>feats</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on <color=#D89555>feats</color>
 ModUi/&DisableMultilineSpellOffering=Disable multi-line spell offering on action bar <i><color=#F0DAA0>[mainly for controller users using non multicaster heroes]</color></i>
-ModUi/&DisableRacePrerequisitesOnModFeats=Disable race pre-requisites on <color=#D89555>feats</color> provided by this mod
+ModUi/&DisableRacePrerequisitesOnModFeats=Disable race pre-requisites on <color=#D89555>feats</color>
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableUnofficialTranslations=Disable unofficial translations support to speed up mod <i><color=#F0DAA0>[unless I speak Chinese, Italian, Japanese, Korean or Spanish]</color></i>
@@ -103,14 +103,14 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits 
 ModUi/&EnableAdditionalItemsInDungeonMaker=Add modded items to Editor
 ModUi/&EnableAlternateHuman=Enable the alternate <color=#D89555>Human</color> <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
 ModUi/&EnableAlternateVotingSystem=Enable alternate voting system <i><color=#F0DAA0>[choice weight = votes * hero Charisma modifier]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Enable <b>Brutal Strike</b> and <b>Brutal Strike Improvement</b> at levels 9, 13 and 17
-ModUi/&EnableBarbarianFightingStyle=Enable <b>Fighting Style</b> choice at level 2
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <b>Reckless Attack</b> buff and debuff to finish at start of next turn
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <b>Rage</b> use over a short rest at level 7
+ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Brutal Strike</color> and <color=#D89555>Brutal Strike Improvement</color> at levels 9, 13 and 17
+ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 7
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <color=#D89555>Bard College of Hope</color> <b>Healing Ballad</b> on long rest
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
-ModUi/&EnableCantripsTriggeringOnWarMagic=Enable cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
+ModUi/&EnableCantripsTriggeringOnWarMagic=Allow cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
 ModUi/&EnableCharactersOnFireToEmitLight=Characters <color=#D89555>On Fire</color> should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCustomPortraits=Enable <color=#D89555>Custom Portraits</color>
 ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i>
@@ -120,7 +120,7 @@ ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i
 ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable <color=#D89555>feats</color> selection at levels 2, 10 and 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selection at levels 6 and 14
-ModUi/&EnableFighterWeaponSpecialization=Enable <b>Weapon Specialization</b> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
 ModUi/&EnableGauntletMainAttacks=Allow <b>Unarmed Attack</b> with main action for character if a <color=#D89555>Monk</color> or has <b>Handwraps</b> or <b>Gauntlet</b> equipped
@@ -133,29 +133,29 @@ ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Enable logging invalid references in custom campaigns
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
-ModUi/&EnableMonkAbundantKi=Enable <b>Abundant Ki</b> at level 2 <i><color=#F0DAA0>[gain additional Ki equals to half the proficiency bonus rounded up]</color></i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Enable <b>Body and Mind</b> to replace <b>Perfect Self</b> at level 20
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Enable <b>Martial Arts - Bonus Unarmed Strikes</b> to not require an attack action before usage
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Enable <b>Flurry of Blows</b> to not require an attack action before usage
-ModUi/&EnableMonkFightingStyle=Enable <b>Fighting Style</b> choice at level 2
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=Enable <color=#D89555>Monk</color> <b>handwraps</b> and <b>gauntlets</b> to work in gauntlet slot
-ModUi/&EnableMonkHeightenedMetabolism=Enable <b>Heightened Metabolism</b> at level 10 <i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional benefits]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <b>Improved Unarmored Movement</b> to move along vertical surfaces without falling
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <b>Superior Defense</b> to replace <b>Empty Body</b> at level 18
-ModUi/&EnableMonkWeaponSpecialization=Enable <b>Weapon Specialization</b> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
+ModUi/&EnableMonkAbundantKi=Enable <color=#D89555>Abundant Ki</color> at level 2 <i><color=#F0DAA0>[gain additional Ki equals to half the proficiency bonus rounded up]</color></i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Enable <color=#D89555>Body and Mind</color> to replace <color=#D89555>Perfect Self</color> at level 20
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Enable <color=#D89555>Martial Arts - Bonus Unarmed Strikes</color> to not require an attack action before usage
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Enable <color=#D89555>Flurry of Blows</color> to not require an attack action before usage
+ModUi/&EnableMonkFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Enable <color=#D89555>Handwraps</color> and <color=#D89555>Gauntlets</color> to work in gauntlet slot
+ModUi/&EnableMonkHeightenedMetabolism=Enable <color=#D89555>Heightened Metabolism</color> at level 10 <i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional benefits]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>Improved Unarmored Movement</color> to move along vertical surfaces without falling
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18
+ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Enable OneDnd healing dice buff on <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color>
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
-ModUi/&EnableRangerNatureShroudAt10=Enable <b>Nature's Veil</b> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Nature's Veil</color> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespec=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
-ModUi/&EnableRogueCunningStrike=Enable <b>Cunning Strike</b> and <b>Devious Strike</b> at levels 5 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
-ModUi/&EnableRogueFightingStyle=Enable <b>Fighting Style</b> choice at level 2
-ModUi/&EnableRogueSteadyAim=Enable <b>Steady Aim</b> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
-ModUi/&EnableRogueStrSaving=Enable DEX or STR modifiers on <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b>, and <b>Hail of Blades</b>
+ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Cunning Strike</color> and <color=#D89555>Devious Strike</color> at levels 5 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
+ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
+ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
+ModUi/&EnableRogueStrSaving=Enable DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>, <color=#D89555>Debilitating/Improved Strike</color>, and <color=#D89555>Hail of Blades</color>
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Wizard</color> signature spells to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
-ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Sorcerer</color> <b>Magical Guidance</b> at level 5
+ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
@@ -177,7 +177,7 @@ ModUi/&FeatGroupsHelp=• Each group is a consolidation of similar <color=#D8955
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixAsianLanguagesTextWrap=Fix Asian languages' game UI text wrap <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&FixEldritchBlastRange=Use official 24 cells range with <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[instead of 12]</color></i>
+ModUi/&FixEldritchBlastRange=Use 24 cells range with <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[instead of 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Set <color=#D89555>Ring of Regeneration</color> heal rate to 1 HP per 3 minutes
 ModUi/&FlightSuspendWingedBoots=<i>+ Use Winged Boots official rules <color=#F0DAA0>[remaining duration not counted when flight suspended]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
@@ -206,13 +206,11 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use <color
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusion spells automatically fail against targets with <color=#D89555>TrueSight</color> in range
 ModUi/&IncreaseGameTimeBy=Increase game time by
 ModUi/&IncreaseMaxAttunedItems=Increase max <color=#D89555>Attuned Items</color> to 4 at level 10th and 5 at level 18th
-ModUi/&InitialChoices=<color=#F0DAA0>Creation:</color>
-ModUi/&Interface=Interface
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventory and items:</color>
 ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&ItemInDm=Items in DM
 ModUi/&Items=<color=#F0DAA0>Items:</color>
-ModUi/&ItemsCraftingMerchants=Crafting, Items & Merchants
+ModUi/&ItemsCraftingMerchants=Crafting & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Enable item usage not breaking <color=#D89555>Invisibility</color>
@@ -226,6 +224,7 @@ ModUi/&ModifyGravitySlam=<i>+ Modify <color=#D89555>Gravity Slam</color> spell t
 ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiply the movement grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
+ModUi/&Multiplayer=#F0DAA0>Multiplayer:</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Camera never moves during enemy turns</i>
 ModUi/&NoExperienceOnLevelUp=No experience is required to level up
@@ -243,7 +242,6 @@ ModUi/&OverridePartySize=<color=white>Override the party size</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Open portraits folder
 ModUi/&PrimedItems=Primed Items
-ModUi/&Progression=<color=#F0DAA0>Progression:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=Enable quick cast <color=#D89555>Light Cantrip</color> to use head, neck or torso worn items first
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Enable <color=#D89555>Light Sensitivity</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> to only trigger outdoors\n<i><color=#F0DAA0>[indoor areas in outdoor locations accessible without a load screen are considered outdoor by the game engine]</color></i>
 ModUi/&Races=<color=#F0DAA0>Races</color>
@@ -299,7 +297,6 @@ ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Subraces</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in shop</i>
 ModUi/&TargetLanguage=Target Language
-ModUi/&Tools=Tools
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total <color=#D89555>feats</color> granted at first level</color>
 ModUi/&Translate=Translate
@@ -308,18 +305,18 @@ ModUi/&Translations=Translations
 ModUi/&UnleashEnemyAsNpc=Allow monsters to be selected on NPC gadgets
 ModUi/&UnleashNpcAsEnemy=Unlock monsters selection
 ModUi/&Update=<b><color=#D89555>Update</color></b>
-ModUi/&UseAlternateSpellPointsSystem=Use official <color=#D89555>variant spell points</color> rules
+ModUi/&UseAlternateSpellPointsSystem=Use <color=#D89555>variant spell points</color> rules
 ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[You have a pool of spell points that increases with caster level\nL01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\nCost to cast spells is SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nShort rest slots recovery features won't be triggered under this system]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Use <color=#D89555>Elf</color> face models on <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use precise math to determine flanking <color=#F0DAA0>[may have a performance impact on slow machines]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Use official <color=#D89555>advantage / disadvantage</color> rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
-ModUi/&UseOfficialFlankingRules=Use official <color=#D89555>flanking</color> rules <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=Use <color=#D89555>advantage / disadvantage</color> rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
+ModUi/&UseOfficialFlankingRules=Use <color=#D89555>flanking</color> rules <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks <color=#F0DAA0>[disable precise math]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks <color=#F0DAA0>[disable precise math]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Instead of advantage grant +1 to attack roll</i>
-ModUi/&UseOfficialFoodRationsWeight=Use official <color=#D89555>food ration</color> weight of 2 pounds
-ModUi/&UseOfficialObscurementRules=Use official <color=#D89555>lighting, obscurement, and vision</color> combat rules
+ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>food ration</color> weight of 2 pounds
+ModUi/&UseOfficialObscurementRules=Use <color=#D89555>lighting, obscurement, and vision</color> combat rules
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[attacker who perceive defender who cannot perceive it gets ADV, and attacker who doesn't perceive defender who can perceive it gets DIS\n heavily obscured areas inflict blinded condition, where attack rolls against the creature have ADV, and the creature's attack rolls have DIS\n all distance spells targeting individuals cannot be cast if attacker has no sight, except for the ones that clearly don't state sight is required]</color></i>
-ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use official <color=#D89555>small races</color> rules when wielding heavy weapons <i><color=#F0DAA0>[your attacks have disadvantage]</color></i>
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use <color=#D89555>small races</color> rules when wielding heavy weapons <i><color=#F0DAA0>[your attacks have disadvantage]</color></i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Set <color=#D89555>Sorcerer Wild Magic</color> chance die threshold:</color>\n<i><color=#F0DAA0>[wild surge triggers if rolls less or equal threshold]</color></i>

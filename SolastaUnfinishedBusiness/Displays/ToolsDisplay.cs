@@ -122,7 +122,7 @@ internal static class ToolsDisplay
         }
     }
 
-    internal static void DisplayTools()
+    internal static void DisplayGameplay()
     {
         DisplayGeneral();
         DisplaySettings();
@@ -131,6 +131,8 @@ internal static class ToolsDisplay
 
     private static void DisplayGeneral()
     {
+        var intValue = 0;
+
         UI.Label();
 
         using (UI.HorizontalScope())
@@ -145,7 +147,66 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.DisableUnofficialTranslations;
+        var toggle = Main.Settings.EnableEpicPointsAndArray;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableEpicPointsAndArray = toggle;
+        }
+
+        toggle = Main.Settings.EnableLevel20;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableLevel20"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableLevel20 = toggle;
+        }
+
+        toggle = Main.Settings.EnableMulticlass;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMulticlass"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMulticlass = toggle;
+            Main.Settings.MaxAllowedClasses = MulticlassContext.DefaultClasses;
+            Main.Settings.EnableMinInOutAttributes = true;
+            Main.Settings.DisplayAllKnownSpellsDuringLevelUp = true;
+            Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = true;
+        }
+
+        if (Main.Settings.EnableMulticlass)
+        {
+            UI.Label();
+
+            intValue = Main.Settings.MaxAllowedClasses;
+            if (UI.Slider(Gui.Localize("ModUi/&MaxAllowedClasses"), ref intValue,
+                    2, MulticlassContext.MaxClasses, MulticlassContext.DefaultClasses, "", UI.AutoWidth()))
+            {
+                Main.Settings.MaxAllowedClasses = intValue;
+            }
+
+            UI.Label();
+
+            toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
+            if (UI.Toggle(Gui.Localize("ModUi/&DisplayAllKnownSpellsDuringLevelUp"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
+            }
+
+            toggle = Main.Settings.DisplayPactSlotsOnSpellSelectionPanel;
+            if (UI.Toggle(Gui.Localize("ModUi/&DisplayPactSlotsOnSpellSelectionPanel"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = toggle;
+            }
+
+            toggle = Main.Settings.EnableMinInOutAttributes;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableMinInOutAttributes"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableMinInOutAttributes = toggle;
+            }
+
+            UI.Label();
+            UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.DisableUnofficialTranslations;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableUnofficialTranslations = toggle;
@@ -156,6 +217,8 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnablePcgRandom = toggle;
         }
+
+        UI.Label();
 
         toggle = Main.Settings.NoExperienceOnLevelUp;
         if (UI.Toggle(Gui.Localize("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
@@ -171,7 +234,7 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        var intValue = Main.Settings.MultiplyTheExperienceGainedBy;
+        intValue = Main.Settings.MultiplyTheExperienceGainedBy;
         if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, string.Empty,
                 UI.Width(100f)))
         {
@@ -252,6 +315,10 @@ internal static class ToolsDisplay
 
     private static void DisplaySettings()
     {
+        UI.Label();
+        UI.Label(Gui.Localize("ModUi/&Multiplayer"));
+        UI.Label();
+
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&SettingsHelp"));
         UI.Label();

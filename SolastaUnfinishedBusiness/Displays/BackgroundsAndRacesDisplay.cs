@@ -11,11 +11,87 @@ internal static class BackgroundsAndRacesDisplay
     internal static void DisplayBackgroundsAndRaces()
     {
         UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton(Gui.Localize("ModUi/&DocsBackgrounds").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Backgrounds.md"), UI.Width(150f));
+            UI.ActionButton(Gui.Localize("ModUi/&DocsRaces").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Races.md"), UI.Width(150f));
+            UI.ActionButton(Gui.Localize("ModUi/&DocsSubraces").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Subraces.md"), UI.Width(150f));
+        }
+
+        UI.Label();
+
+        var toggle = Main.Settings.EnableFlexibleBackgrounds;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleBackgrounds"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFlexibleBackgrounds = toggle;
+            FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
+        }
+
+        toggle = Main.Settings.EnableFlexibleRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFlexibleRaces = toggle;
+            FlexibleRacesContext.SwitchFlexibleRaces();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeDragonbornElementalBreathUsages = toggle;
+            CharacterContext.SwitchDragonbornElementalBreathUsages();
+        }
+
+
+        toggle = Main.Settings.EnableAlternateHuman;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAlternateHuman = toggle;
+            CharacterContext.SwitchFirstLevelTotalFeats();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableSenseDarkVisionFromAllRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableSenseDarkVisionFromAllRaces = toggle;
+        }
+
+        toggle = Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
+            CharacterContext.SwitchDarknessPerceptive();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
+        if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RaceLightSensitivityApplyOutdoorsOnly = toggle;
+        }
+
+        UI.Label();
         UI.Label();
 
         using (UI.HorizontalScope())
         {
-            var toggle =
+            toggle =
                 Main.Settings.DisplayBackgroundsToggle &&
                 Main.Settings.DisplayRacesToggle &&
                 Main.Settings.DisplaySubracesToggle;
@@ -80,8 +156,7 @@ internal static class BackgroundsAndRacesDisplay
             BackgroundsContext.Backgrounds,
             Main.Settings.BackgroundEnabled,
             ref displayToggle,
-            ref sliderPos,
-            headerRendering: BackgroundsHeader);
+            ref sliderPos);
         Main.Settings.DisplayBackgroundsToggle = displayToggle;
         Main.Settings.BackgroundSliderPosition = sliderPos;
 
@@ -93,8 +168,7 @@ internal static class BackgroundsAndRacesDisplay
             RacesContext.Races,
             Main.Settings.RaceEnabled,
             ref displayToggle,
-            ref sliderPos,
-            headerRendering: RacesHeader);
+            ref sliderPos);
         Main.Settings.DisplayRacesToggle = displayToggle;
         Main.Settings.RaceSliderPosition = sliderPos;
 
@@ -106,8 +180,7 @@ internal static class BackgroundsAndRacesDisplay
             RacesContext.Subraces,
             Main.Settings.SubraceEnabled,
             ref displayToggle,
-            ref sliderPos,
-            headerRendering: SubracesHeader);
+            ref sliderPos);
         Main.Settings.DisplaySubracesToggle = displayToggle;
         Main.Settings.SubraceSliderPosition = sliderPos;
 
@@ -126,30 +199,6 @@ internal static class BackgroundsAndRacesDisplay
         Main.Settings.DisplayDeitiesToggle = displayToggle;
         Main.Settings.DeitySliderPosition = sliderPos;
 #endif
-
-        UI.Label();
-    }
-
-    private static void BackgroundsHeader()
-    {
-        UI.ActionButton(Gui.Localize("ModUi/&DocsBackgrounds").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("Backgrounds.md"), UI.Width(200f));
-
-        UI.Label();
-    }
-
-    private static void RacesHeader()
-    {
-        UI.ActionButton(Gui.Localize("ModUi/&DocsRaces").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("Races.md"), UI.Width(200f));
-
-        UI.Label();
-    }
-
-    private static void SubracesHeader()
-    {
-        UI.ActionButton(Gui.Localize("ModUi/&DocsSubraces").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("Subraces.md"), UI.Width(200f));
 
         UI.Label();
     }

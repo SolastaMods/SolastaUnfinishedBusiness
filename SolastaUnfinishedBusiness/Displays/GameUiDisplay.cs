@@ -294,6 +294,12 @@ internal static class GameUiDisplay
             Main.Settings.AddCustomIconsToOfficialItems = toggle;
         }
 
+        toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
+        }
+
         toggle = Main.Settings.DisableAutoEquip;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableAutoEquip"), ref toggle, UI.AutoWidth()))
         {

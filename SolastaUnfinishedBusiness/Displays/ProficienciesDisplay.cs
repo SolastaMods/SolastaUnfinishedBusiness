@@ -140,9 +140,29 @@ internal static class ProficienciesDisplay
 
         UI.Label();
 
+        var toggle = Main.Settings.DisableLevelPrerequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableClassPrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableLevelPrerequisitesOnModFeats = toggle;
+        }
+
+        toggle = Main.Settings.DisableRacePrerequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
+        }
+
+        toggle = Main.Settings.DisableCastSpellPreRequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableCastSpellPreRequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableCastSpellPreRequisitesOnModFeats = toggle;
+        }
+
+        UI.Label();
+
         using (UI.HorizontalScope())
         {
-            var toggle =
+            toggle =
                 Main.Settings.DisplayFeatsToggle &&
                 Main.Settings.DisplayFeatGroupsToggle &&
                 Main.Settings.DisplayFightingStylesToggle &&

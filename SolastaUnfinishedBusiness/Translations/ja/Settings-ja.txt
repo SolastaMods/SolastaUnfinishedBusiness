@@ -206,8 +206,6 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>ハンドクロスボ�
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=イリュージョン呪文は範囲内に<color=#D89555>トゥルーサイト</color>があるターゲットに対して自動的に失敗します。
 ModUi/&IncreaseGameTimeBy=ゲーム時間を延長する
 ModUi/&IncreaseMaxAttunedItems=レベル 10 で最大 <color=#D89555>調整アイテム</color> を 4 個、レベル 18 で 5 個に増加
-ModUi/&InitialChoices=<color=#F0DAA0>作成:</color>
-ModUi/&Interface=インターフェース
 ModUi/&InventoryAndItems=<color=#F0DAA0>在庫とアイテム:</color>
 ModUi/&Invocations=<color=#F0DAA0>呼び出し</color>
 ModUi/&ItemInDm=DM内のアイテム
@@ -226,6 +224,7 @@ ModUi/&ModifyGravitySlam=<i>+ <color=#D89555>重力スラム</color> 呪文を�
 ModUi/&Monsters=<color=#F0DAA0>モンスター:</color>
 ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を乗算します</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> で呪文をクリックすると、消費されるデフォルトのレパートリー スロット タイプが反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color>は白い呪文スロットを消費します他の人は協定の緑のものを使います]</color></i>
+ModUi/&Multiplayer=#F0DAA0>マルチプレイヤー:</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>得られる経験値を</color> <color=#C04040E0>[%]</color>で倍増します
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敵のターン中はカメラが動かない</i>
 ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
@@ -243,7 +242,6 @@ ModUi/&OverridePartySize=<color=white>パーティのサイズを上書きする
 ModUi/&Patches=<color=#F0DAA0>パッチ:</color>
 ModUi/&PortraitsOpenFolder=ポートレートフォルダーを開く
 ModUi/&PrimedItems=プライムアイテム
-ModUi/&Progression=<color=#F0DAA0>進行状況:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=クイックキャスト<color=#D89555>ライトカントリップ</color>を有効にすると、頭、首、または胴体に装備したアイテムを最初に使用できます。
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>光感度</color>を有効にするcolor> 屋外のみをトリガーする\n<i><color=#F0DAA0>[ロード画面なしでアクセスできる屋外の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
@@ -299,7 +297,6 @@ ModUi/&Subclasses=<color=#F0DAA0>サブクラス</color>
 ModUi/&Subraces=<color=#F0DAA0>サブレース</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピと作成アイテムのアイコンを交換</i>
 ModUi/&TargetLanguage=目標とする言語
-ModUi/&Tools=ツール
 ModUi/&TotalCraftingTimeModifier=<color=white>作成時間を短縮します</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>最初のレベルで付与された合計<color=#D89555>特技</color></color>
 ModUi/&Translate=翻訳する

@@ -1,6 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -201,21 +200,6 @@ internal static class RulesDisplay
             Main.Settings.DontEndTurnAfterReady = toggle;
         }
 
-        toggle = Main.Settings.EnableSorcererQuickenedAction;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererQuickenedAction"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableSorcererQuickenedAction = toggle;
-        }
-
-        if (Main.Settings.EnableSorcererQuickenedAction)
-        {
-            toggle = Main.Settings.HideQuickenedActionWhenMetamagicOff;
-            if (UI.Toggle(Gui.Localize("ModUi/&HideQuickenedActionWhenMetamagicOff"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.HideQuickenedActionWhenMetamagicOff = toggle;
-            }
-        }
-
         UI.Label();
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
@@ -338,6 +322,40 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label();
 
+        var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;
+        if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFirstLevel"), ref intValue,
+                CharacterContext.MinInitialFeats, CharacterContext.MaxInitialFeats, 0, "",
+                UI.AutoWidth()))
+        {
+            Main.Settings.TotalFeatsGrantedFirstLevel = intValue;
+            CharacterContext.SwitchFirstLevelTotalFeats();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnablesAsiAndFeat;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablesAsiAndFeat"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablesAsiAndFeat = toggle;
+            CharacterContext.SwitchAsiAndFeat();
+        }
+
+        toggle = Main.Settings.EnableFeatsAtEveryFourLevels;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevels"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFeatsAtEveryFourLevels = toggle;
+            CharacterContext.SwitchEveryFourLevelsFeats();
+        }
+
+        toggle = Main.Settings.EnableFeatsAtEveryFourLevelsMiddle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevelsMiddle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFeatsAtEveryFourLevelsMiddle = toggle;
+            CharacterContext.SwitchEveryFourLevelsFeats(true);
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.AllowAnyClassToUseArcaneShieldstaff;
         if (UI.Toggle(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), ref toggle, UI.AutoWidth()))
         {
@@ -398,6 +416,13 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchAllowBladeCantripsToUseReach();
         }
 
+
+        toggle = Main.Settings.AllowCantripsTriggeringOnWarMagic;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowCantripsTriggeringOnWarMagic = toggle;
+        }
+
         toggle = Main.Settings.AllowHasteCasting;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
         {
@@ -411,30 +436,10 @@ internal static class RulesDisplay
             Main.Settings.AllowStackedMaterialComponent = toggle;
         }
 
-        toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCantripsTriggeringOnWarMagic = toggle;
-        }
-
         toggle = Main.Settings.EnableRelearnSpells;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRelearnSpells = toggle;
-        }
-
-        toggle = Main.Settings.RemoveSchoolRestrictionsFromShadowCaster;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromShadowCaster"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveSchoolRestrictionsFromShadowCaster = toggle;
-            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromShadowCaster();
-        }
-
-        toggle = Main.Settings.RemoveSchoolRestrictionsFromSpellBlade;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromSpellBlade"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveSchoolRestrictionsFromSpellBlade = toggle;
-            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromSpellBlade();
         }
 
         UI.Label();
@@ -466,36 +471,11 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchMagicStaffFoci();
         }
 
-        UI.Label();
-
-        var intValue = Main.Settings.WildSurgeDieRollThreshold;
-        if (UI.Slider(Gui.Localize("ModUi/&WildSurgeDieRollThreshold"), ref intValue, 1, 20,
-                2, string.Empty, UI.AutoWidth()))
-        {
-            Main.Settings.WildSurgeDieRollThreshold = intValue;
-            SorcerousWildMagic.SwitchWildSurgeChanceDieThreshold();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness"), ref toggle,
+        toggle = Main.Settings.EnableGauntletMainAttacks;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableGauntletMainAttacks")), ref toggle,
                 UI.AutoWidth()))
         {
-            Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness = toggle;
-        }
-
-        toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
-        if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ChangeDragonbornElementalBreathUsages = toggle;
-            CharacterContext.SwitchDragonbornElementalBreathUsages();
-        }
-
-        toggle = Main.Settings.EnableSignatureSpellsRelearn;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableSignatureSpellsRelearn = toggle;
+            Main.Settings.EnableGauntletMainAttacks = toggle;
         }
 
         UI.Label();
@@ -511,6 +491,8 @@ internal static class RulesDisplay
         {
             Main.Settings.AccountForAllDiceOnSavageAttack = toggle;
         }
+
+        UI.Label();
 
         toggle = Main.Settings.AllowFlightSuspend;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowFlightSuspend"), ref toggle, UI.AutoWidth()))

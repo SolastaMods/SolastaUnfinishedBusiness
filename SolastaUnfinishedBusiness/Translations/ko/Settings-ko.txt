@@ -206,8 +206,6 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>손석궁</color>을 �
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=환영 주문은 범위 내에 <color=#D89555>TrueSight</color>가 있는 대상에게는 자동으로 실패합니다.
 ModUi/&IncreaseGameTimeBy=게임 시간을 늘립니다.
 ModUi/&IncreaseMaxAttunedItems=레벨 10에서 최대 <color=#D89555>조정 아이템</color>을 4개로, 레벨 18에서 5개로 증가시킵니다.
-ModUi/&InitialChoices=<color=#F0DAA0>생성:</color>
-ModUi/&Interface=상호 작용
 ModUi/&InventoryAndItems=<color=#F0DAA0>인벤토리 및 아이템:</color>
 ModUi/&Invocations=<color=#F0DAA0>호출</color>
 ModUi/&ItemInDm=DM의 항목
@@ -226,6 +224,7 @@ ModUi/&ModifyGravitySlam=<i>+ <color=#D89555>중력 강타</color> 주문을 수
 ModUi/&Monsters=<color=#F0DAA0>괴물:</color>
 ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&MulticlassKeyHelp=주문을 <color=#1E81B0>SHIFT</color> 클릭하면 소비되는 기본 레퍼토리 슬롯 유형이 반전됩니다.\n<i><color=#F0DAA0>[<color=#D89555>워록</color>은 흰색 주문 슬롯을 소비합니다. 다른 사람들은 녹색 계약을 사용합니다.]</color></i>
+ModUi/&Multiplayer=#F0DAA0>멀티플레이어:</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>경험치 획득량</color> <color=#C04040E0>[%]</color> 곱하기
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 적의 턴 중에는 카메라가 움직이지 않습니다</i>
 ModUi/&NoExperienceOnLevelUp=레벨업에는 경험치가 필요하지 않습니다.
@@ -243,7 +242,6 @@ ModUi/&OverridePartySize=<color=white>파티 규모 재정의</color>
 ModUi/&Patches=<color=#F0DAA0>패치:</color>
 ModUi/&PortraitsOpenFolder=인물 사진 폴더 열기
 ModUi/&PrimedItems=프라임 아이템
-ModUi/&Progression=<color=#F0DAA0>진행 상황:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=머리, 목 또는 몸통에 착용한 아이템을 먼저 사용하려면 빠른 시전 <color=#D89555>Light Cantrip</color>을 활성화하세요.
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>빛 감도</color>를 활성화합니다. color>는 실외에서만 실행됩니다.\n<i><color=#F0DAA0>[로드 화면 없이 접근 가능한 실외 위치의 실내 영역은 게임 엔진에 의해 실외로 간주됩니다.]</color></i>
 ModUi/&Races=<color=#F0DAA0>경주</color>
@@ -299,7 +297,6 @@ ModUi/&Subclasses=<color=#F0DAA0>하위 클래스</color>
 ModUi/&Subraces=<color=#F0DAA0>하위 경주</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교체</i>
 ModUi/&TargetLanguage=대상 언어
-ModUi/&Tools=도구
 ModUi/&TotalCraftingTimeModifier=<color=white>제작 시간 단축</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>첫 번째 레벨에서 부여된 총 <color=#D89555>공적</color></color>
 ModUi/&Translate=번역하다

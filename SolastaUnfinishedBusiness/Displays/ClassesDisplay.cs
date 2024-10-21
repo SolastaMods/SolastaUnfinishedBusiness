@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -11,7 +12,7 @@ internal static class ClassesDisplay
         UI.Label();
 
         UI.ActionButton("Classes Docs".Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("Classes.md"), UI.Width(200f));
+            () => UpdateContext.OpenDocumentation("Classes.md"), UI.Width(150f));
 
         UI.Label();
 
@@ -45,18 +46,10 @@ internal static class ClassesDisplay
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
-        toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSignatureSpellsRelearn;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
-            CharacterContext.SwitchBardHealingBalladOnLongRest();
-        }
-
-        toggle = Main.Settings.EnableSorcererMagicalGuidance;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableSorcererMagicalGuidance = toggle;
-            CharacterContext.SwitchSorcererMagicalGuidance();
+            Main.Settings.EnableSignatureSpellsRelearn = toggle;
         }
 
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
@@ -161,6 +154,14 @@ internal static class ClassesDisplay
             CharacterContext.SwitchMonkDoNotRequireAttackActionForFlurry();
         }
 
+        toggle = Main.Settings.EnableMonkHandwrapsUseGauntletSlot;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableMonkHandwrapsUseGauntletSlot")), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkHandwrapsUseGauntletSlot = toggle;
+            CustomWeaponsContext.UpdateHandWrapsUseGauntletSlot();
+        }
+
         toggle = Main.Settings.EnableMonkHeightenedMetabolism;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkHeightenedMetabolism"), ref toggle,
                 UI.AutoWidth()))
@@ -249,6 +250,41 @@ internal static class ClassesDisplay
             Main.Settings.EnableRogueStrSaving = toggle;
         }
 
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableSorcererMagicalGuidance;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererMagicalGuidance = toggle;
+            CharacterContext.SwitchSorcererMagicalGuidance();
+        }
+
+        toggle = Main.Settings.EnableSorcererQuickenedAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererQuickenedAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererQuickenedAction = toggle;
+        }
+
+        if (Main.Settings.EnableSorcererQuickenedAction)
+        {
+            toggle = Main.Settings.HideQuickenedActionWhenMetamagicOff;
+            if (UI.Toggle(Gui.Localize("ModUi/&HideQuickenedActionWhenMetamagicOff"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.HideQuickenedActionWhenMetamagicOff = toggle;
+            }
+        }
+
+        var intValue = Main.Settings.WildSurgeDieRollThreshold;
+        if (UI.Slider(Gui.Localize("ModUi/&WildSurgeDieRollThreshold"), ref intValue, 1, 20,
+                2, string.Empty, UI.AutoWidth()))
+        {
+            Main.Settings.WildSurgeDieRollThreshold = intValue;
+            SorcerousWildMagic.SwitchWildSurgeChanceDieThreshold();
+        }
+
+        UI.Label();
         UI.Label();
     }
 }

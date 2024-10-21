@@ -206,8 +206,6 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Не требовать наличие
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Заклинания иллюзии автоматически проваливаются против целей с <color=#D89555>Истинным зрением</color> в области видимости
 ModUi/&IncreaseGameTimeBy=Увеличить время игры на
 ModUi/&IncreaseMaxAttunedItems=Увеличить максимальное возможное для <color=#D89555>Настройки</color> количество предметов до 4 на 10-м уровне и до 5 на 18-м уровне
-ModUi/&InitialChoices=<color=#F0DAA0>Создание:</color>
-ModUi/&Interface=Интерфейс
 ModUi/&InventoryAndItems=<color=#F0DAA0>Инвентарь и предметы:</color>
 ModUi/&Invocations=<color=#F0DAA0>Воззвания</color>
 ModUi/&ItemInDm=Предметы в СП
@@ -226,6 +224,7 @@ ModUi/&ModifyGravitySlam=<i>+ Изменить заклинание <color=#D895
 ModUi/&Monsters=<color=#F0DAA0>Монстры:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Увеличить ширину сетки передвижения на множитель</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=Нажатие с <color=#1E81B0>SHIFT</color> по заклинанию переключает тип затрачиваемой ячейки по умолчанию\n<i><color=#F0DAA0>[<color=#D89555>Колдун</color> тратит белые ячейки заклинаний, а остальные - зелёные ячейки колдуна]</color></i>
+ModUi/&Multiplayer=#F0DAA0>Мультиплеер:</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Множитель получаемого опыта</color> <color=#C04040E0>[в %]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Неподвижная камера во время хода противника</i>
 ModUi/&NoExperienceOnLevelUp=Отключить систему повышения уровня на основе полученного опыта
@@ -243,7 +242,6 @@ ModUi/&OverridePartySize=<color=white>Размер группы</color>
 ModUi/&Patches=<color=#F0DAA0>Патчи:</color>
 ModUi/&PortraitsOpenFolder=Открыть папку с портретами
 ModUi/&PrimedItems=Подготовленные предметы
-ModUi/&Progression=<color=#F0DAA0>Развитие:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=Включить выбор экипировки, надетой на голову, шею или торс в первую очередь при быстром наложении заговора <color=#D89555>Свет</color>
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Включить срабатывание <color=#D89555>Чувствительности к свету</color> для рас <color=#D89555>Тёмных эльфов</color>, <color=#D89555>Тёмных кобольдов</color> и <color=#D89555>Серых дварфов</color> только вне помещений\n<i><color=#F0DAA0>[помещения в открытых локациях, доступные без экрана загрузки, считаются открытыми с точки зрения движка игры]</color></i>
 ModUi/&Races=<color=#F0DAA0>Расы</color>
@@ -299,7 +297,6 @@ ModUi/&Subclasses=<color=#F0DAA0>Архетипы</color>
 ModUi/&Subraces=<color=#F0DAA0>Подрасы</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Заменить значок рецепта значком создаваемого предмета в магазине</i>
 ModUi/&TargetLanguage=Язык перевода
-ModUi/&Tools=Инструменты
 ModUi/&TotalCraftingTimeModifier=<color=white>Уменьшить время крафта на</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Общее количество <color=#D89555>черт</color>, получаемых на первом уровне</color>
 ModUi/&Translate=Перевести

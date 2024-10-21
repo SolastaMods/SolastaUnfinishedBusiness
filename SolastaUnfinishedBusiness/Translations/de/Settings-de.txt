@@ -206,8 +206,6 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Für die Verwendung von <color=#D89555
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusionszauber schlagen automatisch fehl, wenn Ziele mit <color=#D89555>TrueSight</color> in Reichweite sind.
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximalen <color=#D89555>abgestimmten Gegenstände</color> auf 4 auf Level 10 und auf 5 auf Level 18.
-ModUi/&InitialChoices=<color=#F0DAA0>Erstellung:</color>
-ModUi/&Interface=Schnittstelle
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventar und Gegenstände:</color>
 ModUi/&Invocations=<color=#F0DAA0>Aufrufe</color>
 ModUi/&ItemInDm=Artikel in DM
@@ -226,6 +224,7 @@ ModUi/&ModifyGravitySlam=<i>+ Ändern Sie den Zauber <color=#D89555>Gravitations
 ModUi/&Monsters=<color=#F0DAA0>Monster:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Bewegungsrasters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>UMSCHALT</color>-Klick auf einen Zauber kehrt den verbrauchten Standardrepertoire-Slottyp um.\n<i><color=#F0DAA0>[<color=#D89555>Hexenmeister</color> gibt weiße Zauberslots aus und andere geben Paktgrüne aus]</color></i>
+ModUi/&Multiplayer=#F0DAA0>Mehrspieler:</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplizieren Sie die gewonnene Erfahrung mit</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Die Kamera bewegt sich nie während der Züge des Gegners</i>
 ModUi/&NoExperienceOnLevelUp=Für den Levelaufstieg ist keine Erfahrung erforderlich
@@ -243,7 +242,6 @@ ModUi/&OverridePartySize=<color=white>Überschreiben Sie die Gruppengröße</col
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Öffnen Sie den Ordner „Porträts“.
 ModUi/&PrimedItems=Vorbereitete Gegenstände
-ModUi/&Progression=<color=#F0DAA0>Fortschritt:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=Aktivieren Sie den Schnellzauber <color=#D89555>Light Cantrip</color>, um zuerst am Kopf, Hals oder Rumpf getragene Gegenstände zu verwenden.
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Aktivieren Sie <color=#D89555>Lichtempfindlichkeit</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> und <color=#D89555>Gray Dwarf</color> soll nur im Freien ausgelöst werden\n<i><color=#F0DAA0>[Innenbereiche an Orten im Freien, die ohne Ladebildschirm zugänglich sind, werden von der Spiel-Engine als im Freien betrachtet]</color></i>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
@@ -299,7 +297,6 @@ ModUi/&Subclasses=<color=#F0DAA0>Unterklassen</color>
 ModUi/&Subraces=<color=#F0DAA0>Subraces</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Rezepte und Symbole für hergestellte Gegenstände im Shop austauschen</i>
 ModUi/&TargetLanguage=Zielsprache
-ModUi/&Tools=Werkzeuge
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduzieren Sie die Herstellungszeit um</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Gesamtzahl der auf der ersten Stufe gewährten <color=#D89555>Talente</color>
 ModUi/&Translate=Übersetzen

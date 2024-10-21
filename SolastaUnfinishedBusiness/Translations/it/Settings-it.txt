@@ -206,8 +206,6 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per u
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Gli incantesimi di illusione falliscono automaticamente contro bersagli con <color=#D89555>TrueSight</color> nel raggio d'azione
 ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco di
 ModUi/&IncreaseMaxAttunedItems=Aumenta il numero massimo di <color=#D89555>Oggetti sintonizzati</color> a 4 al livello 10° e 5 al livello 18°
-ModUi/&InitialChoices=<color=#F0DAA0>Creazione:</color>
-ModUi/&Interface=Interfaccia
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventario e articoli:</color>
 ModUi/&Invocations=<color=#F0DAA0>Invocazioni</color>
 ModUi/&ItemInDm=Articoli nel DM
@@ -226,6 +224,7 @@ ModUi/&ModifyGravitySlam=<i>+ Modifica l'incantesimo <color=#D89555>Gravity Slam
 ModUi/&Monsters=<color=#F0DAA0>Mostri:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAIUSC</color> fare clic su un incantesimo inverte il tipo di slot di repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Stregone</color> spende slot incantesimo bianchi e altri spendono quelli verdi del patto]</color></i>
+ModUi/&Multiplayer=#F0DAA0>Multigiocatore:</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Moltiplica l'esperienza acquisita per</color> <color=#C04040E0>[%]</color>
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La telecamera non si muove mai durante i turni nemici</i>
 ModUi/&NoExperienceOnLevelUp=Non è richiesta alcuna esperienza per salire di livello
@@ -243,7 +242,6 @@ ModUi/&OverridePartySize=<color=white>Sostituisci la dimensione del gruppo</colo
 ModUi/&Patches=<color=#F0DAA0>Patch:</color>
 ModUi/&PortraitsOpenFolder=Apri la cartella dei ritratti
 ModUi/&PrimedItems=Articoli innescati
-ModUi/&Progression=<color=#F0DAA0>Progressione:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst=Abilita il lancio rapido <color=#D89555>Trucchetto Luce</color> per usare prima gli oggetti indossati sulla testa, sul collo o sul busto
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Abilita <color=#D89555> Sensibilità alla luce</color> su <color=#D89555> Elfo scuro</color>, <color=#D89555> Coboldo scuro</color> e <color=#D89555> Nano grigio</color> per attivarsi solo all'aperto\n<i><color=#F0DAA0>[le aree interne in luoghi esterni accessibili senza schermata di caricamento sono considerate esterne dal motore di gioco]</color></i>
 ModUi/&Races=<color=#F0DAA0>Razze</color>
@@ -299,7 +297,6 @@ ModUi/&Subclasses=<color=#F0DAA0>Sottoclassi</color>
 ModUi/&Subraces=<color=#F0DAA0>Sottorazze</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti artigianali nel negozio</i>
 ModUi/&TargetLanguage=Lingua di destinazione
-ModUi/&Tools=Utensili
 ModUi/&TotalCraftingTimeModifier=<color=white>Riduci il tempo di creazione di</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Totale <color=#D89555>talenti</color> concessi al primo livello</color>
 ModUi/&Translate=Tradurre
