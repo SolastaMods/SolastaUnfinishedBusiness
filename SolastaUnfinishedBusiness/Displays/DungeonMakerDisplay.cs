@@ -10,7 +10,7 @@ internal static class DungeonMakerDisplay
 {
     internal static void DisplayDungeonMaker()
     {
-        const float DOC_BUTTON_WIDTH = 180f;
+        const float DOC_BUTTON_WIDTH = 147f;
 
         UI.Label();
 

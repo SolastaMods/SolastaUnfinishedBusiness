@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-internal static class ItemsAndCraftingDisplay
+internal static class CraftingAndItems
 {
     private const int MaxColumns = 1;
 
@@ -33,12 +33,13 @@ internal static class ItemsAndCraftingDisplay
     private static readonly string[] ItemsFiltersLabels = ItemsFilters.Select(x => x.Item1).ToArray();
 
     private static readonly (string, Func<ItemDefinition, bool>)[] ItemsItemTagsFilters =
-        TagsDefinitions.AllItemTags
+    [
+        .. TagsDefinitions.AllItemTags
             .Select<string, (string, Func<ItemDefinition, bool>)>(x =>
                 (Gui.Localize($"Tooltip/&Tag{x}Title"), a => a.ItemTags.Contains(x)))
             .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), _ => true))
             .OrderBy(x => x.Item1)
-            .ToArray();
+    ];
 
     private static readonly int WeaponIndexItemFilters =
         Array.FindIndex(ItemsFilters, x => x.Item1 == Gui.Localize("MerchantCategory/&WeaponTitle"));
@@ -72,12 +73,175 @@ internal static class ItemsAndCraftingDisplay
 
     private static int CurrentItemsWeaponTagsFilterIndex { get; set; }
 
-    internal static void DisplayItemsAndCrafting()
+    internal static void DisplayCraftingAndItems()
     {
+        UI.Label();
+        UI.Label();
+
+        var toggle = Main.Settings.AllowAnyClassToUseArcaneShieldstaff;
+        if (UI.Toggle(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowAnyClassToUseArcaneShieldstaff = toggle;
+            ItemCraftingMerchantContext.SwitchAttuneArcaneShieldstaff();
+        }
+
+        toggle = Main.Settings.IdentifyAfterRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&IdentifyAfterRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.IdentifyAfterRest = toggle;
+        }
+
+        toggle = Main.Settings.IncreaseMaxAttunedItems;
+        if (UI.Toggle(Gui.Localize("ModUi/&IncreaseMaxAttunedItems"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.IncreaseMaxAttunedItems = toggle;
+        }
+
+        toggle = Main.Settings.RemoveAttunementRequirements;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveAttunementRequirements"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveAttunementRequirements = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowAnyClassToWearSylvanArmor = toggle;
+            SrdAndHouseRulesContext.SwitchUniversalSylvanArmorAndLightbringer();
+        }
+
+        toggle = Main.Settings.AllowClubsToBeThrown;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowClubsToBeThrown"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowClubsToBeThrown = toggle;
+            SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
+        }
+
+        toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
+        if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
+        }
+
+        toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
+        if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
+            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
+        }
+
+        toggle = Main.Settings.FixRingOfRegenerationHealRate;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixRingOfRegenerationHealRate = toggle;
+            SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
+        }
+
+        #region Item
+
+        UI.Label();
+
+        toggle = Main.Settings.AddCustomIconsToOfficialItems;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddCustomIconsToOfficialItems")), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddCustomIconsToOfficialItems = toggle;
+        }
+
+        toggle = Main.Settings.DisableAutoEquip;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableAutoEquip"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableAutoEquip = toggle;
+        }
+
+        toggle = Main.Settings.EnableInventoryFilteringAndSorting;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryFilteringAndSorting"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableInventoryFilteringAndSorting = toggle;
+            InventoryManagementContext.RefreshControlsVisibility();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableInventoryTaintNonProficientItemsRed;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
+        }
+
+        toggle = Main.Settings.EnableInventoryTintKnownRecipesRed;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryTintKnownRecipesRed"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableInventoryTintKnownRecipesRed = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
+        }
+
+        toggle = Main.Settings.ShowCraftedItemOnRecipeIcon;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftedItemOnRecipeIcon"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowCraftedItemOnRecipeIcon = toggle;
+        }
+
+        if (Main.Settings.ShowCraftedItemOnRecipeIcon)
+        {
+            toggle = Main.Settings.SwapCraftedItemAndRecipeIcons;
+            if (UI.Toggle(Gui.Localize("ModUi/&SwapCraftedItemAndRecipeIcons"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.SwapCraftedItemAndRecipeIcons = toggle;
+            }
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddPickPocketableLoot;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPickPocketableLoot = toggle;
+            if (toggle)
+            {
+                PickPocketContext.Load();
+            }
+        }
+
+        UI.Label();
+
+        var intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
+        if (UI.Slider(Gui.Localize("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
+                0, 100, 50, "%", UI.Width(500f)))
+        {
+            Main.Settings.SetBeltOfDwarvenKindBeardChances = intValue;
+            ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
+        }
+
+        UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325f));
+
+            intValue = Main.Settings.EmpressGarbAppearanceIndex;
+            // ReSharper disable once InvertIf
+            if (UI.SelectionGrid(ref intValue, ItemCraftingMerchantContext.EmpressGarbAppearances,
+                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width(440f)))
+            {
+                Main.Settings.EmpressGarbAppearanceIndex = intValue;
+                GameUiContext.SwitchEmpressGarb();
+            }
+        }
+
+        #endregion
+
         DisplayCrafting();
-        DisplayFactionRelations();
         DisplayItems();
-        DisplayMerchants();
+
         UI.Label();
     }
 
@@ -94,6 +258,14 @@ internal static class ItemsAndCraftingDisplay
         if (!Main.Settings.DisplayCraftingToggle)
         {
             return;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
         }
 
         UI.Label();
@@ -173,67 +345,6 @@ internal static class ItemsAndCraftingDisplay
                     current++;
                 }
             }
-        }
-    }
-
-    private static void DisplayFactionRelations()
-    {
-        var toggle = Main.Settings.DisplayFactionRelationsToggle;
-
-        UI.Label();
-
-        if (UI.DisclosureToggle(Gui.Localize("ModUi/&FactionRelations"), ref toggle))
-        {
-            Main.Settings.DisplayFactionRelationsToggle = toggle;
-        }
-
-        if (!Main.Settings.DisplayFactionRelationsToggle)
-        {
-            return;
-        }
-
-        UI.Label();
-
-        var flip = true;
-        var gameCampaign = Gui.GameCampaign;
-        var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
-
-        // NOTE: don't use gameCampaign?. which bypasses Unity object lifetime check
-        if (gameFactionService != null && gameCampaign &&
-            gameCampaign.CampaignDefinitionName != "UserCampaign")
-        {
-            foreach (var faction in gameFactionService.RegisteredFactions)
-            {
-                if (faction.BuiltIn)
-                {
-                    // These are things like monster factions, generally set to a specific relation and can't be changed.
-                    continue;
-                }
-
-                if (faction.GuiPresentation.Hidden)
-                {
-                    // These are things like Silent Whispers and Church Of Einar that are not fully implemented factions.
-                    continue;
-                }
-
-                var title = faction.FormatTitle();
-
-                title = flip ? title.Khaki() : title.White();
-
-                var intValue = gameFactionService.FactionRelations[faction.Name];
-
-                if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap,
-                        faction.MaxRelationCap, 0, "", UI.AutoWidth()))
-                {
-                    SetFactionRelation(faction.Name, intValue);
-                }
-
-                flip = !flip;
-            }
-        }
-        else
-        {
-            UI.Label(Gui.Localize("ModUi/&FactionHelp"));
         }
     }
 
@@ -324,104 +435,6 @@ internal static class ItemsAndCraftingDisplay
 
             DisplayItemsBox();
         }
-    }
-
-    private static void DisplayMerchants()
-    {
-        UI.Label();
-
-        var toggle = Main.Settings.DisplayMerchantsToggle;
-        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Merchants"), ref toggle, 200))
-        {
-            Main.Settings.DisplayMerchantsToggle = toggle;
-        }
-
-        if (!Main.Settings.DisplayMerchantsToggle)
-        {
-            return;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.ScaleMerchantPricesCorrectly;
-        if (UI.Toggle(Gui.Localize("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ScaleMerchantPricesCorrectly = toggle;
-        }
-
-        toggle = Main.Settings.StockGorimStoreWithAllNonMagicalClothing;
-        if (UI.Toggle(Gui.Localize("ModUi/&StockGorimStoreWithAllNonMagicalClothing"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.StockGorimStoreWithAllNonMagicalClothing = toggle;
-        }
-
-        toggle = Main.Settings.StockGorimStoreWithAllNonMagicalInstruments;
-        if (UI.Toggle(Gui.Localize("ModUi/&StockGorimStoreWithAllNonMagicalInstruments"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.StockGorimStoreWithAllNonMagicalInstruments = toggle;
-        }
-
-        toggle = Main.Settings.StockHugoStoreWithAdditionalFoci;
-        if (UI.Toggle(Gui.Localize("ModUi/&StockHugoStoreWithAdditionalFoci"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.StockHugoStoreWithAdditionalFoci = toggle;
-            Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
-            ItemCraftingMerchantContext.SwitchFociItems();
-        }
-
-        if (Main.Settings.StockHugoStoreWithAdditionalFoci)
-        {
-            toggle = Main.Settings.EnableAdditionalFociInDungeonMaker;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalItemsInDungeonMaker"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
-                ItemCraftingMerchantContext.SwitchFociItemsDungeonMaker();
-            }
-        }
-
-        UI.Label();
-        UI.Label(Gui.Localize("ModUi/&RestockHelp"));
-        UI.Label();
-
-        toggle = Main.Settings.RestockAntiquarians;
-        if (UI.Toggle(Gui.Localize("ModUi/&RestockAntiquarians"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RestockAntiquarians = toggle;
-            ItemCraftingMerchantContext.SwitchRestockAntiquarian();
-        }
-
-        toggle = Main.Settings.RestockArcaneum;
-        if (UI.Toggle(Gui.Localize("ModUi/&RestockArcaneum"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RestockArcaneum = toggle;
-            ItemCraftingMerchantContext.SwitchRestockArcaneum();
-        }
-
-        toggle = Main.Settings.RestockCircleOfDanantar;
-        if (UI.Toggle(Gui.Localize("ModUi/&RestockCircleOfDanantar"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RestockCircleOfDanantar = toggle;
-            ItemCraftingMerchantContext.SwitchRestockCircleOfDanantar();
-        }
-
-        toggle = Main.Settings.RestockTowerOfKnowledge;
-        // ReSharper disable once InvertIf
-        if (UI.Toggle(Gui.Localize("ModUi/&RestockTowerOfKnowledge"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RestockTowerOfKnowledge = toggle;
-            ItemCraftingMerchantContext.SwitchRestockTowerOfKnowledge();
-        }
-    }
-
-    private static void SetFactionRelation(string name, int value)
-    {
-        var service = ServiceRepository.GetService<IGameFactionService>();
-
-        service?.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase,
-            value - service.FactionRelations[name], "",
-            null /* this string and monster doesn't matter if we're using "SetValue" */);
     }
 
     private static void AddUIForWeaponKey([NotNull] string key)

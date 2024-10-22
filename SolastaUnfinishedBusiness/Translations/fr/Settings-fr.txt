@@ -94,7 +94,7 @@ ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir utilisé <colo
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à % du bord de l'écran</color></i>
 ModUi/&DungeonMakerBasicHelp=• Ces paramètres ne nécessiteront pas que le joueur ait installé ce mod
-ModUi/&DungeonMakerMenu=Créateur de donjons
+ModUi/&DungeonMaker=Créateur de donjons
 ModUi/&Effects=Effets
 ModUi/&EmpressGarbAppearance=Apparence de <color=#D89555>Impératrice Garb</color>
 ModUi/&EnableActionSwitching=Activer la barre de changement d'action <i><color=#F0DAA0>[utile pour avoir un contrôle total sur votre séquence d'actions]</color></i>
@@ -204,16 +204,14 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour u
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Les sorts d'illusion échouent automatiquement contre les cibles ayant <color=#D89555>TrueSight</color> à portée
 ModUi/&IncreaseGameTimeBy=Augmenter le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmentez le nombre maximum d'<color=#D89555>objets accordés</color> à 4 au niveau 10 et à 5 au niveau 18
-ModUi/&InventoryAndItems=<color=#F0DAA0>Inventaire et objets :</color>
 ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&ItemInDm=Articles en DM
 ModUi/&Items=<color=#F0DAA0>Articles :</color>
-ModUi/&ItemsCraftingMerchants=Artisanat et marchands
+ModUi/&CraftingItems=Artisanat et marchands
 ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des éléments au conteneur au sol</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Activer l'utilisation des objets sans rompre l'<color=#D89555>invisibilité</color>
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Mettre à jour la furtivité du héros après une attaque si perçue lors d'un tour de surprise <i><color=#F0DAA0>[premier héros uniquement]</color></i>
-ModUi/&Locations=<color=#F0DAA0>Emplacements :</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Faites de tous les bâtons magiques des foyers arcaniques <i><color=#F0DAA0>[à l'exception du <color=#D89555>Bâton de guérison</color> qui est universel]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement des téléporteurs invisibles sur la carte du niveau après la découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Nombre maximal de cours autorisés</color>

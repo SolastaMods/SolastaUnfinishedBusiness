@@ -94,7 +94,7 @@ ModUi/&DontEndTurnAfterReady=使用<color=#D89555>准备行动</color>后不要�
 ModUi/&DontFollowCharacterInBattle=当角色已出现在屏幕上时，战斗摄像机不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+ 除非英雄不在屏幕边缘或在屏幕边缘的 % 范围内</color></i>
 ModUi/&DungeonMakerBasicHelp=• 这些设置不需要玩家安装此模组
-ModUi/&DungeonMakerMenu=地下城制造者
+ModUi/&DungeonMaker=地下城制造者
 ModUi/&Effects=效果
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后服装</color>外观
 ModUi/&EnableActionSwitching=启用操作切换栏<i><color=#F0DAA0>[有助于完全控制您的操作序列]</color></i>
@@ -204,16 +204,14 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=不需要腾出手来使用<color=#D89
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻术法术对范围内有 <color=#D89555>TrueSight</color> 的目标自动失效
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=将最大<color=#D89555>协调物品</color>增加至 10 级时的 4 个和 18 级时的 5 个
-ModUi/&InventoryAndItems=<color=#F0DAA0>库存和物品：</color>
 ModUi/&Invocations=<color=#F0DAA0>调用</color>
 ModUi/&ItemInDm=DM 中的项目
 ModUi/&Items=<color=#F0DAA0>商品:</color>
-ModUi/&ItemsCraftingMerchants=手工艺与商人
+ModUi/&CraftingItems=手工艺与商人
 ModUi/&ItemsHelp1=<color=#C04040E0>打开角色检查屏幕为英雄添加物品...</color>
 ModUi/&ItemsHelp2=<b>按 + 将物品添加到地面容器</b>
 ModUi/&KeepInvisibilityWhenUsingItems=启用物品使用不会破坏<color=#D89555>隐形</color>
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=如果在突袭回合中察觉到攻击，则更新英雄的隐身状态<i><color=#F0DAA0>[仅限第一个英雄]</color></i>
-ModUi/&Locations=<color=#F0DAA0>地点:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=让所有魔法杖都成为奥术焦点<i><color=#F0DAA0>[除了<color=#D89555>治疗法杖</color>是通用的]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 发现后也在关卡地图上标记隐形传送器的位置</i>
 ModUi/&MaxAllowedClasses=<color=white>最大允许类别</color>

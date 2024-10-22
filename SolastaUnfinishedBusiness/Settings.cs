@@ -37,9 +37,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayInvocationsToggle { get; set; }
     public bool DisplayMetamagicToggle { get; set; }
     public bool DisplayCraftingToggle { get; set; }
-    public bool DisplayFactionRelationsToggle { get; set; }
     public bool DisplayItemsToggle { get; set; }
-    public bool DisplayMerchantsToggle { get; set; }
     public bool DisplayBackgroundsAndRacesGeneralToggle { get; set; }
     public bool DisplayProficienciesGeneralToggle { get; set; }
     public bool DisplaySpellsGeneralToggle { get; set; }
@@ -208,15 +206,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnablesAsiAndFeat { get; set; }
     public bool EnableFeatsAtEveryFourLevels { get; set; }
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
-    public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
-    public bool IdentifyAfterRest { get; set; }
-    public bool IncreaseMaxAttunedItems { get; set; }
-    public bool RemoveAttunementRequirements { get; set; }
-    public bool AllowAnyClassToWearSylvanArmor { get; set; }
-    public bool AllowClubsToBeThrown { get; set; }
-    public bool IgnoreHandXbowFreeHandRequirements { get; set; }
-    public bool MakeAllMagicStaveArcaneFoci { get; set; }
-    public bool FixRingOfRegenerationHealRate { get; set; }
     public bool AccountForAllDiceOnFollowUpStrike { get; set; }
     public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowFlightSuspend { get; set; }
@@ -237,7 +226,24 @@ public class Settings : UnityModManager.ModSettings
     //
     // Gameplay - Items, Crafting & Merchants
     //
-
+    public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
+    public bool IdentifyAfterRest { get; set; }
+    public bool IncreaseMaxAttunedItems { get; set; }
+    public bool RemoveAttunementRequirements { get; set; }
+    public bool AllowAnyClassToWearSylvanArmor { get; set; }
+    public bool AllowClubsToBeThrown { get; set; }
+    public bool IgnoreHandXbowFreeHandRequirements { get; set; }
+    public bool MakeAllMagicStaveArcaneFoci { get; set; }
+    public bool FixRingOfRegenerationHealRate { get; set; }
+    public bool AddCustomIconsToOfficialItems { get; set; }
+    public bool AddNewWeaponsAndRecipesToShops { get; set; }
+    public bool DisableAutoEquip { get; set; }
+    public bool EnableInventoryFilteringAndSorting { get; set; }
+    public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
+    public bool EnableInventoryTintKnownRecipesRed { get; set; }
+    public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
+    public bool ShowCraftedItemOnRecipeIcon { get; set; }
+    public bool SwapCraftedItemAndRecipeIcons { get; set; }
     public bool AddPickPocketableLoot { get; set; }
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
     public int EmpressGarbAppearanceIndex { get; set; }
@@ -455,17 +461,6 @@ public class Settings : UnityModManager.ModSettings
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
         ]
     ];
-
-    // Inventory and Items
-    public bool AddCustomIconsToOfficialItems { get; set; }
-    public bool AddNewWeaponsAndRecipesToShops { get; set; }
-    public bool DisableAutoEquip { get; set; }
-    public bool EnableInventoryFilteringAndSorting { get; set; }
-    public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
-    public bool EnableInventoryTintKnownRecipesRed { get; set; }
-    public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
-    public bool ShowCraftedItemOnRecipeIcon { get; set; }
-    public bool SwapCraftedItemAndRecipeIcons { get; set; }
 
     //
     // Encounters - General

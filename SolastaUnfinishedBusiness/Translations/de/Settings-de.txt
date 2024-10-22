@@ -94,7 +94,7 @@ ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht nach der Verwendung von <
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn die Figur bereits auf dem Bildschirm ist
 ModUi/&DontFollowMargin=<i><color=white>+ Sofern der Held nicht ausgeschaltet ist oder sich innerhalb von % des Bildschirmrands befindet</color></i>
 ModUi/&DungeonMakerBasicHelp=• Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat
-ModUi/&DungeonMakerMenu=Dungeon-Ersteller
+ModUi/&DungeonMaker=Dungeon-Ersteller
 ModUi/&Effects=Auswirkungen
 ModUi/&EmpressGarbAppearance=<color=#D89555>Kaiseringewand</color> Aussehen
 ModUi/&EnableActionSwitching=Aktivieren Sie die Aktionswechselleiste <i><color=#F0DAA0>[nützlich, um die volle Kontrolle über Ihre Aktionsabfolge zu haben]</color></i>
@@ -204,16 +204,14 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Für die Verwendung von <color=#D89555
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusionszauber schlagen automatisch fehl, wenn Ziele mit <color=#D89555>TrueSight</color> in Reichweite sind.
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximalen <color=#D89555>abgestimmten Gegenstände</color> auf 4 auf Level 10 und auf 5 auf Level 18.
-ModUi/&InventoryAndItems=<color=#F0DAA0>Inventar und Gegenstände:</color>
 ModUi/&Invocations=<color=#F0DAA0>Aufrufe</color>
 ModUi/&ItemInDm=Artikel in DM
 ModUi/&Items=<color=#F0DAA0>Artikel:</color>
-ModUi/&ItemsCraftingMerchants=Handwerk & Händler
+ModUi/&CraftingItems=Handwerk & Händler
 ModUi/&ItemsHelp1=<color=#C04040E0>Öffnen Sie den Charakterüberprüfungsbildschirm, um Helden Gegenstände hinzuzufügen...</color>
 ModUi/&ItemsHelp2=<b>Drücken Sie +, um Elemente zum Bodencontainer hinzuzufügen</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Aktivieren Sie die Verwendung von Elementen, ohne die <color=#D89555>Unsichtbarkeit</color> zu beeinträchtigen.
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Aktualisiere die Tarnung des Helden nach einem Angriff, wenn dieser in einer Überraschungsrunde wahrgenommen wird <i><color=#F0DAA0>[nur erster Held]</color></i>
-ModUi/&Locations=<color=#F0DAA0>Standorte:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Machen Sie alle Zauberstäbe zu arkanen Fokussen <i><color=#F0DAA0>[außer dem <color=#D89555>Stab der Heilung</color>, der universell ist]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie auch die Position unsichtbarer Teleporter auf der Levelkarte, nachdem Sie diese entdeckt haben</i>
 ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>

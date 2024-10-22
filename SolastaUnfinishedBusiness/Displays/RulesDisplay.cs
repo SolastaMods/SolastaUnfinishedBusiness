@@ -288,69 +288,6 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AllowAnyClassToUseArcaneShieldstaff;
-        if (UI.Toggle(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowAnyClassToUseArcaneShieldstaff = toggle;
-            ItemCraftingMerchantContext.SwitchAttuneArcaneShieldstaff();
-        }
-
-        toggle = Main.Settings.IdentifyAfterRest;
-        if (UI.Toggle(Gui.Localize("ModUi/&IdentifyAfterRest"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.IdentifyAfterRest = toggle;
-        }
-
-        toggle = Main.Settings.IncreaseMaxAttunedItems;
-        if (UI.Toggle(Gui.Localize("ModUi/&IncreaseMaxAttunedItems"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.IncreaseMaxAttunedItems = toggle;
-        }
-
-        toggle = Main.Settings.RemoveAttunementRequirements;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveAttunementRequirements"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveAttunementRequirements = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowAnyClassToWearSylvanArmor = toggle;
-            SrdAndHouseRulesContext.SwitchUniversalSylvanArmorAndLightbringer();
-        }
-
-        toggle = Main.Settings.AllowClubsToBeThrown;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowClubsToBeThrown"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowClubsToBeThrown = toggle;
-            SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
-        }
-
-        toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
-        if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
-        }
-
-        toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
-        if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
-            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
-        }
-
-        toggle = Main.Settings.FixRingOfRegenerationHealRate;
-        if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FixRingOfRegenerationHealRate = toggle;
-            SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
-        }
-
-        UI.Label();
-
         toggle = Main.Settings.AccountForAllDiceOnFollowUpStrike;
         if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnFollowUpStrike"), ref toggle, UI.AutoWidth()))
         {

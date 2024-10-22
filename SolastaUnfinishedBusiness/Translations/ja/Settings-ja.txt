@@ -94,7 +94,7 @@ ModUi/&DontEndTurnAfterReady=<color=#D89555>準備アクション</color>を使�
 ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にいる場合、戦闘カメラは追従しません
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローが画面外にいるか、画面端の % 以内にいる場合を除く</color></i>
 ModUi/&DungeonMakerBasicHelp=• これらの設定では、プレイヤーがこのMODをインストールする必要はありません
-ModUi/&DungeonMakerMenu=ダンジョンメーカー
+ModUi/&DungeonMaker=ダンジョンメーカー
 ModUi/&Effects=効果
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后の衣装</color>の外観
 ModUi/&EnableActionSwitching=アクション切り替えバーを有効にします <i><color=#F0DAA0>[アクションシーケンスを完全に制御するのに便利です]</color></i>
@@ -204,16 +204,14 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>ハンドクロスボ�
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻惑呪文は範囲内の<color=#D89555>TrueSight</color>を持つターゲットに対しては自動的に失敗する
 ModUi/&IncreaseGameTimeBy=ゲーム時間を増やす
 ModUi/&IncreaseMaxAttunedItems=レベル 10 で最大 <color=#D89555>調整アイテム</color> を 4 個、レベル 18 で 5 個に増加
-ModUi/&InventoryAndItems=<color=#F0DAA0>インベントリとアイテム:</color>
 ModUi/&Invocations=<color=#F0DAA0>召喚</color>
 ModUi/&ItemInDm=DM内のアイテム
 ModUi/&Items=<color=#F0DAA0>アイテム:</color>
-ModUi/&ItemsCraftingMerchants=クラフトと商人
+ModUi/&CraftingItems=クラフトと商人
 ModUi/&ItemsHelp1=<color=#C04040E0>キャラクター検査画面を開いてヒーローにアイテムを追加します...</color>
 ModUi/&ItemsHelp2=<b>+ を押すと地上コンテナにアイテムが追加されます</b>
 ModUi/&KeepInvisibilityWhenUsingItems=<color=#D89555>不可視性</color>を破壊しないアイテムの使用を有効にする
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=奇襲ラウンドで攻撃を察知した場合、攻撃後にヒーローのステルスを更新します <i><color=#F0DAA0>[最初のヒーローのみ]</color></i>
-ModUi/&Locations=<color=#F0DAA0>場所:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=すべての魔法の杖をアーケイン フォーカスにします <i><color=#F0DAA0>[ユニバーサルな <color=#D89555>治癒の杖</color> を除く]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 発見後、レベルマップ上に目に見えないテレポーターの位置もマークします</i>
 ModUi/&MaxAllowedClasses=<color=white>最大許容クラス数</color>

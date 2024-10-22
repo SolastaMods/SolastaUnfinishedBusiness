@@ -15,7 +15,7 @@ using static SolastaUnfinishedBusiness.Displays.EffectsDisplay;
 using static SolastaUnfinishedBusiness.Displays.EncountersDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameServicesDisplay;
 using static SolastaUnfinishedBusiness.Displays.CampaignsDisplay;
-using static SolastaUnfinishedBusiness.Displays.ItemsAndCraftingDisplay;
+using static SolastaUnfinishedBusiness.Displays.CraftingAndItems;
 using static SolastaUnfinishedBusiness.Displays.ProficienciesDisplay;
 using static SolastaUnfinishedBusiness.Displays.RulesDisplay;
 using static SolastaUnfinishedBusiness.Displays.SpellsDisplay;
@@ -519,8 +519,8 @@ internal sealed class GameplayViewer : IMenuSelectablePage
             new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayGameplay),
             new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
             new NamedAction(Gui.Localize("ModUi/&Campaigns"), DisplayGameUi),
-            new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting),
-            new NamedAction(Gui.Localize("ModUi/&DungeonMakerMenu"), DisplayDungeonMaker));
+            new NamedAction(Gui.Localize("ModUi/&CraftingItems"), DisplayCraftingAndItems),
+            new NamedAction(Gui.Localize("ModUi/&DungeonMaker"), DisplayDungeonMaker));
     }
 }
 

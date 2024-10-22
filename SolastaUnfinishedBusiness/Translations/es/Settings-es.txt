@@ -94,7 +94,7 @@ ModUi/&DontEndTurnAfterReady=No finalice el turno después de usar <color=#D8955
 ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el personaje ya está en la pantalla
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que el héroe esté fuera o dentro del % del borde de la pantalla</color></i>
 ModUi/&DungeonMakerBasicHelp=• Estas configuraciones no requerirán que el jugador tenga este mod instalado
-ModUi/&DungeonMakerMenu=Creador de mazmorras
+ModUi/&DungeonMaker=Creador de mazmorras
 ModUi/&Effects=Efectos
 ModUi/&EmpressGarbAppearance=Apariencia de la <color=#D89555>Traje de Emperatriz</color>
 ModUi/&EnableActionSwitching=Habilitar la barra de cambio de acciones <i><color=#F0DAA0>[útil para tener control total sobre tu secuencia de acciones]</color></i>
@@ -204,16 +204,14 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=No se requiere mano libre para utiliza
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Los hechizos de ilusión fallan automáticamente contra objetivos con <color=#D89555>TrueSight</color> dentro del alcance.
 ModUi/&IncreaseGameTimeBy=Aumenta el tiempo de juego en
 ModUi/&IncreaseMaxAttunedItems=Aumenta el máximo de <color=#D89555>Elementos armonizados</color> a 4 en el nivel 10 y a 5 en el nivel 18.
-ModUi/&InventoryAndItems=<color=#F0DAA0>Inventario y artículos:</color>
 ModUi/&Invocations=<color=#F0DAA0>Invocaciones</color>
 ModUi/&ItemInDm=Artículos en DM
 ModUi/&Items=<color=#F0DAA0>Artículos:</color>
-ModUi/&ItemsCraftingMerchants=Artesanía y comerciantes
+ModUi/&CraftingItems=Artesanía y comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abre la pantalla de inspección de personajes para agregar elementos a los héroes...</color>
 ModUi/&ItemsHelp2=<b>Presione + para agregar elementos al contenedor de tierra</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Habilitar el uso de elementos que no alteren la <color=#D89555>invisibilidad</color>
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Actualiza el sigilo del héroe después del ataque si lo percibes en una ronda sorpresa. <i><color=#F0DAA0>[solo el primer héroe]</color></i>
-ModUi/&Locations=<color=#F0DAA0>Ubicaciones:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Convierte todos los bastones mágicos en focos arcanos. <i><color=#F0DAA0>[excepto el <color=#D89555>Bastón de sanación</color>, que es universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marca la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
