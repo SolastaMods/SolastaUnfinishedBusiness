@@ -1,7 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -12,7 +11,7 @@ internal static class ClassesDisplay
         UI.Label();
 
         UI.ActionButton(Gui.Localize("ModUi/&DocsClasses").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("Classes.md"), UI.Width(150f));
+            () => UpdateContext.OpenDocumentation("Classes.md"), UI.Width(189f));
 
         UI.Label();
 
@@ -299,15 +298,6 @@ internal static class ClassesDisplay
             }
         }
 
-        var intValue = Main.Settings.WildSurgeDieRollThreshold;
-        if (UI.Slider(Gui.Localize("ModUi/&WildSurgeDieRollThreshold"), ref intValue, 1, 20,
-                2, string.Empty, UI.AutoWidth()))
-        {
-            Main.Settings.WildSurgeDieRollThreshold = intValue;
-            SorcerousWildMagic.SwitchWildSurgeChanceDieThreshold();
-        }
-
-        UI.Label();
         UI.Label();
     }
 }

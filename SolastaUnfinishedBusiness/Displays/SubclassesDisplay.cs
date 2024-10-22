@@ -2,12 +2,13 @@
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class SubclassesDisplay
 {
-    internal static void DisplaySubclassesGeneral()
+    private static void DisplaySubclassesGeneral()
     {
         var toggle = Main.Settings.DisplaySubClassesGeneralToggle;
         if (UI.DisclosureToggle(Gui.Localize("ModUi/&General"), ref toggle, 200))
@@ -49,6 +50,18 @@ internal static class SubclassesDisplay
             Main.Settings.RemoveSchoolRestrictionsFromSpellBlade = toggle;
             SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromSpellBlade();
         }
+
+        UI.Label();
+
+        var intValue = Main.Settings.WildSurgeDieRollThreshold;
+        if (UI.Slider(Gui.Localize("ModUi/&WildSurgeDieRollThreshold"), ref intValue, 1, 20,
+                2, string.Empty, UI.AutoWidth()))
+        {
+            Main.Settings.WildSurgeDieRollThreshold = intValue;
+            SorcerousWildMagic.SwitchWildSurgeChanceDieThreshold();
+        }
+
+        UI.Label();
     }
 
     internal static void DisplaySubclasses()
@@ -56,7 +69,7 @@ internal static class SubclassesDisplay
         UI.Label();
 
         UI.ActionButton(Gui.Localize("ModUi/&DocsSubclasses").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(150f));
+            () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(189f));
 
         UI.Label();
 

@@ -82,8 +82,7 @@ internal static class ProficienciesDisplay
             FeatsContext.Feats,
             Main.Settings.FeatEnabled,
             ref displayToggle,
-            ref sliderPos,
-            headerRendering: FeatsHeader);
+            ref sliderPos);
         Main.Settings.DisplayFeatsToggle = displayToggle;
         Main.Settings.FeatSliderPosition = sliderPos;
 
@@ -95,8 +94,7 @@ internal static class ProficienciesDisplay
             FightingStyleContext.FightingStyles,
             Main.Settings.FightingStyleEnabled,
             ref displayToggle,
-            ref sliderPos,
-            headerRendering: FightingStylesHeader);
+            ref sliderPos);
         Main.Settings.DisplayFightingStylesToggle = displayToggle;
         Main.Settings.FightingStyleSliderPosition = sliderPos;
 
@@ -108,8 +106,7 @@ internal static class ProficienciesDisplay
             InvocationsContext.Invocations,
             Main.Settings.InvocationEnabled,
             ref displayToggle,
-            ref sliderPos,
-            headerRendering: InvocationsHeader);
+            ref sliderPos);
         Main.Settings.DisplayInvocationsToggle = displayToggle;
         Main.Settings.InvocationSliderPosition = sliderPos;
 
@@ -121,8 +118,7 @@ internal static class ProficienciesDisplay
             MetamagicContext.Metamagic,
             Main.Settings.MetamagicEnabled,
             ref displayToggle,
-            ref sliderPos,
-            headerRendering: MetamagicHeader);
+            ref sliderPos);
         Main.Settings.DisplayMetamagicToggle = displayToggle;
         Main.Settings.MetamagicSliderPosition = sliderPos;
 
@@ -131,53 +127,30 @@ internal static class ProficienciesDisplay
         UI.Label();
     }
 
-    private static void FeatsHeader()
-    {
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton(Gui.Localize("ModUi/&DocsFeats").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Feats.md"), UI.Width(200f));
-        }
-
-        UI.Label();
-    }
-
-    private static void FightingStylesHeader()
-    {
-        UI.ActionButton(Gui.Localize("ModUi/&DocsFightingStyles").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("FightingStyles.md"), UI.Width(200f));
-
-        UI.Label();
-    }
-
-    private static void InvocationsHeader()
-    {
-        UI.ActionButton(Gui.Localize("ModUi/&DocsInvocations").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("Invocations.md"), UI.Width(200f));
-
-        UI.Label();
-    }
-
-    private static void MetamagicHeader()
-    {
-        UI.ActionButton(Gui.Localize("ModUi/&DocsMetamagic").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("Metamagic.md"), UI.Width(200f));
-
-        UI.Label();
-    }
-
     private static void OtherHeaders()
     {
         using (UI.HorizontalScope())
         {
+            UI.ActionButton(Gui.Localize("ModUi/&DocsFeats").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Feats.md"), UI.Width(189f));
+            UI.ActionButton(Gui.Localize("ModUi/&DocsFightingStyles").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("FightingStyles.md"), UI.Width(189f));
+            UI.ActionButton(Gui.Localize("ModUi/&DocsInvocations").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Invocations.md"), UI.Width(189f));
+            UI.ActionButton(Gui.Localize("ModUi/&DocsMetamagic").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Metamagic.md"), UI.Width(189f));
+        }
+
+        using (UI.HorizontalScope())
+        {
             UI.ActionButton(Gui.Localize("ModUi/&DocsArcaneShots").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("ArcaneShots.md"), UI.Width(150f));
+                () => UpdateContext.OpenDocumentation("ArcaneShots.md"), UI.Width(189f));
             UI.ActionButton(Gui.Localize("ModUi/&DocsInfusions").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Infusions.md"), UI.Width(150f));
+                () => UpdateContext.OpenDocumentation("Infusions.md"), UI.Width(189f));
             UI.ActionButton(Gui.Localize("ModUi/&DocsManeuvers").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Maneuvers.md"), UI.Width(150f));
+                () => UpdateContext.OpenDocumentation("Maneuvers.md"), UI.Width(189f));
             UI.ActionButton(Gui.Localize("ModUi/&DocsVersatilities").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Versatilities.md"), UI.Width(150f));
+                () => UpdateContext.OpenDocumentation("Versatilities.md"), UI.Width(189f));
         }
 
         UI.Label();

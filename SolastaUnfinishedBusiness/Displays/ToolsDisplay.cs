@@ -28,11 +28,11 @@ internal static class ToolsDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton(Gui.Localize("ModUi/&Update"), () => UpdateContext.UpdateMod(),
-                UI.Width(240f));
+                UI.Width(241f));
             UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage,
-                UI.Width(240f));
+                UI.Width(242f));
             UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog,
-                UI.Width(240f));
+                UI.Width(241f));
         }
 
         UI.Label();
@@ -92,6 +92,7 @@ internal static class ToolsDisplay
 
             UI.Label();
             UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
+            UI.Label();
         }
 
         toggle = Main.Settings.EnableRespec;

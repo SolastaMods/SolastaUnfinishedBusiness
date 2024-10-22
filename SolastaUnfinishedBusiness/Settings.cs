@@ -313,7 +313,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
-    public int WildSurgeDieRollThreshold { get; set; } = 2;
 
     //
     // Characters - Backgrounds, Races & Subraces
@@ -387,6 +386,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBardHealingBalladOnLongRest { get; set; }
     public bool RemoveSchoolRestrictionsFromShadowCaster { get; set; }
     public bool RemoveSchoolRestrictionsFromSpellBlade { get; set; }
+    public int WildSurgeDieRollThreshold { get; set; } = 2;
     public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];
 

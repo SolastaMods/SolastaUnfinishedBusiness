@@ -151,6 +151,7 @@ internal static class SpellsDisplay
         UI.Label();
 
         var intValue = SpellLevelFilter;
+        // ReSharper disable once InvertIf
         if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
         {
             SpellLevelFilter = intValue;
@@ -163,7 +164,7 @@ internal static class SpellsDisplay
         UI.Label();
 
         UI.ActionButton(Gui.Localize("ModUi/&DocsSpells").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("Spells.md"), UI.Width(150f));
+            () => UpdateContext.OpenDocumentation("Spells.md"), UI.Width(189f));
 
         UI.Label();
 
@@ -253,7 +254,7 @@ internal static class SpellsDisplay
 
             void AdditionalRendering()
             {
-                var toggle = spellListContext.IsSuggestedSetSelected;
+                toggle = spellListContext.IsSuggestedSetSelected;
                 if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
                 {
                     spellListContext.SelectSuggestedSetInternal(toggle);

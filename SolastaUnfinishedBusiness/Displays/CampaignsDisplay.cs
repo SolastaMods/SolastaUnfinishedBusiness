@@ -119,10 +119,7 @@ internal static class CampaignsDisplay
             }, UI.Width(292f));
 
             UI.Label();
-
             UI.Label(Gui.Localize("ModUi/&EnableCustomPortraitsHelp"));
-
-            UI.Label();
         }
 
         UI.Label();
@@ -145,6 +142,7 @@ internal static class CampaignsDisplay
             Main.Settings.EnableExtendedProficienciesPanelDisplay = toggle;
         }
 
+        UI.Label();
         UI.Label();
 
         toggle = Main.Settings.HideMonsterHitPoints;

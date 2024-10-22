@@ -95,11 +95,11 @@ internal static class BackgroundsAndRacesDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton(Gui.Localize("ModUi/&DocsBackgrounds").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Backgrounds.md"), UI.Width(150f));
+                () => UpdateContext.OpenDocumentation("Backgrounds.md"), UI.Width(189f));
             UI.ActionButton(Gui.Localize("ModUi/&DocsRaces").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Races.md"), UI.Width(150f));
+                () => UpdateContext.OpenDocumentation("Races.md"), UI.Width(189f));
             UI.ActionButton(Gui.Localize("ModUi/&DocsSubraces").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Subraces.md"), UI.Width(150f));
+                () => UpdateContext.OpenDocumentation("Subraces.md"), UI.Width(189f));
         }
 
         UI.Label();
