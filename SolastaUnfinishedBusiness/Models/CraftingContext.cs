@@ -165,6 +165,11 @@ internal static class CraftingContext
 
     internal static void LearnRecipes(string key)
     {
+        if (!Gui.GameCampaign)
+        {
+            return;
+        }
+
         var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
 
         foreach (var recipeBookDefinition in RecipeBooks[key])
