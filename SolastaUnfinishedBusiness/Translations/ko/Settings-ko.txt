@@ -56,6 +56,7 @@ ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>저온 
 ModUi/&Combat=<color=#F0DAA0>전투:</color>
 ModUi/&Crafting=<color=#F0DAA0>제작:</color>
 ModUi/&CraftingHelp=• 활성 파티에서 즉시 요리법을 배우려면 버튼을 누르세요.\n• 상점에 추가된 아이템은 파티가 위치에서 멀리 이동해서 돌아와야 할 수도 있습니다.
+ModUi/&CraftingItems=크래프팅 & 상인
 ModUi/&Credits=크레딧
 ModUi/&CreditsAndDiagnostics=크레딧 및 진단
 ModUi/&Critical=<color=#F0DAA0>치명타:</color>
@@ -63,7 +64,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: 게임 기본값, 데미
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: 데미지 주사위의 최대 결과를 합산하여 공격의 데미지에 더합니다. <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 가능한 가장 높은 결과가 나오는 모든 데미지 주사위를 계속 다시 굴려 총 데미지에 추가합니다.
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 추가 주사위를 굴리는 대신 공격의 총 데미지를 두 배로 늘립니다. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>신들</color>
 ModUi/&DisableAutoEquip=인벤토리에 있는 아이템의 자동 장착을 비활성화합니다.
 ModUi/&DisableBarbarianBrutalCritical=<i>+ 레벨 9, 13, 17에서 <b>잔혹한 치명타</b>도 비활성화합니다.</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=<color=#D89555>특기</color> 모드에서 주문 시전 전제 조건 비활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
@@ -89,12 +89,11 @@ ModUi/&DocsSpells=주문
 ModUi/&DocsSubclasses=하위 클래스
 ModUi/&DocsSubraces=아종
 ModUi/&DocsVersatilities=다재다능함
-ModUi/&Donate=<b><color=#D89555>기부하기:</color></b> <i>{0}</i>
 ModUi/&DontEndTurnAfterReady=<color=#D89555>준비 행동</color>을 사용한 후에 턴을 끝내지 마세요 <i><color=#F0DAA0>[서둘러서 또는 다른 출처에서 보너스 행동이나 추가 주요 행동을 사용할 수 있음]</color></i>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있는 경우 전투 카메라가 따라가지 않습니다.
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 화면 가장자리 밖에 있거나 % 이내에 있지 않는 한</color></i>
-ModUi/&DungeonMakerBasicHelp=• 이러한 설정은 플레이어가 이 모드를 설치하도록 요구하지 않습니다.
 ModUi/&DungeonMaker=던전메이커
+ModUi/&DungeonMakerBasicHelp=• 이러한 설정은 플레이어가 이 모드를 설치하도록 요구하지 않습니다.
 ModUi/&Effects=효과
 ModUi/&EmpressGarbAppearance=<color=#D89555>황후 복장</color> 모습
 ModUi/&EnableActionSwitching=동작 전환 막대 활성화 <i><color=#F0DAA0>[동작 순서를 완벽하게 제어하는 ​​데 유용함]</color></i>
@@ -123,7 +122,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=레벨 6과 14에서 <color=#D89555>특기<
 ModUi/&EnableFighterWeaponSpecialization=레벨 8과 16에서 <color=#D89555>무기 전문화</color> 활성화 <i><color=#F0DAA0>[명중률과 피해량이 +1 증가하지만 다른 무기 유형에는 불리함]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 사용 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[종족 기본값 대신 능력치 점수 할당]</color></i>
-ModUi/&EnableGauntletMainAttacks=<color=#D89555>수도사</color> 또는 <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우 캐릭터가 주요 행동으로 <b>비무장 공격</b>을 허용합니다.
+ModUi/&EnableGauntletMainAttacks=액터가 메인 슬롯에 무기를 가지고 있고 <color=#D89555>수도사</color> 또는 <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우 주요 액션 <b>비무장 공격</b>을 허용합니다.
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=가장 뛰어난 능력을 가진 영웅이 대화 선택을 할 수 있도록 합니다. <i><color=#F0DAA0>[작동하지만 공식 캠페인에서는 내레이션이 이상하게 보입니다.]</color></i>
 ModUi/&EnableHigherGroundRules=더 높은 곳의 규칙 활성화 <i><color=#F0DAA0>[더 높은 곳에서 공격할 경우 적중률 +1]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=재고 필터링 및 정렬 활성화
@@ -207,7 +206,6 @@ ModUi/&IncreaseMaxAttunedItems=레벨 10에서 최대 <color=#D89555>조정 아�
 ModUi/&Invocations=<color=#F0DAA0>호출</color>
 ModUi/&ItemInDm=DM의 아이템
 ModUi/&Items=<color=#F0DAA0>아이템:</color>
-ModUi/&CraftingItems=크래프팅 & 상인
 ModUi/&ItemsHelp1=<color=#C04040E0>영웅에게 아이템을 추가하려면 캐릭터 검사 화면을 여세요...</color>
 ModUi/&ItemsHelp2=<b>지상 컨테이너에 아이템을 추가하려면 +를 누르세요.</b>
 ModUi/&KeepInvisibilityWhenUsingItems=아이템 사용을 활성화해도 <color=#D89555>투명성</color>이 깨지지 않습니다.
@@ -217,7 +215,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 발견 후 레벨 맵에 보이�
 ModUi/&MaxAllowedClasses=<color=white>최대 허용 클래스</color>
 ModUi/&Merchants=<color=#F0DAA0>상인:</color>
 ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>
-ModUi/&ModifyGravitySlam=<i>+ <color=#D89555>중력 강타</color> 주문을 수정하여 영향을 받는 대상을 아래로 밀어내고 구체 대신 원통형으로 만듭니다.</i>
+ModUi/&ModifyGravitySlam=<color=#D89555>Gravity Slam</color> 주문을 수정하여 영향을 받는 대상을 아래로 끌어내리고 구가 아닌 원통형이 되게 함\n<color=#F0DAA0>[위/아래 축에서 <color=#D89555>밀기 및 당기기 동작 효과가 작동해야 함</color>]</color>
 ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>로 주문을 클릭하면 소모된 기본 레퍼토리 슬롯 유형이 반전됩니다.\n<i><color=#F0DAA0>[<color=#D89555>워록</color>은 흰색 주문 슬롯을 소모하고 다른 이들은 계약 녹색 주문 슬롯을 소모합니다]</color></i>
 ModUi/&Multiplayer=#F0DAA0>멀티플레이어:</color>

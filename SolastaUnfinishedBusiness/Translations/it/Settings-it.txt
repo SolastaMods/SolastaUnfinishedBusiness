@@ -56,6 +56,7 @@ ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resiste
 ModUi/&Combat=<color=#F0DAA0>Combattimento:</color>
 ModUi/&Crafting=<color=#F0DAA0>Creazione:</color>
 ModUi/&CraftingHelp=• Premi il pulsante per apprendere le ricette all'istante sul gruppo attivo\n• Gli articoli aggiunti ai negozi potrebbero richiedere che il gruppo si allontani dalla posizione e torni indietro
+ModUi/&CraftingItems=Artigianato e commercianti
 ModUi/&Credits=Crediti
 ModUi/&CreditsAndDiagnostics=Crediti e diagnosi
 ModUi/&Critical=<color=#F0DAA0>Colpo critico:</color>
@@ -63,7 +64,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: impostazione predefinita
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: somma il risultato massimo dei dadi danno e aggiungilo al danno dell'attacco <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a rilanciare tutti i dadi danno che danno il risultato più alto possibile e aggiungili al danno totale
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Raddoppia il danno totale del tuo attacco invece di tirare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>Divinità</color>
 ModUi/&DisableAutoEquip=Disabilita l'equipaggiamento automatico degli oggetti nell'inventario
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Disattiva anche <b>Brutal Critical</b> ai livelli 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disabilita i prerequisiti per lanciare incantesimi sui mod <color=#D89555>talenti</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
@@ -89,12 +89,11 @@ ModUi/&DocsSpells=Incantesimi
 ModUi/&DocsSubclasses=Sottoclassi
 ModUi/&DocsSubraces=Sottorazze
 ModUi/&DocsVersatilities=Versatilità
-ModUi/&Donate=<b><color=#D89555>Fai una donazione:</color></b> <i>{0}</i>
 ModUi/&DontEndTurnAfterReady=Non terminare il turno dopo aver usato <color=#D89555>Azione pronta</color> <i><color=#F0DAA0>[consente di usare Azione bonus o qualsiasi azione principale extra da Fretta o altre fonti]</color></i>
 ModUi/&DontFollowCharacterInBattle=La telecamera di battaglia non segue quando il personaggio è già sullo schermo
 ModUi/&DontFollowMargin=<i><color=white>+ A meno che l'eroe non sia spento o entro % dal bordo dello schermo</color></i>
-ModUi/&DungeonMakerBasicHelp=• Queste impostazioni non richiederanno che il giocatore abbia installato questa mod
 ModUi/&DungeonMaker=Creatore di Dungeon
+ModUi/&DungeonMakerBasicHelp=• Queste impostazioni non richiederanno che il giocatore abbia installato questa mod
 ModUi/&Effects=Effetti
 ModUi/&EmpressGarbAppearance=Aspetto <color=#D89555>Abito dell'imperatrice</color>
 ModUi/&EnableActionSwitching=Abilita la barra di cambio azione <i><color=#F0DAA0>[utile per avere il pieno controllo sulla sequenza delle tue azioni]</color></i>
@@ -123,7 +122,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione di <color=#D89555>tale
 ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Specializzazione nelle armi</color> ai livelli 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altro tipo di arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona le competenze di abilità e strumenti dagli sfondi]</color></i>
 ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti abilità invece dei valori razziali predefiniti]</color></i>
-ModUi/&EnableGauntletMainAttacks=Consenti <b>Attacco disarmato</b> con azione principale per il personaggio se è un <color=#D89555>monaco</color> o ha <b>fasce</b> o <b>guanto</b> equipaggiati
+ModUi/&EnableGauntletMainAttacks=Consenti l'azione principale <b>Attacco disarmato</b> se l'attore ha un'arma nello slot principale ed è un <color=#D89555>Monaco</color> o se sono equipaggiati <b>Fasce per le mani</b> o <b>Guanto d'arme</b>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Abilita l'eroe con la migliore competenza a effettuare scelte di dialogo <i><color=#F0DAA0>[funziona ma le narrazioni sembrano strane nelle campagne ufficiali]</color></i>
 ModUi/&EnableHigherGroundRules=Abilita le regole per i terreni più alti <i><color=#F0DAA0>[+1 per colpire se si attacca da un terreno più alto]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=Abilita il filtraggio e l'ordinamento dell'inventario
@@ -207,7 +206,6 @@ ModUi/&IncreaseMaxAttunedItems=Aumenta il numero massimo di <color=#D89555>Ogget
 ModUi/&Invocations=<color=#F0DAA0>Invocazioni</color>
 ModUi/&ItemInDm=Articoli in DM
 ModUi/&Items=<color=#F0DAA0>Oggetti:</color>
-ModUi/&CraftingItems=Artigianato e commercianti
 ModUi/&ItemsHelp1=<color=#C04040E0>Apri la schermata di ispezione del personaggio per aggiungere oggetti agli eroi...</color>
 ModUi/&ItemsHelp2=<b>Premi + per aggiungere elementi al contenitore di terra</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Abilita l'utilizzo degli oggetti senza interrompere <color=#D89555>Invisibilità</color>
@@ -217,7 +215,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Segna anche la posizione dei tele
 ModUi/&MaxAllowedClasses=<color=white>Numero massimo di classi consentite</color>
 ModUi/&Merchants=<color=#F0DAA0>Commercianti:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
-ModUi/&ModifyGravitySlam=<i>+ Modifica l'incantesimo <color=#D89555>Gravity Slam</color> per spingere verso il basso i bersagli colpiti e trasformarlo in un cilindro anziché in una sfera</i>
+ModUi/&ModifyGravitySlam=Modifica l'incantesimo <color=#D89555>Gravity Slam</color> per tirare verso il basso i bersagli colpiti e trasformarlo in un cilindro anziché in una sfera\n<color=#F0DAA0>[richiede che gli effetti di movimento <color=#D89555>spinta e trazione funzionino sull'asse su/giù</color> abilitati]</color>
 ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAIUSC</color> fare clic su un incantesimo inverte il tipo di slot del repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spende gli slot incantesimo bianchi e gli altri spendono quelli verdi del patto]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multigiocatore:</color>

@@ -118,6 +118,13 @@ internal static class SpellsDisplay
             SrdAndHouseRulesContext.SwitchEldritchBlastRange();
         }
 
+        toggle = Main.Settings.ModifyGravitySlam;
+        if (UI.Toggle(Gui.Localize("ModUi/&ModifyGravitySlam"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ModifyGravitySlam = toggle && Main.Settings.EnablePullPushOnVerticalDirection;
+            SrdAndHouseRulesContext.ToggleGravitySlamModification();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.EnableOneDndHealingSpellsBuf;

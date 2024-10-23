@@ -39,6 +39,11 @@ internal static class PlayerControllerContext
 
     internal static void RefreshGuiState()
     {
+        if (!Gui.GameCampaign)
+        {
+            return;
+        }
+
         var controllersChoicesCopy = ControllersChoices.ToDictionary(x => x.Key, x => x.Value);
         var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 

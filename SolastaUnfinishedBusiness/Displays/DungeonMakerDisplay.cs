@@ -119,20 +119,13 @@ internal static class DungeonMakerDisplay
 
         UI.Label();
 
-        DisplayTranslations();
-
-        UI.Label();
-    }
-
-    private static void DisplayTranslations()
-    {
         UI.Label();
         UI.Label(Gui.Format("ModUi/&Translations"));
         UI.Label();
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Localize("ModUi/&TargetLanguage"), UI.Width(120f));
+            UI.Label(Gui.Localize("ModUi/&TargetLanguage"), UI.Width(150f));
 
             var intValue = Array.IndexOf(TranslatorContext.AvailableLanguages, Main.Settings.SelectedLanguageCode);
 
@@ -140,7 +133,7 @@ internal static class DungeonMakerDisplay
                     ref intValue,
                     TranslatorContext.AvailableLanguages,
                     TranslatorContext.AvailableLanguages.Length,
-                    3, UI.Width(300f)))
+                    10, UI.Width(600f)))
             {
                 Main.Settings.SelectedLanguageCode = TranslatorContext.AvailableLanguages[intValue];
             }
@@ -162,9 +155,9 @@ internal static class DungeonMakerDisplay
                 string buttonLabel;
 
                 UI.Label(
-                    userCampaign.Author.Substring(0, Math.Min(16, userCampaign.Author.Length)).Bold().Orange(),
-                    UI.Width(120f));
-                UI.Label(userCampaign.Title.Bold().Italic(), UI.Width(300f));
+                    userCampaign.Author.Substring(0, Math.Min(20, userCampaign.Author.Length)).Bold().Orange(),
+                    UI.Width(150f));
+                UI.Label(userCampaign.Title.Bold().Italic(), UI.Width(400f));
 
                 if (TranslatorContext.TranslatorBehaviour.CurrentExports.TryGetValue(exportName, out var status))
                 {
@@ -191,5 +184,7 @@ internal static class DungeonMakerDisplay
                     UI.Width(200f));
             }
         }
+
+        UI.Label();
     }
 }

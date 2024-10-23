@@ -56,6 +56,7 @@ ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>耐寒�
 ModUi/&Combat=<color=#F0DAA0>戦闘:</color>
 ModUi/&Crafting=<color=#F0DAA0>クラフト:</color>
 ModUi/&CraftingHelp=• ボタンを押すと、アクティブなパーティーでレシピを即座に学習できます\n• ストアに追加されたアイテムは、パーティーがその場所から離れて戻ってくる必要がある場合があります
+ModUi/&CraftingItems=クラフトと商人
 ModUi/&Credits=クレジット
 ModUi/&CreditsAndDiagnostics=クレジットと診断
 ModUi/&Critical=<color=#F0DAA0>クリティカルヒット:</color>
@@ -63,7 +64,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: ゲームのデフォル
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: ダメージダイスの最大結果を合計し、それを攻撃のダメージに加えます <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 可能な限り最高の結果を出したダメージダイスを再度振り直し、合計ダメージに加えます。
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 追加のサイコロを振る代わりに、攻撃の合計ダメージを 2 倍にします。<i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>神々</color>
 ModUi/&DisableAutoEquip=インベントリ内のアイテムの自動装備を無効にする
 ModUi/&DisableBarbarianBrutalCritical=<i>+ レベル 9、13、17 で <b>Brutal Critical</b> も無効にします</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=モッド <color=#D89555>feats</color> の呪文詠唱の前提条件を無効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
@@ -89,12 +89,11 @@ ModUi/&DocsSpells=呪文
 ModUi/&DocsSubclasses=サブクラス
 ModUi/&DocsSubraces=亜人種
 ModUi/&DocsVersatilities=汎用性
-ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>
 ModUi/&DontEndTurnAfterReady=<color=#D89555>準備アクション</color>を使用した後にターンを終了しない <i><color=#F0DAA0>[ボーナスアクションまたはヘイストやその他のソースからの追加のメインアクションの使用を許可する]</color></i>
 ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にいる場合、戦闘カメラは追従しません
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローが画面外にいるか、画面端の % 以内にいる場合を除く</color></i>
-ModUi/&DungeonMakerBasicHelp=• これらの設定では、プレイヤーがこのMODをインストールする必要はありません
 ModUi/&DungeonMaker=ダンジョンメーカー
+ModUi/&DungeonMakerBasicHelp=• これらの設定では、プレイヤーがこのMODをインストールする必要はありません
 ModUi/&Effects=効果
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后の衣装</color>の外観
 ModUi/&EnableActionSwitching=アクション切り替えバーを有効にします <i><color=#F0DAA0>[アクションシーケンスを完全に制御するのに便利です]</color></i>
@@ -123,7 +122,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=レベル6と14で<color=#D89555>特技</co
 ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[命中とダメージが +1 になりますが、他の武器タイプでは不利になります]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[背景からスキルとツールの熟練度を選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトではなく能力値ポイントを割り当てる]</color></i>
-ModUi/&EnableGauntletMainAttacks=<color=#D89555>モンク</color>または<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合、キャラクターのメインアクションで<b>素手攻撃</b>が可能になります
+ModUi/&EnableGauntletMainAttacks=アクターがメインスロットに武器を持っており、<color=#D89555>モンク</color>であるか、<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合、メインアクション<b>素手攻撃</b>を許可します。
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=最も熟練度の高いヒーローが会話の選択肢をロールできるようにします <i><color=#F0DAA0>[機能しますが、公式キャンペーンではナレーションが奇妙に見えます]</color></i>
 ModUi/&EnableHigherGroundRules=高所ルールを有効にする <i><color=#F0DAA0>[高所から攻撃する場合、命中率 +1]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=在庫のフィルタリングと並べ替えを有効にする
@@ -207,7 +206,6 @@ ModUi/&IncreaseMaxAttunedItems=レベル 10 で最大 <color=#D89555>調整ア�
 ModUi/&Invocations=<color=#F0DAA0>召喚</color>
 ModUi/&ItemInDm=DM内のアイテム
 ModUi/&Items=<color=#F0DAA0>アイテム:</color>
-ModUi/&CraftingItems=クラフトと商人
 ModUi/&ItemsHelp1=<color=#C04040E0>キャラクター検査画面を開いてヒーローにアイテムを追加します...</color>
 ModUi/&ItemsHelp2=<b>+ を押すと地上コンテナにアイテムが追加されます</b>
 ModUi/&KeepInvisibilityWhenUsingItems=<color=#D89555>不可視性</color>を破壊しないアイテムの使用を有効にする
@@ -217,7 +215,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 発見後、レベルマップ上
 ModUi/&MaxAllowedClasses=<color=white>最大許容クラス数</color>
 ModUi/&Merchants=<color=#F0DAA0>商人:</color>
 ModUi/&Metamagic=<color=#F0DAA0>メタマジック</color>
-ModUi/&ModifyGravitySlam=<i>+ <color=#D89555>重力スラム</color> 呪文を変更して、影響を受けたターゲットを押し下げ、球体ではなく円筒形になるようにします</i>
+ModUi/&ModifyGravitySlam=<color=#D89555>重力スラム</color> 呪文を変更して、影響を受けたターゲットを引き下げ、球体ではなく円筒形になるようにします{99><color=#F0DAA0>[<color=#D89555>上下軸でプッシュおよびプル モーション効果を有効にするには</color> を有効にする必要があります]</color>
 ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> キーを押しながら呪文をクリックすると、消費されるデフォルトのレパートリー スロットの種類が反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color> は白の呪文スロットを消費し、その他のプレイヤーはパクトの緑の呪文スロットを消費します]</color></i>
 ModUi/&Multiplayer=#F0DAA0>マルチプレイヤー:</color>

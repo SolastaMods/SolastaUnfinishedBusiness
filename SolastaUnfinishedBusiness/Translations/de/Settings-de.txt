@@ -56,6 +56,7 @@ ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Kälter
 ModUi/&Combat=<color=#F0DAA0>Kampf:</color>
 ModUi/&Crafting=<color=#F0DAA0>Herstellung:</color>
 ModUi/&CraftingHelp=• Drücken Sie die Taste, um Rezepte sofort für die aktive Gruppe zu lernen.\n• Für zu Geschäften hinzugefügte Artikel kann es erforderlich sein, dass die Gruppe den Standort verlässt und wieder zurückkommt.
+ModUi/&CraftingItems=Handwerk & Händler
 ModUi/&Credits=Credits
 ModUi/&CreditsAndDiagnostics=Credits & Diagnose
 ModUi/&Critical=<color=#F0DAA0>Kritischer Treffer:</color>
@@ -63,7 +64,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: Spielvorgabe, wirf belie
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: Summiere das maximale Ergebnis der Schadenswürfel und addiere es zum Schaden des Angriffs <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: Wirf alle Schadenswürfel mit dem höchstmöglichen Ergebnis erneut und addiere sie zum Gesamtschaden
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Verdoppeln Sie den Gesamtschaden Ihres Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>Gottheiten</color>
 ModUi/&DisableAutoEquip=Automatisches Ausrüsten von Gegenständen im Inventar deaktivieren
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Deaktivieren Sie außerdem <b>Brutal Critical</b> auf den Stufen 9, 13 und 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Deaktivieren Sie die Voraussetzungen für das Wirken von Zaubern bei Mod <color=#D89555>feats</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -89,12 +89,11 @@ ModUi/&DocsSpells=Zauber
 ModUi/&DocsSubclasses=Unterklassen
 ModUi/&DocsSubraces=Unterrassen
 ModUi/&DocsVersatilities=Vielseitigkeit
-ModUi/&Donate=<b><color=#D89555>Spenden:</color></b> <i>{0}</i>
 ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht nach der Verwendung von <color=#D89555>Bereitschaftsaktion</color> <i><color=#F0DAA0>[ermöglicht die Verwendung von Bonusaktionen oder zusätzlichen Hauptaktionen aus Eile oder anderen Quellen]</color></i>
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn die Figur bereits auf dem Bildschirm ist
 ModUi/&DontFollowMargin=<i><color=white>+ Sofern der Held nicht ausgeschaltet ist oder sich innerhalb von % des Bildschirmrands befindet</color></i>
-ModUi/&DungeonMakerBasicHelp=• Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat
 ModUi/&DungeonMaker=Dungeon-Ersteller
+ModUi/&DungeonMakerBasicHelp=• Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat
 ModUi/&Effects=Auswirkungen
 ModUi/&EmpressGarbAppearance=<color=#D89555>Kaiseringewand</color> Aussehen
 ModUi/&EnableActionSwitching=Aktivieren Sie die Aktionswechselleiste <i><color=#F0DAA0>[nützlich, um die volle Kontrolle über Ihre Aktionsabfolge zu haben]</color></i>
@@ -123,7 +122,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktiviere die Auswahl von <color=#D89555>F�
 ModUi/&EnableFighterWeaponSpecialization=Aktivieren Sie <color=#D89555>Waffenspezialisierung</color> auf den Stufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, sind Sie jedoch bei allen anderen Waffentypen im Nachteil]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Flexible Hintergründe aktivieren <i><color=#F0DAA0>[Fertigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
 ModUi/&EnableFlexibleRaces=Flexible Rassen aktivieren <i><color=#F0DAA0>[Fähigkeitspunkte statt der Rassenstandards zuweisen]</color></i>
-ModUi/&EnableGauntletMainAttacks=Erlaube <b>Unbewaffneten Angriff</b> mit Hauptaktion für den Charakter, wenn dieser ein <color=#D89555>Mönch</color> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet hat.
+ModUi/&EnableGauntletMainAttacks=Erlaube Hauptaktion <b>Unbewaffneter Angriff</b>, wenn der Akteur eine Waffe im Hauptslot hat und ein <color=#D89555>Mönch</color> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet sind.
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Ermöglichen Sie dem Helden mit der besten Fertigkeit, Dialogoptionen zu würfeln <i><color=#F0DAA0>[es funktioniert, aber die Erzählungen sehen bei offiziellen Kampagnen seltsam aus]</color></i>
 ModUi/&EnableHigherGroundRules=Regeln für höheres Gelände aktivieren <i><color=#F0DAA0>[+1 zum Treffen bei Angriffen von höherem Gelände]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=Aktivieren Sie die Inventarfilterung und -sortierung
@@ -207,7 +206,6 @@ ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximalen <color=#D89555>abgesti
 ModUi/&Invocations=<color=#F0DAA0>Aufrufe</color>
 ModUi/&ItemInDm=Artikel in DM
 ModUi/&Items=<color=#F0DAA0>Artikel:</color>
-ModUi/&CraftingItems=Handwerk & Händler
 ModUi/&ItemsHelp1=<color=#C04040E0>Öffnen Sie den Charakterüberprüfungsbildschirm, um Helden Gegenstände hinzuzufügen...</color>
 ModUi/&ItemsHelp2=<b>Drücken Sie +, um Elemente zum Bodencontainer hinzuzufügen</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Aktivieren Sie die Verwendung von Elementen, ohne die <color=#D89555>Unsichtbarkeit</color> zu beeinträchtigen.
@@ -217,7 +215,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie auch die Position u
 ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>
 ModUi/&Merchants=<color=#F0DAA0>Händler:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagie</color>
-ModUi/&ModifyGravitySlam=<i>+ Ändern Sie den Zauber <color=#D89555>Gravitationsschlag</color>, um betroffene Ziele nach unten zu drücken und einen Zylinder statt einer Kugel anzuzeigen</i>
+ModUi/&ModifyGravitySlam=Ändern Sie den Zauber <color=#D89555>Gravitationsschlag</color>, um betroffene Ziele nach unten zu ziehen und einen Zylinder statt einer Kugel darzustellen\n<color=#F0DAA0>[erfordert <color=#D89555>Push- und Pull-Bewegungseffekte, damit sie auf der Auf-/Ab-Achse funktionieren</color> aktiviert]</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Bewegungsrasters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=Ein <color=#1E81B0>SHIFT</color>-Klick auf einen Zauber kehrt den Typ des verbrauchten Repertoireplatzes um\n<i><color=#F0DAA0>[<color=#D89555>Hexenmeister</color> verbraucht weiße Zauberplätze und andere verbrauchen grüne Paktplätze]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Mehrspieler:</color>

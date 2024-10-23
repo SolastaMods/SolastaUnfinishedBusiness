@@ -187,6 +187,8 @@ internal static class RulesDisplay
             Main.Settings.StealthBreaksWhenAttackMisses = toggle;
         }
 
+        UI.Label();
+
         toggle = Main.Settings.StealthBreaksWhenCastingMaterial;
         if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingMaterial"), ref toggle, UI.AutoWidth()))
         {
@@ -321,15 +323,9 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePullPushOnVerticalDirection"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablePullPushOnVerticalDirection = toggle;
-            SrdAndHouseRulesContext.ToggleGravitySlamModification();
-        }
-
-        if (Main.Settings.EnablePullPushOnVerticalDirection)
-        {
-            toggle = Main.Settings.ModifyGravitySlam;
-            if (UI.Toggle(Gui.Localize("ModUi/&ModifyGravitySlam"), ref toggle, UI.AutoWidth()))
+            if (!toggle)
             {
-                Main.Settings.ModifyGravitySlam = toggle;
+                Main.Settings.ModifyGravitySlam = false;
                 SrdAndHouseRulesContext.ToggleGravitySlamModification();
             }
         }

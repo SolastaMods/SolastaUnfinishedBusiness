@@ -12,9 +12,7 @@
     <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
     <DisplayMetamagicToggle>false</DisplayMetamagicToggle>
     <DisplayCraftingToggle>false</DisplayCraftingToggle>
-    <DisplayFactionRelationsToggle>false</DisplayFactionRelationsToggle>
     <DisplayItemsToggle>false</DisplayItemsToggle>
-    <DisplayMerchantsToggle>false</DisplayMerchantsToggle>
     <DisplayBackgroundsAndRacesGeneralToggle>false</DisplayBackgroundsAndRacesGeneralToggle>
     <DisplayProficienciesGeneralToggle>false</DisplayProficienciesGeneralToggle>
     <DisplaySpellsGeneralToggle>false</DisplaySpellsGeneralToggle>
@@ -346,15 +344,6 @@
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
     <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
-    <AllowAnyClassToUseArcaneShieldstaff>false</AllowAnyClassToUseArcaneShieldstaff>
-    <IdentifyAfterRest>false</IdentifyAfterRest>
-    <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
-    <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
-    <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
-    <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
-    <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
-    <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
-    <FixRingOfRegenerationHealRate>false</FixRingOfRegenerationHealRate>
     <AccountForAllDiceOnFollowUpStrike>false</AccountForAllDiceOnFollowUpStrike>
     <AccountForAllDiceOnSavageAttack>false</AccountForAllDiceOnSavageAttack>
     <AllowFlightSuspend>false</AllowFlightSuspend>
@@ -372,6 +361,24 @@
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
+    <AllowAnyClassToUseArcaneShieldstaff>false</AllowAnyClassToUseArcaneShieldstaff>
+    <IdentifyAfterRest>false</IdentifyAfterRest>
+    <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
+    <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
+    <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
+    <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
+    <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
+    <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
+    <FixRingOfRegenerationHealRate>false</FixRingOfRegenerationHealRate>
+    <AddCustomIconsToOfficialItems>false</AddCustomIconsToOfficialItems>
+    <AddNewWeaponsAndRecipesToShops>false</AddNewWeaponsAndRecipesToShops>
+    <DisableAutoEquip>false</DisableAutoEquip>
+    <EnableInventoryFilteringAndSorting>false</EnableInventoryFilteringAndSorting>
+    <EnableInventoryTaintNonProficientItemsRed>false</EnableInventoryTaintNonProficientItemsRed>
+    <EnableInventoryTintKnownRecipesRed>false</EnableInventoryTintKnownRecipesRed>
+    <ShowCraftingRecipeInDetailedTooltips>false</ShowCraftingRecipeInDetailedTooltips>
+    <ShowCraftedItemOnRecipeIcon>false</ShowCraftedItemOnRecipeIcon>
+    <SwapCraftedItemAndRecipeIcons>false</SwapCraftedItemAndRecipeIcons>
     <AddPickPocketableLoot>false</AddPickPocketableLoot>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
     <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
@@ -434,7 +441,6 @@
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
@@ -651,6 +657,7 @@
     <EnableBardHealingBalladOnLongRest>false</EnableBardHealingBalladOnLongRest>
     <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
     <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
+    <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
     <KlassListSliderPosition>
         <item>
             <key>
@@ -1081,15 +1088,6 @@
             </ArrayOfInt>
         </ArrayOfArrayOfInt>
     </FormationGridSets>
-    <AddCustomIconsToOfficialItems>false</AddCustomIconsToOfficialItems>
-    <AddNewWeaponsAndRecipesToShops>false</AddNewWeaponsAndRecipesToShops>
-    <DisableAutoEquip>false</DisableAutoEquip>
-    <EnableInventoryFilteringAndSorting>false</EnableInventoryFilteringAndSorting>
-    <EnableInventoryTaintNonProficientItemsRed>false</EnableInventoryTaintNonProficientItemsRed>
-    <EnableInventoryTintKnownRecipesRed>false</EnableInventoryTintKnownRecipesRed>
-    <ShowCraftingRecipeInDetailedTooltips>false</ShowCraftingRecipeInDetailedTooltips>
-    <ShowCraftedItemOnRecipeIcon>false</ShowCraftedItemOnRecipeIcon>
-    <SwapCraftedItemAndRecipeIcons>false</SwapCraftedItemAndRecipeIcons>
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>

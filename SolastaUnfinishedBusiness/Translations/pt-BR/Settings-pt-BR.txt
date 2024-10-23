@@ -56,6 +56,7 @@ ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resist�
 ModUi/&Combat=<color=#F0DAA0>Combate:</color>
 ModUi/&Crafting=<color=#F0DAA0>Artesanato:</color>
 ModUi/&CraftingHelp=• Pressione o botão para aprender receitas instantaneamente no grupo ativo\n• Itens adicionados às lojas podem exigir que o grupo viaje para longe do local e volte
+ModUi/&CraftingItems=Artesanato e comerciantes
 ModUi/&Credits=Créditos
 ModUi/&CreditsAndDiagnostics=Créditos e Diagnósticos
 ModUi/&Critical=<color=#F0DAA0>Acerto Crítico:</color>
@@ -63,7 +64,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: padrão do jogo, role qu
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: some o resultado máximo dos dados de dano e adicione-o ao dano do ataque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continue rolando novamente todos os dados de dano que rolarem o maior resultado possível e adicione-os ao dano total
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>Divindades</color>
 ModUi/&DisableAutoEquip=Desabilitar equipamento automático de itens no inventário
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Também desabilite <b>Brutal Critical</b> nos níveis 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desabilitar pré-requisitos de conjuração de magias em <color=#D89555>talentos</color> do mod <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -89,12 +89,11 @@ ModUi/&DocsSpells=Feitiços
 ModUi/&DocsSubclasses=Subclasses
 ModUi/&DocsSubraces=Sub-raças
 ModUi/&DocsVersatilities=Versatilidades
-ModUi/&Donate=<b><color=#D89555>Doar:</color></b> <i>{0}</i>
 ModUi/&DontEndTurnAfterReady=Não termine o turno após usar <color=#D89555>Ação Pronta</color> <i><color=#F0DAA0>[permite usar Ação Bônus ou quaisquer ações Principais extras de Aceleração ou outras fontes]</color></i>
 ModUi/&DontFollowCharacterInBattle=A câmera de batalha não segue quando o personagem já está na tela
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que o herói esteja desligado ou dentro de % da borda da tela</color></i>
-ModUi/&DungeonMakerBasicHelp=• Essas configurações não exigirão que o jogador tenha esse mod instalado
 ModUi/&DungeonMaker=Criador de Masmorras
+ModUi/&DungeonMakerBasicHelp=• Essas configurações não exigirão que o jogador tenha esse mod instalado
 ModUi/&Effects=Efeitos
 ModUi/&EmpressGarbAppearance=Aparência de <color=#D89555>Traje de Imperatriz</color>
 ModUi/&EnableActionSwitching=Habilitar a barra de alternância de ações <i><color=#F0DAA0>[útil para ter controle total sobre sua sequência de ações]</color></i>
@@ -123,7 +122,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar seleção de <color=#D89555>talen
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Especialização em Armas</color> nos níveis 8 e 16 <i><color=#F0DAA0>[receba +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar fundos flexíveis <i><color=#F0DAA0>[selecione habilidades e proficiências em ferramentas dos fundos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar raças flexíveis <i><color=#F0DAA0>[atribuir pontos de habilidade em vez dos padrões raciais]</color></i>
-ModUi/&EnableGauntletMainAttacks=Permitir <b>Ataque Desarmado</b> com ação principal para o personagem se for um <color=#D89555>Monge</color> ou tiver <b>Handwraps</b> ou <b>Gauntlet</b> equipados
+ModUi/&EnableGauntletMainAttacks=Permitir ação principal <b>Ataque Desarmado</b> se o ator tiver arma no slot principal e for um <color=#D89555>Monge</color> ou <b>Handwraps</b> ou <b>Gauntlet</b> estiverem equipados
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permita que o herói com melhor proficiência role escolhas de diálogo <i><color=#F0DAA0>[funciona, mas as narrações parecem estranhas em campanhas oficiais]</color></i>
 ModUi/&EnableHigherGroundRules=Habilitar regras de terreno mais alto <i><color=#F0DAA0>[+1 para acertar se estiver atacando de um terreno mais alto]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=Habilitar filtragem e classificação de inventário
@@ -207,7 +206,6 @@ ModUi/&IncreaseMaxAttunedItems=Aumentar o máximo de <color=#D89555>Itens Sinton
 ModUi/&Invocations=<color=#F0DAA0>Invocações</color>
 ModUi/&ItemInDm=Itens em DM
 ModUi/&Items=<color=#F0DAA0>Itens:</color>
-ModUi/&CraftingItems=Artesanato e comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abra a tela de inspeção de personagem para adicionar itens aos heróis...</color>
 ModUi/&ItemsHelp2=<b>Pressione + para adicionar itens ao contêiner terrestre</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Habilitar o uso do item sem quebrar <color=#D89555>Invisibilidade</color>
@@ -217,7 +215,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização do
 ModUi/&MaxAllowedClasses=<color=white>Máximo de classes permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamágica</color>
-ModUi/&ModifyGravitySlam=<i>+ Modificar o feitiço <color=#D89555>Gravity Slam</color> para empurrar os alvos afetados para baixo e torná-los um cilindro em vez de uma esfera</i>
+ModUi/&ModifyGravitySlam=Modifique o feitiço <color=#D89555>Gravity Slam</color> para puxar os alvos afetados para baixo e torná-los um cilindro em vez de uma esfera\n<color=#F0DAA0>[requer <color=#D89555>efeitos de movimento de empurrar e puxar para funcionar nos eixos para cima/baixo</color> habilitados]</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de movimento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clicar em uma magia inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de magia brancos e outros gastam slots de pacto verdes]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multijogador:</color>

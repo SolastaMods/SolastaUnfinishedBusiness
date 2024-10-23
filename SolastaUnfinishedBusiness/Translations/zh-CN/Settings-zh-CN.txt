@@ -56,6 +56,7 @@ ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>抗寒�
 ModUi/&Combat=<color=#F0DAA0>战斗：</color>
 ModUi/&Crafting=<color=#F0DAA0>制作：</color>
 ModUi/&CraftingHelp=• 按下按钮即可立即学习活动派对上的食谱\n• 添加到商店的物品可能需要派对离开该位置并返回
+ModUi/&CraftingItems=手工艺与商人
 ModUi/&Credits=致谢
 ModUi/&CreditsAndDiagnostics=信用与诊断
 ModUi/&Critical=<color=#F0DAA0>致命一击：</color>
@@ -63,7 +64,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>：游戏默认，掷任�
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>：将伤害骰子的最大结果相加，并将其添加到攻击的伤害中<i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>：继续重新掷出任何掷出最高可能结果的伤害骰子，并将其添加到总伤害中
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>：将你的攻击总伤害加倍，而不是掷额外的骰子。<i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>神祇</color>
 ModUi/&DisableAutoEquip=禁用库存中的物品自动装备
 ModUi/&DisableBarbarianBrutalCritical=<i>+ 同时禁用 9、13 和 17 级的<b>残酷暴击</b></i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=禁用 mod <color=#D89555>feats</color> 上的施法先决条件<b><i><color=#C04040E0>[需要重启]</color></i></b>
@@ -89,12 +89,11 @@ ModUi/&DocsSpells=法术
 ModUi/&DocsSubclasses=子类
 ModUi/&DocsSubraces=亚种
 ModUi/&DocsVersatilities=多功能性
-ModUi/&Donate=<b><color=#D89555>捐赠：</color></b><i>{0></i>
 ModUi/&DontEndTurnAfterReady=使用<color=#D89555>准备行动</color>后不要结束回合<i><color=#F0DAA0>[允许使用奖励行动或任何来自加速或其他来源的额外主要行动]</color></i>
 ModUi/&DontFollowCharacterInBattle=当角色已出现在屏幕上时，战斗摄像机不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+ 除非英雄不在屏幕边缘或在屏幕边缘的 % 范围内</color></i>
-ModUi/&DungeonMakerBasicHelp=• 这些设置不需要玩家安装此模组
 ModUi/&DungeonMaker=地下城制造者
+ModUi/&DungeonMakerBasicHelp=• 这些设置不需要玩家安装此模组
 ModUi/&Effects=效果
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后服装</color>外观
 ModUi/&EnableActionSwitching=启用操作切换栏<i><color=#F0DAA0>[有助于完全控制您的操作序列]</color></i>
@@ -123,7 +122,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级时启用<color=#D89555>
 ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[命中率和伤害 +1，但使用其他武器类型时处于劣势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活背景<i><color=#F0DAA0>[从背景中选择技能和工具熟练程度]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活种族<i><color=#F0DAA0>[分配能力得分点而不是种族默认值]</color></i>
-ModUi/&EnableGauntletMainAttacks=如果角色是<color=#D89555>僧侣</color>或装备有<b>手巾</b>或<b>铁手套</b>，则允许角色在主要行动中进行<b>徒手攻击</b>
+ModUi/&EnableGauntletMainAttacks=如果演员的主栏中有武器，并且装备有<color=#D89555>僧侣</color>或<b>手套</b>，则允许主要动作<b>徒手攻击</b>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=让技能熟练度最高的英雄进行对话选择<i><color=#F0DAA0>[这可行，但在官方活动中叙述看起来很奇怪]</color></i>
 ModUi/&EnableHigherGroundRules=启用高地规则<i><color=#F0DAA0>[从高地攻击时 +1 命中]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=启用库存过滤和排序
@@ -207,7 +206,6 @@ ModUi/&IncreaseMaxAttunedItems=将最大<color=#D89555>协调物品</color>增�
 ModUi/&Invocations=<color=#F0DAA0>调用</color>
 ModUi/&ItemInDm=DM 中的项目
 ModUi/&Items=<color=#F0DAA0>商品:</color>
-ModUi/&CraftingItems=手工艺与商人
 ModUi/&ItemsHelp1=<color=#C04040E0>打开角色检查屏幕为英雄添加物品...</color>
 ModUi/&ItemsHelp2=<b>按 + 将物品添加到地面容器</b>
 ModUi/&KeepInvisibilityWhenUsingItems=启用物品使用不会破坏<color=#D89555>隐形</color>
@@ -217,7 +215,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 发现后也在关卡地图上标
 ModUi/&MaxAllowedClasses=<color=white>最大允许类别</color>
 ModUi/&Merchants=<color=#F0DAA0>商家：</color>
 ModUi/&Metamagic=<color=#F0DAA0>超魔法</color>
-ModUi/&ModifyGravitySlam=<i>+ 修改<color=#D89555>重力猛击</color>法术，将受影响的目标向下推，并将其变为圆柱体而不是球体</i>
+ModUi/&ModifyGravitySlam=修改<color=#D89555>重力猛击</color>法术，将受影响的目标拉下并变成圆柱体而不是球体{99><color=#F0DAA0>[需要启用<color=#D89555>推拉运动效果才能在上/下轴上工作</color>]</color>
 ModUi/&MovementGridWidthModifier=<color=white>将移动网格宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 点击一个法术会反转所消耗的默认法术槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color> 消耗白色法术槽，其他人消耗契约绿色法术槽]</color></i>
 ModUi/&Multiplayer=#F0DAA0>多人游戏：</color>

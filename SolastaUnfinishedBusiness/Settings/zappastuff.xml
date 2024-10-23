@@ -12,9 +12,7 @@
     <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
     <DisplayMetamagicToggle>false</DisplayMetamagicToggle>
     <DisplayCraftingToggle>false</DisplayCraftingToggle>
-    <DisplayFactionRelationsToggle>false</DisplayFactionRelationsToggle>
     <DisplayItemsToggle>false</DisplayItemsToggle>
-    <DisplayMerchantsToggle>false</DisplayMerchantsToggle>
     <DisplayBackgroundsAndRacesGeneralToggle>false</DisplayBackgroundsAndRacesGeneralToggle>
     <DisplayProficienciesGeneralToggle>false</DisplayProficienciesGeneralToggle>
     <DisplaySpellsGeneralToggle>false</DisplaySpellsGeneralToggle>
@@ -443,15 +441,6 @@
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
     <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
-    <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
-    <IdentifyAfterRest>true</IdentifyAfterRest>
-    <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
-    <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
-    <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
-    <AllowClubsToBeThrown>true</AllowClubsToBeThrown>
-    <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
-    <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
-    <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
     <AccountForAllDiceOnFollowUpStrike>true</AccountForAllDiceOnFollowUpStrike>
     <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
     <AllowFlightSuspend>true</AllowFlightSuspend>
@@ -469,6 +458,24 @@
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
+    <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
+    <IdentifyAfterRest>true</IdentifyAfterRest>
+    <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
+    <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
+    <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
+    <AllowClubsToBeThrown>true</AllowClubsToBeThrown>
+    <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
+    <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
+    <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
+    <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
+    <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
+    <DisableAutoEquip>true</DisableAutoEquip>
+    <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
+    <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
+    <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
+    <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
+    <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
+    <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
     <AddPickPocketableLoot>true</AddPickPocketableLoot>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
     <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
@@ -657,7 +664,6 @@
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
@@ -723,6 +729,7 @@
         <string>FeatWhirlWindAttackDex</string>
         <string>FeatGroupBlessedSoul</string>
         <string>FeatBountifulLuck</string>
+        <string>FeatBrawler</string>
         <string>FeatCallForCharge</string>
         <string>FeatCharger</string>
         <string>FeatGroupChef</string>
@@ -754,6 +761,8 @@
         <string>FeatGroupFlamesOfPhlegethos</string>
         <string>FeatFrostAdaptation</string>
         <string>FeatGiftOfTheChromaticDragon</string>
+        <string>FeatGroupGiftOfTheGemDragon</string>
+        <string>FeatGrapplerStr</string>
         <string>FeatCleavingAttack</string>
         <string>FeatGroupGrudgeBearer</string>
         <string>FeatGroupHardy</string>
@@ -1441,6 +1450,7 @@
     <EnableBardHealingBalladOnLongRest>true</EnableBardHealingBalladOnLongRest>
     <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
     <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
+    <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
     <KlassListSliderPosition>
         <item>
             <key>
@@ -1972,16 +1982,7 @@
             </ArrayOfInt>
         </ArrayOfArrayOfInt>
     </FormationGridSets>
-    <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
-    <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
-    <DisableAutoEquip>true</DisableAutoEquip>
-    <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
-    <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
-    <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
-    <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
-    <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
-    <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
-    <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
+    <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
 </Settings>

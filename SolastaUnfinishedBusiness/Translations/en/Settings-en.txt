@@ -29,7 +29,7 @@ ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear met
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowFlightSuspend=Allow temporarily suspending flight from items and spells <i><color=#F0DAA0>[does not affect wildshape or flying races]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
-ModUi/&AllowHasteCasting=Allow casting spells with extra action from being Hasted <color=#F0DAA0>[you are still limited to 1 main action spell per round]</color>
+ModUi/&AllowHasteCasting=Allow casting spells with extra action from being Hasted <i><color=#F0DAA0>[you are still limited to 1 main action spell per round]</color></i>
 ModUi/&AllowHornsOnAllRaces=Allow horns on all races <i><color=#F0DAA0>[results might look terrible depending on race, head and horn]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Allow more real state on rest panel <i><color=#F0DAA0>[hide after rest actions on before panel and recovery features on after panel]</color></i>
 ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=#F0DAA0>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
@@ -56,6 +56,7 @@ ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Cold Re
 ModUi/&Combat=<color=#F0DAA0>Combat:</color>
 ModUi/&Crafting=<color=#F0DAA0>Crafting:</color>
 ModUi/&CraftingHelp=• Press the button to learn recipes instantly on the active party\n• Items added to stores might need the party to travel away from the location and come back
+ModUi/&CraftingItems=Crafting & Items
 ModUi/&Credits=Credits
 ModUi/&CreditsAndDiagnostics=Credits & Diagnostics
 ModUi/&Critical=<color=#F0DAA0>Critical Hit:</color>
@@ -63,7 +64,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: game default, roll any d
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: sum the maximum result for the damage dice and add it to the attack's damage <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: keep re-rolling any damage dice that roll the highest possible result and add it to the total damage
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>Deities</color>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Also disable <b>Brutal Critical</b> at levels 9, 13 and 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on mod <color=#D89555>feats</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -89,12 +89,11 @@ ModUi/&DocsSpells=Spells
 ModUi/&DocsSubclasses=Subclasses
 ModUi/&DocsSubraces=Subraces
 ModUi/&DocsVersatilities=Versatilities
-ModUi/&Donate=<b><color=#D89555>Donate:</color></b> <i>{0}</i>
 ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>Ready Action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
-ModUi/&DungeonMakerBasicHelp=• These settings won't require the player to have this mod installed
 ModUi/&DungeonMaker=Dungeon Maker
+ModUi/&DungeonMakerBasicHelp=• These settings won't require the player to have this mod installed
 ModUi/&Effects=Effects
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
 ModUi/&EnableActionSwitching=Enable the action switching bar <i><color=#F0DAA0>[useful to have full control over your actions sequence]</color></i>
@@ -123,7 +122,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selecti
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
-ModUi/&EnableGauntletMainAttacks=Allow <b>Unarmed Attack</b> with main action for character if a <color=#D89555>Monk</color> or has <b>Handwraps</b> or <b>Gauntlet</b> equipped
+ModUi/&EnableGauntletMainAttacks=Allow main action <b>Unarmed Attack</b> if actor has weapon in main slot, and is a <color=#D89555>Monk</color> or <b>Handwraps</b> or <b>Gauntlet</b> are equipped
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Enable the hero with best proficiency to roll dialogue choices <i><color=#F0DAA0>[it works but narrations look odd on official campaigns]</color></i>
 ModUi/&EnableHigherGroundRules=Enable higher ground rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
@@ -207,7 +206,6 @@ ModUi/&IncreaseMaxAttunedItems=Increase max <color=#D89555>Attuned Items</color>
 ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&ItemInDm=Items in DM
 ModUi/&Items=<color=#F0DAA0>Items:</color>
-ModUi/&CraftingItems=Crafting & Items
 ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Enable item usage not breaking <color=#D89555>Invisibility</color>
@@ -217,7 +215,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisib
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagic</color>
-ModUi/&ModifyGravitySlam=<i>+ Modify <color=#D89555>Gravity Slam</color> spell to push affected targets down and be a cylinder instead of a sphere</i>
+ModUi/&ModifyGravitySlam=Modify <color=#D89555>Gravity Slam</color> spell to pull affected targets down and be a cylinder instead of a sphere\n<i><color=#F0DAA0>[requires <color=#D89555>push and pull motion effects to work on up/down axis</color> enabled]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multiply the movement grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multiplayer:</color>

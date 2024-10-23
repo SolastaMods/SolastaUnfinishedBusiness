@@ -56,6 +56,7 @@ ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>La rés
 ModUi/&Combat=<color=#F0DAA0>Combat :</color>
 ModUi/&Crafting=<color=#F0DAA0>Artisanat :</color>
 ModUi/&CraftingHelp=• Appuyez sur le bouton pour apprendre instantanément des recettes sur le groupe actif\n• Les articles ajoutés aux magasins peuvent nécessiter que le groupe s'éloigne de l'emplacement et revienne
+ModUi/&CraftingItems=Artisanat et marchands
 ModUi/&Credits=Crédits
 ModUi/&CreditsAndDiagnostics=Crédits et diagnostics
 ModUi/&Critical=<color=#F0DAA0>Coup critique :</color>
@@ -63,7 +64,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color> : valeur par défaut du 
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color> : additionnez le résultat maximum des dés de dégâts et ajoutez-le aux dégâts de l'attaque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color> : continuez à relancer tous les dés de dégâts qui obtiennent le résultat le plus élevé possible et ajoutez-le au total des dégâts
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color> : doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>Divinités</color>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Désactivez également les <b>critiques brutaux</b> aux niveaux 9, 13 et 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Désactiver les prérequis de lancement de sorts sur le mod <color=#D89555>feats</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -89,12 +89,11 @@ ModUi/&DocsSpells=Sorts
 ModUi/&DocsSubclasses=Sous-classes
 ModUi/&DocsSubraces=Sous-races
 ModUi/&DocsVersatilities=Polyvalence
-ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
 ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir utilisé <color=#D89555>Action Prête</color> <i><color=#F0DAA0>[permet d'utiliser une Action Bonus ou toute action Principale supplémentaire à partir de la Hâte ou d'autres sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à % du bord de l'écran</color></i>
-ModUi/&DungeonMakerBasicHelp=• Ces paramètres ne nécessiteront pas que le joueur ait installé ce mod
 ModUi/&DungeonMaker=Créateur de donjons
+ModUi/&DungeonMakerBasicHelp=• Ces paramètres ne nécessiteront pas que le joueur ait installé ce mod
 ModUi/&Effects=Effets
 ModUi/&EmpressGarbAppearance=Apparence de <color=#D89555>Impératrice Garb</color>
 ModUi/&EnableActionSwitching=Activer la barre de changement d'action <i><color=#F0DAA0>[utile pour avoir un contrôle total sur votre séquence d'actions]</color></i>
@@ -123,7 +122,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des <color=#D89555>ex
 ModUi/&EnableFighterWeaponSpecialization=Activez la <color=#D89555>spécialisation des armes</color> aux niveaux 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et pour endommager mais désavantagez-vous avec tout autre type d'arme]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionnez les compétences et les outils à partir des arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs par défaut raciales]</color></i>
-ModUi/&EnableGauntletMainAttacks=Autoriser une <b>attaque à mains nues</b> avec l'action principale du personnage s'il est un <color=#D89555>moine</color> ou s'il est équipé de <b>bandages</b> ou de <b>gantelets</b>
+ModUi/&EnableGauntletMainAttacks=Autoriser l'action principale <b>Attaque sans arme</b> si l'acteur a une arme dans l'emplacement principal et est un <color=#D89555>Moine</color> ou si des <b>bandages</b> ou un <b>gantelet</b> sont équipés
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permettre au héros le plus compétent de faire des choix de dialogue <i><color=#F0DAA0>[ça marche mais les narrations semblent étranges dans les campagnes officielles]</color></i>
 ModUi/&EnableHigherGroundRules=Activer les règles de terrain plus élevé <i><color=#F0DAA0>[+1 pour toucher si vous attaquez depuis un terrain plus élevé]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=Activer le filtrage et le tri de l'inventaire
@@ -207,7 +206,6 @@ ModUi/&IncreaseMaxAttunedItems=Augmentez le nombre maximum d'<color=#D89555>obje
 ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&ItemInDm=Articles en DM
 ModUi/&Items=<color=#F0DAA0>Articles :</color>
-ModUi/&CraftingItems=Artisanat et marchands
 ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des éléments au conteneur au sol</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Activer l'utilisation des objets sans rompre l'<color=#D89555>invisibilité</color>
@@ -217,7 +215,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement 
 ModUi/&MaxAllowedClasses=<color=white>Nombre maximal de cours autorisés</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
-ModUi/&ModifyGravitySlam=<i>+ Modifier le sort <color=#D89555>Gravity Slam</color> pour pousser les cibles affectées vers le bas et être un cylindre au lieu d'une sphère</i>
+ModUi/&ModifyGravitySlam=Modifier le sort <color=#D89555>Gravity Slam</color> pour tirer les cibles affectées vers le bas et être un cylindre au lieu d'une sphère \n<color=#F0DAA0>[nécessite l'activation des <color=#D89555>effets de mouvement de poussée et de traction pour fonctionner sur l'axe haut/bas</color>]</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et les autres dépensent des emplacements de sorts verts de pacte]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multijoueur :</color>
