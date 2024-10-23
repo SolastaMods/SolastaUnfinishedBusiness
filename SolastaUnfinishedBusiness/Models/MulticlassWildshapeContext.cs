@@ -129,18 +129,13 @@ internal static class MulticlassWildshapeContext
         }
 
         // copy modifiers from original hero
-        hero.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(monster.FeaturesToBrowse);
-
-        foreach (var feature in monster.FeaturesToBrowse)
+        foreach (var activeFeature in hero.ActiveFeatures)
         {
-            if (feature is not FeatureDefinitionAttributeModifier mod
-                || !AllowedAttributes.Contains(mod.ModifiedAttribute)
-                || !monster.TryGetAttribute(mod.ModifiedAttribute, out _))
-            {
-                continue;
-            }
+            var tag = activeFeature.Key;
+            var features = activeFeature.Value;
 
-            mod.ApplyModifiers(monster.Attributes, TagWildShape);
+            monster.BrowseFeaturesOfType<FeatureDefinitionAttributeModifier>(features,
+                (f, t) => ApplyFeatureDefinitionAttributeModifier(monster, f, t), tag);
         }
 
         // TA copies only base values of hero, let's copy current value to not tackle modifiers
@@ -165,6 +160,21 @@ internal static class MulticlassWildshapeContext
         monster.usedRagePoints = hero.usedRagePoints;
         monster.usedSorceryPoints = hero.usedSorceryPoints;
         monster.usedBardicInspiration = hero.usedBardicInspiration;
+    }
+    
+    private static void ApplyFeatureDefinitionAttributeModifier(
+        RulesetCharacterMonster monster,
+        FeatureDefinition feature,
+        string tag)
+    {
+        if (feature is not FeatureDefinitionAttributeModifier mod
+            || !AllowedAttributes.Contains(mod.ModifiedAttribute)
+            || !monster.TryGetAttribute(mod.ModifiedAttribute, out _))
+        {
+            return;
+        }
+
+        mod.ApplyModifiers(monster.Attributes, tag);
     }
 
     private static void FixShapeShiftedAc(RulesetCharacterMonster monster)
