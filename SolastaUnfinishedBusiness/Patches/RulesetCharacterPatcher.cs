@@ -419,7 +419,7 @@ public static class RulesetCharacterPatcher
     }
 #endif
 
-        [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionRemoved))]
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionRemoved))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnConditionRemoved_Patch
@@ -486,7 +486,6 @@ public static class RulesetCharacterPatcher
             }
         }
     }
-
 
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.GetMaxUsesOfPower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
