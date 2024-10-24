@@ -6776,7 +6776,45 @@ You gain a +2 AC bonus, and you are always considered under the effect of half-c
 
 # Wizard
 
-## 1. Arcane Fighter [UB]
+## 1. Abjuration [UB]
+
+The School of Abjuration emphasizes magic that blocks, banishes, or protects. It is a proud and respected vocation.Called abjurers, members of this school are sought when baleful spirits require exorcism, when important locations must be guarded against magical spying, and when portals to other planes of existence must be closed.
+
+
+### Level 2
+
+* Arcane Ward
+
+When you cast an abjuration spell of 1st+ level you create a magical ward on yourself that lasts until you finish a long rest. The ward has hit points equal to twice your wizard level + your Intelligence modifier. Whenever you take damage, the ward takes the damage instead. Whenever you cast an abjuration spell of 1st+ level, the ward regains a number of hit points equal to twice the level of the spell.
+
+* Scribing Savant
+
+The time and gold cost for scribing spells in halved.
+
+
+### Level 6
+
+* Projected Ward
+
+When an ally that you can see within 30 feet of you takes damage, you can use your reaction to cause your Arcane Ward to absorb that damage. If this damage reduces the ward to 0 hit points, the warded creature takes any remaining damage.
+
+
+### Level 10
+
+* Improved Abjuration
+
+Add your Proficiency Bonus to Counterspell and Dispel Magic ability checks.
+
+
+### Level 14
+
+* Spell Resistance
+
+Gain advantage on saving throws against spells, and resistance to spell damage.
+
+
+
+## 2. Arcane Fighter [UB]
 
 Arcane Fighters channel magic into their weapons in order to perform devastating attacks. Their adversaries are often surprised at the ferocity and relentlessness from these spell casters.
 
@@ -6822,7 +6860,7 @@ Once per turn, your weapon attacks deal an extra 1d8 damage.
 
 
 
-## 2. Bladesinger [UB]
+## 3. Bladesinger [UB]
 
 Bladesingers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 
@@ -6869,7 +6907,7 @@ You add a +5 to the damage to your weapon attacks while your blade dance is acti
 
 
 
-## 3. Court Mage [SOL]
+## 4. Court Mage [SOL]
 
 Court mages are the magical equivalent of elite bodyguards. Highly prized during the Manacalon era when society was ruled by magic, this tradition has slowly resurfaced in more recent years.
 
@@ -6907,7 +6945,7 @@ At level 14, you can create a spell shield around an extra ally. You can now cas
 
 
 
-## 4. Deadmaster [UB]
+## 5. Deadmaster [UB]
 
 Deadmasters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 
@@ -6966,7 +7004,7 @@ You can use your action a number of times a day equal to your proficiency bonus,
 
 
 
-## 5. Graviturgist [UB]
+## 6. Graviturgist [UB]
 
 Understanding and mastering the forces that draw bodies of matter together or drive them apart, the students of the Graviturgy arcane tradition learn to further bend and manipulate the violent energy of gravity to their benefit, and the terrible detriment of their enemies.
 
@@ -7004,7 +7042,7 @@ Starting at 14th level, you can magically emit a powerful field of gravitational
 
 
 
-## 6. Greenmage [SOL]
+## 7. Greenmage [SOL]
 
 Greenmages are the heirs to the ancient traditions of the sylvan elves. They are wardens of the forest, specialized in nature magic and also reliable bowmen, trained to survive without spells if need be - as they had to in the wake of the Cataclysm.
 
@@ -7066,7 +7104,7 @@ At level 14, when hit by Entangling Shot, the target has disadvantage on all sav
 
 
 
-## 7. Loremaster [SOL]
+## 8. Loremaster [SOL]
 
 Loremasters are obsessed with the lost knowledge of pre-Cataclysm times. They know the old Empire had superior magic and they long to learn more about the lost spells and rituals. Their magic is focused on gathering all possible knowledge.
 
@@ -7102,7 +7140,7 @@ At level 14, you gain one extra level 1, level 2, level 3, and level 4 spell slo
 
 
 
-## 8. Shock Arcanist [SOL]
+## 9. Shock Arcanist [SOL]
 
 Shock Arcanists were the battle mages of the Manacalon Empire. Their teachings have survived the Cataclysm to become a renowned and feared magical tradition, taught in every major magic school.
 
@@ -7142,7 +7180,7 @@ Starting at level 14, you can use your Bonus Action to trigger Greater Arcane Sh
 
 
 
-## 9. Spellmaster [UB]
+## 10. Spellmaster [UB]
 
 Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 
@@ -7188,7 +7226,7 @@ Your training with magic gives you advantage on saving throws against spells.
 
 
 
-## 10. War Magic [UB]
+## 11. War Magic [UB]
 
 A variety of arcane colleges specialize in training wizards for war. The tradition of War Magic blends principles of evocation and abjuration, rather than specializing in either of those schools. It teaches techniques that empower a caster's spells, while also providing methods for wizards to bolster their own defenses. Followers of this tradition are known as war mages. They see their magic as both a weapon and armor, a resource superior to any piece of steel. War mages act fast in battle, using their spells to seize tactical control of a situation. Their spells strike hard, while their defensive skills foil their opponents' attempts to counterattack. War mages are also adept at turning other spell casters' magical energy against them.
 
