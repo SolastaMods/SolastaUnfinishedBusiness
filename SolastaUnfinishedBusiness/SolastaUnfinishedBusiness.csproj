@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk" InitialTargets="CheckEnvironmentVars">
+<Project Sdk="Microsoft.NET.Sdk" InitialTargets="CheckEnvironmentVars">
 
   <PropertyGroup>
     <LangVersion>12</LangVersion>

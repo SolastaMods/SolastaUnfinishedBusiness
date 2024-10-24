@@ -34,6 +34,21 @@ internal class FeatureDefinitionReduceDamageBuilder
     }
 
     [NotNull]
+    internal FeatureDefinitionReduceDamageBuilder SetFeedbackPowerReducedDamage(
+        ReducedDamageHandler reducedDamage,
+        FeatureDefinitionPower feedbackPower,
+        ConditionDefinition sourceCondition = null,
+        params string[] damageTypes)
+    {
+        Definition.DamageTypes.SetRange(damageTypes);
+        Definition.TriggerCondition = AdditionalDamageTriggerCondition.AlwaysActive;
+        Definition.ReducedDamage = reducedDamage;
+        Definition.FeedbackPower = feedbackPower;
+        Definition.SourceCondition = sourceCondition;
+        return this;
+    }
+
+    [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetNotificationTag(string notificationTag)
     {
         Definition.NotificationTag = notificationTag;
