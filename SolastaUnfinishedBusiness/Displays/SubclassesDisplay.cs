@@ -124,5 +124,7 @@ internal static class SubclassesDisplay
             Main.Settings.DisplayKlassToggle[klassName] = displayToggle;
             Main.Settings.KlassListSliderPosition[klassName] = sliderPos;
         }
+
+        UI.Label();
     }
 }
