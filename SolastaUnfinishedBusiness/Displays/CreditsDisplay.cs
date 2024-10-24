@@ -70,6 +70,7 @@ internal static class CreditsDisplay
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),
         ("HIEROT", "Patron Eldritch Surge"),
+        ("BradS","Wizard Abjuration"),
         ("Remunos", "Ironborn Dwarf, Obsidian Dwarf"),
         ("Holic75", "Firbolg"),
         ("Bazou", "fighting styles, rules, spells"),

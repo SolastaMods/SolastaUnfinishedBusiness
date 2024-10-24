@@ -288,6 +288,7 @@ internal static class ModUi
         "Weird",
         "WitchBolt",
         "WitherAndBloom",
+        "WizardAbjuration",
         "WizardBladeDancer",
         "WizardGraviturgist",
         "WizardWarMagic",
