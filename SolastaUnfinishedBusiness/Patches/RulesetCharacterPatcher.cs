@@ -1931,6 +1931,70 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    //PATCH: supports `IModifyScribeCostAndDuration`
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeScribeCosts))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeScribeCosts_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetCharacter __instance, SpellDefinition spellDefinition, int[] costs)
+        {
+            EquipmentDefinitions.ComputeStandardScribeCosts(spellDefinition, costs);
+
+            foreach (var definitionMagicAffinity in __instance.GetFeaturesByType<FeatureDefinitionMagicAffinity>())
+            {
+                var costMultiplier = definitionMagicAffinity.ScribeCostMultiplier;
+
+                foreach (var modifyScribeCostAndDuration in definitionMagicAffinity
+                             .GetAllSubFeaturesOfType<IModifyScribeCostAndDuration>())
+                {
+                    modifyScribeCostAndDuration.ModifyScribeCostMultiplier(
+                        __instance, spellDefinition, ref costMultiplier);
+                }
+
+                for (var index = 0; index < 5; ++index)
+                {
+                    costs[index] = Mathf.RoundToInt(costMultiplier * costs[index]);
+                }
+            }
+
+            return false;
+        }
+    }
+
+    //BUGFIX: vanilla was incorrectly multiplying by ScribeCostMultiplier
+    //PATCH: supports `IModifyScribeCostAndDuration`
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeScribeDurationSeconds))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeScribeDurationSeconds_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetCharacter __instance, out int __result, SpellDefinition spellDefinition)
+        {
+            var scribeDurationSeconds = EquipmentDefinitions.ComputeStandardScribeDurationSeconds(spellDefinition);
+
+            foreach (var definitionMagicAffinity in __instance.GetFeaturesByType<FeatureDefinitionMagicAffinity>())
+            {
+                var durationMultiplier = definitionMagicAffinity.ScribeDurationMultiplier;
+
+                foreach (var modifyScribeCostAndDuration in definitionMagicAffinity
+                             .GetAllSubFeaturesOfType<IModifyScribeCostAndDuration>())
+                {
+                    modifyScribeCostAndDuration.ModifyScribeDurationMultiplier(
+                        __instance, spellDefinition, ref durationMultiplier);
+                }
+
+                scribeDurationSeconds = Mathf.RoundToInt(durationMultiplier * scribeDurationSeconds);
+            }
+
+            __result = scribeDurationSeconds;
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeSpeedAddition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
