@@ -178,18 +178,11 @@ public static class CharacterActionPatcher
                 case CharacterActionMoveStepBase:
                 case CharacterActionMagicEffect { isPostSpecialMove: true }:
                 {
-                    //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
-                    var extraAoOEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(actingCharacter);
-
-                    while (extraAoOEvents.MoveNext())
-                    {
-                        yield return extraAoOEvents.Current;
-                    }
-
                     //PATCH: support for MovementTracker
                     MovementTracker.CleanMovementCache();
 
-                    //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord, or enemy moved by other means
+                    //PATCH: set cursor to dirty and reprocess valid positions
+                    //if ally was moved by Gambit or Warlord, or enemy moved by other means
                     if (!actingCharacter.IsMyTurn())
                     {
                         var cursorService = ServiceRepository.GetService<ICursorService>();
@@ -209,7 +202,7 @@ public static class CharacterActionPatcher
                 }
 
                 //PATCH: support for Circle of the Wildfire cauterizing flames, and grapple scenarios
-                //no need to handle shove as pushed will do it
+                //no need to handle shove as pushed action always happen after a shove
                 case CharacterActionPushed:
                 case CharacterActionPushedCustom:
                 {

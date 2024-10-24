@@ -26,8 +26,6 @@ public static class CharacterActionMoveStepWalkPatcher
             var source = mover.LocationPosition;
             var destination = currentStep.position;
 
-            MovementTracker.RecordMovement(mover, destination);
-
             foreach (var moveStepStarted in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepStarted>())
             {
                 moveStepStarted.MoveStepStarted(mover, source, destination);
@@ -44,7 +42,21 @@ public static class CharacterActionMoveStepWalkPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(IEnumerator values, CharacterActionMoveStepWalk __instance)
         {
-            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(__instance.ActingCharacter);
+            var mover = __instance.ActingCharacter;
+
+            //PATCH: support for Circle of the Wildfire cauterizing flames
+            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(mover);
+
+            //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
+            var extraAoOEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(mover);
+
+            while (extraAoOEvents.MoveNext())
+            {
+                yield return extraAoOEvents.Current;
+            }
+
+            // record movement after we try to process extra AoO events so above will properly kick after animations
+            MovementTracker.RecordMovement(mover, mover.DestinationPosition);
 
             while (values.MoveNext())
             {

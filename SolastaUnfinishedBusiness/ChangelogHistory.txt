@@ -1,3 +1,14 @@
+1.5.97.36:
+
+- fixed attacks of opportunity not triggering on reach enter [i.e.: polearm master]
+- fixed attribute modifiers not stacking in wildshape [i.e.: rage points]
+- reorg mod UI crafting, factions, items, and merchant settings
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.35:
 
 - added final behaviors to Brawler, and Grappler feats [demoted Pugilist fighting style as redundant now]
@@ -20,11 +31,6 @@
 - fixed Umbral Stalker shadow strike re-rolling damage dice on all attacks instead of sneak only
 - moved some mod settings to be offered under game official UI [check GUI, and keyboard sections]
 - reorg mod UI with more intuitive grouping [check general sections under backgrounds, spells, subclasses, etc.]
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.34:
 
