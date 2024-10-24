@@ -31,17 +31,16 @@ public sealed class WizardAbjuration : AbstractSubclass
         var magicAffinityAbjurationScriber = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}Scriber")
             .SetGuiPresentation($"MagicAffinity{Name}Scriber", Category.Feature)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-            .SetSpellLearnAndPrepModifiers(0.5f, 0.5f, 0, AdvantageType.Advantage,
-                PreparedSpellsModifier.None)
+            .SetSpellLearnAndPrepModifiers(
+                0.5f, 0.5f, 0, AdvantageType.None, PreparedSpellsModifier.None)
+            .AddCustomSubFeatures(new ModifyScribeCostAndDurationAbjurationSavant())
             .AddToDB();
 
         // LV.2 Arcane Ward
         // initialize power points pool with INT mod points
         var powerArcaneWard = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcaneWard")
-            .SetGuiPresentation($"Power{Name}ArcaneWard", Category.Feature,
-                GlobeOfInvulnerability.GuiPresentation.SpriteReference)
+            .SetGuiPresentation($"Power{Name}ArcaneWard", Category.Feature, GlobeOfInvulnerability)
             .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .SetShowCasting(false)
             .AddToDB();
@@ -72,7 +71,6 @@ public sealed class WizardAbjuration : AbstractSubclass
             .Create($"Condition{Name}ArcaneWard")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionShielded)
             .SetConditionType(ConditionType.Beneficial)
-            .SetSpecialDuration(DurationType.UntilLongRest)
             .SetSilent(Silent.WhenRefreshedOrRemoved)
             .AddFeatures(powerArcaneWardReduceDamage)
             .SetPossessive()
@@ -88,8 +86,10 @@ public sealed class WizardAbjuration : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
-            .SetSpecialInterruptions((ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked,
-                ConditionInterruption.Damaged, ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialInterruptions(
+                (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked,
+                ConditionInterruption.Damaged,
+                ConditionInterruption.AnyBattleTurnEnd)
             .SetPossessive()
             .AddToDB();
 
@@ -125,7 +125,7 @@ public sealed class WizardAbjuration : AbstractSubclass
 
         ////////
         // Lv.10 Improved Abjuration
-        var magicAffinityCounterspellAffinity = FeatureDefinitionPowerBuilder
+        var powerCounterSpell = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CounterSpell")
             .SetGuiPresentationNoContent(true)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
@@ -144,7 +144,7 @@ public sealed class WizardAbjuration : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        var magicAffinityDispelMagicAffinity = FeatureDefinitionPowerBuilder
+        var powerCounterDispel = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CounterDispel")
             .SetGuiPresentationNoContent(true)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
@@ -170,20 +170,16 @@ public sealed class WizardAbjuration : AbstractSubclass
         var featureSetImprovedAbjuration = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ImprovedAbjuration")
             .SetGuiPresentation($"Power{Name}ImprovedAbjuration", Category.Feature)
-            .SetFeatureSet(magicAffinityCounterspellAffinity, magicAffinityDispelMagicAffinity)
+            .SetFeatureSet(powerCounterSpell, powerCounterDispel)
             .AddToDB();
 
-        magicAffinityDispelMagicAffinity.EffectDescription.targetFilteringMethod =
+        powerCounterDispel.EffectDescription.targetFilteringMethod =
             TargetFilteringMethod.CharacterGadgetEffectProxyItems;
-        magicAffinityDispelMagicAffinity.EffectDescription.targetFilteringTag = TargetFilteringTag.No;
+        powerCounterDispel.EffectDescription.targetFilteringTag = TargetFilteringTag.No;
 
         //////// 
         // Lv.14 Spell Resistance
         // Adv. on saves against magic
-        var savingThrowAffinitySpellResistance = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create(SavingThrowAffinitySpellResistance, $"SavingThrowAffinity{Name}SpellResistance")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
 
         // Resist damage from spells
         var conditionSpellResistance = ConditionDefinitionBuilder
@@ -218,9 +214,8 @@ public sealed class WizardAbjuration : AbstractSubclass
         var featureSetSpellResistance = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}SpellResistance")
             .SetGuiPresentation($"Power{Name}SpellResistance", Category.Feature)
-            .SetFeatureSet(savingThrowAffinitySpellResistance, powerSpellResistance)
+            .SetFeatureSet(SavingThrowAffinitySpellResistance, powerSpellResistance)
             .AddToDB();
-
 
         // Assemble the subclass
         Subclass = CharacterSubclassDefinitionBuilder
@@ -228,8 +223,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardWarMagic, 256))
             .AddFeaturesAtLevel(2, magicAffinityAbjurationScriber, powerArcaneWard)
             .AddFeaturesAtLevel(6, powerProjectedWard)
-            .AddFeaturesAtLevel(10, magicAffinityCounterspellAffinity, magicAffinityDispelMagicAffinity,
-                featureSetImprovedAbjuration)
+            .AddFeaturesAtLevel(10, featureSetImprovedAbjuration)
             .AddFeaturesAtLevel(14, featureSetSpellResistance)
             .AddToDB();
     }
@@ -243,12 +237,32 @@ public sealed class WizardAbjuration : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    // Handle Behaviour related to Abjuration Savant
+    private sealed class ModifyScribeCostAndDurationAbjurationSavant : IModifyScribeCostAndDuration
+    {
+        public void ModifyScribeCostMultiplier(
+            RulesetCharacter character, SpellDefinition spellDefinition, ref float costMultiplier)
+        {
+            if (spellDefinition.SchoolOfMagic != SchoolAbjuration)
+            {
+                costMultiplier = 1;
+            }
+        }
+
+        public void ModifyScribeDurationMultiplier(
+            RulesetCharacter character, SpellDefinition spellDefinition, ref float durationMultiplier)
+        {
+            if (spellDefinition.SchoolOfMagic != SchoolAbjuration)
+            {
+                durationMultiplier = 1;
+            }
+        }
+    }
 
     // Handle Behaviour related to Arcane Ward
     private sealed class CustomBehaviorArcaneWard(
         FeatureDefinitionPower arcaneWard,
-        ConditionDefinition conditionArcaneWard)
-        : IMagicEffectFinishedByMe
+        ConditionDefinition conditionArcaneWard) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterAction action,
             GameLocationCharacter attacker,
@@ -281,9 +295,19 @@ public sealed class WizardAbjuration : AbstractSubclass
             else
             {
                 // if no ward condition, add condition (which should last until long rest)
-                rulesetCharacter.AddConditionOfCategory(
+                rulesetCharacter.InflictCondition(
+                    conditionArcaneWard.Name,
+                    DurationType.UntilLongRest,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagEffect,
-                    RulesetCondition.CreateCondition(rulesetCharacter.Guid, conditionArcaneWard), false);
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    14,
+                    conditionArcaneWard.Name,
+                    0,
+                    0,
+                    0);
             }
         }
     }
@@ -292,8 +316,7 @@ public sealed class WizardAbjuration : AbstractSubclass
         FeatureDefinitionPower arcaneWard,
         ConditionDefinition conditionArcaneWard,
         FeatureDefinitionPower projectedWard,
-        ConditionDefinition conditionProjectedWard)
-        : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
+        ConditionDefinition conditionProjectedWard) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
         public int HandlerPriority => 25;
 
