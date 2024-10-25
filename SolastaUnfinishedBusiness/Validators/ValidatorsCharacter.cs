@@ -11,7 +11,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Validators;
 
-internal delegate bool IsCharacterValidHandler(RulesetCharacter character);
+public delegate bool IsCharacterValidHandler(RulesetCharacter character);
 
 internal static class ValidatorsCharacter
 {
