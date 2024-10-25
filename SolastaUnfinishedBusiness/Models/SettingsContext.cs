@@ -418,6 +418,26 @@ public static class SettingsContext
         [UsedImplicitly]
         string FormationSet5 { get; set; }
 
+        [SettingTypeKeyMapping("EditorRotate", DisplayFooter = true, SortOrder = 1041)]
+        [UsedImplicitly]
+        string EditorRotate { get; set; }
+
+        [SettingTypeKeyMapping("EditorKnudgeNorth", DisplayFooter = true, SortOrder = 1042)]
+        [UsedImplicitly]
+        string EditorKnudgeNorth { get; set; }
+
+        [SettingTypeKeyMapping("EditorKnudgeEast", DisplayFooter = true, SortOrder = 1043)]
+        [UsedImplicitly]
+        string EditorKnudgeEast { get; set; }
+
+        [SettingTypeKeyMapping("EditorKnudgeSouth", DisplayFooter = true, SortOrder = 1044)]
+        [UsedImplicitly]
+        string EditorKnudgeSouth { get; set; }
+
+        [SettingTypeKeyMapping("EditorKnudgeWest", DisplayFooter = false, SortOrder = 1045)]
+        [UsedImplicitly]
+        string EditorKnudgeWest { get; set; }
+
         //
         // these should blend with vanilla settings
         //
@@ -442,6 +462,12 @@ public static class SettingsContext
         private string _characterExport = UserPreferences.GetValue("Settings/Keyboard/CharacterExport");
         private string _debugOverlay = UserPreferences.GetValue("Settings/Keyboard/DebugOverlay");
 
+        private string _editorKnudgeEast = UserPreferences.GetValue("Settings/Keyboard/EditorKnudgeEast");
+        private string _editorKnudgeNorth = UserPreferences.GetValue("Settings/Keyboard/EditorKnudgeNorth");
+        private string _editorKnudgeSouth = UserPreferences.GetValue("Settings/Keyboard/EditorKnudgeSouth");
+        private string _editorKnudgeWest = UserPreferences.GetValue("Settings/Keyboard/EditorKnudgeWest");
+        private string _editorRotate = UserPreferences.GetValue("Settings/Keyboard/EditorRotate");
+
         private bool _enableCtrlClickDragToBypassQuestItemsOnDrop =
             UserPreferences.GetValue<bool>("Settings/Keyboard/EnableCtrlClickDragToBypassQuestItemsOnDrop");
 
@@ -463,6 +489,61 @@ public static class SettingsContext
         private string _vttCamera = UserPreferences.GetValue("Settings/Keyboard/VttCamera");
 
         public bool ModHeader { get; set; }
+
+        public string EditorRotate
+        {
+            get => _editorRotate;
+            set
+            {
+                _editorRotate = value;
+                SetVanillaCommand(InputCommands.Id.EditorRotate, value);
+                UserPreferences.SetValue("Settings/Keyboard/EditorRotate", _editorRotate);
+            }
+        }
+
+        public string EditorKnudgeNorth
+        {
+            get => _editorKnudgeNorth;
+            set
+            {
+                _editorKnudgeNorth = value;
+                SetVanillaCommand(InputCommands.Id.EditorKnudgeNorth, value);
+                UserPreferences.SetValue("Settings/Keyboard/EditorKnudgeNorth", _editorKnudgeNorth);
+            }
+        }
+
+        public string EditorKnudgeEast
+        {
+            get => _editorKnudgeEast;
+            set
+            {
+                _editorKnudgeEast = value;
+                SetVanillaCommand(InputCommands.Id.EditorKnudgeEast, value);
+                UserPreferences.SetValue("Settings/Keyboard/EditorKnudgeEast", _editorKnudgeEast);
+            }
+        }
+
+        public string EditorKnudgeSouth
+        {
+            get => _editorKnudgeSouth;
+            set
+            {
+                _editorKnudgeSouth = value;
+                SetVanillaCommand(InputCommands.Id.EditorKnudgeSouth, value);
+                UserPreferences.SetValue("Settings/Keyboard/EditorKnudgeSouth", _editorKnudgeSouth);
+            }
+        }
+
+        public string EditorKnudgeWest
+        {
+            get => _editorKnudgeWest;
+            set
+            {
+                _editorKnudgeWest = value;
+                SetVanillaCommand(InputCommands.Id.EditorKnudgeWest, value);
+                UserPreferences.SetValue("Settings/Keyboard/EditorKnudgeWest", _editorKnudgeWest);
+            }
+        }
 
         public bool EnableCtrlClickDragToBypassQuestItemsOnDrop
         {
@@ -634,6 +715,15 @@ public static class SettingsContext
                 _hide = value;
                 UserPreferences.SetValue<string>("Settings/Keyboard/Hide", _hide);
             }
+        }
+
+        private static void SetVanillaCommand(InputCommands.Id id, string command)
+        {
+            var commandMapping = new InputCommands.CommandMapping();
+            var inputManager = ServiceRepository.GetService<IInputService>() as InputManager;
+
+            commandMapping.ReadFromString(command);
+            inputManager!.commandsMap[(int)id] = commandMapping;
         }
 
         internal void ResetDefaults()
