@@ -77,16 +77,22 @@ public sealed class WizardEvocation : AbstractSubclass
 
         // Over Channel
 
-        var actionAffinityDeadEyeToggle = FeatureDefinitionActionAffinityBuilder
+        var conditionOverChannel = ConditionDefinitionBuilder
+            .Create($"Condition{Name}OverChannel")
+            .SetGuiPresentationNoContent(true)
+            .AllowMultipleInstances()
+            .AddToDB();
+            
+        var actionAffinityOverChannelToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityOverChannelToggle")
             .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.DeadEyeToggle)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.OverChannelToggle)
             .AddToDB();
 
         var featureSetOverChannel = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}OverChannel")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(actionAffinityDeadEyeToggle)
+            .SetFeatureSet(actionAffinityOverChannelToggle)
             .AddToDB();
 
         //
@@ -246,11 +252,6 @@ public sealed class WizardEvocation : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.SourceDefinition is not SpellDefinition { SchoolOfMagic: SchoolEvocation })
-            {
-                yield break;
-            }
-
             if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
             {
                 yield break;
@@ -342,4 +343,25 @@ public sealed class WizardEvocation : AbstractSubclass
             effectForm.DamageForm.BonusDamage += Math.Max(1, intelligenceModifier);
         }
     }
+    
+    //
+    // Over Channel
+    //
+
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyOverChannel : IMagicEffectBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender, 
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms, 
+            bool firstTarget, 
+            bool criticalHit)
+        {
+            yield break;
+        }
+    }
+    
 }
