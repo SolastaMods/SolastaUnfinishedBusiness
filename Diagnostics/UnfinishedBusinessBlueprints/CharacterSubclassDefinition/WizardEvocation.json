@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureWizardEvocationOverChannel:ac800ccc-9b6f-51f8-8e7b-f5fb9dd26a05",
+      "featureDefinition": "Definition:FeatureSetWizardEvocationOverChannel:720b1e2a-dc47-5f5a-bc9d-5ef848795cc9",
       "level": 14
     }
   ],

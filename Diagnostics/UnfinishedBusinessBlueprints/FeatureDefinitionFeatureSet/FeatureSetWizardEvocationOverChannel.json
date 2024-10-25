@@ -1,10 +1,20 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ActionAffinityOverChannelToggle:5e3059e4-16fb-5d6d-93f1-643baa892a44"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureWizardEvocationOverChannelTitle",
-    "description": "Feature/&FeatureWizardEvocationOverChannelDescription",
+    "title": "Feature/&FeatureSetWizardEvocationOverChannelTitle",
+    "description": "Feature/&FeatureSetWizardEvocationOverChannelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ac800ccc-9b6f-51f8-8e7b-f5fb9dd26a05",
+  "guid": "720b1e2a-dc47-5f5a-bc9d-5ef848795cc9",
   "contentPack": 9999,
-  "name": "FeatureWizardEvocationOverChannel"
+  "name": "FeatureSetWizardEvocationOverChannel"
 }

@@ -6860,7 +6860,7 @@ Once per turn, your weapon attacks deal an extra 1d8 damage.
 
 
 
-## 3. Bladesinger [UB]
+## 3. Bladesinging [UB]
 
 Bladesingers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 
@@ -7004,7 +7004,45 @@ You can use your action a number of times a day equal to your proficiency bonus,
 
 
 
-## 6. Graviturgist [UB]
+## 6. Evocation [UB]
+
+You focus your study on magic that creates powerful elemental effects such as bitter cold, searing flame, rolling thunder, crackling lightning, and burning acid. Some evokers find employment in military forces, serving as artillery to blast enemy armies from afar. Others use their spectacular power to protect the weak, while some seek their own gain as bandits, adventurers, or aspiring tyrants.
+
+
+### Level 2
+
+* Evocation Savant
+
+Beginning when you select this school at 2nd level, the gold and time you must spend to copy an Evocation spell into your spellbook is halved.
+
+* Sculpt Spells
+
+You can create pockets of relative safety within the effects of your evocation spells. When you cast an evocation spell that affects allies, they take no damage if they would normally take half damage on a successful save.
+
+
+### Level 6
+
+* Potent Cantrip
+
+Your damaging cantrips affect even creatures that avoid the brunt of the effect. When a creature succeeds on a saving throw against your cantrip, the creature takes half the cantrip damage (if any) but suffers no additional effect from the cantrip. If you hit a creature with a cantrip that requires an attack roll, you add your proficiency bonus to one damage roll of that cantrip.
+
+
+### Level 10
+
+* Empowered Evocation
+
+You can add your Intelligence modifier (minimum of +1) to one damage roll of any wizard evocation spell that you cast.
+
+
+### Level 14
+
+* Overchannel
+
+You can increase the power of your simpler spells. When you cast a wizard spell of 1st through 5th level that deals damage, you can deal maximum damage with that spell. The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity.
+
+
+
+## 7. Graviturgy [UB]
 
 Understanding and mastering the forces that draw bodies of matter together or drive them apart, the students of the Graviturgy arcane tradition learn to further bend and manipulate the violent energy of gravity to their benefit, and the terrible detriment of their enemies.
 
@@ -7042,7 +7080,7 @@ Starting at 14th level, you can magically emit a powerful field of gravitational
 
 
 
-## 7. Greenmage [SOL]
+## 8. Greenmage [SOL]
 
 Greenmages are the heirs to the ancient traditions of the sylvan elves. They are wardens of the forest, specialized in nature magic and also reliable bowmen, trained to survive without spells if need be - as they had to in the wake of the Cataclysm.
 
@@ -7104,7 +7142,7 @@ At level 14, when hit by Entangling Shot, the target has disadvantage on all sav
 
 
 
-## 8. Loremaster [SOL]
+## 9. Loremaster [SOL]
 
 Loremasters are obsessed with the lost knowledge of pre-Cataclysm times. They know the old Empire had superior magic and they long to learn more about the lost spells and rituals. Their magic is focused on gathering all possible knowledge.
 
@@ -7140,7 +7178,7 @@ At level 14, you gain one extra level 1, level 2, level 3, and level 4 spell slo
 
 
 
-## 9. Shock Arcanist [SOL]
+## 10. Shock Arcanist [SOL]
 
 Shock Arcanists were the battle mages of the Manacalon Empire. Their teachings have survived the Cataclysm to become a renowned and feared magical tradition, taught in every major magic school.
 
@@ -7180,7 +7218,7 @@ Starting at level 14, you can use your Bonus Action to trigger Greater Arcane Sh
 
 
 
-## 10. Spellmaster [UB]
+## 11. Spellmaster [UB]
 
 Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 
@@ -7226,7 +7264,7 @@ Your training with magic gives you advantage on saving throws against spells.
 
 
 
-## 11. War Magic [UB]
+## 12. War Magic [UB]
 
 A variety of arcane colleges specialize in training wizards for war. The tradition of War Magic blends principles of evocation and abjuration, rather than specializing in either of those schools. It teaches techniques that empower a caster's spells, while also providing methods for wizards to bolster their own defenses. Followers of this tradition are known as war mages. They see their magic as both a weapon and armor, a resource superior to any piece of steel. War mages act fast in battle, using their spells to seize tactical control of a situation. Their spells strike hard, while their defensive skills foil their opponents' attempts to counterattack. War mages are also adept at turning other spell casters' magical energy against them.
 

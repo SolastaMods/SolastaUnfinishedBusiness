@@ -1,10 +1,12 @@
+Action/&OverChannelToggleDescription=오버채널 활성화/비활성화
+Action/&OverChannelToggleTitle=오버채널
+Feature/&FeatureSetWizardEvocationOverChannelDescription=더 간단한 주문의 힘을 증가시킬 수 있습니다. 피해를 입히는 1~5레벨 마법사 주문을 시전하면 해당 주문으로 최대 피해를 입힐 수 있습니다. 처음 시전할 때는 불리한 효과가 없습니다. 긴 휴식을 마치기 전에 이 기능을 다시 사용하면 시전 직후 주문 레벨당 2d12의 괴사 피해를 입습니다. 긴 휴식을 마치기 전에 이 기능을 다시 사용할 때마다 주문 레벨당 괴사 피해가 1d12씩 증가합니다. 이 피해는 저항력과 면역을 무시합니다.
+Feature/&FeatureSetWizardEvocationOverChannelTitle=오버채널
 Feature/&FeatureWizardEvocationEmpoweredEvocationDescription=당신은 당신이 시전하는 모든 마법사 유발 주문의 피해 굴림 하나에 지능 수정치(최소 +1)를 추가할 수 있습니다.
 Feature/&FeatureWizardEvocationEmpoweredEvocationTitle=강화된 유발
-Feature/&FeatureWizardEvocationOverChannelDescription=더 간단한 주문의 힘을 증가시킬 수 있습니다. 피해를 입히는 1~5레벨 마법사 주문을 시전하면 해당 주문으로 최대 피해를 입힐 수 있습니다. 처음 시전할 때는 불리한 효과가 없습니다. 긴 휴식을 마치기 전에 이 기능을 다시 사용하면 시전 직후 주문 레벨당 2d12의 괴사 피해를 입습니다. 긴 휴식을 마치기 전에 이 기능을 다시 사용할 때마다 주문 레벨당 괴사 피해가 1d12씩 증가합니다. 이 피해는 저항력과 면역을 무시합니다.
-Feature/&FeatureWizardEvocationOverChannelTitle=오버채널
 Feature/&FeatureWizardEvocationSculptSpellsDescription=당신은 당신의 유발 주문의 효과 내에서 상대적으로 안전한 포켓을 만들 수 있습니다. 당신이 아군에게 영향을 미치는 유발 주문을 시전할 때, 그들은 일반적으로 성공적인 세이브에서 절반의 피해를 입는다면 피해를 입지 않습니다.
 Feature/&FeatureWizardEvocationSculptSpellsTitle=조각 주문
-Feature/&MagicAffinityWizardEvocationPotentCantripDescription=당신의 피해를 주는 칸트립은 효과의 충격을 피하는 생명체에게도 영향을 미칩니다. 생명체가 당신의 칸트립에 대한 세이빙 스로우에 성공하면, 생명체는 칸트립 피해의 절반(있는 경우)을 받지만 칸트립으로 인한 추가 효과는 받지 않습니다.
+Feature/&MagicAffinityWizardEvocationPotentCantripDescription=당신의 피해를 주는 칸트립은 그 효과의 대부분을 피하는 생명체에게도 영향을 미칩니다. 생명체가 당신의 칸트립에 대한 세이빙 스로우에 성공하면, 그 생명체는 칸트립 피해의 절반(있는 경우)을 받지만 칸트립의 추가 효과는 받지 않습니다. 공격 굴림이 필요한 칸트립으로 생명체를 맞히면, 그 칸트립의 피해 굴림 하나에 숙련도 보너스를 더합니다.
 Feature/&MagicAffinityWizardEvocationPotentCantripTitle=강력한 주문
 Feature/&MagicAffinityWizardEvocationSavantDescription=2레벨에서 이 학교를 선택하면 주문서에 유발 주문을 복사하는 데 필요한 골드와 시간이 절반으로 줄어듭니다.
 Feature/&MagicAffinityWizardEvocationSavantTitle=에보케이션 사반트

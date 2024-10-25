@@ -1,10 +1,12 @@
+Action/&OverChannelToggleDescription=Activate/Deactivate Overchannel
+Action/&OverChannelToggleTitle=Overchannel
+Feature/&FeatureSetWizardEvocationOverChannelDescription=You can increase the power of your simpler spells. When you cast a wizard spell of 1st through 5th level that deals damage, you can deal maximum damage with that spell. The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity.
+Feature/&FeatureSetWizardEvocationOverChannelTitle=Overchannel
 Feature/&FeatureWizardEvocationEmpoweredEvocationDescription=You can add your Intelligence modifier (minimum of +1) to one damage roll of any wizard evocation spell that you cast.
 Feature/&FeatureWizardEvocationEmpoweredEvocationTitle=Empowered Evocation
-Feature/&FeatureWizardEvocationOverChannelDescription=You can increase the power of your simpler spells. When you cast a wizard spell of 1st through 5th level that deals damage, you can deal maximum damage with that spell. The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity.
-Feature/&FeatureWizardEvocationOverChannelTitle=Overchannel
 Feature/&FeatureWizardEvocationSculptSpellsDescription=You can create pockets of relative safety within the effects of your evocation spells. When you cast an evocation spell that affects allies, they take no damage if they would normally take half damage on a successful save.
 Feature/&FeatureWizardEvocationSculptSpellsTitle=Sculpt Spells
-Feature/&MagicAffinityWizardEvocationPotentCantripDescription=Your damaging cantrips affect even creatures that avoid the brunt of the effect. When a creature succeeds on a saving throw against your cantrip, the creature takes half the cantrip damage (if any) but suffers no additional effect from the cantrip.
+Feature/&MagicAffinityWizardEvocationPotentCantripDescription=Your damaging cantrips affect even creatures that avoid the brunt of the effect. When a creature succeeds on a saving throw against your cantrip, the creature takes half the cantrip damage (if any) but suffers no additional effect from the cantrip. If you hit a creature with a cantrip that requires an attack roll, you add your proficiency bonus to one damage roll of that cantrip.
 Feature/&MagicAffinityWizardEvocationPotentCantripTitle=Potent Cantrip
 Feature/&MagicAffinityWizardEvocationSavantDescription=Beginning when you select this school at 2nd level, the gold and time you must spend to copy an Evocation spell into your spellbook is halved.
 Feature/&MagicAffinityWizardEvocationSavantTitle=Evocation Savant
