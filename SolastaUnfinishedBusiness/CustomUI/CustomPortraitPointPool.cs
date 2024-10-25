@@ -71,7 +71,9 @@ internal class CustomPortraitPointPool : MonoBehaviour
 
     private void UpdateState(ICustomPortraitPointPoolProvider provider, RulesetCharacter character)
     {
-        gameObject.SetActive(true); //Do we need ability to set to inactive on update?
+        var active = provider.IsActive(character);
+        gameObject.SetActive(active);
+        if (!active) { return;}
 
         //yes, this label name has a typo
         // ReSharper disable once StringLiteralTypo
