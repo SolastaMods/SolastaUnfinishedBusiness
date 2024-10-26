@@ -1,6 +1,6 @@
-Action/&CleavingAttackToggleDescription=グレートウェポンマスターを有効化/無効化
+Action/&CleavingAttackToggleDescription=Great Weapon Master を有効/無効にすると、近接武器で攻撃するときに、攻撃ロールに -5 のペナルティを受けて、追加の +10 ダメージを与えることを選択できます。
 Action/&CleavingAttackToggleTitle=偉大な武器の達人
-Action/&PowerAttackToggleDescription=パワーアタックを有効化/無効化
+Action/&PowerAttackToggleDescription=パワー アタックを有効/無効にすると、近接武器で攻撃するときに、攻撃ロールに -3 のペナルティを受けて、3 + 熟練度ボーナスに等しい追加ダメージを与えることを選択できます。
 Action/&PowerAttackToggleTitle=パワーアタック
 Condition/&ConditionFeatCleavingAttackFinishDescription=これからも来てください！
 Condition/&ConditionFeatCleavingAttackFinishTitle=グレートウェポンマスター

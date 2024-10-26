@@ -1,6 +1,6 @@
-Action/&CleavingAttackToggleDescription=激活/停用大武器大师
+Action/&CleavingAttackToggleDescription=激活/停用大武器大师，这样当使用近战武器攻击时，您可以选择对攻击掷骰施加 -5 惩罚，以造成额外的 +10 伤害。
 Action/&CleavingAttackToggleTitle=伟大的武器大师
-Action/&PowerAttackToggleDescription=激活/停用强力攻击
+Action/&PowerAttackToggleDescription=激活/停用强力攻击，因此当使用近战武器攻击时，您可以选择对攻击掷骰施加 -3 惩罚，以造成相当于 3 + 您的熟练度加值的额外伤害。
 Action/&PowerAttackToggleTitle=强力攻击
 Condition/&ConditionFeatCleavingAttackFinishDescription=让他们来吧！
 Condition/&ConditionFeatCleavingAttackFinishTitle=巨武器大师

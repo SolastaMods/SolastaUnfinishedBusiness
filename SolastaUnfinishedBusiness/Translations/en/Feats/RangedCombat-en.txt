@@ -1,5 +1,5 @@
-Action/&DeadEyeToggleDescription=Activate/deactivate Sharpshooter
-Action/&DeadEyeToggleTitle=Sharpshooter
+Action/&DeadEyeToggleDescription=Activate/deactivate Sharpshooter so when attacking with a ranged weapon, you can choose to take a -5 penalty to your attack roll in order to do additional +10 damage.
+Action/&DeadEyeToggleTitle=Sharp Shooter
 Condition/&ConditionFeatSteadyAimAdvantageDescription=You have advantage on your next attack roll.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Steady Aim
 Condition/&ConditionFeatSteadyAimRestrainedDescription=You cannot move until the end of your turn.

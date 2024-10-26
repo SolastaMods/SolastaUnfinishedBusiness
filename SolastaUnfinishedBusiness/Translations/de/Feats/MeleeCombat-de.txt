@@ -1,6 +1,6 @@
-Action/&CleavingAttackToggleDescription=Great Weapon Master aktivieren/deaktivieren
+Action/&CleavingAttackToggleDescription=Aktivieren/deaktivieren Sie „Großer Waffenmeister“, damit Sie beim Angriff mit einer Nahkampfwaffe einen Malus von -5 auf Ihren Angriffswurf in Kauf nehmen können, um zusätzlichen Schaden von +10 zu verursachen.
 Action/&CleavingAttackToggleTitle=Großer Waffenmeister
-Action/&PowerAttackToggleDescription=Power Attack aktivieren/deaktivieren
+Action/&PowerAttackToggleDescription=Aktivieren/deaktivieren Sie Power Attack, sodass Sie beim Angriff mit einer Nahkampfwaffe einen Malus von -3 auf Ihren Angriffswurf in Kauf nehmen können, um zusätzlichen Schaden in Höhe von 3 + Ihrem Kompetenzbonus zu verursachen.
 Action/&PowerAttackToggleTitle=Mächtiger Angriff
 Condition/&ConditionFeatCleavingAttackFinishDescription=Lass sie kommen!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Großer Waffenmeister

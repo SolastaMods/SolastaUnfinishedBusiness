@@ -1,6 +1,6 @@
-Action/&CleavingAttackToggleDescription=Активировать/деактивировать Мастера большого оружия
+Action/&CleavingAttackToggleDescription=Активируйте/деактивируйте «Великого мастера оружия», чтобы при атаке оружием ближнего боя вы могли выбрать штраф -5 к своему броску атаки, чтобы нанести дополнительно +10 урона.
 Action/&CleavingAttackToggleTitle=Мастер большого оружия
-Action/&PowerAttackToggleDescription=Активировать/деактивировать Мощную атаку
+Action/&PowerAttackToggleDescription=Активируйте/деактивируйте «Мощную атаку», чтобы при атаке оружием ближнего боя вы могли выбрать штраф -3 к своему броску атаки, чтобы нанести дополнительный урон, равный 3 + ваш бонус мастерства.
 Action/&PowerAttackToggleTitle=Мощная атака
 Condition/&ConditionFeatCleavingAttackFinishDescription=Пускай подходят!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Мастер большого оружия

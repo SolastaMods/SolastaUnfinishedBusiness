@@ -1,6 +1,6 @@
-Action/&CleavingAttackToggleDescription=Ativar/desativar Grande Mestre de Armas
+Action/&CleavingAttackToggleDescription=Ative/desative o Mestre de Grandes Armas para que, ao atacar com uma arma corpo a corpo, você possa escolher sofrer uma penalidade de -5 na sua jogada de ataque para causar +10 de dano adicional.
 Action/&CleavingAttackToggleTitle=Grande Mestre de Armas
-Action/&PowerAttackToggleDescription=Ativar/desativar Ataque de Poder
+Action/&PowerAttackToggleDescription=Ative/desative o Ataque Poderoso para que, ao atacar com uma arma corpo a corpo, você possa escolher sofrer uma penalidade de -3 na sua jogada de ataque para causar dano adicional igual a 3 + seu bônus de proficiência.
 Action/&PowerAttackToggleTitle=Ataque de poder
 Condition/&ConditionFeatCleavingAttackFinishDescription=Continuem mandando!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Grande Mestre de Armas

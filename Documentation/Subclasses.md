@@ -387,7 +387,7 @@ While raging, you can use unarmed strike as a bonus action.
 
 * Reckless Abandon
 
-When you use Reckless Attack while raging, you also gain temporary hit points equal to your Constitution modifier (minimum of 1).
+When you use Reckless Attack while raging, you also gain temporary hit points equal to your Constitution modifier (minimum +1).
 
 
 ### Level 10
@@ -3365,7 +3365,7 @@ You can expend 1 Force Point and use your bonus action to gain flying speed equa
 
 * Force of Will
 
-Your psionic energy grants you extraordinary resilience. At the start of each of your turns, you gain temporary hit points equal to your Intelligence modifier (minimum of 1) if you have at least 1 hit point. In addition, you can use your Intelligence modifier instead of your Wisdom and Charisma modifier for saving throws if it's higher.
+Your psionic energy grants you extraordinary resilience. At the start of each of your turns, you gain temporary hit points equal to your Intelligence modifier (minimum +1) if you have at least 1 hit point. In addition, you can use your Intelligence modifier instead of your Wisdom and Charisma modifier for saving throws if it's higher.
 
 
 ### Level 15
@@ -3923,7 +3923,7 @@ Heroes know their calling, and the Oath of Altruism calls out to those selfless 
 
 * Channel Divinity: Defensive Strike
 
-When a friendly creature you can see is hit by an attack, you can spend use of Channel Divinity to project a surge of steadfast will into that creature - it immediately use its reaction to make one melee weapon attack, adding your Charisma modifier to both the attack and damage rolls.
+When a friendly creature you can see is hit by an attack, you can spend use of Channel Divinity to project a surge of steadfast will into that creature - it immediately use its reaction to make one melee weapon attack, adding your Charisma modifier (minimum +1) to both the attack and damage rolls.
 
 * Channel Divinity: Spiritual Shielding
 

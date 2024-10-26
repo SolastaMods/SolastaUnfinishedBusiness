@@ -1,4 +1,4 @@
-Action/&DeadEyeToggleDescription=샤프슈터 활성화/비활성화
+Action/&DeadEyeToggleDescription=명사수를 활성화/비활성화하면 원거리 무기로 공격할 때 공격 굴림에 -5 패널티를 받고 추가로 +10의 데미지를 입힐 수 있습니다.
 Action/&DeadEyeToggleTitle=명사수
 Condition/&ConditionFeatSteadyAimAdvantageDescription=당신은 다음 공격 굴림에서 이점을 얻습니다.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=꾸준한 목표

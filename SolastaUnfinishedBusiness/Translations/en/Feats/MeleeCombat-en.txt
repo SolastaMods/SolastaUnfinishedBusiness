@@ -1,6 +1,6 @@
-Action/&CleavingAttackToggleDescription=Activate/deactivate Great Weapon Master
+Action/&CleavingAttackToggleDescription=Activate/deactivate Great Weapon Master so when attacking with a melee weapon, you can choose to take a -5 penalty to your attack roll in order to do additional +10 damage.
 Action/&CleavingAttackToggleTitle=Great Weapon Master
-Action/&PowerAttackToggleDescription=Activate/deactivate Power Attack
+Action/&PowerAttackToggleDescription=Activate/deactivate Power Attack so when attacking with a melee weapon, you can choose to take a -3 penalty to your attack roll in order to do additional damage equal to 3 + your proficiency bonus.
 Action/&PowerAttackToggleTitle=Power Attack
 Condition/&ConditionFeatCleavingAttackFinishDescription=Keep them coming!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Great Weapon Master

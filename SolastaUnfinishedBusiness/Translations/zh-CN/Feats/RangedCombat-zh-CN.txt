@@ -1,4 +1,4 @@
-Action/&DeadEyeToggleDescription=激活/停用神射手
+Action/&DeadEyeToggleDescription=激活/停用神射手，这样当使用远程武器攻击时，您可以选择对攻击掷骰施加 -5 惩罚，以造成额外的 +10 伤害。
 Action/&DeadEyeToggleTitle=神射手
 Condition/&ConditionFeatSteadyAimAdvantageDescription=你在下一次攻击检定上有优势。
 Condition/&ConditionFeatSteadyAimAdvantageTitle=稳定瞄准

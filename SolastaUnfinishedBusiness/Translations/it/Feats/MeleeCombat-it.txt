@@ -1,6 +1,6 @@
-Action/&CleavingAttackToggleDescription=Attiva/disattiva Grande Maestro d'Armi
+Action/&CleavingAttackToggleDescription=Attiva/disattiva Maestro d'armi grandi così, quando attacchi con un'arma da mischia, puoi scegliere di subire una penalità di -5 al tuo tiro per colpire per infliggere +10 danni aggiuntivi.
 Action/&CleavingAttackToggleTitle=Grande Maestro d'Armi
-Action/&PowerAttackToggleDescription=Attiva/disattiva Attacco di potenza
+Action/&PowerAttackToggleDescription=Attiva/disattiva Attacco Potente così, quando attacchi con un'arma da mischia, puoi scegliere di subire una penalità di -3 al tuo tiro per colpire per infliggere danni aggiuntivi pari a 3 + il tuo bonus di competenza.
 Action/&PowerAttackToggleTitle=Attacco di potenza
 Condition/&ConditionFeatCleavingAttackFinishDescription=Continua a farli venire!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Grande Maestro d'Armi
