@@ -620,10 +620,16 @@ public static class GameLocationCharacterPatcher
     [UsedImplicitly]
     public static class CheckConcentration_Patch
     {
-        //PATCH: supports `IPreventRemoveConcentrationOnDamage`
         [UsedImplicitly]
-        public static bool Prefix(GameLocationCharacter __instance)
+        public static bool Prefix(GameLocationCharacter __instance, int damage)
         {
+            //BUGFIX: don't roll if zero damage
+            if (damage <= 0)
+            {
+                return false;
+            }
+
+            //PATCH: supports `IPreventRemoveConcentrationOnDamage`
             if (__instance.RulesetCharacter is not { } rulesetCharacter)
             {
                 return true;
