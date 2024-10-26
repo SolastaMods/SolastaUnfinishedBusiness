@@ -33,12 +33,6 @@ public sealed class WizardEvocation : AbstractSubclass
         "AdditionalDamageSunlightBlade"
     ];
 
-    private static readonly string[] CantripsPowerDamages =
-    [
-        "PowerBoomingBladeDamage",
-        "PowerResonatingStrike" // Green-Flame Blade
-    ];
-
     private static readonly string[] SpellsAdditionalDamages =
     [
         "AdditionalDamageBanishingSmite",
@@ -51,13 +45,9 @@ public sealed class WizardEvocation : AbstractSubclass
 
     private static readonly string[] SpellsPowerDamages =
     [
-        "PowerChaosBoltLeap",
         "PowerCrownOfStars",
-        "PowerGravityFissure",
         "PowerHolyWeapon",
-        "PowerThunderousSmite",
-        "PowerVitriolicSphere",
-        "PowerWitchBolt"
+        "PowerThunderousSmite"
     ];
 
     public WizardEvocation()
@@ -120,12 +110,14 @@ public sealed class WizardEvocation : AbstractSubclass
         var conditionOverChannel = ConditionDefinitionBuilder
             .Create($"Condition{Name}OverChannel")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AllowMultipleInstances()
             .AddToDB();
 
         var conditionMaxDamage = ConditionDefinitionBuilder
             .Create($"Condition{Name}OverChannelMaxDamage")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddCustomSubFeatures(new ForceMaxDamageTypeDependentOverChannel())
             .AddToDB();
 
@@ -339,7 +331,6 @@ public sealed class WizardEvocation : AbstractSubclass
 
             switch (isSpell)
             {
-                case false when !CantripsPowerDamages.Contains(rulesetEffect.SourceDefinition.Name):
                 case true when rulesetEffect.EffectDescription.RangeType
                     is not (RangeType.MeleeHit or RangeType.RangeHit):
                 case true when !firstTarget &&
@@ -403,8 +394,7 @@ public sealed class WizardEvocation : AbstractSubclass
 
             switch (isSpell)
             {
-                case false when !CantripsPowerDamages.Contains(rulesetEffect.SourceDefinition.Name) &&
-                                !SpellsPowerDamages.Contains(rulesetEffect.SourceDefinition.Name):
+                case false when !SpellsPowerDamages.Contains(rulesetEffect.SourceDefinition.Name):
                 case true when rulesetEffect.SchoolOfMagic != SchoolEvocation:
                 case true when !firstTarget &&
                                rulesetEffect.EffectDescription.TargetType
@@ -491,6 +481,8 @@ public sealed class WizardEvocation : AbstractSubclass
             }
 
             // allow max spell damage on this attack
+            EffectHelpers.StartVisualEffect(
+                attacker, attacker, FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury , EffectHelpers.EffectType.Caster);
             rulesetAttacker.LogCharacterUsedFeature(featureOverChannel);
             rulesetAttacker.InflictCondition(
                 conditionOverChannelMaxDamage.Name,
@@ -551,6 +543,8 @@ public sealed class WizardEvocation : AbstractSubclass
             var rolls = new List<int>();
             var damage = rulesetAttacker.RollDiceAndSum(DIE_TYPE, RollContext.None, diceNumber, rolls, false);
 
+            EffectHelpers.StartVisualEffect(
+                attacker, attacker, FeatureDefinitionPowers.PowerPatronFiendDarkOnesOwnLuck, EffectHelpers.EffectType.Effect);
             rulesetAttacker.SustainDamage(
                 damage, DamageTypeNecrotic, false, rulesetAttacker.Guid,
                 new RollInfo(DIE_TYPE, rolls, 0), out _);
