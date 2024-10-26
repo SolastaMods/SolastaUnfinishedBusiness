@@ -388,6 +388,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             SavingThrowData savingThrowData,
             bool hasHitVisual)
         {
+            var effectDescription = savingThrowData.EffectDescription;
             var canForceHalfDamage = false; //TODO: find a way to get this
             var hasSpecialHalfDamage =
                 defender.RulesetCharacter.HasSpecialHalfDamage(effectDescription.SavingThrowAbility);
