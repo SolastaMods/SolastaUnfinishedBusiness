@@ -363,16 +363,12 @@ public sealed class WizardAbjuration : AbstractSubclass
             EffectDescription effectDescription,
             bool hasHitVisual)
         {
-            /*
-            if (//Check if save was failed and effect causes damage
-                //Check if save was successful or critically successful and effect still causes damage
-                //**A)** ||
-                //(SavingThrowData.SaveOutcome == RollOutcome.Failure && **B)**)
-                )
+            var canForceHalfDamage = false; //TODO: find a way to get this
+            var hasSpecialHalfDamage = defender.RulesetCharacter.HasSpecialHalfDamage(effectDescription.SavingThrowAbility);
+            if (!effectDescription.HasNotNegatedDamageForm(savingThrowData, canForceHalfDamage, hasSpecialHalfDamage))
             {
                 yield break;
             }
-            */
 
             // any reaction within a saving flow must use the yielder as waiter
             yield return HandleReactionProjectedWard(battleManager, helper, defender, helper);
