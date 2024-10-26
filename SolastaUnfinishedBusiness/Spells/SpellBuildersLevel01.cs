@@ -646,7 +646,7 @@ internal static partial class SpellBuilders
         const string NAME = "VileBrew";
 
         var battlePackage = AiContext.BuildDecisionPackageBreakFree(
-            $"Condition{NAME}", AiContext.RandomType.NoRandom);
+            $"Condition{NAME}", AiContext.RandomType.RandomMedium);
 
         var conditionVileBrew = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -655,6 +655,8 @@ internal static partial class SpellBuilders
             .SetFixedAmount((int)AiContext.BreakFreeType.DoNoCheckAndRemoveCondition)
             .SetBrain(battlePackage, true)
             .SetFeatures(ActionAffinityGrappled)
+            // need special duration here to enforce the recurrent damage at start of turn
+            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
             .SetConditionParticleReference(ConditionOnAcidPilgrim)
             .SetRecurrentEffectForms(
                 EffectFormBuilder

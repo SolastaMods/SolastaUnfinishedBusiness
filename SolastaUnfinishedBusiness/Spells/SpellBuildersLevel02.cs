@@ -77,7 +77,7 @@ internal static partial class SpellBuilders
 
         var spriteReference = Sprites.GetSprite("WinterBreath", Resources.WinterBreath, 128);
         var battlePackage = AiContext.BuildDecisionPackageBreakFree(
-            "ConditionGrappledRestrainedIceBound", AiContext.RandomType.NoRandom);
+            "ConditionGrappledRestrainedIceBound", AiContext.RandomType.RandomMedium);
 
         var conditionGrappledRestrainedIceBound = ConditionDefinitionBuilder
             .Create("ConditionGrappledRestrainedIceBound")

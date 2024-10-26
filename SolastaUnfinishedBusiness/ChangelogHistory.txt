@@ -7,6 +7,8 @@
 - fixed attribute modifiers not stacking in wild shape [i.e.: rage points]
 - fixed concentration checks triggering on zero damage
 - fixed melee and/or unarmed validation scenarios [i.e.: stunning strike]
+- fixed Rime's Binding Ice, and Tasha's Caustic Brew to try effect removal only half of the times
+- fixed Tasha's Caustic Brew to inflict damage at start instead of end of turn
 - fixed teleport logic to leave behind actors if no available destination position
 - reorg mod UI crafting, factions, items, and merchant settings
 
