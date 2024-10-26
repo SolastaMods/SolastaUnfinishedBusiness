@@ -309,7 +309,7 @@ public sealed class WizardAbjuration : AbstractSubclass
         (affected ?? character).LogCharacterUsedFeature(power, "Feedback/&ArcaneWard", true,
             (ConsoleStyleDuplet.ParameterType.Positive, prevented.ToString()));
 
-        character.ConsumePowerCharges(power, prevented);
+        character.UpdateUsageForPower(power, prevented);
         roll.modifier -= prevented;
         damage -= prevented;
     }
