@@ -6,6 +6,7 @@
 - fixed attacks of opportunity not triggering on reach enter [i.e.: polearm master]
 - fixed attribute modifiers not stacking in wild shape [i.e.: rage points]
 - fixed concentration checks triggering on zero damage
+- fixed Martial Warlord kinetic barrier, and Oath of Altruism defensive strike to use at least a +1 modifier 
 - fixed melee and/or unarmed validation scenarios [i.e.: stunning strike]
 - fixed Rime's Binding Ice, and Tasha's Caustic Brew to try effect removal only half of the times
 - fixed Tasha's Caustic Brew to inflict damage at start instead of end of turn
