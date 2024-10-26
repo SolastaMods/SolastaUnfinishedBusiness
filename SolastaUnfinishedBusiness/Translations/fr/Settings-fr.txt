@@ -164,6 +164,7 @@ ModUi/&EnableTeleportToRemoveRestrained=Activez la <color=#D89555>téléportatio
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bulles lors du survol d'un personnage en combat
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la conversion ascendante de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Activer les espaces réservés aux variables dans les descriptions <i><color=#F0DAA0>[utiliser {VARIABLE_NAME} comme espace réservé]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Activer l'apprentissage de l'école de magie au niveau 3 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attributs et la sélection des <color=#D89555>exploits</color> <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Définir des pourcentages de chances de rencontres aléatoires</color>
 ModUi/&Encounters=Rencontres

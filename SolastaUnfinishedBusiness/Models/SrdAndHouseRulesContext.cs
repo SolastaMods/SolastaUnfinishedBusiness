@@ -107,6 +107,7 @@ internal static class SrdAndHouseRulesContext
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
+        SwitchOneDndWizardSchoolOfMagicLearningLevel();
         NoTwinnedBladeCantrips();
         ModifyGravitySlam();
     }
@@ -369,6 +370,36 @@ internal static class SrdAndHouseRulesContext
         {
             foodSrdWeight.weight = 3.0f;
             foodForagedSrdWeight.weight = 3.0f;
+        }
+    }
+
+    internal static void SwitchOneDndWizardSchoolOfMagicLearningLevel()
+    {
+        var schools = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .Where(x =>
+                FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions.Subclasses.Contains(x.Name) ||
+                x.Name.StartsWith(WizardClass))
+            .ToList();
+
+        var fromLevel = 3;
+        var toLevel = 2;
+
+        if (Main.Settings.EnableWizardToLearnSchoolAtLevel3)
+        {
+            fromLevel = 2;
+            toLevel = 3;
+        }
+
+        foreach (var featureUnlock in schools
+                     .SelectMany(school => school.FeatureUnlocks
+                         .Where(featureUnlock => featureUnlock.level == fromLevel)))
+        {
+            featureUnlock.level = toLevel;
+        }
+
+        foreach (var featureUnlock in Wizard.FeatureUnlocks.Where(featureUnlock => featureUnlock.level == fromLevel))
+        {
+            featureUnlock.level = toLevel;
         }
     }
 

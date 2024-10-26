@@ -54,12 +54,6 @@ internal static class ClassesDisplay
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
-        toggle = Main.Settings.EnableSignatureSpellsRelearn;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableSignatureSpellsRelearn = toggle;
-        }
-
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {
@@ -296,6 +290,23 @@ internal static class ClassesDisplay
             {
                 Main.Settings.HideQuickenedActionWhenMetamagicOff = toggle;
             }
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WizardTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableWizardToLearnSchoolAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnSchoolAtLevel3"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWizardToLearnSchoolAtLevel3 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWizardSchoolOfMagicLearningLevel();
+        }
+
+        toggle = Main.Settings.EnableSignatureSpellsRelearn;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSignatureSpellsRelearn = toggle;
         }
 
         UI.Label();

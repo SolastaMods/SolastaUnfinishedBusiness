@@ -164,6 +164,7 @@ ModUi/&EnableTeleportToRemoveRestrained=Включить возможность 
 ModUi/&EnableTooltipDistance=Включить отображение расстояния во всплывающей подсказке панели при наведении курсора на персонажа в бою
 ModUi/&EnableUpcastConjureElementalAndFey=Включить возможность накладывать на высоких уровнях <color=#D89555>Призыв элементаля</color> и <color=#D89555>Призыв феи</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Включить заглушки для переменных описаний <i><color=#F0DAA0>[использовать {VARIABLE_NAME} в качесте заглушки]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Разрешить изучать школу магии на уровне 3 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=Включить возможность и повышать характеристики, и выбирать <color=#D89555>черту</color> одновременно <i><color=#F0DAA0>[вместо того, чтобы делать выбор между этими вариантами]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Вероятность случайных событий в процентах</color>
 ModUi/&Encounters=События

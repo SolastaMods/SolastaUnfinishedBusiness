@@ -352,7 +352,6 @@ public class Settings : UnityModManager.ModSettings
     public bool AddGrappleActionToAllRaces { get; set; }
     public bool AddHelpActionToAllRaces { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
-    public bool EnableSignatureSpellsRelearn { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }
@@ -382,6 +381,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
+    public bool EnableWizardToLearnSchoolAtLevel3 { get; set; }
+    public bool EnableSignatureSpellsRelearn { get; set; }
 
     //
     // Characters - Backgrounds, Races & Subraces

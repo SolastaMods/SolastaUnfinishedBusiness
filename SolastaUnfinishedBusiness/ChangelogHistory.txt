@@ -1,6 +1,8 @@
 1.5.97.36:
 
 - added behavior package choices on heroes controlled by AI
+- added Character > Classes > 'Enable Wizard to learn the school of magic at level 3' [OneDnd]
+- added Character > Subclasses > 'Enable Abjuration Wizard arcane ward implementation to behave like BG3'
 - added dungeon maker key bindings under vanilla settings > keyboard
 - added Wizard Abjuration [by BradS] and Evocation subclasses
 - fixed attacks of opportunity not triggering on reach enter [i.e.: polearm master]

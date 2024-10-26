@@ -164,6 +164,7 @@ ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>テレポート</color>�
 ModUi/&EnableTooltipDistance=戦闘中のキャラクターにマウスを移動したときにツールチップに距離が表示されるようにする
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>エレメンタル召喚</color>と<color=#D89555>フェイ召喚</color>のアップキャストを有効にする
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=レベル 3 で魔法の学校を学習できるようにします <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と <color=#D89555>特技</color> の選択の両方を有効にします <i><color=#F0DAA0>[排他的選択の代わりに]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>ランダムエンカウントの確率を設定する</color>
 ModUi/&Encounters=出会い
