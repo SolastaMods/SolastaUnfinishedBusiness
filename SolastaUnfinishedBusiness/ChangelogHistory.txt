@@ -7,6 +7,7 @@
 - fixed attribute modifiers not stacking in wild shape [i.e.: rage points]
 - fixed concentration checks triggering on zero damage
 - fixed melee and/or unarmed validation scenarios [i.e.: stunning strike]
+- fixed teleport logic to leave behind actors if no available destination position
 - reorg mod UI crafting, factions, items, and merchant settings
 
 KNOWN ISSUES:

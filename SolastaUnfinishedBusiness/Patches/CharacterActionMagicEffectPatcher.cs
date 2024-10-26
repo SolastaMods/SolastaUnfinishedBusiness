@@ -128,7 +128,7 @@ public static class CharacterActionMagicEffectPatcher
                         foundPositions);
 
                     positions.Add(foundPositions.Count > 0
-                        ? foundPositions[target]
+                        ? foundPositions.TryGetValue(target, out var position) ? position : locationPosition
                         : positions[0]);
 
                     target.LocationPosition = locationPosition;
