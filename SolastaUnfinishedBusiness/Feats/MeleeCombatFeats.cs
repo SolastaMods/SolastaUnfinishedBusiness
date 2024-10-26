@@ -39,8 +39,7 @@ internal static class MeleeCombatFeats
             new AddExtraMainHandAttack(
                 ActionType.Bonus,
                 ValidatorsCharacter.HasAttacked,
-                ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
-                ValidatorsCharacter.HasMeleeWeaponInMainHand))
+                ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand))
         .AddToDB();
 
     #endregion
@@ -488,8 +487,8 @@ internal static class MeleeCombatFeats
                 ValidatorsCharacter.HasFreeHandConsiderGrapple(character) &&
                 ((attackMode != null && ValidatorsWeapon.IsMelee(attackMode)) ||
                  (attackMode == null && ValidatorsWeapon.IsMelee(character.GetMainWeapon()))) &&
-                ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy,
-                    TagsDefinitions.WeaponTagVersatile);
+                ValidatorsWeapon.HasAnyWeaponTag(
+                    itemDefinition, TagsDefinitions.WeaponTagHeavy, TagsDefinitions.WeaponTagVersatile);
         }
     }
 
@@ -630,8 +629,7 @@ internal static class MeleeCombatFeats
 
             InitDirections(attacker);
 
-            if ((!ValidatorsWeapon.IsMelee(attackMode) &&
-                 !ValidatorsWeapon.IsUnarmed(attackMode)) ||
+            if (!ValidatorsWeapon.IsMeleeOrUnarmed(attackMode) ||
                 !attacker.OnceInMyTurnIsValid(powerPool.Name) ||
                 attackDirectionX != attacker.UsedSpecialFeatures[DirX] ||
                 attackDirectionY != attacker.UsedSpecialFeatures[DirY] ||
@@ -742,12 +740,13 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
+            var rulesetHelper = helper.RulesetCharacter;
+
             if (action.AttackRollOutcome is not RollOutcome.Success ||
                 helper != defender ||
                 !helper.CanReact() ||
                 (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
-                !(ValidatorsWeapon.IsMelee(helper.RulesetCharacter.GetMainWeapon()) ||
-                  ValidatorsWeapon.IsMelee(helper.RulesetCharacter.GetOffhandWeapon())))
+                !ValidatorsCharacter.HasMeleeWeaponInMainOrOffhand(rulesetHelper))
             {
                 yield break;
             }
@@ -764,7 +763,6 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var rulesetHelper = helper.RulesetCharacter;
             var pb = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             if (armorClass + pb <= totalAttack)
@@ -927,7 +925,7 @@ internal static class MeleeCombatFeats
             var rulesetCharacter = attacker.RulesetCharacter;
 
             if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
-                (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode)))
+                !ValidatorsWeapon.IsMeleeOrUnarmed(attackMode))
             {
                 yield break;
             }
@@ -1243,7 +1241,7 @@ internal static class MeleeCombatFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!ValidatorsWeapon.IsMelee(attackMode) ||
+            if (!ValidatorsWeapon.IsMeleeOrUnarmed(attackMode) ||
                 attackMode.EffectDescription.FindFirstDamageForm()?.DamageType != DamageTypeBludgeoning)
             {
                 yield break;
@@ -1278,8 +1276,8 @@ internal static class MeleeCombatFeats
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
-                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) => (OperationType.Set,
-                    ValidatorsWeapon.IsMelee(mode))),
+                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
+                    (OperationType.Set, ValidatorsWeapon.IsMeleeOrUnarmed(mode))),
                 new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(
                     ConditionDefinitionBuilder
                         .Create("ConditionDevastatingStrikes")

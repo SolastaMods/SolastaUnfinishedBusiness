@@ -48,8 +48,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                     (OperationType.Set, (mode is { ActionType: ActionType.Main } &&
-                                         ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(character) &&
-                                         ValidatorsCharacter.HasMeleeWeaponInMainHand(character)) ||
+                                         ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand(character)) ||
                                         (mode is { ActionType: ActionType.Bonus } &&
                                          character.GetOriginalHero() is { } hero &&
                                          hero.ActiveFightingStyles.Contains(FightingStyleDefinitions.TwoWeapon) &&

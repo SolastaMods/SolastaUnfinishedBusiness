@@ -117,12 +117,6 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasLightSourceOffHand = character =>
         character is RulesetCharacterHero && character.GetOffhandWeapon()?.ItemDefinition.IsLightSourceItem == true;
 
-    internal static readonly IsCharacterValidHandler HasFreeHandWithoutTwoHandedInMain = character =>
-        HasFreeHand(character) &&
-        (character.GetMainWeapon()?.ItemDefinition is not { } itemDefinition ||
-         !ValidatorsWeapon.HasAnyWeaponTag(
-             itemDefinition, TagsDefinitions.WeaponTagTwoHanded));
-
     internal static readonly IsCharacterValidHandler HasFreeHand = character =>
     {
         var mainHand = character.GetMainWeapon();
@@ -132,6 +126,22 @@ internal static class ValidatorsCharacter
                ValidatorsWeapon.IsUnarmed(mainHand) ||
                character is RulesetCharacterMonster;
     };
+
+    internal static readonly IsCharacterValidHandler HasFreeHandBoth = character =>
+    {
+        var mainHand = character.GetMainWeapon();
+        var offHand = character.GetOffhandWeapon();
+
+        return (ValidatorsWeapon.IsUnarmed(offHand) &&
+                ValidatorsWeapon.IsUnarmed(mainHand)) ||
+               character is RulesetCharacterMonster;
+    };
+
+    internal static readonly IsCharacterValidHandler HasFreeHandWithoutTwoHandedInMain = character =>
+        HasFreeHand(character) &&
+        (character.GetMainWeapon()?.ItemDefinition is not { } itemDefinition ||
+         !ValidatorsWeapon.HasAnyWeaponTag(
+             itemDefinition, TagsDefinitions.WeaponTagTwoHanded));
 
     internal static readonly IsCharacterValidHandler HasFreeHandConsiderGrapple = character =>
     {
@@ -156,15 +166,6 @@ internal static class ValidatorsCharacter
         }
 
         return freeHands > 0 || character is RulesetCharacterMonster;
-    };
-
-    internal static readonly IsCharacterValidHandler HasBothHandsFree = character =>
-    {
-        var mainHand = character.GetMainWeapon();
-        var offHand = character.GetOffhandWeapon();
-
-        return (ValidatorsWeapon.IsUnarmed(offHand) && ValidatorsWeapon.IsUnarmed(mainHand)) ||
-               character is RulesetCharacterMonster;
     };
 
     internal static readonly IsCharacterValidHandler HasTwoHandedQuarterstaff = character =>
@@ -193,6 +194,13 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);
+
+    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainOrOffhand = character =>
+        HasMeleeWeaponInMainHand(character) || HasMeleeWeaponInOffHand(character);
+
+    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainHandAndFreeOffhand = character =>
+        HasFreeHandWithoutTwoHandedInMain(character) &&
+        HasMeleeWeaponInMainHand(character);
 
     internal static readonly IsCharacterValidHandler IsNotInBrightLight = character =>
         HasAnyOfLightingStates(

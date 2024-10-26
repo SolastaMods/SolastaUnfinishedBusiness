@@ -29,9 +29,7 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
                 .Create("AttackModifierHandAndAHalf")
                 .SetGuiPresentation(HandAndAHalfName, Category.FightingStyle)
                 .SetAttackRollModifier(1)
-                .AddCustomSubFeatures(
-                    ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
-                    ValidatorsCharacter.HasMeleeWeaponInMainHand)
+                .AddCustomSubFeatures(ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand)
                 .AddToDB())
         .AddToDB();
 

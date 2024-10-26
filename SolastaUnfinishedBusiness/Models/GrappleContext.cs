@@ -271,7 +271,7 @@ internal static class GrappleContext
             return;
         }
 
-        if (ValidatorsCharacter.HasBothHandsFree(caster) ||
+        if (ValidatorsCharacter.HasFreeHandBoth(caster) ||
             caster.HasSubFeatureOfType<OtherFeats.WarCasterMarker>())
         {
             return;

@@ -492,6 +492,7 @@ public static class GameLocationCharacterExtensions
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
+            // don't use IsMelee(attackMode) here
             var isValid = (allowUnarmed && mode.SourceObject is null) ||
                           (mode.SourceObject is RulesetItem rulesetItem && ValidatorsWeapon.IsMelee(rulesetItem));
 
