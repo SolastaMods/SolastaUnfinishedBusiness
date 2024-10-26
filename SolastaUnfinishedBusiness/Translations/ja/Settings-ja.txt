@@ -95,7 +95,6 @@ ModUi/&DontFollowMargin=<i><color=white>+ ヒーローが画面外にいるか�
 ModUi/&DungeonMaker=ダンジョンメーカー
 ModUi/&DungeonMakerBasicHelp=• これらの設定では、プレイヤーがこのMODをインストールする必要はありません
 ModUi/&Effects=効果
-ModUi/&EmpressGarbAppearance=<color=#D89555>皇后の衣装</color>の外観
 ModUi/&EnableActionSwitching=アクション切り替えバーを有効にします <i><color=#F0DAA0>[アクションシーケンスを完全に制御するのに便利です]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=背景調査で追加のバックストーリー表示を有効にする
 ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、出口、テレポーターの追加アイコンを有効にする

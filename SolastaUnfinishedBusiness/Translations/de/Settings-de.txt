@@ -95,7 +95,6 @@ ModUi/&DontFollowMargin=<i><color=white>+ Sofern der Held nicht ausgeschaltet is
 ModUi/&DungeonMaker=Dungeon-Ersteller
 ModUi/&DungeonMakerBasicHelp=• Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat
 ModUi/&Effects=Auswirkungen
-ModUi/&EmpressGarbAppearance=<color=#D89555>Kaiseringewand</color> Aussehen
 ModUi/&EnableActionSwitching=Aktivieren Sie die Aktionswechselleiste <i><color=#F0DAA0>[nützlich, um die volle Kontrolle über Ihre Aktionsabfolge zu haben]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die Anzeige zusätzlicher Hintergrundgeschichten bei der Hintergrundüberprüfung
 ModUi/&EnableAdditionalIconsOnLevelMap=Zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte aktivieren

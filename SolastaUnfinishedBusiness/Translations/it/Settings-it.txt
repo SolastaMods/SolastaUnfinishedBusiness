@@ -95,7 +95,6 @@ ModUi/&DontFollowMargin=<i><color=white>+ A meno che l'eroe non sia spento o ent
 ModUi/&DungeonMaker=Creatore di Dungeon
 ModUi/&DungeonMakerBasicHelp=• Queste impostazioni non richiederanno che il giocatore abbia installato questa mod
 ModUi/&Effects=Effetti
-ModUi/&EmpressGarbAppearance=Aspetto <color=#D89555>Abito dell'imperatrice</color>
 ModUi/&EnableActionSwitching=Abilita la barra di cambio azione <i><color=#F0DAA0>[utile per avere il pieno controllo sulla sequenza delle tue azioni]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva della storia di fondo durante l'ispezione dello sfondo
 ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per campi, uscite e teletrasporti sulla mappa del livello

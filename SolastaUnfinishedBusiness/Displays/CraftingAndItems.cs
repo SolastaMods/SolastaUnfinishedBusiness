@@ -178,51 +178,12 @@ internal static class CraftingAndItems
 
         UI.Label();
 
-        if (Main.Settings.ShowCraftedItemOnRecipeIcon)
-        {
-            toggle = Main.Settings.SwapCraftedItemAndRecipeIcons;
-            if (UI.Toggle(Gui.Localize("ModUi/&SwapCraftedItemAndRecipeIcons"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.SwapCraftedItemAndRecipeIcons = toggle;
-            }
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AddPickPocketableLoot;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddPickPocketableLoot = toggle;
-            if (toggle)
-            {
-                PickPocketContext.Load();
-            }
-        }
-
-        UI.Label();
-
         var intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
         if (UI.Slider(Gui.Localize("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
                 0, 100, 50, "%", UI.Width(500f)))
         {
             Main.Settings.SetBeltOfDwarvenKindBeardChances = intValue;
             ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
-        }
-
-        UI.Label();
-
-        using (UI.HorizontalScope())
-        {
-            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325f));
-
-            intValue = Main.Settings.EmpressGarbAppearanceIndex;
-            // ReSharper disable once InvertIf
-            if (UI.SelectionGrid(ref intValue, ItemCraftingMerchantContext.EmpressGarbAppearances,
-                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width(440f)))
-            {
-                Main.Settings.EmpressGarbAppearanceIndex = intValue;
-                GameUiContext.SwitchEmpressGarb();
-            }
         }
 
         #endregion
@@ -266,6 +227,15 @@ internal static class CraftingAndItems
         if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftedItemOnRecipeIcon"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ShowCraftedItemOnRecipeIcon = toggle;
+        }
+
+        if (Main.Settings.ShowCraftedItemOnRecipeIcon)
+        {
+            toggle = Main.Settings.SwapCraftedItemAndRecipeIcons;
+            if (UI.Toggle(Gui.Localize("ModUi/&SwapCraftedItemAndRecipeIcons"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.SwapCraftedItemAndRecipeIcons = toggle;
+            }
         }
 
         UI.Label();

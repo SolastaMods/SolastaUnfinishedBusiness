@@ -21,7 +21,19 @@ internal static class CampaignsDisplay
         UI.Label();
         UI.Label();
 
-        var toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
+        var toggle = Main.Settings.AddPickPocketableLoot;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPickPocketableLoot = toggle;
+            if (toggle)
+            {
+                PickPocketContext.Load();
+            }
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
         if (UI.Toggle(Gui.Localize("ModUi/&AltOnlyHighlightItemsInPartyFieldOfView"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;

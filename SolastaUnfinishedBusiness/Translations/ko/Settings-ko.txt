@@ -95,7 +95,6 @@ ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 화면 가장자리 밖에 �
 ModUi/&DungeonMaker=던전메이커
 ModUi/&DungeonMakerBasicHelp=• 이러한 설정은 플레이어가 이 모드를 설치하도록 요구하지 않습니다.
 ModUi/&Effects=효과
-ModUi/&EmpressGarbAppearance=<color=#D89555>황후 복장</color> 모습
 ModUi/&EnableActionSwitching=동작 전환 막대 활성화 <i><color=#F0DAA0>[동작 순서를 완벽하게 제어하는 데 유용함]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=배경 검사에서 추가 배경 스토리 표시 활성화
 ModUi/&EnableAdditionalIconsOnLevelMap=레벨 맵에서 캠프, 출구 및 텔레포터에 대한 추가 아이콘 활성화

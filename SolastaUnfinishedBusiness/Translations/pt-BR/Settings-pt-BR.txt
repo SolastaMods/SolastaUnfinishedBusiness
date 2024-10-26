@@ -95,7 +95,6 @@ ModUi/&DontFollowMargin=<i><color=white>+ A menos que o herói esteja desligado 
 ModUi/&DungeonMaker=Criador de Masmorras
 ModUi/&DungeonMakerBasicHelp=• Essas configurações não exigirão que o jogador tenha esse mod instalado
 ModUi/&Effects=Efeitos
-ModUi/&EmpressGarbAppearance=Aparência de <color=#D89555>Traje de Imperatriz</color>
 ModUi/&EnableActionSwitching=Habilitar a barra de alternância de ações <i><color=#F0DAA0>[útil para ter controle total sobre sua sequência de ações]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Habilitar exibição de história de fundo adicional na inspeção de fundo
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilitar ícones adicionais para acampamentos, saídas e teletransportadores no mapa de nível

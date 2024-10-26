@@ -131,10 +131,21 @@ public static class SettingsContext
         [SettingTypeToggle("UnlockBeardlessDwarves", SortOrder = 1073, DisplayFooter = true)]
         [UsedImplicitly]
         bool UnlockBeardlessDwarves { get; set; }
+
+        [SettingTypeDropList("EmpressGarbAppearance",
+            SortOrder = 1081, DisplayFooter = false,
+            Items =
+            [
+                "Normal", "Barbarian", "Druid", "ElvenChain", "SorcererOutfit", "StuddedLeather",
+                "GreenMageArmor", "WizardOutfit", "ScavengerOutfit1", "ScavengerOutfit2", "BardArmor", "WarlockArmor"
+            ])]
+        [UsedImplicitly]
+        string EmpressGarbAppearance { get; set; }
     }
 
     internal sealed class GuiModManager : IGuiModSettingsService
     {
+        private string _empressGarbAppearance = UserPreferences.GetValue<string>("Settings/Gui/EmpressGarbAppearance");
         private bool _enableCharacterChecker = UserPreferences.GetValue<bool>("Settings/Gui/EnableCharacterChecker");
         private bool _enableCheatMenu = UserPreferences.GetValue<bool>("Settings/Gui/EnableCheatMenu");
         private bool _enablePartyToggles = UserPreferences.GetValue<bool>("Settings/Gui/EnablePartyToggles");
@@ -166,6 +177,17 @@ public static class SettingsContext
         private bool _unlockUnmarkedSorcerers = UserPreferences.GetValue<bool>("Settings/Gui/UnlockUnmarkedSorcerers");
 
         public bool ModHeader { get; set; }
+
+        public string EmpressGarbAppearance
+        {
+            get => _empressGarbAppearance ?? "Normal";
+            set
+            {
+                _empressGarbAppearance = value;
+                GameUiContext.SwitchEmpressGarb();
+                UserPreferences.SetValue("Settings/Gui/EmpressGarbAppearance", _empressGarbAppearance);
+            }
+        }
 
         public bool HideCrownOfMagister
         {

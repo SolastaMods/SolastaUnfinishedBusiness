@@ -785,62 +785,65 @@ internal static class GameUiContext
     {
         EmpressGarbOriginalItemPresentation ??= Enchanted_ChainShirt_Empress_war_garb.ItemPresentation;
 
-        switch (Main.Settings.EmpressGarbAppearanceIndex)
+        switch (SettingsContext.GuiModManagerInstance.EmpressGarbAppearance)
         {
-            case 0: //"Normal":
+            case "Normal":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
                 break;
 
-            case 1: // Barbarian Clothes
+            case "Barbarian":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = BarbarianClothes.ItemPresentation;
                 break;
 
-            case 2: // Druid Leather
+            case "Druid":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = LeatherDruid.ItemPresentation;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useArmorAddressableName = true;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.armorAddressableName = LeatherDruid.Name;
                 break;
 
-            case 3: // Elven Chain
+            case "ElvenChain":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ElvenChain.ItemPresentation;
                 break;
 
-            case 4: // Sorcerer's Armor
+            case "SorcererOutfit":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = SorcererArmor.ItemPresentation;
                 break;
 
-            case 5: // Studded Leather
+            case "StuddedLeather":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = StuddedLeather.ItemPresentation;
                 break;
 
-            case 6: // Sylvan Armor
+            case "GreenMageArmor":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = GreenmageArmor.ItemPresentation;
                 break;
 
-            case 7: // Wizard Clothes
+            case "WizardOutfit":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = WizardClothes_Alternate.ItemPresentation;
                 break;
 
-            case 8: // Scavenger Ranger
+            case "ScavengerOutfit1": // Ranger
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ClothesScavenger_A.ItemPresentation;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useArmorAddressableName = true;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.armorAddressableName = ClothesScavenger_A.Name;
                 break;
 
-            case 9: // Scavenger Rogue
+            case "ScavengerOutfit2": // Rogue
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ClothesScavenger_B.ItemPresentation;
                 break;
 
-            case 10: // Bard Armor
+            case "BardArmor":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = Bard_Armor.ItemPresentation;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useArmorAddressableName = true;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.armorAddressableName = Bard_Armor.Name;
                 break;
 
-            case 11: // Warlock Armor
+            case "WarlockArmor":
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = Warlock_Armor.ItemPresentation;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useArmorAddressableName = true;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.armorAddressableName = Warlock_Armor.Name;
+                break;
+            default:
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
                 break;
         }
     }

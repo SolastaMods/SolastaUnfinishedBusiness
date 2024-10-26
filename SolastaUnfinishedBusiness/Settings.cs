@@ -224,6 +224,71 @@ public class Settings : UnityModManager.ModSettings
     public int CriticalHitModeNeutral { get; set; }
 
     //
+    // Gameplay - Campaigns
+    //
+
+    public bool AddPickPocketableLoot { get; set; }
+    public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
+    public bool EnableAdditionalIconsOnLevelMap { get; set; }
+    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
+    public bool EnableLogDialoguesToConsole { get; set; }
+    public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
+    public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
+    public bool EnableAlternateVotingSystem { get; set; }
+    public bool EnableSumD20OnAlternateVotingSystem { get; set; }
+    public bool EnableStatsOnHeroTooltip { get; set; }
+    public bool EnableActionSwitching { get; set; }
+    public bool EnableCustomPortraits { get; set; }
+    public bool AllowMoreRealStateOnRestPanel { get; set; }
+    public bool EnableAdditionalBackstoryDisplay { get; set; }
+    public bool EnableExtendedProficienciesPanelDisplay { get; set; }
+    public bool HideMonsterHitPoints { get; set; }
+    public bool RemoveBugVisualModels { get; set; }
+    public bool ShowButtonWithControlledMonsterInfo { get; set; }
+
+    // Battle
+    public bool DontFollowCharacterInBattle { get; set; }
+    public bool EnableElevationCameraToStayAtPosition { get; set; }
+    public bool NeverMoveCameraOnEnemyTurn { get; set; }
+    public bool EnableCancelEditOnRightMouseClick { get; set; }
+    public int DontFollowMargin { get; set; } = 5;
+    public int GridSelectedColor { get; set; } = 1;
+    public int MovementGridWidthModifier { get; set; } = 100;
+    public int OutlineGridWidthModifier { get; set; } = 100;
+    public int OutlineGridWidthSpeed { get; set; } = 100;
+    public bool EnableDistanceOnTooltip { get; set; }
+    public bool ShowMotionFormPreview { get; set; }
+    public int HighContrastTargetingAoeSelectedColor { get; set; }
+    public int HighContrastTargetingSingleSelectedColor { get; set; }
+
+    // Formation
+    public int FormationGridSelectedSet { get; set; } = -1;
+
+    public int[][][] FormationGridSets { get; set; } =
+    [
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ],
+        [
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        ]
+    ];
+
+    //
     // Gameplay - Items, Crafting & Merchants
     //
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
@@ -242,9 +307,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
     public bool SwapCraftedItemAndRecipeIcons { get; set; }
-    public bool AddPickPocketableLoot { get; set; }
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
-    public int EmpressGarbAppearanceIndex { get; set; }
 
     // Crafting
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
@@ -395,72 +458,6 @@ public class Settings : UnityModManager.ModSettings
     public int WildSurgeDieRollThreshold { get; set; } = 2;
     public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];
-
-    //
-    // Interface - Game UI
-    //
-
-    // Campaigns and Locations
-    public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
-    public bool EnableAdditionalIconsOnLevelMap { get; set; }
-    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
-    public bool EnableLogDialoguesToConsole { get; set; }
-    public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
-    public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
-    public bool EnableAlternateVotingSystem { get; set; }
-    public bool EnableSumD20OnAlternateVotingSystem { get; set; }
-    public bool EnableStatsOnHeroTooltip { get; set; }
-    public bool EnableActionSwitching { get; set; }
-    public bool EnableCustomPortraits { get; set; }
-    public bool AllowMoreRealStateOnRestPanel { get; set; }
-    public bool EnableAdditionalBackstoryDisplay { get; set; }
-    public bool EnableExtendedProficienciesPanelDisplay { get; set; }
-    public bool HideMonsterHitPoints { get; set; }
-    public bool RemoveBugVisualModels { get; set; }
-
-    public bool ShowButtonWithControlledMonsterInfo { get; set; }
-
-    // Battle
-    public bool DontFollowCharacterInBattle { get; set; }
-    public bool EnableElevationCameraToStayAtPosition { get; set; }
-    public bool NeverMoveCameraOnEnemyTurn { get; set; }
-    public bool EnableCancelEditOnRightMouseClick { get; set; }
-    public int DontFollowMargin { get; set; } = 5;
-    public int GridSelectedColor { get; set; } = 1;
-    public int MovementGridWidthModifier { get; set; } = 100;
-    public int OutlineGridWidthModifier { get; set; } = 100;
-    public int OutlineGridWidthSpeed { get; set; } = 100;
-    public bool EnableDistanceOnTooltip { get; set; }
-    public bool ShowMotionFormPreview { get; set; }
-    public int HighContrastTargetingAoeSelectedColor { get; set; }
-    public int HighContrastTargetingSingleSelectedColor { get; set; }
-
-    // Formation
-    public int FormationGridSelectedSet { get; set; } = -1;
-
-    public int[][][] FormationGridSets { get; set; } =
-    [
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ],
-        [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        ]
-    ];
 
     //
     // Encounters - General
