@@ -12,7 +12,10 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
     public static ICustomPortraitPointPoolProvider Instance { get; } = new PortraitPointEldritchVersatility();
     public string Name => "EldritchVersatility";
 
-    public bool IsActive(RulesetCharacter character) => true;
+    public bool IsActive(RulesetCharacter character)
+    {
+        return true;
+    }
 
     string ICustomPortraitPointPoolProvider.Tooltip(RulesetCharacter character)
     {

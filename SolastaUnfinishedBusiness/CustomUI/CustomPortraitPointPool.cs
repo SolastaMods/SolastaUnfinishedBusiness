@@ -48,7 +48,7 @@ internal class CustomPortraitPointPool : MonoBehaviour
     {
         var active = provider.IsActive(character);
         gameObject.SetActive(active);
-        if (!active) { return;}
+        if (!active) { return; }
 
         //yes, this label name has a typo
         // ReSharper disable once StringLiteralTypo

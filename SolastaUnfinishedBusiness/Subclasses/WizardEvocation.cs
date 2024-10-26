@@ -82,7 +82,7 @@ public sealed class WizardEvocation : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AllowMultipleInstances()
             .AddToDB();
-            
+
         var actionAffinityOverChannelToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityOverChannelToggle")
             .SetGuiPresentationNoContent(true)
@@ -343,7 +343,7 @@ public sealed class WizardEvocation : AbstractSubclass
             effectForm.DamageForm.BonusDamage += Math.Max(1, intelligenceModifier);
         }
     }
-    
+
     //
     // Over Channel
     //
@@ -353,15 +353,14 @@ public sealed class WizardEvocation : AbstractSubclass
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender, 
+            GameLocationCharacter defender,
             ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms, 
-            bool firstTarget, 
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
             bool criticalHit)
         {
             yield break;
         }
     }
-    
 }

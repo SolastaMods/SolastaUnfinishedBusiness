@@ -241,14 +241,15 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
-    public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
-    public bool ShowCraftedItemOnRecipeIcon { get; set; }
     public bool SwapCraftedItemAndRecipeIcons { get; set; }
     public bool AddPickPocketableLoot { get; set; }
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
     public int EmpressGarbAppearanceIndex { get; set; }
 
     // Crafting
+    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
+    public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
+    public bool ShowCraftedItemOnRecipeIcon { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int TotalCraftingTimeModifier { get; set; }
     public List<string> CraftingInStore { get; } = [];
@@ -274,7 +275,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingDungeonMakerAssets { get; set; }
     public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }
-    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
     public bool UnleashNpcAsEnemy { get; set; }
     public bool EnableVariablePlaceholdersOnTexts { get; set; }
     public bool EnableDungeonMakerModdedContent { get; set; }

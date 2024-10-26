@@ -178,18 +178,6 @@ internal static class CraftingAndItems
 
         UI.Label();
 
-        toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
-        }
-
-        toggle = Main.Settings.ShowCraftedItemOnRecipeIcon;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftedItemOnRecipeIcon"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShowCraftedItemOnRecipeIcon = toggle;
-        }
-
         if (Main.Settings.ShowCraftedItemOnRecipeIcon)
         {
             toggle = Main.Settings.SwapCraftedItemAndRecipeIcons;
@@ -266,6 +254,18 @@ internal static class CraftingAndItems
         if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
+        }
+
+        toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
+        }
+
+        toggle = Main.Settings.ShowCraftedItemOnRecipeIcon;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftedItemOnRecipeIcon"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowCraftedItemOnRecipeIcon = toggle;
         }
 
         UI.Label();

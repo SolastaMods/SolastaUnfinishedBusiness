@@ -75,7 +75,7 @@ public sealed class WizardAbjuration : AbstractSubclass
         // create a condition that gives powerArcaneWardReduceDamage feature to a creature
         var conditionArcaneWard = ConditionDefinitionBuilder
             .Create(WardConditionName)
-            .SetGuiPresentation(Category.Condition, description: Gui.NoLocalization)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
             .SetConditionType(ConditionType.Beneficial)
             .SetSilent(Silent.WhenRefreshedOrRemoved)
             .AddFeatures(powerArcaneWardReduceDamage)

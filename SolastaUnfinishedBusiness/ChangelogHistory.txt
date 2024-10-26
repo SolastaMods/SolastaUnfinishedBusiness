@@ -4,6 +4,7 @@
 - added Wizard Abjuration [by BradS] and Evocation subclasses
 - fixed attacks of opportunity not triggering on reach enter [i.e.: polearm master]
 - fixed attribute modifiers not stacking in wild shape [i.e.: rage points]
+- fixed melee and/or unarmed validation scenarios [i.e.: stunning strike]
 - reorg mod UI crafting, factions, items, and merchant settings
 
 KNOWN ISSUES:

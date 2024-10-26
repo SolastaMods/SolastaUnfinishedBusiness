@@ -14,7 +14,10 @@ public class PortraitPointChannelDivinity : ICustomPortraitPointPoolProvider
     public static ICustomPortraitPointPoolProvider Instance { get; } = new PortraitPointChannelDivinity();
     public string Name => "ChannelDivinity";
 
-    public bool IsActive(RulesetCharacter character) => true;
+    public bool IsActive(RulesetCharacter character)
+    {
+        return true;
+    }
 
     string ICustomPortraitPointPoolProvider.Tooltip(RulesetCharacter character)
     {
