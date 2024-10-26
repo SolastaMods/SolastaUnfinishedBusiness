@@ -196,46 +196,44 @@ internal static class EncountersDisplay
         {
             return;
         }
-
+        
+        using (UI.VerticalScope())
         {
-            using (UI.VerticalScope())
+            using (UI.HorizontalScope())
+            {
+                UI.Space(30f);
+                UI.Label("Attacks".Bold().Cyan());
+            }
+
+            foreach (var attackIteration in monsterDefinition.AttackIterations)
             {
                 using (UI.HorizontalScope())
                 {
-                    UI.Space(30f);
-                    UI.Label("Attacks".Bold().Cyan());
-                }
+                    var title = attackIteration.MonsterAttackDefinition.FormatTitle();
 
-                foreach (var attackIteration in monsterDefinition.AttackIterations)
-                {
-                    using (UI.HorizontalScope())
+                    if (title == "None")
                     {
-                        var title = attackIteration.MonsterAttackDefinition.FormatTitle();
+                        title = attackIteration.MonsterAttackDefinition.name.SplitCamelCase();
+                    }
 
-                        if (title == "None")
-                        {
-                            title = attackIteration.MonsterAttackDefinition.name.SplitCamelCase();
-                        }
+                    UI.Space(60f);
+                    UI.Label(title,
+                        UI.Width(192f));
+                    UI.Label($"action type: {attackIteration.MonsterAttackDefinition.ActionType}".Green(),
+                        UI.Width(120f));
+                    UI.Label($"reach: {attackIteration.MonsterAttackDefinition.ReachRange}".Green(),
+                        UI.Width(108f));
+                    UI.Label($"hit bonus: {attackIteration.MonsterAttackDefinition.ToHitBonus}".Green(),
+                        UI.Width(108f));
+                    UI.Label(
+                        attackIteration.MonsterAttackDefinition.MaxUses < 0
+                            ? "max uses: inf".Green()
+                            : $"max uses: {attackIteration.MonsterAttackDefinition.MaxUses}".Green(),
+                        UI.Width(108f));
 
-                        UI.Space(60f);
-                        UI.Label(title,
-                            UI.Width(192f));
-                        UI.Label($"action type: {attackIteration.MonsterAttackDefinition.ActionType}".Green(),
-                            UI.Width(120f));
-                        UI.Label($"reach: {attackIteration.MonsterAttackDefinition.ReachRange}".Green(),
-                            UI.Width(108f));
-                        UI.Label($"hit bonus: {attackIteration.MonsterAttackDefinition.ToHitBonus}".Green(),
-                            UI.Width(108f));
-                        UI.Label(
-                            attackIteration.MonsterAttackDefinition.MaxUses < 0
-                                ? "max uses: inf".Green()
-                                : $"max uses: {attackIteration.MonsterAttackDefinition.MaxUses}".Green(),
-                            UI.Width(108f));
-
-                        if (attackIteration.MonsterAttackDefinition.Magical)
-                        {
-                            UI.Label(TagsDefinitions.Magical.Green(), UI.Width(108f));
-                        }
+                    if (attackIteration.MonsterAttackDefinition.Magical)
+                    {
+                        UI.Label(TagsDefinitions.Magical.Green(), UI.Width(108f));
                     }
                 }
             }
@@ -305,12 +303,13 @@ internal static class EncountersDisplay
 
                 UI.HStack(playerCharacters[index].Name, 1, () =>
                 {
-                    if (UI.SelectionGrid(ref playerCharactersChoices[index], controllers, controllers.Length, 2,
+                    if (UI.SelectionGrid(ref playerCharactersChoices[index], controllers, controllers.Length, 4,
                             UI.Width(300f)))
                     {
                         PlayerControllerContext.PlayerCharactersChoices = playerCharactersChoices;
                     }
                 });
+                UI.Label();
             }
         }
     }
