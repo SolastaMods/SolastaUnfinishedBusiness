@@ -24,6 +24,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class WizardAbjuration : AbstractSubclass
 {
     private const string Name = "WizardAbjuration";
+    private const string WardConditionName = $"Condition{Name}ArcaneWard";
 
     public WizardAbjuration()
     {
@@ -47,6 +48,11 @@ public sealed class WizardAbjuration : AbstractSubclass
 
         // + 2 * Wiz Lv. points in the pool max
         powerArcaneWard.AddCustomSubFeatures(
+            new PowerPortraitPointPool(powerArcaneWard, Sprites.ArcaneWardPoints)
+            {
+                IsActiveHandler = character => character.HasConditionOfType(WardConditionName)
+            },
+            ModifyPowerVisibility.Hidden,
             HasModifiedUses.Marker,
             new ModifyPowerPoolAmount
             {
@@ -68,8 +74,8 @@ public sealed class WizardAbjuration : AbstractSubclass
 
         // create a condition that gives powerArcaneWardReduceDamage feature to a creature
         var conditionArcaneWard = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ArcaneWard")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionShielded)
+            .Create(WardConditionName)
+            .SetGuiPresentation(Category.Condition, description: Gui.NoLocalization)
             .SetConditionType(ConditionType.Beneficial)
             .SetSilent(Silent.WhenRefreshedOrRemoved)
             .AddFeatures(powerArcaneWardReduceDamage)

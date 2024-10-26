@@ -125,6 +125,11 @@
   </resheader>
   <assembly alias="System.Windows.Forms"
             name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+  <data name="ArcaneWardPoints" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI\ArcaneWardPoints.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="BackgroundDevoted" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Backgrounds/BackgroundDevoted.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
