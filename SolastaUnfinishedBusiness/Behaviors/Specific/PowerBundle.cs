@@ -541,6 +541,19 @@ internal static class PowerBundle
     //     return subPowers?.Select(GetSpell).ToList();
     // }
 
+    
+    internal static void ConsumePowerCharges(
+        this RulesetCharacter character,
+        [NotNull] FeatureDefinitionPower power,
+        int charges)
+    {
+        var usablePower = power is FeatureDefinitionPowerSharedPool poolPower
+            ? PowerProvider.Get(poolPower.GetUsagePoolPower(), character)
+            : PowerProvider.Get(power, character);
+
+        usablePower.remainingUses -= Math.Min(charges, usablePower.RemainingUses);
+    }
+    
     // Bundled sub-powers usually are not added to the character, so their UsablePower lacks class or race origin
     // This means that CharacterActionSpendPower will not call `UsePower` on them
     // This method fixes that
