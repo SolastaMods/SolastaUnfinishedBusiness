@@ -389,7 +389,9 @@ public sealed class WizardAbjuration : AbstractSubclass
             bool hasHitVisual)
         {
             var effectDescription = savingThrowData.EffectDescription;
-            var canForceHalfDamage = false; //TODO: find a way to get this
+            var canForceHalfDamage = attacker != null
+                                     && savingThrowData.SourceDefinition is SpellDefinition spell
+                                     && attacker.RulesetCharacter.CanForceHalfDamage(spell);
             var hasSpecialHalfDamage =
                 defender.RulesetCharacter.HasSpecialHalfDamage(effectDescription.SavingThrowAbility);
             if (!effectDescription.HasNotNegatedDamageForm(savingThrowData, canForceHalfDamage, hasSpecialHalfDamage))
