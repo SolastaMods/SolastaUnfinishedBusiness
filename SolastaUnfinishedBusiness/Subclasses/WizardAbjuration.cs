@@ -27,6 +27,14 @@ public sealed class WizardAbjuration : AbstractSubclass
     private const string ArcaneWardConditionName = $"Condition{Name}ArcaneWard";
     private const string ProjectedWardConditionName = $"Condition{Name}ProjectedWard";
 
+    private static FeatureDefinitionPower _powerArcaneWard;
+    private static FeatureDefinitionPower PowerArcaneWard => _powerArcaneWard ??= BuildArcaneWard();
+    
+    private static  ConditionDefinition _conditionArcaneWard;
+    private static  ConditionDefinition ConditionArcaneWard => _conditionArcaneWard ??= BuildArcaneWardCondition();
+
+    private static bool IsBg3Mode => Main.Settings.EnableBg3AbjurationArcaneWard;
+
     public WizardAbjuration()
     {
         // Lv.2 Abjuration Savant
@@ -40,41 +48,26 @@ public sealed class WizardAbjuration : AbstractSubclass
 
         // LV.2 Arcane Ward
         // initialize power points pool with INT mod points
-        var powerArcaneWard = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ArcaneWard")
-            .SetGuiPresentation($"Power{Name}ArcaneWard", Category.Feature, GlobeOfInvulnerability)
-            .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
-            .SetShowCasting(false)
-            .AddToDB();
+
+        _ = ConditionArcaneWard;
 
         // + 2 * Wiz Lv. points in the pool max
-        powerArcaneWard.AddCustomSubFeatures(
-            new PowerPortraitPointPool(powerArcaneWard, Sprites.ArcaneWardPoints)
-            {
-                IsActiveHandler = character => character.HasConditionOfType(ArcaneWardConditionName)
-            },
+        PowerArcaneWard.AddCustomSubFeatures(
+            new ArcaneWardPortraitPoints(),
             //handle damage reduction
-            ArcaneWardModifyDamage(powerArcaneWard),
+            ArcaneWardModifyDamage(),
             // handle applying the condition or refunding points to the pool when casting Abjuration spells
-            new CustomBehaviorArcaneWard(powerArcaneWard),
+            new CustomBehaviorArcaneWard(),
             ModifyPowerVisibility.Hidden,
             HasModifiedUses.Marker,
+            new ModifyPowerRechargeHandler(LimitArcaneWardRecharge),
             new ModifyPowerPoolAmount
             {
-                PowerPool = powerArcaneWard,
+                PowerPool = PowerArcaneWard,
                 Type = PowerPoolBonusCalculationType.ClassLevel,
                 Attribute = WizardClass,
                 Value = 2
             });
-
-        // marks Arcane Ward as active
-        ConditionDefinitionBuilder
-            .Create(ArcaneWardConditionName)
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
-            .SetConditionType(ConditionType.Beneficial)
-            .SetSilent(Silent.WhenRefreshedOrRemoved)
-            .SetPossessive()
-            .AddToDB();
 
         ////////
         // Lv.6 Projected Ward
@@ -88,7 +81,7 @@ public sealed class WizardAbjuration : AbstractSubclass
                 ConditionInterruption.Damaged,
                 ConditionInterruption.AnyBattleTurnEnd)
             .SetPossessive()
-            .AddCustomSubFeatures(ProjectedWardModifyDamage(powerArcaneWard))
+            .AddCustomSubFeatures(ProjectedWardModifyDamage())
             .AddToDB();
 
         // Can only use when Arcane is both Active and has non-zero points remaining
@@ -100,7 +93,6 @@ public sealed class WizardAbjuration : AbstractSubclass
             .AddToDB();
 
         powerProjectedWard.AddCustomSubFeatures(new CustomBehaviorProjectedWard(
-            powerArcaneWard,
             powerProjectedWard,
             conditionProjectedWard));
 
@@ -194,10 +186,34 @@ public sealed class WizardAbjuration : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardWarMagic, 256))
-            .AddFeaturesAtLevel(2, magicAffinityAbjurationScriber, powerArcaneWard)
+            .AddFeaturesAtLevel(2, magicAffinityAbjurationScriber, PowerArcaneWard)
             .AddFeaturesAtLevel(6, powerProjectedWard)
             .AddFeaturesAtLevel(10, featureSetImprovedAbjuration)
             .AddFeaturesAtLevel(14, featureSetSpellResistance)
+            .AddToDB();
+
+        UpdateBg3ModeStatus();
+    }
+
+    private static FeatureDefinitionPower BuildArcaneWard()
+    {
+        return FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ArcaneWard")
+            .SetGuiPresentation($"Power{Name}ArcaneWard", Category.Feature, GlobeOfInvulnerability)
+            .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
+            .SetShowCasting(false)
+            .AddToDB();
+    }
+
+    private static ConditionDefinition BuildArcaneWardCondition()
+    {
+        // marks Arcane Ward as active
+        return ConditionDefinitionBuilder
+            .Create(ArcaneWardConditionName)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
+            .SetConditionType(ConditionType.Beneficial)
+            .SetSilent(Silent.WhenRefreshedOrRemoved)
+            .SetPossessive()
             .AddToDB();
     }
 
@@ -233,8 +249,7 @@ public sealed class WizardAbjuration : AbstractSubclass
     }
 
     // Handle Behaviour related to Arcane Ward
-    private sealed class CustomBehaviorArcaneWard(
-        FeatureDefinitionPower arcaneWard) : IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorArcaneWard : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterAction action,
             GameLocationCharacter attacker,
@@ -256,15 +271,18 @@ public sealed class WizardAbjuration : AbstractSubclass
                 yield break;
             }
 
-            if (rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ArcaneWardConditionName))
+            var hasActiveWardCondition = rulesetCharacter.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ArcaneWardConditionName);
+
+            if (hasActiveWardCondition || IsBg3Mode)
             {
                 // if ward already exists, update pool
-                var usablePowerArcaneWard = PowerProvider.Get(arcaneWard, rulesetCharacter);
+                var usablePowerArcaneWard = PowerProvider.Get(PowerArcaneWard, rulesetCharacter);
 
                 rulesetCharacter.UpdateUsageForPowerPool(-2 * spellCast.EffectLevel, usablePowerArcaneWard);
             }
-            else
+
+            if (!hasActiveWardCondition)
             {
                 // if no ward condition, add condition (which should last until long rest)
                 rulesetCharacter.InflictCondition(
@@ -284,37 +302,46 @@ public sealed class WizardAbjuration : AbstractSubclass
         }
     }
 
-    private static bool HasActiveArcaneWard(RulesetCharacter character, FeatureDefinitionPower power)
+    private int LimitArcaneWardRecharge(RulesetCharacter character, RulesetUsablePower _, int maxUses)
     {
-        return character.HasConditionOfType(ArcaneWardConditionName) && character.GetRemainingPowerCharges(power) > 0;
+        return IsBg3Mode
+            ? maxUses / 2
+            : maxUses;
     }
 
-    private static ModifySustainedDamageHandler ArcaneWardModifyDamage(FeatureDefinitionPower power)
+    private static bool HasActiveArcaneWard(RulesetCharacter character)
+    {
+        return (IsBg3Mode || character.HasConditionOfType(ArcaneWardConditionName))
+               && character.GetRemainingPowerCharges(PowerArcaneWard) > 0;
+    }
+
+    private static ModifySustainedDamageHandler ArcaneWardModifyDamage()
     {
         return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
         {
-            ArcaneWardModifyDamage(power, character, ref damage, roll);
+            ArcaneWardModifyDamage(character, ref damage, roll);
         };
     }
 
-    private static void ArcaneWardModifyDamage(FeatureDefinitionPower power, RulesetCharacter character, ref int damage,
+    private static void ArcaneWardModifyDamage(RulesetCharacter character, ref int damage,
         RollInfo roll, RulesetCharacter affected = null)
     {
-        if (!HasActiveArcaneWard(character, power)) { return; }
+        if (!HasActiveArcaneWard(character)) { return; }
 
-        var ward = character.GetRemainingPowerCharges(power);
+        var ward = character.GetRemainingPowerCharges(PowerArcaneWard);
 
         var prevented = ward <= damage ? ward : damage;
+        var spent = IsBg3Mode ? 1 : prevented;
 
-        (affected ?? character).LogCharacterUsedFeature(power, "Feedback/&ArcaneWard", true,
+        (affected ?? character).LogCharacterUsedFeature(PowerArcaneWard, "Feedback/&ArcaneWard", true,
             (ConsoleStyleDuplet.ParameterType.Positive, prevented.ToString()));
 
-        character.UpdateUsageForPower(power, prevented);
+        character.UpdateUsageForPower(PowerArcaneWard, spent);
         roll.modifier -= prevented;
         damage -= prevented;
     }
     
-    private static ModifySustainedDamageHandler ProjectedWardModifyDamage(FeatureDefinitionPower power)
+    private static ModifySustainedDamageHandler ProjectedWardModifyDamage()
     {
         return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
         {
@@ -322,14 +349,13 @@ public sealed class WizardAbjuration : AbstractSubclass
                     out var condition)) { return; }
 
             var protector = EffectHelpers.GetCharacterByGuid(condition.sourceGuid);
-            if (!HasActiveArcaneWard(protector, power)) { return; }
-            
-            ArcaneWardModifyDamage(power, protector, ref damage, roll, character);
+            if (!HasActiveArcaneWard(protector)) { return; }
+
+            ArcaneWardModifyDamage(protector, ref damage, roll, character);
         };
     }
 
     private sealed class CustomBehaviorProjectedWard(
-        FeatureDefinitionPower arcaneWard,
         FeatureDefinitionPower projectedWard,
         ConditionDefinition conditionProjectedWard) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
@@ -364,7 +390,8 @@ public sealed class WizardAbjuration : AbstractSubclass
             bool hasHitVisual)
         {
             var canForceHalfDamage = false; //TODO: find a way to get this
-            var hasSpecialHalfDamage = defender.RulesetCharacter.HasSpecialHalfDamage(effectDescription.SavingThrowAbility);
+            var hasSpecialHalfDamage =
+                defender.RulesetCharacter.HasSpecialHalfDamage(effectDescription.SavingThrowAbility);
             if (!effectDescription.HasNotNegatedDamageForm(savingThrowData, canForceHalfDamage, hasSpecialHalfDamage))
             {
                 yield break;
@@ -387,7 +414,7 @@ public sealed class WizardAbjuration : AbstractSubclass
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
                 !helper.CanPerceiveTarget(defender) ||
-                !HasActiveArcaneWard(rulesetHelper, arcaneWard))
+                !HasActiveArcaneWard(rulesetHelper))
             {
                 yield break;
             }
@@ -460,5 +487,30 @@ public sealed class WizardAbjuration : AbstractSubclass
 
             yield break;
         }
+    }
+
+    private sealed class ArcaneWardPortraitPoints() : PowerPortraitPointPool(PowerArcaneWard, Sprites.ArcaneWardPoints)
+    {
+        public override string TooltipFormat => IsBg3Mode
+            ? $"PortraitPool{PowerArcaneWard.Name}BG3PointsFormat"
+            : $"PortraitPool{PowerArcaneWard.Name}PointsFormat";
+    }
+
+    public static void UpdateBg3ModeStatus()
+    {
+        if (IsBg3Mode)
+        {
+            PowerArcaneWard.usesDetermination = UsesDetermination.Fixed;
+            PowerArcaneWard.GuiPresentation.Description = $"Feature/&{PowerArcaneWard.Name}BG3Description";
+            ConditionArcaneWard.silentWhenAdded = true;
+        }
+        else
+        {
+            PowerArcaneWard.usesDetermination = UsesDetermination.AbilityBonusPlusFixed;
+            PowerArcaneWard.GuiPresentation.Description = $"Feature/&{PowerArcaneWard.Name}Description";
+            ConditionArcaneWard.silentWhenAdded = false;
+        }
+
+        Global.RefreshControlledCharacter();
     }
 }

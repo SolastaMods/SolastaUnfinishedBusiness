@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 public class PowerPortraitPointPool(FeatureDefinitionPower power, AssetReferenceSprite icon)
     : ICustomPortraitPointPoolProvider
 {
-    public string TooltipFormat { get; set; } = $"PortraitPool{power.Name}PointsFormat";
+    public virtual string TooltipFormat { get; } = $"PortraitPool{power.Name}PointsFormat";
     [CanBeNull] public IsCharacterValidHandler IsActiveHandler { get; set; }
     public string Name { get; set; } = power.Name;
     public AssetReferenceSprite Icon => icon;
