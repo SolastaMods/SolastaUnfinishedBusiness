@@ -6783,13 +6783,13 @@ The School of Abjuration emphasizes magic that blocks, banishes, or protects. It
 
 ### Level 2
 
+* Abjuration Savant
+
+Beginning when you select this school at 2nd level, the gold and time you must spend to copy an Evocation spell into your spellbook is halved.
+
 * Arcane Ward
 
-When you cast an abjuration spell of 1st+ level you create a magical ward on yourself that lasts until you finish a long rest. The ward has hit points equal to twice your wizard level + your Intelligence modifier. Whenever you take damage, the ward takes the damage instead. Whenever you cast an abjuration spell of 1st+ level, the ward regains a number of hit points equal to twice the level of the spell.
-
-* Scribing Savant
-
-The time and gold cost for scribing spells in halved.
+When you cast an abjuration spell of 1st+ level, you create a magical ward on yourself that lasts until you finish a long rest. The ward has hit points equal to twice your wizard level + your Intelligence modifier. Whenever you take damage, the ward takes the damage instead. Whenever you cast an abjuration spell of 1st+ level, the ward regains a number of hit points equal to twice the level of the spell.
 
 
 ### Level 6

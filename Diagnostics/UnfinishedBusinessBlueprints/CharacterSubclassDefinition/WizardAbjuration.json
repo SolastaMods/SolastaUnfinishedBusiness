@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWizardAbjurationArcaneWard:a39f1fde-05ec-5204-bb0c-9f28b345b754",
+      "featureDefinition": "Definition:MagicAffinityWizardAbjurationScriber:6ef73067-f72a-56b4-a405-eb1b4fdc5784",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityWizardAbjurationScriber:6ef73067-f72a-56b4-a405-eb1b4fdc5784",
+      "featureDefinition": "Definition:PowerWizardAbjurationArcaneWard:a39f1fde-05ec-5204-bb0c-9f28b345b754",
       "level": 2
     },
     {
