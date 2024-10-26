@@ -24,7 +24,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class WizardAbjuration : AbstractSubclass
 {
     private const string Name = "WizardAbjuration";
-    private const string WardConditionName = $"Condition{Name}ArcaneWard";
+    private const string ArcaneWardConditionName = $"Condition{Name}ArcaneWard";
+    private const string ProjectedWardConditionName = $"Condition{Name}ProjectedWard";
 
     public WizardAbjuration()
     {
@@ -50,7 +51,7 @@ public sealed class WizardAbjuration : AbstractSubclass
         powerArcaneWard.AddCustomSubFeatures(
             new PowerPortraitPointPool(powerArcaneWard, Sprites.ArcaneWardPoints)
             {
-                IsActiveHandler = character => character.HasConditionOfType(WardConditionName)
+                IsActiveHandler = character => character.HasConditionOfType(ArcaneWardConditionName)
             },
             //handle damage reduction
             ArcaneWardModifyDamage(powerArcaneWard),
@@ -67,8 +68,8 @@ public sealed class WizardAbjuration : AbstractSubclass
             });
 
         // marks Arcane Ward as active
-        var conditionArcaneWard = ConditionDefinitionBuilder
-            .Create(WardConditionName)
+        ConditionDefinitionBuilder
+            .Create(ArcaneWardConditionName)
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
             .SetConditionType(ConditionType.Beneficial)
             .SetSilent(Silent.WhenRefreshedOrRemoved)
@@ -78,7 +79,7 @@ public sealed class WizardAbjuration : AbstractSubclass
         ////////
         // Lv.6 Projected Ward
         var conditionProjectedWard = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ProjectedWard")
+            .Create(ProjectedWardConditionName)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
@@ -87,23 +88,8 @@ public sealed class WizardAbjuration : AbstractSubclass
                 ConditionInterruption.Damaged,
                 ConditionInterruption.AnyBattleTurnEnd)
             .SetPossessive()
+            .AddCustomSubFeatures(ProjectedWardModifyDamage(powerArcaneWard))
             .AddToDB();
-
-        var powerProjectedWardReduceDamage = FeatureDefinitionReduceDamageBuilder
-            .Create($"Power{Name}ProjectedWardReduceDamage")
-            .SetGuiPresentationNoContent(true)
-            .SetFeedbackPowerReducedDamage(
-                (_, defender) => defender.RulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionProjectedWard.Name, out var activeCondition)
-                    ? EffectHelpers
-                        .GetCharacterByGuid(activeCondition.SourceGuid)
-                        .GetRemainingPowerUses(powerArcaneWard)
-                    : 0,
-                powerArcaneWard,
-                conditionProjectedWard)
-            .AddToDB();
-
-        conditionProjectedWard.Features.Add(powerProjectedWardReduceDamage);
 
         // Can only use when Arcane is both Active and has non-zero points remaining
         var powerProjectedWard = FeatureDefinitionPowerBuilder
@@ -115,7 +101,6 @@ public sealed class WizardAbjuration : AbstractSubclass
 
         powerProjectedWard.AddCustomSubFeatures(new CustomBehaviorProjectedWard(
             powerArcaneWard,
-            conditionArcaneWard,
             powerProjectedWard,
             conditionProjectedWard));
 
@@ -280,7 +265,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             }
 
             if (rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, WardConditionName))
+                    AttributeDefinitions.TagEffect, ArcaneWardConditionName))
             {
                 // if ward already exists, update pool
                 var usablePowerArcaneWard = PowerProvider.Get(arcaneWard, rulesetCharacter);
@@ -291,7 +276,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             {
                 // if no ward condition, add condition (which should last until long rest)
                 rulesetCharacter.InflictCondition(
-                    WardConditionName,
+                    ArcaneWardConditionName,
                     DurationType.UntilLongRest,
                     0,
                     TurnOccurenceType.EndOfTurn,
@@ -299,7 +284,7 @@ public sealed class WizardAbjuration : AbstractSubclass
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.Name,
                     14,
-                    WardConditionName,
+                    ArcaneWardConditionName,
                     0,
                     0,
                     0);
@@ -307,30 +292,52 @@ public sealed class WizardAbjuration : AbstractSubclass
         }
     }
 
+    private static bool HasActiveArcaneWard(RulesetCharacter character, FeatureDefinitionPower power)
+    {
+        return character.HasConditionOfType(ArcaneWardConditionName) && character.GetRemainingPowerCharges(power) > 0;
+    }
+
     private static ModifySustainedDamageHandler ArcaneWardModifyDamage(FeatureDefinitionPower power)
     {
         return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
         {
-            if (!character.HasConditionOfType(WardConditionName)) { return; }
+            ArcaneWardModifyDamage(power, character, ref damage, roll);
+        };
+    }
 
-            var ward = character.GetRemainingPowerCharges(power);
-            if (ward <= 0) { return; }
+    private static void ArcaneWardModifyDamage(FeatureDefinitionPower power, RulesetCharacter character, ref int damage,
+        RollInfo roll, RulesetCharacter affected = null)
+    {
+        if (!HasActiveArcaneWard(character, power)) { return; }
 
-            var prevented = ward <= damage ? ward : damage;
+        var ward = character.GetRemainingPowerCharges(power);
 
-            character.LogCharacterUsedFeature(power, "Feedback/&ArcaneWard", true,
-                (ConsoleStyleDuplet.ParameterType.Positive, prevented.ToString()));
+        var prevented = ward <= damage ? ward : damage;
+
+        (affected ?? character).LogCharacterUsedFeature(power, "Feedback/&ArcaneWard", true,
+            (ConsoleStyleDuplet.ParameterType.Positive, prevented.ToString()));
+
+        character.ConsumePowerCharges(power, prevented);
+        roll.modifier -= prevented;
+        damage -= prevented;
+    }
+    
+    private static ModifySustainedDamageHandler ProjectedWardModifyDamage(FeatureDefinitionPower power)
+    {
+        return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
+        {
+            if (!character.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ProjectedWardConditionName,
+                    out var condition)) { return; }
+
+            var protector = EffectHelpers.GetCharacterByGuid(condition.sourceGuid);
+            if (!HasActiveArcaneWard(protector, power)) { return; }
             
-            character.ConsumePowerCharges(power, prevented);
-            roll.modifier -= prevented;
-            damage -= prevented;
-            
+            ArcaneWardModifyDamage(power, protector, ref damage, roll, character);
         };
     }
 
     private sealed class CustomBehaviorProjectedWard(
         FeatureDefinitionPower arcaneWard,
-        ConditionDefinition conditionArcaneWard,
         FeatureDefinitionPower projectedWard,
         ConditionDefinition conditionProjectedWard) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
@@ -384,16 +391,13 @@ public sealed class WizardAbjuration : AbstractSubclass
             GameLocationCharacter helper)
         {
             var rulesetHelper = helper.RulesetCharacter;
-            var usableArcaneWard = PowerProvider.Get(arcaneWard, rulesetHelper);
 
             if (defender == helper ||
                 !helper.CanReact() ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
                 !helper.CanPerceiveTarget(defender) ||
-                !rulesetHelper.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionArcaneWard.Name) ||
-                rulesetHelper.GetRemainingUsesOfPower(usableArcaneWard) == 0)
+                !HasActiveArcaneWard(rulesetHelper, arcaneWard))
             {
                 yield break;
             }
