@@ -62,6 +62,18 @@ internal static class SubclassesDisplay
         }
 
         UI.Label();
+        toggle = Main.Settings.EnableBg3AbjurationArcaneWard;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWard"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBg3AbjurationArcaneWard = toggle;
+            WizardAbjuration.UpdateBg3ModeStatus();
+        }
+
+        //TODO: find better way to display this
+        UI.Label(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWardLine0"));
+        UI.Label(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWardLine1"));
+        
+        UI.Label();
     }
 
     internal static void DisplaySubclasses()
