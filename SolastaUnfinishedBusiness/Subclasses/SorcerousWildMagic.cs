@@ -767,6 +767,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
+            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
@@ -1054,6 +1055,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
+            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;

@@ -628,6 +628,7 @@ internal static class RaceImpBuilder
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
+            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;

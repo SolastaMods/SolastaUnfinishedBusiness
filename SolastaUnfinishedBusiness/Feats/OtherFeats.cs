@@ -2592,6 +2592,7 @@ internal static class OtherFeats
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
+            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
@@ -2760,12 +2761,12 @@ internal static class OtherFeats
             yield break;
         }
 
-        public IEnumerator OnTryAlterOutcomeSavingThrow(
-            GameLocationBattleManager battleManager,
+        public IEnumerator OnTryAlterOutcomeSavingThrow(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
+            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;

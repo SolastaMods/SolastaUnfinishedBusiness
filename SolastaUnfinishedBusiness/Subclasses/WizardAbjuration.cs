@@ -360,6 +360,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
+            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             /*
