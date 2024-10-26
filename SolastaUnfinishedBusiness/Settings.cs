@@ -458,6 +458,7 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveSchoolRestrictionsFromSpellBlade { get; set; }
     public int WildSurgeDieRollThreshold { get; set; } = 2;
     public bool EnableBg3AbjurationArcaneWard { get; set; }
+    public bool SwapEvocationPotentCantripAndSculptSpell { get; set; }
     public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];
 

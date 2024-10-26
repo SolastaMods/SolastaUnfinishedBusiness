@@ -47,8 +47,16 @@ internal static class SubclassesDisplay
         if (Main.Settings.EnableBg3AbjurationArcaneWard)
         {
             UI.Label(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWardHelp"));
+            UI.Label();
         }
-        
+
+        toggle = Main.Settings.SwapEvocationPotentCantripAndSculptSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapEvocationPotentCantripAndSculptSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapEvocationPotentCantripAndSculptSpell = toggle;
+            WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.RemoveSchoolRestrictionsFromShadowCaster;

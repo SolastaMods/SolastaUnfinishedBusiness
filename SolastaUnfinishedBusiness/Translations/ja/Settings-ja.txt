@@ -291,6 +291,7 @@ ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴの店に、<color=#D89555>�
 ModUi/&Subclasses=<color=#F0DAA0>サブクラス</color>
 ModUi/&Subraces=<color=#F0DAA0>亜種族</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフトアイテムのアイコンを交換</i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>Evocation Wizard</color> の <b>Sculpt Spells</b> と <b>Potent Cantrip</b> の機能を入れ替えます <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&TargetLanguage=対象言語
 ModUi/&TotalCraftingTimeModifier=<color=white>クラフト時間を短縮</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>第 1 レベルで付与される <color=#D89555>特技</color> の合計</color>

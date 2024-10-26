@@ -50,6 +50,20 @@ public sealed class WizardEvocation : AbstractSubclass
         "PowerThunderousSmite"
     ];
 
+    private static readonly FeatureDefinition FeatureSculptSpells = FeatureDefinitionBuilder
+        .Create($"Feature{Name}SculptSpells")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionMagicAffinity MagicAffinityPotentCantrip =
+        FeatureDefinitionMagicAffinityBuilder
+            .Create($"MagicAffinity{Name}PotentCantrip")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemyPotentCantrips())
+            .AddToDB();
+
+    private static CharacterSubclassDefinition _subclass;
+
     public WizardEvocation()
     {
         // LEVEL 02
@@ -72,26 +86,16 @@ public sealed class WizardEvocation : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        var featureSculptSpells = FeatureDefinitionBuilder
-            .Create($"Feature{Name}SculptSpells")
-            .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new MagicEffectInitiatedByMeSculptSpells(conditionSculptSpells))
-            .AddToDB();
+        FeatureSculptSpells.AddCustomSubFeatures(new MagicEffectInitiatedByMeSculptSpells(conditionSculptSpells));
 
         conditionSculptSpells.AddCustomSubFeatures(
-            new CustomBehaviorSculptSpells(conditionSculptSpells, featureSculptSpells));
+            new CustomBehaviorSculptSpells(conditionSculptSpells, FeatureSculptSpells));
 
         // LEVEL 06
 
         // Potent Cantrip
 
-        var magicAffinityPotentCantrip = FeatureDefinitionMagicAffinityBuilder
-            .Create($"MagicAffinity{Name}PotentCantrip")
-            .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemyPotentCantrips())
-            .AddToDB();
-
-        magicAffinityPotentCantrip.forceHalfDamageOnCantrips = true;
+        MagicAffinityPotentCantrip.forceHalfDamageOnCantrips = true;
 
         // LEVEL 10
 
@@ -143,11 +147,13 @@ public sealed class WizardEvocation : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardEvocation, 256))
-            .AddFeaturesAtLevel(2, magicAffinitySavant, featureSculptSpells)
-            .AddFeaturesAtLevel(6, magicAffinityPotentCantrip)
+            .AddFeaturesAtLevel(2, magicAffinitySavant, FeatureSculptSpells)
+            .AddFeaturesAtLevel(6, MagicAffinityPotentCantrip)
             .AddFeaturesAtLevel(10, featureEmpoweredEvocation)
             .AddFeaturesAtLevel(14, featureSetOverChannel)
             .AddToDB();
+
+        _subclass = Subclass;
     }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Wizard;
@@ -159,6 +165,26 @@ public sealed class WizardEvocation : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    internal static void SwapEvocationPotentCantripAndSculptSpell()
+    {
+        var level = Main.Settings.EnableWizardToLearnSchoolAtLevel3 ? 3 : 2;
+        var featureUnlockSculptSpell = _subclass.FeatureUnlocks.FirstOrDefault(x =>
+            x.FeatureDefinition == FeatureSculptSpells);
+        var featureUnlockMagicAffinityPotentCantrip = _subclass.FeatureUnlocks.FirstOrDefault(x =>
+            x.FeatureDefinition == MagicAffinityPotentCantrip);
+
+        if (Main.Settings.SwapEvocationPotentCantripAndSculptSpell)
+        {
+            featureUnlockSculptSpell!.level = 6;
+            featureUnlockMagicAffinityPotentCantrip!.level = level;
+        }
+        else
+        {
+            featureUnlockSculptSpell!.level = level;
+            featureUnlockMagicAffinityPotentCantrip!.level = 6;
+        }
+    }
 
     //
     // Evocation Savant
@@ -482,7 +508,8 @@ public sealed class WizardEvocation : AbstractSubclass
 
             // allow max spell damage on this attack
             EffectHelpers.StartVisualEffect(
-                attacker, attacker, FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury , EffectHelpers.EffectType.Caster);
+                attacker, attacker, FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury,
+                EffectHelpers.EffectType.Caster);
             rulesetAttacker.LogCharacterUsedFeature(featureOverChannel);
             rulesetAttacker.InflictCondition(
                 conditionOverChannelMaxDamage.Name,
@@ -544,7 +571,8 @@ public sealed class WizardEvocation : AbstractSubclass
             var damage = rulesetAttacker.RollDiceAndSum(DIE_TYPE, RollContext.None, diceNumber, rolls, false);
 
             EffectHelpers.StartVisualEffect(
-                attacker, attacker, FeatureDefinitionPowers.PowerPatronFiendDarkOnesOwnLuck, EffectHelpers.EffectType.Effect);
+                attacker, attacker, FeatureDefinitionPowers.PowerPatronFiendDarkOnesOwnLuck,
+                EffectHelpers.EffectType.Effect);
             rulesetAttacker.SustainDamage(
                 damage, DamageTypeNecrotic, false, rulesetAttacker.Guid,
                 new RollInfo(DIE_TYPE, rolls, 0), out _);

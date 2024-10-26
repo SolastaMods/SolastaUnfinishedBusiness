@@ -3954,6 +3954,9 @@ internal static partial class DatabaseHelper
 
     internal static class SpellListDefinitions
     {
+        internal static SpellListDefinition SpellListShockArcanist { get; } =
+            GetDefinition<SpellListDefinition>("SpellListShockArcanist");
+
         internal static SpellListDefinition SpellListAllCantrips { get; } =
             GetDefinition<SpellListDefinition>("SpellListAllCantrips");
 

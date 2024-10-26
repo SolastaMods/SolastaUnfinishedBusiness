@@ -291,6 +291,7 @@ ModUi/&StockHugoStoreWithAdditionalFoci=Estoque a loja de Hugo com <color=#D8955
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Sub-raças</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Trocar os recursos <color=#D89555>Evocation Wizard</color> <b>Sculpt Spells</b> e <b>Potent Cantrip</b> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&TargetLanguage=Língua alvo
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduza o tempo de criação em</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total de <color=#D89555>talentos</color> concedidos no primeiro nível</color>

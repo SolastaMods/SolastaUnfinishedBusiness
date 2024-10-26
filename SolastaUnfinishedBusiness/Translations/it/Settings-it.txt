@@ -291,6 +291,7 @@ ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta nel negozio di Hugo con <colo
 ModUi/&Subclasses=<color=#F0DAA0>Sottoclassi</color>
 ModUi/&Subraces=<color=#F0DAA0>Sottorazze</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Scambia le funzionalità <color=#D89555>Mago dell'evocazione</color> <b>Incantesimi di scultura</b> e <b>Trucchetto potente</b> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&TargetLanguage=Lingua di destinazione
 ModUi/&TotalCraftingTimeModifier=<color=white>Riduci il tempo di creazione di</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Totale <color=#D89555>talenti</color> concessi al primo livello</color>

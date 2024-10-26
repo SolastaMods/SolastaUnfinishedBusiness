@@ -291,6 +291,7 @@ ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>A
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Subraces</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in shop</i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <color=#D89555>Evocation Wizard</color> <b>Sculpt Spells</b> and <b>Potent Cantrip</b> features <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&TargetLanguage=Target Language
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total <color=#D89555>feats</color> granted at first level</color>
