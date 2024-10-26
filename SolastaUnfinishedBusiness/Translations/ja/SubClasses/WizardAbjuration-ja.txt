@@ -18,3 +18,4 @@ Reaction/&SpendPowerProjectedWardReactTitle=プロジェクト・ワード
 Reaction/&SpendPowerProjectedWardTitle=予定病棟
 Subclass/&WizardAbjurationDescription=免罪術学派は、妨害、追放、保護の魔法を重視します。これは誇り高く尊敬される職業です。免罪術師と呼ばれるこの学派のメンバーは、邪悪な霊を祓う必要があるとき、重要な場所を魔法によるスパイから守らなければならないとき、他の存在の次元へのポータルを閉じなければならないときに求められます。
 Subclass/&WizardAbjurationTitle=アブレーション
+Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=あなたは{1}のアーケイン ウォードを{0}持っています。\nダメージを受けるたびに、ウォードはその値だけダメージを軽減し、防いだダメージ量だけ減少します。あなたがレベル1以上の防御呪文を唱えるたびに、ウォードは呪文のレベルの2倍に等しいヒット ポイントを回復します。

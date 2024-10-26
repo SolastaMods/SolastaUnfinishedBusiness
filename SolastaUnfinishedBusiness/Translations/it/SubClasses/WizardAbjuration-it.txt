@@ -18,3 +18,4 @@ Reaction/&SpendPowerProjectedWardReactTitle=Progetto Ward
 Reaction/&SpendPowerProjectedWardTitle=Reparto progettato
 Subclass/&WizardAbjurationDescription=La School of Abjuration enfatizza la magia che blocca, bandisce o protegge. È una vocazione orgogliosa e rispettata. Chiamati abiuratori, i membri di questa scuola sono ricercati quando spiriti maligni richiedono un esorcismo, quando luoghi importanti devono essere protetti da spionaggio magico e quando i portali verso altri piani di esistenza devono essere chiusi.
 Subclass/&WizardAbjurationTitle=Abiura
+Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=Hai {0} di {1} Arcane Ward.\nOgni volta che subisci danni, la protezione riduce i danni del suo valore e diminuisce della quantità di danni prevenuti. Ogni volta che lanci un incantesimo di abjurazione di 1° livello+, la protezione recupera un numero di punti ferita pari al doppio del livello dell'incantesimo.

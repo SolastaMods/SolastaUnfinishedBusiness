@@ -18,3 +18,4 @@ Reaction/&SpendPowerProjectedWardReactTitle=Projeto Ala
 Reaction/&SpendPowerProjectedWardTitle=Ala projetada
 Subclass/&WizardAbjurationDescription=A Escola de Abjuração enfatiza a magia que bloqueia, bane ou protege. É uma vocação orgulhosa e respeitada. Chamados de abjuradores, os membros desta escola são procurados quando espíritos malignos exigem exorcismo, quando locais importantes devem ser protegidos contra espionagem mágica e quando portais para outros planos de existência devem ser fechados.
 Subclass/&WizardAbjurationTitle=Abjuração
+Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=Você tem {0} de {1} Arcane Ward.\nSempre que você recebe dano, a proteção reduz o dano pelo seu valor e é diminuída pela quantidade de dano prevenido. Sempre que você conjura uma magia de abjuração de 1º+ nível, a proteção recupera um número de pontos de vida igual ao dobro do nível da magia.

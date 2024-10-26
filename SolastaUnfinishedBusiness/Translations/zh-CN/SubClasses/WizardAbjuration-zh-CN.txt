@@ -18,3 +18,4 @@ Reaction/&SpendPowerProjectedWardReactTitle=项目沃德
 Reaction/&SpendPowerProjectedWardTitle=预计病房
 Subclass/&WizardAbjurationDescription=防护系强调阻挡、驱逐或保护魔法。这是一项令人骄傲和尊敬的职业。当恶灵需要驱魔、重要地点必须防范魔法监视以及通往其他存在位面的门户必须关闭时，人们就会寻求这个系的成员，他们被称为防护师。
 Subclass/&WizardAbjurationTitle=放弃
+Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=您拥有 {0} 个奥术守卫，总数量为 {1} 个。\n每当您受到伤害时，守卫都会减少伤害，减幅等于其数值，并减少防止的伤害量。每当您施放 1 级及以上的防护法术时，守卫都会恢复等于该法术等级两倍的生命值。

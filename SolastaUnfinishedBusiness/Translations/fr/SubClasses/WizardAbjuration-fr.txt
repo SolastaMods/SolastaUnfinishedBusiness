@@ -18,3 +18,4 @@ Reaction/&SpendPowerProjectedWardReactTitle=Projet Ward
 Reaction/&SpendPowerProjectedWardTitle=Quartier projeté
 Subclass/&WizardAbjurationDescription=L'École d'Abjuration met l'accent sur la magie qui bloque, bannit ou protège. C'est une vocation fière et respectée. Appelés abjurateurs, les membres de cette école sont sollicités lorsque des esprits maléfiques nécessitent un exorcisme, lorsque des lieux importants doivent être protégés contre l'espionnage magique et lorsque des portails vers d'autres plans d'existence doivent être fermés.
 Subclass/&WizardAbjurationTitle=Abjuration
+Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=Vous avez {0} de {1} Protection arcanique.\nChaque fois que vous subissez des dégâts, la protection réduit les dégâts de sa valeur et est diminuée du montant des dégâts évités. Chaque fois que vous lancez un sort d'abjuration de niveau 1+, la protection récupère un nombre de points de vie égal à deux fois le niveau du sort.

@@ -18,3 +18,4 @@ Reaction/&SpendPowerProjectedWardReactTitle=Proyecto Ward
 Reaction/&SpendPowerProjectedWardTitle=Distrito proyectado
 Subclass/&WizardAbjurationDescription=La Escuela de Abjuración pone énfasis en la magia que bloquea, destierra o protege. Es una vocación orgullosa y respetada. Los miembros de esta escuela, llamados abjuradores, son buscados cuando se requiere exorcizar espíritus malignos, cuando se deben proteger lugares importantes contra el espionaje mágico y cuando se deben cerrar portales a otros planos de existencia.
 Subclass/&WizardAbjurationTitle=Abjuración
+Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=Tienes {0} de {1} de Resguardo Arcano.\nSiempre que recibas daño, el resguardo reduce el daño en su valor y se reduce en la cantidad de daño prevenido. Siempre que lances un conjuro de abjuración de nivel 1+, el resguardo recupera una cantidad de puntos de golpe igual al doble del nivel del conjuro.

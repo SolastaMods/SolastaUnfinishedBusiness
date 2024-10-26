@@ -18,3 +18,4 @@ Reaction/&SpendPowerProjectedWardReactTitle=Projekt Ward
 Reaction/&SpendPowerProjectedWardTitle=Projizierter Bezirk
 Subclass/&WizardAbjurationDescription=Die Schule der Abschwörung konzentriert sich auf Magie, die blockiert, verbannt oder schützt. Es ist ein stolzer und respektierter Beruf. Mitglieder dieser Schule, die Abschwörer genannt werden, werden gesucht, wenn unheilvolle Geister exorziert werden müssen, wenn wichtige Orte vor magischer Spionage geschützt werden müssen und wenn Portale zu anderen Existenzebenen geschlossen werden müssen.
 Subclass/&WizardAbjurationTitle=Abschwörung
+Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=Du hast {0} von {1} Arkaner Schutz.\nWenn du Schaden nimmst, reduziert der Schutz den Schaden um seinen Wert und wird um die verhinderte Schadensmenge verringert. Wenn du einen Bannzauber der Stufe 1+ wirkst, erhält der Schutz eine Anzahl an Trefferpunkten zurück, die der doppelten Stufe des Zaubers entspricht.

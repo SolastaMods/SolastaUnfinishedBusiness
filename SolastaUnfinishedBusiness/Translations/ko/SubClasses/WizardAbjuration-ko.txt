@@ -18,3 +18,4 @@ Reaction/&SpendPowerProjectedWardReactTitle=프로젝트 워드
 Reaction/&SpendPowerProjectedWardTitle=예상 병동
 Subclass/&WizardAbjurationDescription=Abjuration School은 차단, 추방 또는 보호하는 마법을 강조합니다. 자랑스럽고 존경받는 직업입니다. Abjurers라고 불리는 이 학교의 구성원은 사악한 영혼이 엑소시즘을 필요로 할 때, 중요한 장소를 마법적 감시로부터 보호해야 할 때, 다른 존재 평면으로 가는 포털을 닫아야 할 때 찾습니다.
 Subclass/&WizardAbjurationTitle=포기
+Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=당신은 {1}개의 Arcane Ward 중 {0}개를 가지고 있습니다.\n당신이 피해를 입을 때마다, Ward는 피해량을 그 값만큼 감소시키고, 방지한 피해량만큼 감소시킵니다. 당신이 1+레벨의 금지 주문을 시전할 때마다, Ward는 주문 레벨의 두 배에 해당하는 수의 생명력을 회복합니다.
