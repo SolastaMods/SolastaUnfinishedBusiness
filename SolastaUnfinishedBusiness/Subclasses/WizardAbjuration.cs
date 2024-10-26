@@ -52,6 +52,10 @@ public sealed class WizardAbjuration : AbstractSubclass
             {
                 IsActiveHandler = character => character.HasConditionOfType(WardConditionName)
             },
+            //handle damage reduction
+            ArcaneWardModifyDamage(powerArcaneWard),
+            // handle applying the condition or refunding points to the pool when casting Abjuration spells
+            new CustomBehaviorArcaneWard(powerArcaneWard),
             ModifyPowerVisibility.Hidden,
             HasModifiedUses.Marker,
             new ModifyPowerPoolAmount
@@ -62,28 +66,14 @@ public sealed class WizardAbjuration : AbstractSubclass
                 Value = 2
             });
 
-        // create the feature that actual reduces damage (before Damage Affinity) based on the arcaneWardPointsPool
-        var powerArcaneWardReduceDamage = FeatureDefinitionReduceDamageBuilder
-            .Create($"Power{Name}ArcaneWardReduceDamage")
-            .SetGuiPresentation(Category.Feature, $"Feature/&Power{Name}ArcaneWardDescription")
-            .SetFeedbackPowerReducedDamage(
-                (_, defender) =>
-                    defender.RulesetCharacter.GetRemainingPowerUses(powerArcaneWard),
-                powerArcaneWard)
-            .AddToDB();
-
-        // create a condition that gives powerArcaneWardReduceDamage feature to a creature
+        // marks Arcane Ward as active
         var conditionArcaneWard = ConditionDefinitionBuilder
             .Create(WardConditionName)
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
             .SetConditionType(ConditionType.Beneficial)
             .SetSilent(Silent.WhenRefreshedOrRemoved)
-            .AddFeatures(powerArcaneWardReduceDamage)
             .SetPossessive()
             .AddToDB();
-
-        // handle applying the condition or refunding points to the pool when casting Abjuration spells
-        powerArcaneWard.AddCustomSubFeatures(new CustomBehaviorArcaneWard(powerArcaneWard, conditionArcaneWard));
 
         ////////
         // Lv.6 Projected Ward
@@ -267,8 +257,7 @@ public sealed class WizardAbjuration : AbstractSubclass
 
     // Handle Behaviour related to Arcane Ward
     private sealed class CustomBehaviorArcaneWard(
-        FeatureDefinitionPower arcaneWard,
-        ConditionDefinition conditionArcaneWard) : IMagicEffectFinishedByMe
+        FeatureDefinitionPower arcaneWard) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterAction action,
             GameLocationCharacter attacker,
@@ -291,7 +280,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             }
 
             if (rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionArcaneWard.Name))
+                    AttributeDefinitions.TagEffect, WardConditionName))
             {
                 // if ward already exists, update pool
                 var usablePowerArcaneWard = PowerProvider.Get(arcaneWard, rulesetCharacter);
@@ -302,7 +291,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             {
                 // if no ward condition, add condition (which should last until long rest)
                 rulesetCharacter.InflictCondition(
-                    conditionArcaneWard.Name,
+                    WardConditionName,
                     DurationType.UntilLongRest,
                     0,
                     TurnOccurenceType.EndOfTurn,
@@ -310,12 +299,33 @@ public sealed class WizardAbjuration : AbstractSubclass
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.Name,
                     14,
-                    conditionArcaneWard.Name,
+                    WardConditionName,
                     0,
                     0,
                     0);
             }
         }
+    }
+
+    private static ModifySustainedDamageHandler ArcaneWardModifyDamage(FeatureDefinitionPower power)
+    {
+        return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
+        {
+            if (!character.HasConditionOfType(WardConditionName)) { return; }
+
+            var ward = character.GetRemainingPowerCharges(power);
+            if (ward <= 0) { return; }
+
+            var prevented = ward <= damage ? ward : damage;
+
+            character.LogCharacterUsedFeature(power, "Feedback/&ArcaneWard", true,
+                (ConsoleStyleDuplet.ParameterType.Positive, prevented.ToString()));
+            
+            character.ConsumePowerCharges(power, prevented);
+            roll.modifier -= prevented;
+            damage -= prevented;
+            
+        };
     }
 
     private sealed class CustomBehaviorProjectedWard(

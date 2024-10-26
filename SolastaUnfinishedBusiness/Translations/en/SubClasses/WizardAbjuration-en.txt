@@ -10,6 +10,7 @@ Feature/&PowerWizardAbjurationProjectedWardDescription=When an ally that you can
 Feature/&PowerWizardAbjurationProjectedWardTitle=Projected Ward
 Feature/&PowerWizardAbjurationSpellResistanceDescription=Gain advantage on saving throws against spells, and resistance to spell damage.
 Feature/&PowerWizardAbjurationSpellResistanceTitle=Spell Resistance
+Feedback/&ArcaneWard={0} has {1} and reduces damage by {2}
 Feedback/&ProjectedWard={0} uses {1} to reduce damage taken by {2}
 Reaction/&SpendPowerProjectedWardDescription={0} is about to take damage. {1} can react and project their Arcane Ward to reduce the damage.
 Reaction/&SpendPowerProjectedWardReactDescription=Absorb damage with your Arcane Ward.
