@@ -101,6 +101,8 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Включить дополнительн
 ModUi/&EnableAdditionalItemsInDungeonMaker=Добавить предметы мода в редактор
 ModUi/&EnableAlternateHuman=Включить альтернативное происхождение <color=#D89555>Человека</color> <i><color=#F0DAA0>[+1 черта / +2 очка характеристик / +1 навык]</color></i>
 ModUi/&EnableAlternateVotingSystem=Включить альтернативную систему голосования <i><color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя]</color></i>
+ModUi/&EnableBG3AbjurationArcaneWard=Включить реализацию <color=#D89555>Abjuration Wizard</color> <b>Arcane Ward</b> для работы в стиле BG3
+ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Уменьшается на 1 каждый раз, когда предотвращает урон, а не на предотвращенный урон. Не нужно использовать заклинание отречения, чтобы быть активным\nно максимальное значение составляет 2x уровень волшебника вместо 2x уровень волшебника + модификатор ИНТ и перезаряжается только до половины при длительном отдыхе]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Включить <color=#D89555>Жестокий удар</color> и <color=#D89555>Улучшенный жестокий удар</color> на уровнях 9, 13 и 17
 ModUi/&EnableBarbarianFightingStyle=Включить выбор <color=#D89555>Боевого стиля</color> на уровне 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Включить завершение эффектов <color=#D89555>Безрассудной атаки</color> в начале следующего хода

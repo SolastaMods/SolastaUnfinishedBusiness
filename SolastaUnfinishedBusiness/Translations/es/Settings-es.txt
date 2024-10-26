@@ -101,6 +101,8 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilitar íconos adicionales para campam
 ModUi/&EnableAdditionalItemsInDungeonMaker=Agregar elementos modificados al editor
 ModUi/&EnableAlternateHuman=Habilitar el <color=#D89555>Humano</color> alternativo <i><color=#F0DAA0>[+1 dote / +2 opciones de atributo / +1 habilidad]</color></i>
 ModUi/&EnableAlternateVotingSystem=Habilitar sistema de votación alternativo <i><color=#F0DAA0>[peso de la elección = votos * modificador de Carisma del héroe]</color></i>
+ModUi/&EnableBG3AbjurationArcaneWard=Habilitar la implementación del <color=#D89555>Mago de abjuración</color> <b>Guardia Arcana</b> para que se comporte como BG3
+ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Disminuye en 1 cada vez que previene daño, en lugar de por el daño prevenido. No es necesario lanzar un hechizo de abjuración para estar activo\npero el valor máximo es 2 veces el nivel de mago en lugar de 2 veces el nivel de mago + mod de INT y solo se recarga a la mitad en un descanso prolongado]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Habilita <color=#D89555>Golpe brutal</color> y <color=#D89555>Mejora de golpe brutal</color> en los niveles 9, 13 y 17
 ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno

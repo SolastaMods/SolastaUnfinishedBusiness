@@ -101,6 +101,8 @@ ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上启用营地、出口�
 ModUi/&EnableAdditionalItemsInDungeonMaker=将经过修改的物品添加到编辑器
 ModUi/&EnableAlternateHuman=启用替代<color=#D89555>人类</color> <i><color=#F0DAA0>[+1 专长 / +2 属性选择 / +1 技能]</color></i>
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值]</color></i>
+ModUi/&EnableBG3AbjurationArcaneWard=启用 <color=#D89555>Abjuration Wizard</color> <b>Arcane Ward</b> 实现，使其行为类似于 BG3
+ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[每次防止伤害时减少 1，而不是通过防止伤害来减少。无需施放驱散法术即可激活\n但最大值是 2x 巫师等级，而不是 2x 巫师等级 + INT mod，并且长时间休息只能恢复到一半]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=在 9、13 和 17 级启用<color=#D89555>残酷打击</color>和<color=#D89555>残酷打击改进</color>
 ModUi/&EnableBarbarianFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束

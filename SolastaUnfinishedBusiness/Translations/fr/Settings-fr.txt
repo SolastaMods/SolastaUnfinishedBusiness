@@ -101,6 +101,8 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour
 ModUi/&EnableAdditionalItemsInDungeonMaker=Ajouter des éléments modifiés à l'éditeur
 ModUi/&EnableAlternateHuman=Activer l'<color=#D89555>Humain</color> alternatif <i><color=#F0DAA0>[+1 don / +2 choix d'attributs / +1 compétence]</color></i>
 ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[poids du choix = votes * modificateur de charisme du héros]</color></i>
+ModUi/&EnableBG3AbjurationArcaneWard=Activez l'implémentation de <color=#D89555>Abjuration Wizard</color> <b>Arcane Ward</b> pour qu'elle se comporte comme BG3
+ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Diminue de 1 à chaque fois qu'il prévient les dégâts, au lieu de diminuer en fonction des dégâts prévenus. Pas besoin de lancer le sort d'abjuration pour être actif\nmais la valeur maximale est 2x niveau de sorcier au lieu de 2x niveau de sorcier + mod INT et ne se recharge qu'à moitié lors d'un repos long]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Frappe brutale</color> et <color=#D89555>Amélioration de la frappe brutale</color> aux niveaux 9, 13 et 17
 ModUi/&EnableBarbarianFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Activez le buff et le debuff <color=#D89555>Attaque imprudente</color> pour qu'ils se terminent au début du prochain tour

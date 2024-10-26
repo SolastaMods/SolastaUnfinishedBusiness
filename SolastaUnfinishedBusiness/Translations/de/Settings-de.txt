@@ -101,6 +101,8 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Zusätzliche Symbole für Lager, Ausgäng
 ModUi/&EnableAdditionalItemsInDungeonMaker=Modifizierte Elemente zum Editor hinzufügen
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen <color=#D89555>Menschen</color> <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
 ModUi/&EnableAlternateVotingSystem=Alternatives Abstimmungssystem aktivieren <i><color=#F0DAA0>[Auswahlgewicht = Stimmen * Charisma-Modifikator des Helden]</color></i>
+ModUi/&EnableBG3AbjurationArcaneWard=Aktivieren Sie die Implementierung von <color=#D89555>Abjuration Wizard</color> <b>Arcane Ward</b>, damit sie sich wie BG3 verhält
+ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Verringert sich jedes Mal um 1, wenn Schaden verhindert wird, statt um verhinderten Schaden. Es ist nicht nötig, einen Bannzauber zu wirken, um aktiv zu sein,\naber der Maximalwert beträgt 2x Zaubererstufe statt 2x Zaubererstufe + INT-Mod und wird bei einer langen Pause nur auf die Hälfte aufgeladen]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Brutal Strike</color> und <color=#D89555>Brutal Strike Improvement</color> auf den Leveln 9, 13 und 17.
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie den Buff und Debuff von <color=#D89555>Reckless Attack</color>, um ihn zu Beginn der nächsten Runde zu beenden.
