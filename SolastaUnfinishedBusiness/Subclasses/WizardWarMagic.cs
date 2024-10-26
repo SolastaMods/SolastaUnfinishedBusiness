@@ -32,14 +32,6 @@ public sealed class WizardWarMagic : AbstractSubclass
 
         // Arcane Deflection
 
-        var conditionArcaneDeflection = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ArcaneDeflection")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrictedInsideMagicCircle)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetPossessive()
-            .AddCustomSubFeatures(new CharacterTurnStartListenerArcaneDeflection())
-            .AddToDB();
-
         var featureArcaneDeflection = FeatureDefinitionBuilder
             .Create($"Feature{Name}ArcaneDeflection")
             .SetGuiPresentation(Category.Feature)
@@ -135,8 +127,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             new UpgradeEffectDamageBonusBasedOnClassLevel(
                 powerDeflectionShroud, CharacterClassDefinitions.Wizard, 0.5));
         featureArcaneDeflection.AddCustomSubFeatures(
-            new CustomBehaviorArcaneDeflection(
-                featureArcaneDeflection, conditionArcaneDeflection, powerDeflectionShroud));
+            new CustomBehaviorArcaneDeflection(featureArcaneDeflection, powerDeflectionShroud));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Wizard{Name}")
@@ -160,7 +151,6 @@ public sealed class WizardWarMagic : AbstractSubclass
 
     private sealed class CustomBehaviorArcaneDeflection(
         FeatureDefinition featureArcaneDeflection,
-        ConditionDefinition conditionArcaneDeflection,
         FeatureDefinitionPower powerDeflectionShroud) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
         public int HandlerPriority => -10;
@@ -203,19 +193,6 @@ public sealed class WizardWarMagic : AbstractSubclass
             {
                 EffectHelpers.StartVisualEffect(
                     helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
-                rulesetHelper.InflictCondition(
-                    conditionArcaneDeflection.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetHelper.guid,
-                    rulesetHelper.CurrentFaction.Name,
-                    1,
-                    conditionArcaneDeflection.Name,
-                    0,
-                    0,
-                    0);
 
                 attackModifier.AttackRollModifier -= bonus;
                 attackModifier.AttacktoHitTrends.Add(
@@ -273,19 +250,6 @@ public sealed class WizardWarMagic : AbstractSubclass
             {
                 EffectHelpers.StartVisualEffect(
                     helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
-                rulesetHelper.InflictCondition(
-                    conditionArcaneDeflection.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetHelper.guid,
-                    rulesetHelper.CurrentFaction.Name,
-                    1,
-                    conditionArcaneDeflection.Name,
-                    0,
-                    0,
-                    0);
 
                 savingThrowData.SaveOutcomeDelta += bonus;
                 savingThrowData.SaveOutcome = RollOutcome.Success;
@@ -322,15 +286,6 @@ public sealed class WizardWarMagic : AbstractSubclass
 
             // deflection shroud is a use at will power
             helper.MyExecuteActionSpendPower(usablePower, targets);
-        }
-    }
-
-    private sealed class CharacterTurnStartListenerArcaneDeflection : ICharacterTurnStartListener
-    {
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            locationCharacter.UsedBonusSpell = true;
-            locationCharacter.UsedMainSpell = true;
         }
     }
 
