@@ -111,18 +111,14 @@ public sealed class WizardAbjuration : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Instantaneous, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetParticleEffectParameters(Counterspell)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetCounterForm(CounterForm.CounterType.InterruptSpellcasting, 3, 10, true, true)
-                            .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Instantaneous, 1)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                .SetParticleEffectParameters(Counterspell)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetCounterForm(CounterForm.CounterType.InterruptSpellcasting, 3, 10, true, true)
                     .Build())
+                .Build())
             .AddToDB();
 
         var powerCounterDispel = FeatureDefinitionPowerBuilder
@@ -130,22 +126,18 @@ public sealed class WizardAbjuration : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Instantaneous, 1)
-                    .SetTargetingData(
-                        Side.All,
-                        RangeType.Distance, 24,
-                        TargetType.IndividualsUnique, 1, 2,
-                        ActionDefinitions.ItemSelectionType.Equiped)
-                    .SetParticleEffectParameters(DispelMagic)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetCounterForm(CounterForm.CounterType.DissipateSpells, 3, 10, true, true)
-                            .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Instantaneous, 1)
+                .SetTargetingData(
+                    Side.All,
+                    RangeType.Distance, 24,
+                    TargetType.IndividualsUnique, 1, 2,
+                    ActionDefinitions.ItemSelectionType.Equiped)
+                .SetParticleEffectParameters(DispelMagic)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetCounterForm(CounterForm.CounterType.DissipateSpells, 3, 10, true, true)
                     .Build())
+                .Build())
             .AddToDB();
 
         var featureSetImprovedAbjuration = FeatureDefinitionFeatureSetBuilder
@@ -358,6 +350,7 @@ public sealed class WizardAbjuration : AbstractSubclass
                 yield break;
             }
 
+            // any reaction within an attack flow must use the attacker as waiter
             yield return HandleReactionProjectedWard(battleManager, attacker, defender, helper);
         }
 
@@ -404,7 +397,6 @@ public sealed class WizardAbjuration : AbstractSubclass
 
             var usableProjectedWard = PowerProvider.Get(projectedWard, rulesetHelper);
 
-            // any reaction within an attack flow must use the attacker as waiter
             yield return helper.MyReactToSpendPower(
                 usableProjectedWard,
                 waiter,
