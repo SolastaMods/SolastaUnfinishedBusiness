@@ -1,7 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=Tu Guardián Arcano está activo
 Condition/&ConditionWizardAbjurationArcaneWardTitle=Guardián arcano
-Feature/&MagicAffinityWizardAbjurationScriberDescription=El tiempo y el costo de oro para escribir hechizos se redujeron a la mitad.
-Feature/&MagicAffinityWizardAbjurationScriberTitle=Sabio escribano
+Feature/&MagicAffinityWizardAbjurationScriberDescription=A partir del momento en que seleccionas esta escuela en el nivel 2, el oro y el tiempo que debes gastar para copiar un hechizo de Evocación en tu libro de hechizos se reducen a la mitad.
+Feature/&MagicAffinityWizardAbjurationScriberTitle=Erudito de la abjuración
 Feature/&PowerWizardAbjurationArcaneWardDescription=Cuando lanzas un conjuro de abjuración de nivel 1+ creas una protección mágica sobre ti que dura hasta que terminas un descanso prolongado. La protección tiene puntos de golpe iguales al doble de tu nivel de mago + tu modificador de Inteligencia. Siempre que recibas daño, la protección recibe el daño en tu lugar. Siempre que lances un conjuro de abjuración de nivel 1+, la protección recupera una cantidad de puntos de golpe igual al doble del nivel del conjuro.
 Feature/&PowerWizardAbjurationArcaneWardReduceDamageTitle=Guardián arcano
 Feature/&PowerWizardAbjurationArcaneWardTitle=Guardián arcano

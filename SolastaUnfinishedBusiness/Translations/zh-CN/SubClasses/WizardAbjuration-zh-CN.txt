@@ -1,7 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=你的奥术守卫已激活
 Condition/&ConditionWizardAbjurationArcaneWardTitle=秘法守卫
-Feature/&MagicAffinityWizardAbjurationScriberDescription=抄写咒语的时间和金钱成本减半。
-Feature/&MagicAffinityWizardAbjurationScriberTitle=抄写专家
+Feature/&MagicAffinityWizardAbjurationScriberDescription=从你在第 2 级选择这所学校开始，将召唤术咒语复制到你的法术书中所需花费的金钱和时间将减半。
+Feature/&MagicAffinityWizardAbjurationScriberTitle=防护学者
 Feature/&PowerWizardAbjurationArcaneWardDescription=当你施放 1 级及以上的防护法术时，你会在自己身上形成一个魔法护盾，该护盾会持续到你完成长时间休息。护盾的生命值等于你的法师等级的两倍 + 你的智力调整值。每当你受到伤害时，护盾都会代替你承受伤害。每当你施放 1 级及以上的防护法术时，护盾都会恢复等于法术等级两倍的生命值。
 Feature/&PowerWizardAbjurationArcaneWardReduceDamageTitle=秘法守卫
 Feature/&PowerWizardAbjurationArcaneWardTitle=秘法守卫

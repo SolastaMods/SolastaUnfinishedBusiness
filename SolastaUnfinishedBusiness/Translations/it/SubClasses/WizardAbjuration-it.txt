@@ -1,7 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=Il tuo Arcane Ward è attivo
 Condition/&ConditionWizardAbjurationArcaneWardTitle=Protezione Arcana
-Feature/&MagicAffinityWizardAbjurationScriberDescription=Il tempo e il costo in oro per scrivere incantesimi sono dimezzati.
-Feature/&MagicAffinityWizardAbjurationScriberTitle=Savant della scrittura
+Feature/&MagicAffinityWizardAbjurationScriberDescription=A partire dal momento in cui selezioni questa scuola al 2° livello, l'oro e il tempo che devi impiegare per copiare un incantesimo di Evocazione nel tuo libro degli incantesimi vengono dimezzati.
+Feature/&MagicAffinityWizardAbjurationScriberTitle=Studioso dell'Abiurazione
 Feature/&PowerWizardAbjurationArcaneWardDescription=Quando lanci un incantesimo di abjurazione di 1°+ livello crei una protezione magica su te stesso che dura finché non completi un lungo riposo. La protezione ha punti ferita pari al doppio del tuo livello da mago + il tuo modificatore di Intelligenza. Ogni volta che subisci danni, la protezione subisce i danni al suo posto. Ogni volta che lanci un incantesimo di abjurazione di 1°+ livello, la protezione recupera un numero di punti ferita pari al doppio del livello dell'incantesimo.
 Feature/&PowerWizardAbjurationArcaneWardReduceDamageTitle=Protezione Arcana
 Feature/&PowerWizardAbjurationArcaneWardTitle=Protezione Arcana

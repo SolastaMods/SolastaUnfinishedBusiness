@@ -1,7 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=비전의 보호막이 활성화되었습니다.
 Condition/&ConditionWizardAbjurationArcaneWardTitle=비전의 보호막
-Feature/&MagicAffinityWizardAbjurationScriberDescription=주문을 쓰는 데 드는 시간과 골드 비용이 절반으로 줄었습니다.
-Feature/&MagicAffinityWizardAbjurationScriberTitle=서예의 사반트
+Feature/&MagicAffinityWizardAbjurationScriberDescription=2레벨에서 이 학교를 선택하면 주문서에 유발 주문을 복사하는 데 필요한 골드와 시간이 절반으로 줄어듭니다.
+Feature/&MagicAffinityWizardAbjurationScriberTitle=포기 학자
 Feature/&PowerWizardAbjurationArcaneWardDescription=1레벨 이상의 회피 주문을 시전하면 긴 휴식을 마칠 때까지 지속되는 마법의 보호막을 자신에게 생성합니다. 보호막은 마법사 레벨 + 지능 수정치의 두 배에 해당하는 체력 포인트를 갖습니다. 피해를 입을 때마다 보호막이 대신 피해를 입습니다. 1레벨 이상의 회피 주문을 시전할 때마다 보호막은 주문 레벨의 두 배에 해당하는 체력 포인트를 회복합니다.
 Feature/&PowerWizardAbjurationArcaneWardReduceDamageTitle=비전의 보호막
 Feature/&PowerWizardAbjurationArcaneWardTitle=비전의 보호막

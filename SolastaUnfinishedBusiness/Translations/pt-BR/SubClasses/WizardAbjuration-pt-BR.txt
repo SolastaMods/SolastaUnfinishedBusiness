@@ -1,7 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=Sua Arcane Ward está ativa
 Condition/&ConditionWizardAbjurationArcaneWardTitle=Proteção Arcana
-Feature/&MagicAffinityWizardAbjurationScriberDescription=O tempo e o custo em ouro para escrever feitiços foram reduzidos pela metade.
-Feature/&MagicAffinityWizardAbjurationScriberTitle=Escritor Savant
+Feature/&MagicAffinityWizardAbjurationScriberDescription=A partir do momento em que você seleciona esta escola no 2º nível, o ouro e o tempo que você deve gastar para copiar uma magia de Evocação para seu grimório são reduzidos pela metade.
+Feature/&MagicAffinityWizardAbjurationScriberTitle=Estudioso de Abjuração
 Feature/&PowerWizardAbjurationArcaneWardDescription=Quando você conjura uma magia de abjuração de 1º+ nível, você cria uma proteção mágica em si mesmo que dura até você terminar um descanso longo. A proteção tem pontos de vida iguais ao dobro do seu nível de mago + seu modificador de Inteligência. Sempre que você sofre dano, a proteção sofre o dano em vez disso. Sempre que você conjura uma magia de abjuração de 1º+ nível, a proteção recupera um número de pontos de vida igual ao dobro do nível da magia.
 Feature/&PowerWizardAbjurationArcaneWardReduceDamageTitle=Proteção Arcana
 Feature/&PowerWizardAbjurationArcaneWardTitle=Proteção Arcana

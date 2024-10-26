@@ -1,7 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=Votre garde arcanique est active
 Condition/&ConditionWizardAbjurationArcaneWardTitle=Protection arcanique
-Feature/&MagicAffinityWizardAbjurationScriberDescription=Le temps et le coût en or pour écrire des sorts sont divisés par deux.
-Feature/&MagicAffinityWizardAbjurationScriberTitle=Savant scribe
+Feature/&MagicAffinityWizardAbjurationScriberDescription=À partir du moment où vous sélectionnez cette école au niveau 2, l'or et le temps que vous devez dépenser pour copier un sort d'évocation dans votre grimoire sont réduits de moitié.
+Feature/&MagicAffinityWizardAbjurationScriberTitle=Abjuration Savant
 Feature/&PowerWizardAbjurationArcaneWardDescription=Lorsque vous lancez un sort d'abjuration de niveau 1 ou plus, vous créez une protection magique sur vous-même qui dure jusqu'à ce que vous ayez terminé un repos long. La protection a des points de vie égaux à deux fois votre niveau de sorcier + votre modificateur d'intelligence. Chaque fois que vous subissez des dégâts, la protection les subit à la place. Chaque fois que vous lancez un sort d'abjuration de niveau 1 ou plus, la protection récupère un nombre de points de vie égal à deux fois le niveau du sort.
 Feature/&PowerWizardAbjurationArcaneWardReduceDamageTitle=Protection arcanique
 Feature/&PowerWizardAbjurationArcaneWardTitle=Protection arcanique

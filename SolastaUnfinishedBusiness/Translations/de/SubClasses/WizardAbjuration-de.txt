@@ -1,7 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=Dein Arkaner Schutz ist aktiv
 Condition/&ConditionWizardAbjurationArcaneWardTitle=Arkaner Schutz
-Feature/&MagicAffinityWizardAbjurationScriberDescription=Der Zeit- und Goldaufwand zum Schreiben von Zaubersprüchen wird halbiert.
-Feature/&MagicAffinityWizardAbjurationScriberTitle=Gelehrter Schreiber
+Feature/&MagicAffinityWizardAbjurationScriberDescription=Ab der Auswahl dieser Schule auf der 2. Stufe halbiert sich der Gold- und Zeitaufwand, den Sie zum Kopieren eines Beschwörungszaubers in Ihr Zauberbuch benötigen.
+Feature/&MagicAffinityWizardAbjurationScriberTitle=Gelehrter der Abschwörung
 Feature/&PowerWizardAbjurationArcaneWardDescription=Wenn Sie einen Bannzauber der Stufe 1+ wirken, errichten Sie einen magischen Schutzzauber um sich selbst, der so lange anhält, bis Sie eine lange Pause beendet haben. Der Schutzzauber hat Trefferpunkte in Höhe des doppelten Zaubererlevels + Ihres Intelligenzmodifikators. Wenn Sie Schaden erleiden, erleidet der Schutzzauber stattdessen den Schaden. Wenn Sie einen Bannzauber der Stufe 1+ wirken, erhält der Schutzzauber eine Anzahl an Trefferpunkten zurück, die dem doppelten Level des Zaubers entspricht.
 Feature/&PowerWizardAbjurationArcaneWardReduceDamageTitle=Arkaner Schutz
 Feature/&PowerWizardAbjurationArcaneWardTitle=Arkaner Schutz

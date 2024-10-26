@@ -1,7 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=あなたのアーケイン・ワードはアクティブです
 Condition/&ConditionWizardAbjurationArcaneWardTitle=アーケイン・ワード
-Feature/&MagicAffinityWizardAbjurationScriberDescription=呪文を記すのにかかる時間とゴールドのコストが半分になります。
-Feature/&MagicAffinityWizardAbjurationScriberTitle=筆写の達人
+Feature/&MagicAffinityWizardAbjurationScriberDescription=2 レベルでこの学校を選択すると、召喚呪文を呪文書にコピーするのに費やす金と時間が半分になります。
+Feature/&MagicAffinityWizardAbjurationScriberTitle=アブジャレーション学者
 Feature/&PowerWizardAbjurationArcaneWardDescription=1 レベル以上の防御呪文を唱えると、大休憩を終えるまで持続する魔法の防壁を自分自身に作ります。防壁のヒット ポイントは、ウィザード レベルの 2 倍 + 知力修正値に等しいです。ダメージを受けると、代わりに防壁がダメージを受けます。1 レベル以上の防御呪文を唱えると、防壁は呪文レベルの 2 倍に等しいヒット ポイントを回復します。
 Feature/&PowerWizardAbjurationArcaneWardReduceDamageTitle=アーケイン・ワード
 Feature/&PowerWizardAbjurationArcaneWardTitle=アーケイン・ワード
