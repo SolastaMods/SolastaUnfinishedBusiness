@@ -3,13 +3,11 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:PowerWizardAbjurationArcaneWardReduceDamage:b5f7cff6-dc7b-5bcc-9337-284f5b1e2a00"
-  ],
-  "allowMultipleInstances": false,
+  "features": [],
+  "allowMultipleInstances": true,
   "silentWhenAdded": false,
-  "silentWhenRemoved": true,
-  "silentWhenRefreshed": true,
+  "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -87,7 +85,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -129,8 +127,8 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionWizardAbjurationArcaneWardTitle",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7b72c1cb-ddec-59c2-be78-f3afc0803895",
+  "guid": "73af6b41-6def-5098-9cd4-6c296660de73",
   "contentPack": 9999,
-  "name": "ConditionWizardAbjurationArcaneWard"
+  "name": "ConditionWizardEvocationOverChannel"
 }
