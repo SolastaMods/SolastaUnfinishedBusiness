@@ -11,6 +11,7 @@
 - fixed Martial Warlord kinetic barrier, and Oath of Altruism defensive strike to use at least a +1 modifier 
 - fixed melee and/or unarmed validation scenarios [i.e.: stunning strike]
 - fixed Rime's Binding Ice, and Tasha's Caustic Brew to try effect removal only half of the times
+- fixed spell selection UI to sync Wizard evocation selections with Shock Arcanist arcane warfare
 - fixed Tasha's Caustic Brew to inflict damage at start instead of end of turn
 - fixed teleport logic to leave behind actors if no available destination position
 - reorg mod UI crafting, factions, items, and merchant settings
