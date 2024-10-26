@@ -32,9 +32,9 @@ internal static class EffectDescriptionExtensions
         bool canForceHalfDamage, bool hasSpecialHalfDamage)
     {
         return effect.effectForms
-            .Any(x => x.FormType == EffectForm.EffectFormType.Damage
-                      && savingThrowData.SaveOutcome is not RollOutcome.CriticalSuccess and not RollOutcome.Success
-                      || x.SavingThrowAffinity switch
+            .Any(x => (x.FormType == EffectForm.EffectFormType.Damage
+                       && savingThrowData.SaveOutcome is not RollOutcome.CriticalSuccess and not RollOutcome.Success) ||
+                      x.SavingThrowAffinity switch
                       {
                           EffectSavingThrowType.Negates => canForceHalfDamage,
                           EffectSavingThrowType.HalfDamage => canForceHalfDamage || !hasSpecialHalfDamage,

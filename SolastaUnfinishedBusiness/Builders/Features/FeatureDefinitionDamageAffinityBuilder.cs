@@ -20,7 +20,7 @@ internal class FeatureDefinitionDamageAffinityBuilder
     {
         Definition.DamageType = damageType;
         return this;
-    } 
+    }
 
 #if false
     internal FeatureDefinitionDamageAffinityBuilder SetFlatDamageReduction(int flatDamageReduction)

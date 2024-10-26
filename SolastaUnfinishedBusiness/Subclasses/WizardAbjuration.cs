@@ -28,12 +28,8 @@ public sealed class WizardAbjuration : AbstractSubclass
     private const string ProjectedWardConditionName = $"Condition{Name}ProjectedWard";
 
     private static FeatureDefinitionPower _powerArcaneWard;
-    private static FeatureDefinitionPower PowerArcaneWard => _powerArcaneWard ??= BuildArcaneWard();
-    
-    private static  ConditionDefinition _conditionArcaneWard;
-    private static  ConditionDefinition ConditionArcaneWard => _conditionArcaneWard ??= BuildArcaneWardCondition();
 
-    private static bool IsBg3Mode => Main.Settings.EnableBg3AbjurationArcaneWard;
+    private static ConditionDefinition _conditionArcaneWard;
 
     public WizardAbjuration()
     {
@@ -195,6 +191,20 @@ public sealed class WizardAbjuration : AbstractSubclass
         UpdateBg3ModeStatus();
     }
 
+    private static FeatureDefinitionPower PowerArcaneWard => _powerArcaneWard ??= BuildArcaneWard();
+    private static ConditionDefinition ConditionArcaneWard => _conditionArcaneWard ??= BuildArcaneWardCondition();
+
+    private static bool IsBg3Mode => Main.Settings.EnableBg3AbjurationArcaneWard;
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Wizard;
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => SubclassChoiceWizardArcaneTraditions;
+
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static FeatureDefinitionPower BuildArcaneWard()
     {
         return FeatureDefinitionPowerBuilder
@@ -217,14 +227,76 @@ public sealed class WizardAbjuration : AbstractSubclass
             .AddToDB();
     }
 
-    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Wizard;
+    private static int LimitArcaneWardRecharge(RulesetCharacter character, RulesetUsablePower _, int maxUses)
+    {
+        return IsBg3Mode
+            ? maxUses / 2
+            : maxUses;
+    }
 
-    internal override CharacterSubclassDefinition Subclass { get; }
+    private static bool HasActiveArcaneWard(RulesetCharacter character)
+    {
+        return (IsBg3Mode || character.HasConditionOfType(ArcaneWardConditionName))
+               && character.GetRemainingPowerCharges(PowerArcaneWard) > 0;
+    }
 
-    internal override FeatureDefinitionSubclassChoice SubclassChoice => SubclassChoiceWizardArcaneTraditions;
+    private static ModifySustainedDamageHandler ArcaneWardModifyDamage()
+    {
+        return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
+        {
+            ArcaneWardModifyDamage(character, ref damage, roll);
+        };
+    }
 
-    // ReSharper disable once UnassignedGetOnlyAutoProperty
-    internal override DeityDefinition DeityDefinition { get; }
+    private static void ArcaneWardModifyDamage(
+        RulesetCharacter character, ref int damage, RollInfo roll, RulesetCharacter affected = null)
+    {
+        if (!HasActiveArcaneWard(character)) { return; }
+
+        var ward = character.GetRemainingPowerCharges(PowerArcaneWard);
+
+        var prevented = ward <= damage ? ward : damage;
+        var spent = IsBg3Mode ? 1 : prevented;
+
+        (affected ?? character).LogCharacterUsedFeature(PowerArcaneWard, "Feedback/&ArcaneWard", true,
+            (ConsoleStyleDuplet.ParameterType.Positive, prevented.ToString()));
+
+        character.UpdateUsageForPower(PowerArcaneWard, spent);
+        roll.modifier -= prevented;
+        damage -= prevented;
+    }
+
+    private static ModifySustainedDamageHandler ProjectedWardModifyDamage()
+    {
+        return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
+        {
+            if (!character.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ProjectedWardConditionName,
+                    out var condition)) { return; }
+
+            var protector = EffectHelpers.GetCharacterByGuid(condition.sourceGuid);
+            if (!HasActiveArcaneWard(protector)) { return; }
+
+            ArcaneWardModifyDamage(protector, ref damage, roll, character);
+        };
+    }
+
+    public static void UpdateBg3ModeStatus()
+    {
+        if (IsBg3Mode)
+        {
+            PowerArcaneWard.usesDetermination = UsesDetermination.Fixed;
+            PowerArcaneWard.GuiPresentation.Description = $"Feature/&{PowerArcaneWard.Name}BG3Description";
+            ConditionArcaneWard.silentWhenAdded = true;
+        }
+        else
+        {
+            PowerArcaneWard.usesDetermination = UsesDetermination.AbilityBonusPlusFixed;
+            PowerArcaneWard.GuiPresentation.Description = $"Feature/&{PowerArcaneWard.Name}Description";
+            ConditionArcaneWard.silentWhenAdded = false;
+        }
+
+        Global.RefreshControlledCharacter();
+    }
 
     // Handle Behaviour related to Abjuration Savant
     private sealed class ModifyScribeCostAndDurationAbjurationSavant : IModifyScribeCostAndDuration
@@ -300,59 +372,6 @@ public sealed class WizardAbjuration : AbstractSubclass
                     0);
             }
         }
-    }
-
-    private int LimitArcaneWardRecharge(RulesetCharacter character, RulesetUsablePower _, int maxUses)
-    {
-        return IsBg3Mode
-            ? maxUses / 2
-            : maxUses;
-    }
-
-    private static bool HasActiveArcaneWard(RulesetCharacter character)
-    {
-        return (IsBg3Mode || character.HasConditionOfType(ArcaneWardConditionName))
-               && character.GetRemainingPowerCharges(PowerArcaneWard) > 0;
-    }
-
-    private static ModifySustainedDamageHandler ArcaneWardModifyDamage()
-    {
-        return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
-        {
-            ArcaneWardModifyDamage(character, ref damage, roll);
-        };
-    }
-
-    private static void ArcaneWardModifyDamage(RulesetCharacter character, ref int damage,
-        RollInfo roll, RulesetCharacter affected = null)
-    {
-        if (!HasActiveArcaneWard(character)) { return; }
-
-        var ward = character.GetRemainingPowerCharges(PowerArcaneWard);
-
-        var prevented = ward <= damage ? ward : damage;
-        var spent = IsBg3Mode ? 1 : prevented;
-
-        (affected ?? character).LogCharacterUsedFeature(PowerArcaneWard, "Feedback/&ArcaneWard", true,
-            (ConsoleStyleDuplet.ParameterType.Positive, prevented.ToString()));
-
-        character.UpdateUsageForPower(PowerArcaneWard, spent);
-        roll.modifier -= prevented;
-        damage -= prevented;
-    }
-    
-    private static ModifySustainedDamageHandler ProjectedWardModifyDamage()
-    {
-        return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
-        {
-            if (!character.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ProjectedWardConditionName,
-                    out var condition)) { return; }
-
-            var protector = EffectHelpers.GetCharacterByGuid(condition.sourceGuid);
-            if (!HasActiveArcaneWard(protector)) { return; }
-
-            ArcaneWardModifyDamage(protector, ref damage, roll, character);
-        };
     }
 
     private sealed class CustomBehaviorProjectedWard(
@@ -496,23 +515,5 @@ public sealed class WizardAbjuration : AbstractSubclass
         public override string TooltipFormat => IsBg3Mode
             ? $"PortraitPool{PowerArcaneWard.Name}BG3PointsFormat"
             : $"PortraitPool{PowerArcaneWard.Name}PointsFormat";
-    }
-
-    public static void UpdateBg3ModeStatus()
-    {
-        if (IsBg3Mode)
-        {
-            PowerArcaneWard.usesDetermination = UsesDetermination.Fixed;
-            PowerArcaneWard.GuiPresentation.Description = $"Feature/&{PowerArcaneWard.Name}BG3Description";
-            ConditionArcaneWard.silentWhenAdded = true;
-        }
-        else
-        {
-            PowerArcaneWard.usesDetermination = UsesDetermination.AbilityBonusPlusFixed;
-            PowerArcaneWard.GuiPresentation.Description = $"Feature/&{PowerArcaneWard.Name}Description";
-            ConditionArcaneWard.silentWhenAdded = false;
-        }
-
-        Global.RefreshControlledCharacter();
     }
 }

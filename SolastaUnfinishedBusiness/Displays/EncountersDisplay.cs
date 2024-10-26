@@ -196,7 +196,7 @@ internal static class EncountersDisplay
         {
             return;
         }
-        
+
         using (UI.VerticalScope())
         {
             using (UI.HorizontalScope())
