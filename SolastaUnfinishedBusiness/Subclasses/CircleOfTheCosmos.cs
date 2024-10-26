@@ -932,7 +932,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;
@@ -1150,12 +1149,12 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             }
         }
 
-        public IEnumerator OnTryAlterOutcomeSavingThrow(GameLocationBattleManager battleManager,
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;

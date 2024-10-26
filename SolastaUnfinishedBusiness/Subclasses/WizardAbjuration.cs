@@ -386,7 +386,6 @@ public sealed class WizardAbjuration : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             var canForceHalfDamage = false; //TODO: find a way to get this

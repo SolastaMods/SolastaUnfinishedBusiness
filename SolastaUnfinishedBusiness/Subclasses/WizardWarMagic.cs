@@ -242,7 +242,6 @@ public sealed class WizardWarMagic : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             var rulesetHelper = helper.RulesetCharacter;

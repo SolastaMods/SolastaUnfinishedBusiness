@@ -290,7 +290,6 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             SavingThrowData savingThrowData,
-            EffectDescription effectDescription,
             bool hasHitVisual)
         {
             if (savingThrowData.SaveOutcome != RollOutcome.Success ||

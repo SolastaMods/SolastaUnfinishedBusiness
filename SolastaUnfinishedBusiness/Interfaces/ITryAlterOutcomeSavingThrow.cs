@@ -17,7 +17,6 @@ public interface ITryAlterOutcomeSavingThrow
         GameLocationCharacter defender,
         GameLocationCharacter helper,
         SavingThrowData savingThrowData,
-        EffectDescription effectDescription,
         bool hasHitVisual);
 }
 
@@ -60,7 +59,7 @@ internal static class TryAlterOutcomeSavingThrow
 
         //PATCH: support for `ITryAlterOutcomeSavingThrow`
         foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrowHandler(
-                     battleManager, attacker, defender, savingThrowData, effectDescription, false))
+                     battleManager, attacker, defender, savingThrowData, false))
         {
             yield return tryAlterOutcomeSavingThrow;
 
@@ -76,11 +75,11 @@ internal static class TryAlterOutcomeSavingThrow
         defender.RulesetActor.GrantConditionOnSavingThrowOutcome(effectDescription, savingThrowData.SaveOutcome, true);
     }
 
-    private static IEnumerable TryAlterOutcomeSavingThrowHandler(GameLocationBattleManager battleManager,
+    private static IEnumerable TryAlterOutcomeSavingThrowHandler(
+        GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         SavingThrowData savingThrowData,
-        EffectDescription effectDescription,
         bool hasHitVisual)
     {
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
@@ -96,7 +95,7 @@ internal static class TryAlterOutcomeSavingThrow
                          .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
             {
                 yield return feature.OnTryAlterOutcomeSavingThrow(
-                    battleManager, attacker, defender, unit, savingThrowData, effectDescription, hasHitVisual);
+                    battleManager, attacker, defender, unit, savingThrowData, hasHitVisual);
             }
         }
     }
