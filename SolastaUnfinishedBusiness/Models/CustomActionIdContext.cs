@@ -400,7 +400,7 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(MetamagicToggle, "OverChannelToggle")
-            .SetGuiPresentation(Category.Action)
+            .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.OverChannelToggle)
             .OverrideClassName("Toggle")

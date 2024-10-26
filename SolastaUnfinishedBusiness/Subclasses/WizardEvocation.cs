@@ -20,6 +20,45 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class WizardEvocation : AbstractSubclass
 {
     private const string Name = "WizardEvocation";
+    private const string SculptSpellsSavedTag = $"{Name}SculptSpellsSaved";
+
+    //
+    // these lists contain all evocation spells that do damage in a non-vanilla way so they also get bonus
+    //
+
+    private static readonly string[] CantripsAdditionalDamages =
+    [
+        "AdditionalDamageBoomingBlade",
+        "AdditionalDamageResonatingStrike", // Green-Flame Blade
+        "AdditionalDamageSunlightBlade"
+    ];
+
+    private static readonly string[] CantripsPowerDamages =
+    [
+        "PowerBoomingBladeDamage",
+        "PowerResonatingStrike" // Green-Flame Blade
+    ];
+
+    private static readonly string[] SpellsAdditionalDamages =
+    [
+        "AdditionalDamageBanishingSmite",
+        "AdditionalDamageBlindingSmite",
+        "AdditionalDamageHolyWeapon",
+        "AdditionalDamageSearingSmite",
+        "AdditionalDamageStaggeringSmite",
+        "AdditionalDamageWrathfulSmite"
+    ];
+
+    private static readonly string[] SpellsPowerDamages =
+    [
+        "PowerChaosBoltLeap",
+        "PowerCrownOfStars",
+        "PowerGravityFissure",
+        "PowerHolyWeapon",
+        "PowerThunderousSmite",
+        "PowerVitriolicSphere",
+        "PowerWitchBolt"
+    ];
 
     public WizardEvocation()
     {
@@ -49,7 +88,8 @@ public sealed class WizardEvocation : AbstractSubclass
             .AddCustomSubFeatures(new MagicEffectInitiatedByMeSculptSpells(conditionSculptSpells))
             .AddToDB();
 
-        conditionSculptSpells.AddCustomSubFeatures(new CustomBehaviorSculptSpells(featureSculptSpells));
+        conditionSculptSpells.AddCustomSubFeatures(
+            new CustomBehaviorSculptSpells(conditionSculptSpells, featureSculptSpells));
 
         // LEVEL 06
 
@@ -83,11 +123,20 @@ public sealed class WizardEvocation : AbstractSubclass
             .AllowMultipleInstances()
             .AddToDB();
 
+        var conditionMaxDamage = ConditionDefinitionBuilder
+            .Create($"Condition{Name}OverChannelMaxDamage")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(new ForceMaxDamageTypeDependentOverChannel())
+            .AddToDB();
+
         var actionAffinityOverChannelToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityOverChannelToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.OverChannelToggle)
             .AddToDB();
+
+        actionAffinityOverChannelToggle.AddCustomSubFeatures(
+            new CustomBehaviorOverChannel(actionAffinityOverChannelToggle, conditionOverChannel, conditionMaxDamage));
 
         var featureSetOverChannel = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}OverChannel")
@@ -118,6 +167,31 @@ public sealed class WizardEvocation : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Evocation Savant
+    //
+
+    private sealed class ModifyScribeCostAndDurationEvocationSavant : IModifyScribeCostAndDuration
+    {
+        public void ModifyScribeCostMultiplier(
+            RulesetCharacter character, SpellDefinition spellDefinition, ref float costMultiplier)
+        {
+            if (spellDefinition.SchoolOfMagic != SchoolEvocation)
+            {
+                costMultiplier = 1;
+            }
+        }
+
+        public void ModifyScribeDurationMultiplier(
+            RulesetCharacter character, SpellDefinition spellDefinition, ref float durationMultiplier)
+        {
+            if (spellDefinition.SchoolOfMagic != SchoolEvocation)
+            {
+                durationMultiplier = 1;
+            }
+        }
+    }
 
     //
     // Sculpt Spells
@@ -163,7 +237,10 @@ public sealed class WizardEvocation : AbstractSubclass
 
             foreach (var target in targets.Where(x => !x.IsOppositeSide(attacker.Side)))
             {
+                target.UsedSpecialFeatures.Remove(SculptSpellsSavedTag);
+
                 var rulesetTarget = target.RulesetCharacter;
+                var rulesetSource = attacker.RulesetCharacter;
 
                 rulesetTarget.InflictCondition(
                     conditionSculptPocket.Name,
@@ -171,8 +248,8 @@ public sealed class WizardEvocation : AbstractSubclass
                     0,
                     TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagEffect,
-                    rulesetTarget.guid,
-                    rulesetTarget.CurrentFaction.Name,
+                    rulesetSource.guid,
+                    rulesetSource.CurrentFaction.Name,
                     1,
                     conditionSculptPocket.Name,
                     0,
@@ -182,11 +259,10 @@ public sealed class WizardEvocation : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorSculptSpells(FeatureDefinition featureSculptSpells)
-        : IMagicEffectBeforeHitConfirmedOnMe, IRollSavingThrowFinished
+    private sealed class CustomBehaviorSculptSpells(
+        ConditionDefinition conditionSculptSpells,
+        FeatureDefinition featureSculptSpells) : IMagicEffectBeforeHitConfirmedOnMe, IRollSavingThrowFinished
     {
-        private const string SculptSpellsSavedTag = "SculptSpellsSaved";
-
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -207,10 +283,16 @@ public sealed class WizardEvocation : AbstractSubclass
                 x.FormType == EffectForm.EffectFormType.Damage &&
                 x.SavingThrowAffinity == EffectSavingThrowType.HalfDamage);
 
-            if (removed > 0)
+            if (removed == 0 ||
+                !defender.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionSculptSpells.Name, out var actionCondition))
             {
-                defender.RulesetCharacter.LogCharacterUsedFeature(featureSculptSpells);
+                yield break;
             }
+
+            var caster = EffectHelpers.GetCharacterByGuid(actionCondition.SourceGuid);
+
+            caster.LogCharacterUsedFeature(featureSculptSpells);
         }
 
         public void OnSavingThrowFinished(
@@ -240,7 +322,8 @@ public sealed class WizardEvocation : AbstractSubclass
     // Potent Cantrips
     //
 
-    private sealed class MagicEffectBeforeHitConfirmedOnEnemyPotentCantrips : IMagicEffectBeforeHitConfirmedOnEnemy
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyPotentCantrips
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -252,15 +335,18 @@ public sealed class WizardEvocation : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
-            {
-                yield break;
-            }
+            var isSpell = rulesetEffect.SourceDefinition is SpellDefinition;
 
-            if (rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique &&
-                !firstTarget)
+            switch (isSpell)
             {
-                yield break;
+                case false when !CantripsPowerDamages.Contains(rulesetEffect.SourceDefinition.Name):
+                case true when rulesetEffect.EffectDescription.RangeType
+                    is not (RangeType.MeleeHit or RangeType.RangeHit):
+                case true when !firstTarget &&
+                               rulesetEffect.EffectDescription.TargetType
+                                   is TargetType.Individuals
+                                   or TargetType.IndividualsUnique:
+                    yield break;
             }
 
             var effectForm = actualEffectForms
@@ -275,30 +361,24 @@ public sealed class WizardEvocation : AbstractSubclass
 
             effectForm.DamageForm.BonusDamage += pb;
         }
-    }
 
-    //
-    // Evocation Savant
-    //
-
-    private sealed class ModifyScribeCostAndDurationEvocationSavant : IModifyScribeCostAndDuration
-    {
-        public void ModifyScribeCostMultiplier(
-            RulesetCharacter character, SpellDefinition spellDefinition, ref float costMultiplier)
+        // handle special blade cantrips use cases
+        public void ModifyAdditionalDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
-            if (spellDefinition.SchoolOfMagic != SchoolEvocation)
+            if (!CantripsAdditionalDamages.Contains(featureDefinitionAdditionalDamage.Name))
             {
-                costMultiplier = 1;
+                return;
             }
-        }
 
-        public void ModifyScribeDurationMultiplier(
-            RulesetCharacter character, SpellDefinition spellDefinition, ref float durationMultiplier)
-        {
-            if (spellDefinition.SchoolOfMagic != SchoolEvocation)
-            {
-                durationMultiplier = 1;
-            }
+            var pb = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            damageForm.BonusDamage += pb;
         }
     }
 
@@ -306,7 +386,8 @@ public sealed class WizardEvocation : AbstractSubclass
     // Empowered Evocation
     //
 
-    private sealed class MagicEffectBeforeHitConfirmedOnEnemyEmpoweredEvocation : IMagicEffectBeforeHitConfirmedOnEnemy
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyEmpoweredEvocation
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -318,15 +399,18 @@ public sealed class WizardEvocation : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.SourceDefinition is not SpellDefinition { SchoolOfMagic: SchoolEvocation })
-            {
-                yield break;
-            }
+            var isSpell = rulesetEffect.SourceDefinition is SpellDefinition;
 
-            if (rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique &&
-                !firstTarget)
+            switch (isSpell)
             {
-                yield break;
+                case false when !CantripsPowerDamages.Contains(rulesetEffect.SourceDefinition.Name) &&
+                                !SpellsPowerDamages.Contains(rulesetEffect.SourceDefinition.Name):
+                case true when rulesetEffect.SchoolOfMagic != SchoolEvocation:
+                case true when !firstTarget &&
+                               rulesetEffect.EffectDescription.TargetType
+                                   is TargetType.Individuals
+                                   or TargetType.IndividualsUnique:
+                    yield break;
             }
 
             var effectForm = actualEffectForms
@@ -342,13 +426,47 @@ public sealed class WizardEvocation : AbstractSubclass
 
             effectForm.DamageForm.BonusDamage += Math.Max(1, intelligenceModifier);
         }
+
+        // handle special blade cantrips use cases
+        public void ModifyAdditionalDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
+        {
+            var featureName = featureDefinitionAdditionalDamage.Name;
+
+            if (!CantripsAdditionalDamages.Contains(featureName) && !SpellsAdditionalDamages.Contains(featureName))
+            {
+                return;
+            }
+
+            var intelligenceModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence));
+
+            damageForm.BonusDamage += Math.Max(1, intelligenceModifier);
+        }
     }
 
     //
     // Over Channel
     //
 
-    private sealed class MagicEffectBeforeHitConfirmedOnEnemyOverChannel : IMagicEffectBeforeHitConfirmedOnEnemy
+    private sealed class ForceMaxDamageTypeDependentOverChannel : IForceMaxDamageTypeDependent
+    {
+        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        {
+            return true;
+        }
+    }
+
+    private sealed class CustomBehaviorOverChannel(
+        FeatureDefinition featureOverChannel,
+        ConditionDefinition conditionOverChannel,
+        ConditionDefinition conditionOverChannelMaxDamage)
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -360,7 +478,82 @@ public sealed class WizardEvocation : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield break;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            // only spells between 1st and 5th levels
+            if (!firstTarget ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.OverChannelToggle) ||
+                rulesetEffect.SourceDefinition is not SpellDefinition spellDefinition ||
+                spellDefinition.SpellLevel == 0 ||
+                spellDefinition.SpellLevel > 5)
+            {
+                yield break;
+            }
+
+            // allow max spell damage on this attack
+            rulesetAttacker.LogCharacterUsedFeature(featureOverChannel);
+            rulesetAttacker.InflictCondition(
+                conditionOverChannelMaxDamage.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionOverChannelMaxDamage.Name,
+                0,
+                0,
+                0);
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionOverChannelMaxDamage.Name, out var actionCondition))
+            {
+                yield break;
+            }
+
+            rulesetAttacker.RemoveCondition(actionCondition);
+
+            // add one instance of over channel
+            rulesetAttacker.InflictCondition(
+                conditionOverChannel.Name,
+                DurationType.UntilLongRest,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionOverChannel.Name,
+                0,
+                0,
+                0);
+
+            var overChannelInstancesCount =
+                rulesetAttacker.AllConditions.Count(x => x.ConditionDefinition == conditionOverChannel);
+
+            // first time used so no self damage
+            if (overChannelInstancesCount <= 1)
+            {
+                yield break;
+            }
+
+            const DieType DIE_TYPE = DieType.D12;
+
+            var rulesetEffect = action.ActionParams.RulesetEffect;
+            var diceNumber = overChannelInstancesCount * rulesetEffect.EffectLevel;
+            var rolls = new List<int>();
+            var damage = rulesetAttacker.RollDiceAndSum(DIE_TYPE, RollContext.None, diceNumber, rolls, false);
+
+            rulesetAttacker.SustainDamage(
+                damage, DamageTypeNecrotic, false, rulesetAttacker.Guid,
+                new RollInfo(DIE_TYPE, rolls, 0), out _);
         }
     }
 }
