@@ -1,4 +1,4 @@
-Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Lorsque vous utilisez Attaque téméraire en étant enragé, vous gagnez également des points de vie temporaires égaux à votre modificateur de Constitution (minimum de 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Lorsque vous utilisez Attaque téméraire en étant enragé, vous gagnez également des points de vie temporaires égaux à votre modificateur de Constitution (minimum +1).
 Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Abandon imprudent
 Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Vous obtenez la maîtrise de l'armure lourde. Vos capacités de rage fonctionnent également lorsque vous portez une armure lourde. \n\nLorsque vous portez une armure, vos attaques à mains nues infligent 1d6 dégâts de base. Si vous portez une armure magique, vos attaques à mains nues comptent comme magiques pour surmonter la résistance et l'immunité aux attaques et dégâts non magiques. \n\nLorsque vous êtes enragé, vous pouvez utiliser l'attaque à mains nues comme action bonus.
 Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Armure de Battlerager

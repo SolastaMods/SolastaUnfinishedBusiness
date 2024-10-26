@@ -4,7 +4,7 @@ Condition/&ConditionMartialForceKnightKineticBarrierDescription=你周围有一�
 Condition/&ConditionMartialForceKnightKineticBarrierTitle=动能护壁
 Condition/&ConditionMartialForceKnightTelekineticGraspDescription=你可以使用武器进行一次攻击作为附赠动作。你可以用你的动作尝试通过重复争夺来维持对生物的念控擒抱，或者瞄准一个新生物，结束对先前受影响的生物的束缚效果。
 Condition/&ConditionMartialForceKnightTelekineticGraspTitle=心灵遥控
-Feature/&FeatureMartialForceKnightForceOfWillDescription=你的灵能赋予你非凡的恢复力。在你的每个回合开始时，如果你至少有 1 点生命值，你将获得相当于你的智力修正值的临时生命值（至少 1）。此外，如果豁免检定更高，你可以使用智力调整值代替感知和魅力调整值。
+Feature/&FeatureMartialForceKnightForceOfWillDescription=你的灵能赋予你非凡的韧性。如果你至少有 1 点生命值，则在每个回合开始时，你将获得等于智力调整值的临时生命值（最低 +1）。此外，如果你的智力调整值更高，你可以用它代替智慧和魅力调整值进行豁免检定。
 Feature/&FeatureMartialForceKnightForceOfWillTitle=意志力
 Feature/&FeatureSetMartialForceKnightPsionicAdeptDescription=你现在可以对被原力打击击中的生物施加一次力量豁免检定（DC = 8 + 熟练加值 + 智力调整值）。如果该生物失败了，你可以将其击退 15 尺或将其击倒。
 Feature/&FeatureSetMartialForceKnightPsionicAdeptTitle=灵能专家

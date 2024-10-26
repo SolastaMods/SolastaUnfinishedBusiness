@@ -1,4 +1,4 @@
-Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Ao usar Ataque Imprudente enquanto estiver em fúria, você também ganha pontos de vida temporários iguais ao seu modificador de Constituição (mínimo de 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Ao usar Ataque Imprudente enquanto estiver em fúria, você também ganha pontos de vida temporários iguais ao seu modificador de Constituição (mínimo +1).
 Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Total abandono
 Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Você ganha proficiência em Armadura Pesada. Suas características de fúria também funcionam enquanto estiver usando armadura pesada.\n\nEnquanto estiver usando armadura, seu ataque desarmado causa 1d6 de dano base. Se estiver usando armadura mágica, seus ataques desarmados contam como mágicos para o propósito de superar resistência e imunidade a ataques e danos não mágicos. \n\nEnquanto estiver em fúria, você pode usar ataque desarmado como uma ação bônus.
 Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Armadura Battlerager

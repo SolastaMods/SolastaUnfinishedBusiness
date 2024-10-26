@@ -1,4 +1,4 @@
-Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Cuando usas Ataque imprudente mientras estás en furia, también obtienes puntos de golpe temporales iguales a tu modificador de Constitución (mínimo de 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Cuando usas Ataque imprudente mientras estás en furia, también obtienes puntos de golpe temporales iguales a tu modificador de Constitución (mínimo +1).
 Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Abandono imprudente
 Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Obtienes competencia con armadura pesada. Tus rasgos de furia también funcionan mientras llevas armadura pesada.\n\nMientras llevas armadura, tu ataque sin armas inflige 1d6 de daño base. Si llevas armadura mágica, tus ataques sin armas cuentan como mágicos a los efectos de superar la resistencia e inmunidad a ataques y daños no mágicos. \n\nMientras estás en furia, puedes usar ataque sin armas como acción adicional.
 Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Armadura de Battlerager
