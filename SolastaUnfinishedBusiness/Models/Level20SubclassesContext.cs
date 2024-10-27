@@ -469,12 +469,7 @@ internal static class Level20SubclassesContext
                     .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderSavings", Category.Condition,
                         Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
-                        AttributeDefinitions.Strength,
-                        AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Constitution,
-                        AttributeDefinitions.Intelligence,
-                        AttributeDefinitions.Wisdom,
-                        AttributeDefinitions.Charisma)
+                        AttributeDefinitions.AbilityScoreNames)
                     .AddToDB())
             .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();

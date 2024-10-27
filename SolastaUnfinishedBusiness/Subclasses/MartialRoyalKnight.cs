@@ -147,13 +147,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         var savingThrowAffinitySpiritedSurge = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}SpiritedSurge")
             .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature, Gui.NoLocalization)
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.AbilityScoreNames)
             .AddToDB();
 
         var combatAffinitySpiritedSurge = FeatureDefinitionCombatAffinityBuilder

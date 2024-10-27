@@ -92,12 +92,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                     .Create($"SavingThrowAffinity{Name}{DistractingAmbush}")
                     .SetGuiPresentation(ConditionDistractingAmbushName, Category.Condition, Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
-                        AttributeDefinitions.Strength,
-                        AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Constitution,
-                        AttributeDefinitions.Intelligence,
-                        AttributeDefinitions.Wisdom,
-                        AttributeDefinitions.Charisma)
+                        AttributeDefinitions.AbilityScoreNames)
                     .AddToDB())
             .AddToDB();
 
