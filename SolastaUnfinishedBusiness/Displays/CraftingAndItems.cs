@@ -10,8 +10,6 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class CraftingAndItems
 {
-    private const int MaxColumns = 3;
-
     private static readonly (string, Func<ItemDefinition, bool>)[] ItemsFilters =
     [
         (Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), _ => true),
@@ -294,20 +292,23 @@ internal static class CraftingAndItems
         var current = 0;
         var count = keys.Count;
 
+        const int MAX_COLS = 4;
+        const float WIDTH = 220f;
+
         while (current < count)
         {
             var cols = 0;
 
             using (UI.HorizontalScope())
             {
-                while (current < count && cols < MaxColumns)
+                while (current < count && cols < MAX_COLS)
                 {
                     var key = keys.ElementAt(current);
                     var category = CraftingContext.RecipeTitles[key];
 
                     toggle = Main.Settings.CraftingInStore.Contains(key);
                     // ReSharper disable once InvertIf
-                    if (UI.Toggle(Gui.Format("ModUi/&AddToStore", category), ref toggle, UI.Width(125f)))
+                    if (UI.Toggle(Gui.Format("ModUi/&AddToStore", category), ref toggle, UI.Width(WIDTH)))
                     {
                         if (toggle)
                         {
@@ -330,9 +331,9 @@ internal static class CraftingAndItems
                     continue;
                 }
 
-                while (cols < MaxColumns)
+                while (cols < MAX_COLS)
                 {
-                    UI.Space(125f);
+                    UI.Space(WIDTH);
 
                     cols++;
                 }

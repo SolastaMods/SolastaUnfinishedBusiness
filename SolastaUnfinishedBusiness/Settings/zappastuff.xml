@@ -3,6 +3,8 @@
     <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
+    <DisplayMultiplayerToggle>true</DisplayMultiplayerToggle>
+    <DisplayOneDndToggle>true</DisplayOneDndToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -389,30 +391,32 @@
         <string>WaterBreathing</string>
         <string>WaterWalk</string>
     </EffectsThatTargetDistantIndividualsAndDontRequireSight>
+    <EnablePcgRandom>true</EnablePcgRandom>
+    <EnableCustomPortraits>true</EnableCustomPortraits>
+    <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
+    <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
     <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
     <EnableLevel20>true</EnableLevel20>
     <EnableMulticlass>true</EnableMulticlass>
-    <EnableRespec>true</EnableRespec>
     <MaxAllowedClasses>3</MaxAllowedClasses>
     <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
     <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
     <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
-    <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
-    <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
-    <EnablePcgRandom>true</EnablePcgRandom>
-    <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
-    <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
-    <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
-    <OverridePartySize>2</OverridePartySize>
-    <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
-    <FasterTimeModifier>3</FasterTimeModifier>
+    <EnableActionSwitching>true</EnableActionSwitching>
+    <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
+    <EnableProneAction>false</EnableProneAction>
+    <EnableGrappleAction>false</EnableGrappleAction>
+    <EnableHelpAction>false</EnableHelpAction>
+    <EnableRespecAction>false</EnableRespecAction>
+    <EnableUnarmedMainAttackAction>false</EnableUnarmedMainAttackAction>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
+    <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
-    <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
-    <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
-    <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
+    <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
+    <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
+    <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
     <UseOfficialLightingObscurementAndVisionRules>true</UseOfficialLightingObscurementAndVisionRules>
     <OfficialObscurementRulesInvisibleCreaturesCanBeTarget>false</OfficialObscurementRulesInvisibleCreaturesCanBeTarget>
     <OfficialObscurementRulesCancelAdvDisPairs>false</OfficialObscurementRulesCancelAdvDisPairs>
@@ -421,8 +425,6 @@
     <OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>false
     </OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>
     <OfficialObscurementRulesTweakMonsters>true</OfficialObscurementRulesTweakMonsters>
-    <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
-    <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>true</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthDoesNotBreakWithSubtle>true</StealthDoesNotBreakWithSubtle>
     <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
@@ -430,23 +432,12 @@
     <StealthBreaksWhenCastingMaterial>false</StealthBreaksWhenCastingMaterial>
     <StealthBreaksWhenCastingVerbose>false</StealthBreaksWhenCastingVerbose>
     <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
+    <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
     <AddDexModifierToEnemiesInitiativeRoll>true</AddDexModifierToEnemiesInitiativeRoll>
     <EnemiesAlwaysRollInitiative>false</EnemiesAlwaysRollInitiative>
-    <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
-    <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
-    <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
-    </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
-    <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
-    <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
-    <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
-    <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
-    <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
-    <AccountForAllDiceOnFollowUpStrike>true</AccountForAllDiceOnFollowUpStrike>
-    <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
     <AllowFlightSuspend>true</AllowFlightSuspend>
     <FlightSuspendWingedBoots>true</FlightSuspendWingedBoots>
     <EnablePullPushOnVerticalDirection>false</EnablePullPushOnVerticalDirection>
-    <ModifyGravitySlam>true</ModifyGravitySlam>
     <FullyControlConjurations>true</FullyControlConjurations>
     <EnableHigherGroundRules>true</EnableHigherGroundRules>
     <EnableTeleportToRemoveRestrained>false</EnableTeleportToRemoveRestrained>
@@ -458,6 +449,12 @@
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
+    <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
+    <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
+    <FasterTimeModifier>3</FasterTimeModifier>
+    <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
+    <OverridePartySize>2</OverridePartySize>
+    <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
     <AddPickPocketableLoot>true</AddPickPocketableLoot>
     <AltOnlyHighlightItemsInPartyFieldOfView>true</AltOnlyHighlightItemsInPartyFieldOfView>
     <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
@@ -467,10 +464,8 @@
     <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
     <EnableSumD20OnAlternateVotingSystem>true</EnableSumD20OnAlternateVotingSystem>
-    <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
-    <EnableActionSwitching>true</EnableActionSwitching>
-    <EnableCustomPortraits>true</EnableCustomPortraits>
     <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
+    <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
     <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
     <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
     <HideMonsterHitPoints>true</HideMonsterHitPoints>
@@ -677,28 +672,39 @@
             </ArrayOfInt>
         </ArrayOfArrayOfInt>
     </FormationGridSets>
+    <ScaleMerchantPricesCorrectly>false</ScaleMerchantPricesCorrectly>
+    <StockGorimStoreWithAllNonMagicalClothing>false</StockGorimStoreWithAllNonMagicalClothing>
+    <StockHugoStoreWithAdditionalFoci>false</StockHugoStoreWithAdditionalFoci>
+    <StockGorimStoreWithAllNonMagicalInstruments>false</StockGorimStoreWithAllNonMagicalInstruments>
+    <EnableAdditionalFociInDungeonMaker>false</EnableAdditionalFociInDungeonMaker>
+    <RestockAntiquarians>false</RestockAntiquarians>
+    <RestockArcaneum>false</RestockArcaneum>
+    <RestockCircleOfDanantar>false</RestockCircleOfDanantar>
+    <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
     <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>true</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
     <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
     <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
     <AllowClubsToBeThrown>true</AllowClubsToBeThrown>
-    <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
+    <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
     <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
     <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
+    <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
+    <OneDndHealingPotionBonusAction>false</OneDndHealingPotionBonusAction>
+    <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
     <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
-    <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
     <DisableAutoEquip>true</DisableAutoEquip>
     <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
-    <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
-    <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
     <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
     <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
+    <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
     <RecipeCost>200</RecipeCost>
     <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
+    <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
     <CraftingInStore>
         <string>PrimedItems</string>
         <string>EnchantingIngredients</string>
@@ -742,113 +748,15 @@
         <string>MonkArmor</string>
         <string>ClothesWizard</string>
     </CraftingInStore>
-    <CraftingItemsInDm>
-        <string>PrimedItems</string>
-        <string>EnchantingIngredients</string>
-        <string>RelicForgeries</string>
-        <string>Club</string>
-        <string>Maul</string>
-        <string>Warhammer</string>
-        <string>Battleaxe</string>
-        <string>LightCrossbow</string>
-        <string>HeavyCrossbow</string>
-        <string>Greataxe</string>
-        <string>Greatsword</string>
-        <string>CEHalberd</string>
-        <string>Handaxe</string>
-        <string>CEHandXbow</string>
-        <string>CELongMace</string>
-        <string>CEPike</string>
-        <string>Quarterstaff</string>
-        <string>Rapier</string>
-        <string>Scimitar</string>
-        <string>Spear</string>
-        <string>Javelin</string>
-        <string>Dart</string>
-        <string>Shield_Wooden</string>
-        <string>Shield</string>
-        <string>HideArmor</string>
-        <string>LeatherDruid</string>
-        <string>StuddedLeather</string>
-        <string>ChainShirt</string>
-        <string>PaddedLeather</string>
-        <string>Leather</string>
-        <string>ScaleMail</string>
-        <string>Breastplate</string>
-        <string>HalfPlate</string>
-        <string>Ringmail</string>
-        <string>ChainMail</string>
-        <string>Plate</string>
-        <string>SorcererArmor</string>
-        <string>BarbarianClothes</string>
-        <string>Warlock_Armor</string>
-        <string>MonkArmor</string>
-        <string>ClothesWizard</string>
-    </CraftingItemsInDm>
-    <CraftingRecipesInDm>
-        <string>PrimedItems</string>
-        <string>EnchantingIngredients</string>
-        <string>RelicForgeries</string>
-        <string>Club</string>
-        <string>Maul</string>
-        <string>Warhammer</string>
-        <string>Battleaxe</string>
-        <string>LightCrossbow</string>
-        <string>HeavyCrossbow</string>
-        <string>Greataxe</string>
-        <string>Greatsword</string>
-        <string>CEHalberd</string>
-        <string>Handaxe</string>
-        <string>CEHandXbow</string>
-        <string>CELongMace</string>
-        <string>CEPike</string>
-        <string>Quarterstaff</string>
-        <string>Rapier</string>
-        <string>Scimitar</string>
-        <string>Spear</string>
-        <string>Javelin</string>
-        <string>Dart</string>
-        <string>Shield_Wooden</string>
-        <string>Shield</string>
-        <string>HideArmor</string>
-        <string>LeatherDruid</string>
-        <string>StuddedLeather</string>
-        <string>ChainShirt</string>
-        <string>PaddedLeather</string>
-        <string>Leather</string>
-        <string>ScaleMail</string>
-        <string>Breastplate</string>
-        <string>HalfPlate</string>
-        <string>Ringmail</string>
-        <string>ChainMail</string>
-        <string>Plate</string>
-        <string>SorcererArmor</string>
-        <string>BarbarianClothes</string>
-        <string>Warlock_Armor</string>
-        <string>MonkArmor</string>
-        <string>ClothesWizard</string>
-    </CraftingRecipesInDm>
-    <ScaleMerchantPricesCorrectly>false</ScaleMerchantPricesCorrectly>
-    <StockGorimStoreWithAllNonMagicalClothing>false</StockGorimStoreWithAllNonMagicalClothing>
-    <StockHugoStoreWithAdditionalFoci>false</StockHugoStoreWithAdditionalFoci>
-    <StockGorimStoreWithAllNonMagicalInstruments>false</StockGorimStoreWithAllNonMagicalInstruments>
-    <EnableAdditionalFociInDungeonMaker>false</EnableAdditionalFociInDungeonMaker>
-    <RestockAntiquarians>false</RestockAntiquarians>
-    <RestockArcaneum>false</RestockArcaneum>
-    <RestockCircleOfDanantar>false</RestockCircleOfDanantar>
-    <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
     <EnableLoggingInvalidReferencesInUserCampaigns>true</EnableLoggingInvalidReferencesInUserCampaigns>
     <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
     <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
     <UnleashEnemyAsNpc>false</UnleashEnemyAsNpc>
+    <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
     <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
     <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
-    <EnableGauntletMainAttacks>false</EnableGauntletMainAttacks>
-    <AddFallProneActionToAllRaces>true</AddFallProneActionToAllRaces>
-    <AddGrappleActionToAllRaces>true</AddGrappleActionToAllRaces>
-    <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
     <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
@@ -884,12 +792,13 @@
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
+    <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
+    <EnableAlternateHuman>true</EnableAlternateHuman>
+    <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
     <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
     <AddDarknessPerceptiveToDarkRaces>true</AddDarknessPerceptiveToDarkRaces>
     <RaceLightSensitivityApplyOutdoorsOnly>true</RaceLightSensitivityApplyOutdoorsOnly>
-    <EnableAlternateHuman>true</EnableAlternateHuman>
-    <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
     <RaceSliderPosition>4</RaceSliderPosition>
     <RaceEnabled>
         <string>RaceMalakh</string>
@@ -930,6 +839,11 @@
     <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
     <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
     <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
+    <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
+    <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
+    <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
+    <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+    <AccountForAllDiceOnFollowUpStrike>true</AccountForAllDiceOnFollowUpStrike>
     <AllowCantripsTriggeringOnWarMagic>false</AllowCantripsTriggeringOnWarMagic>
     <FeatSliderPosition>4</FeatSliderPosition>
     <FeatEnabled>
@@ -1135,6 +1049,8 @@
     </MetamagicEnabled>
     <AllowBladeCantripsToUseReach>true</AllowBladeCantripsToUseReach>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
+    <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
+    </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
     <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
@@ -1146,6 +1062,7 @@
     <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
     <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
+    <ModifyGravitySlam>true</ModifyGravitySlam>
     <EnableOneDndHealingSpellsBuf>true</EnableOneDndHealingSpellsBuf>
     <AllowHasteCasting>true</AllowHasteCasting>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
@@ -1989,4 +1906,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

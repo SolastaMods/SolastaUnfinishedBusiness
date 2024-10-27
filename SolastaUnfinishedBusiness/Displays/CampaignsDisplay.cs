@@ -9,6 +9,7 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class CampaignsDisplay
 {
+    internal const float DefaultFastTimeModifier = 1.5f;
     private static bool _selectedForSwap;
     private static int _selectedX, _selectedY;
     private static readonly string[] SetNames = ["1", "2", "3", "4", "5"];
@@ -20,7 +21,59 @@ internal static class CampaignsDisplay
         UI.Label();
         UI.Label();
 
-        var toggle = Main.Settings.AddPickPocketableLoot;
+        var toggle = Main.Settings.NoExperienceOnLevelUp;
+        if (UI.Toggle(Gui.Localize("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.NoExperienceOnLevelUp = toggle;
+        }
+
+        toggle = Main.Settings.OverrideMinMaxLevel;
+        if (UI.Toggle(Gui.Localize("ModUi/&OverrideMinMaxLevel"), ref toggle))
+        {
+            Main.Settings.OverrideMinMaxLevel = toggle;
+        }
+
+        UI.Label();
+
+        var floatValue = Main.Settings.FasterTimeModifier;
+        if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue,
+                DefaultFastTimeModifier, 10f, DefaultFastTimeModifier, 1, string.Empty, UI.AutoWidth()))
+        {
+            Main.Settings.FasterTimeModifier = floatValue;
+        }
+
+        var intValue = Main.Settings.MultiplyTheExperienceGainedBy;
+        if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, string.Empty,
+                UI.Width(100f)))
+        {
+            Main.Settings.MultiplyTheExperienceGainedBy = intValue;
+        }
+
+        intValue = Main.Settings.OverridePartySize;
+        if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
+                ToolsContext.MinPartySize, ToolsContext.MaxPartySize,
+                ToolsContext.GamePartySize, string.Empty, UI.AutoWidth()))
+        {
+            Main.Settings.OverridePartySize = intValue;
+
+            while (Main.Settings.DefaultPartyHeroes.Count > intValue)
+            {
+                Main.Settings.DefaultPartyHeroes.RemoveAt(Main.Settings.DefaultPartyHeroes.Count - 1);
+            }
+        }
+
+        if (Main.Settings.OverridePartySize > ToolsContext.GamePartySize)
+        {
+            toggle = Main.Settings.AllowAllPlayersOnNarrativeSequences;
+            if (UI.Toggle(Gui.Localize("ModUi/&AllowAllPlayersOnNarrativeSequences"), ref toggle))
+            {
+                Main.Settings.AllowAllPlayersOnNarrativeSequences = toggle;
+            }
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddPickPocketableLoot;
         if (UI.Toggle(Gui.Localize("ModUi/&AddPickPocketableLoot"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddPickPocketableLoot = toggle;
@@ -156,8 +209,6 @@ internal static class CampaignsDisplay
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&Combat"));
         UI.Label();
-
-        int intValue;
 
         toggle = Main.Settings.DontFollowCharacterInBattle;
         if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))

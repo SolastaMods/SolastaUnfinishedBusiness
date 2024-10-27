@@ -2,20 +2,22 @@
 using System.Diagnostics;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class ToolsDisplay
 {
-    internal const float DefaultFastTimeModifier = 1.5f;
-
     private static string ExportFileName { get; set; } =
         ServiceRepository.GetService<INetworkingService>().GetUserName();
 
     internal static void DisplayGameplay()
     {
         DisplayGeneral();
-        DisplaySettings();
+        UI.Label();
+        DisplayMultiplayer();
+        UI.Label();
+        DisplayOneDnd();
         UI.Label();
     }
 
@@ -35,7 +37,13 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.EnableCustomPortraits;
+        var toggle = Main.Settings.EnablePcgRandom;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePcgRandom"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePcgRandom = toggle;
+        }
+
+        toggle = Main.Settings.EnableCustomPortraits;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCustomPortraits"), ref toggle))
         {
             Main.Settings.EnableCustomPortraits = toggle;
@@ -58,7 +66,6 @@ internal static class ToolsDisplay
             UI.Label();
         }
 
-
         UI.Label();
 
         toggle = Main.Settings.DisableMultilineSpellOffering;
@@ -73,70 +80,12 @@ internal static class ToolsDisplay
             Main.Settings.DisableUnofficialTranslations = toggle;
         }
 
-        toggle = Main.Settings.EnablePcgRandom;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePcgRandom"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnablePcgRandom = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.NoExperienceOnLevelUp;
-        if (UI.Toggle(Gui.Localize("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.NoExperienceOnLevelUp = toggle;
-        }
-
-        toggle = Main.Settings.OverrideMinMaxLevel;
-        if (UI.Toggle(Gui.Localize("ModUi/&OverrideMinMaxLevel"), ref toggle))
-        {
-            Main.Settings.OverrideMinMaxLevel = toggle;
-        }
-
-        UI.Label();
-
-        var floatValue = Main.Settings.FasterTimeModifier;
-        if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue,
-                DefaultFastTimeModifier, 10f, DefaultFastTimeModifier, 1, string.Empty, UI.AutoWidth()))
-        {
-            Main.Settings.FasterTimeModifier = floatValue;
-        }
-
-        var intValue = Main.Settings.MultiplyTheExperienceGainedBy;
-        if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, string.Empty,
-                UI.Width(100f)))
-        {
-            Main.Settings.MultiplyTheExperienceGainedBy = intValue;
-        }
-
-        intValue = Main.Settings.OverridePartySize;
-        if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
-                ToolsContext.MinPartySize, ToolsContext.MaxPartySize,
-                ToolsContext.GamePartySize, string.Empty, UI.AutoWidth()))
-        {
-            Main.Settings.OverridePartySize = intValue;
-
-            while (Main.Settings.DefaultPartyHeroes.Count > intValue)
-            {
-                Main.Settings.DefaultPartyHeroes.RemoveAt(Main.Settings.DefaultPartyHeroes.Count - 1);
-            }
-        }
-
-        if (Main.Settings.OverridePartySize > ToolsContext.GamePartySize)
-        {
-            UI.Label();
-
-            toggle = Main.Settings.AllowAllPlayersOnNarrativeSequences;
-            if (UI.Toggle(Gui.Localize("ModUi/&AllowAllPlayersOnNarrativeSequences"), ref toggle))
-            {
-                Main.Settings.AllowAllPlayersOnNarrativeSequences = toggle;
-            }
-        }
-
         if (!Gui.GameCampaign)
         {
             return;
         }
+
+        UI.Label();
 
         var gameCampaign = Gui.GameCampaign;
 
@@ -157,11 +106,18 @@ internal static class ToolsDisplay
         }
     }
 
-    private static void DisplaySettings()
+    private static void DisplayMultiplayer()
     {
-        UI.Label();
-        UI.Label(Gui.Localize("ModUi/&Multiplayer"));
-        UI.Label();
+        var toggle = Main.Settings.DisplayMultiplayerToggle;
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Multiplayer"), ref toggle, 200))
+        {
+            Main.Settings.DisplayMultiplayerToggle = toggle;
+        }
+
+        if (!Main.Settings.DisplayMultiplayerToggle)
+        {
+            return;
+        }
 
         UI.Label(Gui.Localize("ModUi/&SettingsHelp"));
         UI.Label();
@@ -209,5 +165,51 @@ internal static class ToolsDisplay
         {
             Main.LoadSettings(Main.SettingsFiles[intValue]);
         }
+    }
+
+    private static void DisplayOneDnd()
+    {
+        var toggle = Main.Settings.DisplayOneDndToggle;
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&OneDnd"), ref toggle, 200))
+        {
+            Main.Settings.DisplayOneDndToggle = toggle;
+        }
+
+        if (!Main.Settings.DisplayOneDndToggle)
+        {
+            return;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.OneDndHealingPotionBonusAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&OneDndHealingPotionBonusAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.OneDndHealingPotionBonusAction = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndHealingPotionBonusAction();
+        }
+
+        toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
+        }
+
+        toggle = Main.Settings.EnableWizardToLearnSchoolAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnSchoolAtLevel3"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWizardToLearnSchoolAtLevel3 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWizardSchoolOfMagicLearningLevel();
+        }
+
+        toggle = Main.Settings.SwapEvocationPotentCantripAndSculptSpell;
+        if (!UI.Toggle(Gui.Localize("ModUi/&SwapEvocationPotentCantripAndSculptSpell"), ref toggle, UI.AutoWidth()))
+        {
+            return;
+        }
+
+        Main.Settings.SwapEvocationPotentCantripAndSculptSpell = toggle;
+        WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
     }
 }

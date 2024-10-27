@@ -226,6 +226,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Le creature in
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia le aree <color=#D89555>oscurate magicamente</color> in bloccanti proiettili <color=#F0DAA0>[qualsiasi fonte dell'effetto dell'incantesimo <color=#D89555>Oscurità</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Aggiungi <color=#D89555>Visione Oscura</color>, <color=#D89555>Vista Cieca</color> e <color=#D89555>Vista Vera</color> a mostri e PNG quando appropriato</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[raccolte di impostazioni <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OneDnd=<color=#F0DAA0>Un DnD:</color>
 ModUi/&OneDndHealingPotionBonusAction=Abilita l'azione bonus sugli utilizzi di <color=#D89555>Pozioni curative</color> e <color=#D89555>Antitossina</color> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostra solo le creature più potenti nell'elenco delle evocazioni</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Moltiplica la larghezza della griglia del contorno per</color> <color=#C04040E0>[%]</color>

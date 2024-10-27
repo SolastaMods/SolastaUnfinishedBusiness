@@ -226,6 +226,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 不可視の�
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>魔法で隠された</color>領域を、発射物ブロッカー <color=#F0DAA0>[<color=#D89555>闇</color> 呪文効果の任意のソース]</color に変更します</i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 必要に応じてモンスターと NPC に <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color>、<color=#D89555>TrueSight</color> を追加します</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OneDnd=<color=#F0DAA0>ワンダンジョンズ:</color>
 ModUi/&OneDndHealingPotionBonusAction=<color=#D89555>回復ポーション</color>と<color=#D89555>解毒剤</color>の使用時にボーナスアクションを有効にする <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストに最も強力なクリーチャーのみを表示する</i>
 ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します

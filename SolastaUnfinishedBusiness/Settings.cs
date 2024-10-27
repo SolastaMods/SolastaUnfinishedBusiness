@@ -26,6 +26,8 @@ public class Settings : UnityModManager.ModSettings
     // SETTINGS UI TOGGLES
     //
 
+    public bool DisplayMultiplayerToggle { get; set; }
+    public bool DisplayOneDndToggle { get; set; }
     public bool DisplayRacesToggle { get; set; }
     public bool DisplaySubracesToggle { get; set; }
     public bool DisplayBackgroundsToggle { get; set; }
@@ -150,16 +152,10 @@ public class Settings : UnityModManager.ModSettings
     // Gameplay - General
     //
 
+    public bool EnablePcgRandom { get; set; }
     public bool EnableCustomPortraits { get; set; }
     public bool DisableMultilineSpellOffering { get; set; }
     public bool DisableUnofficialTranslations { get; set; }
-    public bool EnablePcgRandom { get; set; }
-    public bool NoExperienceOnLevelUp { get; set; }
-    public bool OverrideMinMaxLevel { get; set; }
-    public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
-    public int MultiplyTheExperienceGainedBy { get; set; } = 100;
-    public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
-    public bool AllowAllPlayersOnNarrativeSequences { get; set; }
 
     //
     // Gameplay - Rules
@@ -222,6 +218,12 @@ public class Settings : UnityModManager.ModSettings
     // Gameplay - Campaigns
     //
 
+    public bool NoExperienceOnLevelUp { get; set; }
+    public bool OverrideMinMaxLevel { get; set; }
+    public float FasterTimeModifier { get; set; } = CampaignsDisplay.DefaultFastTimeModifier;
+    public int MultiplyTheExperienceGainedBy { get; set; } = 100;
+    public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
+    public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public bool AddPickPocketableLoot { get; set; }
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }

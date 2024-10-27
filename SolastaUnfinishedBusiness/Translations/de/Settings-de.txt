@@ -226,6 +226,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Unsichtbare Kr
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>magisch verborgene</color> Bereiche in Projektilblocker ändern <color=#F0DAA0>[jede Quelle des Zaubereffekts <color=#D89555>Dunkelheit</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Füge Monstern und NPCs bei Bedarf <color=#D89555>Dunkelsicht</color>, <color=#D89555>Blindsicht</color> und <color=#D89555>Wahrsicht</color> hinzu</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[Einstellungssammlungen <b>Monster, die über Dunkelsicht verfügen sollten</b>, <b>Monster, die über echte Sicht verfügen sollten</b>, <b>Monster, die über blinde Sicht verfügen sollten</b>]</color></i>
+ModUi/&OneDnd=<color=#F0DAA0>Ein DnD:</color>
 ModUi/&OneDndHealingPotionBonusAction=Aktiviere Bonusaktionen bei der Verwendung von <color=#D89555>Heiltränken</color> und <color=#D89555>Antitoxin</color> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Nur die mächtigsten Kreaturen in der Beschwörungsliste anzeigen</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Umrissgitters mit</color> <color=#C04040E0>[%]</color>
