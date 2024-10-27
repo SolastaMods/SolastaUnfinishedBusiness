@@ -46,7 +46,6 @@ internal static class BackgroundsAndRacesDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
-
         toggle = Main.Settings.EnableAlternateHuman;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
         {

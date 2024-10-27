@@ -150,43 +150,49 @@ public class Settings : UnityModManager.ModSettings
     // Gameplay - General
     //
 
-    public bool EnableEpicPointsAndArray { get; set; }
-    public bool EnableLevel20 { get; set; }
-    public bool EnableMulticlass { get; set; }
-    public bool EnableRespecAction { get; set; }
-    public int MaxAllowedClasses { get; set; }
-    public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
-    public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; }
-    public bool EnableMinInOutAttributes { get; set; }
+    public bool EnableCustomPortraits { get; set; }
     public bool DisableMultilineSpellOffering { get; set; }
     public bool DisableUnofficialTranslations { get; set; }
     public bool EnablePcgRandom { get; set; }
     public bool NoExperienceOnLevelUp { get; set; }
     public bool OverrideMinMaxLevel { get; set; }
+    public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
     public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
-    public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
 
     //
     // Gameplay - Rules
     //
 
+    public bool EnableEpicPointsAndArray { get; set; }
+    public bool EnableLevel20 { get; set; }
+    public bool EnableMulticlass { get; set; }
+    public int MaxAllowedClasses { get; set; }
+    public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
+    public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; }
+    public bool EnableMinInOutAttributes { get; set; }
+    public bool EnableActionSwitching { get; set; }
+    public bool DontEndTurnAfterReady { get; set; }
+    public bool EnableProneAction { get; set; }
+    public bool EnableGrappleAction { get; set; }
+    public bool EnableHelpAction { get; set; }
+    public bool EnableRespecAction { get; set; }
+    public bool EnableUnarmedMainAttackAction { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
+    public bool UseAlternateSpellPointsSystem { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseMathFlankingRules { get; set; }
-    public bool UseOfficialFlankingRulesButAddAttackModifier { get; set; }
-    public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
-    public bool UseOfficialFoodRationsWeight { get; set; }
+    public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
+    public bool UseOfficialFlankingRulesButAddAttackModifier { get; set; }
+    public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     public bool UseOfficialLightingObscurementAndVisionRules { get; set; }
     public bool OfficialObscurementRulesInvisibleCreaturesCanBeTarget { get; set; }
     public bool OfficialObscurementRulesCancelAdvDisPairs { get; set; }
     public bool OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker { get; set; }
     public bool OfficialObscurementRulesMagicalDarknessAsProjectileBlocker { get; set; }
     public bool OfficialObscurementRulesTweakMonsters { get; set; }
-    public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
-    public bool UseAlternateSpellPointsSystem { get; set; }
     public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
     public bool StealthDoesNotBreakWithSubtle { get; set; }
     public bool StealthBreaksWhenAttackHits { get; set; }
@@ -194,22 +200,12 @@ public class Settings : UnityModManager.ModSettings
     public bool StealthBreaksWhenCastingMaterial { get; set; }
     public bool StealthBreaksWhenCastingVerbose { get; set; }
     public bool StealthBreaksWhenCastingSomatic { get; set; }
+    public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AddDexModifierToEnemiesInitiativeRoll { get; set; }
     public bool EnemiesAlwaysRollInitiative { get; set; }
-    public bool DontEndTurnAfterReady { get; set; }
-    public bool KeepInvisibilityWhenUsingItems { get; set; }
-    public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
-    public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
-    public int TotalFeatsGrantedFirstLevel { get; set; }
-    public bool EnablesAsiAndFeat { get; set; }
-    public bool EnableFeatsAtEveryFourLevels { get; set; }
-    public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
-    public bool AccountForAllDiceOnFollowUpStrike { get; set; }
-    public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowFlightSuspend { get; set; }
     public bool FlightSuspendWingedBoots { get; set; }
     public bool EnablePullPushOnVerticalDirection { get; set; }
-    public bool ModifyGravitySlam { get; set; }
     public bool FullyControlConjurations { get; set; }
     public bool EnableHigherGroundRules { get; set; }
     public bool EnableTeleportToRemoveRestrained { get; set; }
@@ -220,6 +216,7 @@ public class Settings : UnityModManager.ModSettings
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }
     public int CriticalHitModeNeutral { get; set; }
+
 
     //
     // Gameplay - Campaigns
@@ -234,10 +231,8 @@ public class Settings : UnityModManager.ModSettings
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }
     public bool EnableSumD20OnAlternateVotingSystem { get; set; }
-    public bool EnableStatsOnHeroTooltip { get; set; }
-    public bool EnableActionSwitching { get; set; }
-    public bool EnableCustomPortraits { get; set; }
     public bool AllowMoreRealStateOnRestPanel { get; set; }
+    public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableExtendedProficienciesPanelDisplay { get; set; }
     public bool HideMonsterHitPoints { get; set; }
@@ -286,36 +281,6 @@ public class Settings : UnityModManager.ModSettings
         ]
     ];
 
-    //
-    // Gameplay - Items, Crafting & Merchants
-    //
-
-    public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
-    public bool IdentifyAfterRest { get; set; }
-    public bool IncreaseMaxAttunedItems { get; set; }
-    public bool RemoveAttunementRequirements { get; set; }
-    public bool AllowAnyClassToWearSylvanArmor { get; set; }
-    public bool AllowClubsToBeThrown { get; set; }
-    public bool IgnoreHandXbowFreeHandRequirements { get; set; }
-    public bool MakeAllMagicStaveArcaneFoci { get; set; }
-    public bool FixRingOfRegenerationHealRate { get; set; }
-    public bool AddCustomIconsToOfficialItems { get; set; }
-    public bool DisableAutoEquip { get; set; }
-    public bool EnableInventoryFilteringAndSorting { get; set; }
-    public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
-    public bool EnableInventoryTintKnownRecipesRed { get; set; }
-    public bool SwapCraftedItemAndRecipeIcons { get; set; }
-    public bool OneDndHealingPotionBonusAction { get; set; }
-    public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
-
-    // Crafting
-    public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
-    public bool ShowCraftedItemOnRecipeIcon { get; set; }
-    public int RecipeCost { get; set; } = 200;
-    public int TotalCraftingTimeModifier { get; set; }
-    public bool AddNewWeaponsAndRecipesToShops { get; set; }
-    public List<string> CraftingInStore { get; } = [];
-
     // Merchants
     public bool ScaleMerchantPricesCorrectly { get; set; }
     public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
@@ -326,6 +291,38 @@ public class Settings : UnityModManager.ModSettings
     public bool RestockArcaneum { get; set; }
     public bool RestockCircleOfDanantar { get; set; }
     public bool RestockTowerOfKnowledge { get; set; }
+
+    //
+    // Gameplay - Items, Crafting & Merchants
+    //
+
+    public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
+    public bool IdentifyAfterRest { get; set; }
+    public bool IncreaseMaxAttunedItems { get; set; }
+    public bool RemoveAttunementRequirements { get; set; }
+    public bool AllowAnyClassToWearSylvanArmor { get; set; }
+    public bool AllowClubsToBeThrown { get; set; }
+    public bool UseOfficialFoodRationsWeight { get; set; }
+    public bool MakeAllMagicStaveArcaneFoci { get; set; }
+    public bool FixRingOfRegenerationHealRate { get; set; }
+    public bool IgnoreHandXbowFreeHandRequirements { get; set; }
+    public bool OneDndHealingPotionBonusAction { get; set; }
+    public bool KeepInvisibilityWhenUsingItems { get; set; }
+    public bool AddCustomIconsToOfficialItems { get; set; }
+    public bool DisableAutoEquip { get; set; }
+    public bool EnableInventoryFilteringAndSorting { get; set; }
+    public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
+    public bool EnableInventoryTintKnownRecipesRed { get; set; }
+    public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
+
+    // Crafting
+    public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
+    public bool ShowCraftedItemOnRecipeIcon { get; set; }
+    public bool SwapCraftedItemAndRecipeIcons { get; set; }
+    public int RecipeCost { get; set; } = 200;
+    public int TotalCraftingTimeModifier { get; set; }
+    public bool AddNewWeaponsAndRecipesToShops { get; set; }
+    public List<string> CraftingInStore { get; } = [];
 
     //
     // Interface - Dungeon Maker
@@ -345,10 +342,6 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Classes
     //
 
-    public bool EnableUnarmedMainAttackAction { get; set; }
-    public bool EnableProneAction { get; set; }
-    public bool EnableGrappleAction { get; set; }
-    public bool EnableHelpAction { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
@@ -388,12 +381,13 @@ public class Settings : UnityModManager.ModSettings
 
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
+    public bool ChangeDragonbornElementalBreathUsages { get; set; }
+    public bool EnableAlternateHuman { get; set; }
+    public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
     public bool DisableSenseDarkVisionFromAllRaces { get; set; }
     public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool AddDarknessPerceptiveToDarkRaces { get; set; }
     public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
-    public bool EnableAlternateHuman { get; set; }
-    public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = [];
     public int SubraceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
@@ -409,6 +403,11 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableLevelPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
     public bool DisableCastSpellPreRequisitesOnModFeats { get; set; }
+    public int TotalFeatsGrantedFirstLevel { get; set; }
+    public bool EnablesAsiAndFeat { get; set; }
+    public bool EnableFeatsAtEveryFourLevels { get; set; }
+    public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
+    public bool AccountForAllDiceOnFollowUpStrike { get; set; }
     public bool AllowCantripsTriggeringOnWarMagic { get; set; }
     public int FeatSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> FeatEnabled { get; } = [];
@@ -427,6 +426,7 @@ public class Settings : UnityModManager.ModSettings
 
     public bool AllowBladeCantripsToUseReach { get; set; }
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
+    public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
@@ -437,6 +437,7 @@ public class Settings : UnityModManager.ModSettings
     public bool ChangeSleetStormToCube { get; set; }
     public bool UseHeightOneCylinderEffect { get; set; }
     public bool FixEldritchBlastRange { get; set; }
+    public bool ModifyGravitySlam { get; set; }
     public bool EnableOneDndHealingSpellsBuf { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }

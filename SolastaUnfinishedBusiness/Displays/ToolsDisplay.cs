@@ -21,8 +21,6 @@ internal static class ToolsDisplay
 
     private static void DisplayGeneral()
     {
-        int intValue;
-
         UI.Label();
 
         using (UI.HorizontalScope())
@@ -104,7 +102,7 @@ internal static class ToolsDisplay
             Main.Settings.FasterTimeModifier = floatValue;
         }
 
-        intValue = Main.Settings.MultiplyTheExperienceGainedBy;
+        var intValue = Main.Settings.MultiplyTheExperienceGainedBy;
         if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, string.Empty,
                 UI.Width(100f)))
         {

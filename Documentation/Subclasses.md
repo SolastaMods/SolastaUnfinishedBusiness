@@ -6776,7 +6776,7 @@ You gain a +2 AC bonus, and you are always considered under the effect of half-c
 
 # Wizard
 
-## 1. Abjuration [UB]
+## 1. Abjurer [UB]
 
 The School of Abjuration emphasizes magic that blocks, banishes, or protects. It is a proud and respected vocation.Called abjurers, members of this school are sought when baleful spirits require exorcism, when important locations must be guarded against magical spying, and when portals to other planes of existence must be closed.
 
@@ -6860,7 +6860,7 @@ Once per turn, your weapon attacks deal an extra 1d8 damage.
 
 
 
-## 3. Bladesinging [UB]
+## 3. Bladesinger [UB]
 
 Bladesingers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 
@@ -7004,7 +7004,7 @@ You can use your action a number of times a day equal to your proficiency bonus,
 
 
 
-## 6. Evocation [UB]
+## 6. Evoker [UB]
 
 You focus your study on magic that creates powerful elemental effects such as bitter cold, searing flame, rolling thunder, crackling lightning, and burning acid. Some evokers find employment in military forces, serving as artillery to blast enemy armies from afar. Others use their spectacular power to protect the weak, while some seek their own gain as bandits, adventurers, or aspiring tyrants.
 
@@ -7017,7 +7017,7 @@ Beginning when you select this school at 2nd level, the gold and time you must s
 
 * Sculpt Spells
 
-You can create pockets of relative safety within the effects of your evocation spells. When you cast an evocation spell that affects allies, they take no damage if they would normally take half damage on a successful save.
+Whenever you cast a damaging evocation spell that can affect other creatures, you can create pockets of relative safety, causing allied creatures you see to be unaffected by the spell.
 
 
 ### Level 6
@@ -7042,7 +7042,7 @@ You can increase the power of your simpler spells. When you cast a wizard spell 
 
 
 
-## 7. Graviturgy [UB]
+## 7. Graviturgist [UB]
 
 Understanding and mastering the forces that draw bodies of matter together or drive them apart, the students of the Graviturgy arcane tradition learn to further bend and manipulate the violent energy of gravity to their benefit, and the terrible detriment of their enemies.
 
@@ -7264,7 +7264,7 @@ Your training with magic gives you advantage on saving throws against spells.
 
 
 
-## 12. War Magic [UB]
+## 12. War Mage [UB]
 
 A variety of arcane colleges specialize in training wizards for war. The tradition of War Magic blends principles of evocation and abjuration, rather than specializing in either of those schools. It teaches techniques that empower a caster's spells, while also providing methods for wizards to bolster their own defenses. Followers of this tradition are known as war mages. They see their magic as both a weapon and armor, a resource superior to any piece of steel. War mages act fast in battle, using their spells to seize tactical control of a situation. Their spells strike hard, while their defensive skills foil their opponents' attempts to counterattack. War mages are also adept at turning other spell casters' magical energy against them.
 
@@ -7273,7 +7273,7 @@ A variety of arcane colleges specialize in training wizards for war. The traditi
 
 * Arcane Deflection
 
-You have learned to weave your magic to fortify yourself against harm. When you are hit by an attack, or you fail a saving throw, you can use your reaction to subtract your Intelligence modifier from the attack roll, or add it to the saving roll. When you use this feature, you can't cast spells other than cantrips until the end of your next turn.
+You have learned to weave your magic to fortify yourself against harm. When you are hit by an attack, or you fail a saving throw, you can use your reaction to subtract your Intelligence modifier from the attack roll, or add it to the saving roll.
 
 * Tactical Wit
 

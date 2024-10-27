@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using HarmonyLib;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
@@ -303,10 +302,39 @@ internal static class CraftingAndItems
             {
                 while (current < count && cols < MaxColumns)
                 {
-                    AddUIForWeaponKey(keys.ElementAt(current));
+                    var key = keys.ElementAt(current);
+                    var category = CraftingContext.RecipeTitles[key];
+
+                    toggle = Main.Settings.CraftingInStore.Contains(key);
+                    // ReSharper disable once InvertIf
+                    if (UI.Toggle(Gui.Format("ModUi/&AddToStore", category), ref toggle, UI.Width(125f)))
+                    {
+                        if (toggle)
+                        {
+                            Main.Settings.CraftingInStore.Add(key);
+                        }
+                        else
+                        {
+                            Main.Settings.CraftingInStore.Remove(key);
+                        }
+
+                        CraftingContext.AddToStore(key);
+                    }
 
                     cols++;
                     current++;
+                }
+
+                if (current < count)
+                {
+                    continue;
+                }
+
+                while (cols < MaxColumns)
+                {
+                    UI.Space(125f);
+
+                    cols++;
                 }
             }
         }
@@ -398,30 +426,6 @@ internal static class CraftingAndItems
             }
 
             DisplayItemsBox();
-        }
-    }
-
-    private static void AddUIForWeaponKey([NotNull] string key)
-    {
-        using (UI.HorizontalScope(UI.AutoWidth()))
-        {
-            var category = CraftingContext.RecipeTitles[key];
-
-            var toggle = Main.Settings.CraftingInStore.Contains(key);
-            // ReSharper disable once InvertIf
-            if (UI.Toggle(Gui.Format("ModUi/&AddToStore", category), ref toggle, UI.Width(125f)))
-            {
-                if (toggle)
-                {
-                    Main.Settings.CraftingInStore.Add(key);
-                }
-                else
-                {
-                    Main.Settings.CraftingInStore.Remove(key);
-                }
-
-                CraftingContext.AddToStore(key);
-            }
         }
     }
 
