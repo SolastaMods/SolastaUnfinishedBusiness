@@ -181,7 +181,7 @@ public sealed class WizardAbjuration : AbstractSubclass
         // Assemble the subclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardWarMagic, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardAbjuration, 256))
             .AddFeaturesAtLevel(2, magicAffinityAbjurationScriber, PowerArcaneWard)
             .AddFeaturesAtLevel(6, powerProjectedWard)
             .AddFeaturesAtLevel(10, featureSetImprovedAbjuration)

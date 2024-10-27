@@ -213,7 +213,9 @@ public sealed class WizardEvocation : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (rulesetEffect.SourceDefinition is not SpellDefinition { SchoolOfMagic: SchoolEvocation })
+            if (rulesetEffect.SourceDefinition is not SpellDefinition { SchoolOfMagic: SchoolEvocation } spell ||
+                spell.EffectDescription.TargetSide == Side.Ally ||
+                spell.EffectDescription.TargetType == TargetType.Self)
             {
                 yield break;
             }
@@ -223,7 +225,7 @@ public sealed class WizardEvocation : AbstractSubclass
 
             foreach (var ally in targets
                          .Where(x => !x.IsOppositeSide(attacker.Side) && attacker.CanPerceiveTarget(x))
-                         .ToList())
+                         .ToArray())
             {
                 hasAlly = true;
                 targets.Remove(ally);
@@ -255,16 +257,12 @@ public sealed class WizardEvocation : AbstractSubclass
         {
             var isCantrip = rulesetEffect.SourceDefinition is SpellDefinition { SpellLevel: 0 };
 
-            switch (isCantrip)
+            if (!isCantrip ||
+                rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit) ||
+                (!firstTarget &&
+                 rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique))
             {
-                case false:
-                case true when rulesetEffect.EffectDescription.RangeType
-                    is not (RangeType.MeleeHit or RangeType.RangeHit):
-                case true when !firstTarget &&
-                               rulesetEffect.EffectDescription.TargetType
-                                   is TargetType.Individuals
-                                   or TargetType.IndividualsUnique:
-                    yield break;
+                yield break;
             }
 
             var effectForm = actualEffectForms

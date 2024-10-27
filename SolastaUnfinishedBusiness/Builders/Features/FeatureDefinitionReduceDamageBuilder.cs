@@ -33,6 +33,7 @@ internal class FeatureDefinitionReduceDamageBuilder
         return this;
     }
 
+#if false
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetFeedbackPowerReducedDamage(
         ReducedDamageHandler reducedDamage,
@@ -47,6 +48,7 @@ internal class FeatureDefinitionReduceDamageBuilder
         Definition.SourceCondition = sourceCondition;
         return this;
     }
+#endif
 
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetNotificationTag(string notificationTag)
