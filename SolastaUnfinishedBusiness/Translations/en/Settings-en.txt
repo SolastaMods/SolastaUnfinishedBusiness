@@ -163,7 +163,7 @@ ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering o
 ModUi/&EnableUnarmedMainAttackAction=Enable the <color=#D89555>Unarmed Attack</color> action <i><color=#F0DAA0>[if actor has weapon in main, is a <b>Monk</b> or has <b>handwraps</b> or <b>gauntlet</b> equipped]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descriptions <i><color=#F0DAA0>[use {VARIABLE_NAME} as placeholder]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Enable <b>Wizard></b> acquire the school of magic at level 3 instead of 2 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Enable <b>Wizard</b> acquire the school of magic at level 3 instead of 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and <color=#D89555>feats</color> selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Encounters

@@ -164,7 +164,7 @@ ModUi/&EnableTooltipDistance=Habilitar la visualización de la distancia en las 
 ModUi/&EnableUnarmedMainAttackAction=Habilitar la acción <color=#D89555>Ataque desarmado</color> <i><color=#F0DAA0>[si el actor tiene un arma en el personaje principal, es un <b>Monje</b> o tiene <b>vendas</b> o <b>guanteletes</b> equipados]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar la conversión ascendente de <color=#D89555>Conjurar elemental</color> y <color=#D89555>Conjurar feérico</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Permite que <b>Mago</b> adquiera la escuela de magia en el nivel 3 en lugar de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Permite que el <b>Mago</b> adquiera la escuela de magia en el nivel 3 en lugar de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=Habilitar tanto el aumento de las puntuaciones de atributos como la selección de <color=#D89555>dotes</color> <i><color=#F0DAA0>[en lugar de una elección exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentajes de posibilidades de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros

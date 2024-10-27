@@ -163,7 +163,7 @@ ModUi/&EnableTooltipDistance=Abilita la visualizzazione della distanza nei sugge
 ModUi/&EnableUnarmedMainAttackAction=Abilita l'azione <color=#D89555>Attacco disarmato</color> <i><color=#F0DAA0>[se l'attore ha un'arma nel personaggio principale, è un <b>monaco</b> o ha <b>fasce</b> o <b>guanto</b> equipaggiati]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555>Evoca Elementale</color> e <color=#D89555>Evoca Fata</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Abilita segnaposto variabili nelle descrizioni <i><color=#F0DAA0>[usa {VARIABLE_NAME} come segnaposto]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Abilita <b>Wizard></b> ad acquisire la scuola di magia al livello 3 invece che 2 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Abilita <b>Wizard</b> ad acquisire la scuola di magia al livello 3 invece che 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione delle <color=#D89555>imprese</color> <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Imposta le percentuali di probabilità di incontri casuali</color>
 ModUi/&Encounters=Incontri
