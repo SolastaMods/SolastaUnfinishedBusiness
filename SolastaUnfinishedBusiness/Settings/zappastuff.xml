@@ -458,6 +458,225 @@
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
+    <AddPickPocketableLoot>true</AddPickPocketableLoot>
+    <AltOnlyHighlightItemsInPartyFieldOfView>true</AltOnlyHighlightItemsInPartyFieldOfView>
+    <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
+    <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
+    <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
+    <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
+    <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
+    <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
+    <EnableSumD20OnAlternateVotingSystem>true</EnableSumD20OnAlternateVotingSystem>
+    <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
+    <EnableActionSwitching>true</EnableActionSwitching>
+    <EnableCustomPortraits>true</EnableCustomPortraits>
+    <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
+    <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
+    <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
+    <HideMonsterHitPoints>true</HideMonsterHitPoints>
+    <RemoveBugVisualModels>false</RemoveBugVisualModels>
+    <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
+    <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
+    <EnableElevationCameraToStayAtPosition>true</EnableElevationCameraToStayAtPosition>
+    <NeverMoveCameraOnEnemyTurn>true</NeverMoveCameraOnEnemyTurn>
+    <EnableCancelEditOnRightMouseClick>true</EnableCancelEditOnRightMouseClick>
+    <DontFollowMargin>5</DontFollowMargin>
+    <GridSelectedColor>1</GridSelectedColor>
+    <MovementGridWidthModifier>100</MovementGridWidthModifier>
+    <OutlineGridWidthModifier>0</OutlineGridWidthModifier>
+    <OutlineGridWidthSpeed>100</OutlineGridWidthSpeed>
+    <EnableDistanceOnTooltip>true</EnableDistanceOnTooltip>
+    <ShowMotionFormPreview>true</ShowMotionFormPreview>
+    <HighContrastTargetingAoeSelectedColor>0</HighContrastTargetingAoeSelectedColor>
+    <HighContrastTargetingSingleSelectedColor>0</HighContrastTargetingSingleSelectedColor>
+    <FormationGridSelectedSet>0</FormationGridSelectedSet>
+    <FormationGridSets>
+        <ArrayOfArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+        </ArrayOfArrayOfInt>
+        <ArrayOfArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+        </ArrayOfArrayOfInt>
+        <ArrayOfArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>1</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+            </ArrayOfInt>
+        </ArrayOfArrayOfInt>
+        <ArrayOfArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+            </ArrayOfInt>
+        </ArrayOfArrayOfInt>
+        <ArrayOfArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+        </ArrayOfArrayOfInt>
+    </FormationGridSets>
     <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>true</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
@@ -473,12 +692,11 @@
     <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
+    <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
+    <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
+    <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
     <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
     <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
-    <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
-    <AddPickPocketableLoot>true</AddPickPocketableLoot>
-    <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
-    <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
     <RecipeCost>200</RecipeCost>
     <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
     <CraftingInStore>
@@ -623,7 +841,6 @@
     <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
     <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
     <UnleashEnemyAsNpc>false</UnleashEnemyAsNpc>
-    <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
     <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
     <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
@@ -633,7 +850,6 @@
     <AddGrappleActionToAllRaces>true</AddGrappleActionToAllRaces>
     <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
     <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
-    <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
@@ -664,6 +880,8 @@
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
+    <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
+    <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
@@ -1445,12 +1663,14 @@
             </value>
         </item>
     </SpellListSpellEnabled>
-    <AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>false
+    <AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>true
     </AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>
     <EnableBardHealingBalladOnLongRest>true</EnableBardHealingBalladOnLongRest>
     <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
     <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
     <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
+    <EnableBg3AbjurationArcaneWard>true</EnableBg3AbjurationArcaneWard>
+    <SwapEvocationPotentCantripAndSculptSpell>true</SwapEvocationPotentCantripAndSculptSpell>
     <KlassListSliderPosition>
         <item>
             <key>
@@ -1739,9 +1959,11 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>WizardAbjuration</string>
                     <string>WizardArcaneFighter</string>
                     <string>WizardBladeDancer</string>
                     <string>WizardDeadMaster</string>
+                    <string>WizardEvocation</string>
                     <string>WizardGraviturgist</string>
                     <string>WizardSpellMaster</string>
                     <string>WizardWarMagic</string>
@@ -1764,224 +1986,6 @@
             </value>
         </item>
     </KlassListSubclassEnabled>
-    <AltOnlyHighlightItemsInPartyFieldOfView>true</AltOnlyHighlightItemsInPartyFieldOfView>
-    <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
-    <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
-    <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
-    <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
-    <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
-    <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
-    <EnableSumD20OnAlternateVotingSystem>true</EnableSumD20OnAlternateVotingSystem>
-    <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
-    <EnableActionSwitching>true</EnableActionSwitching>
-    <EnableCustomPortraits>true</EnableCustomPortraits>
-    <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
-    <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
-    <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
-    <HideMonsterHitPoints>true</HideMonsterHitPoints>
-    <RemoveBugVisualModels>false</RemoveBugVisualModels>
-    <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
-    <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
-    <EnableElevationCameraToStayAtPosition>true</EnableElevationCameraToStayAtPosition>
-    <NeverMoveCameraOnEnemyTurn>true</NeverMoveCameraOnEnemyTurn>
-    <EnableCancelEditOnRightMouseClick>true</EnableCancelEditOnRightMouseClick>
-    <DontFollowMargin>5</DontFollowMargin>
-    <GridSelectedColor>1</GridSelectedColor>
-    <MovementGridWidthModifier>100</MovementGridWidthModifier>
-    <OutlineGridWidthModifier>0</OutlineGridWidthModifier>
-    <OutlineGridWidthSpeed>100</OutlineGridWidthSpeed>
-    <EnableDistanceOnTooltip>true</EnableDistanceOnTooltip>
-    <ShowMotionFormPreview>true</ShowMotionFormPreview>
-    <HighContrastTargetingAoeSelectedColor>0</HighContrastTargetingAoeSelectedColor>
-    <HighContrastTargetingSingleSelectedColor>0</HighContrastTargetingSingleSelectedColor>
-    <FormationGridSelectedSet>0</FormationGridSelectedSet>
-    <FormationGridSets>
-        <ArrayOfArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-        </ArrayOfArrayOfInt>
-        <ArrayOfArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-        </ArrayOfArrayOfInt>
-        <ArrayOfArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>1</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-            </ArrayOfInt>
-        </ArrayOfArrayOfInt>
-        <ArrayOfArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-            </ArrayOfInt>
-        </ArrayOfArrayOfInt>
-        <ArrayOfArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-        </ArrayOfArrayOfInt>
-    </FormationGridSets>
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>

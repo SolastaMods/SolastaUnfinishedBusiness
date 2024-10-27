@@ -26,7 +26,7 @@ public static class CharacterActionMoveStepWalkPatcher
             var source = mover.LocationPosition;
             var destination = currentStep.position;
 
-            MovementTracker.RecordMovement(mover, mover.DestinationPosition);
+            MovementTracker.RecordMovement(mover, destination);
 
             foreach (var moveStepStarted in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepStarted>())
             {

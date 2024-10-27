@@ -570,10 +570,10 @@ internal static class GrappleContext
 
             if (canTeleport)
             {
+                var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+
                 target.Pushed = true;
-                target.StartTeleportTo(targetDestinationPosition, mover.Orientation);
-                target.FinishMoveTo(targetDestinationPosition, mover.Orientation);
-                target.StopMoving(mover.Orientation);
+                positioningService.TeleportCharacter(target, targetDestinationPosition, mover.Orientation);
                 target.Pushed = false;
 
                 var isLastStep = GetDistanceFromCharacter(mover, mover.DestinationPosition) <= 1;

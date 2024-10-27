@@ -19,4 +19,4 @@ Reaction/&CustomReactionArcaneDeflectionSavingReactDescription=Succeed
 Reaction/&CustomReactionArcaneDeflectionSavingReactTitle=Arcane Deflection
 Reaction/&CustomReactionArcaneDeflectionSavingTitle=Arcane Deflection
 Subclass/&WizardWarMagicDescription=A variety of arcane colleges specialize in training wizards for war. The tradition of War Magic blends principles of evocation and abjuration, rather than specializing in either of those schools. It teaches techniques that empower a caster's spells, while also providing methods for wizards to bolster their own defenses. Followers of this tradition are known as war mages. They see their magic as both a weapon and armor, a resource superior to any piece of steel. War mages act fast in battle, using their spells to seize tactical control of a situation. Their spells strike hard, while their defensive skills foil their opponents' attempts to counterattack. War mages are also adept at turning other spell casters' magical energy against them.
-Subclass/&WizardWarMagicTitle=War Magic
+Subclass/&WizardWarMagicTitle=War Mage

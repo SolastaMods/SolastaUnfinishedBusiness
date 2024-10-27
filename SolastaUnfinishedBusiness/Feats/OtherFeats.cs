@@ -2884,7 +2884,7 @@ internal static class OtherFeats
             switch (action)
             {
                 case CharacterActionAttack when
-                    ValidatorsWeapon.IsMelee(action.ActionParams.AttackMode):
+                    ValidatorsWeapon.IsMeleeOrUnarmed(action.ActionParams.AttackMode):
                 {
                     rulesetAttacker.InflictCondition(
                         conditionImmuneAoO.Name,
