@@ -1,14 +1,11 @@
 ModUi/&AccountForAllDiceOnFollowUpStrike=Add all additional effect from base weapon to <color=#D89555>Follow up Strike</color> feat
 ModUi/&AccountForAllDiceOnSavageAttack=Add all dice from base weapon damage to features that add base weapon damage instead of 1 dice only <i><color=#F0DAA0>[Savage Attack, 2H weapons, etc.]</color></i>
-ModUi/&AddAllToStore=Add below to shops
+ModUi/&AddAllToStore=Add below to shops <i><color=#F0DAA0>[these are reused game recipes on other weapon categories]</color></i>
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
 ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Add DEX modifier to enemies <color=#D89555>Initiative Roll</color>
-ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Add the class level as a bonus to <color=#D89555>Indomitable Resistance</color> saving throw reroll
-ModUi/&EnableGrappleAction=Enable the <color=#D89555>Grapple</color> action
-ModUi/&EnableHelpAction=Enable the <color=#D89555>Help</color> action <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Humanoid</color> preferred enemies
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
@@ -120,13 +117,14 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selecti
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
-ModUi/&EnableUnarmedMainAttackAction=Enable the <color=#D89555>Unarmed Attack</color> action <i><color=#F0DAA0>[if actor has weapon in main, is a <b>Monk</b> or has <b>handwraps</b> or <b>gauntlet</b> equipped]</color></i>
+ModUi/&EnableGrappleAction=Enable the <color=#D89555>Grapple</color> action
+ModUi/&EnableHelpAction=Enable the <color=#D89555>Help</color> action <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Enable the hero with best proficiency to roll dialogue choices <i><color=#F0DAA0>[it works but narrations look odd on official campaigns]</color></i>
-ModUi/&EnableHigherGroundRules=Enable higher ground rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
+ModUi/&EnableHigherGroundRules=Enable <color=#D89555>higher ground</color> rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tint red any item the hero isn't proficient with
 ModUi/&EnableInventoryTintKnownRecipesRed=Tint known recipes red
-ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&EnableLevel20=Enable <color=#D89555>level 20</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Enable logging invalid references in custom campaigns
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
@@ -140,9 +138,10 @@ ModUi/&EnableMonkHeightenedMetabolism=Enable <color=#D89555>Heightened Metabolis
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>Improved Unarmored Movement</color> to move along vertical surfaces without falling
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18
 ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
-ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Enable healing dice buff on <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
 ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Nature's Veil</color> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
@@ -159,6 +158,7 @@ ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Enable <color=#D89555>Teleport</color> to remove all <color=#D89555>restrained</color> conditions from target
 ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat
+ModUi/&EnableUnarmedMainAttackAction=Enable the <color=#D89555>Unarmed Attack</color> action <i><color=#F0DAA0>[if actor has weapon in main, is a <b>Monk</b> or has <b>handwraps</b> or <b>gauntlet</b> equipped]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descriptions <i><color=#F0DAA0>[use {VARIABLE_NAME} as placeholder]</color></i>
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Enable learn the school of magic at level 3 <i><color=#F0DAA0>[OneDnd]</color></i>

@@ -1,14 +1,12 @@
+<i><color=#F0DAA0>[la oleada salvaje se activa si los resultados son menores o iguales al umbral]</color></i>
 ModUi/&AccountForAllDiceOnFollowUpStrike=Añade todos los efectos adicionales del arma base a la dote <color=#D89555>Golpe de seguimiento</color>
 ModUi/&AccountForAllDiceOnSavageAttack=Añade todos los dados del daño del arma base a las características que agregan daño del arma base en lugar de solo 1 dado. <i><color=#F0DAA0>[Ataque salvaje, armas a 2 manos, etc.]</color></i>
-ModUi/&AddAllToStore=Añadir a continuación a las tiendas
+ModUi/&AddAllToStore=Agregue a continuación a las tiendas <i><color=#F0DAA0>[estas son recetas de juegos reutilizadas en otras categorías de armas]</color></i>
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangrado</color> a las eliminadas por <color=#D89555>Mayor</color> y <color=#D89555>Restauración menor</color>
 ModUi/&AddCustomIconsToOfficialItems=Añade íconos personalizados a los elementos oficiales del juego <i><color=#F0DAA0>[municiones, recetas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Habilita <color=#D89555>Percepción de la oscuridad</color> en <color=#D89555>Darkelf</color>, <color=#D89555>Kóbold oscuro</color> y <color=#D89555>Enano gris</color> <i><color=#F0DAA0>\n[otorga ventaja en las pruebas de percepción cuando no está iluminado o bajo oscuridad mágica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Añade el modificador DEX a los enemigos <color=#D89555>Tiro de iniciativa</color>
-ModUi/&EnableProneAction=Añade la acción <color=#D89555>Caer boca abajo</color> a todas las clases <i><color=#F0DAA0>[puedes caer boca abajo sin coste]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Añade el nivel de clase como bonificación a la repetición de la tirada de salvación de <color=#D89555>Resistencia indomable</color>.
-ModUi/&EnableGrappleAction=Agregue la acción <color=#D89555>Grapple</color> a todas las clases
-ModUi/&EnableHelpAction=Añade la acción <color=#D89555>Ayuda</color> a todas las clases <i><color=#F0DAA0>[puedes ayudar a una criatura amistosa a atacar a una criatura a 1 celda de ti]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar enemigos preferidos <color=#D89555>humanoides</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=Añade nuevas armas y recetas a las tiendas <i><color=#F0DAA0>[vendas de mano, alabardas, picas, mazas largas, ballestas de mano]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Agregar un interruptor para permitir que los <color=#D89555>Paladines</color> solo habiliten golpes críticos. <i><color=#F0DAA0>[útil para minimizar las solicitudes de reacción]</color></i>
@@ -17,7 +15,7 @@ ModUi/&AddToStore=Agregar {0}
 ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATENCIÓN:</color></b> Estas configuraciones requerirán que el jugador tenga este mod instalado
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir a todos los jugadores en secuencias narrativas</i>
-ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Permitir que los aliados perciban a <color=#D89555>Ranger GloomStalker</color> cuando se encuentran en oscuridad natural
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Permitir que los aliados perciban a <color=#D89555>GloomStalker</color> cuando están en oscuridad natural
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que cualquier clase use <color=#D89555>Armadura de Sylvan</color> o <color=#D89555>Ropa de Portador de Luz</color>
 ModUi/&AllowBladeCantripsToUseReach=Permitir que los <color=#D89555>trucos de espadas</color> utilicen el alcance en lugar de 5 pies
 ModUi/&AllowClubsToBeThrown=Permitir que los <color=#D89555>garrotes</color> se arrojen como <color=#D89555>dagas</color> o <color=#D89555>hachas de mano</color>
@@ -27,7 +25,7 @@ ModUi/&AllowDruidToWearMetalArmor=Permitir que el <color=#D89555>druida</color> 
 ModUi/&AllowDungeonsMaxLevel20=Permitir mazmorras con nivel máximo 20
 ModUi/&AllowFlightSuspend=Permitir suspender temporalmente el vuelo de objetos y hechizos <i><color=#F0DAA0>[no afecta a las razas voladoras ni a las de forma salvaje]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Habilite el clic con <color=#1E81B0>CTRL</color> para omitir cualquier verificación al colocar dispositivos o accesorios
-ModUi/&AllowHasteCasting=Permite lanzar hechizos con acción adicional al estar Acelerado <color=#F0DAA0>[aún estás limitado a 1 hechizo de acción principal por ronda]</color>
+ModUi/&AllowHasteCasting=Permite lanzar hechizos con acción adicional al estar en modo Acelerado <i><color=#F0DAA0>[aún estás limitado a 1 hechizo de acción principal por ronda]</color></i>
 ModUi/&AllowHornsOnAllRaces=Permitir cuernos en todas las razas <i><color=#F0DAA0>[los resultados pueden verse terribles dependiendo de la raza, la cabeza y el cuerno]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Permitir más estado real en el panel de descanso <i><color=#F0DAA0>[ocultar las acciones posteriores al descanso en el panel anterior y las funciones de recuperación en el panel posterior]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material apilado <i><color=#F0DAA0>[p. ej., 2 diamantes de 500 gp equivalen a 1000 gp]</color></i>
@@ -39,11 +37,11 @@ ModUi/&BackgroundsAndRaces=Antecedentes y razas
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Otorgar maldición</color> no requiere concentración cuando se lanza con un espacio de hechizo L5+
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condición <color=#D89555>Cegado</color> no permite el ataque de oportunidad.
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=No habilites ataques de oportunidad cuando estés <color=#D89555>Cegado</color>
 ModUi/&Blueprints=Planos
-ModUi/&Campaigns=Interfaz de usuario del juego
+ModUi/&Campaigns=Campañas
 ModUi/&Category=Categoría
-ModUi/&ChangeDragonbornElementalBreathUsages=Cambiar los usos del aliento elemental de <color=#D89555>Dragonborn</color> a modificador de Constitución por cada descanso corto
+ModUi/&ChangeDragonbornElementalBreathUsages=Cambiar los usos del aliento elemental de <color=#D89555>Dragonborn</color> a modificador CON por cada descanso corto
 ModUi/&ChangeSleetStormToCube=Cambie <color=#D89555>Tormenta de aguanieve</color> para utilizar un cubo en lugar de un cilindro
 ModUi/&Changelog=<b><color=#D89555>Registro de cambios</color></b>
 ModUi/&Character=Personaje
@@ -53,7 +51,7 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resistencia al frío</color> también otorga inmunidad a la condición de frío y reduce el estado de congelado a frío.
 ModUi/&Combat=<color=#F0DAA0>Combate:</color>
 ModUi/&Crafting=<color=#F0DAA0>Elaboración:</color>
-ModUi/&CraftingItems=Artesanía y comerciantes
+ModUi/&CraftingItems=Elaboración y objetos
 ModUi/&Credits=Créditos
 ModUi/&CreditsAndDiagnostics=Créditos y diagnósticos
 ModUi/&Critical=<color=#F0DAA0>Golpe crítico:</color>
@@ -86,7 +84,7 @@ ModUi/&DocsSpells=Hechizos
 ModUi/&DocsSubclasses=Subclases
 ModUi/&DocsSubraces=Subrazas
 ModUi/&DocsVersatilities=Versatilidades
-ModUi/&DontEndTurnAfterReady=No finalice el turno después de usar <color=#D89555>Acción preparada</color> <i><color=#F0DAA0>[permite usar Acción adicional o cualquier acción principal adicional de Prisa u otras fuentes]</color></i>
+ModUi/&DontEndTurnAfterReady=No finalices el turno después de la acción <color=#D89555>Listo</color> <i><color=#F0DAA0>[permite una acción adicional o cualquier otra acción principal de otras fuentes]</color></i>
 ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el personaje ya está en la pantalla
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que el héroe esté fuera o dentro del % del borde de la pantalla</color></i>
 ModUi/&DungeonMaker=Creador de mazmorras
@@ -98,13 +96,13 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilitar íconos adicionales para campam
 ModUi/&EnableAdditionalItemsInDungeonMaker=Agregar elementos modificados al editor
 ModUi/&EnableAlternateHuman=Habilitar el <color=#D89555>Humano</color> alternativo <i><color=#F0DAA0>[+1 dote / +2 opciones de atributo / +1 habilidad]</color></i>
 ModUi/&EnableAlternateVotingSystem=Habilitar sistema de votación alternativo <i><color=#F0DAA0>[peso de la elección = votos * modificador de Carisma del héroe]</color></i>
-ModUi/&EnableBG3AbjurationArcaneWard=Habilitar la implementación del <color=#D89555>Mago de abjuración</color> <b>Guardia Arcana</b> para que se comporte como BG3
+ModUi/&EnableBG3AbjurationArcaneWard=Habilitar la implementación de <color=#D89555>Abjurer</color> <b>Arcane Ward</b> para que se comporte como BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Disminuye en 1 cada vez que previene daño, en lugar de por el daño prevenido. No es necesario lanzar un hechizo de abjuración para estar activo\npero el valor máximo es 2 veces el nivel de mago en lugar de 2 veces el nivel de mago + mod de INT y solo se recarga a la mitad en un descanso prolongado]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Habilita <color=#D89555>Golpe brutal</color> y <color=#D89555>Mejora de golpe brutal</color> en los niveles 9, 13 y 17
 ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 7
-ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <color=#D89555>Bard College of Hope</color> <b>Healing Ballad</b> en descanso prolongado
+ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <color=#D89555>Colegio de la Esperanza</color> <b>Balada curativa</b> en descanso prolongado
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Permitir que los trucos activen el ataque adicional adicional de <color=#D89555>Magia de guerra</color>
@@ -120,13 +118,14 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de <color=#D89555>d
 ModUi/&EnableFighterWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 8 y 16 <i><color=#F0DAA0>[obtienes +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar fondos flexibles <i><color=#F0DAA0>[seleccionar habilidades y competencias de herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de habilidad en lugar de los valores raciales predeterminados]</color></i>
-ModUi/&EnableUnarmedMainAttackAction=Permitir la acción principal <b>Ataque desarmado</b> si el actor tiene un arma en la ranura principal y es un <color=#D89555>Monje</color> o tiene equipados <b>Manos</b> o <b>Guantelete</b>
+ModUi/&EnableGrappleAction=Habilitar la acción <color=#D89555>Garra</color>
+ModUi/&EnableHelpAction=Habilita la acción <color=#D89555>Ayuda</color> <i><color=#F0DAA0>[puedes ayudar a una criatura amistosa a atacar a una criatura a 1 celda de ti]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permite que el héroe con mayor habilidad realice elecciones de diálogo. <i><color=#F0DAA0>[funciona, pero las narraciones se ven extrañas en las campañas oficiales]</color></i>
-ModUi/&EnableHigherGroundRules=Habilitar reglas de terreno más alto <i><color=#F0DAA0>[+1 para golpear si ataca desde un terreno más alto]</color></i>
+ModUi/&EnableHigherGroundRules=Habilitar las reglas de <color=#D89555>terreno más alto</color> <i><color=#F0DAA0>[+1 para golpear si ataca desde un terreno más alto]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=Habilitar el filtrado y la clasificación del inventario
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tiñe de rojo cualquier objeto con el que el héroe no sea competente.
 ModUi/&EnableInventoryTintKnownRecipesRed=Recetas conocidas para teñir de rojo
-ModUi/&EnableLevel20=Habilitar nivel 20 <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&EnableLevel20=Habilitar <color=#D89555>nivel 20</color><b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Habilitar diálogos de registro en la consola de juegos durante secuencias narrativas
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Habilitar el registro de referencias no válidas en campañas personalizadas
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos mínimos de puntuación de habilidad para entrar y salir</i>
@@ -140,9 +139,10 @@ ModUi/&EnableMonkHeightenedMetabolism=Habilita <color=#D89555>Metabolismo aceler
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D89555>Movimiento sin armadura mejorado</color> para moverse por superficies verticales sin caerse
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilita <color=#D89555>Defensa superior</color> para reemplazar <color=#D89555>Cuerpo vacío</color> en el nivel 18
 ModUi/&EnableMonkWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</color></i>
-ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&EnableOneDndHealingSpellsBuf=Habilitar la mejora de dados de sanación OneDnd en <color=#D89555>Curar heridas</color>, <color=#D89555>Palabra de sanación</color>, <color=#D89555>Curar heridas en masa</color> y <color=#D89555>Palabra de sanación en masa</color>
+ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclase</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=Habilita la mejora de dados de sanación en <color=#D89555>Curar heridas</color>, <color=#D89555>Palabra de sanación</color>, <color=#D89555>Curar heridas en masa</color> y <color=#D89555>Palabra de sanación en masa</color> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Habilitar un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableProneAction=Habilita la acción <color=#D89555>Caer boca abajo</color> <i><color=#F0DAA0>[puedes caer boca abajo sin costo]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Habilite los efectos de movimiento de empujar y tirar para que funcionen también en el eje arriba/abajo
 ModUi/&EnableRangerNatureShroudAt10=Habilita la característica <color=#D89555>Velo de la Naturaleza</color> en el nivel 10 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno]</color></i>
 ModUi/&EnableRelearnSpells=Habilitar la selección de trucos o hechizos ya aprendidos de otras fuentes
@@ -159,6 +159,7 @@ ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre h
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe suma un D20 en la tirada para darle un poco de aleatoriedad. <color=#F0DAA0>[peso de la elección = votos * modificador de Carisma del héroe + tirada del D20]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Habilite <color=#D89555>Teletransporte</color> para eliminar todas las condiciones <color=#D89555>restringidas</color> del objetivo
 ModUi/&EnableTooltipDistance=Habilitar la visualización de la distancia en las descripciones emergentes al pasar el cursor sobre un personaje en combate
+ModUi/&EnableUnarmedMainAttackAction=Habilitar la acción <color=#D89555>Ataque desarmado</color> <i><color=#F0DAA0>[si el actor tiene un arma en el personaje principal, es un <b>Monje</b> o tiene <b>vendas</b> o <b>guanteletes</b> equipados]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar la conversión ascendente de <color=#D89555>Conjurar elemental</color> y <color=#D89555>Conjurar feérico</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Habilitar el aprendizaje de la escuela de magia en el nivel 3 <i><color=#F0DAA0>[OneDnd]</color></i>
@@ -213,7 +214,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marca la ubicación de l
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamágica</color>
-ModUi/&ModifyGravitySlam=Modificar el hechizo <color=#D89555>Golpe de gravedad</color> para que tire hacia abajo a los objetivos afectados y se convierta en un cilindro en lugar de una esfera\n<color=#F0DAA0>[requiere que los <color=#D89555>efectos de movimiento de empujar y tirar funcionen en el eje arriba/abajo</color> estén habilitados]</color>
+ModUi/&ModifyGravitySlam=Modificar el hechizo <color=#D89555>Golpe de gravedad</color> para que tire hacia abajo a los objetivos afectados y se convierta en un cilindro en lugar de una esfera\n<i><color=#F0DAA0>[requiere que los <color=#D89555>efectos de movimiento de empujar y tirar funcionen en el eje arriba/abajo</color> estén habilitados]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula de movimiento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> hacer clic en un hechizo invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y los demás gastan espacios verdes del pacto]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multijugador:</color>
@@ -287,28 +288,28 @@ ModUi/&StockHugoStoreWithAdditionalFoci=Llena la tienda de Hugo con <color=#D895
 ModUi/&Subclasses=<color=#F0DAA0>Subclases</color>
 ModUi/&Subraces=<color=#F0DAA0>Subrazas</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y objetos elaborados en la tienda</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia las características de <color=#D89555>Evocation Wizard</color> <b>Sculpt Spells</b> y <b>Potent Cantrip</b> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia las características de <color=#D89555>Evocador</color>, <b>Hechizos de escultura</b> y <b>Truco potente</b> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&TargetLanguage=Lengua de llegada
 ModUi/&TotalCraftingTimeModifier=<color=white>Reducir el tiempo de elaboración</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total de <color=#D89555>dotes</color> otorgados en el primer nivel</color>
 ModUi/&Translate=Traducir
 ModUi/&TranslateCancel=Cancelar {0} a las {1}
-ModUi/&Translations=Traducciones
+ModUi/&Translations=<color=#F0DAA0>Traducciones:</color>
 ModUi/&UnleashEnemyAsNpc=Permitir que se seleccionen monstruos en los dispositivos NPC
 ModUi/&UnleashNpcAsEnemy=Desbloquea la selección de monstruos
 ModUi/&Update=<b><color=#D89555>Actualización</color></b>
-ModUi/&UseAlternateSpellPointsSystem=Utilice las reglas de <color=#D89555>puntos de hechizo variantes</color>
-ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[Tienes una reserva de puntos de hechizo que aumenta con el nivel del lanzador\nL01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\nEl costo para lanzar hechizos es SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nLas funciones de recuperación de espacios de descanso cortos no se activarán con este sistema.]</color></i>
+ModUi/&UseAlternateSpellPointsSystem=Habilitar las reglas de <color=#D89555>puntos de hechizo variantes</color> <i><color=#F0DAA0>[tienes un grupo de puntos de hechizo que aumenta con el nivel del lanzador]</color></i>
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[L01: <color=blanco>04</color> L02: <color=blanco>06</color> L03: <color=blanco>14</color> L04: <color=blanco>17</color> L05: <color=blanco>27</color> L06: <color=blanco>32</color> L07: <color=blanco>38</color> L08: <color=blanco>44</color> L09: <color=blanco>57</color> L10: <color=blanco>64</color>\nL11: <color=blanco>73</color> L12: <color=blanco>73</color> L13: <color=blanco>83</color> L14: <color=blanco>83</color> L15: <color=blanco>94</color> L16: <color=blanco>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\nEl costo para lanzar hechizos es SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nLas funciones de recuperación de espacios de descanso cortos no se activarán con este sistema.]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Utilice modelos de caras de <color=#D89555>Elfo</color> en <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Usa un efecto de cilindro de 1 altura al lanzar <color=#D89555>Tentáculos negros, Enredar, Engrasar</color> <i><color=#F0DAA0>[cuadrado]</color></i> o <color=#D89555>Crecimiento de púas</color> <i><color=#F0DAA0>[redondo]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use matemáticas precisas para determinar el flanqueo <color=#F0DAA0>[puede tener un impacto en el rendimiento en máquinas lentas]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliza las reglas de <color=#D89555>ventaja/desventaja</color> <i><color=#F0DAA0>[si las circunstancias hacen que una tirada tenga ambas, se considera que no tienes ninguna de ellas]</color></i>
-ModUi/&UseOfficialFlankingRules=Utilice las reglas de <color=#D89555>flanqueo</color> <i><color=#F0DAA0>[un atacante tiene ventaja si un aliado está en el lado opuesto del objetivo]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=Habilitar las reglas de <color=#D89555>ventaja/desventaja</color> <i><color=#F0DAA0>[si las circunstancias hacen que una tirada tenga ambas, se considera que no tienes ninguna de ellas]</color></i>
+ModUi/&UseOfficialFlankingRules=Habilitar reglas de <color=#D89555>flanqueo</color> <i><color=#F0DAA0>[un atacante tiene ventaja si un aliado está en el lado opuesto del objetivo]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ También habilitar ataques a distancia <color=#F0DAA0>[deshabilitar cálculo preciso]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ También habilitar ataques de alcance <color=#F0DAA0>[deshabilitar matemática precisa]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ En lugar de ventaja otorga +1 a la tirada de ataque</i>
-ModUi/&UseOfficialFoodRationsWeight=Utilice un peso de <color=#D89555>ración de alimentos</color> de 2 libras
-ModUi/&UseOfficialObscurementRules=Utilice las reglas de combate de <color=#D89555>iluminación, oscurecimiento y visión</color>
+ModUi/&UseOfficialFoodRationsWeight=Habilitar <color=#D89555>ración de alimentos</color> con un peso de 2 libras
+ModUi/&UseOfficialObscurementRules=Habilitar las reglas de combate de <color=#D89555>iluminación, oscurecimiento y visión</color>
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[el atacante que percibe al defensor que no puede percibirlo obtiene ADV, y el atacante que no percibe al defensor que puede percibirlo obtiene DIS\n las áreas muy oscurecidas infligen condición de ceguera, donde las tiradas de ataque contra la criatura tienen ADV, y las tiradas de ataque de la criatura tienen DIS\n todos los hechizos de distancia dirigidos a individuos no se pueden lanzar si el atacante no tiene vista, excepto los que claramente no indican que se requiere vista]</color></i>
-ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utiliza las reglas de <color=#D89555>razas pequeñas</color> cuando uses armas pesadas <i><color=#F0DAA0>[tus ataques tienen desventaja]</color></i>
-ModUi/&WildSurgeDieRollThreshold=<color=white>Establecer umbral de dados de probabilidad de <color=#D89555>Magia salvaje de hechicero:</color>\n<i><color=#F0DAA0>[la oleada salvaje se activa si los resultados son menores o iguales al umbral]</color></i>
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Permitir que las <color=#D89555>razas pequeñas</color> tengan desventaja al manejar armas pesadas
+ModUi/&WildSurgeDieRollThreshold=<color=white>Establecer umbral de dados de probabilidad de <color=#D89555>Magia salvaje de hechicero</color>:</color>
