@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -20,7 +21,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class WizardEvocation : AbstractSubclass
 {
     private const string Name = "WizardEvocation";
-    private const string SculptSpellsSavedTag = $"{Name}SculptSpellsSaved";
 
     //
     // these lists contain all evocation spells that do damage in a non-vanilla way so they also get bonus
@@ -80,16 +80,21 @@ public sealed class WizardEvocation : AbstractSubclass
 
         // Sculpt Spells
 
+        var savingThrowAffinitySculptSpells = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{Name}SculptSpells")
+            .SetGuiPresentationNoContent(true)
+            .SetAffinities(
+                CharacterSavingThrowAffinity.SpecialHalfDamage, false, AttributeDefinitions.AbilityScoreNames)
+            .AddToDB();
+
         var conditionSculptSpells = ConditionDefinitionBuilder
             .Create($"Condition{Name}SculptSpells")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(savingThrowAffinitySculptSpells)
             .AddToDB();
 
-        FeatureSculptSpells.AddCustomSubFeatures(new MagicEffectInitiatedByMeSculptSpells(conditionSculptSpells));
-
-        conditionSculptSpells.AddCustomSubFeatures(
-            new CustomBehaviorSculptSpells(conditionSculptSpells, FeatureSculptSpells));
+        FeatureSculptSpells.AddCustomSubFeatures(new CustomBehaviorSculptSpells(conditionSculptSpells));
 
         // LEVEL 06
 
@@ -215,7 +220,7 @@ public sealed class WizardEvocation : AbstractSubclass
     // Sculpt Spells
     //
 
-    private sealed class MagicEffectInitiatedByMeSculptSpells(ConditionDefinition conditionSculptPocket)
+    private sealed class CustomBehaviorSculptSpells(ConditionDefinition conditionSculptPocket)
         : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
@@ -230,10 +235,10 @@ public sealed class WizardEvocation : AbstractSubclass
                 yield break;
             }
 
-            foreach (var target in targets.Where(x => !x.IsOppositeSide(attacker.Side)))
+            foreach (var rulesetTarget in targets
+                         .Where(x => !x.IsOppositeSide(attacker.Side))
+                         .Select(x => x.RulesetCharacter))
             {
-                var rulesetTarget = target.RulesetCharacter;
-
                 if (rulesetTarget.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect, conditionSculptPocket.Name, out var actionCondition))
                 {
@@ -253,13 +258,12 @@ public sealed class WizardEvocation : AbstractSubclass
                 yield break;
             }
 
-            foreach (var target in targets.Where(x => !x.IsOppositeSide(attacker.Side)))
+            var rulesetSource = attacker.RulesetCharacter;
+
+            foreach (var rulesetTarget in targets
+                         .Where(x => !x.IsOppositeSide(attacker.Side))
+                         .Select(x => x.RulesetCharacter))
             {
-                target.UsedSpecialFeatures.Remove(SculptSpellsSavedTag);
-
-                var rulesetTarget = target.RulesetCharacter;
-                var rulesetSource = attacker.RulesetCharacter;
-
                 rulesetTarget.InflictCondition(
                     conditionSculptPocket.Name,
                     DurationType.Round,
@@ -273,65 +277,6 @@ public sealed class WizardEvocation : AbstractSubclass
                     0,
                     0,
                     0);
-            }
-        }
-    }
-
-    private sealed class CustomBehaviorSculptSpells(
-        ConditionDefinition conditionSculptSpells,
-        FeatureDefinition featureSculptSpells) : IMagicEffectBeforeHitConfirmedOnMe, IRollSavingThrowFinished
-    {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (!defender.UsedSpecialFeatures.Remove(SculptSpellsSavedTag))
-            {
-                yield break;
-            }
-
-            var removed = actualEffectForms.RemoveAll(x =>
-                x.HasSavingThrow &&
-                x.FormType == EffectForm.EffectFormType.Damage &&
-                x.SavingThrowAffinity == EffectSavingThrowType.HalfDamage);
-
-            if (removed == 0 ||
-                !defender.RulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionSculptSpells.Name, out var actionCondition))
-            {
-                yield break;
-            }
-
-            var caster = EffectHelpers.GetCharacterByGuid(actionCondition.SourceGuid);
-
-            caster.LogCharacterUsedFeature(featureSculptSpells);
-        }
-
-        public void OnSavingThrowFinished(
-            RulesetActor rulesetActorCaster,
-            RulesetActor rulesetActorDefender,
-            int saveBonus,
-            string abilityScoreName,
-            BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
-            List<TrendInfo> advantageTrends,
-            int rollModifier,
-            int saveDC,
-            bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
-            List<EffectForm> effectForms)
-        {
-            if (outcome == RollOutcome.Success)
-            {
-                GameLocationCharacter.GetFromActor(rulesetActorDefender)
-                    .SetSpecialFeatureUses(SculptSpellsSavedTag, 0);
             }
         }
     }
@@ -444,7 +389,7 @@ public sealed class WizardEvocation : AbstractSubclass
             effectForm.DamageForm.BonusDamage += Math.Max(1, intelligenceModifier);
         }
 
-        // handle special blade cantrips use cases
+        // handle special blade cantrips and other spells additional damages use cases
         public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -509,7 +454,7 @@ public sealed class WizardEvocation : AbstractSubclass
 
             // allow max spell damage on this attack
             EffectHelpers.StartVisualEffect(
-                attacker, attacker, FeatureDefinitionPowers.PowerFighterActionSurge, EffectHelpers.EffectType.Caster);
+                attacker, attacker, PowerFighterActionSurge, EffectHelpers.EffectType.Caster);
             rulesetAttacker.LogCharacterUsedFeature(featureOverChannel);
             rulesetAttacker.InflictCondition(
                 conditionOverChannelMaxDamage.Name,
@@ -571,8 +516,7 @@ public sealed class WizardEvocation : AbstractSubclass
             var damage = rulesetAttacker.RollDiceAndSum(DIE_TYPE, RollContext.None, diceNumber, rolls, false);
 
             EffectHelpers.StartVisualEffect(
-                attacker, attacker, FeatureDefinitionPowers.PowerPatronFiendDarkOnesOwnLuck,
-                EffectHelpers.EffectType.Effect);
+                attacker, attacker, PowerPatronFiendDarkOnesOwnLuck, EffectHelpers.EffectType.Effect);
             rulesetAttacker.SustainDamage(
                 damage, DamageTypeNecrotic, false, rulesetAttacker.Guid,
                 new RollInfo(DIE_TYPE, rolls, 0), out _);
