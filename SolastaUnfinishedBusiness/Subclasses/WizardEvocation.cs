@@ -353,10 +353,11 @@ public sealed class WizardEvocation : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            var isSpell = rulesetEffect.SourceDefinition is SpellDefinition;
+            var isCantrip = rulesetEffect.SourceDefinition is SpellDefinition { SpellLevel: 0 };
 
-            switch (isSpell)
+            switch (isCantrip)
             {
+                case false:
                 case true when rulesetEffect.EffectDescription.RangeType
                     is not (RangeType.MeleeHit or RangeType.RangeHit):
                 case true when !firstTarget &&
@@ -508,8 +509,7 @@ public sealed class WizardEvocation : AbstractSubclass
 
             // allow max spell damage on this attack
             EffectHelpers.StartVisualEffect(
-                attacker, attacker, FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury,
-                EffectHelpers.EffectType.Caster);
+                attacker, attacker, FeatureDefinitionPowers.PowerFighterActionSurge, EffectHelpers.EffectType.Caster);
             rulesetAttacker.LogCharacterUsedFeature(featureOverChannel);
             rulesetAttacker.InflictCondition(
                 conditionOverChannelMaxDamage.Name,
