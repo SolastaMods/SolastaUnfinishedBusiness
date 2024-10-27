@@ -1,6 +1,6 @@
 ModUi/&AccountForAllDiceOnFollowUpStrike=Adicione todos os efeitos adicionais da arma base ao talento <color=#D89555>Ataque de Acompanhamento</color>
 ModUi/&AccountForAllDiceOnSavageAttack=Adicione todos os dados do dano base da arma aos recursos que adicionam dano base da arma em vez de apenas 1 dado <i><color=#F0DAA0>[Ataque Selvagem, armas 2H, etc.]</color></i>
-ModUi/&AddAllToStore=Adicionar tudo à loja
+ModUi/&AddAllToStore=Adicione abaixo às lojas
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
 ModUi/&AddCustomIconsToOfficialItems=Adicionar ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Habilitar <color=#D89555>Percepção da Escuridão</color> em <color=#D89555>Elfo Escuro</color>, <color=#D89555>Kobold Escuro</color> e <color=#D89555>Anão Cinzento</color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
@@ -13,11 +13,9 @@ ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar inimigos preferenciais <color=#
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicionar novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicione uma alternância para permitir que <color=#D89555>Paladinos</color> habilitem golpes somente em acertos críticos <i><color=#F0DAA0>[útil para minimizar prompts de reação]</color></i>
 ModUi/&AddPickPocketableLoot=Adicionar saque que pode ser roubado <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Batedor de carteira</color> estiver habilitado]</color></i>
-ModUi/&AddToStore=Adicionar à loja
+ModUi/&AddToStore=Adicionar {0}
 ModUi/&Advanced=<color=#F0DAA0>Avançado:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATENÇÃO:</color></b> Essas configurações exigirão que o jogador tenha este mod instalado
-ModUi/&AllItemInDm=Todos os itens em DM
-ModUi/&AllRecipesInDm=Todas as receitas em DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Permitir que os aliados percebam <color=#D89555>Ranger GloomStalker</color> quando na escuridão natural
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que qualquer classe use <color=#D89555>Armadura Silvestre</color> ou <color=#D89555>Roupas de Portador da Luz</color>
@@ -55,7 +53,6 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resistência ao Frio</color> também concede imunidade à condição de frio e reduz congelado a resfriado
 ModUi/&Combat=<color=#F0DAA0>Combate:</color>
 ModUi/&Crafting=<color=#F0DAA0>Artesanato:</color>
-ModUi/&CraftingHelp=• Pressione o botão para aprender receitas instantaneamente no grupo ativo\n• Itens adicionados às lojas podem exigir que o grupo viaje para longe do local e volte
 ModUi/&CraftingItems=Artesanato e comerciantes
 ModUi/&Credits=Créditos
 ModUi/&CreditsAndDiagnostics=Créditos e Diagnósticos
@@ -206,7 +203,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Os feitiços de il
 ModUi/&IncreaseGameTimeBy=Aumentar o tempo de jogo em
 ModUi/&IncreaseMaxAttunedItems=Aumentar o máximo de <color=#D89555>Itens Sintonizados</color> para 4 no nível 10 e 5 no nível 18
 ModUi/&Invocations=<color=#F0DAA0>Invocações</color>
-ModUi/&ItemInDm=Itens em DM
 ModUi/&Items=<color=#F0DAA0>Itens:</color>
 ModUi/&ItemsHelp1=<color=#C04040E0>Abra a tela de inspeção de personagem para adicionar itens aos heróis...</color>
 ModUi/&ItemsHelp2=<b>Pressione + para adicionar itens ao contêiner terrestre</b>
@@ -242,7 +238,6 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=Habilite o lançamento rápido <col
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Habilite <color=#D89555>Sensibilidade à Luz</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</color> para serem acionados somente em ambientes externos\n<i><color=#F0DAA0>[áreas internas em locais externos acessíveis sem uma tela de carregamento são consideradas externas pelo mecanismo do jogo]</color></i>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
 ModUi/&RecipeCost=<color=white>Custo da receita</color>
-ModUi/&RecipesInDm=Receitas em DM
 ModUi/&RelicForgeries=Falsificações de relíquias
 ModUi/&RemoveAttunementRequirements=Remover requisitos de sintonização <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por modelos semelhantes a ursos no jogo <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

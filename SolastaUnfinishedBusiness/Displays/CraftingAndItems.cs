@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class CraftingAndItems
 {
-    private const int MaxColumns = 1;
+    private const int MaxColumns = 3;
 
     private static readonly (string, Func<ItemDefinition, bool>)[] ItemsFilters =
     [
@@ -78,6 +78,8 @@ internal static class CraftingAndItems
         UI.Label();
         UI.Label();
 
+        #region Item
+
         var toggle = Main.Settings.AllowAnyClassToUseArcaneShieldstaff;
         if (UI.Toggle(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), ref toggle, UI.AutoWidth()))
         {
@@ -138,8 +140,6 @@ internal static class CraftingAndItems
             Main.Settings.FixRingOfRegenerationHealRate = toggle;
             SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
         }
-
-        #region Item
 
         UI.Label();
 
@@ -211,12 +211,6 @@ internal static class CraftingAndItems
 
         UI.Label();
 
-        toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
-        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
-        }
-
         toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
         if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
         {
@@ -254,44 +248,21 @@ internal static class CraftingAndItems
         }
 
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&CraftingHelp"));
-        UI.Label();
 
-        using (UI.HorizontalScope(UI.AutoWidth()))
+        toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
         {
-            UI.Space(204f);
+            Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
+        }
 
-            toggle = CraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingInStore.Count;
-            if (UI.Toggle(Gui.Localize("ModUi/&AddAllToStore"), ref toggle, UI.Width(125f)))
+        toggle = CraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingInStore.Count;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddAllToStore"), ref toggle, UI.Width(125f)))
+        {
+            Main.Settings.CraftingInStore.Clear();
+
+            if (toggle)
             {
-                Main.Settings.CraftingInStore.Clear();
-
-                if (toggle)
-                {
-                    Main.Settings.CraftingInStore.AddRange(CraftingContext.RecipeBooks.Keys);
-                }
-            }
-
-            toggle = CraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDm.Count;
-            if (UI.Toggle(Gui.Localize("ModUi/&AllRecipesInDm"), ref toggle, UI.Width(125f)))
-            {
-                Main.Settings.CraftingRecipesInDm.Clear();
-
-                if (toggle)
-                {
-                    Main.Settings.CraftingRecipesInDm.AddRange(CraftingContext.RecipeBooks.Keys);
-                }
-            }
-
-            toggle = CraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDm.Count;
-            if (UI.Toggle(Gui.Localize("ModUi/&AllItemInDm"), ref toggle, UI.Width(125f)))
-            {
-                Main.Settings.CraftingItemsInDm.Clear();
-
-                if (toggle)
-                {
-                    Main.Settings.CraftingItemsInDm.AddRange(CraftingContext.RecipeBooks.Keys);
-                }
+                Main.Settings.CraftingInStore.AddRange(CraftingContext.RecipeBooks.Keys);
             }
         }
 
@@ -411,12 +382,10 @@ internal static class CraftingAndItems
     {
         using (UI.HorizontalScope(UI.AutoWidth()))
         {
-            UI.ActionButton(CraftingContext.RecipeTitles[key], () => CraftingContext.LearnRecipes(key),
-                UI.Width(180f));
-            UI.Space(20f);
+            var category = CraftingContext.RecipeTitles[key];
 
             var toggle = Main.Settings.CraftingInStore.Contains(key);
-            if (UI.Toggle(Gui.Localize("ModUi/&AddToStore"), ref toggle, UI.Width(125f)))
+            if (UI.Toggle(Gui.Format("ModUi/&AddToStore", category), ref toggle, UI.Width(125f)))
             {
                 if (toggle)
                 {
@@ -428,46 +397,6 @@ internal static class CraftingAndItems
                 }
 
                 CraftingContext.AddToStore(key);
-            }
-
-            toggle = Main.Settings.CraftingRecipesInDm.Contains(key);
-            if (UI.Toggle(Gui.Localize("ModUi/&RecipesInDm"), ref toggle, UI.Width(125f)))
-            {
-                if (toggle)
-                {
-                    Main.Settings.CraftingRecipesInDm.Add(key);
-                }
-                else
-                {
-                    Main.Settings.CraftingRecipesInDm.Remove(key);
-                }
-
-                CraftingContext.UpdateCraftingRecipesInDmState(key);
-            }
-
-            if (!CraftingContext.BaseGameItemsCategories.Contains(key))
-            {
-                toggle = Main.Settings.CraftingItemsInDm.Contains(key);
-
-                if (!UI.Toggle(Gui.Localize("ModUi/&ItemInDm"), ref toggle, UI.Width(125f)))
-                {
-                    return;
-                }
-
-                if (toggle)
-                {
-                    Main.Settings.CraftingItemsInDm.Add(key);
-                }
-                else
-                {
-                    Main.Settings.CraftingItemsInDm.Remove(key);
-                }
-
-                CraftingContext.UpdateCraftingItemsInDmState(key);
-            }
-            else
-            {
-                UI.Space(128f);
             }
         }
     }

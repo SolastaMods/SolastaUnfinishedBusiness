@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.ItemCrafting;
 using TMPro;
 using UnityEngine;
@@ -11,9 +10,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class CraftingContext
 {
-    internal static readonly List<string> BaseGameItemsCategories =
-        ["PrimedItems", "EnchantingIngredients", "RelicForgeries"];
-
     internal static readonly Dictionary<string, string> RecipeTitles = new()
     {
         { "BarbarianClothes", Gui.Localize("Equipment/&Barbarian_Clothes_Title") },
@@ -25,7 +21,7 @@ internal static class CraftingContext
         { "CEPike", Gui.Localize("Item/&CEPikeTitle") },
         { "ChainMail", Gui.Localize("Equipment/&Armor_ChainMailTitle") },
         { "ChainShirt", Gui.Localize("Equipment/&Armor_ChainShirtTitle") },
-        { "ClothesWizard", Gui.Localize("Armor_Adventuring_Wizard_OutfitTitle") },
+        { "ClothesWizard", Gui.Localize("Equipment/&Armor_Adventuring_Wizard_OutfitTitle") },
         { "Club", Gui.Localize("Equipment/&ClubTypeTitle") },
         { "Dagger", Gui.Localize("Equipment/&DaggerTypeTitle") },
         { "Dart", Gui.Localize("Equipment/&DartTypeTitle") },
@@ -107,12 +103,6 @@ internal static class CraftingContext
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ThrowingWeaponData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ArmorAndShieldData.Items, true);
 
-        foreach (var key in RecipeBooks.Keys)
-        {
-            UpdateCraftingItemsInDmState(key);
-            UpdateCraftingRecipesInDmState(key);
-        }
-
         LoadFilteringAndSorting();
     }
 
@@ -134,47 +124,6 @@ internal static class CraftingContext
         foreach (var item in RecipeBooks[key])
         {
             MerchantContext.AddItem(item, ShopItemType.ShopCrafting);
-        }
-    }
-
-    internal static void UpdateCraftingItemsInDmState(string key)
-    {
-        if (BaseGameItemsCategories.Contains(key))
-        {
-            // Don't touch the in dungeon state of base game items.
-            return;
-        }
-
-        var available = Main.Settings.CraftingItemsInDm.Contains(key);
-
-        foreach (var recipeBookDefinition in RecipeBooks[key])
-        {
-            recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.inDungeonEditor = available;
-        }
-    }
-
-    internal static void UpdateCraftingRecipesInDmState([NotNull] string key)
-    {
-        var available = Main.Settings.CraftingRecipesInDm.Contains(key);
-
-        foreach (var recipeBookDefinition in RecipeBooks[key])
-        {
-            recipeBookDefinition.inDungeonEditor = available;
-        }
-    }
-
-    internal static void LearnRecipes(string key)
-    {
-        if (!Gui.GameCampaign)
-        {
-            return;
-        }
-
-        var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
-
-        foreach (var recipeBookDefinition in RecipeBooks[key])
-        {
-            gameLoreService.LearnRecipe(recipeBookDefinition.DocumentDescription.RecipeDefinition, false);
         }
     }
 

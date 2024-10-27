@@ -1,6 +1,6 @@
 ModUi/&AccountForAllDiceOnFollowUpStrike=将基础武器的所有附加效果添加到<color=#D89555>后续打击</color>专长中
 ModUi/&AccountForAllDiceOnSavageAttack=将基础武器伤害中的所有骰子添加到添加基础武器伤害的功能中，而不仅仅是 1 个骰子<i><color=#F0DAA0>[野蛮攻击、双手武器等]</color></i>
-ModUi/&AddAllToStore=全部添加至商店
+ModUi/&AddAllToStore=添加以下至商店
 ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>出血</color>状况添加到<color=#D89555>较大</color>和<color=#D89555>较小恢复</color>所消除的状况中
 ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>黑暗感知</color> <i><color=#F0DAA0>\n[在无光或在魔法黑暗下时在感知检查上获得优势]</color></i>
@@ -13,11 +13,9 @@ ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>人形</color>首选
 ModUi/&AddNewWeaponsAndRecipesToShops=在商店中添加新武器和配方<i><color=#F0DAA0>[手套、戟、长矛、长钉头锤、手弩]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣骑士</color>仅在暴击时启用惩击<i><color=#F0DAA0>[有助于最大限度地减少反应提示]</color></i>
 ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<i><color=#F0DAA0>[建议在启用<color=#D89555>扒窃</color>功能时添加]</color></i>
-ModUi/&AddToStore=添加至商店
+ModUi/&AddToStore=添加 {0}
 ModUi/&Advanced=<color=#F0DAA0>高级：</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>注意：</color></b>这些设置需要玩家安装此模组
-ModUi/&AllItemInDm=DM 中的所有商品
-ModUi/&AllRecipesInDm=所有食谱尽在DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 允许所有玩家参与叙事序列</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=允许盟友在自然黑暗中感知<color=#D89555>Ranger GloomStalker</color>
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿戴<color=#D89555>Sylvan Armor</color>或<color=#D89555>Lightbringer Clothes</color>
@@ -55,7 +53,6 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>抗寒性</color>还能使人免疫寒冷状态，并将冰冻状态降低为寒冷状态
 ModUi/&Combat=<color=#F0DAA0>战斗：</color>
 ModUi/&Crafting=<color=#F0DAA0>制作：</color>
-ModUi/&CraftingHelp=• 按下按钮即可立即学习活动派对上的食谱\n• 添加到商店的物品可能需要派对离开该位置并返回
 ModUi/&CraftingItems=手工艺与商人
 ModUi/&Credits=致谢
 ModUi/&CreditsAndDiagnostics=信用与诊断
@@ -206,7 +203,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻术法术对范
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=将最大<color=#D89555>协调物品</color>增加至 10 级时的 4 个和 18 级时的 5 个
 ModUi/&Invocations=<color=#F0DAA0>调用</color>
-ModUi/&ItemInDm=DM 中的项目
 ModUi/&Items=<color=#F0DAA0>商品:</color>
 ModUi/&ItemsHelp1=<color=#C04040E0>打开角色检查屏幕为英雄添加物品...</color>
 ModUi/&ItemsHelp2=<b>按 + 将物品添加到地面容器</b>
@@ -242,7 +238,6 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=启用快速施放<color=#D89555>Li
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=启用 <color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color> 和 <color=#D89555>Gray Dwarf</color> 上的 <color=#D89555>Light Sensitivity</color>，以便仅在户外触发\n<i><color=#F0DAA0>[无需加载屏幕即可进入的户外位置的室内区域被游戏引擎视为户外区域]</color></i>
 ModUi/&Races=<color=#F0DAA0>种族</color>
 ModUi/&RecipeCost=<color=white>食谱成本</color>
-ModUi/&RecipesInDm=DM 中的食谱
 ModUi/&RelicForgeries=文物伪造
 ModUi/&RemoveAttunementRequirements=删除调谐要求<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>

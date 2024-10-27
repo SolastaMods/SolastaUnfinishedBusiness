@@ -1,6 +1,6 @@
 ModUi/&AccountForAllDiceOnFollowUpStrike=基本武器のすべての追加効果を<color=#D89555>追撃攻撃</color>特技に追加します
 ModUi/&AccountForAllDiceOnSavageAttack=基本武器ダメージからのすべてのダイスを、1 つのダイスのみではなく、基本武器ダメージを追加する機能に追加します <i><color=#F0DAA0>[サベージ アタック、2H 武器など]</color></i>
-ModUi/&AddAllToStore=すべてをストアに追加
+ModUi/&AddAllToStore=以下をショップに追加
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>Greater</color> と <color=#D89555>Lesser Restoration</color> によって除去された状態に加えて、<color=#D89555>Bleeding</color> 状態を追加します。
 ModUi/&AddCustomIconsToOfficialItems=公式ゲームアイテムにカスタムアイコンを追加します <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルド</color>、<color=#D89555>グレイドワーフ</color>に<color=#D89555>闇知覚</color>を有効にする <i><color=#F0DAA0>\n[照明が消えているときや魔法の暗闇にいるときに知覚判定に有利を与える]</color></i>
@@ -13,11 +13,9 @@ ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>ヒューマノイド</col
 ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加します <i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>パラディン</color>がクリティカルヒット時にのみスマイトを有効にするようにするトグルを追加します <i><color=#F0DAA0>[反応プロンプトを最小限に抑えるのに役立ちます]</color></i>
 ModUi/&AddPickPocketableLoot=スリ可能な戦利品を追加 <i><color=#F0DAA0>[<color=#D89555>スリ</color> 能力が有効になっている場合に推奨]</color></i>
-ModUi/&AddToStore=ストアに追加
+ModUi/&AddToStore={0} を追加
 ModUi/&Advanced=<color=#F0DAA0>詳細:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>注意:</color></b> これらの設定を行うには、プレイヤーがこのMODをインストールしている必要があります。
-ModUi/&AllItemInDm=DM内のすべてのアイテム
-ModUi/&AllRecipesInDm=DMのすべてのレシピ
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ ナラティブ シーケンスですべてのプレイヤーを許可する</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=自然の暗闇にいるときに味方が <color=#D89555>レンジャー グロウムストーカー</color> を感知できるようにする
 ModUi/&AllowAnyClassToWearSylvanArmor=どのクラスでも <color=#D89555>シルヴァンアーマー</color> または <color=#D89555>ライトブリンガー服</color> を着用できるようにします
@@ -55,7 +53,6 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>耐寒性</color>は、冷気状態に対する耐性も付与し、凍結状態を冷気状態に軽減します。
 ModUi/&Combat=<color=#F0DAA0>戦闘:</color>
 ModUi/&Crafting=<color=#F0DAA0>クラフト:</color>
-ModUi/&CraftingHelp=• ボタンを押すと、アクティブなパーティーでレシピを即座に学習できます\n• ストアに追加されたアイテムは、パーティーがその場所から離れて戻ってくる必要がある場合があります
 ModUi/&CraftingItems=クラフトと商人
 ModUi/&Credits=クレジット
 ModUi/&CreditsAndDiagnostics=クレジットと診断
@@ -206,7 +203,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻惑呪文は範
 ModUi/&IncreaseGameTimeBy=ゲーム時間を増やす
 ModUi/&IncreaseMaxAttunedItems=レベル 10 で最大 <color=#D89555>調整アイテム</color> を 4 個、レベル 18 で 5 個に増加
 ModUi/&Invocations=<color=#F0DAA0>召喚</color>
-ModUi/&ItemInDm=DM内のアイテム
 ModUi/&Items=<color=#F0DAA0>アイテム:</color>
 ModUi/&ItemsHelp1=<color=#C04040E0>キャラクター検査画面を開いてヒーローにアイテムを追加します...</color>
 ModUi/&ItemsHelp2=<b>+ を押すと地上コンテナにアイテムが追加されます</b>
@@ -242,7 +238,6 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=クイックキャスト<color=#D89
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>、<color=#D89555>Gray Dwarf</color> の <color=#D89555>Light Sensitivity</color> を有効にすると、屋外でのみトリガーされます\n<i><color=#F0DAA0>[ロード画面なしでアクセス可能な屋外の場所の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
 ModUi/&RecipeCost=<color=white>レシピのコスト</color>
-ModUi/&RecipesInDm=DMのレシピ
 ModUi/&RelicForgeries=遺物の偽造
 ModUi/&RemoveAttunementRequirements=調整要件を削除します <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&RemoveBugVisualModels=ゲーム内のクモのようなモデルをクマのようなモデルに置き換えます <i><color=#F0DAA0>[クモ恐怖症]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>

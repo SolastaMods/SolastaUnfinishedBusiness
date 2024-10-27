@@ -6,8 +6,6 @@ using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Models;
 using UnityModManagerNet;
 
-// ReSharper disable StringLiteralTypo
-
 namespace SolastaUnfinishedBusiness;
 
 public sealed class Core;
@@ -291,6 +289,7 @@ public class Settings : UnityModManager.ModSettings
     //
     // Gameplay - Items, Crafting & Merchants
     //
+
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
     public bool IdentifyAfterRest { get; set; }
     public bool IncreaseMaxAttunedItems { get; set; }
@@ -301,7 +300,6 @@ public class Settings : UnityModManager.ModSettings
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public bool FixRingOfRegenerationHealRate { get; set; }
     public bool AddCustomIconsToOfficialItems { get; set; }
-    public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool DisableAutoEquip { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
@@ -310,14 +308,12 @@ public class Settings : UnityModManager.ModSettings
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
 
     // Crafting
-    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public bool ShowCraftedItemOnRecipeIcon { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int TotalCraftingTimeModifier { get; set; }
+    public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public List<string> CraftingInStore { get; } = [];
-    public List<string> CraftingItemsInDm { get; } = [];
-    public List<string> CraftingRecipesInDm { get; } = [];
 
     // Merchants
     public bool ScaleMerchantPricesCorrectly { get; set; }
@@ -338,6 +334,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingDungeonMakerAssets { get; set; }
     public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }
+    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
     public bool UnleashNpcAsEnemy { get; set; }
     public bool EnableVariablePlaceholdersOnTexts { get; set; }
     public bool EnableDungeonMakerModdedContent { get; set; }

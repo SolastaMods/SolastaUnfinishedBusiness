@@ -1,6 +1,6 @@
 ModUi/&AccountForAllDiceOnFollowUpStrike=Füge alle zusätzlichen Effekte der Basiswaffe zum Talent <color=#D89555>Folgeschlag</color> hinzu.
 ModUi/&AccountForAllDiceOnSavageAttack=Füge alle Würfel vom Basiswaffenschaden zu Funktionen hinzu, die Basiswaffenschaden hinzufügen, anstatt nur 1 Würfel <i><color=#F0DAA0>[Wilder Angriff, 2H-Waffen usw.]</color></i>
-ModUi/&AddAllToStore=Alle zum Shop hinzufügen
+ModUi/&AddAllToStore=Unten zu Shops hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Füge den Zustand <color=#D89555>Blutung</color> zu denen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden.
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie offiziellen Spielgegenständen benutzerdefinierte Symbole hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktiviere <color=#D89555>Dunkelheitswahrnehmung</color> bei <color=#D89555>Dunkelelf</color>, <color=#D89555>Dunkelkobold</color> und <color=#D89555>Grauem Zwerg</color> <i><color=#F0DAA0>\n[gewährt einen Vorteil bei Wahrnehmungsprüfungen im unbeleuchteten Zustand oder in magischer Dunkelheit]</color></i>
@@ -13,11 +13,9 @@ ModUi/&AddHumanoidFavoredEnemyToRanger=Aktivieren Sie <color=#D89555>Humanoide</
 ModUi/&AddNewWeaponsAndRecipesToShops=Neue Waffen und Rezepte zu den Läden hinzufügen <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Paladinen</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddPickPocketableLoot=Beute, die durch Taschendiebstahl gestohlen werden kann, hinzufügen <i><color=#F0DAA0>[empfohlen, wenn die Fähigkeit <color=#D89555>Taschendiebstahl</color> aktiviert ist]</color></i>
-ModUi/&AddToStore=Zum Shop hinzufügen
+ModUi/&AddToStore={0} hinzufügen
 ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellungen erfordern, dass der Spieler diesen Mod installiert hat
-ModUi/&AllItemInDm=Alle Artikel in DM
-ModUi/&AllRecipesInDm=Alle Rezepte im DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Alle Spieler in Erzählsequenzen zulassen</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Erlaubt Verbündeten, <color=#D89555>Ranger GloomStalker</color> in natürlicher Dunkelheit wahrzunehmen
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaubt jeder Klasse, <color=#D89555>Sylvan-Rüstung</color> oder <color=#D89555>Lichtbringer-Kleidung</color> zu tragen.
@@ -55,7 +53,6 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Kälteresistenz</color> verleiht außerdem Immunität gegen unterkühlten Zustand und reduziert gefrorenen zu unterkühlten Zustand.
 ModUi/&Combat=<color=#F0DAA0>Kampf:</color>
 ModUi/&Crafting=<color=#F0DAA0>Herstellung:</color>
-ModUi/&CraftingHelp=• Drücken Sie die Taste, um Rezepte sofort für die aktive Gruppe zu lernen.\n• Für zu Geschäften hinzugefügte Artikel kann es erforderlich sein, dass die Gruppe den Standort verlässt und wieder zurückkommt.
 ModUi/&CraftingItems=Handwerk & Händler
 ModUi/&Credits=Credits
 ModUi/&CreditsAndDiagnostics=Credits & Diagnose
@@ -206,7 +203,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusionszauber sc
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximalen <color=#D89555>abgestimmten Gegenstände</color> auf 4 auf Level 10 und auf 5 auf Level 18.
 ModUi/&Invocations=<color=#F0DAA0>Aufrufe</color>
-ModUi/&ItemInDm=Artikel in DM
 ModUi/&Items=<color=#F0DAA0>Artikel:</color>
 ModUi/&ItemsHelp1=<color=#C04040E0>Öffnen Sie den Charakterüberprüfungsbildschirm, um Helden Gegenstände hinzuzufügen...</color>
 ModUi/&ItemsHelp2=<b>Drücken Sie +, um Elemente zum Bodencontainer hinzuzufügen</b>
@@ -242,7 +238,6 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=Aktivieren Sie den Schnellzauber <c
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Aktivieren Sie <color=#D89555>Lichtempfindlichkeit</color> bei <color=#D89555>Dunkelelf</color>, <color=#D89555>Dunkelkobold</color> und <color=#D89555>Grauer Zwerg</color>, damit diese nur im Freien ausgelöst wird\n<i><color=#F0DAA0>[Innenbereiche an Außenbereichen, die ohne Ladebildschirm zugänglich sind, werden von der Spiel-Engine als Außenbereiche betrachtet]</color></i>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
 ModUi/&RecipeCost=<color=white>Kosten des Rezepts</color>
-ModUi/&RecipesInDm=Rezepte in DM
 ModUi/&RelicForgeries=Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements=Abstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveBugVisualModels=Ersetzen Sie im Spiel spinnenähnliche Modelle durch bärenähnliche Modelle <i><color=#F0DAA0>[Spinnenphobie]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
