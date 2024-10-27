@@ -226,6 +226,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 보이지 않�
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>마법적으로 가려진</color> 영역을 투사체 차단 장치로 변경 <color=#F0DAA0>[<color=#D89555>어둠</color> 주문 효과의 모든 소스]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 적절한 경우 몬스터와 NPC에게 <color=#D89555>암흑 시야</color>, <color=#D89555>맹시력</color>, <color=#D89555>진시력</color>을 추가합니다.</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[설정 컬렉션 <b>어둠의 시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>눈먼 시야를 가져야 하는 괴물</b>]</color></i>
+ModUi/&OneDndHealingPotionBonusAction=<color=#D89555>치유 물약</color>과 <color=#D89555>항독소</color> 사용 시 보너스 액션 활성화 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 목록에서 가장 강력한 생물만 표시합니다.</i>
 ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
 ModUi/&OutlineGridWidthSpeed=<color=white>윤곽선 그리드 애니메이션 속도를 </color> <color=#C04040E0>[%]</color>로 곱합니다.

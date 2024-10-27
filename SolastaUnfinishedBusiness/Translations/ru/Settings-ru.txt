@@ -226,6 +226,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Невидим
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Позволить <color=#D89555>магически заслонённой</color> местности блокировать снаряды <color=#F0DAA0>[любой источник эффекта заклинания <color=#D89555>Тьма</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Добавить <color=#D89555>Тёмное зрение</color>, <color=#D89555>Слепое зрение</color> и <color=#D89555>Истинное зрение</color> монстрам и NPC, когда это целесообразно</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[списки <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b> находятся в настройках]</color></i>
+ModUi/&OneDndHealingPotionBonusAction=Включить бонусное действие при использовании <color=#D89555>лечебных зелий</color> и <color=#D89555>антитоксинов</color> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Показывать только самых мощных существ в списке призыва</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Увеличить толщину контура сетки передвижения на множитель</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Увеличить скорость анимации контура сетки передвижения на множитель</color> <color=#C04040E0>[%]</color>

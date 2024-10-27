@@ -226,6 +226,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Les créatures
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Changez les zones <color=#D89555>obscurcies par magie</color> en bloqueurs de projectiles <color=#F0DAA0>[toute source de l'effet du sort <color=#D89555>Ténèbres</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Ajoutez <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> et <color=#D89555>TrueSight</color> aux monstres et aux PNJ lorsque cela est approprié</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[collections de paramètres <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OneDndHealingPotionBonusAction=Activer l'action bonus sur les utilisations de <color=#D89555>Potions de soin</color> et d'<color=#D89555>Antitoxine</color> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Afficher uniquement les créatures les plus puissantes dans la liste de conjuration</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multipliez la largeur de la grille de contour par</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multipliez la vitesse d'animation de la grille de contour par</color> <color=#C04040E0>[%]</color>

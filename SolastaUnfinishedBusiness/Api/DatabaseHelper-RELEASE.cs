@@ -1785,6 +1785,33 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerFunctionAntitoxin { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionAntitoxin");
+
+        internal static FeatureDefinitionPower PowerFunctionPotionOfGreaterHealing { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfGreaterHealing");
+
+        internal static FeatureDefinitionPower PowerFunctionPotionOfGreaterHealingOther { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfGreaterHealingOther");
+
+        internal static FeatureDefinitionPower PowerFunctionPotionOfHealing { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfHealing");
+
+        internal static FeatureDefinitionPower PowerFunctionPotionOfHealingOther { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfHealingOther");
+
+        internal static FeatureDefinitionPower PowerFunctionPotionOfSuperiorHealing { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfSuperiorHealing");
+
+        internal static FeatureDefinitionPower PowerFunctionPotionOfSuperiorHealingOther { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfSuperiorHealingOther");
+
+        internal static FeatureDefinitionPower PowerFunctionPotionRemedy { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionRemedy");
+
+        internal static FeatureDefinitionPower PowerFunctionRemedyOther { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionRemedyOther");
+
         internal static FeatureDefinitionPower PowerWindGuidingWinds { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerWindGuidingWinds");
 

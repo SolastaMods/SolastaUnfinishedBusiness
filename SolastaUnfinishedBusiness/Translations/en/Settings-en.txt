@@ -226,7 +226,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Invisible crea
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Change <color=#D89555>magically obscured</color> areas to be projectile blockers <color=#F0DAA0>[any source of the <color=#D89555>Darkness</color> spell effect]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Add <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color>, and <color=#D89555>TrueSight</color> to monsters and NPCs whenever appropriate</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[settings' collections <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
-ModUi/&OneDndHealingPotionBonusAction=Enable OneDnD <color=#D89555>Healing Potions</color> and <color=#D89555>Antitoxin</color> use Bonus Action
+ModUi/&OneDndHealingPotionBonusAction=Enable bonus action on <color=#D89555>Healing Potions</color> and <color=#D89555>Antitoxin</color> usages <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiply the outline grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiply the outline grid animation speed by</color> <color=#C04040E0>[%]</color>

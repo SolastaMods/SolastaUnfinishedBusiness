@@ -226,6 +226,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Las criaturas 
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambiar las áreas <color=#D89555>oscuras mágicamente</color> para que sean bloqueadores de proyectiles <color=#F0DAA0>[cualquier fuente del efecto del hechizo <color=#D89555>Oscuridad</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Agrega <color=#D89555>Visión en la oscuridad</color>, <color=#D89555>Vista ciega</color> y <color=#D89555>Vista verdadera</color> a monstruos y PNJ cuando sea apropiado</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[colecciones de configuraciones <b>MonstruosQueDeberíanTenerVisiónOscura</b>, <b>MonstruosQueDeberíanTenerVistaVerdadera</b>, <b>MonstruosQueDeberíanTenerVistaCiego</b>]</color></i>
+ModUi/&OneDndHealingPotionBonusAction=Habilitar la acción adicional en los usos de <color=#D89555>Pociones curativas</color> y <color=#D89555>Antitoxina</color> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar solo las criaturas más poderosas en la lista de conjuración</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula del contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplica la velocidad de animación de la cuadrícula de contorno por</color> <color=#C04040E0>[%]</color>
