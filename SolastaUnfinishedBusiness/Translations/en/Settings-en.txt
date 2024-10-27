@@ -101,7 +101,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits 
 ModUi/&EnableAdditionalItemsInDungeonMaker=Add modded items to Editor
 ModUi/&EnableAlternateHuman=Enable the alternate <color=#D89555>Human</color> <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
 ModUi/&EnableAlternateVotingSystem=Enable alternate voting system <i><color=#F0DAA0>[choice weight = votes * hero Charisma modifier]</color></i>
-ModUi/&EnableBG3AbjurationArcaneWard=Enable <color=#D89555>Abjuration Wizard</color> <b>Arcane Ward</b> implementation to behave like BG3
+ModUi/&EnableBG3AbjurationArcaneWard=Enable <color=#D89555>Abjurer</color> <b>Arcane Ward</b> implementation to behave like BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Decrease by 1 each time it prevents damage, instead of by damage prevented. No need to cast abjuration spell to be active\nbut max value is 2x Wizard level instead of 2x Wizard level + INT mod and is only recharged to half on a long rest]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Brutal Strike</color> and <color=#D89555>Brutal Strike Improvement</color> at levels 9, 13 and 17
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
@@ -291,7 +291,7 @@ ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>A
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Subraces</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in shop</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <color=#D89555>Evocation Wizard</color> <b>Sculpt Spells</b> and <b>Potent Cantrip</b> features <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <color=#D89555>Evoker</color> <b>Sculpt Spells</b> and <b>Potent Cantrip</b> features <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&TargetLanguage=Target Language
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total <color=#D89555>feats</color> granted at first level</color>

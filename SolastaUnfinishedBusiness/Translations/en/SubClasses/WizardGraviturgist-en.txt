@@ -21,4 +21,4 @@ Feature/&PowerWizardGraviturgistViolentAttractionTitle=Violent Attraction
 Feedback/&AdditionalDamageViolentAttractionFormat=Violent Attraction!
 Feedback/&AdditionalDamageViolentAttractionLine={0} performs a violent attraction attack on {1} (+{2})
 Subclass/&WizardGraviturgistDescription=Understanding and mastering the forces that draw bodies of matter together or drive them apart, the students of the Graviturgy arcane tradition learn to further bend and manipulate the violent energy of gravity to their benefit, and the terrible detriment of their enemies.
-Subclass/&WizardGraviturgistTitle=Graviturgy
+Subclass/&WizardGraviturgistTitle=Graviturgist

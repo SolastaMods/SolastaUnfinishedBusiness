@@ -18,6 +18,6 @@ Reaction/&SpendPowerProjectedWardReactDescription=Absorb damage with your Arcane
 Reaction/&SpendPowerProjectedWardReactTitle=Project Ward
 Reaction/&SpendPowerProjectedWardTitle=Projected Ward
 Subclass/&WizardAbjurationDescription=The School of Abjuration emphasizes magic that blocks, banishes, or protects. It is a proud and respected vocation.Called abjurers, members of this school are sought when baleful spirits require exorcism, when important locations must be guarded against magical spying, and when portals to other planes of existence must be closed.
-Subclass/&WizardAbjurationTitle=Abjuration
+Subclass/&WizardAbjurationTitle=Abjurer
 Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardBG3PointsFormat=You have {0} of {1} Arcane Ward.\nWhen you take damage, the ward blocks an amount of damage equal to its intensity, and its intensity decreases by 1. After you cast an Abjuration spell the intensity of the ward increases by the spell's Level, up to a maximum of 2x your Wizard level.
 Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=You have {0} of {1} Arcane Ward.\nWhenever you take damage, the ward reduces damage by its value and is decreased by damage amount prevented. Whenever you cast an abjuration spell of 1st+ level, the ward regains a number of hit points equal to twice the level of the spell.

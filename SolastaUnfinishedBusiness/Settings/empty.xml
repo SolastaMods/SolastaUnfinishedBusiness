@@ -627,7 +627,6 @@
     <AddGrappleActionToAllRaces>false</AddGrappleActionToAllRaces>
     <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
     <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
-    <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
     <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
@@ -658,6 +657,8 @@
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
+    <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
+    <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
@@ -875,6 +876,8 @@
     <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
     <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
     <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
+    <EnableBg3AbjurationArcaneWard>false</EnableBg3AbjurationArcaneWard>
+    <SwapEvocationPotentCantripAndSculptSpell>false</SwapEvocationPotentCantripAndSculptSpell>
     <KlassListSliderPosition>
         <item>
             <key>
