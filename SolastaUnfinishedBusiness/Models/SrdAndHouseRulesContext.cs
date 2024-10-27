@@ -110,6 +110,8 @@ internal static class SrdAndHouseRulesContext
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
         SwitchOneDndWizardSchoolOfMagicLearningLevel();
+        SwitchOneDndPaladinLearnSpellCastingAtOne();
+        SwitchOneDndRangerLearnSpellCastingAtOne();
         NoTwinnedBladeCantrips();
         ModifyGravitySlam();
     }
@@ -402,6 +404,54 @@ internal static class SrdAndHouseRulesContext
         foreach (var featureUnlock in Wizard.FeatureUnlocks.Where(featureUnlock => featureUnlock.level == fromLevel))
         {
             featureUnlock.level = toLevel;
+        }
+    }
+
+    internal static void SwitchOneDndPaladinLearnSpellCastingAtOne()
+    {
+        var level = Main.Settings.EnablePaladinSpellCastingAtLevel1 ? 1 : 2;
+
+        foreach (var featureUnlock in Paladin.FeatureUnlocks
+                     .Where(x => x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellPaladin))
+        {
+            featureUnlock.level = level;
+        }
+
+        if (Main.Settings.EnablePaladinSpellCastingAtLevel1)
+        {
+            FeatureDefinitionCastSpells.CastSpellPaladin.slotsPerLevels = SharedSpellsContext.HalfRoundUpCastingSlots;
+            SharedSpellsContext.ClassCasterType[PaladinClass] =
+                FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp;
+        }
+        else
+        {
+            FeatureDefinitionCastSpells.CastSpellPaladin.slotsPerLevels = SharedSpellsContext.HalfCastingSlots;
+            SharedSpellsContext.ClassCasterType[PaladinClass] =
+                FeatureDefinitionCastSpellBuilder.CasterProgression.Half;
+        }
+    }
+
+    internal static void SwitchOneDndRangerLearnSpellCastingAtOne()
+    {
+        var level = Main.Settings.EnableRangerSpellCastingAtLevel1 ? 1 : 2;
+
+        foreach (var featureUnlock in Paladin.FeatureUnlocks
+                     .Where(x => x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellRanger))
+        {
+            featureUnlock.level = level;
+        }
+
+        if (Main.Settings.EnableRangerSpellCastingAtLevel1)
+        {
+            FeatureDefinitionCastSpells.CastSpellRanger.slotsPerLevels = SharedSpellsContext.HalfRoundUpCastingSlots;
+            SharedSpellsContext.ClassCasterType[RangerClass] =
+                FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp;
+        }
+        else
+        {
+            FeatureDefinitionCastSpells.CastSpellRanger.slotsPerLevels = SharedSpellsContext.HalfCastingSlots;
+            SharedSpellsContext.ClassCasterType[RangerClass] =
+                FeatureDefinitionCastSpellBuilder.CasterProgression.Half;
         }
     }
 

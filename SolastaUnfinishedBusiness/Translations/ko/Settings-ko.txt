@@ -140,10 +140,12 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=레벨 18에서 <color=#D8955
 ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>무기 전문화</color>를 활성화합니다. <i><color=#F0DAA0>[선택한 무기 유형이 당신에게 수도사 무기가 됩니다]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 권능</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 권능</color>에 치유 주사위 버프를 활성화합니다. <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSpellCastingAtLevel1=<b>성기사</b>가 레벨 2가 아닌 레벨 1에서 <color=#D89555>주문 시전</color> 능력을 획득할 수 있도록 합니다 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=더 나은 난수 생성 알고리즘을 활성화하세요 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=<color=#D89555>엎드려 넘어짐</color> 동작을 활성화하세요 <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=위/아래 축에서도 푸시 및 풀 모션 효과를 작동하도록 설정
 ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>자연의 베일</color> 기능을 활성화합니다. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법으로 투명해질 수 있습니다.]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=<b>레인저</b>가 레벨 2가 아닌 레벨 1에서 <color=#D89555>주문 시전</color> 능력을 획득할 수 있도록 설정 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableRelearnSpells=다른 출처에서 이미 배운 주문이나 주문 선택 가능
 ModUi/&EnableRespecAction=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
 ModUi/&EnableRogueCunningStrike=레벨 5와 14에서 <color=#D89555>교활한 일격</color>과 <color=#D89555>사악한 일격</color>을 활성화합니다. <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기합니다]</color></i>
@@ -161,7 +163,7 @@ ModUi/&EnableTooltipDistance=전투 중 캐릭터 위에 마우스를 올려 놓
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>비무장 공격</color> 동작 활성화 <i><color=#F0DAA0>[액터가 기본 무기를 장착하고 있거나, <b>수도사</b>이거나, <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>원소 소환</color>과 <color=#D89555>요정 소환</color>의 업캐스트를 활성화합니다.
 ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=레벨 3에서 마법 학교를 배울 수 있도록 합니다. <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=<b>마법사</b>가 레벨 2 대신 레벨 3에서 마법 학교를 획득할 수 있도록 설정 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=속성 점수 증가와 <color=#D89555>특기</color> 선택을 모두 활성화합니다. <i><color=#F0DAA0>[독점 선택 대신]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>무작위 만남 확률 설정</color>
 ModUi/&Encounters=만남

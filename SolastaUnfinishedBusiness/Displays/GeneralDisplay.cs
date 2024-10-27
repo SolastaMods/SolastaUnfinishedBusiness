@@ -190,11 +190,20 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchOneDndHealingPotionBonusAction();
         }
 
-        toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
+        UI.Label();
+
+        toggle = Main.Settings.EnablePaladinSpellCastingAtLevel1;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
+            Main.Settings.EnablePaladinSpellCastingAtLevel1 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndPaladinLearnSpellCastingAtOne();
+        }
+
+        toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndRangerLearnSpellCastingAtOne();
         }
 
         toggle = Main.Settings.EnableWizardToLearnSchoolAtLevel3;
@@ -204,14 +213,24 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchOneDndWizardSchoolOfMagicLearningLevel();
         }
 
-        toggle = Main.Settings.SwapEvocationPotentCantripAndSculptSpell;
-        if (!UI.Toggle(Gui.Localize("ModUi/&SwapEvocationPotentCantripAndSculptSpell"), ref toggle, UI.AutoWidth()))
+        UI.Label();
+
+        toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
         {
-            return;
+            Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
         }
 
-        Main.Settings.SwapEvocationPotentCantripAndSculptSpell = toggle;
-        WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
+        UI.Label();
+
+        toggle = Main.Settings.SwapEvocationPotentCantripAndSculptSpell;
+        // ReSharper disable once InvertIf
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapEvocationPotentCantripAndSculptSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapEvocationPotentCantripAndSculptSpell = toggle;
+            WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
+        }
     }
 
     private static void DisplayTabletop()

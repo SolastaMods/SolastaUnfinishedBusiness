@@ -140,10 +140,12 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Включить <color=#D895
 ModUi/&EnableMonkWeaponSpecialization=Включить <color=#D89555>Специализацию на оружии</color> на уровнях 2 и 11 <i><color=#F0DAA0>[оружие выбранного типа становится для вас оружием монаха]</color></i>
 ModUi/&EnableMulticlass=Включить мультиклассирование <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Включить улучшение костей лечения из OneDnd для <color=#D89555>Лечения ран</color>, <color=#D89555>Лечащего слова</color>, <color=#D89555>Множественного лечения ран</color> и <color=#D89555>Множественного лечащего слова</color>
+ModUi/&EnablePaladinSpellCastingAtLevel1=Разрешить <b>Паладину</b> приобретать <color=#D89555>заклинания</color> на уровне 1 вместо 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Включить улучшенный алгоритм генерации случайных чисел <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Добавить действие <color=#D89555>Упасть ничком</color> всем классам <i><color=#F0DAA0>[вы можете упасть ничком без затрат каких-либо действий]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Включить работу эффектов толкания и притяжения по вертикальным осям
 ModUi/&EnableRangerNatureShroudAt10=Включить умение <color=#D89555>Природная завеса</color> на уровне 10 <i><color=#F0DAA0>[бонусным действием вы можете волшебным образом стать невидимым до начала следующего хода]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=Разрешить <b>Рейнджеру</b> приобретать <color=#D89555>заклинания</color> на уровне 1 вместо 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableRelearnSpells=Включить возможность выбирать заговоры или заклинания, уже известные из других источников
 ModUi/&EnableRespecAction=Включить возможность <color=#D89555>РЕСПЕКа</color> после отдыха <i><color=#F0DAA0>[не используйте РЕСПЕК в многопользовательских сессиях]</color></i>
 ModUi/&EnableRogueCunningStrike=Включить умения <color=#D89555>Хитрого удара</color> и <color=#D89555>Коварного удара</color> на уровнях 5 и 14 соответственно <i><color=#F0DAA0>[вы отказываетесь от 1 кости скрытой атаки для применения дополнительных эффектов]</color></i>

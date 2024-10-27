@@ -140,10 +140,12 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Activez la <color=#D89555>Dé
 ModUi/&EnableMonkWeaponSpecialization=Activez la <color=#D89555>spécialisation des armes</color> aux niveaux 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Activer le buff des dés de soin sur <color=#D89555>Soin des blessures</color>, <color=#D89555>Mot de soin</color>, <color=#D89555>Soin de masse des blessures</color> et <color=#D89555>Mot de soin de masse</color> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSpellCastingAtLevel1=Permettre au <b>Paladin</b> d'acquérir le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Activer l'action <color=#D89555>Tomber à plat ventre</color> <i><color=#F0DAA0>[vous pouvez tomber à plat ventre sans frais]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Activez les effets de mouvement de poussée et de traction pour qu'ils fonctionnent également sur l'axe haut/bas
 ModUi/&EnableRangerNatureShroudAt10=Activez la fonction <color=#D89555>Voile de la nature</color> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=Permettre au <b>Ranger</b> d'acquérir le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableRelearnSpells=Activer la sélection de sorts ou de sorts déjà appris à partir d'autres sources
 ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après le repos <i><color=#F0DAA0>[ne pas utiliser RESPEC pendant une session multijoueur]</color></i>
 ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color> et <color=#D89555>Devious Strike</color> aux niveaux 5 et 14 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
@@ -161,7 +163,7 @@ ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bu
 ModUi/&EnableUnarmedMainAttackAction=Activer l'action <color=#D89555>Attaque à mains nues</color> <i><color=#F0DAA0>[si l'acteur a une arme dans l'arme principale, est un <b>moine</b> ou a des <b>bandages</b> ou un <b>gantelet</b> équipés]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la conversion ascendante de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Activer les espaces réservés aux variables dans les descriptions <i><color=#F0DAA0>[utiliser {VARIABLE_NAME} comme espace réservé]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Activer l'apprentissage de l'école de magie au niveau 3 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Activer <b>Wizard></b> pour acquérir l'école de magie au niveau 3 au lieu de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attributs et la sélection des <color=#D89555>exploits</color> <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Définir des pourcentages de chances de rencontres aléatoires</color>
 ModUi/&Encounters=Rencontres

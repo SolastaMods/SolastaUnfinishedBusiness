@@ -260,8 +260,6 @@ public class Settings : UnityModManager.ModSettings
 
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
-    public bool AddPaladinSmiteToggle { get; set; }
-    public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
     public bool DisableBarbarianBrutalCritical { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
@@ -271,6 +269,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerNatureShroudAt10 { get; set; }
+    public bool EnableRangerSpellCastingAtLevel1 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
     public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack { get; set; }
     public bool EnableMonkDoNotRequireAttackActionForFlurry { get; set; }
@@ -281,6 +280,9 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkSuperiorDefenseToReplaceEmptyBody { get; set; }
     public bool EnableMonkBodyAndMindToReplacePerfectSelf { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
+    public bool AddPaladinSmiteToggle { get; set; }
+    public bool EnablePaladinSpellCastingAtLevel1 { get; set; }
+    public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueSteadyAim { get; set; }

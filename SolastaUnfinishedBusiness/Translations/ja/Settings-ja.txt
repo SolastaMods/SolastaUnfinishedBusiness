@@ -140,10 +140,12 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>
 ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[選択した武器の種類がモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>Cure Wounds</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> の治癒ダイスバフを有効にします <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSpellCastingAtLevel1=<b>パラディン</b>がレベル 2 ではなくレベル 1 で <color=#D89555>呪文詠唱</color> を獲得できるようにします <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=<color=#D89555>うつ伏せになる</color>アクションを有効にする <i><color=#F0DAA0>[コストをかけずにうつ伏せになることができます]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=プッシュとプルのモーション効果を上下軸でも有効にします
 ModUi/&EnableRangerNatureShroudAt10=レベル 10 で <color=#D89555>自然のベール</color> 機能を有効にします <i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法で透明になることができます]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=<b>レンジャー</b>がレベル 2 ではなくレベル 1 で <color=#D89555>呪文詠唱</color> を取得できるようにします <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップや呪文を選択できるようにする
 ModUi/&EnableRespecAction=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
 ModUi/&EnableRogueCunningStrike=レベル 5 と 14 で <color=#D89555>狡猾な一撃</color> と <color=#D89555>邪悪な一撃</color> を有効にします <i><color=#F0DAA0>[追加のヒット効果を得るために、スニーク アタック ダイスを 1 つ放棄します]</color></i>
@@ -161,7 +163,7 @@ ModUi/&EnableTooltipDistance=戦闘中のキャラクターにマウスを移動
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>素手攻撃</color>アクションを有効にする <i><color=#F0DAA0>[アクターがメインに武器を持っているか、<b>モンク</b>を持っているか、<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>エレメンタル召喚</color>と<color=#D89555>フェイ召喚</color>のアップキャストを有効にする
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=レベル 3 で魔法の学校を学習できるようにします <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=<b>ウィザード</b>がレベル 2 ではなくレベル 3 で魔法学校を取得できるようにします <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と <color=#D89555>特技</color> の選択の両方を有効にします <i><color=#F0DAA0>[排他的選択の代わりに]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>ランダムエンカウントの確率を設定する</color>
 ModUi/&Encounters=出会い

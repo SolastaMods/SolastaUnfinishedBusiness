@@ -140,10 +140,12 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Abilita <color=#D89555>Difesa
 ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Specializzazione nelle armi</color> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
 ModUi/&EnableMulticlass=Abilita <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Abilita il buff dei dadi curativi su <color=#D89555>Cura Ferite</color>, <color=#D89555>Parola Curativa</color>, <color=#D89555>Cura Ferite di Massa</color> e <color=#D89555>Parola Curativa di Massa</color> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <b>Paladino</b> ad acquisire <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Abilita l'azione <color=#D89555>Cadi prono</color> <i><color=#F0DAA0>[puoi cadere prono senza alcun costo]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Abilita gli effetti di movimento push e pull per funzionare anche sull'asse su/giù
 ModUi/&EnableRangerNatureShroudAt10=Abilita la funzione <color=#D89555>Velo della Natura</color> al livello 10 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=Abilita <b>Ranger</b> ad acquisire <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableRelearnSpells=Abilita la selezione di trucchetti o incantesimi già appresi da altre fonti
 ModUi/&EnableRespecAction=Abilita <color=#D89555>RESPEC</color> dopo l'azione di riposo <i><color=#F0DAA0>[non usare RESPEC durante una sessione multigiocatore]</color></i>
 ModUi/&EnableRogueCunningStrike=Abilita <color=#D89555>Colpo astuto</color> e <color=#D89555>Colpo subdolo</color> ai livelli 5 e 14 <i><color=#F0DAA0>[rinuncia a 1 dado di attacco furtivo per effetti di colpo aggiuntivi]</color></i>
@@ -161,7 +163,7 @@ ModUi/&EnableTooltipDistance=Abilita la visualizzazione della distanza nei sugge
 ModUi/&EnableUnarmedMainAttackAction=Abilita l'azione <color=#D89555>Attacco disarmato</color> <i><color=#F0DAA0>[se l'attore ha un'arma nel personaggio principale, è un <b>monaco</b> o ha <b>fasce</b> o <b>guanto</b> equipaggiati]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555>Evoca Elementale</color> e <color=#D89555>Evoca Fata</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Abilita segnaposto variabili nelle descrizioni <i><color=#F0DAA0>[usa {VARIABLE_NAME} come segnaposto]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Abilita l'apprendimento della scuola di magia al livello 3 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Abilita <b>Wizard></b> ad acquisire la scuola di magia al livello 3 invece che 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione delle <color=#D89555>imprese</color> <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Imposta le percentuali di probabilità di incontri casuali</color>
 ModUi/&Encounters=Incontri

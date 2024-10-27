@@ -141,10 +141,12 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilita <color=#D89555>Defen
 ModUi/&EnableMonkWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclase</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Habilita la mejora de dados de sanación en <color=#D89555>Curar heridas</color>, <color=#D89555>Palabra de sanación</color>, <color=#D89555>Curar heridas en masa</color> y <color=#D89555>Palabra de sanación en masa</color> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSpellCastingAtLevel1=Permite que el <b>Paladín</b> adquiera <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Habilitar un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Habilita la acción <color=#D89555>Caer boca abajo</color> <i><color=#F0DAA0>[puedes caer boca abajo sin costo]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Habilite los efectos de movimiento de empujar y tirar para que funcionen también en el eje arriba/abajo
 ModUi/&EnableRangerNatureShroudAt10=Habilita la característica <color=#D89555>Velo de la Naturaleza</color> en el nivel 10 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=Habilitar <b>Ranger</b> para adquirir <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableRelearnSpells=Habilitar la selección de trucos o hechizos ya aprendidos de otras fuentes
 ModUi/&EnableRespecAction=Habilitar la acción <color=#D89555>RESPECT</color> después del descanso <i><color=#F0DAA0>[no usar RESPECT durante una sesión multijugador]</color></i>
 ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Golpe astuto</color> y <color=#D89555>Golpe tortuoso</color> en los niveles 5 y 14 <i><color=#F0DAA0>[dejas de usar 1 dado de ataque furtivo para obtener efectos de golpe adicionales]</color></i>
@@ -162,7 +164,7 @@ ModUi/&EnableTooltipDistance=Habilitar la visualización de la distancia en las 
 ModUi/&EnableUnarmedMainAttackAction=Habilitar la acción <color=#D89555>Ataque desarmado</color> <i><color=#F0DAA0>[si el actor tiene un arma en el personaje principal, es un <b>Monje</b> o tiene <b>vendas</b> o <b>guanteletes</b> equipados]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar la conversión ascendente de <color=#D89555>Conjurar elemental</color> y <color=#D89555>Conjurar feérico</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Habilitar el aprendizaje de la escuela de magia en el nivel 3 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Permite que <b>Mago</b> adquiera la escuela de magia en el nivel 3 en lugar de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablesAsiAndFeat=Habilitar tanto el aumento de las puntuaciones de atributos como la selección de <color=#D89555>dotes</color> <i><color=#F0DAA0>[en lugar de una elección exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentajes de posibilidades de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros

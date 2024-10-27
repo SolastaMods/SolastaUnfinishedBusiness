@@ -30,20 +30,6 @@ internal static class ClassesDisplay
         }
 
         UI.Label();
-
-        toggle = Main.Settings.AddPaladinSmiteToggle;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddPaladinSmiteToggle = toggle;
-        }
-
-        toggle = Main.Settings.ShowChannelDivinityOnPortrait;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShowChannelDivinityOnPortrait = toggle;
-        }
-
-        UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BarbarianTitle") + ":</color>");
         UI.Label();
 
@@ -186,6 +172,29 @@ internal static class ClassesDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&PaladinTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.AddPaladinSmiteToggle;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPaladinSmiteToggle = toggle;
+        }
+
+        toggle = Main.Settings.EnablePaladinSpellCastingAtLevel1;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinSpellCastingAtLevel1 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndPaladinLearnSpellCastingAtOne();
+        }
+
+        toggle = Main.Settings.ShowChannelDivinityOnPortrait;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowChannelDivinityOnPortrait = toggle;
+        }
+
+        UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&RangerTitle") + ":</color>");
         UI.Label();
 
@@ -201,6 +210,13 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableRangerNatureShroudAt10 = toggle;
             CharacterContext.SwitchRangerNatureShroud();
+        }
+
+        toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndRangerLearnSpellCastingAtOne();
         }
 
         UI.Label();
