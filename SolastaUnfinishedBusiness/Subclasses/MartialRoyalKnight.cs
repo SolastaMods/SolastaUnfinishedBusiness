@@ -159,13 +159,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         var abilityCheckAffinitySpiritedSurge = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}SpiritedSurge")
             .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature, Gui.NoLocalization)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, AttributeDefinitions.AbilityScoreNames)
             .AddToDB();
 
         var conditionSpiritedSurge = ConditionDefinitionBuilder
