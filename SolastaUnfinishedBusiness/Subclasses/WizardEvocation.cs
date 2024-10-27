@@ -53,6 +53,7 @@ public sealed class WizardEvocation : AbstractSubclass
     private static readonly FeatureDefinition FeatureSculptSpells = FeatureDefinitionBuilder
         .Create($"Feature{Name}SculptSpells")
         .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new MagicEffectInitiatedByMeSculptSpells())
         .AddToDB();
 
     private static readonly FeatureDefinitionMagicAffinity MagicAffinityPotentCantrip =
@@ -79,22 +80,6 @@ public sealed class WizardEvocation : AbstractSubclass
             .AddToDB();
 
         // Sculpt Spells
-
-        var savingThrowAffinitySculptSpells = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create($"SavingThrowAffinity{Name}SculptSpells")
-            .SetGuiPresentationNoContent(true)
-            .SetAffinities(
-                CharacterSavingThrowAffinity.SpecialHalfDamage, false, AttributeDefinitions.AbilityScoreNames)
-            .AddToDB();
-
-        var conditionSculptSpells = ConditionDefinitionBuilder
-            .Create($"Condition{Name}SculptSpells")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(savingThrowAffinitySculptSpells)
-            .AddToDB();
-
-        FeatureSculptSpells.AddCustomSubFeatures(new CustomBehaviorSculptSpells(conditionSculptSpells));
 
         // LEVEL 06
 
@@ -220,33 +205,8 @@ public sealed class WizardEvocation : AbstractSubclass
     // Sculpt Spells
     //
 
-    private sealed class CustomBehaviorSculptSpells(ConditionDefinition conditionSculptPocket)
-        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    private sealed class MagicEffectInitiatedByMeSculptSpells : IMagicEffectInitiatedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            List<GameLocationCharacter> targets)
-        {
-            var rulesetEffect = action.ActionParams.RulesetEffect;
-
-            if (rulesetEffect.SourceDefinition is not SpellDefinition { SchoolOfMagic: SchoolEvocation })
-            {
-                yield break;
-            }
-
-            foreach (var rulesetTarget in targets
-                         .Where(x => !x.IsOppositeSide(attacker.Side))
-                         .Select(x => x.RulesetCharacter))
-            {
-                if (rulesetTarget.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, conditionSculptPocket.Name, out var actionCondition))
-                {
-                    rulesetTarget.RemoveCondition(actionCondition);
-                }
-            }
-        }
-
         public IEnumerator OnMagicEffectInitiatedByMe(
             CharacterAction action,
             RulesetEffect rulesetEffect,
@@ -258,25 +218,20 @@ public sealed class WizardEvocation : AbstractSubclass
                 yield break;
             }
 
-            var rulesetSource = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var hasAlly = false;
 
-            foreach (var rulesetTarget in targets
-                         .Where(x => !x.IsOppositeSide(attacker.Side))
-                         .Select(x => x.RulesetCharacter))
+            foreach (var ally in targets
+                         .Where(x => !x.IsOppositeSide(attacker.Side) && attacker.CanPerceiveTarget(x))
+                         .ToList())
             {
-                rulesetTarget.InflictCondition(
-                    conditionSculptPocket.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetSource.guid,
-                    rulesetSource.CurrentFaction.Name,
-                    1,
-                    conditionSculptPocket.Name,
-                    0,
-                    0,
-                    0);
+                hasAlly = true;
+                targets.Remove(ally);
+            }
+
+            if (hasAlly)
+            {
+                rulesetAttacker.LogCharacterUsedFeature(FeatureSculptSpells);
             }
         }
     }
