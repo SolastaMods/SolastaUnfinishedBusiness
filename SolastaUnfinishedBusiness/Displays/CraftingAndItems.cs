@@ -121,10 +121,12 @@ internal static class CraftingAndItems
             SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
         }
 
-        toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
-        if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
+
+        toggle = Main.Settings.UseOfficialFoodRationsWeight;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
+            Main.Settings.UseOfficialFoodRationsWeight = toggle;
+            SrdAndHouseRulesContext.SwitchOfficialFoodRationsWeight();
         }
 
         toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
@@ -141,11 +143,25 @@ internal static class CraftingAndItems
             SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
         }
 
+        UI.Label();
+
+        toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
+        if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
+        }
+
         toggle = Main.Settings.OneDndHealingPotionBonusAction;
         if (UI.Toggle(Gui.Localize("ModUi/&OneDndHealingPotionBonusAction"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.OneDndHealingPotionBonusAction = toggle;
             SrdAndHouseRulesContext.SwitchOneDndHealingPotionBonusAction();
+        }
+
+        toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
+        if (UI.Toggle(Gui.Localize("ModUi/&KeepInvisibilityWhenUsingItems"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
         }
 
         UI.Label();
@@ -392,6 +408,7 @@ internal static class CraftingAndItems
             var category = CraftingContext.RecipeTitles[key];
 
             var toggle = Main.Settings.CraftingInStore.Contains(key);
+            // ReSharper disable once InvertIf
             if (UI.Toggle(Gui.Format("ModUi/&AddToStore", category), ref toggle, UI.Width(125f)))
             {
                 if (toggle)

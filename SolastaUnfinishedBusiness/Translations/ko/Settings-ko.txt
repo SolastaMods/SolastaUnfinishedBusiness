@@ -5,10 +5,10 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상위</color> 및 <color=#
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 사용자 지정 아이콘 추가 <i><color=#F0DAA0>[탄약, 레시피, 키트 등]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>다크엘프</color>, <color=#D89555>다크 코볼드</color>, <color=#D89555>그레이 드워프</color>에게 <color=#D89555>어둠 지각</color>을 활성화합니다. <i><color=#F0DAA0>\n[조명이 없거나 마법적 어둠에 있을 때 지각 검사에 유리합니다]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=적에게 DEX 수정치를 추가합니다 <color=#D89555>이니셔티브 롤</color>
-ModUi/&AddFallProneActionToAllRaces=모든 직업에 <color=#D89555>엎드려 넘어짐</color> 액션을 추가합니다. <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
+ModUi/&EnableProneAction=모든 직업에 <color=#D89555>엎드려 넘어짐</color> 액션을 추가합니다. <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>불굴의 저항력</color> 세이빙 스로우 재시전에 보너스로 클래스 레벨을 추가합니다.
-ModUi/&AddGrappleActionToAllRaces=모든 클래스에 <color=#D89555>Grapple</color> 액션을 추가합니다.
-ModUi/&AddHelpActionToAllRaces=모든 클래스에 <color=#D89555>도움</color> 액션을 추가합니다. <i><color=#F0DAA0>[당신은 1셀 이내의 생물을 공격하는 데 아군 생물을 도울 수 있습니다]</color></i>
+ModUi/&EnableGrappleAction=모든 클래스에 <color=#D89555>Grapple</color> 액션을 추가합니다.
+ModUi/&EnableHelpAction=모든 클래스에 <color=#D89555>도움</color> 액션을 추가합니다. <i><color=#F0DAA0>[당신은 1셀 이내의 생물을 공격하는 데 아군 생물을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>인간형</color> 선호 적 활성화
 ModUi/&AddNewWeaponsAndRecipesToShops=상점에 새로운 무기와 제조법을 추가하세요 <i><color=#F0DAA0>[손가락 묶는 무기, 도끼창, 창, 긴 메이스, 손 석궁]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>성기사</color>가 치명타에만 스마이트를 사용할 수 있도록 토글을 추가합니다. <i><color=#F0DAA0>[반응 프롬프트를 최소화하는 데 유용함]</color></i>
@@ -120,7 +120,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=레벨 6과 14에서 <color=#D89555>특기<
 ModUi/&EnableFighterWeaponSpecialization=레벨 8과 16에서 <color=#D89555>무기 전문화</color> 활성화 <i><color=#F0DAA0>[명중률과 피해량이 +1 증가하지만 다른 무기 유형에는 불리함]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 사용 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[종족 기본값 대신 능력치 점수 할당]</color></i>
-ModUi/&EnableGauntletMainAttacks=액터가 메인 슬롯에 무기를 가지고 있고 <color=#D89555>수도사</color> 또는 <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우 주요 액션 <b>비무장 공격</b>을 허용합니다.
+ModUi/&EnableUnarmedMainAttackAction=액터가 메인 슬롯에 무기를 가지고 있고 <color=#D89555>수도사</color> 또는 <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우 주요 액션 <b>비무장 공격</b>을 허용합니다.
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=가장 뛰어난 능력을 가진 영웅이 대화 선택을 할 수 있도록 합니다. <i><color=#F0DAA0>[작동하지만 공식 캠페인에서는 내레이션이 이상하게 보입니다.]</color></i>
 ModUi/&EnableHigherGroundRules=더 높은 곳의 규칙 활성화 <i><color=#F0DAA0>[더 높은 곳에서 공격할 경우 적중률 +1]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=재고 필터링 및 정렬 활성화
@@ -146,7 +146,7 @@ ModUi/&EnablePcgRandom=더 나은 난수 생성 알고리즘을 활성화하세�
 ModUi/&EnablePullPushOnVerticalDirection=위/아래 축에서도 푸시 및 풀 모션 효과를 작동하도록 설정
 ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>자연의 베일</color> 기능을 활성화합니다. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법으로 투명해질 수 있습니다.]</color></i>
 ModUi/&EnableRelearnSpells=다른 출처에서 이미 배운 주문이나 주문 선택 가능
-ModUi/&EnableRespec=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
+ModUi/&EnableRespecAction=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
 ModUi/&EnableRogueCunningStrike=레벨 5와 14에서 <color=#D89555>교활한 일격</color>과 <color=#D89555>사악한 일격</color>을 활성화합니다. <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기합니다]</color></i>
 ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
 ModUi/&EnableRogueSteadyAim=레벨 3에서 <color=#D89555>안정적인 조준</color>을 활성화합니다. <i><color=#F0DAA0>[현재 턴에서 아직 이동하지 않았다면 다음 공격 굴림에 보너스 액션이 유리해집니다.]</color></i>

@@ -5,10 +5,10 @@ ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>出血</color>状况添�
 ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>黑暗感知</color> <i><color=#F0DAA0>\n[在无光或在魔法黑暗下时在感知检查上获得优势]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=为敌人添加 DEX 修正值<color=#D89555>主动掷骰</color>
-ModUi/&AddFallProneActionToAllRaces=将<color=#D89555>倒地</color>动作添加到所有类别<i><color=#F0DAA0>[你可以无代价倒地]</color></i>
+ModUi/&EnableProneAction=将<color=#D89555>倒地</color>动作添加到所有类别<i><color=#F0DAA0>[你可以无代价倒地]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=将职业等级作为奖励添加到<color=#D89555>不屈抵抗</color>豁免检定重掷中
-ModUi/&AddGrappleActionToAllRaces=为所有职业添加<color=#D89555>抓钩</color>动作
-ModUi/&AddHelpActionToAllRaces=为所有类别添加<color=#D89555>帮助</color>操作<i><color=#F0DAA0>[你可以协助友方生物攻击你 1 个单元格范围内的生物]</color></i>
+ModUi/&EnableGrappleAction=为所有职业添加<color=#D89555>抓钩</color>动作
+ModUi/&EnableHelpAction=为所有类别添加<color=#D89555>帮助</color>操作<i><color=#F0DAA0>[你可以协助友方生物攻击你 1 个单元格范围内的生物]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>人形</color>首选敌人
 ModUi/&AddNewWeaponsAndRecipesToShops=在商店中添加新武器和配方<i><color=#F0DAA0>[手套、戟、长矛、长钉头锤、手弩]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣骑士</color>仅在暴击时启用惩击<i><color=#F0DAA0>[有助于最大限度地减少反应提示]</color></i>
@@ -120,7 +120,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级时启用<color=#D89555>
 ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[命中率和伤害 +1，但使用其他武器类型时处于劣势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活背景<i><color=#F0DAA0>[从背景中选择技能和工具熟练程度]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活种族<i><color=#F0DAA0>[分配能力得分点而不是种族默认值]</color></i>
-ModUi/&EnableGauntletMainAttacks=如果演员的主栏中有武器，并且装备有<color=#D89555>僧侣</color>或<b>手套</b>，则允许主要动作<b>徒手攻击</b>
+ModUi/&EnableUnarmedMainAttackAction=如果演员的主栏中有武器，并且装备有<color=#D89555>僧侣</color>或<b>手套</b>，则允许主要动作<b>徒手攻击</b>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=让技能熟练度最高的英雄进行对话选择<i><color=#F0DAA0>[这可行，但在官方活动中叙述看起来很奇怪]</color></i>
 ModUi/&EnableHigherGroundRules=启用高地规则<i><color=#F0DAA0>[从高地攻击时 +1 命中]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=启用库存过滤和排序
@@ -146,7 +146,7 @@ ModUi/&EnablePcgRandom=启用更好的随机生成器算法<i><color=#F0DAA0>[ht
 ModUi/&EnablePullPushOnVerticalDirection=使推拉运动效果也适用于上/下轴
 ModUi/&EnableRangerNatureShroudAt10=在 10 级时启用<color=#D89555>自然面纱</color>功能<i><color=#F0DAA0>[作为奖励行动，您可以神奇地隐身，直到下一回合开始]</color></i>
 ModUi/&EnableRelearnSpells=可以选择已从其他来源学到的戏法或法术
-ModUi/&EnableRespec=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
+ModUi/&EnableRespecAction=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
 ModUi/&EnableRogueCunningStrike=在等级 5 和 14 时启用<color=#D89555>狡猾打击</color>和<color=#D89555>阴险打击</color> <i><color=#F0DAA0>[你放弃 1 个偷袭骰子以获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
 ModUi/&EnableRogueSteadyAim=在 3 级时启用<color=#D89555>稳定瞄准</color> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>

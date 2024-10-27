@@ -188,11 +188,11 @@ internal static class GrappleContext
 
     internal static void SwitchGrappleAction()
     {
-        ActionGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
+        ActionGrapple.formType = Main.Settings.EnableGrappleAction
             ? ActionDefinitions.ActionFormType.Large
             : ActionDefinitions.ActionFormType.Invisible;
 
-        ActionDisableGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
+        ActionDisableGrapple.formType = Main.Settings.EnableGrappleAction
             ? ActionDefinitions.ActionFormType.Large
             : ActionDefinitions.ActionFormType.Invisible;
     }
@@ -237,7 +237,7 @@ internal static class GrappleContext
         ref ActionDefinitions.ActionStatus __result,
         ActionDefinitions.Id actionId)
     {
-        if (!Main.Settings.AddGrappleActionToAllRaces)
+        if (!Main.Settings.EnableGrappleAction)
         {
             return;
         }

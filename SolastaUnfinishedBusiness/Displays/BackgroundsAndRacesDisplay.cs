@@ -54,6 +54,12 @@ internal static class BackgroundsAndRacesDisplay
             CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
+        toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;

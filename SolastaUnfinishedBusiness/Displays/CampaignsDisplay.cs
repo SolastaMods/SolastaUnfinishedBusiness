@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -101,46 +100,16 @@ internal static class CampaignsDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.EnableStatsOnHeroTooltip;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableStatsOnHeroTooltip = toggle;
-        }
-
-        toggle = Main.Settings.EnableActionSwitching;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableActionSwitching"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableActionSwitching = toggle;
-        }
-
-        toggle = Main.Settings.EnableCustomPortraits;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCustomPortraits"), ref toggle))
-        {
-            Main.Settings.EnableCustomPortraits = toggle;
-        }
-
-        if (Main.Settings.EnableCustomPortraits)
-        {
-            UI.Label();
-
-            UI.ActionButton(Gui.Localize("ModUi/&PortraitsOpenFolder"), () =>
-            {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = PortraitsContext.PortraitsFolder, UseShellExecute = true, Verb = "open"
-                });
-            }, UI.Width(292f));
-
-            UI.Label();
-            UI.Label(Gui.Localize("ModUi/&EnableCustomPortraitsHelp"));
-        }
-
-        UI.Label();
-
         toggle = Main.Settings.AllowMoreRealStateOnRestPanel;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowMoreRealStateOnRestPanel"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowMoreRealStateOnRestPanel = toggle;
+        }
+
+        toggle = Main.Settings.EnableStatsOnHeroTooltip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableStatsOnHeroTooltip = toggle;
         }
 
         toggle = Main.Settings.EnableAdditionalBackstoryDisplay;

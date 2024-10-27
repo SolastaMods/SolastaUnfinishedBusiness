@@ -153,7 +153,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableEpicPointsAndArray { get; set; }
     public bool EnableLevel20 { get; set; }
     public bool EnableMulticlass { get; set; }
-    public bool EnableRespec { get; set; }
+    public bool EnableRespecAction { get; set; }
     public int MaxAllowedClasses { get; set; }
     public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
     public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; }
@@ -345,10 +345,10 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Classes
     //
 
-    public bool EnableGauntletMainAttacks { get; set; }
-    public bool AddFallProneActionToAllRaces { get; set; }
-    public bool AddGrappleActionToAllRaces { get; set; }
-    public bool AddHelpActionToAllRaces { get; set; }
+    public bool EnableUnarmedMainAttackAction { get; set; }
+    public bool EnableProneAction { get; set; }
+    public bool EnableGrappleAction { get; set; }
+    public bool EnableHelpAction { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }

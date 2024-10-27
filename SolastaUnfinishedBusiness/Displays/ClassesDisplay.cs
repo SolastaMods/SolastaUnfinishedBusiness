@@ -15,39 +15,7 @@ internal static class ClassesDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.EnableGauntletMainAttacks;
-        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableGauntletMainAttacks")), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.EnableGauntletMainAttacks = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AddFallProneActionToAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddFallProneActionToAllRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddFallProneActionToAllRaces = toggle;
-            CharacterContext.SwitchProneAction();
-        }
-
-        toggle = Main.Settings.AddGrappleActionToAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddGrappleActionToAllRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddGrappleActionToAllRaces = toggle;
-            GrappleContext.SwitchGrappleAction();
-        }
-
-        toggle = Main.Settings.AddHelpActionToAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddHelpActionToAllRaces = toggle;
-            CharacterContext.SwitchHelpPower();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AllowDruidToWearMetalArmor;
+        var toggle = Main.Settings.AllowDruidToWearMetalArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowDruidToWearMetalArmor = toggle;

@@ -5,10 +5,10 @@ ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> co
 ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Add DEX modifier to enemies <color=#D89555>Initiative Roll</color>
-ModUi/&AddFallProneActionToAllRaces=Add the <color=#D89555>Fall Prone</color> action to all classes <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
+ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Add the class level as a bonus to <color=#D89555>Indomitable Resistance</color> saving throw reroll
-ModUi/&AddGrappleActionToAllRaces=Add the <color=#D89555>Grapple</color> action to all classes
-ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all classes <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
+ModUi/&EnableGrappleAction=Enable the <color=#D89555>Grapple</color> action
+ModUi/&EnableHelpAction=Enable the <color=#D89555>Help</color> action <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Humanoid</color> preferred enemies
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
@@ -39,11 +39,11 @@ ModUi/&BackgroundsAndRaces=Backgrounds & Races
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=The <color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Enable no attacks of opportunity when <color=#D89555>Blinded</color>
 ModUi/&Blueprints=Blueprints
 ModUi/&Campaigns=Campaigns
 ModUi/&Category=Category
-ModUi/&ChangeDragonbornElementalBreathUsages=Change <color=#D89555>Dragonborn</color> elemental breath usages to Constitution modifier per short rest
+ModUi/&ChangeDragonbornElementalBreathUsages=Change <color=#D89555>Dragonborn</color> elemental breath usages to CON modifier per short rest
 ModUi/&ChangeSleetStormToCube=Change <color=#D89555>Sleet Storm</color> to use a cube instead of a cylinder
 ModUi/&Changelog=<b><color=#D89555>Change Log</color></b>
 ModUi/&Character=Character
@@ -86,7 +86,7 @@ ModUi/&DocsSpells=Spells
 ModUi/&DocsSubclasses=Subclasses
 ModUi/&DocsSubraces=Subraces
 ModUi/&DocsVersatilities=Versatilities
-ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>Ready Action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
+ModUi/&DontEndTurnAfterReady=Don't end turn after <color=#D89555>Ready</color> action <i><color=#F0DAA0>[allows bonus action or any other main action from other sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMaker=Dungeon Maker
@@ -120,7 +120,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selecti
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
-ModUi/&EnableGauntletMainAttacks=Allow main action <b>Unarmed Attack</b> if actor has weapon in main slot, and is a <color=#D89555>Monk</color> or <b>Handwraps</b> or <b>Gauntlet</b> are equipped
+ModUi/&EnableUnarmedMainAttackAction=Enable the <color=#D89555>Unarmed Attack</color> action <i><color=#F0DAA0>[if actor has weapon in main, is a <b>Monk</b> or has <b>handwraps</b> or <b>gauntlet</b> equipped]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Enable the hero with best proficiency to roll dialogue choices <i><color=#F0DAA0>[it works but narrations look odd on official campaigns]</color></i>
 ModUi/&EnableHigherGroundRules=Enable higher ground rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
@@ -146,7 +146,7 @@ ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0D
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
 ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Nature's Veil</color> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
-ModUi/&EnableRespec=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
+ModUi/&EnableRespecAction=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
 ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Cunning Strike</color> and <color=#D89555>Devious Strike</color> at levels 5 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
 ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
@@ -297,18 +297,18 @@ ModUi/&Translations=<color=#F0DAA0>Translations:</color>
 ModUi/&UnleashEnemyAsNpc=Allow monsters to be selected on NPC gadgets
 ModUi/&UnleashNpcAsEnemy=Unlock monsters selection
 ModUi/&Update=<b><color=#D89555>Update</color></b>
-ModUi/&UseAlternateSpellPointsSystem=Use <color=#D89555>variant spell points</color> rules
-ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[You have a pool of spell points that increases with caster level\nL01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\nCost to cast spells is SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nShort rest slots recovery features won't be triggered under this system]</color></i>
+ModUi/&UseAlternateSpellPointsSystem=Enable <color=#D89555>variant spell points</color> rules <i><color=#F0DAA0>[you have a pool of spell points that increases with caster level]</color></i>
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[L01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\nCost to cast spells is SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nShort rest slots recovery features won't be triggered under this system]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Use <color=#D89555>Elf</color> face models on <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use precise math to determine flanking <color=#F0DAA0>[may have a performance impact on slow machines]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Use <color=#D89555>advantage / disadvantage</color> rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
-ModUi/&UseOfficialFlankingRules=Use <color=#D89555>flanking</color> rules <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=Enable <color=#D89555>advantage / disadvantage</color> rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
+ModUi/&UseOfficialFlankingRules=Enable <color=#D89555>flanking</color> rules <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks <color=#F0DAA0>[disable precise math]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks <color=#F0DAA0>[disable precise math]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Instead of advantage grant +1 to attack roll</i>
-ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>food ration</color> weight of 2 pounds
-ModUi/&UseOfficialObscurementRules=Use <color=#D89555>lighting, obscurement, and vision</color> combat rules
+ModUi/&UseOfficialFoodRationsWeight=Enable <color=#D89555>food ration</color> weight of 2 pounds
+ModUi/&UseOfficialObscurementRules=Enable <color=#D89555>lighting, obscurement, and vision</color> combat rules
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[attacker who perceive defender who cannot perceive it gets ADV, and attacker who doesn't perceive defender who can perceive it gets DIS\n heavily obscured areas inflict blinded condition, where attack rolls against the creature have ADV, and the creature's attack rolls have DIS\n all distance spells targeting individuals cannot be cast if attacker has no sight, except for the ones that clearly don't state sight is required]</color></i>
-ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use <color=#D89555>small races</color> rules when wielding heavy weapons <i><color=#F0DAA0>[your attacks have disadvantage]</color></i>
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Enable <color=#D89555>small races</color> have disadvantage when wielding heavy weapons
 ModUi/&WildSurgeDieRollThreshold=<color=white>Set <color=#D89555>Sorcerer Wild Magic</color> chance die threshold:</color>\n<i><color=#F0DAA0>[wild surge triggers if rolls less or equal threshold]</color></i>

@@ -5,10 +5,10 @@ ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangr
 ModUi/&AddCustomIconsToOfficialItems=Adicionar ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Habilitar <color=#D89555>Percepção da Escuridão</color> em <color=#D89555>Elfo Escuro</color>, <color=#D89555>Kobold Escuro</color> e <color=#D89555>Anão Cinzento</color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicione modificador de DEX aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
-ModUi/&AddFallProneActionToAllRaces=Adicione a ação <color=#D89555>Cair Prostrado</color> a todas as classes <i><color=#F0DAA0>[você pode cair prostrado sem custo]</color></i>
+ModUi/&EnableProneAction=Adicione a ação <color=#D89555>Cair Prostrado</color> a todas as classes <i><color=#F0DAA0>[você pode cair prostrado sem custo]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Adicione o nível de classe como um bônus para a nova jogada de resistência de <color=#D89555>Resistência Indomável</color>
-ModUi/&AddGrappleActionToAllRaces=Adicione a ação <color=#D89555>Grapple</color> a todas as classes
-ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajudar</color> a todas as classes <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura dentro de 1 célula de você]</color></i>
+ModUi/&EnableGrappleAction=Adicione a ação <color=#D89555>Grapple</color> a todas as classes
+ModUi/&EnableHelpAction=Adicione a ação <color=#D89555>Ajudar</color> a todas as classes <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura dentro de 1 célula de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar inimigos preferenciais <color=#D89555>Humanoides</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicionar novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicione uma alternância para permitir que <color=#D89555>Paladinos</color> habilitem golpes somente em acertos críticos <i><color=#F0DAA0>[útil para minimizar prompts de reação]</color></i>
@@ -120,7 +120,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar seleção de <color=#D89555>talen
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Especialização em Armas</color> nos níveis 8 e 16 <i><color=#F0DAA0>[receba +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar fundos flexíveis <i><color=#F0DAA0>[selecione habilidades e proficiências em ferramentas dos fundos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar raças flexíveis <i><color=#F0DAA0>[atribuir pontos de habilidade em vez dos padrões raciais]</color></i>
-ModUi/&EnableGauntletMainAttacks=Permitir ação principal <b>Ataque Desarmado</b> se o ator tiver arma no slot principal e for um <color=#D89555>Monge</color> ou <b>Handwraps</b> ou <b>Gauntlet</b> estiverem equipados
+ModUi/&EnableUnarmedMainAttackAction=Permitir ação principal <b>Ataque Desarmado</b> se o ator tiver arma no slot principal e for um <color=#D89555>Monge</color> ou <b>Handwraps</b> ou <b>Gauntlet</b> estiverem equipados
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permita que o herói com melhor proficiência role escolhas de diálogo <i><color=#F0DAA0>[funciona, mas as narrações parecem estranhas em campanhas oficiais]</color></i>
 ModUi/&EnableHigherGroundRules=Habilitar regras de terreno mais alto <i><color=#F0DAA0>[+1 para acertar se estiver atacando de um terreno mais alto]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=Habilitar filtragem e classificação de inventário
@@ -146,7 +146,7 @@ ModUi/&EnablePcgRandom=Habilitar um algoritmo de gerador aleatório melhor <i><c
 ModUi/&EnablePullPushOnVerticalDirection=Habilitar efeitos de movimento de empurrar e puxar para também funcionarem no eixo para cima/baixo
 ModUi/&EnableRangerNatureShroudAt10=Habilite o recurso <color=#D89555>Véu da Natureza</color> no nível 10 <i><color=#F0DAA0>[como uma ação bônus, você pode magicamente ficar invisível até o início do próximo turno]</color></i>
 ModUi/&EnableRelearnSpells=Habilitar seleção de truques ou magias já aprendidas de outras fontes
-ModUi/&EnableRespec=Habilitar <color=#D89555>RESPEC</color> após a ação de descanso <i><color=#F0DAA0>[não usar RESPEC durante uma sessão multijogador]</color></i>
+ModUi/&EnableRespecAction=Habilitar <color=#D89555>RESPEC</color> após a ação de descanso <i><color=#F0DAA0>[não usar RESPEC durante uma sessão multijogador]</color></i>
 ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Golpe Astuto</color> e <color=#D89555>Golpe Desonesto</color> nos níveis 5 e 14 <i><color=#F0DAA0>[você deixa de lado 1 dado de ataque furtivo para efeitos de acerto adicionais]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilitar a escolha <color=#D89555>Estilo de luta</color> no nível 2
 ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Miração Firme</color> no nível 3 <i><color=#F0DAA0>[ação bônus dá vantagem na sua próxima jogada de ataque no turno atual se você ainda não se moveu]</color></i>

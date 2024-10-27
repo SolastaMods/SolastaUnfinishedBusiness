@@ -10,27 +10,127 @@ internal static class RulesDisplay
 
     internal static void DisplayRules()
     {
+        int intValue;
+
         UI.Label();
         UI.Label();
 
-        var toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
+        var toggle = Main.Settings.EnableEpicPointsAndArray;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableEpicPointsAndArray = toggle;
+        }
+
+        toggle = Main.Settings.EnableLevel20;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableLevel20"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableLevel20 = toggle;
+        }
+
+        toggle = Main.Settings.EnableMulticlass;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMulticlass"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMulticlass = toggle;
+            Main.Settings.MaxAllowedClasses = MulticlassContext.DefaultClasses;
+            Main.Settings.EnableMinInOutAttributes = true;
+            Main.Settings.DisplayAllKnownSpellsDuringLevelUp = true;
+            Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = true;
+        }
+
+        if (Main.Settings.EnableMulticlass)
+        {
+            UI.Label();
+
+            intValue = Main.Settings.MaxAllowedClasses;
+            if (UI.Slider(Gui.Localize("ModUi/&MaxAllowedClasses"), ref intValue,
+                    2, MulticlassContext.MaxClasses, MulticlassContext.DefaultClasses, "", UI.AutoWidth()))
+            {
+                Main.Settings.MaxAllowedClasses = intValue;
+            }
+
+            UI.Label();
+
+            toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
+            if (UI.Toggle(Gui.Localize("ModUi/&DisplayAllKnownSpellsDuringLevelUp"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
+            }
+
+            toggle = Main.Settings.DisplayPactSlotsOnSpellSelectionPanel;
+            if (UI.Toggle(Gui.Localize("ModUi/&DisplayPactSlotsOnSpellSelectionPanel"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = toggle;
+            }
+
+            toggle = Main.Settings.EnableMinInOutAttributes;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableMinInOutAttributes"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableMinInOutAttributes = toggle;
+            }
+
+            UI.Label();
+            UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
+            UI.Label();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableActionSwitching;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableActionSwitching"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableActionSwitching = toggle;
+        }
+
+        toggle = Main.Settings.DontEndTurnAfterReady;
+        if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DontEndTurnAfterReady = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableProneAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableProneAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableProneAction = toggle;
+            CharacterContext.SwitchProneAction();
+        }
+
+        toggle = Main.Settings.EnableGrappleAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableGrappleAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableGrappleAction = toggle;
+            GrappleContext.SwitchGrappleAction();
+        }
+
+        toggle = Main.Settings.EnableHelpAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHelpAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHelpAction = toggle;
+            CharacterContext.SwitchHelpPower();
+        }
+
+        toggle = Main.Settings.EnableRespecAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRespecAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRespecAction = toggle;
+            ToolsContext.SwitchRespec();
+        }
+
+        toggle = Main.Settings.EnableUnarmedMainAttackAction;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableUnarmedMainAttackAction")), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableUnarmedMainAttackAction = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
             Main.Settings.UseOfficialFlankingRulesAlsoForRanged = false;
-        }
-
-        toggle = Main.Settings.UseOfficialFoodRationsWeight;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseOfficialFoodRationsWeight = toggle;
-            SrdAndHouseRulesContext.SwitchOfficialFoodRationsWeight();
-        }
-
-        toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
         }
 
         toggle = Main.Settings.UseAlternateSpellPointsSystem;
@@ -44,8 +144,6 @@ internal static class RulesDisplay
         {
             UI.Label(Gui.Localize("ModUi/&UseAlternateSpellPointsSystemHelp"));
         }
-
-        UI.Label();
 
         toggle = Main.Settings.UseOfficialFlankingRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRules"), ref toggle, UI.AutoWidth()))
@@ -98,6 +196,14 @@ internal static class RulesDisplay
         }
 
         UI.Label();
+
+        toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
+        if (UI.Toggle(Gui.Localize("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
+            SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
+        }
 
         toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
@@ -209,6 +315,12 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
+        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AccountForAllDiceOnSavageAttack = toggle;
+        }
+
         toggle = Main.Settings.AddDexModifierToEnemiesInitiativeRoll;
         if (UI.Toggle(Gui.Localize("ModUi/&AddDexModifierToEnemiesInitiativeRoll"), ref toggle, UI.AutoWidth()))
         {
@@ -223,83 +335,6 @@ internal static class RulesDisplay
             {
                 Main.Settings.EnemiesAlwaysRollInitiative = toggle;
             }
-        }
-
-        toggle = Main.Settings.DontEndTurnAfterReady;
-        if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DontEndTurnAfterReady = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
-        if (UI.Toggle(Gui.Localize("ModUi/&KeepInvisibilityWhenUsingItems"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
-        }
-
-        toggle = Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange;
-        if (UI.Toggle(Gui.Localize("ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange = toggle;
-        }
-
-        toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
-        if (UI.Toggle(Gui.Localize("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
-            SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
-        }
-
-        UI.Label();
-
-        var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;
-        if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFirstLevel"), ref intValue,
-                CharacterContext.MinInitialFeats, CharacterContext.MaxInitialFeats, 0, "",
-                UI.AutoWidth()))
-        {
-            Main.Settings.TotalFeatsGrantedFirstLevel = intValue;
-            CharacterContext.SwitchFirstLevelTotalFeats();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.EnablesAsiAndFeat;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablesAsiAndFeat"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnablesAsiAndFeat = toggle;
-            CharacterContext.SwitchAsiAndFeat();
-        }
-
-        toggle = Main.Settings.EnableFeatsAtEveryFourLevels;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevels"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFeatsAtEveryFourLevels = toggle;
-            CharacterContext.SwitchEveryFourLevelsFeats();
-        }
-
-        toggle = Main.Settings.EnableFeatsAtEveryFourLevelsMiddle;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevelsMiddle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFeatsAtEveryFourLevelsMiddle = toggle;
-            CharacterContext.SwitchEveryFourLevelsFeats(true);
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AccountForAllDiceOnFollowUpStrike;
-        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnFollowUpStrike"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AccountForAllDiceOnFollowUpStrike = toggle;
-        }
-
-        toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
-        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AccountForAllDiceOnSavageAttack = toggle;
         }
 
         UI.Label();
@@ -357,7 +392,6 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCharactersOnFireToEmitLight"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableCharactersOnFireToEmitLight = toggle;
-            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
         }
 
         toggle = Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition;

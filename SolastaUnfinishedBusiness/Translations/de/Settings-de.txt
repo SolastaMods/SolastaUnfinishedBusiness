@@ -5,10 +5,10 @@ ModUi/&AddBleedingToLesserRestoration=Füge den Zustand <color=#D89555>Blutung</
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie offiziellen Spielgegenständen benutzerdefinierte Symbole hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktiviere <color=#D89555>Dunkelheitswahrnehmung</color> bei <color=#D89555>Dunkelelf</color>, <color=#D89555>Dunkelkobold</color> und <color=#D89555>Grauem Zwerg</color> <i><color=#F0DAA0>\n[gewährt einen Vorteil bei Wahrnehmungsprüfungen im unbeleuchteten Zustand oder in magischer Dunkelheit]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=DEX-Modifikator zu Feinden hinzufügen <color=#D89555>Initiative Roll</color>
-ModUi/&AddFallProneActionToAllRaces=Füge allen Klassen die Aktion <color=#D89555>In die Hocke fallen</color> hinzu <i><color=#F0DAA0>[Du kannst kostenlos in die Hocke fallen]</color></i>
+ModUi/&EnableProneAction=Füge allen Klassen die Aktion <color=#D89555>In die Hocke fallen</color> hinzu <i><color=#F0DAA0>[Du kannst kostenlos in die Hocke fallen]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Füge die Klassenstufe als Bonus zur Wiederholung des Rettungswurfs für <color=#D89555>Unbezwingbaren Widerstand</color> hinzu
-ModUi/&AddGrappleActionToAllRaces=Fügen Sie allen Klassen die Aktion <color=#D89555>Greifen</color> hinzu
-ModUi/&AddHelpActionToAllRaces=Füge allen Klassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur innerhalb von 1 Zelle von dir anzugreifen]</color></i>
+ModUi/&EnableGrappleAction=Fügen Sie allen Klassen die Aktion <color=#D89555>Greifen</color> hinzu
+ModUi/&EnableHelpAction=Füge allen Klassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur innerhalb von 1 Zelle von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktivieren Sie <color=#D89555>Humanoide</color> als bevorzugte Feinde
 ModUi/&AddNewWeaponsAndRecipesToShops=Neue Waffen und Rezepte zu den Läden hinzufügen <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Paladinen</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
@@ -120,7 +120,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktiviere die Auswahl von <color=#D89555>F�
 ModUi/&EnableFighterWeaponSpecialization=Aktivieren Sie <color=#D89555>Waffenspezialisierung</color> auf den Stufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, sind Sie jedoch bei allen anderen Waffentypen im Nachteil]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Flexible Hintergründe aktivieren <i><color=#F0DAA0>[Fertigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
 ModUi/&EnableFlexibleRaces=Flexible Rassen aktivieren <i><color=#F0DAA0>[Fähigkeitspunkte statt der Rassenstandards zuweisen]</color></i>
-ModUi/&EnableGauntletMainAttacks=Erlaube Hauptaktion <b>Unbewaffneter Angriff</b>, wenn der Akteur eine Waffe im Hauptslot hat und ein <color=#D89555>Mönch</color> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet sind.
+ModUi/&EnableUnarmedMainAttackAction=Erlaube Hauptaktion <b>Unbewaffneter Angriff</b>, wenn der Akteur eine Waffe im Hauptslot hat und ein <color=#D89555>Mönch</color> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet sind.
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Ermöglichen Sie dem Helden mit der besten Fertigkeit, Dialogoptionen zu würfeln <i><color=#F0DAA0>[es funktioniert, aber die Erzählungen sehen bei offiziellen Kampagnen seltsam aus]</color></i>
 ModUi/&EnableHigherGroundRules=Regeln für höheres Gelände aktivieren <i><color=#F0DAA0>[+1 zum Treffen bei Angriffen von höherem Gelände]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=Aktivieren Sie die Inventarfilterung und -sortierung
@@ -146,7 +146,7 @@ ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmu
 ModUi/&EnablePullPushOnVerticalDirection=Aktivieren Sie Push- und Pull-Bewegungseffekte, damit diese auch auf der Auf-/Ab-Achse funktionieren
 ModUi/&EnableRangerNatureShroudAt10=Aktivieren Sie die Funktion <color=#D89555>Nature's Veil</color> auf Stufe 10 <i><color=#F0DAA0>[als Bonusaktion können Sie bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden]</color></i>
 ModUi/&EnableRelearnSpells=Aktivieren Sie die Auswahl von Zaubersprüchen oder Zaubersprüchen, die Sie bereits aus anderen Quellen gelernt haben.
-ModUi/&EnableRespec=Aktivieren Sie <color=#D89555>RESPEC</color> nach der Rest-Aktion <i><color=#F0DAA0>[RESPEC nicht während einer Multiplayer-Sitzung verwenden]</color></i>
+ModUi/&EnableRespecAction=Aktivieren Sie <color=#D89555>RESPEC</color> nach der Rest-Aktion <i><color=#F0DAA0>[RESPEC nicht während einer Multiplayer-Sitzung verwenden]</color></i>
 ModUi/&EnableRogueCunningStrike=Aktiviere <color=#D89555>Cunning Strike</color> und <color=#D89555>Devious Strike</color> auf den Leveln 5 und 14 <i><color=#F0DAA0>[du lässt 1 Schleichangriffswürfel für zusätzliche Treffereffekte weg]</color></i>
 ModUi/&EnableRogueFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrechung</color> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sich noch nicht bewegt haben]</color></i>

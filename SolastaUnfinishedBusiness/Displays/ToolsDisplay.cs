@@ -37,70 +37,29 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.EnableEpicPointsAndArray;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
+        var toggle = Main.Settings.EnableCustomPortraits;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCustomPortraits"), ref toggle))
         {
-            Main.Settings.EnableEpicPointsAndArray = toggle;
+            Main.Settings.EnableCustomPortraits = toggle;
         }
 
-        toggle = Main.Settings.EnableLevel20;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableLevel20"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableLevel20 = toggle;
-        }
-
-        toggle = Main.Settings.EnableMulticlass;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableMulticlass"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableMulticlass = toggle;
-            Main.Settings.MaxAllowedClasses = MulticlassContext.DefaultClasses;
-            Main.Settings.EnableMinInOutAttributes = true;
-            Main.Settings.DisplayAllKnownSpellsDuringLevelUp = true;
-            Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = true;
-        }
-
-        if (Main.Settings.EnableMulticlass)
+        if (Main.Settings.EnableCustomPortraits)
         {
             UI.Label();
 
-            intValue = Main.Settings.MaxAllowedClasses;
-            if (UI.Slider(Gui.Localize("ModUi/&MaxAllowedClasses"), ref intValue,
-                    2, MulticlassContext.MaxClasses, MulticlassContext.DefaultClasses, "", UI.AutoWidth()))
+            UI.ActionButton(Gui.Localize("ModUi/&PortraitsOpenFolder"), () =>
             {
-                Main.Settings.MaxAllowedClasses = intValue;
-            }
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = PortraitsContext.PortraitsFolder, UseShellExecute = true, Verb = "open"
+                });
+            }, UI.Width(292f));
 
             UI.Label();
-
-            toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
-            if (UI.Toggle(Gui.Localize("ModUi/&DisplayAllKnownSpellsDuringLevelUp"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
-            }
-
-            toggle = Main.Settings.DisplayPactSlotsOnSpellSelectionPanel;
-            if (UI.Toggle(Gui.Localize("ModUi/&DisplayPactSlotsOnSpellSelectionPanel"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = toggle;
-            }
-
-            toggle = Main.Settings.EnableMinInOutAttributes;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnableMinInOutAttributes"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableMinInOutAttributes = toggle;
-            }
-
-            UI.Label();
-            UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
+            UI.Label(Gui.Localize("ModUi/&EnableCustomPortraitsHelp"));
             UI.Label();
         }
 
-        toggle = Main.Settings.EnableRespec;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRespec"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRespec = toggle;
-            ToolsContext.SwitchRespec();
-        }
 
         UI.Label();
 

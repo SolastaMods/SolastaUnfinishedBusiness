@@ -41,6 +41,13 @@ internal static class SpellsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange = toggle;
+        }
+
         toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle,
                 UI.AutoWidth()))
