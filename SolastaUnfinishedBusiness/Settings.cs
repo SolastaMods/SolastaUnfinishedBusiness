@@ -305,6 +305,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
     public bool SwapCraftedItemAndRecipeIcons { get; set; }
+    public bool OneDndHealingPotionBonusAction { get; set; }
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
 
     // Crafting

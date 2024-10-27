@@ -15,6 +15,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
@@ -100,6 +101,7 @@ internal static class SrdAndHouseRulesContext
         SwitchMagicStaffFoci();
         SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         SwitchOfficialFoodRationsWeight();
+        SwitchOneDndHealingPotionBonusAction();
         SwitchOneDndHealingSpellsBuf();
         SwitchRecurringEffectOnEntangle();
         SwitchRingOfRegenerationHealRate();
@@ -400,6 +402,34 @@ internal static class SrdAndHouseRulesContext
         foreach (var featureUnlock in Wizard.FeatureUnlocks.Where(featureUnlock => featureUnlock.level == fromLevel))
         {
             featureUnlock.level = toLevel;
+        }
+    }
+
+    internal static void SwitchOneDndHealingPotionBonusAction()
+    {
+        if (Main.Settings.OneDndHealingPotionBonusAction)
+        {
+            PowerFunctionPotionOfHealing.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionOfHealingOther.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionOfGreaterHealing.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionOfGreaterHealingOther.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionOfSuperiorHealing.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionOfSuperiorHealingOther.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionRemedy.activationTime = ActivationTime.BonusAction;
+            PowerFunctionRemedyOther.activationTime = ActivationTime.BonusAction;
+            PowerFunctionAntitoxin.activationTime = ActivationTime.BonusAction;
+        }
+        else
+        {
+            PowerFunctionPotionOfHealing.activationTime = ActivationTime.Action;
+            PowerFunctionPotionOfHealingOther.activationTime = ActivationTime.Action;
+            PowerFunctionPotionOfGreaterHealing.activationTime = ActivationTime.Action;
+            PowerFunctionPotionOfGreaterHealingOther.activationTime = ActivationTime.Action;
+            PowerFunctionPotionOfSuperiorHealing.activationTime = ActivationTime.Action;
+            PowerFunctionPotionOfSuperiorHealingOther.activationTime = ActivationTime.Action;
+            PowerFunctionPotionRemedy.activationTime = ActivationTime.Action;
+            PowerFunctionRemedyOther.activationTime = ActivationTime.Action;
+            PowerFunctionAntitoxin.activationTime = ActivationTime.Action;
         }
     }
 

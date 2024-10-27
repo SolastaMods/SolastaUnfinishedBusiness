@@ -141,6 +141,13 @@ internal static class CraftingAndItems
             SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
         }
 
+        toggle = Main.Settings.OneDndHealingPotionBonusAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&OneDndHealingPotionBonusAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.OneDndHealingPotionBonusAction = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndHealingPotionBonusAction();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.AddCustomIconsToOfficialItems;
