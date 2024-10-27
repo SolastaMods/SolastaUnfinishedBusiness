@@ -1,12 +1,11 @@
 1.5.97.36:
 
-- added behavior package choices on heroes controlled by AI
+- added behavior package choices on heroes controlled by AI [single player only]
 - added Character > Classes > 'Enable Wizard to learn the school of magic at level 3' [OneDnd]
 - added Character > Subclasses > 'Enable Abjuration Wizard arcane ward implementation to behave like BG3'
 - added Character > Subclasses > 'Swap Evocation Wizard sculpt spells and potent cantrip features' [OneDnd]
 - added dungeon maker key bindings under vanilla settings > keyboard
 - added Gameplay > Crafting & Items > 'Enable bonus action on Healing Potions and Antitoxin usages' [OneDnd]
-- added GamePlay > General 'One DnD' section to repro all the settings spread across the mod UI under one place
 - added Wizard Abjurer [by BradS] and Evoker subclasses
 - fixed attacks of opportunity not triggering on reach enter [i.e.: polearm master]
 - fixed attribute modifiers not stacking in wild shape [i.e.: rage points]
@@ -16,9 +15,8 @@
 - fixed Rime's Binding Ice, and Tasha's Caustic Brew to try effect removal only half of the times
 - fixed spell selection UI to sync Wizard evocation selections with Shock Arcanist arcane warfare
 - fixed Tasha's Caustic Brew to inflict damage at start instead of end of turn
-- fixed teleport logic to leave behind actors if no available destination position
-- moved empress garb appearance setting from mod UI to vanilla settings > GUI
-- reorg mod UI crafting, factions, items, and merchant settings
+- fixed teleport logic to leave actors behind if no available destination position
+- reorg mod UI with more intuitive grouping, and new One DnD and Tabletop sections under Gameplay > General
 
 KNOWN ISSUES:
 

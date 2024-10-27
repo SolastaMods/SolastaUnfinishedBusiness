@@ -28,6 +28,7 @@ public class Settings : UnityModManager.ModSettings
 
     public bool DisplayMultiplayerToggle { get; set; }
     public bool DisplayOneDndToggle { get; set; }
+    public bool DisplayTabletopToggle { get; set; }
     public bool DisplayRacesToggle { get; set; }
     public bool DisplaySubracesToggle { get; set; }
     public bool DisplayBackgroundsToggle { get; set; }
@@ -61,92 +62,6 @@ public class Settings : UnityModManager.ModSettings
     public bool FixAsianLanguagesTextWrap { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp { get; set; } = true;
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
-
-    public HashSet<String> MonstersThatShouldHaveDarkvision { get; set; } =
-    [
-        "Adam_The_Twelth",
-        "DLC3_Elven_07_Guard",
-        "SRD_DLC_Mage",
-        "SRD_Mage",
-        "DLC1_NPC_Forge_Escorted_01",
-        "DLC3_NPC_Generic_ElvenCitizen_Husk",
-        "Generic_Darkweaver",
-        "DLC3_ElvenClans_Leralyn",
-        "DLC3_NPC_Elven3_DLC3_Ending",
-        "DLC3_NPC_Elven5_DLC3_Ending",
-        "Generic_HighPriest",
-        "DLC3_Elven_Suspect_05_Guard_Traitor",
-        "DLC3_Elven_06_Guard",
-        "SRD_DLC3_Archmage",
-        "Generic_ShockArcanist"
-    ];
-
-    public HashSet<String> MonstersThatShouldHaveTrueSight { get; set; } =
-    [
-        "Couatl",
-        "CubeOfLight"
-    ];
-
-    public HashSet<String> MonstersThatShouldHaveBlindSight { get; set; } =
-    [
-        "Aksha",
-        "Aksha_Legendary"
-    ];
-
-    public HashSet<String> MonstersThatShouldNotHaveTremorSense { get; set; } =
-    [
-        "Aksha",
-        "Aksha_Legendary"
-    ];
-
-    public HashSet<String> EffectsThatTargetDistantIndividualsAndDontRequireSight { get; set; } =
-    [
-        "AcidSplash",
-        "Aid",
-        "AnimalShapes",
-        "BeaconOfHope",
-        "Bless",
-        "BlessingOfRime",
-        "BoomingBlade",
-        "DispelMagic",
-        "FeatherFall",
-        "Knock",
-        "Levitate",
-        "MassCureWounds",
-        "PassWithoutTrace",
-        "PowerBarbarianBrutalStrike",
-        "PowerBardHopeWordsOfHope6",
-        "PowerBardTraditionManacalonsPerfection",
-        "PowerCelestialSearingVengeance",
-        "PowerCollegeOfAudacityDefensiveWhirl",
-        "PowerCollegeOfAudacityMobileWhirl",
-        "PowerCollegeOfValianceHeroicInspiration",
-        "PowerDisableGrapple",
-        "PowerDomainElementalHeraldOfTheElementsThunder",
-        "PowerFeatChefCookMeal",
-        "PowerFeatOrcishAggression",
-        "PowerGrapple",
-        "PowerInnovationWeaponArcaneJolt",
-        "PowerOathOfJugementPurgeCorruption",
-        "PowerOathOfJugementRetribution",
-        "PowerOathOfThunderThunderousRebuke",
-        "PowerPatronFiendHurlThroughHell",
-        "PowerRangerHellWalkerMarkOfTheDammed",
-        "PowerRangerLightBearerBlessedWarrior",
-        "PowerRiftWalkerRiftStrike",
-        "PowerSorcerousPsionMindOverMatter",
-        "PowerSorcerousPsionMindOverMatter",
-        "PowerTraditionOpenHandQuiveringPalmTrigger",
-        "PowerWayOfTheDistantHandZenArrowTechnique",
-        "PowerWayOfTheDistantHandZenArrowUpgradedTechnique",
-        "RayOfEnfeeblement",
-        "ResonatingStrike",
-        "Sanctuary",
-        "ShieldOfFaith",
-        "Sparkle",
-        "SunlightBlade",
-        "TrueStrike"
-    ];
 
     //
     // Gameplay - General
@@ -212,7 +127,6 @@ public class Settings : UnityModManager.ModSettings
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }
     public int CriticalHitModeNeutral { get; set; }
-
 
     //
     // Gameplay - Campaigns
@@ -396,7 +310,6 @@ public class Settings : UnityModManager.ModSettings
     public List<string> SubraceEnabled { get; } = [];
     public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> BackgroundEnabled { get; } = [];
-
 
     //
     // Characters - Feats, Groups, Fighting Styles, Invocations and Metamagic

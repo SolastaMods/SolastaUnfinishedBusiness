@@ -19,6 +19,8 @@ internal static class ToolsDisplay
         UI.Label();
         DisplayOneDnd();
         UI.Label();
+        DisplayTabletop();
+        UI.Label();
     }
 
     private static void DisplayGeneral()
@@ -63,7 +65,6 @@ internal static class ToolsDisplay
 
             UI.Label();
             UI.Label(Gui.Localize("ModUi/&EnableCustomPortraitsHelp"));
-            UI.Label();
         }
 
         UI.Label();
@@ -211,5 +212,225 @@ internal static class ToolsDisplay
 
         Main.Settings.SwapEvocationPotentCantripAndSculptSpell = toggle;
         WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
+    }
+
+    private static void DisplayTabletop()
+    {
+        var toggle = Main.Settings.DisplayTabletopToggle;
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Tabletop"), ref toggle, 200))
+        {
+            Main.Settings.DisplayTabletopToggle = toggle;
+        }
+
+        if (!Main.Settings.DisplayTabletopToggle)
+        {
+            return;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableProneAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableProneAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableProneAction = toggle;
+            CharacterContext.SwitchProneAction();
+        }
+
+        toggle = Main.Settings.EnableGrappleAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableGrappleAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableGrappleAction = toggle;
+            GrappleContext.SwitchGrappleAction();
+        }
+
+        toggle = Main.Settings.EnableHelpAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHelpAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHelpAction = toggle;
+            CharacterContext.SwitchHelpPower();
+        }
+
+        toggle = Main.Settings.EnableUnarmedMainAttackAction;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableUnarmedMainAttackAction")), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableUnarmedMainAttackAction = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialLightingObscurementAndVisionRules = toggle;
+            Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget = toggle;
+            Main.Settings.OfficialObscurementRulesCancelAdvDisPairs = toggle;
+            Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker = false;
+            Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker = false;
+            Main.Settings.OfficialObscurementRulesTweakMonsters = toggle;
+            LightingAndObscurementContext.SwitchOfficialObscurementRules();
+        }
+
+        if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+        {
+            UI.Label(Gui.Localize("ModUi/&UseOfficialObscurementRulesHelp"));
+
+            toggle = Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget = toggle;
+            }
+
+            toggle = Main.Settings.OfficialObscurementRulesCancelAdvDisPairs;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesCancelAdvDisPairs"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesCancelAdvDisPairs = toggle;
+            }
+
+            toggle = Main.Settings.OfficialObscurementRulesTweakMonsters;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesTweakMonsters"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesTweakMonsters = toggle;
+                LightingAndObscurementContext.SwitchMonstersOnObscurementRules();
+            }
+
+            if (Main.Settings.OfficialObscurementRulesTweakMonsters)
+            {
+                UI.Label(Gui.Localize("ModUi/&OfficialObscurementRulesTweakMonstersHelp"));
+            }
+        }
+
+        UI.Label();
+
+
+        toggle = Main.Settings.KeepStealthOnHeroIfPerceivedDuringSurpriseAttack;
+        if (UI.Toggle(Gui.Localize("ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.KeepStealthOnHeroIfPerceivedDuringSurpriseAttack = toggle;
+        }
+
+        toggle = Main.Settings.StealthDoesNotBreakWithSubtle;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthDoesNotBreakWithSubtle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthDoesNotBreakWithSubtle = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.StealthBreaksWhenAttackHits;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenAttackHits"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenAttackHits = toggle;
+        }
+
+        toggle = Main.Settings.StealthBreaksWhenAttackMisses;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenAttackMisses"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenAttackMisses = toggle;
+        }
+
+        toggle = Main.Settings.StealthBreaksWhenCastingVerbose;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingVerbose"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenCastingVerbose = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
+        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AccountForAllDiceOnSavageAttack = toggle;
+        }
+
+        toggle = Main.Settings.AddDexModifierToEnemiesInitiativeRoll;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDexModifierToEnemiesInitiativeRoll"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddDexModifierToEnemiesInitiativeRoll = toggle;
+            Main.Settings.EnemiesAlwaysRollInitiative = toggle;
+        }
+
+        if (Main.Settings.AddDexModifierToEnemiesInitiativeRoll)
+        {
+            toggle = Main.Settings.EnemiesAlwaysRollInitiative;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnemiesAlwaysRollInitiative"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnemiesAlwaysRollInitiative = toggle;
+            }
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnablePullPushOnVerticalDirection;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePullPushOnVerticalDirection"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePullPushOnVerticalDirection = toggle;
+            if (!toggle)
+            {
+                Main.Settings.ModifyGravitySlam = false;
+                SrdAndHouseRulesContext.ToggleGravitySlamModification();
+            }
+        }
+
+        toggle = Main.Settings.FullyControlConjurations;
+        if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FullyControlConjurations = toggle;
+            SrdAndHouseRulesContext.SwitchFullyControlConjurations();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableTeleportToRemoveRestrained;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableTeleportToRemoveRestrained"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableTeleportToRemoveRestrained = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition;
+        if (UI.Toggle(Gui.Localize("ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition = toggle;
+            SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
+        }
+
+        toggle = Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition;
+        if (UI.Toggle(Gui.Localize("ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition = toggle;
+            SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.UseOfficialFoodRationsWeight;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialFoodRationsWeight = toggle;
+            SrdAndHouseRulesContext.SwitchOfficialFoodRationsWeight();
+        }
+
+        toggle = Main.Settings.FixRingOfRegenerationHealRate;
+        // ReSharper disable once InvertIf
+        if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixRingOfRegenerationHealRate = toggle;
+            SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
+        }
     }
 }

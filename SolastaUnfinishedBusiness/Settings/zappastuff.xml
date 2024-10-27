@@ -3,8 +3,9 @@
     <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
-    <DisplayMultiplayerToggle>true</DisplayMultiplayerToggle>
-    <DisplayOneDndToggle>true</DisplayOneDndToggle>
+    <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
+    <DisplayOneDndToggle>false</DisplayOneDndToggle>
+    <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -219,178 +220,6 @@
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
-    <MonstersThatShouldHaveDarkvision>
-        <string>Adam_The_Twelth</string>
-        <string>DLC3_Elven_07_Guard</string>
-        <string>SRD_DLC_Mage</string>
-        <string>SRD_Mage</string>
-        <string>DLC1_NPC_Forge_Escorted_01</string>
-        <string>DLC3_NPC_Generic_ElvenCitizen_Husk</string>
-        <string>Generic_Darkweaver</string>
-        <string>DLC3_ElvenClans_Leralyn</string>
-        <string>DLC3_NPC_Elven3_DLC3_Ending</string>
-        <string>DLC3_NPC_Elven5_DLC3_Ending</string>
-        <string>Generic_HighPriest</string>
-        <string>DLC3_Elven_Suspect_05_Guard_Traitor</string>
-        <string>DLC3_Elven_06_Guard</string>
-        <string>SRD_DLC3_Archmage</string>
-        <string>Generic_ShockArcanist</string>
-        <string>Mutant_Ape</string>
-        <string>Mutant_Ape_Range</string>
-        <string>Mutant_Direwolf</string>
-        <string>Badlands_Ape_MonsterDefinition</string>
-        <string>BadlandsBear</string>
-        <string>BadlandsBear_POI_ONLY</string>
-        <string>Eagle_Matriarch</string>
-        <string>KindredSpiritApe</string>
-        <string>KindredSpiritBear</string>
-        <string>KindredSpiritEagle</string>
-        <string>KindredSpiritTiger</string>
-        <string>KindredSpiritViper</string>
-        <string>KindredSpiritWolf</string>
-        <string>WildshapeDirewolf</string>
-        <string>WildShapeWolf</string>
-        <string>AlphaWolf</string>
-        <string>ConjuredEightBeast_Wolf</string>
-        <string>ConjuredTwoBeast_Direwolf</string>
-        <string>Direwolf</string>
-        <string>DLC1_Complex_Trained_Direwolf</string>
-        <string>DLC1_Complex_Trained_Wolf</string>
-        <string>StarvingWolf</string>
-        <string>Wolf</string>
-        <string>FeyBear</string>
-        <string>FeyGiant_Eagle</string>
-        <string>FeyGiantApe</string>
-        <string>FeyWolf</string>
-        <string>SRD_Werewolf</string>
-        <string>Captain_Verissa_Ironshell</string>
-        <string>Conjuration_TheSuperEgo_Master_Humanoid</string>
-        <string>DLC1_Complex_NPC_Sitinero</string>
-        <string>DLC1_Complex_NPC_Sitinero_DM_Monster</string>
-        <string>DLC1_NPC_Fusioned_Orenetis_Sitenero</string>
-        <string>DLC1_NPC_Sitenero</string>
-        <string>DLC1_NPC_Tuznut</string>
-        <string>DLC1_NPC_Tuznut_Hostile</string>
-        <string>DLC1_NPC_Tuznut_Hostile_DM_Monster</string>
-        <string>DLC1_Valley_NPC_Samko_Flint</string>
-        <string>DLC1_Valley_NPC_Telerien_Purevoice</string>
-        <string>DLC1_NPC_Forge_Hasdrubal</string>
-        <string>DLC1_NPC_Nobleman_ThePeople07</string>
-        <string>DLC1_NPC_Orenetis_Apprentice</string>
-        <string>DLC1_NPC_ThePeople_Reya_Outpost</string>
-        <string>DLC3_NPC_Einareum_Merchant_General</string>
-        <string>DLC3_NPC_SouthernClans_Generic_Cousin_Husk</string>
-        <string>Lizzaria_Of_Grimhold</string>
-        <string>Merchant_Gorim_Ironsoot</string>
-        <string>Merchant_Hugo_Requer</string>
-        <string>Priest_Of_Misaye_Nel</string>
-    </MonstersThatShouldHaveDarkvision>
-    <MonstersThatShouldHaveTrueSight>
-        <string>Couatl</string>
-        <string>CubeOfLight</string>
-        <string>Conjuration_TheSuperEgo_Master_Humanoid</string>
-    </MonstersThatShouldHaveTrueSight>
-    <MonstersThatShouldHaveBlindSight>
-        <string>Aksha</string>
-        <string>Aksha_Legendary</string>
-    </MonstersThatShouldHaveBlindSight>
-    <MonstersThatShouldNotHaveTremorSense>
-        <string>Aksha</string>
-        <string>Aksha_Legendary</string>
-    </MonstersThatShouldNotHaveTremorSense>
-    <EffectsThatTargetDistantIndividualsAndDontRequireSight>
-        <string>AcidSplash</string>
-        <string>Aid</string>
-        <string>AnimalShapes</string>
-        <string>BeaconOfHope</string>
-        <string>Bless</string>
-        <string>BlessingOfRime</string>
-        <string>BoomingBlade</string>
-        <string>DispelMagic</string>
-        <string>FeatherFall</string>
-        <string>Knock</string>
-        <string>Levitate</string>
-        <string>MassCureWounds</string>
-        <string>PassWithoutTrace</string>
-        <string>PowerBarbarianBrutalStrike</string>
-        <string>PowerBardHopeWordsOfHope6</string>
-        <string>PowerBardTraditionManacalonsPerfection</string>
-        <string>PowerCelestialSearingVengeance</string>
-        <string>PowerCollegeOfAudacityDefensiveWhirl</string>
-        <string>PowerCollegeOfAudacityMobileWhirl</string>
-        <string>PowerCollegeOfValianceHeroicInspiration</string>
-        <string>PowerDisableGrapple</string>
-        <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
-        <string>PowerFeatChefCookMeal</string>
-        <string>PowerFeatOrcishAggression</string>
-        <string>PowerGrapple</string>
-        <string>PowerInnovationWeaponArcaneJolt</string>
-        <string>PowerOathOfJugementPurgeCorruption</string>
-        <string>PowerOathOfJugementRetribution</string>
-        <string>PowerOathOfThunderThunderousRebuke</string>
-        <string>PowerPatronFiendHurlThroughHell</string>
-        <string>PowerRangerHellWalkerMarkOfTheDammed</string>
-        <string>PowerRangerLightBearerBlessedWarrior</string>
-        <string>PowerRiftWalkerRiftStrike</string>
-        <string>PowerSorcerousPsionMindOverMatter</string>
-        <string>PowerTraditionOpenHandQuiveringPalmTrigger</string>
-        <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
-        <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
-        <string>RayOfEnfeeblement</string>
-        <string>ResonatingStrike</string>
-        <string>Sanctuary</string>
-        <string>ShieldOfFaith</string>
-        <string>Sparkle</string>
-        <string>SunlightBlade</string>
-        <string>TrueStrike</string>
-        <string>CommandApproach</string>
-        <string>CommandDrop</string>
-        <string>CommandFlee</string>
-        <string>CommandGrovel</string>
-        <string>CommandHalt</string>
-        <string>AnimateDead</string>
-        <string>ArcaneSword</string>
-        <string>ConjureAnimalsFourBeasts</string>
-        <string>ConjureAnimalsOneBeast</string>
-        <string>ConjureAnimalsTwoBeasts</string>
-        <string>ConjureCelestial</string>
-        <string>ConjureCelestialCouatl</string>
-        <string>ConjureCelestialKutkartal</string>
-        <string>ConjureCelestialMelek</string>
-        <string>ConjureElemental</string>
-        <string>ConjureElementalAir</string>
-        <string>ConjureElementalEarth</string>
-        <string>ConjureElementalFire</string>
-        <string>ConjureFey_Ape</string>
-        <string>ConjureFey_Bear</string>
-        <string>ConjureFey_Dryad</string>
-        <string>ConjureFey_Eagle</string>
-        <string>ConjureFey_GreenHag</string>
-        <string>ConjureFey_Wolf</string>
-        <string>ConjureFey</string>
-        <string>ConjureGoblinoids</string>
-        <string>ConjureMinorElementals</string>
-        <string>ConjureMinorElementalsFour</string>
-        <string>ConjureMinorElementalsOne_b</string>
-        <string>ConjureMinorElementalsOne</string>
-        <string>ConjureMinorElementalsTwo</string>
-        <string>CreateDeadRisenGhost</string>
-        <string>CreateDeadRisenGhoul</string>
-        <string>CreateDeadRisenSkeleton_Archer</string>
-        <string>CreateDeadRisenSkeleton_Enforcer</string>
-        <string>CreateDeadRisenSkeleton_Knight</string>
-        <string>CreateDeadRisenSkeleton_Marksman</string>
-        <string>CreateDeadRisenSkeleton</string>
-        <string>CreateDeadRisenWight</string>
-        <string>CreateDeadRisenWightLord</string>
-        <string>DancingLights</string>
-        <string>DimensionDoor</string>
-        <string>FindFamiliar</string>
-        <string>GiantInsect</string>
-        <string>SpiritualWeapon</string>
-        <string>WaterBreathing</string>
-        <string>WaterWalk</string>
-    </EffectsThatTargetDistantIndividualsAndDontRequireSight>
     <EnablePcgRandom>true</EnablePcgRandom>
     <EnableCustomPortraits>true</EnableCustomPortraits>
     <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
@@ -404,11 +233,11 @@
     <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
     <EnableActionSwitching>true</EnableActionSwitching>
     <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
-    <EnableProneAction>false</EnableProneAction>
-    <EnableGrappleAction>false</EnableGrappleAction>
-    <EnableHelpAction>false</EnableHelpAction>
-    <EnableRespecAction>false</EnableRespecAction>
-    <EnableUnarmedMainAttackAction>false</EnableUnarmedMainAttackAction>
+    <EnableProneAction>true</EnableProneAction>
+    <EnableGrappleAction>true</EnableGrappleAction>
+    <EnableHelpAction>true</EnableHelpAction>
+    <EnableRespecAction>true</EnableRespecAction>
+    <EnableUnarmedMainAttackAction>true</EnableUnarmedMainAttackAction>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
@@ -418,8 +247,8 @@
     <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
     <UseOfficialLightingObscurementAndVisionRules>true</UseOfficialLightingObscurementAndVisionRules>
-    <OfficialObscurementRulesInvisibleCreaturesCanBeTarget>false</OfficialObscurementRulesInvisibleCreaturesCanBeTarget>
-    <OfficialObscurementRulesCancelAdvDisPairs>false</OfficialObscurementRulesCancelAdvDisPairs>
+    <OfficialObscurementRulesInvisibleCreaturesCanBeTarget>true</OfficialObscurementRulesInvisibleCreaturesCanBeTarget>
+    <OfficialObscurementRulesCancelAdvDisPairs>true</OfficialObscurementRulesCancelAdvDisPairs>
     <OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>false
     </OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>
     <OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>false
@@ -430,17 +259,17 @@
     <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>
     <StealthBreaksWhenCastingMaterial>false</StealthBreaksWhenCastingMaterial>
-    <StealthBreaksWhenCastingVerbose>false</StealthBreaksWhenCastingVerbose>
+    <StealthBreaksWhenCastingVerbose>true</StealthBreaksWhenCastingVerbose>
     <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
     <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
     <AddDexModifierToEnemiesInitiativeRoll>true</AddDexModifierToEnemiesInitiativeRoll>
-    <EnemiesAlwaysRollInitiative>false</EnemiesAlwaysRollInitiative>
+    <EnemiesAlwaysRollInitiative>true</EnemiesAlwaysRollInitiative>
     <AllowFlightSuspend>true</AllowFlightSuspend>
     <FlightSuspendWingedBoots>true</FlightSuspendWingedBoots>
-    <EnablePullPushOnVerticalDirection>false</EnablePullPushOnVerticalDirection>
+    <EnablePullPushOnVerticalDirection>true</EnablePullPushOnVerticalDirection>
     <FullyControlConjurations>true</FullyControlConjurations>
     <EnableHigherGroundRules>true</EnableHigherGroundRules>
-    <EnableTeleportToRemoveRestrained>false</EnableTeleportToRemoveRestrained>
+    <EnableTeleportToRemoveRestrained>true</EnableTeleportToRemoveRestrained>
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>true</ColdResistanceAlsoGrantsImmunityToChilledCondition>
     <ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>true
@@ -1906,8 +1735,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

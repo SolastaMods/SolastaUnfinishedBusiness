@@ -118,7 +118,6 @@ internal static class CraftingAndItems
             SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
         }
 
-
         toggle = Main.Settings.UseOfficialFoodRationsWeight;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
         {

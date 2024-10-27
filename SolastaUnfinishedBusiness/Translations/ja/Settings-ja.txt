@@ -110,7 +110,7 @@ ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</colo
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にします{99><i><color=#F0DAA0>[フラットな部屋、150x150 および 200x200 のダンジョン サイズ、あらゆる環境からの無駄のない混合アセットを含む]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 戦闘中に高度カメラを有効にすると、無効になった後もその位置に留まり、範囲が 3 倍になります</i>
-ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列を有効にします <i><color=#F0DAA0>[17,15,13,​​12,10,8]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列を有効にします <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネルの表示を有効にする <i><color=#F0DAA0>[アーケイン ショット、インフュージョン、マニューバ、および汎用性]</color></i>{99><b><i><color=#C04040E0>[キャラクター検査時にパフォーマンスが低下します。自己責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル2、10、18で<color=#D89555>特技</color>選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=レベル6と14で<color=#D89555>特技</color>選択を有効にする

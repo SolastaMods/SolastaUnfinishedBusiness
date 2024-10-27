@@ -70,7 +70,6 @@ internal static class RulesDisplay
 
             UI.Label();
             UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
-            UI.Label();
         }
 
         UI.Label();

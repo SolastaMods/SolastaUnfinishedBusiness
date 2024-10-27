@@ -5,6 +5,7 @@
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
     <DisplayOneDndToggle>false</DisplayOneDndToggle>
+    <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -219,81 +220,6 @@
     <FixAsianLanguagesTextWrap>true</FixAsianLanguagesTextWrap>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
-    <MonstersThatShouldHaveDarkvision>
-        <string>Adam_The_Twelth</string>
-        <string>DLC3_Elven_07_Guard</string>
-        <string>SRD_DLC_Mage</string>
-        <string>SRD_Mage</string>
-        <string>DLC1_NPC_Forge_Escorted_01</string>
-        <string>DLC3_NPC_Generic_ElvenCitizen_Husk</string>
-        <string>Generic_Darkweaver</string>
-        <string>DLC3_ElvenClans_Leralyn</string>
-        <string>DLC3_NPC_Elven3_DLC3_Ending</string>
-        <string>DLC3_NPC_Elven5_DLC3_Ending</string>
-        <string>Generic_HighPriest</string>
-        <string>DLC3_Elven_Suspect_05_Guard_Traitor</string>
-        <string>DLC3_Elven_06_Guard</string>
-        <string>SRD_DLC3_Archmage</string>
-        <string>Generic_ShockArcanist</string>
-    </MonstersThatShouldHaveDarkvision>
-    <MonstersThatShouldHaveTrueSight>
-        <string>Couatl</string>
-        <string>CubeOfLight</string>
-    </MonstersThatShouldHaveTrueSight>
-    <MonstersThatShouldHaveBlindSight>
-        <string>Aksha</string>
-        <string>Aksha_Legendary</string>
-    </MonstersThatShouldHaveBlindSight>
-    <MonstersThatShouldNotHaveTremorSense>
-        <string>Aksha</string>
-        <string>Aksha_Legendary</string>
-    </MonstersThatShouldNotHaveTremorSense>
-    <EffectsThatTargetDistantIndividualsAndDontRequireSight>
-        <string>AcidSplash</string>
-        <string>Aid</string>
-        <string>AnimalShapes</string>
-        <string>BeaconOfHope</string>
-        <string>Bless</string>
-        <string>BlessingOfRime</string>
-        <string>BoomingBlade</string>
-        <string>DispelMagic</string>
-        <string>FeatherFall</string>
-        <string>Knock</string>
-        <string>Levitate</string>
-        <string>MassCureWounds</string>
-        <string>PassWithoutTrace</string>
-        <string>PowerBarbarianBrutalStrike</string>
-        <string>PowerBardHopeWordsOfHope6</string>
-        <string>PowerBardTraditionManacalonsPerfection</string>
-        <string>PowerCelestialSearingVengeance</string>
-        <string>PowerCollegeOfAudacityDefensiveWhirl</string>
-        <string>PowerCollegeOfAudacityMobileWhirl</string>
-        <string>PowerCollegeOfValianceHeroicInspiration</string>
-        <string>PowerDisableGrapple</string>
-        <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
-        <string>PowerFeatChefCookMeal</string>
-        <string>PowerFeatOrcishAggression</string>
-        <string>PowerGrapple</string>
-        <string>PowerInnovationWeaponArcaneJolt</string>
-        <string>PowerOathOfJugementPurgeCorruption</string>
-        <string>PowerOathOfJugementRetribution</string>
-        <string>PowerOathOfThunderThunderousRebuke</string>
-        <string>PowerPatronFiendHurlThroughHell</string>
-        <string>PowerRangerHellWalkerMarkOfTheDammed</string>
-        <string>PowerRangerLightBearerBlessedWarrior</string>
-        <string>PowerRiftWalkerRiftStrike</string>
-        <string>PowerSorcerousPsionMindOverMatter</string>
-        <string>PowerTraditionOpenHandQuiveringPalmTrigger</string>
-        <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
-        <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
-        <string>RayOfEnfeeblement</string>
-        <string>ResonatingStrike</string>
-        <string>Sanctuary</string>
-        <string>ShieldOfFaith</string>
-        <string>Sparkle</string>
-        <string>SunlightBlade</string>
-        <string>TrueStrike</string>
-    </EffectsThatTargetDistantIndividualsAndDontRequireSight>
     <EnablePcgRandom>false</EnablePcgRandom>
     <EnableCustomPortraits>false</EnableCustomPortraits>
     <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
