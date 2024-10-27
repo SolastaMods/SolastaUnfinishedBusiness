@@ -289,6 +289,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Sub-raças</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque os recursos <color=#D89555>Evocador</color> <b>Magias de Escultura</b> e <b>Truque Potente</b> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&Tabletop=<color=#F0DAA0>Mesa:</color>
 ModUi/&TargetLanguage=Língua alvo
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduza o tempo de criação em</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total de <color=#D89555>talentos</color> concedidos no primeiro nível</color>

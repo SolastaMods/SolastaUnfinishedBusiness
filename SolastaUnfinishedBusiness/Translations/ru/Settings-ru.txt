@@ -289,6 +289,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Архетипы</color>
 ModUi/&Subraces=<color=#F0DAA0>Подрасы</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Заменить значок рецепта значком создаваемого предмета в магазине</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Поменяйте местами функции <color=#D89555>Мастера призываний</color> <b>Скульптуры заклинаний</b> и <b>Мощного колдовства</b> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&Tabletop=<color=#F0DAA0>Столешница:</color>
 ModUi/&TargetLanguage=Язык перевода
 ModUi/&TotalCraftingTimeModifier=<color=white>Уменьшить время крафта на</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Общее количество <color=#D89555>черт</color>, получаемых на первом уровне</color>

@@ -289,6 +289,7 @@ ModUi/&Subclasses=<color=#F0DAA0>子类</color>
 ModUi/&Subraces=<color=#F0DAA0>亚种</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 在商店中交换配方和制作物品图标</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=交换<color=#D89555>Evoker</color> <b>Sculpt Spells</b> 和 <b>Potent Cantrip</b> 功能<i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&Tabletop=<color=#F0DAA0>桌面：</color>
 ModUi/&TargetLanguage=目标语言
 ModUi/&TotalCraftingTimeModifier=<color=white>减少制作时间</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>第一级授予的<color=#D89555>功绩</color>总数</color>

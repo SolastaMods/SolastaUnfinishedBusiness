@@ -289,6 +289,7 @@ ModUi/&Subclasses=<color=#F0DAA0>서브클래스</color>
 ModUi/&Subraces=<color=#F0DAA0>아종</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교환</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>소환사</color> <b>조각 주문</b>과 <b>강력한 주문</b> 기능을 <i><color=#F0DAA0>[OneDnd]</color></i>로 바꾸세요.
+ModUi/&Tabletop=<color=#F0DAA0>테이블탑:</color>
 ModUi/&TargetLanguage=대상 언어
 ModUi/&TotalCraftingTimeModifier=<color=white>제작 시간을 다음과 같이 줄이세요.</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>1레벨에서 부여된 총 <color=#D89555>특기</color></color>

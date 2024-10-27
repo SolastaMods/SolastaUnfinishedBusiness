@@ -289,6 +289,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
 ModUi/&Subraces=<color=#F0DAA0>Sous-races</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <color=#D89555>Évocateur</color> <b>Sculpture des sorts</b> et <b>Potent Cantrip</b> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&Tabletop=<color=#F0DAA0>Tableau :</color>
 ModUi/&TargetLanguage=Langue cible
 ModUi/&TotalCraftingTimeModifier=<color=white>Réduisez le temps de fabrication de</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total des <color=#D89555>exploits</color> accordés au premier niveau</color>
