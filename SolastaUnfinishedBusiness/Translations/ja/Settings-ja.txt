@@ -20,7 +20,7 @@ ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>ブレード・カントリ�
 ModUi/&AllowClubsToBeThrown=<color=#D89555>クラブ</color>を<color=#D89555>ダガー</color>や<color=#D89555>ハンドアックス</color>のように投げられるようになります
 ModUi/&AllowDisplayingNonSuggestedSpells=各リストでmodの非推奨呪文を許可する
 ModUi/&AllowDisplayingOfficialSpells=各リストでゲーム公式呪文を許可する
-ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>ドルイド</color>が金属鎧を着用できるようにする <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>ドルイド</color>が金属鎧を着用できるようにする
 ModUi/&AllowDungeonsMaxLevel20=最大レベル20のダンジョンを許可する
 ModUi/&AllowFlightSuspend=アイテムや呪文による飛行を一時的に停止できるようにします <i><color=#F0DAA0>[ワイルドシェイプや飛行種族には影響しません]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=ガジェットや小道具を配置する際のチェックをバイパスするために、<color=#1E81B0>CTRL</color> クリックを有効にします
@@ -105,7 +105,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<color=#D89555>希望
 ModUi/&EnableBetaContent=ベータ版コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
-ModUi/&EnableCastersToCountMaxPreparedFromTable=すべての <color=#D89555>準備済みキャスター</color> を有効にして、式 <i><color=#F0DAA0>[OneDnd]</color></i> ではなく表から最大準備数を決定できるようにします。
+ModUi/&EnableCastersToCountMaxPreparedFromTable=すべての<color=#D89555>準備済みキャスター</color>を有効にして、数式ではなく表から最大準備数を決定できるようにします。
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>
@@ -140,15 +140,15 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>非装�
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>優れた防御力</color>を有効にして<color=#D89555>空の体</color>を置き換えます
 ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[選択した武器の種類がモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
-ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>Cure Wounds</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> の治癒ダイスバフを有効にします <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction=ボーナスアクションとして <color=#D89555>手を置く</color> を有効にする <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&EnablePaladinSmiteAsBonusAction=ボーナスアクションとして <color=#D89555>Smite</color> を有効にする <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>治癒の傷</color>、<color=#D89555>治癒の言葉</color>、<color=#D89555>大量治癒の傷</color>、<color=#D89555>大量治癒の言葉</color>に治癒ダイスバフを有効にします
+ModUi/&EnablePaladinLayOnHandsAsBonusAction=ボーナスアクションとして<color=#D89555>手を置く</color>を有効にする
+ModUi/&EnablePaladinSmiteAsBonusAction=ボーナスアクションとして<color=#D89555>スマイト</color>を有効にする
 ModUi/&EnablePaladinSpellCastingAtLevel1=<b>パラディン</b>がレベル 2 ではなくレベル 1 で <color=#D89555>呪文詠唱</color> を獲得できるようにします <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=<color=#D89555>うつ伏せになる</color>アクションを有効にする <i><color=#F0DAA0>[コストをかけずにうつ伏せになることができます]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=プッシュとプルのモーション効果を上下軸でも有効にします
 ModUi/&EnableRangerNatureShroudAt10=レベル 10 で <color=#D89555>自然のベール</color> 機能を有効にします <i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法で透明になることができます]</color></i>
-ModUi/&EnableRangerSpellCastingAtLevel1=<b>レンジャー</b>がレベル 2 ではなくレベル 1 で <color=#D89555>呪文詠唱</color> を取得できるようにします <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=<b>レンジャー</b>がレベル2ではなくレベル1で<color=#D89555>呪文詠唱</color>を獲得できるようにします
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップや呪文を選択できるようにする
 ModUi/&EnableRespecAction=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
 ModUi/&EnableRogueCunningStrike=レベル 5 と 14 で <color=#D89555>狡猾な一撃</color> と <color=#D89555>邪悪な一撃</color> を有効にします <i><color=#F0DAA0>[追加のヒット効果を得るために、スニーク アタック ダイスを 1 つ放棄します]</color></i>
@@ -161,13 +161,13 @@ ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>�
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカルヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローはランダム性を高めるために D20 ロールを重みに追加します <color=#F0DAA0>[選択重み = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
-ModUi/&EnableSurprisedToEnforceDisadvantage=<color=#D89555>驚き</color>状態を有効にして、ラウンドをスキップする代わりにイニシアチブ不利を強制します <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=<color=#D89555>驚き</color>状態を有効にして、ラウンドをスキップする代わりにイニシアチブの不利を強制します。
 ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>テレポート</color>を有効にすると、ターゲットからすべての<color=#D89555>拘束</color>状態が解除されます。
 ModUi/&EnableTooltipDistance=戦闘中のキャラクターにマウスを移動したときにツールチップに距離が表示されるようにする
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>素手攻撃</color>アクションを有効にする <i><color=#F0DAA0>[アクターがメインに武器を持っているか、<b>モンク</b>を持っているか、<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>エレメンタル召喚</color>と<color=#D89555>フェイ召喚</color>のアップキャストを有効にする
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=<b>ウィザード</b>がレベル 2 ではなくレベル 3 で魔法学校を取得できるようにします <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=<b>ウィザード</b>がレベル2ではなくレベル3で魔法の学校を取得できるようにします
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と <color=#D89555>特技</color> の選択の両方を有効にします <i><color=#F0DAA0>[排他的選択の代わりに]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>ランダムエンカウントの確率を設定する</color>
 ModUi/&Encounters=出会い
@@ -232,8 +232,8 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 不可視の�
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>魔法で隠された</color>領域を、発射物ブロッカー <color=#F0DAA0>[<color=#D89555>闇</color> 呪文効果の任意のソース]</color に変更します</i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 必要に応じてモンスターと NPC に <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color>、<color=#D89555>TrueSight</color> を追加します</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>ワンダンジョンズ:</color>
-ModUi/&OneDndHealingPotionBonusAction=<color=#D89555>回復ポーション</color>と<color=#D89555>解毒剤</color>の使用時にボーナスアクションを有効にする <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&OneDnd=<color=#F0DAA0>テーブルトップ <i>[One DnD、2024]</i>:</color>
+ModUi/&OneDndHealingPotionBonusAction=<color=#D89555>治癒ポーション</color>と<color=#D89555>解毒剤</color>の使用時にボーナスアクションを有効にする
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストに最も強力なクリーチャーのみを表示する</i>
 ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
 ModUi/&OutlineGridWidthSpeed=<color=white>アウトライングリッドアニメーションの速度を</color> <color=#C04040E0>[%]</color> で乗算します。
@@ -294,8 +294,9 @@ ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴの店に、<color=#D89555>�
 ModUi/&Subclasses=<color=#F0DAA0>サブクラス</color>
 ModUi/&Subraces=<color=#F0DAA0>亜種族</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフトアイテムのアイコンを交換</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>Evoker</color> の <b>Sculpt Spells</b> と <b>Potent Cantrip</b> の機能を入れ替える <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&Tabletop=<color=#F0DAA0>テーブルトップ:</color>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>エヴォーカー</color>の<b>スカルプトスペル</b>と<b>ポテンシャルキャントリップ</b>の機能を入れ替えます
+ModUi/&TableTopHelp=• 次のセクションでは、利便性のために、mod 全体に散らばっている <color=#D89555>Classic と One DnD</color> の設定を再グループ化して複製します。
+ModUi/&Tabletop=<color=#F0DAA0>テーブルトップ <i>[クラシック DnD、2014]</i>:</color>
 ModUi/&TargetLanguage=対象言語
 ModUi/&TotalCraftingTimeModifier=<color=white>クラフト時間を短縮</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>第 1 レベルで付与される <color=#D89555>特技</color> の合計</color>

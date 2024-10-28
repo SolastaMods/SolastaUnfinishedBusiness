@@ -20,7 +20,7 @@ ModUi/&AllowBladeCantripsToUseReach=允许<color=#D89555>剑术戏法</color>使
 ModUi/&AllowClubsToBeThrown=允许将<color=#D89555>棍棒</color>像<color=#D89555>匕首</color>或<color=#D89555>手斧</color>一样投掷
 ModUi/&AllowDisplayingNonSuggestedSpells=允许每个列表中的 mod 非建议咒语
 ModUi/&AllowDisplayingOfficialSpells=允许每个列表中的游戏官方咒语
-ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>穿戴金属盔甲<i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>穿戴金属盔甲
 ModUi/&AllowDungeonsMaxLevel20=允许最高等级为 20 的地下城
 ModUi/&AllowFlightSuspend=允许暂时中止因物品和法术而产生的飞行<i><color=#F0DAA0>[不影响野性变身或飞行种族]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=启用<color=#1E81B0>CTRL</color>单击以在放置小工具或道具时绕过任何检查
@@ -105,7 +105,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=长时间休息时启用<color=#D89555>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=通过鼠标右键单击启用取消操作
 ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
-ModUi/&EnableCastersToCountMaxPreparedFromTable=使所有<color=#D89555>准备好的施法者</color>能够通过表格而不是公式确定最大准备数量<i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableCastersToCountMaxPreparedFromTable=使所有<color=#D89555>准备好的施法者</color>能够从表格而不是公式中确定最大准备数量
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
 ModUi/&EnableCustomPortraits=启用<color=#D89555>自定义肖像</color>
 ModUi/&EnableCustomPortraitsHelp=• 将自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i> 下，并以英雄名字命名<i><color=#F0DAA0>[例如：Anton、Celia、Nialla 等]</color></i>\n• 使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 可获得最佳效果]</color></i>
@@ -140,15 +140,15 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>�
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=在 18 级时启用<color=#D89555>超级防御</color>来替代<color=#D89555>空虚之身</color>
 ModUi/&EnableMonkWeaponSpecialization=在 2 级和 11 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[所选武器类型将成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用<color=#D89555>多类</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>治愈伤口</color>、<color=#D89555>治愈之言</color>、<color=#D89555>群体治愈伤口</color>和<color=#D89555>群体治愈之言</color>上启用治疗骰子增益 <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction=启用<color=#D89555>圣疗</color>作为奖励行动<i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&EnablePaladinSmiteAsBonusAction=启用 <color=#D89555>Smite</color> 作为奖励行动<i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>治愈伤口</color>、<color=#D89555>治愈之言</color>、<color=#D89555>群体治愈伤口</color>和<color=#D89555>群体治愈之言</color>上启用治疗骰子增益
+ModUi/&EnablePaladinLayOnHandsAsBonusAction=启用<color=#D89555>圣疗术</color>作为奖励行动
+ModUi/&EnablePaladinSmiteAsBonusAction=启用 <color=#D89555>Smite</color> 作为奖励行动
 ModUi/&EnablePaladinSpellCastingAtLevel1=使<b>圣骑士</b>能够以 1 级（而非 2 级）获得<color=#D89555>施法</color>能力<i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=启用更好的随机生成器算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=启用<color=#D89555>倒地</color>动作<i><color=#F0DAA0>[你可以无代价倒地]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=使推拉运动效果也适用于上/下轴
 ModUi/&EnableRangerNatureShroudAt10=在 10 级时启用<color=#D89555>自然面纱</color>功能<i><color=#F0DAA0>[作为奖励行动，您可以神奇地隐身，直到下一回合开始]</color></i>
-ModUi/&EnableRangerSpellCastingAtLevel1=使<b>Ranger</b>能够以 1 级（而非 2 级）获得<color=#D89555>施法</color>能力<i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=使<b>Ranger</b>在 1 级（而非 2 级）获得<color=#D89555>施法</color>能力
 ModUi/&EnableRelearnSpells=可以选择已从其他来源学到的法术或咒语
 ModUi/&EnableRespecAction=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
 ModUi/&EnableRogueCunningStrike=在等级 5 和 14 时启用<color=#D89555>狡猾打击</color>和<color=#D89555>阴险打击</color> <i><color=#F0DAA0>[你放弃 1 个偷袭骰子以获得额外的命中效果]</color></i>
@@ -161,13 +161,13 @@ ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>�
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[例如：暴击、暴击失败等]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 此外，每个英雄都会增加一个 D20 掷骰来增加权重，以增加一点随机性 <color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值 + D20 掷骰]</color></i>
-ModUi/&EnableSurprisedToEnforceDisadvantage=启用<color=#D89555>惊讶</color>条件来强制执行主动劣势，而不是跳过一轮<i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=启用<color=#D89555>惊讶</color>条件来强制执行主动劣势，而不是跳过一轮
 ModUi/&EnableTeleportToRemoveRestrained=启用<color=#D89555>传送</color>以移除目标的所有<color=#D89555>限制</color>条件
 ModUi/&EnableTooltipDistance=在战斗中将鼠标悬停在角色上时启用在工具提示上显示距离
 ModUi/&EnableUnarmedMainAttackAction=启用<color=#D89555>徒手攻击</color>动作<i><color=#F0DAA0>[如果演员主武器为武器、是<b>僧侣</b>或装备有<b>手套</b>或<b>铁手套</b>]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=启用 <color=#D89555>Conjure Elemental</color> 和 <color=#D89555>Conjure Fey</color> 的向上转换
 ModUi/&EnableVariablePlaceholdersOnTexts=在描述中启用变量占位符<i><color=#F0DAA0>[使用 {VARIABLE_NAME} 作为占位符]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=使<b>巫师</b>能够以 3 级（而非 2 级）获得魔法学派<i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=使<b>巫师</b>能够以 3 级（而非 2 级）获得魔法学派
 ModUi/&EnablesAsiAndFeat=同时启用属性得分增加和<color=#D89555>专长</color>选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇的百分比几率</color>
 ModUi/&Encounters=遭遇
@@ -232,8 +232,8 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 隐形生物�
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ 将<color=#D89555>魔法遮蔽</color>区域更改为投射物阻挡者<color=#F0DAA0>[任何<color=#D89555>黑暗</color>法术效果来源]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 在适当的情况下为怪物和 NPC 添加 <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color> 和 <color=#D89555>TrueSight</color></i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[设置的集合<b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>一个 DnD：</color>
-ModUi/&OneDndHealingPotionBonusAction=启用<color=#D89555>治疗药水</color>和<color=#D89555>解毒剂</color>使用奖励行动<i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&OneDnd=<color=#F0DAA0>桌面游戏<i>[One DnD, 2024]</i>:</color>
+ModUi/&OneDndHealingPotionBonusAction=启用<color=#D89555>治疗药水</color>和<color=#D89555>解毒剂</color>使用奖励行动
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 仅显示召唤列表中最强大的生物</i>
 ModUi/&OutlineGridWidthModifier=<color=white>将轮廓网格宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>将轮廓网格动画速度乘以</color> <color=#C04040E0>[%]</color>
@@ -294,8 +294,9 @@ ModUi/&StockHugoStoreWithAdditionalFoci=将 <color=#D89555>奥术法杖</color>�
 ModUi/&Subclasses=<color=#F0DAA0>子类</color>
 ModUi/&Subraces=<color=#F0DAA0>亚种</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 在商店中交换配方和制作物品图标</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=交换<color=#D89555>Evoker</color> <b>Sculpt Spells</b> 和 <b>Potent Cantrip</b> 功能<i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&Tabletop=<color=#F0DAA0>桌面：</color>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=交换<color=#D89555>召唤师</color> <b>塑形法术</b>和<b>强效咒语</b>功能
+ModUi/&TableTopHelp=• 以下部分重新分组并复制了分散在模块中的 <color=#D89555>Classic 和 One DnD</color> 设置，以方便您使用
+ModUi/&Tabletop=<color=#F0DAA0>桌面游戏<i>[经典 DnD，2014]</i>:</color>
 ModUi/&TargetLanguage=目标语言
 ModUi/&TotalCraftingTimeModifier=<color=white>减少制作时间</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>第一级授予的<color=#D89555>功绩</color>总数</color>

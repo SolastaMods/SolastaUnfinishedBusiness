@@ -295,6 +295,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Архетипы</color>
 ModUi/&Subraces=<color=#F0DAA0>Подрасы</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Заменить значок рецепта значком создаваемого предмета в магазине</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Поменять местами умения Волшебника школы <color=#D89555>Воплощения</color> <b>Построение заклинаний</b> и <b>Мощный заговор</b> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&TableTopHelp=• Следующие разделы перегруппированы и дублируют настройки <color=#D89555>Classic и One DnD</color>, разбросанные по моду для вашего удобства.
 ModUi/&Tabletop=<color=#F0DAA0>Настольные правила:</color>
 ModUi/&TargetLanguage=Язык перевода
 ModUi/&TotalCraftingTimeModifier=<color=white>Уменьшить время крафта на</color>

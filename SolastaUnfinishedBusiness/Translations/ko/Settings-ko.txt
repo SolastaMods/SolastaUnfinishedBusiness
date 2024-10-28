@@ -20,7 +20,7 @@ ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>블레이드 캔트립</color
 ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color>이나 <color=#D89555>손도끼</color>처럼 던질 수 있도록 허용합니다.
 ModUi/&AllowDisplayingNonSuggestedSpells=각 목록에 제안되지 않은 주문 허용
 ModUi/&AllowDisplayingOfficialSpells=각 목록에 게임 공식 주문 허용
-ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>가 금속 갑옷을 착용하도록 허용 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>가 금속 갑옷을 착용할 수 있도록 허용
 ModUi/&AllowDungeonsMaxLevel20=최대 레벨 20인 던전 허용
 ModUi/&AllowFlightSuspend=아이템과 주문의 비행을 일시적으로 중단할 수 있습니다. <i><color=#F0DAA0>[야생형이나 비행 종족에는 영향을 미치지 않습니다.]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=가젯이나 소품을 배치할 때 모든 검사를 우회하려면 <color=#1E81B0>CTRL</color> 클릭을 활성화하세요.
@@ -105,7 +105,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <color=#D89555>College o
 ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=주문이 <color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하도록 허용합니다.
-ModUi/&EnableCastersToCountMaxPreparedFromTable=공식 대신 표에서 최대 준비 개수를 결정하려면 <color=#D89555>준비된 캐스터</color>를 모두 활성화합니다. <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableCastersToCountMaxPreparedFromTable=공식 대신 표에서 최대 준비 개수를 결정하려면 모든 <color=#D89555>준비된 캐스터</color>를 활성화하세요.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태 패밀리]</color></i>
 ModUi/&EnableCustomPortraits=<color=#D89555>사용자 정의 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 영웅의 이름을 따서 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color></b></i> 하위 폴더에 사용자 지정 초상화를 넣습니다. <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• 투명 레이어가 있는 256 x 384픽셀 크기의 PNG 이미지를 사용합니다. <i><color=#F0DAA0>[최상의 결과를 위해 GIMP를 사용하세요]</color></i>
@@ -140,15 +140,15 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>개선�
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=레벨 18에서 <color=#D89555>빈 몸</color>을 대체하기 위해 <color=#D89555>우수한 방어력</color>을 활성화합니다.
 ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>무기 전문화</color>를 활성화합니다. <i><color=#F0DAA0>[선택한 무기 유형이 당신에게 수도사 무기가 됩니다]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
-ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 권능</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 권능</color>에 치유 주사위 버프를 활성화합니다. <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction=보너스 액션으로 <color=#D89555>손 얹기</color>를 활성화합니다. <i><color=#F0DAA0>[원던전]</color></i>
-ModUi/&EnablePaladinSmiteAsBonusAction=<color=#D89555>스마이트</color>를 보너스 액션으로 활성화 <i><color=#F0DAA0>[원던전]</color></i>
+ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 말씀</color>에 치유 주사위 버프를 활성화합니다.
+ModUi/&EnablePaladinLayOnHandsAsBonusAction=<color=#D89555>안수</color>를 보너스 액션으로 활성화합니다.
+ModUi/&EnablePaladinSmiteAsBonusAction=<color=#D89555>Smite</color>를 보너스 액션으로 활성화합니다.
 ModUi/&EnablePaladinSpellCastingAtLevel1=<b>성기사</b>가 레벨 2가 아닌 레벨 1에서 <color=#D89555>주문 시전</color> 능력을 획득할 수 있도록 합니다 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=더 나은 난수 생성 알고리즘을 활성화하세요 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=<color=#D89555>엎드려 넘어짐</color> 동작을 활성화하세요 <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=위/아래 축에서도 푸시 및 풀 모션 효과를 작동하도록 설정
 ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>자연의 베일</color> 기능을 활성화합니다. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법으로 투명해질 수 있습니다.]</color></i>
-ModUi/&EnableRangerSpellCastingAtLevel1=<b>레인저</b>가 레벨 2가 아닌 레벨 1에서 <color=#D89555>주문 시전</color> 능력을 획득할 수 있도록 설정 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=<b>레인저</b>가 레벨 2가 아닌 레벨 1에서 <color=#D89555>주문 시전</color> 능력을 획득할 수 있도록 합니다.
 ModUi/&EnableRelearnSpells=다른 출처에서 이미 배운 주문이나 주문 선택 가능
 ModUi/&EnableRespecAction=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
 ModUi/&EnableRogueCunningStrike=레벨 5와 14에서 <color=#D89555>교활한 일격</color>과 <color=#D89555>사악한 일격</color>을 활성화합니다. <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기합니다]</color></i>
@@ -161,13 +161,13 @@ ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다 <color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정치 + D20 롤]</color></i>
-ModUi/&EnableSurprisedToEnforceDisadvantage=라운드 건너뛰기 대신 이니셔티브 불이익을 적용하려면 <color=#D89555>놀람</color> 조건을 활성화하세요 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=라운드를 건너뛰는 대신 이니셔티브 불이익을 적용하려면 <color=#D89555>놀람</color> 조건을 활성화하세요.
 ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>순간이동</color>을 활성화하여 대상의 모든 <color=#D89555>제한된</color> 조건을 제거합니다.
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위에 마우스를 올려 놓으면 툴팁에 거리 표시가 활성화됩니다.
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>비무장 공격</color> 동작 활성화 <i><color=#F0DAA0>[액터가 기본 무기를 장착하고 있거나, <b>수도사</b>이거나, <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>원소 소환</color>과 <color=#D89555>요정 소환</color>의 업캐스트를 활성화합니다.
 ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=<b>마법사</b>가 레벨 2 대신 레벨 3에서 마법 학교를 획득할 수 있도록 설정 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=<b>마법사</b>가 레벨 2가 아닌 레벨 3에서 마법 학교를 획득할 수 있도록 설정
 ModUi/&EnablesAsiAndFeat=속성 점수 증가와 <color=#D89555>특기</color> 선택을 모두 활성화합니다. <i><color=#F0DAA0>[독점 선택 대신]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>무작위 만남 확률 설정</color>
 ModUi/&Encounters=만남
@@ -232,8 +232,8 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 보이지 않�
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>마법적으로 가려진</color> 영역을 투사체 차단 장치로 변경 <color=#F0DAA0>[<color=#D89555>어둠</color> 주문 효과의 모든 소스]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 적절한 경우 몬스터와 NPC에게 <color=#D89555>암흑 시야</color>, <color=#D89555>맹시력</color>, <color=#D89555>진시력</color>을 추가합니다.</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[설정 컬렉션 <b>어둠의 시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>눈먼 시야를 가져야 하는 괴물</b>]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>한 번의 던전앤드:</color>
-ModUi/&OneDndHealingPotionBonusAction=<color=#D89555>치유 물약</color>과 <color=#D89555>항독소</color> 사용 시 보너스 액션 활성화 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&OneDnd=<color=#F0DAA0>테이블탑 <i>[원 던전앤드, 2024]</i>:</color>
+ModUi/&OneDndHealingPotionBonusAction=<color=#D89555>치유 물약</color>과 <color=#D89555>항독소</color> 사용 시 보너스 액션을 활성화합니다.
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 목록에서 가장 강력한 생물만 표시합니다.</i>
 ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
 ModUi/&OutlineGridWidthSpeed=<color=white>윤곽선 그리드 애니메이션 속도를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
@@ -294,8 +294,9 @@ ModUi/&StockHugoStoreWithAdditionalFoci=<color=#D89555>비전 지팡이</color>,
 ModUi/&Subclasses=<color=#F0DAA0>서브클래스</color>
 ModUi/&Subraces=<color=#F0DAA0>아종</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교환</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>소환사</color> <b>조각 주문</b>과 <b>강력한 주문</b> 기능을 <i><color=#F0DAA0>[OneDnd]</color></i>로 바꾸세요.
-ModUi/&Tabletop=<color=#F0DAA0>테이블탑:</color>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>소환사</color> <b>조각 주문</b>과 <b>강력한 주문</b> 기능을 교체하세요
+ModUi/&TableTopHelp=• 다음 섹션은 편의를 위해 모드 전체에 분산된 <color=#D89555>클래식 및 원 DnD</color> 설정을 다시 그룹화하고 복제합니다.
+ModUi/&Tabletop=<color=#F0DAA0>테이블탑 <i>[클래식 DnD, 2014]</i>:</color>
 ModUi/&TargetLanguage=대상 언어
 ModUi/&TotalCraftingTimeModifier=<color=white>제작 시간을 다음과 같이 줄이세요.</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>1레벨에서 부여된 총 <color=#D89555>특기</color></color>

@@ -17,9 +17,12 @@ internal static class ToolsDisplay
         UI.Label();
         DisplayMultiplayer();
         UI.Label();
-        DisplayOneDnd();
+        UI.Label(Gui.Localize("ModUi/&TableTopHelp"));
+        UI.Label();
         UI.Label();
         DisplayTabletop();
+        UI.Label();
+        DisplayOneDnd();
         UI.Label();
     }
 
@@ -208,6 +211,93 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
+        UI.Label();
+
+        toggle = Main.Settings.EnableBarbarianBrutalStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianBrutalStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianBrutalStrike = toggle;
+            Main.Settings.DisableBarbarianBrutalCritical = toggle;
+            CharacterContext.SwitchBarbarianBrutalStrike();
+            CharacterContext.SwitchBarbarianBrutalCritical();
+        }
+
+        if (Main.Settings.EnableBarbarianBrutalStrike)
+        {
+            toggle = Main.Settings.DisableBarbarianBrutalCritical;
+            if (UI.Toggle(Gui.Localize("ModUi/&DisableBarbarianBrutalCritical"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisableBarbarianBrutalCritical = toggle;
+                CharacterContext.SwitchBarbarianBrutalCritical();
+            }
+        }
+
+        toggle = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration = toggle;
+            CharacterContext.SwitchBarbarianRecklessSameBuffDebuffDuration();
+        }
+
+        toggle = Main.Settings.EnableBarbarianRegainOneRageAtShortRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRegainOneRageAtShortRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianRegainOneRageAtShortRest = toggle;
+            CharacterContext.SwitchBarbarianRegainOneRageAtShortRest();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddFighterLevelToIndomitableSavingReroll;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
+            CharacterContext.SwitchFighterLevelToIndomitableSavingReroll();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf = toggle;
+            CharacterContext.SwitchMonkBodyAndMindToReplacePerfectSelf();
+        }
+
+        toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForFlurry"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry = toggle;
+            CharacterContext.SwitchMonkDoNotRequireAttackActionForFlurry();
+        }
+
+        toggle = Main.Settings.EnableMonkHeightenedMetabolism;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkHeightenedMetabolism"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkHeightenedMetabolism = toggle;
+            CharacterContext.SwitchMonkHeightenedMetabolism();
+        }
+
+        toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack = toggle;
+            CharacterContext.SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
+        }
+
+        toggle = Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody = toggle;
+            CharacterContext.SwitchMonkSuperiorDefenseToReplaceEmptyBody();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.EnablePaladinLayOnHandsAsBonusAction;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHandsAsBonusAction"), ref toggle, UI.AutoWidth()))
         {
@@ -228,12 +318,25 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchOneDndPaladinLearnSpellCastingAtOne();
         }
 
+        UI.Label();
+
         toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
             SrdAndHouseRulesContext.SwitchOneDndRangerLearnSpellCastingAtOne();
         }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableRogueCunningStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueCunningStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueCunningStrike = toggle;
+            CharacterContext.SwitchRogueCunningStrike();
+        }
+
+        UI.Label();
 
         toggle = Main.Settings.EnableWizardToLearnSchoolAtLevel3;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnSchoolAtLevel3"), ref toggle, UI.AutoWidth()))

@@ -20,7 +20,7 @@ ModUi/&AllowBladeCantripsToUseReach=Autoriser les <color=#D89555>sorties de lame
 ModUi/&AllowClubsToBeThrown=Autoriser les <color=#D89555>matraques</color> à être lancées comme des <color=#D89555>dagues</color> ou des <color=#D89555>haches à main</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Autoriser les sorts non suggérés par le mod sur chaque liste
 ModUi/&AllowDisplayingOfficialSpells=Autoriser les sorts officiels du jeu sur chaque liste
-ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 20
 ModUi/&AllowFlightSuspend=Autoriser la suspension temporaire du vol des objets et des sorts <i><color=#F0DAA0>[n'affecte pas les races de forme sauvage ou volantes]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Activez le clic <color=#1E81B0>CTRL</color> pour contourner toute vérification lors du placement de gadgets ou d'accessoires
@@ -105,7 +105,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=Activer la Ballade de guérison de <col
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCantripsTriggeringOnWarMagic=Autoriser les tours de passe-passe à déclencher une attaque bonus supplémentaire de <color=#D89555>Magie de guerre</color>
-ModUi/&EnableCastersToCountMaxPreparedFromTable=Activer tous les <color=#D89555>rouleaux préparés</color> pour déterminer le nombre maximal de rouleaux préparés à partir d'un tableau au lieu d'une formule <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableCastersToCountMaxPreparedFromTable=Activez tous les <color=#D89555>rouleaux préparés</color> pour déterminer le nombre maximal de rouleaux préparés à partir d'un tableau au lieu d'une formule
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</color> doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Bouffon de feu, Balbuzard pêcheur de feu, Araignée de feu et famille de conditions en feu]</color></i>
 ModUi/&EnableCustomPortraits=Activer les <color=#D89555>portraits personnalisés</color>
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personal</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color></b></i>, nommés d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utilisez des images PNG, de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
@@ -140,15 +140,15 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Activez <color=#D89555
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Activez la <color=#D89555>Défense supérieure</color> pour remplacer le <color=#D89555>Corps vide</color> au niveau 18
 ModUi/&EnableMonkWeaponSpecialization=Activez la <color=#D89555>spécialisation des armes</color> aux niveaux 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&EnableOneDndHealingSpellsBuf=Activer le buff des dés de soin sur <color=#D89555>Soin des blessures</color>, <color=#D89555>Mot de soin</color>, <color=#D89555>Soin de masse des blessures</color> et <color=#D89555>Mot de soin de masse</color> <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction=Activer <color=#D89555>Imposition des mains</color> comme action bonus <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&EnablePaladinSmiteAsBonusAction=Activer <color=#D89555>Smite</color> comme action bonus <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableOneDndHealingSpellsBuf=Activer le buff des dés de soin sur <color=#D89555>Soin des blessures</color>, <color=#D89555>Mot de soin</color>, <color=#D89555>Soin de masse des blessures</color> et <color=#D89555>Mot de soin de masse</color>
+ModUi/&EnablePaladinLayOnHandsAsBonusAction=Activer <color=#D89555>Imposition des mains</color> comme action bonus
+ModUi/&EnablePaladinSmiteAsBonusAction=Activer <color=#D89555>Smite</color> comme action bonus
 ModUi/&EnablePaladinSpellCastingAtLevel1=Permettre au <b>Paladin</b> d'acquérir le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Activer l'action <color=#D89555>Tomber à plat ventre</color> <i><color=#F0DAA0>[vous pouvez tomber à plat ventre sans frais]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Activez les effets de mouvement de poussée et de traction pour qu'ils fonctionnent également sur l'axe haut/bas
 ModUi/&EnableRangerNatureShroudAt10=Activez la fonction <color=#D89555>Voile de la nature</color> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour]</color></i>
-ModUi/&EnableRangerSpellCastingAtLevel1=Permettre au <b>Ranger</b> d'acquérir le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=Permettre au Ranger d'acquérir le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
 ModUi/&EnableRelearnSpells=Activer la sélection de sorts ou de sorts déjà appris à partir d'autres sources
 ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après le repos <i><color=#F0DAA0>[ne pas utiliser RESPEC pendant une session multijoueur]</color></i>
 ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color> et <color=#D89555>Devious Strike</color> aux niveaux 5 et 14 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
@@ -161,13 +161,13 @@ ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accél
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ De plus, chaque héros ajoute un jet de D20 pour pondérer un peu le caractère aléatoire <color=#F0DAA0>[poids du choix = votes * modificateur de Charisme du héros + jet de D20]</color></i>
-ModUi/&EnableSurprisedToEnforceDisadvantage=Activez la condition <color=#D89555>Surprise</color> pour appliquer un désavantage d'initiative au lieu de sauter un tour <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=Activez la condition <color=#D89555>Surprise</color> pour appliquer un désavantage d'initiative au lieu de sauter un tour
 ModUi/&EnableTeleportToRemoveRestrained=Activez la <color=#D89555>téléportation</color> pour supprimer toutes les conditions de <color=#D89555>restriction</color> de la cible
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bulles lors du survol d'un personnage en combat
 ModUi/&EnableUnarmedMainAttackAction=Activer l'action <color=#D89555>Attaque à mains nues</color> <i><color=#F0DAA0>[si l'acteur a une arme dans l'arme principale, est un <b>moine</b> ou a des <b>bandages</b> ou un <b>gantelet</b> équipés]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la conversion ascendante de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Activer les espaces réservés aux variables dans les descriptions <i><color=#F0DAA0>[utiliser {VARIABLE_NAME} comme espace réservé]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Permettre au <b>magicien</b> d'acquérir l'école de magie au niveau 3 au lieu de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Activer le <b>magicien</b> pour acquérir l'école de magie au niveau 3 au lieu de 2
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attributs et la sélection des <color=#D89555>exploits</color> <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Définir des pourcentages de chances de rencontres aléatoires</color>
 ModUi/&Encounters=Rencontres
@@ -232,8 +232,8 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Les créatures
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Changez les zones <color=#D89555>obscurcies par magie</color> en bloqueurs de projectiles <color=#F0DAA0>[toute source de l'effet du sort <color=#D89555>Ténèbres</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Ajoutez <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> et <color=#D89555>TrueSight</color> aux monstres et aux PNJ lorsque cela est approprié</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[collections de paramètres <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>Un DnD :</color>
-ModUi/&OneDndHealingPotionBonusAction=Activer l'action bonus sur les utilisations de <color=#D89555>Potions de soin</color> et d'<color=#D89555>Antitoxine</color> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&OneDnd=<color=#F0DAA0>Jeux de société <i>[One DnD, 2024]</i> :</color>
+ModUi/&OneDndHealingPotionBonusAction=Activer l'action bonus sur les utilisations de <color=#D89555>potions de soins</color> et d'<color=#D89555>antitoxines</color>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Afficher uniquement les créatures les plus puissantes dans la liste de conjuration</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multipliez la largeur de la grille de contour par</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multipliez la vitesse d'animation de la grille de contour par</color> <color=#C04040E0>[%]</color>
@@ -294,8 +294,9 @@ ModUi/&StockHugoStoreWithAdditionalFoci=Remplissez la boutique Hugo avec le <col
 ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
 ModUi/&Subraces=<color=#F0DAA0>Sous-races</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <color=#D89555>Évocateur</color> <b>Sculpture des sorts</b> et <b>Potent Cantrip</b> <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&Tabletop=<color=#F0DAA0>Tableau :</color>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <color=#D89555>Évocateur</color> <b>Sculpture des sorts</b> et <b>Puissant tour de passe-passe</b>
+ModUi/&TableTopHelp=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>Classic et One DnD</color> dispersés dans le mod pour votre commodité
+ModUi/&Tabletop=<color=#F0DAA0>Jeux de société <i>[DnD classique, 2014]</i> :</color>
 ModUi/&TargetLanguage=Langue cible
 ModUi/&TotalCraftingTimeModifier=<color=white>Réduisez le temps de fabrication de</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total des <color=#D89555>exploits</color> accordés au premier niveau</color>
