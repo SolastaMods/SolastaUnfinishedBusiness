@@ -725,6 +725,7 @@ internal static class ToolsDisplay
         UI.Label();
 
         toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
+        // ReSharper disable once InvertIf
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardHealingBalladOnLongRest = toggle;

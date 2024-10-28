@@ -15,9 +15,9 @@ public class ForceUsesAttributeDeserialization
         if (serializer.Mode != Serializer.SerializationMode.Read) { return; }
 
         var usablePowers = character.usablePowers;
-        for (var index = 0; index < usablePowers.Count; ++index)
+
+        foreach (var usablePower in usablePowers)
         {
-            var usablePower = usablePowers[index];
             var powerDefinition = usablePower.PowerDefinition;
             if (!powerDefinition.HasSubFeatureOfType<ForceUsesAttributeDeserialization>()) { continue; }
 
