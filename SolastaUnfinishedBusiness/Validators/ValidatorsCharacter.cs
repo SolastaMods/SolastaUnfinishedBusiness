@@ -292,6 +292,11 @@ internal static class ValidatorsCharacter
         GameLocationCharacter gameLocationCharacter,
         RulesetAttackMode attackMode)
     {
+        if (attackMode?.ActionType == ActionType.Reaction)
+        {
+            return;
+        }
+
         if (attackMode?.SourceDefinition is not ItemDefinition itemDefinition)
         {
             return;
