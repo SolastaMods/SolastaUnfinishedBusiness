@@ -295,7 +295,9 @@ ModUi/&Subclasses=<color=#F0DAA0>Unterklassen</color>
 ModUi/&Subraces=<color=#F0DAA0>Unterrassen</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Rezepte und Symbole für hergestellte Gegenstände im Shop austauschen</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Tauschen Sie die Funktionen <color=#D89555>Evoker</color> <b>Sculpt Spells</b> und <b>Potent Cantrip</b> aus
-ModUi/&TableTopHelp=• In den folgenden Abschnitten werden die im Mod verstreuten Einstellungen für <color=#D89555>Classic und One DnD</color> neu gruppiert und dupliziert, damit Sie es einfacher haben.
+ModUi/&TableTopButton=<b><color=#D89555>Tabletop-Inhalt auswählen</color></b>
+ModUi/&TableTopHelp1=• In den folgenden Abschnitten werden die im Mod verstreuten Einstellungen für <color=#D89555>Classic und One DnD</color> neu gruppiert und dupliziert, damit Sie es einfacher haben.
+ModUi/&TableTopHelp2=• Drücken Sie die Taste, um unter der Registerkarte „Charakter“ nur Tabletop-Inhalte auszuwählen, und wählen Sie alle Optionen darunter für ein echtes TT-Erlebnis aus
 ModUi/&Tabletop=<color=#F0DAA0>Tabletop <i>[Klassisches DnD, 2014]</i>:</color>
 ModUi/&TargetLanguage=Zielsprache
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduzieren Sie die Herstellungszeit um</color>

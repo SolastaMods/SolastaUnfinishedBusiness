@@ -295,7 +295,9 @@ ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Sub-raças</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque os recursos <color=#D89555>Evocador</color> <b>Magias de Escultura</b> e <b>Truque Potente</b>
-ModUi/&TableTopHelp=• As seções a seguir reagrupam e duplicam as configurações <color=#D89555>Classic e One DnD</color> espalhadas pelo mod para sua conveniência
+ModUi/&TableTopButton=<b><color=#D89555>Selecionar conteúdo de mesa</color></b>
+ModUi/&TableTopHelp1=• As seções a seguir reagrupam e duplicam as configurações <color=#D89555>Classic e One DnD</color> espalhadas pelo mod para sua conveniência
+ModUi/&TableTopHelp2=• Pressione o botão para selecionar apenas o conteúdo da mesa na aba Personagem e selecione todas as opções abaixo para uma verdadeira experiência TT
 ModUi/&Tabletop=<color=#F0DAA0>Mesa <i>[DnD Clássico, 2014]</i>:</color>
 ModUi/&TargetLanguage=Língua alvo
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduza o tempo de criação em</color>

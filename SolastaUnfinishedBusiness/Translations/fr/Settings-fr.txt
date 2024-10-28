@@ -295,7 +295,9 @@ ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
 ModUi/&Subraces=<color=#F0DAA0>Sous-races</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <color=#D89555>Évocateur</color> <b>Sculpture des sorts</b> et <b>Puissant tour de passe-passe</b>
-ModUi/&TableTopHelp=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>Classic et One DnD</color> dispersés dans le mod pour votre commodité
+ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>
+ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>Classic et One DnD</color> dispersés dans le mod pour votre commodité
+ModUi/&TableTopHelp2=• Appuyez sur le bouton pour sélectionner uniquement le contenu de table sous l'onglet Personnage et sélectionnez toutes les options ci-dessous pour une véritable expérience TT
 ModUi/&Tabletop=<color=#F0DAA0>Jeux de société <i>[DnD classique, 2014]</i> :</color>
 ModUi/&TargetLanguage=Langue cible
 ModUi/&TotalCraftingTimeModifier=<color=white>Réduisez le temps de fabrication de</color>

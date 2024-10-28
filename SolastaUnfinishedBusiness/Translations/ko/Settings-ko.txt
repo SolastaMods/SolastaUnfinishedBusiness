@@ -295,7 +295,9 @@ ModUi/&Subclasses=<color=#F0DAA0>서브클래스</color>
 ModUi/&Subraces=<color=#F0DAA0>아종</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교환</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>소환사</color> <b>조각 주문</b>과 <b>강력한 주문</b> 기능을 교체하세요
-ModUi/&TableTopHelp=• 다음 섹션은 편의를 위해 모드 전체에 분산된 <color=#D89555>클래식 및 원 DnD</color> 설정을 다시 그룹화하고 복제합니다.
+ModUi/&TableTopButton=<b><color=#D89555>테이블탑 콘텐츠 선택</color></b>
+ModUi/&TableTopHelp1=• 다음 섹션은 편의를 위해 모드 전체에 분산된 <color=#D89555>클래식 및 원 DnD</color> 설정을 다시 그룹화하고 복제합니다.
+ModUi/&TableTopHelp2=• 캐릭터 탭에서 테이블탑 콘텐츠만 선택하려면 버튼을 누르고, 진정한 TT 경험을 위해 아래의 모든 옵션을 선택하세요.
 ModUi/&Tabletop=<color=#F0DAA0>테이블탑 <i>[클래식 DnD, 2014]</i>:</color>
 ModUi/&TargetLanguage=대상 언어
 ModUi/&TotalCraftingTimeModifier=<color=white>제작 시간을 다음과 같이 줄이세요.</color>

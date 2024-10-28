@@ -16,13 +16,63 @@ internal static class ToolsDisplay
         DisplayGeneral();
         UI.Label();
         DisplayMultiplayer();
+
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&TableTopHelp"));
+        UI.Label(Gui.Localize("ModUi/&TableTopHelp1"));
+        UI.Label(Gui.Localize("ModUi/&TableTopHelp2"));
+        UI.Label();
+        UI.ActionButton(Gui.Localize("ModUi/&TableTopButton"), SelectTabletopSet, UI.AutoWidth());
         UI.Label();
         DisplayTabletop();
         UI.Label();
         DisplayOneDnd();
         UI.Label();
+    }
+
+    private static void SelectTabletopSet()
+    {
+        foreach (var background in BackgroundsContext.Backgrounds)
+        {
+            BackgroundsContext.Switch(background, ModUi.TabletopDefinitions.Contains(background));
+        }
+
+        foreach (var race in RacesContext.Races)
+        {
+            RacesContext.Switch(race, ModUi.TabletopDefinitions.Contains(race));
+        }
+
+        foreach (var subrace in RacesContext.Subraces)
+        {
+            RacesContext.SwitchSubrace(subrace, ModUi.TabletopDefinitions.Contains(subrace));
+        }
+
+        foreach (var feat in FeatsContext.Feats)
+        {
+            FeatsContext.SwitchFeat(feat, ModUi.TabletopDefinitions.Contains(feat));
+        }
+
+        foreach (var featGroup in FeatsContext.FeatGroups)
+        {
+            FeatsContext.SwitchFeatGroup(featGroup, true);
+        }
+
+        foreach (var fightingStyles in FightingStyleContext.FightingStyles)
+        {
+            FightingStyleContext.Switch(fightingStyles, ModUi.TabletopDefinitions.Contains(fightingStyles));
+        }
+
+        foreach (var invocation in InvocationsContext.Invocations)
+        {
+            InvocationsContext.SwitchInvocation(invocation, ModUi.TabletopDefinitions.Contains(invocation));
+        }
+
+        foreach (var metamagic in MetamagicContext.Metamagic)
+        {
+            MetamagicContext.SwitchMetamagic(metamagic, ModUi.TabletopDefinitions.Contains(metamagic));
+        }
+
+        SpellsContext.SelectTabletopSet(true);
+        SubclassesContext.SelectTabletopSet(true);
     }
 
     private static void DisplayGeneral()
