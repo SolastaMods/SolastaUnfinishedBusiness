@@ -158,6 +158,7 @@ ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Visualizza le statistiche nel tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità <color=#F0DAA0>[peso della scelta = voti * modificatore del Carisma dell'eroe + tiro di D20]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=Abilita la condizione <color=#D89555>Sorpreso</color> per imporre lo svantaggio dell'iniziativa invece di saltare un round <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Abilita <color=#D89555>Teletrasporto</color> per rimuovere tutte le condizioni <color=#D89555>limitate</color> dal bersaglio
 ModUi/&EnableTooltipDistance=Abilita la visualizzazione della distanza nei suggerimenti quando passi il mouse sopra un personaggio in combattimento
 ModUi/&EnableUnarmedMainAttackAction=Abilita l'azione <color=#D89555>Attacco disarmato</color> <i><color=#F0DAA0>[se l'attore ha un'arma nel personaggio principale, è un <b>monaco</b> o ha <b>fasce</b> o <b>guanto</b> equipaggiati]</color></i>

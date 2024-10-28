@@ -379,6 +379,13 @@ internal static class RulesDisplay
             Main.Settings.EnableHigherGroundRules = toggle;
         }
 
+        toggle = Main.Settings.EnableSurprisedToEnforceDisadvantage;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSurprisedToEnforceDisadvantage"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSurprisedToEnforceDisadvantage = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndSurprisedEnforceDisadvantage();
+        }
+
         toggle = Main.Settings.EnableTeleportToRemoveRestrained;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableTeleportToRemoveRestrained"), ref toggle, UI.AutoWidth()))
         {

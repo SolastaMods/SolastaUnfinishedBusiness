@@ -158,6 +158,7 @@ ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>�
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[例如：暴击、暴击失败等]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 此外，每个英雄都会增加一个 D20 掷骰来增加权重，以增加一点随机性 <color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值 + D20 掷骰]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=启用<color=#D89555>惊讶</color>条件来强制执行主动劣势，而不是跳过一轮<i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=启用<color=#D89555>传送</color>以移除目标的所有<color=#D89555>限制</color>条件
 ModUi/&EnableTooltipDistance=在战斗中将鼠标悬停在角色上时启用在工具提示上显示距离
 ModUi/&EnableUnarmedMainAttackAction=启用<color=#D89555>徒手攻击</color>动作<i><color=#F0DAA0>[如果演员主武器为武器、是<b>僧侣</b>或装备有<b>手套</b>或<b>铁手套</b>]</color></i>

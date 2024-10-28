@@ -978,6 +978,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionActionAffinitys
     {
+        internal static FeatureDefinitionActionAffinity ActionAffinityConditionSurprised { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionSurprised");
+
         internal static FeatureDefinitionActionAffinity ActionAffinityMartialCommanderCoordinatedDefense { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMartialCommanderCoordinatedDefense");
 
@@ -1656,6 +1659,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionMovementAffinitys
     {
+        internal static FeatureDefinitionMovementAffinity MovementAffinityConditionSurprised { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionSurprised");
+
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionDashing { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionDashing");
 

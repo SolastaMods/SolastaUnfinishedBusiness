@@ -158,6 +158,7 @@ ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accél
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ De plus, chaque héros ajoute un jet de D20 pour pondérer un peu le caractère aléatoire <color=#F0DAA0>[poids du choix = votes * modificateur de Charisme du héros + jet de D20]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=Activez la condition <color=#D89555>Surprise</color> pour appliquer un désavantage d'initiative au lieu de sauter un tour <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Activez la <color=#D89555>téléportation</color> pour supprimer toutes les conditions de <color=#D89555>restriction</color> de la cible
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bulles lors du survol d'un personnage en combat
 ModUi/&EnableUnarmedMainAttackAction=Activer l'action <color=#D89555>Attaque à mains nues</color> <i><color=#F0DAA0>[si l'acteur a une arme dans l'arme principale, est un <b>moine</b> ou a des <b>bandages</b> ou un <b>gantelet</b> équipés]</color></i>

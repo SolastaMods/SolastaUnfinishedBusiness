@@ -158,6 +158,7 @@ ModUi/&EnableSorcererQuickenedAction=Включить действие <color=#D
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ассетов в редакторе Создателя Подземелий
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику на всплывающей подсказке о герое <i><color=#F0DAA0>[например: критические удары, критические промахи и т.д.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Также каждый герой добавляет к весомости результат броска D20 для привнесения элемента случайности <color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя + бросок D20]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=Включить условие <color=#D89555>Удивление</color>, чтобы обеспечить недостаток инициативы вместо пропуска раунда <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Включить возможность <color=#D89555>Телепортации</color> снимать все состояния <color=#D89555>задержки</color> с цели
 ModUi/&EnableTooltipDistance=Включить отображение расстояния во всплывающей подсказке панели при наведении курсора на персонажа в бою
 ModUi/&EnableUnarmedMainAttackAction=Позволить совершать <b>Безоружную атаку</b> основным действием, если персонаж держит оружие в основной руке и он <color=#D89555>Монах</color>, или если он использует <b>Обмотки</b> или <b>Перчатки</b>

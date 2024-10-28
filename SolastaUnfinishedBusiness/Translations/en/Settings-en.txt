@@ -158,6 +158,7 @@ ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</colo
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=Enable <color=#D89555>Surprised</color> condition to enforce initiative disadvantage instead of skipping a round <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Enable <color=#D89555>Teleport</color> to remove all <color=#D89555>restrained</color> conditions from target
 ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat
 ModUi/&EnableUnarmedMainAttackAction=Enable the <color=#D89555>Unarmed Attack</color> action <i><color=#F0DAA0>[if actor has weapon in main, is a <b>Monk</b> or has <b>handwraps</b> or <b>gauntlet</b> equipped]</color></i>

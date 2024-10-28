@@ -158,6 +158,7 @@ ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>�
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカルヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローはランダム性を高めるために D20 ロールを重みに追加します <color=#F0DAA0>[選択重み = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=<color=#D89555>驚き</color>状態を有効にして、ラウンドをスキップする代わりにイニシアチブ不利を強制します <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>テレポート</color>を有効にすると、ターゲットからすべての<color=#D89555>拘束</color>状態が解除されます。
 ModUi/&EnableTooltipDistance=戦闘中のキャラクターにマウスを移動したときにツールチップに距離が表示されるようにする
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>素手攻撃</color>アクションを有効にする <i><color=#F0DAA0>[アクターがメインに武器を持っているか、<b>モンク</b>を持っているか、<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合]</color></i>

@@ -158,6 +158,7 @@ ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Ac
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar classificação de ativos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[por exemplo: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Além disso, cada herói adiciona um teste de D20 ao peso para um pouco de aleatoriedade <color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói + teste de D20]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=Habilitar condição <color=#D89555>Surpreso</color> para impor desvantagem de iniciativa em vez de pular uma rodada <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableTeleportToRemoveRestrained=Habilitar <color=#D89555>Teletransporte</color> para remover todas as condições <color=#D89555>restritas</color> do alvo
 ModUi/&EnableTooltipDistance=Habilitar a exibição da distância nas dicas de ferramentas ao passar o mouse sobre um personagem em combate
 ModUi/&EnableUnarmedMainAttackAction=Habilitar a ação <color=#D89555>Ataque Desarmado</color> <i><color=#F0DAA0>[se o ator tiver arma principal, for um <b>Monge</b> ou tiver <b>bandanas</b> ou <b>manoplas</b> equipadas]</color></i>

@@ -78,6 +78,13 @@ internal static class SrdAndHouseRulesContext
     private static readonly DecisionPackageDefinition DecisionPackageRestrained =
         AiContext.BuildDecisionPackageBreakFree(ConditionRestrainedByEntangle.Name);
 
+    private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
+        FeatureDefinitionCombatAffinityBuilder
+            .Create("CombatAffinityConditionSurprised")
+            .SetGuiPresentationNoContent(true)
+            .SetInitiativeAffinity(AdvantageType.Disadvantage)
+            .AddToDB();
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -112,6 +119,7 @@ internal static class SrdAndHouseRulesContext
         SwitchOneDndWizardSchoolOfMagicLearningLevel();
         SwitchOneDndPaladinLearnSpellCastingAtOne();
         SwitchOneDndRangerLearnSpellCastingAtOne();
+        SwitchOneDndSurprisedEnforceDisadvantage();
         NoTwinnedBladeCantrips();
         ModifyGravitySlam();
     }
@@ -452,6 +460,20 @@ internal static class SrdAndHouseRulesContext
             FeatureDefinitionCastSpells.CastSpellRanger.slotsPerLevels = SharedSpellsContext.HalfCastingSlots;
             SharedSpellsContext.ClassCasterType[RangerClass] =
                 FeatureDefinitionCastSpellBuilder.CasterProgression.Half;
+        }
+    }
+
+    internal static void SwitchOneDndSurprisedEnforceDisadvantage()
+    {
+        if (Main.Settings.EnableSurprisedToEnforceDisadvantage)
+        {
+            ConditionDefinitions.ConditionSurprised.Features.SetRange(CombatAffinityConditionSurprised);
+        }
+        else
+        {
+            ConditionDefinitions.ConditionSurprised.Features.SetRange(
+                FeatureDefinitionActionAffinitys.ActionAffinityConditionSurprised,
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSurprised);
         }
     }
 

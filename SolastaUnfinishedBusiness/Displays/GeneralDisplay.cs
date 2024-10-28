@@ -183,6 +183,15 @@ internal static class ToolsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableSurprisedToEnforceDisadvantage;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSurprisedToEnforceDisadvantage"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSurprisedToEnforceDisadvantage = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndSurprisedEnforceDisadvantage();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.OneDndHealingPotionBonusAction;
         if (UI.Toggle(Gui.Localize("ModUi/&OneDndHealingPotionBonusAction"), ref toggle, UI.AutoWidth()))
         {
