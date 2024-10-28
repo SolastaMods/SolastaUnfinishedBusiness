@@ -36,7 +36,13 @@ internal static class SubclassesDisplay
             Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
             CharacterContext.SwitchBardHealingBalladOnLongRest();
         }
-
+        
+        toggle = Main.Settings.EnableRogueStrSaving;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueStrSaving"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueStrSaving = toggle;
+        }
+        
         toggle = Main.Settings.EnableBg3AbjurationArcaneWard;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWard"), ref toggle, UI.AutoWidth()))
         {

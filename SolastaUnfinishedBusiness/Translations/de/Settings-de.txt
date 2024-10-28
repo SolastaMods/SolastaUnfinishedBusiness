@@ -154,7 +154,7 @@ ModUi/&EnableRespecAction=Aktivieren Sie <color=#D89555>RESPEC</color> nach der 
 ModUi/&EnableRogueCunningStrike=Aktiviere <color=#D89555>Cunning Strike</color> und <color=#D89555>Devious Strike</color> auf den Leveln 5 und 14 <i><color=#F0DAA0>[du lässt 1 Schleichangriffswürfel für zusätzliche Treffereffekte weg]</color></i>
 ModUi/&EnableRogueFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrechung</color> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sich noch nicht bewegt haben]</color></i>
-ModUi/&EnableRogueStrSaving=Aktiviere DEX- oder STR-Modifikatoren für <color=#D89555>Cunning/Devious Strike</color>, <color=#D89555>Debilitating/Improved Strike</color> und <color=#D89555>Hail of Blades</color>.
+ModUi/&EnableRogueStrSaving=Aktiviere <color=#D89555>Hoodlum</color> DEX- oder STR-Modifikatoren bei <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b> und <b>Hail of Blades</b>
 ModUi/&EnableSignatureSpellsRelearn=Aktivieren Sie die Vorbereitung der Signaturzauber des <color=#D89555>Zauberers</color> bei jeder langen Pause <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung</color> auf Stufe 5.
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.

@@ -289,7 +289,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
-    public bool EnableRogueStrSaving { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
@@ -374,6 +373,7 @@ public class Settings : UnityModManager.ModSettings
 
     public bool AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness { get; set; }
     public bool EnableBardHealingBalladOnLongRest { get; set; }
+    public bool EnableRogueStrSaving { get; set; }
     public bool RemoveSchoolRestrictionsFromShadowCaster { get; set; }
     public bool RemoveSchoolRestrictionsFromSpellBlade { get; set; }
     public int WildSurgeDieRollThreshold { get; set; } = 2;

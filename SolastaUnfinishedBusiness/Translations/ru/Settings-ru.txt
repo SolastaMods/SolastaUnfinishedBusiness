@@ -154,7 +154,7 @@ ModUi/&EnableRespecAction=Включить возможность <color=#D89555
 ModUi/&EnableRogueCunningStrike=Включить умения <color=#D89555>Хитрого удара</color> и <color=#D89555>Коварного удара</color> на уровнях 5 и 14 соответственно <i><color=#F0DAA0>[вы отказываетесь от 1 кости скрытой атаки для применения дополнительных эффектов]</color></i>
 ModUi/&EnableRogueFightingStyle=Включить выбор <color=#D89555>Боевого стиля</color> на уровне 2
 ModUi/&EnableRogueSteadyAim=Включить <color=#D89555>Точное прицеливание</color> на уровне 3 <i><color=#F0DAA0>[бонусным действием даёт преимущество на следующий бросок атаки в текущем ходу, если вы ещё не перемещались]</color></i>
-ModUi/&EnableRogueStrSaving=Включить использование модификаторов ЛОВ или СИЛ для <color=#D89555>Хитрого/Коварного удара</color>, <color=#D89555>Ослабляющего/Улучшенного ослабляющего удара</color> и <color=#D89555>Града клинков</color>
+ModUi/&EnableRogueStrSaving=Включить модификаторы DEX или STR <color=#D89555>Hoodlum</color> для <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b> и <b>Hail of Blades</b>
 ModUi/&EnableSignatureSpellsRelearn=Включить <color=#D89555>Волшебникам</color> подготовку фирменных заклинаний после каждого продолжительного отдыха <i><color=#F0DAA0>[вместо того, чтобы выбирать их один раз на 20-м уровне]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Включить <color=#D89555>Волшебное указание</color> на уровне 5
 ModUi/&EnableSorcererQuickenedAction=Включить действие <color=#D89555>Ускоренное заклинание</color>, позволяющее накладывать заклинание основного действия с применением метамагии Ускоренного заклинания.

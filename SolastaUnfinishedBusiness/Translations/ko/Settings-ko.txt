@@ -154,7 +154,7 @@ ModUi/&EnableRespecAction=휴식 동작 후 <color=#D89555>RESPEC</color> 활성
 ModUi/&EnableRogueCunningStrike=레벨 5와 14에서 <color=#D89555>교활한 일격</color>과 <color=#D89555>사악한 일격</color>을 활성화합니다. <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기합니다]</color></i>
 ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
 ModUi/&EnableRogueSteadyAim=레벨 3에서 <color=#D89555>안정적인 조준</color>을 활성화합니다. <i><color=#F0DAA0>[현재 턴에서 아직 이동하지 않았다면 다음 공격 굴림에 보너스 액션이 유리해집니다.]</color></i>
-ModUi/&EnableRogueStrSaving=<color=#D89555>교활한/사악한 일격</color>, <color=#D89555>약화시키는/향상된 일격</color>, <color=#D89555>칼날 우박</color>에 DEX 또는 STR 수정치를 활성화합니다.
+ModUi/&EnableRogueStrSaving=<b>교활한/사악한 일격</b>, <b>약화시키는/향상된 일격</b>, <b>칼날 우박</b>에 <color=#D89555>후드럼</color> DEX 또는 STR 수정치를 활성화합니다.
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>마법사</color> 고유 주문을 긴 휴식마다 준비할 수 있도록 합니다. <i><color=#F0DAA0>[레벨 20에서 한 번만]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 <color=#D89555>마법의 안내</color>를 활성화합니다.
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작을 활성화하여 빠른 메타매직이 적용된 주요 동작 주문을 시전할 수 있습니다.

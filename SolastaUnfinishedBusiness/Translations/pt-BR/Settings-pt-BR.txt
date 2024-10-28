@@ -154,7 +154,7 @@ ModUi/&EnableRespecAction=Habilitar <color=#D89555>RESPEC</color> após a ação
 ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Golpe Astuto</color> e <color=#D89555>Golpe Desonesto</color> nos níveis 5 e 14 <i><color=#F0DAA0>[você deixa de lado 1 dado de ataque furtivo para efeitos de acerto adicionais]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilitar a escolha <color=#D89555>Estilo de luta</color> no nível 2
 ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Miração Firme</color> no nível 3 <i><color=#F0DAA0>[ação bônus dá vantagem na sua próxima jogada de ataque no turno atual se você ainda não se moveu]</color></i>
-ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR em <color=#D89555>Golpe Astuto/Desonesto</color>, <color=#D89555>Golpe Debilitante/Aprimorado</color> e <color=#D89555>Gravata de Lâminas</color>
+ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR de <color=#D89555>Hoodlum</color> em <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b> e <b>Hail of Blades</b>
 ModUi/&EnableSignatureSpellsRelearn=Habilitar que as magias de assinatura do <color=#D89555>Mago</color> sejam preparadas a cada descanso longo <i><color=#F0DAA0>[em vez de uma vez no nível 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> no nível 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada

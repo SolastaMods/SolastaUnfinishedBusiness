@@ -154,7 +154,7 @@ ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après 
 ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color> et <color=#D89555>Devious Strike</color> aux niveaux 5 et 14 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
 ModUi/&EnableRogueSteadyAim=Activez la <color=#D89555>Visée constante</color> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage sur votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
-ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR sur <color=#D89555>Attaque rusée/sournoise</color>, <color=#D89555>Attaque débilitante/améliorée</color> et <color=#D89555>Grêle de lames</color>
+ModUi/&EnableRogueStrSaving=Activez les modificateurs DEX ou STR de <color=#D89555>Hoodlum</color> sur <b>Cunning/Durious Strike</b>, <b>Délicieuse/Améliorée Strike</b> et <b>Hail of Blades</b>
 ModUi/&EnableSignatureSpellsRelearn=Permettre aux sorts de signature du <color=#D89555>Sorcier</color> d'être préparés à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Activer la <color=#D89555>guidance magique</color> au niveau 5
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée

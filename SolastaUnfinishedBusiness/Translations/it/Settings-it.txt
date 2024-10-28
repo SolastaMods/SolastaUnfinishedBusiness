@@ -154,7 +154,7 @@ ModUi/&EnableRespecAction=Abilita <color=#D89555>RESPEC</color> dopo l'azione di
 ModUi/&EnableRogueCunningStrike=Abilita <color=#D89555>Colpo astuto</color> e <color=#D89555>Colpo subdolo</color> ai livelli 5 e 14 <i><color=#F0DAA0>[rinuncia a 1 dado di attacco furtivo per effetti di colpo aggiuntivi]</color></i>
 ModUi/&EnableRogueFightingStyle=Abilita la scelta <color=#D89555>Stile di combattimento</color> al livello 2
 ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Mira Fissa</color> al livello 3 <i><color=#F0DAA0>[l'azione bonus fornisce vantaggio al tuo prossimo tiro di attacco nel turno corrente se non ti sei ancora mosso]</color></i>
-ModUi/&EnableRogueStrSaving=Abilita i modificatori DEX o STR su <color=#D89555>Colpo astuto/subdolo</color>, <color=#D89555>Colpo debilitante/migliorato</color> e <color=#D89555>Grandine di lame</color>
+ModUi/&EnableRogueStrSaving=Abilita i modificatori DEX o STR di <color=#D89555>Hoodlum</color> su <b>Colpo astuto/subdolo</b>, <b>Colpo debilitante/migliorato</b> e <b>Grandine di lame</b>
 ModUi/&EnableSignatureSpellsRelearn=Abilita gli incantesimi distintivi del <color=#D89555>Mago</color> da preparare a ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Guida magica</color> al livello 5
 ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo accelerato</color> per consentire il lancio dell'incantesimo di azione principale con metamagia accelerata applicata

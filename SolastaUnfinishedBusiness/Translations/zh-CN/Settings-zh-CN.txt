@@ -154,7 +154,7 @@ ModUi/&EnableRespecAction=休息操作后启用 <color=#D89555>RESPEC</color> <i
 ModUi/&EnableRogueCunningStrike=在等级 5 和 14 时启用<color=#D89555>狡猾打击</color>和<color=#D89555>阴险打击</color> <i><color=#F0DAA0>[你放弃 1 个偷袭骰子以获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
 ModUi/&EnableRogueSteadyAim=在 3 级时启用<color=#D89555>稳定瞄准</color> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>
-ModUi/&EnableRogueStrSaving=在<color=#D89555>狡猾/狡诈打击</color>、<color=#D89555>削弱/强化打击</color>和<color=#D89555>剑刃风暴</color>上启用 DEX 或 STR 修正
+ModUi/&EnableRogueStrSaving=在<b>狡猾/狡诈打击</b>、<b>削弱/强化打击</b>和<b>刀锋风暴</b>上启用<color=#D89555>Hoodlum</color> DEX 或 STR 修正
 ModUi/&EnableSignatureSpellsRelearn=允许每次长时间休息时准备<color=#D89555>巫师</color>标志性法术<i><color=#F0DAA0>[而不是在 20 级时准备一次]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术

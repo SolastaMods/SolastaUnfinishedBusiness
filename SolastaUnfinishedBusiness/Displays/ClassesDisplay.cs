@@ -257,12 +257,6 @@ internal static class ClassesDisplay
             CharacterContext.SwitchRogueSteadyAim();
         }
 
-        toggle = Main.Settings.EnableRogueStrSaving;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueStrSaving"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRogueStrSaving = toggle;
-        }
-
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
         UI.Label();
