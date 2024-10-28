@@ -20,7 +20,7 @@ ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>블레이드 캔트립</color
 ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color>이나 <color=#D89555>손도끼</color>처럼 던질 수 있도록 허용합니다.
 ModUi/&AllowDisplayingNonSuggestedSpells=각 목록에 제안되지 않은 주문 허용
 ModUi/&AllowDisplayingOfficialSpells=각 목록에 게임 공식 주문 허용
-ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>가 금속 갑옷을 착용할 수 있도록 허용
+ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>가 금속 갑옷을 착용하도록 허용 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&AllowDungeonsMaxLevel20=최대 레벨 20인 던전 허용
 ModUi/&AllowFlightSuspend=아이템과 주문의 비행을 일시적으로 중단할 수 있습니다. <i><color=#F0DAA0>[야생형이나 비행 종족에는 영향을 미치지 않습니다.]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=가젯이나 소품을 배치할 때 모든 검사를 우회하려면 <color=#1E81B0>CTRL</color> 클릭을 활성화하세요.
@@ -141,6 +141,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=레벨 18에서 <color=#D8955
 ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>무기 전문화</color>를 활성화합니다. <i><color=#F0DAA0>[선택한 무기 유형이 당신에게 수도사 무기가 됩니다]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 권능</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 권능</color>에 치유 주사위 버프를 활성화합니다. <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSmiteAsBonusAction=<color=#D89555>스마이트</color>를 보너스 액션으로 활성화 <i><color=#F0DAA0>[원던전]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=<b>성기사</b>가 레벨 2가 아닌 레벨 1에서 <color=#D89555>주문 시전</color> 능력을 획득할 수 있도록 합니다 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=더 나은 난수 생성 알고리즘을 활성화하세요 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=<color=#D89555>엎드려 넘어짐</color> 동작을 활성화하세요 <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>

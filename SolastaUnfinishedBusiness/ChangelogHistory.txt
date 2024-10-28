@@ -1,6 +1,7 @@
 1.5.97.36:
 
 - added behavior package choices on heroes controlled by AI [single player only]
+- added Character > Classes > 'Enable Smites as bonus action' [OneDnd]
 - added Character > Classes > 'Enable Paladin spellcasting at level 1' [OneDnd]
 - added Character > Classes > 'Enable Ranger spellcasting at level 1' [OneDnd]
 - added Character > Classes > 'Enable Wizard to learn the school of magic at level 3' [OneDnd]

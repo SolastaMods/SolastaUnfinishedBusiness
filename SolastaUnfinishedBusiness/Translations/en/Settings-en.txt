@@ -20,7 +20,7 @@ ModUi/&AllowBladeCantripsToUseReach=Allow <color=#D89555>Blade Cantrips</color> 
 ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>Clubs</color> to be thrown like <color=#D89555>Daggers</color> or <color=#D89555>Hand Axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each list
 ModUi/&AllowDisplayingOfficialSpells=Allow game official spells on each list
-ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
+ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowFlightSuspend=Allow temporarily suspending flight from items and spells <i><color=#F0DAA0>[does not affect wildshape or flying races]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
@@ -141,6 +141,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <color=#D89555>Superio
 ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Enable healing dice buff on <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSmiteAsBonusAction=Enable <color=#D89555>Smites</color> as bonus action <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <b>Paladin</b> acquire <color=#D89555>spellcasting</color> at level 1 instead of 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>

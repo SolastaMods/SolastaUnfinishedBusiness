@@ -20,7 +20,7 @@ ModUi/&AllowBladeCantripsToUseReach=Permitir que <color=#D89555>Blade Cantrips</
 ModUi/&AllowClubsToBeThrown=Permitir que <color=#D89555>Clubs</color> sejam lançados como <color=#D89555>Daggers</color> ou <color=#D89555>Hand Axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Permitir mod feitiços não sugeridos em cada lista
 ModUi/&AllowDisplayingOfficialSpells=Permitir magias oficiais do jogo em cada lista
-ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use armadura de metal
+ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use armadura de metal <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20
 ModUi/&AllowFlightSuspend=Permitir a suspensão temporária do voo de itens e magias <i><color=#F0DAA0>[não afeta raças selvagens ou voadoras]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Habilitar clique <color=#1E81B0>CTRL</color> para ignorar qualquer verificação ao colocar gadgets ou adereços
@@ -141,6 +141,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilitar <color=#D89555>Defe
 ModUi/&EnableMonkWeaponSpecialization=Habilite <color=#D89555>Especialização em Armas</color> nos níveis 2 e 11 <i><color=#F0DAA0>[o tipo de arma selecionado se torna uma arma de monge para você]</color></i>
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Habilitar bônus de dados de cura em <color=#D89555>Curar Ferimentos</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Ferimentos em Massa</color> e <color=#D89555>Palavra de Cura em Massa</color> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Smites</color> como ações bônus <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar <b>Paladino</b> a adquirir <color=#D89555>conjuração de magias</color> no nível 1 em vez de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Habilitar um algoritmo de gerador aleatório melhor <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Habilite a ação <color=#D89555>Cair de bruços</color> <i><color=#F0DAA0>[você pode cair de bruços sem nenhum custo]</color></i>

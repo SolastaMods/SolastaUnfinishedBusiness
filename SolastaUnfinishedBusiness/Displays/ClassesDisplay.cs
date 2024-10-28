@@ -181,6 +181,12 @@ internal static class ClassesDisplay
             Main.Settings.AddPaladinSmiteToggle = toggle;
         }
 
+        toggle = Main.Settings.EnablePaladinSmiteAsBonusAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSmiteAsBonusAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinSmiteAsBonusAction = toggle;
+        }
+
         toggle = Main.Settings.EnablePaladinSpellCastingAtLevel1;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {

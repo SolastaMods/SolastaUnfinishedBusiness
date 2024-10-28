@@ -20,7 +20,7 @@ ModUi/&AllowBladeCantripsToUseReach=Erlaube <color=#D89555>Blade Cantrips</color
 ModUi/&AllowClubsToBeThrown=Ermöglicht das Werfen von <color=#D89555>Keulen</color> wie <color=#D89555>Dolche</color> oder <color=#D89555>Faustäxte</color>.
 ModUi/&AllowDisplayingNonSuggestedSpells=Erlaube Mods, die keine vorgeschlagenen Zaubersprüche auf jeder Liste haben
 ModUi/&AllowDisplayingOfficialSpells=Offizielle Spielzauber auf jeder Liste zulassen
-ModUi/&AllowDruidToWearMetalArmor=Erlaubt <color=#D89555>Druiden</color>, eine Metallrüstung zu tragen
+ModUi/&AllowDruidToWearMetalArmor=Erlaube <color=#D89555>Druiden</color>, eine Metallrüstung zu tragen <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit max. Level 20
 ModUi/&AllowFlightSuspend=Erlaubt die vorübergehende Aussetzung des Flugs durch Gegenstände und Zauber <i><color=#F0DAA0>[betrifft keine Wildform- oder Flugrassen]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie <color=#1E81B0>STRG</color>-Klick, um alle Überprüfungen beim Platzieren von Gadgets oder Requisiten zu umgehen
@@ -141,6 +141,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Aktiviere <color=#D89555>Übe
 ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Waffenspezialisierung</color> auf den Stufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie <color=#D89555>Multiclass</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Aktiviere den Heilungswürfel-Buff für <color=#D89555>Wunden heilen</color>, <color=#D89555>Heilendes Wort</color>, <color=#D89555>Massenhafte Wundheilung</color> und <color=#D89555>Massenhaftes Heilendes Wort</color> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSmiteAsBonusAction=Aktiviere <color=#D89555>Smites</color> als Bonusaktionen <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Ermöglicht <b>Paladin</b>, <color=#D89555>Zaubersprüche</color> auf Stufe 1 statt 2 zu erlangen <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Aktivieren Sie die Aktion <color=#D89555>In die Hocke gehen</color> <i><color=#F0DAA0>[Sie können kostenlos in die Hocke gehen]</color></i>

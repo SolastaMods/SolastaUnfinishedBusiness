@@ -201,6 +201,19 @@ internal static class ToolsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AllowDruidToWearMetalArmor;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowDruidToWearMetalArmor = toggle;
+            SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
+        }
+
+        toggle = Main.Settings.EnablePaladinSmiteAsBonusAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSmiteAsBonusAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinSmiteAsBonusAction = toggle;
+        }
+
         toggle = Main.Settings.EnablePaladinSpellCastingAtLevel1;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {

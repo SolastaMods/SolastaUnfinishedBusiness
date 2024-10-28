@@ -20,7 +20,7 @@ ModUi/&AllowBladeCantripsToUseReach=Позволить <color=#D89555>Загов
 ModUi/&AllowClubsToBeThrown=Позволить метать <color=#D89555>Дубинки</color>, как <color=#D89555>Кинжалы</color> или <color=#D89555>Топорики</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Отображать не рекомендуемые заклинания модификации в каждом списке
 ModUi/&AllowDisplayingOfficialSpells=Отображать официальные заклинания игры в каждом списке
-ModUi/&AllowDruidToWearMetalArmor=Позволить <color=#D89555>Друидам</color> носить металлическую броню
+ModUi/&AllowDruidToWearMetalArmor=Разрешить <color=#D89555>Друиду</color> носить металлическую броню <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&AllowDungeonsMaxLevel20=Разрешить подземелья с максимальным уровнем 20
 ModUi/&AllowFlightSuspend=Разрешить временно приостанавливать полёт при использовании предметов и заклинаний <i><color=#F0DAA0>[не затрагивает Дикий облик и летающие расы]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Включить <color=#1E81B0>CTRL</color>-клик для обхода любого требования при размещении устройств или реквизита
@@ -141,6 +141,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Включить <color=#D895
 ModUi/&EnableMonkWeaponSpecialization=Включить <color=#D89555>Специализацию на оружии</color> на уровнях 2 и 11 <i><color=#F0DAA0>[оружие выбранного типа становится для вас оружием монаха]</color></i>
 ModUi/&EnableMulticlass=Включить мультиклассирование <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Включить улучшение костей лечения из OneDnd для <color=#D89555>Лечения ран</color>, <color=#D89555>Лечащего слова</color>, <color=#D89555>Множественного лечения ран</color> и <color=#D89555>Множественного лечащего слова</color>
+ModUi/&EnablePaladinSmiteAsBonusAction=Включить <color=#D89555>Smites</color> как бонусные действия <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Разрешить <b>Паладину</b> приобретать <color=#D89555>заклинания</color> на уровне 1 вместо 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Включить улучшенный алгоритм генерации случайных чисел <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Добавить действие <color=#D89555>Упасть ничком</color> всем классам <i><color=#F0DAA0>[вы можете упасть ничком без затрат каких-либо действий]</color></i>

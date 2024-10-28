@@ -20,7 +20,7 @@ ModUi/&AllowBladeCantripsToUseReach=Consenti a <color=#D89555>Trucchetti Lama</c
 ModUi/&AllowClubsToBeThrown=Consentire che i <color=#D89555>mazze</color> vengano lanciati come <color=#D89555>pugnali</color> o <color=#D89555>asce</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Consenti mod incantesimi non suggeriti in ogni elenco
 ModUi/&AllowDisplayingOfficialSpells=Consenti incantesimi ufficiali di gioco su ogni elenco
-ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo
+ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20
 ModUi/&AllowFlightSuspend=Consenti la sospensione temporanea del volo da oggetti e incantesimi <i><color=#F0DAA0>[non influisce sulle razze di forma selvaggia o volanti]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Abilita il clic <color=#1E81B0>CTRL</color> per ignorare qualsiasi controllo quando si posizionano gadget o oggetti di scena
@@ -141,6 +141,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Abilita <color=#D89555>Difesa
 ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Specializzazione nelle armi</color> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
 ModUi/&EnableMulticlass=Abilita <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Abilita il buff dei dadi curativi su <color=#D89555>Cura Ferite</color>, <color=#D89555>Parola Curativa</color>, <color=#D89555>Cura Ferite di Massa</color> e <color=#D89555>Parola Curativa di Massa</color> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSmiteAsBonusAction=Abilita <color=#D89555>Colpi</color> come azioni bonus <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <b>Paladino</b> ad acquisire <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Abilita l'azione <color=#D89555>Cadi prono</color> <i><color=#F0DAA0>[puoi cadere prono senza alcun costo]</color></i>
