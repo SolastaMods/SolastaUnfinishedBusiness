@@ -831,7 +831,7 @@ internal static class CustomWeaponsContext
     //TODO: not sure this is the best place for this method
     internal static void TryAddMainActionUnarmedAttacks(RulesetCharacterHero hero)
     {
-        if (!Main.Settings.EnableGauntletMainAttacks)
+        if (!Main.Settings.EnableUnarmedMainAttackAction)
         {
             return;
         }

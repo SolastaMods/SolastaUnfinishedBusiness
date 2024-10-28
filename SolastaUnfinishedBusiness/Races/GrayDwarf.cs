@@ -173,7 +173,7 @@ internal static class SubraceGrayDwarfBuilder
             bool firstTarget, bool criticalHit)
         {
             if (attackMode.abilityScore != AttributeDefinitions.Strength ||
-                (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode)))
+                !ValidatorsWeapon.IsMeleeOrUnarmed(attackMode))
             {
                 yield break;
             }

@@ -33,7 +33,7 @@ internal static class CreditsDisplay
             "Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, Sorcerous Wild Magic, " +
             "Way of Discordance, Way of Shadow, Way of Storm Soul, Way of Weal and Woe, Way of Zen Archery, " +
-            "Wizard Bladesinger, Wizard Deadmaster, Wizard War Magic, " +
+            "Wizard Bladesinging, Wizard Deadmaster, Wizard Evocation, Wizard War Magic, " +
             "Level 20, Lighting and Obscurement, Multiclass, Variant Spell Rules"),
 
         ("HiddenHax",
@@ -70,7 +70,7 @@ internal static class CreditsDisplay
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),
         ("HIEROT", "Patron Eldritch Surge"),
-        ("BradS","Wizard Abjuration"),
+        ("BradS", "Wizard Abjuration"),
         ("Remunos", "Ironborn Dwarf, Obsidian Dwarf"),
         ("Holic75", "Firbolg"),
         ("Bazou", "fighting styles, rules, spells"),

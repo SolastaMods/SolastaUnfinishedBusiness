@@ -37,6 +37,28 @@ internal static class SubclassesDisplay
             CharacterContext.SwitchBardHealingBalladOnLongRest();
         }
 
+        toggle = Main.Settings.EnableBg3AbjurationArcaneWard;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWard"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBg3AbjurationArcaneWard = toggle;
+            WizardAbjuration.UpdateBg3ModeStatus();
+        }
+
+        if (Main.Settings.EnableBg3AbjurationArcaneWard)
+        {
+            UI.Label(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWardHelp"));
+            UI.Label();
+        }
+
+        toggle = Main.Settings.SwapEvocationPotentCantripAndSculptSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapEvocationPotentCantripAndSculptSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapEvocationPotentCantripAndSculptSpell = toggle;
+            WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.RemoveSchoolRestrictionsFromShadowCaster;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromShadowCaster"), ref toggle, UI.AutoWidth()))
         {
@@ -124,5 +146,7 @@ internal static class SubclassesDisplay
             Main.Settings.DisplayKlassToggle[klassName] = displayToggle;
             Main.Settings.KlassListSliderPosition[klassName] = sliderPos;
         }
+
+        UI.Label();
     }
 }

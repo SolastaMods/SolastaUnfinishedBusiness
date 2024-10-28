@@ -290,6 +290,7 @@ internal static class ModUi
         "WitherAndBloom",
         "WizardAbjuration",
         "WizardBladeDancer",
+        "WizardEvocation",
         "WizardGraviturgist",
         "WizardWarMagic",
         "WrathfulSmite"

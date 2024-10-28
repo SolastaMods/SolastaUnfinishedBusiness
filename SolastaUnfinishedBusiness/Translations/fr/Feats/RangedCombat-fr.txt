@@ -1,4 +1,4 @@
-Action/&DeadEyeToggleDescription=Activer/désactiver Sharpshooter
+Action/&DeadEyeToggleDescription=Activez/désactivez Tireur d'élite afin que lorsque vous attaquez avec une arme à distance, vous puissiez choisir de subir une pénalité de -5 à votre jet d'attaque afin d'infliger +10 dégâts supplémentaires.
 Action/&DeadEyeToggleTitle=Tireur d'élite
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Vous avez l'avantage sur votre prochain jet d'attaque.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Visez fermement

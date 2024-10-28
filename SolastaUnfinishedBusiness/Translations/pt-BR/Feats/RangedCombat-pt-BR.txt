@@ -1,4 +1,4 @@
-Action/&DeadEyeToggleDescription=Ativar/desativar o Sharpshooter
+Action/&DeadEyeToggleDescription=Ative/desative o Atirador de Elite para que, ao atacar com uma arma de longo alcance, você possa escolher sofrer uma penalidade de -5 na sua jogada de ataque para causar +10 de dano adicional.
 Action/&DeadEyeToggleTitle=Atirador de Elite
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Você tem vantagem na sua próxima jogada de ataque.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Mira firme

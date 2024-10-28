@@ -2054,6 +2054,21 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.SustainDamage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SustainDamage_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetCharacter __instance, ref int totalDamageRaw, string damageType,
+            bool criticalSuccess, ulong sourceGuid, RollInfo rollInfo)
+        {
+            //PATCH: support for `ModifySustainedDamageHandler` sub-feature
+            ModifySustainedDamage.ModifyDamage(__instance, ref totalDamageRaw, damageType, criticalSuccess, sourceGuid,
+                rollInfo);
+        }
+    }
+
     //PATCH: implement IPreventRemoveConcentrationOnPowerUse
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.TerminatePower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

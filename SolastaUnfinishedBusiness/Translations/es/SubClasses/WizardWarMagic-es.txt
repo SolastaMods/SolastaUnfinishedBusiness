@@ -1,8 +1,6 @@
-Condition/&ConditionWarMagicArcaneDeflectionDescription=No puedes lanzar hechizos que no sean trucos.
-Condition/&ConditionWarMagicArcaneDeflectionTitle=Desviación arcana
 Feature/&AttributeModifierWarMagicTacticalWitDescription=Tu gran capacidad para evaluar situaciones tácticas te permite actuar con rapidez en la batalla. Puedes otorgarte una bonificación a tus tiradas de iniciativa igual a tu modificador de Inteligencia.
 Feature/&AttributeModifierWarMagicTacticalWitTitle=Ingenio táctico
-Feature/&FeatureWarMagicArcaneDeflectionDescription=Has aprendido a utilizar tu magia para fortalecerte contra el daño. Cuando recibes un ataque o fallas una tirada de salvación, puedes usar tu reacción para restar tu modificador de Inteligencia a la tirada de ataque o añadirlo a la tirada de salvación. Cuando usas esta característica, no puedes lanzar hechizos que no sean trucos hasta el final de tu siguiente turno.
+Feature/&FeatureWarMagicArcaneDeflectionDescription=Has aprendido a utilizar tu magia para protegerte del daño. Cuando te alcanza un ataque o fallas una tirada de salvación, puedes usar tu reacción para restar tu modificador de Inteligencia a la tirada de ataque o añadirlo a la tirada de salvación.
 Feature/&FeatureWarMagicArcaneDeflectionTitle=Desviación arcana
 Feature/&FeatureWarMagicDurableMagicDescription=La magia que canalizas ayuda a protegerte del daño. Mientras mantengas la concentración en un hechizo, tienes una bonificación de +2 a la CA y a todas las tiradas de salvación.
 Feature/&FeatureWarMagicDurableMagicTitle=Magia duradera

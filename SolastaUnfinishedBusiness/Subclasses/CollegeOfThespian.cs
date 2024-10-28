@@ -269,7 +269,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 yield break;
             }
 
-            if (!ValidatorsWeapon.IsMelee(attackMode))
+            if (!ValidatorsWeapon.IsMeleeOrUnarmed(attackMode))
             {
                 yield break;
             }

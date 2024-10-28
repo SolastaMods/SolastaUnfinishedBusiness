@@ -1,8 +1,6 @@
-Condition/&ConditionWarMagicArcaneDeflectionDescription=Non puoi lanciare incantesimi diversi dai trucchetti.
-Condition/&ConditionWarMagicArcaneDeflectionTitle=Deviazione Arcana
 Feature/&AttributeModifierWarMagicTacticalWitDescription=La tua spiccata capacità di valutare le situazioni tattiche ti consente di agire rapidamente in battaglia. Puoi darti un bonus ai tuoi tiri di iniziativa pari al tuo modificatore di Intelligenza.
 Feature/&AttributeModifierWarMagicTacticalWitTitle=Spirito tattico
-Feature/&FeatureWarMagicArcaneDeflectionDescription=Hai imparato a tessere la tua magia per fortificarti contro i danni. Quando vieni colpito da un attacco o fallisci un tiro salvezza, puoi usare la tua reazione per sottrarre il tuo modificatore di Intelligenza dal tiro per colpire o aggiungerlo al tiro salvezza. Quando usi questa caratteristica, non puoi lanciare incantesimi diversi dai trucchetti fino alla fine del tuo turno successivo.
+Feature/&FeatureWarMagicArcaneDeflectionDescription=Hai imparato a tessere la tua magia per fortificarti contro i danni. Quando vieni colpito da un attacco o fallisci un tiro salvezza, puoi usare la tua reazione per sottrarre il tuo modificatore di Intelligenza dal tiro per colpire o aggiungerlo al tiro salvezza.
 Feature/&FeatureWarMagicArcaneDeflectionTitle=Deviazione Arcana
 Feature/&FeatureWarMagicDurableMagicDescription=La magia che canalizzi aiuta a scongiurare danni. Mentre mantieni la concentrazione su un incantesimo, hai un bonus di +2 alla CA e a tutti i tiri salvezza.
 Feature/&FeatureWarMagicDurableMagicTitle=Magia durevole

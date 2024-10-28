@@ -1,10 +1,10 @@
 {
-  "$type": "FeatureDefinitionReduceDamage, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerWizardAbjurationArcaneWardReduceDamageTitle",
-    "description": "Feature/&PowerWizardAbjurationArcaneWardDescription",
+    "title": "Feature/&FeatureWizardEvocationEmpoweredEvocationTitle",
+    "description": "Feature/&FeatureWizardEvocationEmpoweredEvocationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b5f7cff6-dc7b-5bcc-9337-284f5b1e2a00",
+  "guid": "4ff4b221-498d-5cdb-a882-ebd551626bd1",
   "contentPack": 9999,
-  "name": "PowerWizardAbjurationArcaneWardReduceDamage"
+  "name": "FeatureWizardEvocationEmpoweredEvocation"
 }

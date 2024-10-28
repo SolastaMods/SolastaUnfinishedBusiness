@@ -29,6 +29,92 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class LightingAndObscurementContext
 {
+    private static string[] MonstersThatShouldHaveDarkvision { get; } =
+    [
+        "Adam_The_Twelth",
+        "DLC3_Elven_07_Guard",
+        "SRD_DLC_Mage",
+        "SRD_Mage",
+        "DLC1_NPC_Forge_Escorted_01",
+        "DLC3_NPC_Generic_ElvenCitizen_Husk",
+        "Generic_Darkweaver",
+        "DLC3_ElvenClans_Leralyn",
+        "DLC3_NPC_Elven3_DLC3_Ending",
+        "DLC3_NPC_Elven5_DLC3_Ending",
+        "Generic_HighPriest",
+        "DLC3_Elven_Suspect_05_Guard_Traitor",
+        "DLC3_Elven_06_Guard",
+        "SRD_DLC3_Archmage",
+        "Generic_ShockArcanist"
+    ];
+
+    private static string[] MonstersThatShouldHaveTrueSight { get; } =
+    [
+        "Couatl",
+        "CubeOfLight"
+    ];
+
+    private static string[] MonstersThatShouldHaveBlindSight { get; } =
+    [
+        "Aksha",
+        "Aksha_Legendary"
+    ];
+
+    private static string[] MonstersThatShouldNotHaveTremorSense { get; } =
+    [
+        "Aksha",
+        "Aksha_Legendary"
+    ];
+
+    private static string[] EffectsThatTargetDistantIndividualsAndDontRequireSight { get; } =
+    [
+        "AcidSplash",
+        "Aid",
+        "AnimalShapes",
+        "BeaconOfHope",
+        "Bless",
+        "BlessingOfRime",
+        "BoomingBlade",
+        "DispelMagic",
+        "FeatherFall",
+        "Knock",
+        "Levitate",
+        "MassCureWounds",
+        "PassWithoutTrace",
+        "PowerBarbarianBrutalStrike",
+        "PowerBardHopeWordsOfHope6",
+        "PowerBardTraditionManacalonsPerfection",
+        "PowerCelestialSearingVengeance",
+        "PowerCollegeOfAudacityDefensiveWhirl",
+        "PowerCollegeOfAudacityMobileWhirl",
+        "PowerCollegeOfValianceHeroicInspiration",
+        "PowerDisableGrapple",
+        "PowerDomainElementalHeraldOfTheElementsThunder",
+        "PowerFeatChefCookMeal",
+        "PowerFeatOrcishAggression",
+        "PowerGrapple",
+        "PowerInnovationWeaponArcaneJolt",
+        "PowerOathOfJugementPurgeCorruption",
+        "PowerOathOfJugementRetribution",
+        "PowerOathOfThunderThunderousRebuke",
+        "PowerPatronFiendHurlThroughHell",
+        "PowerRangerHellWalkerMarkOfTheDammed",
+        "PowerRangerLightBearerBlessedWarrior",
+        "PowerRiftWalkerRiftStrike",
+        "PowerSorcerousPsionMindOverMatter",
+        "PowerSorcerousPsionMindOverMatter",
+        "PowerTraditionOpenHandQuiveringPalmTrigger",
+        "PowerWayOfTheDistantHandZenArrowTechnique",
+        "PowerWayOfTheDistantHandZenArrowUpgradedTechnique",
+        "RayOfEnfeeblement",
+        "ResonatingStrike",
+        "Sanctuary",
+        "ShieldOfFaith",
+        "Sparkle",
+        "SunlightBlade",
+        "TrueStrike"
+    ];
+
     // called from GLBM.CanAttack to correctly determine ADV/DIS scenarios
     internal static void ApplyObscurementRules(BattleDefinitions.AttackEvaluationParams attackParams)
     {
@@ -219,7 +305,7 @@ internal static class LightingAndObscurementContext
                    RangeType: RuleDefinitions.RangeType.Distance,
                    TargetType: RuleDefinitions.TargetType.Individuals or RuleDefinitions.TargetType.IndividualsUnique
                } ||
-               Main.Settings.EffectsThatTargetDistantIndividualsAndDontRequireSight.Contains(magicEffect.Name) ||
+               EffectsThatTargetDistantIndividualsAndDontRequireSight.Contains(magicEffect.Name) ||
                source.CanPerceiveTarget(target);
     }
 
@@ -932,44 +1018,44 @@ internal static class LightingAndObscurementContext
 
             if (Main.Settings.OfficialObscurementRulesTweakMonsters)
             {
-                if (Main.Settings.MonstersThatShouldHaveDarkvision.Contains(name))
+                if (MonstersThatShouldHaveDarkvision.Contains(name))
                 {
                     monster.Features.TryAdd(SenseDarkvision);
                 }
 
-                if (Main.Settings.MonstersThatShouldHaveTrueSight.Contains(name))
+                if (MonstersThatShouldHaveTrueSight.Contains(name))
                 {
                     monster.Features.TryAdd(SenseTruesight16);
                 }
 
-                if (Main.Settings.MonstersThatShouldHaveBlindSight.Contains(name))
+                if (MonstersThatShouldHaveBlindSight.Contains(name))
                 {
                     monster.Features.TryAdd(SenseBlindSight16);
                 }
 
-                if (Main.Settings.MonstersThatShouldNotHaveTremorSense.Contains(name))
+                if (MonstersThatShouldNotHaveTremorSense.Contains(name))
                 {
                     monster.Features.Remove(SenseTremorsense16);
                 }
             }
             else
             {
-                if (Main.Settings.MonstersThatShouldHaveDarkvision.Contains(name))
+                if (MonstersThatShouldHaveDarkvision.Contains(name))
                 {
                     monster.Features.Remove(SenseDarkvision);
                 }
 
-                if (Main.Settings.MonstersThatShouldHaveTrueSight.Contains(name))
+                if (MonstersThatShouldHaveTrueSight.Contains(name))
                 {
                     monster.Features.Remove(SenseTruesight16);
                 }
 
-                if (Main.Settings.MonstersThatShouldHaveBlindSight.Contains(name))
+                if (MonstersThatShouldHaveBlindSight.Contains(name))
                 {
                     monster.Features.Remove(SenseBlindSight16);
                 }
 
-                if (Main.Settings.MonstersThatShouldNotHaveTremorSense.Contains(name))
+                if (MonstersThatShouldNotHaveTremorSense.Contains(name))
                 {
                     monster.Features.TryAdd(SenseTremorsense16);
                 }

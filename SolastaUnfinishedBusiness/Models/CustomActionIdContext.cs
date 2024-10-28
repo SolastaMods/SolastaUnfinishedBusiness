@@ -49,7 +49,8 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.ZenShotToggle,
         (Id)ExtraActionId.CleavingAttackToggle,
         (Id)ExtraActionId.PowerAttackToggle,
-        (Id)ExtraActionId.DeadEyeToggle
+        (Id)ExtraActionId.DeadEyeToggle,
+        (Id)ExtraActionId.OverChannelToggle
     ];
 
     private static readonly List<Id> ExtraActionIdPowers =
@@ -394,6 +395,14 @@ public static class CustomActionIdContext
             .SetGuiPresentation(Category.Action, Volley)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.DeadEyeToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "OverChannelToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.OverChannelToggle)
             .OverrideClassName("Toggle")
             .AddToDB();
     }

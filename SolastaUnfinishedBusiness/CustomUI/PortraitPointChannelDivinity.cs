@@ -14,6 +14,11 @@ public class PortraitPointChannelDivinity : ICustomPortraitPointPoolProvider
     public static ICustomPortraitPointPoolProvider Instance { get; } = new PortraitPointChannelDivinity();
     public string Name => "ChannelDivinity";
 
+    public bool IsActive(RulesetCharacter character)
+    {
+        return true;
+    }
+
     string ICustomPortraitPointPoolProvider.Tooltip(RulesetCharacter character)
     {
         var max = character.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);

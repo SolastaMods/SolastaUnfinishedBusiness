@@ -65,6 +65,11 @@ internal static class PowerBundle
             }
 
             var poolSize = character.GetMaxUsesOfPower(poolPower);
+            var modifier = poolPower.PowerDefinition.GetFirstSubFeatureOfType<ModifyPowerRechargeHandler>();
+            if (modifier != null)
+            {
+                poolSize = modifier(character, poolPower, poolSize);
+            }
 
             poolPower.remainingUses = poolSize;
 

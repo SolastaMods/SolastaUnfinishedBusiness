@@ -26,6 +26,13 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionCombatAffinityBuilder SetInitiativeAffinity(
+        AdvantageType initiativeAffinity)
+    {
+        Definition.initiativeAffinity = initiativeAffinity;
+        return this;
+    }
+
     internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifierSign(
         AttackModifierSign modifierSign)
     {

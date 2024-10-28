@@ -1,4 +1,4 @@
-Action/&DeadEyeToggleDescription=Активировать/деактивировать Меткого стрелка
+Action/&DeadEyeToggleDescription=Активируйте/деактивируйте «Меткого стрелка», чтобы при атаке с использованием оружия дальнего боя вы могли выбрать штраф -5 к своему броску атаки, чтобы нанести дополнительно +10 урона.
 Action/&DeadEyeToggleTitle=Меткий стрелок
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Вы обладаете преимуществом на следующий бросок атаки.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Точное прицеливание

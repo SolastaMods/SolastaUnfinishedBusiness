@@ -15,6 +15,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
@@ -77,6 +78,13 @@ internal static class SrdAndHouseRulesContext
     private static readonly DecisionPackageDefinition DecisionPackageRestrained =
         AiContext.BuildDecisionPackageBreakFree(ConditionRestrainedByEntangle.Name);
 
+    private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
+        FeatureDefinitionCombatAffinityBuilder
+            .Create("CombatAffinityConditionSurprised")
+            .SetGuiPresentationNoContent(true)
+            .SetInitiativeAffinity(AdvantageType.Disadvantage)
+            .AddToDB();
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -100,6 +108,8 @@ internal static class SrdAndHouseRulesContext
         SwitchMagicStaffFoci();
         SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         SwitchOfficialFoodRationsWeight();
+        SwitchOneDndPaladinLayOnHandAsBonusAction();
+        SwitchOneDndHealingPotionBonusAction();
         SwitchOneDndHealingSpellsBuf();
         SwitchRecurringEffectOnEntangle();
         SwitchRingOfRegenerationHealRate();
@@ -107,6 +117,10 @@ internal static class SrdAndHouseRulesContext
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
+        SwitchOneDndWizardSchoolOfMagicLearningLevel();
+        SwitchOneDndPaladinLearnSpellCastingAtOne();
+        SwitchOneDndRangerLearnSpellCastingAtOne();
+        SwitchOneDndSurprisedEnforceDisadvantage();
         NoTwinnedBladeCantrips();
         ModifyGravitySlam();
     }
@@ -369,6 +383,133 @@ internal static class SrdAndHouseRulesContext
         {
             foodSrdWeight.weight = 3.0f;
             foodForagedSrdWeight.weight = 3.0f;
+        }
+    }
+
+    internal static void SwitchOneDndWizardSchoolOfMagicLearningLevel()
+    {
+        var schools = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .Where(x =>
+                FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions.Subclasses.Contains(x.Name) ||
+                x.Name.StartsWith(WizardClass))
+            .ToList();
+
+        var fromLevel = 3;
+        var toLevel = 2;
+
+        if (Main.Settings.EnableWizardToLearnSchoolAtLevel3)
+        {
+            fromLevel = 2;
+            toLevel = 3;
+        }
+
+        foreach (var featureUnlock in schools
+                     .SelectMany(school => school.FeatureUnlocks
+                         .Where(featureUnlock => featureUnlock.level == fromLevel)))
+        {
+            featureUnlock.level = toLevel;
+        }
+
+        foreach (var featureUnlock in Wizard.FeatureUnlocks.Where(featureUnlock => featureUnlock.level == fromLevel))
+        {
+            featureUnlock.level = toLevel;
+        }
+    }
+
+    internal static void SwitchOneDndPaladinLearnSpellCastingAtOne()
+    {
+        var level = Main.Settings.EnablePaladinSpellCastingAtLevel1 ? 1 : 2;
+
+        foreach (var featureUnlock in Paladin.FeatureUnlocks
+                     .Where(x => x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellPaladin))
+        {
+            featureUnlock.level = level;
+        }
+
+        if (Main.Settings.EnablePaladinSpellCastingAtLevel1)
+        {
+            FeatureDefinitionCastSpells.CastSpellPaladin.slotsPerLevels = SharedSpellsContext.HalfRoundUpCastingSlots;
+            SharedSpellsContext.ClassCasterType[PaladinClass] =
+                FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp;
+        }
+        else
+        {
+            FeatureDefinitionCastSpells.CastSpellPaladin.slotsPerLevels = SharedSpellsContext.HalfCastingSlots;
+            SharedSpellsContext.ClassCasterType[PaladinClass] =
+                FeatureDefinitionCastSpellBuilder.CasterProgression.Half;
+        }
+    }
+
+    internal static void SwitchOneDndRangerLearnSpellCastingAtOne()
+    {
+        var level = Main.Settings.EnableRangerSpellCastingAtLevel1 ? 1 : 2;
+
+        foreach (var featureUnlock in Paladin.FeatureUnlocks
+                     .Where(x => x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellRanger))
+        {
+            featureUnlock.level = level;
+        }
+
+        if (Main.Settings.EnableRangerSpellCastingAtLevel1)
+        {
+            FeatureDefinitionCastSpells.CastSpellRanger.slotsPerLevels = SharedSpellsContext.HalfRoundUpCastingSlots;
+            SharedSpellsContext.ClassCasterType[RangerClass] =
+                FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp;
+        }
+        else
+        {
+            FeatureDefinitionCastSpells.CastSpellRanger.slotsPerLevels = SharedSpellsContext.HalfCastingSlots;
+            SharedSpellsContext.ClassCasterType[RangerClass] =
+                FeatureDefinitionCastSpellBuilder.CasterProgression.Half;
+        }
+    }
+
+    internal static void SwitchOneDndSurprisedEnforceDisadvantage()
+    {
+        if (Main.Settings.EnableSurprisedToEnforceDisadvantage)
+        {
+            ConditionDefinitions.ConditionSurprised.Features.SetRange(CombatAffinityConditionSurprised);
+        }
+        else
+        {
+            ConditionDefinitions.ConditionSurprised.Features.SetRange(
+                FeatureDefinitionActionAffinitys.ActionAffinityConditionSurprised,
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSurprised);
+        }
+    }
+
+    internal static void SwitchOneDndPaladinLayOnHandAsBonusAction()
+    {
+        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHandsAsBonusAction
+            ? ActivationTime.BonusAction
+            : ActivationTime.Action;
+    }
+
+    internal static void SwitchOneDndHealingPotionBonusAction()
+    {
+        if (Main.Settings.OneDndHealingPotionBonusAction)
+        {
+            PowerFunctionPotionOfHealing.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionOfHealingOther.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionOfGreaterHealing.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionOfGreaterHealingOther.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionOfSuperiorHealing.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionOfSuperiorHealingOther.activationTime = ActivationTime.BonusAction;
+            PowerFunctionPotionRemedy.activationTime = ActivationTime.BonusAction;
+            PowerFunctionRemedyOther.activationTime = ActivationTime.BonusAction;
+            PowerFunctionAntitoxin.activationTime = ActivationTime.BonusAction;
+        }
+        else
+        {
+            PowerFunctionPotionOfHealing.activationTime = ActivationTime.Action;
+            PowerFunctionPotionOfHealingOther.activationTime = ActivationTime.Action;
+            PowerFunctionPotionOfGreaterHealing.activationTime = ActivationTime.Action;
+            PowerFunctionPotionOfGreaterHealingOther.activationTime = ActivationTime.Action;
+            PowerFunctionPotionOfSuperiorHealing.activationTime = ActivationTime.Action;
+            PowerFunctionPotionOfSuperiorHealingOther.activationTime = ActivationTime.Action;
+            PowerFunctionPotionRemedy.activationTime = ActivationTime.Action;
+            PowerFunctionRemedyOther.activationTime = ActivationTime.Action;
+            PowerFunctionAntitoxin.activationTime = ActivationTime.Action;
         }
     }
 

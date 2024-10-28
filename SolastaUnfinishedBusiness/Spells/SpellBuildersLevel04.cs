@@ -241,13 +241,7 @@ internal static partial class SpellBuilders
                     .Create($"AbilityCheckAffinity{NAME}")
                     .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(
-                        CharacterAbilityCheckAffinity.Disadvantage,
-                        AttributeDefinitions.Strength,
-                        AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Constitution,
-                        AttributeDefinitions.Intelligence,
-                        AttributeDefinitions.Wisdom,
-                        AttributeDefinitions.Charisma)
+                        CharacterAbilityCheckAffinity.Disadvantage, AttributeDefinitions.AbilityScoreNames)
                     .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{NAME}")
@@ -425,13 +419,7 @@ internal static partial class SpellBuilders
         var savingThrowAffinityExhausted3 = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{NAME}Exhausted3")
             .SetGuiPresentation($"Condition{NAME}Exhausted3", Category.Condition, Gui.NoLocalization)
-            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
+            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false, AttributeDefinitions.AbilityScoreNames)
             .AddToDB();
 
         var conditionExhausted3 = ConditionDefinitionBuilder

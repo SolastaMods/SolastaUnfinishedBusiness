@@ -30,7 +30,7 @@ internal static class SharedSpellsContext
         { WizardSpellMaster.PowerSpellMasterBonusRecoveryName, Wizard }
     };
 
-    private static readonly Dictionary<string, CasterProgression> ClassCasterType = new()
+    internal static readonly Dictionary<string, CasterProgression> ClassCasterType = new()
     {
         { Bard.Name, CasterProgression.Full },
         { Cleric.Name, CasterProgression.Full },

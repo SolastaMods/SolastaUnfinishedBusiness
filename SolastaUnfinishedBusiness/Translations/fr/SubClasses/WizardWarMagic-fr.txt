@@ -1,8 +1,6 @@
-Condition/&ConditionWarMagicArcaneDeflectionDescription=Vous ne pouvez pas lancer d'autres sorts que des tours de passe-passe.
-Condition/&ConditionWarMagicArcaneDeflectionTitle=Déviation des arcanes
 Feature/&AttributeModifierWarMagicTacticalWitDescription=Votre grande capacité à évaluer les situations tactiques vous permet d'agir rapidement au combat. Vous pouvez vous accorder un bonus à vos jets d'initiative égal à votre modificateur d'Intelligence.
 Feature/&AttributeModifierWarMagicTacticalWitTitle=Esprit tactique
-Feature/&FeatureWarMagicArcaneDeflectionDescription=Vous avez appris à utiliser votre magie pour vous fortifier contre les dégâts. Lorsque vous êtes touché par une attaque ou que vous ratez un jet de sauvegarde, vous pouvez utiliser votre réaction pour soustraire votre modificateur d'Intelligence du jet d'attaque ou l'ajouter au jet de sauvegarde. Lorsque vous utilisez cette capacité, vous ne pouvez pas lancer d'autres sorts que des sorts mineurs jusqu'à la fin de votre prochain tour.
+Feature/&FeatureWarMagicArcaneDeflectionDescription=Vous avez appris à utiliser votre magie pour vous fortifier contre les dégâts. Lorsque vous êtes touché par une attaque ou que vous ratez un jet de sauvegarde, vous pouvez utiliser votre réaction pour soustraire votre modificateur d'Intelligence du jet d'attaque ou l'ajouter au jet de sauvegarde.
 Feature/&FeatureWarMagicArcaneDeflectionTitle=Déviation des arcanes
 Feature/&FeatureWarMagicDurableMagicDescription=La magie que vous canalisez vous aide à repousser les dégâts. Tant que vous restez concentré sur un sort, vous bénéficiez d'un bonus de +2 à la CA et à tous les jets de sauvegarde.
 Feature/&FeatureWarMagicDurableMagicTitle=Magie durable

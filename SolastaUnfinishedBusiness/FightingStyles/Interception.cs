@@ -89,11 +89,8 @@ internal sealed class Interception : AbstractFightingStyle
             }
 
             var rulesetHelper = helper.RulesetCharacter;
-            var mainHand = rulesetHelper.GetMainWeapon();
-            var offHand = rulesetHelper.GetOffhandWeapon();
 
-            if (ValidatorsWeapon.IsUnarmed(mainHand) &&
-                ValidatorsWeapon.IsUnarmed(offHand))
+            if (ValidatorsCharacter.HasFreeHandBoth(rulesetHelper))
             {
                 yield break;
             }

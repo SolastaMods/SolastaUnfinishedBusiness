@@ -1,0 +1,14 @@
+Action/&OverChannelToggleDescription=오버채널 활성화/비활성화
+Action/&OverChannelToggleTitle=오버채널
+Feature/&FeatureSetWizardEvocationOverChannelDescription=더 간단한 주문의 힘을 증가시킬 수 있습니다. 피해를 입히는 1~5레벨 마법사 주문을 시전하면 해당 주문으로 최대 피해를 입힐 수 있습니다. 처음 시전할 때는 불리한 효과가 없습니다. 긴 휴식을 마치기 전에 이 기능을 다시 사용하면 시전 직후 주문 레벨당 2d12의 괴사 피해를 입습니다. 긴 휴식을 마치기 전에 이 기능을 다시 사용할 때마다 주문 레벨당 괴사 피해가 1d12씩 증가합니다. 이 피해는 저항력과 면역을 무시합니다.
+Feature/&FeatureSetWizardEvocationOverChannelTitle=오버채널
+Feature/&FeatureWizardEvocationEmpoweredEvocationDescription=당신은 당신이 시전하는 모든 마법사 유발 주문의 피해 굴림 하나에 지능 수정치(최소 +1)를 추가할 수 있습니다.
+Feature/&FeatureWizardEvocationEmpoweredEvocationTitle=강화된 유발
+Feature/&FeatureWizardEvocationSculptSpellsDescription=다른 생물에게 영향을 줄 수 있는 유발 주문을 시전할 때마다 상대적으로 안전한 지역을 만들어낼 수 있으며, 이로 인해 눈에 띄는 아군 생물은 주문의 영향을 받지 않게 됩니다.
+Feature/&FeatureWizardEvocationSculptSpellsTitle=조각 주문
+Feature/&MagicAffinityWizardEvocationPotentCantripDescription=당신의 피해를 주는 칸트립은 그 효과의 대부분을 피하는 생명체에게도 영향을 미칩니다. 생명체가 당신의 칸트립에 대한 세이빙 스로우에 성공하면, 그 생명체는 칸트립 피해의 절반(있는 경우)을 받지만 칸트립의 추가 효과는 받지 않습니다. 공격 굴림이 필요한 칸트립으로 생명체를 맞히면, 그 칸트립의 피해 굴림 하나에 숙련도 보너스를 더합니다.
+Feature/&MagicAffinityWizardEvocationPotentCantripTitle=강력한 주문
+Feature/&MagicAffinityWizardEvocationSavantDescription=2레벨에서 이 학교를 선택하면 주문서에 유발 주문을 복사하는 데 필요한 골드와 시간이 절반으로 줄어듭니다.
+Feature/&MagicAffinityWizardEvocationSavantTitle=에보케이션 사반트
+Subclass/&WizardEvocationDescription=당신은 혹한, 뜨거운 불길, 굴러가는 천둥, 딱딱거리는 번개, 불타는 산과 같은 강력한 원소 효과를 만들어내는 마법에 집중합니다. 일부 소환사는 군대에서 일자리를 찾아 멀리서 적군을 폭격하는 포병으로 일합니다. 다른 사람들은 약자를 보호하기 위해 화려한 힘을 사용하는 반면, 일부는 산적, 모험가 또는 야심 찬 폭군으로서 자신의 이익을 추구합니다.
+Subclass/&WizardEvocationTitle=유발

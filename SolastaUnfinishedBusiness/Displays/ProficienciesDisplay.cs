@@ -43,6 +43,47 @@ internal static class ProficienciesDisplay
 
         UI.Label();
 
+
+        var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;
+        if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFirstLevel"), ref intValue,
+                CharacterContext.MinInitialFeats, CharacterContext.MaxInitialFeats, 0, "",
+                UI.AutoWidth()))
+        {
+            Main.Settings.TotalFeatsGrantedFirstLevel = intValue;
+            CharacterContext.SwitchFirstLevelTotalFeats();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnablesAsiAndFeat;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablesAsiAndFeat"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablesAsiAndFeat = toggle;
+            CharacterContext.SwitchAsiAndFeat();
+        }
+
+        toggle = Main.Settings.EnableFeatsAtEveryFourLevels;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevels"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFeatsAtEveryFourLevels = toggle;
+            CharacterContext.SwitchEveryFourLevelsFeats();
+        }
+
+        toggle = Main.Settings.EnableFeatsAtEveryFourLevelsMiddle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevelsMiddle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFeatsAtEveryFourLevelsMiddle = toggle;
+            CharacterContext.SwitchEveryFourLevelsFeats(true);
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AccountForAllDiceOnFollowUpStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnFollowUpStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AccountForAllDiceOnFollowUpStrike = toggle;
+        }
+
         toggle = Main.Settings.AllowCantripsTriggeringOnWarMagic;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
         {

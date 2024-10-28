@@ -24,6 +24,6 @@ Feature/&PowerDivineHeartEmpoweredHealingDescription=在你的下一轮开始之
 Feature/&PowerDivineHeartEmpoweredHealingTitle=强效治疗
 Feature/&PowerDivineHeartPlanarPortalDescription=打开一个传送门，可以将一个友好的生物和你自己带到指定的目的地。
 Feature/&PowerDivineHeartPlanarPortalTitle=位面传送门
-Feedback/&DivineHeartEmpoweredHealingReroll={0} 使用强化治疗将 {1} 个治疗骰子重新掷出​​，从 {2} 变为 {3}。
+Feedback/&DivineHeartEmpoweredHealingReroll={0} 使用强化治疗将 {1} 个治疗骰子重新掷出，从 {2} 变为 {3}。
 Subclass/&SorcerousDivineHeartDescription=你与生俱来的魔力是由你可能理解也可能不理解其目的的神灵所赋予。
 Subclass/&SorcerousDivineHeartTitle=神圣之魂

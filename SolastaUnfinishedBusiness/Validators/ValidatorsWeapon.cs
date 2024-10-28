@@ -169,6 +169,12 @@ internal static class ValidatorsWeapon
         return attackMode?.SourceDefinition is ItemDefinition itemDefinition && IsUnarmed(itemDefinition);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsMeleeOrUnarmed([CanBeNull] RulesetAttackMode attackMode)
+    {
+        return IsMelee(attackMode) || IsUnarmed(attackMode);
+    }
+
     //ATT: don't use this to check on unarmed weapon types as there itemDefinition are null if not from an attackMode
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool HasAnyWeaponTag([CanBeNull] ItemDefinition itemDefinition, [NotNull] params string[] tags)

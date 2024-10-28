@@ -46,12 +46,17 @@ internal static class BackgroundsAndRacesDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
-
         toggle = Main.Settings.EnableAlternateHuman;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableAlternateHuman = toggle;
             CharacterContext.SwitchFirstLevelTotalFeats();
+        }
+
+        toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
         }
 
         UI.Label();

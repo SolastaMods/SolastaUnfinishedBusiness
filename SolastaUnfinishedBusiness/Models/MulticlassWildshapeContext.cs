@@ -161,7 +161,7 @@ internal static class MulticlassWildshapeContext
         monster.usedSorceryPoints = hero.usedSorceryPoints;
         monster.usedBardicInspiration = hero.usedBardicInspiration;
     }
-    
+
     private static void ApplyFeatureDefinitionAttributeModifier(
         RulesetCharacterMonster monster,
         FeatureDefinition feature,

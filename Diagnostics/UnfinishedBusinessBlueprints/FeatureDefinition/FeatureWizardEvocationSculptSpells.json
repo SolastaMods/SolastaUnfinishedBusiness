@@ -1,10 +1,10 @@
 {
-  "$type": "FeatureDefinitionReduceDamage, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureWizardEvocationSculptSpellsTitle",
+    "description": "Feature/&FeatureWizardEvocationSculptSpellsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3e89fd47-1922-5b07-ae1f-5ac8d70157ea",
+  "guid": "f6634f1c-0f87-5369-98ab-c610c0bd24bf",
   "contentPack": 9999,
-  "name": "PowerWizardAbjurationProjectedWardReduceDamage"
+  "name": "FeatureWizardEvocationSculptSpells"
 }

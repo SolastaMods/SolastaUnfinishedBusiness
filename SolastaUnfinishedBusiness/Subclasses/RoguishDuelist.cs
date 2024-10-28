@@ -176,7 +176,7 @@ public sealed class RoguishDuelist : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!ValidatorsWeapon.IsMelee(attackMode) ||
+            if (!ValidatorsWeapon.IsMeleeOrUnarmed(attackMode) ||
                 rulesetDefender.HasAnyConditionOfTypeOrSubType(
                     conditionReflexiveParty.Name,
                     ConditionDefinitions.ConditionDazzled.Name,
