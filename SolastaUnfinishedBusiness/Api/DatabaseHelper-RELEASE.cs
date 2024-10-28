@@ -3307,6 +3307,36 @@ internal static partial class DatabaseHelper
 
     internal static class MonsterDefinitions
     {
+        internal static MonsterDefinition Wraith { get; } =
+            GetDefinition<MonsterDefinition>("Wraith");
+
+        internal static MonsterDefinition SpectralDragon_01 { get; } =
+            GetDefinition<MonsterDefinition>("SpectralDragon_01");
+
+        internal static MonsterDefinition SpectralDragon_02 { get; } =
+            GetDefinition<MonsterDefinition>("SpectralDragon_02");
+
+        internal static MonsterDefinition SpectralDragon_03 { get; } =
+            GetDefinition<MonsterDefinition>("SpectralDragon_03");
+
+        internal static MonsterDefinition SpectralDragon_Magister { get; } =
+            GetDefinition<MonsterDefinition>("SpectralDragon_Magister");
+
+        internal static MonsterDefinition MinotaurSpectral { get; } =
+            GetDefinition<MonsterDefinition>("MinotaurSpectral");
+
+        internal static MonsterDefinition Redeemer_Zealot { get; } =
+            GetDefinition<MonsterDefinition>("Redeemer_Zealot");
+
+        internal static MonsterDefinition Ghost_Emtan { get; } = GetDefinition<MonsterDefinition>("Ghost_Emtan");
+        internal static MonsterDefinition Ghost_Wolf { get; } = GetDefinition<MonsterDefinition>("Ghost_Wolf");
+
+        internal static MonsterDefinition Ghost_Dwarf_Guardian { get; } =
+            GetDefinition<MonsterDefinition>("Ghost_Dwarf_Guardian");
+
+        internal static MonsterDefinition Bone_Keep_Adventurer_Ghost { get; } =
+            GetDefinition<MonsterDefinition>("Bone_Keep_Adventurer_Ghost");
+
         internal static MonsterDefinition DLC3_ElvenClans_Leralyn { get; } =
             GetDefinition<MonsterDefinition>("DLC3_ElvenClans_Leralyn");
 

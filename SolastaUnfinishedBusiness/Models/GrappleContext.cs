@@ -88,6 +88,30 @@ internal static class GrappleContext
         .SetFormType(ActionDefinitions.ActionFormType.Large)
         .AddToDB();
 
+    private static readonly MonsterDefinition[] MonstersWithImmunity =
+    [
+        MonsterDefinitions.Earth_Elemental,
+        MonsterDefinitions.Fire_Elemental,
+        MonsterDefinitions.Ice_Elemental,
+        MonsterDefinitions.Air_Elemental,
+        MonsterDefinitions.Redeemer_Zealot,
+        MonsterDefinitions.Ghost,
+        MonsterDefinitions.Ghost_Emtan,
+        MonsterDefinitions.Ghost_Wolf,
+        MonsterDefinitions.Ghost_Dwarf_Guardian,
+        MonsterDefinitions.Bone_Keep_Adventurer_Ghost,
+        MonsterDefinitions.Fire_Jester,
+        MonsterDefinitions.Fire_Osprey,
+        MonsterDefinitions.SpectralDragon_01,
+        MonsterDefinitions.SpectralDragon_02,
+        MonsterDefinitions.SpectralDragon_03,
+        MonsterDefinitions.SpectralSpider,
+        MonsterDefinitions.SpectralDragon_Magister,
+        MonsterDefinitions.MinotaurSpectral,
+        MonsterDefinitions.InvisibleStalker,
+        MonsterDefinitions.Wraith
+    ];
+
     internal static void LateLoad()
     {
         const SituationalContext TARGET_HAS_CONDITION_FROM_SOURCE =
@@ -184,6 +208,19 @@ internal static class GrappleContext
             .SetFormType(ActionDefinitions.ActionFormType.Large)
             .RequiresAuthorization()
             .AddToDB();
+
+        // these monsters are immune to grapple
+        var conditionAffinityGrappleTarget = FeatureDefinitionConditionAffinityBuilder
+            .Create("ConditionAffinityGrappleTarget")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+            .SetConditionType(conditionGrappleTarget)
+            .AddToDB();
+
+        foreach (var monster in MonstersWithImmunity)
+        {
+            monster.Features.Add(conditionAffinityGrappleTarget);
+        }
     }
 
     internal static void SwitchGrappleAction()

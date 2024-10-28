@@ -29,7 +29,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class LightingAndObscurementContext
 {
-    private static HashSet<string> MonstersThatShouldHaveDarkvision { get; } =
+    private static string[] MonstersThatShouldHaveDarkvision { get; } =
     [
         "Adam_The_Twelth",
         "DLC3_Elven_07_Guard",
@@ -48,25 +48,25 @@ internal static class LightingAndObscurementContext
         "Generic_ShockArcanist"
     ];
 
-    private static HashSet<string> MonstersThatShouldHaveTrueSight { get; } =
+    private static string[] MonstersThatShouldHaveTrueSight { get; } =
     [
         "Couatl",
         "CubeOfLight"
     ];
 
-    private static HashSet<string> MonstersThatShouldHaveBlindSight { get; } =
+    private static string[] MonstersThatShouldHaveBlindSight { get; } =
     [
         "Aksha",
         "Aksha_Legendary"
     ];
 
-    private static HashSet<string> MonstersThatShouldNotHaveTremorSense { get; } =
+    private static string[] MonstersThatShouldNotHaveTremorSense { get; } =
     [
         "Aksha",
         "Aksha_Legendary"
     ];
 
-    private static HashSet<string> EffectsThatTargetDistantIndividualsAndDontRequireSight { get; } =
+    private static string[] EffectsThatTargetDistantIndividualsAndDontRequireSight { get; } =
     [
         "AcidSplash",
         "Aid",

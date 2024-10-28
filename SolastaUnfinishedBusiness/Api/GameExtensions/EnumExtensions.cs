@@ -1,14 +1,5 @@
 ﻿namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
-internal enum ExtraSpellPreparationCount
-{
-    ClericTable = 9000,
-    DruidTable,
-    PaladinTable,
-    RangerTable,
-    WizardTable
-}
-
 internal enum ExtraActionId
 {
     ArcaneArcherToggle = 9000,

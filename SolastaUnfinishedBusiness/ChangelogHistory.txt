@@ -12,6 +12,7 @@
 - added dungeon maker key bindings under vanilla settings > keyboard
 - added Gameplay > Crafting & Items > 'Enable bonus action on Healing Potions and Antitoxin usages' [OneDnd]
 - added Gameplay > Rules > 'Enable Surprised condition to enforce initiative disadvantage' [OneDnD]
+- added Grapple immunity to some monsters [i.e.: elementals, ghosts, etc.]
 - added Wizard Abjurer [by BradS] and Evoker subclasses
 - fixed attacks of opportunity not triggering on reach enter [i.e.: polearm master]
 - fixed attribute modifiers not stacking in wild shape [i.e.: rage points]
