@@ -269,6 +269,7 @@
     <EnablePullPushOnVerticalDirection>true</EnablePullPushOnVerticalDirection>
     <FullyControlConjurations>true</FullyControlConjurations>
     <EnableHigherGroundRules>true</EnableHigherGroundRules>
+    <EnableSurprisedToEnforceDisadvantage>false</EnableSurprisedToEnforceDisadvantage>
     <EnableTeleportToRemoveRestrained>true</EnableTeleportToRemoveRestrained>
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>true</ColdResistanceAlsoGrantsImmunityToChilledCondition>
@@ -588,8 +589,6 @@
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-    <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
@@ -599,6 +598,7 @@
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt10>true</EnableRangerNatureShroudAt10>
+    <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>true
     </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>
@@ -610,10 +610,14 @@
     <EnableMonkSuperiorDefenseToReplaceEmptyBody>true</EnableMonkSuperiorDefenseToReplaceEmptyBody>
     <EnableMonkBodyAndMindToReplacePerfectSelf>true</EnableMonkBodyAndMindToReplacePerfectSelf>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
+    <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
+    <EnablePaladinLayOnHandsAsBonusAction>false</EnablePaladinLayOnHandsAsBonusAction>
+    <EnablePaladinSmiteAsBonusAction>false</EnablePaladinSmiteAsBonusAction>
+    <EnablePaladinSpellCastingAtLevel1>false</EnablePaladinSpellCastingAtLevel1>
+    <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
-    <EnableRogueStrSaving>true</EnableRogueStrSaving>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
@@ -877,6 +881,7 @@
         <string>MetamagicWidenedSpell</string>
     </MetamagicEnabled>
     <AllowBladeCantripsToUseReach>true</AllowBladeCantripsToUseReach>
+    <EnableCastersToCountMaxPreparedFromTable>false</EnableCastersToCountMaxPreparedFromTable>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
@@ -1412,10 +1417,11 @@
     <AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>true
     </AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>
     <EnableBardHealingBalladOnLongRest>true</EnableBardHealingBalladOnLongRest>
+    <EnableBg3AbjurationArcaneWard>true</EnableBg3AbjurationArcaneWard>
+    <EnableRogueStrSaving>true</EnableRogueStrSaving>
     <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
     <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
     <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
-    <EnableBg3AbjurationArcaneWard>true</EnableBg3AbjurationArcaneWard>
     <SwapEvocationPotentCantripAndSculptSpell>true</SwapEvocationPotentCantripAndSculptSpell>
     <KlassListSliderPosition>
         <item>

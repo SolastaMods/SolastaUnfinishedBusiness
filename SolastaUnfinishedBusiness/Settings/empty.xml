@@ -269,6 +269,7 @@
     <EnablePullPushOnVerticalDirection>false</EnablePullPushOnVerticalDirection>
     <FullyControlConjurations>false</FullyControlConjurations>
     <EnableHigherGroundRules>false</EnableHigherGroundRules>
+    <EnableSurprisedToEnforceDisadvantage>false</EnableSurprisedToEnforceDisadvantage>
     <EnableTeleportToRemoveRestrained>false</EnableTeleportToRemoveRestrained>
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>false</ColdResistanceAlsoGrantsImmunityToChilledCondition>
@@ -546,8 +547,6 @@
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
-    <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
     <EnableBarbarianBrutalStrike>false</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>false</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
@@ -557,6 +556,7 @@
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt10>false</EnableRangerNatureShroudAt10>
+    <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
     <EnableMonkAbundantKi>false</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>false
     </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>
@@ -568,10 +568,14 @@
     <EnableMonkSuperiorDefenseToReplaceEmptyBody>false</EnableMonkSuperiorDefenseToReplaceEmptyBody>
     <EnableMonkBodyAndMindToReplacePerfectSelf>false</EnableMonkBodyAndMindToReplacePerfectSelf>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
+    <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
+    <EnablePaladinLayOnHandsAsBonusAction>false</EnablePaladinLayOnHandsAsBonusAction>
+    <EnablePaladinSmiteAsBonusAction>false</EnablePaladinSmiteAsBonusAction>
+    <EnablePaladinSpellCastingAtLevel1>false</EnablePaladinSpellCastingAtLevel1>
+    <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
-    <EnableRogueStrSaving>false</EnableRogueStrSaving>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
@@ -612,6 +616,7 @@
     <MetamagicSliderPosition>4</MetamagicSliderPosition>
     <MetamagicEnabled/>
     <AllowBladeCantripsToUseReach>false</AllowBladeCantripsToUseReach>
+    <EnableCastersToCountMaxPreparedFromTable>false</EnableCastersToCountMaxPreparedFromTable>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
@@ -800,10 +805,11 @@
     <AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>false
     </AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>
     <EnableBardHealingBalladOnLongRest>false</EnableBardHealingBalladOnLongRest>
+    <EnableBg3AbjurationArcaneWard>false</EnableBg3AbjurationArcaneWard>
+    <EnableRogueStrSaving>false</EnableRogueStrSaving>
     <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
     <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
     <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
-    <EnableBg3AbjurationArcaneWard>false</EnableBg3AbjurationArcaneWard>
     <SwapEvocationPotentCantripAndSculptSpell>false</SwapEvocationPotentCantripAndSculptSpell>
     <KlassListSliderPosition>
         <item>
