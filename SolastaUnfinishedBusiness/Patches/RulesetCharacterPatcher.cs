@@ -500,18 +500,18 @@ public static class RulesetCharacterPatcher
                 .Sum(m => m.PoolChangeAmount(__instance));
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.SerializeElements))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SerializeElements_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance,   IElementsSerializer serializer)
+        public static void Postfix(RulesetCharacter __instance, IElementsSerializer serializer)
         {
             //PATCH: allow marking  some powers to read their uses attribute on load even if uses determination is not AbilityBonusPlusFixed
             //used for BG3 mode toggle in Abjuration wizard's Arcane Ward
-           ForceUsesAttributeDeserialization.Process(__instance, serializer);
+            ForceUsesAttributeDeserialization.Process(__instance, serializer);
         }
     }
 

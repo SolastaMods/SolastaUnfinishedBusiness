@@ -19,7 +19,6 @@ internal static class ToolsDisplay
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&TableTopHelp"));
         UI.Label();
-        UI.Label();
         DisplayTabletop();
         UI.Label();
         DisplayOneDnd();
