@@ -308,6 +308,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionHeavilyEncumbered { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHeavilyEncumbered");
+
         internal static ConditionDefinition ConditionDashing { get; } =
             GetDefinition<ConditionDefinition>("ConditionDashing");
 
@@ -1791,6 +1794,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerBerserkerFrenzy { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBerserkerFrenzy");
+
         internal static FeatureDefinitionPower PowerFunctionAntitoxin { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionAntitoxin");
 

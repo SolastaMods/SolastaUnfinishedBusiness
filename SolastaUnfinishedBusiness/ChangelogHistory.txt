@@ -2,9 +2,9 @@
 
 - added behavior package choices on heroes controlled by AI [single player only]
 - added Character > Classes > 'Enable Lay on Hands as bonus action' [OneDnd]
-- added Character > Classes > 'Enable Smite as bonus action' [OneDnd]
 - added Character > Classes > 'Enable Paladin spellcasting at level 1' [OneDnd]
 - added Character > Classes > 'Enable Ranger spellcasting at level 1' [OneDnd]
+- added Character > Classes > 'Enable Smite as bonus action' [OneDnd]
 - added Character > Classes > 'Enable Wizard to learn the school of magic at level 3' [OneDnd]
 - added Character > Spells > 'Enable all Prepared Casters to determine max prepared count from a table' [OneDnd]
 - added Character > Subclasses > 'Enable Abjuration Wizard arcane ward implementation to behave like BG3'
@@ -23,6 +23,7 @@
 - fixed spell selection UI to sync Wizard evocation selections with Shock Arcanist arcane warfare
 - fixed Tasha's Caustic Brew to inflict damage at start instead of end of turn
 - fixed teleport logic to leave actors behind if no available destination position
+- fixed Wizard Graviturgist descriptions, and other minor issues
 - reorg mod UI with more intuitive grouping, and new One DnD and Tabletop sections under Gameplay > General
 
 KNOWN ISSUES:

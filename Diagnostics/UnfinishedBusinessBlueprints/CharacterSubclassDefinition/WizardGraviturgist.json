@@ -13,6 +13,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWizardGraviturgistDensity:96177598-5836-5bf8-8cfc-b60925a95ea9",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerWizardGraviturgistGravityWell:faf3975c-aac0-5eab-b363-62a253150e4d",
       "level": 6
     },
@@ -31,7 +36,7 @@
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Subclass/&WizardGraviturgistTitle",
     "description": "Subclass/&WizardGraviturgistDescription",
     "spriteReference": {
