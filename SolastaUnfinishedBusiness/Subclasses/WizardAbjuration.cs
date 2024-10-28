@@ -56,6 +56,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             new CustomBehaviorArcaneWard(),
             ModifyPowerVisibility.Hidden,
             HasModifiedUses.Marker,
+            ForceUsesAttributeDeserialization.Mark,
             new ModifyPowerRechargeHandler(LimitArcaneWardRecharge),
             new ModifyPowerPoolAmount
             {
