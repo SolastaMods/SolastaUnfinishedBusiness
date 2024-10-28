@@ -105,6 +105,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=长时间休息时启用<color=#D89555>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=通过鼠标右键单击启用取消操作
 ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
+ModUi/&EnableCastersToCountMaxPreparedFromTable=使所有<color=#D89555>准备好的施法者</color>能够通过表格而不是公式确定最大准备数量<i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
 ModUi/&EnableCustomPortraits=启用<color=#D89555>自定义肖像</color>
 ModUi/&EnableCustomPortraitsHelp=• 将自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i> 下，并以英雄名字命名<i><color=#F0DAA0>[例如：Anton、Celia、Nialla 等]</color></i>\n• 使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 可获得最佳效果]</color></i>

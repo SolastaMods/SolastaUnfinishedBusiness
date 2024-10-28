@@ -33,6 +33,12 @@ internal static class SpellsDisplay
             SrdAndHouseRulesContext.SwitchAllowBladeCantripsToUseReach();
         }
 
+        toggle = Main.Settings.EnableCastersToCountMaxPreparedFromTable;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCastersToCountMaxPreparedFromTable"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableCastersToCountMaxPreparedFromTable = toggle;
+        }
+
         toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
         if (UI.Toggle(Gui.Localize("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
         {
@@ -161,16 +167,6 @@ internal static class SpellsDisplay
         {
             Main.Settings.EnableRelearnSpells = toggle;
         }
-
-        UI.Label();
-
-        var intValue = SpellLevelFilter;
-        // ReSharper disable once InvertIf
-        if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
-        {
-            SpellLevelFilter = intValue;
-            SpellsContext.RecalculateDisplayedSpells();
-        }
     }
 
     internal static void DisplaySpells()
@@ -184,6 +180,15 @@ internal static class SpellsDisplay
 
         DisplaySpellsGeneral();
 
+        UI.Label();
+
+        var intValue = SpellLevelFilter;
+        // ReSharper disable once InvertIf
+        if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
+        {
+            SpellLevelFilter = intValue;
+            SpellsContext.RecalculateDisplayedSpells();
+        }
 
         UI.Label();
 

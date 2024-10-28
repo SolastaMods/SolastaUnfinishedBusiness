@@ -105,6 +105,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <color=#D89555>College o
 ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=주문이 <color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하도록 허용합니다.
+ModUi/&EnableCastersToCountMaxPreparedFromTable=공식 대신 표에서 최대 준비 개수를 결정하려면 <color=#D89555>준비된 캐스터</color>를 모두 활성화합니다. <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태 패밀리]</color></i>
 ModUi/&EnableCustomPortraits=<color=#D89555>사용자 정의 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 영웅의 이름을 따서 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color></b></i> 하위 폴더에 사용자 지정 초상화를 넣습니다. <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• 투명 레이어가 있는 256 x 384픽셀 크기의 PNG 이미지를 사용합니다. <i><color=#F0DAA0>[최상의 결과를 위해 GIMP를 사용하세요]</color></i>

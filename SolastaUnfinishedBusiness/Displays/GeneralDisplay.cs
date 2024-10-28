@@ -224,6 +224,12 @@ internal static class ToolsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableCastersToCountMaxPreparedFromTable;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCastersToCountMaxPreparedFromTable"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableCastersToCountMaxPreparedFromTable = toggle;
+        }
+
         toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
         {

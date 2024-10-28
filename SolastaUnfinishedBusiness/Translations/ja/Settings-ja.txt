@@ -105,6 +105,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<color=#D89555>希望
 ModUi/&EnableBetaContent=ベータ版コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
+ModUi/&EnableCastersToCountMaxPreparedFromTable=すべての <color=#D89555>準備済みキャスター</color> を有効にして、式 <i><color=#F0DAA0>[OneDnd]</color></i> ではなく表から最大準備数を決定できるようにします。
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>

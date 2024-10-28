@@ -105,6 +105,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=Abilita <color=#D89555>College of Hope<
 ModUi/&EnableBetaContent=Abilita contenuto beta <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita l'annullamento delle azioni con il clic destro del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Consenti ai trucchetti di attivare l'attacco bonus extra <color=#D89555>Magia di guerra</color>
+ModUi/&EnableCastersToCountMaxPreparedFromTable=Abilita tutti i <color=#D89555>caster preparati</color> a determinare il conteggio massimo preparato da una tabella anziché da una formula <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableCharactersOnFireToEmitLight=I personaggi <color=#D89555>In fiamme</color> dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di luce, Elementale di fuoco, Giullare di fuoco, Falco pescatore di fuoco, Ragno di fuoco e famiglia di condizioni in fiamme]</color></i>
 ModUi/&EnableCustomPortraits=Abilita <color=#D89555>Ritratti personalizzati</color>
 ModUi/&EnableCustomPortraitsHelp=• Posiziona i tuoi ritratti personalizzati nelle sottocartelle <i><b><color=#F0DAA0>Personale</color></b></i> o <i><b><color=#F0DAA0>PreGen</color></b></i>, chiamate con il nome dell'eroe <i><color=#F0DAA0>[ad esempio: Anton, Celia, Nialla, ecc.]</color></i>\n• Utilizza immagini PNG, di dimensioni 256 x 384 pixel, con un livello di trasparenza <i><color=#F0DAA0>[utilizza GIMP per risultati migliori]</color></i>

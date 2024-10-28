@@ -106,6 +106,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <color=#D89555>Colegio de la 
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Permitir que los trucos activen el ataque adicional adicional de <color=#D89555>Magia de guerra</color>
+ModUi/&EnableCastersToCountMaxPreparedFromTable=Permitir que todos los <color=#D89555>lanzadores preparados</color> determinen el recuento máximo de preparaciones a partir de una tabla en lugar de una fórmula <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableCharactersOnFireToEmitLight=Los personajes <color=#D89555>On Fire</color> deben emitir luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego y familia de condición en llamas]</color></i>
 ModUi/&EnableCustomPortraits=Habilitar <color=#D89555>Retratos personalizados</color>
 ModUi/&EnableCustomPortraitsHelp=• Coloca tus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color></b></i>, nombradas como el nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n• Usa imágenes PNG, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[usa GIMP para obtener mejores resultados]</color></i>

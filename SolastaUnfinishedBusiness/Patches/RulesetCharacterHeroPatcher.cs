@@ -18,6 +18,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
@@ -697,7 +698,7 @@ public static class RulesetCharacterHeroPatcher
             string attribute,
             RulesetCharacterHero rulesetCharacterHero)
         {
-            var monkLevels = rulesetCharacterHero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk);
+            var monkLevels = rulesetCharacterHero.GetClassLevel(Monk);
 
             return monkLevels;
         }
@@ -1247,6 +1248,54 @@ public static class RulesetCharacterHeroPatcher
                 }
             }
 #endif
+        }
+    }
+
+    //PATCH: support One DnD max prepared spells now calculated from a table
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeMaxPreparedSpells))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeMaxPreparedSpells_Patch
+    {
+        // these are One DnD max prepared spells table
+        private static readonly List<int> ClericOrDruidOneDndPreparedSpellsTable =
+            [4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22];
+
+        private static readonly List<int> PaladinOrRangerOneDndPreparedSpellsTable =
+            [2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15];
+
+        private static readonly List<int> WizardOneDndPreparedSpellsTable =
+            [4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 18, 19, 21, 22, 23, 24, 25];
+
+        private static readonly Dictionary<CharacterClassDefinition, List<int>> PreparedSpells = new()
+        {
+            { Cleric, ClericOrDruidOneDndPreparedSpellsTable },
+            { Druid, ClericOrDruidOneDndPreparedSpellsTable },
+            { Paladin, PaladinOrRangerOneDndPreparedSpellsTable },
+            { Ranger, PaladinOrRangerOneDndPreparedSpellsTable },
+            { Wizard, WizardOneDndPreparedSpellsTable }
+        };
+
+        [UsedImplicitly]
+        public static bool Prefix(
+            RulesetCharacterHero __instance, ref int __result, RulesetSpellRepertoire spellRepertoire)
+        {
+            if (!spellRepertoire.SpellCastingClass)
+            {
+                return true;
+            }
+
+            if (!Main.Settings.EnableCastersToCountMaxPreparedFromTable ||
+                !PreparedSpells.TryGetValue(spellRepertoire.SpellCastingClass, out var preparedSpells))
+            {
+                return true;
+            }
+
+            var levels = __instance.ClassesAndLevels[spellRepertoire.SpellCastingClass];
+
+            __result = preparedSpells[levels - 1];
+
+            return false;
         }
     }
 

@@ -105,6 +105,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=Enable <color=#D89555>College of Hope</
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Allow cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
+ModUi/&EnableCastersToCountMaxPreparedFromTable=Enable all <color=#D89555>Prepared Casters</color> to determine max prepared count from a table instead of a formula <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableCharactersOnFireToEmitLight=Characters <color=#D89555>On Fire</color> should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCustomPortraits=Enable <color=#D89555>Custom Portraits</color>
 ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i>

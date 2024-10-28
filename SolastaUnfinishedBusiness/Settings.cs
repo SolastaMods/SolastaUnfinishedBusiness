@@ -343,6 +343,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool AllowBladeCantripsToUseReach { get; set; }
+    public bool EnableCastersToCountMaxPreparedFromTable { get; set; }
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
     public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }

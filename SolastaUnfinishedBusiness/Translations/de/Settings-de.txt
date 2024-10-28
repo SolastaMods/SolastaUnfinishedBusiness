@@ -105,6 +105,7 @@ ModUi/&EnableBardHealingBalladOnLongRest=Aktivieren Sie <color=#D89555>College o
 ModUi/&EnableBetaContent=Beta-Inhalte aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Erlaube Cantrips, um einen zusätzlichen Bonusangriff von <color=#D89555>Kriegsmagie</color> auszulösen
+ModUi/&EnableCastersToCountMaxPreparedFromTable=Aktivieren Sie alle <color=#D89555>vorbereiteten Caster</color>, um die maximale Anzahl vorbereiteter Caster aus einer Tabelle statt aus einer Formel zu ermitteln <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere, die <color=#D89555>brennen</color>, sollten Licht ausstrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und Familie der Feuerzustände]</color></i>
 ModUi/&EnableCustomPortraits=Aktivieren Sie <color=#D89555>Benutzerdefinierte Porträts</color>
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color></b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[z. B.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixeln und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
