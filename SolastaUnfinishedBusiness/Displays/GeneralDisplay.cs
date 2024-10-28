@@ -208,6 +208,13 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
+        toggle = Main.Settings.EnablePaladinLayOnHandsAsBonusAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHandsAsBonusAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinLayOnHandsAsBonusAction = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndPaladinLayOnHandAsBonusAction();
+        }
+
         toggle = Main.Settings.EnablePaladinSmiteAsBonusAction;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSmiteAsBonusAction"), ref toggle, UI.AutoWidth()))
         {

@@ -141,7 +141,8 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>
 ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[選択した武器の種類がモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>Cure Wounds</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> の治癒ダイスバフを有効にします <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&EnablePaladinSmiteAsBonusAction=<color=#D89555>スマイト</color>をボーナスアクションとして有効にする <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinLayOnHandsAsBonusAction=ボーナスアクションとして <color=#D89555>手を置く</color> を有効にする <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSmiteAsBonusAction=ボーナスアクションとして <color=#D89555>Smite</color> を有効にする <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=<b>パラディン</b>がレベル 2 ではなくレベル 1 で <color=#D89555>呪文詠唱</color> を獲得できるようにします <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=<color=#D89555>うつ伏せになる</color>アクションを有効にする <i><color=#F0DAA0>[コストをかけずにうつ伏せになることができます]</color></i>

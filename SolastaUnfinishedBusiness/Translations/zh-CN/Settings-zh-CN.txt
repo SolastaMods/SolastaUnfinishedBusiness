@@ -141,7 +141,8 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=在 18 级时启用<color=#D8
 ModUi/&EnableMonkWeaponSpecialization=在 2 级和 11 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[所选武器类型将成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用<color=#D89555>多类</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>治愈伤口</color>、<color=#D89555>治愈之言</color>、<color=#D89555>群体治愈伤口</color>和<color=#D89555>群体治愈之言</color>上启用治疗骰子增益 <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&EnablePaladinSmiteAsBonusAction=启用 <color=#D89555>Smites</color> 作为奖励行动<i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinLayOnHandsAsBonusAction=启用<color=#D89555>圣疗</color>作为奖励行动<i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSmiteAsBonusAction=启用 <color=#D89555>Smite</color> 作为奖励行动<i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=使<b>圣骑士</b>能够以 1 级（而非 2 级）获得<color=#D89555>施法</color>能力<i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=启用更好的随机生成器算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=启用<color=#D89555>倒地</color>动作<i><color=#F0DAA0>[你可以无代价倒地]</color></i>

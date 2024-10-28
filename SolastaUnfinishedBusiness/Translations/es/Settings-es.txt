@@ -142,7 +142,8 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilita <color=#D89555>Defen
 ModUi/&EnableMonkWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclase</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableOneDndHealingSpellsBuf=Habilita la mejora de dados de sanación en <color=#D89555>Curar heridas</color>, <color=#D89555>Palabra de sanación</color>, <color=#D89555>Curar heridas en masa</color> y <color=#D89555>Palabra de sanación en masa</color> <i><color=#F0DAA0>[OneDnd]</color></i>
-ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Castigos</color> como acciones adicionales <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinLayOnHandsAsBonusAction=Habilitar <color=#D89555>Imposición de manos</color> como acción adicional <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Castigar</color> como acción adicional <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Permite que el <b>Paladín</b> adquiera <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=Habilitar un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Habilita la acción <color=#D89555>Caer boca abajo</color> <i><color=#F0DAA0>[puedes caer boca abajo sin costo]</color></i>

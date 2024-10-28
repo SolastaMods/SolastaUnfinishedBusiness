@@ -108,6 +108,7 @@ internal static class SrdAndHouseRulesContext
         SwitchMagicStaffFoci();
         SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         SwitchOfficialFoodRationsWeight();
+        SwitchOneDndPaladinLayOnHandAsBonusAction();
         SwitchOneDndHealingPotionBonusAction();
         SwitchOneDndHealingSpellsBuf();
         SwitchRecurringEffectOnEntangle();
@@ -475,6 +476,13 @@ internal static class SrdAndHouseRulesContext
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionSurprised,
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionSurprised);
         }
+    }
+
+    internal static void SwitchOneDndPaladinLayOnHandAsBonusAction()
+    {
+        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHandsAsBonusAction
+            ? ActivationTime.BonusAction
+            : ActivationTime.Action;
     }
 
     internal static void SwitchOneDndHealingPotionBonusAction()

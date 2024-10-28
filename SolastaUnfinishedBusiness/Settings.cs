@@ -282,6 +282,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkBodyAndMindToReplacePerfectSelf { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
+    public bool EnablePaladinLayOnHandsAsBonusAction { get; set; }
     public bool EnablePaladinSmiteAsBonusAction { get; set; }
     public bool EnablePaladinSpellCastingAtLevel1 { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }
