@@ -217,7 +217,7 @@ public static class RulesetActorPatcher
             var reduction = FeatureDefinitionReduceDamage.DamageReduction(formsParams, rolledDamage, damageType);
 
             rolledDamage -= reduction;
-            rollInfo.modifier -= reduction;
+            //rollInfo.modifier -= reduction;
         }
     }
 
@@ -261,8 +261,8 @@ public static class RulesetActorPatcher
                     break;
 
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus:
-                    sourceAmount =
-                        AttributeDefinitions.ComputeAbilityScoreModifier(sourceCharacter.TryGetAttributeValue(source));
+                    sourceAmount = Math.Max(1,
+                        AttributeDefinitions.ComputeAbilityScoreModifier(sourceCharacter.TryGetAttributeValue(source)));
                     break;
 
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCopyAttributeFromSummoner:

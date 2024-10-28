@@ -1,4 +1,6 @@
 ﻿using System;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 
@@ -22,6 +24,15 @@ public sealed class ModifyEffectDescriptionSavingThrowRogue(
         RulesetCharacter character,
         RulesetEffect rulesetEffect)
     {
+        var hero = character.GetOriginalHero();
+
+        if (hero == null ||
+            !hero.ClassesAndSubclasses.TryGetValue(DatabaseHelper.CharacterClassDefinitions.Rogue, out var subClass) ||
+            subClass != DatabaseHelper.CharacterSubclassDefinitions.RoguishHoodlum)
+        {
+            return effectDescription;
+        }
+
         var proficiencyBonus = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
         var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
         var dexterity = character.TryGetAttributeValue(AttributeDefinitions.Dexterity);

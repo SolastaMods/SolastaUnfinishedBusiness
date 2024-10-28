@@ -1,4 +1,4 @@
-Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=When you use Reckless Attack while raging, you also gain temporary hit points equal to your Constitution modifier (minimum of 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=When you use Reckless Attack while raging, you also gain temporary hit points equal to your Constitution modifier (minimum +1).
 Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Reckless Abandon
 Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=You gain proficiency in Heavy Armor. Your raging features also work while wearing heavy armor.\n\nWhile wearing armor, your unarmed strike deal 1d6 base damage. If you are wearing magical armor, your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. \n\nWhile raging, you can use unarmed strike as a bonus action.
 Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Battlerager Armor

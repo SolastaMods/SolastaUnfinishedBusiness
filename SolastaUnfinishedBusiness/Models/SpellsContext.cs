@@ -684,6 +684,12 @@ internal static class SpellsContext
             {
                 SpellList.AddSpell(spellDefinition);
 
+                // sync shock arcanist list with wizard
+                if (SpellList == SpellListWizard && spellDefinition.SchoolOfMagic == RuleDefinitions.SchoolEvocation)
+                {
+                    SpellListShockArcanist.AddSpell(spellDefinition);
+                }
+
                 Main.Settings.SpellListSpellEnabled[spellListName].TryAdd(spellName);
             }
             else
@@ -691,6 +697,15 @@ internal static class SpellsContext
                 foreach (var spellsByLevel in SpellList.SpellsByLevel)
                 {
                     spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
+                }
+
+                // sync shock arcanist list with wizard
+                if (SpellList == SpellListWizard && spellDefinition.SchoolOfMagic == RuleDefinitions.SchoolEvocation)
+                {
+                    foreach (var spellsByLevel in SpellListShockArcanist.SpellsByLevel)
+                    {
+                        spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
+                    }
                 }
 
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(spellName);

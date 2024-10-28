@@ -386,6 +386,7 @@ Size: *Huge*
 |  23 |  12 |  21 |  18 |  15 |  17 |
 
 *Features:*
+* Condition Affinity Grapple Target
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
 * Damage Affinity Poison Immunity
@@ -420,6 +421,7 @@ Size: *Huge*
 |  23 |  12 |  21 |  18 |  15 |  17 |
 
 *Features:*
+* Condition Affinity Grapple Target
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
 * Damage Affinity Poison Immunity
@@ -454,6 +456,7 @@ Size: *Huge*
 |  23 |  12 |  21 |  18 |  15 |  17 |
 
 *Features:*
+* Condition Affinity Grapple Target
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
 * Damage Affinity Poison Immunity
@@ -488,6 +491,7 @@ Size: *Huge*
 |  23 |  12 |  21 |  18 |  15 |  17 |
 
 *Features:*
+* Condition Affinity Grapple Target
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
 * Damage Affinity Poison Immunity

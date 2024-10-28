@@ -1,25 +1,20 @@
 ModUi/&AccountForAllDiceOnFollowUpStrike=基本武器のすべての追加効果を<color=#D89555>追撃攻撃</color>特技に追加します
 ModUi/&AccountForAllDiceOnSavageAttack=基本武器ダメージからのすべてのダイスを、1 つのダイスのみではなく、基本武器ダメージを追加する機能に追加します <i><color=#F0DAA0>[サベージ アタック、2H 武器など]</color></i>
-ModUi/&AddAllToStore=すべてをストアに追加
+ModUi/&AddAllToStore=以下をショップに追加します <i><color=#F0DAA0>[これらは他の武器カテゴリで再利用されたゲームレシピです]</color></i>
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>Greater</color> と <color=#D89555>Lesser Restoration</color> によって除去された状態に加えて、<color=#D89555>Bleeding</color> 状態を追加します。
 ModUi/&AddCustomIconsToOfficialItems=公式ゲームアイテムにカスタムアイコンを追加します <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルド</color>、<color=#D89555>グレイドワーフ</color>に<color=#D89555>闇知覚</color>を有効にする <i><color=#F0DAA0>\n[照明が消えているときや魔法の暗闇にいるときに知覚判定に有利を与える]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=敵に DEX 修飾子を追加する <color=#D89555>イニシアティブ ロール</color>
-ModUi/&AddFallProneActionToAllRaces=すべてのクラスに <color=#D89555>うつ伏せになる</color> アクションを追加します <i><color=#F0DAA0>[コストをかけずにうつ伏せになることができます]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>不屈の抵抗</color>セーヴィングスローの再ロールにクラスレベルをボーナスとして追加します
-ModUi/&AddGrappleActionToAllRaces=すべてのクラスに<color=#D89555>グラップル</color>アクションを追加します
-ModUi/&AddHelpActionToAllRaces=すべてのクラスに <color=#D89555>ヘルプ</color> アクションを追加します <i><color=#F0DAA0>[1 セル以内のクリーチャーを攻撃する友好的なクリーチャーを支援できます]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>ヒューマノイド</color>優先敵を有効にする
 ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加します <i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>パラディン</color>がクリティカルヒット時にのみスマイトを有効にするようにするトグルを追加します <i><color=#F0DAA0>[反応プロンプトを最小限に抑えるのに役立ちます]</color></i>
 ModUi/&AddPickPocketableLoot=スリ可能な戦利品を追加 <i><color=#F0DAA0>[<color=#D89555>スリ</color> 能力が有効になっている場合に推奨]</color></i>
-ModUi/&AddToStore=ストアに追加
+ModUi/&AddToStore={0} を追加
 ModUi/&Advanced=<color=#F0DAA0>詳細:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>注意:</color></b> これらの設定を行うには、プレイヤーがこのMODをインストールしている必要があります。
-ModUi/&AllItemInDm=DM内のすべてのアイテム
-ModUi/&AllRecipesInDm=DMのすべてのレシピ
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ ナラティブ シーケンスですべてのプレイヤーを許可する</i>
-ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=自然の暗闇にいるときに味方が <color=#D89555>レンジャー グロウムストーカー</color> を感知できるようにする
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=自然の暗闇にいるときに味方が <color=#D89555>GloomStalker</color> を感知できるようにする
 ModUi/&AllowAnyClassToWearSylvanArmor=どのクラスでも <color=#D89555>シルヴァンアーマー</color> または <color=#D89555>ライトブリンガー服</color> を着用できるようにします
 ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>ブレード・カントリップ</color>が5フィートではなくリーチを使用できるようにする
 ModUi/&AllowClubsToBeThrown=<color=#D89555>クラブ</color>を<color=#D89555>ダガー</color>や<color=#D89555>ハンドアックス</color>のように投げられるようになります
@@ -29,7 +24,7 @@ ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>ドルイド</color>が金属�
 ModUi/&AllowDungeonsMaxLevel20=最大レベル20のダンジョンを許可する
 ModUi/&AllowFlightSuspend=アイテムや呪文による飛行を一時的に停止できるようにします <i><color=#F0DAA0>[ワイルドシェイプや飛行種族には影響しません]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=ガジェットや小道具を配置する際のチェックをバイパスするために、<color=#1E81B0>CTRL</color> クリックを有効にします
-ModUi/&AllowHasteCasting=速攻により追加アクションの呪文を唱えられるようになります <color=#F0DAA0>[1 ラウンドあたりメインアクション呪文は 1 つに制限されます]</color>
+ModUi/&AllowHasteCasting=速攻により追加アクションの呪文を唱えられるようになります <i><color=#F0DAA0>[1 ラウンドあたりメインアクション呪文は 1 つに制限されます]</color></i>
 ModUi/&AllowHornsOnAllRaces=すべての人種で角を許可します <i><color=#F0DAA0>[人種、頭、角によっては結果がひどくなる可能性があります]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=休憩パネルでよりリアルな状態を許可 <i><color=#F0DAA0>[休憩前のパネルでの休憩後のアクションと休憩後のパネルでの回復機能を非表示にする]</color></i>
 ModUi/&AllowStackedMaterialComponent=積み重ねられた材料コンポーネントを許可します <i><color=#F0DAA0>[例: 2x500gp ダイヤモンドは 1000gp ダイヤモンドに相当します]</color></i>
@@ -41,11 +36,11 @@ ModUi/&BackgroundsAndRaces=背景と人種
 ModUi/&Basic=<color=#F0DAA0>基本:</color>
 ModUi/&Bestiary=動物図鑑
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>呪いの付与</color>は、L5以上の呪文スロットで唱える場合、集中力を必要としません。
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>状態は機会攻撃を許可しません
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>のときに機会攻撃を無効にします
 ModUi/&Blueprints=設計図
-ModUi/&Campaigns=ゲームUI
+ModUi/&Campaigns=キャンペーン
 ModUi/&Category=カテゴリ
-ModUi/&ChangeDragonbornElementalBreathUsages=<color=#D89555>Dragonborn</color> のエレメンタルブレスの使用量を、短い休憩ごとに体力補正に変更します
+ModUi/&ChangeDragonbornElementalBreathUsages=<color=#D89555>Dragonborn</color> のエレメンタルブレスの使用量を短い休憩ごとの CON 修正値に変更します
 ModUi/&ChangeSleetStormToCube=<color=#D89555>Sleet Storm</color> を、円柱の代わりに立方体を使用するように変更します。
 ModUi/&Changelog=<b><color=#D89555>変更ログ</color></b>
 ModUi/&Character=キャラクター
@@ -55,7 +50,7 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>耐寒性</color>は、冷気状態に対する耐性も付与し、凍結状態を冷気状態に軽減します。
 ModUi/&Combat=<color=#F0DAA0>戦闘:</color>
 ModUi/&Crafting=<color=#F0DAA0>クラフト:</color>
-ModUi/&CraftingHelp=• ボタンを押すと、アクティブなパーティーでレシピを即座に学習できます\n• ストアに追加されたアイテムは、パーティーがその場所から離れて戻ってくる必要がある場合があります
+ModUi/&CraftingItems=クラフトとアイテム
 ModUi/&Credits=クレジット
 ModUi/&CreditsAndDiagnostics=クレジットと診断
 ModUi/&Critical=<color=#F0DAA0>クリティカルヒット:</color>
@@ -63,7 +58,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: ゲームのデフォル
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: ダメージダイスの最大結果を合計し、それを攻撃のダメージに加えます <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 可能な限り最高の結果を出したダメージダイスを再度振り直し、合計ダメージに加えます。
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 追加のサイコロを振る代わりに、攻撃の合計ダメージを 2 倍にします。<i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>神々</color>
 ModUi/&DisableAutoEquip=インベントリ内のアイテムの自動装備を無効にする
 ModUi/&DisableBarbarianBrutalCritical=<i>+ レベル 9、13、17 で <b>Brutal Critical</b> も無効にします</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=モッド <color=#D89555>feats</color> の呪文詠唱の前提条件を無効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
@@ -89,47 +83,49 @@ ModUi/&DocsSpells=呪文
 ModUi/&DocsSubclasses=サブクラス
 ModUi/&DocsSubraces=亜人種
 ModUi/&DocsVersatilities=汎用性
-ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>
-ModUi/&DontEndTurnAfterReady=<color=#D89555>準備アクション</color>を使用した後にターンを終了しない <i><color=#F0DAA0>[ボーナスアクションまたはヘイストやその他のソースからの追加のメインアクションの使用を許可する]</color></i>
+ModUi/&DontEndTurnAfterReady=<color=#D89555>準備完了</color>アクションの後にターンを終了しない <i><color=#F0DAA0>[ボーナスアクションまたは他のソースからのその他のメインアクションを許可]</color></i>
 ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にいる場合、戦闘カメラは追従しません
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローが画面外にいるか、画面端の % 以内にいる場合を除く</color></i>
+ModUi/&DungeonMaker=ダンジョンメーカー
 ModUi/&DungeonMakerBasicHelp=• これらの設定では、プレイヤーがこのMODをインストールする必要はありません
-ModUi/&DungeonMakerMenu=ダンジョンメーカー
 ModUi/&Effects=効果
-ModUi/&EmpressGarbAppearance=<color=#D89555>皇后の衣装</color>の外観
 ModUi/&EnableActionSwitching=アクション切り替えバーを有効にします <i><color=#F0DAA0>[アクションシーケンスを完全に制御するのに便利です]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=背景調査で追加のバックストーリー表示を有効にする
 ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、出口、テレポーターの追加アイコンを有効にする
 ModUi/&EnableAdditionalItemsInDungeonMaker=エディターに改造アイテムを追加する
 ModUi/&EnableAlternateHuman=代替の <color=#D89555>人間</color> を有効にする <i><color=#F0DAA0>[+1 特技 / +2 属性選択 / +1 スキル]</color></i>
 ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i><color=#F0DAA0>[選択の重み = 投票数 * ヒーローのカリスマ性補正値]</color></i>
+ModUi/&EnableBG3AbjurationArcaneWard=<color=#D89555>Abjurer</color> <b>Arcane Ward</b> 実装を有効にして、BG3 のように動作させます。
+ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[ダメージを防ぐたびに 1 減少します (防いだダメージの数ではありません)。有効にするために防御呪文を唱える必要はありません\nただし、最大値はウィザード レベルの 2 倍 (ウィザード レベル + INT 修正値の 2 倍) であり、長い休憩でのみ半分に再充電されます]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=レベル9、13、17で<color=#D89555>残忍な一撃</color>と<color=#D89555>残忍な一撃の改善</color>を有効にする
 ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 7 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
-ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<color=#D89555>バード カレッジ オブ ホープ</color>の<b>ヒーリング バラード</b>を有効にする
+ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<color=#D89555>希望の大学</color>の<b>癒しのバラード</b>を有効にする
 ModUi/&EnableBetaContent=ベータ版コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
-ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発します。
+ModUi/&EnableCastersToCountMaxPreparedFromTable=すべての<color=#D89555>準備済みキャスター</color>を有効にして、数式ではなく表から最大準備数を決定できるようにします。
+ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>
-ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にします\n<i><color=#F0DAA0>[フラットな部屋、150x150 および 200x200 のダンジョン サイズ、あらゆる環境からの無駄のない混合アセットを含む]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にします{99><i><color=#F0DAA0>[フラットな部屋、150x150 および 200x200 のダンジョン サイズ、あらゆる環境からの無駄のない混合アセットを含む]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 戦闘中に高度カメラを有効にすると、無効になった後もその位置に留まり、範囲が 3 倍になります</i>
-ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列を有効にします <i><color=#F0DAA0>[17,15,13,​​12,10,8]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネルの表示を有効にする <i><color=#F0DAA0>[アーケイン ショット、インフュージョン、マニューバ、および汎用性]</color></i>\n<b><i><color=#C04040E0>[キャラクター検査時にパフォーマンスが低下します。自己責任で使用してください]</color></i></b>
+ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列を有効にします <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネルの表示を有効にする <i><color=#F0DAA0>[アーケイン ショット、インフュージョン、マニューバ、および汎用性]</color></i>{99><b><i><color=#C04040E0>[キャラクター検査時にパフォーマンスが低下します。自己責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル2、10、18で<color=#D89555>特技</color>選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=レベル6と14で<color=#D89555>特技</color>選択を有効にする
 ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[命中とダメージが +1 になりますが、他の武器タイプでは不利になります]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[背景からスキルとツールの熟練度を選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトではなく能力値ポイントを割り当てる]</color></i>
-ModUi/&EnableGauntletMainAttacks=<color=#D89555>モンク</color>または<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合、キャラクターのメインアクションで<b>素手攻撃</b>が可能になります
+ModUi/&EnableGrappleAction=<color=#D89555>グラップル</color>アクションを有効にする
+ModUi/&EnableHelpAction=<color=#D89555>ヘルプ</color>アクションを有効にする <i><color=#F0DAA0>[1セル以内のクリーチャーを攻撃する友好的なクリーチャーを支援できます]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=最も熟練度の高いヒーローが会話の選択肢をロールできるようにします <i><color=#F0DAA0>[機能しますが、公式キャンペーンではナレーションが奇妙に見えます]</color></i>
-ModUi/&EnableHigherGroundRules=高所ルールを有効にする <i><color=#F0DAA0>[高所から攻撃する場合、命中率 +1]</color></i>
+ModUi/&EnableHigherGroundRules=<color=#D89555>高地</color>ルールを有効にする <i><color=#F0DAA0>[高地から攻撃する場合、命中率+1]</color></i>
 ModUi/&EnableInventoryFilteringAndSorting=在庫のフィルタリングと並べ替えを有効にする
 ModUi/&EnableInventoryTaintNonProficientItemsRed=ヒーローが熟練していないアイテムを赤く着色する
 ModUi/&EnableInventoryTintKnownRecipesRed=知られているレシピを赤く染める
-ModUi/&EnableLevel20=レベル 20 を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&EnableLevel20=<color=#D89555>レベル 20</color> を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=ナレーションシーケンス中にゲームコンソールにダイアログをログ記録できるようにする
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=カスタムキャンペーンで無効な参照のログ記録を有効にする
 ModUi/&EnableMinInOutAttributes=<i>+ 入退室の前提条件として最低限の能力値を適用する</i>
@@ -143,27 +139,35 @@ ModUi/&EnableMonkHeightenedMetabolism=レベル 10 で <color=#D89555>代謝の�
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>非装甲移動の強化</color>を有効にすると、落下せずに垂直面に沿って移動できます。
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>優れた防御力</color>を有効にして<color=#D89555>空の体</color>を置き換えます
 ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[選択した武器の種類がモンク武器になります]</color></i>
-ModUi/&EnableMulticlass=マルチクラスを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
-ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>Cure Wounds</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> に OneDnd ヒーリング ダイス バフを有効にします。
+ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>治癒の傷</color>、<color=#D89555>治癒の言葉</color>、<color=#D89555>大量治癒の傷</color>、<color=#D89555>大量治癒の言葉</color>に治癒ダイスバフを有効にします
+ModUi/&EnablePaladinLayOnHandsAsBonusAction=ボーナスアクションとして<color=#D89555>手を置く</color>を有効にする
+ModUi/&EnablePaladinSmiteAsBonusAction=ボーナスアクションとして<color=#D89555>スマイト</color>を有効にする
+ModUi/&EnablePaladinSpellCastingAtLevel1=<b>パラディン</b>がレベル 2 ではなくレベル 1 で <color=#D89555>呪文詠唱</color> を獲得できるようにします <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableProneAction=<color=#D89555>うつ伏せになる</color>アクションを有効にする <i><color=#F0DAA0>[コストをかけずにうつ伏せになることができます]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=プッシュとプルのモーション効果を上下軸でも有効にします
 ModUi/&EnableRangerNatureShroudAt10=レベル 10 で <color=#D89555>自然のベール</color> 機能を有効にします <i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法で透明になることができます]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=<b>レンジャー</b>がレベル2ではなくレベル1で<color=#D89555>呪文詠唱</color>を獲得できるようにします
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップや呪文を選択できるようにする
-ModUi/&EnableRespec=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
+ModUi/&EnableRespecAction=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
 ModUi/&EnableRogueCunningStrike=レベル 5 と 14 で <color=#D89555>狡猾な一撃</color> と <color=#D89555>邪悪な一撃</color> を有効にします <i><color=#F0DAA0>[追加のヒット効果を得るために、スニーク アタック ダイスを 1 つ放棄します]</color></i>
 ModUi/&EnableRogueFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
 ModUi/&EnableRogueSteadyAim=レベル 3 で <color=#D89555>Steady Aim</color> を有効にします <i><color=#F0DAA0>[ボーナス アクションにより、まだ移動していない場合、現在のターンの次の攻撃ロールにアドバンテージが与えられます]</color></i>
-ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃</color>、<color=#D89555>弱体化/強化された一撃</color>、<color=#D89555>ヘイル オブ ブレード</color> に DEX または STR の修飾子を有効にします。
+ModUi/&EnableRogueStrSaving=<b>狡猾/悪意ある一撃</b>、<b>衰弱/強化一撃</b>、<b>ヘイル オブ ブレード</b>に <color=#D89555>悪党</color> の DEX または STR 修飾子を有効にします
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>ウィザード</color>のシグネチャー スペルを、大休憩ごとに準備できるようにします <i><color=#F0DAA0>[レベル 20 で 1 回ではなく]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカルヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローはランダム性を高めるために D20 ロールを重みに追加します <color=#F0DAA0>[選択重み = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
+ModUi/&EnableSurprisedToEnforceDisadvantage=<color=#D89555>驚き</color>状態を有効にして、ラウンドをスキップする代わりにイニシアチブの不利を強制します。
 ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>テレポート</color>を有効にすると、ターゲットからすべての<color=#D89555>拘束</color>状態が解除されます。
 ModUi/&EnableTooltipDistance=戦闘中のキャラクターにマウスを移動したときにツールチップに距離が表示されるようにする
+ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>素手攻撃</color>アクションを有効にする <i><color=#F0DAA0>[アクターがメインに武器を持っているか、<b>モンク</b>を持っているか、<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>エレメンタル召喚</color>と<color=#D89555>フェイ召喚</color>のアップキャストを有効にする
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
+ModUi/&EnableWizardToLearnSchoolAtLevel3=<b>ウィザード</b>がレベル2ではなくレベル3で魔法の学校を取得できるようにします
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と <color=#D89555>特技</color> の選択の両方を有効にします <i><color=#F0DAA0>[排他的選択の代わりに]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>ランダムエンカウントの確率を設定する</color>
 ModUi/&Encounters=出会い
@@ -184,7 +188,7 @@ ModUi/&Formation=<color=#F0DAA0>フォーメーション:</color>
 ModUi/&FormationError=<color=#C04040E0>マルチプレイヤーゲーム中はフォーメーションを変更できません...</color>
 ModUi/&FormationHelp1=• 数字ボタンを使用して、特定のセットを編集します <i><color=#F0DAA0>[入力時にホットキーを有効にすることを検討してください]</color></i>
 ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> は相対的なヒーローの位置を表します
-ModUi/&FormationHelp3=• 任意の2つのボタンをクリックすると、位置が入れ替わります
+ModUi/&FormationHelp3=• 任意の2つのボタンをクリックして位置を入れ替えます
 ModUi/&FormationResetAllSets=すべてリセット
 ModUi/&FormationResetThisSet=これをリセット
 ModUi/&FormationSelected=フォーメーションセット{0}が選択されました
@@ -204,25 +208,21 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>ハンドクロスボ�
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻惑呪文は範囲内の<color=#D89555>TrueSight</color>を持つターゲットに対しては自動的に失敗する
 ModUi/&IncreaseGameTimeBy=ゲーム時間を増やす
 ModUi/&IncreaseMaxAttunedItems=レベル 10 で最大 <color=#D89555>調整アイテム</color> を 4 個、レベル 18 で 5 個に増加
-ModUi/&InventoryAndItems=<color=#F0DAA0>インベントリとアイテム:</color>
 ModUi/&Invocations=<color=#F0DAA0>召喚</color>
-ModUi/&ItemInDm=DM内のアイテム
 ModUi/&Items=<color=#F0DAA0>アイテム:</color>
-ModUi/&ItemsCraftingMerchants=クラフトと商人
 ModUi/&ItemsHelp1=<color=#C04040E0>キャラクター検査画面を開いてヒーローにアイテムを追加します...</color>
 ModUi/&ItemsHelp2=<b>+ を押すと地上コンテナにアイテムが追加されます</b>
 ModUi/&KeepInvisibilityWhenUsingItems=<color=#D89555>不可視性</color>を破壊しないアイテムの使用を有効にする
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=奇襲ラウンドで攻撃を察知した場合、攻撃後にヒーローのステルスを更新します <i><color=#F0DAA0>[最初のヒーローのみ]</color></i>
-ModUi/&Locations=<color=#F0DAA0>場所:</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=すべての魔法の杖をアーケイン フォーカスにします <i><color=#F0DAA0>[ユニバーサルな <color=#D89555>治癒の杖</color> を除く]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 発見後、レベルマップ上に目に見えないテレポーターの位置もマークします</i>
 ModUi/&MaxAllowedClasses=<color=white>最大許容クラス数</color>
 ModUi/&Merchants=<color=#F0DAA0>商人:</color>
 ModUi/&Metamagic=<color=#F0DAA0>メタマジック</color>
-ModUi/&ModifyGravitySlam=<i>+ <color=#D89555>重力スラム</color> 呪文を変更して、影響を受けたターゲットを押し下げ、球体ではなく円筒形になるようにします</i>
+ModUi/&ModifyGravitySlam=<color=#D89555>重力スラム</color> 呪文を変更して、影響を受けたターゲットを引き下げ、球体ではなく円筒形になるようにします{99><i><color=#F0DAA0>[<color=#D89555>上下軸でプッシュおよびプル モーション エフェクトを有効にするには</color> を有効にする必要があります]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
-ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> キーを押しながら呪文をクリックすると、消費されるデフォルトのレパートリー スロットの種類が反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color> は白の呪文スロットを消費し、その他のプレイヤーはパクトの緑の呪文スロットを消費します]</color></i>
-ModUi/&Multiplayer=#F0DAA0>マルチプレイヤー:</color>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> キーを押しながら呪文をクリックすると、消費されるデフォルトのレパートリー スロットの種類が反転します{99><i><color=#F0DAA0>[<color=#D89555>ウォーロック</color> は白の呪文スロットを消費し、その他のプレイヤーはパクトの緑の呪文スロットを消費します]</color></i>
+ModUi/&Multiplayer=<color=#F0DAA0>マルチプレイヤー:</color>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>獲得経験値を</color> <color=#C04040E0>[%]</color> 倍にします
 ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敵のターン中はカメラが動かない</i>
 ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
@@ -232,6 +232,8 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 不可視の�
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>魔法で隠された</color>領域を、発射物ブロッカー <color=#F0DAA0>[<color=#D89555>闇</color> 呪文効果の任意のソース]</color に変更します</i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 必要に応じてモンスターと NPC に <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color>、<color=#D89555>TrueSight</color> を追加します</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OneDnd=<color=#F0DAA0>テーブルトップ <i>[One DnD、2024]</i>:</color>
+ModUi/&OneDndHealingPotionBonusAction=<color=#D89555>治癒ポーション</color>と<color=#D89555>解毒剤</color>の使用時にボーナスアクションを有効にする
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストに最も強力なクリーチャーのみを表示する</i>
 ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
 ModUi/&OutlineGridWidthSpeed=<color=white>アウトライングリッドアニメーションの速度を</color> <color=#C04040E0>[%]</color> で乗算します。
@@ -241,10 +243,9 @@ ModUi/&Patches=<color=#F0DAA0>パッチ:</color>
 ModUi/&PortraitsOpenFolder=ポートレートフォルダを開く
 ModUi/&PrimedItems=プライムアイテム
 ModUi/&QuickCastLightCantripOnWornItemsFirst=クイックキャスト<color=#D89555>ライトカントリップ</color>を有効にすると、頭、首、または胴体に装備したアイテムを最初に使用できます。
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>、<color=#D89555>Gray Dwarf</color> の <color=#D89555>Light Sensitivity</color> を有効にすると、屋外でのみトリガーされます\n<i><color=#F0DAA0>[ロード画面なしでアクセス可能な屋外の場所の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>、<color=#D89555>Gray Dwarf</color> の <color=#D89555>Light Sensitivity</color> を有効にすると、屋外でのみトリガーされます{99><i><color=#F0DAA0>[ロード画面なしでアクセス可能な屋外の場所の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
 ModUi/&RecipeCost=<color=white>レシピのコスト</color>
-ModUi/&RecipesInDm=DMのレシピ
 ModUi/&RelicForgeries=遺物の偽造
 ModUi/&RemoveAttunementRequirements=調整要件を削除します <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&RemoveBugVisualModels=ゲーム内のクモのようなモデルをクマのようなモデルに置き換えます <i><color=#F0DAA0>[クモ恐怖症]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
@@ -293,27 +294,32 @@ ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴの店に、<color=#D89555>�
 ModUi/&Subclasses=<color=#F0DAA0>サブクラス</color>
 ModUi/&Subraces=<color=#F0DAA0>亜種族</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフトアイテムのアイコンを交換</i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>エヴォーカー</color>の<b>スカルプトスペル</b>と<b>ポテンシャルキャントリップ</b>の機能を入れ替えます
+ModUi/&TableTopButton=<b><color=#D89555>テーブルトップコンテンツを選択</color></b>
+ModUi/&TableTopHelp1=• 次のセクションでは、利便性のために、mod 全体に散らばっている <color=#D89555>Classic と One DnD</color> の設定を再グループ化して複製します。
+ModUi/&TableTopHelp2=• ボタンを押してキャラクタータブのテーブルトップコンテンツのみを選択し、以下のすべてのオプションを選択して真のTT体験を味わってください。
+ModUi/&Tabletop=<color=#F0DAA0>テーブルトップ <i>[クラシック DnD、2014]</i>:</color>
 ModUi/&TargetLanguage=対象言語
 ModUi/&TotalCraftingTimeModifier=<color=white>クラフト時間を短縮</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>第 1 レベルで付与される <color=#D89555>特技</color> の合計</color>
 ModUi/&Translate=翻訳する
 ModUi/&TranslateCancel={1} で {0} をキャンセル
-ModUi/&Translations=翻訳
+ModUi/&Translations=<color=#F0DAA0>翻訳:</color>
 ModUi/&UnleashEnemyAsNpc=NPCガジェットでモンスターを選択できるようにする
 ModUi/&UnleashNpcAsEnemy=モンスター選択のロックを解除
 ModUi/&Update=<b><color=#D89555>更新</color></b>
-ModUi/&UseAlternateSpellPointsSystem=<color=#D89555>バリアントスペルポイント</color>ルールを使用する
-ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[呪文ポイントのプールがあり、術者レベルに応じて増加します\nL01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\n呪文を唱えるためのコストは SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nこのシステムでは、短い休憩スロットの回復機能はトリガーされません]</color></i>
+ModUi/&UseAlternateSpellPointsSystem=<color=#D89555>バリアント スペル ポイント</color> ルールを有効にする <i><color=#F0DAA0>[術者レベルに応じて増加するスペル ポイントのプールがあります]</color></i>
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[L01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\n呪文を唱えるコストは SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nこのシステムでは、短い休憩スロットの回復機能はトリガーされません]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>エルフ</color>の顔モデルを<color=#D89555>ティフリング</color>に使用します
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>ブラック テンタクルズ、エンタングル、グリース</color> <i><color=#F0DAA0>[square]</color></i> または <color=#D89555>スパイク グロース</color> <i><color=#F0DAA0>[round]</color></i> をキャストするときに、高さ 1 のシリンダー効果を使用します。
 ModUi/&UseMathFlankingRules=<i>+ 側面攻撃を決定するために正確な計算を使用する <color=#F0DAA0>[低速マシンではパフォーマンスに影響する可能性があります]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=<color=#D89555>利点 / 不利</color> ルールを使用します <i><color=#F0DAA0>[状況によりロールに両方が含まれる場合、どちらも含まれていないとみなされます]</color></i>
-ModUi/&UseOfficialFlankingRules=<color=#D89555>側面攻撃</color>ルールを使用する <i><color=#F0DAA0>[味方がターゲットの反対側にいる場合、攻撃側は有利になる]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=<color=#D89555>利点 / 不利</color> ルールを有効にする <i><color=#F0DAA0>[状況によりロールに両方が含まれる場合、どちらも含まれていないとみなされます]</color></i>
+ModUi/&UseOfficialFlankingRules=<color=#D89555>側面攻撃</color>ルールを有効にする <i><color=#F0DAA0>[味方がターゲットの反対側にいる場合、攻撃側は有利になる]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 遠距離攻撃にも有効にする <color=#F0DAA0>[正確な計算を無効にする]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にする <color=#F0DAA0>[正確な計算を無効にする]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ アドバンテージの代わりに攻撃ロールに +1 を付与</i>
-ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>食糧配給</color> 重量2ポンドを使用する
-ModUi/&UseOfficialObscurementRules=<color=#D89555>照明、遮蔽、視界</color>の戦闘ルールを使用する
-ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[それを知覚する攻撃者は ADV を獲得し、それを知覚しない攻撃者は DIS を獲得します。それを知覚できる防御者は DIS を獲得します\n 非常に隠された領域は盲目状態を引き起こし、クリーチャーに対する攻撃ロールには ADV が付与され、クリーチャーの攻撃ロールには DIS が付与されます\n 攻撃者が視力を持たない場合、個人をターゲットとするすべての遠距離呪文は、視力が必要であると明確に述べられていない呪文を除いて、キャストできません]</color></i>
-ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは、<color=#D89555>小型種族</color>ルールを使用します <i><color=#F0DAA0>[攻撃に不利があります]</color></i>
-ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>\n<i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>
+ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>食料配給</color>の重量を2ポンドにする
+ModUi/&UseOfficialObscurementRules=<color=#D89555>照明、遮蔽、視界</color>戦闘ルールを有効にする
+ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[それを知覚する攻撃者は ADV を獲得し、それを知覚しない攻撃者は DIS を獲得します。それを知覚できる防御者は DIS を獲得します\n 非常に隠された領域は盲目状態を引き起こし、クリーチャーに対する攻撃ロールには ADV が付与され、クリーチャーの攻撃ロールには DIS が付与されます\n 攻撃者に視力がない場合、個人をターゲットとするすべての遠距離呪文は発動できません。ただし、視力が必要であると明確に述べられていない呪文は除きます]</color></i>
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=<color=#D89555>小型種族</color>が重火器を使用する際に不利になるようにする
+ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>{99><i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>

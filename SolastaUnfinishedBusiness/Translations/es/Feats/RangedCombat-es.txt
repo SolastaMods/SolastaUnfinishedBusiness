@@ -1,4 +1,4 @@
-Action/&DeadEyeToggleDescription=Activar/desactivar Sharpshooter
+Action/&DeadEyeToggleDescription=Activa o desactiva Tirador de precisión para que, cuando ataques con un arma a distancia, puedas elegir recibir una penalización de -5 en tu tirada de ataque para causar +10 de daño adicional.
 Action/&DeadEyeToggleTitle=Tirador de primera
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Tienes ventaja en tu siguiente tirada de ataque.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Buena puntería

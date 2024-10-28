@@ -80,6 +80,7 @@ internal enum ExtraActionId
     CleavingAttackToggle,
     PowerAttackToggle,
     DeadEyeToggle,
+    OverChannelToggle,
     PrioritizeAction = 10000
 }
 

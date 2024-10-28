@@ -1,6 +1,6 @@
-Action/&CleavingAttackToggleDescription=Activer/désactiver le Maître des Grandes Armes
+Action/&CleavingAttackToggleDescription=Activez/désactivez Maître des grandes armes afin que lorsque vous attaquez avec une arme de mêlée, vous puissiez choisir de subir une pénalité de -5 à votre jet d'attaque afin d'infliger +10 dégâts supplémentaires.
 Action/&CleavingAttackToggleTitle=Grand Maître d'Armes
-Action/&PowerAttackToggleDescription=Activer/désactiver l'attaque puissante
+Action/&PowerAttackToggleDescription=Activez/désactivez l'Attaque puissante afin que lorsque vous attaquez avec une arme de mêlée, vous puissiez choisir de subir une pénalité de -3 à votre jet d'attaque afin d'infliger des dégâts supplémentaires égaux à 3 + votre bonus de maîtrise.
 Action/&PowerAttackToggleTitle=Attaque puissante
 Condition/&ConditionFeatCleavingAttackFinishDescription=Laissez-les venir!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Grand Maître d'Armes

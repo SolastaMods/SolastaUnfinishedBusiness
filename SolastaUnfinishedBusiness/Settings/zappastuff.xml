@@ -3,6 +3,9 @@
     <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
+    <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
+    <DisplayOneDndToggle>false</DisplayOneDndToggle>
+    <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -12,9 +15,7 @@
     <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
     <DisplayMetamagicToggle>false</DisplayMetamagicToggle>
     <DisplayCraftingToggle>false</DisplayCraftingToggle>
-    <DisplayFactionRelationsToggle>false</DisplayFactionRelationsToggle>
     <DisplayItemsToggle>false</DisplayItemsToggle>
-    <DisplayMerchantsToggle>false</DisplayMerchantsToggle>
     <DisplayBackgroundsAndRacesGeneralToggle>false</DisplayBackgroundsAndRacesGeneralToggle>
     <DisplayProficienciesGeneralToggle>false</DisplayProficienciesGeneralToggle>
     <DisplaySpellsGeneralToggle>false</DisplaySpellsGeneralToggle>
@@ -219,248 +220,57 @@
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
-    <MonstersThatShouldHaveDarkvision>
-        <string>Adam_The_Twelth</string>
-        <string>DLC3_Elven_07_Guard</string>
-        <string>SRD_DLC_Mage</string>
-        <string>SRD_Mage</string>
-        <string>DLC1_NPC_Forge_Escorted_01</string>
-        <string>DLC3_NPC_Generic_ElvenCitizen_Husk</string>
-        <string>Generic_Darkweaver</string>
-        <string>DLC3_ElvenClans_Leralyn</string>
-        <string>DLC3_NPC_Elven3_DLC3_Ending</string>
-        <string>DLC3_NPC_Elven5_DLC3_Ending</string>
-        <string>Generic_HighPriest</string>
-        <string>DLC3_Elven_Suspect_05_Guard_Traitor</string>
-        <string>DLC3_Elven_06_Guard</string>
-        <string>SRD_DLC3_Archmage</string>
-        <string>Generic_ShockArcanist</string>
-        <string>Mutant_Ape</string>
-        <string>Mutant_Ape_Range</string>
-        <string>Mutant_Direwolf</string>
-        <string>Badlands_Ape_MonsterDefinition</string>
-        <string>BadlandsBear</string>
-        <string>BadlandsBear_POI_ONLY</string>
-        <string>Eagle_Matriarch</string>
-        <string>KindredSpiritApe</string>
-        <string>KindredSpiritBear</string>
-        <string>KindredSpiritEagle</string>
-        <string>KindredSpiritTiger</string>
-        <string>KindredSpiritViper</string>
-        <string>KindredSpiritWolf</string>
-        <string>WildshapeDirewolf</string>
-        <string>WildShapeWolf</string>
-        <string>AlphaWolf</string>
-        <string>ConjuredEightBeast_Wolf</string>
-        <string>ConjuredTwoBeast_Direwolf</string>
-        <string>Direwolf</string>
-        <string>DLC1_Complex_Trained_Direwolf</string>
-        <string>DLC1_Complex_Trained_Wolf</string>
-        <string>StarvingWolf</string>
-        <string>Wolf</string>
-        <string>FeyBear</string>
-        <string>FeyGiant_Eagle</string>
-        <string>FeyGiantApe</string>
-        <string>FeyWolf</string>
-        <string>SRD_Werewolf</string>
-        <string>Captain_Verissa_Ironshell</string>
-        <string>Conjuration_TheSuperEgo_Master_Humanoid</string>
-        <string>DLC1_Complex_NPC_Sitinero</string>
-        <string>DLC1_Complex_NPC_Sitinero_DM_Monster</string>
-        <string>DLC1_NPC_Fusioned_Orenetis_Sitenero</string>
-        <string>DLC1_NPC_Sitenero</string>
-        <string>DLC1_NPC_Tuznut</string>
-        <string>DLC1_NPC_Tuznut_Hostile</string>
-        <string>DLC1_NPC_Tuznut_Hostile_DM_Monster</string>
-        <string>DLC1_Valley_NPC_Samko_Flint</string>
-        <string>DLC1_Valley_NPC_Telerien_Purevoice</string>
-        <string>DLC1_NPC_Forge_Hasdrubal</string>
-        <string>DLC1_NPC_Nobleman_ThePeople07</string>
-        <string>DLC1_NPC_Orenetis_Apprentice</string>
-        <string>DLC1_NPC_ThePeople_Reya_Outpost</string>
-        <string>DLC3_NPC_Einareum_Merchant_General</string>
-        <string>DLC3_NPC_SouthernClans_Generic_Cousin_Husk</string>
-        <string>Lizzaria_Of_Grimhold</string>
-        <string>Merchant_Gorim_Ironsoot</string>
-        <string>Merchant_Hugo_Requer</string>
-        <string>Priest_Of_Misaye_Nel</string>
-    </MonstersThatShouldHaveDarkvision>
-    <MonstersThatShouldHaveTrueSight>
-        <string>Couatl</string>
-        <string>CubeOfLight</string>
-        <string>Conjuration_TheSuperEgo_Master_Humanoid</string>
-    </MonstersThatShouldHaveTrueSight>
-    <MonstersThatShouldHaveBlindSight>
-        <string>Aksha</string>
-        <string>Aksha_Legendary</string>
-    </MonstersThatShouldHaveBlindSight>
-    <MonstersThatShouldNotHaveTremorSense>
-        <string>Aksha</string>
-        <string>Aksha_Legendary</string>
-    </MonstersThatShouldNotHaveTremorSense>
-    <EffectsThatTargetDistantIndividualsAndDontRequireSight>
-        <string>AcidSplash</string>
-        <string>Aid</string>
-        <string>AnimalShapes</string>
-        <string>BeaconOfHope</string>
-        <string>Bless</string>
-        <string>BlessingOfRime</string>
-        <string>BoomingBlade</string>
-        <string>DispelMagic</string>
-        <string>FeatherFall</string>
-        <string>Knock</string>
-        <string>Levitate</string>
-        <string>MassCureWounds</string>
-        <string>PassWithoutTrace</string>
-        <string>PowerBarbarianBrutalStrike</string>
-        <string>PowerBardHopeWordsOfHope6</string>
-        <string>PowerBardTraditionManacalonsPerfection</string>
-        <string>PowerCelestialSearingVengeance</string>
-        <string>PowerCollegeOfAudacityDefensiveWhirl</string>
-        <string>PowerCollegeOfAudacityMobileWhirl</string>
-        <string>PowerCollegeOfValianceHeroicInspiration</string>
-        <string>PowerDisableGrapple</string>
-        <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
-        <string>PowerFeatChefCookMeal</string>
-        <string>PowerFeatOrcishAggression</string>
-        <string>PowerGrapple</string>
-        <string>PowerInnovationWeaponArcaneJolt</string>
-        <string>PowerOathOfJugementPurgeCorruption</string>
-        <string>PowerOathOfJugementRetribution</string>
-        <string>PowerOathOfThunderThunderousRebuke</string>
-        <string>PowerPatronFiendHurlThroughHell</string>
-        <string>PowerRangerHellWalkerMarkOfTheDammed</string>
-        <string>PowerRangerLightBearerBlessedWarrior</string>
-        <string>PowerRiftWalkerRiftStrike</string>
-        <string>PowerSorcerousPsionMindOverMatter</string>
-        <string>PowerTraditionOpenHandQuiveringPalmTrigger</string>
-        <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
-        <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
-        <string>RayOfEnfeeblement</string>
-        <string>ResonatingStrike</string>
-        <string>Sanctuary</string>
-        <string>ShieldOfFaith</string>
-        <string>Sparkle</string>
-        <string>SunlightBlade</string>
-        <string>TrueStrike</string>
-        <string>CommandApproach</string>
-        <string>CommandDrop</string>
-        <string>CommandFlee</string>
-        <string>CommandGrovel</string>
-        <string>CommandHalt</string>
-        <string>AnimateDead</string>
-        <string>ArcaneSword</string>
-        <string>ConjureAnimalsFourBeasts</string>
-        <string>ConjureAnimalsOneBeast</string>
-        <string>ConjureAnimalsTwoBeasts</string>
-        <string>ConjureCelestial</string>
-        <string>ConjureCelestialCouatl</string>
-        <string>ConjureCelestialKutkartal</string>
-        <string>ConjureCelestialMelek</string>
-        <string>ConjureElemental</string>
-        <string>ConjureElementalAir</string>
-        <string>ConjureElementalEarth</string>
-        <string>ConjureElementalFire</string>
-        <string>ConjureFey_Ape</string>
-        <string>ConjureFey_Bear</string>
-        <string>ConjureFey_Dryad</string>
-        <string>ConjureFey_Eagle</string>
-        <string>ConjureFey_GreenHag</string>
-        <string>ConjureFey_Wolf</string>
-        <string>ConjureFey</string>
-        <string>ConjureGoblinoids</string>
-        <string>ConjureMinorElementals</string>
-        <string>ConjureMinorElementalsFour</string>
-        <string>ConjureMinorElementalsOne_b</string>
-        <string>ConjureMinorElementalsOne</string>
-        <string>ConjureMinorElementalsTwo</string>
-        <string>CreateDeadRisenGhost</string>
-        <string>CreateDeadRisenGhoul</string>
-        <string>CreateDeadRisenSkeleton_Archer</string>
-        <string>CreateDeadRisenSkeleton_Enforcer</string>
-        <string>CreateDeadRisenSkeleton_Knight</string>
-        <string>CreateDeadRisenSkeleton_Marksman</string>
-        <string>CreateDeadRisenSkeleton</string>
-        <string>CreateDeadRisenWight</string>
-        <string>CreateDeadRisenWightLord</string>
-        <string>DancingLights</string>
-        <string>DimensionDoor</string>
-        <string>FindFamiliar</string>
-        <string>GiantInsect</string>
-        <string>SpiritualWeapon</string>
-        <string>WaterBreathing</string>
-        <string>WaterWalk</string>
-    </EffectsThatTargetDistantIndividualsAndDontRequireSight>
+    <EnablePcgRandom>true</EnablePcgRandom>
+    <EnableCustomPortraits>true</EnableCustomPortraits>
+    <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
+    <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
     <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
     <EnableLevel20>true</EnableLevel20>
     <EnableMulticlass>true</EnableMulticlass>
-    <EnableRespec>true</EnableRespec>
     <MaxAllowedClasses>3</MaxAllowedClasses>
     <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
     <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
     <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
-    <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
-    <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
-    <EnablePcgRandom>true</EnablePcgRandom>
-    <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
-    <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
-    <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
-    <OverridePartySize>2</OverridePartySize>
-    <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
-    <FasterTimeModifier>3</FasterTimeModifier>
+    <EnableActionSwitching>true</EnableActionSwitching>
+    <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
+    <EnableProneAction>true</EnableProneAction>
+    <EnableGrappleAction>true</EnableGrappleAction>
+    <EnableHelpAction>true</EnableHelpAction>
+    <EnableRespecAction>true</EnableRespecAction>
+    <EnableUnarmedMainAttackAction>true</EnableUnarmedMainAttackAction>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
+    <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
-    <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
-    <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
-    <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
+    <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
+    <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
+    <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
     <UseOfficialLightingObscurementAndVisionRules>true</UseOfficialLightingObscurementAndVisionRules>
-    <OfficialObscurementRulesInvisibleCreaturesCanBeTarget>false</OfficialObscurementRulesInvisibleCreaturesCanBeTarget>
-    <OfficialObscurementRulesCancelAdvDisPairs>false</OfficialObscurementRulesCancelAdvDisPairs>
+    <OfficialObscurementRulesInvisibleCreaturesCanBeTarget>true</OfficialObscurementRulesInvisibleCreaturesCanBeTarget>
+    <OfficialObscurementRulesCancelAdvDisPairs>true</OfficialObscurementRulesCancelAdvDisPairs>
     <OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>false
     </OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>
     <OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>false
     </OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>
     <OfficialObscurementRulesTweakMonsters>true</OfficialObscurementRulesTweakMonsters>
-    <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
-    <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>true</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthDoesNotBreakWithSubtle>true</StealthDoesNotBreakWithSubtle>
     <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>
     <StealthBreaksWhenCastingMaterial>false</StealthBreaksWhenCastingMaterial>
-    <StealthBreaksWhenCastingVerbose>false</StealthBreaksWhenCastingVerbose>
+    <StealthBreaksWhenCastingVerbose>true</StealthBreaksWhenCastingVerbose>
     <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
-    <AddDexModifierToEnemiesInitiativeRoll>true</AddDexModifierToEnemiesInitiativeRoll>
-    <EnemiesAlwaysRollInitiative>false</EnemiesAlwaysRollInitiative>
-    <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
-    <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
-    <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
-    </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
-    <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
-    <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
-    <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
-    <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
-    <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
-    <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
-    <IdentifyAfterRest>true</IdentifyAfterRest>
-    <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
-    <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
-    <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
-    <AllowClubsToBeThrown>true</AllowClubsToBeThrown>
-    <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
-    <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
-    <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
-    <AccountForAllDiceOnFollowUpStrike>true</AccountForAllDiceOnFollowUpStrike>
     <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
+    <AddDexModifierToEnemiesInitiativeRoll>true</AddDexModifierToEnemiesInitiativeRoll>
+    <EnemiesAlwaysRollInitiative>true</EnemiesAlwaysRollInitiative>
     <AllowFlightSuspend>true</AllowFlightSuspend>
     <FlightSuspendWingedBoots>true</FlightSuspendWingedBoots>
-    <EnablePullPushOnVerticalDirection>false</EnablePullPushOnVerticalDirection>
-    <ModifyGravitySlam>true</ModifyGravitySlam>
+    <EnablePullPushOnVerticalDirection>true</EnablePullPushOnVerticalDirection>
     <FullyControlConjurations>true</FullyControlConjurations>
     <EnableHigherGroundRules>true</EnableHigherGroundRules>
-    <EnableTeleportToRemoveRestrained>false</EnableTeleportToRemoveRestrained>
+    <EnableSurprisedToEnforceDisadvantage>false</EnableSurprisedToEnforceDisadvantage>
+    <EnableTeleportToRemoveRestrained>true</EnableTeleportToRemoveRestrained>
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>true</ColdResistanceAlsoGrantsImmunityToChilledCondition>
     <ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>true
@@ -469,11 +279,262 @@
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
+    <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
+    <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
+    <FasterTimeModifier>3</FasterTimeModifier>
+    <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
+    <OverridePartySize>2</OverridePartySize>
+    <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
     <AddPickPocketableLoot>true</AddPickPocketableLoot>
+    <AltOnlyHighlightItemsInPartyFieldOfView>true</AltOnlyHighlightItemsInPartyFieldOfView>
+    <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
+    <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
+    <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
+    <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
+    <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
+    <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
+    <EnableSumD20OnAlternateVotingSystem>true</EnableSumD20OnAlternateVotingSystem>
+    <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
+    <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
+    <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
+    <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
+    <HideMonsterHitPoints>true</HideMonsterHitPoints>
+    <RemoveBugVisualModels>false</RemoveBugVisualModels>
+    <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
+    <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
+    <EnableElevationCameraToStayAtPosition>true</EnableElevationCameraToStayAtPosition>
+    <NeverMoveCameraOnEnemyTurn>true</NeverMoveCameraOnEnemyTurn>
+    <EnableCancelEditOnRightMouseClick>true</EnableCancelEditOnRightMouseClick>
+    <DontFollowMargin>5</DontFollowMargin>
+    <GridSelectedColor>1</GridSelectedColor>
+    <MovementGridWidthModifier>100</MovementGridWidthModifier>
+    <OutlineGridWidthModifier>0</OutlineGridWidthModifier>
+    <OutlineGridWidthSpeed>100</OutlineGridWidthSpeed>
+    <EnableDistanceOnTooltip>true</EnableDistanceOnTooltip>
+    <ShowMotionFormPreview>true</ShowMotionFormPreview>
+    <HighContrastTargetingAoeSelectedColor>0</HighContrastTargetingAoeSelectedColor>
+    <HighContrastTargetingSingleSelectedColor>0</HighContrastTargetingSingleSelectedColor>
+    <FormationGridSelectedSet>0</FormationGridSelectedSet>
+    <FormationGridSets>
+        <ArrayOfArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+        </ArrayOfArrayOfInt>
+        <ArrayOfArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+        </ArrayOfArrayOfInt>
+        <ArrayOfArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>1</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+            </ArrayOfInt>
+        </ArrayOfArrayOfInt>
+        <ArrayOfArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+            </ArrayOfInt>
+        </ArrayOfArrayOfInt>
+        <ArrayOfArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+            <ArrayOfInt>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+                <int>1</int>
+                <int>0</int>
+            </ArrayOfInt>
+        </ArrayOfArrayOfInt>
+    </FormationGridSets>
+    <ScaleMerchantPricesCorrectly>false</ScaleMerchantPricesCorrectly>
+    <StockGorimStoreWithAllNonMagicalClothing>false</StockGorimStoreWithAllNonMagicalClothing>
+    <StockHugoStoreWithAdditionalFoci>false</StockHugoStoreWithAdditionalFoci>
+    <StockGorimStoreWithAllNonMagicalInstruments>false</StockGorimStoreWithAllNonMagicalInstruments>
+    <EnableAdditionalFociInDungeonMaker>false</EnableAdditionalFociInDungeonMaker>
+    <RestockAntiquarians>false</RestockAntiquarians>
+    <RestockArcaneum>false</RestockArcaneum>
+    <RestockCircleOfDanantar>false</RestockCircleOfDanantar>
+    <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
+    <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
+    <IdentifyAfterRest>true</IdentifyAfterRest>
+    <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
+    <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
+    <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
+    <AllowClubsToBeThrown>true</AllowClubsToBeThrown>
+    <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
+    <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
+    <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
+    <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
+    <OneDndHealingPotionBonusAction>false</OneDndHealingPotionBonusAction>
+    <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
+    <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
+    <DisableAutoEquip>true</DisableAutoEquip>
+    <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
+    <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
+    <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
-    <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
+    <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
+    <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
+    <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
     <RecipeCost>200</RecipeCost>
     <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
+    <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
     <CraftingInStore>
         <string>PrimedItems</string>
         <string>EnchantingIngredients</string>
@@ -517,101 +578,6 @@
         <string>MonkArmor</string>
         <string>ClothesWizard</string>
     </CraftingInStore>
-    <CraftingItemsInDm>
-        <string>PrimedItems</string>
-        <string>EnchantingIngredients</string>
-        <string>RelicForgeries</string>
-        <string>Club</string>
-        <string>Maul</string>
-        <string>Warhammer</string>
-        <string>Battleaxe</string>
-        <string>LightCrossbow</string>
-        <string>HeavyCrossbow</string>
-        <string>Greataxe</string>
-        <string>Greatsword</string>
-        <string>CEHalberd</string>
-        <string>Handaxe</string>
-        <string>CEHandXbow</string>
-        <string>CELongMace</string>
-        <string>CEPike</string>
-        <string>Quarterstaff</string>
-        <string>Rapier</string>
-        <string>Scimitar</string>
-        <string>Spear</string>
-        <string>Javelin</string>
-        <string>Dart</string>
-        <string>Shield_Wooden</string>
-        <string>Shield</string>
-        <string>HideArmor</string>
-        <string>LeatherDruid</string>
-        <string>StuddedLeather</string>
-        <string>ChainShirt</string>
-        <string>PaddedLeather</string>
-        <string>Leather</string>
-        <string>ScaleMail</string>
-        <string>Breastplate</string>
-        <string>HalfPlate</string>
-        <string>Ringmail</string>
-        <string>ChainMail</string>
-        <string>Plate</string>
-        <string>SorcererArmor</string>
-        <string>BarbarianClothes</string>
-        <string>Warlock_Armor</string>
-        <string>MonkArmor</string>
-        <string>ClothesWizard</string>
-    </CraftingItemsInDm>
-    <CraftingRecipesInDm>
-        <string>PrimedItems</string>
-        <string>EnchantingIngredients</string>
-        <string>RelicForgeries</string>
-        <string>Club</string>
-        <string>Maul</string>
-        <string>Warhammer</string>
-        <string>Battleaxe</string>
-        <string>LightCrossbow</string>
-        <string>HeavyCrossbow</string>
-        <string>Greataxe</string>
-        <string>Greatsword</string>
-        <string>CEHalberd</string>
-        <string>Handaxe</string>
-        <string>CEHandXbow</string>
-        <string>CELongMace</string>
-        <string>CEPike</string>
-        <string>Quarterstaff</string>
-        <string>Rapier</string>
-        <string>Scimitar</string>
-        <string>Spear</string>
-        <string>Javelin</string>
-        <string>Dart</string>
-        <string>Shield_Wooden</string>
-        <string>Shield</string>
-        <string>HideArmor</string>
-        <string>LeatherDruid</string>
-        <string>StuddedLeather</string>
-        <string>ChainShirt</string>
-        <string>PaddedLeather</string>
-        <string>Leather</string>
-        <string>ScaleMail</string>
-        <string>Breastplate</string>
-        <string>HalfPlate</string>
-        <string>Ringmail</string>
-        <string>ChainMail</string>
-        <string>Plate</string>
-        <string>SorcererArmor</string>
-        <string>BarbarianClothes</string>
-        <string>Warlock_Armor</string>
-        <string>MonkArmor</string>
-        <string>ClothesWizard</string>
-    </CraftingRecipesInDm>
-    <ScaleMerchantPricesCorrectly>false</ScaleMerchantPricesCorrectly>
-    <StockGorimStoreWithAllNonMagicalClothing>false</StockGorimStoreWithAllNonMagicalClothing>
-    <StockHugoStoreWithAdditionalFoci>false</StockHugoStoreWithAdditionalFoci>
-    <StockGorimStoreWithAllNonMagicalInstruments>false</StockGorimStoreWithAllNonMagicalInstruments>
-    <EnableAdditionalFociInDungeonMaker>false</EnableAdditionalFociInDungeonMaker>
-    <RestockAntiquarians>false</RestockAntiquarians>
-    <RestockArcaneum>false</RestockArcaneum>
-    <RestockCircleOfDanantar>false</RestockCircleOfDanantar>
-    <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
     <EnableLoggingInvalidReferencesInUserCampaigns>true</EnableLoggingInvalidReferencesInUserCampaigns>
     <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
     <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
@@ -621,15 +587,8 @@
     <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
-    <EnableGauntletMainAttacks>false</EnableGauntletMainAttacks>
-    <AddFallProneActionToAllRaces>true</AddFallProneActionToAllRaces>
-    <AddGrappleActionToAllRaces>true</AddGrappleActionToAllRaces>
-    <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
     <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
-    <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-    <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
@@ -639,6 +598,7 @@
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt10>true</EnableRangerNatureShroudAt10>
+    <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>true
     </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>
@@ -650,22 +610,28 @@
     <EnableMonkSuperiorDefenseToReplaceEmptyBody>true</EnableMonkSuperiorDefenseToReplaceEmptyBody>
     <EnableMonkBodyAndMindToReplacePerfectSelf>true</EnableMonkBodyAndMindToReplacePerfectSelf>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
+    <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
+    <EnablePaladinLayOnHandsAsBonusAction>false</EnablePaladinLayOnHandsAsBonusAction>
+    <EnablePaladinSmiteAsBonusAction>false</EnablePaladinSmiteAsBonusAction>
+    <EnablePaladinSpellCastingAtLevel1>false</EnablePaladinSpellCastingAtLevel1>
+    <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
-    <EnableRogueStrSaving>true</EnableRogueStrSaving>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
+    <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
+    <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
+    <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
+    <EnableAlternateHuman>true</EnableAlternateHuman>
+    <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
     <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
     <AddDarknessPerceptiveToDarkRaces>true</AddDarknessPerceptiveToDarkRaces>
     <RaceLightSensitivityApplyOutdoorsOnly>true</RaceLightSensitivityApplyOutdoorsOnly>
-    <EnableAlternateHuman>true</EnableAlternateHuman>
-    <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
     <RaceSliderPosition>4</RaceSliderPosition>
     <RaceEnabled>
         <string>RaceMalakh</string>
@@ -706,6 +672,11 @@
     <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
     <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
     <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
+    <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
+    <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
+    <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
+    <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+    <AccountForAllDiceOnFollowUpStrike>true</AccountForAllDiceOnFollowUpStrike>
     <AllowCantripsTriggeringOnWarMagic>false</AllowCantripsTriggeringOnWarMagic>
     <FeatSliderPosition>4</FeatSliderPosition>
     <FeatEnabled>
@@ -723,6 +694,7 @@
         <string>FeatWhirlWindAttackDex</string>
         <string>FeatGroupBlessedSoul</string>
         <string>FeatBountifulLuck</string>
+        <string>FeatBrawler</string>
         <string>FeatCallForCharge</string>
         <string>FeatCharger</string>
         <string>FeatGroupChef</string>
@@ -754,6 +726,8 @@
         <string>FeatGroupFlamesOfPhlegethos</string>
         <string>FeatFrostAdaptation</string>
         <string>FeatGiftOfTheChromaticDragon</string>
+        <string>FeatGroupGiftOfTheGemDragon</string>
+        <string>FeatGrapplerStr</string>
         <string>FeatCleavingAttack</string>
         <string>FeatGroupGrudgeBearer</string>
         <string>FeatGroupHardy</string>
@@ -907,7 +881,10 @@
         <string>MetamagicWidenedSpell</string>
     </MetamagicEnabled>
     <AllowBladeCantripsToUseReach>true</AllowBladeCantripsToUseReach>
+    <EnableCastersToCountMaxPreparedFromTable>false</EnableCastersToCountMaxPreparedFromTable>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
+    <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
+    </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
     <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
@@ -919,6 +896,7 @@
     <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
     <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
+    <ModifyGravitySlam>true</ModifyGravitySlam>
     <EnableOneDndHealingSpellsBuf>true</EnableOneDndHealingSpellsBuf>
     <AllowHasteCasting>true</AllowHasteCasting>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
@@ -1436,11 +1414,15 @@
             </value>
         </item>
     </SpellListSpellEnabled>
-    <AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>false
+    <AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>true
     </AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness>
     <EnableBardHealingBalladOnLongRest>true</EnableBardHealingBalladOnLongRest>
+    <EnableBg3AbjurationArcaneWard>true</EnableBg3AbjurationArcaneWard>
+    <EnableRogueStrSaving>true</EnableRogueStrSaving>
     <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
     <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
+    <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
+    <SwapEvocationPotentCantripAndSculptSpell>true</SwapEvocationPotentCantripAndSculptSpell>
     <KlassListSliderPosition>
         <item>
             <key>
@@ -1729,9 +1711,11 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>WizardAbjuration</string>
                     <string>WizardArcaneFighter</string>
                     <string>WizardBladeDancer</string>
                     <string>WizardDeadMaster</string>
+                    <string>WizardEvocation</string>
                     <string>WizardGraviturgist</string>
                     <string>WizardSpellMaster</string>
                     <string>WizardWarMagic</string>
@@ -1754,234 +1738,7 @@
             </value>
         </item>
     </KlassListSubclassEnabled>
-    <AltOnlyHighlightItemsInPartyFieldOfView>true</AltOnlyHighlightItemsInPartyFieldOfView>
-    <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
-    <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
-    <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
-    <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
-    <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
-    <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
-    <EnableSumD20OnAlternateVotingSystem>true</EnableSumD20OnAlternateVotingSystem>
-    <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
-    <EnableActionSwitching>true</EnableActionSwitching>
-    <EnableCustomPortraits>true</EnableCustomPortraits>
-    <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
-    <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
-    <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
-    <HideMonsterHitPoints>true</HideMonsterHitPoints>
-    <RemoveBugVisualModels>false</RemoveBugVisualModels>
-    <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
-    <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
-    <EnableElevationCameraToStayAtPosition>true</EnableElevationCameraToStayAtPosition>
-    <NeverMoveCameraOnEnemyTurn>true</NeverMoveCameraOnEnemyTurn>
-    <EnableCancelEditOnRightMouseClick>true</EnableCancelEditOnRightMouseClick>
-    <DontFollowMargin>5</DontFollowMargin>
-    <GridSelectedColor>1</GridSelectedColor>
-    <MovementGridWidthModifier>100</MovementGridWidthModifier>
-    <OutlineGridWidthModifier>0</OutlineGridWidthModifier>
-    <OutlineGridWidthSpeed>100</OutlineGridWidthSpeed>
-    <EnableDistanceOnTooltip>true</EnableDistanceOnTooltip>
-    <ShowMotionFormPreview>true</ShowMotionFormPreview>
-    <HighContrastTargetingAoeSelectedColor>0</HighContrastTargetingAoeSelectedColor>
-    <HighContrastTargetingSingleSelectedColor>0</HighContrastTargetingSingleSelectedColor>
-    <FormationGridSelectedSet>0</FormationGridSelectedSet>
-    <FormationGridSets>
-        <ArrayOfArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-        </ArrayOfArrayOfInt>
-        <ArrayOfArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-        </ArrayOfArrayOfInt>
-        <ArrayOfArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>1</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-            </ArrayOfInt>
-        </ArrayOfArrayOfInt>
-        <ArrayOfArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-            </ArrayOfInt>
-        </ArrayOfArrayOfInt>
-        <ArrayOfArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-            <ArrayOfInt>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-                <int>1</int>
-                <int>0</int>
-            </ArrayOfInt>
-        </ArrayOfArrayOfInt>
-    </FormationGridSets>
-    <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
-    <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
-    <DisableAutoEquip>true</DisableAutoEquip>
-    <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
-    <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
-    <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
-    <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
-    <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
-    <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
-    <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
+    <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
 </Settings>

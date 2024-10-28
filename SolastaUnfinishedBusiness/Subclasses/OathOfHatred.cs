@@ -149,13 +149,7 @@ public sealed class OathOfHatred : AbstractSubclass
         var savingThrowAffinityHatredArdentHate = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinityHatredArdentHate")
             .SetGuiPresentation("PowerHatredArdentHate", Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.AbilityScoreNames)
             .AddToDB();
 
         var conditionHatredArdentHate = ConditionDefinitionBuilder

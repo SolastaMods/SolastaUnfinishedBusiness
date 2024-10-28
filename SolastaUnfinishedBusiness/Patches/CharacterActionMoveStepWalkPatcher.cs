@@ -44,11 +44,22 @@ public static class CharacterActionMoveStepWalkPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(IEnumerator values, CharacterActionMoveStepWalk __instance)
         {
-            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(__instance.ActingCharacter);
-
             while (values.MoveNext())
             {
                 yield return values.Current;
+            }
+
+            var mover = __instance.ActingCharacter;
+
+            //PATCH: support for Circle of the Wildfire cauterizing flames
+            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(mover);
+
+            //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
+            var extraAoOEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(mover);
+
+            while (extraAoOEvents.MoveNext())
+            {
+                yield return extraAoOEvents.Current;
             }
         }
     }

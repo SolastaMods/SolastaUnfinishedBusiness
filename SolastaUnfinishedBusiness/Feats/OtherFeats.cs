@@ -874,7 +874,7 @@ internal static class OtherFeats
                                          ?.SourceDefinition is ItemDefinition itemDefinition &&
                                      itemDefinition == ItemDefinitions.UnarmedStrikeBase),
                     new UpgradeWeaponDice((_, d) => (Math.Max(1, d.DiceNumber), DieType.D8, DieType.D8),
-                        (_, _, c) => ValidatorsCharacter.HasBothHandsFree(c)))
+                        (_, _, c) => ValidatorsCharacter.HasFreeHandBoth(c)))
                 .AddToDB();
 
         return FeatDefinitionBuilder
@@ -2884,7 +2884,7 @@ internal static class OtherFeats
             switch (action)
             {
                 case CharacterActionAttack when
-                    ValidatorsWeapon.IsMelee(action.ActionParams.AttackMode):
+                    ValidatorsWeapon.IsMeleeOrUnarmed(action.ActionParams.AttackMode):
                 {
                     rulesetAttacker.InflictCondition(
                         conditionImmuneAoO.Name,
@@ -3044,7 +3044,7 @@ internal static class OtherFeats
         {
             //Missed: skipping
             if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
-                !ValidatorsWeapon.IsMelee(attackMode))
+                !ValidatorsWeapon.IsMeleeOrUnarmed(attackMode))
             {
                 yield break;
             }
@@ -3266,8 +3266,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            if (!ValidatorsWeapon.IsMelee(attackMode) &&
-                !ValidatorsWeapon.IsUnarmed(attackMode))
+            if (!ValidatorsWeapon.IsMeleeOrUnarmed(attackMode))
             {
                 yield break;
             }

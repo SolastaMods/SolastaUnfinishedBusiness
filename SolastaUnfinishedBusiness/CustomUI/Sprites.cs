@@ -34,6 +34,9 @@ public static class Sprites
 
     #region Misc
 
+    internal static AssetReferenceSprite ArcaneWardPoints =>
+        GetSprite("ArcaneWardPointsIcon", Resources.ArcaneWardPoints, 64);
+
     internal static AssetReferenceSprite BardicDiceResourceIcon =>
         GetSprite("BardicDiceResourceIcon", Resources.BardicDiceResourceIcon, 64);
 

@@ -221,12 +221,7 @@ internal static partial class CharacterContext
                     .Create("SavingThrowAffinityStaggeringBlow")
                     .SetGuiPresentation($"Power{BrutalStrike}StaggeringBlow", Category.Feature, Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
-                        AttributeDefinitions.Strength,
-                        AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Constitution,
-                        AttributeDefinitions.Intelligence,
-                        AttributeDefinitions.Wisdom,
-                        AttributeDefinitions.Charisma)
+                        AttributeDefinitions.AbilityScoreNames)
                     .AddToDB())
             .AddSpecialInterruptions(ConditionInterruption.SavingThrow)
             .CopyParticleReferences(ConditionDefinitions.ConditionDazzled)

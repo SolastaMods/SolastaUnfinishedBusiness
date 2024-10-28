@@ -68,7 +68,7 @@ internal static class ToolsContext
 
     internal static void SwitchRespec()
     {
-        RestActivityRespec.condition = Main.Settings.EnableRespec
+        RestActivityRespec.condition = Main.Settings.EnableRespecAction
             ? RestActivityDefinition.ActivityCondition.None
             : ActivityConditionDisabled;
     }

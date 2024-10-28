@@ -67,6 +67,7 @@ internal static class SubclassesContext
         RangerSurvivalist.LateLoad();
         SorcerousFieldManipulator.LateLoad();
         WizardDeadMaster.LateLoad();
+        WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
     }
 
     private static void RegisterClassesContext()

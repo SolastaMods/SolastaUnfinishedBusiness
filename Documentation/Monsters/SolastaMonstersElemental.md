@@ -18,6 +18,7 @@ Size: *Large*
 *Features:*
 * Condition Affinity Exhaustion Immunity
 * Condition Affinity Grappled Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
@@ -97,6 +98,7 @@ Size: *Large*
 
 *Features:*
 * Condition Affinity Exhaustion Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
@@ -170,6 +172,7 @@ Size: *Large*
 *Features:*
 * Condition Affinity Exhaustion Immunity
 * Condition Affinity Grappled Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
@@ -251,6 +254,7 @@ Size: *Small*
 
 *Features:*
 * Condition Affinity Grappled Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
@@ -289,6 +293,7 @@ Size: *Medium*
 *Features:*
 * Combat Affinity Flyby
 * Condition Affinity Grappled Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
@@ -401,6 +406,7 @@ Size: *Large*
 *Features:*
 * Condition Affinity Exhaustion Immunity
 * Condition Affinity Grappled Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
@@ -492,6 +498,7 @@ Size: *Medium*
 * Invisibility
 * Condition Affinity Charm Immunity
 * Condition Affinity Exhaustion Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity

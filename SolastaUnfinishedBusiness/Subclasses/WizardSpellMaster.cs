@@ -83,14 +83,7 @@ public sealed class WizardSpellMaster : AbstractSubclass
         var savingThrowAffinitySpellMasterSpellResistance = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}SpellResistance")
             .SetGuiPresentation(Category.Feature)
-            .SetAffinities(
-                CharacterSavingThrowAffinity.Advantage, true,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Charisma)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, true, AttributeDefinitions.AbilityScoreNames)
             .AddToDB();
 
         _ = RestActivityDefinitionBuilder

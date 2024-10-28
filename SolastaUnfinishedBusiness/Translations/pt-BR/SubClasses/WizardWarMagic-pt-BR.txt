@@ -1,8 +1,6 @@
-Condition/&ConditionWarMagicArcaneDeflectionDescription=Você não pode lançar magias além de truques.
-Condition/&ConditionWarMagicArcaneDeflectionTitle=Deflexão Arcana
 Feature/&AttributeModifierWarMagicTacticalWitDescription=Sua habilidade aguçada de avaliar situações táticas permite que você aja rapidamente em batalha. Você pode dar a si mesmo um bônus em suas jogadas de iniciativa igual ao seu modificador de Inteligência.
 Feature/&AttributeModifierWarMagicTacticalWitTitle=Inteligência tática
-Feature/&FeatureWarMagicArcaneDeflectionDescription=Você aprendeu a tecer sua magia para se fortalecer contra o mal. Quando você é atingido por um ataque, ou falha em um teste de resistência, você pode usar sua reação para subtrair seu modificador de Inteligência do teste de ataque, ou adicioná-lo ao teste de resistência. Quando você usa esse recurso, você não pode conjurar magias além de truques até o final do seu próximo turno.
+Feature/&FeatureWarMagicArcaneDeflectionDescription=Você aprendeu a tecer sua magia para se fortalecer contra danos. Quando você é atingido por um ataque, ou falha em um teste de resistência, você pode usar sua reação para subtrair seu modificador de Inteligência do teste de ataque, ou adicioná-lo ao teste de resistência.
 Feature/&FeatureWarMagicArcaneDeflectionTitle=Deflexão Arcana
 Feature/&FeatureWarMagicDurableMagicDescription=A magia que você canaliza ajuda a afastar o dano. Enquanto você mantém a concentração em uma magia, você tem um bônus de +2 na CA e em todos os testes de resistência.
 Feature/&FeatureWarMagicDurableMagicTitle=Magia Durável

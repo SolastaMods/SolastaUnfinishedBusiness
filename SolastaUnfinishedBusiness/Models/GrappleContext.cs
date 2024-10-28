@@ -88,6 +88,30 @@ internal static class GrappleContext
         .SetFormType(ActionDefinitions.ActionFormType.Large)
         .AddToDB();
 
+    private static readonly MonsterDefinition[] MonstersWithImmunity =
+    [
+        MonsterDefinitions.Earth_Elemental,
+        MonsterDefinitions.Fire_Elemental,
+        MonsterDefinitions.Ice_Elemental,
+        MonsterDefinitions.Air_Elemental,
+        MonsterDefinitions.Redeemer_Zealot,
+        MonsterDefinitions.Ghost,
+        MonsterDefinitions.Ghost_Emtan,
+        MonsterDefinitions.Ghost_Wolf,
+        MonsterDefinitions.Ghost_Dwarf_Guardian,
+        MonsterDefinitions.Bone_Keep_Adventurer_Ghost,
+        MonsterDefinitions.Fire_Jester,
+        MonsterDefinitions.Fire_Osprey,
+        MonsterDefinitions.SpectralDragon_01,
+        MonsterDefinitions.SpectralDragon_02,
+        MonsterDefinitions.SpectralDragon_03,
+        MonsterDefinitions.SpectralSpider,
+        MonsterDefinitions.SpectralDragon_Magister,
+        MonsterDefinitions.MinotaurSpectral,
+        MonsterDefinitions.InvisibleStalker,
+        MonsterDefinitions.Wraith
+    ];
+
     internal static void LateLoad()
     {
         const SituationalContext TARGET_HAS_CONDITION_FROM_SOURCE =
@@ -184,15 +208,28 @@ internal static class GrappleContext
             .SetFormType(ActionDefinitions.ActionFormType.Large)
             .RequiresAuthorization()
             .AddToDB();
+
+        // these monsters are immune to grapple
+        var conditionAffinityGrappleTarget = FeatureDefinitionConditionAffinityBuilder
+            .Create("ConditionAffinityGrappleTarget")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+            .SetConditionType(conditionGrappleTarget)
+            .AddToDB();
+
+        foreach (var monster in MonstersWithImmunity)
+        {
+            monster.Features.Add(conditionAffinityGrappleTarget);
+        }
     }
 
     internal static void SwitchGrappleAction()
     {
-        ActionGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
+        ActionGrapple.formType = Main.Settings.EnableGrappleAction
             ? ActionDefinitions.ActionFormType.Large
             : ActionDefinitions.ActionFormType.Invisible;
 
-        ActionDisableGrapple.formType = Main.Settings.AddGrappleActionToAllRaces
+        ActionDisableGrapple.formType = Main.Settings.EnableGrappleAction
             ? ActionDefinitions.ActionFormType.Large
             : ActionDefinitions.ActionFormType.Invisible;
     }
@@ -237,7 +274,7 @@ internal static class GrappleContext
         ref ActionDefinitions.ActionStatus __result,
         ActionDefinitions.Id actionId)
     {
-        if (!Main.Settings.AddGrappleActionToAllRaces)
+        if (!Main.Settings.EnableGrappleAction)
         {
             return;
         }
@@ -271,7 +308,7 @@ internal static class GrappleContext
             return;
         }
 
-        if (ValidatorsCharacter.HasBothHandsFree(caster) ||
+        if (ValidatorsCharacter.HasFreeHandBoth(caster) ||
             caster.HasSubFeatureOfType<OtherFeats.WarCasterMarker>())
         {
             return;
@@ -570,10 +607,10 @@ internal static class GrappleContext
 
             if (canTeleport)
             {
+                var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+
                 target.Pushed = true;
-                target.StartTeleportTo(targetDestinationPosition, mover.Orientation);
-                target.FinishMoveTo(targetDestinationPosition, mover.Orientation);
-                target.StopMoving(mover.Orientation);
+                positioningService.TeleportCharacter(target, targetDestinationPosition, mover.Orientation);
                 target.Pushed = false;
 
                 var isLastStep = GetDistanceFromCharacter(mover, mover.DestinationPosition) <= 1;

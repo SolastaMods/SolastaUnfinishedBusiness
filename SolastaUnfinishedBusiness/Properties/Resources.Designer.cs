@@ -532,6 +532,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ArcaneWardPoints {
+            get {
+                object obj = ResourceManager.GetObject("ArcaneWardPoints", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ArtisanToolSmithTools {
             get {
                 object obj = ResourceManager.GetObject("ArtisanToolSmithTools", resourceCulture);
@@ -5185,6 +5195,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] WizardAbjuration {
+            get {
+                object obj = ResourceManager.GetObject("WizardAbjuration", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] WizardArcaneFighter {
             get {
                 object obj = ResourceManager.GetObject("WizardArcaneFighter", resourceCulture);
@@ -5208,6 +5228,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] WizardDeadMaster {
             get {
                 object obj = ResourceManager.GetObject("WizardDeadMaster", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] WizardEvocation {
+            get {
+                object obj = ResourceManager.GetObject("WizardEvocation", resourceCulture);
                 return ((byte[])(obj));
             }
         }

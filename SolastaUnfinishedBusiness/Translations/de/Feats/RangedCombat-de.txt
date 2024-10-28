@@ -1,4 +1,4 @@
-Action/&DeadEyeToggleDescription=Scharfschütze aktivieren/deaktivieren
+Action/&DeadEyeToggleDescription=Aktivieren/deaktivieren Sie den Scharfschützen, damit Sie beim Angriff mit einer Fernkampfwaffe einen Malus von -5 auf Ihren Angriffswurf in Kauf nehmen können, um zusätzlichen Schaden von +10 zu verursachen.
 Action/&DeadEyeToggleTitle=Scharfschütze
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Sie haben bei Ihrem nächsten Angriffswurf einen Vorteil.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Zielsicher

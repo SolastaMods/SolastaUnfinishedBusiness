@@ -528,13 +528,7 @@ internal static partial class SpellBuilders
             .Create($"SavingThrowAffinity{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             // only against magic
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, true,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, true, AttributeDefinitions.AbilityScoreNames)
             .AddToDB();
 
         var conditionCircleOfMagicalNegation = ConditionDefinitionBuilder

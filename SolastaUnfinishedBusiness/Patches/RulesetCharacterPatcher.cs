@@ -501,6 +501,20 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.SerializeElements))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SerializeElements_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, IElementsSerializer serializer)
+        {
+            //PATCH: allow marking  some powers to read their uses attribute on load even if uses determination is not AbilityBonusPlusFixed
+            //used for BG3 mode toggle in Abjuration wizard's Arcane Ward
+            ForceUsesAttributeDeserialization.Process(__instance, serializer);
+        }
+    }
+
     //PATCH: correctly syncs powers used during WS back to original hero
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.SetupFromSubstituteCharacter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -1931,6 +1945,70 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    //PATCH: supports `IModifyScribeCostAndDuration`
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeScribeCosts))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeScribeCosts_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetCharacter __instance, SpellDefinition spellDefinition, int[] costs)
+        {
+            EquipmentDefinitions.ComputeStandardScribeCosts(spellDefinition, costs);
+
+            foreach (var definitionMagicAffinity in __instance.GetFeaturesByType<FeatureDefinitionMagicAffinity>())
+            {
+                var costMultiplier = definitionMagicAffinity.ScribeCostMultiplier;
+
+                foreach (var modifyScribeCostAndDuration in definitionMagicAffinity
+                             .GetAllSubFeaturesOfType<IModifyScribeCostAndDuration>())
+                {
+                    modifyScribeCostAndDuration.ModifyScribeCostMultiplier(
+                        __instance, spellDefinition, ref costMultiplier);
+                }
+
+                for (var index = 0; index < 5; ++index)
+                {
+                    costs[index] = Mathf.RoundToInt(costMultiplier * costs[index]);
+                }
+            }
+
+            return false;
+        }
+    }
+
+    //BUGFIX: vanilla was incorrectly multiplying by ScribeCostMultiplier
+    //PATCH: supports `IModifyScribeCostAndDuration`
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeScribeDurationSeconds))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeScribeDurationSeconds_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetCharacter __instance, out int __result, SpellDefinition spellDefinition)
+        {
+            var scribeDurationSeconds = EquipmentDefinitions.ComputeStandardScribeDurationSeconds(spellDefinition);
+
+            foreach (var definitionMagicAffinity in __instance.GetFeaturesByType<FeatureDefinitionMagicAffinity>())
+            {
+                var durationMultiplier = definitionMagicAffinity.ScribeDurationMultiplier;
+
+                foreach (var modifyScribeCostAndDuration in definitionMagicAffinity
+                             .GetAllSubFeaturesOfType<IModifyScribeCostAndDuration>())
+                {
+                    modifyScribeCostAndDuration.ModifyScribeDurationMultiplier(
+                        __instance, spellDefinition, ref durationMultiplier);
+                }
+
+                scribeDurationSeconds = Mathf.RoundToInt(durationMultiplier * scribeDurationSeconds);
+            }
+
+            __result = scribeDurationSeconds;
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeSpeedAddition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1987,6 +2065,21 @@ public static class RulesetCharacterPatcher
         {
             return !CharacterActionExtensions
                 .ShouldKeepConcentrationOnPowerUseOrSpend(__instance); // abort if should keep
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.SustainDamage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SustainDamage_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetCharacter __instance, ref int totalDamageRaw, string damageType,
+            bool criticalSuccess, ulong sourceGuid, RollInfo rollInfo)
+        {
+            //PATCH: support for `ModifySustainedDamageHandler` sub-feature
+            ModifySustainedDamage.ModifyDamage(__instance, ref totalDamageRaw, damageType, criticalSuccess, sourceGuid,
+                rollInfo);
         }
     }
 

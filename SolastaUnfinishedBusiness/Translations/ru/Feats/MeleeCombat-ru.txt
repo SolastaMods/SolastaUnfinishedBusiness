@@ -1,6 +1,6 @@
-Action/&CleavingAttackToggleDescription=Активировать/деактивировать Мастера большого оружия
+Action/&CleavingAttackToggleDescription=Активировать/деактивировать Мастера большого оружия, чтобы при совершении рукопашной атаки с использованием оружия со свойством «тяжёлое», которым вы владеете, принять штраф −5 к броску атаки и добавить +10 к урону от этой атаки.
 Action/&CleavingAttackToggleTitle=Мастер большого оружия
-Action/&PowerAttackToggleDescription=Активировать/деактивировать Мощную атаку
+Action/&PowerAttackToggleDescription=Активировать/деактивировать Мощную атаку, чтобы при совершении рукопашной атаки принять штраф -3 к броску атаки и нанести дополнительный урон, равный 3 + ваш бонус мастерства.
 Action/&PowerAttackToggleTitle=Мощная атака
 Condition/&ConditionFeatCleavingAttackFinishDescription=Пускай подходят!
 Condition/&ConditionFeatCleavingAttackFinishTitle=Мастер большого оружия

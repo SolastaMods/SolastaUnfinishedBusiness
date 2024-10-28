@@ -1,3 +1,36 @@
+1.5.97.36:
+
+- added behavior package choices on heroes controlled by AI [single player only]
+- added Character > Classes > 'Enable Lay on Hands as bonus action' [OneDnd]
+- added Character > Classes > 'Enable Paladin spellcasting at level 1' [OneDnd]
+- added Character > Classes > 'Enable Ranger spellcasting at level 1' [OneDnd]
+- added Character > Classes > 'Enable Smite as bonus action' [OneDnd]
+- added Character > Classes > 'Enable Wizard to learn the school of magic at level 3' [OneDnd]
+- added Character > Spells > 'Enable all Prepared Casters to determine max prepared count from a table' [OneDnd]
+- added Character > Subclasses > 'Enable Abjuration Wizard arcane ward implementation to behave like BG3'
+- added Character > Subclasses > 'Swap Evocation Wizard sculpt spells and potent cantrip features' [OneDnd]
+- added dungeon maker key bindings under vanilla settings > keyboard
+- added Gameplay > Crafting & Items > 'Enable bonus action on Healing Potions and Antitoxin usages' [OneDnd]
+- added Gameplay > Rules > 'Enable Surprised condition to enforce initiative disadvantage' [OneDnD]
+- added Grapple immunity to some monsters [i.e.: elementals, ghosts, etc.]
+- added Wizard Abjurer [by BradS] and Evoker subclasses
+- fixed attacks of opportunity not triggering on reach enter [i.e.: polearm master]
+- fixed attribute modifiers not stacking in wild shape [i.e.: rage points]
+- fixed concentration checks triggering on zero damage
+- fixed Martial Warlord kinetic barrier, and Oath of Altruism defensive strike to use a minimum +1 modifier
+- fixed melee and/or unarmed validation scenarios [i.e.: mobile, stunning strike]
+- fixed Rime's Binding Ice, and Tasha's Caustic Brew to try effect removal only half of the times
+- fixed spell selection UI to sync Wizard evocation selections with Shock Arcanist arcane warfare
+- fixed Tasha's Caustic Brew to inflict damage at start instead of end of turn
+- fixed teleport logic to leave actors behind if no available destination position
+- fixed Wizard Graviturgist descriptions, and other minor issues
+- reorg mod UI with more intuitive grouping, and new One DnD and Tabletop sections under Gameplay > General
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.35:
 
 - added final behaviors to Brawler, and Grappler feats [demoted Pugilist fighting style as redundant now]
@@ -20,11 +53,6 @@
 - fixed Umbral Stalker shadow strike re-rolling damage dice on all attacks instead of sneak only
 - moved some mod settings to be offered under game official UI [check GUI, and keyboard sections]
 - reorg mod UI with more intuitive grouping [check general sections under backgrounds, spells, subclasses, etc.]
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.34:
 

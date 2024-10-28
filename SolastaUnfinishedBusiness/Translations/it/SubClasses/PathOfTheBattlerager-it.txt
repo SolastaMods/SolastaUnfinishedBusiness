@@ -1,4 +1,4 @@
-Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Quando usi Attacco Spericolato mentre sei in preda alla furia, ottieni anche punti ferita temporanei pari al tuo modificatore di Costituzione (minimo 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Quando usi Attacco Spericolato mentre sei in preda alla furia, ottieni anche punti ferita temporanei pari al tuo modificatore di Costituzione (minimo +1).
 Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Abbandono imprudente
 Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Ottieni competenza in Armatura pesante. Le tue caratteristiche di furia funzionano anche quando indossi un'armatura pesante.\n\nQuando indossi un'armatura, il tuo colpo senz'armi infligge 1d6 danni base. Se indossi un'armatura magica, i tuoi colpi senz'armi contano come magici ai fini del superamento della resistenza e dell'immunità agli attacchi e ai danni non magici. \n\nQuando sei in preda alla furia, puoi usare il colpo senz'armi come azione bonus.
 Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Armatura Battlerager

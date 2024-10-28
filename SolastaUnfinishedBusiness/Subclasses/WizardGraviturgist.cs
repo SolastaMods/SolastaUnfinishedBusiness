@@ -19,17 +19,24 @@ public sealed class WizardGraviturgist : AbstractSubclass
     {
         // LEVEL 02
 
+        // Density Pool
+        
+        var powerDensity = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Density")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Intelligence)
+            .AddToDB();
+        
         // Density Increase
 
         const string POWER_DENSITY_INCREASE = $"Power{Name}DensityIncrease";
 
         var conditionDensityIncrease = ConditionDefinitionBuilder
-            .Create(ConditionHindered, $"Condition{Name}DensityIncrease")
-            .SetOrUpdateGuiPresentation(Category.Condition)
+            .Create($"Condition{Name}DensityIncrease")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeavilyEncumbered)
             .SetPossessive()
-            .SetSilent(Silent.None)
-            .CopyParticleReferences(ConditionSlowed)
-            .AddFeatures(
+            .CopyParticleReferences(PowerBerserkerFrenzy)
+            .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}DensityIncrease")
                     .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature, Gui.NoLocalization)
@@ -49,10 +56,10 @@ public sealed class WizardGraviturgist : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var powerDensityIncrease = FeatureDefinitionPowerBuilder
+        var powerDensityIncrease = FeatureDefinitionPowerSharedPoolBuilder
             .Create(POWER_DENSITY_INCREASE)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Bane)
-            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Intelligence)
+            .SetSharedPool(ActivationTime.Action, powerDensity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -73,12 +80,11 @@ public sealed class WizardGraviturgist : AbstractSubclass
         const string POWER_DENSITY_DECREASE = $"Power{Name}DensityDecrease";
 
         var conditionDensityDecrease = ConditionDefinitionBuilder
-            .Create(ConditionJump, $"Condition{Name}DensityDecrease")
-            .SetOrUpdateGuiPresentation(Category.Condition)
+            .Create($"Condition{Name}DensityDecrease")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying)
             .SetPossessive()
-            .SetSilent(Silent.None)
-            .CopyParticleReferences(ConditionSlowed)
-            .AddFeatures(
+            .CopyParticleReferences(ConditionMonkSlowFall)
+            .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}DensityDecrease")
                     .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature, Gui.NoLocalization)
@@ -98,10 +104,10 @@ public sealed class WizardGraviturgist : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var powerDensityDecrease = FeatureDefinitionPowerBuilder
+        var powerDensityDecrease = FeatureDefinitionPowerSharedPoolBuilder
             .Create(POWER_DENSITY_DECREASE)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Bless)
-            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Intelligence)
+            .SetSharedPool(ActivationTime.Action, powerDensity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -260,7 +266,7 @@ public sealed class WizardGraviturgist : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardGravityMage, 256))
-            .AddFeaturesAtLevel(2, powerDensityIncrease, powerDensityDecrease)
+            .AddFeaturesAtLevel(2, powerDensity, powerDensityIncrease, powerDensityDecrease)
             .AddFeaturesAtLevel(6, powerGravityWell)
             .AddFeaturesAtLevel(10, powerViolentAttraction)
             .AddFeaturesAtLevel(14, powerEventHorizon)

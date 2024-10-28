@@ -20,7 +20,7 @@ public static class CharacterStageIdentityDefinitionPanelPatcher
         {
             var name = __instance.currentHero.Name;
 
-            if (!Main.Settings.EnableRespec || !ToolsContext.FunctorRespec.IsRespecing ||
+            if (!Main.Settings.EnableRespecAction || !ToolsContext.FunctorRespec.IsRespecing ||
                 string.IsNullOrEmpty(name))
             {
                 return;

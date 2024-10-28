@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
@@ -981,6 +982,13 @@ internal static class GLBM
                         // Look for the spellcasting feature holding the smite
                         var hero = attacker.RulesetCharacter.GetOriginalHero();
 
+                        // One DnD only allow smites as bonus action
+                        if (Main.Settings.EnablePaladinSmiteAsBonusAction &&
+                            !ValidatorsCharacter.HasAvailableBonusAction(attacker.RulesetCharacter))
+                        {
+                            break;
+                        }
+
                         // This is used to only offer divine smites on critical hits
                         var isDivineSmite = featureDefinition is FeatureDefinitionAdditionalDamage
                         {
@@ -1051,6 +1059,12 @@ internal static class GLBM
                                 selectedSpellRepertoire, provider.NotificationTag, reactionParams);
 
                             validTrigger = reactionParams.ReactionValidated;
+
+                            // One DnD only allow smites as bonus action
+                            if (Main.Settings.EnablePaladinSmiteAsBonusAction && validTrigger)
+                            {
+                                attacker.SpendActionType(ActionDefinitions.ActionType.Bonus);
+                            }
 
                             /*
                              * ######################################

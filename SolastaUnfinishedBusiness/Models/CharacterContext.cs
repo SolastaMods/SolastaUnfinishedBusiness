@@ -717,7 +717,7 @@ internal static partial class CharacterContext
         var races = dbCharacterRaceDefinition
             .Where(x => !subRaces.Contains(x));
 
-        if (Main.Settings.AddHelpActionToAllRaces)
+        if (Main.Settings.EnableHelpAction)
         {
             foreach (var characterRaceDefinition in races
                          .Where(a => !a.FeatureUnlocks.Exists(x =>
@@ -742,7 +742,7 @@ internal static partial class CharacterContext
     internal static void SwitchProneAction()
     {
         DropProne.actionType = ActionDefinitions.ActionType.NoCost;
-        DropProne.formType = Main.Settings.AddFallProneActionToAllRaces
+        DropProne.formType = Main.Settings.EnableProneAction
             ? ActionDefinitions.ActionFormType.Small
             : ActionDefinitions.ActionFormType.Invisible;
     }

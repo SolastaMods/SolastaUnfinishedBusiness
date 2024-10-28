@@ -1,6 +1,6 @@
-Action/&CleavingAttackToggleDescription=그레이트 웨폰 마스터 활성화/비활성화
+Action/&CleavingAttackToggleDescription=그레이트 웨폰 마스터를 활성화/비활성화하면 근접 무기로 공격할 때 공격 굴림에 -5 패널티를 받고 추가로 +10의 데미지를 입힐 수 있습니다.
 Action/&CleavingAttackToggleTitle=위대한 무기의 달인
-Action/&PowerAttackToggleDescription=파워 어택 활성화/비활성화
+Action/&PowerAttackToggleDescription=파워 어택을 활성화/비활성화하면 근접 무기로 공격할 때 공격 굴림에 -3 패널티를 받고 숙련도 보너스 + 3에 해당하는 추가 데미지를 입힐 수 있습니다.
 Action/&PowerAttackToggleTitle=파워 어택
 Condition/&ConditionFeatCleavingAttackFinishDescription=계속 오세요!
 Condition/&ConditionFeatCleavingAttackFinishTitle=위대한 무기 마스터

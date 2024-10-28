@@ -372,8 +372,7 @@ internal static class Level20SubclassesContext
                      .Where(x => x.Name.StartsWith("PowerDomainMischiefStrikeOfChaos")))
         {
             powerStrikeOfChaos.AddCustomSubFeatures(
-                new RestrictReactionAttackMode((_, _, _, mode, _) =>
-                    ValidatorsWeapon.IsMelee(mode) || ValidatorsWeapon.IsUnarmed(mode)));
+                new RestrictReactionAttackMode((_, _, _, mode, _) => ValidatorsWeapon.IsMeleeOrUnarmed(mode)));
         }
 
         //
@@ -470,12 +469,7 @@ internal static class Level20SubclassesContext
                     .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderSavings", Category.Condition,
                         Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
-                        AttributeDefinitions.Strength,
-                        AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Constitution,
-                        AttributeDefinitions.Intelligence,
-                        AttributeDefinitions.Wisdom,
-                        AttributeDefinitions.Charisma)
+                        AttributeDefinitions.AbilityScoreNames)
                     .AddToDB())
             .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();

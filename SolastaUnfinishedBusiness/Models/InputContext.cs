@@ -43,6 +43,35 @@ public static class InputContext
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.SelectCharacter5, -1);
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.SelectCharacter6, -1);
         inputManager.RegisterCommand((InputCommands.Id)InputCommandsExtra.Hide, -1);
+
+        RegisterVanillaCommand(InputCommands.Id.EditorRotate);
+        RegisterVanillaCommand(InputCommands.Id.EditorKnudgeEast);
+        RegisterVanillaCommand(InputCommands.Id.EditorKnudgeNorth);
+        RegisterVanillaCommand(InputCommands.Id.EditorKnudgeSouth);
+        RegisterVanillaCommand(InputCommands.Id.EditorKnudgeWest);
+    }
+
+    private static void RegisterVanillaCommand(InputCommands.Id id)
+    {
+        var inputManager = ServiceRepository.GetService<IInputService>() as InputManager;
+        var property = typeof(SettingsContext.IInputModSettingsService).GetProperty(id.ToString());
+
+        if (property == null)
+        {
+            return;
+        }
+
+        var value = (string)Convert.ChangeType(property.GetValue(SettingsContext.InputModManagerInstance, null),
+            typeof(string));
+
+        if (!string.IsNullOrEmpty(value))
+        {
+            return;
+        }
+
+        var commandMapping = inputManager!.commandsMap[(int)id];
+
+        property.SetValue(SettingsContext.InputModManagerInstance, commandMapping.DumpToString(), null);
     }
 
     // properly registers extended commands to use the InputModManager instance instead of the vanilla one

@@ -23,6 +23,12 @@ internal class FeatureDefinitionDamageAffinityBuilder
     }
 
 #if false
+    internal FeatureDefinitionDamageAffinityBuilder SetFlatDamageReduction(int flatDamageReduction)
+    {
+        Definition.flatDamageReduction = flatDamageReduction;
+        return this;
+    }
+
     internal FeatureDefinitionDamageAffinityBuilder SetAncestryDefinesDamageType(bool ancestryDefinesDamageType)
     {
         Definition.ancestryDefinesDamageType = ancestryDefinesDamageType;

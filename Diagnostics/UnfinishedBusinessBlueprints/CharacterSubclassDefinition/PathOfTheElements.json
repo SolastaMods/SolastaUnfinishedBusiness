@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetPathOfTheElementsElementalFury:89f104f7-fa74-5ef6-9717-e357b12e87bf",
+      "featureDefinition": "Definition:InvocationPoolPathOfTheElementsElementalFuryChoice:cc75e668-288d-514d-8164-13f4ba652e63",
       "level": 3
     },
     {

@@ -487,15 +487,16 @@ public static class GameLocationCharacterExtensions
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeModeThatCanAttack(
         this GameLocationCharacter instance,
         GameLocationCharacter target,
-        IGameLocationBattleService service, bool allowUnarmed = false)
+        IGameLocationBattleService service,
+        bool allowUnarmed = false)
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
-            var rulesetItem = mode.SourceObject as RulesetItem;
+            // don't use IsMelee(attackMode) here
+            var isValid = (allowUnarmed && mode.SourceObject is null) ||
+                          (mode.SourceObject is RulesetItem rulesetItem && ValidatorsWeapon.IsMelee(rulesetItem));
 
-            if (!ValidatorsWeapon.IsMelee(rulesetItem) &&
-                (!allowUnarmed ||
-                 !ValidatorsWeapon.IsUnarmed(rulesetItem)))
+            if (!isValid)
             {
                 continue;
             }
@@ -522,7 +523,7 @@ public static class GameLocationCharacterExtensions
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
-            if (!mode.Ranged && !mode.Thrown)
+            if (mode.Reach)
             {
                 continue;
             }

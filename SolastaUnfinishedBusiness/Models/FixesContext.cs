@@ -885,7 +885,7 @@ internal static class FixesContext
             var wayOfZenArcheryLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfZenArchery.Name);
 
             // Zen Archery get stunning strike with bows at 6
-            if (!ValidatorsWeapon.IsMelee(attackMode) &&
+            if (!ValidatorsWeapon.IsMeleeOrUnarmed(attackMode) &&
                 (wayOfZenArcheryLevels < WayOfZenArchery.StunningStrikeWithBowAllowedLevel ||
                  !ValidatorsCharacter.HasBowWithoutArmor(rulesetAttacker)))
             {

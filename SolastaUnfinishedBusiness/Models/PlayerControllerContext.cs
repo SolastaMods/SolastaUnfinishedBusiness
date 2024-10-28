@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using TA.AI;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -11,7 +13,29 @@ internal static class PlayerControllerContext
 
     private static readonly Dictionary<GameLocationCharacter, int> ControllersChoices = [];
 
-    internal static readonly string[] Controllers = ["Human", "AI"];
+    private static readonly DecisionPackageDefinition[] AiDecisionPackages =
+    [
+        DefaultMeleeWithBackupRangeDecisions,
+        DefaultMeleeWithBackupRangeDecisions,
+        DefaultRangeWithBackupMeleeDecisions,
+        DefaultSupportCasterWithBackupAttacksDecisions,
+        ClericCombatDecisions,
+        FighterCombatDecisions,
+        CasterCombatDecisions,
+        RogueCombatDecisions
+    ];
+
+    internal static readonly string[] Controllers =
+    [
+        "Human",
+        "Melee",
+        "Range",
+        "Caster",
+        "Cleric",
+        "Fighter",
+        "Mage",
+        "Rogue"
+    ];
 
     // ReSharper disable once InconsistentNaming
     private static int[] playerCharactersChoices { get; set; }
@@ -39,6 +63,11 @@ internal static class PlayerControllerContext
 
     internal static void RefreshGuiState()
     {
+        if (!Gui.GameCampaign)
+        {
+            return;
+        }
+
         var controllersChoicesCopy = ControllersChoices.ToDictionary(x => x.Key, x => x.Value);
         var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
@@ -57,11 +86,27 @@ internal static class PlayerControllerContext
 
         foreach (var playerCharacter in PlayerCharacters)
         {
-            var controllerId = reset || ControllersChoices[playerCharacter] == 0
+            var choice = ControllersChoices[playerCharacter];
+            var controllerId = reset || choice == 0
                 ? PlayerControllerID
                 : PlayerControllerManager.DmControllerId;
 
             playerCharacter.ControllerId = controllerId;
+
+            if (controllerId != PlayerControllerID)
+            {
+                continue;
+            }
+
+            var decisionPackage = AiDecisionPackages[choice];
+
+            playerCharacter.BehaviourPackage ??= new GameLocationBehaviourPackage
+            {
+                BattleStartBehavior =
+                    GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm
+            };
+
+            playerCharacter.BehaviourPackage.DecisionPackageDefinition = decisionPackage;
         }
 
         activePlayerController.DirtyControlledCharacters();

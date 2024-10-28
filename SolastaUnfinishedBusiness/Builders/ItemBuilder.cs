@@ -9,20 +9,24 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal static class ItemBuilder
 {
-    internal static ItemDefinition BuilderCopyFromItemSetRecipe(ItemDefinition original, string name,
-        RecipeDefinition recipeDefinition, int gold, GuiPresentation guiPresentation)
+    internal static ItemDefinition BuilderCopyFromItemSetRecipe(
+        ItemDefinition original,
+        string name,
+        RecipeDefinition recipeDefinition,
+        int gold,
+        GuiPresentation guiPresentation)
     {
         return ItemDefinitionBuilder
             .Create(original, name)
             .SetGuiPresentation(guiPresentation)
             .SetDocumentInformation(recipeDefinition, original.DocumentDescription.ContentFragments)
             .SetGold(gold)
+            .HideFromDungeonEditor()
             .AddToDB();
     }
 
-    internal static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, ItemDefinition presentation,
-        string name,
-        ItemDefinition magicalExample)
+    internal static ItemDefinition BuildNewMagicWeapon(
+        ItemDefinition original, ItemDefinition presentation, string name, ItemDefinition magicalExample)
     {
         var itemName = original.Name + "_" + name;
 
@@ -30,6 +34,7 @@ internal static class ItemBuilder
             .Create(original, itemName)
             .SetOrUpdateGuiPresentation(itemName + "_", Category.Item)
             .SetItemPresentation(presentation.ItemPresentation.DeepCopy())
+            .HideFromDungeonEditor()
             // Set is magical
             // Remove "Standard" from item tags
             .MakeMagical()
@@ -57,23 +62,25 @@ internal static class ItemBuilder
         return builder.AddToDB();
     }
 
-    internal static ItemDefinition BuildNewMagicArmor(ItemDefinition original, ItemDefinition presentation, string name,
-        ItemDefinition magicalExample)
+    internal static ItemDefinition BuildNewMagicArmor(
+        ItemDefinition original, ItemDefinition presentation, string name, ItemDefinition magicalExample)
     {
         var itemName = original.Name + "_" + name;
-
         var builder = ItemDefinitionBuilder
             .Create(original, itemName)
             .SetOrUpdateGuiPresentation(itemName + "_", Category.Item)
             .SetItemPresentation(presentation.ItemPresentation.DeepCopy())
+            .HideFromDungeonEditor()
             // Set is magical
             // Remove "Standard" from item tags
             .MakeMagical()
             // Copy over price from example enchanted
             .SetCosts(magicalExample.Costs)
             // Copy over static properties from example enchanted, but remove stealth disadvantage since that is determined by the armor and not the enchantment.
-            .MergeStaticProperties(FilterItemProperty(magicalExample.StaticProperties,
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityStealthDisadvantage));
+            .MergeStaticProperties(
+                FilterItemProperty(
+                    magicalExample.StaticProperties,
+                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityStealthDisadvantage));
 
         if (magicalExample.IsUsableDevice)
         {
@@ -95,9 +102,9 @@ internal static class ItemBuilder
 
     [NotNull]
     // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-    private static List<ItemPropertyDescription> FilterItemProperty(
+    private static ItemPropertyDescription[] FilterItemProperty(
         [NotNull] IEnumerable<ItemPropertyDescription> listToFilter, BaseDefinition toFilter)
     {
-        return listToFilter.Where(ip => !ip.FeatureDefinition.GUID.Equals(toFilter.GUID)).ToList();
+        return listToFilter.Where(ip => !ip.FeatureDefinition.GUID.Equals(toFilter.GUID)).ToArray();
     }
 }

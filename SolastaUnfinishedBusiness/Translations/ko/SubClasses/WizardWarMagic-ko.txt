@@ -1,8 +1,6 @@
-Condition/&ConditionWarMagicArcaneDeflectionDescription=캔트립 이외의 주문은 시전할 수 없습니다.
-Condition/&ConditionWarMagicArcaneDeflectionTitle=비전 편향
 Feature/&AttributeModifierWarMagicTacticalWitDescription=전술적 상황을 판단하는 예리한 능력을 통해 전투에서 신속하게 행동할 수 있습니다. 당신은 당신의 지능 수정치만큼 당신의 이니셔티브 굴림에 보너스를 줄 수 있습니다.
 Feature/&AttributeModifierWarMagicTacticalWitTitle=전술적 재치
-Feature/&FeatureWarMagicArcaneDeflectionDescription=당신은 해로움으로부터 자신을 강화하기 위해 마법을 짜는 법을 배웠습니다. 공격에 맞거나 내성 굴림에 실패하면 반응을 사용하여 지능 수정치를 공격 굴림에서 빼거나 내성 굴림에 추가할 수 있습니다. 이 기능을 사용하면 다음 턴이 끝날 때까지 캔트립 이외의 주문을 시전할 수 없습니다.
+Feature/&FeatureWarMagicArcaneDeflectionDescription=당신은 해를 막기 위해 마법을 짜는 법을 배웠습니다. 공격을 받거나 세이빙 스로우에 실패하면, 반응을 사용하여 공격 굴림에서 지능 수정치를 빼거나 세이빙 굴림에 추가할 수 있습니다.
 Feature/&FeatureWarMagicArcaneDeflectionTitle=비전 편향
 Feature/&FeatureWarMagicDurableMagicDescription=당신이 전달하는 마법은 피해를 예방하는 데 도움이 됩니다. 주문에 집중하는 동안 AC 및 모든 내성굴림에 +2 보너스를 받습니다.
 Feature/&FeatureWarMagicDurableMagicTitle=튼튼한 마법

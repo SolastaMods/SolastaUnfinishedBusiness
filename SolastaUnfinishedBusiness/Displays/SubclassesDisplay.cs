@@ -2,12 +2,13 @@
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class SubclassesDisplay
 {
-    internal static void DisplaySubclassesGeneral()
+    private static void DisplaySubclassesGeneral()
     {
         var toggle = Main.Settings.DisplaySubClassesGeneralToggle;
         if (UI.DisclosureToggle(Gui.Localize("ModUi/&General"), ref toggle, 200))
@@ -29,12 +30,40 @@ internal static class SubclassesDisplay
             Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness = toggle;
         }
 
+        toggle = Main.Settings.EnableBg3AbjurationArcaneWard;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWard"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBg3AbjurationArcaneWard = toggle;
+            WizardAbjuration.UpdateBg3ModeStatus();
+        }
+
         toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
             CharacterContext.SwitchBardHealingBalladOnLongRest();
         }
+
+        toggle = Main.Settings.EnableRogueStrSaving;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueStrSaving"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueStrSaving = toggle;
+        }
+
+        if (Main.Settings.EnableBg3AbjurationArcaneWard)
+        {
+            UI.Label(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWardHelp"));
+            UI.Label();
+        }
+
+        toggle = Main.Settings.SwapEvocationPotentCantripAndSculptSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapEvocationPotentCantripAndSculptSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapEvocationPotentCantripAndSculptSpell = toggle;
+            WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
+        }
+
+        UI.Label();
 
         toggle = Main.Settings.RemoveSchoolRestrictionsFromShadowCaster;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromShadowCaster"), ref toggle, UI.AutoWidth()))
@@ -49,6 +78,18 @@ internal static class SubclassesDisplay
             Main.Settings.RemoveSchoolRestrictionsFromSpellBlade = toggle;
             SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromSpellBlade();
         }
+
+        UI.Label();
+
+        var intValue = Main.Settings.WildSurgeDieRollThreshold;
+        if (UI.Slider(Gui.Localize("ModUi/&WildSurgeDieRollThreshold"), ref intValue, 1, 20,
+                2, string.Empty, UI.AutoWidth()))
+        {
+            Main.Settings.WildSurgeDieRollThreshold = intValue;
+            SorcerousWildMagic.SwitchWildSurgeChanceDieThreshold();
+        }
+
+        UI.Label();
     }
 
     internal static void DisplaySubclasses()
@@ -56,7 +97,7 @@ internal static class SubclassesDisplay
         UI.Label();
 
         UI.ActionButton(Gui.Localize("ModUi/&DocsSubclasses").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(150f));
+            () => UpdateContext.OpenDocumentation("SubClasses.md"), UI.Width(189f));
 
         UI.Label();
 
@@ -111,5 +152,7 @@ internal static class SubclassesDisplay
             Main.Settings.DisplayKlassToggle[klassName] = displayToggle;
             Main.Settings.KlassListSliderPosition[klassName] = sliderPos;
         }
+
+        UI.Label();
     }
 }

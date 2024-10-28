@@ -1,8 +1,6 @@
-Condition/&ConditionWarMagicArcaneDeflectionDescription=Sie können keine anderen Zauber als Cantrips wirken.
-Condition/&ConditionWarMagicArcaneDeflectionTitle=Arkane Ablenkung
 Feature/&AttributeModifierWarMagicTacticalWitDescription=Ihr ausgeprägtes Gespür für taktische Einschätzungen ermöglicht Ihnen, im Kampf schnell zu handeln. Sie können Ihren Initiativewürfen einen Bonus in Höhe Ihres Intelligenzmodifikators verleihen.
 Feature/&AttributeModifierWarMagicTacticalWitTitle=Taktischer Witz
-Feature/&FeatureWarMagicArcaneDeflectionDescription=Du hast gelernt, deine Magie so zu weben, dass sie dich gegen Schaden wappnet. Wenn du von einem Angriff getroffen wirst oder ein Rettungswurf scheitert, kannst du deine Reaktion nutzen, um deinen Intelligenzmodifikator vom Angriffswurf abzuziehen oder ihn zum Rettungswurf hinzuzufügen. Wenn du diese Funktion nutzt, kannst du bis zum Ende deines nächsten Zuges keine anderen Zauber als Zaubertricks wirken.
+Feature/&FeatureWarMagicArcaneDeflectionDescription=Sie haben gelernt, Ihre Magie so einzusetzen, dass Sie sich gegen Schaden wappnen. Wenn Sie von einem Angriff getroffen werden oder ein Rettungswurf scheitert, können Sie Ihre Reaktion nutzen, um Ihren Intelligenzmodifikator vom Angriffswurf abzuziehen oder ihn zum Rettungswurf hinzuzufügen.
 Feature/&FeatureWarMagicArcaneDeflectionTitle=Arkane Ablenkung
 Feature/&FeatureWarMagicDurableMagicDescription=Die Magie, die du kanalisierst, hilft, Schaden abzuwehren. Solange du dich auf einen Zauber konzentrierst, hast du einen Bonus von +2 auf deine RK und alle Rettungswürfe.
 Feature/&FeatureWarMagicDurableMagicTitle=Dauerhafte Magie

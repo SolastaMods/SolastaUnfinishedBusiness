@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 
 // ReSharper disable once CheckNamespace
 internal delegate int ReducedDamageHandler(
@@ -14,6 +16,12 @@ internal sealed class FeatureDefinitionReduceDamage : FeatureDefinition
     public List<string> DamageTypes { get; set; }
     public string NotificationTag { get; set; }
     public CharacterClassDefinition SpellCastingClass { get; set; }
+
+    // for powers that reduce based on a point count
+    public FeatureDefinitionPower FeedbackPower { get; set; }
+
+    // for feedback powers caused by an external effect
+    public ConditionDefinition SourceCondition { get; set; }
 
     public static int DamageReduction(
         RulesetImplementationDefinitions.ApplyFormsParams formsParams,
@@ -52,16 +60,35 @@ internal sealed class FeatureDefinitionReduceDamage : FeatureDefinition
             try
             {
                 var tmp = int.Parse(tag.Split(':')[2]);
+                var tmp2 = tmp;
 
                 if (reduction + tmp > damage)
                 {
                     tmp = reduction + tmp - damage;
                     formsParams.sourceTags.Add(prefix + tmp);
                     reduction = damage;
-                    break;
+                }
+                else
+                {
+                    reduction += tmp;
+                    tmp = 0;
                 }
 
-                reduction += tmp;
+                // need double if check here to avoid issues with unity objects lifecycle
+                if (feature.FeedbackPower)
+                {
+                    if (defender is RulesetCharacter sourceRulesetCharacter)
+                    {
+                        sourceRulesetCharacter = sourceRulesetCharacter.TryGetConditionOfCategoryAndType(
+                            AttributeDefinitions.TagEffect,
+                            feature.SourceCondition?.Name,
+                            out var activeCondition)
+                            ? EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid)
+                            : sourceRulesetCharacter;
+
+                        sourceRulesetCharacter.UpdateUsageForPower(feature.FeedbackPower, tmp2 - tmp);
+                    }
+                }
             }
             catch (Exception)
             {

@@ -1,4 +1,4 @@
-Action/&DeadEyeToggleDescription=Attiva/disattiva Sharpshooter
+Action/&DeadEyeToggleDescription=Attiva/disattiva Tiratore scelto così, quando attacchi con un'arma a distanza, puoi scegliere di subire una penalità di -5 al tuo tiro per colpire per infliggere +10 danni aggiuntivi.
 Action/&DeadEyeToggleTitle=Tiratore scelto
 Condition/&ConditionFeatSteadyAimAdvantageDescription=Hai vantaggio sul tuo prossimo tiro d'attacco.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Mira stabile

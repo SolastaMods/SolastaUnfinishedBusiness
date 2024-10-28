@@ -1,7 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -12,53 +11,15 @@ internal static class ClassesDisplay
         UI.Label();
 
         UI.ActionButton(Gui.Localize("ModUi/&DocsClasses").Bold().Khaki(),
-            () => UpdateContext.OpenDocumentation("Classes.md"), UI.Width(150f));
+            () => UpdateContext.OpenDocumentation("Classes.md"), UI.Width(189f));
 
         UI.Label();
 
-        var toggle = Main.Settings.EnableGauntletMainAttacks;
-        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableGauntletMainAttacks")), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.EnableGauntletMainAttacks = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AddFallProneActionToAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddFallProneActionToAllRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddFallProneActionToAllRaces = toggle;
-            CharacterContext.SwitchProneAction();
-        }
-
-        toggle = Main.Settings.AddGrappleActionToAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddGrappleActionToAllRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddGrappleActionToAllRaces = toggle;
-            GrappleContext.SwitchGrappleAction();
-        }
-
-        toggle = Main.Settings.AddHelpActionToAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddHelpActionToAllRaces = toggle;
-            CharacterContext.SwitchHelpPower();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AllowDruidToWearMetalArmor;
+        var toggle = Main.Settings.AllowDruidToWearMetalArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowDruidToWearMetalArmor = toggle;
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
-        }
-
-        toggle = Main.Settings.EnableSignatureSpellsRelearn;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableSignatureSpellsRelearn = toggle;
         }
 
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
@@ -66,20 +27,6 @@ internal static class ClassesDisplay
         {
             Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
             CharacterContext.SwitchScimitarWeaponSpecialization();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AddPaladinSmiteToggle;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddPaladinSmiteToggle = toggle;
-        }
-
-        toggle = Main.Settings.ShowChannelDivinityOnPortrait;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShowChannelDivinityOnPortrait = toggle;
         }
 
         UI.Label();
@@ -225,6 +172,42 @@ internal static class ClassesDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&PaladinTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.AddPaladinSmiteToggle;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPaladinSmiteToggle = toggle;
+        }
+
+        toggle = Main.Settings.EnablePaladinLayOnHandsAsBonusAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHandsAsBonusAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinLayOnHandsAsBonusAction = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndPaladinLayOnHandAsBonusAction();
+        }
+
+        toggle = Main.Settings.EnablePaladinSmiteAsBonusAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSmiteAsBonusAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinSmiteAsBonusAction = toggle;
+        }
+
+        toggle = Main.Settings.EnablePaladinSpellCastingAtLevel1;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinSpellCastingAtLevel1 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndPaladinLearnSpellCastingAtOne();
+        }
+
+        toggle = Main.Settings.ShowChannelDivinityOnPortrait;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowChannelDivinityOnPortrait = toggle;
+        }
+
+        UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&RangerTitle") + ":</color>");
         UI.Label();
 
@@ -240,6 +223,13 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableRangerNatureShroudAt10 = toggle;
             CharacterContext.SwitchRangerNatureShroud();
+        }
+
+        toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndRangerLearnSpellCastingAtOne();
         }
 
         UI.Label();
@@ -265,12 +255,6 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableRogueSteadyAim = toggle;
             CharacterContext.SwitchRogueSteadyAim();
-        }
-
-        toggle = Main.Settings.EnableRogueStrSaving;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueStrSaving"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRogueStrSaving = toggle;
         }
 
         UI.Label();
@@ -299,15 +283,23 @@ internal static class ClassesDisplay
             }
         }
 
-        var intValue = Main.Settings.WildSurgeDieRollThreshold;
-        if (UI.Slider(Gui.Localize("ModUi/&WildSurgeDieRollThreshold"), ref intValue, 1, 20,
-                2, string.Empty, UI.AutoWidth()))
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WizardTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableWizardToLearnSchoolAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnSchoolAtLevel3"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.WildSurgeDieRollThreshold = intValue;
-            SorcerousWildMagic.SwitchWildSurgeChanceDieThreshold();
+            Main.Settings.EnableWizardToLearnSchoolAtLevel3 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWizardSchoolOfMagicLearningLevel();
         }
 
-        UI.Label();
+        toggle = Main.Settings.EnableSignatureSpellsRelearn;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSignatureSpellsRelearn = toggle;
+        }
+
         UI.Label();
     }
 }

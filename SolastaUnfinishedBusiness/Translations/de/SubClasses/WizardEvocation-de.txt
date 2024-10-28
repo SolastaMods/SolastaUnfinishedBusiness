@@ -1,0 +1,14 @@
+Action/&OverChannelToggleDescription=Overchannel aktivieren/deaktivieren
+Action/&OverChannelToggleTitle=Überkanal
+Feature/&FeatureSetWizardEvocationOverChannelDescription=Sie können die Macht Ihrer einfacheren Zauber erhöhen. Wenn Sie einen Zauberspruch der Stufe 1 bis 5 anwenden, der Schaden verursacht, können Sie mit diesem Zauber maximalen Schaden verursachen. Wenn Sie dies zum ersten Mal tun, erleiden Sie keine negativen Auswirkungen. Wenn Sie diese Funktion erneut verwenden, bevor Sie eine lange Pause beenden, erleiden Sie unmittelbar nach dem Wirken 2W12 nekrotischen Schaden für jede Stufe des Zaubers. Jedes Mal, wenn Sie diese Funktion erneut verwenden, bevor Sie eine lange Pause beenden, erhöht sich der nekrotische Schaden pro Zauberstufe um 1W12. Dieser Schaden ignoriert Resistenz und Immunität.
+Feature/&FeatureSetWizardEvocationOverChannelTitle=Überkanal
+Feature/&FeatureWizardEvocationEmpoweredEvocationDescription=Sie können Ihren Intelligenzmodifikator (mindestens +1) zu einem Schadenswurf jedes von Ihnen gewirkten Zaubers zur Zauberbeschwörung hinzufügen.
+Feature/&FeatureWizardEvocationEmpoweredEvocationTitle=Mächtige Beschwörung
+Feature/&FeatureWizardEvocationSculptSpellsDescription=Wenn Sie einen Beschwörungszauber wirken, der andere Kreaturen beeinflussen kann, können Sie Bereiche relativer Sicherheit schaffen, in denen verbündete Kreaturen, die Sie sehen, von dem Zauber unberührt bleiben.
+Feature/&FeatureWizardEvocationSculptSpellsTitle=Zauber formen
+Feature/&MagicAffinityWizardEvocationPotentCantripDescription=Deine Schadenszauber wirken sich sogar auf Kreaturen aus, die der Hauptwirkung entgehen. Wenn einer Kreatur ein Rettungswurf gegen deinen Zauber gelingt, erleidet sie die Hälfte des Schadens (falls vorhanden), erleidet aber keinen zusätzlichen Effekt durch den Zauber. Wenn du eine Kreatur mit einem Zauber triffst, der einen Angriffswurf erfordert, addierst du deinen Kompetenzbonus zu einem Schadenswurf dieses Zaubers.
+Feature/&MagicAffinityWizardEvocationPotentCantripTitle=Mächtiger Zauberspruch
+Feature/&MagicAffinityWizardEvocationSavantDescription=Ab der Auswahl dieser Schule auf der 2. Stufe halbiert sich der Gold- und Zeitaufwand, den Sie zum Kopieren eines Beschwörungszaubers in Ihr Zauberbuch benötigen.
+Feature/&MagicAffinityWizardEvocationSavantTitle=Beschwörungsgelehrter
+Subclass/&WizardEvocationDescription=Sie konzentrieren Ihr Studium auf Magie, die mächtige Elementareffekte wie bittere Kälte, sengende Flammen, rollenden Donner, knisternde Blitze und brennende Säure erzeugt. Einige Beschwörer finden Verwendung im Militär und dienen als Artillerie, um feindliche Armeen aus der Ferne zu vernichten. Andere nutzen ihre spektakuläre Macht, um die Schwachen zu beschützen, während andere ihren eigenen Vorteil als Banditen, Abenteurer oder aufstrebende Tyrannen suchen.
+Subclass/&WizardEvocationTitle=Beschwörung

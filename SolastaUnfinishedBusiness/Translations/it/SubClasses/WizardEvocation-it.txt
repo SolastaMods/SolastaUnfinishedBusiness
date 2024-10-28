@@ -1,0 +1,14 @@
+Action/&OverChannelToggleDescription=Attiva/disattiva Overchannel
+Action/&OverChannelToggleTitle=Sopracanale
+Feature/&FeatureSetWizardEvocationOverChannelDescription=Puoi aumentare la potenza dei tuoi incantesimi più semplici. Quando lanci un incantesimo da mago di livello 1°-5° che infligge danni, puoi infliggere il massimo danno con quell'incantesimo. La prima volta che lo fai, non subisci alcun effetto avverso. Se usi di nuovo questa caratteristica prima di terminare un riposo lungo, subisci 2d12 danni necrotici per ogni livello dell'incantesimo, immediatamente dopo averlo lanciato. Ogni volta che usi di nuovo questa caratteristica prima di terminare un riposo lungo, il danno necrotico per livello dell'incantesimo aumenta di 1d12. Questo danno ignora la resistenza e l'immunità.
+Feature/&FeatureSetWizardEvocationOverChannelTitle=Sopracanale
+Feature/&FeatureWizardEvocationEmpoweredEvocationDescription=Puoi aggiungere il tuo modificatore di Intelligenza (minimo +1) a un tiro per i danni di qualsiasi incantesimo di evocazione magica che lanci.
+Feature/&FeatureWizardEvocationEmpoweredEvocationTitle=Evocazione potenziata
+Feature/&FeatureWizardEvocationSculptSpellsDescription=Ogni volta che lanci un incantesimo di evocazione che può influenzare altre creature, puoi creare delle sacche di relativa sicurezza, facendo sì che le creature alleate che vedi non siano influenzate dall'incantesimo.
+Feature/&FeatureWizardEvocationSculptSpellsTitle=Incantesimi di scultura
+Feature/&MagicAffinityWizardEvocationPotentCantripDescription=I tuoi trucchetti dannosi hanno effetto anche sulle creature che evitano il peso dell'effetto. Quando una creatura supera un tiro salvezza contro il tuo trucchetto, la creatura subisce metà dei danni da trucchetto (se presenti) ma non subisce alcun effetto aggiuntivo dal trucchetto. Se colpisci una creatura con un trucchetto che richiede un tiro di attacco, aggiungi il tuo bonus di competenza a un tiro di danno di quel trucchetto.
+Feature/&MagicAffinityWizardEvocationPotentCantripTitle=Potente trucchetto
+Feature/&MagicAffinityWizardEvocationSavantDescription=A partire dal momento in cui selezioni questa scuola al 2° livello, l'oro e il tempo che devi impiegare per copiare un incantesimo di Evocazione nel tuo libro degli incantesimi vengono dimezzati.
+Feature/&MagicAffinityWizardEvocationSavantTitle=Evocazione Savant
+Subclass/&WizardEvocationDescription=Concentri il tuo studio sulla magia che crea potenti effetti elementali come il freddo pungente, la fiamma bruciante, il tuono rimbombante, il fulmine scoppiettante e l'acido bruciante. Alcuni evocatori trovano impiego nelle forze militari, servendo come artiglieria per far saltare in aria gli eserciti nemici da lontano. Altri usano il loro potere spettacolare per proteggere i deboli, mentre altri cercano il proprio tornaconto come banditi, avventurieri o aspiranti tiranni.
+Subclass/&WizardEvocationTitle=Evocazione
