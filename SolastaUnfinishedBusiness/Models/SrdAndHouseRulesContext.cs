@@ -414,6 +414,13 @@ internal static class SrdAndHouseRulesContext
         {
             featureUnlock.level = toLevel;
         }
+
+        foreach (var school in schools)
+        {
+            school.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+
+        Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchOneDndPaladinLearnSpellCastingAtOne()
@@ -425,6 +432,8 @@ internal static class SrdAndHouseRulesContext
         {
             featureUnlock.level = level;
         }
+
+        Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
 
         if (Main.Settings.EnablePaladinSpellCastingAtLevel1)
         {
@@ -444,11 +453,13 @@ internal static class SrdAndHouseRulesContext
     {
         var level = Main.Settings.EnableRangerSpellCastingAtLevel1 ? 1 : 2;
 
-        foreach (var featureUnlock in Paladin.FeatureUnlocks
+        foreach (var featureUnlock in Ranger.FeatureUnlocks
                      .Where(x => x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellRanger))
         {
             featureUnlock.level = level;
         }
+
+        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
 
         if (Main.Settings.EnableRangerSpellCastingAtLevel1)
         {

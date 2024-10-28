@@ -313,6 +313,14 @@ internal static class ToolsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
+        if (UI.Toggle(Gui.Localize("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
+            SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
+        }
+
         toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
         {
@@ -357,7 +365,6 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
-
 
         toggle = Main.Settings.KeepStealthOnHeroIfPerceivedDuringSurpriseAttack;
         if (UI.Toggle(Gui.Localize("ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack"), ref toggle,
@@ -485,6 +492,91 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableRangerNatureShroudAt10;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt10"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerNatureShroudAt10 = toggle;
+            CharacterContext.SwitchRangerNatureShroud();
+        }
+
+        toggle = Main.Settings.EnableRogueSteadyAim;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueSteadyAim"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueSteadyAim = toggle;
+            CharacterContext.SwitchRogueSteadyAim();
+        }
+
+        toggle = Main.Settings.EnableSorcererMagicalGuidance;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererMagicalGuidance = toggle;
+            CharacterContext.SwitchSorcererMagicalGuidance();
+        }
+
+        toggle = Main.Settings.EnableSorcererQuickenedAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererQuickenedAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererQuickenedAction = toggle;
+        }
+
+        if (Main.Settings.EnableSorcererQuickenedAction)
+        {
+            toggle = Main.Settings.HideQuickenedActionWhenMetamagicOff;
+            if (UI.Toggle(Gui.Localize("ModUi/&HideQuickenedActionWhenMetamagicOff"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.HideQuickenedActionWhenMetamagicOff = toggle;
+            }
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AccountForAllDiceOnFollowUpStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnFollowUpStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AccountForAllDiceOnFollowUpStrike = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange = toggle;
+        }
+
+        toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
+        if (UI.Toggle(Gui.Localize("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
+        }
+
+        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
+            SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
+        }
+
+        toggle = Main.Settings.FixEldritchBlastRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixEldritchBlastRange = toggle;
+            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
+            CharacterContext.SwitchBardHealingBalladOnLongRest();
         }
     }
 }

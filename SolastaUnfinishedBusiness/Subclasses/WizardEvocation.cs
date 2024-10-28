@@ -174,6 +174,8 @@ public sealed class WizardEvocation : AbstractSubclass
             featureUnlockSculptSpell!.level = level;
             featureUnlockMagicAffinityPotentCantrip!.level = 6;
         }
+
+        _subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     //
