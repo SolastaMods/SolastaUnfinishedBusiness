@@ -510,10 +510,15 @@ public sealed class WizardAbjuration : AbstractSubclass
         }
     }
 
-    private sealed class ArcaneWardPortraitPoints() : PowerPortraitPointPool(PowerArcaneWard, Sprites.ArcaneWardPoints)
+    private sealed class ArcaneWardPortraitPoints : PowerPortraitPointPool
     {
         public override string TooltipFormat => IsBg3Mode
             ? $"PortraitPool{PowerArcaneWard.Name}BG3PointsFormat"
             : $"PortraitPool{PowerArcaneWard.Name}PointsFormat";
+
+        public ArcaneWardPortraitPoints() : base(PowerArcaneWard, Sprites.ArcaneWardPoints)
+        {
+            IsActiveHandler = character => IsBg3Mode || character.HasConditionOfType(ArcaneWardConditionName);
+        }
     }
 }
