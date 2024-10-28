@@ -3712,6 +3712,7 @@ Size: *Medium*
 * Condition Affinity Exhaustion Immunity
 * Condition Affinity Frightened Immunity
 * Condition Affinity Grappled Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity

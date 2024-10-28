@@ -1168,6 +1168,7 @@ Size: *Large*
 |  20 |  16 |  16 |  12 |  10 |  10 |
 
 *Features:*
+* Condition Affinity Grapple Target
 * Condition Affinity Prone Immunity
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Piercing Resistance
