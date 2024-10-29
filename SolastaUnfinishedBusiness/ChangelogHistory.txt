@@ -1,3 +1,13 @@
+1.5.97.37:
+
+- fixed Wizard Graviturgist descriptions, SFX, and behaviors
+- renamed mod UI tabletop sections to 5e 2014, and 5e 2024
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.36:
 
 - added behavior package choices on heroes controlled by AI [single player only]

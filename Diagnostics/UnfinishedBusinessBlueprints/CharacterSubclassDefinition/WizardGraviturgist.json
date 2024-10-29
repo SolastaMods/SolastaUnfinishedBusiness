@@ -36,7 +36,7 @@
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Subclass/&WizardGraviturgistTitle",
     "description": "Subclass/&WizardGraviturgistDescription",
     "spriteReference": {

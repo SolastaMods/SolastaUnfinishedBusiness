@@ -332,8 +332,8 @@
     "description": "Feature/&PowerWizardGraviturgistDensityIncreaseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4055bc032261a0c44853f4f483238bd0",
-      "m_SubObjectName": "Bane",
+      "m_AssetGUID": "1c85316337127ff4c95a2d43f18d557e",
+      "m_SubObjectName": "Heroism",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

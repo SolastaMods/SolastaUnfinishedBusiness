@@ -7051,11 +7051,11 @@ Understanding and mastering the forces that draw bodies of matter together or dr
 
 * Decrease Density
 
-You can use your action to decrease the density of a target, increasing its speed by 10 ft and making it able to make maximum distance jumps without risk, at the cost of disadvantage on Strength checks and saving throws. You can use this feature a number of times per short rest equal to your Intelligence modifier, and it shares the number of uses with Increase Density.
+You can use your action to decrease the density of a creature you can see within 30 ft of you, increasing its walking speed and jumping distance by 10 ft and making it able to make maximum distance jumps without risk, at the cost of disadvantage on Strength checks and saving throws. You can use this feature a number of times per short rest equal to your Intelligence modifier, and it shares the number of uses with Increase Density.
 
 * Increase Density
 
-You can use your action to increase the density of a target, reducing its speed by 10 ft at the benefit of advantage on Strength checks and saving throws. You can use this feature a number of times per short rest equal to your Intelligence modifier, and it shares the number of uses with Decrease Density.
+You can use your action to increase the density of a creature you can see within 30 ft of you, reducing its speed by 10 ft at the benefit of advantage on Strength checks and saving throws. You can use this feature a number of times per short rest equal to your Intelligence modifier, and it shares the number of uses with Decrease Density.
 
 
 ### Level 6
@@ -7069,14 +7069,14 @@ Starting at 6th level, creatures hit by your spell attacks are pushed 1 cell awa
 
 * Violent Attraction
 
-You can use your bonus action to increase the striking power of ally's weapons for 1 minute. The creature does an additional 1d10 damage with a weapon attack once during its turn. You can use this feature a number of times per long rest equal to your Intelligence modifier.
+You can use your bonus action to increase the striking power of one ally that you can see within 60 ft of you for 1 minute. The creature does an additional 1d10 damage with a weapon or unarmed attack once during its turn. You can use this feature a number of times per long rest equal to your Intelligence modifier.
 
 
 ### Level 14
 
 * Event Horizon
 
-You can use your action to magically emit a powerful field of gravitational energy that tugs at other creatures for up to 1 minute. For the duration, whenever a creature hostile to you starts its turn within 30 feet of you, it must make a Strength saving throw against your spell save DC. On a failed save, it takes 2d10 force damage, and its speed is reduced to 0 until the start of its next turn. On a successful save, it takes half as much damage, and every foot it moves this turn costs 2 extra feet of movement. You can use this feature once per long rest
+You can use your action to magically emit a powerful field of gravitational energy that tugs at other creatures for up to 1 minute. For the duration, whenever a creature hostile to you starts its turn within 30 feet of you, it must make a Strength saving throw against your spell save DC. On a failed save, it takes 2d10 force damage, and its speed is reduced to 0 until the start of its next turn. On a successful save, it takes half as much damage, and its speed is halved instead. You can use this feature once per long rest.
 
 
 

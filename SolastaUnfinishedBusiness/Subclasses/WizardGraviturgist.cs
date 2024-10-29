@@ -1,8 +1,12 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -20,13 +24,13 @@ public sealed class WizardGraviturgist : AbstractSubclass
         // LEVEL 02
 
         // Density Pool
-        
+
         var powerDensity = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Density")
             .SetGuiPresentationNoContent(true)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Intelligence)
             .AddToDB();
-        
+
         // Density Increase
 
         const string POWER_DENSITY_INCREASE = $"Power{Name}DensityIncrease";
@@ -58,19 +62,19 @@ public sealed class WizardGraviturgist : AbstractSubclass
 
         var powerDensityIncrease = FeatureDefinitionPowerSharedPoolBuilder
             .Create(POWER_DENSITY_INCREASE)
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Bane)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism)
             .SetSharedPool(ActivationTime.Action, powerDensity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(conditionDensityIncrease, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                     .Build())
             .SetShowCasting(true)
             .AddToDB();
@@ -89,6 +93,7 @@ public sealed class WizardGraviturgist : AbstractSubclass
                     .Create($"MovementAffinity{Name}DensityDecrease")
                     .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature, Gui.NoLocalization)
                     .SetBaseSpeedAdditiveModifier(2)
+                    .SetAdditionalJumpCells(2, true)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{Name}DensityDecrease")
@@ -113,12 +118,13 @@ public sealed class WizardGraviturgist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetParticleEffectParameters(PowerRoguishHoodlumDirtyFighting)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(conditionDensityDecrease, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(PowerTraditionCourtMageExpandedSpellShield)
+                    .SetEffectEffectParameters(PowerSorcererManaPainterDrain)
                     .Build())
             .SetShowCasting(true)
             .AddToDB();
@@ -162,7 +168,9 @@ public sealed class WizardGraviturgist : AbstractSubclass
                     .SetNotificationTag("ViolentAttraction")
                     .SetDamageDice(DieType.D10, 1)
                     .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-                    .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                    .AddCustomSubFeatures(
+                        new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
+                            (OperationType.Set, ValidatorsWeapon.IsMeleeOrUnarmed(mode))))
                     .SetIgnoreCriticalDoubleDice(true)
                     .AddToDB())
             .AddToDB();
@@ -182,6 +190,8 @@ public sealed class WizardGraviturgist : AbstractSubclass
                             .Create()
                             .SetConditionForm(conditionViolentAttraction, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(PowerSorcererChildRiftOffering)
+                    .SetEffectEffectParameters(PowerMagebaneSpellCrusher)
                     .Build())
             .SetShowCasting(true)
             .AddToDB();
@@ -191,12 +201,13 @@ public sealed class WizardGraviturgist : AbstractSubclass
         // Event Horizon
 
         var conditionEventHorizon = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionProne, $"Condition{Name}EventHorizon")
-            .SetOrUpdateGuiPresentation(Category.Condition)
+            .Create($"Condition{Name}EventHorizon")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrained)
             .SetPossessive()
-            .SetSilent(Silent.None)
+            .SetConditionType(ConditionType.Neutral)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .CopyParticleReferences(ConditionHitByDirtyFighting)
+            .CopyParticleReferences(ConditionDefinitions.ConditionRestrained)
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}EventHorizon")
@@ -206,12 +217,13 @@ public sealed class WizardGraviturgist : AbstractSubclass
             .AddToDB();
 
         var conditionEventHorizonSaved = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionProne, $"Condition{Name}EventHorizonSaved")
-            .SetOrUpdateGuiPresentation($"Condition{Name}EventHorizon", Category.Condition)
+            .Create($"Condition{Name}EventHorizonSaved")
+            .SetGuiPresentation($"Condition{Name}EventHorizon", Category.Condition, ConditionSlowed)
             .SetPossessive()
+            .SetConditionType(ConditionType.Neutral)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .CopyParticleReferences(ConditionHitByDirtyFighting)
+            .CopyParticleReferences(ConditionSlowed)
             .SetCancellingConditions(conditionEventHorizon)
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
@@ -222,9 +234,11 @@ public sealed class WizardGraviturgist : AbstractSubclass
             .AddToDB();
 
         var conditionEventHorizonSelf = ConditionDefinitionBuilder
-            .Create(ConditionSpiritGuardiansSelf, $"Condition{Name}EventHorizonSelf")
-            .SetOrUpdateGuiPresentation(Category.Condition)
+            .Create($"Condition{Name}EventHorizonSelf")
+            .SetGuiPresentation(Category.Condition, ConditionLightSensitiveSorakSaboteur)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .CopyParticleReferences(ConditionSpiritGuardiansSelf)
+            .SetFeatures()
             .AddToDB();
 
         var powerEventHorizon = FeatureDefinitionPowerBuilder
@@ -236,7 +250,6 @@ public sealed class WizardGraviturgist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetParticleEffectParameters(SpellDefinitions.Darkness)
                     .SetSavingThrowData(false, AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
@@ -255,13 +268,12 @@ public sealed class WizardGraviturgist : AbstractSubclass
                             .Create()
                             .SetConditionForm(conditionEventHorizon, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionEventHorizonSelf, ConditionForm.ConditionOperation.Add, true)
                             .Build())
+                    .SetCasterEffectParameters(PowerGreen_Hag_Invisibility)
                     .Build())
             .AddToDB();
+
+        powerEventHorizon.AddCustomSubFeatures(new PowerOrSpellInitiatedByMeEventHorizon(conditionEventHorizonSelf));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -282,4 +294,29 @@ public sealed class WizardGraviturgist : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private sealed class PowerOrSpellInitiatedByMeEventHorizon(ConditionDefinition conditionSelfSFX)
+        : IPowerOrSpellInitiatedByMe
+    {
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            rulesetCharacter.InflictCondition(
+                conditionSelfSFX.Name,
+                DurationType.Minute,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionSelfSFX.Name,
+                0,
+                0,
+                0);
+
+            yield break;
+        }
+    }
 }
