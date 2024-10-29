@@ -232,7 +232,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Невидим
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Позволить <color=#D89555>магически заслонённой</color> местности блокировать снаряды <color=#F0DAA0>[любой источник эффекта заклинания <color=#D89555>Тьма</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Добавить <color=#D89555>Тёмное зрение</color>, <color=#D89555>Слепое зрение</color> и <color=#D89555>Истинное зрение</color> монстрам и NPC, когда это целесообразно</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[списки <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b> находятся в настройках]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>OneDnD:</color>
+ModUi/&OneDnd=<color=#F0DAA0>Столешница <i>[5e 2024]</i>:</color>
 ModUi/&OneDndHealingPotionBonusAction=Включить использование <color=#D89555>Лечебных Зелий</color> и <color=#D89555>Антитоксинов</color> бонусным действием <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Показывать только самых мощных существ в списке призыва</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Увеличить толщину контура сетки передвижения на множитель</color> <color=#C04040E0>[%]</color>
@@ -296,9 +296,9 @@ ModUi/&Subraces=<color=#F0DAA0>Подрасы</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Заменить значок рецепта значком создаваемого предмета в магазине</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Поменять местами умения Волшебника школы <color=#D89555>Воплощения</color> <b>Построение заклинаний</b> и <b>Мощный заговор</b> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&TableTopButton=<b><color=#D89555>Выберите содержимое Tabletop</color></b>
-ModUi/&TableTopHelp1=• Следующие разделы перегруппированы и дублируют настройки <color=#D89555>Classic и One DnD</color>, разбросанные по моду для вашего удобства.
+ModUi/&TableTopHelp1=• Следующие разделы перегруппированы и дублируют настройки <color=#D89555>5e 2014 и 2024</color>, разбросанные по всему моду для вашего удобства.
 ModUi/&TableTopHelp2=• Нажмите кнопку, чтобы выбрать только настольный контент на вкладке «Персонаж», и выберите все параметры ниже, чтобы получить настоящий опыт TT
-ModUi/&Tabletop=<color=#F0DAA0>Настольные правила:</color>
+ModUi/&Tabletop=<color=#F0DAA0>Столешница <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Язык перевода
 ModUi/&TotalCraftingTimeModifier=<color=white>Уменьшить время крафта на</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Общее количество <color=#D89555>черт</color>, получаемых на первом уровне</color>

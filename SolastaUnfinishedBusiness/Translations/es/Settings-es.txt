@@ -233,7 +233,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Las criaturas 
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambiar las áreas <color=#D89555>oscuras mágicamente</color> para que sean bloqueadores de proyectiles <color=#F0DAA0>[cualquier fuente del efecto del hechizo <color=#D89555>Oscuridad</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Agrega <color=#D89555>Visión en la oscuridad</color>, <color=#D89555>Vista ciega</color> y <color=#D89555>Vista verdadera</color> a monstruos y PNJ cuando sea apropiado</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[colecciones de configuraciones <b>MonstruosQueDeberíanTenerVisiónOscura</b>, <b>MonstruosQueDeberíanTenerVistaVerdadera</b>, <b>MonstruosQueDeberíanTenerVistaCiego</b>]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>Mesa de juego <i>[One DnD, 2024]</i>:</color>
+ModUi/&OneDnd=<color=#F0DAA0>Mesa <i>[5e 2024]</i>:</color>
 ModUi/&OneDndHealingPotionBonusAction=Habilitar la acción adicional en los usos de <color=#D89555>Pociones curativas</color> y <color=#D89555>Antitoxina</color>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar solo las criaturas más poderosas en la lista de conjuración</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula del contorno por</color> <color=#C04040E0>[%]</color>
@@ -297,9 +297,9 @@ ModUi/&Subraces=<color=#F0DAA0>Subrazas</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y objetos elaborados en la tienda</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia las características de <color=#D89555>Evocador</color>, <b>Hechizos de escultura</b> y <b>Truco potente</b>
 ModUi/&TableTopButton=<b><color=#D89555>Seleccionar contenido de Tabletop</color></b>
-ModUi/&TableTopHelp1=• Las siguientes secciones reagrupan y duplican las configuraciones <color=#D89555>Clásicas y One DnD</color> esparcidas por el mod para tu conveniencia.
+ModUi/&TableTopHelp1=• Las siguientes secciones reagrupan y duplican las configuraciones de <color=#D89555>5e 2014 y 2024</color> esparcidas por el mod para tu conveniencia.
 ModUi/&TableTopHelp2=• Presiona el botón para seleccionar solo contenido de mesa en la pestaña Personaje y selecciona todas las opciones a continuación para una verdadera experiencia TT
-ModUi/&Tabletop=<color=#F0DAA0>Juego de mesa <i>[DnD clásico, 2014]</i>:</color>
+ModUi/&Tabletop=<color=#F0DAA0>Mesa de trabajo <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Lengua de llegada
 ModUi/&TotalCraftingTimeModifier=<color=white>Reducir el tiempo de elaboración</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total de <color=#D89555>dotes</color> otorgados en el primer nivel</color>

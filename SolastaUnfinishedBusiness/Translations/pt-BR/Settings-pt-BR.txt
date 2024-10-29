@@ -232,7 +232,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Criaturas invi
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Alterar áreas <color=#D89555>magicamente obscurecidas</color> para serem bloqueadores de projéteis <color=#F0DAA0>[qualquer fonte do efeito do feitiço <color=#D89555>Escuridão</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Adicione <color=#D89555>Visão no Escuro</color>, <color=#D89555>Visão Cega</color> e <color=#D89555>Visão Verdadeira</color> aos monstros e PNJs sempre que apropriado</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[configurações de coleções <b>MonstrosQueDeveriamTerVisãoNoEscuro</b>, <b>MonstrosQueDeveriamTerVisãoVerdadeira</b>, <b>MonstrosQueDeveriamTerVisãoCega</b>]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>Mesa <i>[One DnD, 2024]</i>:</color>
+ModUi/&OneDnd=<color=#F0DAA0>Mesa <i>[5e 2024]</i>:</color>
 ModUi/&OneDndHealingPotionBonusAction=Habilitar ação bônus em usos de <color=#D89555>Poções de Cura</color> e <color=#D89555>Antitoxina</color>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas na lista de conjuração</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplique a largura da grade de contorno por</color> <color=#C04040E0>[%]</color>
@@ -296,9 +296,9 @@ ModUi/&Subraces=<color=#F0DAA0>Sub-raças</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque os recursos <color=#D89555>Evocador</color> <b>Magias de Escultura</b> e <b>Truque Potente</b>
 ModUi/&TableTopButton=<b><color=#D89555>Selecionar conteúdo de mesa</color></b>
-ModUi/&TableTopHelp1=• As seções a seguir reagrupam e duplicam as configurações <color=#D89555>Classic e One DnD</color> espalhadas pelo mod para sua conveniência
+ModUi/&TableTopHelp1=• As seções a seguir reagrupam e duplicam as configurações <color=#D89555>5e 2014 e 2024</color> espalhadas pelo mod para sua conveniência
 ModUi/&TableTopHelp2=• Pressione o botão para selecionar apenas o conteúdo da mesa na aba Personagem e selecione todas as opções abaixo para uma verdadeira experiência TT
-ModUi/&Tabletop=<color=#F0DAA0>Mesa <i>[DnD Clássico, 2014]</i>:</color>
+ModUi/&Tabletop=<color=#F0DAA0>Mesa <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Língua alvo
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduza o tempo de criação em</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total de <color=#D89555>talentos</color> concedidos no primeiro nível</color>

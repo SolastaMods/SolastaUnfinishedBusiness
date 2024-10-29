@@ -232,7 +232,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 不可視の�
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>魔法で隠された</color>領域を、発射物ブロッカー <color=#F0DAA0>[<color=#D89555>闇</color> 呪文効果の任意のソース]</color に変更します</i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 必要に応じてモンスターと NPC に <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color>、<color=#D89555>TrueSight</color> を追加します</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>テーブルトップ <i>[One DnD、2024]</i>:</color>
+ModUi/&OneDnd=<color=#F0DAA0>テーブルトップ <i>[5e 2024]</i>:</color>
 ModUi/&OneDndHealingPotionBonusAction=<color=#D89555>治癒ポーション</color>と<color=#D89555>解毒剤</color>の使用時にボーナスアクションを有効にする
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストに最も強力なクリーチャーのみを表示する</i>
 ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
@@ -296,9 +296,9 @@ ModUi/&Subraces=<color=#F0DAA0>亜種族</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフトアイテムのアイコンを交換</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>エヴォーカー</color>の<b>スカルプトスペル</b>と<b>ポテンシャルキャントリップ</b>の機能を入れ替えます
 ModUi/&TableTopButton=<b><color=#D89555>テーブルトップコンテンツを選択</color></b>
-ModUi/&TableTopHelp1=• 次のセクションでは、利便性のために、mod 全体に散らばっている <color=#D89555>Classic と One DnD</color> の設定を再グループ化して複製します。
+ModUi/&TableTopHelp1=• 以下のセクションでは、利便性のために、mod 全体に散らばっている <color=#D89555>5e 2014 および 2024</color> 設定を再グループ化して複製します。
 ModUi/&TableTopHelp2=• ボタンを押してキャラクタータブのテーブルトップコンテンツのみを選択し、以下のすべてのオプションを選択して真のTT体験を味わってください。
-ModUi/&Tabletop=<color=#F0DAA0>テーブルトップ <i>[クラシック DnD、2014]</i>:</color>
+ModUi/&Tabletop=<color=#F0DAA0>テーブルトップ <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=対象言語
 ModUi/&TotalCraftingTimeModifier=<color=white>クラフト時間を短縮</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>第 1 レベルで付与される <color=#D89555>特技</color> の合計</color>

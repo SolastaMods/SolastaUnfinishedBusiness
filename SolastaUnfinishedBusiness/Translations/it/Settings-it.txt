@@ -232,7 +232,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Le creature in
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia le aree <color=#D89555>oscurate magicamente</color> in bloccanti proiettili <color=#F0DAA0>[qualsiasi fonte dell'effetto dell'incantesimo <color=#D89555>Oscurità</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Aggiungi <color=#D89555>Visione Oscura</color>, <color=#D89555>Vista Cieca</color> e <color=#D89555>Vista Vera</color> a mostri e PNG quando appropriato</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[raccolte di impostazioni <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>Gioco da tavolo <i>[One DnD, 2024]</i>:</color>
+ModUi/&OneDnd=<color=#F0DAA0>Tavolo <i>[5e 2024]</i>:</color>
 ModUi/&OneDndHealingPotionBonusAction=Abilita l'azione bonus sugli utilizzi di <color=#D89555>Pozioni curative</color> e <color=#D89555>Antitossina</color>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostra solo le creature più potenti nell'elenco delle evocazioni</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Moltiplica la larghezza della griglia del contorno per</color> <color=#C04040E0>[%]</color>
@@ -296,9 +296,9 @@ ModUi/&Subraces=<color=#F0DAA0>Sottorazze</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Scambia le funzionalità <b>Sculpt Spells</b> e <b>Potent Cantrip</b> di <color=#D89555>Evoker</color>
 ModUi/&TableTopButton=<b><color=#D89555>Seleziona contenuto Tabletop</color></b>
-ModUi/&TableTopHelp1=• Le sezioni seguenti raggruppano e duplicano le impostazioni <color=#D89555>Classico e One DnD</color> sparse nella mod per la tua comodità
+ModUi/&TableTopHelp1=• Le sezioni seguenti raggruppano e duplicano le impostazioni <color=#D89555>5e 2014 e 2024</color> sparse nella mod per la tua comodità
 ModUi/&TableTopHelp2=• Premi il pulsante per selezionare solo il contenuto del tavolo nella scheda Personaggio e seleziona tutte le opzioni sottostanti per una vera esperienza TT
-ModUi/&Tabletop=<color=#F0DAA0>Gioco da tavolo <i>[DnD Classico, 2014]</i>:</color>
+ModUi/&Tabletop=<color=#F0DAA0>Da tavolo <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Lingua di destinazione
 ModUi/&TotalCraftingTimeModifier=<color=white>Riduci il tempo di creazione di</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Totale <color=#D89555>talenti</color> concessi al primo livello</color>

@@ -232,7 +232,7 @@ ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Les créatures
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Changez les zones <color=#D89555>obscurcies par magie</color> en bloqueurs de projectiles <color=#F0DAA0>[toute source de l'effet du sort <color=#D89555>Ténèbres</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Ajoutez <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> et <color=#D89555>TrueSight</color> aux monstres et aux PNJ lorsque cela est approprié</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[collections de paramètres <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>Jeux de société <i>[One DnD, 2024]</i> :</color>
+ModUi/&OneDnd=<color=#F0DAA0>Jeux de société <i>[5e 2024]</i> :</color>
 ModUi/&OneDndHealingPotionBonusAction=Activer l'action bonus sur les utilisations de <color=#D89555>potions de soins</color> et d'<color=#D89555>antitoxines</color>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Afficher uniquement les créatures les plus puissantes dans la liste de conjuration</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multipliez la largeur de la grille de contour par</color> <color=#C04040E0>[%]</color>
@@ -296,9 +296,9 @@ ModUi/&Subraces=<color=#F0DAA0>Sous-races</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <color=#D89555>Évocateur</color> <b>Sculpture des sorts</b> et <b>Puissant tour de passe-passe</b>
 ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>
-ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>Classic et One DnD</color> dispersés dans le mod pour votre commodité
+ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>5e 2014 et 2024</color> dispersés dans le mod pour votre commodité
 ModUi/&TableTopHelp2=• Appuyez sur le bouton pour sélectionner uniquement le contenu de table sous l'onglet Personnage et sélectionnez toutes les options ci-dessous pour une véritable expérience TT
-ModUi/&Tabletop=<color=#F0DAA0>Jeux de société <i>[DnD classique, 2014]</i> :</color>
+ModUi/&Tabletop=<color=#F0DAA0>Jeux de société <i>[5e 2014]</i> :</color>
 ModUi/&TargetLanguage=Langue cible
 ModUi/&TotalCraftingTimeModifier=<color=white>Réduisez le temps de fabrication de</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total des <color=#D89555>exploits</color> accordés au premier niveau</color>
