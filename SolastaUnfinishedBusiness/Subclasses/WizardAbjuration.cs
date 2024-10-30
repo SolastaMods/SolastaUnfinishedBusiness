@@ -18,6 +18,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamag
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
+using SolastaUnfinishedBusiness.Validators;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -28,6 +29,7 @@ public sealed class WizardAbjuration : AbstractSubclass
     internal const string SpellTag = "Abjurer";
     private const string ArcaneWardConditionName = $"Condition{Name}ArcaneWard";
     private const string ProjectedWardConditionName = $"Condition{Name}ProjectedWard";
+    private const int WardRechargeMultiplier = 2;
 
     private static FeatureDefinitionPower _powerArcaneWard;
 
@@ -208,7 +210,7 @@ public sealed class WizardAbjuration : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardAbjuration, 256))
-            .AddFeaturesAtLevel(2, MagicAffinitySavant, PowerArcaneWard)
+            .AddFeaturesAtLevel(2, MagicAffinitySavant, PowerArcaneWard, BuildRechargeArcaneWard())
             .AddFeaturesAtLevel(6, powerProjectedWard)
             .AddFeaturesAtLevel(10, featureSetImprovedAbjuration)
             .AddFeaturesAtLevel(14, featureSetSpellResistance)
@@ -286,11 +288,29 @@ public sealed class WizardAbjuration : AbstractSubclass
         // marks Arcane Ward as active
         return ConditionDefinitionBuilder
             .Create(ArcaneWardConditionName)
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation(
+                Category.Condition,
+                Gui.NoLocalization,
+                ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Beneficial)
             .SetSilent(Silent.WhenRefreshedOrRemoved)
             .SetPossessive()
             .AddToDB();
+    }
+
+    private static FeatureDefinitionPower BuildRechargeArcaneWard()
+    {
+        var powerRechargeArcaneWard = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}RechargeArcaneWard")
+            .SetGuiPresentation(Category.Feature,
+                $"Feature/&Power{Name}RechargeArcaneWardDescription",
+                FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.AtWill)
+            .SetShowCasting(false)
+            .AddToDB();
+        powerRechargeArcaneWard.AddCustomSubFeatures(new CustomBehaviorRechargeArcaneWard(powerRechargeArcaneWard));
+
+        return powerRechargeArcaneWard;
     }
 
     private static int LimitArcaneWardRecharge(RulesetCharacter character, RulesetUsablePower _, int maxUses)
@@ -328,7 +348,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             (ConsoleStyleDuplet.ParameterType.Positive, prevented.ToString()));
 
         character.UpdateUsageForPower(PowerArcaneWard, spent);
-        roll.modifier -= prevented;
+        //roll.modifier -= prevented;
         damage -= prevented;
     }
 
@@ -416,8 +436,12 @@ public sealed class WizardAbjuration : AbstractSubclass
             {
                 // if ward already exists, update pool
                 var usablePowerArcaneWard = PowerProvider.Get(PowerArcaneWard, rulesetCharacter);
+                var amount = WardRechargeMultiplier * spellCast.EffectLevel;
 
-                rulesetCharacter.UpdateUsageForPowerPool(-2 * spellCast.EffectLevel, usablePowerArcaneWard);
+                rulesetCharacter.UpdateUsageForPowerPool(-amount, usablePowerArcaneWard);
+
+                rulesetCharacter.LogCharacterUsedFeature(PowerArcaneWard, "Feedback/&ArcaneWardRecharge", true,
+                (ConsoleStyleDuplet.ParameterType.Positive, amount.ToString()));
             }
 
             if (!hasActiveWardCondition)
@@ -437,6 +461,51 @@ public sealed class WizardAbjuration : AbstractSubclass
                     0,
                     0);
             }
+        }
+    }
+
+    private sealed class CustomBehaviorRechargeArcaneWard(FeatureDefinition feature)
+        : IValidatePowerUse, IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+            var glc = action.ActingCharacter;
+
+            var actionParams = new CharacterActionParams(glc, ActionDefinitions.Id.SpendSpellSlot)
+            {
+                IntParameter = 1,
+                StringParameter = feature.Name,
+                SpellRepertoire = glc.RulesetCharacter.GetClassSpellRepertoire(WizardClass)
+            };
+
+            actionService.ReactToSpendSpellSlot(actionParams);
+            yield return battleManager.WaitForReactions(glc, actionService, count);
+
+            if (actionParams.ReactionValidated)
+            {
+                EffectHelpers.StartVisualEffect(glc, glc, Shield, EffectHelpers.EffectType.QuickCaster);
+
+                // recharge ward
+                var amount = WardRechargeMultiplier * actionParams.IntParameter;
+                glc.RulesetCharacter.UpdateUsageForPower(PowerArcaneWard, -amount);
+
+                glc.RulesetCharacter.LogCharacterUsedFeature(PowerArcaneWard, "Feedback/&ArcaneWardRecharge", true,
+                (ConsoleStyleDuplet.ParameterType.Positive, amount.ToString()));
+            }
+
+            yield break;
+        }
+
+        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower _)
+        {
+            var usablePower = PowerProvider.Get(PowerArcaneWard, rulesetCharacter);
+            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(WizardClass);
+
+            return rulesetRepertoire.AtLeastOneSpellSlotAvailable() &&
+                rulesetCharacter.GetRemainingUsesOfPower(usablePower) < rulesetCharacter.GetMaxUsesOfPower(usablePower);
         }
     }
 
