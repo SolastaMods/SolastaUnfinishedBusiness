@@ -1,5 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=Tu Guardián Arcano está activo
 Condition/&ConditionWizardAbjurationArcaneWardTitle=Guardián arcano
+Feature/&MagicAffinityWizardAbjurationSavant2024Description=Elige dos hechizos de mago de la escuela Abjuración y añádelos a tu libro de hechizos de forma gratuita. Además, siempre que obtengas acceso a un nuevo nivel de espacios para hechizos en esta clase, podrás añadir un hechizo de mago de la escuela Abjuración a tu libro de hechizos de forma gratuita.
+Feature/&MagicAffinityWizardAbjurationSavant2024Title=Sabio de la evocación
 Feature/&MagicAffinityWizardAbjurationScriberDescription=A partir del momento en que seleccionas esta escuela en el nivel 2, el oro y el tiempo que debes gastar para copiar un hechizo de Evocación en tu libro de hechizos se reducen a la mitad.
 Feature/&MagicAffinityWizardAbjurationScriberTitle=Erudito de la abjuración
 Feature/&PowerWizardAbjurationArcaneWardBG3Description=La magia residual de tus hechizos forma una barrera a tu alrededor que te protege de todo daño. Cada vez que lanzas un hechizo de Abjuración, la intensidad de la barrera aumenta según el nivel del hechizo, hasta un máximo de 2 veces tu nivel de mago. Cuando recibes daño, la barrera bloquea una cantidad de daño igual a su intensidad y su intensidad disminuye en 1.\nDespués de cada Descanso prolongado, la intensidad de la barrera se reinicia y se vuelve igual a tu nivel de mago.
@@ -20,5 +22,6 @@ Reaction/&SpendPowerProjectedWardReactTitle=Proyecto Ward
 Reaction/&SpendPowerProjectedWardTitle=Distrito proyectado
 Subclass/&WizardAbjurationDescription=La Escuela de Abjuración pone énfasis en la magia que bloquea, destierra o protege. Es una vocación orgullosa y respetada. Los miembros de esta escuela, llamados abjuradores, son buscados cuando se requiere exorcizar espíritus malignos, cuando se deben proteger lugares importantes contra el espionaje mágico y cuando se deben cerrar portales a otros planos de existencia.
 Subclass/&WizardAbjurationTitle=Abjuración
+Tag/&AbjurerSpellSpecialTagTitle=Hechizos de subclase
 Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardBG3PointsFormat=Tienes {0} de {1} Protección Arcana.\nCuando recibes daño, la protección bloquea una cantidad de daño igual a su intensidad, y su intensidad disminuye en 1. Después de lanzar un hechizo de Abjuración, la intensidad de la protección aumenta según el Nivel del hechizo, hasta un máximo de 2x tu nivel de Mago.
 Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=Tienes {0} de {1} de Resguardo Arcano.\nSiempre que recibas daño, el resguardo reduce el daño en su valor y se reduce en la cantidad de daño prevenido. Siempre que lances un conjuro de abjuración de nivel 1+, el resguardo recupera una cantidad de puntos de golpe igual al doble del nivel del conjuro.

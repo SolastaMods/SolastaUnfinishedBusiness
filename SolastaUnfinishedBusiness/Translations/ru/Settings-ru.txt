@@ -293,8 +293,10 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Пополнить магаз
 ModUi/&StockHugoStoreWithAdditionalFoci=Пополнить магазин Хьюго наборами магических фокусировок: <color=#D89555>Магических посохов</color>, <color=#D89555>Друидических подвесок</color>, <color=#D89555>Жезлов</color> и <color=#D89555>Дубинок</color>
 ModUi/&Subclasses=<color=#F0DAA0>Архетипы</color>
 ModUi/&Subraces=<color=#F0DAA0>Подрасы</color>
+ModUi/&SwapAbjurationSavant=Поменяйте <color=#D89555>Abjurer</color> <b>Abjuration Savant</b> на версию 5e 2024 <i><color=#F0DAA0>[выучите 2 школьных заклинания при получении, выучите еще 1 каждый раз, когда получаете уровень слота]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Заменить значок рецепта значком создаваемого предмета в магазине</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Поменять местами умения Волшебника школы <color=#D89555>Воплощения</color> <b>Построение заклинаний</b> и <b>Мощный заговор</b> <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&SwapEvocationSavant=Поменяйте <color=#D89555>Evoker</color> <b>Evocation Savant</b> на версию 5e 2024 <i><color=#F0DAA0>[выучите 2 школьных заклинания при получении, выучите еще 1 каждый раз, когда получаете уровень слота]</color></i>
 ModUi/&TableTopButton=<b><color=#D89555>Выберите содержимое Tabletop</color></b>
 ModUi/&TableTopHelp1=• Следующие разделы перегруппированы и дублируют настройки <color=#D89555>5e 2014 и 2024</color>, разбросанные по всему моду для вашего удобства.
 ModUi/&TableTopHelp2=• Нажмите кнопку, чтобы выбрать только настольный контент на вкладке «Персонаж», и выберите все параметры ниже, чтобы получить настоящий опыт TT

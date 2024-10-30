@@ -411,6 +411,21 @@ internal static class ToolsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.SwapAbjurationSavant;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapAbjurationSavant"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapAbjurationSavant = toggle;
+            WizardAbjuration.SwapSavantAndSavant2024();
+        }
+
+        toggle = Main.Settings.SwapEvocationSavant;
+        // ReSharper disable once InvertIf
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapEvocationSavant"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapEvocationSavant = toggle;
+            WizardEvocation.SwapSavantAndSavant2024();
+        }
+
         toggle = Main.Settings.SwapEvocationPotentCantripAndSculptSpell;
         // ReSharper disable once InvertIf
         if (UI.Toggle(Gui.Localize("ModUi/&SwapEvocationPotentCantripAndSculptSpell"), ref toggle, UI.AutoWidth()))
@@ -725,7 +740,6 @@ internal static class ToolsDisplay
         UI.Label();
 
         toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
-        // ReSharper disable once InvertIf
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardHealingBalladOnLongRest = toggle;

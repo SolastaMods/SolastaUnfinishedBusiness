@@ -378,6 +378,8 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveSchoolRestrictionsFromShadowCaster { get; set; }
     public bool RemoveSchoolRestrictionsFromSpellBlade { get; set; }
     public int WildSurgeDieRollThreshold { get; set; } = 2;
+    public bool SwapAbjurationSavant { get; set; }
+    public bool SwapEvocationSavant { get; set; }
     public bool SwapEvocationPotentCantripAndSculptSpell { get; set; }
     public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];

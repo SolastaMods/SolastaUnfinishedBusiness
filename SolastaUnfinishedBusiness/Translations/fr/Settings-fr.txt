@@ -293,8 +293,10 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Remplissez le magasin de Gori
 ModUi/&StockHugoStoreWithAdditionalFoci=Remplissez la boutique Hugo avec le <color=#D89555>bâton arcanique</color>, le <color=#D89555>cou de druide</color>, le <color=#D89555>bâton</color> et le <color=#D89555>club</color> définis comme objets prioritaires
 ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
 ModUi/&Subraces=<color=#F0DAA0>Sous-races</color>
+ModUi/&SwapAbjurationSavant=Échangez <color=#D89555>Abjurer</color> <b>Abjuration Savant</b> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <color=#D89555>Évocateur</color> <b>Sculpture des sorts</b> et <b>Puissant tour de passe-passe</b>
+ModUi/&SwapEvocationSavant=Échangez <color=#D89555>Evoker</color> <b>Evocation Savant</b> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
 ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>
 ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>5e 2014 et 2024</color> dispersés dans le mod pour votre commodité
 ModUi/&TableTopHelp2=• Appuyez sur le bouton pour sélectionner uniquement le contenu de table sous l'onglet Personnage et sélectionnez toutes les options ci-dessous pour une véritable expérience TT

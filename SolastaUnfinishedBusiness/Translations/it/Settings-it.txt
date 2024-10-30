@@ -293,8 +293,10 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Riempi il negozio di Gorim co
 ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta nel negozio di Hugo con <color=#D89555>Bastone Arcano</color>, <color=#D89555>Collo del Druido</color>, <color=#D89555>Bastone</color> e <color=#D89555>Mazza</color> impostati come oggetti principali
 ModUi/&Subclasses=<color=#F0DAA0>Sottoclassi</color>
 ModUi/&Subraces=<color=#F0DAA0>Sottorazze</color>
+ModUi/&SwapAbjurationSavant=Sostituisci <color=#D89555>Abjurer</color> <b>Abjuration Savant</b> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Scambia le funzionalità <b>Sculpt Spells</b> e <b>Potent Cantrip</b> di <color=#D89555>Evoker</color>
+ModUi/&SwapEvocationSavant=Sostituisci <color=#D89555>Evocatore</color> <b>Sapiente dell'evocazione</b> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
 ModUi/&TableTopButton=<b><color=#D89555>Seleziona contenuto Tabletop</color></b>
 ModUi/&TableTopHelp1=• Le sezioni seguenti raggruppano e duplicano le impostazioni <color=#D89555>5e 2014 e 2024</color> sparse nella mod per la tua comodità
 ModUi/&TableTopHelp2=• Premi il pulsante per selezionare solo il contenuto del tavolo nella scheda Personaggio e seleziona tutte le opzioni sottostanti per una vera esperienza TT

@@ -293,8 +293,10 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=将所有非魔法乐器存�
 ModUi/&StockHugoStoreWithAdditionalFoci=将 <color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color> 和 <color=#D89555>棍棒</color> 设置为焦点物品，放入 Hugo 的商店
 ModUi/&Subclasses=<color=#F0DAA0>子类</color>
 ModUi/&Subraces=<color=#F0DAA0>亚种</color>
+ModUi/&SwapAbjurationSavant=将 <color=#D89555>Abjurer</color> <b>Abjuration Savant</b> 与 5e 2024 版本交换 <i><color=#F0DAA0>[获得后学习 2 个学校法术，每次提升一个槽位等级时再学习 1 个]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 在商店中交换配方和制作物品图标</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=交换<color=#D89555>召唤师</color> <b>塑形法术</b>和<b>强效咒语</b>功能
+ModUi/&SwapEvocationSavant=将 <color=#D89555>Evoker</color> <b>Evocation Savant</b> 与 5e 2024 版本交换 <i><color=#F0DAA0>[获得后学习 2 个学校法术，每次提升一个槽位等级时再学习 1 个]</color></i>
 ModUi/&TableTopButton=<b><color=#D89555>选择桌面内容</color></b>
 ModUi/&TableTopHelp1=• 以下部分重新分组并复制了分散在模块中的 <color=#D89555>5e 2014 和 2024</color> 设置，以方便您使用
 ModUi/&TableTopHelp2=• 按下按钮仅选择角色选项卡下的桌面内容，并选择以下所有选项以获得真正的 TT 体验

@@ -293,8 +293,10 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=ゴリムの店に魔法以�
 ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴの店に、<color=#D89555>アーケイン スタッフ</color>、<color=#D89555>ドルイド ネック</color>、<color=#D89555>スタッフ</color>、<color=#D89555>クラブ</color>をフォーカス アイテムとして設定して在庫します。
 ModUi/&Subclasses=<color=#F0DAA0>サブクラス</color>
 ModUi/&Subraces=<color=#F0DAA0>亜種族</color>
+ModUi/&SwapAbjurationSavant=<color=#D89555>Abjurer</color> <b>Abjuration Savant</b> を 5e 2024 バージョンの <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびに 1 つずつ追加で習得する]</color></i> と入れ替えます
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフトアイテムのアイコンを交換</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>エヴォーカー</color>の<b>スカルプトスペル</b>と<b>ポテンシャルキャントリップ</b>の機能を入れ替えます
+ModUi/&SwapEvocationSavant=<color=#D89555>Evoker</color> <b>Evocation Savant</b> を 5e 2024 バージョンの <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
 ModUi/&TableTopButton=<b><color=#D89555>テーブルトップコンテンツを選択</color></b>
 ModUi/&TableTopHelp1=• 以下のセクションでは、利便性のために、mod 全体に散らばっている <color=#D89555>5e 2014 および 2024</color> 設定を再グループ化して複製します。
 ModUi/&TableTopHelp2=• ボタンを押してキャラクタータブのテーブルトップコンテンツのみを選択し、以下のすべてのオプションを選択して真のTT体験を味わってください。

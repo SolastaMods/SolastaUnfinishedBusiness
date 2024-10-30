@@ -810,6 +810,8 @@
     <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
     <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
     <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
+    <SwapAbjurationSavant>false</SwapAbjurationSavant>
+    <SwapEvocationSavant>false</SwapEvocationSavant>
     <SwapEvocationPotentCantripAndSculptSpell>false</SwapEvocationPotentCantripAndSculptSpell>
     <KlassListSliderPosition>
         <item>

@@ -1,5 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=비전의 보호막이 활성화되었습니다.
 Condition/&ConditionWizardAbjurationArcaneWardTitle=비전의 보호막
+Feature/&MagicAffinityWizardAbjurationSavant2024Description=Abjuration 학교에서 마법사 주문 두 개를 선택하여 주문서에 무료로 추가하세요. 또한, 이 클래스에서 새로운 레벨의 주문 슬롯에 접근할 때마다 Abjuration 학교에서 마법사 주문 하나를 주문서에 무료로 추가할 수 있습니다.
+Feature/&MagicAffinityWizardAbjurationSavant2024Title=에보케이션 사반트
 Feature/&MagicAffinityWizardAbjurationScriberDescription=2레벨에서 이 학교를 선택하면 주문서에 유발 주문을 복사하는 데 필요한 골드와 시간이 절반으로 줄어듭니다.
 Feature/&MagicAffinityWizardAbjurationScriberTitle=포기 학자
 Feature/&PowerWizardAbjurationArcaneWardBG3Description=주문의 잔여 마법은 주변에 보호막을 형성하여 해를 입지 않도록 보호합니다. Abjuration 주문을 시전할 때마다 보호막의 강도는 주문 레벨만큼 증가하며, 최대 위저드 레벨의 2배까지 증가합니다.\피해를 입으면 보호막은 강도와 같은 양의 피해를 차단하고 강도는 1만큼 감소합니다.\n긴 휴식을 취할 때마다 보호막의 강도가 재설정되어 위저드 레벨과 같아집니다.
@@ -20,5 +22,6 @@ Reaction/&SpendPowerProjectedWardReactTitle=프로젝트 워드
 Reaction/&SpendPowerProjectedWardTitle=예상 병동
 Subclass/&WizardAbjurationDescription=Abjuration School은 차단, 추방 또는 보호하는 마법을 강조합니다. 자랑스럽고 존경받는 직업입니다. Abjurers라고 불리는 이 학교의 구성원은 사악한 영혼이 엑소시즘을 필요로 할 때, 중요한 장소를 마법적 감시로부터 보호해야 할 때, 다른 존재 평면으로 가는 포털을 닫아야 할 때 찾습니다.
 Subclass/&WizardAbjurationTitle=포기
+Tag/&AbjurerSpellSpecialTagTitle=하위 클래스 주문
 Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardBG3PointsFormat=당신은 {0}의 {1}개의 비전 보호막을 가지고 있습니다.\n당신이 피해를 입으면, 보호막은 그 강도와 같은 양의 피해를 차단하고, 그 강도는 1만큼 감소합니다. 당신이 회피 주문을 시전한 후에는 보호막의 강도가 주문 레벨에 따라 증가하며, 최대 마법사 레벨의 2배까지 증가합니다.
 Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=당신은 {1}개의 Arcane Ward 중 {0}개를 가지고 있습니다.\n당신이 피해를 입을 때마다, Ward는 피해량을 그 값만큼 감소시키고, 방지한 피해량만큼 감소시킵니다. 당신이 1+레벨의 금지 주문을 시전할 때마다, Ward는 주문 레벨의 두 배에 해당하는 수의 생명력을 회복합니다.

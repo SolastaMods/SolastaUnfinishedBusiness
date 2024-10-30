@@ -1,5 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=Sua Arcane Ward está ativa
 Condition/&ConditionWizardAbjurationArcaneWardTitle=Proteção Arcana
+Feature/&MagicAffinityWizardAbjurationSavant2024Description=Escolha duas magias de Mago da escola de Abjuração e adicione-as ao seu grimório de graça. Além disso, sempre que você ganhar acesso a um novo nível de espaços de magia nesta classe, você pode adicionar uma magia de Mago da escola de Abjuração ao seu grimório de graça.
+Feature/&MagicAffinityWizardAbjurationSavant2024Title=Evocação Savant
 Feature/&MagicAffinityWizardAbjurationScriberDescription=A partir do momento em que você seleciona esta escola no 2º nível, o ouro e o tempo que você deve gastar para copiar uma magia de Evocação para seu grimório são reduzidos pela metade.
 Feature/&MagicAffinityWizardAbjurationScriberTitle=Estudioso de Abjuração
 Feature/&PowerWizardAbjurationArcaneWardBG3Description=A magia residual de suas magias forma uma proteção ao seu redor que o protege de danos. Cada vez que você conjura uma magia de Abjuração, a intensidade da proteção aumenta pelo Nível da magia, até um máximo de 2x seu nível de Mago.\Quando você recebe dano, a proteção bloqueia uma quantidade de dano igual à sua intensidade, e sua intensidade diminui em 1.\nApós cada Descanso Longo, a intensidade da proteção é reiniciada e se torna a mesma que seu nível de Mago.
@@ -20,5 +22,6 @@ Reaction/&SpendPowerProjectedWardReactTitle=Projeto Ala
 Reaction/&SpendPowerProjectedWardTitle=Ala projetada
 Subclass/&WizardAbjurationDescription=A Escola de Abjuração enfatiza a magia que bloqueia, bane ou protege. É uma vocação orgulhosa e respeitada. Chamados de abjuradores, os membros desta escola são procurados quando espíritos malignos exigem exorcismo, quando locais importantes devem ser protegidos contra espionagem mágica e quando portais para outros planos de existência devem ser fechados.
 Subclass/&WizardAbjurationTitle=Abjuração
+Tag/&AbjurerSpellSpecialTagTitle=Magias de Subclasse
 Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardBG3PointsFormat=Você tem {0} de {1} Proteção Arcana.\nQuando você sofre dano, a proteção bloqueia uma quantidade de dano igual à sua intensidade, e sua intensidade diminui em 1. Depois que você conjura uma magia de Abjuração, a intensidade da proteção aumenta pelo Nível da magia, até um máximo de 2x seu nível de Mago.
 Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=Você tem {0} de {1} Arcane Ward.\nSempre que você recebe dano, a proteção reduz o dano pelo seu valor e é diminuída pela quantidade de dano prevenido. Sempre que você conjura uma magia de abjuração de 1º+ nível, a proteção recupera um número de pontos de vida igual ao dobro do nível da magia.

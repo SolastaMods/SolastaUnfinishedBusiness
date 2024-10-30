@@ -1,5 +1,7 @@
 Condition/&ConditionWizardAbjurationArcaneWardDescription=Dein Arkaner Schutz ist aktiv
 Condition/&ConditionWizardAbjurationArcaneWardTitle=Arkaner Schutz
+Feature/&MagicAffinityWizardAbjurationSavant2024Description=Wählen Sie zwei Zaubersprüche der Schule der Abschwörung und fügen Sie sie kostenlos Ihrem Zauberbuch hinzu. Außerdem können Sie, wenn Sie Zugriff auf eine neue Stufe von Zauberplätzen in dieser Klasse erhalten, einen Zauberspruch der Schule der Abschwörung kostenlos Ihrem Zauberbuch hinzufügen.
+Feature/&MagicAffinityWizardAbjurationSavant2024Title=Beschwörungsgelehrter
 Feature/&MagicAffinityWizardAbjurationScriberDescription=Ab der Auswahl dieser Schule auf der 2. Stufe halbiert sich der Gold- und Zeitaufwand, den Sie zum Kopieren eines Beschwörungszaubers in Ihr Zauberbuch benötigen.
 Feature/&MagicAffinityWizardAbjurationScriberTitle=Gelehrter der Abschwörung
 Feature/&PowerWizardAbjurationArcaneWardBG3Description=Die Restmagie deiner Zauber bildet einen Schutz um dich herum, der dich vor Schaden schützt. Jedes Mal, wenn du einen Bannzauber wirkst, erhöht sich die Intensität des Schutzes um die Stufe des Zaubers, bis zu einem Maximum von 2x deiner Zaubererstufe.\Wenn du Schaden nimmst, blockiert der Schutz eine Schadensmenge, die seiner Intensität entspricht, und seine Intensität verringert sich um 1.\nNach jeder langen Pause wird die Intensität des Schutzes zurückgesetzt und entspricht deiner Zaubererstufe.
@@ -20,5 +22,6 @@ Reaction/&SpendPowerProjectedWardReactTitle=Projekt Ward
 Reaction/&SpendPowerProjectedWardTitle=Projizierter Bezirk
 Subclass/&WizardAbjurationDescription=Die Schule der Abschwörung konzentriert sich auf Magie, die blockiert, verbannt oder schützt. Es ist ein stolzer und respektierter Beruf. Mitglieder dieser Schule, die Abschwörer genannt werden, werden gesucht, wenn unheilvolle Geister exorziert werden müssen, wenn wichtige Orte vor magischer Spionage geschützt werden müssen und wenn Portale zu anderen Existenzebenen geschlossen werden müssen.
 Subclass/&WizardAbjurationTitle=Abschwörung
+Tag/&AbjurerSpellSpecialTagTitle=Unterklassenzauber
 Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardBG3PointsFormat=Du hast {0} von {1} Arkaner Schutz.\nWenn du Schaden erleidest, blockiert der Schutz eine Schadensmenge, die seiner Intensität entspricht, und seine Intensität verringert sich um 1. Nachdem du einen Bannzauber gewirkt hast, erhöht sich die Intensität des Schutzes um die Stufe des Zaubers, bis zu einem Maximum von dem Zweifachen deiner Zaubererstufe.
 Tooltip/&PortraitPoolPowerWizardAbjurationArcaneWardPointsFormat=Du hast {0} von {1} Arkaner Schutz.\nWenn du Schaden nimmst, reduziert der Schutz den Schaden um seinen Wert und wird um die verhinderte Schadensmenge verringert. Wenn du einen Bannzauber der Stufe 1+ wirkst, erhält der Schutz eine Anzahl an Trefferpunkten zurück, die der doppelten Stufe des Zaubers entspricht.

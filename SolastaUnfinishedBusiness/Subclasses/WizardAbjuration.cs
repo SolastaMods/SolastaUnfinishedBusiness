@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -23,7 +24,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class WizardAbjuration : AbstractSubclass
 {
-    private const string Name = "WizardAbjuration";
+    internal const string Name = "WizardAbjuration";
+    internal const string SpellTag = "Abjurer";
     private const string ArcaneWardConditionName = $"Condition{Name}ArcaneWard";
     private const string ProjectedWardConditionName = $"Condition{Name}ProjectedWard";
 
@@ -31,16 +33,39 @@ public sealed class WizardAbjuration : AbstractSubclass
 
     private static ConditionDefinition _conditionArcaneWard;
 
+    private static readonly SpellListDefinition SpellListAbjurer = SpellListDefinitionBuilder
+        .Create(SpellListDefinitions.SpellListWizard, $"SpellList{Name}")
+        .AddToDB();
+
+    private static readonly FeatureDefinitionMagicAffinity MagicAffinitySavant = FeatureDefinitionMagicAffinityBuilder
+        .Create($"MagicAffinity{Name}Scriber")
+        .SetGuiPresentation($"MagicAffinity{Name}Scriber", Category.Feature)
+        .SetSpellLearnAndPrepModifiers(
+            0.5f, 0.5f, 0, AdvantageType.None, PreparedSpellsModifier.None)
+        .AddCustomSubFeatures(new ModifyScribeCostAndDurationAbjurationSavant())
+        .AddToDB();
+
+    // no spell tag here as this work correctly with vanilla
+    private static readonly FeatureDefinitionPointPool MagicAffinitySavant2024 = FeatureDefinitionPointPoolBuilder
+        .Create($"MagicAffinity{Name}Savant2024")
+        .SetGuiPresentation(Category.Feature)
+        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 2, SpellListAbjurer)
+        .AddToDB();
+
+    // need spell tag here to get this offered on level up and
+    // let custom behavior at CharacterBuildingManager.FinalizeCharacter grant the spell
+    private static readonly FeatureDefinitionPointPool MagicAffinitySavant2024Progression =
+        FeatureDefinitionPointPoolBuilder
+            .Create($"MagicAffinity{Name}Savant2024Progression")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 1, SpellListAbjurer, SpellTag)
+            .AddToDB();
+
+    private static CharacterSubclassDefinition _subclass;
+
     public WizardAbjuration()
     {
         // Lv.2 Abjuration Savant
-        var magicAffinityAbjurationScriber = FeatureDefinitionMagicAffinityBuilder
-            .Create($"MagicAffinity{Name}Scriber")
-            .SetGuiPresentation($"MagicAffinity{Name}Scriber", Category.Feature)
-            .SetSpellLearnAndPrepModifiers(
-                0.5f, 0.5f, 0, AdvantageType.None, PreparedSpellsModifier.None)
-            .AddCustomSubFeatures(new ModifyScribeCostAndDurationAbjurationSavant())
-            .AddToDB();
 
         // LV.2 Arcane Ward
         // initialize power points pool with INT mod points
@@ -183,13 +208,13 @@ public sealed class WizardAbjuration : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardAbjuration, 256))
-            .AddFeaturesAtLevel(2, magicAffinityAbjurationScriber, PowerArcaneWard)
+            .AddFeaturesAtLevel(2, MagicAffinitySavant, PowerArcaneWard)
             .AddFeaturesAtLevel(6, powerProjectedWard)
             .AddFeaturesAtLevel(10, featureSetImprovedAbjuration)
             .AddFeaturesAtLevel(14, featureSetSpellResistance)
             .AddToDB();
 
-        UpdateBg3ModeStatus();
+        _subclass = Subclass;
     }
 
     private static FeatureDefinitionPower PowerArcaneWard => _powerArcaneWard ??= BuildArcaneWard();
@@ -205,6 +230,46 @@ public sealed class WizardAbjuration : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    internal static void LateLoad()
+    {
+        SwapSavantAndSavant2024();
+        SwapAbjurationBaldurGate3Mode();
+
+        SpellListAbjurer.SpellsByLevel.SetRange(
+            SpellListDefinitions.SpellListWizard.SpellsByLevel
+                .Select(spellByLevel => new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellByLevel.Level,
+                    spells = spellByLevel.Spells.Where(x => x.SchoolOfMagic == SchoolAbjuration).ToList()
+                }));
+    }
+
+    internal static void SwapSavantAndSavant2024()
+    {
+        var level = Main.Settings.EnableWizardToLearnSchoolAtLevel3 ? 3 : 2;
+
+        _subclass.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == MagicAffinitySavant ||
+            x.FeatureDefinition == MagicAffinitySavant2024 ||
+            x.FeatureDefinition == MagicAffinitySavant2024Progression);
+
+        if (Main.Settings.SwapAbjurationSavant)
+        {
+            _subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(MagicAffinitySavant2024, level));
+
+            for (var i = 5; i <= 20; i += 2)
+            {
+                _subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(MagicAffinitySavant2024Progression, i));
+            }
+        }
+        else
+        {
+            _subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(MagicAffinitySavant, level));
+        }
+
+        _subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
 
     private static FeatureDefinitionPower BuildArcaneWard()
     {
@@ -281,7 +346,7 @@ public sealed class WizardAbjuration : AbstractSubclass
         };
     }
 
-    public static void UpdateBg3ModeStatus()
+    internal static void SwapAbjurationBaldurGate3Mode()
     {
         if (IsBg3Mode)
         {
