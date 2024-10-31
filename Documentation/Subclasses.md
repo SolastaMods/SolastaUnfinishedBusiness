@@ -6789,7 +6789,11 @@ Beginning when you select this school at 2nd level, the gold and time you must s
 
 * Arcane Ward
 
-When you cast an abjuration spell of 1st+ level, you create a magical ward on yourself that lasts until you finish a long rest. The ward has hit points equal to twice your wizard level + your Intelligence modifier. Whenever you take damage, the ward takes the damage instead. Whenever you cast an abjuration spell of 1st+ level, the ward regains a number of hit points equal to twice the level of the spell.
+When you cast an abjuration spell of 1st+ level, you create a magical ward on yourself that lasts until you finish a long rest. The ward has hit points equal to twice your wizard level + your Intelligence modifier. Whenever you take damage, the ward takes the damage instead. Whenever you cast an abjuration spell of 1st+ level, the ward regains a number of hit points equal to 2x the level of the expended spell slot.
+
+* Recharge Arcane Ward
+
+As a bonus action, expend a spell slot to have your Arcane Ward regains a Hit Points equal to 2x the level of the expended spell slot..
 
 
 ### Level 6

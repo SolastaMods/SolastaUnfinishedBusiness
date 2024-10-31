@@ -4,7 +4,8 @@
 - added Character > Classes > 'Enable Wizard to learn Scholar at level 2' [OneDnd]
 - added Character > Subclasses > 'Swap Abjurer abjuration savant with 5e 2024 version' [OneDnd]
 - added Character > Subclasses > 'Swap Evoker evocation savant with 5e 2024 version' [OneDnd]
-- fixed Wizard Graviturgist descriptions, SFX, and behaviors
+- added recharge bonus action to Wizard Abjuration arcane ward
+- improved Wizard Graviturgist descriptions, SFX, and behaviors
 - renamed mod UI tabletop sections to 5e 2014, and 5e 2024
 
 KNOWN ISSUES:
