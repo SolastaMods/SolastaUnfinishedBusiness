@@ -534,7 +534,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            if (action.AttackRollOutcome == RollOutcome.Failure)
+            if (action.AttackRollOutcome == RollOutcome.Failure || defender.RulesetCharacter == null)
             {
                 yield break;
             }
@@ -551,6 +551,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             SavingThrowData savingThrowData,
             bool hasHitVisual)
         {
+            if(defender.RulesetCharacter == null) { yield break; }
             var effectDescription = savingThrowData.EffectDescription;
             var canForceHalfDamage = attacker != null
                                      && savingThrowData.SourceDefinition is SpellDefinition spell
