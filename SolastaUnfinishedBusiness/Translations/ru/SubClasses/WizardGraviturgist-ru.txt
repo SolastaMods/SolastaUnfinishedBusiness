@@ -1,3 +1,5 @@
+Action/&GravityWellToggleDescription=Активировать/Деактивировать Gravity Well
+Action/&GravityWellToggleTitle=Гравитационный колодец
 Condition/&ConditionWizardGraviturgistDensityDecreaseDescription=Скорость увеличена на 2. Помеха на проверки и спасброски Силы.
 Condition/&ConditionWizardGraviturgistDensityDecreaseTitle=Уменьшенная плотность
 Condition/&ConditionWizardGraviturgistDensityIncreaseDescription=Скорость уменьшена на 2. Преимущество на проверки и спасброски Силы.

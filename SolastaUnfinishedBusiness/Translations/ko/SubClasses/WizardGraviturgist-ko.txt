@@ -1,3 +1,5 @@
+Action/&GravityWellToggleDescription=중력 우물 활성화/비활성화
+Action/&GravityWellToggleTitle=중력 우물
 Condition/&ConditionWizardGraviturgistDensityDecreaseDescription=속도가 2만큼 증가했습니다. 근력 판정과 내성 굴림에 불리합니다.
 Condition/&ConditionWizardGraviturgistDensityDecreaseTitle=밀도 감소
 Condition/&ConditionWizardGraviturgistDensityIncreaseDescription=속도가 2만큼 감소했습니다. 근력 판정과 내성 굴림에 유리합니다.

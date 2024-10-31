@@ -1,3 +1,5 @@
+Action/&GravityWellToggleDescription=Attiva/disattiva Gravity Well
+Action/&GravityWellToggleTitle=Pozzo gravitazionale
 Condition/&ConditionWizardGraviturgistDensityDecreaseDescription=Velocità aumentata di 2. Svantaggio nelle prove di Forza e nei tiri salvezza.
 Condition/&ConditionWizardGraviturgistDensityDecreaseTitle=Densità ridotta
 Condition/&ConditionWizardGraviturgistDensityIncreaseDescription=Velocità ridotta di 2. Vantaggio nelle prove di Forza e nei tiri salvezza.

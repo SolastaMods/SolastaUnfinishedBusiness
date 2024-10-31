@@ -1,3 +1,5 @@
+Action/&GravityWellToggleDescription=Ativar/Desativar Poço Gravitacional
+Action/&GravityWellToggleTitle=Poço de gravidade
 Condition/&ConditionWizardGraviturgistDensityDecreaseDescription=Velocidade aumentada em 2. Desvantagem em testes de Força e testes de resistência.
 Condition/&ConditionWizardGraviturgistDensityDecreaseTitle=Densidade Diminuída
 Condition/&ConditionWizardGraviturgistDensityIncreaseDescription=Velocidade reduzida em 2. Vantagem em testes de Força e testes de resistência.

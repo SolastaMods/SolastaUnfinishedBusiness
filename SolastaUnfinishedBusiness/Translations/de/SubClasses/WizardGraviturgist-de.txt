@@ -1,3 +1,5 @@
+Action/&GravityWellToggleDescription=Schwerkraftbrunnen aktivieren/deaktivieren
+Action/&GravityWellToggleTitle=Schwerkraftbrunnen
 Condition/&ConditionWizardGraviturgistDensityDecreaseDescription=Geschwindigkeit um 2 erhöht. Nachteil bei Stärkeprüfungen und Rettungswürfen.
 Condition/&ConditionWizardGraviturgistDensityDecreaseTitle=Verringerte Dichte
 Condition/&ConditionWizardGraviturgistDensityIncreaseDescription=Geschwindigkeit um 2 verringert. Vorteil bei Stärkeprüfungen und Rettungswürfen.

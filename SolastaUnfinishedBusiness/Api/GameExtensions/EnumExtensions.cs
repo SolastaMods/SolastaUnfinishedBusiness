@@ -81,6 +81,7 @@ internal enum ExtraActionId
     PowerAttackToggle,
     DeadEyeToggle,
     OverChannelToggle,
+    GravityWellToggle,
     PrioritizeAction = 10000
 }
 

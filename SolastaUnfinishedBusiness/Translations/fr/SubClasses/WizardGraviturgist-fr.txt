@@ -1,3 +1,5 @@
+Action/&GravityWellToggleDescription=Activer/désactiver le puits de gravité
+Action/&GravityWellToggleTitle=Puits de gravité
 Condition/&ConditionWizardGraviturgistDensityDecreaseDescription=Vitesse augmentée de 2. Désavantage aux tests de Force et aux jets de sauvegarde.
 Condition/&ConditionWizardGraviturgistDensityDecreaseTitle=Densité diminuée
 Condition/&ConditionWizardGraviturgistDensityIncreaseDescription=Vitesse diminuée de 2. Avantage aux tests de Force et aux jets de sauvegarde.

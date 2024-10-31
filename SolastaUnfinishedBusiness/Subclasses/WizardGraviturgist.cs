@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -136,6 +137,12 @@ public sealed class WizardGraviturgist : AbstractSubclass
 
         // Gravity Well
 
+        var actionAffinityGravityWellToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityGravityWellToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.GravityWellToggle)
+            .AddToDB();
+        
         var powerGravityWell = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}GravityWell")
             .SetGuiPresentation(Category.Feature)
@@ -151,6 +158,8 @@ public sealed class WizardGraviturgist : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
+                    c.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.OverChannelToggle)))
             .AddToDB();
 
         // LEVEL 10
@@ -279,7 +288,7 @@ public sealed class WizardGraviturgist : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardGravityMage, 256))
             .AddFeaturesAtLevel(2, powerDensity, powerDensityIncrease, powerDensityDecrease)
-            .AddFeaturesAtLevel(6, powerGravityWell)
+            .AddFeaturesAtLevel(6, actionAffinityGravityWellToggle, powerGravityWell)
             .AddFeaturesAtLevel(10, powerViolentAttraction)
             .AddFeaturesAtLevel(14, powerEventHorizon)
             .AddToDB();

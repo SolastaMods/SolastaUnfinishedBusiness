@@ -1,0 +1,50 @@
+{
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
+  "forbiddenActions": [],
+  "authorizedActions": [
+    9079
+  ],
+  "restrictedActions": [],
+  "actionExecutionModifiers": [],
+  "specialBehaviour": "None",
+  "randomBehaviorDie": "D10",
+  "randomBehaviourOptions": [],
+  "rechargeReactionsAtEveryTurn": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "7384e03c-b244-5c70-b1ef-f1c73eadf997",
+  "contentPack": 9999,
+  "name": "ActionAffinityGravityWellToggle"
+}

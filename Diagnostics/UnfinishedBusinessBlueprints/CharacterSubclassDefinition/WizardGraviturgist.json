@@ -23,6 +23,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityGravityWellToggle:7384e03c-b244-5c70-b1ef-f1c73eadf997",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerWizardGraviturgistViolentAttraction:643279dd-430f-5388-95a0-5a31d68ca973",
       "level": 10
     },

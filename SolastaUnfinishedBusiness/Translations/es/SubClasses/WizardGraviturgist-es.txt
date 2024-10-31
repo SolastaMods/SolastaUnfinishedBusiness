@@ -1,3 +1,5 @@
+Action/&GravityWellToggleDescription=Activar/desactivar pozo de gravedad
+Action/&GravityWellToggleTitle=Pozo de gravedad
 Condition/&ConditionWizardGraviturgistDensityDecreaseDescription=Velocidad aumentada en 2. Desventaja en pruebas de Fuerza y tiros de salvación.
 Condition/&ConditionWizardGraviturgistDensityDecreaseTitle=Densidad reducida
 Condition/&ConditionWizardGraviturgistDensityIncreaseDescription=Velocidad reducida en 2. Ventaja en pruebas de Fuerza y tiradas de salvación.

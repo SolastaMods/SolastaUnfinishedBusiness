@@ -1,3 +1,5 @@
+Action/&GravityWellToggleDescription=启动/关闭重力井
+Action/&GravityWellToggleTitle=重力井
 Condition/&ConditionWizardGraviturgistDensityDecreaseDescription=移动速度增加 2 尺。在力量检定和豁免检定上具有劣势。
 Condition/&ConditionWizardGraviturgistDensityDecreaseTitle=降低密度
 Condition/&ConditionWizardGraviturgistDensityIncreaseDescription=移动速度降低 2 尺。在力量检定和豁免检定上具有优势。
