@@ -151,6 +151,7 @@ ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>자연의 베
 ModUi/&EnableRangerSpellCastingAtLevel1=<b>레인저</b>가 레벨 2가 아닌 레벨 1에서 <color=#D89555>주문 시전</color> 능력을 획득할 수 있도록 합니다.
 ModUi/&EnableRelearnSpells=다른 출처에서 이미 배운 주문이나 주문 선택 가능
 ModUi/&EnableRespecAction=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
+ModUi/&EnableRitualOnAllCasters=모든 <b>캐스터</b>에게 <color=#D89555>의식</color> 주문을 활성화합니다.
 ModUi/&EnableRogueCunningStrike=레벨 5와 14에서 <color=#D89555>교활한 일격</color>과 <color=#D89555>사악한 일격</color>을 활성화합니다. <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기합니다]</color></i>
 ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
 ModUi/&EnableRogueSteadyAim=레벨 3에서 <color=#D89555>안정적인 조준</color>을 활성화합니다. <i><color=#F0DAA0>[현재 턴에서 아직 이동하지 않았다면 다음 공격 굴림에 보너스 액션이 유리해집니다.]</color></i>

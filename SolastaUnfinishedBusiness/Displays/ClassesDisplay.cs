@@ -22,6 +22,13 @@ internal static class ClassesDisplay
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
+        toggle = Main.Settings.EnableRitualOnAllCasters;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRitualOnAllCasters = toggle;
+            SrdAndHouseRulesContext.SwitchEnableRitualOnAllCasters();
+        }
+
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {

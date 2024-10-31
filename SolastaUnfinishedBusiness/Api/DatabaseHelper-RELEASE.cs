@@ -1551,6 +1551,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetClericRitualCasting { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetClericRitualCasting");
+
         internal static FeatureDefinitionFeatureSet FeatureSetSorcererChildRiftRiftwalk { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererChildRiftRiftwalk");
 

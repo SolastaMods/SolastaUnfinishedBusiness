@@ -151,6 +151,7 @@ ModUi/&EnableRangerNatureShroudAt10=Включить умение <color=#D89555
 ModUi/&EnableRangerSpellCastingAtLevel1=Включить <b>Следопыту</b> возможность <color=#D89555>наложения заклинаний</color> на 1-м уровне вместо 2-го <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&EnableRelearnSpells=Включить возможность выбирать заговоры или заклинания, уже известные из других источников
 ModUi/&EnableRespecAction=Включить возможность <color=#D89555>РЕСПЕКа</color> после отдыха <i><color=#F0DAA0>[не используйте РЕСПЕК в многопользовательских сессиях]</color></i>
+ModUi/&EnableRitualOnAllCasters=Включить <color=#D89555>ритуальное</color> заклинание для всех <b>заклинателей</b>
 ModUi/&EnableRogueCunningStrike=Включить умения <color=#D89555>Хитрого удара</color> и <color=#D89555>Коварного удара</color> на уровнях 5 и 14 соответственно <i><color=#F0DAA0>[вы отказываетесь от 1 кости скрытой атаки для применения дополнительных эффектов]</color></i>
 ModUi/&EnableRogueFightingStyle=Включить выбор <color=#D89555>Боевого стиля</color> на уровне 2
 ModUi/&EnableRogueSteadyAim=Включить <color=#D89555>Точное прицеливание</color> на уровне 3 <i><color=#F0DAA0>[бонусным действием даёт преимущество на следующий бросок атаки в текущем ходу, если вы ещё не перемещались]</color></i>

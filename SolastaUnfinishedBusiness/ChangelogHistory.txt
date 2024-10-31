@@ -1,5 +1,6 @@
 1.5.97.37:
 
+- added Character > Classes > 'Enable Ritual casting on all casters' [OneDnd]
 - added Character > Classes > 'Enable Wizard to learn Scholar at level 2' [OneDnd]
 - added Character > Subclasses > 'Swap Abjurer abjuration savant with 5e 2024 version' [OneDnd]
 - added Character > Subclasses > 'Swap Evoker evocation savant with 5e 2024 version' [OneDnd]

@@ -260,6 +260,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool AllowDruidToWearMetalArmor { get; set; }
+    public bool EnableRitualOnAllCasters { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
     public bool DisableBarbarianBrutalCritical { get; set; }

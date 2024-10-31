@@ -20,6 +20,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSense
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRegenerations;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -329,6 +330,44 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    internal static void SwitchEnableRitualOnAllCasters()
+    {
+        var subclasses = SharedSpellsContext.SubclassCasterType.Keys.Select(GetDefinition<CharacterSubclassDefinition>);
+
+        if (Main.Settings.EnableRitualOnAllCasters)
+        {
+            Paladin.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericRitualCasting,
+                Main.Settings.EnablePaladinSpellCastingAtLevel1 ? 1 : 2));
+            Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericRitualCasting,
+                Main.Settings.EnableRangerSpellCastingAtLevel1 ? 1 : 2));
+            Sorcerer.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericRitualCasting, 1));
+        }
+        else
+        {
+            Paladin.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetClericRitualCasting);
+            Ranger.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetClericRitualCasting);
+            Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetClericRitualCasting);
+        }
+
+        Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+
+        foreach (var subclass in subclasses)
+        {
+            if (Main.Settings.EnableRitualOnAllCasters)
+            {
+                subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericRitualCasting, 3));
+            }
+            else
+            {
+                subclass.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetClericRitualCasting);
+            }
+
+            subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
     internal static void SwitchMagicStaffFoci()
     {
         if (!Main.Settings.MakeAllMagicStaveArcaneFoci)
@@ -447,6 +486,13 @@ internal static class SrdAndHouseRulesContext
             featureUnlock.level = level;
         }
 
+        // allows back and forth compatibility with EnableRitualOnAllCasters
+        foreach (var featureUnlock in Paladin.FeatureUnlocks
+                     .Where(x => x.FeatureDefinition == FeatureSetClericRitualCasting))
+        {
+            featureUnlock.level = level;
+        }
+
         Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
 
         if (Main.Settings.EnablePaladinSpellCastingAtLevel1)
@@ -469,6 +515,13 @@ internal static class SrdAndHouseRulesContext
 
         foreach (var featureUnlock in Ranger.FeatureUnlocks
                      .Where(x => x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellRanger))
+        {
+            featureUnlock.level = level;
+        }
+
+        // allows back and forth compatibility with EnableRitualOnAllCasters
+        foreach (var featureUnlock in Ranger.FeatureUnlocks
+                     .Where(x => x.FeatureDefinition == FeatureSetClericRitualCasting))
         {
             featureUnlock.level = level;
         }
@@ -566,6 +619,8 @@ internal static class SrdAndHouseRulesContext
         {
             Wizard.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolWizardScholar);
         }
+
+        Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchFilterOnHideousLaughter()

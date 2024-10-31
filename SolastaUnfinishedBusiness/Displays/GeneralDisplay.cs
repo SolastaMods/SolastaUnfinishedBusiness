@@ -260,6 +260,13 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
+        toggle = Main.Settings.EnableRitualOnAllCasters;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRitualOnAllCasters = toggle;
+            SrdAndHouseRulesContext.SwitchEnableRitualOnAllCasters();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.EnableBarbarianBrutalStrike;

@@ -151,6 +151,7 @@ ModUi/&EnableRangerNatureShroudAt10=Activez la fonction <color=#D89555>Voile de 
 ModUi/&EnableRangerSpellCastingAtLevel1=Permettre au Ranger d'acquérir le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
 ModUi/&EnableRelearnSpells=Activer la sélection de sorts ou de sorts déjà appris à partir d'autres sources
 ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après le repos <i><color=#F0DAA0>[ne pas utiliser RESPEC pendant une session multijoueur]</color></i>
+ModUi/&EnableRitualOnAllCasters=Activer le lancement de <color=#D89555>rituel</color> sur tous les <b>lanceurs</b>
 ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color> et <color=#D89555>Devious Strike</color> aux niveaux 5 et 14 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
 ModUi/&EnableRogueSteadyAim=Activez la <color=#D89555>Visée constante</color> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage sur votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
