@@ -287,6 +287,14 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WizardTitle") + ":</color>");
         UI.Label();
 
+
+        toggle = Main.Settings.EnableWizardToLearnScholarAtLevel2;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnScholarAtLevel2"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWizardToLearnScholarAtLevel2 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWizardScholar();
+        }
+
         toggle = Main.Settings.EnableWizardToLearnSchoolAtLevel3;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnSchoolAtLevel3"), ref toggle, UI.AutoWidth()))
         {

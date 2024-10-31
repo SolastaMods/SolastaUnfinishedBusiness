@@ -167,6 +167,7 @@ ModUi/&EnableTooltipDistance=戦闘中のキャラクターにマウスを移動
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>素手攻撃</color>アクションを有効にする <i><color=#F0DAA0>[アクターがメインに武器を持っているか、<b>モンク</b>を持っているか、<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>エレメンタル召喚</color>と<color=#D89555>フェイ召喚</color>のアップキャストを有効にする
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
+ModUi/&EnableWizardToLearnScholarAtLevel2=<b>ウィザード</b>がレベル2で<b>学者</b>を習得できるようにする
 ModUi/&EnableWizardToLearnSchoolAtLevel3=<b>ウィザード</b>がレベル2ではなくレベル3で魔法の学校を取得できるようにします
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と <color=#D89555>特技</color> の選択の両方を有効にします <i><color=#F0DAA0>[排他的選択の代わりに]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>ランダムエンカウントの確率を設定する</color>

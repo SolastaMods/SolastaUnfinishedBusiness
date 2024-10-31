@@ -167,6 +167,7 @@ ModUi/&EnableTooltipDistance=在战斗中将鼠标悬停在角色上时启用在
 ModUi/&EnableUnarmedMainAttackAction=启用<color=#D89555>徒手攻击</color>动作<i><color=#F0DAA0>[如果演员主武器为武器、是<b>僧侣</b>或装备有<b>手套</b>或<b>铁手套</b>]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=启用 <color=#D89555>Conjure Elemental</color> 和 <color=#D89555>Conjure Fey</color> 的向上转换
 ModUi/&EnableVariablePlaceholdersOnTexts=在描述中启用变量占位符<i><color=#F0DAA0>[使用 {VARIABLE_NAME} 作为占位符]</color></i>
+ModUi/&EnableWizardToLearnScholarAtLevel2=使<b>巫师</b>能够学习 2 级的<b>学者</b>
 ModUi/&EnableWizardToLearnSchoolAtLevel3=使<b>巫师</b>能够以 3 级（而非 2 级）获得魔法学派
 ModUi/&EnablesAsiAndFeat=同时启用属性得分增加和<color=#D89555>专长</color>选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇的百分比几率</color>

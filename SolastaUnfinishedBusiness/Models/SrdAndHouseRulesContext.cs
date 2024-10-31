@@ -85,6 +85,19 @@ internal static class SrdAndHouseRulesContext
             .SetInitiativeAffinity(AdvantageType.Disadvantage)
             .AddToDB();
 
+    private static readonly FeatureDefinitionPointPool PointPoolWizardScholar = FeatureDefinitionPointPoolBuilder
+        .Create("PointPoolWizardScholar")
+        .SetGuiPresentation(Category.Feature)
+        .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
+        .RestrictChoices(
+            SkillDefinitions.Arcana,
+            SkillDefinitions.History,
+            SkillDefinitions.Investigation,
+            SkillDefinitions.Medecine,
+            SkillDefinitions.Nature,
+            SkillDefinitions.Religion)
+        .AddToDB();
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -117,6 +130,7 @@ internal static class SrdAndHouseRulesContext
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
+        SwitchOneDndWizardScholar();
         SwitchOneDndWizardSchoolOfMagicLearningLevel();
         SwitchOneDndPaladinLearnSpellCastingAtOne();
         SwitchOneDndRangerLearnSpellCastingAtOne();
@@ -540,6 +554,18 @@ internal static class SrdAndHouseRulesContext
         dice = Main.Settings.EnableOneDndHealingSpellsBuf ? 5 : 3;
 
         MassCureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
+    }
+
+    internal static void SwitchOneDndWizardScholar()
+    {
+        if (Main.Settings.EnableWizardToLearnScholarAtLevel2)
+        {
+            Wizard.FeatureUnlocks.Add(new FeatureUnlockByLevel(PointPoolWizardScholar, 2));
+        }
+        else
+        {
+            Wizard.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolWizardScholar);
+        }
     }
 
     internal static void SwitchFilterOnHideousLaughter()

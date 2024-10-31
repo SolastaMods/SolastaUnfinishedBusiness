@@ -167,6 +167,7 @@ ModUi/&EnableTooltipDistance=전투 중 캐릭터 위에 마우스를 올려 놓
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>비무장 공격</color> 동작 활성화 <i><color=#F0DAA0>[액터가 기본 무기를 장착하고 있거나, <b>수도사</b>이거나, <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>원소 소환</color>과 <color=#D89555>요정 소환</color>의 업캐스트를 활성화합니다.
 ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
+ModUi/&EnableWizardToLearnScholarAtLevel2=<b>마법사</b>를 활성화하여 레벨 2에서 <b>학자</b>를 배우세요
 ModUi/&EnableWizardToLearnSchoolAtLevel3=<b>마법사</b>가 레벨 2가 아닌 레벨 3에서 마법 학교를 획득할 수 있도록 설정
 ModUi/&EnablesAsiAndFeat=속성 점수 증가와 <color=#D89555>특기</color> 선택을 모두 활성화합니다. <i><color=#F0DAA0>[독점 선택 대신]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>무작위 만남 확률 설정</color>
