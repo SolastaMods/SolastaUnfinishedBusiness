@@ -11,7 +11,7 @@
     "Perception",
     "SleightOfHand"
   ],
-  "uniqueChoices": true,
+  "uniqueChoices": false,
   "spellListOverride": null,
   "ritualOnly": false,
   "minSpellLevel": 0,

@@ -66,7 +66,6 @@ public sealed class WizardSpellMaster : AbstractSubclass
             .Create($"PointPool{Name}BonusCantrips")
             .SetGuiPresentation(Category.Feature)
             .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
-            .OnlyUniqueChoices()
             .AddToDB();
 
         // LEVEL 10

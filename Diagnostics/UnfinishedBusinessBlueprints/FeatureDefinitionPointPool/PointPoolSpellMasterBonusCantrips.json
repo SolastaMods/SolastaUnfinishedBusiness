@@ -3,7 +3,7 @@
   "poolType": "Cantrip",
   "poolAmount": 2,
   "restrictedChoices": [],
-  "uniqueChoices": true,
+  "uniqueChoices": false,
   "spellListOverride": null,
   "ritualOnly": false,
   "minSpellLevel": 0,
