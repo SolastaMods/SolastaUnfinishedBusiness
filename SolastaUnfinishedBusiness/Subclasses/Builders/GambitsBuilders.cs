@@ -1882,8 +1882,8 @@ internal static class GambitsBuilders
                 return false;
             }
 
-            if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
-                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
+            if (!target.RulesetCharacter.IsIncapacitated &&
+                !target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionParalyzed, ConditionRestrained))
             {
                 return true;
             }

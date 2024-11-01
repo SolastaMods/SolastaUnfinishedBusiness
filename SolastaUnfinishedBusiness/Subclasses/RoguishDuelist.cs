@@ -177,10 +177,10 @@ public sealed class RoguishDuelist : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!ValidatorsWeapon.IsMeleeOrUnarmed(attackMode) ||
+                rulesetDefender.IsIncapacitated ||
                 rulesetDefender.HasAnyConditionOfTypeOrSubType(
                     conditionReflexiveParty.Name,
                     ConditionDefinitions.ConditionDazzled.Name,
-                    ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,
                     ConditionDefinitions.ConditionSlowed.Name))
             {

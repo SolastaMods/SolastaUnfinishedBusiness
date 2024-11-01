@@ -61,6 +61,12 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+    internal ConditionDefinitionBuilder AddCancellingConditions(params ConditionDefinition[] values)
+    {
+        Definition.cancellingConditions.AddRange(values);
+        return this;
+    }
+
     internal ConditionDefinitionBuilder SetCancellingConditions(params ConditionDefinition[] values)
     {
         Definition.cancellingConditions.SetRange(values);

@@ -7,7 +7,7 @@
 - added Wizard Abjuration arcane ward recharge bonus action
 - added Wizard Graviturgist gravity well power toggle
 - fixed bardic inspiration on attack rolls not stacking with similar behaviors [VANILLA]
-- fixed Charmed by Hypnotic Pattern not getting considered at incapacitated checks [VANILLA]
+- fixed Charmed by Hypnotic Pattern not getting considered on incapacitated checks [VANILLA]
 - fixed Circle of Wildfire spirit allowed actions when summoner is incapacitated
 - fixed recurrent effects interaction with immunity from proxies [VANILLA]
 - fixed Wizard Abjuration projected ward crash on gadgets

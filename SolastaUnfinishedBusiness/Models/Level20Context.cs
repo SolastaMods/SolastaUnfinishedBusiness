@@ -977,9 +977,9 @@ internal static class Level20Context
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            var rulesetDefender = defender.RulesetActor;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated))
+            if (rulesetDefender.IsIncapacitated)
             {
                 yield break;
             }

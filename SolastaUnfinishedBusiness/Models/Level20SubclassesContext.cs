@@ -2123,16 +2123,17 @@ internal static class Level20SubclassesContext
                 return false;
             }
 
-            return rulesetDefender.HasAnyConditionOfTypeOrSubType(
-                ConditionBlinded,
-                ConditionFrightened,
-                ConditionRestrained,
-                ConditionGrappled,
-                ConditionIncapacitated,
-                ConditionParalyzed,
-                ConditionPoisoned,
-                ConditionProne,
-                ConditionStunned);
+            return
+                defender.RulesetCharacter?.IsIncapacitated == true ||
+                rulesetDefender.HasAnyConditionOfTypeOrSubType(
+                    ConditionBlinded,
+                    ConditionFrightened,
+                    ConditionRestrained,
+                    ConditionGrappled,
+                    ConditionParalyzed,
+                    ConditionPoisoned,
+                    ConditionProne,
+                    ConditionStunned);
         }
     }
 

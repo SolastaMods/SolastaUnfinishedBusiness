@@ -701,6 +701,7 @@ internal static partial class CharacterContext
                                 .SetCancellingConditions(
                                     DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
                                         x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+                                .AddCancellingConditions(ConditionDefinitions.ConditionCharmedByHypnoticPattern)
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add)
                         .Build())

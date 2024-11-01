@@ -430,8 +430,8 @@ public sealed class MartialWarlord : AbstractSubclass
             }
 
             var isValid =
-                !target.RulesetCharacter
-                    .HasAnyConditionOfTypeOrSubType(ConditionIncapacitated, ConditionParalyzed, ConditionRestrained);
+                !target.RulesetCharacter.IsIncapacitated &&
+                !target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionParalyzed, ConditionRestrained);
 
             if (!isValid)
             {
