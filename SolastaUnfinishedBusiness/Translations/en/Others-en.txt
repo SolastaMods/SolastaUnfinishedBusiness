@@ -264,6 +264,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Auto Power
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Auto Rage Start
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Auto Creature Reduced to Zero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Auto Sneak Attack
+Rules/&ConditionOneDndBarkskinDescription=The creature's Armor Class becomes at least 17.
 Rules/&CounterFormDismissCreatureFormat=Dismisses a target conjured creature
 Rules/&MotionFormPullOnTop=Pull on top
 Rules/&MotionFormPushDownFormat=Push down {0}
