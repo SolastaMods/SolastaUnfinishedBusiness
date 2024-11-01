@@ -547,12 +547,15 @@ internal static class SrdAndHouseRulesContext
         if (Main.Settings.EnableSurprisedToEnforceDisadvantage)
         {
             ConditionDefinitions.ConditionSurprised.Features.SetRange(CombatAffinityConditionSurprised);
+            ConditionDefinitions.ConditionSurprised.GuiPresentation.Description = Gui.NoLocalization;
         }
         else
         {
             ConditionDefinitions.ConditionSurprised.Features.SetRange(
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionSurprised,
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionSurprised);
+            ConditionDefinitions.ConditionSurprised.GuiPresentation.Description =
+                "Rules/&ConditionSurprisedDescription";
         }
     }
 
