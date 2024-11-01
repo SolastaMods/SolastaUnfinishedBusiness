@@ -107,6 +107,7 @@ internal static class SrdAndHouseRulesContext
         LoadAfterRestIdentify();
         LoadAllowTargetingSelectionWhenCastingChainLightningSpell();
         LoadSenseNormalVisionRangeMultiplier();
+        SwapOneDndBarkskinSpell();
         SwitchAddBleedingToLesserRestoration();
         SwitchAllowClubsToBeThrown();
         SwitchChangeSleetStormToCube();
@@ -125,17 +126,17 @@ internal static class SrdAndHouseRulesContext
         SwitchOneDndPaladinLayOnHandAsBonusAction();
         SwitchOneDndHealingPotionBonusAction();
         SwitchOneDndHealingSpellsBuf();
+        SwitchOneDndWizardScholar();
+        SwitchOneDndWizardSchoolOfMagicLearningLevel();
+        SwitchOneDndPaladinLearnSpellCastingAtOne();
+        SwitchOneDndRangerLearnSpellCastingAtOne();
+        SwitchOneDndSurprisedEnforceDisadvantage();
         SwitchRecurringEffectOnEntangle();
         SwitchRingOfRegenerationHealRate();
         SwitchSchoolRestrictionsFromShadowCaster();
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
-        SwitchOneDndWizardScholar();
-        SwitchOneDndWizardSchoolOfMagicLearningLevel();
-        SwitchOneDndPaladinLearnSpellCastingAtOne();
-        SwitchOneDndRangerLearnSpellCastingAtOne();
-        SwitchOneDndSurprisedEnforceDisadvantage();
         NoTwinnedBladeCantrips();
         ModifyGravitySlam();
     }
@@ -437,6 +438,27 @@ internal static class SrdAndHouseRulesContext
             foodSrdWeight.weight = 3.0f;
             foodForagedSrdWeight.weight = 3.0f;
         }
+    }
+
+    internal static void SwapOneDndBarkskinSpell()
+    {
+        if (Main.Settings.SwapOneDndBarkskinSpell)
+        {
+            Barkskin.requiresConcentration = false;
+            Barkskin.castingTime = ActivationTime.BonusAction;
+            FeatureDefinitionAttributeModifiers.AttributeModifierBarkskin.modifierValue = 17;
+            Barkskin.GuiPresentation.description = "Spell/&BarkskinOneDndDescription";
+            ConditionBarkskin.GuiPresentation.description = "Rules/&ConditionOneDndBarkskinDescription";
+        }
+        else
+        {
+            Barkskin.requiresConcentration = true;
+            Barkskin.castingTime = ActivationTime.Action;
+            FeatureDefinitionAttributeModifiers.AttributeModifierBarkskin.modifierValue = 16;
+            Barkskin.GuiPresentation.description = "Spell/&BarkskinDescription";
+            ConditionBarkskin.GuiPresentation.description = "Rules/&ConditionBarkskinDescription";
+        }
+
     }
 
     internal static void SwitchOneDndWizardSchoolOfMagicLearningLevel()

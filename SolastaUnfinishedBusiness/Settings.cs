@@ -366,6 +366,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRelearnSpells { get; set; }
     public bool AllowDisplayingOfficialSpells { get; set; }
     public bool AllowDisplayingNonSuggestedSpells { get; set; }
+    public bool SwapOneDndBarkskinSpell { get; set; }
     public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = [];
 
