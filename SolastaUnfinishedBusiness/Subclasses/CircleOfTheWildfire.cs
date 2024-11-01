@@ -588,8 +588,10 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 return true;
             }
 
-            //can act if summoner is KO
-            return summoner.IsUnconscious ||
+            //can act if summoner is Incapacitated
+            return summoner.IsIncapacitated ||
+                   summoner.HasAnyFeature(FeatureDefinitionActionAffinitys.ActionAffinityConditionIncapacitated) ||
+                   summoner.isDeadOrDyingOrUnconscious ||
                    //can act if summoner commanded
                    summoner.HasConditionOfType(ConditionCommandSpirit);
         }
