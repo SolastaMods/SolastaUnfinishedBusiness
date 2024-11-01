@@ -1,6 +1,4 @@
-﻿// using SolastaUnfinishedBusiness.Classes;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -24,7 +22,6 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -291,6 +288,24 @@ public static class RulesetCharacterPatcher
             }
 
             __result = hero.GetClassLevel(Monk) > 0;
+        }
+    }
+
+    //BUGFIX: Charmed by Hypnotic Pattern isn't marking isIncapacitated as true as it parent is charmed
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshConditionFlags))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshConditionFlags_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance)
+        {
+            if (!__instance.IsIncapacitated && __instance.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    DatabaseHelper.ConditionDefinitions.ConditionCharmedByHypnoticPattern.Name))
+            {
+                __instance.isIncapacitated = true;
+            }
         }
     }
 
