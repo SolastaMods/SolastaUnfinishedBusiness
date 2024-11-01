@@ -15,6 +15,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
@@ -302,11 +303,11 @@ public sealed class WizardAbjuration : AbstractSubclass
         var powerRechargeArcaneWard = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}RechargeArcaneWard")
             .SetGuiPresentation(Category.Feature,
-                $"Feature/&Power{Name}RechargeArcaneWardDescription",
-                FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
+                $"Feature/&Power{Name}RechargeArcaneWardDescription", PowerTraditionCourtMageSpellShield)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetShowCasting(false)
             .AddToDB();
+
         powerRechargeArcaneWard.AddCustomSubFeatures(new CustomBehaviorRechargeArcaneWard(powerRechargeArcaneWard));
 
         return powerRechargeArcaneWard;
@@ -339,7 +340,6 @@ public sealed class WizardAbjuration : AbstractSubclass
         if (!HasActiveArcaneWard(character)) { return; }
 
         var ward = character.GetRemainingPowerCharges(PowerArcaneWard);
-
         var prevented = ward <= damage ? ward : damage;
         var spent = IsBg3Mode ? 1 : prevented;
 
@@ -551,7 +551,8 @@ public sealed class WizardAbjuration : AbstractSubclass
             SavingThrowData savingThrowData,
             bool hasHitVisual)
         {
-            if(defender.RulesetCharacter == null) { yield break; }
+            if (defender.RulesetCharacter == null) { yield break; }
+
             var effectDescription = savingThrowData.EffectDescription;
             var canForceHalfDamage = attacker != null
                                      && savingThrowData.SourceDefinition is SpellDefinition spell
@@ -607,6 +608,10 @@ public sealed class WizardAbjuration : AbstractSubclass
 
                 activeCondition.sourceGuid = helper.RulesetCharacter.Guid;
 
+                EffectHelpers.StartVisualEffect(helper, helper,
+                    Counterspell, EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(defender, defender,
+                    PowerTraditionCourtMageSpellShield, EffectHelpers.EffectType.Caster);
                 defender.RulesetCharacter.AddConditionOfCategory(
                     AttributeDefinitions.TagEffect,
                     activeCondition, false);
