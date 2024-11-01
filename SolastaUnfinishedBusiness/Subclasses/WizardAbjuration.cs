@@ -122,49 +122,24 @@ public sealed class WizardAbjuration : AbstractSubclass
 
         ////////
         // Lv.10 Improved Abjuration
-        var powerCounterSpell = FeatureDefinitionPowerBuilder
+        var powerCounterSpellAffinity = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CounterSpell")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Instantaneous, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                .SetParticleEffectParameters(Counterspell)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetCounterForm(CounterForm.CounterType.InterruptSpellcasting, 3, 10, true, true)
-                    .Build())
-                .Build())
+            .AddCustomSubFeatures(new ModifyCounterspellAddProficiency())
             .AddToDB();
 
-        var powerCounterDispel = FeatureDefinitionPowerBuilder
+        var powerCounterDispelAffinity = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CounterDispel")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Instantaneous, 1)
-                .SetTargetingData(
-                    Side.All,
-                    RangeType.Distance, 24,
-                    TargetType.IndividualsUnique, 1, 2,
-                    ActionDefinitions.ItemSelectionType.Equiped)
-                .SetParticleEffectParameters(DispelMagic)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetCounterForm(CounterForm.CounterType.DissipateSpells, 3, 10, true, true)
-                    .Build())
-                .Build())
+            .AddCustomSubFeatures(new ModifyDispelMagicAddProficiency())
             .AddToDB();
 
         var featureSetImprovedAbjuration = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ImprovedAbjuration")
             .SetGuiPresentation($"Power{Name}ImprovedAbjuration", Category.Feature)
-            .SetFeatureSet(powerCounterSpell, powerCounterDispel)
+            .SetFeatureSet(powerCounterSpellAffinity, powerCounterDispelAffinity)
             .AddToDB();
 
-        powerCounterDispel.EffectDescription.targetFilteringMethod =
-            TargetFilteringMethod.CharacterGadgetEffectProxyItems;
-        powerCounterDispel.EffectDescription.targetFilteringTag = TargetFilteringTag.No;
 
         //////// 
         // Lv.14 Spell Resistance
@@ -624,6 +599,52 @@ public sealed class WizardAbjuration : AbstractSubclass
                         (ConsoleStyleDuplet.ParameterType.Player, defender.Name)
                     ]);
             }
+        }
+    }
+
+    private sealed class ModifyCounterspellAddProficiency() : IModifyEffectDescription
+    {
+        EffectDescription IModifyEffectDescription.GetEffectDescription(BaseDefinition definition, EffectDescription effectDescription, RulesetCharacter character, RulesetEffect rulesetEffect)
+        {
+            return EffectDescriptionBuilder
+                .Create(Counterspell.EffectDescription)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetCounterForm(CounterForm.CounterType.InterruptSpellcasting, 3, 10, true, true)
+                    .Build())
+                .Build();
+        }
+
+        bool IModifyEffectDescription.IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return character.GetClassLevel(CharacterClassDefinitions.Wizard) >= 10 &&
+                definition == Counterspell;
+        }
+    }
+
+    private sealed class ModifyDispelMagicAddProficiency() : IModifyEffectDescription
+    {
+        EffectDescription IModifyEffectDescription.GetEffectDescription(BaseDefinition definition, EffectDescription effectDescription, RulesetCharacter character, RulesetEffect rulesetEffect)
+        {
+            return EffectDescriptionBuilder.Create(DispelMagic)
+                .SetEffectForms(
+                    EffectFormBuilder.Create()
+                        .SetCounterForm(CounterForm.CounterType.DissipateSpells, 3, 10, true, true)
+                        .SetCreatedBy(true)
+                        .SetBonusMode(AddBonusMode.None)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetAlterationForm(AlterationForm.Type.DissipateSpell)
+                        .SetCreatedBy(true)
+                        .SetBonusMode(AddBonusMode.None)
+                        .Build()
+                    )
+                .Build();
+        }
+
+        bool IModifyEffectDescription.IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return character.GetClassLevel(CharacterClassDefinitions.Wizard) >= 10 &&
+                definition == DispelMagic;
         }
     }
 
