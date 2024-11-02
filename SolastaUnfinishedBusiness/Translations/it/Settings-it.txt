@@ -170,6 +170,7 @@ ModUi/&EnableTooltipDistance=Abilita la visualizzazione della distanza nei sugge
 ModUi/&EnableUnarmedMainAttackAction=Abilita l'azione <color=#D89555>Attacco disarmato</color> <i><color=#F0DAA0>[se l'attore ha un'arma nel personaggio principale, è un <b>monaco</b> o ha <b>fasce</b> o <b>guanto</b> equipaggiati]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555>Evoca Elementale</color> e <color=#D89555>Evoca Fata</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Abilita segnaposto variabili nelle descrizioni <i><color=#F0DAA0>[usa {VARIABLE_NAME} come segnaposto]</color></i>
+ModUi/&EnableWarlockMagicalCunningAtLevel2=Abilita <color=#D89555>Astuzia magica</color> al livello 2
 ModUi/&EnableWizardToLearnScholarAtLevel2=Abilita <color=#D89555>Studioso</color> al livello 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Abilita <color=#D89555>Scuola di Magia</color> al livello 3 invece che 2
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione delle <color=#D89555>imprese</color> <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
@@ -303,6 +304,7 @@ ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Scambia le funzionalità <b>Sculpt Spells</b> e <b>Potent Cantrip</b> di <color=#D89555>Evoker</color>
 ModUi/&SwapEvocationSavant=Sostituisci <color=#D89555>Evocatore</color> <b>Sapiente dell'evocazione</b> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=Sostituisci <color=#D89555>Barkskin</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
+ModUi/&SwapWarlockToUseOneDndInvocationProgression=Scambia la progressione delle <color=#D89555>Invocazioni</color> con la versione 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Seleziona contenuto Tabletop</color></b>
 ModUi/&TableTopHelp1=• Le sezioni seguenti raggruppano e duplicano le impostazioni <color=#D89555>5e 2014 e 2024</color> sparse nella mod per la tua comodità
 ModUi/&TableTopHelp2=• Premi il pulsante per selezionare solo il contenuto del tavolo nella scheda Personaggio e seleziona tutte le opzioni sottostanti per una vera esperienza TT

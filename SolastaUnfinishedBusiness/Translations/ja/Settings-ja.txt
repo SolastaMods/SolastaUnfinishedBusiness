@@ -170,6 +170,7 @@ ModUi/&EnableTooltipDistance=戦闘中のキャラクターにマウスを移動
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>素手攻撃</color>アクションを有効にする <i><color=#F0DAA0>[アクターがメインに武器を持っているか、<b>モンク</b>を持っているか、<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>エレメンタル召喚</color>と<color=#D89555>フェイ召喚</color>のアップキャストを有効にする
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
+ModUi/&EnableWarlockMagicalCunningAtLevel2=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にする
 ModUi/&EnableWizardToLearnScholarAtLevel2=レベル2で<color=#D89555>学者</color>を有効にする
 ModUi/&EnableWizardToLearnSchoolAtLevel3=<color=#D89555>魔法学校</color>をレベル2ではなくレベル3で有効にする
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と <color=#D89555>特技</color> の選択の両方を有効にします <i><color=#F0DAA0>[排他的選択の代わりに]</color></i>
@@ -303,6 +304,7 @@ ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフ�
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>エヴォーカー</color>の<b>スカルプトスペル</b>と<b>ポテンシャルキャントリップ</b>の機能を入れ替えます
 ModUi/&SwapEvocationSavant=<color=#D89555>Evoker</color> <b>Evocation Savant</b> を 5e 2024 バージョンの <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
 ModUi/&SwapOneDndBarkskinSpell=<color=#D89555>Barkskin</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション、集中力なし、AC を 17 に設定]</color></i> と交換します。
+ModUi/&SwapWarlockToUseOneDndInvocationProgression=<color=#D89555>Invocations</color> の進行を 5e 2024 バージョンと入れ替える
 ModUi/&TableTopButton=<b><color=#D89555>テーブルトップコンテンツを選択</color></b>
 ModUi/&TableTopHelp1=• 以下のセクションでは、利便性のために、mod 全体に散らばっている <color=#D89555>5e 2014 および 2024</color> 設定を再グループ化して複製します。
 ModUi/&TableTopHelp2=• ボタンを押してキャラクタータブのテーブルトップコンテンツのみを選択し、以下のすべてのオプションを選択して真のTT体験を味わってください。

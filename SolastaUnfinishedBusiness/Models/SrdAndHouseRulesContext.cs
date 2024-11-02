@@ -100,6 +100,29 @@ internal static class SrdAndHouseRulesContext
             SkillDefinitions.Religion)
         .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerWarlockMagicalCunning = FeatureDefinitionPowerBuilder
+        .Create("PowerWarlockMagicalCunning")
+        .SetGuiPresentation(Category.Feature, PowerWizardArcaneRecovery)
+        .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetSpellForm(5)
+                        .Build())
+                .SetParticleEffectParameters(PowerWizardArcaneRecovery)
+                .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPointPool PointPoolWarlockInvocation1 = FeatureDefinitionPointPoolBuilder
+        .Create(FeatureDefinitionPointPools.PointPoolWarlockInvocation2, "PointPoolWarlockInvocation1")
+        .SetGuiPresentation("PointPoolWarlockInvocationInitial", Category.Feature)
+        .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
+        .AddToDB();
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -694,6 +717,44 @@ internal static class SrdAndHouseRulesContext
         }
 
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchOneDndWarlockMagicalCunningAtLevel2()
+    {
+        if (Main.Settings.EnableWarlockMagicalCunningAtLevel2)
+        {
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerWarlockMagicalCunning, 2));
+        }
+        else
+        {
+            Warlock.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerWarlockMagicalCunning);
+        }
+
+        Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchOneDndWarlockInvocationsProgression()
+    {
+        if (Main.Settings.SwapWarlockToUseOneDndInvocationProgression)
+        {
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(PointPoolWarlockInvocation1, 1));
+            FeatureDefinitionPointPools.PointPoolWarlockInvocation2.GuiPresentation.Title =
+                "Feature/&PointPoolWarlockInvocationAdditionalTitle";
+            FeatureDefinitionPointPools.PointPoolWarlockInvocation2.GuiPresentation.Description =
+                "Feature/&PointPoolWarlockInvocationAdditionalDescription";
+            FeatureDefinitionPointPools.PointPoolWarlockInvocation5.poolAmount = 2;
+        }
+        else
+        {
+            Warlock.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolWarlockInvocation1);
+            FeatureDefinitionPointPools.PointPoolWarlockInvocation2.GuiPresentation.Title =
+                "Feature/&PointPoolWarlockInvocationInitialTitle";
+            FeatureDefinitionPointPools.PointPoolWarlockInvocation2.GuiPresentation.Description =
+                "Feature/&PointPoolWarlockInvocationInitialDescription";
+            FeatureDefinitionPointPools.PointPoolWarlockInvocation5.poolAmount = 1;
+        }
+
+        Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchFilterOnHideousLaughter()

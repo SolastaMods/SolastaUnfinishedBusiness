@@ -170,6 +170,7 @@ ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Entfernung in den To
 ModUi/&EnableUnarmedMainAttackAction=Aktiviere die Aktion <color=#D89555>Unbewaffneter Angriff</color> <i><color=#F0DAA0>[wenn der Akteur eine Waffe im Hauptkampf hat, ein <b>Mönch</b> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet hat]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Aktiviere Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feenbeschwören</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Aktivieren Sie variable Platzhalter in Beschreibungen <i><color=#F0DAA0>[verwenden Sie {VARIABLE_NAME} als Platzhalter]</color></i>
+ModUi/&EnableWarlockMagicalCunningAtLevel2=Aktiviere <color=#D89555>Magische List</color> auf Stufe 2.
 ModUi/&EnableWizardToLearnScholarAtLevel2=Aktiviere <color=#D89555>Gelehrter</color> auf Stufe 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Aktiviere die <color=#D89555>Schule der Magie</color> auf Level 3 statt auf Level 2.
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Auswahl von <color=#D89555>Talenten</color> <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>
@@ -303,6 +304,7 @@ ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Rezepte und Symbole für hergestellte 
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Tauschen Sie die Funktionen <color=#D89555>Evoker</color> <b>Sculpt Spells</b> und <b>Potent Cantrip</b> aus
 ModUi/&SwapEvocationSavant=Tauschen Sie <color=#D89555>Evoker</color> <b>Evocation Savant</b> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erhalten, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=Tauschen Sie <color=#D89555>Barkskin</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 eingestellt]</color></i>
+ModUi/&SwapWarlockToUseOneDndInvocationProgression=Tauschen Sie den Fortschritt der <color=#D89555>Anrufungen</color> mit der Version 5e 2024 aus.
 ModUi/&TableTopButton=<b><color=#D89555>Tabletop-Inhalt auswählen</color></b>
 ModUi/&TableTopHelp1=• In den folgenden Abschnitten werden die im Mod verstreuten Einstellungen für <color=#D89555>5e 2014 und 2024</color> neu gruppiert und dupliziert, damit Sie es einfacher haben
 ModUi/&TableTopHelp2=• Drücken Sie die Taste, um unter der Registerkarte „Charakter“ nur Tabletop-Inhalte auszuwählen, und wählen Sie alle Optionen darunter für ein echtes TT-Erlebnis aus

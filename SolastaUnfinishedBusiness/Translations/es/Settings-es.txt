@@ -171,6 +171,7 @@ ModUi/&EnableTooltipDistance=Habilitar la visualización de la distancia en las 
 ModUi/&EnableUnarmedMainAttackAction=Habilitar la acción <color=#D89555>Ataque desarmado</color> <i><color=#F0DAA0>[si el actor tiene un arma en el personaje principal, es un <b>Monje</b> o tiene <b>vendas</b> o <b>guanteletes</b> equipados]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar la conversión ascendente de <color=#D89555>Conjurar elemental</color> y <color=#D89555>Conjurar feérico</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
+ModUi/&EnableWarlockMagicalCunningAtLevel2=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2
 ModUi/&EnableWizardToLearnScholarAtLevel2=Habilitar <color=#D89555>Scholar</color> en el nivel 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Habilitar <color=#D89555>Escuela de Magia</color> en el nivel 3 en lugar de 2
 ModUi/&EnablesAsiAndFeat=Habilitar tanto el aumento de las puntuaciones de atributos como la selección de <color=#D89555>dotes</color> <i><color=#F0DAA0>[en lugar de una elección exclusiva]</color></i>
@@ -304,6 +305,7 @@ ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y objet
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia las características de <color=#D89555>Evocador</color>, <b>Hechizos de escultura</b> y <b>Truco potente</b>
 ModUi/&SwapEvocationSavant=Intercambia <color=#D89555>Evocador</color> <b>Sabio de la evocación</b> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de ranura]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=Intercambia <color=#D89555>Piel de corteza</color> con la versión 5e 2024 <i><color=#F0DAA0>[acción adicional, sin concentración, CA establecida en 17]</color></i>
+ModUi/&SwapWarlockToUseOneDndInvocationProgression=Intercambia la progresión de <color=#D89555>Invocaciones</color> con la versión 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Seleccionar contenido de Tabletop</color></b>
 ModUi/&TableTopHelp1=• Las siguientes secciones reagrupan y duplican las configuraciones de <color=#D89555>5e 2014 y 2024</color> esparcidas por el mod para tu conveniencia.
 ModUi/&TableTopHelp2=• Presiona el botón para seleccionar solo contenido de mesa en la pestaña Personaje y selecciona todas las opciones a continuación para una verdadera experiencia TT

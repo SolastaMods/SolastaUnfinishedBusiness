@@ -423,6 +423,24 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableWarlockMagicalCunningAtLevel2;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockMagicalCunningAtLevel2 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWarlockMagicalCunningAtLevel2();
+        }
+
+        toggle = Main.Settings.SwapWarlockToUseOneDndInvocationProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapWarlockToUseOneDndInvocationProgression = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWarlockInvocationsProgression();
+        }
+
+        UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WizardTitle") + ":</color>");
         UI.Label();
 

@@ -170,6 +170,7 @@ ModUi/&EnableTooltipDistance=Habilitar a exibição da distância nas dicas de f
 ModUi/&EnableUnarmedMainAttackAction=Habilitar a ação <color=#D89555>Ataque Desarmado</color> <i><color=#F0DAA0>[se o ator tiver arma principal, for um <b>Monge</b> ou tiver <b>bandanas</b> ou <b>manoplas</b> equipadas]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posição variáveis em descrições <i><color=#F0DAA0>[usar {VARIABLE_NAME} como marcador de posição]</color></i>
+ModUi/&EnableWarlockMagicalCunningAtLevel2=Habilitar <color=#D89555>Astúcia Mágica</color> no nível 2
 ModUi/&EnableWizardToLearnScholarAtLevel2=Habilitar <color=#D89555>Scholar</color> no nível 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Habilitar <color=#D89555>Escola de Magia</color> no nível 3 em vez de 2
 ModUi/&EnablesAsiAndFeat=Habilitar aumento de pontuação de atributos e seleção de <color=#D89555>talentos</color> <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>
@@ -303,6 +304,7 @@ ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens cri
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque os recursos <color=#D89555>Evocador</color> <b>Magias de Escultura</b> e <b>Truque Potente</b>
 ModUi/&SwapEvocationSavant=Troque <color=#D89555>Evocador</color> <b>Sábio da Evocação</b> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=Troque <color=#D89555>Barkskin</color> pela versão 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, CA definida como 17]</color></i>
+ModUi/&SwapWarlockToUseOneDndInvocationProgression=Troque a progressão de <color=#D89555>Invocações</color> pela versão 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Selecionar conteúdo de mesa</color></b>
 ModUi/&TableTopHelp1=• As seções a seguir reagrupam e duplicam as configurações <color=#D89555>5e 2014 e 2024</color> espalhadas pelo mod para sua conveniência
 ModUi/&TableTopHelp2=• Pressione o botão para selecionar apenas o conteúdo da mesa na aba Personagem e selecione todas as opções abaixo para uma verdadeira experiência TT

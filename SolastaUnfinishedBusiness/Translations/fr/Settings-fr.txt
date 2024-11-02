@@ -170,6 +170,7 @@ ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bu
 ModUi/&EnableUnarmedMainAttackAction=Activer l'action <color=#D89555>Attaque à mains nues</color> <i><color=#F0DAA0>[si l'acteur a une arme dans l'arme principale, est un <b>moine</b> ou a des <b>bandages</b> ou un <b>gantelet</b> équipés]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la conversion ascendante de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Activer les espaces réservés aux variables dans les descriptions <i><color=#F0DAA0>[utiliser {VARIABLE_NAME} comme espace réservé]</color></i>
+ModUi/&EnableWarlockMagicalCunningAtLevel2=Activer la <color=#D89555>ruse magique</color> au niveau 2
 ModUi/&EnableWizardToLearnScholarAtLevel2=Activer <color=#D89555>Scholar</color> au niveau 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Activer l'<color=#D89555>École de magie</color> au niveau 3 au lieu de 2
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attributs et la sélection des <color=#D89555>exploits</color> <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
@@ -303,6 +304,7 @@ ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <color=#D89555>Évocateur</color> <b>Sculpture des sorts</b> et <b>Puissant tour de passe-passe</b>
 ModUi/&SwapEvocationSavant=Échangez <color=#D89555>Evoker</color> <b>Evocation Savant</b> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=Échangez <color=#D89555>Barkskin</color> avec la version 5e 2024 <i><color=#F0DAA0>[action bonus, pas de concentration, CA réglée à 17]</color></i>
+ModUi/&SwapWarlockToUseOneDndInvocationProgression=Échangez la progression des <color=#D89555>Invocations</color> avec la version 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>
 ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>5e 2014 et 2024</color> dispersés dans le mod pour votre commodité
 ModUi/&TableTopHelp2=• Appuyez sur le bouton pour sélectionner uniquement le contenu de table sous l'onglet Personnage et sélectionnez toutes les options ci-dessous pour une véritable expérience TT

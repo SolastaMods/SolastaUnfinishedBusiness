@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>2</DisplayModMessage>
+    <DisplayModMessage>3</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
@@ -625,6 +625,8 @@
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
+    <EnableWarlockMagicalCunningAtLevel2>false</EnableWarlockMagicalCunningAtLevel2>
+    <SwapWarlockToUseOneDndInvocationProgression>false</SwapWarlockToUseOneDndInvocationProgression>
     <EnableWizardToLearnScholarAtLevel2>false</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
