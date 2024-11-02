@@ -6,6 +6,7 @@ ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangr
 ModUi/&AddCustomIconsToOfficialItems=Añade íconos personalizados a los elementos oficiales del juego <i><color=#F0DAA0>[municiones, recetas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Habilita <color=#D89555>Percepción de la oscuridad</color> en <color=#D89555>Darkelf</color>, <color=#D89555>Kóbold oscuro</color> y <color=#D89555>Enano gris</color> <i><color=#F0DAA0>\n[otorga ventaja en las pruebas de percepción cuando no está iluminado o bajo oscuridad mágica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Añade el modificador DEX a los enemigos <color=#D89555>Tiro de iniciativa</color>
+ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Añade <color=#D89555>Orden primigenia</color> en el nivel 1 y elimina <color=#D89555>Competencia en armadura media</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Añade el nivel de clase como bonificación a la repetición de la tirada de salvación de <color=#D89555>Resistencia indomable</color>.
 ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar enemigos preferidos <color=#D89555>humanoides</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=Añade nuevas armas y recetas a las tiendas <i><color=#F0DAA0>[vendas de mano, alabardas, picas, mazas largas, ballestas de mano]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -304,6 +305,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Subclases</color>
 ModUi/&Subraces=<color=#F0DAA0>Subrazas</color>
 ModUi/&SwapAbjurationSavant=Intercambia <b>Abjurador</b> <color=#D89555>Sabio de la abjuración</color> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de espacio]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y objetos elaborados en la tienda</i>ModUi/&SwapEvocationSavant=Intercambia <b>Evocador</b> <color=#D89555>Sabio de la evocación</color> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de ranura]</color></i>
+ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Cambia la <color=#D89555>competencia con armas</color> por la versión 5e 2024 <i><color=#F0DAA0>[armas simples en lugar de tipos de armas pero pierdes la competencia con cimitarra]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia las características de <b>Evocador</b>, <color=#D89555>Hechizos de escultura</color> y <color=#D89555>Truco potente</color>
 ModUi/&SwapEvocationSavant=Intercambia <b>Evocador</b> <color=#D89555>Sabio de la evocación</color> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de ranura]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Cambia <color=#D89555>Ataque desarmado</color> para usar la progresión de tipo de dado de 5e 2024

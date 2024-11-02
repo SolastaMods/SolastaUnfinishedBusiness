@@ -258,8 +258,6 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Classes
     //
 
-    public bool AllowDruidToWearMetalArmor { get; set; }
-    public bool EnableRitualOnAllCasters { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool EnableBardExpertiseOneLevelBefore { get; set; }
     public bool ChangeBardicInspirationDurationToOneHour { get; set; }
@@ -269,6 +267,9 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianFightingStyle { get; set; }
     public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
     public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
+    public bool AllowDruidToWearMetalArmor { get; set; }
+    public bool AddDruidPrimalOrderAndRemoveMediumArmorProficiency { get; set; }
+    public bool SwapDruidWeaponProficiencyToUseOneDnd { get; set; }
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
     public bool AddPersuasionToFighterSkillOptions { get; set; }
     public bool SwapSecondWindToUseOneDndUsagesProgression { get; set; }
@@ -355,6 +356,7 @@ public class Settings : UnityModManager.ModSettings
 
     public bool AllowBladeCantripsToUseReach { get; set; }
     public bool EnableOneDnDPreparedSpellsTables { get; set; }
+    public bool EnableRitualOnAllCasters { get; set; }
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
     public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }

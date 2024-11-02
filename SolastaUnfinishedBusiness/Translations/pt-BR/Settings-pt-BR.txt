@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangr
 ModUi/&AddCustomIconsToOfficialItems=Adicionar ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Habilitar <color=#D89555>Percepção da Escuridão</color> em <color=#D89555>Elfo Escuro</color>, <color=#D89555>Kobold Escuro</color> e <color=#D89555>Anão Cinzento</color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicione modificador de DEX aos inimigos <color=#D89555>Teste de Iniciativa</color>
+ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Adicione <color=#D89555>Ordem Primordial</color> no nível 1 e remova <color=#D89555>Proficiência em Armadura Média</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Adicione o nível de classe como um bônus para a nova jogada de resistência de <color=#D89555>Resistência Indomável</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar inimigos preferenciais <color=#D89555>Humanoides</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicionar novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -303,6 +304,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Sub-raças</color>
 ModUi/&SwapAbjurationSavant=Troque <b>Abjurador</b> <color=#D89555>Sábio da Abjuração</color> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>ModUi/&SwapEvocationSavant=Troque <b>Evocador</b> <color=#D89555>Sábio da Evocação</color> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
+ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Troque <color=#D89555>Proficiência em Arma</color> pela versão 5e 2024 <i><color=#F0DAA0>[armas simples em vez de tipos de armas, mas você perde a proficiência em Cimitarra]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque os recursos <b>Evocador</b> <color=#D89555>Magias de Esculpir</color> e <color=#D89555>Truque Potente</color>
 ModUi/&SwapEvocationSavant=Troque <b>Evocador</b> <color=#D89555>Sábio da Evocação</color> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Troque <color=#D89555>Ataque Desarmado</color> para usar a progressão do tipo de dado 5e 2024

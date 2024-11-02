@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>Greater</color> と <color=
 ModUi/&AddCustomIconsToOfficialItems=公式ゲームアイテムにカスタムアイコンを追加します <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルド</color>、<color=#D89555>グレイドワーフ</color>に<color=#D89555>闇知覚</color>を有効にする <i><color=#F0DAA0>\n[照明が消えているときや魔法の暗闇にいるときに知覚判定に有利を与える]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=敵に DEX 修飾子を追加する <color=#D89555>イニシアティブ ロール</color>
+ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=レベル 1 に <color=#D89555>Primal Order</color> を追加し、<color=#D89555>Medium Armor Proficiency</color> を削除します
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>不屈の抵抗</color>セーヴィングスローの再ロールにクラスレベルをボーナスとして追加します
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>ヒューマノイド</color>優先敵を有効にする
 ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加します <i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
@@ -303,6 +304,7 @@ ModUi/&Subclasses=<color=#F0DAA0>サブクラス</color>
 ModUi/&Subraces=<color=#F0DAA0>亜種族</color>
 ModUi/&SwapAbjurationSavant=<b>Abjurer</b> <color=#D89555>Abjuration Savant</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびに 1 つずつ追加で習得する]</color></i> と入れ替えます
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフトアイテムのアイコンを交換</i>ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color> を 5e 2024 バージョン <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
+ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=<color=#D89555>武器熟練度</color>を5e 2024バージョン<i><color=#F0DAA0>[武器タイプの代わりにシンプルな武器ですが、シミター熟練度は失われます]</color></i>と入れ替えます
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>エヴォーカー</b>の<color=#D89555>スカルプトスペル</color>と<color=#D89555>ポテンシャルキャントリップ</color>の機能を入れ替えます
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color> を 5e 2024 バージョン <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=<color=#D89555>Unarmed Attack</color> を 5e 2024 ダイスタイプの進行に置き換える

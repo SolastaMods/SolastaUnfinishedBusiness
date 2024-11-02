@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=Füge den Zustand <color=#D89555>Blutung</
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie offiziellen Spielgegenständen benutzerdefinierte Symbole hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktiviere <color=#D89555>Dunkelheitswahrnehmung</color> bei <color=#D89555>Dunkelelf</color>, <color=#D89555>Dunkelkobold</color> und <color=#D89555>Grauem Zwerg</color> <i><color=#F0DAA0>\n[gewährt einen Vorteil bei Wahrnehmungsprüfungen im unbeleuchteten Zustand oder in magischer Dunkelheit]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=DEX-Modifikator zu Feinden hinzufügen <color=#D89555>Initiative Roll</color>
+ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Füge <color=#D89555>Primal Order</color> auf Level 1 hinzu und entferne <color=#D89555>Medium Armor Proficiency</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Füge die Klassenstufe als Bonus zur Wiederholung des Rettungswurfs für <color=#D89555>Unbezwingbaren Widerstand</color> hinzu
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktivieren Sie <color=#D89555>Humanoide</color> als bevorzugte Feinde
 ModUi/&AddNewWeaponsAndRecipesToShops=Neue Waffen und Rezepte zu den Läden hinzufügen <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -303,6 +304,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Unterklassen</color>
 ModUi/&Subraces=<color=#F0DAA0>Unterrassen</color>
 ModUi/&SwapAbjurationSavant=Tauschen Sie <b>Abjurer</b> <color=#D89555>Abjuration Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erwerben, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Rezepte und Symbole für hergestellte Gegenstände im Shop austauschen</i>ModUi/&SwapEvocationSavant=Tauschen Sie <b>Evoker</b> <color=#D89555>Evocation Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erhalten, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
+ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Tauschen Sie <color=#D89555>Waffenfertigkeit</color> mit der Version 5e 2024 aus <i><color=#F0DAA0>[einfache Waffen statt Waffentypen, aber Sie verlieren die Krummsäbelfertigkeit]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Tauschen Sie die Funktionen <b>Evoker</b> <color=#D89555>Sculpt Spells</color> und <color=#D89555>Potent Cantrip</color> aus
 ModUi/&SwapEvocationSavant=Tauschen Sie <b>Evoker</b> <color=#D89555>Evocation Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erhalten, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Tauschen Sie <color=#D89555>Unbewaffneter Angriff</color> aus, um die Würfeltyp-Progression von 5e 2024 zu verwenden

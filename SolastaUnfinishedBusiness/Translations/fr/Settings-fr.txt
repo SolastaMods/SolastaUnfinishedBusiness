@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saigne
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux éléments de jeu officiels <i><color=#F0DAA0>[munitions, recettes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Activez la <color=#D89555>Perception des Ténèbres</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[accorde un avantage aux tests de perception lorsqu'il n'est pas éclairé ou sous l'obscurité magique]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Ajoutez un modificateur DEX aux ennemis <color=#D89555>Initiative Roll</color>
+ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Ajoutez <color=#D89555>Ordre primordial</color> au niveau 1 et supprimez <color=#D89555>Maîtrise de l'armure moyenne</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Ajoutez le niveau de classe comme bonus à la relance du jet de sauvegarde de <color=#D89555>Résistance indomptable</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Activer les ennemis préférés des <color=#D89555>humanoïdes</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=Ajoutez de nouvelles armes et recettes aux magasins <i><color=#F0DAA0>[bandages de main, hallebardes, piques, longues masses, arbalètes à main]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -303,6 +304,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
 ModUi/&Subraces=<color=#F0DAA0>Sous-races</color>
 ModUi/&SwapAbjurationSavant=Échangez <b>Abjurer</b> <color=#D89555>Abjuration Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>ModUi/&SwapEvocationSavant=Échangez <b>Evoker</b> <color=#D89555>Evocation Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
+ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Échangez <color=#D89555>Maîtrise des armes</color> avec la version 5e 2024 <i><color=#F0DAA0>[armes simples au lieu de types d'armes mais vous perdez la maîtrise du cimeterre]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <b>Sculpt Spells</b> d'Evoker et <color=#D89555>Potent Cantrip</color>
 ModUi/&SwapEvocationSavant=Échangez <b>Evoker</b> <color=#D89555>Evocation Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Remplacez <color=#D89555>Attaque non armée</color> par la progression du type de dé 5e 2024

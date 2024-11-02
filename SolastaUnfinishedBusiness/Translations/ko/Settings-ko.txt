@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상위</color> 및 <color=#
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 사용자 지정 아이콘 추가 <i><color=#F0DAA0>[탄약, 레시피, 키트 등]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>다크엘프</color>, <color=#D89555>다크 코볼드</color>, <color=#D89555>그레이 드워프</color>에게 <color=#D89555>어둠 지각</color>을 활성화합니다. <i><color=#F0DAA0>\n[조명이 없거나 마법적 어둠에 있을 때 지각 검사에 유리합니다]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=적에게 DEX 수정치를 추가합니다 <color=#D89555>이니셔티브 롤</color>
+ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=레벨 1에서 <color=#D89555>원시 질서</color>를 추가하고 <color=#D89555>중간 방어구 숙련도</color>를 제거합니다.
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>불굴의 저항력</color> 세이빙 스로우 재시전에 보너스로 클래스 레벨을 추가합니다.
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>인간형</color> 선호 적 활성화
 ModUi/&AddNewWeaponsAndRecipesToShops=상점에 새로운 무기와 제조법을 추가하세요 <i><color=#F0DAA0>[손가락 묶는 무기, 도끼창, 창, 긴 메이스, 손 석궁]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
@@ -303,6 +304,7 @@ ModUi/&Subclasses=<color=#F0DAA0>서브클래스</color>
 ModUi/&Subraces=<color=#F0DAA0>아종</color>
 ModUi/&SwapAbjurationSavant=<b>Abjurer</b> <color=#D89555>Abjuration Savant</color>를 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교환</i>ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color>를 5e 2024 버전으로 교체하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
+ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=<color=#D89555>무기 숙련도</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[무기 유형 대신 단순 무기를 사용하지만, 곡도 숙련도는 잃습니다]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>소환사</b> <color=#D89555>조각 주문</color>과 <color=#D89555>강력한 주문</color> 기능을 교체하세요
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color>를 5e 2024 버전으로 교체하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=<color=#D89555>비무장 공격</color>을 5e 2024 주사위 유형 진행을 사용하도록 바꾸세요.

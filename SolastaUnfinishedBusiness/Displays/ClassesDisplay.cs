@@ -15,14 +15,7 @@ internal static class ClassesDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.EnableRitualOnAllCasters;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRitualOnAllCasters = toggle;
-            SrdAndHouseRulesContext.SwitchEnableRitualOnAllCasters();
-        }
-
-        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
+        var toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
@@ -107,6 +100,21 @@ internal static class ClassesDisplay
         {
             Main.Settings.AllowDruidToWearMetalArmor = toggle;
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
+        }
+
+        toggle = Main.Settings.AddDruidPrimalOrderAndRemoveMediumArmorProficiency;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AddDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
+            SrdAndHouseRulesContext.SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
+        }
+
+        toggle = Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidWeaponProficiencyToUseOneDnd"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd = toggle;
+            SrdAndHouseRulesContext.SwitchDruidWeaponProficiencyToUseOneDnd();
         }
 
         UI.Label();

@@ -323,6 +323,21 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
+        toggle = Main.Settings.AddDruidPrimalOrderAndRemoveMediumArmorProficiency;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AddDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
+            SrdAndHouseRulesContext.SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
+        }
+
+        toggle = Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidWeaponProficiencyToUseOneDnd"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd = toggle;
+            SrdAndHouseRulesContext.SwitchDruidWeaponProficiencyToUseOneDnd();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&FighterTitle") + ":</color>");
         UI.Label();

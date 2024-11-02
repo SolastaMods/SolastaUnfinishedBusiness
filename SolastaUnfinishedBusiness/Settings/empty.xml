@@ -216,7 +216,6 @@
     <EnableSameWidthInvocationSelection>true</EnableSameWidthInvocationSelection>
     <EnableSortingFightingStyles>true</EnableSortingFightingStyles>
     <EnableSortingSubclasses>true</EnableSortingSubclasses>
-    <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <FixAsianLanguagesTextWrap>true</FixAsianLanguagesTextWrap>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
@@ -545,8 +544,6 @@
     <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
-    <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
-    <EnableRitualOnAllCasters>false</EnableRitualOnAllCasters>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <EnableBardExpertiseOneLevelBefore>false</EnableBardExpertiseOneLevelBefore>
     <ChangeBardicInspirationDurationToOneHour>false</ChangeBardicInspirationDurationToOneHour>
@@ -556,6 +553,9 @@
     <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
     <EnableBarbarianRecklessSameBuffDebuffDuration>false</EnableBarbarianRecklessSameBuffDebuffDuration>
     <EnableBarbarianRegainOneRageAtShortRest>false</EnableBarbarianRegainOneRageAtShortRest>
+    <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
+    <AddDruidPrimalOrderAndRemoveMediumArmorProficiency>false</AddDruidPrimalOrderAndRemoveMediumArmorProficiency>
+    <SwapDruidWeaponProficiencyToUseOneDnd>false</SwapDruidWeaponProficiencyToUseOneDnd>
     <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
     <AddPersuasionToFighterSkillOptions>false</AddPersuasionToFighterSkillOptions>
     <SwapSecondWindToUseOneDndUsagesProgression>false</SwapSecondWindToUseOneDndUsagesProgression>
@@ -583,6 +583,7 @@
     <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
+    <RemoveRogueBlindSense>false</RemoveRogueBlindSense>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
@@ -627,6 +628,7 @@
     <MetamagicEnabled/>
     <AllowBladeCantripsToUseReach>false</AllowBladeCantripsToUseReach>
     <EnableOneDnDPreparedSpellsTables>false</EnableOneDnDPreparedSpellsTables>
+    <EnableRitualOnAllCasters>false</EnableRitualOnAllCasters>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
@@ -1039,4 +1041,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

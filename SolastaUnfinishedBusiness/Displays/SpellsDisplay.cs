@@ -40,6 +40,13 @@ internal static class SpellsDisplay
             SrdAndHouseRulesContext.SwitchOneDndPreparedSpellsTables();
         }
 
+        toggle = Main.Settings.EnableRitualOnAllCasters;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRitualOnAllCasters = toggle;
+            SrdAndHouseRulesContext.SwitchEnableRitualOnAllCasters();
+        }
+
         toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
         if (UI.Toggle(Gui.Localize("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
         {

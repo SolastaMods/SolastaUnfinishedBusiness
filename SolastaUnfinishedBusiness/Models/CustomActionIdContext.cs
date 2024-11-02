@@ -406,7 +406,7 @@ public static class CustomActionIdContext
             .SetActionId(ExtraActionId.OverChannelToggle)
             .OverrideClassName("Toggle")
             .AddToDB();
-        
+
         ActionDefinitionBuilder
             .Create(MetamagicToggle, "GravityWellToggle")
             .SetOrUpdateGuiPresentation(Category.Action)

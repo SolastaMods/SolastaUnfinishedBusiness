@@ -123,6 +123,49 @@ internal static class SrdAndHouseRulesContext
         .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
         .AddToDB();
 
+    private static readonly FeatureDefinitionFeatureSet FeatureSetDruidPrimalOrder = FeatureDefinitionFeatureSetBuilder
+        .Create("FeatureSetDruidPrimalOrder")
+        .SetGuiPresentation(Category.Feature)
+        .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+        .SetFeatureSet(
+            FeatureDefinitionFeatureSetBuilder
+                .Create("FeatureSetDruidPrimalOrderMagician")
+                .SetGuiPresentation(Category.Feature)
+                .SetFeatureSet(
+                    FeatureDefinitionAbilityCheckAffinityBuilder
+                        .Create("AbilityCheckDruidPrimalOrderMagician")
+                        .SetGuiPresentation("FeatureSetDruidPrimalOrderMagician", Category.Feature)
+                        .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.None, DieType.D6, 1,
+                            AbilityCheckGroupOperation.AddDie,
+                            (AttributeDefinitions.Intelligence, SkillDefinitions.Arcana),
+                            (AttributeDefinitions.Intelligence, SkillDefinitions.Nature))
+                        .AddToDB(),
+                    FeatureDefinitionPointPoolBuilder
+                        .Create("PointPoolDruidPrimalOrderMagician")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1)
+                        .AddToDB())
+                .AddToDB(),
+            FeatureDefinitionFeatureSetBuilder
+                .Create("FeatureSetDruidPrimalOrderWarden")
+                .SetGuiPresentation(Category.Feature)
+                .SetFeatureSet(
+                    FeatureDefinitionProficiencyBuilder
+                        .Create("ProficiencyDruidPrimalOrderWardenArmor")
+                        .SetGuiPresentationNoContent(true)
+                        .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory)
+                        .AddToDB(),
+                    FeatureDefinitionProficiencyBuilder
+                        .Create("ProficiencyDruidPrimalOrderWardenWeapon")
+                        .SetGuiPresentationNoContent(true)
+                        .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.MartialWeaponCategory)
+                        .AddToDB())
+                .AddToDB())
+        .AddToDB();
+
+    private static readonly List<string> DruidWeaponsCategories =
+        [.. FeatureDefinitionProficiencys.ProficiencyDruidWeapon.Proficiencies];
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -138,6 +181,8 @@ internal static class SrdAndHouseRulesContext
         SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
         SwitchConditionBlindedShouldNotAllowOpportunityAttack();
         SwitchDruidAllowMetalArmor();
+        SwitchDruidWeaponProficiencyToUseOneDnd();
+        SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
         SwitchEldritchBlastRange();
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFilterOnHideousLaughter();
@@ -360,6 +405,34 @@ internal static class SrdAndHouseRulesContext
                     TagsDefinitions.ItemTagMetal);
             }
         }
+    }
+
+    internal static void SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency()
+    {
+        if (Main.Settings.AddDruidPrimalOrderAndRemoveMediumArmorProficiency)
+        {
+            FeatureDefinitionProficiencys.ProficiencyDruidArmor.Proficiencies.Remove(
+                EquipmentDefinitions.MediumArmorCategory);
+
+            Druid.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetDruidPrimalOrder, 1));
+        }
+        else
+        {
+            FeatureDefinitionProficiencys.ProficiencyDruidArmor.Proficiencies.TryAdd(
+                EquipmentDefinitions.MediumArmorCategory);
+
+            Druid.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetDruidPrimalOrder);
+        }
+
+        Druid.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchDruidWeaponProficiencyToUseOneDnd()
+    {
+        FeatureDefinitionProficiencys.ProficiencyDruidWeapon.proficiencies =
+            Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd
+                ? [WeaponCategoryDefinitions.SimpleWeaponCategory.Name]
+                : DruidWeaponsCategories;
     }
 
     internal static void SwitchEnableRitualOnAllCasters()

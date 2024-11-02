@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555>Sang
 ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate agli oggetti di gioco ufficiali <i><color=#F0DAA0>[munizioni, ricette, kit, ecc.]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percezione dell'oscurità</color> su <color=#D89555>Elfo scuro</color>, <color=#D89555>Kobold oscuro</color> e <color=#D89555>Nano grigio</color> <i><color=#F0DAA0>\n[concede vantaggio sui controlli di percezione quando non è illuminato o sotto oscurità magica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Aggiungi modificatore DEX al tiro di iniziativa dei nemici <color=#D89555>
+ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Aggiungi <color=#D89555>Ordine Primordiale</color> al livello 1 e rimuovi <color=#D89555>Competenza in Armatura Media</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Aggiungere il livello di classe come bonus al tiro salvezza ripetuto di <color=#D89555>Resistenza indomabile</color>.
 ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti <color=#D89555>Umanoidi</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce per le mani, alabarde, picche, mazze lunghe, balestre a mano]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
@@ -303,6 +304,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Sottoclassi</color>
 ModUi/&Subraces=<color=#F0DAA0>Sottorazze</color>
 ModUi/&SwapAbjurationSavant=Sostituisci <b>Abjurer</b> <color=#D89555>Savant dell'Abjurazione</color> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>ModUi/&SwapEvocationSavant=Sostituisci <b>Evocatore</b> <color=#D89555>Sapiente dell'evocazione</color> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
+ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Sostituisci <color=#D89555>Competenza nelle armi</color> con la versione 5e 2024 <i><color=#F0DAA0>[armi semplici invece di tipi di armi ma perdi competenza nella Scimitarra]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Scambia le funzionalità <b>Evocatore</b> <color=#D89555>Incantesimi di Scultura</color> e <color=#D89555>Trucchetto Potente</color>
 ModUi/&SwapEvocationSavant=Sostituisci <b>Evocatore</b> <color=#D89555>Sapiente dell'evocazione</color> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Sostituisci <color=#D89555>Attacco disarmato</color> per usare la progressione del tipo di dado 5e 2024

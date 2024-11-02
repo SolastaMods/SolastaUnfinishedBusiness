@@ -5,6 +5,7 @@ ModUi/&AddBleedingToLesserRestoration=Добавить <color=#D89555>Крово
 ModUi/&AddCustomIconsToOfficialItems=Добавить кастомные значки к официальным игровым предметам <i><color=#F0DAA0>[боеприпасы, рецепты, наборы и т.д.]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Включить <color=#D89555>Восприятие тьмы</color> для рас <color=#D89555>Тёмных эльфов</color>, <color=#D89555>Тёмных кобольдов</color> и <color=#D89555>Серых дварфов</color> <i><color=#F0DAA0>\n[даёт преимущество при проверках восприятия, когда персонаж не на свету или находится в магической темноте]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Добавлять модификатор Ловкости к <color=#D89555>броскам Инициативы</color> противников
+ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Добавьте <color=#D89555>Первобытный порядок</color> на уровне 1 и удалите <color=#D89555>Среднее владение броней</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Добавлять уровень класса к повторным спасброскам умения <color=#D89555>Упорный</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Включить <color=#D89555>Гуманоидов</color> в список предпочтительных противников
 ModUi/&AddNewWeaponsAndRecipesToShops=Добавить новые оружия и рецепты в магазины <i><color=#F0DAA0>[обмотки, алебарды, пики, длинные булавы, ручные арбалеты]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
@@ -303,6 +304,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Архетипы</color>
 ModUi/&Subraces=<color=#F0DAA0>Подрасы</color>
 ModUi/&SwapAbjurationSavant=Поменяйте <b>Abjurer</b> <color=#D89555>Abjuration Savant</color> на версию 5e 2024 <i><color=#F0DAA0>[изучите 2 школьных заклинания при получении, изучайте еще 1 каждый раз, когда получаете уровень слота]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Заменить значок рецепта значком создаваемого предмета в магазине</i>ModUi/&SwapEvocationSavant=Замените <b>Evoker</b> <color=#D89555>Evocation Savant</color> на версию 5e 2024 <i><color=#F0DAA0>[выучите 2 школьных заклинания при получении, выучите еще 1 каждый раз, когда получаете уровень слота]</color></i>
+ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Поменяйте <color=#D89555>Владение оружием</color> на версию 5e 2024 <i><color=#F0DAA0>[простое оружие вместо типов оружия, но вы теряете владение ятаганом]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Поменяйте местами функции <b>Evoker</b> <color=#D89555>Sculpt Spells</color> и <color=#D89555>Potent Cantrip</color>
 ModUi/&SwapEvocationSavant=Замените <b>Evoker</b> <color=#D89555>Evocation Savant</color> на версию 5e 2024 <i><color=#F0DAA0>[выучите 2 школьных заклинания при получении, выучите еще 1 каждый раз, когда получаете уровень слота]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Поменяйте <color=#D89555>Безоружная атака</color> на использование прогрессии типа кубика 5e 2024
