@@ -21,6 +21,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefiniti
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRegenerations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRestHealingModifiers;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -458,7 +459,6 @@ internal static class SrdAndHouseRulesContext
             Barkskin.GuiPresentation.description = "Spell/&BarkskinDescription";
             ConditionBarkskin.GuiPresentation.description = "Rules/&ConditionBarkskinDescription";
         }
-
     }
 
     internal static void SwitchOneDndWizardSchoolOfMagicLearningLevel()
@@ -586,6 +586,54 @@ internal static class SrdAndHouseRulesContext
         PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHandsAsBonusAction
             ? ActivationTime.BonusAction
             : ActivationTime.Action;
+    }
+
+    internal static void SwitchOneDndBardExpertiseOneLevelBefore()
+    {
+        var level = Main.Settings.EnableBardExpertiseOneLevelBefore ? 2 : 3;
+
+        foreach (var featureUnlock in Ranger.FeatureUnlocks
+                     .Where(x => x.FeatureDefinition == FeatureDefinitionPointPools.PointPoolBardExpertiseLevel3))
+        {
+            featureUnlock.level = level;
+        }
+
+        level = Main.Settings.EnableBardExpertiseOneLevelBefore ? 9 : 10;
+
+        foreach (var featureUnlock in Ranger.FeatureUnlocks
+                     .Where(x => x.FeatureDefinition == FeatureDefinitionPointPools.PointPoolBardExpertiseLevel10))
+        {
+            featureUnlock.level = level;
+        }
+
+        Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchOneDndBardicInspirationDurationToOneHour()
+    {
+        if (Main.Settings.ChangeBardicInspirationDurationToOneHour)
+        {
+            ConditionDefinitions.ConditionBardicInspiration.durationType = DurationType.Hour;
+            ConditionDefinitions.ConditionBardicInspiration.durationParameter = 1;
+        }
+        else
+        {
+            ConditionDefinitions.ConditionBardicInspiration.durationType = DurationType.Minute;
+            ConditionDefinitions.ConditionBardicInspiration.durationParameter = 10;
+        }
+    }
+
+    internal static void SwitchOneDndRemoveBardSongOfRest()
+    {
+        Bard.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == RestHealingModifierBardSongOfRest);
+
+        if (!Main.Settings.RemoveBardSongOfRest)
+        {
+            Bard.FeatureUnlocks.Add(new FeatureUnlockByLevel(RestHealingModifierBardSongOfRest, 2));
+        }
+
+        Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchOneDndHealingPotionBonusAction()

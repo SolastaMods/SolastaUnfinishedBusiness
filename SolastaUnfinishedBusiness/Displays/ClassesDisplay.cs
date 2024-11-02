@@ -37,6 +37,31 @@ internal static class ClassesDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BardTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.ChangeBardicInspirationDurationToOneHour;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeBardicInspirationDurationToOneHour"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeBardicInspirationDurationToOneHour = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndBardicInspirationDurationToOneHour();
+        }
+
+        toggle = Main.Settings.EnableBardExpertiseOneLevelBefore;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardExpertiseOneLevelBefore = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndBardExpertiseOneLevelBefore();
+        }
+
+        toggle = Main.Settings.RemoveBardSongOfRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveBardSongOfRest = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndRemoveBardSongOfRest();
+        }
+
+        UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BarbarianTitle") + ":</color>");
         UI.Label();
 

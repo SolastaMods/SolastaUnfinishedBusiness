@@ -588,7 +588,11 @@
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
+    <EnableRitualOnAllCasters>false</EnableRitualOnAllCasters>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <EnableBardExpertiseOneLevelBefore>false</EnableBardExpertiseOneLevelBefore>
+    <ChangeBardicInspirationDurationToOneHour>false</ChangeBardicInspirationDurationToOneHour>
+    <RemoveBardSongOfRest>false</RemoveBardSongOfRest>
     <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
@@ -899,6 +903,7 @@
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
     <ModifyGravitySlam>true</ModifyGravitySlam>
     <EnableOneDndHealingSpellsBuf>true</EnableOneDndHealingSpellsBuf>
+    <SwapOneDndBarkskinSpell>false</SwapOneDndBarkskinSpell>
     <AllowHasteCasting>true</AllowHasteCasting>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
     <EnableRelearnSpells>false</EnableRelearnSpells>

@@ -308,6 +308,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionBardicInspiration { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBardicInspiration");
+
         internal static ConditionDefinition ConditionCharmedByHypnoticPattern { get; } =
             GetDefinition<ConditionDefinition>("ConditionCharmedByHypnoticPattern");
 
@@ -547,9 +550,6 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionHindered_By_Frost { get; } =
             GetDefinition<ConditionDefinition>("ConditionHindered_By_Frost");
-
-        internal static ConditionDefinition ConditionHitByDirtyFighting { get; } =
-            GetDefinition<ConditionDefinition>("ConditionHitByDirtyFighting");
 
         internal static ConditionDefinition ConditionHopeless { get; } =
             GetDefinition<ConditionDefinition>("ConditionHopeless");
@@ -1737,6 +1737,12 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPointPools
     {
+        internal static FeatureDefinitionPointPool PointPoolBardExpertiseLevel3 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBardExpertiseLevel3");
+
+        internal static FeatureDefinitionPointPool PointPoolBardExpertiseLevel10 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBardExpertiseLevel10");
+
         internal static FeatureDefinitionPointPool PointPoolAbilityScoreImprovement { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolAbilityScoreImprovement");
 
@@ -2429,6 +2435,9 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionRestHealingModifier RestHealingModifierBardHealingBallad { get; } =
             GetDefinition<FeatureDefinitionRestHealingModifier>("RestHealingModifierBardHealingBallad");
+
+        internal static FeatureDefinitionRestHealingModifier RestHealingModifierBardSongOfRest { get; } =
+            GetDefinition<FeatureDefinitionRestHealingModifier>("RestHealingModifierBardSongOfRest");
     }
 
     internal static class FeatureDefinitionSavingThrowAffinitys

@@ -260,13 +260,33 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
-        toggle = Main.Settings.EnableRitualOnAllCasters;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BardTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.ChangeBardicInspirationDurationToOneHour;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeBardicInspirationDurationToOneHour"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableRitualOnAllCasters = toggle;
-            SrdAndHouseRulesContext.SwitchEnableRitualOnAllCasters();
+            Main.Settings.ChangeBardicInspirationDurationToOneHour = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndBardicInspirationDurationToOneHour();
         }
 
+        toggle = Main.Settings.EnableBardExpertiseOneLevelBefore;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardExpertiseOneLevelBefore = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndBardExpertiseOneLevelBefore();
+        }
+
+        toggle = Main.Settings.RemoveBardSongOfRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveBardSongOfRest = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndRemoveBardSongOfRest();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BarbarianTitle") + ":</color>");
         UI.Label();
 
         toggle = Main.Settings.EnableBarbarianBrutalStrike;
@@ -303,6 +323,8 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&FighterTitle") + ":</color>");
+        UI.Label();
 
         toggle = Main.Settings.AddFighterLevelToIndomitableSavingReroll;
         if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
@@ -311,6 +333,8 @@ internal static class ToolsDisplay
             CharacterContext.SwitchFighterLevelToIndomitableSavingReroll();
         }
 
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&MonkTitle") + ":</color>");
         UI.Label();
 
         toggle = Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf;
@@ -353,6 +377,8 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&PaladinTitle") + ":</color>");
+        UI.Label();
 
         toggle = Main.Settings.EnablePaladinLayOnHandsAsBonusAction;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHandsAsBonusAction"), ref toggle, UI.AutoWidth()))
@@ -375,6 +401,8 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&RangerTitle") + ":</color>");
+        UI.Label();
 
         toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
@@ -384,6 +412,8 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&RogueTitle") + ":</color>");
+        UI.Label();
 
         toggle = Main.Settings.EnableRogueCunningStrike;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueCunningStrike"), ref toggle, UI.AutoWidth()))
@@ -392,6 +422,8 @@ internal static class ToolsDisplay
             CharacterContext.SwitchRogueCunningStrike();
         }
 
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WizardTitle") + ":</color>");
         UI.Label();
 
         toggle = Main.Settings.EnableWizardToLearnScholarAtLevel2;
@@ -409,6 +441,8 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("ModUi/&DocsSpells") + ":</color>");
+        UI.Label();
 
         toggle = Main.Settings.EnableCastersToCountMaxPreparedFromTable;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCastersToCountMaxPreparedFromTable"), ref toggle, UI.AutoWidth()))
@@ -423,6 +457,13 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
         }
 
+        toggle = Main.Settings.EnableRitualOnAllCasters;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRitualOnAllCasters = toggle;
+            SrdAndHouseRulesContext.SwitchEnableRitualOnAllCasters();
+        }
+
         toggle = Main.Settings.SwapOneDndBarkskinSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
         {
@@ -430,6 +471,8 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwapOneDndBarkskinSpell();
         }
 
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("ModUi/&DocsSubclasses") + ":</color>");
         UI.Label();
 
         toggle = Main.Settings.SwapAbjurationSavant;
@@ -761,6 +804,7 @@ internal static class ToolsDisplay
         UI.Label();
 
         toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
+        // ReSharper disable once InvertIf
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardHealingBalladOnLongRest = toggle;

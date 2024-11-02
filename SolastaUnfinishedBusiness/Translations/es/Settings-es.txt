@@ -41,6 +41,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=No habilites ataques de opor
 ModUi/&Blueprints=Planos
 ModUi/&Campaigns=Campañas
 ModUi/&Category=Categoría
+ModUi/&ChangeBardicInspirationDurationToOneHour=Cambiar la duración de <color=#D89555>Inspiración bárdica</color> a 1 hora en lugar de 10 minutos
 ModUi/&ChangeDragonbornElementalBreathUsages=Cambiar los usos del aliento elemental de <color=#D89555>Dragonborn</color> a modificador CON por cada descanso corto
 ModUi/&ChangeSleetStormToCube=Cambie <color=#D89555>Tormenta de aguanieve</color> para utilizar un cubo en lugar de un cilindro
 ModUi/&Changelog=<b><color=#D89555>Registro de cambios</color></b>
@@ -60,7 +61,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: suma el resultado máxim
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: sigue tirando los dados de daño que obtengan el resultado más alto posible y añádelo al daño total.
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Duplica el daño total de tu ataque en lugar de tirar dados adicionales. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DisableAutoEquip=Deshabilitar el equipamiento automático de artículos en el inventario
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Desactiva también el <b>Crítico brutal</b> en los niveles 9, 13 y 17</i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Desactiva también el <color=#D89555>Crítico brutal</color> en los niveles 9, 13 y 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Deshabilitar los requisitos previos para lanzar hechizos en el mod <color=#D89555>dotes</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Deshabilitar los requisitos previos de nivel en <color=#D89555>dotes</color>
 ModUi/&DisableMultilineSpellOffering=Desactivar la oferta de hechizos multilínea en la barra de acción <i><color=#F0DAA0>[principalmente para usuarios de controlador que usan héroes que no son multicaster]</color></i>
@@ -102,6 +103,7 @@ ModUi/&EnableBarbarianBrutalStrike=Habilita <color=#D89555>Golpe brutal</color> 
 ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 7
+ModUi/&EnableBardExpertiseOneLevelBefore=Habilitar <color=#D89555>Experiencia</color> en los niveles 2 y 9 en lugar de 3 y 10
 ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <color=#D89555>Colegio de la Esperanza</color> <b>Balada curativa</b> en descanso prolongado
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
@@ -144,20 +146,20 @@ ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclase</color> <b><i><color
 ModUi/&EnableOneDndHealingSpellsBuf=Habilitar la mejora de dados de curación en <color=#D89555>Curar heridas</color>, <color=#D89555>Palabra de curación</color>, <color=#D89555>Curar heridas en masa</color> y <color=#D89555>Palabra de curación en masa</color>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Habilitar <color=#D89555>Imposición de manos</color> como acción adicional
 ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Castigar</color> como acción adicional
-ModUi/&EnablePaladinSpellCastingAtLevel1=Permite que el <b>Paladín</b> adquiera <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar el <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar del 2
 ModUi/&EnablePcgRandom=Habilitar un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Habilita la acción <color=#D89555>Caer boca abajo</color> <i><color=#F0DAA0>[puedes caer boca abajo sin costo]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Habilite los efectos de movimiento de empujar y tirar para que funcionen también en el eje arriba/abajo
 ModUi/&EnableRangerNatureShroudAt10=Habilita la característica <color=#D89555>Velo de la Naturaleza</color> en el nivel 10 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno]</color></i>
-ModUi/&EnableRangerSpellCastingAtLevel1=Habilitar <b>Ranger</b> para adquirir <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar de 2
+ModUi/&EnableRangerSpellCastingAtLevel1=Habilitar el <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar del 2
 ModUi/&EnableRelearnSpells=Habilitar la selección de trucos o hechizos ya aprendidos de otras fuentes
 ModUi/&EnableRespecAction=Habilitar la acción <color=#D89555>RESPECT</color> después del descanso <i><color=#F0DAA0>[no usar RESPECT durante una sesión multijugador]</color></i>
-ModUi/&EnableRitualOnAllCasters=Habilitar el lanzamiento de <color=#D89555>Ritual</color> para todos los <b>lanzadores</b>
+ModUi/&EnableRitualOnAllCasters=Habilitar el lanzamiento de <color=#D89555>Ritual</color> para todos los lanzadores
 ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Golpe astuto</color> y <color=#D89555>Golpe tortuoso</color> en los niveles 5 y 14 <i><color=#F0DAA0>[dejas de usar 1 dado de ataque furtivo para obtener efectos de golpe adicionales]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Apunta firme</color> en el nivel 3 <i><color=#F0DAA0>[la acción adicional otorga ventaja en tu próxima tirada de ataque en el turno actual si aún no te has movido]</color></i>
 ModUi/&EnableRogueStrSaving=Habilita los modificadores de DES o STR de <color=#D89555>Hoodlum</color> en <b>Golpe astuto/desviado</b>, <b>Golpe debilitante/mejorado</b> y <b>Lluvia de espadas</b>
-ModUi/&EnableSignatureSpellsRelearn=Permite que los hechizos característicos del <color=#D89555>Mago</color> se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
+ModUi/&EnableSignatureSpellsRelearn=Permite que los <color=#D89555>hechizos exclusivos</color> se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Guía mágica</color> en el nivel 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar la acción <color=#D89555>Hechizo acelerado</color> para permitir lanzar un hechizo de acción principal con metamagia acelerada aplicada
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
@@ -169,8 +171,8 @@ ModUi/&EnableTooltipDistance=Habilitar la visualización de la distancia en las 
 ModUi/&EnableUnarmedMainAttackAction=Habilitar la acción <color=#D89555>Ataque desarmado</color> <i><color=#F0DAA0>[si el actor tiene un arma en el personaje principal, es un <b>Monje</b> o tiene <b>vendas</b> o <b>guanteletes</b> equipados]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar la conversión ascendente de <color=#D89555>Conjurar elemental</color> y <color=#D89555>Conjurar feérico</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
-ModUi/&EnableWizardToLearnScholarAtLevel2=Habilitar <b>Wizard</b> para aprender <b>Scholar</b> en el nivel 2
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Permite que <b>Mago</b> adquiera la escuela de magia en el nivel 3 en lugar de 2
+ModUi/&EnableWizardToLearnScholarAtLevel2=Habilitar <color=#D89555>Scholar</color> en el nivel 2
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Habilitar <color=#D89555>Escuela de Magia</color> en el nivel 3 en lugar de 2
 ModUi/&EnablesAsiAndFeat=Habilitar tanto el aumento de las puntuaciones de atributos como la selección de <color=#D89555>dotes</color> <i><color=#F0DAA0>[en lugar de una elección exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentajes de posibilidades de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros
@@ -199,7 +201,7 @@ ModUi/&FullyControlConjurations=Controla completamente los conjuros <i><color=#F
 ModUi/&Gameplay=Jugabilidad
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Otorga la <b>especialización en armas</b> Cimitarra a los <color=#D89555>bardos</color> y a los <color=#D89555>pícaros</color>
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Otorga la <color=#D89555>especialización en armas</color> a los <b>bardos</b> y a los <b>pícaros</b>
 ModUi/&GridSelectedColor=Cambiar el movimiento <b><color=$$$$$$>color de la cuadrícula</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar los efectos visuales de las salidas y los teletransportadores si aún no se han descubierto
 ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25% / 50% / 75% / 100% en lugar de puntos de vida exactos.
@@ -251,6 +253,7 @@ ModUi/&Races=<color=#F0DAA0>Razas</color>
 ModUi/&RecipeCost=<color=white>Costo de la receta</color>
 ModUi/&RelicForgeries=Falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements=Eliminar requisitos de sintonización <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&RemoveBardSongOfRest=Eliminar <color=#D89555>Canción de descanso</color> en el nivel 2
 ModUi/&RemoveBugVisualModels=Reemplaza los modelos tipo araña por modelos tipo oso en el juego. <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar filtro humanoide en <color=#D89555>Risas espantosas</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=#D89555>Enredar</color> en el momento del lanzamiento y también fuerza una prueba de fuerza para liberarte de las enredaderas.

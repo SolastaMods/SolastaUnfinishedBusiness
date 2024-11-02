@@ -546,7 +546,11 @@
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
+    <EnableRitualOnAllCasters>false</EnableRitualOnAllCasters>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <EnableBardExpertiseOneLevelBefore>false</EnableBardExpertiseOneLevelBefore>
+    <ChangeBardicInspirationDurationToOneHour>false</ChangeBardicInspirationDurationToOneHour>
+    <RemoveBardSongOfRest>false</RemoveBardSongOfRest>
     <EnableBarbarianBrutalStrike>false</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>false</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
@@ -634,6 +638,7 @@
     <FixEldritchBlastRange>false</FixEldritchBlastRange>
     <ModifyGravitySlam>false</ModifyGravitySlam>
     <EnableOneDndHealingSpellsBuf>false</EnableOneDndHealingSpellsBuf>
+    <SwapOneDndBarkskinSpell>false</SwapOneDndBarkskinSpell>
     <AllowHasteCasting>false</AllowHasteCasting>
     <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
     <EnableRelearnSpells>false</EnableRelearnSpells>
@@ -1029,8 +1034,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

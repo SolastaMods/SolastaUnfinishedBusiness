@@ -40,6 +40,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Keine Gelegenheitsangriffe a
 ModUi/&Blueprints=Blaupausen
 ModUi/&Campaigns=Kampagnen
 ModUi/&Category=Kategorie
+ModUi/&ChangeBardicInspirationDurationToOneHour=Ändern Sie die Dauer von <color=#D89555>Bardic Inspiration</color> auf 1 Stunde statt 10 Minuten.
 ModUi/&ChangeDragonbornElementalBreathUsages=Ändere die Verwendung des Elementaratems von <color=#D89555>Dragonborn</color> in einen CON-Modifikator pro kurzer Pause.
 ModUi/&ChangeSleetStormToCube=Ändern Sie <color=#D89555>Schneeregen</color>, um einen Würfel statt eines Zylinders zu verwenden.
 ModUi/&Changelog=<b><color=#D89555>Änderungsprotokoll</color></b>
@@ -59,7 +60,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: Summiere das maximale Er
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: Wirf alle Schadenswürfel, die das höchstmögliche Ergebnis erzielen, erneut und addiere es zum Gesamtschaden
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Verdoppeln Sie den Gesamtschaden Ihres Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DisableAutoEquip=Automatisches Ausrüsten von Gegenständen im Inventar deaktivieren
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Deaktivieren Sie außerdem <b>Brutal Critical</b> auf den Stufen 9, 13 und 17</i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Deaktivieren Sie außerdem <color=#D89555>Brutal Critical</color> auf den Stufen 9, 13 und 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Deaktivieren Sie die Voraussetzungen für das Wirken von Zaubern bei Mod <color=#D89555>feats</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie Levelvoraussetzungen für <color=#D89555>Talente</color>
 ModUi/&DisableMultilineSpellOffering=Deaktivieren Sie das Anbieten von mehrzeiligen Zaubersprüchen in der Aktionsleiste <i><color=#F0DAA0>[hauptsächlich für Controller-Benutzer, die Helden ohne Multicaster verwenden]</color></i>
@@ -101,6 +102,7 @@ ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Brutal Strike</color
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie den Buff und Debuff von <color=#D89555>Reckless Attack</color>, um ihn zu Beginn der nächsten Runde zu beenden.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Aktiviere die Wiedererlangung einer <color=#D89555>Wut</color>-Anwendung während einer kurzen Pause auf Level 7
+ModUi/&EnableBardExpertiseOneLevelBefore=Aktivieren Sie <color=#D89555>Expertise</color> auf den Stufen 2 und 9 statt 3 und 10.
 ModUi/&EnableBardHealingBalladOnLongRest=Aktivieren Sie <color=#D89555>College of Hope</color> <b>Healing Ballad</b> bei langer Pause
 ModUi/&EnableBetaContent=Beta-Inhalte aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen mit rechtem Mausklick aktivieren
@@ -143,20 +145,20 @@ ModUi/&EnableMulticlass=Aktivieren Sie <color=#D89555>Multiclass</color> <b><i><
 ModUi/&EnableOneDndHealingSpellsBuf=Aktiviere den Heilungswürfel-Buff für <color=#D89555>Wunden heilen</color>, <color=#D89555>Heilendes Wort</color>, <color=#D89555>Massenheilung von Wunden</color> und <color=#D89555>Massenheilungswort</color>.
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Aktiviere <color=#D89555>Handauflegen</color> als Bonusaktion
 ModUi/&EnablePaladinSmiteAsBonusAction=Aktiviere <color=#D89555>Smite</color> als Bonusaktion
-ModUi/&EnablePaladinSpellCastingAtLevel1=Ermöglicht <b>Paladin</b>, <color=#D89555>Zaubersprüche</color> auf Stufe 1 statt 2 zu erlangen <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Aktivieren Sie die Aktion <color=#D89555>In die Hocke gehen</color> <i><color=#F0DAA0>[Sie können kostenlos in die Hocke gehen]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Aktivieren Sie Push- und Pull-Bewegungseffekte, damit diese auch auf der Auf-/Ab-Achse funktionieren
 ModUi/&EnableRangerNatureShroudAt10=Aktivieren Sie die Funktion <color=#D89555>Nature's Veil</color> auf Stufe 10 <i><color=#F0DAA0>[als Bonusaktion können Sie bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden]</color></i>
-ModUi/&EnableRangerSpellCastingAtLevel1=Ermöglicht <b>Ranger</b>, <color=#D89555>Zaubersprüche</color> auf Stufe 1 statt 2 zu erlangen.
+ModUi/&EnableRangerSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
 ModUi/&EnableRelearnSpells=Aktivieren Sie die Auswahl von Zaubersprüchen oder Zaubersprüchen, die Sie bereits aus anderen Quellen gelernt haben.
 ModUi/&EnableRespecAction=Aktivieren Sie <color=#D89555>RESPEC</color> nach der Rest-Aktion <i><color=#F0DAA0>[RESPEC nicht während einer Multiplayer-Sitzung verwenden]</color></i>
-ModUi/&EnableRitualOnAllCasters=Aktivieren Sie das Wirken von <color=#D89555>Ritualen</color> für alle <b>Zauberer</b>
+ModUi/&EnableRitualOnAllCasters=Aktivieren Sie das Wirken von <color=#D89555>Ritualen</color> für alle Zauberer.
 ModUi/&EnableRogueCunningStrike=Aktiviere <color=#D89555>Cunning Strike</color> und <color=#D89555>Devious Strike</color> auf den Leveln 5 und 14 <i><color=#F0DAA0>[du lässt 1 Schleichangriffswürfel für zusätzliche Treffereffekte weg]</color></i>
 ModUi/&EnableRogueFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrechung</color> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sich noch nicht bewegt haben]</color></i>
 ModUi/&EnableRogueStrSaving=Aktiviere <color=#D89555>Hoodlum</color> DEX- oder STR-Modifikatoren bei <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b> und <b>Hail of Blades</b>
-ModUi/&EnableSignatureSpellsRelearn=Aktivieren Sie die Vorbereitung der Signaturzauber des <color=#D89555>Zauberers</color> bei jeder langen Pause <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i>
+ModUi/&EnableSignatureSpellsRelearn=Aktiviere, dass <color=#D89555>Signaturzauber</color> bei jeder langen Pause vorbereitet werden <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung</color> auf Stufe 5.
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Sortierung von Assets im Dungeon Maker-Editor.
@@ -168,8 +170,8 @@ ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Entfernung in den To
 ModUi/&EnableUnarmedMainAttackAction=Aktiviere die Aktion <color=#D89555>Unbewaffneter Angriff</color> <i><color=#F0DAA0>[wenn der Akteur eine Waffe im Hauptkampf hat, ein <b>Mönch</b> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet hat]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Aktiviere Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feenbeschwören</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Aktivieren Sie variable Platzhalter in Beschreibungen <i><color=#F0DAA0>[verwenden Sie {VARIABLE_NAME} als Platzhalter]</color></i>
-ModUi/&EnableWizardToLearnScholarAtLevel2=Aktiviere <b>Wizard</b>, um <b>Scholar</b> auf Level 2 zu erlernen
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Aktivieren Sie <b>Wizard</b>, um die Schule der Magie auf Stufe 3 statt auf Stufe 2 zu erwerben
+ModUi/&EnableWizardToLearnScholarAtLevel2=Aktiviere <color=#D89555>Gelehrter</color> auf Stufe 2
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Aktiviere die <color=#D89555>Schule der Magie</color> auf Level 3 statt auf Level 2.
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Auswahl von <color=#D89555>Talenten</color> <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Prozentuale Wahrscheinlichkeit für Zufallsbegegnungen festlegen</color>
 ModUi/&Encounters=Begegnungen
@@ -198,7 +200,7 @@ ModUi/&FullyControlConjurations=Vollständige Kontrolle über Beschwörungen <i>
 ModUi/&Gameplay=Spielablauf
 ModUi/&General=<color=#F0DAA0>Allgemeines:</color>
 ModUi/&GeneralMenu=Allgemein
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Verleihen Sie <color=#D89555>Barden</color> und <color=#D89555>Schurken</color> die <b>Waffenspezialisierung</b> Krummsäbel
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Verleiht <b>Barden</b> und <b>Schurken</b> die <color=#D89555>Waffenspezialisierung</color> mit dem Krummsäbel
 ModUi/&GridSelectedColor=Ändern Sie die Bewegung <b><color=$$$$$$>Rasterfarbe</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Verstecke die visuellen Effekte von Ausgängen und Teleportern, falls sie noch nicht entdeckt wurden
 ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit von Monstern in Schritten von 25 % / 50 % / 75 % / 100 % an, statt in exakten Trefferpunkten.
@@ -250,6 +252,7 @@ ModUi/&Races=<color=#F0DAA0>Rennen</color>
 ModUi/&RecipeCost=<color=white>Kosten des Rezepts</color>
 ModUi/&RelicForgeries=Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements=Abstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&RemoveBardSongOfRest=Entferne <color=#D89555>Song of Rest</color> auf Level 2
 ModUi/&RemoveBugVisualModels=Ersetzen Sie im Spiel spinnenähnliche Modelle durch bärenähnliche Modelle <i><color=#F0DAA0>[Spinnenphobie]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Humanoidenfilter bei <color=#D89555>Grauenhaftem Gelächter</color> entfernen
 ModUi/&RemoveRecurringEffectOnEntangle=Wende den <color=#D89555>Verstricken</color>-Effekt nur beim Zaubern an und erzwinge außerdem eine Stärkeprüfung, um sich von den Ranken zu befreien.

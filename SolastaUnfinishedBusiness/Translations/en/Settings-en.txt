@@ -40,6 +40,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Enable no attacks of opportu
 ModUi/&Blueprints=Blueprints
 ModUi/&Campaigns=Campaigns
 ModUi/&Category=Category
+ModUi/&ChangeBardicInspirationDurationToOneHour=Change <color=#D89555>Bardic Inspiration</color> duration to 1hr instead of 10 minutes
 ModUi/&ChangeDragonbornElementalBreathUsages=Change <color=#D89555>Dragonborn</color> elemental breath usages to CON modifier per short rest
 ModUi/&ChangeSleetStormToCube=Change <color=#D89555>Sleet Storm</color> to use a cube instead of a cylinder
 ModUi/&Changelog=<b><color=#D89555>Change Log</color></b>
@@ -59,7 +60,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: sum the maximum result f
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: keep re-rolling any damage dice that roll the highest possible result and add it to the total damage
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Also disable <b>Brutal Critical</b> at levels 9, 13 and 17</i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Also disable <color=#D89555>Brutal Critical</color> at levels 9, 13 and 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on mod <color=#D89555>feats</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on <color=#D89555>feats</color>
 ModUi/&DisableMultilineSpellOffering=Disable multi-line spell offering on action bar <i><color=#F0DAA0>[mainly for controller users using non multicaster heroes]</color></i>
@@ -101,6 +102,7 @@ ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Brutal Strike</color> a
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 7
+ModUi/&EnableBardExpertiseOneLevelBefore=Enable <color=#D89555>Expertise</color> at levels 2 and 9 instead of 3 and 10
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <color=#D89555>College of Hope</color> <b>Healing Ballad</b> on long rest
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
@@ -143,20 +145,20 @@ ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C
 ModUi/&EnableOneDndHealingSpellsBuf=Enable healing dice buff on <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Enable <color=#D89555>Lay on Hands</color> as bonus action
 ModUi/&EnablePaladinSmiteAsBonusAction=Enable <color=#D89555>Smite</color> as bonus action
-ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <b>Paladin</b> acquire <color=#D89555>spellcasting</color> at level 1 instead of 2
+ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
 ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Nature's Veil</color> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
-ModUi/&EnableRangerSpellCastingAtLevel1=Enable <b>Ranger</b> acquire <color=#D89555>spellcasting</color> at level 1 instead of 2
+ModUi/&EnableRangerSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespecAction=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
-ModUi/&EnableRitualOnAllCasters=Enable <color=#D89555>Ritual</color> casting on all <b>casters</b>
+ModUi/&EnableRitualOnAllCasters=Enable <color=#D89555>Ritual</color> casting on all casters
 ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Cunning Strike</color> and <color=#D89555>Devious Strike</color> at levels 5 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
 ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <color=#D89555>Hoodlum</color> DEX or STR modifiers on <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b>, and <b>Hail of Blades</b>
-ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Wizard</color> signature spells to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
+ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
@@ -168,8 +170,8 @@ ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering o
 ModUi/&EnableUnarmedMainAttackAction=Enable the <color=#D89555>Unarmed Attack</color> action <i><color=#F0DAA0>[if actor has weapon in main, is a <b>Monk</b> or has <b>handwraps</b> or <b>gauntlet</b> equipped]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descriptions <i><color=#F0DAA0>[use {VARIABLE_NAME} as placeholder]</color></i>
-ModUi/&EnableWizardToLearnScholarAtLevel2=Enable <b>Wizard</b> to learn <b>Scholar</b> at level 2
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Enable <b>Wizard</b> to acquire the <b>School of Magic</b> at level 3 instead of 2
+ModUi/&EnableWizardToLearnScholarAtLevel2=Enable  <color=#D89555>Scholar</color> at level 2
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Enable <color=#D89555>School of Magic</color> at level 3 instead of 2
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and <color=#D89555>feats</color> selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Encounters
@@ -198,7 +200,7 @@ ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[an
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Grant Scimitar <b>Weapon Specialization</b> to <color=#D89555>Bards</color> and <color=#D89555>Rogues</color>
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Grant Scimitar <color=#D89555>Weapon Specialization</color> to <b>Bards</b> and <b>Rogues</b>
 ModUi/&GridSelectedColor=Change the movement <b><color=$$$$$$>grid color</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
@@ -250,6 +252,7 @@ ModUi/&Races=<color=#F0DAA0>Races</color>
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveBardSongOfRest=Remove <color=#D89555>Song of Rest</color> at level 2
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time and also force a strength check to break free from the vines
