@@ -150,7 +150,7 @@ ModUi/&EnablePaladinSpellCastingAtLevel1=Activer le <color=#D89555>lancement de 
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Activer l'action <color=#D89555>Tomber à plat ventre</color> <i><color=#F0DAA0>[vous pouvez tomber à plat ventre sans frais]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Activez les effets de mouvement de poussée et de traction pour qu'ils fonctionnent également sur l'axe haut/bas
-ModUi/&EnableRangerNatureShroudAt10=Activez la fonction <color=#D89555>Voile de la nature</color> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour]</color></i>
+ModUi/&EnableRangerNatureShroudAt14=Activez la fonction <color=#D89555>Voile de la nature</color> au niveau 14 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Activer le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
 ModUi/&EnableRelearnSpells=Activer la sélection de sorts ou de sorts déjà appris à partir d'autres sources
 ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après le repos <i><color=#F0DAA0>[ne pas utiliser RESPEC pendant une session multijoueur]</color></i>
@@ -258,6 +258,7 @@ ModUi/&RemoveBardSongOfRest=Supprimez <color=#D89555>Chant de repos</color> au n
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des araignées par des modèles ressemblant à des ours dans le jeu <i><color=#F0DAA0>[arachnophobie]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Supprimer le filtre humanoïde sur <color=#D89555>Hideous Laugher</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Appliquez uniquement l'effet <color=#D89555>Enchevêtrement</color> au moment de l'incantation et forcez également un test de force pour vous libérer des vignes
+ModUi/&RemoveRogueBlindSense=Supprimez <color=#D89555>Blind Sense</color> au niveau 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Supprimer les restrictions scolaires de <color=#D89555>Shadowcaster</color>
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Supprimer les restrictions scolaires de <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Réapprovisionner les antiquaires <i><color=#F0DAA0>[Halman Summer]</color></i>

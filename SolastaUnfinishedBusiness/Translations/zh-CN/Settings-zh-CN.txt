@@ -150,7 +150,7 @@ ModUi/&EnablePaladinSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color
 ModUi/&EnablePcgRandom=启用更好的随机生成器算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=启用<color=#D89555>倒地</color>动作<i><color=#F0DAA0>[你可以无代价倒地]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=使推拉运动效果也适用于上/下轴
-ModUi/&EnableRangerNatureShroudAt10=在 10 级时启用<color=#D89555>自然面纱</color>功能<i><color=#F0DAA0>[作为奖励行动，您可以神奇地隐身，直到下一回合开始]</color></i>
+ModUi/&EnableRangerNatureShroudAt14=在 14 级时启用<color=#D89555>自然面纱</color>功能<i><color=#F0DAA0>[作为奖励行动，你可以神奇地隐身，直到下一回合开始]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
 ModUi/&EnableRelearnSpells=可以选择已从其他来源学到的法术或咒语
 ModUi/&EnableRespecAction=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
@@ -258,6 +258,7 @@ ModUi/&RemoveBardSongOfRest=删除 2 级的<color=#D89555>休息之歌</color>
 ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=删除<color=#D89555>Hideous Laughter</color>上的人形过滤器
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>纠缠</color>效果，并强制进行力量检查以摆脱藤蔓
+ModUi/&RemoveRogueBlindSense=移除 14 级的<color=#D89555>盲感</color>
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=删除 <color=#D89555>Shadowcaster</color> 中的学校限制
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=删除 <color=#D89555>Spellblade</color> 中的学校限制
 ModUi/&RestockAntiquarians=重新进货古董商<i><color=#F0DAA0>[Halman Summer]</color></i>

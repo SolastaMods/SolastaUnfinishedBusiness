@@ -150,7 +150,7 @@ ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incant
 ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Abilita l'azione <color=#D89555>Cadi prono</color> <i><color=#F0DAA0>[puoi cadere prono senza alcun costo]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Abilita gli effetti di movimento push e pull per funzionare anche sull'asse su/giù
-ModUi/&EnableRangerNatureShroudAt10=Abilita la funzione <color=#D89555>Velo della Natura</color> al livello 10 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo]</color></i>
+ModUi/&EnableRangerNatureShroudAt14=Abilita la funzione <color=#D89555>Velo della Natura</color> al livello 14 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
 ModUi/&EnableRelearnSpells=Abilita la selezione di trucchetti o incantesimi già appresi da altre fonti
 ModUi/&EnableRespecAction=Abilita <color=#D89555>RESPEC</color> dopo l'azione di riposo <i><color=#F0DAA0>[non usare RESPEC durante una sessione multigiocatore]</color></i>
@@ -258,6 +258,7 @@ ModUi/&RemoveBardSongOfRest=Rimuovi <color=#D89555>Canzone del Riposo</color> al
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con modelli simili a orsi nel gioco <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi filtro umanoide su <color=#D89555>Risata orribile</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555>Intrappolamento</color> solo al momento del lancio e forza anche un controllo di forza per liberarti dai tralci
+ModUi/&RemoveRogueBlindSense=Rimuovi <color=#D89555>Senso cieco</color> al livello 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Rimuovi le restrizioni scolastiche da <color=#D89555>Shadowcaster</color>
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Rimuovi le restrizioni scolastiche da <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Rifornisci gli antiquari <i><color=#F0DAA0>[Estate Halman]</color></i>

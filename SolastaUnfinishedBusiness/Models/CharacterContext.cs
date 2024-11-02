@@ -176,7 +176,7 @@ internal static partial class CharacterContext
     private static readonly FeatureDefinitionPower FeatureDefinitionPowerNatureShroud = FeatureDefinitionPowerBuilder
         .Create("PowerRangerNatureShroud")
         .SetGuiPresentation(Category.Feature, Invisibility)
-        .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+        .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
@@ -657,10 +657,7 @@ internal static partial class CharacterContext
                 }
             }
 
-            if (Main.Settings.EnableSortingFutureFeatures)
-            {
-                characterClassDefinition.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-            }
+            characterClassDefinition.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 
@@ -724,10 +721,7 @@ internal static partial class CharacterContext
             }
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchFirstLevelTotalFeats()
@@ -983,10 +977,7 @@ internal static partial class CharacterContext
                 x.level == 5 && x.FeatureDefinition == FeatureSorcererMagicalGuidance);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchScimitarWeaponSpecialization()

@@ -10,10 +10,7 @@ internal static class ClassesContext
     {
         InventorClass.Build();
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
-        }
+        DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+            .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
     }
 }

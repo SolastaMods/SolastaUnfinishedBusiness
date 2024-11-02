@@ -150,7 +150,7 @@ ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração d
 ModUi/&EnablePcgRandom=Habilitar um algoritmo de gerador aleatório melhor <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Habilite a ação <color=#D89555>Cair de bruços</color> <i><color=#F0DAA0>[você pode cair de bruços sem nenhum custo]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Habilitar efeitos de movimento de empurrar e puxar para também funcionarem no eixo para cima/baixo
-ModUi/&EnableRangerNatureShroudAt10=Habilite o recurso <color=#D89555>Véu da Natureza</color> no nível 10 <i><color=#F0DAA0>[como uma ação bônus, você pode magicamente ficar invisível até o início do próximo turno]</color></i>
+ModUi/&EnableRangerNatureShroudAt14=Habilite o recurso <color=#D89555>Véu da Natureza</color> no nível 14 <i><color=#F0DAA0>[como uma ação bônus, você pode magicamente ficar invisível até o início do próximo turno]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração de feitiços</color> no nível 1 em vez de 2
 ModUi/&EnableRelearnSpells=Habilitar seleção de truques ou magias já aprendidas de outras fontes
 ModUi/&EnableRespecAction=Habilitar <color=#D89555>RESPEC</color> após a ação de descanso <i><color=#F0DAA0>[não usar RESPEC durante uma sessão multijogador]</color></i>
@@ -258,6 +258,7 @@ ModUi/&RemoveBardSongOfRest=Remova <color=#D89555>Canção do Descanso</color> n
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por modelos semelhantes a ursos no jogo <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remover filtro humanoide em <color=#D89555>Risada Hedionda</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Aplique o efeito <color=#D89555>Entangle</color> somente no momento do lançamento e também force um teste de força para se libertar das videiras
+ModUi/&RemoveRogueBlindSense=Remova <color=#D89555>Sentido Cego</color> no nível 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remover restrições escolares de <color=#D89555>Shadowcaster</color>
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Remover restrições escolares de <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Reabastecer Antiquários <i><color=#F0DAA0>[Verão Halman]</color></i>

@@ -58,7 +58,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSameWidthInvocationSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
-    public bool EnableSortingFutureFeatures { get; set; } = true;
     public bool FixAsianLanguagesTextWrap { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp { get; set; } = true;
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
@@ -275,7 +274,7 @@ public class Settings : UnityModManager.ModSettings
     public bool SwapSecondWindToUseOneDndUsagesProgression { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
-    public bool EnableRangerNatureShroudAt10 { get; set; }
+    public bool EnableRangerNatureShroudAt14 { get; set; }
     public bool EnableRangerSpellCastingAtLevel1 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
     public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack { get; set; }
@@ -296,6 +295,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
+    public bool RemoveRogueBlindSense { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }

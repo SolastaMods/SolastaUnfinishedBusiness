@@ -603,7 +603,7 @@
     <SwapSecondWindToUseOneDndUsagesProgression>true</SwapSecondWindToUseOneDndUsagesProgression>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
-    <EnableRangerNatureShroudAt10>true</EnableRangerNatureShroudAt10>
+    <EnableRangerNatureShroudAt14>true</EnableRangerNatureShroudAt14>
     <EnableRangerSpellCastingAtLevel1>true</EnableRangerSpellCastingAtLevel1>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>true

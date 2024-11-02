@@ -274,10 +274,10 @@ internal static class ClassesDisplay
             CharacterContext.SwitchRangerHumanoidFavoredEnemy();
         }
 
-        toggle = Main.Settings.EnableRangerNatureShroudAt10;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt10"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableRangerNatureShroudAt14;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt14"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableRangerNatureShroudAt10 = toggle;
+            Main.Settings.EnableRangerNatureShroudAt14 = toggle;
             CharacterContext.SwitchRangerNatureShroud();
         }
 
@@ -311,6 +311,13 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableRogueSteadyAim = toggle;
             CharacterContext.SwitchRogueSteadyAim();
+        }
+
+        toggle = Main.Settings.RemoveRogueBlindSense;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRogueBlindSense"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRogueBlindSense = toggle;
+            CharacterContext.SwitchRogueBlindSense();
         }
 
         UI.Label();

@@ -425,6 +425,13 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&RangerTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableRangerNatureShroudAt14;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt14"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerNatureShroudAt14 = toggle;
+            CharacterContext.SwitchRangerNatureShroud();
+        }
+
         toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {
@@ -441,6 +448,20 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableRogueCunningStrike = toggle;
             CharacterContext.SwitchRogueCunningStrike();
+        }
+
+        toggle = Main.Settings.EnableRogueSteadyAim;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueSteadyAim"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueSteadyAim = toggle;
+            CharacterContext.SwitchRogueSteadyAim();
+        }
+
+        toggle = Main.Settings.RemoveRogueBlindSense;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRogueBlindSense"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRogueBlindSense = toggle;
+            CharacterContext.SwitchRogueBlindSense();
         }
 
         UI.Label();
@@ -777,20 +798,6 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
-
-        toggle = Main.Settings.EnableRangerNatureShroudAt10;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt10"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRangerNatureShroudAt10 = toggle;
-            CharacterContext.SwitchRangerNatureShroud();
-        }
-
-        toggle = Main.Settings.EnableRogueSteadyAim;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueSteadyAim"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRogueSteadyAim = toggle;
-            CharacterContext.SwitchRogueSteadyAim();
-        }
 
         toggle = Main.Settings.EnableSorcererMagicalGuidance;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))

@@ -537,10 +537,7 @@ internal static partial class CharacterContext
                 x.level == 17 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchBarbarianBrutalCritical()
@@ -578,10 +575,7 @@ internal static partial class CharacterContext
             }
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchBarbarianRecklessSameBuffDebuffDuration()
@@ -611,10 +605,7 @@ internal static partial class CharacterContext
                 x.level == 2 && x.FeatureDefinition == FightingStyleChoiceBarbarian);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     #endregion
@@ -791,10 +782,7 @@ internal static partial class CharacterContext
                                 x.FeatureDefinition == AttributeModifierMonkAbundantKi);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchMonkFightingStyle()
@@ -811,10 +799,7 @@ internal static partial class CharacterContext
                                 x.FeatureDefinition == FightingStyleChoiceMonk);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack()
@@ -887,10 +872,7 @@ internal static partial class CharacterContext
                                  x.FeatureDefinition == PowerMonkStepOfTheWindHeightenedMetabolism));
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchMonkSuperiorDefenseToReplaceEmptyBody()
@@ -905,10 +887,7 @@ internal static partial class CharacterContext
                 ? new FeatureUnlockByLevel(PowerMonkSuperiorDefense, 18)
                 : new FeatureUnlockByLevel(Level20Context.PowerMonkEmptyBody, 18));
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchMonkBodyAndMindToReplacePerfectSelf()
@@ -923,10 +902,7 @@ internal static partial class CharacterContext
                 ? new FeatureUnlockByLevel(FeatureMonkBodyAndMind, 20)
                 : new FeatureUnlockByLevel(Level20Context.FeatureMonkPerfectSelf, 20));
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchMonkWeaponSpecialization()
@@ -951,10 +927,7 @@ internal static partial class CharacterContext
             }
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     private static readonly List<DieTypeByRank> MonkUnarmedDieTypeByRank =
@@ -1128,10 +1101,10 @@ internal static partial class CharacterContext
 
     internal static void SwitchRangerNatureShroud()
     {
-        if (Main.Settings.EnableRangerNatureShroudAt10)
+        if (Main.Settings.EnableRangerNatureShroudAt14)
         {
             Ranger.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 10));
+                new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 14));
         }
         else
         {
@@ -1140,10 +1113,7 @@ internal static partial class CharacterContext
                                 && x.FeatureDefinition == FeatureDefinitionPowerNatureShroud);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     #endregion
@@ -1738,10 +1708,7 @@ internal static partial class CharacterContext
             Rogue.FeatureUnlocks.RemoveAll(x => x.level == 14 && x.FeatureDefinition == _featureSetRogueDeviousStrike);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchRogueFightingStyle()
@@ -1756,10 +1723,7 @@ internal static partial class CharacterContext
             Rogue.FeatureUnlocks.RemoveAll(x => x.level == 2 && x.FeatureDefinition == FightingStyleChoiceRogue);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchRogueSteadyAim()
@@ -1774,10 +1738,20 @@ internal static partial class CharacterContext
                 x.level == 3 && x.FeatureDefinition == PowerFeatSteadyAim);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
+        Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchRogueBlindSense()
+    {
+        Rogue.FeatureUnlocks.RemoveAll(x =>
+            x.level == 3 && x.FeatureDefinition == FeatureDefinitionSenses.SenseRogueBlindsense);
+
+        if (!Main.Settings.RemoveRogueBlindSense)
         {
-            Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+            Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(FeatureDefinitionSenses.SenseRogueBlindsense, 14));
         }
+
+        Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     private static void SwitchRogueStrSaving()

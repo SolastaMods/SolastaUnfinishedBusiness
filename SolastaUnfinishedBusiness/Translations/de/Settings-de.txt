@@ -150,7 +150,7 @@ ModUi/&EnablePaladinSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Aktivieren Sie die Aktion <color=#D89555>In die Hocke gehen</color> <i><color=#F0DAA0>[Sie können kostenlos in die Hocke gehen]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Aktivieren Sie Push- und Pull-Bewegungseffekte, damit diese auch auf der Auf-/Ab-Achse funktionieren
-ModUi/&EnableRangerNatureShroudAt10=Aktivieren Sie die Funktion <color=#D89555>Nature's Veil</color> auf Stufe 10 <i><color=#F0DAA0>[als Bonusaktion können Sie bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden]</color></i>
+ModUi/&EnableRangerNatureShroudAt14=Aktivieren Sie die Funktion <color=#D89555>Nature's Veil</color> auf Stufe 14 <i><color=#F0DAA0>[als Bonusaktion können Sie bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
 ModUi/&EnableRelearnSpells=Aktivieren Sie die Auswahl von Zaubersprüchen oder Zaubersprüchen, die Sie bereits aus anderen Quellen gelernt haben.
 ModUi/&EnableRespecAction=Aktivieren Sie <color=#D89555>RESPEC</color> nach der Rest-Aktion <i><color=#F0DAA0>[RESPEC nicht während einer Multiplayer-Sitzung verwenden]</color></i>
@@ -258,6 +258,7 @@ ModUi/&RemoveBardSongOfRest=Entferne <color=#D89555>Song of Rest</color> auf Lev
 ModUi/&RemoveBugVisualModels=Ersetzen Sie im Spiel spinnenähnliche Modelle durch bärenähnliche Modelle <i><color=#F0DAA0>[Spinnenphobie]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Humanoidenfilter bei <color=#D89555>Grauenhaftem Gelächter</color> entfernen
 ModUi/&RemoveRecurringEffectOnEntangle=Wende den <color=#D89555>Verstricken</color>-Effekt nur beim Zaubern an und erzwinge außerdem eine Stärkeprüfung, um sich von den Ranken zu befreien.
+ModUi/&RemoveRogueBlindSense=Entferne <color=#D89555>Blind Sense</color> auf Level 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Schulbeschränkungen von <color=#D89555>Shadowcaster</color> entfernen
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Schulbeschränkungen von <color=#D89555>Spellblade</color> entfernen
 ModUi/&RestockAntiquarians=Antiquariat auffüllen <i><color=#F0DAA0>[Halman Summer]</color></i>

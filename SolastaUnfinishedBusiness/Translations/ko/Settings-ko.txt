@@ -150,7 +150,7 @@ ModUi/&EnablePaladinSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#
 ModUi/&EnablePcgRandom=더 나은 난수 생성 알고리즘을 활성화하세요 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=<color=#D89555>엎드려 넘어짐</color> 동작을 활성화하세요 <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=위/아래 축에서도 푸시 및 풀 모션 효과를 작동하도록 설정
-ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>자연의 베일</color> 기능을 활성화합니다. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법으로 투명해질 수 있습니다.]</color></i>
+ModUi/&EnableRangerNatureShroudAt14=레벨 14에서 <color=#D89555>자연의 베일</color> 기능을 활성화합니다. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법으로 투명해질 수 있습니다.]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
 ModUi/&EnableRelearnSpells=다른 출처에서 이미 배운 주문이나 주문 선택 가능
 ModUi/&EnableRespecAction=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
@@ -258,6 +258,7 @@ ModUi/&RemoveBardSongOfRest=레벨 2에서 <color=#D89555>휴식의 노래</colo
 ModUi/&RemoveBugVisualModels=게임에서 거미와 유사한 모델을 곰과 유사한 모델로 교체 <i><color=#F0DAA0>[거미공포증]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터를 제거하세요
 ModUi/&RemoveRecurringEffectOnEntangle=시전 시에만 <color=#D89555>얽힘</color> 효과를 적용하고 덩굴에서 벗어나기 위해 힘 검사를 강제로 시행합니다.
+ModUi/&RemoveRogueBlindSense=레벨 14에서 <color=#D89555>맹감각</color> 제거
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<color=#D89555>섀도우캐스터</color>의 학교 제한을 해제하세요
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=<color=#D89555>Spellblade</color>에서 학교 제한을 해제하세요
 ModUi/&RestockAntiquarians=골동품점 재고 보충 <i><color=#F0DAA0>[할먼 서머]</color></i>

@@ -52,12 +52,8 @@ internal static class SubclassesContext
             kvp.Value.RemoveAll(x => subclasses.Contains(x));
         }
 
-        // sorting
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-                .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
-        }
+        DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
     }
 
     internal static void LateLoad()

@@ -150,7 +150,7 @@ ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</col
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
-ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Nature's Veil</color> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
+ModUi/&EnableRangerNatureShroudAt14=Enable <color=#D89555>Nature's Veil</color> feature at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespecAction=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
@@ -258,6 +258,7 @@ ModUi/&RemoveBardSongOfRest=Remove <color=#D89555>Song of Rest</color> at level 
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time and also force a strength check to break free from the vines
+ModUi/&RemoveRogueBlindSense=Remove <color=#D89555>Blind Sense</color> at level 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remove school restrictions from <color=#D89555>Shadowcaster</color>
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Remove school restrictions from <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Restock Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
