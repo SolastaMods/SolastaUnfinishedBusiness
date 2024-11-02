@@ -7,6 +7,7 @@
 - added Character > Classes > 'Enable Warlock magical cunning at level 2'  [OneDnd]
 - added Character > Classes > 'Remove Bard song of rest at level 2' [OneDnd]
 - added Character > Classes > 'Swap Fighter second wind to use 5e 2024 usages progression' [OneDnd]
+- added Character > Classes > 'Swap Monk unarmed strike to use 5e 2024 die type progression' [OneDnd]
 - added Character > Classes > 'Swap Warlock invocations progression with 5e 2024 version' [OneDnd]
 - added Character > Spells > 'Enable all casters to use new prepared spells tables' [OneDnd]
 - added Character > Spells > 'Swap Barkskin with 5e 2024 version' [OneDnd]

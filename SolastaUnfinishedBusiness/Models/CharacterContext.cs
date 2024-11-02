@@ -224,6 +224,7 @@ internal static partial class CharacterContext
         SwitchFirstLevelTotalFeats();
         SwitchProneAction();
         SwitchHelpPower();
+        SwitchOneDndMonkUnarmedDieTypeProgression();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
         SwitchMonkDoNotRequireAttackActionForFlurry();

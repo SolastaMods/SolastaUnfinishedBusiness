@@ -304,6 +304,7 @@ ModUi/&SwapAbjurationSavant=Поменяйте <b>Abjurer</b> <color=#D89555>Abj
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Заменить значок рецепта значком создаваемого предмета в магазине</i>ModUi/&SwapEvocationSavant=Замените <b>Evoker</b> <color=#D89555>Evocation Savant</color> на версию 5e 2024 <i><color=#F0DAA0>[выучите 2 школьных заклинания при получении, выучите еще 1 каждый раз, когда получаете уровень слота]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Поменяйте местами функции <b>Evoker</b> <color=#D89555>Sculpt Spells</color> и <color=#D89555>Potent Cantrip</color>
 ModUi/&SwapEvocationSavant=Замените <b>Evoker</b> <color=#D89555>Evocation Savant</color> на версию 5e 2024 <i><color=#F0DAA0>[выучите 2 школьных заклинания при получении, выучите еще 1 каждый раз, когда получаете уровень слота]</color></i>
+ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Поменяйте <color=#D89555>Безоружная атака</color> на использование прогрессии типа кубика 5e 2024
 ModUi/&SwapOneDndBarkskinSpell=Поменяйте <color=#D89555>Barkskin</color> на версию 5e 2024 <i><color=#F0DAA0>[бонусное действие, нет концентрации, AC установлен на 17]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Поменяйте <color=#D89555>Второе дыхание</color> на использование прогрессии использования 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Поменять местами прогрессию <color=#D89555>Invocations</color> с версией 5e 2024

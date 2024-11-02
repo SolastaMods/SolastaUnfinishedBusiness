@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>4</DisplayModMessage>
+    <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
@@ -269,7 +269,7 @@
     <EnablePullPushOnVerticalDirection>true</EnablePullPushOnVerticalDirection>
     <FullyControlConjurations>true</FullyControlConjurations>
     <EnableHigherGroundRules>true</EnableHigherGroundRules>
-    <EnableSurprisedToEnforceDisadvantage>false</EnableSurprisedToEnforceDisadvantage>
+    <EnableSurprisedToEnforceDisadvantage>true</EnableSurprisedToEnforceDisadvantage>
     <EnableTeleportToRemoveRestrained>true</EnableTeleportToRemoveRestrained>
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>true</ColdResistanceAlsoGrantsImmunityToChilledCondition>
@@ -521,7 +521,7 @@
     <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
     <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
     <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
-    <OneDndHealingPotionBonusAction>false</OneDndHealingPotionBonusAction>
+    <OneDndHealingPotionBonusAction>true</OneDndHealingPotionBonusAction>
     <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
     <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
     <DisableAutoEquip>true</DisableAutoEquip>
@@ -588,23 +588,23 @@
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
-    <EnableRitualOnAllCasters>false</EnableRitualOnAllCasters>
+    <EnableRitualOnAllCasters>true</EnableRitualOnAllCasters>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <EnableBardExpertiseOneLevelBefore>false</EnableBardExpertiseOneLevelBefore>
-    <ChangeBardicInspirationDurationToOneHour>false</ChangeBardicInspirationDurationToOneHour>
-    <RemoveBardSongOfRest>false</RemoveBardSongOfRest>
+    <EnableBardExpertiseOneLevelBefore>true</EnableBardExpertiseOneLevelBefore>
+    <ChangeBardicInspirationDurationToOneHour>true</ChangeBardicInspirationDurationToOneHour>
+    <RemoveBardSongOfRest>true</RemoveBardSongOfRest>
     <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
     <EnableBarbarianRecklessSameBuffDebuffDuration>true</EnableBarbarianRecklessSameBuffDebuffDuration>
     <EnableBarbarianRegainOneRageAtShortRest>true</EnableBarbarianRegainOneRageAtShortRest>
     <AddFighterLevelToIndomitableSavingReroll>true</AddFighterLevelToIndomitableSavingReroll>
-    <AddPersuasionToFighterSkillOptions>false</AddPersuasionToFighterSkillOptions>
-    <SwapSecondWindToUseOneDndUsagesProgression>false</SwapSecondWindToUseOneDndUsagesProgression>
+    <AddPersuasionToFighterSkillOptions>true</AddPersuasionToFighterSkillOptions>
+    <SwapSecondWindToUseOneDndUsagesProgression>true</SwapSecondWindToUseOneDndUsagesProgression>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt10>true</EnableRangerNatureShroudAt10>
-    <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
+    <EnableRangerSpellCastingAtLevel1>true</EnableRangerSpellCastingAtLevel1>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>true
     </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>
@@ -616,10 +616,11 @@
     <EnableMonkSuperiorDefenseToReplaceEmptyBody>true</EnableMonkSuperiorDefenseToReplaceEmptyBody>
     <EnableMonkBodyAndMindToReplacePerfectSelf>true</EnableMonkBodyAndMindToReplacePerfectSelf>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
+    <SwapMonkToUseOneDndUnarmedDieTypeProgression>true</SwapMonkToUseOneDndUnarmedDieTypeProgression>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-    <EnablePaladinLayOnHandsAsBonusAction>false</EnablePaladinLayOnHandsAsBonusAction>
+    <EnablePaladinLayOnHandsAsBonusAction>true</EnablePaladinLayOnHandsAsBonusAction>
     <EnablePaladinSmiteAsBonusAction>false</EnablePaladinSmiteAsBonusAction>
-    <EnablePaladinSpellCastingAtLevel1>false</EnablePaladinSpellCastingAtLevel1>
+    <EnablePaladinSpellCastingAtLevel1>true</EnablePaladinSpellCastingAtLevel1>
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
@@ -627,10 +628,10 @@
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <EnableWarlockMagicalCunningAtLevel2>false</EnableWarlockMagicalCunningAtLevel2>
-    <SwapWarlockToUseOneDndInvocationProgression>false</SwapWarlockToUseOneDndInvocationProgression>
-    <EnableWizardToLearnScholarAtLevel2>false</EnableWizardToLearnScholarAtLevel2>
-    <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
+    <EnableWarlockMagicalCunningAtLevel2>true</EnableWarlockMagicalCunningAtLevel2>
+    <SwapWarlockToUseOneDndInvocationProgression>true</SwapWarlockToUseOneDndInvocationProgression>
+    <EnableWizardToLearnScholarAtLevel2>true</EnableWizardToLearnScholarAtLevel2>
+    <EnableWizardToLearnSchoolAtLevel3>true</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
@@ -890,7 +891,7 @@
         <string>MetamagicWidenedSpell</string>
     </MetamagicEnabled>
     <AllowBladeCantripsToUseReach>true</AllowBladeCantripsToUseReach>
-    <EnableOneDnDPreparedSpellsTables>false</EnableOneDnDPreparedSpellsTables>
+    <EnableOneDnDPreparedSpellsTables>true</EnableOneDnDPreparedSpellsTables>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
@@ -907,7 +908,7 @@
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
     <ModifyGravitySlam>true</ModifyGravitySlam>
     <EnableOneDndHealingSpellsBuf>true</EnableOneDndHealingSpellsBuf>
-    <SwapOneDndBarkskinSpell>false</SwapOneDndBarkskinSpell>
+    <SwapOneDndBarkskinSpell>true</SwapOneDndBarkskinSpell>
     <AllowHasteCasting>true</AllowHasteCasting>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
     <EnableRelearnSpells>false</EnableRelearnSpells>
@@ -1432,8 +1433,8 @@
     <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
     <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
     <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
-    <SwapAbjurationSavant>false</SwapAbjurationSavant>
-    <SwapEvocationSavant>false</SwapEvocationSavant>
+    <SwapAbjurationSavant>true</SwapAbjurationSavant>
+    <SwapEvocationSavant>true</SwapEvocationSavant>
     <SwapEvocationPotentCantripAndSculptSpell>true</SwapEvocationPotentCantripAndSculptSpell>
     <KlassListSliderPosition>
         <item>

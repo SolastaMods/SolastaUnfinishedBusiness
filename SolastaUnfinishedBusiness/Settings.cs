@@ -287,6 +287,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkSuperiorDefenseToReplaceEmptyBody { get; set; }
     public bool EnableMonkBodyAndMindToReplacePerfectSelf { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
+    public bool SwapMonkToUseOneDndUnarmedDieTypeProgression { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnablePaladinLayOnHandsAsBonusAction { get; set; }
     public bool EnablePaladinSmiteAsBonusAction { get; set; }

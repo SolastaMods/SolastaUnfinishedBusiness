@@ -390,6 +390,13 @@ internal static class ToolsDisplay
             CharacterContext.SwitchMonkSuperiorDefenseToReplaceEmptyBody();
         }
 
+        toggle = Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression = toggle;
+            CharacterContext.SwitchOneDndMonkUnarmedDieTypeProgression();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&PaladinTitle") + ":</color>");
         UI.Label();

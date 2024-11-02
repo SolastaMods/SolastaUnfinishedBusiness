@@ -574,6 +574,7 @@
     <EnableMonkSuperiorDefenseToReplaceEmptyBody>false</EnableMonkSuperiorDefenseToReplaceEmptyBody>
     <EnableMonkBodyAndMindToReplacePerfectSelf>false</EnableMonkBodyAndMindToReplacePerfectSelf>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
+    <SwapMonkToUseOneDndUnarmedDieTypeProgression>false</SwapMonkToUseOneDndUnarmedDieTypeProgression>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
     <EnablePaladinLayOnHandsAsBonusAction>false</EnablePaladinLayOnHandsAsBonusAction>
     <EnablePaladinSmiteAsBonusAction>false</EnablePaladinSmiteAsBonusAction>

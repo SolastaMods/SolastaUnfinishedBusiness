@@ -304,6 +304,7 @@ ModUi/&SwapAbjurationSavant=Swap <b>Abjurer</b> <color=#D89555>Abjuration Savant
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in shop</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <b>Evoker</b> <color=#D89555>Sculpt Spells</color> and <color=#D89555>Potent Cantrip</color> features
 ModUi/&SwapEvocationSavant=Swap <b>Evoker</b> <color=#D89555>Evocation Savant</color> with 5e 2024 version <i><color=#F0DAA0>[learn 2 school spells when acquired, learn 1 more every time you gain a slot level]</color></i>
+ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Swap <color=#D89555>Unarmed Attack</color> to use 5e 2024 die type progression
 ModUi/&SwapOneDndBarkskinSpell=Swap <color=#D89555>Barkskin</color> with 5e 2024 version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Swap <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Swap <color=#D89555>Invocations</color> progression with 5e 2024 version

@@ -957,6 +957,41 @@ internal static partial class CharacterContext
         }
     }
 
+    private static readonly List<DieTypeByRank> MonkUnarmedDieTypeByRank =
+        [.. AttackModifierMonkMartialArtsImprovedDamage.DieTypeByRankTable];
+
+    private static readonly List<DieTypeByRank> MonkUnarmedDieTypeByRank2024 =
+    [
+        new() { dieType = DieType.D6, rank = 1 },
+        new() { dieType = DieType.D6, rank = 2 },
+        new() { dieType = DieType.D6, rank = 3 },
+        new() { dieType = DieType.D6, rank = 4 },
+        new() { dieType = DieType.D8, rank = 5 },
+        new() { dieType = DieType.D8, rank = 6 },
+        new() { dieType = DieType.D8, rank = 7 },
+        new() { dieType = DieType.D8, rank = 8 },
+        new() { dieType = DieType.D8, rank = 9 },
+        new() { dieType = DieType.D8, rank = 10 },
+        new() { dieType = DieType.D10, rank = 11 },
+        new() { dieType = DieType.D10, rank = 12 },
+        new() { dieType = DieType.D10, rank = 13 },
+        new() { dieType = DieType.D10, rank = 14 },
+        new() { dieType = DieType.D10, rank = 15 },
+        new() { dieType = DieType.D10, rank = 16 },
+        new() { dieType = DieType.D12, rank = 17 },
+        new() { dieType = DieType.D12, rank = 18 },
+        new() { dieType = DieType.D12, rank = 19 },
+        new() { dieType = DieType.D12, rank = 20 }
+    ];
+
+    internal static void SwitchOneDndMonkUnarmedDieTypeProgression()
+    {
+        AttackModifierMonkMartialArtsImprovedDamage.dieTypeByRankTable =
+            Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression
+                ? MonkUnarmedDieTypeByRank2024
+                : MonkUnarmedDieTypeByRank;
+    }
+
     private sealed class CustomBehaviorHeightenedMetabolism(
         ConditionDefinition conditionFlurryOfBlowsHeightenedMetabolism,
         ConditionDefinition conditionFlurryOfBlowsFreedomHeightenedMetabolism)
