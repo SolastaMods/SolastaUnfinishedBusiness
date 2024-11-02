@@ -103,11 +103,10 @@ ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイ�
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 7 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
 ModUi/&EnableBardExpertiseOneLevelBefore=<color=#D89555>エキスパート</color>をレベル3と10ではなくレベル2と9で有効にする
-ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<color=#D89555>希望の大学</color>の<b>癒しのバラード</b>を有効にする
+ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<b>希望の大学</b> <color=#D89555>癒しのバラード</color>を有効にする
 ModUi/&EnableBetaContent=ベータ版コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
-ModUi/&EnableCastersToCountMaxPreparedFromTable=すべての<color=#D89555>準備済みキャスター</color>を有効にして、数式ではなく表から最大準備数を決定できるようにします。
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>
@@ -142,6 +141,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>非装�
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>優れた防御力</color>を有効にして<color=#D89555>空の体</color>を置き換えます
 ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[選択した武器の種類がモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&EnableOneDnDPreparedSpellsTables=すべての <color=#D89555>キャスター</color> が新しい準備済み呪文テーブル <i><color=#F0DAA0>[吟遊詩人、聖職者、ドルイド、パラディン、レンジャー、ソーサラー、ウィザード]</color></i> を使用できるようにします。
 ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>治癒の傷</color>、<color=#D89555>治癒の言葉</color>、<color=#D89555>大量治癒の傷</color>、<color=#D89555>大量治癒の言葉</color>に治癒ダイスバフを有効にします
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=ボーナスアクションとして<color=#D89555>手を置く</color>を有効にする
 ModUi/&EnablePaladinSmiteAsBonusAction=ボーナスアクションとして<color=#D89555>スマイト</color>を有効にする
@@ -299,10 +299,10 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=ゴリムの店に魔法以�
 ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴの店に、<color=#D89555>アーケイン スタッフ</color>、<color=#D89555>ドルイド ネック</color>、<color=#D89555>スタッフ</color>、<color=#D89555>クラブ</color>をフォーカス アイテムとして設定して在庫します。
 ModUi/&Subclasses=<color=#F0DAA0>サブクラス</color>
 ModUi/&Subraces=<color=#F0DAA0>亜種族</color>
-ModUi/&SwapAbjurationSavant=<color=#D89555>Abjurer</color> <b>Abjuration Savant</b> を 5e 2024 バージョンの <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびに 1 つずつ追加で習得する]</color></i> と入れ替えます
+ModUi/&SwapAbjurationSavant=<b>Abjurer</b> <color=#D89555>Abjuration Savant</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびに 1 つずつ追加で習得する]</color></i> と入れ替えます
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフトアイテムのアイコンを交換</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>エヴォーカー</color>の<b>スカルプトスペル</b>と<b>ポテンシャルキャントリップ</b>の機能を入れ替えます
-ModUi/&SwapEvocationSavant=<color=#D89555>Evoker</color> <b>Evocation Savant</b> を 5e 2024 バージョンの <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>エヴォーカー</b>の<color=#D89555>スカルプトスペル</color>と<b>ポテンシャルキャントリップ</b>の機能を入れ替えます
+ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color> を 5e 2024 バージョン <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
 ModUi/&SwapOneDndBarkskinSpell=<color=#D89555>Barkskin</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション、集中力なし、AC を 17 に設定]</color></i> と交換します。
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=<color=#D89555>Invocations</color> の進行を 5e 2024 バージョンと入れ替える
 ModUi/&TableTopButton=<b><color=#D89555>テーブルトップコンテンツを選択</color></b>

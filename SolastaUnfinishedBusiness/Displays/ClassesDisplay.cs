@@ -15,14 +15,7 @@ internal static class ClassesDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.AllowDruidToWearMetalArmor;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowDruidToWearMetalArmor = toggle;
-            SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
-        }
-
-        toggle = Main.Settings.EnableRitualOnAllCasters;
+        var toggle = Main.Settings.EnableRitualOnAllCasters;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRitualOnAllCasters = toggle;
@@ -103,6 +96,17 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableBarbarianRegainOneRageAtShortRest = toggle;
             CharacterContext.SwitchBarbarianRegainOneRageAtShortRest();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.AllowDruidToWearMetalArmor;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowDruidToWearMetalArmor = toggle;
+            SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
         UI.Label();

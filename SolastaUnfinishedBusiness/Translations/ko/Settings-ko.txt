@@ -103,11 +103,10 @@ ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>격투 스타�
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=다음 턴 시작 시 <color=#D89555>무모한 공격</color> 버프와 디버프가 완료되도록 활성화합니다.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=7레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능
 ModUi/&EnableBardExpertiseOneLevelBefore=레벨 3과 10 대신 레벨 2와 9에서 <color=#D89555>전문성</color>을 활성화합니다.
-ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <color=#D89555>College of Hope</color> <b>힐링 발라드</b> 활성화
+ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <b>College of Hope</b> <color=#D89555>힐링 발라드</color> 활성화
 ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=주문이 <color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하도록 허용합니다.
-ModUi/&EnableCastersToCountMaxPreparedFromTable=공식 대신 표에서 최대 준비 개수를 결정하려면 모든 <color=#D89555>준비된 캐스터</color>를 활성화하세요.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태 패밀리]</color></i>
 ModUi/&EnableCustomPortraits=<color=#D89555>사용자 정의 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 영웅의 이름을 따서 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color></b></i> 하위 폴더에 사용자 지정 초상화를 넣습니다. <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• 투명 레이어가 있는 256 x 384픽셀 크기의 PNG 이미지를 사용합니다. <i><color=#F0DAA0>[최상의 결과를 위해 GIMP를 사용하세요]</color></i>
@@ -142,6 +141,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>개선�
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=레벨 18에서 <color=#D89555>빈 몸</color>을 대체하기 위해 <color=#D89555>우수한 방어력</color>을 활성화합니다.
 ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>무기 전문화</color>를 활성화합니다. <i><color=#F0DAA0>[선택한 무기 유형이 당신에게 수도사 무기가 됩니다]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
+ModUi/&EnableOneDnDPreparedSpellsTables=모든 <color=#D89555>주문자</color>가 새로 준비된 주문표 <i><color=#F0DAA0>[바드, 성직자, 드루이드, 성기사, 레인저, 마법사, 마법사]</color></i>를 사용할 수 있도록 합니다.
 ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 말씀</color>에 치유 주사위 버프를 활성화합니다.
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=<color=#D89555>안수</color>를 보너스 액션으로 활성화합니다.
 ModUi/&EnablePaladinSmiteAsBonusAction=<color=#D89555>Smite</color>를 보너스 액션으로 활성화합니다.
@@ -299,10 +299,10 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=고림의 상점에 마법이
 ModUi/&StockHugoStoreWithAdditionalFoci=<color=#D89555>비전 지팡이</color>, <color=#D89555>드루이드 목</color>, <color=#D89555>지팡이</color> 및 <color=#D89555>클럽</color> 세트를 초점 아이템으로 휴고의 상점에 비축하세요.
 ModUi/&Subclasses=<color=#F0DAA0>서브클래스</color>
 ModUi/&Subraces=<color=#F0DAA0>아종</color>
-ModUi/&SwapAbjurationSavant=<color=#D89555>Abjurer</color> <b>Abjuration Savant</b>를 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
+ModUi/&SwapAbjurationSavant=<b>Abjurer</b> <color=#D89555>Abjuration Savant</color>를 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교환</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=<color=#D89555>소환사</color> <b>조각 주문</b>과 <b>강력한 주문</b> 기능을 교체하세요
-ModUi/&SwapEvocationSavant=<color=#D89555>Evoker</color> <b>Evocation Savant</b>를 5e 2024 버전으로 교체하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개씩 더 배우기]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>소환사</b> <color=#D89555>조각 주문</color>과 <b>강력한 주문</b> 기능을 교체하세요
+ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color>를 5e 2024 버전으로 교체하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=<color=#D89555>Barkskin</color>을 5e 2024 버전 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>과 교환하세요
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=<color=#D89555>Invocations</color> 진행을 5e 2024 버전으로 바꾸세요
 ModUi/&TableTopButton=<b><color=#D89555>테이블탑 콘텐츠 선택</color></b>

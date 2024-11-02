@@ -145,9 +145,16 @@ internal static class SrdAndHouseRulesContext
         SwitchAllowBladeCantripsToUseReach();
         SwitchHastedCasing();
         SwitchMagicStaffFoci();
+        SwitchEnableRitualOnAllCasters();
         SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         SwitchOfficialFoodRationsWeight();
+        SwitchOneDndPreparedSpellsTables();
         SwitchOneDndPaladinLayOnHandAsBonusAction();
+        SwitchOneDndRemoveBardSongOfRest();
+        SwitchOneDndBardicInspirationDurationToOneHour();
+        SwitchOneDndBardExpertiseOneLevelBefore();
+        SwitchOneDndWarlockInvocationsProgression();
+        SwitchOneDndWarlockMagicalCunningAtLevel2();
         SwitchOneDndHealingPotionBonusAction();
         SwitchOneDndHealingSpellsBuf();
         SwitchOneDndWizardScholar();
@@ -601,6 +608,24 @@ internal static class SrdAndHouseRulesContext
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionSurprised);
             ConditionDefinitions.ConditionSurprised.GuiPresentation.Description =
                 "Rules/&ConditionSurprisedDescription";
+        }
+    }
+
+    internal static void SwitchOneDndPreparedSpellsTables()
+    {
+        if (Main.Settings.EnableOneDnDPreparedSpellsTables)
+        {
+            FeatureDefinitionCastSpells.CastSpellBard.knownSpells =
+                [4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22];
+            FeatureDefinitionCastSpells.CastSpellSorcerer.knownSpells =
+                [2, 4, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22];
+        }
+        else
+        {
+            FeatureDefinitionCastSpells.CastSpellBard.knownSpells =
+                [4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 15, 16, 18, 19, 19, 20, 22, 22, 22];
+            FeatureDefinitionCastSpells.CastSpellSorcerer.knownSpells =
+                [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15];
         }
     }
 

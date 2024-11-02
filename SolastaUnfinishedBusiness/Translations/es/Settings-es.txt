@@ -104,11 +104,10 @@ ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo d
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 7
 ModUi/&EnableBardExpertiseOneLevelBefore=Habilitar <color=#D89555>Experiencia</color> en los niveles 2 y 9 en lugar de 3 y 10
-ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <color=#D89555>Colegio de la Esperanza</color> <b>Balada curativa</b> en descanso prolongado
+ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <b>College of Hope</b> <color=#D89555>Healing Ballad</color> en descanso largo
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Permitir que los trucos activen el ataque adicional adicional de <color=#D89555>Magia de guerra</color>
-ModUi/&EnableCastersToCountMaxPreparedFromTable=Permitir que todos los <color=#D89555>lanzadores preparados</color> determinen el recuento máximo de preparaciones a partir de una tabla en lugar de una fórmula
 ModUi/&EnableCharactersOnFireToEmitLight=Los personajes <color=#D89555>On Fire</color> deben emitir luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego y familia de condición en llamas]</color></i>
 ModUi/&EnableCustomPortraits=Habilitar <color=#D89555>Retratos personalizados</color>
 ModUi/&EnableCustomPortraitsHelp=• Coloca tus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color></b></i>, nombradas como el nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n• Usa imágenes PNG, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[usa GIMP para obtener mejores resultados]</color></i>
@@ -143,6 +142,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D8955
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilita <color=#D89555>Defensa superior</color> para reemplazar <color=#D89555>Cuerpo vacío</color> en el nivel 18
 ModUi/&EnableMonkWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclase</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&EnableOneDnDPreparedSpellsTables=Permitir que todos los <color=#D89555>lanzadores de conjuros</color> utilicen las nuevas tablas de conjuros preparadas <i><color=#F0DAA0>[Bardo, Clérigo, Druida, Paladín, Explorador, Hechicero, Mago]</color></i>
 ModUi/&EnableOneDndHealingSpellsBuf=Habilitar la mejora de dados de curación en <color=#D89555>Curar heridas</color>, <color=#D89555>Palabra de curación</color>, <color=#D89555>Curar heridas en masa</color> y <color=#D89555>Palabra de curación en masa</color>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Habilitar <color=#D89555>Imposición de manos</color> como acción adicional
 ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Castigar</color> como acción adicional
@@ -300,10 +300,10 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Llena la tienda de Gorim con 
 ModUi/&StockHugoStoreWithAdditionalFoci=Llena la tienda de Hugo con <color=#D89555>Bastón Arcano</color>, <color=#D89555>Cuello de Druida</color>, <color=#D89555>Bastón</color> y <color=#D89555>Maza</color> como elementos de foco
 ModUi/&Subclasses=<color=#F0DAA0>Subclases</color>
 ModUi/&Subraces=<color=#F0DAA0>Subrazas</color>
-ModUi/&SwapAbjurationSavant=Intercambia <color=#D89555>Abjurador</color> <b>Sabio de la abjuración</b> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de espacio]</color></i>
+ModUi/&SwapAbjurationSavant=Intercambia <b>Abjurador</b> <color=#D89555>Sabio de la abjuración</color> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de espacio]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y objetos elaborados en la tienda</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia las características de <color=#D89555>Evocador</color>, <b>Hechizos de escultura</b> y <b>Truco potente</b>
-ModUi/&SwapEvocationSavant=Intercambia <color=#D89555>Evocador</color> <b>Sabio de la evocación</b> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de ranura]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia las características de <b>Evocador</b>, <color=#D89555>Hechizos de escultura</color> y <b>Truco potente</b>
+ModUi/&SwapEvocationSavant=Intercambia <b>Evocador</b> <color=#D89555>Sabio de la evocación</color> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de ranura]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=Intercambia <color=#D89555>Piel de corteza</color> con la versión 5e 2024 <i><color=#F0DAA0>[acción adicional, sin concentración, CA establecida en 17]</color></i>
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Intercambia la progresión de <color=#D89555>Invocaciones</color> con la versión 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Seleccionar contenido de Tabletop</color></b>

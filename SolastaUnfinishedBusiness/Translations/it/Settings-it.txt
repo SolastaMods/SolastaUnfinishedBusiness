@@ -103,11 +103,10 @@ ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Stile di co
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 7
 ModUi/&EnableBardExpertiseOneLevelBefore=Abilita <color=#D89555>Competenza</color> ai livelli 2 e 9 invece che 3 e 10
-ModUi/&EnableBardHealingBalladOnLongRest=Abilita <color=#D89555>College of Hope</color> <b>Ballata curativa</b> durante il riposo lungo
+ModUi/&EnableBardHealingBalladOnLongRest=Abilita <b>College of Hope</b> <color=#D89555>Ballata curativa</color> durante il riposo lungo
 ModUi/&EnableBetaContent=Abilita contenuto beta <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita l'annullamento delle azioni con il clic destro del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Consenti ai trucchetti di attivare l'attacco bonus extra <color=#D89555>Magia di guerra</color>
-ModUi/&EnableCastersToCountMaxPreparedFromTable=Abilita tutti i <color=#D89555>caster preparati</color> per determinare il conteggio massimo preparato da una tabella anziché da una formula
 ModUi/&EnableCharactersOnFireToEmitLight=I personaggi <color=#D89555>In fiamme</color> dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di luce, Elementale di fuoco, Giullare di fuoco, Falco pescatore di fuoco, Ragno di fuoco e famiglia di condizioni in fiamme]</color></i>
 ModUi/&EnableCustomPortraits=Abilita <color=#D89555>Ritratti personalizzati</color>
 ModUi/&EnableCustomPortraitsHelp=• Posiziona i tuoi ritratti personalizzati nelle sottocartelle <i><b><color=#F0DAA0>Personale</color></b></i> o <i><b><color=#F0DAA0>PreGen</color></b></i>, chiamate con il nome dell'eroe <i><color=#F0DAA0>[ad esempio: Anton, Celia, Nialla, ecc.]</color></i>\n• Utilizza immagini PNG, di dimensioni 256 x 384 pixel, con un livello di trasparenza <i><color=#F0DAA0>[utilizza GIMP per risultati migliori]</color></i>
@@ -142,6 +141,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Abilita <color=#D89555
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Abilita <color=#D89555>Difesa superiore</color> per sostituire <color=#D89555>Corpo vuoto</color> al livello 18
 ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Specializzazione nelle armi</color> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
 ModUi/&EnableMulticlass=Abilita <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
+ModUi/&EnableOneDnDPreparedSpellsTables=Abilita tutti i <color=#D89555>incantatori</color> a usare le nuove tabelle degli incantesimi preparati <i><color=#F0DAA0>[Bardo, Chierico, Druido, Paladino, Ranger, Stregone, Mago]</color></i>
 ModUi/&EnableOneDndHealingSpellsBuf=Abilita il potenziamento dei dadi curativi su <color=#D89555>Cura Ferite</color>, <color=#D89555>Parola Curativa</color>, <color=#D89555>Cura Ferite di Massa</color> e <color=#D89555>Parola Curativa di Massa</color>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Abilita <color=#D89555>Imposizione delle mani</color> come azione bonus
 ModUi/&EnablePaladinSmiteAsBonusAction=Abilita <color=#D89555>Colpisci</color> come azione bonus
@@ -299,10 +299,10 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Riempi il negozio di Gorim co
 ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta nel negozio di Hugo con <color=#D89555>Bastone Arcano</color>, <color=#D89555>Collo del Druido</color>, <color=#D89555>Bastone</color> e <color=#D89555>Mazza</color> impostati come oggetti principali
 ModUi/&Subclasses=<color=#F0DAA0>Sottoclassi</color>
 ModUi/&Subraces=<color=#F0DAA0>Sottorazze</color>
-ModUi/&SwapAbjurationSavant=Sostituisci <color=#D89555>Abjurer</color> <b>Abjuration Savant</b> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
+ModUi/&SwapAbjurationSavant=Sostituisci <b>Abjurer</b> <color=#D89555>Savant dell'Abjurazione</color> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=Scambia le funzionalità <b>Sculpt Spells</b> e <b>Potent Cantrip</b> di <color=#D89555>Evoker</color>
-ModUi/&SwapEvocationSavant=Sostituisci <color=#D89555>Evocatore</color> <b>Sapiente dell'evocazione</b> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Scambia le funzionalità <b>Evocatore</b> <color=#D89555>Incantesimi di Scultura</color> e <b>Trucchetto Potente</b>
+ModUi/&SwapEvocationSavant=Sostituisci <b>Evocatore</b> <color=#D89555>Sapiente dell'evocazione</color> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=Sostituisci <color=#D89555>Barkskin</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Scambia la progressione delle <color=#D89555>Invocazioni</color> con la versione 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Seleziona contenuto Tabletop</color></b>

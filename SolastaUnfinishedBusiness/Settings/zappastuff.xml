@@ -888,7 +888,7 @@
         <string>MetamagicWidenedSpell</string>
     </MetamagicEnabled>
     <AllowBladeCantripsToUseReach>true</AllowBladeCantripsToUseReach>
-    <EnableCastersToCountMaxPreparedFromTable>false</EnableCastersToCountMaxPreparedFromTable>
+    <EnableOneDnDPreparedSpellsTables>false</EnableOneDnDPreparedSpellsTables>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>

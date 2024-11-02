@@ -103,11 +103,10 @@ ModUi/&EnableBarbarianFightingStyle=在第 2 级启用<color=#D89555>战斗风�
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 7 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
 ModUi/&EnableBardExpertiseOneLevelBefore=在 2 级和 9 级（而不是 3 级和 10 级）启用<color=#D89555>专业知识</color>
-ModUi/&EnableBardHealingBalladOnLongRest=长时间休息时启用<color=#D89555>希望学院</color> <b>治愈之歌</b>
+ModUi/&EnableBardHealingBalladOnLongRest=长时间休息时启用<b>希望学院</b> <color=#D89555>治愈之歌</color>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=通过鼠标右键单击启用取消操作
 ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
-ModUi/&EnableCastersToCountMaxPreparedFromTable=使所有<color=#D89555>准备好的施法者</color>能够从表格而不是公式中确定最大准备数量
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
 ModUi/&EnableCustomPortraits=启用<color=#D89555>自定义肖像</color>
 ModUi/&EnableCustomPortraitsHelp=• 将自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i> 下，并以英雄名字命名<i><color=#F0DAA0>[例如：Anton、Celia、Nialla 等]</color></i>\n• 使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 可获得最佳效果]</color></i>
@@ -142,6 +141,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>�
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=在 18 级时启用<color=#D89555>超级防御</color>来替代<color=#D89555>空虚之身</color>
 ModUi/&EnableMonkWeaponSpecialization=在 2 级和 11 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[所选武器类型将成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用<color=#D89555>多类</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&EnableOneDnDPreparedSpellsTables=允许所有<color=#D89555>施法者</color>使用新的准备好的法术表<i><color=#F0DAA0>[吟游诗人、牧师、德鲁伊、圣骑士、游侠、术士、魔法师]</color></i>
 ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>治愈伤口</color>、<color=#D89555>治愈之言</color>、<color=#D89555>群体治愈伤口</color>和<color=#D89555>群体治愈之言</color>上启用治疗骰子增益
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=启用<color=#D89555>圣疗术</color>作为奖励行动
 ModUi/&EnablePaladinSmiteAsBonusAction=启用 <color=#D89555>Smite</color> 作为奖励行动
@@ -299,10 +299,10 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=将所有非魔法乐器存�
 ModUi/&StockHugoStoreWithAdditionalFoci=将 <color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color> 和 <color=#D89555>棍棒</color> 设置为焦点物品，放入 Hugo 的商店
 ModUi/&Subclasses=<color=#F0DAA0>子类</color>
 ModUi/&Subraces=<color=#F0DAA0>亚种</color>
-ModUi/&SwapAbjurationSavant=将 <color=#D89555>Abjurer</color> <b>Abjuration Savant</b> 与 5e 2024 版本交换 <i><color=#F0DAA0>[获得后学习 2 个学校法术，每次提升一个槽位等级时再学习 1 个]</color></i>
+ModUi/&SwapAbjurationSavant=将<b>Abjurer</b> <color=#D89555>Abjuration Savant</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[获得时学习 2 个学校法术，每次获得一个插槽等级时再学习 1 个]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 在商店中交换配方和制作物品图标</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=交换<color=#D89555>召唤师</color> <b>塑形法术</b>和<b>强效咒语</b>功能
-ModUi/&SwapEvocationSavant=将 <color=#D89555>Evoker</color> <b>Evocation Savant</b> 与 5e 2024 版本交换 <i><color=#F0DAA0>[获得后学习 2 个学校法术，每次提升一个槽位等级时再学习 1 个]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=交换<b>召唤师</b> <color=#D89555>塑形法术</color>和<b>强力法术</b>功能
+ModUi/&SwapEvocationSavant=将<b>Evoker</b> <color=#D89555>Evocation Savant</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[获得时学习 2 个学校法术，每次获得一个插槽等级时再学习 1 个]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=将 <color=#D89555>Barkskin</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[奖励行动，无集中力，AC 设置为 17]</color></i>
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=将 <color=#D89555>Invocations</color> 进程与 5e 2024 版本交换
 ModUi/&TableTopButton=<b><color=#D89555>选择桌面内容</color></b>

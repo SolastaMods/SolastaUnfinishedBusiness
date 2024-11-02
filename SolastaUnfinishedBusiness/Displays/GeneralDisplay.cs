@@ -242,8 +242,6 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchOneDndSurprisedEnforceDisadvantage();
         }
 
-        UI.Label();
-
         toggle = Main.Settings.OneDndHealingPotionBonusAction;
         if (UI.Toggle(Gui.Localize("ModUi/&OneDndHealingPotionBonusAction"), ref toggle, UI.AutoWidth()))
         {
@@ -251,14 +249,6 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchOneDndHealingPotionBonusAction();
         }
 
-        UI.Label();
-
-        toggle = Main.Settings.AllowDruidToWearMetalArmor;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowDruidToWearMetalArmor = toggle;
-            SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
-        }
 
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BardTitle") + ":</color>");
@@ -320,6 +310,17 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableBarbarianRegainOneRageAtShortRest = toggle;
             CharacterContext.SwitchBarbarianRegainOneRageAtShortRest();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.AllowDruidToWearMetalArmor;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowDruidToWearMetalArmor = toggle;
+            SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
         UI.Label();
@@ -462,10 +463,11 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("ModUi/&DocsSpells") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableCastersToCountMaxPreparedFromTable;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCastersToCountMaxPreparedFromTable"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableOneDnDPreparedSpellsTables;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDnDPreparedSpellsTables"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableCastersToCountMaxPreparedFromTable = toggle;
+            Main.Settings.EnableOneDnDPreparedSpellsTables = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndPreparedSpellsTables();
         }
 
         toggle = Main.Settings.EnableOneDndHealingSpellsBuf;

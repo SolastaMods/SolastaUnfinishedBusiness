@@ -623,7 +623,7 @@
     <MetamagicSliderPosition>4</MetamagicSliderPosition>
     <MetamagicEnabled/>
     <AllowBladeCantripsToUseReach>false</AllowBladeCantripsToUseReach>
-    <EnableCastersToCountMaxPreparedFromTable>false</EnableCastersToCountMaxPreparedFromTable>
+    <EnableOneDnDPreparedSpellsTables>false</EnableOneDnDPreparedSpellsTables>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>

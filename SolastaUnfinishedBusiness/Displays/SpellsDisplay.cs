@@ -33,10 +33,11 @@ internal static class SpellsDisplay
             SrdAndHouseRulesContext.SwitchAllowBladeCantripsToUseReach();
         }
 
-        toggle = Main.Settings.EnableCastersToCountMaxPreparedFromTable;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCastersToCountMaxPreparedFromTable"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableOneDnDPreparedSpellsTables;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDnDPreparedSpellsTables"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableCastersToCountMaxPreparedFromTable = toggle;
+            Main.Settings.EnableOneDnDPreparedSpellsTables = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndPreparedSpellsTables();
         }
 
         toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
