@@ -9,6 +9,7 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>불굴의 저항�
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>인간형</color> 선호 적 활성화
 ModUi/&AddNewWeaponsAndRecipesToShops=상점에 새로운 무기와 제조법을 추가하세요 <i><color=#F0DAA0>[손가락 묶는 무기, 도끼창, 창, 긴 메이스, 손 석궁]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>성기사</color>가 치명타에만 스마이트를 사용할 수 있도록 토글을 추가합니다. <i><color=#F0DAA0>[반응 프롬프트를 최소화하는 데 유용함]</color></i>
+ModUi/&AddPersuasionToFighterSkillOptions=1레벨 스킬 옵션에 <color=#D89555>설득</color>을 추가합니다.
 ModUi/&AddPickPocketableLoot=주머니털이 가능한 전리품 추가 <i><color=#F0DAA0>[<color=#D89555>주머니털이</color> 특기가 활성화된 경우 추천]</color></i>
 ModUi/&AddToStore={0} 추가
 ModUi/&Advanced=<color=#F0DAA0>고급:</color> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
@@ -96,7 +97,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=레벨 맵에서 캠프, 출구 및 텔�
 ModUi/&EnableAdditionalItemsInDungeonMaker=편집기에 수정된 항목 추가
 ModUi/&EnableAlternateHuman=대체 <color=#D89555>인간</color> <i><color=#F0DAA0>[+1 특기 / +2 속성 선택 / +1 기술]</color></i>을 활성화합니다.
 ModUi/&EnableAlternateVotingSystem=대체 투표 시스템 활성화 <i><color=#F0DAA0>[선택 가중치 = 투표 수 * 영웅 카리스마 수정치]</color></i>
-ModUi/&EnableBG3AbjurationArcaneWard=<color=#D89555>Abjurer</color> <b>Arcane Ward</b> 구현을 BG3처럼 동작하도록 활성화
+ModUi/&EnableBG3AbjurationArcaneWard=<b>Abjurer</b> <color=#D89555>Arcane Ward</color> 구현을 BG3처럼 동작하도록 활성화합니다.
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[피해를 방지할 때마다 1씩 감소, 방지한 피해에 따라 감소하는 것이 아님. 활성화하려면 금지 주문을 시전할 필요가 없음\n하지만 최대값은 위저드 레벨의 2배 + INT 수정치 대신 위저드 레벨의 2배이며 긴 휴식 시에만 절반으로 재충전됨]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=레벨 9, 13, 17에서 <color=#D89555>잔혹한 일격</color>과 <color=#D89555>잔혹한 일격 개선</color>을 활성화합니다.
 ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
@@ -157,7 +158,7 @@ ModUi/&EnableRitualOnAllCasters=모든 시전자에 <color=#D89555>의식</color
 ModUi/&EnableRogueCunningStrike=레벨 5와 14에서 <color=#D89555>교활한 일격</color>과 <color=#D89555>사악한 일격</color>을 활성화합니다. <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기합니다]</color></i>
 ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
 ModUi/&EnableRogueSteadyAim=레벨 3에서 <color=#D89555>안정적인 조준</color>을 활성화합니다. <i><color=#F0DAA0>[현재 턴에서 아직 이동하지 않았다면 다음 공격 굴림에 보너스 액션이 유리해집니다.]</color></i>
-ModUi/&EnableRogueStrSaving=<b>교활한/사악한 일격</b>, <b>약화시키는/향상된 일격</b>, <b>칼날 우박</b>에 <color=#D89555>후드럼</color> DEX 또는 STR 수정치를 활성화합니다.
+ModUi/&EnableRogueStrSaving=<color=#D89555>교활한/사악한 일격</color>에 <b>후드럼</b> DEX 또는 STR 수정치를 활성화합니다.
 ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 <color=#D89555>특징 주문</color>을 준비할 수 있게 합니다. <i><color=#F0DAA0>[레벨 20에서 한 번만]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 <color=#D89555>마법의 안내</color>를 활성화합니다.
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작을 활성화하여 빠른 메타매직이 적용된 주요 동작 주문을 시전할 수 있습니다.
@@ -300,10 +301,11 @@ ModUi/&StockHugoStoreWithAdditionalFoci=<color=#D89555>비전 지팡이</color>,
 ModUi/&Subclasses=<color=#F0DAA0>서브클래스</color>
 ModUi/&Subraces=<color=#F0DAA0>아종</color>
 ModUi/&SwapAbjurationSavant=<b>Abjurer</b> <color=#D89555>Abjuration Savant</color>를 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
-ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교환</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>소환사</b> <color=#D89555>조각 주문</color>과 <b>강력한 주문</b> 기능을 교체하세요
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교환</i>ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color>를 5e 2024 버전으로 교체하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>소환사</b> <color=#D89555>조각 주문</color>과 <color=#D89555>강력한 주문</color> 기능을 교체하세요
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color>를 5e 2024 버전으로 교체하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=<color=#D89555>Barkskin</color>을 5e 2024 버전 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>과 교환하세요
+ModUi/&SwapSecondWindToUseOneDndUsagesProgression=<color=#D89555>Second Wind</color>를 5e 2024 사용 진행을 사용하도록 바꾸세요.
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=<color=#D89555>Invocations</color> 진행을 5e 2024 버전으로 바꾸세요
 ModUi/&TableTopButton=<b><color=#D89555>테이블탑 콘텐츠 선택</color></b>
 ModUi/&TableTopHelp1=• 다음 섹션은 편의를 위해 모드 전체에 분산된 <color=#D89555>5e 2014 및 2024</color> 설정을 다시 그룹화하고 복제합니다.

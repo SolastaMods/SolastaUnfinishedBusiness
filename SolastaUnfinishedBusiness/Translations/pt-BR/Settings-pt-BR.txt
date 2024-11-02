@@ -9,6 +9,7 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=Adicione o nível de classe como
 ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar inimigos preferenciais <color=#D89555>Humanoides</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicionar novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicione uma alternância para permitir que <color=#D89555>Paladinos</color> habilitem golpes somente em acertos críticos <i><color=#F0DAA0>[útil para minimizar prompts de reação]</color></i>
+ModUi/&AddPersuasionToFighterSkillOptions=Adicione <color=#D89555>Persuasão</color> às opções de habilidade no nível 1
 ModUi/&AddPickPocketableLoot=Adicionar saque que pode ser roubado <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Batedor de carteira</color> estiver habilitado]</color></i>
 ModUi/&AddToStore=Adicionar {0}
 ModUi/&Advanced=<color=#F0DAA0>Avançado:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -96,7 +97,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilitar ícones adicionais para acampam
 ModUi/&EnableAdditionalItemsInDungeonMaker=Adicionar itens modificados ao Editor
 ModUi/&EnableAlternateHuman=Habilitar o <color=#D89555>Humano</color> alternativo <i><color=#F0DAA0>[+1 talento / +2 escolhas de atributo / +1 habilidade]</color></i>
 ModUi/&EnableAlternateVotingSystem=Habilitar sistema de votação alternativo <i><color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói]</color></i>
-ModUi/&EnableBG3AbjurationArcaneWard=Habilitar a implementação <color=#D89555>Abjurer</color> <b>Arcane Ward</b> para se comportar como BG3
+ModUi/&EnableBG3AbjurationArcaneWard=Habilitar a implementação <b>Abjurer</b> <color=#D89555>Arcane Ward</color> para se comportar como BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Diminui em 1 cada vez que previne dano, em vez de por dano prevenido. Não há necessidade de conjurar magia de abjuração para ser ativo,\nmas o valor máximo é 2x nível de mago em vez de 2x nível de mago + mod INT e só é recarregado pela metade em um descanso longo]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Habilitar <color=#D89555>Golpe Brutal</color> e <color=#D89555>Melhoria do Golpe Brutal</color> nos níveis 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Habilitar a escolha <color=#D89555>Estilo de luta</color> no nível 2
@@ -157,7 +158,7 @@ ModUi/&EnableRitualOnAllCasters=Habilitar a conjuração de <color=#D89555>Ritua
 ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Golpe Astuto</color> e <color=#D89555>Golpe Desonesto</color> nos níveis 5 e 14 <i><color=#F0DAA0>[você deixa de lado 1 dado de ataque furtivo para efeitos de acerto adicionais]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilitar a escolha <color=#D89555>Estilo de luta</color> no nível 2
 ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Miração Firme</color> no nível 3 <i><color=#F0DAA0>[ação bônus dá vantagem na sua próxima jogada de ataque no turno atual se você ainda não se moveu]</color></i>
-ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR de <color=#D89555>Hoodlum</color> em <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b> e <b>Hail of Blades</b>
+ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR de <b>Hoodlum</b> em <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSignatureSpellsRelearn=Habilitar <color=#D89555>Feitiços de Assinatura</color> para serem preparados a cada descanso longo <i><color=#F0DAA0>[em vez de uma vez no nível 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> no nível 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada
@@ -300,10 +301,11 @@ ModUi/&StockHugoStoreWithAdditionalFoci=Estoque a loja de Hugo com <color=#D8955
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Sub-raças</color>
 ModUi/&SwapAbjurationSavant=Troque <b>Abjurador</b> <color=#D89555>Sábio da Abjuração</color> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
-ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque os recursos <b>Evocador</b> <color=#D89555>Magias de Esculpir</color> e <b>Truque Potente</b>
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>ModUi/&SwapEvocationSavant=Troque <b>Evocador</b> <color=#D89555>Sábio da Evocação</color> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque os recursos <b>Evocador</b> <color=#D89555>Magias de Esculpir</color> e <color=#D89555>Truque Potente</color>
 ModUi/&SwapEvocationSavant=Troque <b>Evocador</b> <color=#D89555>Sábio da Evocação</color> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=Troque <color=#D89555>Barkskin</color> pela versão 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, CA definida como 17]</color></i>
+ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Troque <color=#D89555>Segundo Vento</color> para usar a progressão de usos do 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Troque a progressão de <color=#D89555>Invocações</color> pela versão 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Selecionar conteúdo de mesa</color></b>
 ModUi/&TableTopHelp1=• As seções a seguir reagrupam e duplicam as configurações <color=#D89555>5e 2014 e 2024</color> espalhadas pelo mod para sua conveniência

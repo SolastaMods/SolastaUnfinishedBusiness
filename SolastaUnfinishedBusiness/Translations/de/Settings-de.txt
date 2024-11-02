@@ -9,6 +9,7 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=Füge die Klassenstufe als Bonus
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktivieren Sie <color=#D89555>Humanoide</color> als bevorzugte Feinde
 ModUi/&AddNewWeaponsAndRecipesToShops=Neue Waffen und Rezepte zu den Läden hinzufügen <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Paladinen</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
+ModUi/&AddPersuasionToFighterSkillOptions=Fügen Sie <color=#D89555>Überredung</color> zu den Fertigkeitsoptionen auf Stufe 1 hinzu
 ModUi/&AddPickPocketableLoot=Beute, die durch Taschendiebstahl gestohlen werden kann, hinzufügen <i><color=#F0DAA0>[empfohlen, wenn die Fähigkeit <color=#D89555>Taschendiebstahl</color> aktiviert ist]</color></i>
 ModUi/&AddToStore={0} hinzufügen
 ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -96,7 +97,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Zusätzliche Symbole für Lager, Ausgäng
 ModUi/&EnableAdditionalItemsInDungeonMaker=Modifizierte Elemente zum Editor hinzufügen
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen <color=#D89555>Menschen</color> <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
 ModUi/&EnableAlternateVotingSystem=Alternatives Abstimmungssystem aktivieren <i><color=#F0DAA0>[Auswahlgewicht = Stimmen * Charisma-Modifikator des Helden]</color></i>
-ModUi/&EnableBG3AbjurationArcaneWard=Aktivieren Sie die <color=#D89555>Abjurer</color> <b>Arcane Ward</b>-Implementierung, damit sie sich wie BG3 verhält
+ModUi/&EnableBG3AbjurationArcaneWard=Aktivieren Sie die Implementierung von <b>Abjurer</b> <color=#D89555>Arcane Ward</color>, damit sie sich wie BG3 verhält
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Verringert sich jedes Mal um 1, wenn Schaden verhindert wird, statt um verhinderten Schaden. Es ist nicht nötig, einen Bannzauber zu wirken, um aktiv zu sein,\naber der Maximalwert beträgt 2x Zaubererstufe statt 2x Zaubererstufe + INT-Mod und wird bei einer langen Pause nur auf die Hälfte aufgeladen]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Brutal Strike</color> und <color=#D89555>Brutal Strike Improvement</color> auf den Leveln 9, 13 und 17.
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
@@ -157,7 +158,7 @@ ModUi/&EnableRitualOnAllCasters=Aktivieren Sie das Wirken von <color=#D89555>Rit
 ModUi/&EnableRogueCunningStrike=Aktiviere <color=#D89555>Cunning Strike</color> und <color=#D89555>Devious Strike</color> auf den Leveln 5 und 14 <i><color=#F0DAA0>[du lässt 1 Schleichangriffswürfel für zusätzliche Treffereffekte weg]</color></i>
 ModUi/&EnableRogueFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrechung</color> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sich noch nicht bewegt haben]</color></i>
-ModUi/&EnableRogueStrSaving=Aktiviere <color=#D89555>Hoodlum</color> DEX- oder STR-Modifikatoren bei <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b> und <b>Hail of Blades</b>
+ModUi/&EnableRogueStrSaving=Aktivieren Sie <b>Hoodlum</b> DEX- oder STR-Modifikatoren bei <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSignatureSpellsRelearn=Aktiviere, dass <color=#D89555>Signaturzauber</color> bei jeder langen Pause vorbereitet werden <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung</color> auf Stufe 5.
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
@@ -300,10 +301,11 @@ ModUi/&StockHugoStoreWithAdditionalFoci=Füllen Sie Hugos Laden mit <color=#D895
 ModUi/&Subclasses=<color=#F0DAA0>Unterklassen</color>
 ModUi/&Subraces=<color=#F0DAA0>Unterrassen</color>
 ModUi/&SwapAbjurationSavant=Tauschen Sie <b>Abjurer</b> <color=#D89555>Abjuration Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erwerben, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
-ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Rezepte und Symbole für hergestellte Gegenstände im Shop austauschen</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=Tauschen Sie die Funktionen <b>Evoker</b> <color=#D89555>Sculpt Spells</color> und <b>Potent Cantrip</b> aus
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Rezepte und Symbole für hergestellte Gegenstände im Shop austauschen</i>ModUi/&SwapEvocationSavant=Tauschen Sie <b>Evoker</b> <color=#D89555>Evocation Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erhalten, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Tauschen Sie die Funktionen <b>Evoker</b> <color=#D89555>Sculpt Spells</color> und <color=#D89555>Potent Cantrip</color> aus
 ModUi/&SwapEvocationSavant=Tauschen Sie <b>Evoker</b> <color=#D89555>Evocation Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erhalten, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=Tauschen Sie <color=#D89555>Barkskin</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 eingestellt]</color></i>
+ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Tauschen Sie <color=#D89555>Second Wind</color> aus, um den Nutzungsfortschritt von 5e 2024 zu verwenden.
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Tauschen Sie den Fortschritt der <color=#D89555>Anrufungen</color> mit der Version 5e 2024 aus.
 ModUi/&TableTopButton=<b><color=#D89555>Tabletop-Inhalt auswählen</color></b>
 ModUi/&TableTopHelp1=• In den folgenden Abschnitten werden die im Mod verstreuten Einstellungen für <color=#D89555>5e 2014 und 2024</color> neu gruppiert und dupliziert, damit Sie es einfacher haben

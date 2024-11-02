@@ -204,6 +204,7 @@ internal static partial class CharacterContext
         LoadSorcererQuickened();
         LoadVision();
         LoadVisuals();
+        LoadSecondWindToUseOneDndUsagesProgression();
         BuildBarbarianBrutalStrike();
         BuildRogueCunningStrike();
         SwitchAsiAndFeat();
@@ -217,6 +218,7 @@ internal static partial class CharacterContext
         SwitchDruidKindredBeastToUseCustomInvocationPools();
         SwitchEveryFourLevelsFeats();
         SwitchEveryFourLevelsFeats(true);
+        SwitchPersuasionToFighterSkillOptions();
         SwitchFighterLevelToIndomitableSavingReroll();
         SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
@@ -667,6 +669,36 @@ internal static partial class CharacterContext
             Main.Settings.AddFighterLevelToIndomitableSavingReroll
                 ? "Feature/&EnhancedIndomitableResistanceDescription"
                 : "Feature/&IndomitableResistanceDescription";
+    }
+
+    internal static void SwitchPersuasionToFighterSkillOptions()
+    {
+        if (Main.Settings.AddPersuasionToFighterSkillOptions)
+        {
+            PointPoolFighterSkillPoints.restrictedChoices.TryAdd(SkillDefinitions.Persuasion);
+        }
+        else
+        {
+            PointPoolFighterSkillPoints.restrictedChoices.Remove(SkillDefinitions.Persuasion);
+        }
+    }
+
+    private static void LoadSecondWindToUseOneDndUsagesProgression()
+    {
+        PowerFighterSecondWind.AddCustomSubFeatures(
+            HasModifiedUses.Marker,
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = PowerFighterSecondWind,
+                Type = PowerPoolBonusCalculationType.SecondWind2024,
+                Attribute = FighterClass
+            },
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = PowerFighterSecondWind,
+                Type = PowerPoolBonusCalculationType.SecondWind2024,
+                Attribute = FighterClass
+            });
     }
 
     internal static void SwitchFighterWeaponSpecialization()

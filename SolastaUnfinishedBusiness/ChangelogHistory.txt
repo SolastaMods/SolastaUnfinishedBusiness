@@ -1,11 +1,14 @@
 1.5.97.37:
 
+- added Character > Classes > 'Add persuasion to Fighter skill options at level 1' [OneDnd]
 - added Character > Classes > 'Change Bard bardic inspiration  duration to 1hr instead of 10 minutes' [OneDnd]
 - added Character > Classes > 'Enable Bard Expertise at levels 2 and 9 instead of 3 and 10' [OneDnd]
 - added Character > Classes > 'Enable Ritual casting on all casters' [OneDnd]
 - added Character > Classes > 'Enable Warlock magical cunning at level 2'  [OneDnd]
 - added Character > Classes > 'Remove Bard song of rest at level 2' [OneDnd]
+- added Character > Classes > 'Swap Fighter second wind to use 5e 2024 usages progression' [OneDnd]
 - added Character > Classes > 'Swap Warlock invocations progression with 5e 2024 version' [OneDnd]
+- added Character > Spells > 'Enable all casters to use new prepared spells tables' [OneDnd]
 - added Character > Spells > 'Swap Barkskin with 5e 2024 version' [OneDnd]
 - added Character > Subclasses > 'Swap Abjurer abjuration savant with 5e 2024 version' [OneDnd]
 - added Character > Subclasses > 'Swap Evoker evocation savant with 5e 2024 version' [OneDnd]

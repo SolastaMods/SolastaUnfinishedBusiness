@@ -120,11 +120,24 @@ internal static class ClassesDisplay
             CharacterContext.SwitchFighterLevelToIndomitableSavingReroll();
         }
 
+        toggle = Main.Settings.AddPersuasionToFighterSkillOptions;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPersuasionToFighterSkillOptions"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPersuasionToFighterSkillOptions = toggle;
+            CharacterContext.SwitchPersuasionToFighterSkillOptions();
+        }
+
         toggle = Main.Settings.EnableFighterWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableFighterWeaponSpecialization = toggle;
             CharacterContext.SwitchFighterWeaponSpecialization();
+        }
+
+        toggle = Main.Settings.SwapSecondWindToUseOneDndUsagesProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapSecondWindToUseOneDndUsagesProgression = toggle;
         }
 
         UI.Label();

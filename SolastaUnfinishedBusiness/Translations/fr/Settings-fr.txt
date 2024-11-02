@@ -9,6 +9,7 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=Ajoutez le niveau de classe comm
 ModUi/&AddHumanoidFavoredEnemyToRanger=Activer les ennemis préférés des <color=#D89555>humanoïdes</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=Ajoutez de nouvelles armes et recettes aux magasins <i><color=#F0DAA0>[bandages de main, hallebardes, piques, longues masses, arbalètes à main]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Ajoutez une option permettant aux <color=#D89555>paladins</color> d'activer uniquement les coups critiques <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
+ModUi/&AddPersuasionToFighterSkillOptions=Ajoutez <color=#D89555>Persuasion</color> aux options de compétence au niveau 1
 ModUi/&AddPickPocketableLoot=Ajouter un butin pouvant être volé à la tire <i><color=#F0DAA0>[suggéré si l'exploit <color=#D89555>Pickpocket</color> est activé]</color></i>
 ModUi/&AddToStore=Ajouter {0}
 ModUi/&Advanced=<color=#F0DAA0>Avancé :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -96,7 +97,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour
 ModUi/&EnableAdditionalItemsInDungeonMaker=Ajouter des éléments modifiés à l'éditeur
 ModUi/&EnableAlternateHuman=Activer l'<color=#D89555>Humain</color> alternatif <i><color=#F0DAA0>[+1 don / +2 choix d'attributs / +1 compétence]</color></i>
 ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[poids du choix = votes * modificateur de charisme du héros]</color></i>
-ModUi/&EnableBG3AbjurationArcaneWard=Activer l'implémentation de <b>Arcane Ward</b> d'Abjurer pour qu'elle se comporte comme BG3
+ModUi/&EnableBG3AbjurationArcaneWard=Activer l'implémentation d'Abjurer <color=#D89555>Arcane Ward</color> pour qu'elle se comporte comme BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Diminue de 1 à chaque fois qu'il prévient les dégâts, au lieu de diminuer en fonction des dégâts prévenus. Pas besoin de lancer le sort d'abjuration pour être actif\nmais la valeur maximale est 2x niveau de sorcier au lieu de 2x niveau de sorcier + mod INT et ne se recharge qu'à moitié lors d'un repos long]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Frappe brutale</color> et <color=#D89555>Amélioration de la frappe brutale</color> aux niveaux 9, 13 et 17
 ModUi/&EnableBarbarianFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
@@ -157,7 +158,7 @@ ModUi/&EnableRitualOnAllCasters=Activer le lancement de <color=#D89555>rituel</c
 ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color> et <color=#D89555>Devious Strike</color> aux niveaux 5 et 14 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
 ModUi/&EnableRogueSteadyAim=Activez la <color=#D89555>Visée constante</color> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage sur votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
-ModUi/&EnableRogueStrSaving=Activez les modificateurs DEX ou STR de <color=#D89555>Hoodlum</color> sur <b>Cunning/Durious Strike</b>, <b>Délicieuse/Améliorée Strike</b> et <b>Hail of Blades</b>
+ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR de <b>Hoodlum</b> sur <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSignatureSpellsRelearn=Activer les <color=#D89555>sorts signatures</color> pour qu'ils soient préparés à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=Activer la <color=#D89555>guidance magique</color> au niveau 5
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
@@ -300,10 +301,11 @@ ModUi/&StockHugoStoreWithAdditionalFoci=Remplissez la boutique Hugo avec le <col
 ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
 ModUi/&Subraces=<color=#F0DAA0>Sous-races</color>
 ModUi/&SwapAbjurationSavant=Échangez <b>Abjurer</b> <color=#D89555>Abjuration Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
-ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <b>Évocateur</b> <color=#D89555>Sculpture Sorts</color> et <b>Potent Cantrip</b>
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>ModUi/&SwapEvocationSavant=Échangez <b>Evoker</b> <color=#D89555>Evocation Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <b>Sculpt Spells</b> d'Evoker et <color=#D89555>Potent Cantrip</color>
 ModUi/&SwapEvocationSavant=Échangez <b>Evoker</b> <color=#D89555>Evocation Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
 ModUi/&SwapOneDndBarkskinSpell=Échangez <color=#D89555>Barkskin</color> avec la version 5e 2024 <i><color=#F0DAA0>[action bonus, pas de concentration, CA réglée à 17]</color></i>
+ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Remplacez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Échangez la progression des <color=#D89555>Invocations</color> avec la version 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>
 ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>5e 2014 et 2024</color> dispersés dans le mod pour votre commodité

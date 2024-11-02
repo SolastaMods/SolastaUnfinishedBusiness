@@ -9,6 +9,7 @@ ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>不屈の抵抗</
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>ヒューマノイド</color>優先敵を有効にする
 ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加します <i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>パラディン</color>がクリティカルヒット時にのみスマイトを有効にするようにするトグルを追加します <i><color=#F0DAA0>[反応プロンプトを最小限に抑えるのに役立ちます]</color></i>
+ModUi/&AddPersuasionToFighterSkillOptions=レベル1のスキルオプションに<color=#D89555>説得</color>を追加します
 ModUi/&AddPickPocketableLoot=スリ可能な戦利品を追加 <i><color=#F0DAA0>[<color=#D89555>スリ</color> 能力が有効になっている場合に推奨]</color></i>
 ModUi/&AddToStore={0} を追加
 ModUi/&Advanced=<color=#F0DAA0>詳細:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
@@ -96,7 +97,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、�
 ModUi/&EnableAdditionalItemsInDungeonMaker=エディターに改造アイテムを追加する
 ModUi/&EnableAlternateHuman=代替の <color=#D89555>人間</color> を有効にする <i><color=#F0DAA0>[+1 特技 / +2 属性選択 / +1 スキル]</color></i>
 ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i><color=#F0DAA0>[選択の重み = 投票数 * ヒーローのカリスマ性補正値]</color></i>
-ModUi/&EnableBG3AbjurationArcaneWard=<color=#D89555>Abjurer</color> <b>Arcane Ward</b> 実装を有効にして、BG3 のように動作させます。
+ModUi/&EnableBG3AbjurationArcaneWard=<b>Abjurer</b> の <color=#D89555>Arcane Ward</color> 実装を有効にして、BG3 のように動作させます。
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[ダメージを防ぐたびに 1 減少します (防いだダメージの数ではありません)。有効にするために防御呪文を唱える必要はありません\nただし、最大値はウィザード レベルの 2 倍 (ウィザード レベル + INT 修正値の 2 倍) であり、長い休憩でのみ半分に再充電されます]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=レベル9、13、17で<color=#D89555>残忍な一撃</color>と<color=#D89555>残忍な一撃の改善</color>を有効にする
 ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
@@ -157,7 +158,7 @@ ModUi/&EnableRitualOnAllCasters=すべてのキャスターに<color=#D89555>儀
 ModUi/&EnableRogueCunningStrike=レベル 5 と 14 で <color=#D89555>狡猾な一撃</color> と <color=#D89555>邪悪な一撃</color> を有効にします <i><color=#F0DAA0>[追加のヒット効果を得るために、スニーク アタック ダイスを 1 つ放棄します]</color></i>
 ModUi/&EnableRogueFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
 ModUi/&EnableRogueSteadyAim=レベル 3 で <color=#D89555>Steady Aim</color> を有効にします <i><color=#F0DAA0>[ボーナス アクションにより、まだ移動していない場合、現在のターンの次の攻撃ロールにアドバンテージが与えられます]</color></i>
-ModUi/&EnableRogueStrSaving=<b>狡猾/悪意ある一撃</b>、<b>衰弱/強化一撃</b>、<b>ヘイル オブ ブレード</b>に <color=#D89555>悪党</color> の DEX または STR 修飾子を有効にします
+ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃/悪巧みの一撃</color>に<b>悪党</b>のDEXまたはSTR修飾子を有効にする
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>シグネチャー スペル</color> を、長い休憩ごとに準備できるようにします <i><color=#F0DAA0>[レベル 20 で 1 回ではなく]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
@@ -300,10 +301,11 @@ ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴの店に、<color=#D89555>�
 ModUi/&Subclasses=<color=#F0DAA0>サブクラス</color>
 ModUi/&Subraces=<color=#F0DAA0>亜種族</color>
 ModUi/&SwapAbjurationSavant=<b>Abjurer</b> <color=#D89555>Abjuration Savant</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびに 1 つずつ追加で習得する]</color></i> と入れ替えます
-ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフトアイテムのアイコンを交換</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>エヴォーカー</b>の<color=#D89555>スカルプトスペル</color>と<b>ポテンシャルキャントリップ</b>の機能を入れ替えます
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフトアイテムのアイコンを交換</i>ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color> を 5e 2024 バージョン <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>エヴォーカー</b>の<color=#D89555>スカルプトスペル</color>と<color=#D89555>ポテンシャルキャントリップ</color>の機能を入れ替えます
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color> を 5e 2024 バージョン <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
 ModUi/&SwapOneDndBarkskinSpell=<color=#D89555>Barkskin</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション、集中力なし、AC を 17 に設定]</color></i> と交換します。
+ModUi/&SwapSecondWindToUseOneDndUsagesProgression=<color=#D89555>セカンド ウィンド</color> を 5e 2024 の使用進行に置き換える
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=<color=#D89555>Invocations</color> の進行を 5e 2024 バージョンと入れ替える
 ModUi/&TableTopButton=<b><color=#D89555>テーブルトップコンテンツを選択</color></b>
 ModUi/&TableTopHelp1=• 以下のセクションでは、利便性のために、mod 全体に散らばっている <color=#D89555>5e 2014 および 2024</color> 設定を再グループ化して複製します。

@@ -271,6 +271,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
     public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
+    public bool AddPersuasionToFighterSkillOptions { get; set; }
+    public bool SwapSecondWindToUseOneDndUsagesProgression { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerNatureShroudAt10 { get; set; }

@@ -334,6 +334,19 @@ internal static class ToolsDisplay
             CharacterContext.SwitchFighterLevelToIndomitableSavingReroll();
         }
 
+        toggle = Main.Settings.AddPersuasionToFighterSkillOptions;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPersuasionToFighterSkillOptions"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPersuasionToFighterSkillOptions = toggle;
+            CharacterContext.SwitchPersuasionToFighterSkillOptions();
+        }
+
+        toggle = Main.Settings.SwapSecondWindToUseOneDndUsagesProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapSecondWindToUseOneDndUsagesProgression = toggle;
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&MonkTitle") + ":</color>");
         UI.Label();
@@ -457,6 +470,17 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableWizardToLearnSchoolAtLevel3 = toggle;
             SrdAndHouseRulesContext.SwitchOneDndWizardSchoolOfMagicLearningLevel();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("ModUi/&DocsRaces") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableAlternateHuman;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAlternateHuman = toggle;
+            CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
         UI.Label();
