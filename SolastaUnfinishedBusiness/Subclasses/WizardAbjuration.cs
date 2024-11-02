@@ -602,49 +602,63 @@ public sealed class WizardAbjuration : AbstractSubclass
         }
     }
 
-    private sealed class ModifyCounterspellAddProficiency() : IModifyEffectDescription
+    private sealed class ModifyCounterspellAddProficiency : IModifyEffectDescription
     {
-        EffectDescription IModifyEffectDescription.GetEffectDescription(BaseDefinition definition, EffectDescription effectDescription, RulesetCharacter character, RulesetEffect rulesetEffect)
+        private static readonly EffectForm EffectForm = EffectFormBuilder.Create()
+            .SetCounterForm(CounterForm.CounterType.InterruptSpellcasting, 3, 10, true, true)
+            .Build();
+
+        EffectDescription IModifyEffectDescription.GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            return EffectDescriptionBuilder
-                .Create(Counterspell.EffectDescription)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetCounterForm(CounterForm.CounterType.InterruptSpellcasting, 3, 10, true, true)
-                    .Build())
-                .Build();
+            effectDescription.EffectForms.SetRange(EffectForm);
+
+            return effectDescription;
         }
 
-        bool IModifyEffectDescription.IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        bool IModifyEffectDescription.IsValid(
+            BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return character.GetClassLevel(CharacterClassDefinitions.Wizard) >= 10 &&
-                definition == Counterspell;
+            return character.GetSubclassLevel(CharacterClassDefinitions.Wizard, Name) >= 10 &&
+                   definition == Counterspell;
         }
     }
 
-    private sealed class ModifyDispelMagicAddProficiency() : IModifyEffectDescription
+    private sealed class ModifyDispelMagicAddProficiency : IModifyEffectDescription
     {
-        EffectDescription IModifyEffectDescription.GetEffectDescription(BaseDefinition definition, EffectDescription effectDescription, RulesetCharacter character, RulesetEffect rulesetEffect)
+        private static readonly List<EffectForm> EffectForms =
+        [
+            EffectFormBuilder.Create()
+                .SetCounterForm(CounterForm.CounterType.DissipateSpells, 3, 10, true, true)
+                .SetCreatedBy(true)
+                .SetBonusMode(AddBonusMode.None)
+                .Build(),
+            EffectFormBuilder.Create()
+                .SetAlterationForm(AlterationForm.Type.DissipateSpell)
+                .SetCreatedBy(true)
+                .SetBonusMode(AddBonusMode.None)
+                .Build()
+        ];
+
+        EffectDescription IModifyEffectDescription.GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            return EffectDescriptionBuilder.Create(DispelMagic)
-                .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetCounterForm(CounterForm.CounterType.DissipateSpells, 3, 10, true, true)
-                        .SetCreatedBy(true)
-                        .SetBonusMode(AddBonusMode.None)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetAlterationForm(AlterationForm.Type.DissipateSpell)
-                        .SetCreatedBy(true)
-                        .SetBonusMode(AddBonusMode.None)
-                        .Build()
-                    )
-                .Build();
+            effectDescription.EffectForms.SetRange(EffectForms);
+
+            return effectDescription;
         }
 
-        bool IModifyEffectDescription.IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        bool IModifyEffectDescription.IsValid(
+            BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return character.GetClassLevel(CharacterClassDefinitions.Wizard) >= 10 &&
-                definition == DispelMagic;
+            return character.GetSubclassLevel(CharacterClassDefinitions.Wizard, Name) >= 10 &&
+                   definition == DispelMagic;
         }
     }
 
