@@ -299,6 +299,7 @@ ModUi/&SwapAbjurationSavant=Tauschen Sie <color=#D89555>Abjurer</color> <b>Abjur
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Rezepte und Symbole für hergestellte Gegenstände im Shop austauschen</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Tauschen Sie die Funktionen <color=#D89555>Evoker</color> <b>Sculpt Spells</b> und <b>Potent Cantrip</b> aus
 ModUi/&SwapEvocationSavant=Tauschen Sie <color=#D89555>Evoker</color> <b>Evocation Savant</b> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erhalten, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
+ModUi/&SwapOneDndBarkskinSpell=Tauschen Sie <color=#D89555>Barkskin</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 eingestellt]</color></i>
 ModUi/&TableTopButton=<b><color=#D89555>Tabletop-Inhalt auswählen</color></b>
 ModUi/&TableTopHelp1=• In den folgenden Abschnitten werden die im Mod verstreuten Einstellungen für <color=#D89555>5e 2014 und 2024</color> neu gruppiert und dupliziert, damit Sie es einfacher haben
 ModUi/&TableTopHelp2=• Drücken Sie die Taste, um unter der Registerkarte „Charakter“ nur Tabletop-Inhalte auszuwählen, und wählen Sie alle Optionen darunter für ein echtes TT-Erlebnis aus

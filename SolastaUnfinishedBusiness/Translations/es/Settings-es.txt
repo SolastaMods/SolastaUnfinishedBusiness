@@ -300,6 +300,7 @@ ModUi/&SwapAbjurationSavant=Intercambia <color=#D89555>Abjurador</color> <b>Sabi
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y objetos elaborados en la tienda</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia las características de <color=#D89555>Evocador</color>, <b>Hechizos de escultura</b> y <b>Truco potente</b>
 ModUi/&SwapEvocationSavant=Intercambia <color=#D89555>Evocador</color> <b>Sabio de la evocación</b> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de ranura]</color></i>
+ModUi/&SwapOneDndBarkskinSpell=Intercambia <color=#D89555>Piel de corteza</color> con la versión 5e 2024 <i><color=#F0DAA0>[acción adicional, sin concentración, CA establecida en 17]</color></i>
 ModUi/&TableTopButton=<b><color=#D89555>Seleccionar contenido de Tabletop</color></b>
 ModUi/&TableTopHelp1=• Las siguientes secciones reagrupan y duplican las configuraciones de <color=#D89555>5e 2014 y 2024</color> esparcidas por el mod para tu conveniencia.
 ModUi/&TableTopHelp2=• Presiona el botón para seleccionar solo contenido de mesa en la pestaña Personaje y selecciona todas las opciones a continuación para una verdadera experiencia TT

@@ -264,6 +264,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Auto Power
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Automatischer Wutstart
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Automatische Kreatur auf null HP reduziert
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Automatischer Schleichangriff
+Rules/&ConditionOneDndBarkskinDescription=Die Rüstungsklasse der Kreatur beträgt mindestens 17.
 Rules/&CounterFormDismissCreatureFormat=Entlässt eine gewünschte heraufbeschworene Kreatur
 Rules/&MotionFormPullOnTop=Ziehen Sie es oben an
 Rules/&MotionFormPushDownFormat=Drücken Sie {0} nach unten

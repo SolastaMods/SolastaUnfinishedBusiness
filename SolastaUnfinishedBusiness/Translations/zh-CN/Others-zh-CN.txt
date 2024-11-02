@@ -264,6 +264,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=自动启用能力
 Rules/&ActivationTypeOnRageStartAutomaticTitle=自动开始狂暴
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=自动生物生命值降至零
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=自动偷袭
+Rules/&ConditionOneDndBarkskinDescription=该生物的防御等级至少变为 17。
 Rules/&CounterFormDismissCreatureFormat=解散一个目标召唤生物
 Rules/&MotionFormPullOnTop=拉至顶部
 Rules/&MotionFormPushDownFormat=下推{0}

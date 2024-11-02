@@ -264,6 +264,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=オートパワー
 Rules/&ActivationTypeOnRageStartAutomaticTitle=オートレイジスタート
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=自動クリーチャーのHPがゼロに減少
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=オートスニークアタック
+Rules/&ConditionOneDndBarkskinDescription=クリーチャーのアーマー クラスは少なくとも 17 になります。
 Rules/&CounterFormDismissCreatureFormat=対象の召喚されたクリーチャーを退ける
 Rules/&MotionFormPullOnTop=上に引っ張る
 Rules/&MotionFormPushDownFormat={0}を押し下げる

@@ -264,6 +264,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Apagado automático
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Inicio de furia automática
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Criatura automática reducida a cero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Ataque furtivo automático
+Rules/&ConditionOneDndBarkskinDescription=La clase de armadura de la criatura pasa a ser al menos 17.
 Rules/&CounterFormDismissCreatureFormat=Despierta a una criatura conjurada objetivo.
 Rules/&MotionFormPullOnTop=Tirar de la parte superior
 Rules/&MotionFormPushDownFormat=Empuja hacia abajo {0}

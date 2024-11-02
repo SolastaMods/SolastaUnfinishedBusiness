@@ -299,6 +299,7 @@ ModUi/&SwapAbjurationSavant=Sostituisci <color=#D89555>Abjurer</color> <b>Abjura
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Scambia le funzionalità <b>Sculpt Spells</b> e <b>Potent Cantrip</b> di <color=#D89555>Evoker</color>
 ModUi/&SwapEvocationSavant=Sostituisci <color=#D89555>Evocatore</color> <b>Sapiente dell'evocazione</b> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
+ModUi/&SwapOneDndBarkskinSpell=Sostituisci <color=#D89555>Barkskin</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
 ModUi/&TableTopButton=<b><color=#D89555>Seleziona contenuto Tabletop</color></b>
 ModUi/&TableTopHelp1=• Le sezioni seguenti raggruppano e duplicano le impostazioni <color=#D89555>5e 2014 e 2024</color> sparse nella mod per la tua comodità
 ModUi/&TableTopHelp2=• Premi il pulsante per selezionare solo il contenuto del tavolo nella scheda Personaggio e seleziona tutte le opzioni sottostanti per una vera esperienza TT

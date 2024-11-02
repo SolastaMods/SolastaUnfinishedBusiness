@@ -264,6 +264,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Accensione automatica
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Avvio automatico della rabbia
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Creatura automatica ridotta a zero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Attacco furtivo automatico
+Rules/&ConditionOneDndBarkskinDescription=La Classe Armatura della creatura diventa almeno 17.
 Rules/&CounterFormDismissCreatureFormat=Congeda una creatura bersaglio evocata
 Rules/&MotionFormPullOnTop=Tirare in alto
 Rules/&MotionFormPushDownFormat=Spingere verso il basso {0}

@@ -299,6 +299,7 @@ ModUi/&SwapAbjurationSavant=Поменяйте <color=#D89555>Abjurer</color> <b
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Заменить значок рецепта значком создаваемого предмета в магазине</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Поменять местами умения Волшебника школы <color=#D89555>Воплощения</color> <b>Построение заклинаний</b> и <b>Мощный заговор</b> <i><color=#F0DAA0>[OneDnd]</color></i>
 ModUi/&SwapEvocationSavant=Поменяйте <color=#D89555>Evoker</color> <b>Evocation Savant</b> на версию 5e 2024 <i><color=#F0DAA0>[выучите 2 школьных заклинания при получении, выучите еще 1 каждый раз, когда получаете уровень слота]</color></i>
+ModUi/&SwapOneDndBarkskinSpell=Поменяйте <color=#D89555>Barkskin</color> на версию 5e 2024 <i><color=#F0DAA0>[бонусное действие, нет концентрации, AC установлен на 17]</color></i>
 ModUi/&TableTopButton=<b><color=#D89555>Выберите содержимое Tabletop</color></b>
 ModUi/&TableTopHelp1=• Следующие разделы перегруппированы и дублируют настройки <color=#D89555>5e 2014 и 2024</color>, разбросанные по всему моду для вашего удобства.
 ModUi/&TableTopHelp2=• Нажмите кнопку, чтобы выбрать только настольный контент на вкладке «Персонаж», и выберите все параметры ниже, чтобы получить настоящий опыт TT

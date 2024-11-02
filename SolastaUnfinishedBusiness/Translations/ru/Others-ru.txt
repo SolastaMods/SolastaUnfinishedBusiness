@@ -264,6 +264,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Автоматическое ум
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Автоматическое начало ярости
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Автоматическое уменьшение хитов существа до нуля
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Автоматическая скрытая атака
+Rules/&ConditionOneDndBarkskinDescription=Класс брони существа становится не ниже 17.
 Rules/&CounterFormDismissCreatureFormat=Отпускает призванное существо
 Rules/&MotionFormPullOnTop=Тянуть наверх
 Rules/&MotionFormPushDownFormat=Толкуть вниз {0}

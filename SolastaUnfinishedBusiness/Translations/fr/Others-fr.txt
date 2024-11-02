@@ -264,6 +264,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Puissance automatique
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Démarrage automatique de la rage
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Créature automatique réduite à zéro PV
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Attaque furtive automatique
+Rules/&ConditionOneDndBarkskinDescription=La classe d'armure de la créature devient au moins 17.
 Rules/&CounterFormDismissCreatureFormat=Renvoie une créature invoquée ciblée
 Rules/&MotionFormPullOnTop=Tirer sur le dessus
 Rules/&MotionFormPushDownFormat=Appuyez sur {0}
