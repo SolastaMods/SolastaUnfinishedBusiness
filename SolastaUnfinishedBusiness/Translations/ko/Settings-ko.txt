@@ -146,7 +146,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=레벨 18에서 <color=#D8955
 ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>무기 전문화</color>를 활성화합니다. <i><color=#F0DAA0>[선택한 무기 유형이 당신에게 수도사 무기가 됩니다]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=모든 <color=#D89555>주문자</color>가 새로 준비된 주문표 <i><color=#F0DAA0>[바드, 성직자, 드루이드, 성기사, 레인저, 마법사, 마법사]</color></i>를 사용할 수 있도록 합니다.
-ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 말씀</color>에 치유 주사위 버프를 활성화합니다.
+ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 말씀</color>에 치유 주사위 버프를 활성화합니다.
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=<color=#D89555>안수</color>를 보너스 액션으로 활성화합니다.
 ModUi/&EnablePaladinSmiteAsBonusAction=<color=#D89555>Smite</color>를 보너스 액션으로 활성화합니다.
 ModUi/&EnablePaladinSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
@@ -312,8 +312,8 @@ ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=<color=#D89555>무기 숙련도</co
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>소환사</b> <color=#D89555>조각 주문</color>과 <color=#D89555>강력한 주문</color> 기능을 교체하세요
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color>를 5e 2024 버전으로 교체하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=<color=#D89555>비무장 공격</color>을 5e 2024 주사위 유형 진행을 사용하도록 바꾸세요.
-ModUi/&SwapOneDndBarkskinSpell=<color=#D89555>Barkskin</color>을 5e 2024 버전 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>과 교환하세요
-ModUi/&SwapOneDndGuidanceSpell=<color=#D89555>가이드</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[시전 시 스킬 하나를 선택하면 최대 1분 동안 보너스를 받습니다.]</color></i>
+ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>Barkskin</color>을 5e 2024 버전 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>과 교환하세요
+ModUi/&EnableOneDndGuidanceSpell=<color=#D89555>가이드</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[시전 시 스킬 하나를 선택하면 최대 1분 동안 보너스를 받습니다.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=<color=#D89555>Second Wind</color>를 5e 2024 사용 진행을 사용하도록 바꾸세요.
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=<color=#D89555>Invocations</color> 진행을 5e 2024 버전으로 바꾸세요
 ModUi/&TableTopButton=<b><color=#D89555>테이블탑 콘텐츠 선택</color></b>

@@ -146,7 +146,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <color=#D89555>Superio
 ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Enable all <color=#D89555>Casters</color> to use new prepared spells tables <i><color=#F0DAA0>[Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard]</color></i>
-ModUi/&EnableOneDndHealingSpellsBuf=Enable healing dice buff on <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color>
+ModUi/&EnableOneDndHealingSpellsUpgrade=Enable <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color> spells 5e version
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Enable <color=#D89555>Lay on Hands</color> as bonus action
 ModUi/&EnablePaladinSmiteAsBonusAction=Enable <color=#D89555>Smite</color> as bonus action
 ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
@@ -312,10 +312,10 @@ ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Swap <color=#D89555>Weapon Proficie
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <b>Evoker</b> <color=#D89555>Sculpt Spells</color> and <color=#D89555>Potent Cantrip</color> on progression
 ModUi/&SwapEvocationSavant=Swap <b>Evoker</b> <color=#D89555>Evocation Savant</color> with 5e 2024 version <i><color=#F0DAA0>[learn 2 school spells when acquired, learn 1 more every time you gain a slot level]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Enable <color=#D89555>Unarmed Attack</color> to use 5e 2024 die type progression
-ModUi/&SwapOneDndBarkskinSpell=Swap <color=#D89555>Barkskin</color> with 5e 2024 version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
-ModUi/&SwapOneDndGuidanceSpell=Swap <color=#D89555>Guidance</color> with 5e 2024 version <i><color=#F0DAA0>[Choose one skill at casting and get bonus for up to 1 minute.]</color></i>
+ModUi/&EnableOneDndBarkskinSpell=Enable <color=#D89555>Barkskin</color> spell 5e 2024 version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
+ModUi/&EnableOneDndGuidanceSpell=Enable <color=#D89555>Guidance</color> spell 5e 2024 version <i><color=#F0DAA0>[Choose one skill at casting and get bonus for up to 1 minute.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
-ModUi/&SwapWarlockToUseOneDndInvocationProgression=Enable <color=#D89555>Invocations</color> o use 5e 2024 progression
+ModUi/&SwapWarlockToUseOneDndInvocationProgression=Enable <color=#D89555>Invocations</color> to use 5e 2024 progression
 ModUi/&TableTopButton=<b><color=#D89555>Select Tabletop content</color></b>
 ModUi/&TableTopHelp1=• Following sections re-group and duplicate <color=#D89555>5e 2014 and 2024</color> settings scattered across the mod for your convenience
 ModUi/&TableTopHelp2=• Press the button to select only tabletop content under Character tab, and select all options below for a true TT experience

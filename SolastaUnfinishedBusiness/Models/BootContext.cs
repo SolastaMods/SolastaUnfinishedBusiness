@@ -58,6 +58,9 @@ internal static class BootContext
         GameUiContext.Load();
         InputContext.Load();
 
+        // only bootstrap for now
+        FeatsContext.Load();
+
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();
 

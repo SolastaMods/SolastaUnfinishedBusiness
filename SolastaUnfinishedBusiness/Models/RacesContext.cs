@@ -3,12 +3,25 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Races;
+using SolastaUnfinishedBusiness.Validators;
+using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class RacesContext
 {
+    private static readonly FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityDarknessPerceptive =
+        FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create("AbilityCheckAffinityDarknessPerceptive")
+            .SetGuiPresentation(Category.Feature)
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
+                abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
+            .AddCustomSubFeatures(ValidatorsCharacter.IsUnlitOrDarkness)
+            .AddToDB();
+
     internal static Dictionary<CharacterRaceDefinition, float> RaceScaleMap { get; } = [];
     internal static HashSet<CharacterRaceDefinition> Races { get; private set; } = [];
     internal static HashSet<CharacterRaceDefinition> Subraces { get; private set; } = [];
@@ -70,6 +83,14 @@ internal static class RacesContext
 
         DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
             .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
+
+        // final bootstrap
+        LoadVision();
+        SwitchDarknessPerceptive();
+        SwitchDragonbornElementalBreathUsages();
+        FlexibleBackgroundsContext.Load();
+        FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
+        FlexibleRacesContext.SwitchFlexibleRaces();
     }
 
     private static void LoadRace([NotNull] CharacterRaceDefinition characterRaceDefinition)
@@ -142,5 +163,84 @@ internal static class RacesContext
         }
 
         UpdateSubraceVisibility(characterRaceDefinition);
+    }
+
+    private static void LoadVision()
+    {
+        if (Main.Settings.DisableSenseDarkVisionFromAllRaces)
+        {
+            foreach (var featureUnlocks in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+                         .Select(crd => crd.FeatureUnlocks))
+            {
+                featureUnlocks.RemoveAll(x => x.FeatureDefinition == SenseDarkvision);
+                // Half-orcs have a different darkvision.
+                featureUnlocks.RemoveAll(x => x.FeatureDefinition == SenseDarkvision12);
+            }
+        }
+
+        // ReSharper disable once InvertIf
+        if (Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces)
+        {
+            foreach (var featureUnlocks in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+                         .Select(crd => crd.FeatureUnlocks))
+            {
+                featureUnlocks.RemoveAll(x => x.FeatureDefinition == SenseSuperiorDarkvision);
+            }
+        }
+    }
+
+    internal static void SwitchDarknessPerceptive()
+    {
+        var races = new List<CharacterRaceDefinition>
+        {
+            RaceKoboldBuilder.SubraceDarkKobold,
+            SubraceDarkelfBuilder.SubraceDarkelf,
+            SubraceGrayDwarfBuilder.SubraceGrayDwarf
+        };
+
+        if (Main.Settings.AddDarknessPerceptiveToDarkRaces)
+        {
+            foreach (var characterRaceDefinition in races
+                         .Where(a => !a.FeatureUnlocks.Exists(x =>
+                             x.Level == 1 && x.FeatureDefinition == AbilityCheckAffinityDarknessPerceptive)))
+            {
+                characterRaceDefinition.FeatureUnlocks.Add(
+                    new FeatureUnlockByLevel(AbilityCheckAffinityDarknessPerceptive, 1));
+            }
+        }
+        else
+        {
+            foreach (var characterRaceDefinition in races
+                         .Where(a => a.FeatureUnlocks.Exists(x =>
+                             x.Level == 1 && x.FeatureDefinition == AbilityCheckAffinityDarknessPerceptive)))
+            {
+                characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
+                    x.Level == 1 && x.FeatureDefinition == AbilityCheckAffinityDarknessPerceptive);
+            }
+        }
+    }
+
+    internal static void SwitchDragonbornElementalBreathUsages()
+    {
+        var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+            .Where(x =>
+                x.Name.StartsWith("PowerDragonbornBreathWeapon") ||
+                x.Name == "PowerFeatDragonFear");
+
+        foreach (var power in powers)
+        {
+            if (Main.Settings.ChangeDragonbornElementalBreathUsages)
+            {
+                power.usesAbilityScoreName = AttributeDefinitions.Constitution;
+                power.usesDetermination = UsesDetermination.AbilityBonusPlusFixed;
+                power.fixedUsesPerRecharge = 0;
+            }
+            else
+            {
+                power.usesAbilityScoreName = AttributeDefinitions.Charisma;
+                power.usesDetermination = UsesDetermination.Fixed;
+                power.fixedUsesPerRecharge = 1;
+            }
+        }
     }
 }

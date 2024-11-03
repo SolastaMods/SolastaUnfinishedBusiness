@@ -17,7 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRegen
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public class Tabletop2014Context
+internal static class Tabletop2014Context
 {
     internal static readonly HashSet<MonsterDefinition> ConjuredMonsters =
     [

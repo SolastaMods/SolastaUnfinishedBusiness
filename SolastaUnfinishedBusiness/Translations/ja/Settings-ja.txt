@@ -146,7 +146,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>
 ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[選択した武器の種類がモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=すべての <color=#D89555>キャスター</color> が新しい準備済み呪文テーブル <i><color=#F0DAA0>[吟遊詩人、聖職者、ドルイド、パラディン、レンジャー、ソーサラー、ウィザード]</color></i> を使用できるようにします。
-ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>治癒の傷</color>、<color=#D89555>治癒の言葉</color>、<color=#D89555>大量治癒の傷</color>、<color=#D89555>大量治癒の言葉</color>に治癒ダイスバフを有効にします
+ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>治癒の傷</color>、<color=#D89555>治癒の言葉</color>、<color=#D89555>大量治癒の傷</color>、<color=#D89555>大量治癒の言葉</color>に治癒ダイスバフを有効にします
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=ボーナスアクションとして<color=#D89555>手を置く</color>を有効にする
 ModUi/&EnablePaladinSmiteAsBonusAction=ボーナスアクションとして<color=#D89555>スマイト</color>を有効にする
 ModUi/&EnablePaladinSpellCastingAtLevel1=<color=#D89555>呪文発動</color>をレベル2ではなくレベル1で有効にする
@@ -312,8 +312,8 @@ ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=<color=#D89555>武器熟練度</col
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>エヴォーカー</b>の<color=#D89555>スカルプトスペル</color>と<color=#D89555>ポテンシャルキャントリップ</color>の機能を入れ替えます
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color> を 5e 2024 バージョン <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=<color=#D89555>Unarmed Attack</color> を 5e 2024 ダイスタイプの進行に置き換える
-ModUi/&SwapOneDndBarkskinSpell=<color=#D89555>Barkskin</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション、集中力なし、AC を 17 に設定]</color></i> と交換します。
-ModUi/&SwapOneDndGuidanceSpell=<color=#D89555>ガイダンス</color>を5e 2024バージョンと入れ替えます <i><color=#F0DAA0>[発動時にスキルを1つ選択し、最大1分間ボーナスを獲得します。]</color></i>
+ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>Barkskin</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション、集中力なし、AC を 17 に設定]</color></i> と交換します。
+ModUi/&EnableOneDndGuidanceSpell=<color=#D89555>ガイダンス</color>を5e 2024バージョンと入れ替えます <i><color=#F0DAA0>[発動時にスキルを1つ選択し、最大1分間ボーナスを獲得します。]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=<color=#D89555>セカンド ウィンド</color> を 5e 2024 の使用進行に置き換える
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=<color=#D89555>Invocations</color> の進行を 5e 2024 バージョンと入れ替える
 ModUi/&TableTopButton=<b><color=#D89555>テーブルトップコンテンツを選択</color></b>

@@ -554,7 +554,7 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableAlternateHuman = toggle;
-            CharacterContext.SwitchFirstLevelTotalFeats();
+            FeatsContext.SwitchFirstLevelTotalFeats();
         }
 
         UI.Label();
@@ -568,10 +568,10 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchOneDndPreparedSpellsTables();
         }
 
-        toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableOneDndHealingSpellsUpgrade;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsUpgrade"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
+            Main.Settings.EnableOneDndHealingSpellsUpgrade = toggle;
             Tabletop2024Context.SwitchOneDndHealingSpellsBuf();
         }
 
@@ -582,18 +582,18 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchEnableRitualOnAllCasters();
         }
 
-        toggle = Main.Settings.SwapOneDndBarkskinSpell;
-        if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableOneDndBarkskinSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.SwapOneDndBarkskinSpell = toggle;
-            Tabletop2024Context.SwapOneDndBarkskinSpell();
+            Main.Settings.EnableOneDndBarkskinSpell = toggle;
+            Tabletop2024Context.EnableOneDndBarkskinSpell();
         }
 
-        toggle = Main.Settings.SwapOneDndGuidanceSpell;
-        if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableOneDndGuidanceSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.SwapOneDndGuidanceSpell = toggle;
-            Tabletop2024Context.SwapOneDndGuidanceSpell();
+            Main.Settings.EnableOneDndGuidanceSpell = toggle;
+            Tabletop2024Context.EnableOneDndGuidanceSpell();
         }
 
         UI.Label();

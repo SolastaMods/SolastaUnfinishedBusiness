@@ -146,7 +146,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Activez la <color=#D89555>Dé
 ModUi/&EnableMonkWeaponSpecialization=Activez la <color=#D89555>spécialisation des armes</color> aux niveaux 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Permettre à tous les <color=#D89555>lanceurs de sorts</color> d'utiliser les nouvelles tables de sorts préparés <i><color=#F0DAA0>[Barde, Clerc, Druide, Paladin, Rôdeur, Sorcier, Magicien]</color></i>
-ModUi/&EnableOneDndHealingSpellsBuf=Activer le buff des dés de soin sur <color=#D89555>Soin des blessures</color>, <color=#D89555>Mot de soin</color>, <color=#D89555>Soin de masse des blessures</color> et <color=#D89555>Mot de soin de masse</color>
+ModUi/&EnableOneDndHealingSpellsUpgrade=Activer le buff des dés de soin sur <color=#D89555>Soin des blessures</color>, <color=#D89555>Mot de soin</color>, <color=#D89555>Soin de masse des blessures</color> et <color=#D89555>Mot de soin de masse</color>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Activer <color=#D89555>Imposition des mains</color> comme action bonus
 ModUi/&EnablePaladinSmiteAsBonusAction=Activer <color=#D89555>Smite</color> comme action bonus
 ModUi/&EnablePaladinSpellCastingAtLevel1=Activer le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
@@ -312,8 +312,8 @@ ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Échangez <color=#D89555>Maîtrise 
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <b>Sculpt Spells</b> d'Evoker et <color=#D89555>Potent Cantrip</color>
 ModUi/&SwapEvocationSavant=Échangez <b>Evoker</b> <color=#D89555>Evocation Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Remplacez <color=#D89555>Attaque non armée</color> par la progression du type de dé 5e 2024
-ModUi/&SwapOneDndBarkskinSpell=Échangez <color=#D89555>Barkskin</color> avec la version 5e 2024 <i><color=#F0DAA0>[action bonus, pas de concentration, CA réglée à 17]</color></i>
-ModUi/&SwapOneDndGuidanceSpell=Échangez <color=#D89555>Guidage</color> avec la version 5e 2024 <i><color=#F0DAA0>[Choisissez une compétence au lancement et obtenez un bonus jusqu'à 1 minute.]</color></i>
+ModUi/&EnableOneDndBarkskinSpell=Échangez <color=#D89555>Barkskin</color> avec la version 5e 2024 <i><color=#F0DAA0>[action bonus, pas de concentration, CA réglée à 17]</color></i>
+ModUi/&EnableOneDndGuidanceSpell=Échangez <color=#D89555>Guidage</color> avec la version 5e 2024 <i><color=#F0DAA0>[Choisissez une compétence au lancement et obtenez un bonus jusqu'à 1 minute.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Remplacez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Échangez la progression des <color=#D89555>Invocations</color> avec la version 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>

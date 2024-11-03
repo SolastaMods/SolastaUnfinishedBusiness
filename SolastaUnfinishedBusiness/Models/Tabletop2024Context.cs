@@ -187,16 +187,25 @@ internal static class Tabletop2024Context
                 .Build())
         .AddToDB();
 
+    internal static readonly ConditionDefinition ConditionIndomitableSaving = ConditionDefinitionBuilder
+        .Create("ConditionIndomitableSaving")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .AddCustomSubFeatures(new RollSavingThrowInitiatedIndomitableSaving())
+        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+        .AddToDB();
+
     internal static void LateLoad()
     {
         BuildBarbarianBrutalStrike();
         BuildRogueCunningStrike();
         BuildOneDndGuidanceSubspells();
-        
-        LoadMonkHeightenedMetabolism();
 
-        SwapOneDndBarkskinSpell();
-        SwapOneDndGuidanceSpell();
+        LoadMonkHeightenedMetabolism();
+        LoadSecondWindToUseOneDndUsagesProgression();
+
+        EnableOneDndBarkskinSpell();
+        EnableOneDndGuidanceSpell();
         SwitchOneDnDEnableDruidToUseMetalArmor();
         SwitchDruidWeaponProficiencyToUseOneDnd();
         SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
@@ -235,6 +244,25 @@ internal static class Tabletop2024Context
         SwitchOneDndMonkUnarmedDieTypeProgression();
         SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
         SwitchMonkDoNotRequireAttackActionForFlurry();
+    }
+
+
+    private static void LoadSecondWindToUseOneDndUsagesProgression()
+    {
+        PowerFighterSecondWind.AddCustomSubFeatures(
+            HasModifiedUses.Marker,
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = PowerFighterSecondWind,
+                Type = PowerPoolBonusCalculationType.SecondWind2024,
+                Attribute = FighterClass
+            },
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = PowerFighterSecondWind,
+                Type = PowerPoolBonusCalculationType.SecondWind2024,
+                Attribute = FighterClass
+            });
     }
 
     internal static void SwitchFighterLevelToIndomitableSavingReroll()
@@ -342,9 +370,9 @@ internal static class Tabletop2024Context
         }
     }
 
-    internal static void SwapOneDndBarkskinSpell()
+    internal static void EnableOneDndBarkskinSpell()
     {
-        if (Main.Settings.SwapOneDndBarkskinSpell)
+        if (Main.Settings.EnableOneDndBarkskinSpell)
         {
             Barkskin.requiresConcentration = false;
             Barkskin.castingTime = ActivationTime.BonusAction;
@@ -406,14 +434,14 @@ internal static class Tabletop2024Context
         }
     }
 
-    internal static void SwapOneDndGuidanceSpell()
+    internal static void EnableOneDndGuidanceSpell()
     {
         foreach (var spell in GuidanceSubSpells)
         {
             spell.implemented = false;
         }
 
-        if (Main.Settings.SwapOneDndGuidanceSpell)
+        if (Main.Settings.EnableOneDndGuidanceSpell)
         {
             Guidance.spellsBundle = true;
             Guidance.SubspellsList.SetRange(GuidanceSubSpells);
@@ -579,7 +607,7 @@ internal static class Tabletop2024Context
     {
         var level = Main.Settings.EnableBardExpertiseOneLevelBefore ? 2 : 3;
 
-        foreach (var featureUnlock in Ranger.FeatureUnlocks
+        foreach (var featureUnlock in Bard.FeatureUnlocks
                      .Where(x => x.FeatureDefinition == PointPoolBardExpertiseLevel3))
         {
             featureUnlock.level = level;
@@ -587,7 +615,7 @@ internal static class Tabletop2024Context
 
         level = Main.Settings.EnableBardExpertiseOneLevelBefore ? 9 : 10;
 
-        foreach (var featureUnlock in Ranger.FeatureUnlocks
+        foreach (var featureUnlock in Bard.FeatureUnlocks
                      .Where(x => x.FeatureDefinition == PointPoolBardExpertiseLevel10))
         {
             featureUnlock.level = level;
@@ -701,7 +729,7 @@ internal static class Tabletop2024Context
 
     internal static void SwitchOneDndHealingSpellsBuf()
     {
-        var dice = Main.Settings.EnableOneDndHealingSpellsBuf ? 2 : 1;
+        var dice = Main.Settings.EnableOneDndHealingSpellsUpgrade ? 2 : 1;
 
         // Cure Wounds, Healing Word got buf on base damage and add dice
         CureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
@@ -712,7 +740,7 @@ internal static class Tabletop2024Context
         // Mass Cure Wounds and Mass Healing Word only got buf on base damage
         MassHealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
 
-        dice = Main.Settings.EnableOneDndHealingSpellsBuf ? 5 : 3;
+        dice = Main.Settings.EnableOneDndHealingSpellsUpgrade ? 5 : 3;
 
         MassCureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
     }
@@ -800,6 +828,39 @@ internal static class Tabletop2024Context
         }
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+
+    private sealed class RollSavingThrowInitiatedIndomitableSaving : IRollSavingThrowInitiated
+    {
+        public void OnSavingThrowInitiated(
+            RulesetActor rulesetActorCaster,
+            RulesetActor rulesetActorDefender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            if (rulesetActorDefender is not RulesetCharacterHero rulesetCharacterDefender)
+            {
+                return;
+            }
+
+            var classLevel = rulesetCharacterDefender.GetClassLevel(Fighter);
+
+            rollModifier += classLevel;
+            modifierTrends.Add(
+                new TrendInfo(classLevel, FeatureSourceType.CharacterFeature,
+                    AttributeModifierFighterIndomitable.Name,
+                    AttributeModifierFighterIndomitable));
+        }
     }
 
     private sealed class ModifyAttackActionModifierInnateSorcery : IModifyAttackActionModifier

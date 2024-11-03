@@ -146,7 +146,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilitar <color=#D89555>Defe
 ModUi/&EnableMonkWeaponSpecialization=Habilite <color=#D89555>Especialização em Armas</color> nos níveis 2 e 11 <i><color=#F0DAA0>[o tipo de arma selecionado se torna uma arma de monge para você]</color></i>
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Permitir que todos os <color=#D89555>Conjuradores</color> usem novas tabelas de magias preparadas <i><color=#F0DAA0>[Bardo, Clérigo, Druida, Paladino, Patrulheiro, Feiticeiro, Mago]</color></i>
-ModUi/&EnableOneDndHealingSpellsBuf=Habilitar bônus de dados de cura em <color=#D89555>Curar Ferimentos</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Ferimentos em Massa</color> e <color=#D89555>Palavra de Cura em Massa</color>
+ModUi/&EnableOneDndHealingSpellsUpgrade=Habilitar bônus de dados de cura em <color=#D89555>Curar Ferimentos</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Ferimentos em Massa</color> e <color=#D89555>Palavra de Cura em Massa</color>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Habilitar <color=#D89555>Impor as Mãos</color> como ação bônus
 ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Smite</color> como ação bônus
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração de feitiços</color> no nível 1 em vez de 2
@@ -312,8 +312,8 @@ ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Troque <color=#D89555>Proficiência
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque os recursos <b>Evocador</b> <color=#D89555>Magias de Esculpir</color> e <color=#D89555>Truque Potente</color>
 ModUi/&SwapEvocationSavant=Troque <b>Evocador</b> <color=#D89555>Sábio da Evocação</color> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Troque <color=#D89555>Ataque Desarmado</color> para usar a progressão do tipo de dado 5e 2024
-ModUi/&SwapOneDndBarkskinSpell=Troque <color=#D89555>Barkskin</color> pela versão 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, CA definida como 17]</color></i>
-ModUi/&SwapOneDndGuidanceSpell=Troque <color=#D89555>Orientação</color> pela versão 5e 2024 <i><color=#F0DAA0>[Escolha uma habilidade na conjuração e ganhe bônus por até 1 minuto.]</color></i>
+ModUi/&EnableOneDndBarkskinSpell=Troque <color=#D89555>Barkskin</color> pela versão 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, CA definida como 17]</color></i>
+ModUi/&EnableOneDndGuidanceSpell=Troque <color=#D89555>Orientação</color> pela versão 5e 2024 <i><color=#F0DAA0>[Escolha uma habilidade na conjuração e ganhe bônus por até 1 minuto.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Troque <color=#D89555>Segundo Vento</color> para usar a progressão de usos do 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Troque a progressão de <color=#D89555>Invocações</color> pela versão 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Selecionar conteúdo de mesa</color></b>

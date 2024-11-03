@@ -374,9 +374,9 @@ public class Settings : UnityModManager.ModSettings
     public bool UseHeightOneCylinderEffect { get; set; }
     public bool FixEldritchBlastRange { get; set; }
     public bool ModifyGravitySlam { get; set; }
-    public bool EnableOneDndHealingSpellsBuf { get; set; }
-    public bool SwapOneDndBarkskinSpell { get; set; }
-    public bool SwapOneDndGuidanceSpell { get; set; }
+    public bool EnableOneDndHealingSpellsUpgrade { get; set; }
+    public bool EnableOneDndBarkskinSpell { get; set; }
+    public bool EnableOneDndGuidanceSpell { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool EnableRelearnSpells { get; set; }

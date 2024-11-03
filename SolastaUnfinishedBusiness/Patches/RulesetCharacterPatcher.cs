@@ -257,7 +257,7 @@ public static class RulesetCharacterPatcher
             }
 
             __instance.InflictCondition(
-                CharacterContext.ConditionIndomitableSaving.Name,
+                Tabletop2024Context.ConditionIndomitableSaving.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -265,7 +265,7 @@ public static class RulesetCharacterPatcher
                 __instance.Guid,
                 __instance.CurrentFaction.Name,
                 1,
-                CharacterContext.ConditionIndomitableSaving.Name,
+                Tabletop2024Context.ConditionIndomitableSaving.Name,
                 0,
                 0,
                 0);

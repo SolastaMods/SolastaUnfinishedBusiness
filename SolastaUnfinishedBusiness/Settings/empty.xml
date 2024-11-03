@@ -648,8 +648,8 @@
     <UseHeightOneCylinderEffect>false</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>false</FixEldritchBlastRange>
     <ModifyGravitySlam>false</ModifyGravitySlam>
-    <EnableOneDndHealingSpellsBuf>false</EnableOneDndHealingSpellsBuf>
-    <SwapOneDndBarkskinSpell>false</SwapOneDndBarkskinSpell>
+    <EnableOneDndHealingSpellsUpgrade>false</EnableOneDndHealingSpellsUpgrade>
+    <EnableOneDndBarkskinSpell>false</EnableOneDndBarkskinSpell>
     <AllowHasteCasting>false</AllowHasteCasting>
     <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
     <EnableRelearnSpells>false</EnableRelearnSpells>

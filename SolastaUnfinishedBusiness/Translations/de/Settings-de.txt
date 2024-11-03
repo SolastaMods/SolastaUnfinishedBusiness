@@ -146,7 +146,7 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Aktiviere <color=#D89555>Übe
 ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Waffenspezialisierung</color> auf den Stufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie <color=#D89555>Multiclass</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Ermöglichen Sie allen <color=#D89555>Zauberern</color> die Verwendung neuer vorbereiteter Zaubertabellen <i><color=#F0DAA0>[Barde, Kleriker, Druide, Paladin, Waldläufer, Zauberer, Magier]</color></i>
-ModUi/&EnableOneDndHealingSpellsBuf=Aktiviere den Heilungswürfel-Buff für <color=#D89555>Wunden heilen</color>, <color=#D89555>Heilendes Wort</color>, <color=#D89555>Massenheilung von Wunden</color> und <color=#D89555>Massenheilungswort</color>.
+ModUi/&EnableOneDndHealingSpellsUpgrade=Aktiviere den Heilungswürfel-Buff für <color=#D89555>Wunden heilen</color>, <color=#D89555>Heilendes Wort</color>, <color=#D89555>Massenheilung von Wunden</color> und <color=#D89555>Massenheilungswort</color>.
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Aktiviere <color=#D89555>Handauflegen</color> als Bonusaktion
 ModUi/&EnablePaladinSmiteAsBonusAction=Aktiviere <color=#D89555>Smite</color> als Bonusaktion
 ModUi/&EnablePaladinSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
@@ -312,8 +312,8 @@ ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Tauschen Sie <color=#D89555>Waffenf
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Tauschen Sie die Funktionen <b>Evoker</b> <color=#D89555>Sculpt Spells</color> und <color=#D89555>Potent Cantrip</color> aus
 ModUi/&SwapEvocationSavant=Tauschen Sie <b>Evoker</b> <color=#D89555>Evocation Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erhalten, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Tauschen Sie <color=#D89555>Unbewaffneter Angriff</color> aus, um die Würfeltyp-Progression von 5e 2024 zu verwenden
-ModUi/&SwapOneDndBarkskinSpell=Tauschen Sie <color=#D89555>Barkskin</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 eingestellt]</color></i>
-ModUi/&SwapOneDndGuidanceSpell=Tauschen Sie <color=#D89555>Anleitung</color> gegen Version 5e 2024 aus <i><color=#F0DAA0>[Wählen Sie beim Zaubern eine Fertigkeit aus und erhalten Sie bis zu 1 Minute lang einen Bonus.]</color></i>
+ModUi/&EnableOneDndBarkskinSpell=Tauschen Sie <color=#D89555>Barkskin</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 eingestellt]</color></i>
+ModUi/&EnableOneDndGuidanceSpell=Tauschen Sie <color=#D89555>Anleitung</color> gegen Version 5e 2024 aus <i><color=#F0DAA0>[Wählen Sie beim Zaubern eine Fertigkeit aus und erhalten Sie bis zu 1 Minute lang einen Bonus.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Tauschen Sie <color=#D89555>Second Wind</color> aus, um den Nutzungsfortschritt von 5e 2024 zu verwenden.
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Tauschen Sie den Fortschritt der <color=#D89555>Anrufungen</color> mit der Version 5e 2024 aus.
 ModUi/&TableTopButton=<b><color=#D89555>Tabletop-Inhalt auswählen</color></b>
