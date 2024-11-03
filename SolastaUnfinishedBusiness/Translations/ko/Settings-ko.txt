@@ -313,6 +313,7 @@ ModUi/&SwapEvocationPotentCantripAndSculptSpell=<b>소환사</b> <color=#D89555>
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color>를 5e 2024 버전으로 교체하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=<color=#D89555>비무장 공격</color>을 5e 2024 주사위 유형 진행을 사용하도록 바꾸세요.
 ModUi/&SwapOneDndBarkskinSpell=<color=#D89555>Barkskin</color>을 5e 2024 버전 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>과 교환하세요
+ModUi/&SwapOneDndGuidanceSpell=<color=#D89555>가이드</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[시전 시 스킬 하나를 선택하면 최대 1분 동안 보너스를 받습니다.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=<color=#D89555>Second Wind</color>를 5e 2024 사용 진행을 사용하도록 바꾸세요.
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=<color=#D89555>Invocations</color> 진행을 5e 2024 버전으로 바꾸세요
 ModUi/&TableTopButton=<b><color=#D89555>테이블탑 콘텐츠 선택</color></b>

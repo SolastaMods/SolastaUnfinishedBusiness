@@ -954,7 +954,7 @@ internal static class LightingAndObscurementContext
             CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses = [Type.Truesight, Type.Blindsight];
         }
 
-        SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
+        Tabletop2014Context.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
     }
 
     private static void SwitchCombatAffinityInvisibleSenses()

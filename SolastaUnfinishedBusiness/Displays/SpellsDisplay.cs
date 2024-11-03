@@ -37,14 +37,14 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDnDPreparedSpellsTables"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableOneDnDPreparedSpellsTables = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndPreparedSpellsTables();
+            Tabletop2024Context.SwitchOneDndPreparedSpellsTables();
         }
 
         toggle = Main.Settings.EnableRitualOnAllCasters;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRitualOnAllCasters = toggle;
-            SrdAndHouseRulesContext.SwitchEnableRitualOnAllCasters();
+            Tabletop2024Context.SwitchEnableRitualOnAllCasters();
         }
 
         toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
@@ -136,14 +136,14 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.FixEldritchBlastRange = toggle;
-            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
+            Tabletop2014Context.SwitchEldritchBlastRange();
         }
 
         toggle = Main.Settings.ModifyGravitySlam;
         if (UI.Toggle(Gui.Localize("ModUi/&ModifyGravitySlam"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ModifyGravitySlam = toggle && Main.Settings.EnablePullPushOnVerticalDirection;
-            SrdAndHouseRulesContext.ToggleGravitySlamModification();
+            Tabletop2014Context.ToggleGravitySlamModification();
         }
 
         UI.Label();
@@ -152,21 +152,21 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
+            Tabletop2024Context.SwitchOneDndHealingSpellsBuf();
         }
 
         toggle = Main.Settings.SwapOneDndBarkskinSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapOneDndBarkskinSpell = toggle;
-            SrdAndHouseRulesContext.SwapOneDndBarkskinSpell();
+            Tabletop2024Context.SwapOneDndBarkskinSpell();
         }
 
         toggle = Main.Settings.SwapOneDndGuidanceSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapOneDndGuidanceSpell = toggle;
-            SrdAndHouseRulesContext.SwapOneDndGuidanceSpell();
+            Tabletop2024Context.SwapOneDndGuidanceSpell();
         }
 
         UI.Label();

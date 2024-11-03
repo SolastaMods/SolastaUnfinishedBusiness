@@ -313,6 +313,7 @@ ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <
 ModUi/&SwapEvocationSavant=Échangez <b>Evoker</b> <color=#D89555>Evocation Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Remplacez <color=#D89555>Attaque non armée</color> par la progression du type de dé 5e 2024
 ModUi/&SwapOneDndBarkskinSpell=Échangez <color=#D89555>Barkskin</color> avec la version 5e 2024 <i><color=#F0DAA0>[action bonus, pas de concentration, CA réglée à 17]</color></i>
+ModUi/&SwapOneDndGuidanceSpell=Échangez <color=#D89555>Guidage</color> avec la version 5e 2024 <i><color=#F0DAA0>[Choisissez une compétence au lancement et obtenez un bonus jusqu'à 1 minute.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Remplacez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Échangez la progression des <color=#D89555>Invocations</color> avec la version 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>

@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
@@ -28,7 +29,7 @@ internal static class BootContext
 
         // Load Portraits, Translations and Resources Locator after
         TranslatorContext.Load();
-        ResourceLocatorContext.Load();
+        ResourceLocatorHelper.Load();
 
         // Fixes spell slots and progressions early on
         FixesContext.Load();
@@ -51,11 +52,6 @@ internal static class BootContext
         CustomWeaponsContext.Load();
         CustomItemsContext.Load();
         PowerBundleContext.Load();
-
-        //
-        // other stuff that can be loaded in any order
-        //
-
         ToolsContext.Load();
         CharacterExportContext.Load();
         DmProEditorContext.Load();
@@ -120,16 +116,19 @@ internal static class BootContext
 
             // Set anything on subs that depends on spells and others
             SrdAndHouseRulesContext.LateLoad();
+            Tabletop2014Context.LateLoad();
+            Tabletop2024Context.LateLoad();
+
             SubclassesContext.LateLoad();
             InventorClass.LateLoadSpellStoringItem();
             LightingAndObscurementContext.LateLoad();
             GrappleContext.LateLoad();
 
-            // Save by location initialization depends on services to be ready
-            SaveByLocationContext.LateLoad();
-
             // Spell Points should load closer to the bottom after all other blueprints initiated
             SpellPointsContext.LateLoad();
+
+            // Save by location initialization depends on services to be ready
+            SaveByLocationContext.LateLoad();
 
             // Recache all gui collections
             GuiWrapperContext.Recache();
@@ -141,13 +140,12 @@ internal static class BootContext
             DocumentationContext.DumpDocumentation();
             ModUi.LoadTabletopDefinitions();
 
-            AddExtraTooltipDefinitions();
-
             // Manages update or welcome messages
             UpdateContext.Load();
 
             // Log invalid user campaign
             LogMissingReferencesInUserCampaigns();
+            AddExtraTooltipDefinitions();
 
             // Fix condition UI
             DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description =

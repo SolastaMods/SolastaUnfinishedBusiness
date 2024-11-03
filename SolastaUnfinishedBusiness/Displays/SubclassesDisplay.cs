@@ -49,7 +49,7 @@ internal static class SubclassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
-            CharacterContext.SwitchBardHealingBalladOnLongRest();
+            Tabletop2014Context.SwitchBardHealingBalladOnLongRest();
         }
 
         toggle = Main.Settings.EnableRogueStrSaving;

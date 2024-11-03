@@ -122,7 +122,7 @@ internal static class CraftingAndItems
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialFoodRationsWeight = toggle;
-            SrdAndHouseRulesContext.SwitchOfficialFoodRationsWeight();
+            Tabletop2014Context.SwitchOfficialFoodRationsWeight();
         }
 
         toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
@@ -136,7 +136,7 @@ internal static class CraftingAndItems
         if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.FixRingOfRegenerationHealRate = toggle;
-            SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
+            Tabletop2014Context.SwitchRingOfRegenerationHealRate();
         }
 
         UI.Label();
@@ -151,7 +151,7 @@ internal static class CraftingAndItems
         if (UI.Toggle(Gui.Localize("ModUi/&OneDndHealingPotionBonusAction"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.OneDndHealingPotionBonusAction = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndHealingPotionBonusAction();
+            Tabletop2024Context.SwitchOneDndHealingPotionBonusAction();
         }
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
