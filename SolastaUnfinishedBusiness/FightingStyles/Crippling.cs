@@ -38,9 +38,9 @@ internal sealed class Crippling : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
     [
-        CharacterContext.FightingStyleChoiceBarbarian,
-        CharacterContext.FightingStyleChoiceMonk,
-        CharacterContext.FightingStyleChoiceRogue,
+        ClassesContext.FightingStyleChoiceBarbarian,
+        ClassesContext.FightingStyleChoiceMonk,
+        ClassesContext.FightingStyleChoiceRogue,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,

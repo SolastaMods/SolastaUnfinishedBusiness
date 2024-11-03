@@ -327,7 +327,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            var isSneakAttackValid = CharacterContext.IsSneakAttackValid(attackModifier, attacker, defender);
+            var isSneakAttackValid = Tabletop2024Context.IsSneakAttackValid(attackModifier, attacker, defender);
 
             if (isSneakAttackValid)
             {

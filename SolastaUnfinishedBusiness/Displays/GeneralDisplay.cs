@@ -482,21 +482,21 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueCunningStrike"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRogueCunningStrike = toggle;
-            CharacterContext.SwitchRogueCunningStrike();
+            Tabletop2024Context.SwitchRogueCunningStrike();
         }
 
         toggle = Main.Settings.EnableRogueSteadyAim;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueSteadyAim"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRogueSteadyAim = toggle;
-            CharacterContext.SwitchRogueSteadyAim();
+            Tabletop2024Context.SwitchRogueSteadyAim();
         }
 
         toggle = Main.Settings.RemoveRogueBlindSense;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRogueBlindSense"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveRogueBlindSense = toggle;
-            CharacterContext.SwitchRogueBlindSense();
+            Tabletop2024Context.SwitchRogueBlindSense();
         }
 
         UI.Label();
@@ -856,7 +856,7 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSorcererMagicalGuidance = toggle;
-            CharacterContext.SwitchSorcererMagicalGuidance();
+            ClassesContext.SwitchSorcererMagicalGuidance();
         }
 
         toggle = Main.Settings.EnableSorcererQuickenedAction;

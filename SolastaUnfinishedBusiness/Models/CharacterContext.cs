@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -17,7 +16,6 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -26,14 +24,13 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefin
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static partial class CharacterContext
+internal static class CharacterContext
 {
     internal const int MinInitialFeats = 0;
     internal const int MaxInitialFeats = 4; // don't increase this value to avoid issue reports on crazy scenarios
@@ -44,12 +41,6 @@ internal static partial class CharacterContext
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
 
-    private static readonly FeatureDefinition FeatureSorcererMagicalGuidance = FeatureDefinitionBuilder
-        .Create("FeatureSorcererMagicalGuidance")
-        .SetGuiPresentation(Category.Feature)
-        .AddCustomSubFeatures(new TryAlterOutcomeAttributeCheckSorcererMagicalGuidance())
-        .AddToDB();
-
     internal static readonly ConditionDefinition ConditionIndomitableSaving = ConditionDefinitionBuilder
         .Create("ConditionIndomitableSaving")
         .SetGuiPresentationNoContent(true)
@@ -58,13 +49,6 @@ internal static partial class CharacterContext
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .AddToDB();
 
-    private static readonly FeatureDefinitionAttributeModifier AttributeModifierMonkAbundantKi =
-        FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierMonkAbundantKi")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.KiPoints)
-            .SetSituationalContext(SituationalContext.NotWearingArmorOrShield)
-            .AddToDB();
 
     private static readonly FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityDarknessPerceptive =
         FeatureDefinitionAbilityCheckAffinityBuilder
@@ -75,12 +59,6 @@ internal static partial class CharacterContext
             .AddCustomSubFeatures(ValidatorsCharacter.IsUnlitOrDarkness)
             .AddToDB();
 
-    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolMonkWeaponSpecialization =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolMonkWeaponSpecialization")
-            .SetGuiPresentation("InvocationPoolMonkWeaponSpecializationLearn", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
-            .AddToDB();
 
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolPathClawDraconicChoice =
         CustomInvocationPoolDefinitionBuilder
@@ -171,49 +149,31 @@ internal static partial class CharacterContext
         LoadAdditionalNames();
         LoadEpicArray();
         LoadFeatsPointPools();
-        LoadMonkWeaponSpecialization();
         LoadSorcererQuickened();
         LoadVision();
         LoadVisuals();
         LoadSecondWindToUseOneDndUsagesProgression();
-        BuildRogueCunningStrike();
+
         SwitchAsiAndFeat();
-        SwitchBarbarianFightingStyle();
         SwitchDarknessPerceptive();
         SwitchDragonbornElementalBreathUsages();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
         SwitchEveryFourLevelsFeats();
         SwitchEveryFourLevelsFeats(true);
-        SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
-        SwitchMonkAbundantKi();
-        SwitchMonkFightingStyle();
-        SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
-        SwitchMonkWeaponSpecialization();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
-        SwitchRangerHumanoidFavoredEnemy();
+
         SwitchRangerToUseCustomInvocationPools();
-        SwitchRogueCunningStrike();
-        SwitchRogueFightingStyle();
-        SwitchRogueSteadyAim();
-        SwitchRogueStrSaving();
-        SwitchSorcererMagicalGuidance();
-        SwitchScimitarWeaponSpecialization();
 
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
             FeatureSetPathClawDragonAncestry, InvocationPoolPathClawDraconicChoice,
             InvocationPoolTypeCustom.Pools.PathClawDraconicChoice);
+
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "Sorcerer", SorcerousDraconicBloodline,
             FeatureSetSorcererDraconicChoice, InvocationPoolSorcererDraconicChoice,
             InvocationPoolTypeCustom.Pools.SorcererDraconicChoice);
-
-        //keeping for compatibility
-        _ = FeatureDefinitionBuilder
-            .Create("ActionAffinitySorcererQuickened")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
     }
 
     private static void AddNameToRace(CharacterRaceDefinition raceDefinition, string gender, string name)
@@ -238,6 +198,8 @@ internal static partial class CharacterContext
 
     private static void LoadAdditionalNames()
     {
+        char[] separator = ['\t'];
+
         if (!SettingsContext.GuiModManagerInstance.UnlockAdditionalLoreFriendlyNames)
         {
             return;
@@ -248,7 +210,7 @@ internal static partial class CharacterContext
 
         foreach (var line in lines)
         {
-            var columns = line.Split(Separator, 3);
+            var columns = line.Split(separator, 3);
 
             if (columns.Length != 3)
             {
@@ -634,30 +596,6 @@ internal static partial class CharacterContext
             });
     }
 
-    internal static void SwitchFighterWeaponSpecialization()
-    {
-        var levels = new[] { 8, 16 };
-
-        if (Main.Settings.EnableFighterWeaponSpecialization)
-        {
-            foreach (var level in levels)
-            {
-                Fighter.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(MartialWeaponMaster.InvocationPoolSpecialization, level));
-            }
-        }
-        else
-        {
-            foreach (var level in levels)
-            {
-                Fighter.FeatureUnlocks
-                    .RemoveAll(x => x.level == level &&
-                                    x.FeatureDefinition == MartialWeaponMaster.InvocationPoolSpecialization);
-            }
-        }
-
-        Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
 
     internal static void SwitchFirstLevelTotalFeats()
     {
@@ -861,38 +799,6 @@ internal static partial class CharacterContext
             .ToArray();
 
         rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
-    }
-
-    internal static void SwitchSorcererMagicalGuidance()
-    {
-        if (Main.Settings.EnableSorcererMagicalGuidance)
-        {
-            Sorcerer.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(FeatureSorcererMagicalGuidance, 5));
-        }
-        else
-        {
-            Sorcerer.FeatureUnlocks.RemoveAll(x =>
-                x.level == 5 && x.FeatureDefinition == FeatureSorcererMagicalGuidance);
-        }
-
-        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
-    internal static void SwitchScimitarWeaponSpecialization()
-    {
-        var proficiencies = new List<FeatureDefinitionProficiency> { ProficiencyBardWeapon, ProficiencyRogueWeapon };
-
-        foreach (var proficiency in proficiencies)
-        {
-            if (Main.Settings.GrantScimitarSpecializationToBardRogue)
-            {
-                proficiency.Proficiencies.TryAdd(WeaponTypeDefinitions.ScimitarType.Name);
-            }
-            else
-            {
-                proficiency.Proficiencies.Remove(WeaponTypeDefinitions.ScimitarType.Name);
-            }
-        }
     }
 
     private static void SwitchSubclassAncestriesToUseCustomInvocationPools(
@@ -1115,64 +1021,6 @@ internal static partial class CharacterContext
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
     }
 
-
-    private sealed class TryAlterOutcomeAttributeCheckSorcererMagicalGuidance : ITryAlterOutcomeAttributeCheck
-    {
-        public IEnumerator OnTryAlterAttributeCheck(
-            GameLocationBattleManager battleManager,
-            AbilityCheckData abilityCheckData,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            var rulesetHelper = helper.RulesetCharacter;
-
-            if (abilityCheckData.AbilityCheckRoll == 0 ||
-                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
-                helper != defender ||
-                rulesetHelper.RemainingSorceryPoints == 0)
-            {
-                yield break;
-            }
-
-            yield return helper.MyReactToDoNothing(
-                ExtraActionId.DoNothingFree,
-                defender,
-                "MagicalGuidanceCheck",
-                "CustomReactionMagicalGuidanceCheckDescription"
-                    .Formatted(Category.Reaction, defender.Name, helper.Name),
-                ReactionValidated,
-                battleManager: battleManager,
-                resource: ReactionResourceSorceryPoints.Instance);
-
-            yield break;
-
-            void ReactionValidated()
-            {
-                rulesetHelper.SpendSorceryPoints(1);
-
-                var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _,
-                    out _);
-                var previousRoll = abilityCheckData.AbilityCheckRoll;
-
-                abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
-                abilityCheckData.AbilityCheckRoll = dieRoll;
-                abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
-                    ? RollOutcome.Success
-                    : RollOutcome.Failure;
-
-                rulesetHelper.LogCharacterActivatesAbility(
-                    "Feature/&FeatureSorcererMagicalGuidanceTitle",
-                    "Feedback/&MagicalGuidanceCheckToHitRoll",
-                    extra:
-                    [
-                        (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                            dieRoll.ToString()),
-                        (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                            previousRoll.ToString())
-                    ]);
-            }
-        }
-    }
 
     private sealed class FilterTargetingPositionPowerTeleportSummon : IFilterTargetingPosition
     {

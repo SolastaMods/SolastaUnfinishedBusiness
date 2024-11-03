@@ -19,7 +19,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
-            CharacterContext.SwitchScimitarWeaponSpecialization();
+            ClassesContext.SwitchScimitarWeaponSpecialization();
         }
 
         UI.Label();
@@ -95,7 +95,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianFightingStyle = toggle;
-            CharacterContext.SwitchBarbarianFightingStyle();
+            ClassesContext.SwitchBarbarianFightingStyle();
         }
 
         toggle = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration;
@@ -160,7 +160,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableFighterWeaponSpecialization = toggle;
-            CharacterContext.SwitchFighterWeaponSpecialization();
+            ClassesContext.SwitchFighterWeaponSpecialization();
         }
 
         toggle = Main.Settings.SwapSecondWindToUseOneDndUsagesProgression;
@@ -177,7 +177,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkAbundantKi"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableMonkAbundantKi = toggle;
-            CharacterContext.SwitchMonkAbundantKi();
+            ClassesContext.SwitchMonkAbundantKi();
         }
 
         toggle = Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf;
@@ -192,7 +192,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkFightingStyle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableMonkFightingStyle = toggle;
-            CharacterContext.SwitchMonkFightingStyle();
+            ClassesContext.SwitchMonkFightingStyle();
         }
 
         toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry;
@@ -207,7 +207,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkHandwrapsUseGauntletSlot = toggle;
-            CustomWeaponsContext.UpdateHandWrapsUseGauntletSlot();
+            ClassesContext.UpdateHandWrapsUseGauntletSlot();
         }
 
         toggle = Main.Settings.EnableMonkHeightenedMetabolism;
@@ -223,7 +223,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall = toggle;
-            CharacterContext.SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
+            ClassesContext.SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
         }
 
         toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack;
@@ -246,7 +246,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableMonkWeaponSpecialization = toggle;
-            CharacterContext.SwitchMonkWeaponSpecialization();
+            ClassesContext.SwitchMonkWeaponSpecialization();
         }
 
         toggle = Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression;
@@ -300,7 +300,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
-            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+            ClassesContext.SwitchRangerHumanoidFavoredEnemy();
         }
 
         toggle = Main.Settings.EnableRangerNatureShroudAt14;
@@ -325,28 +325,28 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueCunningStrike"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRogueCunningStrike = toggle;
-            CharacterContext.SwitchRogueCunningStrike();
+            Tabletop2024Context.SwitchRogueCunningStrike();
         }
 
         toggle = Main.Settings.EnableRogueFightingStyle;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueFightingStyle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRogueFightingStyle = toggle;
-            CharacterContext.SwitchRogueFightingStyle();
+            ClassesContext.SwitchRogueFightingStyle();
         }
 
         toggle = Main.Settings.EnableRogueSteadyAim;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueSteadyAim"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRogueSteadyAim = toggle;
-            CharacterContext.SwitchRogueSteadyAim();
+            Tabletop2024Context.SwitchRogueSteadyAim();
         }
 
         toggle = Main.Settings.RemoveRogueBlindSense;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRogueBlindSense"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveRogueBlindSense = toggle;
-            CharacterContext.SwitchRogueBlindSense();
+            Tabletop2024Context.SwitchRogueBlindSense();
         }
 
         UI.Label();
@@ -364,7 +364,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSorcererMagicalGuidance = toggle;
-            CharacterContext.SwitchSorcererMagicalGuidance();
+            ClassesContext.SwitchSorcererMagicalGuidance();
         }
 
         toggle = Main.Settings.EnableSorcererQuickenedAction;
