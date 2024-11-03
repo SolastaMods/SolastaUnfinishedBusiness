@@ -51,11 +51,6 @@ internal static class BootContext
         CustomWeaponsContext.Load();
         CustomItemsContext.Load();
         PowerBundleContext.Load();
-
-        //
-        // other stuff that can be loaded in any order
-        //
-
         ToolsContext.Load();
         CharacterExportContext.Load();
         DmProEditorContext.Load();
@@ -120,16 +115,18 @@ internal static class BootContext
 
             // Set anything on subs that depends on spells and others
             SrdAndHouseRulesContext.LateLoad();
+            OneDndContext.LateLoad();
+
             SubclassesContext.LateLoad();
             InventorClass.LateLoadSpellStoringItem();
             LightingAndObscurementContext.LateLoad();
             GrappleContext.LateLoad();
 
-            // Save by location initialization depends on services to be ready
-            SaveByLocationContext.LateLoad();
-
             // Spell Points should load closer to the bottom after all other blueprints initiated
             SpellPointsContext.LateLoad();
+
+            // Save by location initialization depends on services to be ready
+            SaveByLocationContext.LateLoad();
 
             // Recache all gui collections
             GuiWrapperContext.Recache();
@@ -141,13 +138,12 @@ internal static class BootContext
             DocumentationContext.DumpDocumentation();
             ModUi.LoadTabletopDefinitions();
 
-            AddExtraTooltipDefinitions();
-
             // Manages update or welcome messages
             UpdateContext.Load();
 
             // Log invalid user campaign
             LogMissingReferencesInUserCampaigns();
+            AddExtraTooltipDefinitions();
 
             // Fix condition UI
             DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description =

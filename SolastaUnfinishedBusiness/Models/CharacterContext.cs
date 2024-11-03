@@ -173,45 +173,6 @@ internal static partial class CharacterContext
                 .Build())
         .AddToDB();
 
-    private static readonly FeatureDefinitionPower FeatureDefinitionPowerNatureShroud = FeatureDefinitionPowerBuilder
-        .Create("PowerRangerNatureShroud")
-        .SetGuiPresentation(Category.Feature, Invisibility)
-        .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionInvisible))
-                .SetParticleEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
-                .Build())
-        .AddToDB();
-
-    private static readonly FeatureDefinitionPower PowerSorcererInnateSorcery = FeatureDefinitionPowerBuilder
-        .Create("PowerSorcererInnateSorcery")
-        .SetGuiPresentation(Category.Feature, PowerTraditionShockArcanistGreaterArcaneShock)
-        .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(
-                    ConditionDefinitionBuilder
-                        .Create("ConditionSorcererInnateSorcery")
-                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
-                        .SetFeatures(
-                            FeatureDefinitionMagicAffinityBuilder
-                                .Create("MagicAffinitySorcererInnateSorcery")
-                                .SetGuiPresentation("PowerSorcererInnateSorcery", Category.Feature)
-                                .SetCastingModifiers(0, SpellParamsModifierType.None, 1)
-                                .AddToDB())
-                        .AddCustomSubFeatures(new ModifyAttackActionModifierInnateSorcery())
-                        .AddToDB()))
-                .SetParticleEffectParameters(Shield)
-                .Build())
-        .AddToDB();
-
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
 
@@ -224,50 +185,35 @@ internal static partial class CharacterContext
         LoadAdditionalNames();
         LoadEpicArray();
         LoadFeatsPointPools();
-        LoadMonkHeightenedMetabolism();
         LoadMonkWeaponSpecialization();
         LoadSorcererQuickened();
         LoadVision();
         LoadVisuals();
         LoadSecondWindToUseOneDndUsagesProgression();
-        BuildBarbarianBrutalStrike();
         BuildRogueCunningStrike();
         SwitchAsiAndFeat();
-        SwitchBarbarianBrutalStrike();
-        SwitchBarbarianBrutalCritical();
-        SwitchBarbarianRecklessSameBuffDebuffDuration();
-        SwitchBarbarianRegainOneRageAtShortRest();
         SwitchBarbarianFightingStyle();
         SwitchDarknessPerceptive();
         SwitchDragonbornElementalBreathUsages();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
         SwitchEveryFourLevelsFeats();
         SwitchEveryFourLevelsFeats(true);
-        SwitchPersuasionToFighterSkillOptions();
-        SwitchFighterLevelToIndomitableSavingReroll();
         SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
         SwitchProneAction();
         SwitchHelpPower();
-        SwitchOneDndMonkUnarmedDieTypeProgression();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
-        SwitchMonkDoNotRequireAttackActionForFlurry();
         SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
-        SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
-        SwitchMonkHeightenedMetabolism();
-        SwitchMonkSuperiorDefenseToReplaceEmptyBody();
-        SwitchMonkBodyAndMindToReplacePerfectSelf();
         SwitchMonkWeaponSpecialization();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();
-        SwitchRangerNatureShroud();
         SwitchRangerToUseCustomInvocationPools();
         SwitchRogueCunningStrike();
         SwitchRogueFightingStyle();
         SwitchRogueSteadyAim();
         SwitchRogueStrSaving();
-        SwitchSorcererInnateSorcery();
+
         SwitchSorcererMagicalGuidance();
         SwitchScimitarWeaponSpecialization();
         SwitchBardHealingBalladOnLongRest();
@@ -687,26 +633,6 @@ internal static partial class CharacterContext
         }
     }
 
-    internal static void SwitchFighterLevelToIndomitableSavingReroll()
-    {
-        UseIndomitableResistance.GuiPresentation.description =
-            Main.Settings.AddFighterLevelToIndomitableSavingReroll
-                ? "Feature/&EnhancedIndomitableResistanceDescription"
-                : "Feature/&IndomitableResistanceDescription";
-    }
-
-    internal static void SwitchPersuasionToFighterSkillOptions()
-    {
-        if (Main.Settings.AddPersuasionToFighterSkillOptions)
-        {
-            PointPoolFighterSkillPoints.restrictedChoices.TryAdd(SkillDefinitions.Persuasion);
-        }
-        else
-        {
-            PointPoolFighterSkillPoints.restrictedChoices.Remove(SkillDefinitions.Persuasion);
-        }
-    }
-
     private static void LoadSecondWindToUseOneDndUsagesProgression()
     {
         PowerFighterSecondWind.AddCustomSubFeatures(
@@ -991,21 +917,6 @@ internal static partial class CharacterContext
         rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
-    internal static void SwitchSorcererInnateSorcery()
-    {
-        if (Main.Settings.EnableSorcererInnateSorcery)
-        {
-            Sorcerer.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1));
-        }
-        else
-        {
-            Sorcerer.FeatureUnlocks.RemoveAll(x =>
-                x.level == 1 && x.FeatureDefinition == PowerSorcererInnateSorcery);
-        }
-
-        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
     internal static void SwitchSorcererMagicalGuidance()
     {
         if (Main.Settings.EnableSorcererMagicalGuidance)
@@ -1264,28 +1175,6 @@ internal static partial class CharacterContext
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
     }
 
-    private sealed class ModifyAttackActionModifierInnateSorcery : IModifyAttackActionModifier
-    {
-        private readonly TrendInfo _trendInfo =
-            new(1, FeatureSourceType.CharacterFeature, "PowerSorcererInnateSorcery", null);
-
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            string effectName,
-            ref ActionModifier attackModifier)
-        {
-            if (attackProximity is not
-                (BattleDefinitions.AttackProximity.MagicRange or BattleDefinitions.AttackProximity.MagicReach))
-            {
-                return;
-            }
-
-            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
-        }
-    }
 
     private sealed class TryAlterOutcomeAttributeCheckSorcererMagicalGuidance : ITryAlterOutcomeAttributeCheck
     {

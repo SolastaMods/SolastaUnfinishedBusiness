@@ -77,8 +77,8 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableBarbarianBrutalStrike = toggle;
             Main.Settings.DisableBarbarianBrutalCritical = toggle;
-            CharacterContext.SwitchBarbarianBrutalStrike();
-            CharacterContext.SwitchBarbarianBrutalCritical();
+            OneDndContext.SwitchBarbarianBrutalStrike();
+            OneDndContext.SwitchBarbarianBrutalCritical();
         }
 
         if (Main.Settings.EnableBarbarianBrutalStrike)
@@ -87,7 +87,7 @@ internal static class ClassesDisplay
             if (UI.Toggle(Gui.Localize("ModUi/&DisableBarbarianBrutalCritical"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisableBarbarianBrutalCritical = toggle;
-                CharacterContext.SwitchBarbarianBrutalCritical();
+                OneDndContext.SwitchBarbarianBrutalCritical();
             }
         }
 
@@ -102,14 +102,14 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration = toggle;
-            CharacterContext.SwitchBarbarianRecklessSameBuffDebuffDuration();
+            OneDndContext.SwitchBarbarianRecklessSameBuffDebuffDuration();
         }
 
         toggle = Main.Settings.EnableBarbarianRegainOneRageAtShortRest;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRegainOneRageAtShortRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianRegainOneRageAtShortRest = toggle;
-            CharacterContext.SwitchBarbarianRegainOneRageAtShortRest();
+            OneDndContext.SwitchBarbarianRegainOneRageAtShortRest();
         }
 
         UI.Label();
@@ -146,14 +146,14 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
-            CharacterContext.SwitchFighterLevelToIndomitableSavingReroll();
+            OneDndContext.SwitchFighterLevelToIndomitableSavingReroll();
         }
 
         toggle = Main.Settings.AddPersuasionToFighterSkillOptions;
         if (UI.Toggle(Gui.Localize("ModUi/&AddPersuasionToFighterSkillOptions"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddPersuasionToFighterSkillOptions = toggle;
-            CharacterContext.SwitchPersuasionToFighterSkillOptions();
+            OneDndContext.SwitchPersuasionToFighterSkillOptions();
         }
 
         toggle = Main.Settings.EnableFighterWeaponSpecialization;
@@ -185,7 +185,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf = toggle;
-            CharacterContext.SwitchMonkBodyAndMindToReplacePerfectSelf();
+            OneDndContext.SwitchMonkBodyAndMindToReplacePerfectSelf();
         }
 
         toggle = Main.Settings.EnableMonkFightingStyle;
@@ -199,7 +199,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForFlurry"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry = toggle;
-            CharacterContext.SwitchMonkDoNotRequireAttackActionForFlurry();
+            OneDndContext.SwitchMonkDoNotRequireAttackActionForFlurry();
         }
 
         toggle = Main.Settings.EnableMonkHandwrapsUseGauntletSlot;
@@ -215,7 +215,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkHeightenedMetabolism = toggle;
-            CharacterContext.SwitchMonkHeightenedMetabolism();
+            OneDndContext.SwitchMonkHeightenedMetabolism();
         }
 
         toggle = Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall;
@@ -231,7 +231,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack = toggle;
-            CharacterContext.SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
+            OneDndContext.SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
         }
 
         toggle = Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody;
@@ -239,7 +239,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody = toggle;
-            CharacterContext.SwitchMonkSuperiorDefenseToReplaceEmptyBody();
+            OneDndContext.SwitchMonkSuperiorDefenseToReplaceEmptyBody();
         }
 
         toggle = Main.Settings.EnableMonkWeaponSpecialization;
@@ -253,7 +253,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression = toggle;
-            CharacterContext.SwitchOneDndMonkUnarmedDieTypeProgression();
+            OneDndContext.SwitchOneDndMonkUnarmedDieTypeProgression();
         }
 
         UI.Label();
@@ -307,7 +307,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt14"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRangerNatureShroudAt14 = toggle;
-            CharacterContext.SwitchRangerNatureShroud();
+            OneDndContext.SwitchRangerNatureShroud();
         }
 
         toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;
@@ -357,7 +357,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorcery"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSorcererInnateSorcery = toggle;
-            CharacterContext.SwitchSorcererInnateSorcery();
+            OneDndContext.SwitchSorcererInnateSorcery();
         }
 
         toggle = Main.Settings.EnableSorcererMagicalGuidance;

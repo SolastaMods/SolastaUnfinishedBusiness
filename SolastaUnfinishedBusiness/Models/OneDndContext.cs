@@ -1,33 +1,41 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
-using TA.AI;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRegenerations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRestHealingModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class OneDndContext
 {
-        private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
+    private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
         FeatureDefinitionCombatAffinityBuilder
             .Create("CombatAffinityConditionSurprised")
             .SetGuiPresentationNoContent(true)
@@ -65,7 +73,7 @@ internal static class OneDndContext
         .AddToDB();
 
     private static readonly FeatureDefinitionPointPool PointPoolWarlockInvocation1 = FeatureDefinitionPointPoolBuilder
-        .Create(FeatureDefinitionPointPools.PointPoolWarlockInvocation2, "PointPoolWarlockInvocation1")
+        .Create(PointPoolWarlockInvocation2, "PointPoolWarlockInvocation1")
         .SetGuiPresentation("PointPoolWarlockInvocationInitial", Category.Feature)
         .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
         .AddToDB();
@@ -111,7 +119,7 @@ internal static class OneDndContext
         .AddToDB();
 
     private static readonly List<string> DruidWeaponsCategories =
-        [.. FeatureDefinitionProficiencys.ProficiencyDruidWeapon.Proficiencies];
+        [.. ProficiencyDruidWeapon.Proficiencies];
 
     private static readonly List<(string, string)> GuidanceProficiencyPairs =
     [
@@ -136,10 +144,52 @@ internal static class OneDndContext
     ];
 
     private static readonly List<SpellDefinition> GuidanceSubSpells = [];
-    
-        internal static void LateLoad()
+
+    private static readonly FeatureDefinitionPower PowerSorcererInnateSorcery = FeatureDefinitionPowerBuilder
+        .Create("PowerSorcererInnateSorcery")
+        .SetGuiPresentation(Category.Feature, PowerTraditionShockArcanistGreaterArcaneShock)
+        .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionSorcererInnateSorcery")
+                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
+                        .SetFeatures(
+                            FeatureDefinitionMagicAffinityBuilder
+                                .Create("MagicAffinitySorcererInnateSorcery")
+                                .SetGuiPresentation("PowerSorcererInnateSorcery", Category.Feature)
+                                .SetCastingModifiers(0, SpellParamsModifierType.None, 1)
+                                .AddToDB())
+                        .AddCustomSubFeatures(new ModifyAttackActionModifierInnateSorcery())
+                        .AddToDB()))
+                .SetParticleEffectParameters(Shield)
+                .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower FeatureDefinitionPowerNatureShroud = FeatureDefinitionPowerBuilder
+        .Create("PowerRangerNatureShroud")
+        .SetGuiPresentation(Category.Feature, Invisibility)
+        .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionInvisible))
+                .SetParticleEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
+                .Build())
+        .AddToDB();
+
+    internal static void LateLoad()
     {
+        BuildBarbarianBrutalStrike();
         BuildOneDndGuidanceSubspells();
+        LoadMonkHeightenedMetabolism();
+
         SwapOneDndBarkskinSpell();
         SwapOneDndGuidanceSpell();
         SwitchOneDnDEnableDruidToUseMetalArmor();
@@ -163,23 +213,57 @@ internal static class OneDndContext
         SwitchOneDndPaladinLearnSpellCastingAtOne();
         SwitchOneDndRangerLearnSpellCastingAtOne();
         SwitchOneDndSurprisedEnforceDisadvantage();
+        SwitchRangerNatureShroud();
+        SwitchBarbarianBrutalStrike();
+        SwitchBarbarianBrutalCritical();
+        SwitchBarbarianRecklessSameBuffDebuffDuration();
+        SwitchBarbarianRegainOneRageAtShortRest();
+
+        SwitchPersuasionToFighterSkillOptions();
+        SwitchFighterLevelToIndomitableSavingReroll();
+        SwitchSorcererInnateSorcery();
+        SwitchMonkHeightenedMetabolism();
+        SwitchMonkSuperiorDefenseToReplaceEmptyBody();
+        SwitchMonkBodyAndMindToReplacePerfectSelf();
+        SwitchOneDndMonkUnarmedDieTypeProgression();
+        SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
+        SwitchMonkDoNotRequireAttackActionForFlurry();
     }
-       
-        
+
+    internal static void SwitchFighterLevelToIndomitableSavingReroll()
+    {
+        UseIndomitableResistance.GuiPresentation.description =
+            Main.Settings.AddFighterLevelToIndomitableSavingReroll
+                ? "Feature/&EnhancedIndomitableResistanceDescription"
+                : "Feature/&IndomitableResistanceDescription";
+    }
+
+    internal static void SwitchPersuasionToFighterSkillOptions()
+    {
+        if (Main.Settings.AddPersuasionToFighterSkillOptions)
+        {
+            PointPoolFighterSkillPoints.restrictedChoices.TryAdd(SkillDefinitions.Persuasion);
+        }
+        else
+        {
+            PointPoolFighterSkillPoints.restrictedChoices.Remove(SkillDefinitions.Persuasion);
+        }
+    }
+
     internal static void SwitchOneDnDEnableDruidToUseMetalArmor()
     {
         var active = Main.Settings.EnableDruidToUseMetalArmor;
 
         if (active)
         {
-            FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Clear();
+            ProficiencyDruidArmor.ForbiddenItemTags.Clear();
         }
         else
         {
-            if (!FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(
+            if (!ProficiencyDruidArmor.ForbiddenItemTags.Contains(
                     TagsDefinitions.ItemTagMetal))
             {
-                FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(
+                ProficiencyDruidArmor.ForbiddenItemTags.Add(
                     TagsDefinitions.ItemTagMetal);
             }
         }
@@ -189,14 +273,14 @@ internal static class OneDndContext
     {
         if (Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency)
         {
-            FeatureDefinitionProficiencys.ProficiencyDruidArmor.Proficiencies.Remove(
+            ProficiencyDruidArmor.Proficiencies.Remove(
                 EquipmentDefinitions.MediumArmorCategory);
 
             Druid.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetDruidPrimalOrder, 1));
         }
         else
         {
-            FeatureDefinitionProficiencys.ProficiencyDruidArmor.Proficiencies.TryAdd(
+            ProficiencyDruidArmor.Proficiencies.TryAdd(
                 EquipmentDefinitions.MediumArmorCategory);
 
             Druid.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetDruidPrimalOrder);
@@ -207,7 +291,7 @@ internal static class OneDndContext
 
     internal static void SwitchDruidWeaponProficiencyToUseOneDnd()
     {
-        FeatureDefinitionProficiencys.ProficiencyDruidWeapon.proficiencies =
+        ProficiencyDruidWeapon.proficiencies =
             Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd
                 ? [WeaponCategoryDefinitions.SimpleWeaponCategory.Name]
                 : DruidWeaponsCategories;
@@ -250,14 +334,14 @@ internal static class OneDndContext
             subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
-    
+
     internal static void SwapOneDndBarkskinSpell()
     {
         if (Main.Settings.SwapOneDndBarkskinSpell)
         {
             Barkskin.requiresConcentration = false;
             Barkskin.castingTime = ActivationTime.BonusAction;
-            FeatureDefinitionAttributeModifiers.AttributeModifierBarkskin.modifierValue = 17;
+            AttributeModifierBarkskin.modifierValue = 17;
             Barkskin.GuiPresentation.description = "Spell/&BarkskinOneDndDescription";
             ConditionBarkskin.GuiPresentation.description = "Rules/&ConditionOneDndBarkskinDescription";
         }
@@ -265,7 +349,7 @@ internal static class OneDndContext
         {
             Barkskin.requiresConcentration = true;
             Barkskin.castingTime = ActivationTime.Action;
-            FeatureDefinitionAttributeModifiers.AttributeModifierBarkskin.modifierValue = 16;
+            AttributeModifierBarkskin.modifierValue = 16;
             Barkskin.GuiPresentation.description = "Spell/&BarkskinDescription";
             ConditionBarkskin.GuiPresentation.description = "Rules/&ConditionBarkskinDescription";
         }
@@ -452,8 +536,8 @@ internal static class OneDndContext
         else
         {
             ConditionDefinitions.ConditionSurprised.Features.SetRange(
-                FeatureDefinitionActionAffinitys.ActionAffinityConditionSurprised,
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSurprised);
+                ActionAffinityConditionSurprised,
+                MovementAffinityConditionSurprised);
             ConditionDefinitions.ConditionSurprised.GuiPresentation.Description =
                 "Rules/&ConditionSurprisedDescription";
         }
@@ -489,7 +573,7 @@ internal static class OneDndContext
         var level = Main.Settings.EnableBardExpertiseOneLevelBefore ? 2 : 3;
 
         foreach (var featureUnlock in Ranger.FeatureUnlocks
-                     .Where(x => x.FeatureDefinition == FeatureDefinitionPointPools.PointPoolBardExpertiseLevel3))
+                     .Where(x => x.FeatureDefinition == PointPoolBardExpertiseLevel3))
         {
             featureUnlock.level = level;
         }
@@ -497,7 +581,7 @@ internal static class OneDndContext
         level = Main.Settings.EnableBardExpertiseOneLevelBefore ? 9 : 10;
 
         foreach (var featureUnlock in Ranger.FeatureUnlocks
-                     .Where(x => x.FeatureDefinition == FeatureDefinitionPointPools.PointPoolBardExpertiseLevel10))
+                     .Where(x => x.FeatureDefinition == PointPoolBardExpertiseLevel10))
         {
             featureUnlock.level = level;
         }
@@ -535,13 +619,13 @@ internal static class OneDndContext
     internal static void SwitchOneDndRemoveBardMagicalSecretAt14And18()
     {
         Bard.FeatureUnlocks.RemoveAll(x =>
-            x.FeatureDefinition == FeatureDefinitionPointPools.PointPoolBardMagicalSecrets14 ||
+            x.FeatureDefinition == PointPoolBardMagicalSecrets14 ||
             x.FeatureDefinition == Level20Context.PointPoolBardMagicalSecrets18);
 
         if (!Main.Settings.RemoveBardMagicalSecretAt14And18)
         {
             Bard.FeatureUnlocks.AddRange(
-                new FeatureUnlockByLevel(FeatureDefinitionPointPools.PointPoolBardMagicalSecrets14, 14),
+                new FeatureUnlockByLevel(PointPoolBardMagicalSecrets14, 14),
                 new FeatureUnlockByLevel(Level20Context.PointPoolBardMagicalSecrets18, 18));
         }
 
@@ -640,6 +724,39 @@ internal static class OneDndContext
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+
+    internal static void SwitchSorcererInnateSorcery()
+    {
+        if (Main.Settings.EnableSorcererInnateSorcery)
+        {
+            Sorcerer.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1));
+        }
+        else
+        {
+            Sorcerer.FeatureUnlocks.RemoveAll(x =>
+                x.level == 1 && x.FeatureDefinition == PowerSorcererInnateSorcery);
+        }
+
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchRangerNatureShroud()
+    {
+        if (Main.Settings.EnableRangerNatureShroudAt14)
+        {
+            Ranger.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 14));
+        }
+        else
+        {
+            Ranger.FeatureUnlocks
+                .RemoveAll(x => x.level == 10
+                                && x.FeatureDefinition == FeatureDefinitionPowerNatureShroud);
+        }
+
+        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchOneDndWarlockMagicalCunningAtLevel2()
     {
         if (Main.Settings.EnableWarlockMagicalCunningAtLevel2)
@@ -659,22 +776,840 @@ internal static class OneDndContext
         if (Main.Settings.SwapWarlockToUseOneDndInvocationProgression)
         {
             Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(PointPoolWarlockInvocation1, 1));
-            FeatureDefinitionPointPools.PointPoolWarlockInvocation2.GuiPresentation.Title =
+            PointPoolWarlockInvocation2.GuiPresentation.Title =
                 "Feature/&PointPoolWarlockInvocationAdditionalTitle";
-            FeatureDefinitionPointPools.PointPoolWarlockInvocation2.GuiPresentation.Description =
+            PointPoolWarlockInvocation2.GuiPresentation.Description =
                 "Feature/&PointPoolWarlockInvocationAdditionalDescription";
-            FeatureDefinitionPointPools.PointPoolWarlockInvocation5.poolAmount = 2;
+            PointPoolWarlockInvocation5.poolAmount = 2;
         }
         else
         {
             Warlock.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolWarlockInvocation1);
-            FeatureDefinitionPointPools.PointPoolWarlockInvocation2.GuiPresentation.Title =
+            PointPoolWarlockInvocation2.GuiPresentation.Title =
                 "Feature/&PointPoolWarlockInvocationInitialTitle";
-            FeatureDefinitionPointPools.PointPoolWarlockInvocation2.GuiPresentation.Description =
+            PointPoolWarlockInvocation2.GuiPresentation.Description =
                 "Feature/&PointPoolWarlockInvocationInitialDescription";
-            FeatureDefinitionPointPools.PointPoolWarlockInvocation5.poolAmount = 1;
+            PointPoolWarlockInvocation5.poolAmount = 1;
         }
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
+
+    private sealed class ModifyAttackActionModifierInnateSorcery : IModifyAttackActionModifier
+    {
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.CharacterFeature, "PowerSorcererInnateSorcery", null);
+
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            string effectName,
+            ref ActionModifier attackModifier)
+        {
+            if (attackProximity is not
+                (BattleDefinitions.AttackProximity.MagicRange or BattleDefinitions.AttackProximity.MagicReach))
+            {
+                return;
+            }
+
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
+        }
+    }
+
+    #region Monk
+
+    private sealed class CustomBehaviorHeightenedMetabolism(
+        ConditionDefinition conditionFlurryOfBlowsHeightenedMetabolism,
+        ConditionDefinition conditionFlurryOfBlowsFreedomHeightenedMetabolism)
+        : IModifyEffectDescription, IMagicEffectFinishedByMe
+    {
+        private readonly EffectForm _effectForm =
+            EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsHeightenedMetabolism);
+
+        private readonly EffectForm _effectFormFreedom =
+            EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsFreedomHeightenedMetabolism);
+
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            var definition = action.ActionParams.activeEffect.SourceDefinition;
+
+            if (definition != PowerMonkPatientDefense &&
+                definition != PowerMonkPatientDefenseSurvival3 &&
+                definition != PowerMonkPatientDefenseSurvival6)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var dieType = rulesetCharacter.GetMonkDieType();
+            var tempHp = rulesetCharacter.RollDiceAndSum(dieType, RollContext.HealValueRoll, 2, []);
+
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                tempHp, DurationType.Round, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return Main.Settings.EnableMonkHeightenedMetabolism &&
+                   character.GetClassLevel(Monk) >= 10 &&
+                   (definition == PowerMonkFlurryOfBlows ||
+                    definition == PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement ||
+                    definition == PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement);
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (definition == PowerMonkFlurryOfBlows)
+            {
+                effectDescription.EffectForms.TryAdd(_effectForm);
+            }
+            else if (definition == PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement)
+            {
+                effectDescription.EffectForms.TryAdd(_effectForm);
+            }
+            else if (definition == PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement)
+            {
+                effectDescription.EffectForms.TryAdd(_effectFormFreedom);
+            }
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class CustomLevelUpLogicMonkBodyAndMind : ICustomLevelUpLogic
+    {
+        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
+        {
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Dexterity, 4);
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Wisdom, 4);
+            hero.RefreshAll();
+        }
+
+        public void RemoveFeature([NotNull] RulesetCharacterHero hero, string tag)
+        {
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Dexterity, -4);
+            hero.ModifyAttributeAndMax(AttributeDefinitions.Wisdom, -4);
+            hero.RefreshAll();
+        }
+    }
+
+    private static readonly FeatureDefinition FeatureMonkHeightenedMetabolism = FeatureDefinitionBuilder
+        .Create("FeatureMonkHeightenedMetabolism")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(
+            new CustomBehaviorHeightenedMetabolism(
+                ConditionDefinitionBuilder
+                    .Create("ConditionMonkFlurryOfBlowsHeightenedMetabolism")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetFeatures(
+                        FeatureDefinitionAttackModifierBuilder
+                            .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
+                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism")
+                            .SetUnarmedStrike(3)
+                            .AddToDB())
+                    .AddToDB(),
+                ConditionDefinitionBuilder
+                    .Create("ConditionMonkFlurryOfBlowsFreedomHeightenedMetabolism")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetFeatures(
+                        FeatureDefinitionAttackModifierBuilder
+                            .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom,
+                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedomHeightenedMetabolism")
+                            .SetUnarmedStrike(4)
+                            .AddToDB())
+                    .AddToDB()))
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerMonkStepOfTheWindHeightenedMetabolism =
+        FeatureDefinitionPowerBuilder
+            .Create("PowerMonkStepOfTheWindHeightenedMetabolism")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerStepOfTheWind", Resources.PowerStepOfTheWind, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerMonkStepOfTheWindDash)
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .AddEffectForms(PowerMonkStepOftheWindDisengage.EffectDescription.EffectForms[0])
+                    .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
+                    .Build())
+            .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerMonkSuperiorDefense = FeatureDefinitionPowerBuilder
+        .Create("PowerMonkSuperiorDefense")
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerMonkSuperiorDefense", Resources.PowerMonkSuperiorDefense, 256, 128))
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 3, 3)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create("ConditionMonkSuperiorDefense")
+                                .SetGuiPresentation(Category.Condition, ConditionAuraOfProtection)
+                                .SetPossessive()
+                                .AddFeatures(
+                                    DamageAffinityAcidResistance,
+                                    DamageAffinityBludgeoningResistanceTrue,
+                                    DamageAffinityColdResistance,
+                                    DamageAffinityFireResistance,
+                                    DamageAffinityLightningResistance,
+                                    DamageAffinityNecroticResistance,
+                                    DamageAffinityPiercingResistanceTrue,
+                                    DamageAffinityPoisonResistance,
+                                    DamageAffinityPsychicResistance,
+                                    DamageAffinityRadiantResistance,
+                                    DamageAffinitySlashingResistanceTrue,
+                                    DamageAffinityThunderResistance)
+                                .SetConditionParticleReference(ConditionHolyAura)
+                                .SetCancellingConditions(
+                                    DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
+                                        x.IsSubtypeOf(RuleDefinitions.ConditionIncapacitated)).ToArray())
+                                .AddCancellingConditions(ConditionCharmedByHypnoticPattern)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
+                .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureMonkBodyAndMind = FeatureDefinitionBuilder
+        .Create("FeatureMonkBodyAndMind")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new CustomLevelUpLogicMonkBodyAndMind())
+        .AddToDB();
+
+    private static void LoadMonkHeightenedMetabolism()
+    {
+        var validatePower = new ValidatorsValidatePowerUse(c =>
+            !Main.Settings.EnableMonkHeightenedMetabolism || c.GetClassLevel(Monk) < 10);
+
+        PowerMonkStepOfTheWindDash.AddCustomSubFeatures(validatePower);
+        PowerMonkStepOftheWindDisengage.AddCustomSubFeatures(validatePower);
+    }
+
+    internal static void SwitchMonkDoNotRequireAttackActionForFlurry()
+    {
+        FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
+            Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry
+                ? "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription"
+                : "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
+    }
+
+    private static readonly List<DieTypeByRank> MonkUnarmedDieTypeByRank =
+        [.. AttackModifierMonkMartialArtsImprovedDamage.DieTypeByRankTable];
+
+    private static readonly List<DieTypeByRank> MonkUnarmedDieTypeByRank2024 =
+    [
+        new() { dieType = DieType.D6, rank = 1 },
+        new() { dieType = DieType.D6, rank = 2 },
+        new() { dieType = DieType.D6, rank = 3 },
+        new() { dieType = DieType.D6, rank = 4 },
+        new() { dieType = DieType.D8, rank = 5 },
+        new() { dieType = DieType.D8, rank = 6 },
+        new() { dieType = DieType.D8, rank = 7 },
+        new() { dieType = DieType.D8, rank = 8 },
+        new() { dieType = DieType.D8, rank = 9 },
+        new() { dieType = DieType.D8, rank = 10 },
+        new() { dieType = DieType.D10, rank = 11 },
+        new() { dieType = DieType.D10, rank = 12 },
+        new() { dieType = DieType.D10, rank = 13 },
+        new() { dieType = DieType.D10, rank = 14 },
+        new() { dieType = DieType.D10, rank = 15 },
+        new() { dieType = DieType.D10, rank = 16 },
+        new() { dieType = DieType.D12, rank = 17 },
+        new() { dieType = DieType.D12, rank = 18 },
+        new() { dieType = DieType.D12, rank = 19 },
+        new() { dieType = DieType.D12, rank = 20 }
+    ];
+
+    internal static void SwitchOneDndMonkUnarmedDieTypeProgression()
+    {
+        AttackModifierMonkMartialArtsImprovedDamage.dieTypeByRankTable =
+            Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression
+                ? MonkUnarmedDieTypeByRank2024
+                : MonkUnarmedDieTypeByRank;
+    }
+
+    internal static void SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack()
+    {
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
+        {
+            PowerMonkMartialArts.GuiPresentation.description =
+                "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription";
+            PowerMonkMartialArts.GuiPresentation.title =
+                "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle";
+            PowerMonkMartialArts.GuiPresentation.hidden = true;
+            PowerMonkMartialArts.activationTime = ActivationTime.NoCost;
+        }
+        else
+        {
+            PowerMonkMartialArts.GuiPresentation.description = "Action/&MartialArtsDescription";
+            PowerMonkMartialArts.GuiPresentation.title = "Action/&MartialArtsTitle";
+            PowerMonkMartialArts.GuiPresentation.hidden = false;
+            PowerMonkMartialArts.activationTime = ActivationTime.OnAttackHitMartialArts;
+        }
+
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
+        {
+            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    internal static void SwitchMonkHeightenedMetabolism()
+    {
+        if (Main.Settings.EnableMonkHeightenedMetabolism)
+        {
+            Monk.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(FeatureMonkHeightenedMetabolism, 10));
+            Monk.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(PowerMonkStepOfTheWindHeightenedMetabolism, 10));
+        }
+        else
+        {
+            Monk.FeatureUnlocks
+                .RemoveAll(x => x.level == 10 &&
+                                (x.FeatureDefinition == FeatureMonkHeightenedMetabolism ||
+                                 x.FeatureDefinition == PowerMonkStepOfTheWindHeightenedMetabolism));
+        }
+
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchMonkSuperiorDefenseToReplaceEmptyBody()
+    {
+        Monk.FeatureUnlocks
+            .RemoveAll(x => x.level == 18 &&
+                            (x.FeatureDefinition == Level20Context.PowerMonkEmptyBody ||
+                             x.FeatureDefinition == PowerMonkSuperiorDefense));
+
+        Monk.FeatureUnlocks.TryAdd(
+            Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody
+                ? new FeatureUnlockByLevel(PowerMonkSuperiorDefense, 18)
+                : new FeatureUnlockByLevel(Level20Context.PowerMonkEmptyBody, 18));
+
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchMonkBodyAndMindToReplacePerfectSelf()
+    {
+        Monk.FeatureUnlocks
+            .RemoveAll(x => x.level == 20 &&
+                            (x.FeatureDefinition == Level20Context.FeatureMonkPerfectSelf ||
+                             x.FeatureDefinition == FeatureMonkBodyAndMind));
+
+        Monk.FeatureUnlocks.TryAdd(
+            Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf
+                ? new FeatureUnlockByLevel(FeatureMonkBodyAndMind, 20)
+                : new FeatureUnlockByLevel(Level20Context.FeatureMonkPerfectSelf, 20));
+
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    #endregion
+
+    #region Barbarian
+
+    private const string BrutalStrike = "BarbarianBrutalStrike";
+
+    private static ConditionDefinition _conditionBrutalStrike;
+    private static ConditionDefinition _conditionHamstringBlow;
+    private static ConditionDefinition _conditionStaggeringBlow;
+    private static ConditionDefinition _conditionStaggeringBlowAoO;
+    private static ConditionDefinition _conditionSunderingBlow;
+    private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrike;
+    private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrikeImprovement13;
+    private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrikeImprovement17;
+
+    private static void BuildBarbarianBrutalStrike()
+    {
+        const string BrutalStrikeImprovement13 = "BarbarianBrutalStrikeImprovement13";
+        const string BrutalStrikeImprovement17 = "BarbarianBrutalStrikeImprovement17";
+
+        var additionalDamageBrutalStrike =
+            FeatureDefinitionAdditionalDamageBuilder
+                .Create("AdditionalDamageBrutalStrike")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("BrutalStrike")
+                .SetDamageDice(DieType.D10, 1)
+                .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 9)
+                .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+                .AddCustomSubFeatures(
+                    ClassHolder.Barbarian,
+                    new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, _, _) => (OperationType.Set,
+                        character.IsToggleEnabled((Id)ExtraActionId.BrutalStrikeToggle))))
+                .AddToDB();
+
+        _conditionBrutalStrike = ConditionDefinitionBuilder
+            .Create($"Condition{BrutalStrike}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamageBrutalStrike)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{BrutalStrike}")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .Build())
+            .AddToDB();
+
+        powerPool.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden, new CustomBehaviorBrutalStrike(powerPool));
+
+        // Forceful Blow
+
+        var powerForcefulBlow = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{BrutalStrike}ForcefulBlow")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        // Hamstring Blow
+
+        var powerHamstringBlow = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{BrutalStrike}HamstringBlow")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        _conditionHamstringBlow = ConditionDefinitionBuilder
+            .Create("ConditionHamstringBlow")
+            .SetGuiPresentation($"Power{BrutalStrike}HamstringBlow", Category.Feature,
+                ConditionHindered)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create("MovementAffinityHamstringBlow")
+                    .SetGuiPresentation($"Power{BrutalStrike}HamstringBlow", Category.Feature, Gui.NoLocalization)
+                    .SetBaseSpeedAdditiveModifier(-3)
+                    .AddToDB())
+            .CopyParticleReferences(ConditionSlowed)
+            .AddToDB();
+
+        _conditionHamstringBlow.GuiPresentation.description = Gui.EmptyContent;
+
+        // Staggering Blow
+
+        var powerStaggeringBlow = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{BrutalStrike}StaggeringBlow")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        _conditionStaggeringBlow = ConditionDefinitionBuilder
+            .Create("ConditionStaggeringBlow")
+            .SetGuiPresentation($"Power{BrutalStrike}StaggeringBlow", Category.Feature,
+                ConditionDazzled)
+            .SetSilent(Silent.WhenRemoved)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create("SavingThrowAffinityStaggeringBlow")
+                    .SetGuiPresentation($"Power{BrutalStrike}StaggeringBlow", Category.Feature, Gui.NoLocalization)
+                    .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
+                        AttributeDefinitions.AbilityScoreNames)
+                    .AddToDB())
+            .AddSpecialInterruptions(ConditionInterruption.SavingThrow)
+            .CopyParticleReferences(ConditionDazzled)
+            .AddToDB();
+
+        _conditionStaggeringBlow.GuiPresentation.description = Gui.EmptyContent;
+
+        _conditionStaggeringBlowAoO = ConditionDefinitionBuilder
+            .Create("ConditionStaggeringBlowAoO")
+            .SetGuiPresentation(Category.Condition, ConditionDazzled)
+            .SetSilent(Silent.WhenAdded)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(SrdAndHouseRulesContext.ActionAffinityConditionBlind)
+            .AddToDB();
+
+        // Sundering Blow
+
+        var additionalDamageSunderingBlow = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{BrutalStrike}SunderingBlow")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("SunderingBlow")
+            .SetDamageDice(DieType.D10, 1)
+            .AddToDB();
+
+        var conditionSunderingBlowAlly = ConditionDefinitionBuilder
+            .Create("ConditionSunderingBlowAlly")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamageSunderingBlow)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var powerSunderingBlow = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{BrutalStrike}SunderingBlow")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        _conditionSunderingBlow = ConditionDefinitionBuilder
+            .Create("ConditionSunderingBlow")
+            .SetGuiPresentation($"Power{BrutalStrike}SunderingBlow", Category.Feature,
+                ConditionTargetedByGuidingBolt)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .AddCustomSubFeatures(new CustomBehaviorSunderingBlow(powerSunderingBlow, conditionSunderingBlowAlly))
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttackedNotBySource)
+            .CopyParticleReferences(ConditionLeadByExampleMarked)
+            .AddToDB();
+
+        // MAIN
+
+        PowerBundle.RegisterPowerBundle(powerPool, true,
+            powerForcefulBlow, powerHamstringBlow, powerStaggeringBlow, powerSunderingBlow);
+
+        var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityBrutalStrikeToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.BrutalStrikeToggle)
+            .AddToDB();
+
+        _featureSetBarbarianBrutalStrike = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{BrutalStrike}")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerPool, actionAffinityToggle, powerForcefulBlow, powerHamstringBlow)
+            .AddToDB();
+
+        _featureSetBarbarianBrutalStrikeImprovement13 = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{BrutalStrikeImprovement13}")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerStaggeringBlow, powerSunderingBlow)
+            .AddToDB();
+
+        _featureSetBarbarianBrutalStrikeImprovement17 = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{BrutalStrikeImprovement17}")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorBrutalStrike(FeatureDefinitionPower powerBarbarianBrutalStrike)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    {
+        private static readonly EffectForm ForcefulBlowForm = EffectFormBuilder
+            .Create()
+            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
+            .Build();
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!attacker.OnceInMyTurnIsValid(BrutalStrike) ||
+                !rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.BrutalStrikeToggle) ||
+                !rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat, ConditionDefinitions.ConditionReckless.Name))
+            {
+                yield break;
+            }
+
+            rulesetAttacker.InflictCondition(
+                _conditionBrutalStrike.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                _conditionBrutalStrike.Name,
+                0,
+                0,
+                0);
+
+            var usablePower = PowerProvider.Get(powerBarbarianBrutalStrike, rulesetAttacker);
+
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [defender],
+                attacker,
+                powerBarbarianBrutalStrike.Name,
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                // determine selected power to collect cost
+                var option = reactionRequest.SelectedSubOption;
+                var subPowers = powerBarbarianBrutalStrike.GetBundle()?.SubPowers;
+
+                if (subPowers == null)
+                {
+                    return;
+                }
+
+                var selectedPower = subPowers[option];
+
+                switch (selectedPower.Name)
+                {
+                    case $"Power{BrutalStrike}ForcefulBlow":
+                        actualEffectForms.Add(ForcefulBlowForm);
+                        break;
+                    case $"Power{BrutalStrike}HamstringBlow":
+                        InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionHamstringBlow.Name);
+                        break;
+                    case $"Power{BrutalStrike}StaggeringBlow":
+                        InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionStaggeringBlow.Name);
+                        InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionStaggeringBlowAoO.Name);
+                        break;
+                    case $"Power{BrutalStrike}SunderingBlow":
+                        InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionSunderingBlow.Name);
+                        break;
+                }
+            }
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(GameLocationBattleManager battleManager, CharacterAction action,
+            GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackMode,
+            RollOutcome rollOutcome, int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.BrutalStrikeToggle) ||
+                !rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat, ConditionDefinitions.ConditionReckless.Name))
+            {
+                yield break;
+            }
+
+            attacker.UsedSpecialFeatures.TryAdd(BrutalStrike, 0);
+        }
+
+        private static void InflictCondition(
+            RulesetCharacter rulesetAttacker, RulesetCharacter rulesetDefender, string conditionName)
+        {
+            rulesetDefender.InflictCondition(
+                conditionName,
+                DurationType.Round,
+                1,
+                (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionName,
+                0,
+                0,
+                0);
+        }
+    }
+
+    private sealed class CustomBehaviorSunderingBlow(
+        FeatureDefinitionPower powerSunderingBlow,
+        ConditionDefinition conditionSunderingBlowAlly) : IPhysicalAttackInitiatedOnMe, IMagicEffectAttackInitiatedOnMe
+    {
+        public IEnumerator OnMagicEffectAttackInitiatedOnMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            bool firstTarget,
+            bool checkMagicalAttackDamage)
+        {
+            var damageType = activeEffect.EffectDescription.FindFirstDamageForm()?.DamageType;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (damageType == null ||
+                rulesetAttacker == null ||
+                rulesetAttacker is RulesetCharacterEffectProxy)
+            {
+                yield break;
+            }
+
+            AddBonusAttackAndDamageRoll(attacker.RulesetCharacter, defender.RulesetActor, attackModifier);
+        }
+
+        public IEnumerator OnPhysicalAttackInitiatedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            var damageType = attackMode.EffectDescription.FindFirstDamageForm()?.DamageType;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (damageType == null ||
+                rulesetAttacker == null ||
+                rulesetAttacker is RulesetCharacterEffectProxy)
+            {
+                yield break;
+            }
+
+            AddBonusAttackAndDamageRoll(attacker.RulesetCharacter, defender.RulesetActor, attackModifier);
+        }
+
+        private void AddBonusAttackAndDamageRoll(
+            RulesetCharacter rulesetAttacker,
+            RulesetActor rulesetDefender,
+            ActionModifier actionModifier)
+        {
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _conditionSunderingBlow.Name, out var activeCondition))
+            {
+                return;
+            }
+
+            var rulesetSource = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (rulesetAttacker == rulesetSource)
+            {
+                return;
+            }
+
+            rulesetDefender.RemoveCondition(activeCondition);
+
+            var bonusAttackRoll =
+                rulesetAttacker.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            actionModifier.AttackRollModifier += bonusAttackRoll;
+            actionModifier.AttacktoHitTrends.Add(new TrendInfo(
+                bonusAttackRoll, FeatureSourceType.CharacterFeature, powerSunderingBlow.Name, powerSunderingBlow));
+
+            rulesetAttacker.InflictCondition(
+                conditionSunderingBlowAlly.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                FactionDefinitions.Party.Name,
+                1,
+                conditionSunderingBlowAlly.Name,
+                0,
+                0,
+                0);
+        }
+    }
+
+    internal static void SwitchBarbarianBrutalStrike()
+    {
+        if (Main.Settings.EnableBarbarianBrutalStrike)
+        {
+            Barbarian.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike, 9));
+            Barbarian.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13, 13));
+            Barbarian.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17, 17));
+        }
+        else
+        {
+            Barbarian.FeatureUnlocks.RemoveAll(x =>
+                x.level == 9 && x.FeatureDefinition == _featureSetBarbarianBrutalStrike);
+            Barbarian.FeatureUnlocks.RemoveAll(x =>
+                x.level == 13 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement13);
+            Barbarian.FeatureUnlocks.RemoveAll(x =>
+                x.level == 17 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17);
+        }
+
+        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchBarbarianBrutalCritical()
+    {
+        if (Main.Settings.DisableBarbarianBrutalCritical)
+        {
+            Barbarian.FeatureUnlocks.RemoveAll(x =>
+                x.level == 9 && x.FeatureDefinition == FeatureSetBarbarianBrutalCritical);
+            Barbarian.FeatureUnlocks.RemoveAll(x =>
+                x.level == 13 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
+            Barbarian.FeatureUnlocks.RemoveAll(x =>
+                x.level == 17 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
+        }
+        else
+        {
+            if (!Barbarian.FeatureUnlocks.Exists(x =>
+                    x.level == 9 && x.FeatureDefinition == FeatureSetBarbarianBrutalCritical))
+            {
+                Barbarian.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9));
+            }
+
+            if (!Barbarian.FeatureUnlocks.Exists(x =>
+                    x.level == 13 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd))
+            {
+                Barbarian.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13));
+            }
+
+            if (!Barbarian.FeatureUnlocks.Exists(x =>
+                    x.level == 17 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd))
+            {
+                Barbarian.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
+            }
+        }
+
+        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchBarbarianRecklessSameBuffDebuffDuration()
+    {
+        RecklessAttack.GuiPresentation.description = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration
+            ? "Action/&RecklessAttackExtendedDescription"
+            : "Action/&RecklessAttackDescription";
+    }
+
+    internal static void SwitchBarbarianRegainOneRageAtShortRest()
+    {
+        FeatureSetBarbarianRage.GuiPresentation.description = Main.Settings.EnableBarbarianRegainOneRageAtShortRest
+            ? "Feature/&FeatureSetRageExtendedDescription"
+            : "Feature/&FeatureSetRageDescription";
+    }
+
+    #endregion
 }
