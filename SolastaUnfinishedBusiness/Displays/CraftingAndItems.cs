@@ -151,7 +151,7 @@ internal static class CraftingAndItems
         if (UI.Toggle(Gui.Localize("ModUi/&OneDndHealingPotionBonusAction"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.OneDndHealingPotionBonusAction = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndHealingPotionBonusAction();
+            OneDndContext.SwitchOneDndHealingPotionBonusAction();
         }
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;

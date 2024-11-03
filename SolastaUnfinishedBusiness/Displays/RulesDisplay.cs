@@ -383,7 +383,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSurprisedToEnforceDisadvantage"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSurprisedToEnforceDisadvantage = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndSurprisedEnforceDisadvantage();
+            OneDndContext.SwitchOneDndSurprisedEnforceDisadvantage();
         }
 
         toggle = Main.Settings.EnableTeleportToRemoveRestrained;

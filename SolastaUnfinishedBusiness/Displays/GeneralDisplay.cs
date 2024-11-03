@@ -239,14 +239,14 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSurprisedToEnforceDisadvantage"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSurprisedToEnforceDisadvantage = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndSurprisedEnforceDisadvantage();
+            OneDndContext.SwitchOneDndSurprisedEnforceDisadvantage();
         }
 
         toggle = Main.Settings.OneDndHealingPotionBonusAction;
         if (UI.Toggle(Gui.Localize("ModUi/&OneDndHealingPotionBonusAction"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.OneDndHealingPotionBonusAction = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndHealingPotionBonusAction();
+            OneDndContext.SwitchOneDndHealingPotionBonusAction();
         }
 
         UI.Label();
@@ -257,42 +257,42 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeBardicInspirationDurationToOneHour"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeBardicInspirationDurationToOneHour = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndChangeBardicInspirationDurationToOneHour();
+            OneDndContext.SwitchOneDndChangeBardicInspirationDurationToOneHour();
         }
 
         toggle = Main.Settings.EnableBardExpertiseOneLevelBefore;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardExpertiseOneLevelBefore = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndEnableBardExpertiseOneLevelBefore();
+            OneDndContext.SwitchOneDndEnableBardExpertiseOneLevelBefore();
         }
 
         toggle = Main.Settings.EnableBardSuperiorInspirationAtLevel18;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardSuperiorInspirationAtLevel18"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardSuperiorInspirationAtLevel18 = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
+            OneDndContext.SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
         }
 
         toggle = Main.Settings.EnableBardWordsOfCreationAtLevel20;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardWordsOfCreationAtLevel20"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardWordsOfCreationAtLevel20 = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndEnableBardWordsOfCreationAtLevel20();
+            OneDndContext.SwitchOneDndEnableBardWordsOfCreationAtLevel20();
         }
 
         toggle = Main.Settings.RemoveBardMagicalSecretAt14And18;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardMagicalSecretAt14And18"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveBardMagicalSecretAt14And18 = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndRemoveBardMagicalSecretAt14And18();
+            OneDndContext.SwitchOneDndRemoveBardMagicalSecretAt14And18();
         }
 
         toggle = Main.Settings.RemoveBardSongOfRest;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveBardSongOfRest = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndRemoveBardSongOfRest();
+            OneDndContext.SwitchOneDndRemoveBardSongOfRest();
         }
 
         UI.Label();
@@ -340,7 +340,7 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableDruidToUseMetalArmor = toggle;
-            SrdAndHouseRulesContext.SwitchOneDnDEnableDruidToUseMetalArmor();
+            OneDndContext.SwitchOneDnDEnableDruidToUseMetalArmor();
         }
 
         toggle = Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency;
@@ -348,14 +348,14 @@ internal static class ToolsDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
-            SrdAndHouseRulesContext.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
+            OneDndContext.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
         }
 
         toggle = Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidWeaponProficiencyToUseOneDnd"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd = toggle;
-            SrdAndHouseRulesContext.SwitchDruidWeaponProficiencyToUseOneDnd();
+            OneDndContext.SwitchDruidWeaponProficiencyToUseOneDnd();
         }
 
         UI.Label();
@@ -440,7 +440,7 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHandsAsBonusAction"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablePaladinLayOnHandsAsBonusAction = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndPaladinLayOnHandAsBonusAction();
+            OneDndContext.SwitchOneDndPaladinLayOnHandAsBonusAction();
         }
 
         toggle = Main.Settings.EnablePaladinSmiteAsBonusAction;
@@ -453,7 +453,7 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablePaladinSpellCastingAtLevel1 = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndPaladinLearnSpellCastingAtOne();
+            OneDndContext.SwitchOneDndPaladinLearnSpellCastingAtOne();
         }
 
         UI.Label();
@@ -471,7 +471,7 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndRangerLearnSpellCastingAtOne();
+            OneDndContext.SwitchOneDndRangerLearnSpellCastingAtOne();
         }
 
         UI.Label();
@@ -518,14 +518,14 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableWarlockMagicalCunningAtLevel2 = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndWarlockMagicalCunningAtLevel2();
+            OneDndContext.SwitchOneDndWarlockMagicalCunningAtLevel2();
         }
 
         toggle = Main.Settings.SwapWarlockToUseOneDndInvocationProgression;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapWarlockToUseOneDndInvocationProgression = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndWarlockInvocationsProgression();
+            OneDndContext.SwitchOneDndWarlockInvocationsProgression();
         }
 
         UI.Label();
@@ -536,14 +536,14 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnScholarAtLevel2"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableWizardToLearnScholarAtLevel2 = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndWizardScholar();
+            OneDndContext.SwitchOneDndWizardScholar();
         }
 
         toggle = Main.Settings.EnableWizardToLearnSchoolAtLevel3;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnSchoolAtLevel3"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableWizardToLearnSchoolAtLevel3 = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndWizardSchoolOfMagicLearningLevel();
+            OneDndContext.SwitchOneDndWizardSchoolOfMagicLearningLevel();
         }
 
         UI.Label();
@@ -565,35 +565,35 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDnDPreparedSpellsTables"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableOneDnDPreparedSpellsTables = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndPreparedSpellsTables();
+            OneDndContext.SwitchOneDndPreparedSpellsTables();
         }
 
         toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
+            OneDndContext.SwitchOneDndHealingSpellsBuf();
         }
 
         toggle = Main.Settings.EnableRitualOnAllCasters;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRitualOnAllCasters = toggle;
-            SrdAndHouseRulesContext.SwitchEnableRitualOnAllCasters();
+            OneDndContext.SwitchEnableRitualOnAllCasters();
         }
 
         toggle = Main.Settings.SwapOneDndBarkskinSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapOneDndBarkskinSpell = toggle;
-            SrdAndHouseRulesContext.SwapOneDndBarkskinSpell();
+            OneDndContext.SwapOneDndBarkskinSpell();
         }
 
         toggle = Main.Settings.SwapOneDndGuidanceSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapOneDndGuidanceSpell = toggle;
-            SrdAndHouseRulesContext.SwapOneDndGuidanceSpell();
+            OneDndContext.SwapOneDndGuidanceSpell();
         }
 
         UI.Label();
