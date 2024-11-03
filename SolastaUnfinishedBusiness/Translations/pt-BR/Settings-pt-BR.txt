@@ -313,6 +313,7 @@ ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque os recursos <b>Evocador</
 ModUi/&SwapEvocationSavant=Troque <b>Evocador</b> <color=#D89555>Sábio da Evocação</color> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Troque <color=#D89555>Ataque Desarmado</color> para usar a progressão do tipo de dado 5e 2024
 ModUi/&SwapOneDndBarkskinSpell=Troque <color=#D89555>Barkskin</color> pela versão 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, CA definida como 17]</color></i>
+ModUi/&SwapOneDndGuidanceSpell=Troque <color=#D89555>Orientação</color> pela versão 5e 2024 <i><color=#F0DAA0>[Escolha uma habilidade na conjuração e ganhe bônus por até 1 minuto.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Troque <color=#D89555>Segundo Vento</color> para usar a progressão de usos do 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Troque a progressão de <color=#D89555>Invocações</color> pela versão 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Selecionar conteúdo de mesa</color></b>

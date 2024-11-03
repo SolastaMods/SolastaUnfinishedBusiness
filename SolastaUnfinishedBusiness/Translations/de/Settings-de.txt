@@ -313,6 +313,7 @@ ModUi/&SwapEvocationPotentCantripAndSculptSpell=Tauschen Sie die Funktionen <b>E
 ModUi/&SwapEvocationSavant=Tauschen Sie <b>Evoker</b> <color=#D89555>Evocation Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erhalten, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Tauschen Sie <color=#D89555>Unbewaffneter Angriff</color> aus, um die Würfeltyp-Progression von 5e 2024 zu verwenden
 ModUi/&SwapOneDndBarkskinSpell=Tauschen Sie <color=#D89555>Barkskin</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 eingestellt]</color></i>
+ModUi/&SwapOneDndGuidanceSpell=Tauschen Sie <color=#D89555>Anleitung</color> gegen Version 5e 2024 aus <i><color=#F0DAA0>[Wählen Sie beim Zaubern eine Fertigkeit aus und erhalten Sie bis zu 1 Minute lang einen Bonus.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Tauschen Sie <color=#D89555>Second Wind</color> aus, um den Nutzungsfortschritt von 5e 2024 zu verwenden.
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Tauschen Sie den Fortschritt der <color=#D89555>Anrufungen</color> mit der Version 5e 2024 aus.
 ModUi/&TableTopButton=<b><color=#D89555>Tabletop-Inhalt auswählen</color></b>

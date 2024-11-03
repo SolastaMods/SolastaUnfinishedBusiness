@@ -313,6 +313,7 @@ ModUi/&SwapEvocationPotentCantripAndSculptSpell=Scambia le funzionalità <b>Evoc
 ModUi/&SwapEvocationSavant=Sostituisci <b>Evocatore</b> <color=#D89555>Sapiente dell'evocazione</color> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Sostituisci <color=#D89555>Attacco disarmato</color> per usare la progressione del tipo di dado 5e 2024
 ModUi/&SwapOneDndBarkskinSpell=Sostituisci <color=#D89555>Barkskin</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
+ModUi/&SwapOneDndGuidanceSpell=Sostituisci <color=#D89555>Guida</color> con la versione 5e 2024 <i><color=#F0DAA0>[Scegli un'abilità durante il lancio e ottieni un bonus fino a 1 minuto.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Sostituisci <color=#D89555>Second Wind</color> per usare la progressione di utilizzo 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Scambia la progressione delle <color=#D89555>Invocazioni</color> con la versione 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Seleziona contenuto Tabletop</color></b>

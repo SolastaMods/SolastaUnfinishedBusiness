@@ -314,6 +314,7 @@ ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia las características
 ModUi/&SwapEvocationSavant=Intercambia <b>Evocador</b> <color=#D89555>Sabio de la evocación</color> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de ranura]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Cambia <color=#D89555>Ataque desarmado</color> para usar la progresión de tipo de dado de 5e 2024
 ModUi/&SwapOneDndBarkskinSpell=Intercambia <color=#D89555>Piel de corteza</color> con la versión 5e 2024 <i><color=#F0DAA0>[acción adicional, sin concentración, CA establecida en 17]</color></i>
+ModUi/&SwapOneDndGuidanceSpell=Intercambia <color=#D89555>Orientación</color> con la versión 5e 2024 <i><color=#F0DAA0>[Elige una habilidad al lanzar hechizos y obtén una bonificación de hasta 1 minuto.]</color></i>
 ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Cambia <color=#D89555>Second Wind</color> para usar la progresión de usos de 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Intercambia la progresión de <color=#D89555>Invocaciones</color> con la versión 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Seleccionar contenido de Tabletop</color></b>
