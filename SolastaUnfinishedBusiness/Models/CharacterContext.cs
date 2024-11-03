@@ -189,7 +189,7 @@ internal static partial class CharacterContext
 
     private static readonly FeatureDefinitionPower PowerSorcererInnateSorcery = FeatureDefinitionPowerBuilder
         .Create("PowerSorcererInnateSorcery")
-        .SetGuiPresentation(Category.Feature)
+        .SetGuiPresentation(Category.Feature, PowerTraditionShockArcanistGreaterArcaneShock)
         .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -199,14 +199,16 @@ internal static partial class CharacterContext
                 .SetEffectForms(EffectFormBuilder.ConditionForm(
                     ConditionDefinitionBuilder
                         .Create("ConditionSorcererInnateSorcery")
-                        .SetGuiPresentation(Category.Condition)
+                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
                         .SetFeatures(
                             FeatureDefinitionMagicAffinityBuilder
                                 .Create("MagicAffinitySorcererInnateSorcery")
-                                .SetGuiPresentationNoContent(true)
+                                .SetGuiPresentation("PowerSorcererInnateSorcery", Category.Feature)
                                 .SetCastingModifiers(0, SpellParamsModifierType.None, 1)
                                 .AddToDB())
+                        .AddCustomSubFeatures(new ModifyAttackActionModifierInnateSorcery())
                         .AddToDB()))
+                .SetParticleEffectParameters(Shield)
                 .Build())
         .AddToDB();
 
@@ -265,6 +267,7 @@ internal static partial class CharacterContext
         SwitchRogueFightingStyle();
         SwitchRogueSteadyAim();
         SwitchRogueStrSaving();
+        SwitchSorcererInnateSorcery();
         SwitchSorcererMagicalGuidance();
         SwitchScimitarWeaponSpecialization();
         SwitchBardHealingBalladOnLongRest();
@@ -1259,6 +1262,29 @@ internal static partial class CharacterContext
     {
         return DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
+    }
+
+    private sealed class ModifyAttackActionModifierInnateSorcery : IModifyAttackActionModifier
+    {
+        private readonly TrendInfo _trendInfo =
+            new(1, FeatureSourceType.CharacterFeature, "PowerSorcererInnateSorcery", null);
+
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            string effectName,
+            ref ActionModifier attackModifier)
+        {
+            if (attackProximity is not
+                (BattleDefinitions.AttackProximity.MagicRange or BattleDefinitions.AttackProximity.MagicReach))
+            {
+                return;
+            }
+
+            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
+        }
     }
 
     private sealed class TryAlterOutcomeAttributeCheckSorcererMagicalGuidance : ITryAlterOutcomeAttributeCheck
