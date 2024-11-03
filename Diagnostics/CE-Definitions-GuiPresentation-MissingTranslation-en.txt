@@ -1,0 +1,2 @@
+ConditionGuidanceAnimalHandling	Title='Condition/&ConditionGuidanceAnimalHandlingTitle'.
+ConditionGuidanceAnimalHandling	Description='Condition/&ConditionGuidanceAnimalHandlingDescription'.
