@@ -480,6 +480,17 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableSorcererInnateSorcery;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorcery"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererInnateSorcery = toggle;
+            CharacterContext.SwitchSorcererInnateSorcery();
+        }
+
+        UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
         UI.Label();
 

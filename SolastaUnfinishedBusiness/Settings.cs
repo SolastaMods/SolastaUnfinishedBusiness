@@ -297,6 +297,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
     public bool RemoveRogueBlindSense { get; set; }
+    public bool EnableSorcererInnateSorcery { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }

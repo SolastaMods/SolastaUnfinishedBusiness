@@ -332,6 +332,13 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableSorcererInnateSorcery;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorcery"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererInnateSorcery = toggle;
+            CharacterContext.SwitchSorcererInnateSorcery();
+        }
+
         toggle = Main.Settings.EnableSorcererMagicalGuidance;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))
         {

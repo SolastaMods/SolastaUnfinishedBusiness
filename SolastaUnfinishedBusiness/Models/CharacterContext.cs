@@ -187,6 +187,29 @@ internal static partial class CharacterContext
                 .Build())
         .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerSorcererInnateSorcery = FeatureDefinitionPowerBuilder
+        .Create("PowerSorcererInnateSorcery")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionSorcererInnateSorcery")
+                        .SetGuiPresentation(Category.Condition)
+                        .SetFeatures(
+                            FeatureDefinitionMagicAffinityBuilder
+                                .Create("MagicAffinitySorcererInnateSorcery")
+                                .SetGuiPresentationNoContent(true)
+                                .SetCastingModifiers(0, SpellParamsModifierType.None, 1)
+                                .AddToDB())
+                        .AddToDB()))
+                .Build())
+        .AddToDB();
+
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
 
@@ -963,6 +986,21 @@ internal static partial class CharacterContext
             .ToArray();
 
         rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
+    }
+
+    internal static void SwitchSorcererInnateSorcery()
+    {
+        if (Main.Settings.EnableSorcererInnateSorcery)
+        {
+            Sorcerer.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1));
+        }
+        else
+        {
+            Sorcerer.FeatureUnlocks.RemoveAll(x =>
+                x.level == 1 && x.FeatureDefinition == PowerSorcererInnateSorcery);
+        }
+
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchSorcererMagicalGuidance()
