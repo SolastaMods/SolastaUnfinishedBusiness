@@ -115,6 +115,7 @@ internal static class BootContext
 
             // Set anything on subs that depends on spells and others
             SrdAndHouseRulesContext.LateLoad();
+            Tabletop2014Context.LateLoad();
             Tabletop2024Context.LateLoad();
 
             SubclassesContext.LateLoad();
