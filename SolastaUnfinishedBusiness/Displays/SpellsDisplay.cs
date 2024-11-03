@@ -162,6 +162,13 @@ internal static class SpellsDisplay
             SrdAndHouseRulesContext.SwapOneDndBarkskinSpell();
         }
 
+        toggle = Main.Settings.SwapOneDndGuidanceSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapOneDndGuidanceSpell = toggle;
+            SrdAndHouseRulesContext.SwapOneDndGuidanceSpell();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.AllowHasteCasting;

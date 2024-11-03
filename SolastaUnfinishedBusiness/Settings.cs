@@ -376,11 +376,13 @@ public class Settings : UnityModManager.ModSettings
     public bool ModifyGravitySlam { get; set; }
     public bool EnableOneDndHealingSpellsBuf { get; set; }
     public bool SwapOneDndBarkskinSpell { get; set; }
+    public bool SwapOneDndGuidanceSpell { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool EnableRelearnSpells { get; set; }
     public bool AllowDisplayingOfficialSpells { get; set; }
     public bool AllowDisplayingNonSuggestedSpells { get; set; }
+
     public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = [];
 
