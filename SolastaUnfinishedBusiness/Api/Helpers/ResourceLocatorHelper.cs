@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -9,9 +8,9 @@ using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.Api.Helpers;
 
-internal static class ResourceLocatorContext
+internal static class ResourceLocatorHelper
 {
     internal static void Load()
     {

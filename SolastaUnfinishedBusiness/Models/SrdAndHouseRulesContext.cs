@@ -2,6 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -36,7 +37,7 @@ internal static class SrdAndHouseRulesContext
     ];
 
     private static readonly DecisionPackageDefinition DecisionPackageRestrained =
-        AiContext.BuildDecisionPackageBreakFree(ConditionRestrainedByEntangle.Name);
+        AiHelpers.BuildDecisionPackageBreakFree(ConditionRestrainedByEntangle.Name);
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
@@ -293,7 +294,7 @@ internal static class SrdAndHouseRulesContext
             Entangle.effectDescription.EffectForms[2].canSaveToCancel = false;
             ConditionRestrainedByEntangle.Features.Add(FeatureDefinitionActionAffinitys.ActionAffinityGrappled);
             ConditionRestrainedByEntangle.amountOrigin = ConditionDefinition.OriginOfAmount.Fixed;
-            ConditionRestrainedByEntangle.baseAmount = (int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC;
+            ConditionRestrainedByEntangle.baseAmount = (int)AiHelpers.BreakFreeType.DoStrengthCheckAgainstCasterDC;
             ConditionRestrainedByEntangle.addBehavior = true;
             ConditionRestrainedByEntangle.battlePackage = DecisionPackageRestrained;
         }

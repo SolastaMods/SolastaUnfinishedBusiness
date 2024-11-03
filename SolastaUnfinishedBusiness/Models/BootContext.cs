@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
@@ -28,7 +29,7 @@ internal static class BootContext
 
         // Load Portraits, Translations and Resources Locator after
         TranslatorContext.Load();
-        ResourceLocatorContext.Load();
+        ResourceLocatorHelper.Load();
 
         // Fixes spell slots and progressions early on
         FixesContext.Load();

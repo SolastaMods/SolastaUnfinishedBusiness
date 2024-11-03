@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -12,9 +11,9 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = TA.AI.Considerations.Random;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.Api.Helpers;
 
-internal static class AiContext
+internal static class AiHelpers
 {
     internal static ActivityScorerDefinition CreateActivityScorer(
         DecisionDefinition baseDecision, string name,

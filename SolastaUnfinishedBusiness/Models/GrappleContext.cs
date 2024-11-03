@@ -118,13 +118,13 @@ internal static class GrappleContext
             (SituationalContext)ExtraSituationalContext.IsConditionSource;
 
         var battlePackage =
-            AiContext.BuildDecisionPackageBreakFree(ConditionGrappleTargetName, AiContext.RandomType.RandomMediumLow);
+            AiHelpers.BuildDecisionPackageBreakFree(ConditionGrappleTargetName, AiHelpers.RandomType.RandomMediumLow);
 
         var conditionGrappleTarget = ConditionDefinitionBuilder
             .Create(ConditionGrappleTargetName)
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHindered)
             .SetConditionType(ConditionType.Detrimental)
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics)
+            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics)
             .SetBrain(battlePackage, true)
             .SetFeatures(
                 ActionAffinityGrappled,

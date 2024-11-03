@@ -292,11 +292,11 @@ public static class CharacterActionPanelPatcher
         public static bool Prefix(CharacterActionPanel __instance)
         {
             var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
-            var restrainingCondition = AiContext.GetRestrainingCondition(rulesetCharacter);
+            var restrainingCondition = AiHelpers.GetRestrainingCondition(rulesetCharacter);
 
             // if not a modded strength check condition let vanilla handle
             // this works as so far there is no way an ally should be forced to do a DoWisdomCheckAgainstCasterDC
-            if (restrainingCondition?.Amount != (int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
+            if (restrainingCondition?.Amount != (int)AiHelpers.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             {
                 return true;
             }

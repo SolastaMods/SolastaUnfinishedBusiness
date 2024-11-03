@@ -5,7 +5,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using TA.AI.Activities;
 using static RuleDefinitions;
 
@@ -24,7 +23,7 @@ public static class BreakFreePatcher
         {
             var gameLocationCharacter = character.GameLocationCharacter;
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
-            var restrainingCondition = AiContext.GetRestrainingCondition(rulesetCharacter);
+            var restrainingCondition = AiHelpers.GetRestrainingCondition(rulesetCharacter);
 
             if (restrainingCondition == null)
             {
@@ -36,23 +35,23 @@ public static class BreakFreePatcher
                 yield break;
             }
 
-            var action = (AiContext.BreakFreeType)restrainingCondition.Amount;
+            var action = (AiHelpers.BreakFreeType)restrainingCondition.Amount;
             var success = true;
 
             switch (action)
             {
-                case AiContext.BreakFreeType.DoNoCheckAndRemoveCondition:
+                case AiHelpers.BreakFreeType.DoNoCheckAndRemoveCondition:
                     break;
 
-                case AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC:
+                case AiHelpers.BreakFreeType.DoStrengthCheckAgainstCasterDC:
                     yield return RollAttributeCheck(AttributeDefinitions.Strength);
                     break;
 
-                case AiContext.BreakFreeType.DoWisdomCheckAgainstCasterDC:
+                case AiHelpers.BreakFreeType.DoWisdomCheckAgainstCasterDC:
                     yield return RollAttributeCheck(AttributeDefinitions.Wisdom);
                     break;
 
-                case AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics:
+                case AiHelpers.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics:
                     var rulesetSource = EffectHelpers.GetCharacterByGuid(restrainingCondition.SourceGuid);
                     var source = GameLocationCharacter.GetFromActor(rulesetSource);
                     var abilityCheckData = new AbilityCheckData

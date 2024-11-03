@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -58,14 +58,14 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Paladin)
             .AddToDB();
 
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{Name}NaturesWrath");
+        var battlePackage = AiHelpers.BuildDecisionPackageBreakFree($"Condition{Name}NaturesWrath");
 
         var conditionNaturesWrath = ConditionDefinitionBuilder
             .Create($"Condition{Name}NaturesWrath")
             .SetGuiPresentation(ConditionDefinitions.ConditionRestrained.GuiPresentation)
             .SetConditionType(ConditionType.Detrimental)
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
+            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .SetBrain(battlePackage, true)
             .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
