@@ -50,6 +50,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition MantleOfThorns = BuildMantleOfThorns();
     internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition PetalStorm = BuildPetalStorm();
+    internal static readonly SpellDefinition PowerWordHeal = BuildPowerWordHeal();
+    internal static readonly SpellDefinition PowerWordKill = BuildPowerWordKill();
     internal static readonly SpellDefinition PsychicWhip = BuildPsychicWhip();
     internal static readonly SpellDefinition PulseWave = BuildPulseWave();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
@@ -396,8 +398,8 @@ internal static class SpellsContext
         RegisterSpell(BuildInvulnerability(), 0, SpellListWizard);
         RegisterSpell(BuildMassHeal(), 0, SpellListCleric);
         RegisterSpell(BuildMeteorSwarmSingleTarget(), 0, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(BuildPowerWordHeal(), 0, SpellListBard, SpellListCleric);
-        RegisterSpell(BuildPowerWordKill(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(PowerWordHeal, 0, SpellListBard, SpellListCleric);
+        RegisterSpell(PowerWordKill, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPsychicScream(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildTimeStop(), 0, SpellListWizard, SpellListSorcerer);
         RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);

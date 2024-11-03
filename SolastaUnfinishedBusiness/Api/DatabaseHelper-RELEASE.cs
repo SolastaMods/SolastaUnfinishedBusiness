@@ -1812,6 +1812,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerTraditionShockArcanistGreaterArcaneShock { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistGreaterArcaneShock");
+
         internal static FeatureDefinitionPower PowerBerserkerFrenzy { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBerserkerFrenzy");
 

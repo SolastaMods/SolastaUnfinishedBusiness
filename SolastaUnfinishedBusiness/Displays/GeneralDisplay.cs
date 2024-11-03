@@ -249,7 +249,6 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchOneDndHealingPotionBonusAction();
         }
 
-
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BardTitle") + ":</color>");
         UI.Label();
@@ -258,14 +257,35 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeBardicInspirationDurationToOneHour"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeBardicInspirationDurationToOneHour = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndBardicInspirationDurationToOneHour();
+            SrdAndHouseRulesContext.SwitchOneDndChangeBardicInspirationDurationToOneHour();
         }
 
         toggle = Main.Settings.EnableBardExpertiseOneLevelBefore;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardExpertiseOneLevelBefore = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndBardExpertiseOneLevelBefore();
+            SrdAndHouseRulesContext.SwitchOneDndEnableBardExpertiseOneLevelBefore();
+        }
+
+        toggle = Main.Settings.EnableBardSuperiorInspirationAtLevel18;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardSuperiorInspirationAtLevel18"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardSuperiorInspirationAtLevel18 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
+        }
+
+        toggle = Main.Settings.EnableBardWordsOfCreationAtLevel20;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardSuperiorInspirationAtLevel18"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardWordsOfCreationAtLevel20 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndEnableBardWordsOfCreationAtLevel20();
+        }
+
+        toggle = Main.Settings.RemoveBardMagicalSecretAt14And18;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardMagicalSecretAt14And18"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveBardMagicalSecretAt14And18 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndRemoveBardMagicalSecretAt14And18();
         }
 
         toggle = Main.Settings.RemoveBardSongOfRest;
@@ -316,19 +336,19 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.AllowDruidToWearMetalArmor;
+        toggle = Main.Settings.EnableDruidToUseMetalArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AllowDruidToWearMetalArmor = toggle;
-            SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
+            Main.Settings.EnableDruidToUseMetalArmor = toggle;
+            SrdAndHouseRulesContext.SwitchOneDnDEnableDruidToUseMetalArmor();
         }
 
-        toggle = Main.Settings.AddDruidPrimalOrderAndRemoveMediumArmorProficiency;
+        toggle = Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency;
         if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
                 UI.AutoWidth()))
         {
-            Main.Settings.AddDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
-            SrdAndHouseRulesContext.SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
+            Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
+            SrdAndHouseRulesContext.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
         }
 
         toggle = Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd;

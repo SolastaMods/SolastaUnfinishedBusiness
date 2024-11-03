@@ -180,9 +180,9 @@ internal static class SrdAndHouseRulesContext
         SwitchChangeSleetStormToCube();
         SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
         SwitchConditionBlindedShouldNotAllowOpportunityAttack();
-        SwitchDruidAllowMetalArmor();
+        SwitchOneDnDEnableDruidToUseMetalArmor();
         SwitchDruidWeaponProficiencyToUseOneDnd();
-        SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
+        SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
         SwitchEldritchBlastRange();
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFilterOnHideousLaughter();
@@ -195,9 +195,12 @@ internal static class SrdAndHouseRulesContext
         SwitchOfficialFoodRationsWeight();
         SwitchOneDndPreparedSpellsTables();
         SwitchOneDndPaladinLayOnHandAsBonusAction();
+        SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
+        SwitchOneDndEnableBardWordsOfCreationAtLevel20();
         SwitchOneDndRemoveBardSongOfRest();
-        SwitchOneDndBardicInspirationDurationToOneHour();
-        SwitchOneDndBardExpertiseOneLevelBefore();
+        SwitchOneDndRemoveBardMagicalSecretAt14And18();
+        SwitchOneDndChangeBardicInspirationDurationToOneHour();
+        SwitchOneDndEnableBardExpertiseOneLevelBefore();
         SwitchOneDndWarlockInvocationsProgression();
         SwitchOneDndWarlockMagicalCunningAtLevel2();
         SwitchOneDndHealingPotionBonusAction();
@@ -388,9 +391,9 @@ internal static class SrdAndHouseRulesContext
         WizardClothes_Alternate.RequiredAttunementClasses.AddRange(allowedClasses);
     }
 
-    internal static void SwitchDruidAllowMetalArmor()
+    internal static void SwitchOneDnDEnableDruidToUseMetalArmor()
     {
-        var active = Main.Settings.AllowDruidToWearMetalArmor;
+        var active = Main.Settings.EnableDruidToUseMetalArmor;
 
         if (active)
         {
@@ -407,9 +410,9 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency()
+    internal static void SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency()
     {
-        if (Main.Settings.AddDruidPrimalOrderAndRemoveMediumArmorProficiency)
+        if (Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency)
         {
             FeatureDefinitionProficiencys.ProficiencyDruidArmor.Proficiencies.Remove(
                 EquipmentDefinitions.MediumArmorCategory);
@@ -709,7 +712,7 @@ internal static class SrdAndHouseRulesContext
             : ActivationTime.Action;
     }
 
-    internal static void SwitchOneDndBardExpertiseOneLevelBefore()
+    internal static void SwitchOneDndEnableBardExpertiseOneLevelBefore()
     {
         var level = Main.Settings.EnableBardExpertiseOneLevelBefore ? 2 : 3;
 
@@ -730,7 +733,7 @@ internal static class SrdAndHouseRulesContext
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndBardicInspirationDurationToOneHour()
+    internal static void SwitchOneDndChangeBardicInspirationDurationToOneHour()
     {
         if (Main.Settings.ChangeBardicInspirationDurationToOneHour)
         {
@@ -752,6 +755,54 @@ internal static class SrdAndHouseRulesContext
         if (!Main.Settings.RemoveBardSongOfRest)
         {
             Bard.FeatureUnlocks.Add(new FeatureUnlockByLevel(RestHealingModifierBardSongOfRest, 2));
+        }
+
+        Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchOneDndRemoveBardMagicalSecretAt14And18()
+    {
+        Bard.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureDefinitionPointPools.PointPoolBardMagicalSecrets14 ||
+            x.FeatureDefinition == Level20Context.PointPoolBardMagicalSecrets18);
+
+        if (!Main.Settings.RemoveBardMagicalSecretAt14And18)
+        {
+            Bard.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(FeatureDefinitionPointPools.PointPoolBardMagicalSecrets14, 14),
+                new FeatureUnlockByLevel(Level20Context.PointPoolBardMagicalSecrets18, 18));
+        }
+
+        Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchOneDndEnableBardSuperiorInspirationAtLevel18()
+    {
+        if (Main.Settings.RemoveBardMagicalSecretAt14And18)
+        {
+            Bard.FeatureUnlocks.Add(
+                new FeatureUnlockByLevel(Level20Context.FeatureBardSuperiorInspiration2024, 18));
+        }
+        else
+        {
+            Bard.FeatureUnlocks.RemoveAll(x =>
+                x.FeatureDefinition == Level20Context.FeatureBardSuperiorInspiration2024);
+        }
+
+        Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchOneDndEnableBardWordsOfCreationAtLevel20()
+    {
+        if (Main.Settings.RemoveBardMagicalSecretAt14And18)
+        {
+            Bard.FeatureUnlocks.Add(
+                new FeatureUnlockByLevel(Level20Context.AutoPreparedSpellsBardWordOfCreation, 20));
+        }
+        else
+        {
+            Bard.FeatureUnlocks.RemoveAll(x =>
+                x.FeatureDefinition == Level20Context.AutoPreparedSpellsBardWordOfCreation);
         }
 
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
