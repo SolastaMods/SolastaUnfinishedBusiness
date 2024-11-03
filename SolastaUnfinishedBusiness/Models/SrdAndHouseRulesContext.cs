@@ -14,6 +14,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
@@ -168,13 +169,39 @@ internal static class SrdAndHouseRulesContext
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
+    private static readonly List<(string, string)> GuidanceProficiencyPairs =
+    [
+        (AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics),
+        (AttributeDefinitions.Wisdom, SkillDefinitions.AnimalHandling),
+        (AttributeDefinitions.Intelligence, SkillDefinitions.Arcana),
+        (AttributeDefinitions.Strength, SkillDefinitions.Athletics),
+        (AttributeDefinitions.Charisma, SkillDefinitions.Deception),
+        (AttributeDefinitions.Intelligence, SkillDefinitions.History),
+        (AttributeDefinitions.Wisdom, SkillDefinitions.Insight),
+        (AttributeDefinitions.Charisma, SkillDefinitions.Intimidation),
+        (AttributeDefinitions.Intelligence, SkillDefinitions.Investigation),
+        (AttributeDefinitions.Wisdom, SkillDefinitions.Medecine),
+        (AttributeDefinitions.Intelligence, SkillDefinitions.Nature),
+        (AttributeDefinitions.Wisdom, SkillDefinitions.Perception),
+        (AttributeDefinitions.Charisma, SkillDefinitions.Performance),
+        (AttributeDefinitions.Charisma, SkillDefinitions.Persuasion),
+        (AttributeDefinitions.Intelligence, SkillDefinitions.Religion),
+        (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
+        (AttributeDefinitions.Dexterity, SkillDefinitions.Stealth),
+        (AttributeDefinitions.Wisdom, SkillDefinitions.Survival)
+    ];
+
+    private static List<SpellDefinition> GuidanceSubSpells = new List<SpellDefinition>();
+
     internal static void LateLoad()
     {
         BuildConjureElementalInvisibleStalker();
+        BuildOneDndGuidanceSubspells();
         LoadAfterRestIdentify();
         LoadAllowTargetingSelectionWhenCastingChainLightningSpell();
         LoadSenseNormalVisionRangeMultiplier();
         SwapOneDndBarkskinSpell();
+        SwapOneDndGuidanceSpell();
         SwitchAddBleedingToLesserRestoration();
         SwitchAllowClubsToBeThrown();
         SwitchChangeSleetStormToCube();
@@ -565,6 +592,76 @@ internal static class SrdAndHouseRulesContext
             Barkskin.GuiPresentation.description = "Spell/&BarkskinDescription";
             ConditionBarkskin.GuiPresentation.description = "Rules/&ConditionBarkskinDescription";
         }
+    }
+
+    private static void BuildOneDndGuidanceSubspells()
+    {
+        foreach (var (attribute, skill) in GuidanceProficiencyPairs)
+        {
+            var proficiencypair = (attribute, skill);
+            var affinity = $"AbilityCheckAffinityGuidance{skill}";
+            var condition = $"ConditionGuidance{skill}";
+
+            GuidanceSubSpells.Add(
+                SpellDefinitionBuilder
+                    .Create($"Guidance{skill}")
+                    .SetGuiPresentation(Category.Spell, Guidance.GuiPresentation.SpriteReference)
+                    .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolDivination)
+                    .SetSpellLevel(0)
+                    .SetCastingTime(ActivationTime.Action)
+                    .SetMaterialComponent(MaterialComponentType.None)
+                    .SetVerboseComponent(true)
+                    .SetSomaticComponent(true)
+                    .SetRequiresConcentration(true)
+                    .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Minute, 1)
+                        .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                        .SetEffectForms(EffectFormBuilder.ConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create(ConditionGuided, condition)
+                                    .SetGuiPresentation(Category.Condition, ConditionGuided)
+                                    .SetSpecialInterruptions(ConditionInterruption.None)
+                                    .SetFeatures(
+                                        FeatureDefinitionAbilityCheckAffinityBuilder
+                                            .Create(AbilityCheckAffinityGuided, affinity)
+                                            .SetGuiPresentationNoContent(true)
+                                            .BuildAndSetAffinityGroups(
+                                                CharacterAbilityCheckAffinity.None, DieType.D4, 1, AbilityCheckGroupOperation.AddDie,
+                                                abilityProficiencyPairs: (proficiencypair))
+                                            .AddToDB())
+                                    .AddToDB()))
+                        .SetParticleEffectParameters(Guidance)
+                        .Build())
+                    .AddToDB());
+        }
+    }
+
+    internal static void SwapOneDndGuidanceSpell()
+    {
+        foreach (var spell in GuidanceSubSpells)
+        {
+            spell.implemented = false;
+        }
+
+        if (Main.Settings.SwapOneDndGuidanceSpell)
+        {
+            Guidance.spellsBundle = true;
+            Guidance.SubspellsList.SetRange(GuidanceSubSpells);
+            Guidance.compactSubspellsTooltip = true;
+            Guidance.EffectDescription.EffectForms.Clear();
+            Guidance.GuiPresentation.description = "Spell/&OneDndGuidanceDescription";
+        }
+        else
+        {
+            Guidance.spellsBundle = false;
+            Guidance.SubspellsList.Clear();
+            Guidance.EffectDescription.EffectForms.SetRange(EffectFormBuilder.ConditionForm(ConditionGuided));
+            Guidance.GuiPresentation.description = "Spell/&GuidanceDescription";
+        }
+
     }
 
     internal static void SwitchOneDndWizardSchoolOfMagicLearningLevel()

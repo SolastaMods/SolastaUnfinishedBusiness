@@ -589,6 +589,13 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwapOneDndBarkskinSpell();
         }
 
+        toggle = Main.Settings.SwapOneDndGuidanceSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapOneDndGuidanceSpell = toggle;
+            SrdAndHouseRulesContext.SwapOneDndGuidanceSpell();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("ModUi/&DocsSubclasses") + ":</color>");
         UI.Label();
