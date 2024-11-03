@@ -124,19 +124,6 @@ internal static partial class CharacterContext
             .Setup(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
             .AddToDB();
 
-    internal static readonly FeatureDefinitionPower FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
-        .Create("PowerHelp")
-        .SetGuiPresentation(Category.Feature, Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 256, 128))
-        .SetUsesFixed(ActivationTime.Action)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(CustomConditionsContext.Distracted))
-                .Build())
-        .SetUniqueInstance()
-        .AddToDB();
 
     internal static readonly FeatureDefinitionPower PowerTeleportSummon = FeatureDefinitionPowerBuilder
         .Create("PowerTeleportSummon")
@@ -181,7 +168,6 @@ internal static partial class CharacterContext
         FlexibleBackgroundsContext.Load();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
-        GrappleContext.SwitchGrappleAction();
         LoadAdditionalNames();
         LoadEpicArray();
         LoadFeatsPointPools();
@@ -200,8 +186,6 @@ internal static partial class CharacterContext
         SwitchEveryFourLevelsFeats(true);
         SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
-        SwitchProneAction();
-        SwitchHelpPower();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
         SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
@@ -213,10 +197,9 @@ internal static partial class CharacterContext
         SwitchRogueFightingStyle();
         SwitchRogueSteadyAim();
         SwitchRogueStrSaving();
-
         SwitchSorcererMagicalGuidance();
         SwitchScimitarWeaponSpecialization();
-        SwitchBardHealingBalladOnLongRest();
+
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
             FeatureSetPathClawDragonAncestry, InvocationPoolPathClawDraconicChoice,
@@ -688,43 +671,6 @@ internal static partial class CharacterContext
         LoadRacesLevel1Feats(Main.Settings.TotalFeatsGrantedFirstLevel, Main.Settings.EnableAlternateHuman);
     }
 
-    internal static void SwitchHelpPower()
-    {
-        var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
-        var subRaces = dbCharacterRaceDefinition
-            .SelectMany(x => x.SubRaces);
-        var races = dbCharacterRaceDefinition
-            .Where(x => !subRaces.Contains(x));
-
-        if (Main.Settings.EnableHelpAction)
-        {
-            foreach (var characterRaceDefinition in races
-                         .Where(a => !a.FeatureUnlocks.Exists(x =>
-                             x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
-            {
-                characterRaceDefinition.FeatureUnlocks.Add(
-                    new FeatureUnlockByLevel(FeatureDefinitionPowerHelpAction, 1));
-            }
-        }
-        else
-        {
-            foreach (var characterRaceDefinition in races
-                         .Where(a => a.FeatureUnlocks.Exists(x =>
-                             x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
-            {
-                characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
-                    x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
-            }
-        }
-    }
-
-    internal static void SwitchProneAction()
-    {
-        DropProne.actionType = ActionDefinitions.ActionType.NoCost;
-        DropProne.formType = Main.Settings.EnableProneAction
-            ? ActionDefinitions.ActionFormType.Small
-            : ActionDefinitions.ActionFormType.Invisible;
-    }
 
     internal static void SwitchDarknessPerceptive()
     {
@@ -947,12 +893,6 @@ internal static partial class CharacterContext
                 proficiency.Proficiencies.Remove(WeaponTypeDefinitions.ScimitarType.Name);
             }
         }
-    }
-
-    internal static void SwitchBardHealingBalladOnLongRest()
-    {
-        FeatureDefinitionRestHealingModifiers.RestHealingModifierBardHealingBallad.applyDuringLongRest =
-            Main.Settings.EnableBardHealingBalladOnLongRest;
     }
 
     private static void SwitchSubclassAncestriesToUseCustomInvocationPools(

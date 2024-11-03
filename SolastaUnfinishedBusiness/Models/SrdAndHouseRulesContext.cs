@@ -14,47 +14,15 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRegenerations;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SrdAndHouseRulesContext
 {
     private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker";
-
-    internal static readonly HashSet<MonsterDefinition> ConjuredMonsters =
-    [
-        ConjuredOneBeastTiger_Drake,
-        ConjuredTwoBeast_Direwolf,
-        ConjuredFourBeast_BadlandsSpider,
-        ConjuredEightBeast_Wolf,
-
-        // Conjure minor elemental (4)
-        SkarnGhoul, // CR 2
-        WindSnake, // CR 2
-        Fire_Jester, // CR 1
-
-        // Conjure woodland beings (4) - not implemented
-
-        // Conjure elemental (5)
-        Air_Elemental, // CR 5
-        Fire_Elemental, // CR 5
-        Earth_Elemental, // CR 5
-
-        InvisibleStalker, // CR 6
-
-        // Conjure fey (6)
-        FeyGiantApe, // CR 6
-        FeyGiant_Eagle, // CR 5
-        FeyBear, // CR 4
-        Green_Hag, // CR 3
-        FeyWolf, // CR 2
-        FeyDriad
-    ];
 
     private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = [];
 
@@ -66,13 +34,6 @@ internal static class SrdAndHouseRulesContext
         Fire_Osprey,
         Fire_Spider
     ];
-
-    internal static readonly FeatureDefinitionActionAffinity ActionAffinityConditionBlind =
-        FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinityConditionBlind")
-            .SetGuiPresentationNoContent(true)
-            .SetForbiddenActions(Id.AttackOpportunity)
-            .AddToDB();
 
     private static readonly DecisionPackageDefinition DecisionPackageRestrained =
         AiContext.BuildDecisionPackageBreakFree(ConditionRestrainedByEntangle.Name);
@@ -88,25 +49,18 @@ internal static class SrdAndHouseRulesContext
         SwitchAddBleedingToLesserRestoration();
         SwitchAllowClubsToBeThrown();
         SwitchChangeSleetStormToCube();
-        SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
-        SwitchConditionBlindedShouldNotAllowOpportunityAttack();
-        SwitchEldritchBlastRange();
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFilterOnHideousLaughter();
-        SwitchFullyControlConjurations();
         SwitchAllowBladeCantripsToUseReach();
         SwitchHastedCasing();
         SwitchMagicStaffFoci();
         SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
-        SwitchOfficialFoodRationsWeight();
         SwitchRecurringEffectOnEntangle();
-        SwitchRingOfRegenerationHealRate();
         SwitchSchoolRestrictionsFromShadowCaster();
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
         NoTwinnedBladeCantrips();
-        ModifyGravitySlam();
     }
 
     private static void LoadSenseNormalVisionRangeMultiplier()
@@ -297,20 +251,6 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void SwitchConditionBlindedShouldNotAllowOpportunityAttack()
-    {
-        if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
-        {
-            ConditionDefinitions.ConditionBlinded.Features.TryAdd(ActionAffinityConditionBlind);
-            LightingAndObscurementContext.ConditionBlindedByDarkness.Features.TryAdd(ActionAffinityConditionBlind);
-        }
-        else
-        {
-            ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
-            LightingAndObscurementContext.ConditionBlindedByDarkness.Features.Remove(ActionAffinityConditionBlind);
-        }
-    }
-
     private static void LoadAllowTargetingSelectionWhenCastingChainLightningSpell()
     {
         ChainLightning.AddCustomSubFeatures(new FilterTargetingCharacterChainLightning());
@@ -331,23 +271,6 @@ internal static class SrdAndHouseRulesContext
             spell.targetType = TargetType.ArcFromIndividual;
             spell.targetParameter = 3;
             spell.effectAdvancement.additionalTargetsPerIncrement = 0;
-        }
-    }
-
-    internal static void SwitchOfficialFoodRationsWeight()
-    {
-        var foodSrdWeight = Food_Ration;
-        var foodForagedSrdWeight = Food_Ration_Foraged;
-
-        if (Main.Settings.UseOfficialFoodRationsWeight)
-        {
-            foodSrdWeight.weight = 2.0f;
-            foodForagedSrdWeight.weight = 2.0f;
-        }
-        else
-        {
-            foodSrdWeight.weight = 3.0f;
-            foodForagedSrdWeight.weight = 3.0f;
         }
     }
 
@@ -405,33 +328,6 @@ internal static class SrdAndHouseRulesContext
             sleetStormEffect.targetParameter = 4;
             sleetStormEffect.targetParameter2 = 3;
         }
-    }
-
-    internal static void SwitchEldritchBlastRange()
-    {
-        EldritchBlast.effectDescription.rangeParameter = Main.Settings.FixEldritchBlastRange ? 24 : 16;
-    }
-
-    internal static void SwitchRingOfRegenerationHealRate()
-    {
-        var ringDefinition = RegenerationRing;
-
-        if (Main.Settings.FixRingOfRegenerationHealRate)
-        {
-            // Heal by 1 hp per 3 minutes which is roughly the same as 
-            // RAW of 1d6 (avg 3.5) every 10 minutes.
-            ringDefinition.tickType = DurationType.Minute;
-            ringDefinition.tickNumber = 3;
-            ringDefinition.diceNumber = 1;
-        }
-        else
-        {
-            ringDefinition.tickType = DurationType.Round;
-            ringDefinition.tickNumber = 1;
-            ringDefinition.diceNumber = 2;
-        }
-
-        ringDefinition.dieType = DieType.D1;
     }
 
     internal static void SwitchUseHeightOneCylinderEffect()
@@ -583,141 +479,6 @@ internal static class SrdAndHouseRulesContext
         if (summonForm != null)
         {
             summonForm.monsterDefinitionName = InvisibleStalker.Name;
-        }
-    }
-
-    internal static void SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity()
-    {
-        foreach (var featureSet in DatabaseRepository.GetDatabase<FeatureDefinitionFeatureSet>())
-        {
-            if (Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition)
-            {
-                if (featureSet.FeatureSet.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance))
-                {
-                    featureSet.FeatureSet.TryAdd(ConditionAffinityWeatherChilledImmunity);
-                    featureSet.FeatureSet.TryAdd(ConditionAffinityWeatherFrozenImmunity);
-                }
-            }
-            else
-            {
-                featureSet.FeatureSet.Remove(ConditionAffinityWeatherChilledImmunity);
-                featureSet.FeatureSet.Remove(ConditionAffinityWeatherFrozenImmunity);
-            }
-
-            if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
-            {
-                // ReSharper disable once InvertIf
-                if (featureSet.FeatureSet.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity))
-                {
-                    featureSet.FeatureSet.TryAdd(ConditionAffinityWeatherChilledImmunity);
-                    featureSet.FeatureSet.TryAdd(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
-                    featureSet.FeatureSet.TryAdd(ConditionAffinityWeatherFrozenImmunity);
-                }
-            }
-            else
-            {
-                featureSet.FeatureSet.Remove(ConditionAffinityWeatherChilledImmunity);
-                featureSet.FeatureSet.Remove(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
-                featureSet.FeatureSet.Remove(ConditionAffinityWeatherFrozenImmunity);
-            }
-        }
-
-        foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>())
-        {
-            if (Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition)
-            {
-                if (condition.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance))
-                {
-                    condition.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
-                    condition.Features.TryAdd(ConditionAffinityWeatherFrozenImmunity);
-                }
-            }
-            else
-            {
-                condition.Features.Remove(ConditionAffinityWeatherChilledImmunity);
-                condition.Features.Remove(ConditionAffinityWeatherFrozenImmunity);
-            }
-
-            if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
-            {
-                // ReSharper disable once InvertIf
-                if (condition.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity))
-                {
-                    condition.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
-                    condition.Features.TryAdd(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
-                    condition.Features.TryAdd(ConditionAffinityWeatherFrozenImmunity);
-                }
-            }
-            else
-            {
-                condition.Features.Remove(ConditionAffinityWeatherChilledImmunity);
-                condition.Features.Remove(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
-                condition.Features.Remove(ConditionAffinityWeatherFrozenImmunity);
-            }
-        }
-
-        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
-        {
-            if (Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition)
-            {
-                var itemProperty = item.staticProperties.FirstOrDefault(x =>
-                    x.FeatureDefinition == FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance);
-
-                if (itemProperty != null)
-                {
-                    item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
-                    {
-                        featureDefinition = ConditionAffinityWeatherChilledImmunity
-                    });
-                    item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
-                    {
-                        featureDefinition = ConditionAffinityWeatherFrozenImmunity
-                    });
-                }
-            }
-            else
-            {
-                item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherChilledImmunity);
-                item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherFrozenImmunity);
-            }
-
-            if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
-            {
-                var itemProperty = item.staticProperties.FirstOrDefault(x =>
-                    x.FeatureDefinition == FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity);
-
-                // ReSharper disable once InvertIf
-                if (itemProperty != null)
-                {
-                    item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
-                    {
-                        featureDefinition = ConditionAffinityWeatherChilledImmunity
-                    });
-                    item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
-                    {
-                        featureDefinition = ConditionAffinityWeatherChilledInsteadOfFrozenImmunity
-                    });
-                    item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
-                    {
-                        featureDefinition = ConditionAffinityWeatherFrozenImmunity
-                    });
-                }
-            }
-            else
-            {
-                item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherChilledImmunity);
-                item.staticProperties.RemoveAll(x =>
-                    x.FeatureDefinition == ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
-                item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherFrozenImmunity);
-            }
-        }
-    }
-
-    internal static void SwitchFullyControlConjurations()
-    {
-        foreach (var conjuredMonster in ConjuredMonsters)
-        {
-            conjuredMonster.fullyControlledWhenAllied = Main.Settings.FullyControlConjurations;
         }
     }
 
@@ -977,37 +738,4 @@ internal static class SrdAndHouseRulesContext
 
         public static NoTwinned Mark { get; } = new();
     }
-
-    #region Gravity Slam
-
-    private static EffectDescription _gravitySlamVanilla;
-    private static EffectDescription _gravitySlamModified;
-
-    private static void ModifyGravitySlam()
-    {
-        _gravitySlamVanilla = GravitySlam.EffectDescription;
-
-        _gravitySlamModified = EffectDescriptionBuilder.Create(_gravitySlamVanilla)
-            .SetTargetingData(Side.All, RangeType.Distance, 20, TargetType.Cylinder, 4, 10)
-            .AddEffectForms(EffectFormBuilder.MotionForm(ExtraMotionType.PushDown, 10))
-            .Build();
-
-        ToggleGravitySlamModification();
-    }
-
-    internal static void ToggleGravitySlamModification()
-    {
-        if (Main.Settings.EnablePullPushOnVerticalDirection && Main.Settings.ModifyGravitySlam)
-        {
-            GravitySlam.effectDescription = _gravitySlamModified;
-        }
-        else
-        {
-            GravitySlam.effectDescription = _gravitySlamVanilla;
-        }
-
-        Global.RefreshControlledCharacter();
-    }
-
-    #endregion
 }

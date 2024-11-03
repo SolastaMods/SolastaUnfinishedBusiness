@@ -66,7 +66,7 @@ internal static class GrappleContext
         .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDisableGrapple())
         .AddToDB();
 
-    private static readonly ActionDefinition ActionGrapple = ActionDefinitionBuilder
+    internal static readonly ActionDefinition ActionGrapple = ActionDefinitionBuilder
         .Create($"Action{Grapple}")
         .SetGuiPresentation(Category.Action, AttackFree)
         .OverrideClassName("UsePower")
@@ -77,7 +77,7 @@ internal static class GrappleContext
         .SetFormType(ActionDefinitions.ActionFormType.Large)
         .AddToDB();
 
-    private static readonly ActionDefinition ActionDisableGrapple = ActionDefinitionBuilder
+    internal static readonly ActionDefinition ActionDisableGrapple = ActionDefinitionBuilder
         .Create($"Action{DisableGrapple}")
         .SetGuiPresentation(Category.Action, AttackFree)
         .OverrideClassName("UsePower")
@@ -226,16 +226,6 @@ internal static class GrappleContext
         }
     }
 
-    internal static void SwitchGrappleAction()
-    {
-        ActionGrapple.formType = Main.Settings.EnableGrappleAction
-            ? ActionDefinitions.ActionFormType.Large
-            : ActionDefinitions.ActionFormType.Invisible;
-
-        ActionDisableGrapple.formType = Main.Settings.EnableGrappleAction
-            ? ActionDefinitions.ActionFormType.Large
-            : ActionDefinitions.ActionFormType.Invisible;
-    }
 
     internal static void ValidateGrappleAfterForcedMove(GameLocationCharacter target)
     {

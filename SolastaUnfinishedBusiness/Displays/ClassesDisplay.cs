@@ -30,42 +30,42 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeBardicInspirationDurationToOneHour"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeBardicInspirationDurationToOneHour = toggle;
-            OneDndContext.SwitchOneDndChangeBardicInspirationDurationToOneHour();
+            Tabletop2024Context.SwitchOneDndChangeBardicInspirationDurationToOneHour();
         }
 
         toggle = Main.Settings.EnableBardExpertiseOneLevelBefore;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardExpertiseOneLevelBefore = toggle;
-            OneDndContext.SwitchOneDndEnableBardExpertiseOneLevelBefore();
+            Tabletop2024Context.SwitchOneDndEnableBardExpertiseOneLevelBefore();
         }
 
         toggle = Main.Settings.EnableBardSuperiorInspirationAtLevel18;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardSuperiorInspirationAtLevel18"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardSuperiorInspirationAtLevel18 = toggle;
-            OneDndContext.SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
+            Tabletop2024Context.SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
         }
 
         toggle = Main.Settings.EnableBardWordsOfCreationAtLevel20;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardWordsOfCreationAtLevel20"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardWordsOfCreationAtLevel20 = toggle;
-            OneDndContext.SwitchOneDndEnableBardWordsOfCreationAtLevel20();
+            Tabletop2024Context.SwitchOneDndEnableBardWordsOfCreationAtLevel20();
         }
 
         toggle = Main.Settings.RemoveBardMagicalSecretAt14And18;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardMagicalSecretAt14And18"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveBardMagicalSecretAt14And18 = toggle;
-            OneDndContext.SwitchOneDndRemoveBardMagicalSecretAt14And18();
+            Tabletop2024Context.SwitchOneDndRemoveBardMagicalSecretAt14And18();
         }
 
         toggle = Main.Settings.RemoveBardSongOfRest;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveBardSongOfRest = toggle;
-            OneDndContext.SwitchOneDndRemoveBardSongOfRest();
+            Tabletop2024Context.SwitchOneDndRemoveBardSongOfRest();
         }
 
         UI.Label();
@@ -77,8 +77,8 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableBarbarianBrutalStrike = toggle;
             Main.Settings.DisableBarbarianBrutalCritical = toggle;
-            OneDndContext.SwitchBarbarianBrutalStrike();
-            OneDndContext.SwitchBarbarianBrutalCritical();
+            Tabletop2024Context.SwitchBarbarianBrutalStrike();
+            Tabletop2024Context.SwitchBarbarianBrutalCritical();
         }
 
         if (Main.Settings.EnableBarbarianBrutalStrike)
@@ -87,7 +87,7 @@ internal static class ClassesDisplay
             if (UI.Toggle(Gui.Localize("ModUi/&DisableBarbarianBrutalCritical"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisableBarbarianBrutalCritical = toggle;
-                OneDndContext.SwitchBarbarianBrutalCritical();
+                Tabletop2024Context.SwitchBarbarianBrutalCritical();
             }
         }
 
@@ -102,14 +102,14 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration = toggle;
-            OneDndContext.SwitchBarbarianRecklessSameBuffDebuffDuration();
+            Tabletop2024Context.SwitchBarbarianRecklessSameBuffDebuffDuration();
         }
 
         toggle = Main.Settings.EnableBarbarianRegainOneRageAtShortRest;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRegainOneRageAtShortRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianRegainOneRageAtShortRest = toggle;
-            OneDndContext.SwitchBarbarianRegainOneRageAtShortRest();
+            Tabletop2024Context.SwitchBarbarianRegainOneRageAtShortRest();
         }
 
         UI.Label();
@@ -120,7 +120,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableDruidToUseMetalArmor = toggle;
-            OneDndContext.SwitchOneDnDEnableDruidToUseMetalArmor();
+            Tabletop2024Context.SwitchOneDnDEnableDruidToUseMetalArmor();
         }
 
         toggle = Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency;
@@ -128,14 +128,14 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
-            OneDndContext.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
+            Tabletop2024Context.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
         }
 
         toggle = Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidWeaponProficiencyToUseOneDnd"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd = toggle;
-            OneDndContext.SwitchDruidWeaponProficiencyToUseOneDnd();
+            Tabletop2024Context.SwitchDruidWeaponProficiencyToUseOneDnd();
         }
 
         UI.Label();
@@ -146,14 +146,14 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
-            OneDndContext.SwitchFighterLevelToIndomitableSavingReroll();
+            Tabletop2024Context.SwitchFighterLevelToIndomitableSavingReroll();
         }
 
         toggle = Main.Settings.AddPersuasionToFighterSkillOptions;
         if (UI.Toggle(Gui.Localize("ModUi/&AddPersuasionToFighterSkillOptions"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddPersuasionToFighterSkillOptions = toggle;
-            OneDndContext.SwitchPersuasionToFighterSkillOptions();
+            Tabletop2024Context.SwitchPersuasionToFighterSkillOptions();
         }
 
         toggle = Main.Settings.EnableFighterWeaponSpecialization;
@@ -185,7 +185,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf = toggle;
-            OneDndContext.SwitchMonkBodyAndMindToReplacePerfectSelf();
+            Tabletop2024Context.SwitchMonkBodyAndMindToReplacePerfectSelf();
         }
 
         toggle = Main.Settings.EnableMonkFightingStyle;
@@ -199,7 +199,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForFlurry"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry = toggle;
-            OneDndContext.SwitchMonkDoNotRequireAttackActionForFlurry();
+            Tabletop2024Context.SwitchMonkDoNotRequireAttackActionForFlurry();
         }
 
         toggle = Main.Settings.EnableMonkHandwrapsUseGauntletSlot;
@@ -215,7 +215,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkHeightenedMetabolism = toggle;
-            OneDndContext.SwitchMonkHeightenedMetabolism();
+            Tabletop2024Context.SwitchMonkHeightenedMetabolism();
         }
 
         toggle = Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall;
@@ -231,7 +231,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack = toggle;
-            OneDndContext.SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
+            Tabletop2024Context.SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
         }
 
         toggle = Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody;
@@ -239,7 +239,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody = toggle;
-            OneDndContext.SwitchMonkSuperiorDefenseToReplaceEmptyBody();
+            Tabletop2024Context.SwitchMonkSuperiorDefenseToReplaceEmptyBody();
         }
 
         toggle = Main.Settings.EnableMonkWeaponSpecialization;
@@ -253,7 +253,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression = toggle;
-            OneDndContext.SwitchOneDndMonkUnarmedDieTypeProgression();
+            Tabletop2024Context.SwitchOneDndMonkUnarmedDieTypeProgression();
         }
 
         UI.Label();
@@ -270,7 +270,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHandsAsBonusAction"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablePaladinLayOnHandsAsBonusAction = toggle;
-            OneDndContext.SwitchOneDndPaladinLayOnHandAsBonusAction();
+            Tabletop2024Context.SwitchOneDndPaladinLayOnHandAsBonusAction();
         }
 
         toggle = Main.Settings.EnablePaladinSmiteAsBonusAction;
@@ -283,7 +283,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablePaladinSpellCastingAtLevel1 = toggle;
-            OneDndContext.SwitchOneDndPaladinLearnSpellCastingAtOne();
+            Tabletop2024Context.SwitchOneDndPaladinLearnSpellCastingAtOne();
         }
 
         toggle = Main.Settings.ShowChannelDivinityOnPortrait;
@@ -307,14 +307,14 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt14"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRangerNatureShroudAt14 = toggle;
-            OneDndContext.SwitchRangerNatureShroud();
+            Tabletop2024Context.SwitchRangerNatureShroud();
         }
 
         toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
-            OneDndContext.SwitchOneDndRangerLearnSpellCastingAtOne();
+            Tabletop2024Context.SwitchOneDndRangerLearnSpellCastingAtOne();
         }
 
         UI.Label();
@@ -357,7 +357,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorcery"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSorcererInnateSorcery = toggle;
-            OneDndContext.SwitchSorcererInnateSorcery();
+            Tabletop2024Context.SwitchSorcererInnateSorcery();
         }
 
         toggle = Main.Settings.EnableSorcererMagicalGuidance;
@@ -390,14 +390,14 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableWarlockMagicalCunningAtLevel2 = toggle;
-            OneDndContext.SwitchOneDndWarlockMagicalCunningAtLevel2();
+            Tabletop2024Context.SwitchOneDndWarlockMagicalCunningAtLevel2();
         }
 
         toggle = Main.Settings.SwapWarlockToUseOneDndInvocationProgression;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapWarlockToUseOneDndInvocationProgression = toggle;
-            OneDndContext.SwitchOneDndWarlockInvocationsProgression();
+            Tabletop2024Context.SwitchOneDndWarlockInvocationsProgression();
         }
 
         UI.Label();
@@ -408,14 +408,14 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnScholarAtLevel2"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableWizardToLearnScholarAtLevel2 = toggle;
-            OneDndContext.SwitchOneDndWizardScholar();
+            Tabletop2024Context.SwitchOneDndWizardScholar();
         }
 
         toggle = Main.Settings.EnableWizardToLearnSchoolAtLevel3;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnSchoolAtLevel3"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableWizardToLearnSchoolAtLevel3 = toggle;
-            OneDndContext.SwitchOneDndWizardSchoolOfMagicLearningLevel();
+            Tabletop2024Context.SwitchOneDndWizardSchoolOfMagicLearningLevel();
         }
 
         toggle = Main.Settings.EnableSignatureSpellsRelearn;

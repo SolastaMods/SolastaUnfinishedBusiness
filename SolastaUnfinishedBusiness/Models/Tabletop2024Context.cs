@@ -33,7 +33,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamag
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class OneDndContext
+internal static class Tabletop2024Context
 {
     private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
         FeatureDefinitionCombatAffinityBuilder
@@ -1254,7 +1254,7 @@ internal static class OneDndContext
             .SetSilent(Silent.WhenAdded)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(SrdAndHouseRulesContext.ActionAffinityConditionBlind)
+            .SetFeatures(Tabletop2014Context.ActionAffinityConditionBlind)
             .AddToDB();
 
         // Sundering Blow

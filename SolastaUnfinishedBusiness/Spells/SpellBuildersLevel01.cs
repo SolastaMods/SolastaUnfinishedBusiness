@@ -2589,7 +2589,7 @@ internal static partial class SpellBuilders
                 MovementAffinityNoClimb,
                 MovementAffinityNoSpecialMoves,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
-                CharacterContext.FeatureDefinitionPowerHelpAction,
+                Tabletop2014Context.FeatureDefinitionPowerHelpAction,
                 CharacterContext.PowerTeleportSummon,
                 CharacterContext.PowerVanishSummon)
             .SetMonsterPresentation(

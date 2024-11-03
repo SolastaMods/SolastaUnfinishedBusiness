@@ -23,7 +23,7 @@ public static class NarrativeDirectionManagerPatcher
             {
                 involvedGameCharacters.RemoveAll(
                     x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster
-                         && SrdAndHouseRulesContext.ConjuredMonsters.Contains(rulesetCharacterMonster
+                         && Tabletop2014Context.ConjuredMonsters.Contains(rulesetCharacterMonster
                              .MonsterDefinition));
             }
 
