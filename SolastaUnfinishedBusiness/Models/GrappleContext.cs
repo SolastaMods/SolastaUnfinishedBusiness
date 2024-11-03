@@ -162,6 +162,7 @@ internal static class GrappleContext
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
                     x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+            .AddCancellingConditions(ConditionDefinitions.ConditionCharmedByHypnoticPattern)
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
@@ -177,6 +178,7 @@ internal static class GrappleContext
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
                     x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+            .AddCancellingConditions(ConditionDefinitions.ConditionCharmedByHypnoticPattern)
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
@@ -193,6 +195,7 @@ internal static class GrappleContext
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
                     x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+            .AddCancellingConditions(ConditionDefinitions.ConditionCharmedByHypnoticPattern)
             .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 

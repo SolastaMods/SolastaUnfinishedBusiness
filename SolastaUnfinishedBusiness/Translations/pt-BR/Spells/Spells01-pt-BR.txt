@@ -70,6 +70,7 @@ Reaction/&SpendSpellSlotElementalInfusionReactDescription=Absorva o elemento de 
 Reaction/&SpendSpellSlotElementalInfusionReactTitle=Absorver Elemento
 Reaction/&SpendSpellSlotElementalInfusionTitle=Ataque Elemental Chegando!
 Reaction/&SubitemSelectElementalInfusionTitle=Selecione um slot.
+Spell/&BarkskinOneDndDescription=Concede a você ou a um aliado que você pode tocar uma CA de pelo menos 17.
 Spell/&CausticZapDescription=Você envia um choque de energia verde em direção ao alvo, desorientando-o momentaneamente enquanto a magia queima parte de sua armadura. A magia alveja um inimigo com um ataque de magia e causa 1d4 de dano ácido e 1d6 de dano de raio e aplica a condição ofuscado.
 Spell/&CausticZapTitle=Zap cáustico
 Spell/&ChaosBoltDescription=Faça um ataque mágico à distância contra um alvo. Em um acerto, o alvo recebe 2d8 + 1d6 de dano. Escolha um dos d8s. O número rolado naquele dado determina o tipo de dano do ataque:\n{0}\nSe você rolar o mesmo número em ambos os d8s, você pode usar sua ação livre para alvejar uma criatura diferente de sua escolha. Faça uma nova jogada de ataque contra o novo alvo, e faça uma nova jogada de dano, o que pode fazer a energia caótica saltar novamente. Uma criatura pode ser danificada apenas uma vez por cada conjuração desta magia.

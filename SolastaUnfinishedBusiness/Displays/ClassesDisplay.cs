@@ -15,18 +15,57 @@ internal static class ClassesDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.AllowDruidToWearMetalArmor;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowDruidToWearMetalArmor = toggle;
-            SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
-        }
-
-        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
+        var toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
             CharacterContext.SwitchScimitarWeaponSpecialization();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BardTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.ChangeBardicInspirationDurationToOneHour;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeBardicInspirationDurationToOneHour"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeBardicInspirationDurationToOneHour = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndChangeBardicInspirationDurationToOneHour();
+        }
+
+        toggle = Main.Settings.EnableBardExpertiseOneLevelBefore;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardExpertiseOneLevelBefore = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndEnableBardExpertiseOneLevelBefore();
+        }
+
+        toggle = Main.Settings.EnableBardSuperiorInspirationAtLevel18;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardSuperiorInspirationAtLevel18"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardSuperiorInspirationAtLevel18 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
+        }
+
+        toggle = Main.Settings.EnableBardWordsOfCreationAtLevel20;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardWordsOfCreationAtLevel20"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardWordsOfCreationAtLevel20 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndEnableBardWordsOfCreationAtLevel20();
+        }
+
+        toggle = Main.Settings.RemoveBardMagicalSecretAt14And18;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardMagicalSecretAt14And18"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveBardMagicalSecretAt14And18 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndRemoveBardMagicalSecretAt14And18();
+        }
+
+        toggle = Main.Settings.RemoveBardSongOfRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveBardSongOfRest = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndRemoveBardSongOfRest();
         }
 
         UI.Label();
@@ -74,6 +113,32 @@ internal static class ClassesDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableDruidToUseMetalArmor;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidToUseMetalArmor = toggle;
+            SrdAndHouseRulesContext.SwitchOneDnDEnableDruidToUseMetalArmor();
+        }
+
+        toggle = Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
+            SrdAndHouseRulesContext.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
+        }
+
+        toggle = Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidWeaponProficiencyToUseOneDnd"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd = toggle;
+            SrdAndHouseRulesContext.SwitchDruidWeaponProficiencyToUseOneDnd();
+        }
+
+        UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&FighterTitle") + ":</color>");
         UI.Label();
 
@@ -84,11 +149,24 @@ internal static class ClassesDisplay
             CharacterContext.SwitchFighterLevelToIndomitableSavingReroll();
         }
 
+        toggle = Main.Settings.AddPersuasionToFighterSkillOptions;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPersuasionToFighterSkillOptions"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPersuasionToFighterSkillOptions = toggle;
+            CharacterContext.SwitchPersuasionToFighterSkillOptions();
+        }
+
         toggle = Main.Settings.EnableFighterWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableFighterWeaponSpecialization = toggle;
             CharacterContext.SwitchFighterWeaponSpecialization();
+        }
+
+        toggle = Main.Settings.SwapSecondWindToUseOneDndUsagesProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapSecondWindToUseOneDndUsagesProgression = toggle;
         }
 
         UI.Label();
@@ -171,6 +249,13 @@ internal static class ClassesDisplay
             CharacterContext.SwitchMonkWeaponSpecialization();
         }
 
+        toggle = Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression = toggle;
+            CharacterContext.SwitchOneDndMonkUnarmedDieTypeProgression();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&PaladinTitle") + ":</color>");
         UI.Label();
@@ -218,10 +303,10 @@ internal static class ClassesDisplay
             CharacterContext.SwitchRangerHumanoidFavoredEnemy();
         }
 
-        toggle = Main.Settings.EnableRangerNatureShroudAt10;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt10"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableRangerNatureShroudAt14;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt14"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableRangerNatureShroudAt10 = toggle;
+            Main.Settings.EnableRangerNatureShroudAt14 = toggle;
             CharacterContext.SwitchRangerNatureShroud();
         }
 
@@ -257,15 +342,23 @@ internal static class ClassesDisplay
             CharacterContext.SwitchRogueSteadyAim();
         }
 
-        toggle = Main.Settings.EnableRogueStrSaving;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueStrSaving"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.RemoveRogueBlindSense;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRogueBlindSense"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableRogueStrSaving = toggle;
+            Main.Settings.RemoveRogueBlindSense = toggle;
+            CharacterContext.SwitchRogueBlindSense();
         }
 
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
         UI.Label();
+
+        toggle = Main.Settings.EnableSorcererInnateSorcery;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorcery"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererInnateSorcery = toggle;
+            CharacterContext.SwitchSorcererInnateSorcery();
+        }
 
         toggle = Main.Settings.EnableSorcererMagicalGuidance;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))
@@ -290,8 +383,33 @@ internal static class ClassesDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableWarlockMagicalCunningAtLevel2;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockMagicalCunningAtLevel2 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWarlockMagicalCunningAtLevel2();
+        }
+
+        toggle = Main.Settings.SwapWarlockToUseOneDndInvocationProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapWarlockToUseOneDndInvocationProgression = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWarlockInvocationsProgression();
+        }
+
+        UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WizardTitle") + ":</color>");
         UI.Label();
+
+        toggle = Main.Settings.EnableWizardToLearnScholarAtLevel2;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnScholarAtLevel2"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWizardToLearnScholarAtLevel2 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWizardScholar();
+        }
 
         toggle = Main.Settings.EnableWizardToLearnSchoolAtLevel3;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnSchoolAtLevel3"), ref toggle, UI.AutoWidth()))

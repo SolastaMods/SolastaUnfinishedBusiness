@@ -175,7 +175,7 @@ internal static class RaceOligathBuilder
             if (helper != defender ||
                 !helper.IsReactionAvailable() ||
                 rulesetHelper is not { IsDeadOrUnconscious: false } ||
-                rulesetHelper.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
+                rulesetHelper.IsIncapacitated ||
                 rulesetHelper.HasConditionOfTypeOrSubType(ConditionStunned) ||
                 rulesetHelper.HasConditionOfTypeOrSubType(ConditionParalyzed) ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)

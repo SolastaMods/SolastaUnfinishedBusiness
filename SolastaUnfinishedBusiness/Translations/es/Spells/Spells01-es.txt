@@ -70,6 +70,7 @@ Reaction/&SpendSpellSlotElementalInfusionReactDescription=Absorber el elemento d
 Reaction/&SpendSpellSlotElementalInfusionReactTitle=Elemento absorbente
 Reaction/&SpendSpellSlotElementalInfusionTitle=¡Ataque elemental entrante!
 Reaction/&SubitemSelectElementalInfusionTitle=Seleccione una ranura.
+Spell/&BarkskinOneDndDescription=Te otorga a ti o a un aliado con el que puedas tocar una CA de al menos 17.
 Spell/&CausticZapDescription=Envías una descarga de energía verde hacia el objetivo, desorientándolo momentáneamente mientras el hechizo quema parte de su armadura. El hechizo apunta a un enemigo con un ataque de hechizo y causa 1d4 de daño de ácido y 1d6 de daño de relámpago, y aplica el estado de deslumbramiento.
 Spell/&CausticZapTitle=Zap cáustico
 Spell/&ChaosBoltDescription=Realiza un ataque de hechizo a distancia contra un objetivo. Si impacta, el objetivo recibe 2d8 + 1d6 de daño. Elige uno de los d8. El número que salga en ese dado determina el tipo de daño del ataque:\n{0}\nSi sacas el mismo número en ambos d8, puedes usar tu acción gratuita para atacar a una criatura diferente de tu elección. Realiza una nueva tirada de ataque contra el nuevo objetivo y una nueva tirada de daño, que podría hacer que la energía caótica salte de nuevo. Una criatura solo puede resultar dañada una vez por cada lanzamiento de este hechizo.

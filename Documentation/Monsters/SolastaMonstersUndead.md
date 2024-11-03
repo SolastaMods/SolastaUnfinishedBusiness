@@ -85,6 +85,7 @@ Size: *Medium*
 *Features:*
 * Condition Affinity Charm Immunity
 * Condition Affinity Exhaustion Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
@@ -300,6 +301,7 @@ Size: *Medium*
 *Features:*
 * Condition Affinity Charm Immunity
 * Condition Affinity Exhaustion Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Hindered By Frost Immunity
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
@@ -349,6 +351,7 @@ Size: *Medium*
 * Condition Affinity Exhaustion Immunity
 * Condition Affinity Frightened Immunity
 * Condition Affinity Grappled Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Hindered By Frost Immunity
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Poison Immunity
@@ -847,6 +850,7 @@ Size: *Medium*
 * Condition Affinity Exhaustion Immunity
 * Condition Affinity Frightened Immunity
 * Condition Affinity Grappled Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Hindered By Frost Immunity
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
@@ -895,6 +899,7 @@ Size: *Medium*
 *Features:*
 * Condition Affinity Charm Immunity
 * Condition Affinity Exhaustion Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Hindered By Frost Immunity
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
@@ -940,6 +945,7 @@ Size: *Large*
 * Condition Affinity Exhaustion Immunity
 * Condition Affinity Frightened Immunity
 * Condition Affinity Grappled Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
@@ -1080,6 +1086,7 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity Grappled Restrained Spell Web Immunity
+* Condition Affinity Grapple Target
 * Condition Affinity Prone Immunity
 * Resistant to cold weather
 * Resistant to cold weather

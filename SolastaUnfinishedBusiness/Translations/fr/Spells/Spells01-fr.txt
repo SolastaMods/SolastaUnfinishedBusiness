@@ -70,6 +70,7 @@ Reaction/&SpendSpellSlotElementalInfusionReactDescription=Absorber l'élément d
 Reaction/&SpendSpellSlotElementalInfusionReactTitle=Absorber l'élément
 Reaction/&SpendSpellSlotElementalInfusionTitle=Attaque d'élément entrante !
 Reaction/&SubitemSelectElementalInfusionTitle=Sélectionnez un emplacement.
+Spell/&BarkskinOneDndDescription=Vous donne, à vous ou à un allié que vous pouvez toucher, une CA d'au moins 17.
 Spell/&CausticZapDescription=Vous envoyez une décharge d'énergie verte vers la cible, la désorientant momentanément tandis que le sort brûle une partie de son armure. Le sort cible un ennemi avec une attaque magique et inflige 1d4 dégâts d'acide et 1d6 dégâts de foudre et applique l'état d'éblouissement.
 Spell/&CausticZapTitle=Zap caustique
 Spell/&ChaosBoltDescription=Lancez une attaque à distance contre une cible. En cas de succès, la cible subit 2d8 + 1d6 dégâts. Choisissez l'un des d8. Le nombre obtenu sur ce dé détermine le type de dégâts de l'attaque :\n{0}\nSi vous obtenez le même nombre sur les deux d8, vous pouvez utiliser votre action libre pour cibler une autre créature de votre choix. Lancez un nouveau jet d'attaque contre la nouvelle cible, puis un nouveau jet de dégâts, ce qui pourrait faire bondir à nouveau l'énergie chaotique. Une créature ne peut être blessée qu'une seule fois par lancement de ce sort.

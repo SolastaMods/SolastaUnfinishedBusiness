@@ -75,7 +75,8 @@
     "Definition:ConditionSwallowedRemorhaz:1bf833241755e684fbef755a54de3fd6",
     "Definition:ConditionSwallowedShamblingMound:10cc7c5600c606f43b33ab8775ebfc68",
     "Definition:ConditionUnconscious:2d543b2740ecddd4a977d8a706a8a2c9",
-    "Definition:ConditionBanishedByBanishment:2e051532-eaa9-5f4c-8af2-2c47b3a8f501"
+    "Definition:ConditionBanishedByBanishment:2e051532-eaa9-5f4c-8af2-2c47b3a8f501",
+    "Definition:ConditionCharmedByHypnoticPattern:5396f18314418ed449b0cd42f887aae1"
   ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",

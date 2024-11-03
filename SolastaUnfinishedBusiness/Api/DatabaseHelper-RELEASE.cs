@@ -308,6 +308,15 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionBardicInspiration { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBardicInspiration");
+
+        internal static ConditionDefinition ConditionCharmedByHypnoticPattern { get; } =
+            GetDefinition<ConditionDefinition>("ConditionCharmedByHypnoticPattern");
+
+        internal static ConditionDefinition ConditionHeavilyEncumbered { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHeavilyEncumbered");
+
         internal static ConditionDefinition ConditionDashing { get; } =
             GetDefinition<ConditionDefinition>("ConditionDashing");
 
@@ -541,9 +550,6 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionHindered_By_Frost { get; } =
             GetDefinition<ConditionDefinition>("ConditionHindered_By_Frost");
-
-        internal static ConditionDefinition ConditionHitByDirtyFighting { get; } =
-            GetDefinition<ConditionDefinition>("ConditionHitByDirtyFighting");
 
         internal static ConditionDefinition ConditionHopeless { get; } =
             GetDefinition<ConditionDefinition>("ConditionHopeless");
@@ -1548,6 +1554,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetClericRitualCasting { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetClericRitualCasting");
+
         internal static FeatureDefinitionFeatureSet FeatureSetSorcererChildRiftRiftwalk { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererChildRiftRiftwalk");
 
@@ -1728,6 +1737,12 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPointPools
     {
+        internal static FeatureDefinitionPointPool PointPoolBardExpertiseLevel3 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBardExpertiseLevel3");
+
+        internal static FeatureDefinitionPointPool PointPoolBardExpertiseLevel10 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBardExpertiseLevel10");
+
         internal static FeatureDefinitionPointPool PointPoolAbilityScoreImprovement { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolAbilityScoreImprovement");
 
@@ -1787,10 +1802,22 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPointPool PointPoolWizardSkillPoints { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolWizardSkillPoints");
+
+        internal static FeatureDefinitionPointPool PointPoolWarlockInvocation2 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockInvocation2");
+
+        internal static FeatureDefinitionPointPool PointPoolWarlockInvocation5 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockInvocation5");
     }
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerTraditionShockArcanistGreaterArcaneShock { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistGreaterArcaneShock");
+
+        internal static FeatureDefinitionPower PowerBerserkerFrenzy { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBerserkerFrenzy");
+
         internal static FeatureDefinitionPower PowerFunctionAntitoxin { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionAntitoxin");
 
@@ -2187,6 +2214,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerSorcererHauntedSoulVengefulSpirits { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulVengefulSpirits");
 
+        internal static FeatureDefinitionPower PowerTraditionCourtMageExpandedSpellShield { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionCourtMageExpandedSpellShield");
+
         internal static FeatureDefinitionPower PowerSorcererManaPainterDrain { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererManaPainterDrain");
 
@@ -2414,6 +2444,9 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionRestHealingModifier RestHealingModifierBardHealingBallad { get; } =
             GetDefinition<FeatureDefinitionRestHealingModifier>("RestHealingModifierBardHealingBallad");
+
+        internal static FeatureDefinitionRestHealingModifier RestHealingModifierBardSongOfRest { get; } =
+            GetDefinition<FeatureDefinitionRestHealingModifier>("RestHealingModifierBardSongOfRest");
     }
 
     internal static class FeatureDefinitionSavingThrowAffinitys
@@ -2477,6 +2510,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionSenses
     {
+        internal static FeatureDefinitionSense SenseRogueBlindsense { get; } =
+            GetDefinition<FeatureDefinitionSense>("SenseRogueBlindsense");
+
         internal static FeatureDefinitionSense SenseBlindSight6 { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseBlindSight6");
 

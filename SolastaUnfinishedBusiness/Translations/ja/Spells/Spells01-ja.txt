@@ -70,6 +70,7 @@ Reaction/&SpendSpellSlotElementalInfusionReactDescription=受けるダメージ�
 Reaction/&SpendSpellSlotElementalInfusionReactTitle=エレメントを吸収
 Reaction/&SpendSpellSlotElementalInfusionTitle=エレメントアタック到来！
 Reaction/&SubitemSelectElementalInfusionTitle=スロットを選択します。
+Spell/&BarkskinOneDndDescription=あなたまたはあなたが触れることができる味方に少なくとも 17 の AC を与えます。
 Spell/&CausticZapDescription=ターゲットに向かって緑のエネルギーの衝撃を送り、呪文が鎧の一部を燃やすと、ターゲットは一時的に方向感覚を失います。この呪文は敵 1 体を呪文攻撃で対象とし、1d4 の酸ダメージと 1d6 の雷ダメージを与え、幻惑状態を適用します。
 Spell/&CausticZapTitle=カウスティックザップ
 Spell/&ChaosBoltDescription=ターゲットに対して遠隔呪文攻撃を行います。命中すると、ターゲットは 2d8 + 1d6 のダメージを受けます。d8 のうち 1 つを選択します。そのダイスで出た目によって、攻撃のダメージの種類が決まります:\n{0}\n両方の d8 で同じ目が出た場合、自由行動を使用して、選択した別のクリーチャーをターゲットにすることができます。新しいターゲットに対して新しい攻撃ロールを行い、新しいダメージ ロールを行います。これにより、混沌のエネルギーが再び跳ね上がる可能性があります。クリーチャーは、この呪文を唱えるたびに 1 回だけダメージを受ける可能性があります。

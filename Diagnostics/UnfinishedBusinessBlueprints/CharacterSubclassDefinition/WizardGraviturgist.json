@@ -13,7 +13,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWizardGraviturgistDensity:96177598-5836-5bf8-8cfc-b60925a95ea9",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerWizardGraviturgistGravityWell:faf3975c-aac0-5eab-b363-62a253150e4d",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityGravityWellToggle:7384e03c-b244-5c70-b1ef-f1c73eadf997",
       "level": 6
     },
     {

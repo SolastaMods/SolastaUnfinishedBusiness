@@ -16,11 +16,63 @@ internal static class ToolsDisplay
         DisplayGeneral();
         UI.Label();
         DisplayMultiplayer();
+
         UI.Label();
-        DisplayOneDnd();
+        UI.Label(Gui.Localize("ModUi/&TableTopHelp1"));
+        UI.Label(Gui.Localize("ModUi/&TableTopHelp2"));
+        UI.Label();
+        UI.ActionButton(Gui.Localize("ModUi/&TableTopButton"), SelectTabletopSet, UI.AutoWidth());
         UI.Label();
         DisplayTabletop();
         UI.Label();
+        DisplayOneDnd();
+        UI.Label();
+    }
+
+    private static void SelectTabletopSet()
+    {
+        foreach (var background in BackgroundsContext.Backgrounds)
+        {
+            BackgroundsContext.Switch(background, ModUi.TabletopDefinitions.Contains(background));
+        }
+
+        foreach (var race in RacesContext.Races)
+        {
+            RacesContext.Switch(race, ModUi.TabletopDefinitions.Contains(race));
+        }
+
+        foreach (var subrace in RacesContext.Subraces)
+        {
+            RacesContext.SwitchSubrace(subrace, ModUi.TabletopDefinitions.Contains(subrace));
+        }
+
+        foreach (var feat in FeatsContext.Feats)
+        {
+            FeatsContext.SwitchFeat(feat, ModUi.TabletopDefinitions.Contains(feat));
+        }
+
+        foreach (var featGroup in FeatsContext.FeatGroups)
+        {
+            FeatsContext.SwitchFeatGroup(featGroup, true);
+        }
+
+        foreach (var fightingStyles in FightingStyleContext.FightingStyles)
+        {
+            FightingStyleContext.Switch(fightingStyles, ModUi.TabletopDefinitions.Contains(fightingStyles));
+        }
+
+        foreach (var invocation in InvocationsContext.Invocations)
+        {
+            InvocationsContext.SwitchInvocation(invocation, ModUi.TabletopDefinitions.Contains(invocation));
+        }
+
+        foreach (var metamagic in MetamagicContext.Metamagic)
+        {
+            MetamagicContext.SwitchMetamagic(metamagic, ModUi.TabletopDefinitions.Contains(metamagic));
+        }
+
+        SpellsContext.SelectTabletopSet(true);
+        SubclassesContext.SelectTabletopSet(true);
     }
 
     private static void DisplayGeneral()
@@ -190,8 +242,6 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchOneDndSurprisedEnforceDisadvantage();
         }
 
-        UI.Label();
-
         toggle = Main.Settings.OneDndHealingPotionBonusAction;
         if (UI.Toggle(Gui.Localize("ModUi/&OneDndHealingPotionBonusAction"), ref toggle, UI.AutoWidth()))
         {
@@ -200,13 +250,191 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BardTitle") + ":</color>");
+        UI.Label();
 
-        toggle = Main.Settings.AllowDruidToWearMetalArmor;
+        toggle = Main.Settings.ChangeBardicInspirationDurationToOneHour;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeBardicInspirationDurationToOneHour"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeBardicInspirationDurationToOneHour = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndChangeBardicInspirationDurationToOneHour();
+        }
+
+        toggle = Main.Settings.EnableBardExpertiseOneLevelBefore;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardExpertiseOneLevelBefore = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndEnableBardExpertiseOneLevelBefore();
+        }
+
+        toggle = Main.Settings.EnableBardSuperiorInspirationAtLevel18;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardSuperiorInspirationAtLevel18"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardSuperiorInspirationAtLevel18 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
+        }
+
+        toggle = Main.Settings.EnableBardWordsOfCreationAtLevel20;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardWordsOfCreationAtLevel20"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardWordsOfCreationAtLevel20 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndEnableBardWordsOfCreationAtLevel20();
+        }
+
+        toggle = Main.Settings.RemoveBardMagicalSecretAt14And18;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardMagicalSecretAt14And18"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveBardMagicalSecretAt14And18 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndRemoveBardMagicalSecretAt14And18();
+        }
+
+        toggle = Main.Settings.RemoveBardSongOfRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveBardSongOfRest = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndRemoveBardSongOfRest();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BarbarianTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableBarbarianBrutalStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianBrutalStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianBrutalStrike = toggle;
+            Main.Settings.DisableBarbarianBrutalCritical = toggle;
+            CharacterContext.SwitchBarbarianBrutalStrike();
+            CharacterContext.SwitchBarbarianBrutalCritical();
+        }
+
+        if (Main.Settings.EnableBarbarianBrutalStrike)
+        {
+            toggle = Main.Settings.DisableBarbarianBrutalCritical;
+            if (UI.Toggle(Gui.Localize("ModUi/&DisableBarbarianBrutalCritical"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisableBarbarianBrutalCritical = toggle;
+                CharacterContext.SwitchBarbarianBrutalCritical();
+            }
+        }
+
+        toggle = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration = toggle;
+            CharacterContext.SwitchBarbarianRecklessSameBuffDebuffDuration();
+        }
+
+        toggle = Main.Settings.EnableBarbarianRegainOneRageAtShortRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRegainOneRageAtShortRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianRegainOneRageAtShortRest = toggle;
+            CharacterContext.SwitchBarbarianRegainOneRageAtShortRest();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableDruidToUseMetalArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AllowDruidToWearMetalArmor = toggle;
-            SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
+            Main.Settings.EnableDruidToUseMetalArmor = toggle;
+            SrdAndHouseRulesContext.SwitchOneDnDEnableDruidToUseMetalArmor();
         }
+
+        toggle = Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
+            SrdAndHouseRulesContext.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
+        }
+
+        toggle = Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidWeaponProficiencyToUseOneDnd"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd = toggle;
+            SrdAndHouseRulesContext.SwitchDruidWeaponProficiencyToUseOneDnd();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&FighterTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.AddFighterLevelToIndomitableSavingReroll;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
+            CharacterContext.SwitchFighterLevelToIndomitableSavingReroll();
+        }
+
+        toggle = Main.Settings.AddPersuasionToFighterSkillOptions;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPersuasionToFighterSkillOptions"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPersuasionToFighterSkillOptions = toggle;
+            CharacterContext.SwitchPersuasionToFighterSkillOptions();
+        }
+
+        toggle = Main.Settings.SwapSecondWindToUseOneDndUsagesProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapSecondWindToUseOneDndUsagesProgression = toggle;
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&MonkTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf = toggle;
+            CharacterContext.SwitchMonkBodyAndMindToReplacePerfectSelf();
+        }
+
+        toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForFlurry"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry = toggle;
+            CharacterContext.SwitchMonkDoNotRequireAttackActionForFlurry();
+        }
+
+        toggle = Main.Settings.EnableMonkHeightenedMetabolism;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkHeightenedMetabolism"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkHeightenedMetabolism = toggle;
+            CharacterContext.SwitchMonkHeightenedMetabolism();
+        }
+
+        toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack = toggle;
+            CharacterContext.SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
+        }
+
+        toggle = Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody = toggle;
+            CharacterContext.SwitchMonkSuperiorDefenseToReplaceEmptyBody();
+        }
+
+        toggle = Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression = toggle;
+            CharacterContext.SwitchOneDndMonkUnarmedDieTypeProgression();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&PaladinTitle") + ":</color>");
+        UI.Label();
 
         toggle = Main.Settings.EnablePaladinLayOnHandsAsBonusAction;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHandsAsBonusAction"), ref toggle, UI.AutoWidth()))
@@ -228,11 +456,87 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchOneDndPaladinLearnSpellCastingAtOne();
         }
 
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&RangerTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableRangerNatureShroudAt14;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt14"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerNatureShroudAt14 = toggle;
+            CharacterContext.SwitchRangerNatureShroud();
+        }
+
         toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
             SrdAndHouseRulesContext.SwitchOneDndRangerLearnSpellCastingAtOne();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&RogueTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableRogueCunningStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueCunningStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueCunningStrike = toggle;
+            CharacterContext.SwitchRogueCunningStrike();
+        }
+
+        toggle = Main.Settings.EnableRogueSteadyAim;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueSteadyAim"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueSteadyAim = toggle;
+            CharacterContext.SwitchRogueSteadyAim();
+        }
+
+        toggle = Main.Settings.RemoveRogueBlindSense;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRogueBlindSense"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRogueBlindSense = toggle;
+            CharacterContext.SwitchRogueBlindSense();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableSorcererInnateSorcery;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorcery"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererInnateSorcery = toggle;
+            CharacterContext.SwitchSorcererInnateSorcery();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableWarlockMagicalCunningAtLevel2;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockMagicalCunningAtLevel2 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWarlockMagicalCunningAtLevel2();
+        }
+
+        toggle = Main.Settings.SwapWarlockToUseOneDndInvocationProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapWarlockToUseOneDndInvocationProgression = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWarlockInvocationsProgression();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WizardTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableWizardToLearnScholarAtLevel2;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnScholarAtLevel2"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWizardToLearnScholarAtLevel2 = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndWizardScholar();
         }
 
         toggle = Main.Settings.EnableWizardToLearnSchoolAtLevel3;
@@ -243,11 +547,25 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("ModUi/&DocsRaces") + ":</color>");
+        UI.Label();
 
-        toggle = Main.Settings.EnableCastersToCountMaxPreparedFromTable;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCastersToCountMaxPreparedFromTable"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableAlternateHuman;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableCastersToCountMaxPreparedFromTable = toggle;
+            Main.Settings.EnableAlternateHuman = toggle;
+            CharacterContext.SwitchFirstLevelTotalFeats();
+        }
+
+        UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("ModUi/&DocsSpells") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableOneDnDPreparedSpellsTables;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDnDPreparedSpellsTables"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDnDPreparedSpellsTables = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndPreparedSpellsTables();
         }
 
         toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
@@ -257,7 +575,45 @@ internal static class ToolsDisplay
             SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
         }
 
+        toggle = Main.Settings.EnableRitualOnAllCasters;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRitualOnAllCasters = toggle;
+            SrdAndHouseRulesContext.SwitchEnableRitualOnAllCasters();
+        }
+
+        toggle = Main.Settings.SwapOneDndBarkskinSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapOneDndBarkskinSpell = toggle;
+            SrdAndHouseRulesContext.SwapOneDndBarkskinSpell();
+        }
+
+        toggle = Main.Settings.SwapOneDndGuidanceSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapOneDndGuidanceSpell = toggle;
+            SrdAndHouseRulesContext.SwapOneDndGuidanceSpell();
+        }
+
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("ModUi/&DocsSubclasses") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.SwapAbjurationSavant;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapAbjurationSavant"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapAbjurationSavant = toggle;
+            WizardAbjuration.SwapSavantAndSavant2024();
+        }
+
+        toggle = Main.Settings.SwapEvocationSavant;
+        // ReSharper disable once InvertIf
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapEvocationSavant"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapEvocationSavant = toggle;
+            WizardEvocation.SwapSavantAndSavant2024();
+        }
 
         toggle = Main.Settings.SwapEvocationPotentCantripAndSculptSpell;
         // ReSharper disable once InvertIf
@@ -313,6 +669,14 @@ internal static class ToolsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
+        if (UI.Toggle(Gui.Localize("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
+            SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
+        }
+
         toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
         {
@@ -357,7 +721,6 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
-
 
         toggle = Main.Settings.KeepStealthOnHeroIfPerceivedDuringSurpriseAttack;
         if (UI.Toggle(Gui.Localize("ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack"), ref toggle,
@@ -485,6 +848,78 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableSorcererMagicalGuidance;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererMagicalGuidance = toggle;
+            CharacterContext.SwitchSorcererMagicalGuidance();
+        }
+
+        toggle = Main.Settings.EnableSorcererQuickenedAction;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererQuickenedAction"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererQuickenedAction = toggle;
+        }
+
+        if (Main.Settings.EnableSorcererQuickenedAction)
+        {
+            toggle = Main.Settings.HideQuickenedActionWhenMetamagicOff;
+            if (UI.Toggle(Gui.Localize("ModUi/&HideQuickenedActionWhenMetamagicOff"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.HideQuickenedActionWhenMetamagicOff = toggle;
+            }
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AccountForAllDiceOnFollowUpStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnFollowUpStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AccountForAllDiceOnFollowUpStrike = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange = toggle;
+        }
+
+        toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
+        if (UI.Toggle(Gui.Localize("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
+        }
+
+        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
+            SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
+        }
+
+        toggle = Main.Settings.FixEldritchBlastRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixEldritchBlastRange = toggle;
+            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
+        // ReSharper disable once InvertIf
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
+            CharacterContext.SwitchBardHealingBalladOnLongRest();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿// using SolastaUnfinishedBusiness.Classes;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -24,7 +22,6 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -294,6 +291,24 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    //BUGFIX: Charmed by Hypnotic Pattern isn't marking isIncapacitated as true as it parent is charmed
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshConditionFlags))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshConditionFlags_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance)
+        {
+            if (!__instance.IsIncapacitated && __instance.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    DatabaseHelper.ConditionDefinitions.ConditionCharmedByHypnoticPattern.Name))
+            {
+                __instance.isIncapacitated = true;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.FindFirstRetargetableEffect))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -498,6 +513,20 @@ public static class RulesetCharacterPatcher
             __result += __instance.GetSubFeaturesByType<IModifyPowerPoolAmount>()
                 .Where(m => m.PowerPool == usablePower.PowerDefinition)
                 .Sum(m => m.PoolChangeAmount(__instance));
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.SerializeElements))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SerializeElements_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, IElementsSerializer serializer)
+        {
+            //PATCH: allow marking  some powers to read their uses attribute on load even if uses determination is not AbilityBonusPlusFixed
+            //used for BG3 mode toggle in Abjuration wizard's Arcane Ward
+            ForceUsesAttributeDeserialization.Process(__instance, serializer);
         }
     }
 

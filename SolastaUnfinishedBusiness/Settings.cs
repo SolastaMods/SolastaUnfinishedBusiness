@@ -58,7 +58,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSameWidthInvocationSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
-    public bool EnableSortingFutureFeatures { get; set; } = true;
     public bool FixAsianLanguagesTextWrap { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp { get; set; } = true;
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
@@ -259,17 +258,27 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Classes
     //
 
-    public bool AllowDruidToWearMetalArmor { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
+    public bool ChangeBardicInspirationDurationToOneHour { get; set; }
+    public bool EnableBardExpertiseOneLevelBefore { get; set; }
+    public bool EnableBardSuperiorInspirationAtLevel18 { get; set; }
+    public bool EnableBardWordsOfCreationAtLevel20 { get; set; }
+    public bool RemoveBardMagicalSecretAt14And18 { get; set; }
+    public bool RemoveBardSongOfRest { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
     public bool DisableBarbarianBrutalCritical { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
     public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
     public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
+    public bool EnableDruidToUseMetalArmor { get; set; }
+    public bool EnableDruidPrimalOrderAndRemoveMediumArmorProficiency { get; set; }
+    public bool SwapDruidWeaponProficiencyToUseOneDnd { get; set; }
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
+    public bool AddPersuasionToFighterSkillOptions { get; set; }
+    public bool SwapSecondWindToUseOneDndUsagesProgression { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
-    public bool EnableRangerNatureShroudAt10 { get; set; }
+    public bool EnableRangerNatureShroudAt14 { get; set; }
     public bool EnableRangerSpellCastingAtLevel1 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
     public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack { get; set; }
@@ -281,6 +290,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkSuperiorDefenseToReplaceEmptyBody { get; set; }
     public bool EnableMonkBodyAndMindToReplacePerfectSelf { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
+    public bool SwapMonkToUseOneDndUnarmedDieTypeProgression { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnablePaladinLayOnHandsAsBonusAction { get; set; }
     public bool EnablePaladinSmiteAsBonusAction { get; set; }
@@ -289,10 +299,14 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
-    public bool EnableRogueStrSaving { get; set; }
+    public bool RemoveRogueBlindSense { get; set; }
+    public bool EnableSorcererInnateSorcery { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
+    public bool EnableWarlockMagicalCunningAtLevel2 { get; set; }
+    public bool SwapWarlockToUseOneDndInvocationProgression { get; set; }
+    public bool EnableWizardToLearnScholarAtLevel2 { get; set; }
     public bool EnableWizardToLearnSchoolAtLevel3 { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }
 
@@ -345,7 +359,8 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool AllowBladeCantripsToUseReach { get; set; }
-    public bool EnableCastersToCountMaxPreparedFromTable { get; set; }
+    public bool EnableOneDnDPreparedSpellsTables { get; set; }
+    public bool EnableRitualOnAllCasters { get; set; }
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
     public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
@@ -360,11 +375,14 @@ public class Settings : UnityModManager.ModSettings
     public bool FixEldritchBlastRange { get; set; }
     public bool ModifyGravitySlam { get; set; }
     public bool EnableOneDndHealingSpellsBuf { get; set; }
+    public bool SwapOneDndBarkskinSpell { get; set; }
+    public bool SwapOneDndGuidanceSpell { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool EnableRelearnSpells { get; set; }
     public bool AllowDisplayingOfficialSpells { get; set; }
     public bool AllowDisplayingNonSuggestedSpells { get; set; }
+
     public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = [];
 
@@ -374,10 +392,13 @@ public class Settings : UnityModManager.ModSettings
 
     public bool AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness { get; set; }
     public bool EnableBardHealingBalladOnLongRest { get; set; }
+    public bool EnableBg3AbjurationArcaneWard { get; set; }
+    public bool EnableRogueStrSaving { get; set; }
     public bool RemoveSchoolRestrictionsFromShadowCaster { get; set; }
     public bool RemoveSchoolRestrictionsFromSpellBlade { get; set; }
     public int WildSurgeDieRollThreshold { get; set; } = 2;
-    public bool EnableBg3AbjurationArcaneWard { get; set; }
+    public bool SwapAbjurationSavant { get; set; }
+    public bool SwapEvocationSavant { get; set; }
     public bool SwapEvocationPotentCantripAndSculptSpell { get; set; }
     public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];

@@ -638,8 +638,8 @@ public static class GameLocationCharacterExtensions
         return rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                !character.IsCharging &&
                !character.MoveStepInProgress &&
+               !rulesetCharacter.IsIncapacitated &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
-               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionIncapacitated) &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned) &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
     }

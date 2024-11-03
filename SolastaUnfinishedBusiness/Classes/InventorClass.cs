@@ -267,7 +267,6 @@ internal static class InventorClass
                     .Create("PointPoolInventorTools")
                     .SetGuiPresentation(Category.Feature, "Feature/&ToolGainChoicesSingleDescription")
                     .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
-                    .OnlyUniqueChoices()
                     .RestrictChoices(
                         ToolTypeDefinitions.DisguiseKitType.Name,
                         ToolTypeDefinitions.EnchantingToolType.Name,
@@ -282,7 +281,6 @@ internal static class InventorClass
                     .Create("PointPoolInventorSkills")
                     .SetGuiPresentation(Category.Feature, "Feature/&SkillGainChoicesPluralDescription")
                     .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
-                    .OnlyUniqueChoices()
                     .RestrictChoices(
                         SkillDefinitions.Arcana,
                         SkillDefinitions.History,
@@ -458,7 +456,6 @@ internal static class InventorClass
             .Create("PointPoolInventorRightToolForTheJob")
             .SetGuiPresentation(Category.Feature, "Feature/&ToolGainChoicesSingleDescription")
             .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
-            .OnlyUniqueChoices()
             .RestrictChoices(
                 ToolTypeDefinitions.DisguiseKitType.Name,
                 ToolTypeDefinitions.EnchantingToolType.Name,

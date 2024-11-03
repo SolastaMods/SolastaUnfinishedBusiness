@@ -68,11 +68,8 @@ internal static class RacesContext
             Main.Settings.SubraceEnabled.Remove(name);
         }
 
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-                .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
-        }
+        DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+            .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
     }
 
     private static void LoadRace([NotNull] CharacterRaceDefinition characterRaceDefinition)

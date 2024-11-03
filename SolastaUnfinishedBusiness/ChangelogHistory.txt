@@ -1,10 +1,46 @@
+1.5.97.37:
+
+- added Character > Classes > 'Add Druid primal order at level 1 and remove medium armor proficiency' [OneDnd]
+- added Character > Classes > 'Add persuasion to Fighter skill options at level 1' [OneDnd]
+- added Character > Classes > 'Change Bard bardic inspiration duration to 1hr instead of 10 minutes' [OneDnd]
+- added Character > Classes > 'Enable Bard Expertise at levels 2 and 9 instead of 3 and 10' [OneDnd]
+- added Character > Classes > 'Enable Bard superior inspiration at level 18 instead of 20' [OneDnd]
+- added Character > Classes > 'Enable Bard words of creation at level 18' [OneDnd]
+- added Character > Classes > 'Enable Sorcerer innate sorcery at level 1' [OneDnd]
+- added Character > Classes > 'Enable Warlock magical cunning at level 2' [OneDnd]
+- added Character > Classes > 'Remove Bard magical secrets at levels 14 and 18' [OneDnd]
+- added Character > Classes > 'Remove Bard song of rest at level 2' [OneDnd]
+- added Character > Classes > 'Swap Druid weapon proficiency with 5e 2024 version' [OneDnd]
+- added Character > Classes > 'Swap Fighter second wind to use 5e 2024 usages progression' [OneDnd]
+- added Character > Classes > 'Swap Monk unarmed strike to use 5e 2024 die type progression' [OneDnd]
+- added Character > Classes > 'Swap Warlock invocations progression with 5e 2024 version' [OneDnd]
+- added Character > Spells > 'Enable all casters to use new prepared spells tables' [OneDnd]
+- added Character > Spells > 'Enable Ritual casting on all casters' [OneDnd]
+- added Character > Spells > 'Swap Barkskin with 5e 2024 version' [OneDnd]
+- added Character > Subclasses > 'Swap Abjurer abjuration savant with 5e 2024 version' [OneDnd]
+- added Character > Subclasses > 'Swap Evoker evocation savant with 5e 2024 version' [OneDnd]
+- added Wizard Abjuration arcane ward recharge bonus action
+- added Wizard Graviturgist gravity well power toggle
+- fixed bardic inspiration on attack rolls not stacking with similar behaviors [VANILLA]
+- fixed campaigns translator to avoid location titles and break campaigns
+- fixed Charmed by Hypnotic Pattern not getting considered on incapacitated checks [VANILLA]
+- fixed Circle of Wildfire spirit allowed actions when summoner is incapacitated
+- fixed recurrent effects interaction with immunity from proxies [VANILLA]
+- fixed Wizard Abjuration projected ward crash on gadgets
+- fixed Wizard Graviturgist descriptions, SFX, and behaviors
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.36:
 
 - added behavior package choices on heroes controlled by AI [single player only]
 - added Character > Classes > 'Enable Lay on Hands as bonus action' [OneDnd]
-- added Character > Classes > 'Enable Smite as bonus action' [OneDnd]
 - added Character > Classes > 'Enable Paladin spellcasting at level 1' [OneDnd]
 - added Character > Classes > 'Enable Ranger spellcasting at level 1' [OneDnd]
+- added Character > Classes > 'Enable Smite as bonus action' [OneDnd]
 - added Character > Classes > 'Enable Wizard to learn the school of magic at level 3' [OneDnd]
 - added Character > Spells > 'Enable all Prepared Casters to determine max prepared count from a table' [OneDnd]
 - added Character > Subclasses > 'Enable Abjuration Wizard arcane ward implementation to behave like BG3'
@@ -23,6 +59,7 @@
 - fixed spell selection UI to sync Wizard evocation selections with Shock Arcanist arcane warfare
 - fixed Tasha's Caustic Brew to inflict damage at start instead of end of turn
 - fixed teleport logic to leave actors behind if no available destination position
+- fixed Wizard Graviturgist descriptions, and other minor issues
 - reorg mod UI with more intuitive grouping, and new One DnD and Tabletop sections under Gameplay > General
 
 KNOWN ISSUES:

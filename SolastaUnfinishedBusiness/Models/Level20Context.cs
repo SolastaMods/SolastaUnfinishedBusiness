@@ -26,6 +26,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPoint
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
+using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
@@ -86,6 +87,31 @@ internal static class Level20Context
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(new BattleStartedListenerMonkPerfectSelf())
         .AddToDB();
+
+    internal static readonly FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsBardWordOfCreation =
+        FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsBardWordOfCreation")
+            .SetGuiPresentation(Category.Feature)
+            .SetAutoTag("College")
+            .SetSpellcastingClass(Bard)
+            .SetPreparedSpellGroups(BuildSpellGroup(9, SpellsContext.PowerWordHeal, SpellsContext.PowerWordKill))
+            .AddCustomSubFeatures(new CustomBehaviorBardWordOfCreation())
+            .AddToDB();
+
+    internal static readonly FeatureDefinition FeatureBardSuperiorInspiration = FeatureDefinitionBuilder
+        .Create("FeatureBardSuperiorInspiration")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    internal static readonly FeatureDefinition FeatureBardSuperiorInspiration2024 = FeatureDefinitionBuilder
+        .Create("FeatureBardSuperiorInspiration2024")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionPointPool PointPoolBardMagicalSecrets18 =
+        FeatureDefinitionPointPoolBuilder
+            .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
+            .AddToDB();
 
     internal static void Load()
     {
@@ -197,22 +223,16 @@ internal static class Level20Context
 
     private static void BardLoad()
     {
-        var pointPoolBardMagicalSecrets18 = FeatureDefinitionPointPoolBuilder
-            .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
-            .AddToDB();
+        FeatureBardSuperiorInspiration.AddCustomSubFeatures(
+            new BattleStartedListenerBardSuperiorInspiration(FeatureBardSuperiorInspiration));
 
-        var featureBardSuperiorInspiration = FeatureDefinitionBuilder
-            .Create("FeatureBardSuperiorInspiration")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        featureBardSuperiorInspiration.AddCustomSubFeatures(
-            new BattleStartedListenerBardSuperiorInspiration(featureBardSuperiorInspiration));
+        FeatureBardSuperiorInspiration2024.AddCustomSubFeatures(
+            new BattleStartedListenerBardSuperiorInspiration(FeatureBardSuperiorInspiration2024));
 
         Bard.FeatureUnlocks.AddRange(
-            new FeatureUnlockByLevel(pointPoolBardMagicalSecrets18, 18),
+            new FeatureUnlockByLevel(PointPoolBardMagicalSecrets18, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-            new FeatureUnlockByLevel(featureBardSuperiorInspiration, 20)
+            new FeatureUnlockByLevel(FeatureBardSuperiorInspiration, 20)
         );
 
         EnumerateSlotsPerLevel(
@@ -588,6 +608,40 @@ internal static class Level20Context
         experience[len] = experience[len - 1];
 
         ExperienceThresholds = experience;
+    }
+
+    private sealed class CustomBehaviorBardWordOfCreation : IModifyEffectDescription, IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.SelectionService.SelectedTargets.Count == 0 ||
+                __instance.SelectionService.SelectedTargets[0].IsWithinRange(target, 2))
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add("Failure/&SecondTargetNotWithinRange");
+
+            return false;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == SpellsContext.PowerWordHeal || definition == SpellsContext.PowerWordKill;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.targetParameter = 2;
+
+            return effectDescription;
+        }
     }
 
     //
@@ -977,9 +1031,9 @@ internal static class Level20Context
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            var rulesetDefender = defender.RulesetActor;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated))
+            if (rulesetDefender.IsIncapacitated)
             {
                 yield break;
             }
@@ -1061,19 +1115,25 @@ internal static class Level20Context
         }
     }
 
+
     private sealed class BattleStartedListenerBardSuperiorInspiration(FeatureDefinition featureDefinition)
         : ICharacterBattleStartedListener
     {
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var character = locationCharacter.RulesetCharacter;
+            var limit = Main.Settings.EnableBardSuperiorInspirationAtLevel18 ? 2 : 1;
 
-            if (character is not { RemainingBardicInspirations: 0 })
+            if (character.RemainingBardicInspirations >= limit)
             {
                 return;
             }
 
-            character.usedBardicInspiration--;
+            while (character.RemainingBardicInspirations < limit)
+            {
+                character.usedBardicInspiration--;
+            }
+
             character.BardicInspirationAltered?.Invoke(character, character.RemainingBardicInspirations);
             character.LogCharacterUsedFeature(featureDefinition);
         }

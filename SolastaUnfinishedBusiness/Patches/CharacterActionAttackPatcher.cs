@@ -278,8 +278,7 @@ public static class CharacterActionAttackPatcher
                 // BEGIN PATCH
 
                 //BUGFIX: vanilla doesn't add the bardic die roll to attack success delta
-                if (__instance.AttackRollOutcome == RollOutcome.Success &&
-                    __instance.BardicDieRoll > 0)
+                if (__instance.BardicDieRoll > 0)
                 {
                     __instance.AttackSuccessDelta += __instance.BardicDieRoll;
                 }

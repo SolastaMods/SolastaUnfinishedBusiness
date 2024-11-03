@@ -558,8 +558,8 @@ internal static class TranslatorContext
             [NotNull] string exportName,
             UserCampaign userCampaign)
         {
-            const string LoreOperation = "LoreOperation";
-            const string SetLocationStatus = "SetLocationStatus";
+            // const string LoreOperation = "LoreOperation";
+            // const string SetLocationStatus = "SetLocationStatus";
 
             yield return null;
 
@@ -595,7 +595,7 @@ internal static class TranslatorContext
             // USER LOCATIONS
             foreach (var userLocation in userCampaign.UserLocations)
             {
-                userLocation.Title = Translate(userLocation.Title, languageCode);
+                // userLocation.Title = Translate(userLocation.Title, languageCode);
                 userLocation.Description = Translate(userLocation.Description, languageCode);
 
                 foreach (var gadget in userLocation.GadgetsByName.Values)
@@ -609,9 +609,9 @@ internal static class TranslatorContext
                             case "Speech":
                             case "Banter":
                             case "BanterLines":
-                            case "DestinationLocation":
+                            // case "DestinationLocation":
                             case "ExitLore":
-                            case "WaypointTitle":
+                                // case "WaypointTitle":
                                 parameterValue.StringValue =
                                     Translate(parameterValue.StringValue, languageCode);
                                 parameterValue.StringsList = parameterValue.StringsList
@@ -625,8 +625,8 @@ internal static class TranslatorContext
                                 {
                                     destination.DisplayedTitle = Translate(destination.DisplayedTitle, languageCode);
                                     // magicSkySword : the location name is actually the location id, so we must let it equal to the location id
-                                    destination.UserLocationName =
-                                        Translate(destination.UserLocationName, languageCode);
+                                    // destination.UserLocationName =
+                                    //     Translate(destination.UserLocationName, languageCode);
                                 }
 
                                 break;
@@ -651,11 +651,11 @@ internal static class TranslatorContext
                         dialogLine.TextLine = Translate(dialogLine.TextLine, languageCode);
                     }
 
-                    foreach (var functor in userDialogState.functors
-                                 .Where(functor => functor.type is SetLocationStatus or LoreOperation))
-                    {
-                        functor.StringParameter = Translate(functor.StringParameter, languageCode);
-                    }
+                    // foreach (var functor in userDialogState.functors
+                    //              .Where(functor => functor.type is SetLocationStatus or LoreOperation))
+                    // {
+                    //     functor.StringParameter = Translate(functor.StringParameter, languageCode);
+                    // }
                 }
             }
 
@@ -687,11 +687,11 @@ internal static class TranslatorContext
                     userQuestStep.Title = Translate(userQuestStep.Title, languageCode);
                     userQuestStep.Description = Translate(userQuestStep.Description, languageCode);
 
-                    foreach (var outStart in userQuestStep.onStartFunctors
-                                 .Where(outStart => outStart.type is SetLocationStatus or LoreOperation))
-                    {
-                        outStart.StringParameter = Translate(outStart.StringParameter, languageCode);
-                    }
+                    // foreach (var outStart in userQuestStep.onStartFunctors
+                    //              .Where(outStart => outStart.type is SetLocationStatus or LoreOperation))
+                    // {
+                    //     outStart.StringParameter = Translate(outStart.StringParameter, languageCode);
+                    // }
 
                     foreach (var outcome in userQuestStep.OutcomesTable)
                     {
@@ -708,11 +708,11 @@ internal static class TranslatorContext
                             _ => outcome.validatorDescription.StringParameter
                         };
 
-                        foreach (var outComplete in outcome.OnCompleteFunctors
-                                     .Where(outComplete => outComplete.type is SetLocationStatus or LoreOperation))
-                        {
-                            outComplete.StringParameter = Translate(outComplete.StringParameter, languageCode);
-                        }
+                        // foreach (var outComplete in outcome.OnCompleteFunctors
+                        //              .Where(outComplete => outComplete.type is SetLocationStatus or LoreOperation))
+                        // {
+                        //     outComplete.StringParameter = Translate(outComplete.StringParameter, languageCode);
+                        // }
                     }
                 }
             }

@@ -70,6 +70,7 @@ Reaction/&SpendSpellSlotElementalInfusionReactDescription=Absorbieren Sie das ei
 Reaction/&SpendSpellSlotElementalInfusionReactTitle=Element absorbieren
 Reaction/&SpendSpellSlotElementalInfusionTitle=Elementarangriff steht bevor!
 Reaction/&SubitemSelectElementalInfusionTitle=Wählen Sie einen Steckplatz aus.
+Spell/&BarkskinOneDndDescription=Verleiht Ihnen oder einem Verbündeten, den Sie berühren können, eine AC von mindestens 17.
 Spell/&CausticZapDescription=Sie senden einen grünen Energiestoß auf das Ziel und desorientieren es kurzzeitig, während der Zauber einen Teil seiner Rüstung verbrennt. Der Zauber zielt mit einem Zauberangriff auf einen Feind und verursacht 1W4 Säure- und 1W6 Blitzschaden und verursacht den Zustand der Geblendung.
 Spell/&CausticZapTitle=Ätzender Zap
 Spell/&ChaosBoltDescription=Führe einen Fernangriff mit Zauber gegen ein Ziel aus. Bei einem Treffer erleidet das Ziel 2W8 + 1W6 Schaden. Wähle einen der W8. Die gewürfelte Zahl bestimmt die Schadensart des Angriffs:\n{0}\nWenn du auf beiden W8 dieselbe Zahl würfelst, kannst du deine freie Aktion nutzen, um eine andere Kreatur deiner Wahl anzuvisieren. Führe einen neuen Angriffswurf gegen das neue Ziel aus und führe einen neuen Schadenswurf aus, der die chaotische Energie erneut auslösen könnte. Eine Kreatur kann durch jedes Wirken dieses Zaubers nur einmal Schaden erleiden.

@@ -84,7 +84,6 @@ public sealed class DomainNature : AbstractSubclass
             .Create($"PointPool{Name}Skills")
             .SetGuiPresentationNoContent(true)
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
-            .OnlyUniqueChoices()
             .RestrictChoices(
                 SkillDefinitions.AnimalHandling,
                 SkillDefinitions.Nature,

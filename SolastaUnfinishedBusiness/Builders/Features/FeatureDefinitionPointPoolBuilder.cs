@@ -40,12 +40,6 @@ internal class FeatureDefinitionPointPoolBuilder
         return this;
     }
 
-    internal FeatureDefinitionPointPoolBuilder OnlyUniqueChoices()
-    {
-        Definition.uniqueChoices = true;
-        return this;
-    }
-
     #region Constructors
 
     internal FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

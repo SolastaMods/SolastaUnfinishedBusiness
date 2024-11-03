@@ -33,10 +33,18 @@ internal static class SpellsDisplay
             SrdAndHouseRulesContext.SwitchAllowBladeCantripsToUseReach();
         }
 
-        toggle = Main.Settings.EnableCastersToCountMaxPreparedFromTable;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCastersToCountMaxPreparedFromTable"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableOneDnDPreparedSpellsTables;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDnDPreparedSpellsTables"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableCastersToCountMaxPreparedFromTable = toggle;
+            Main.Settings.EnableOneDnDPreparedSpellsTables = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndPreparedSpellsTables();
+        }
+
+        toggle = Main.Settings.EnableRitualOnAllCasters;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRitualOnAllCasters = toggle;
+            SrdAndHouseRulesContext.SwitchEnableRitualOnAllCasters();
         }
 
         toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
@@ -145,6 +153,20 @@ internal static class SpellsDisplay
         {
             Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
             SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
+        }
+
+        toggle = Main.Settings.SwapOneDndBarkskinSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapOneDndBarkskinSpell = toggle;
+            SrdAndHouseRulesContext.SwapOneDndBarkskinSpell();
+        }
+
+        toggle = Main.Settings.SwapOneDndGuidanceSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapOneDndGuidanceSpell = toggle;
+            SrdAndHouseRulesContext.SwapOneDndGuidanceSpell();
         }
 
         UI.Label();
