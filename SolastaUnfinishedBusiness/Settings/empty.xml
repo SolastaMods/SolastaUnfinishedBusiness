@@ -545,16 +545,19 @@
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <EnableBardExpertiseOneLevelBefore>false</EnableBardExpertiseOneLevelBefore>
     <ChangeBardicInspirationDurationToOneHour>false</ChangeBardicInspirationDurationToOneHour>
+    <EnableBardExpertiseOneLevelBefore>false</EnableBardExpertiseOneLevelBefore>
+    <EnableBardSuperiorInspirationAtLevel18>false</EnableBardSuperiorInspirationAtLevel18>
+    <EnableBardWordsOfCreationAtLevel20>false</EnableBardWordsOfCreationAtLevel20>
+    <RemoveBardMagicalSecretAt14And18>false</RemoveBardMagicalSecretAt14And18>
     <RemoveBardSongOfRest>false</RemoveBardSongOfRest>
     <EnableBarbarianBrutalStrike>false</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>false</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
     <EnableBarbarianRecklessSameBuffDebuffDuration>false</EnableBarbarianRecklessSameBuffDebuffDuration>
     <EnableBarbarianRegainOneRageAtShortRest>false</EnableBarbarianRegainOneRageAtShortRest>
-    <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
-    <AddDruidPrimalOrderAndRemoveMediumArmorProficiency>false</AddDruidPrimalOrderAndRemoveMediumArmorProficiency>
+    <EnableDruidToUseMetalArmor>false</EnableDruidToUseMetalArmor>
+    <EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>false</EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>
     <SwapDruidWeaponProficiencyToUseOneDnd>false</SwapDruidWeaponProficiencyToUseOneDnd>
     <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
     <AddPersuasionToFighterSkillOptions>false</AddPersuasionToFighterSkillOptions>
@@ -584,6 +587,7 @@
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>false</RemoveRogueBlindSense>
+    <EnableSorcererInnateSorcery>false</EnableSorcererInnateSorcery>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
@@ -1041,8 +1045,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

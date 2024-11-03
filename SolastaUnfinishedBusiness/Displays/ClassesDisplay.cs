@@ -48,7 +48,7 @@ internal static class ClassesDisplay
         }
 
         toggle = Main.Settings.EnableBardWordsOfCreationAtLevel20;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardSuperiorInspirationAtLevel18"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardWordsOfCreationAtLevel20"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardWordsOfCreationAtLevel20 = toggle;
             SrdAndHouseRulesContext.SwitchOneDndEnableBardWordsOfCreationAtLevel20();
