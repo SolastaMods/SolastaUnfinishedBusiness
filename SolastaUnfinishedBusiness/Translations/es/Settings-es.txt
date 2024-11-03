@@ -107,6 +107,8 @@ ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar el beneficio y de
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 7
 ModUi/&EnableBardExpertiseOneLevelBefore=Habilitar <color=#D89555>Experiencia</color> en los niveles 2 y 9 en lugar de 3 y 10
 ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <b>College of Hope</b> <color=#D89555>Healing Ballad</color> en descanso largo
+ModUi/&EnableBardSuperiorInspirationAtLevel18=Habilita <color=#D89555>Inspiración superior</color> en el nivel 18 en lugar de 20 y también otorga dos recargas en lugar de 1.
+ModUi/&EnableBardWordsOfCreationAtLevel20=Habilita <color=#D89555>Palabras de creación</color> en el nivel 20
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Permitir que los trucos activen el ataque adicional adicional de <color=#D89555>Magia de guerra</color>
@@ -257,6 +259,7 @@ ModUi/&Races=<color=#F0DAA0>Razas</color>
 ModUi/&RecipeCost=<color=white>Costo de la receta</color>
 ModUi/&RelicForgeries=Falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements=Eliminar requisitos de sintonización <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&RemoveBardMagicalSecretAt14And18=Eliminar <color=#D89555>Secreto Mágico</color> en 14 y 18
 ModUi/&RemoveBardSongOfRest=Eliminar <color=#D89555>Canción de descanso</color> en el nivel 2
 ModUi/&RemoveBugVisualModels=Reemplaza los modelos tipo araña por modelos tipo oso en el juego. <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar filtro humanoide en <color=#D89555>Risas espantosas</color>

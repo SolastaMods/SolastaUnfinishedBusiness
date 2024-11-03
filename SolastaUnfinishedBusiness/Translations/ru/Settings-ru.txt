@@ -106,6 +106,8 @@ ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Включить завер
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Включить на уровне 7 возможность восстанавливать один заряд <color=#D89555>Ярости</color> за короткий отдых
 ModUi/&EnableBardExpertiseOneLevelBefore=Включить <color=#D89555>Экспертизу</color> на уровнях 2 и 9 вместо 3 и 10
 ModUi/&EnableBardHealingBalladOnLongRest=Включить <b>Колледж Надежды</b> <color=#D89555>Исцеляющая баллада</color> при длительном отдыхе
+ModUi/&EnableBardSuperiorInspirationAtLevel18=Включить <color=#D89555>Превосходное вдохновение</color> на уровне 18 вместо 20, а также предоставить две перезарядки вместо 1
+ModUi/&EnableBardWordsOfCreationAtLevel20=Включить <color=#D89555>Слова Творения</color> на уровне 20
 ModUi/&EnableBetaContent=Включить бета-контент <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Включить отмену действия правым кликом мыши
 ModUi/&EnableCantripsTriggeringOnWarMagic=Разрешить срабатывание дополнительной бонусной атаки <color=#D89555>Боевой магии</color> от заговоров
@@ -256,6 +258,7 @@ ModUi/&Races=<color=#F0DAA0>Расы</color>
 ModUi/&RecipeCost=<color=white>Стоимость рецепта</color>
 ModUi/&RelicForgeries=Поддельные реликвии
 ModUi/&RemoveAttunementRequirements=Убрать требования настройки <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
+ModUi/&RemoveBardMagicalSecretAt14And18=Удалить <color=#D89555>Волшебный секрет</color> на 14 и 18
 ModUi/&RemoveBardSongOfRest=Удалить <color=#D89555>Песнь покоя</color> на уровне 2
 ModUi/&RemoveBugVisualModels=Заменить паукообразные модельки в игре на медведеобразные <i><color=#F0DAA0>[арахнофобия]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Убрать гуманоидный фильтр на <color=#D89555>Жуткий смех</color>

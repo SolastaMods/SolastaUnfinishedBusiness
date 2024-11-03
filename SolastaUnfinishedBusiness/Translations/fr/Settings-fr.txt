@@ -106,6 +106,8 @@ ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Activez le buff et le debuf
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permet de récupérer une utilisation de <color=#D89555>Rage</color> sur un repos court au niveau 7
 ModUi/&EnableBardExpertiseOneLevelBefore=Activer l'<color=#D89555>Expertise</color> aux niveaux 2 et 9 au lieu de 3 et 10
 ModUi/&EnableBardHealingBalladOnLongRest=Activez <b>College of Hope</b> <color=#D89555>Healing Ballad</color> en mode repos prolongé
+ModUi/&EnableBardSuperiorInspirationAtLevel18=Activez <color=#D89555>Inspiration supérieure</color> au niveau 18 au lieu de 20 et accordez également deux recharges au lieu d'une
+ModUi/&EnableBardWordsOfCreationAtLevel20=Activer les <color=#D89555>Paroles de création</color> au niveau 20
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCantripsTriggeringOnWarMagic=Autoriser les tours de passe-passe à déclencher une attaque bonus supplémentaire de <color=#D89555>Magie de guerre</color>
@@ -256,6 +258,7 @@ ModUi/&Races=<color=#F0DAA0>Les courses</color>
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>
 ModUi/&RelicForgeries=Contrefaçons de reliques
 ModUi/&RemoveAttunementRequirements=Supprimer les exigences d'harmonisation <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&RemoveBardMagicalSecretAt14And18=Supprimer <color=#D89555>Secret magique</color> à 14 et 18
 ModUi/&RemoveBardSongOfRest=Supprimez <color=#D89555>Chant de repos</color> au niveau 2
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des araignées par des modèles ressemblant à des ours dans le jeu <i><color=#F0DAA0>[arachnophobie]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Supprimer le filtre humanoïde sur <color=#D89555>Hideous Laugher</color>

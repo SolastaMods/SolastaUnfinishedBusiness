@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "College",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:PowerWordHeal:f9e2477f-fbee-5778-8ffc-c0380c0dea7d",
+        "Definition:PowerWordKill:7d618d6a-004a-539e-a996-e180936abe9c"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AutoPreparedSpellsBardWordOfCreationTitle",
+    "description": "Feature/&AutoPreparedSpellsBardWordOfCreationDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "bb747a1f-f939-58b0-a0f9-c2ffb381efdd",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsBardWordOfCreation"
+}

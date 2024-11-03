@@ -106,6 +106,8 @@ ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Reckl
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 7
 ModUi/&EnableBardExpertiseOneLevelBefore=Enable <color=#D89555>Expertise</color> at levels 2 and 9 instead of 3 and 10
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <b>College of Hope</b> <color=#D89555>Healing Ballad</color> on long rest
+ModUi/&EnableBardSuperiorInspirationAtLevel18=Enable <color=#D89555>Superior Inspiration</color> at level 18 instead of 20 and also grant two recharges instead of 1
+ModUi/&EnableBardWordsOfCreationAtLevel20=Enable <color=#D89555>Words of Creation</color> at level 20
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Allow cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
@@ -256,6 +258,7 @@ ModUi/&Races=<color=#F0DAA0>Races</color>
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveBardMagicalSecretAt14And18=Remove <color=#D89555>Magical Secret</color> at levels 14 and 18
 ModUi/&RemoveBardSongOfRest=Remove <color=#D89555>Song of Rest</color> at level 2
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
@@ -306,12 +309,12 @@ ModUi/&Subraces=<color=#F0DAA0>Subraces</color>
 ModUi/&SwapAbjurationSavant=Swap <b>Abjurer</b> <color=#D89555>Abjuration Savant</color> with 5e 2024 version <i><color=#F0DAA0>[learn 2 school spells when acquired, learn 1 more every time you gain a slot level]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in shop</i>
 ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Swap <color=#D89555>Weapon Proficiency</color> with 5e 2024 version <i><color=#F0DAA0>[simple weapons instead of weapon types but you lose Scimitar proficiency]</color></i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <b>Evoker</b> <color=#D89555>Sculpt Spells</color> and <color=#D89555>Potent Cantrip</color> features
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <b>Evoker</b> <color=#D89555>Sculpt Spells</color> and <color=#D89555>Potent Cantrip</color> on progression
 ModUi/&SwapEvocationSavant=Swap <b>Evoker</b> <color=#D89555>Evocation Savant</color> with 5e 2024 version <i><color=#F0DAA0>[learn 2 school spells when acquired, learn 1 more every time you gain a slot level]</color></i>
-ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Swap <color=#D89555>Unarmed Attack</color> to use 5e 2024 die type progression
+ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Enable <color=#D89555>Unarmed Attack</color> to use 5e 2024 die type progression
 ModUi/&SwapOneDndBarkskinSpell=Swap <color=#D89555>Barkskin</color> with 5e 2024 version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
-ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Swap <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
-ModUi/&SwapWarlockToUseOneDndInvocationProgression=Swap <color=#D89555>Invocations</color> progression with 5e 2024 version
+ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
+ModUi/&SwapWarlockToUseOneDndInvocationProgression=Enable <color=#D89555>Invocations</color> o use 5e 2024 progression
 ModUi/&TableTopButton=<b><color=#D89555>Select Tabletop content</color></b>
 ModUi/&TableTopHelp1=• Following sections re-group and duplicate <color=#D89555>5e 2014 and 2024</color> settings scattered across the mod for your convenience
 ModUi/&TableTopHelp2=• Press the button to select only tabletop content under Character tab, and select all options below for a true TT experience
