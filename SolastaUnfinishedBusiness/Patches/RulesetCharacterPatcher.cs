@@ -445,7 +445,7 @@ public static class RulesetCharacterPatcher
             ProcessConditionsMatchingInterruptionSourceRageStop(__instance, activeCondition);
 
             //PATCH: support 'EnableCharactersOnFireToEmitLight'
-            SrdAndHouseRulesContext.RemoveLightSourceIfNeeded(__instance, activeCondition);
+            RulesContext.RemoveLightSourceIfNeeded(__instance, activeCondition);
 
             //PATCH: notifies custom condition features that condition is removed 
             var definition = activeCondition.ConditionDefinition;

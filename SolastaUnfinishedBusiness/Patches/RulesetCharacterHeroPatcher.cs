@@ -677,7 +677,7 @@ public static class RulesetCharacterHeroPatcher
             CustomWeaponsContext.TryAddMainActionUnarmedAttacks(__instance);
 
             //PATCH: remove invalid attacks to prevent hand crossbows use with no free hand
-            __instance.AttackModes.RemoveAll(mode => SrdAndHouseRulesContext.IsAttackModeInvalid(__instance, mode));
+            __instance.AttackModes.RemoveAll(mode => CustomItemsContext.IsAttackModeInvalid(__instance, mode));
 
             //refresh character if needed after postfix
             if (_callRefresh && __instance.CharacterRefreshed != null)

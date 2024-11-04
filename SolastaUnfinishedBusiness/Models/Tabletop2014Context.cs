@@ -93,12 +93,10 @@ internal static class Tabletop2014Context
         SwitchBardHealingBalladOnLongRest();
     }
 
-
     internal static void SwitchEldritchBlastRange()
     {
         EldritchBlast.effectDescription.rangeParameter = Main.Settings.FixEldritchBlastRange ? 24 : 16;
     }
-
 
     internal static void SwitchBardHealingBalladOnLongRest()
     {

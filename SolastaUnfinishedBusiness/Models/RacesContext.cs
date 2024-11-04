@@ -2,6 +2,8 @@
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Races;
@@ -241,6 +243,24 @@ internal static class RacesContext
                 power.usesDetermination = UsesDetermination.Fixed;
                 power.fixedUsesPerRecharge = 1;
             }
+        }
+    }
+
+    internal static void HandleSmallRaces(BattleDefinitions.AttackEvaluationParams evaluationParams)
+    {
+        if (!Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons)
+        {
+            return;
+        }
+
+        var hero = evaluationParams.attacker.RulesetCharacter.GetOriginalHero();
+
+        if (hero?.RaceDefinition.SizeDefinition == DatabaseHelper.CharacterSizeDefinitions.Small &&
+            evaluationParams.attackMode is { SourceDefinition: ItemDefinition { IsWeapon: true } itemDefinition } &&
+            itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagHeavy))
+        {
+            evaluationParams.attackModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(-1, FeatureSourceType.Unknown, "Feedback/&SmallRace", null));
         }
     }
 }

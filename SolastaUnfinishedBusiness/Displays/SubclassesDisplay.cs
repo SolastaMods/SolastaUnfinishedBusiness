@@ -87,14 +87,14 @@ internal static class SubclassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromShadowCaster"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveSchoolRestrictionsFromShadowCaster = toggle;
-            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromShadowCaster();
+            SubclassesContext.SwitchSchoolRestrictionsFromShadowCaster();
         }
 
         toggle = Main.Settings.RemoveSchoolRestrictionsFromSpellBlade;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromSpellBlade"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveSchoolRestrictionsFromSpellBlade = toggle;
-            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromSpellBlade();
+            SubclassesContext.SwitchSchoolRestrictionsFromSpellBlade();
         }
 
         UI.Label();

@@ -30,7 +30,7 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowBladeCantripsToUseReach"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowBladeCantripsToUseReach = toggle;
-            SrdAndHouseRulesContext.SwitchAllowBladeCantripsToUseReach();
+            SpellsContext.SwitchAllowBladeCantripsToUseReach();
         }
 
         toggle = Main.Settings.EnableOneDnDPreparedSpellsTables;
@@ -67,21 +67,21 @@ internal static class SpellsDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
-            SrdAndHouseRulesContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
+            SpellsContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         }
 
         toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
-            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
+            SpellsContext.SwitchFilterOnHideousLaughter();
         }
 
         toggle = Main.Settings.AddBleedingToLesserRestoration;
         if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddBleedingToLesserRestoration = toggle;
-            SrdAndHouseRulesContext.SwitchAddBleedingToLesserRestoration();
+            SpellsContext.SwitchAddBleedingToLesserRestoration();
         }
 
         toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
@@ -95,7 +95,7 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
-            SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
+            SpellsContext.SwitchRecurringEffectOnEntangle();
         }
 
         toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
@@ -103,7 +103,7 @@ internal static class SpellsDisplay
         {
             Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
             Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = false;
-            SrdAndHouseRulesContext.SwitchEnableUpcastConjureElementalAndFey();
+            SpellsContext.SwitchEnableUpcastConjureElementalAndFey();
         }
 
         if (Main.Settings.EnableUpcastConjureElementalAndFey)
@@ -122,14 +122,14 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeSleetStormToCube = toggle;
-            SrdAndHouseRulesContext.SwitchChangeSleetStormToCube();
+            SpellsContext.SwitchChangeSleetStormToCube();
         }
 
         toggle = Main.Settings.UseHeightOneCylinderEffect;
         if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseHeightOneCylinderEffect = toggle;
-            SrdAndHouseRulesContext.SwitchUseHeightOneCylinderEffect();
+            SpellsContext.SwitchUseHeightOneCylinderEffect();
         }
 
         toggle = Main.Settings.FixEldritchBlastRange;
@@ -175,7 +175,7 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowHasteCasting = toggle;
-            SrdAndHouseRulesContext.SwitchHastedCasing();
+            SpellsContext.SwitchHastedCasing();
         }
 
         toggle = Main.Settings.AllowStackedMaterialComponent;

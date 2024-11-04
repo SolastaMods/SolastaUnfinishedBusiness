@@ -42,7 +42,7 @@ public static class GameLocationCharacterManagerPatcher
         [UsedImplicitly]
         public static void Postfix(GameLocationCharacter character)
         {
-            SrdAndHouseRulesContext.AddLightSourceIfNeeded(character);
+            RulesContext.AddLightSourceIfNeeded(character);
         }
     }
 

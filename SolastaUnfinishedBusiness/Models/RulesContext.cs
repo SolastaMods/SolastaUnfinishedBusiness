@@ -23,10 +23,13 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatu
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class CharacterContext
+internal static class RulesContext
 {
     internal const int GameMaxAttribute = 15;
     internal const int GameBuyPoints = 27;
@@ -110,10 +113,20 @@ internal static class CharacterContext
                 .Build())
         .AddToDB();
 
+    private static readonly List<MonsterDefinition> MonstersThatEmitLight =
+    [
+        CubeOfLight,
+        Fire_Elemental,
+        Fire_Jester,
+        Fire_Osprey,
+        Fire_Spider
+    ];
+
     internal static void LateLoad()
     {
         LoadAdditionalNames();
         LoadEpicArray();
+        LoadSenseNormalVisionRangeMultiplier();
         LoadVisuals();
         LoadSorcererQuickened();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
@@ -127,6 +140,31 @@ internal static class CharacterContext
             "Sorcerer", SorcerousDraconicBloodline,
             FeatureSetSorcererDraconicChoice, InvocationPoolSorcererDraconicChoice,
             InvocationPoolTypeCustom.Pools.SorcererDraconicChoice);
+    }
+
+    private static void LoadSenseNormalVisionRangeMultiplier()
+    {
+        _ = ConditionDefinitionBuilder
+            .Create("ConditionSenseNormalVision24")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(FeatureDefinitionSenseBuilder
+                .Create(SenseNormalVision, "SenseNormalVision24")
+                .SetSense(SenseMode.Type.NormalVision, 24)
+                .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .AddToDB();
+
+        _ = ConditionDefinitionBuilder
+            .Create("ConditionSenseNormalVision48")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(FeatureDefinitionSenseBuilder
+                .Create(SenseNormalVision, "SenseNormalVision48")
+                .SetSense(SenseMode.Type.NormalVision, 48)
+                .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .AddToDB();
     }
 
     private static void AddNameToRace(CharacterRaceDefinition raceDefinition, string gender, string name)
@@ -619,6 +657,104 @@ internal static class CharacterContext
             .ToArray();
 
         characterSubclassDefinition.FeatureUnlocks.SetRange(replacedFeatures);
+    }
+
+    internal static void AddLightSourceIfNeeded(GameLocationCharacter gameLocationCharacter)
+    {
+        if (!Main.Settings.EnableCharactersOnFireToEmitLight)
+        {
+            return;
+        }
+
+        if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
+        {
+            return;
+        }
+
+        if (!MonstersThatEmitLight.Contains(rulesetCharacterMonster.MonsterDefinition))
+        {
+            return;
+        }
+
+        AddLightSource(gameLocationCharacter, rulesetCharacterMonster, "ShouldEmitLightFromMonster");
+    }
+
+    internal static void AddLightSourceIfNeeded(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+    {
+        if (!Main.Settings.EnableCharactersOnFireToEmitLight)
+        {
+            return;
+        }
+
+        if (rulesetCondition == null || !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
+        {
+            return;
+        }
+
+        if (rulesetActor is not RulesetCharacter rulesetCharacter)
+        {
+            return;
+        }
+
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+        if (gameLocationCharacter == null)
+        {
+            return;
+        }
+
+        AddLightSource(gameLocationCharacter, rulesetCharacter, "ShouldEmitLightFromCondition");
+    }
+
+    private static void AddLightSource(
+        GameLocationCharacter gameLocationCharacter,
+        RulesetCharacter rulesetCharacter,
+        string name)
+    {
+        var lightSourceForm = Shine.EffectDescription.EffectForms[0].LightSourceForm;
+
+        rulesetCharacter.PersonalLightSource?.Unregister();
+        rulesetCharacter.PersonalLightSource = new RulesetLightSource(
+            lightSourceForm.Color,
+            2,
+            4,
+            lightSourceForm.GraphicsPrefabAssetGUID,
+            LightSourceType.Basic,
+            name,
+            rulesetCharacter.Guid);
+
+        rulesetCharacter.PersonalLightSource.Register(true);
+
+        ServiceRepository.GetService<IGameLocationVisibilityService>()?
+            .AddCharacterLightSource(gameLocationCharacter, rulesetCharacter.PersonalLightSource);
+    }
+
+    internal static void RemoveLightSourceIfNeeded(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+    {
+        if (rulesetCondition == null ||
+            !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
+        {
+            return;
+        }
+
+        if (rulesetActor is not RulesetCharacter rulesetCharacter ||
+            rulesetCharacter.PersonalLightSource == null) // if using extinguish fire light source will come null here
+        {
+            return;
+        }
+
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+        if (gameLocationCharacter == null)
+        {
+            return;
+        }
+
+        ServiceRepository.GetService<IGameLocationVisibilityService>()?
+            .RemoveCharacterLightSource(gameLocationCharacter, rulesetCharacter.PersonalLightSource);
+
+        rulesetCharacter.PersonalLightSource.Unregister();
+        rulesetCharacter.PersonalLightSource = null;
     }
 
     private sealed class FilterTargetingPositionPowerTeleportSummon : IFilterTargetingPosition

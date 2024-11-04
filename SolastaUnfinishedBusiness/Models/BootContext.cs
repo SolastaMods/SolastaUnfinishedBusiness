@@ -91,7 +91,7 @@ internal static class BootContext
             FeatsContext.LateLoad();
 
             // Late initialized to allow feats and races from other mods
-            CharacterContext.LateLoad();
+            RulesContext.LateLoad();
 
             // Custom invocations
             InvocationsContext.LateLoad();
@@ -118,7 +118,6 @@ internal static class BootContext
             SharedSpellsContext.LateLoad();
 
             // Set anything on subs that depends on spells and others
-            SrdAndHouseRulesContext.LateLoad();
             Tabletop2014Context.LateLoad();
             Tabletop2024Context.LateLoad();
 

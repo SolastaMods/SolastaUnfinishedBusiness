@@ -902,7 +902,7 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
-            SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
+            SpellsContext.SwitchRecurringEffectOnEntangle();
         }
 
         toggle = Main.Settings.FixEldritchBlastRange;
