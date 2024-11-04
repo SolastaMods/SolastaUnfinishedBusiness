@@ -344,7 +344,7 @@ internal static class FeatsContext
                 .AddToDB();
         }
     }
-    
+
     internal static void SwitchFirstLevelTotalFeats()
     {
         if (PreviousTotalFeatsGrantedFirstLevel > -1)
@@ -356,7 +356,7 @@ internal static class FeatsContext
         PreviousAlternateHuman = Main.Settings.EnableAlternateHuman;
         LoadRacesLevel1Feats(Main.Settings.TotalFeatsGrantedFirstLevel, Main.Settings.EnableAlternateHuman);
     }
-    
+
     private static void LoadRacesLevel1Feats(int initialFeats, bool alternateHuman)
     {
         var human = Human;

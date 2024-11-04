@@ -53,6 +53,9 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
+        // fix condition UI
+        FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
+
         // fix demonic influence duration and combat log (conditions with ForcedBehavior should have special duration)
         ConditionDefinitions.ConditionUnderDemonicInfluence.specialDuration = true;
         ConditionDefinitions.ConditionUnderDemonicInfluence.durationType = DurationType.Hour;

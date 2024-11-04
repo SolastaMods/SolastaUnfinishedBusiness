@@ -264,15 +264,15 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBardSuperiorInspirationAtLevel18 { get; set; }
     public bool EnableBardWordsOfCreationAtLevel20 { get; set; }
     public bool RemoveBardMagicalSecretAt14And18 { get; set; }
-    public bool RemoveBardSongOfRest { get; set; }
+    public bool RemoveBardSongOfRestAt2 { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
     public bool DisableBarbarianBrutalCritical { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
     public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
     public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
-    public bool EnableDruidToUseMetalArmor { get; set; }
+    public bool EnableDruidUseMetalArmor { get; set; }
     public bool EnableDruidPrimalOrderAndRemoveMediumArmorProficiency { get; set; }
-    public bool SwapDruidWeaponProficiencyToUseOneDnd { get; set; }
+    public bool SwapDruidToUseOneDndWeaponProficiency { get; set; }
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
     public bool AddPersuasionToFighterSkillOptions { get; set; }
     public bool SwapSecondWindToUseOneDndUsagesProgression { get; set; }

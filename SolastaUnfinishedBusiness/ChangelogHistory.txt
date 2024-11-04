@@ -1,6 +1,6 @@
 1.5.97.37:
 
-- added many new settings under tabletop 5e 2024 section
+- added 20+ new settings under tabletop 5e 2024 section
 - added Wizard Abjuration arcane ward recharge bonus action
 - added Wizard Graviturgist gravity well power toggle
 - fixed bardic inspiration on attack rolls not stacking with similar behaviors [VANILLA]

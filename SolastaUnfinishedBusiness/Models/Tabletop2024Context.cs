@@ -200,13 +200,11 @@ internal static class Tabletop2024Context
         BuildBarbarianBrutalStrike();
         BuildRogueCunningStrike();
         BuildOneDndGuidanceSubspells();
-
         LoadMonkHeightenedMetabolism();
         LoadSecondWindToUseOneDndUsagesProgression();
-
         EnableOneDndBarkskinSpell();
         EnableOneDndGuidanceSpell();
-        SwitchOneDnDEnableDruidToUseMetalArmor();
+        SwitchOneDnDEnableDruidUseMetalArmor();
         SwitchDruidWeaponProficiencyToUseOneDnd();
         SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
         SwitchEnableRitualOnAllCasters();
@@ -214,7 +212,7 @@ internal static class Tabletop2024Context
         SwitchOneDndPaladinLayOnHandAsBonusAction();
         SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
         SwitchOneDndEnableBardWordsOfCreationAtLevel20();
-        SwitchOneDndRemoveBardSongOfRest();
+        SwitchOneDndRemoveBardSongOfRestAt2();
         SwitchOneDndRemoveBardMagicalSecretAt14And18();
         SwitchOneDndChangeBardicInspirationDurationToOneHour();
         SwitchOneDndEnableBardExpertiseOneLevelBefore();
@@ -245,7 +243,6 @@ internal static class Tabletop2024Context
         SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
         SwitchMonkDoNotRequireAttackActionForFlurry();
     }
-
 
     private static void LoadSecondWindToUseOneDndUsagesProgression()
     {
@@ -285,9 +282,9 @@ internal static class Tabletop2024Context
         }
     }
 
-    internal static void SwitchOneDnDEnableDruidToUseMetalArmor()
+    internal static void SwitchOneDnDEnableDruidUseMetalArmor()
     {
-        var active = Main.Settings.EnableDruidToUseMetalArmor;
+        var active = Main.Settings.EnableDruidUseMetalArmor;
 
         if (active)
         {
@@ -327,7 +324,7 @@ internal static class Tabletop2024Context
     internal static void SwitchDruidWeaponProficiencyToUseOneDnd()
     {
         ProficiencyDruidWeapon.proficiencies =
-            Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd
+            Main.Settings.SwapDruidToUseOneDndWeaponProficiency
                 ? [WeaponCategoryDefinitions.SimpleWeaponCategory.Name]
                 : DruidWeaponsCategories;
     }
@@ -638,12 +635,12 @@ internal static class Tabletop2024Context
         }
     }
 
-    internal static void SwitchOneDndRemoveBardSongOfRest()
+    internal static void SwitchOneDndRemoveBardSongOfRestAt2()
     {
         Bard.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == RestHealingModifierBardSongOfRest);
 
-        if (!Main.Settings.RemoveBardSongOfRest)
+        if (!Main.Settings.RemoveBardSongOfRestAt2)
         {
             Bard.FeatureUnlocks.Add(new FeatureUnlockByLevel(RestHealingModifierBardSongOfRest, 2));
         }
@@ -669,31 +666,27 @@ internal static class Tabletop2024Context
 
     internal static void SwitchOneDndEnableBardSuperiorInspirationAtLevel18()
     {
-        if (Main.Settings.RemoveBardMagicalSecretAt14And18)
-        {
-            Bard.FeatureUnlocks.Add(
-                new FeatureUnlockByLevel(Level20Context.FeatureBardSuperiorInspiration2024, 18));
-        }
-        else
-        {
-            Bard.FeatureUnlocks.RemoveAll(x =>
-                x.FeatureDefinition == Level20Context.FeatureBardSuperiorInspiration2024);
-        }
+        Bard.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == Level20Context.FeatureBardSuperiorInspiration ||
+            x.FeatureDefinition == Level20Context.FeatureBardSuperiorInspiration2024);
+
+        Bard.FeatureUnlocks.Add(
+            Main.Settings.EnableBardSuperiorInspirationAtLevel18
+                ? new FeatureUnlockByLevel(Level20Context.FeatureBardSuperiorInspiration2024, 18)
+                : new FeatureUnlockByLevel(Level20Context.FeatureBardSuperiorInspiration, 20));
 
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchOneDndEnableBardWordsOfCreationAtLevel20()
     {
-        if (Main.Settings.RemoveBardMagicalSecretAt14And18)
+        Bard.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == Level20Context.AutoPreparedSpellsBardWordOfCreation);
+
+        if (Main.Settings.EnableBardWordsOfCreationAtLevel20)
         {
             Bard.FeatureUnlocks.Add(
                 new FeatureUnlockByLevel(Level20Context.AutoPreparedSpellsBardWordOfCreation, 20));
-        }
-        else
-        {
-            Bard.FeatureUnlocks.RemoveAll(x =>
-                x.FeatureDefinition == Level20Context.AutoPreparedSpellsBardWordOfCreation);
         }
 
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -747,29 +740,23 @@ internal static class Tabletop2024Context
 
     internal static void SwitchOneDndWizardScholar()
     {
+        Wizard.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolWizardScholar);
+
         if (Main.Settings.EnableWizardToLearnScholarAtLevel2)
         {
             Wizard.FeatureUnlocks.Add(new FeatureUnlockByLevel(PointPoolWizardScholar, 2));
-        }
-        else
-        {
-            Wizard.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolWizardScholar);
         }
 
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-
     internal static void SwitchSorcererInnateSorcery()
     {
+        Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerSorcererInnateSorcery);
+
         if (Main.Settings.EnableSorcererInnateSorcery)
         {
             Sorcerer.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1));
-        }
-        else
-        {
-            Sorcerer.FeatureUnlocks.RemoveAll(x =>
-                x.level == 1 && x.FeatureDefinition == PowerSorcererInnateSorcery);
         }
 
         Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -777,16 +764,13 @@ internal static class Tabletop2024Context
 
     internal static void SwitchRangerNatureShroud()
     {
+        Ranger.FeatureUnlocks
+            .RemoveAll(x => x.FeatureDefinition == FeatureDefinitionPowerNatureShroud);
+
         if (Main.Settings.EnableRangerNatureShroudAt14)
         {
             Ranger.FeatureUnlocks.TryAdd(
                 new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 14));
-        }
-        else
-        {
-            Ranger.FeatureUnlocks
-                .RemoveAll(x => x.level == 10
-                                && x.FeatureDefinition == FeatureDefinitionPowerNatureShroud);
         }
 
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -794,13 +778,11 @@ internal static class Tabletop2024Context
 
     internal static void SwitchOneDndWarlockMagicalCunningAtLevel2()
     {
+        Warlock.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerWarlockMagicalCunning);
+
         if (Main.Settings.EnableWarlockMagicalCunningAtLevel2)
         {
             Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerWarlockMagicalCunning, 2));
-        }
-        else
-        {
-            Warlock.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerWarlockMagicalCunning);
         }
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -829,7 +811,6 @@ internal static class Tabletop2024Context
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
-
 
     private sealed class RollSavingThrowInitiatedIndomitableSaving : IRollSavingThrowInitiated
     {
@@ -1196,7 +1177,6 @@ internal static class Tabletop2024Context
     #region Barbarian
 
     private const string BrutalStrike = "BarbarianBrutalStrike";
-
     private static ConditionDefinition _conditionBrutalStrike;
     private static ConditionDefinition _conditionHamstringBlow;
     private static ConditionDefinition _conditionStaggeringBlow;

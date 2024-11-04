@@ -592,7 +592,7 @@
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <EnableBardExpertiseOneLevelBefore>true</EnableBardExpertiseOneLevelBefore>
     <ChangeBardicInspirationDurationToOneHour>true</ChangeBardicInspirationDurationToOneHour>
-    <RemoveBardSongOfRest>true</RemoveBardSongOfRest>
+    <RemoveBardSongOfRestAt2>true</RemoveBardSongOfRestAt2>
     <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>

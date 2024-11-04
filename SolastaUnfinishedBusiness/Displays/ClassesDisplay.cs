@@ -61,11 +61,11 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchOneDndRemoveBardMagicalSecretAt14And18();
         }
 
-        toggle = Main.Settings.RemoveBardSongOfRest;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.RemoveBardSongOfRestAt2;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRestAt2"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.RemoveBardSongOfRest = toggle;
-            Tabletop2024Context.SwitchOneDndRemoveBardSongOfRest();
+            Main.Settings.RemoveBardSongOfRestAt2 = toggle;
+            Tabletop2024Context.SwitchOneDndRemoveBardSongOfRestAt2();
         }
 
         UI.Label();
@@ -116,11 +116,11 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableDruidToUseMetalArmor;
+        toggle = Main.Settings.EnableDruidUseMetalArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableDruidToUseMetalArmor = toggle;
-            Tabletop2024Context.SwitchOneDnDEnableDruidToUseMetalArmor();
+            Main.Settings.EnableDruidUseMetalArmor = toggle;
+            Tabletop2024Context.SwitchOneDnDEnableDruidUseMetalArmor();
         }
 
         toggle = Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency;
@@ -131,10 +131,10 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
         }
 
-        toggle = Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd;
-        if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidWeaponProficiencyToUseOneDnd"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.SwapDruidToUseOneDndWeaponProficiency;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidToUseOneDndWeaponProficiency"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd = toggle;
+            Main.Settings.SwapDruidToUseOneDndWeaponProficiency = toggle;
             Tabletop2024Context.SwitchDruidWeaponProficiencyToUseOneDnd();
         }
 

@@ -275,7 +275,8 @@ internal static class CampaignsDisplay
         UI.ActionButton(title, () =>
         {
             Main.Settings.HighContrastTargetingSingleSelectedColor =
-                (Main.Settings.HighContrastTargetingSingleSelectedColor + 1) % CampaignsContext.HighContrastColors.Length;
+                (Main.Settings.HighContrastTargetingSingleSelectedColor + 1) %
+                CampaignsContext.HighContrastColors.Length;
         }, UI.Width(300f));
 
         color = CampaignsContext.GridColorStrings[Main.Settings.GridSelectedColor];
@@ -283,7 +284,8 @@ internal static class CampaignsDisplay
 
         UI.ActionButton(title, () =>
         {
-            Main.Settings.GridSelectedColor = (Main.Settings.GridSelectedColor + 1) % CampaignsContext.GridColors.Length;
+            Main.Settings.GridSelectedColor =
+                (Main.Settings.GridSelectedColor + 1) % CampaignsContext.GridColors.Length;
             CampaignsContext.UpdateMovementGrid();
         }, UI.Width(300f));
 
