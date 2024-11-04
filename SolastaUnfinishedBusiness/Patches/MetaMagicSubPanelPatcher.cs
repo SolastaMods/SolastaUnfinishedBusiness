@@ -16,7 +16,7 @@ public static class MetaMagicSubPanelPatcher
         [UsedImplicitly]
         public static void Prefix(MetaMagicSubPanel __instance)
         {
-            GameUiContext.RefreshMetamagicOffering(__instance);
+            CampaignsContext.RefreshMetamagicOffering(__instance);
         }
     }
 }

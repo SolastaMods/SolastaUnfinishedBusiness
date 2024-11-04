@@ -158,7 +158,7 @@ public static class GameLocationTargetingManagerPatcher
             public static void Postfix(CursorLocationGeometricShape __instance)
             {
                 __instance.affectedCharacterColor =
-                    GameUiContext.HighContrastColors[Main.Settings.HighContrastTargetingAoeSelectedColor];
+                    CampaignsContext.HighContrastColors[Main.Settings.HighContrastTargetingAoeSelectedColor];
             }
         }
     }

@@ -23,7 +23,7 @@ using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class GameUiContext
+internal static class CampaignsContext
 {
     internal static bool IsVttCameraEnabled;
 

@@ -123,38 +123,38 @@ public static class InputContext
                 CharacterExportContext.ExportInspectedCharacter();
                 return;
             case InputCommandsExtra.ToggleHud:
-                GameUiContext.GameHud.ShowAll(gameLocationBaseScreen);
+                CampaignsContext.GameHud.ShowAll(gameLocationBaseScreen);
                 return;
             case InputCommandsExtra.DebugOverlay:
                 ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
                 return;
             case InputCommandsExtra.TeleportParty:
-                GameUiContext.Teleporter.ConfirmTeleportParty(GameUiContext.Teleporter.GetEncounterPosition);
+                CampaignsContext.Teleporter.ConfirmTeleportParty(CampaignsContext.Teleporter.GetEncounterPosition);
                 return;
             case InputCommandsExtra.RejoinParty:
-                GameUiContext.Teleporter.ConfirmTeleportParty(GameUiContext.Teleporter.GetLeaderPosition);
+                CampaignsContext.Teleporter.ConfirmTeleportParty(CampaignsContext.Teleporter.GetLeaderPosition);
                 return;
             case InputCommandsExtra.VttCamera:
-                GameUiContext.ToggleVttCamera();
+                CampaignsContext.ToggleVttCamera();
                 return;
             case InputCommandsExtra.SpawnEncounter
-                when EncountersSpawnContext.EncounterCharacters.Count > 0:
-                EncountersSpawnContext.ConfirmStageEncounter();
+                when EncountersContext.EncounterCharacters.Count > 0:
+                EncountersContext.ConfirmStageEncounter();
                 return;
             case InputCommandsExtra.FormationSet1 when isSinglePlayer:
-                GameUiContext.SetFormationGrid(0);
+                CampaignsContext.SetFormationGrid(0);
                 return;
             case InputCommandsExtra.FormationSet2 when isSinglePlayer:
-                GameUiContext.SetFormationGrid(1);
+                CampaignsContext.SetFormationGrid(1);
                 return;
             case InputCommandsExtra.FormationSet3 when isSinglePlayer:
-                GameUiContext.SetFormationGrid(2);
+                CampaignsContext.SetFormationGrid(2);
                 return;
             case InputCommandsExtra.FormationSet4 when isSinglePlayer:
-                GameUiContext.SetFormationGrid(3);
+                CampaignsContext.SetFormationGrid(3);
                 return;
             case InputCommandsExtra.FormationSet5 when isSinglePlayer:
-                GameUiContext.SetFormationGrid(4);
+                CampaignsContext.SetFormationGrid(4);
                 return;
             case InputCommandsExtra.Hide:
                 foreach (var selectedCharacter in ServiceRepository

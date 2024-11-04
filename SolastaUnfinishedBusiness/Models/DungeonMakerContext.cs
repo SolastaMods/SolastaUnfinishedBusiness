@@ -14,7 +14,7 @@ using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class DmProEditorContext
+internal static class DungeonMakerContext
 {
     private const string BackupFolder = "../UserContentBackup";
     internal static readonly List<string> OutdoorRooms = [];

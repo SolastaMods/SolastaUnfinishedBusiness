@@ -23,7 +23,7 @@ public static class UserLocationPoolManagerPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var deleteMethod = typeof(File).GetMethod("Delete");
-            var backupAndDeleteMethod = new Action<string, UserContent>(DmProEditorContext.BackupAndDelete).Method;
+            var backupAndDeleteMethod = new Action<string, UserContent>(DungeonMakerContext.BackupAndDelete).Method;
 
             return instructions.ReplaceCalls(deleteMethod, "UserLocationPoolManager.SaveUserLocation",
                 new CodeInstruction(OpCodes.Ldarg_1),

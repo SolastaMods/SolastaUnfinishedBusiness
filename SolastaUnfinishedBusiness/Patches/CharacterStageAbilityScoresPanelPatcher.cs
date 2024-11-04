@@ -28,9 +28,9 @@ public static class CharacterStageAbilityScoresPanelPatcher
 
             return instructions.ReplaceCode(
                 instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
-                               instruction.operand.ToString() == CharacterContext.GameBuyPoints.ToString(),
+                               instruction.operand.ToString() == RulesContext.GameBuyPoints.ToString(),
                 -1, "CharacterStageAbilityScoresPanel.Reset",
-                new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints));
+                new CodeInstruction(OpCodes.Ldc_I4_S, RulesContext.ModBuyPoints));
         }
     }
 
@@ -52,19 +52,19 @@ public static class CharacterStageAbilityScoresPanelPatcher
             return instructions
                 .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_R4 &&
                                             instruction.operand.ToString() ==
-                                            CharacterContext.GameBuyPoints.ToString(),
+                                            RulesContext.GameBuyPoints.ToString(),
                     -1, "CharacterStageAbilityScoresPanel.Refresh.1",
-                    new CodeInstruction(OpCodes.Ldc_R4, 1f * CharacterContext.ModBuyPoints))
+                    new CodeInstruction(OpCodes.Ldc_R4, 1f * RulesContext.ModBuyPoints))
                 .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
                                             instruction.operand.ToString() ==
-                                            CharacterContext.GameBuyPoints.ToString(),
+                                            RulesContext.GameBuyPoints.ToString(),
                     -1, "CharacterStageAbilityScoresPanel.Refresh.2",
-                    new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModBuyPoints))
+                    new CodeInstruction(OpCodes.Ldc_I4_S, RulesContext.ModBuyPoints))
                 .ReplaceCode(instruction => instruction.opcode == OpCodes.Ldc_I4_S &&
                                             instruction.operand.ToString() ==
-                                            CharacterContext.GameMaxAttribute.ToString(),
+                                            RulesContext.GameMaxAttribute.ToString(),
                     -1, "CharacterStageAbilityScoresPanel.Refresh.3",
-                    new CodeInstruction(OpCodes.Ldc_I4_S, CharacterContext.ModMaxAttribute));
+                    new CodeInstruction(OpCodes.Ldc_I4_S, RulesContext.ModMaxAttribute));
         }
     }
 }

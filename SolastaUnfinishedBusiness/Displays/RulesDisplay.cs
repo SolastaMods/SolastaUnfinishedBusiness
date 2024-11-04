@@ -360,7 +360,7 @@ internal static class RulesDisplay
             if (!toggle)
             {
                 Main.Settings.ModifyGravitySlam = false;
-                Tabletop2014Context.ToggleGravitySlamModification();
+                Tabletop2014Context.SwitchGravitySlam();
             }
         }
 

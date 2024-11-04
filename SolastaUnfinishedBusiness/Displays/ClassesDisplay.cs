@@ -61,11 +61,11 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchOneDndRemoveBardMagicalSecretAt14And18();
         }
 
-        toggle = Main.Settings.RemoveBardSongOfRest;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.RemoveBardSongOfRestAt2;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRestAt2"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.RemoveBardSongOfRest = toggle;
-            Tabletop2024Context.SwitchOneDndRemoveBardSongOfRest();
+            Main.Settings.RemoveBardSongOfRestAt2 = toggle;
+            Tabletop2024Context.SwitchOneDndRemoveBardSongOfRestAt2();
         }
 
         UI.Label();
@@ -116,11 +116,11 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableDruidToUseMetalArmor;
+        toggle = Main.Settings.EnableDruidUseMetalArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableDruidToUseMetalArmor = toggle;
-            Tabletop2024Context.SwitchOneDnDEnableDruidToUseMetalArmor();
+            Main.Settings.EnableDruidUseMetalArmor = toggle;
+            Tabletop2024Context.SwitchOneDnDEnableDruidUseMetalArmor();
         }
 
         toggle = Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency;
@@ -128,13 +128,13 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
-            Tabletop2024Context.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
+            Tabletop2024Context.SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
         }
 
-        toggle = Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd;
-        if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidWeaponProficiencyToUseOneDnd"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.SwapDruidToUseOneDndWeaponProficiency;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidToUseOneDndWeaponProficiency"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.SwapDruidWeaponProficiencyToUseOneDnd = toggle;
+            Main.Settings.SwapDruidToUseOneDndWeaponProficiency = toggle;
             Tabletop2024Context.SwitchDruidWeaponProficiencyToUseOneDnd();
         }
 
@@ -163,10 +163,10 @@ internal static class ClassesDisplay
             ClassesContext.SwitchFighterWeaponSpecialization();
         }
 
-        toggle = Main.Settings.SwapSecondWindToUseOneDndUsagesProgression;
-        if (UI.Toggle(Gui.Localize("ModUi/&SwapSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSecondWindToUseOneDndUsagesProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.SwapSecondWindToUseOneDndUsagesProgression = toggle;
+            Main.Settings.EnableSecondWindToUseOneDndUsagesProgression = toggle;
         }
 
         UI.Label();
@@ -353,10 +353,10 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableSorcererInnateSorcery;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorcery"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSorcererInnateSorceryAt1;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorceryAt1"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableSorcererInnateSorcery = toggle;
+            Main.Settings.EnableSorcererInnateSorceryAt1 = toggle;
             Tabletop2024Context.SwitchSorcererInnateSorcery();
         }
 
@@ -386,17 +386,17 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableWarlockMagicalCunningAtLevel2;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableWarlockToLearnPatronAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockToLearnPatronAtLevel3"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableWarlockMagicalCunningAtLevel2 = toggle;
-            Tabletop2024Context.SwitchOneDndWarlockMagicalCunningAtLevel2();
+            Main.Settings.EnableWarlockToLearnPatronAtLevel3 = toggle;
+            Tabletop2024Context.SwitchOneDndWarlockSchoolOfMagicLearningLevel();
         }
 
-        toggle = Main.Settings.SwapWarlockToUseOneDndInvocationProgression;
+        toggle = Main.Settings.EnableWarlockToUseOneDndInvocationProgression;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.SwapWarlockToUseOneDndInvocationProgression = toggle;
+            Main.Settings.EnableWarlockToUseOneDndInvocationProgression = toggle;
             Tabletop2024Context.SwitchOneDndWarlockInvocationsProgression();
         }
 

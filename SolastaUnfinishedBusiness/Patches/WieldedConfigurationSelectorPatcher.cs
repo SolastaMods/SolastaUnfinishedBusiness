@@ -60,7 +60,7 @@ public static class WieldedConfigurationSelectorPatcher
         {
             if (!warning
                 || warning.gameObject.activeSelf
-                || !SrdAndHouseRulesContext.IsHandCrossbowUseInvalid(slot.equipedItem, hero,
+                || !CustomItemsContext.IsHandCrossbowUseInvalid(slot.equipedItem, hero,
                     configuration.MainHandSlot.EquipedItem, configuration.OffHandSlot.EquipedItem))
             {
                 return;

@@ -293,8 +293,8 @@ public sealed class DomainNature : AbstractSubclass
             return;
         }
 
-        var selectedClass = LevelUpContext.GetSelectedClass(hero);
-        var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
+        var selectedClass = LevelUpHelper.GetSelectedClass(hero);
+        var selectedSubclass = LevelUpHelper.GetSelectedSubclass(hero);
         var subclassTag = AttributeDefinitions.GetSubclassTag(selectedClass, 1, selectedSubclass);
 
         hero.ActiveFeatures[subclassTag].Add(_castSpellDomainNature);

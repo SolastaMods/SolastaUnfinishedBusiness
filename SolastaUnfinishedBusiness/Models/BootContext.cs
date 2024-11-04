@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -22,7 +21,7 @@ internal static class BootContext
         ItemDefinitionVerification.Load();
         EffectFormVerification.Load();
 #endif
-        GameUiContext.ModifyActionMaps();
+        CampaignsContext.ModifyActionMaps();
 
         // STEP 0: Cache TA definitions for diagnostics and export
         DiagnosticsContext.CacheTaDefinitions();
@@ -54,9 +53,12 @@ internal static class BootContext
         PowerBundleContext.Load();
         ToolsContext.Load();
         CharacterExportContext.Load();
-        DmProEditorContext.Load();
-        GameUiContext.Load();
+        DungeonMakerContext.Load();
+        CampaignsContext.Load();
         InputContext.Load();
+
+        // only bootstrap for now
+        FeatsContext.Load();
 
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();
@@ -88,7 +90,7 @@ internal static class BootContext
             FeatsContext.LateLoad();
 
             // Late initialized to allow feats and races from other mods
-            CharacterContext.LateLoad();
+            RulesContext.LateLoad();
 
             // Custom invocations
             InvocationsContext.LateLoad();
@@ -115,7 +117,6 @@ internal static class BootContext
             SharedSpellsContext.LateLoad();
 
             // Set anything on subs that depends on spells and others
-            SrdAndHouseRulesContext.LateLoad();
             Tabletop2014Context.LateLoad();
             Tabletop2024Context.LateLoad();
 
@@ -143,13 +144,9 @@ internal static class BootContext
             // Manages update or welcome messages
             UpdateContext.Load();
 
-            // Log invalid user campaign
-            LogMissingReferencesInUserCampaigns();
+            //TODO: find a better place to implement these
             AddExtraTooltipDefinitions();
-
-            // Fix condition UI
-            DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description =
-                Gui.NoLocalization;
+            LogMissingReferencesInUserCampaigns();
 
             // Enable mod
             Main.Enable();

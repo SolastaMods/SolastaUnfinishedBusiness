@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -38,7 +39,7 @@ public static class FlexibleCastingItemPatcher
                 return;
             }
 
-            MulticlassGameUiContext.PaintPactSlotsAlternate(
+            MulticlassGameUi.PaintPactSlotsAlternate(
                 hero, maxSlots, remainingSlots, slotLevel, __instance.slotStatusTable);
         }
     }
@@ -54,7 +55,7 @@ public static class FlexibleCastingItemPatcher
             SpellPointsContext.RefreshActionPanelAfterFlexibleCastingItem();
 
             //PATCH: ensures slot colors are white before getting back to pool (MULTICLASS)
-            MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);
+            MulticlassGameUi.PaintSlotsWhite(__instance.slotStatusTable);
         }
     }
 }

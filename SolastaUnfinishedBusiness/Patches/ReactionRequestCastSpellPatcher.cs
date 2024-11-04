@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -64,7 +65,7 @@ public static class ReactionRequestCastSpellPatcher
 
             var spellLevel = rulesetEffectSpell.SpellDefinition.SpellLevel;
             var selected =
-                MulticlassGameUiContext.AddAvailableSubLevels(optionsAvailability, hero, repertoire, spellLevel);
+                MulticlassGameUi.AddAvailableSubLevels(optionsAvailability, hero, repertoire, spellLevel);
 
             if (selected >= 0)
             {

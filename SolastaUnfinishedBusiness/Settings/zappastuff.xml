@@ -216,7 +216,6 @@
     <EnableSameWidthInvocationSelection>true</EnableSameWidthInvocationSelection>
     <EnableSortingFightingStyles>true</EnableSortingFightingStyles>
     <EnableSortingSubclasses>true</EnableSortingSubclasses>
-    <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
@@ -240,7 +239,7 @@
     <EnableUnarmedMainAttackAction>true</EnableUnarmedMainAttackAction>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
-    <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
+    <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
     <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
@@ -502,15 +501,15 @@
             </ArrayOfInt>
         </ArrayOfArrayOfInt>
     </FormationGridSets>
-    <ScaleMerchantPricesCorrectly>false</ScaleMerchantPricesCorrectly>
-    <StockGorimStoreWithAllNonMagicalClothing>false</StockGorimStoreWithAllNonMagicalClothing>
+    <ScaleMerchantPricesCorrectly>true</ScaleMerchantPricesCorrectly>
+    <StockGorimStoreWithAllNonMagicalClothing>true</StockGorimStoreWithAllNonMagicalClothing>
     <StockHugoStoreWithAdditionalFoci>false</StockHugoStoreWithAdditionalFoci>
-    <StockGorimStoreWithAllNonMagicalInstruments>false</StockGorimStoreWithAllNonMagicalInstruments>
+    <StockGorimStoreWithAllNonMagicalInstruments>true</StockGorimStoreWithAllNonMagicalInstruments>
     <EnableAdditionalFociInDungeonMaker>false</EnableAdditionalFociInDungeonMaker>
-    <RestockAntiquarians>false</RestockAntiquarians>
-    <RestockArcaneum>false</RestockArcaneum>
-    <RestockCircleOfDanantar>false</RestockCircleOfDanantar>
-    <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
+    <RestockAntiquarians>true</RestockAntiquarians>
+    <RestockArcaneum>true</RestockArcaneum>
+    <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
+    <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
     <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>true</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
@@ -581,26 +580,30 @@
     <EnableLoggingInvalidReferencesInUserCampaigns>true</EnableLoggingInvalidReferencesInUserCampaigns>
     <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
     <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
-    <UnleashEnemyAsNpc>false</UnleashEnemyAsNpc>
-    <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
+    <UnleashEnemyAsNpc>true</UnleashEnemyAsNpc>
+    <AddNewWeaponsAndRecipesToEditor>false</AddNewWeaponsAndRecipesToEditor>
     <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
     <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
-    <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
-    <EnableRitualOnAllCasters>true</EnableRitualOnAllCasters>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <EnableBardExpertiseOneLevelBefore>true</EnableBardExpertiseOneLevelBefore>
     <ChangeBardicInspirationDurationToOneHour>true</ChangeBardicInspirationDurationToOneHour>
-    <RemoveBardSongOfRest>true</RemoveBardSongOfRest>
+    <EnableBardExpertiseOneLevelBefore>true</EnableBardExpertiseOneLevelBefore>
+    <EnableBardSuperiorInspirationAtLevel18>true</EnableBardSuperiorInspirationAtLevel18>
+    <EnableBardWordsOfCreationAtLevel20>true</EnableBardWordsOfCreationAtLevel20>
+    <RemoveBardMagicalSecretAt14And18>true</RemoveBardMagicalSecretAt14And18>
+    <RemoveBardSongOfRestAt2>true</RemoveBardSongOfRestAt2>
     <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
     <EnableBarbarianRecklessSameBuffDebuffDuration>true</EnableBarbarianRecklessSameBuffDebuffDuration>
     <EnableBarbarianRegainOneRageAtShortRest>true</EnableBarbarianRegainOneRageAtShortRest>
+    <EnableDruidUseMetalArmor>true</EnableDruidUseMetalArmor>
+    <EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>true</EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>
+    <SwapDruidToUseOneDndWeaponProficiency>true</SwapDruidToUseOneDndWeaponProficiency>
     <AddFighterLevelToIndomitableSavingReroll>true</AddFighterLevelToIndomitableSavingReroll>
     <AddPersuasionToFighterSkillOptions>true</AddPersuasionToFighterSkillOptions>
-    <SwapSecondWindToUseOneDndUsagesProgression>true</SwapSecondWindToUseOneDndUsagesProgression>
+    <EnableSecondWindToUseOneDndUsagesProgression>true</EnableSecondWindToUseOneDndUsagesProgression>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt14>true</EnableRangerNatureShroudAt14>
@@ -625,11 +628,13 @@
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
+    <RemoveRogueBlindSense>true</RemoveRogueBlindSense>
+    <EnableSorcererInnateSorceryAt1>true</EnableSorcererInnateSorceryAt1>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
-    <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <EnableWarlockMagicalCunningAtLevel2>true</EnableWarlockMagicalCunningAtLevel2>
-    <SwapWarlockToUseOneDndInvocationProgression>true</SwapWarlockToUseOneDndInvocationProgression>
+    <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
+    <EnableWarlockToLearnPatronAtLevel3>true</EnableWarlockToLearnPatronAtLevel3>
+    <EnableWarlockToUseOneDndInvocationProgression>true</EnableWarlockToUseOneDndInvocationProgression>
     <EnableWizardToLearnScholarAtLevel2>true</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>true</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
@@ -892,6 +897,7 @@
     </MetamagicEnabled>
     <AllowBladeCantripsToUseReach>true</AllowBladeCantripsToUseReach>
     <EnableOneDnDPreparedSpellsTables>true</EnableOneDnDPreparedSpellsTables>
+    <EnableRitualOnAllCasters>true</EnableRitualOnAllCasters>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
@@ -907,8 +913,9 @@
     <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
     <ModifyGravitySlam>true</ModifyGravitySlam>
-    <EnableOneDndHealingSpellsBuf>true</EnableOneDndHealingSpellsBuf>
-    <SwapOneDndBarkskinSpell>true</SwapOneDndBarkskinSpell>
+    <EnableOneDndBarkskinSpell>true</EnableOneDndBarkskinSpell>
+    <EnableOneDndHealingSpellsUpgrade>true</EnableOneDndHealingSpellsUpgrade>
+    <EnableOneDndGuidanceSpell>true</EnableOneDndGuidanceSpell>
     <AllowHasteCasting>true</AllowHasteCasting>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
     <EnableRelearnSpells>false</EnableRelearnSpells>

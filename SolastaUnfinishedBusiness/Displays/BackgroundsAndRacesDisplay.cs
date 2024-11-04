@@ -43,14 +43,14 @@ internal static class BackgroundsAndRacesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeDragonbornElementalBreathUsages = toggle;
-            CharacterContext.SwitchDragonbornElementalBreathUsages();
+            RacesContext.SwitchDragonbornElementalBreathUsages();
         }
 
         toggle = Main.Settings.EnableAlternateHuman;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableAlternateHuman = toggle;
-            CharacterContext.SwitchFirstLevelTotalFeats();
+            FeatsContext.SwitchFirstLevelTotalFeats();
         }
 
         toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
@@ -79,7 +79,7 @@ internal static class BackgroundsAndRacesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
-            CharacterContext.SwitchDarknessPerceptive();
+            RacesContext.SwitchDarknessPerceptive();
         }
 
         UI.Label();

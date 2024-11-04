@@ -1200,7 +1200,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 AttributeModifierCreed_Of_Einar,
                 FeatureFeatCrusher,
-                GameUiContext.ActionAffinityFeatCrusherToggle)
+                CampaignsContext.ActionAffinityFeatCrusherToggle)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
@@ -1214,7 +1214,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 AttributeModifierCreed_Of_Arun,
                 FeatureFeatCrusher,
-                GameUiContext.ActionAffinityFeatCrusherToggle)
+                CampaignsContext.ActionAffinityFeatCrusherToggle)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
             .AddToDB();

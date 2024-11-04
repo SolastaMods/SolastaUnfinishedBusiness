@@ -4,13 +4,14 @@ using AwesomeTechnologies;
 using AwesomeTechnologies.VegetationSystem;
 using AwesomeTechnologies.VegetationSystem.Biomes;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = System.Random;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal static class DmProRendererContext
+internal static class DungeonMakerCustomRooms
 {
     private const int Margin = 25;
     private const int FlatRoomSize = 12;
@@ -64,7 +65,7 @@ internal static class DmProRendererContext
         {
             const int BORDER = 2;
 
-            var isIndoor = !DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name);
+            var isIndoor = !DungeonMakerContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name);
             var px = userRoom.Position.x;
             var py = userRoom.Position.y;
             var oh = userRoom.OrientedHeight;
@@ -211,7 +212,7 @@ internal static class DmProRendererContext
     internal static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)
     {
         if (!TemplateVegetationMaskArea ||
-            DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name))
+            DungeonMakerContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name))
         {
             return;
         }

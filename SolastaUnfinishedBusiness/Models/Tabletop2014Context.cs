@@ -17,7 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRegen
 
 namespace SolastaUnfinishedBusiness.Models;
 
-public class Tabletop2014Context
+internal static class Tabletop2014Context
 {
     internal static readonly HashSet<MonsterDefinition> ConjuredMonsters =
     [
@@ -80,25 +80,24 @@ public class Tabletop2014Context
 
     internal static void LateLoad()
     {
-        ModifyGravitySlam();
-        SwitchProneAction();
-        SwitchHelpPower();
-        SwitchGrappleAction();
-        SwitchFullyControlConjurations();
-        SwitchConditionBlindedShouldNotAllowOpportunityAttack();
-        SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
-        SwitchOfficialFoodRationsWeight();
-        SwitchRingOfRegenerationHealRate();
-        SwitchEldritchBlastRange();
+        LoadGravitySlam();
         SwitchBardHealingBalladOnLongRest();
+        SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
+        SwitchConditionBlindedShouldNotAllowOpportunityAttack();
+        SwitchEldritchBlastRange();
+        SwitchFullyControlConjurations();
+        SwitchGrappleAction();
+        SwitchGravitySlam();
+        SwitchHelpPower();
+        SwitchOfficialFoodRationsWeight();
+        SwitchProneAction();
+        SwitchRingOfRegenerationHealRate();
     }
-
 
     internal static void SwitchEldritchBlastRange()
     {
         EldritchBlast.effectDescription.rangeParameter = Main.Settings.FixEldritchBlastRange ? 24 : 16;
     }
-
 
     internal static void SwitchBardHealingBalladOnLongRest()
     {
@@ -341,19 +340,17 @@ public class Tabletop2014Context
     private static EffectDescription _gravitySlamVanilla;
     private static EffectDescription _gravitySlamModified;
 
-    private static void ModifyGravitySlam()
+    private static void LoadGravitySlam()
     {
         _gravitySlamVanilla = GravitySlam.EffectDescription;
-
-        _gravitySlamModified = EffectDescriptionBuilder.Create(_gravitySlamVanilla)
+        _gravitySlamModified = EffectDescriptionBuilder
+            .Create(_gravitySlamVanilla)
             .SetTargetingData(Side.All, RangeType.Distance, 20, TargetType.Cylinder, 4, 10)
             .AddEffectForms(EffectFormBuilder.MotionForm(ExtraMotionType.PushDown, 10))
             .Build();
-
-        ToggleGravitySlamModification();
     }
 
-    internal static void ToggleGravitySlamModification()
+    internal static void SwitchGravitySlam()
     {
         if (Main.Settings.EnablePullPushOnVerticalDirection && Main.Settings.ModifyGravitySlam)
         {

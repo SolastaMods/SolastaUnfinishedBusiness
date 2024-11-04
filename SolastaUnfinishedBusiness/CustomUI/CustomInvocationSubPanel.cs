@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Feats;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -53,7 +53,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
     internal static List<string> OnlyStandardInvocationProficiencies(RulesetCharacterHero hero)
     {
-        var selectedClass = LevelUpContext.GetSelectedClass(hero);
+        var selectedClass = LevelUpHelper.GetSelectedClass(hero);
 
         if (selectedClass != DatabaseHelper.CharacterClassDefinitions.Warlock
             && !hero.TrainedFeats.Exists(x => x.Name == OtherFeats.FeatEldritchAdept))

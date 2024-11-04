@@ -6,7 +6,6 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -25,13 +24,13 @@ public static class CharacterStageLevelGainPanelPatcher
             out CharacterClassDefinition lastClassDefinition,
             out int level)
         {
-            if (LevelUpContext.IsLevelingUp(hero))
+            if (LevelUpHelper.IsLevelingUp(hero))
             {
                 //PATCH: mark we are beyond selecting classes (MULTICLASS)
-                LevelUpContext.SetIsClassSelectionStage(hero, false);
+                LevelUpHelper.SetIsClassSelectionStage(hero, false);
 
                 //PATCH: gets my own class and level for level up (MULTICLASS)
-                lastClassDefinition = LevelUpContext.GetSelectedClass(hero);
+                lastClassDefinition = LevelUpHelper.GetSelectedClass(hero);
                 level = hero.ClassesHistory.Count;
             }
             else
@@ -65,10 +64,10 @@ public static class CharacterStageLevelGainPanelPatcher
         private static List<RulesetSpellRepertoire> SpellRepertoires(
             [NotNull] RulesetCharacterHero rulesetCharacterHero)
         {
-            if (LevelUpContext.IsLevelingUp(rulesetCharacterHero) && LevelUpContext.IsMulticlass(rulesetCharacterHero))
+            if (LevelUpHelper.IsLevelingUp(rulesetCharacterHero) && LevelUpHelper.IsMulticlass(rulesetCharacterHero))
             {
                 return rulesetCharacterHero.SpellRepertoires
-                    .Where(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(rulesetCharacterHero, x))
+                    .Where(x => LevelUpHelper.IsRepertoireFromSelectedClassSubclass(rulesetCharacterHero, x))
                     .ToList();
             }
 

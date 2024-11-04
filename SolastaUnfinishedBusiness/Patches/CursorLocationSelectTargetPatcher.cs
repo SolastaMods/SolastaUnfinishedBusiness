@@ -567,7 +567,7 @@ public static class CursorLocationSelectTargetPatcher
         public static void Postfix(CursorLocationSelectTarget __instance)
         {
             __instance.affectedCharacterColor =
-                GameUiContext.HighContrastColors[Main.Settings.HighContrastTargetingSingleSelectedColor];
+                CampaignsContext.HighContrastColors[Main.Settings.HighContrastTargetingSingleSelectedColor];
         }
     }
 }

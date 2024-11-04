@@ -108,14 +108,14 @@ internal static class CraftingAndItems
         if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowAnyClassToWearSylvanArmor = toggle;
-            SrdAndHouseRulesContext.SwitchUniversalSylvanArmorAndLightbringer();
+            CustomItemsContext.SwitchUniversalSylvanArmorAndLightbringer();
         }
 
         toggle = Main.Settings.AllowClubsToBeThrown;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowClubsToBeThrown"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowClubsToBeThrown = toggle;
-            SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
+            CustomItemsContext.SwitchAllowClubsToBeThrown();
         }
 
         toggle = Main.Settings.UseOfficialFoodRationsWeight;
@@ -129,7 +129,7 @@ internal static class CraftingAndItems
         if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
-            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
+            CustomItemsContext.SwitchMagicStaffFoci();
         }
 
         toggle = Main.Settings.FixRingOfRegenerationHealRate;

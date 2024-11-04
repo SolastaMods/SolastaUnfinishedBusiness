@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -80,7 +80,7 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
             }
 
             var hero = __instance.currentHero;
-            var lastGainedSubclass = LevelUpContext.GetSelectedSubclass(hero);
+            var lastGainedSubclass = LevelUpHelper.GetSelectedSubclass(hero);
 
             if (!lastGainedSubclass)
             {

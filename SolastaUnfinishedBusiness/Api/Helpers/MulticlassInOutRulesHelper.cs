@@ -8,9 +8,9 @@ using UnityEngine;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.Api.Helpers;
 
-internal static class MulticlassInOutRulesContext
+internal static class MulticlassInOutRulesHelper
 {
     internal static void EnumerateHeroAllowedClassDefinitions([NotNull] RulesetCharacterHero hero,
         [NotNull] List<CharacterClassDefinition> allowedClasses, out int selectedClass)

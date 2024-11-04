@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -28,8 +29,8 @@ public static class SpellBoxPatcher
             }
 
             //PATCH: show actual class/subclass name in the multiclass tag during spell selection on level up
-            if (tag.StartsWith(LevelUpContext.ExtraClassTag)
-                || tag.StartsWith(LevelUpContext.ExtraSubclassTag))
+            if (tag.StartsWith(LevelUpHelper.ExtraClassTag)
+                || tag.StartsWith(LevelUpHelper.ExtraSubclassTag))
             {
                 //store original extra tag and reset both - actual texts would be handled on Postfix for this case
                 _extraTag = tag;
@@ -77,13 +78,13 @@ public static class SpellBoxPatcher
 
             switch (type)
             {
-                case LevelUpContext.ExtraClassTag when
+                case LevelUpHelper.ExtraClassTag when
                     DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(name, out var classDef):
                     name = classDef.FormatTitle();
                     __instance.autoPreparedTooltip.Content = Gui.Format(CLASS_FORMAT, name);
                     break;
 
-                case LevelUpContext.ExtraSubclassTag when
+                case LevelUpHelper.ExtraSubclassTag when
                     DatabaseHelper.TryGetDefinition<CharacterSubclassDefinition>(name, out var subDef):
                     name = subDef.FormatTitle();
                     __instance.autoPreparedTooltip.Content = Gui.Format(SUBCLASS_FORMAT, name);

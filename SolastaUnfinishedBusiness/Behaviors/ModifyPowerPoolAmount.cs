@@ -34,7 +34,7 @@ public class ModifyPowerPoolAmount : IModifyPowerPoolAmount
 
         int GetSecondWindUsages()
         {
-            if (!Main.Settings.SwapSecondWindToUseOneDndUsagesProgression)
+            if (!Main.Settings.EnableSecondWindToUseOneDndUsagesProgression)
             {
                 return 1;
             }

@@ -257,7 +257,7 @@ public static class RulesetCharacterPatcher
             }
 
             __instance.InflictCondition(
-                CharacterContext.ConditionIndomitableSaving.Name,
+                Tabletop2024Context.ConditionIndomitableSaving.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -265,7 +265,7 @@ public static class RulesetCharacterPatcher
                 __instance.Guid,
                 __instance.CurrentFaction.Name,
                 1,
-                CharacterContext.ConditionIndomitableSaving.Name,
+                Tabletop2024Context.ConditionIndomitableSaving.Name,
                 0,
                 0,
                 0);
@@ -445,7 +445,7 @@ public static class RulesetCharacterPatcher
             ProcessConditionsMatchingInterruptionSourceRageStop(__instance, activeCondition);
 
             //PATCH: support 'EnableCharactersOnFireToEmitLight'
-            SrdAndHouseRulesContext.RemoveLightSourceIfNeeded(__instance, activeCondition);
+            RulesContext.RemoveLightSourceIfNeeded(__instance, activeCondition);
 
             //PATCH: notifies custom condition features that condition is removed 
             var definition = activeCondition.ConditionDefinition;
@@ -1763,7 +1763,7 @@ public static class RulesetCharacterPatcher
 
             if (!spellcastingClass && spellRepertoire.SpellCastingSubclass)
             {
-                spellcastingClass = LevelUpContext.GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
+                spellcastingClass = LevelUpHelper.GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
             }
             //END PATCH
 
@@ -2136,17 +2136,17 @@ public static class RulesetCharacterPatcher
                 switch (Main.Settings.AddPaladinSmiteToggle)
                 {
                     case true:
-                        if (!hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle))
+                        if (!hero.HasAnyFeature(CampaignsContext.ActionAffinityPaladinSmiteToggle))
                         {
-                            hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                            hero.ActiveFeatures[tag].Add(CampaignsContext.ActionAffinityPaladinSmiteToggle);
                             hero.EnableToggle((Id)ExtraActionId.PaladinSmiteToggle);
                         }
 
                         break;
                     case false:
-                        if (hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle))
+                        if (hero.HasAnyFeature(CampaignsContext.ActionAffinityPaladinSmiteToggle))
                         {
-                            hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                            hero.ActiveFeatures[tag].Remove(CampaignsContext.ActionAffinityPaladinSmiteToggle);
                         }
 
                         hero.EnableToggle((Id)ExtraActionId.PaladinSmiteToggle);

@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -22,7 +22,7 @@ public static class BaseBlueprintPatcher
             bool perspective)
         {
             //PATCH: ensures custom props display the proper icon (DMP)
-            return DmProRendererContext.ExtendedGetAssetKey(
+            return DungeonMakerCustomRooms.ExtendedGetAssetKey(
                 __instance, ref __result, prefabByEnvironmentDescription, environmentDefinition, perspective);
         }
     }

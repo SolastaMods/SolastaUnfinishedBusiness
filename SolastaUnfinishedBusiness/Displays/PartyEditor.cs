@@ -3,9 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.DataViewer;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.ModKit.UI;
 
@@ -314,7 +314,7 @@ public static class PartyEditor
                                             chr.UsablePowers.Add(usablePower);
                                         }
 
-                                        LevelUpContext.RecursiveGrantCustomFeatures(
+                                        LevelUpHelper.RecursiveGrantCustomFeatures(
                                             chr, AttributeDefinitions.TagFeat, feat.Features);
                                     }
                                     : null,
@@ -334,7 +334,7 @@ public static class PartyEditor
                                             }
                                         }
 
-                                        LevelUpContext.RecursiveRemoveCustomFeatures(
+                                        LevelUpHelper.RecursiveRemoveCustomFeatures(
                                             chr, AttributeDefinitions.TagFeat, feat.Features);
                                     }
                                     : null
@@ -371,7 +371,7 @@ public static class PartyEditor
                                     ? () =>
                                     {
                                         chr.TrainInvocations([def]);
-                                        LevelUpContext.RecursiveGrantCustomFeatures(
+                                        LevelUpHelper.RecursiveGrantCustomFeatures(
                                             chr, null, [def.grantedFeature]);
                                     }
                                     : null,
@@ -384,7 +384,7 @@ public static class PartyEditor
                                             chr.usablePowers.RemoveAll(x => x.PowerDefinition == power);
                                         }
 
-                                        LevelUpContext.RecursiveRemoveCustomFeatures(
+                                        LevelUpHelper.RecursiveRemoveCustomFeatures(
                                             chr, null, [def.grantedFeature]);
                                     }
                                     : null

@@ -176,24 +176,24 @@ public class Settings : UnityModManager.ModSettings
     public int[][][] FormationGridSets { get; set; } =
     [
         [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize],
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize]
         ],
         [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize],
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize]
         ],
         [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize],
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize]
         ],
         [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize],
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize]
         ],
         [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize],
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize]
         ]
     ];
 
@@ -264,18 +264,18 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBardSuperiorInspirationAtLevel18 { get; set; }
     public bool EnableBardWordsOfCreationAtLevel20 { get; set; }
     public bool RemoveBardMagicalSecretAt14And18 { get; set; }
-    public bool RemoveBardSongOfRest { get; set; }
+    public bool RemoveBardSongOfRestAt2 { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
     public bool DisableBarbarianBrutalCritical { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
     public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
     public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
-    public bool EnableDruidToUseMetalArmor { get; set; }
+    public bool EnableDruidUseMetalArmor { get; set; }
     public bool EnableDruidPrimalOrderAndRemoveMediumArmorProficiency { get; set; }
-    public bool SwapDruidWeaponProficiencyToUseOneDnd { get; set; }
+    public bool SwapDruidToUseOneDndWeaponProficiency { get; set; }
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
     public bool AddPersuasionToFighterSkillOptions { get; set; }
-    public bool SwapSecondWindToUseOneDndUsagesProgression { get; set; }
+    public bool EnableSecondWindToUseOneDndUsagesProgression { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerNatureShroudAt14 { get; set; }
@@ -300,12 +300,12 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
     public bool RemoveRogueBlindSense { get; set; }
-    public bool EnableSorcererInnateSorcery { get; set; }
+    public bool EnableSorcererInnateSorceryAt1 { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
-    public bool EnableWarlockMagicalCunningAtLevel2 { get; set; }
-    public bool SwapWarlockToUseOneDndInvocationProgression { get; set; }
+    public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }
+    public bool EnableWarlockToUseOneDndInvocationProgression { get; set; }
     public bool EnableWizardToLearnScholarAtLevel2 { get; set; }
     public bool EnableWizardToLearnSchoolAtLevel3 { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }
@@ -374,9 +374,9 @@ public class Settings : UnityModManager.ModSettings
     public bool UseHeightOneCylinderEffect { get; set; }
     public bool FixEldritchBlastRange { get; set; }
     public bool ModifyGravitySlam { get; set; }
-    public bool EnableOneDndHealingSpellsBuf { get; set; }
-    public bool SwapOneDndBarkskinSpell { get; set; }
-    public bool SwapOneDndGuidanceSpell { get; set; }
+    public bool EnableOneDndBarkskinSpell { get; set; }
+    public bool EnableOneDndHealingSpellsUpgrade { get; set; }
+    public bool EnableOneDndGuidanceSpell { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool EnableRelearnSpells { get; set; }

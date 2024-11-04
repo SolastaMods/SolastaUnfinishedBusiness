@@ -408,7 +408,7 @@ public class PatronArchfey : AbstractSubclass
 
         private IEnumerator SelectPositionAndExecutePower(GameLocationCharacter defender)
         {
-            GameUiContext.ResetCamera();
+            CampaignsContext.ResetCamera();
 
             var rulesetDefender = defender.RulesetCharacter;
             var cursorManager = ServiceRepository.GetService<ICursorService>() as CursorManager;

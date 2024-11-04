@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -48,7 +49,7 @@ public static class CharacterReactionSubitemPatcher
 
             spellRepertoire.GetSlotsNumber(slotLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
-            MulticlassGameUiContext.PaintPactSlotsAlternate(
+            MulticlassGameUi.PaintPactSlotsAlternate(
                 hero, totalSlotsCount, totalSlotsRemainingCount, slotLevel,
                 __instance.slotStatusTable);
         }
@@ -63,7 +64,7 @@ public static class CharacterReactionSubitemPatcher
         public static void Prefix(CharacterReactionSubitem __instance)
         {
             //PATCH: ensures slot colors are white before getting back to pool
-            MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);
+            MulticlassGameUi.PaintSlotsWhite(__instance.slotStatusTable);
 
             //PATCH: disables tooltip on Unbind.
             //default implementation doesn't use tooltips, so we are cleaning up after custom warcaster and bundled power binds

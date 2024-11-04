@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -24,7 +24,7 @@ public static class FeatureDescriptionItemPatcher
                 return;
             }
 
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
 
             if (!isClassSelectionStage)
             {

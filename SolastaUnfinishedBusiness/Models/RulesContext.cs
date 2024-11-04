@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -13,7 +12,6 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
-using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -22,43 +20,21 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefiniti
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class CharacterContext
+internal static class RulesContext
 {
-    internal const int MinInitialFeats = 0;
-    internal const int MaxInitialFeats = 4; // don't increase this value to avoid issue reports on crazy scenarios
-
     internal const int GameMaxAttribute = 15;
     internal const int GameBuyPoints = 27;
-
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
-
-    internal static readonly ConditionDefinition ConditionIndomitableSaving = ConditionDefinitionBuilder
-        .Create("ConditionIndomitableSaving")
-        .SetGuiPresentationNoContent(true)
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .AddCustomSubFeatures(new RollSavingThrowInitiatedIndomitableSaving())
-        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-        .AddToDB();
-
-
-    private static readonly FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityDarknessPerceptive =
-        FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityDarknessPerceptive")
-            .SetGuiPresentation(Category.Feature)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
-                abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
-            .AddCustomSubFeatures(ValidatorsCharacter.IsUnlitOrDarkness)
-            .AddToDB();
-
 
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolPathClawDraconicChoice =
         CustomInvocationPoolDefinitionBuilder
@@ -102,7 +78,6 @@ internal static class CharacterContext
             .Setup(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
             .AddToDB();
 
-
     internal static readonly FeatureDefinitionPower PowerTeleportSummon = FeatureDefinitionPowerBuilder
         .Create("PowerTeleportSummon")
         .SetGuiPresentation(Category.Feature, DimensionDoor)
@@ -138,42 +113,58 @@ internal static class CharacterContext
                 .Build())
         .AddToDB();
 
-    private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
-    private static bool PreviousAlternateHuman { get; set; }
+    private static readonly List<MonsterDefinition> MonstersThatEmitLight =
+    [
+        CubeOfLight,
+        Fire_Elemental,
+        Fire_Jester,
+        Fire_Osprey,
+        Fire_Spider
+    ];
 
     internal static void LateLoad()
     {
-        FlexibleBackgroundsContext.Load();
-        FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
-        FlexibleRacesContext.SwitchFlexibleRaces();
         LoadAdditionalNames();
         LoadEpicArray();
-        LoadFeatsPointPools();
-        LoadSorcererQuickened();
-        LoadVision();
+        LoadSenseNormalVisionRangeMultiplier();
         LoadVisuals();
-        LoadSecondWindToUseOneDndUsagesProgression();
-
-        SwitchAsiAndFeat();
-        SwitchDarknessPerceptive();
-        SwitchDragonbornElementalBreathUsages();
+        LoadSorcererQuickened();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
-        SwitchEveryFourLevelsFeats();
-        SwitchEveryFourLevelsFeats(true);
-        SwitchFirstLevelTotalFeats();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
-
         SwitchRangerToUseCustomInvocationPools();
-
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
             FeatureSetPathClawDragonAncestry, InvocationPoolPathClawDraconicChoice,
             InvocationPoolTypeCustom.Pools.PathClawDraconicChoice);
-
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "Sorcerer", SorcerousDraconicBloodline,
             FeatureSetSorcererDraconicChoice, InvocationPoolSorcererDraconicChoice,
             InvocationPoolTypeCustom.Pools.SorcererDraconicChoice);
+    }
+
+    private static void LoadSenseNormalVisionRangeMultiplier()
+    {
+        _ = ConditionDefinitionBuilder
+            .Create("ConditionSenseNormalVision24")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(FeatureDefinitionSenseBuilder
+                .Create(SenseNormalVision, "SenseNormalVision24")
+                .SetSense(SenseMode.Type.NormalVision, 24)
+                .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .AddToDB();
+
+        _ = ConditionDefinitionBuilder
+            .Create("ConditionSenseNormalVision48")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(FeatureDefinitionSenseBuilder
+                .Create(SenseNormalVision, "SenseNormalVision48")
+                .SetSense(SenseMode.Type.NormalVision, 48)
+                .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .AddToDB();
     }
 
     private static void AddNameToRace(CharacterRaceDefinition raceDefinition, string gender, string name)
@@ -251,23 +242,6 @@ internal static class CharacterContext
             : [15, 14, 13, 12, 10, 8];
     }
 
-    private static void LoadFeatsPointPools()
-    {
-        // create feats point pools
-        // +1 here as need to count the Alternate Human Feat
-        for (var i = 1; i <= MaxInitialFeats + 1; i++)
-        {
-            var s = i.ToString();
-
-            _ = FeatureDefinitionPointPoolBuilder
-                .Create($"PointPool{i}BonusFeats")
-                .SetGuiPresentation(
-                    Gui.Format("Feature/&PointPoolSelectBonusFeatsTitle", s),
-                    Gui.Format("Feature/&PointPoolSelectBonusFeatsDescription", s))
-                .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
-                .AddToDB();
-        }
-    }
 
     private static void LoadSorcererQuickened()
     {
@@ -288,29 +262,6 @@ internal static class CharacterContext
             .AddToDB();
     }
 
-    private static void LoadVision()
-    {
-        if (Main.Settings.DisableSenseDarkVisionFromAllRaces)
-        {
-            foreach (var featureUnlocks in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-                         .Select(crd => crd.FeatureUnlocks))
-            {
-                featureUnlocks.RemoveAll(x => x.FeatureDefinition == SenseDarkvision);
-                // Half-orcs have a different darkvision.
-                featureUnlocks.RemoveAll(x => x.FeatureDefinition == SenseDarkvision12);
-            }
-        }
-
-        // ReSharper disable once InvertIf
-        if (Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces)
-        {
-            foreach (var featureUnlocks in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-                         .Select(crd => crd.FeatureUnlocks))
-            {
-                featureUnlocks.RemoveAll(x => x.FeatureDefinition == SenseSuperiorDarkvision);
-            }
-        }
-    }
 
     private static void LoadVisuals()
     {
@@ -449,37 +400,6 @@ internal static class CharacterContext
             .Default;
     }
 
-    internal static void SwitchAsiAndFeat()
-    {
-        FeatureSetAbilityScoreChoice.mode = Main.Settings.EnablesAsiAndFeat
-            ? FeatureDefinitionFeatureSet.FeatureSetMode.Union
-            : FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion;
-    }
-
-    internal static void SwitchDragonbornElementalBreathUsages()
-    {
-        var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
-            .Where(x =>
-                x.Name.StartsWith("PowerDragonbornBreathWeapon") ||
-                x.Name == "PowerFeatDragonFear");
-
-        foreach (var power in powers)
-        {
-            if (Main.Settings.ChangeDragonbornElementalBreathUsages)
-            {
-                power.usesAbilityScoreName = AttributeDefinitions.Constitution;
-                power.usesDetermination = UsesDetermination.AbilityBonusPlusFixed;
-                power.fixedUsesPerRecharge = 0;
-            }
-            else
-            {
-                power.usesAbilityScoreName = AttributeDefinitions.Charisma;
-                power.usesDetermination = UsesDetermination.Fixed;
-                power.fixedUsesPerRecharge = 1;
-            }
-        }
-    }
-
     private static void SwitchDruidKindredBeastToUseCustomInvocationPools()
     {
         var kindredSpirits = FeatureSetKindredSpiritChoice.FeatureSet;
@@ -526,119 +446,6 @@ internal static class CharacterContext
             .ToArray();
 
         CircleKindred.FeatureUnlocks.SetRange(replacedFeatures);
-    }
-
-    internal static void SwitchEveryFourLevelsFeats(bool isMiddle = false)
-    {
-        var levels = isMiddle ? new[] { 6, 14 } : [2, 10, 18];
-        var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-        var pointPool1BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool1BonusFeats");
-        var pointPool2BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool2BonusFeats");
-        var enable = isMiddle
-            ? Main.Settings.EnableFeatsAtEveryFourLevelsMiddle
-            : Main.Settings.EnableFeatsAtEveryFourLevels;
-
-        foreach (var characterClassDefinition in dbCharacterClassDefinition)
-        {
-            foreach (var level in levels)
-            {
-                var featureUnlockPointPool1 = new FeatureUnlockByLevel(pointPool1BonusFeats, level);
-                var featureUnlockPointPool2 = new FeatureUnlockByLevel(pointPool2BonusFeats, level);
-
-                if (enable)
-                {
-                    characterClassDefinition.FeatureUnlocks.Add(ShouldBe2Points()
-                        ? featureUnlockPointPool2
-                        : featureUnlockPointPool1);
-                }
-                else
-                {
-                    if (ShouldBe2Points())
-                    {
-                        characterClassDefinition.FeatureUnlocks.RemoveAll(x =>
-                            x.FeatureDefinition == pointPool2BonusFeats && x.level == level);
-                    }
-                    else
-                    {
-                        characterClassDefinition.FeatureUnlocks.RemoveAll(x =>
-                            x.FeatureDefinition == pointPool1BonusFeats && x.level == level);
-                    }
-                }
-
-                continue;
-
-                bool ShouldBe2Points()
-                {
-                    return (characterClassDefinition == Rogue && level is 10 && !isMiddle) ||
-                           (characterClassDefinition == Fighter && level is 6 or 14 && isMiddle);
-                }
-            }
-
-            characterClassDefinition.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
-    }
-
-    private static void LoadSecondWindToUseOneDndUsagesProgression()
-    {
-        PowerFighterSecondWind.AddCustomSubFeatures(
-            HasModifiedUses.Marker,
-            new ModifyPowerPoolAmount
-            {
-                PowerPool = PowerFighterSecondWind,
-                Type = PowerPoolBonusCalculationType.SecondWind2024,
-                Attribute = FighterClass
-            },
-            new ModifyPowerPoolAmount
-            {
-                PowerPool = PowerFighterSecondWind,
-                Type = PowerPoolBonusCalculationType.SecondWind2024,
-                Attribute = FighterClass
-            });
-    }
-
-
-    internal static void SwitchFirstLevelTotalFeats()
-    {
-        if (PreviousTotalFeatsGrantedFirstLevel > -1)
-        {
-            UnloadRacesLevel1Feats(PreviousTotalFeatsGrantedFirstLevel, PreviousAlternateHuman);
-        }
-
-        PreviousTotalFeatsGrantedFirstLevel = Main.Settings.TotalFeatsGrantedFirstLevel;
-        PreviousAlternateHuman = Main.Settings.EnableAlternateHuman;
-        LoadRacesLevel1Feats(Main.Settings.TotalFeatsGrantedFirstLevel, Main.Settings.EnableAlternateHuman);
-    }
-
-
-    internal static void SwitchDarknessPerceptive()
-    {
-        var races = new List<CharacterRaceDefinition>
-        {
-            RaceKoboldBuilder.SubraceDarkKobold,
-            SubraceDarkelfBuilder.SubraceDarkelf,
-            SubraceGrayDwarfBuilder.SubraceGrayDwarf
-        };
-
-        if (Main.Settings.AddDarknessPerceptiveToDarkRaces)
-        {
-            foreach (var characterRaceDefinition in races
-                         .Where(a => !a.FeatureUnlocks.Exists(x =>
-                             x.Level == 1 && x.FeatureDefinition == AbilityCheckAffinityDarknessPerceptive)))
-            {
-                characterRaceDefinition.FeatureUnlocks.Add(
-                    new FeatureUnlockByLevel(AbilityCheckAffinityDarknessPerceptive, 1));
-            }
-        }
-        else
-        {
-            foreach (var characterRaceDefinition in races
-                         .Where(a => a.FeatureUnlocks.Exists(x =>
-                             x.Level == 1 && x.FeatureDefinition == AbilityCheckAffinityDarknessPerceptive)))
-            {
-                characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
-                    x.Level == 1 && x.FeatureDefinition == AbilityCheckAffinityDarknessPerceptive);
-            }
-        }
     }
 
     private static void SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools()
@@ -852,175 +659,103 @@ internal static class CharacterContext
         characterSubclassDefinition.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
-    private static void BuildFeatureUnlocks(
-        int initialFeats,
-        bool alternateHuman,
-        [CanBeNull] out FeatureUnlockByLevel featureUnlockByLevelNonHuman,
-        [CanBeNull] out FeatureUnlockByLevel featureUnlockByLevelHuman)
+    internal static void AddLightSourceIfNeeded(GameLocationCharacter gameLocationCharacter)
     {
-        string name;
-
-        featureUnlockByLevelNonHuman = null;
-        featureUnlockByLevelHuman = null;
-
-        switch (initialFeats)
+        if (!Main.Settings.EnableCharactersOnFireToEmitLight)
         {
-            case 0:
-            {
-                if (alternateHuman)
-                {
-                    featureUnlockByLevelHuman = new FeatureUnlockByLevel(PointPoolBonusFeat, 1);
-                }
-
-                break;
-            }
-            case 1:
-            {
-                featureUnlockByLevelNonHuman = new FeatureUnlockByLevel(PointPoolBonusFeat, 1);
-
-                name = "PointPool2BonusFeats";
-                if (alternateHuman && TryGetDefinition<FeatureDefinitionPointPool>(name, out var pointPool2BonusFeats))
-                {
-                    featureUnlockByLevelHuman = new FeatureUnlockByLevel(pointPool2BonusFeats, 1);
-                }
-
-                break;
-            }
-            case > 1:
-            {
-                name = $"PointPool{initialFeats}BonusFeats";
-                if (TryGetDefinition<FeatureDefinitionPointPool>(name, out var featureDefinitionPointPool))
-                {
-                    featureUnlockByLevelNonHuman = new FeatureUnlockByLevel(featureDefinitionPointPool, 1);
-                }
-
-                name = $"PointPool{initialFeats + 1}BonusFeats";
-                if (alternateHuman && TryGetDefinition<FeatureDefinitionPointPool>(name, out var pointPoolXBonusFeats))
-                {
-                    featureUnlockByLevelHuman = new FeatureUnlockByLevel(pointPoolXBonusFeats, 1);
-                }
-
-                break;
-            }
-        }
-    }
-
-    private static void LoadRacesLevel1Feats(int initialFeats, bool alternateHuman)
-    {
-        var human = Human;
-
-        BuildFeatureUnlocks(initialFeats, alternateHuman, out var featureUnlockByLevelNonHuman,
-            out var featureUnlockByLevelHuman);
-
-        foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
-        {
-            if (IsSubRace(characterRaceDefinition))
-            {
-                continue;
-            }
-
-            if (alternateHuman && characterRaceDefinition == human)
-            {
-                if (featureUnlockByLevelHuman != null)
-                {
-                    human.FeatureUnlocks.Add(featureUnlockByLevelHuman);
-                }
-
-                var pointPoolAbilityScoreImprovement =
-                    new FeatureUnlockByLevel(PointPoolAbilityScoreImprovement, 1);
-                human.FeatureUnlocks.Add(pointPoolAbilityScoreImprovement);
-
-                var pointPoolHumanSkillPool = new FeatureUnlockByLevel(PointPoolHumanSkillPool, 1);
-                human.FeatureUnlocks.Add(pointPoolHumanSkillPool);
-
-                Remove(human,
-                    FeatureDefinitionAttributeModifiers
-                        .AttributeModifierHumanAbilityScoreIncrease);
-            }
-            else
-            {
-                if (featureUnlockByLevelNonHuman != null)
-                {
-                    characterRaceDefinition.FeatureUnlocks.Add(featureUnlockByLevelNonHuman);
-                }
-            }
-        }
-    }
-
-    private static void UnloadRacesLevel1Feats(int initialFeats, bool alternateHuman)
-    {
-        var human = Human;
-
-        BuildFeatureUnlocks(initialFeats, alternateHuman,
-            out var featureUnlockByLevelNonHuman,
-            out var featureUnlockByLevelHuman);
-
-        foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
-        {
-            if (IsSubRace(characterRaceDefinition))
-            {
-                continue;
-            }
-
-            if (alternateHuman && characterRaceDefinition == human)
-            {
-                if (featureUnlockByLevelHuman != null)
-                {
-                    Remove(human, featureUnlockByLevelHuman);
-                }
-
-                Remove(human, PointPoolAbilityScoreImprovement);
-                Remove(human, PointPoolHumanSkillPool);
-
-                var humanAttributeIncrease = new FeatureUnlockByLevel(
-                    FeatureDefinitionAttributeModifiers.AttributeModifierHumanAbilityScoreIncrease, 1);
-
-                human.FeatureUnlocks.Add(humanAttributeIncrease);
-            }
-            else
-            {
-                if (featureUnlockByLevelNonHuman != null)
-                {
-                    Remove(characterRaceDefinition, featureUnlockByLevelNonHuman);
-                }
-            }
-        }
-    }
-
-    private static void Remove(
-        [NotNull] CharacterRaceDefinition characterRaceDefinition,
-        BaseDefinition toRemove)
-    {
-        var ndx = -1;
-
-        for (var i = 0; i < characterRaceDefinition.FeatureUnlocks.Count; i++)
-        {
-            if (characterRaceDefinition.FeatureUnlocks[i].Level == 1 &&
-                characterRaceDefinition.FeatureUnlocks[i].FeatureDefinition == toRemove)
-            {
-                ndx = i;
-            }
+            return;
         }
 
-        if (ndx >= 0)
+        if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
         {
-            characterRaceDefinition.FeatureUnlocks.RemoveAt(ndx);
+            return;
         }
+
+        if (!MonstersThatEmitLight.Contains(rulesetCharacterMonster.MonsterDefinition))
+        {
+            return;
+        }
+
+        AddLightSource(gameLocationCharacter, rulesetCharacterMonster, "ShouldEmitLightFromMonster");
     }
 
-    private static void Remove(
-        [NotNull] CharacterRaceDefinition characterRaceDefinition,
-        [NotNull] FeatureUnlockByLevel featureUnlockByLevel)
+    internal static void AddLightSourceIfNeeded(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
     {
-        Remove(characterRaceDefinition, featureUnlockByLevel.FeatureDefinition);
+        if (!Main.Settings.EnableCharactersOnFireToEmitLight)
+        {
+            return;
+        }
+
+        if (rulesetCondition == null || !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
+        {
+            return;
+        }
+
+        if (rulesetActor is not RulesetCharacter rulesetCharacter)
+        {
+            return;
+        }
+
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+        if (gameLocationCharacter == null)
+        {
+            return;
+        }
+
+        AddLightSource(gameLocationCharacter, rulesetCharacter, "ShouldEmitLightFromCondition");
     }
 
-    private static bool IsSubRace(CharacterRaceDefinition raceDefinition)
+    private static void AddLightSource(
+        GameLocationCharacter gameLocationCharacter,
+        RulesetCharacter rulesetCharacter,
+        string name)
     {
-        return DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-            .Any(crd => crd.SubRaces.Contains(raceDefinition));
+        var lightSourceForm = Shine.EffectDescription.EffectForms[0].LightSourceForm;
+
+        rulesetCharacter.PersonalLightSource?.Unregister();
+        rulesetCharacter.PersonalLightSource = new RulesetLightSource(
+            lightSourceForm.Color,
+            2,
+            4,
+            lightSourceForm.GraphicsPrefabAssetGUID,
+            LightSourceType.Basic,
+            name,
+            rulesetCharacter.Guid);
+
+        rulesetCharacter.PersonalLightSource.Register(true);
+
+        ServiceRepository.GetService<IGameLocationVisibilityService>()?
+            .AddCharacterLightSource(gameLocationCharacter, rulesetCharacter.PersonalLightSource);
     }
 
+    internal static void RemoveLightSourceIfNeeded(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+    {
+        if (rulesetCondition == null ||
+            !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
+        {
+            return;
+        }
+
+        if (rulesetActor is not RulesetCharacter rulesetCharacter ||
+            rulesetCharacter.PersonalLightSource == null) // if using extinguish fire light source will come null here
+        {
+            return;
+        }
+
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+        if (gameLocationCharacter == null)
+        {
+            return;
+        }
+
+        ServiceRepository.GetService<IGameLocationVisibilityService>()?
+            .RemoveCharacterLightSource(gameLocationCharacter, rulesetCharacter.PersonalLightSource);
+
+        rulesetCharacter.PersonalLightSource.Unregister();
+        rulesetCharacter.PersonalLightSource = null;
+    }
 
     private sealed class FilterTargetingPositionPowerTeleportSummon : IFilterTargetingPosition
     {
@@ -1050,38 +785,6 @@ internal static class CharacterContext
                     yield return null;
                 }
             }
-        }
-    }
-
-    private sealed class RollSavingThrowInitiatedIndomitableSaving : IRollSavingThrowInitiated
-    {
-        public void OnSavingThrowInitiated(
-            RulesetActor rulesetActorCaster,
-            RulesetActor rulesetActorDefender,
-            ref int saveBonus,
-            ref string abilityScoreName,
-            BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
-            List<TrendInfo> advantageTrends,
-            ref int rollModifier,
-            ref int saveDC,
-            ref bool hasHitVisual,
-            RollOutcome outcome,
-            int outcomeDelta,
-            List<EffectForm> effectForms)
-        {
-            if (rulesetActorDefender is not RulesetCharacterHero rulesetCharacterDefender)
-            {
-                return;
-            }
-
-            var classLevel = rulesetCharacterDefender.GetClassLevel(Fighter);
-
-            rollModifier += classLevel;
-            modifierTrends.Add(
-                new TrendInfo(classLevel, FeatureSourceType.CharacterFeature,
-                    FeatureDefinitionAttributeModifiers.AttributeModifierFighterIndomitable.Name,
-                    FeatureDefinitionAttributeModifiers.AttributeModifierFighterIndomitable));
         }
     }
 }

@@ -1568,7 +1568,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     {
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            yield return GameUiContext.SelectPosition(action, PowerTeleport);
+            yield return CampaignsContext.SelectPosition(action, PowerTeleport);
         }
     }
 

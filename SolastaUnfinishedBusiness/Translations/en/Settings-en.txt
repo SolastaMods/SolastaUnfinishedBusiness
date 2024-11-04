@@ -22,7 +22,7 @@ ModUi/&AllowBladeCantripsToUseReach=Allow <color=#D89555>Blade Cantrips</color> 
 ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>Clubs</color> to be thrown like <color=#D89555>Daggers</color> or <color=#D89555>Hand Axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each list
 ModUi/&AllowDisplayingOfficialSpells=Allow game official spells on each list
-ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
+ModUi/&AllowDruidToWearMetalArmor=Remove <color=#D89555>Metal Armor</color> restrictions
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowFlightSuspend=Allow temporarily suspending flight from items and spells <i><color=#F0DAA0>[does not affect wildshape or flying races]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
@@ -146,7 +146,9 @@ ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <color=#D89555>Superio
 ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Enable all <color=#D89555>Casters</color> to use new prepared spells tables <i><color=#F0DAA0>[Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard]</color></i>
-ModUi/&EnableOneDndHealingSpellsBuf=Enable healing dice buff on <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color>
+ModUi/&EnableOneDndBarkskinSpell=Enable <color=#D89555>Barkskin</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
+ModUi/&EnableOneDndGuidanceSpell=Enable <color=#D89555>Guidance</color> 5e 2024 spell version <i><color=#F0DAA0>[Choose one skill at casting and get bonus for up to 1 minute.]</color></i>
+ModUi/&EnableOneDndHealingSpellsUpgrade=Enable <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color> 5e 2024 spells version
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Enable <color=#D89555>Lay on Hands</color> as bonus action
 ModUi/&EnablePaladinSmiteAsBonusAction=Enable <color=#D89555>Smite</color> as bonus action
 ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
@@ -162,8 +164,9 @@ ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Cunning Strike</color> and
 ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
+ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
-ModUi/&EnableSorcererInnateSorcery=Enable <color=#D89555>Innate Sorcery</color> at level 1
+ModUi/&EnableSorcererInnateSorceryAt1=Enable <color=#D89555>Innate Sorcery</color> at level 1
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
@@ -176,6 +179,7 @@ ModUi/&EnableUnarmedMainAttackAction=Enable the <color=#D89555>Unarmed Attack</c
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descriptions <i><color=#F0DAA0>[use {VARIABLE_NAME} as placeholder]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Enable <color=#D89555>Magical Cunning</color> at level 2
+ModUi/&EnableWarlockToLearnPatronAtLevel3=Enable <color=#D89555>Patron</color> at level 3 instead of 1
 ModUi/&EnableWizardToLearnScholarAtLevel2=Enable <color=#D89555>Scholar</color> at level 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Enable <color=#D89555>School of Magic</color> at level 3 instead of 2
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and <color=#D89555>feats</color> selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
@@ -238,7 +242,7 @@ ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Camera never moves during enemy turns</i>
 ModUi/&NoExperienceOnLevelUp=No experience is required to level up
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancel <color=#D89555>advantage / disadvantage</color> blinded, invisible, and perceived pairs <color=#F0DAA0>[useful in conjunction with official <color=#D89555>advantage / disadvantage</color> rules]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Change <color=#D89555>heavily obscured</color> areas to be projectile blockers <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Fog Cloud</color>, <color=#D89555>Incendiary Cloud</color>, <color=#D89555>Petal Storm</color>, <color=#D89555>Sleet Storm</color>, <color=#D89555>Stinking Cloud</color>]</color></i>
-ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Invisible creatures are heavily obscured and can be target, attack rolls against the creature have disadvantage, and the creature's attack rolls have advantage</i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ <color=#D89555>Invisible</color> creatures are heavily obscured, can be target, attack rolls against have disadvantage, and the creature's attack rolls have advantage</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Change <color=#D89555>magically obscured</color> areas to be projectile blockers <color=#F0DAA0>[any source of the <color=#D89555>Darkness</color> spell effect]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Add <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color>, and <color=#D89555>TrueSight</color> to monsters and NPCs whenever appropriate</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[settings' collections <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
@@ -259,7 +263,7 @@ ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Remove <color=#D89555>Magical Secret</color> at levels 14 and 18
-ModUi/&RemoveBardSongOfRest=Remove <color=#D89555>Song of Rest</color> at level 2
+ModUi/&RemoveBardSongOfRestAt2=Remove <color=#D89555>Song of Rest</color> at level 2
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time and also force a strength check to break free from the vines
@@ -308,14 +312,11 @@ ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Subraces</color>
 ModUi/&SwapAbjurationSavant=Swap <b>Abjurer</b> <color=#D89555>Abjuration Savant</color> with 5e 2024 version <i><color=#F0DAA0>[learn 2 school spells when acquired, learn 1 more every time you gain a slot level]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in shop</i>
-ModUi/&SwapDruidWeaponProficiencyToUseOneDnd=Swap <color=#D89555>Weapon Proficiency</color> with 5e 2024 version <i><color=#F0DAA0>[simple weapons instead of weapon types but you lose Scimitar proficiency]</color></i>
+ModUi/&SwapDruidToUseOneDndWeaponProficiency=Enable <color=#D89555>Simple Weapons</color> proficiency <i><color=#F0DAA0>[instead of individual weapon types but you lose Scimitar proficiency]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <b>Evoker</b> <color=#D89555>Sculpt Spells</color> and <color=#D89555>Potent Cantrip</color> on progression
 ModUi/&SwapEvocationSavant=Swap <b>Evoker</b> <color=#D89555>Evocation Savant</color> with 5e 2024 version <i><color=#F0DAA0>[learn 2 school spells when acquired, learn 1 more every time you gain a slot level]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Enable <color=#D89555>Unarmed Attack</color> to use 5e 2024 die type progression
-ModUi/&SwapOneDndBarkskinSpell=Swap <color=#D89555>Barkskin</color> with 5e 2024 version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
-ModUi/&SwapOneDndGuidanceSpell=Swap <color=#D89555>Guidance</color> with 5e 2024 version <i><color=#F0DAA0>[Choose one skill at casting and get bonus for up to 1 minute.]</color></i>
-ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
-ModUi/&SwapWarlockToUseOneDndInvocationProgression=Enable <color=#D89555>Invocations</color> o use 5e 2024 progression
+ModUi/&SwapWarlockToUseOneDndInvocationProgression=Enable <color=#D89555>Invocations</color> to use 5e 2024 progression
 ModUi/&TableTopButton=<b><color=#D89555>Select Tabletop content</color></b>
 ModUi/&TableTopHelp1=• Following sections re-group and duplicate <color=#D89555>5e 2014 and 2024</color> settings scattered across the mod for your convenience
 ModUi/&TableTopHelp2=• Press the button to select only tabletop content under Character tab, and select all options below for a true TT experience

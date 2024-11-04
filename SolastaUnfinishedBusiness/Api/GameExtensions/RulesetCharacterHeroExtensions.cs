@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -98,8 +98,8 @@ internal static class RulesetCharacterHeroExtensions
         this RulesetCharacterHero hero, string subClassName, string tag)
     {
         var heroBuildingData = hero.GetHeroBuildingData();
-        var selectedClass = LevelUpContext.GetSelectedClass(hero);
-        var classLevel = LevelUpContext.GetSelectedClassLevel(hero);
+        var selectedClass = LevelUpHelper.GetSelectedClass(hero);
+        var classLevel = LevelUpHelper.GetSelectedClassLevel(hero);
         // it's indeed TagClass as this is how spell pools are offered in vanilla when from subclass
         var poolName = $"{AttributeDefinitions.TagClass}{selectedClass!.Name}{classLevel}{subClassName}{tag}";
 
