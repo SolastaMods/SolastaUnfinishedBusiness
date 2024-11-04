@@ -115,7 +115,7 @@ public static class GameLocationManagerPatcher
 
             foreach (var worldGadget in worldGadgets)
             {
-                GameUiContext.SetTeleporterGadgetActiveAnimation(worldGadget);
+                CampaignsContext.SetTeleporterGadgetActiveAnimation(worldGadget);
             }
         }
     }

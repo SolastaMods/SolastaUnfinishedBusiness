@@ -12,7 +12,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinit
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class EncountersSpawnContext
+internal static class EncountersContext
 {
     internal const int MaxEncounterCharacters = 16;
 

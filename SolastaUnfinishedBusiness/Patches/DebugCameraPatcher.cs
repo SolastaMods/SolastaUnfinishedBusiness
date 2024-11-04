@@ -27,7 +27,7 @@ public static class DebugCameraPatcher
         [UsedImplicitly]
         public static bool Prefix(DebugCamera __instance)
         {
-            if (!GameUiContext.IsVttCameraEnabled)
+            if (!CampaignsContext.IsVttCameraEnabled)
             {
                 return true;
             }
@@ -129,7 +129,7 @@ public static class DebugCameraPatcher
         [UsedImplicitly]
         public static bool Prefix(DebugCamera __instance)
         {
-            if (!GameUiContext.IsVttCameraEnabled)
+            if (!CampaignsContext.IsVttCameraEnabled)
             {
                 return true;
             }

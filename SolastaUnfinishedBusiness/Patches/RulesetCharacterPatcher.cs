@@ -2136,17 +2136,17 @@ public static class RulesetCharacterPatcher
                 switch (Main.Settings.AddPaladinSmiteToggle)
                 {
                     case true:
-                        if (!hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle))
+                        if (!hero.HasAnyFeature(CampaignsContext.ActionAffinityPaladinSmiteToggle))
                         {
-                            hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                            hero.ActiveFeatures[tag].Add(CampaignsContext.ActionAffinityPaladinSmiteToggle);
                             hero.EnableToggle((Id)ExtraActionId.PaladinSmiteToggle);
                         }
 
                         break;
                     case false:
-                        if (hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle))
+                        if (hero.HasAnyFeature(CampaignsContext.ActionAffinityPaladinSmiteToggle))
                         {
-                            hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                            hero.ActiveFeatures[tag].Remove(CampaignsContext.ActionAffinityPaladinSmiteToggle);
                         }
 
                         hero.EnableToggle((Id)ExtraActionId.PaladinSmiteToggle);

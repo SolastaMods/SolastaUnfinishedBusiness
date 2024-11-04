@@ -22,7 +22,7 @@ internal static class BootContext
         ItemDefinitionVerification.Load();
         EffectFormVerification.Load();
 #endif
-        GameUiContext.ModifyActionMaps();
+        CampaignsContext.ModifyActionMaps();
 
         // STEP 0: Cache TA definitions for diagnostics and export
         DiagnosticsContext.CacheTaDefinitions();
@@ -54,8 +54,8 @@ internal static class BootContext
         PowerBundleContext.Load();
         ToolsContext.Load();
         CharacterExportContext.Load();
-        DmProEditorContext.Load();
-        GameUiContext.Load();
+        DungeonMakerContext.Load();
+        CampaignsContext.Load();
         InputContext.Load();
 
         // only bootstrap for now

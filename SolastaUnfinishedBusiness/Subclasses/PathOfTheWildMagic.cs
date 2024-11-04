@@ -874,7 +874,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
                         if (reactingOutOfTurn)
                         {
-                            GameUiContext.ResetCamera();
+                            CampaignsContext.ResetCamera();
                             PreventEnemyAction(attacker, rulesetCharacter);
                         }
 
@@ -900,7 +900,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                                 yield break;
                             }
 
-                            GameUiContext.ResetCamera();
+                            CampaignsContext.ResetCamera();
                             PreventEnemyAction(attacker, rulesetCharacter);
                         }
 
@@ -925,7 +925,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     yield break;
                 }
 
-                GameUiContext.ResetCamera();
+                CampaignsContext.ResetCamera();
                 PreventEnemyAction(attacker, rulesetCharacter);
 
                 cursorService.ActivateCursor<CursorLocationSelectPosition>(actionParams);

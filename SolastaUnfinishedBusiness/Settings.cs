@@ -176,24 +176,24 @@ public class Settings : UnityModManager.ModSettings
     public int[][][] FormationGridSets { get; set; } =
     [
         [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize],
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize]
         ],
         [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize],
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize]
         ],
         [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize],
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize]
         ],
         [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize],
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize]
         ],
         [
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize],
+            new int[CampaignsContext.GridSize], new int[CampaignsContext.GridSize]
         ]
     ];
 

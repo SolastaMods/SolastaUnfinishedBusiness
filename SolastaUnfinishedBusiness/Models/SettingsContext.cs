@@ -184,7 +184,7 @@ public static class SettingsContext
             set
             {
                 _empressGarbAppearance = value;
-                GameUiContext.SwitchEmpressGarb();
+                CampaignsContext.SwitchEmpressGarb();
                 UserPreferences.SetValue("Settings/Gui/EmpressGarbAppearance", _empressGarbAppearance);
             }
         }
@@ -195,7 +195,7 @@ public static class SettingsContext
             set
             {
                 _hideCrownOfMagister = value;
-                GameUiContext.SwitchCrownOfTheMagister();
+                CampaignsContext.SwitchCrownOfTheMagister();
                 UserPreferences.SetValue("Settings/Gui/HideCrownOfMagister", _hideCrownOfMagister);
             }
         }

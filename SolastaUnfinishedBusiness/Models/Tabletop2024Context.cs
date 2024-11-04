@@ -2171,7 +2171,7 @@ internal static class Tabletop2024Context
 
         private IEnumerator HandleWithdraw(CharacterAction action, GameLocationCharacter attacker)
         {
-            yield return GameUiContext.SelectPosition(action, powerWithdraw);
+            yield return CampaignsContext.SelectPosition(action, powerWithdraw);
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var position = action.ActionParams.Positions[0];

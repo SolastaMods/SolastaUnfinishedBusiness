@@ -148,7 +148,7 @@ public static class CharacterStageProficiencySelectionPanelPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterStageProficiencySelectionPanel __instance)
         {
-            GameUiContext.RefreshMetamagicOffering(__instance.metamagicSubPanel);
+            CampaignsContext.RefreshMetamagicOffering(__instance.metamagicSubPanel);
         }
     }
 }

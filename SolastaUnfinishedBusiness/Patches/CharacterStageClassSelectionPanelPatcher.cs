@@ -40,7 +40,7 @@ public static class CharacterStageClassSelectionPanelPatcher
             LevelUpHelper.SetIsClassSelectionStage(__instance.currentHero, true);
 
             //PATCH: apply in/out logic (MULTICLASS)
-            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(
+            MulticlassInOutRulesHelper.EnumerateHeroAllowedClassDefinitions(
                 __instance.currentHero,
                 __instance.compatibleClasses,
                 out __instance.selectedClass);

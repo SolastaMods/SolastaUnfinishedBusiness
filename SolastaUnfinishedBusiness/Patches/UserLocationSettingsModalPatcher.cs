@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using static SolastaUnfinishedBusiness.Models.DmProEditorContext;
+using static SolastaUnfinishedBusiness.Models.DungeonMakerContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
 

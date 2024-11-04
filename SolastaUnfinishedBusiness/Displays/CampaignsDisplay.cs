@@ -260,31 +260,31 @@ internal static class CampaignsDisplay
 
         UI.Label();
 
-        var color = GameUiContext.HighContrastColorStrings[Main.Settings.HighContrastTargetingAoeSelectedColor];
+        var color = CampaignsContext.HighContrastColorStrings[Main.Settings.HighContrastTargetingAoeSelectedColor];
         var title = Gui.Localize("ModUi/&HighContrastTargetingAoeColor").Replace("$$$$$$", color);
 
         UI.ActionButton(title, () =>
         {
             Main.Settings.HighContrastTargetingAoeSelectedColor =
-                (Main.Settings.HighContrastTargetingAoeSelectedColor + 1) % GameUiContext.HighContrastColors.Length;
+                (Main.Settings.HighContrastTargetingAoeSelectedColor + 1) % CampaignsContext.HighContrastColors.Length;
         }, UI.Width(300f));
 
-        color = GameUiContext.HighContrastColorStrings[Main.Settings.HighContrastTargetingSingleSelectedColor];
+        color = CampaignsContext.HighContrastColorStrings[Main.Settings.HighContrastTargetingSingleSelectedColor];
         title = Gui.Localize("ModUi/&HighContrastTargetingSingleColor").Replace("$$$$$$", color);
 
         UI.ActionButton(title, () =>
         {
             Main.Settings.HighContrastTargetingSingleSelectedColor =
-                (Main.Settings.HighContrastTargetingSingleSelectedColor + 1) % GameUiContext.HighContrastColors.Length;
+                (Main.Settings.HighContrastTargetingSingleSelectedColor + 1) % CampaignsContext.HighContrastColors.Length;
         }, UI.Width(300f));
 
-        color = GameUiContext.GridColorStrings[Main.Settings.GridSelectedColor];
+        color = CampaignsContext.GridColorStrings[Main.Settings.GridSelectedColor];
         title = Gui.Localize("ModUi/&GridSelectedColor").Replace("$$$$$$", color);
 
         UI.ActionButton(title, () =>
         {
-            Main.Settings.GridSelectedColor = (Main.Settings.GridSelectedColor + 1) % GameUiContext.GridColors.Length;
-            GameUiContext.UpdateMovementGrid();
+            Main.Settings.GridSelectedColor = (Main.Settings.GridSelectedColor + 1) % CampaignsContext.GridColors.Length;
+            CampaignsContext.UpdateMovementGrid();
         }, UI.Width(300f));
 
         intValue = Main.Settings.MovementGridWidthModifier;
@@ -292,7 +292,7 @@ internal static class CampaignsDisplay
                 UI.Width(100f)))
         {
             Main.Settings.MovementGridWidthModifier = intValue;
-            GameUiContext.UpdateMovementGrid();
+            CampaignsContext.UpdateMovementGrid();
         }
 
         intValue = Main.Settings.OutlineGridWidthModifier;
@@ -300,7 +300,7 @@ internal static class CampaignsDisplay
                 UI.Width(100f)))
         {
             Main.Settings.OutlineGridWidthModifier = intValue;
-            GameUiContext.UpdateMovementGrid();
+            CampaignsContext.UpdateMovementGrid();
         }
 
         intValue = Main.Settings.OutlineGridWidthSpeed;
@@ -308,7 +308,7 @@ internal static class CampaignsDisplay
                 UI.Width(100f)))
         {
             Main.Settings.OutlineGridWidthSpeed = intValue;
-            GameUiContext.UpdateMovementGrid();
+            CampaignsContext.UpdateMovementGrid();
         }
 
         #endregion
@@ -475,7 +475,7 @@ internal static class CampaignsDisplay
             UI.ActionButton(Gui.Localize("ModUi/&FormationResetAllSets"), () =>
                 {
                     _selectedForSwap = false;
-                    GameUiContext.ResetAllFormationGrids();
+                    CampaignsContext.ResetAllFormationGrids();
                 },
                 UI.Width(110f));
 
@@ -483,7 +483,7 @@ internal static class CampaignsDisplay
             {
                 _selectedForSwap = false;
                 Main.Settings.FormationGridSelectedSet = selectedSet;
-                GameUiContext.FillDefinitionFromFormationGrid();
+                CampaignsContext.FillDefinitionFromFormationGrid();
             }
 
             UI.Label(Gui.Localize("ModUi/&FormationHelp1"));
@@ -491,7 +491,7 @@ internal static class CampaignsDisplay
 
         UI.Label();
 
-        for (var y = 0; y < GameUiContext.GridSize; y++)
+        for (var y = 0; y < CampaignsContext.GridSize; y++)
         {
             using (UI.HorizontalScope())
             {
@@ -501,7 +501,7 @@ internal static class CampaignsDisplay
                     UI.ActionButton(Gui.Localize("ModUi/&FormationResetThisSet"), () =>
                         {
                             _selectedForSwap = false;
-                            GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
+                            CampaignsContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
                         },
                         UI.Width(110f));
                 }
@@ -510,7 +510,7 @@ internal static class CampaignsDisplay
                     UI.Label("", UI.Width(110f));
                 }
 
-                for (var x = 0; x < GameUiContext.GridSize; x++)
+                for (var x = 0; x < CampaignsContext.GridSize; x++)
                 {
                     var saveColor = GUI.color;
                     string label;
@@ -547,7 +547,7 @@ internal static class CampaignsDisplay
                                 Main.Settings.FormationGridSets[selectedSet][_selectedY][_selectedX],
                                 Main.Settings.FormationGridSets[selectedSet][localY][localX]);
 
-                            GameUiContext.FillDefinitionFromFormationGrid();
+                            CampaignsContext.FillDefinitionFromFormationGrid();
 
                             _selectedForSwap = false;
                         }

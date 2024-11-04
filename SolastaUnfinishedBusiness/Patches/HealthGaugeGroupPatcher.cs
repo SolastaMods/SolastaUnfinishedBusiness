@@ -36,7 +36,7 @@ public static class HealthGaugeGroupPatcher
             var ratio = Mathf.Clamp(
                 __instance.GuiCharacter.CurrentHitPoints / (float)__instance.GuiCharacter.HitPoints, 0.0f, 1f);
 
-            ratio = GameUiContext.GetSteppedHealthRatio(ratio);
+            ratio = CampaignsContext.GetSteppedHealthRatio(ratio);
 
             __instance.gaugeRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,
                 __instance.gaugeMaxWidth * ratio);

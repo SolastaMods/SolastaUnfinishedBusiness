@@ -47,7 +47,7 @@ public static class SpellSelectionPanelPatcher
             ActionDefinitions.ActionType actionType,
             bool cantripOnly)
         {
-            GameUiContext.SpellSelectionPanelMultilineBind(
+            CampaignsContext.SpellSelectionPanelMultilineBind(
                 __instance, caster, spellCastEngaged, actionType, cantripOnly);
         }
 
@@ -79,7 +79,7 @@ public static class SpellSelectionPanelPatcher
         [UsedImplicitly]
         public static void Postfix()
         {
-            GameUiContext.SpellSelectionPanelMultilineUnbind();
+            CampaignsContext.SpellSelectionPanelMultilineUnbind();
         }
     }
 }

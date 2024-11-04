@@ -234,7 +234,7 @@ public static class GuiCharacterPatcher
 
             var ratio = Mathf.Clamp(__instance.CurrentHitPoints / (float)__instance.HitPoints, 0.0f, 1f);
 
-            ratio = GameUiContext.GetSteppedHealthRatio(ratio);
+            ratio = CampaignsContext.GetSteppedHealthRatio(ratio);
 
             healthGauge.rectTransform.offsetMax = new Vector2(healthGauge.rectTransform.offsetMax.x,
                 (float)(-parentHeight * (1.0 - ratio)));

@@ -65,7 +65,7 @@ internal static class DungeonMakerCustomRooms
         {
             const int BORDER = 2;
 
-            var isIndoor = !DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name);
+            var isIndoor = !DungeonMakerContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name);
             var px = userRoom.Position.x;
             var py = userRoom.Position.y;
             var oh = userRoom.OrientedHeight;
@@ -212,7 +212,7 @@ internal static class DungeonMakerCustomRooms
     internal static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)
     {
         if (!TemplateVegetationMaskArea ||
-            DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name))
+            DungeonMakerContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name))
         {
             return;
         }

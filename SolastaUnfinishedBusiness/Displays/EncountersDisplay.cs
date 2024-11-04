@@ -329,28 +329,28 @@ internal static class EncountersDisplay
             UI.AutoWidth());
         UI.Label();
 
-        if (EncountersSpawnContext.EncounterCharacters.Count == 0)
+        if (EncountersContext.EncounterCharacters.Count == 0)
         {
             UI.Label("Encounter table is empty...".Red().Bold());
         }
         else
         {
-            for (var index = 0; index < EncountersSpawnContext.EncounterCharacters.Count; index++)
+            for (var index = 0; index < EncountersContext.EncounterCharacters.Count; index++)
             {
                 // Prevent captured closure
                 var index2 = index;
 
-                switch (EncountersSpawnContext.EncounterCharacters[index2])
+                switch (EncountersContext.EncounterCharacters[index2])
                 {
                     case RulesetCharacterMonster
                         rulesetCharacterMonster:
                         DisplayMonsterStats(rulesetCharacterMonster.MonsterDefinition, "-",
-                            () => EncountersSpawnContext.RemoveFromEncounter(index2));
+                            () => EncountersContext.RemoveFromEncounter(index2));
                         break;
                     case RulesetCharacterHero
                         rulesetCharacterHero:
                         DisplayHeroStats(rulesetCharacterHero, "-",
-                            () => EncountersSpawnContext.RemoveFromEncounter(index2));
+                            () => EncountersContext.RemoveFromEncounter(index2));
                         break;
                 }
             }
@@ -363,13 +363,13 @@ internal static class EncountersDisplay
     {
         UI.Label();
         UI.Label(
-            $". Click + to add up to {EncountersSpawnContext.MaxEncounterCharacters} characters to the encounter list");
+            $". Click + to add up to {EncountersContext.MaxEncounterCharacters} characters to the encounter list");
         UI.Label();
 
-        foreach (var monsterDefinition in EncountersSpawnContext.GetMonsters())
+        foreach (var monsterDefinition in EncountersContext.GetMonsters())
         {
             DisplayMonsterStats(monsterDefinition, "+",
-                () => EncountersSpawnContext.AddToEncounter(monsterDefinition));
+                () => EncountersContext.AddToEncounter(monsterDefinition));
         }
     }
 
@@ -379,12 +379,12 @@ internal static class EncountersDisplay
         {
             UI.Label();
             UI.Label(
-                $". Click + to add up to {EncountersSpawnContext.MaxEncounterCharacters} characters to the encounter list");
+                $". Click + to add up to {EncountersContext.MaxEncounterCharacters} characters to the encounter list");
             UI.Label();
 
-            foreach (var hero in EncountersSpawnContext.GetHeroes())
+            foreach (var hero in EncountersContext.GetHeroes())
             {
-                DisplayHeroStats(hero, "+", () => EncountersSpawnContext.AddToEncounter(hero));
+                DisplayHeroStats(hero, "+", () => EncountersContext.AddToEncounter(hero));
             }
         }
     }
