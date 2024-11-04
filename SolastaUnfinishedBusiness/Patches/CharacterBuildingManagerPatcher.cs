@@ -182,8 +182,13 @@ public static class CharacterBuildingManagerPatcher
             DomainNature.GrantCantripFromSubclassPool(hero);
 
             //PATCH: grant spells for these 2 subs as pools with tags aren't granted from subs if not at sub 1st level
-            hero.GrantAcquiredSpellWithTagFromSubclassPool(WizardAbjuration.Name, WizardAbjuration.SpellTag);
-            hero.GrantAcquiredSpellWithTagFromSubclassPool(WizardEvocation.Name, WizardEvocation.SpellTag);
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
+
+            if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Wizard)
+            {
+                hero.GrantAcquiredSpellWithTagFromSubclassPool(WizardAbjuration.SpellTag);
+                hero.GrantAcquiredSpellWithTagFromSubclassPool(WizardEvocation.SpellTag);   
+            }
 
             //PATCH: grants spell repertoires and respective selected spells from feats
             LevelUpHelper.GrantSpellsOrCantripsFromFeatCastSpell(__instance, hero);

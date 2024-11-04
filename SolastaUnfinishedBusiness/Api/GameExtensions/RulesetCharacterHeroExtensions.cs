@@ -94,14 +94,13 @@ internal static class RulesetCharacterHeroExtensions
     }
 #endif
 
-    internal static void GrantAcquiredSpellWithTagFromSubclassPool(
-        this RulesetCharacterHero hero, string subClassName, string tag)
+    internal static void GrantAcquiredSpellWithTagFromSubclassPool(this RulesetCharacterHero hero,  string tag)
     {
         var heroBuildingData = hero.GetHeroBuildingData();
         var selectedClass = LevelUpHelper.GetSelectedClass(hero);
         var classLevel = LevelUpHelper.GetSelectedClassLevel(hero);
         // it's indeed TagClass as this is how spell pools are offered in vanilla when from subclass
-        var poolName = $"{AttributeDefinitions.TagClass}{selectedClass!.Name}{classLevel}{subClassName}{tag}";
+        var poolName = $"{AttributeDefinitions.TagClass}{selectedClass!.Name}{classLevel}{tag}";
 
         if (!heroBuildingData.AcquiredSpells.TryGetValue(poolName, out var spells))
         {

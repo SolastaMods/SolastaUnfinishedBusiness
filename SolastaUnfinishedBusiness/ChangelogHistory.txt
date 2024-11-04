@@ -7,7 +7,7 @@
 - fixed campaigns translator to avoid location titles and break campaigns
 - fixed Charmed by Hypnotic Pattern not getting considered on incapacitated checks [VANILLA]
 - fixed Circle of Wildfire spirit allowed actions when summoner is incapacitated
-- fixed Dispel Magic and similar not considering proxies
+- fixed Dispel Magic and similar not considering proxy effects
 - fixed recurrent effects interaction with immunity from proxies [VANILLA]
 - fixed Wizard Abjuration projected ward crash on gadgets
 - fixed Wizard Graviturgist descriptions, SFX, and behaviors
