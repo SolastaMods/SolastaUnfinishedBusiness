@@ -96,6 +96,7 @@ Feature/&AttributeModifierMonkAbundantKiDescription=Fügen Sie Ihrem Ki-Punkte-P
 Feature/&AttributeModifierMonkAbundantKiTitle=Reichlich Ki
 Feature/&AutoPreparedSpellsBardWordOfCreationDescription=Du hast zwei der wichtigsten Worte der Schöpfung gemeistert: die Worte des Lebens und des Todes. Du hast daher immer die Zauber „Machtwort heilen“ und „Machtwort töten“ parat. Wenn du einen der Zauber wirkst, kannst du damit eine zweite Kreatur anvisieren, wenn sich diese innerhalb von 10 Fuß vom ersten Ziel befindet.
 Feature/&AutoPreparedSpellsBardWordOfCreationTitle=Welten der Schöpfung
+Feature/&BardExpertiseExtendedDescription=Wählen Sie zwei Ihrer Fertigkeiten aus. Ihr Fertigkeitsbonus wird für jeden Fähigkeitstest verdoppelt, bei dem Sie eine der gewählten Fertigkeiten verwenden.
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=Wenn dir ein Rettungswurf misslingt, kannst du ihn mit einem Bonus wiederholen, der deiner Kämpferstufe entspricht. Wenn du das tust, musst du den neuen Wurf verwenden und kannst diese Funktion nicht erneut verwenden, bis du eine lange Pause beendet hast.
 Feature/&ExpandedSpellsDescription={0}\n\n

@@ -96,6 +96,7 @@ Feature/&AttributeModifierMonkAbundantKiDescription=将你的一半熟练度奖�
 Feature/&AttributeModifierMonkAbundantKiTitle=气量充沛
 Feature/&AutoPreparedSpellsBardWordOfCreationDescription=您已掌握了两个主要的创世之语：生命之语和死亡之语。因此，您始终准备好强力之语治疗和强力之语杀戮法术。当您施放任一法术时，如果该生物距离第一个目标 10 英尺以内，则可以将其作为第二个生物的目标。
 Feature/&AutoPreparedSpellsBardWordOfCreationTitle=创造世界
+Feature/&BardExpertiseExtendedDescription=选择两项技能熟练度。使用所选熟练度之一进行的任何能力检定，您的熟练度奖励都会翻倍。
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=如果你的豁免检定失败，你可以重骰该豁免并获得等于你的战士等级的加值。不过你必须采用重掷的结果。你必须完成一次长休才能再次使用该特性。
 Feature/&ExpandedSpellsDescription={0}\n\n

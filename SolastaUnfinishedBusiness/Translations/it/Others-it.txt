@@ -96,6 +96,7 @@ Feature/&AttributeModifierMonkAbundantKiDescription=Aggiungi metà del tuo bonus
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abbondante
 Feature/&AutoPreparedSpellsBardWordOfCreationDescription=Hai padroneggiato due delle principali Parole della Creazione: le parole di vita e di morte. Pertanto hai sempre pronti gli incantesimi Power Word Heal e Power Word Kill. Quando lanci uno dei due incantesimi, puoi bersagliare una seconda creatura con esso se la creatura si trova entro 10 piedi dal primo bersaglio.
 Feature/&AutoPreparedSpellsBardWordOfCreationTitle=Mondi della creazione
+Feature/&BardExpertiseExtendedDescription=Scegli due delle tue competenze in abilità. Il tuo bonus di competenza è raddoppiato per ogni controllo di abilità che fai che usa una delle competenze scelte.
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=Se fallisci un tiro salvezza, puoi rilanciarlo con un bonus pari al tuo livello da Guerriero. Se lo fai, devi usare il nuovo tiro e non puoi usare di nuovo questa caratteristica finché non finisci un riposo lungo.
 Feature/&ExpandedSpellsDescription={0}\n\n

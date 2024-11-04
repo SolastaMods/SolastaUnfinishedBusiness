@@ -96,6 +96,7 @@ Feature/&AttributeModifierMonkAbundantKiDescription=Adicione metade do seu bônu
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abundante
 Feature/&AutoPreparedSpellsBardWordOfCreationDescription=Você dominou duas das principais Palavras da Criação: as palavras de vida e morte. Portanto, você sempre tem as magias Palavra de Poder Cura e Palavra de Poder Matar preparadas. Quando você conjura qualquer uma das magias, você pode mirar em uma segunda criatura com ela se a criatura estiver a até 10 pés do primeiro alvo.
 Feature/&AutoPreparedSpellsBardWordOfCreationTitle=Mundos da Criação
+Feature/&BardExpertiseExtendedDescription=Escolha duas de suas proficiências de perícia. Seu bônus de proficiência é dobrado para qualquer teste de habilidade que você fizer que use qualquer uma das proficiências escolhidas.
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=Se você falhar em um teste de resistência, você pode refazê-lo com um bônus igual ao seu nível de Guerreiro. Se fizer isso, você deve usar o novo teste, e você não pode usar esse recurso novamente até terminar um descanso longo.
 Feature/&ExpandedSpellsDescription={0}\n\n

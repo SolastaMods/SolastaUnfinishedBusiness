@@ -633,6 +633,17 @@ internal static class Tabletop2024Context
             featureUnlock.level = level;
         }
 
+        if (Main.Settings.EnableBardExpertiseOneLevelBefore)
+        {
+            PointPoolBardExpertiseLevel3.GuiPresentation.description = "Feature/&BardExpertiseExtendedDescription";
+            PointPoolBardExpertiseLevel10.GuiPresentation.description = "Feature/&BardExpertiseExtendedDescription";
+        }
+        else
+        {
+            PointPoolBardExpertiseLevel3.GuiPresentation.description = "Feature/&BardExpertiseDescription";
+            PointPoolBardExpertiseLevel10.GuiPresentation.description = "Feature/&BardExpertiseDescription";
+        }
+
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 

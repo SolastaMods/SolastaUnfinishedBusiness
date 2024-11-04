@@ -96,6 +96,7 @@ Feature/&AttributeModifierMonkAbundantKiDescription=Ajoutez la moitié de votre 
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abondant
 Feature/&AutoPreparedSpellsBardWordOfCreationDescription=Vous maîtrisez deux des principaux mots de la création : les mots de vie et de mort. Vous avez donc toujours les sorts Mot de pouvoir Soin et Mot de pouvoir Tuer prêts. Lorsque vous lancez l'un de ces sorts, vous pouvez cibler une seconde créature avec celui-ci si celle-ci se trouve à 3 mètres ou moins de la première cible.
 Feature/&AutoPreparedSpellsBardWordOfCreationTitle=Mondes de la Création
+Feature/&BardExpertiseExtendedDescription=Choisissez deux de vos compétences de maîtrise. Votre bonus de maîtrise est doublé pour tout test de caractéristique que vous effectuez qui utilise l'une des compétences choisies.
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=Si vous ratez un jet de sauvegarde, vous pouvez le relancer avec un bonus égal à votre niveau de Combattant. Dans ce cas, vous devez utiliser le nouveau jet et vous ne pouvez pas utiliser cette fonction à nouveau avant d'avoir terminé un repos long.
 Feature/&ExpandedSpellsDescription={0}\n\n

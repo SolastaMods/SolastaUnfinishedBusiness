@@ -96,6 +96,7 @@ Feature/&AttributeModifierMonkAbundantKiDescription=熟練度ボーナスの半�
 Feature/&AttributeModifierMonkAbundantKiTitle=豊かな気
 Feature/&AutoPreparedSpellsBardWordOfCreationDescription=あなたは創造の御言葉のうち、生命と死の御言葉の 2 つをマスターしました。そのため、あなたは常にパワー ワード ヒール呪文とパワー ワード キル呪文を準備しています。いずれかの呪文を唱えるときに、クリーチャーが最初のターゲットから 10 フィート以内にいる場合、2 番目のクリーチャーをその呪文でターゲットにすることができます。
 Feature/&AutoPreparedSpellsBardWordOfCreationTitle=創造の世界
+Feature/&BardExpertiseExtendedDescription=技能熟練度を 2 つ選択します。選択した熟練度のいずれかを使用する能力チェックでは、熟練度ボーナスが 2 倍になります。
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=セーヴィング スローに失敗した場合は、ファイター レベルに等しいボーナスを獲得して再ロールできます。その場合は、新しいロールを使用する必要があり、長い休憩が終了するまでこの機能を再度使用することはできません。
 Feature/&ExpandedSpellsDescription={0}\n\n

@@ -29,6 +29,24 @@ public static class GuiInvocationDefinitionPatcher
             return hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Warlock);
         }
 
+        //PATCH: allow warlocks to bypass spell knowledge on level 1 if using new warlock 2024 invocations progression
+        private static bool HasKnowledgeOfSpell(RulesetSpellRepertoire spellRepertoire, SpellDefinition spellDefinition)
+        {
+            if (!Main.Settings.EnableWarlockToUseOneDndInvocationProgression)
+            {
+                return spellRepertoire.HasKnowledgeOfSpell(spellDefinition);
+            }
+
+            var screen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+
+            if (!screen)
+            {
+                return spellRepertoire.HasKnowledgeOfSpell(spellDefinition);
+            }
+
+            return screen.Visible || spellRepertoire.HasKnowledgeOfSpell(spellDefinition);
+        }
+
         [NotNull]
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -36,9 +54,14 @@ public static class GuiInvocationDefinitionPatcher
             return instructions
                 .ReplaceCalls(typeof(RulesetEntity).GetMethod("TryGetAttributeValue"),
                     // ReSharper disable once StringLiteralTypo
-                    "GuiInvocationDefinition.IsInvocationMacthingPrerequisites",
+                    "GuiInvocationDefinition.IsInvocationMacthingPrerequisites1",
                     new CodeInstruction(OpCodes.Call,
-                        new Func<RulesetCharacterHero, string, int>(TryGetAttributeValue).Method));
+                        new Func<RulesetCharacterHero, string, int>(TryGetAttributeValue).Method))
+                .ReplaceCalls(typeof(RulesetSpellRepertoire).GetMethod("HasKnowledgeOfSpell"),
+                    // ReSharper disable once StringLiteralTypo
+                    "GuiInvocationDefinition.IsInvocationMacthingPrerequisites2",
+                    new CodeInstruction(OpCodes.Call,
+                        new Func<RulesetSpellRepertoire, SpellDefinition, bool>(HasKnowledgeOfSpell).Method));
         }
 
         [UsedImplicitly]
