@@ -2861,6 +2861,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionShocked)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
+            .SetConditionParticleReference(PowerTraditionShockArcanistArcaneFury)
             .AddToDB();
 
         var powerWitchBolt = FeatureDefinitionPowerBuilder
