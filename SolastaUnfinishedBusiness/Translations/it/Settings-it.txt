@@ -165,7 +165,7 @@ ModUi/&EnableRogueFightingStyle=Abilita la scelta <color=#D89555>Stile di combat
 ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Mira Fissa</color> al livello 3 <i><color=#F0DAA0>[l'azione bonus fornisce vantaggio al tuo prossimo tiro di attacco nel turno corrente se non ti sei ancora mosso]</color></i>
 ModUi/&EnableRogueStrSaving=Abilita i modificatori DEX o STR di <b>Hoodlum</b> su <color=#D89555>Colpo astuto/subdolo</color>
 ModUi/&EnableSignatureSpellsRelearn=Abilita la preparazione degli <color=#D89555>incantesimi distintivi</color> a ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
-ModUi/&EnableSorcererInnateSorcery=Abilita <color=#D89555>Stregoneria Innata</color> al livello 1
+ModUi/&EnableSorcererInnateSorceryAt1=Abilita <color=#D89555>Stregoneria Innata</color> al livello 1
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Guida magica</color> al livello 5
 ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo accelerato</color> per consentire il lancio dell'incantesimo di azione principale con metamagia accelerata applicata
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
@@ -178,6 +178,7 @@ ModUi/&EnableUnarmedMainAttackAction=Abilita l'azione <color=#D89555>Attacco dis
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555>Evoca Elementale</color> e <color=#D89555>Evoca Fata</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Abilita segnaposto variabili nelle descrizioni <i><color=#F0DAA0>[usa {VARIABLE_NAME} come segnaposto]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Abilita <color=#D89555>Astuzia magica</color> al livello 2
+ModUi/&EnableWarlockToLearnPatronAtLevel3=Abilita <color=#D89555>Patron</color> al livello 3 invece che 1
 ModUi/&EnableWizardToLearnScholarAtLevel2=Abilita <color=#D89555>Studioso</color> al livello 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Abilita <color=#D89555>Scuola di Magia</color> al livello 3 invece che 2
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione delle <color=#D89555>imprese</color> <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>

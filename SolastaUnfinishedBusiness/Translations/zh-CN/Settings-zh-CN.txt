@@ -165,7 +165,7 @@ ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>战斗风格</c
 ModUi/&EnableRogueSteadyAim=在 3 级时启用<color=#D89555>稳定瞄准</color> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>
 ModUi/&EnableRogueStrSaving=在<color=#D89555>狡猾/卑鄙的打击</color>上启用<b>Hoodlum</b> DEX 或 STR 修正
 ModUi/&EnableSignatureSpellsRelearn=每次长时间休息时都可准备<color=#D89555>招牌法术</color><i><color=#F0DAA0>[而不是在 20 级时准备一次]</color></i>
-ModUi/&EnableSorcererInnateSorcery=在第 1 级启用<color=#D89555>天生巫术</color>
+ModUi/&EnableSorcererInnateSorceryAt1=在第 1 级启用<color=#D89555>天生巫术</color>
 ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
@@ -178,6 +178,7 @@ ModUi/&EnableUnarmedMainAttackAction=启用<color=#D89555>徒手攻击</color>�
 ModUi/&EnableUpcastConjureElementalAndFey=启用 <color=#D89555>Conjure Elemental</color> 和 <color=#D89555>Conjure Fey</color> 的向上转换
 ModUi/&EnableVariablePlaceholdersOnTexts=在描述中启用变量占位符<i><color=#F0DAA0>[使用 {VARIABLE_NAME} 作为占位符]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=在第 2 级启用<color=#D89555>魔法狡猾</color>
+ModUi/&EnableWarlockToLearnPatronAtLevel3=在 3 级（而非 1 级）启用 <color=#D89555>Patron</color>
 ModUi/&EnableWizardToLearnScholarAtLevel2=启用 2 级 <color=#D89555>Scholar</color>
 ModUi/&EnableWizardToLearnSchoolAtLevel3=在 3 级（而非 2 级）启用<color=#D89555>魔法学校</color>
 ModUi/&EnablesAsiAndFeat=同时启用属性得分增加和<color=#D89555>专长</color>选择<i><color=#F0DAA0>[而不是独占选择]</color></i>

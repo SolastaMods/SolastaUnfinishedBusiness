@@ -24,6 +24,7 @@ ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each 
 ModUi/&AllowDisplayingOfficialSpells=Allow game official spells on each list
 ModUi/&AllowDruidToWearMetalArmor=Remove <color=#D89555>Metal Armor</color> restrictions
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
+ModUi/&EnableWarlockToLearnPatronAtLevel3=Enable <color=#D89555>Patron</color> at level 3 instead of 1
 ModUi/&AllowFlightSuspend=Allow temporarily suspending flight from items and spells <i><color=#F0DAA0>[does not affect wildshape or flying races]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
 ModUi/&AllowHasteCasting=Allow casting spells with extra action from being Hasted <i><color=#F0DAA0>[you are still limited to 1 main action spell per round]</color></i>
@@ -165,7 +166,7 @@ ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Fighting Style</color> cho
 ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
-ModUi/&EnableSorcererInnateSorcery=Enable <color=#D89555>Innate Sorcery</color> at level 1
+ModUi/&EnableSorcererInnateSorceryAt1=Enable <color=#D89555>Innate Sorcery</color> at level 1
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor

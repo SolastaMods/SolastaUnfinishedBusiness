@@ -165,7 +165,7 @@ ModUi/&EnableRogueFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrechung</color> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sich noch nicht bewegt haben]</color></i>
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <b>Hoodlum</b> DEX- oder STR-Modifikatoren bei <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSignatureSpellsRelearn=Aktiviere, dass <color=#D89555>Signaturzauber</color> bei jeder langen Pause vorbereitet werden <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i>
-ModUi/&EnableSorcererInnateSorcery=Aktiviere <color=#D89555>Angeborene Zauberei</color> auf Stufe 1.
+ModUi/&EnableSorcererInnateSorceryAt1=Aktiviere <color=#D89555>Angeborene Zauberei</color> auf Stufe 1.
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung</color> auf Stufe 5.
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Sortierung von Assets im Dungeon Maker-Editor.
@@ -178,6 +178,7 @@ ModUi/&EnableUnarmedMainAttackAction=Aktiviere die Aktion <color=#D89555>Unbewaf
 ModUi/&EnableUpcastConjureElementalAndFey=Aktiviere Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feenbeschwören</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Aktivieren Sie variable Platzhalter in Beschreibungen <i><color=#F0DAA0>[verwenden Sie {VARIABLE_NAME} als Platzhalter]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Aktiviere <color=#D89555>Magische List</color> auf Stufe 2.
+ModUi/&EnableWarlockToLearnPatronAtLevel3=Aktivieren Sie <color=#D89555>Patron</color> auf Stufe 3 statt auf Stufe 1.
 ModUi/&EnableWizardToLearnScholarAtLevel2=Aktiviere <color=#D89555>Gelehrter</color> auf Stufe 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Aktiviere die <color=#D89555>Schule der Magie</color> auf Level 3 statt auf Level 2.
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Auswahl von <color=#D89555>Talenten</color> <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>

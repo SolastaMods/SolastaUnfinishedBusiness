@@ -134,8 +134,8 @@
     "description": "Condition/&ConditionSorcererInnateSorceryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6f6332b4e90598d429c91c2e6862a8f3",
-      "m_SubObjectName": "Pentagram",
+      "m_AssetGUID": "6999cc364fd0b374a8acf35bac34d694",
+      "m_SubObjectName": "ConditionFrightened",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
