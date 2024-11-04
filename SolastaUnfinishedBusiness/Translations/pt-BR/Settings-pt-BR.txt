@@ -164,6 +164,7 @@ ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Golpe Astuto</color> e <
 ModUi/&EnableRogueFightingStyle=Habilitar a escolha <color=#D89555>Estilo de luta</color> no nível 2
 ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Miração Firme</color> no nível 3 <i><color=#F0DAA0>[ação bônus dá vantagem na sua próxima jogada de ataque no turno atual se você ainda não se moveu]</color></i>
 ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR de <b>Hoodlum</b> em <color=#D89555>Cunning/Devious Strike</color>
+ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Habilitar <color=#D89555>Second Wind</color> para usar a progressão de usos do 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Habilitar <color=#D89555>Feitiços de Assinatura</color> para serem preparados a cada descanso longo <i><color=#F0DAA0>[em vez de uma vez no nível 20]</color></i>
 ModUi/&EnableSorcererInnateSorceryAt1=Habilitar <color=#D89555>Feitiçaria Inata</color> no nível 1
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> no nível 5
@@ -241,7 +242,7 @@ ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ A câmera nunca se move durante os turnos
 ModUi/&NoExperienceOnLevelUp=Não é necessária experiência para subir de nível
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancelar <color=#D89555>vantagem / desvantagem</color> pares cegos, invisíveis e percebidos <color=#F0DAA0>[útil em conjunto com as regras oficiais de <color=#D89555>vantagem / desvantagem</color>]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Alterar áreas <color=#D89555>fortemente obscurecidas</color> para serem bloqueadores de projéteis <color=#F0DAA0>[<color=#D89555>Nuvem Mortal</color>, <color=#D89555>Nuvem de Névoa</color>, <color=#D89555>Nuvem Incendiária</color>, <color=#D89555>Tempestade de Pétalas</color>, <color=#D89555>Tempestade de Granizo</color>, <color=#D89555>Nuvem Fedorenta</color>]</color></i>
-ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Criaturas invisíveis são fortemente obscurecidas e podem ser alvos, jogadas de ataque contra a criatura têm desvantagem, e as jogadas de ataque da criatura têm vantagem</i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Criaturas <color=#D89555>invisíveis</color> são fortemente obscurecidas, podem ser alvos, jogadas de ataque contra elas têm desvantagem e as jogadas de ataque da criatura têm vantagem</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Alterar áreas <color=#D89555>magicamente obscurecidas</color> para serem bloqueadores de projéteis <color=#F0DAA0>[qualquer fonte do efeito do feitiço <color=#D89555>Escuridão</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Adicione <color=#D89555>Visão no Escuro</color>, <color=#D89555>Visão Cega</color> e <color=#D89555>Visão Verdadeira</color> aos monstros e PNJs sempre que apropriado</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[configurações de coleções <b>MonstrosQueDeveriamTerVisãoNoEscuro</b>, <b>MonstrosQueDeveriamTerVisãoVerdadeira</b>, <b>MonstrosQueDeveriamTerVisãoCega</b>]</color></i>
@@ -315,7 +316,6 @@ ModUi/&SwapDruidToUseOneDndWeaponProficiency=Habilitar proficiência em <color=#
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque <b>Evocador</b> <color=#D89555>Magias de Esculpir</color> e <color=#D89555>Truque Potente</color> na progressão
 ModUi/&SwapEvocationSavant=Troque <b>Evocador</b> <color=#D89555>Sábio da Evocação</color> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Habilitar <color=#D89555>Ataque Desarmado</color> para usar a progressão do tipo de dado 5e 2024
-ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Habilitar <color=#D89555>Second Wind</color> para usar a progressão de usos do 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Habilitar <color=#D89555>Invocações</color> para usar a progressão 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Selecionar conteúdo de mesa</color></b>
 ModUi/&TableTopHelp1=• As seções a seguir reagrupam e duplicam as configurações <color=#D89555>5e 2014 e 2024</color> espalhadas pelo mod para sua conveniência

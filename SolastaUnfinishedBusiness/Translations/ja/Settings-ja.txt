@@ -164,6 +164,7 @@ ModUi/&EnableRogueCunningStrike=レベル 5 と 14 で <color=#D89555>狡猾な�
 ModUi/&EnableRogueFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
 ModUi/&EnableRogueSteadyAim=レベル 3 で <color=#D89555>Steady Aim</color> を有効にします <i><color=#F0DAA0>[ボーナス アクションにより、まだ移動していない場合、現在のターンの次の攻撃ロールにアドバンテージが与えられます]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃/悪巧みの一撃</color>に<b>悪党</b>のDEXまたはSTR修飾子を有効にする
+ModUi/&EnableSecondWindToUseOneDndUsagesProgression=<color=#D89555>セカンドウィンド</color>を有効にして、5e 2024の使用状況の進行を使用します
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>シグネチャー スペル</color> を、長い休憩ごとに準備できるようにします <i><color=#F0DAA0>[レベル 20 で 1 回ではなく]</color></i>
 ModUi/&EnableSorcererInnateSorceryAt1=レベル 1 で <color=#D89555>生来の魔術</color> を有効にする
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
@@ -241,7 +242,7 @@ ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敵のターン中はカメラが動か�
 ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 盲目、不可視、知覚のペアの <color=#D89555>利点 / 不利</color> をキャンセルします <color=#F0DAA0>[公式の <color=#D89555>利点 / 不利</color> ルールと併用すると便利です]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ <color=#D89555>非常に遮蔽された</color>エリアを投射物ブロッカーに変更します <color=#F0DAA0>[<color=#D89555>クラウドキル</color>、<color=#D89555>霧雲</color>、<color=#D89555>焼夷雲</color>、<color=#D89555>花びら嵐</color>、<color=#D89555>みぞれ嵐</color>、<color=#D89555>悪臭雲</color>]</color></i>
-ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 不可視のクリーチャーは、非常に隠蔽されており、ターゲットにすることができます。そのクリーチャーに対する攻撃ロールは不利となり、そのクリーチャーの攻撃ロールは有利となります</i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ <color=#D89555>不可視</color>のクリーチャーは、非常に隠蔽され、ターゲットにすることができ、そのクリーチャーに対する攻撃ロールは不利となり、そのクリーチャーの攻撃ロールは有利となる</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>魔法で隠された</color>領域を、発射物ブロッカー <color=#F0DAA0>[<color=#D89555>闇</color> 呪文効果の任意のソース]</color に変更します</i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 適切な場合はいつでも、モンスターと NPC に <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color>、<color=#D89555>TrueSight</color> を追加します</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
@@ -315,7 +316,6 @@ ModUi/&SwapDruidToUseOneDndWeaponProficiency=<color=#D89555>シンプル武器</
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=進行時に<b>エヴォーカー</b>の<color=#D89555>スカルプトスペル</color>と<color=#D89555>ポテンシャルキャントリップ</color>を入れ替える
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color> を 5e 2024 バージョン <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=<color=#D89555>非武装攻撃</color>を有効にすると、5e 2024 ダイスタイプの進行が使用可能になります。
-ModUi/&SwapSecondWindToUseOneDndUsagesProgression=<color=#D89555>セカンドウィンド</color>を有効にして、5e 2024の使用状況の進行を使用します
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=5e 2024の進行状況を使用するには、<color=#D89555>Invocations</color>を有効にします
 ModUi/&TableTopButton=<b><color=#D89555>テーブルトップコンテンツを選択</color></b>
 ModUi/&TableTopHelp1=• 以下のセクションでは、利便性のために、mod 全体に散らばっている <color=#D89555>5e 2014 および 2024</color> 設定を再グループ化して複製します。

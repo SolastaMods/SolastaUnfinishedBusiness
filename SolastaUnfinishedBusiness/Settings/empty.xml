@@ -587,12 +587,12 @@
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>false</RemoveRogueBlindSense>
-    <EnableSorcererInnateSorcery>false</EnableSorcererInnateSorcery>
+    <EnableSorcererInnateSorceryAt1>false</EnableSorcererInnateSorceryAt1>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <EnableWarlockMagicalCunningAtLevel2>false</EnableWarlockMagicalCunningAtLevel2>
-    <SwapWarlockToUseOneDndInvocationProgression>false</SwapWarlockToUseOneDndInvocationProgression>
+    <EnableWarlockToLearnPatronAtLevel3>false</EnableWarlockToLearnPatronAtLevel3>
+    <EnableWarlockToUseOneDndInvocationProgression>false</EnableWarlockToUseOneDndInvocationProgression>
     <EnableWizardToLearnScholarAtLevel2>false</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
@@ -648,8 +648,9 @@
     <UseHeightOneCylinderEffect>false</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>false</FixEldritchBlastRange>
     <ModifyGravitySlam>false</ModifyGravitySlam>
-    <EnableOneDndHealingSpellsUpgrade>false</EnableOneDndHealingSpellsUpgrade>
     <EnableOneDndBarkskinSpell>false</EnableOneDndBarkskinSpell>
+    <EnableOneDndHealingSpellsUpgrade>false</EnableOneDndHealingSpellsUpgrade>
+    <EnableOneDndGuidanceSpell>false</EnableOneDndGuidanceSpell>
     <AllowHasteCasting>false</AllowHasteCasting>
     <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
     <EnableRelearnSpells>false</EnableRelearnSpells>

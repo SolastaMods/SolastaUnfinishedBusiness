@@ -275,7 +275,7 @@ public class Settings : UnityModManager.ModSettings
     public bool SwapDruidToUseOneDndWeaponProficiency { get; set; }
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
     public bool AddPersuasionToFighterSkillOptions { get; set; }
-    public bool SwapSecondWindToUseOneDndUsagesProgression { get; set; }
+    public bool EnableSecondWindToUseOneDndUsagesProgression { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerNatureShroudAt14 { get; set; }
@@ -300,11 +300,12 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
     public bool RemoveRogueBlindSense { get; set; }
-    public bool EnableSorcererInnateSorcery { get; set; }
+    public bool EnableSorcererInnateSorceryAt1 { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
-    public bool SwapWarlockToUseOneDndInvocationProgression { get; set; }
+    public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }
+    public bool EnableWarlockToUseOneDndInvocationProgression { get; set; }
     public bool EnableWizardToLearnScholarAtLevel2 { get; set; }
     public bool EnableWizardToLearnSchoolAtLevel3 { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }

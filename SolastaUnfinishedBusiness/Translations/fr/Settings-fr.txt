@@ -164,6 +164,7 @@ ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color> et
 ModUi/&EnableRogueFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
 ModUi/&EnableRogueSteadyAim=Activez la <color=#D89555>Visée constante</color> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage sur votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
 ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR de <b>Hoodlum</b> sur <color=#D89555>Cunning/Devious Strike</color>
+ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Activez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Activer les <color=#D89555>sorts signatures</color> pour qu'ils soient préparés à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
 ModUi/&EnableSorcererInnateSorceryAt1=Activer la <color=#D89555>Sorcellerie innée</color> au niveau 1
 ModUi/&EnableSorcererMagicalGuidance=Activer la <color=#D89555>guidance magique</color> au niveau 5
@@ -241,7 +242,7 @@ ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La caméra ne bouge jamais pendant les to
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour passer au niveau supérieur
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Annuler les paires <color=#D89555>avantage / inconvénient</color> aveuglées, invisibles et perçues <color=#F0DAA0>[utile en conjonction avec les règles officielles <color=#D89555>avantage / inconvénient</color>]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Changez les zones <color=#D89555>fortement obscurcies</color> en bloqueurs de projectiles <color=#F0DAA0>[<color=#D89555>Nuage tueur</color>, <color=#D89555>Nuage de brouillard</color>, <color=#D89555>Nuage incendiaire</color>, <color=#D89555>Tempête de pétales</color>, <color=#D89555>Tempête de grésil</color>, <color=#D89555>Nuage puant</color>]</color></i>
-ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Les créatures invisibles sont fortement masquées et peuvent être ciblées, les jets d'attaque contre la créature ont un désavantage et les jets d'attaque de la créature ont un avantage</i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Les créatures <color=#D89555>invisibles</color> sont fortement masquées, peuvent être ciblées, les jets d'attaque contre ont un désavantage et les jets d'attaque de la créature ont un avantage</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Changez les zones <color=#D89555>obscurcies par magie</color> en bloqueurs de projectiles <color=#F0DAA0>[toute source de l'effet du sort <color=#D89555>Ténèbres</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Ajoutez <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> et <color=#D89555>TrueSight</color> aux monstres et aux PNJ lorsque cela est approprié</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[collections de paramètres <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
@@ -315,7 +316,6 @@ ModUi/&SwapDruidToUseOneDndWeaponProficiency=Activer la maîtrise des <color=#D8
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les sorts de sculpture de l'évocateur et le sort de cantrip puissant au fil de la progression
 ModUi/&SwapEvocationSavant=Échangez <b>Evoker</b> <color=#D89555>Evocation Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Activez <color=#D89555>Attaque non armée</color> pour utiliser la progression du type de dé 5e 2024
-ModUi/&SwapSecondWindToUseOneDndUsagesProgression=Activez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=Activez les <color=#D89555>invocations</color> pour utiliser la progression 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>
 ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>5e 2014 et 2024</color> dispersés dans le mod pour votre commodité

@@ -215,6 +215,7 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellBarkskin();
         SwitchOneDndSpellGuidance();
         SwitchOneDndSurprisedEnforceDisadvantage();
+        SwitchOneDndWarlockSchoolOfMagicLearningLevel();
         SwitchOneDndWarlockInvocationsProgression();
         SwitchOneDndWizardScholar();
         SwitchOneDndWizardSchoolOfMagicLearningLevel();
@@ -228,14 +229,9 @@ internal static class Tabletop2024Context
 
     private static void LoadSecondWindToUseOneDndUsagesProgression()
     {
+        PowerFighterSecondWind.fixedUsesPerRecharge = 0;
         PowerFighterSecondWind.AddCustomSubFeatures(
             HasModifiedUses.Marker,
-            new ModifyPowerPoolAmount
-            {
-                PowerPool = PowerFighterSecondWind,
-                Type = PowerPoolBonusCalculationType.SecondWind2024,
-                Attribute = FighterClass
-            },
             new ModifyPowerPoolAmount
             {
                 PowerPool = PowerFighterSecondWind,
@@ -472,6 +468,43 @@ internal static class Tabletop2024Context
         }
 
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchOneDndWarlockSchoolOfMagicLearningLevel()
+    {
+        var patrons = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .Where(x => x.Name.StartsWith("Patron"))
+            .ToList();
+
+        var fromLevel = 3;
+        var toLevel = 1;
+
+        if (Main.Settings.EnableWarlockToLearnPatronAtLevel3)
+        {
+            fromLevel = 1;
+            toLevel = 3;
+        }
+
+        foreach (var featureUnlock in patrons
+                     .SelectMany(patron => patron.FeatureUnlocks
+                         .Where(featureUnlock =>
+                             featureUnlock.level == fromLevel &&
+                             featureUnlock.FeatureDefinition.Name != "FeatureEldritchVersatilityUnLearn1")))
+        {
+            featureUnlock.level = toLevel;
+        }
+
+        foreach (var featureUnlock in Warlock.FeatureUnlocks.Where(featureUnlock => featureUnlock.level == fromLevel))
+        {
+            featureUnlock.level = toLevel;
+        }
+
+        foreach (var patron in patrons)
+        {
+            patron.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+
+        Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchOneDndPaladinLearnSpellCastingAtOne()
@@ -736,7 +769,7 @@ internal static class Tabletop2024Context
     {
         Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerSorcererInnateSorcery);
 
-        if (Main.Settings.EnableSorcererInnateSorcery)
+        if (Main.Settings.EnableSorcererInnateSorceryAt1)
         {
             Sorcerer.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1));
         }
@@ -760,7 +793,7 @@ internal static class Tabletop2024Context
 
     internal static void SwitchOneDndWarlockInvocationsProgression()
     {
-        if (Main.Settings.SwapWarlockToUseOneDndInvocationProgression)
+        if (Main.Settings.EnableWarlockToUseOneDndInvocationProgression)
         {
             Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(PointPoolWarlockInvocation1, 1));
             PointPoolWarlockInvocation2.GuiPresentation.Title =
@@ -1099,6 +1132,10 @@ internal static class Tabletop2024Context
 
     internal static void SwitchMonkHeightenedMetabolism()
     {
+        Monk.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureMonkHeightenedMetabolism ||
+            x.FeatureDefinition == PowerMonkStepOfTheWindHeightenedMetabolism);
+
         if (Main.Settings.EnableMonkHeightenedMetabolism)
         {
             Monk.FeatureUnlocks.TryAdd(
@@ -1106,23 +1143,15 @@ internal static class Tabletop2024Context
             Monk.FeatureUnlocks.TryAdd(
                 new FeatureUnlockByLevel(PowerMonkStepOfTheWindHeightenedMetabolism, 10));
         }
-        else
-        {
-            Monk.FeatureUnlocks
-                .RemoveAll(x => x.level == 10 &&
-                                (x.FeatureDefinition == FeatureMonkHeightenedMetabolism ||
-                                 x.FeatureDefinition == PowerMonkStepOfTheWindHeightenedMetabolism));
-        }
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchMonkSuperiorDefenseToReplaceEmptyBody()
     {
-        Monk.FeatureUnlocks
-            .RemoveAll(x => x.level == 18 &&
-                            (x.FeatureDefinition == Level20Context.PowerMonkEmptyBody ||
-                             x.FeatureDefinition == PowerMonkSuperiorDefense));
+        Monk.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == Level20Context.PowerMonkEmptyBody ||
+            x.FeatureDefinition == PowerMonkSuperiorDefense);
 
         Monk.FeatureUnlocks.TryAdd(
             Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody
@@ -1134,10 +1163,9 @@ internal static class Tabletop2024Context
 
     internal static void SwitchMonkBodyAndMindToReplacePerfectSelf()
     {
-        Monk.FeatureUnlocks
-            .RemoveAll(x => x.level == 20 &&
-                            (x.FeatureDefinition == Level20Context.FeatureMonkPerfectSelf ||
-                             x.FeatureDefinition == FeatureMonkBodyAndMind));
+        Monk.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == Level20Context.FeatureMonkPerfectSelf ||
+            x.FeatureDefinition == FeatureMonkBodyAndMind);
 
         Monk.FeatureUnlocks.TryAdd(
             Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf
@@ -1560,6 +1588,11 @@ internal static class Tabletop2024Context
 
     internal static void SwitchBarbarianBrutalStrike()
     {
+        Barbarian.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == _featureSetBarbarianBrutalStrike ||
+            x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement13 ||
+            x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17);
+
         if (Main.Settings.EnableBarbarianBrutalStrike)
         {
             Barbarian.FeatureUnlocks.TryAdd(
@@ -1569,52 +1602,22 @@ internal static class Tabletop2024Context
             Barbarian.FeatureUnlocks.TryAdd(
                 new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17, 17));
         }
-        else
-        {
-            Barbarian.FeatureUnlocks.RemoveAll(x =>
-                x.level == 9 && x.FeatureDefinition == _featureSetBarbarianBrutalStrike);
-            Barbarian.FeatureUnlocks.RemoveAll(x =>
-                x.level == 13 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement13);
-            Barbarian.FeatureUnlocks.RemoveAll(x =>
-                x.level == 17 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17);
-        }
 
         Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchBarbarianBrutalCritical()
     {
-        if (Main.Settings.DisableBarbarianBrutalCritical)
-        {
-            Barbarian.FeatureUnlocks.RemoveAll(x =>
-                x.level == 9 && x.FeatureDefinition == FeatureSetBarbarianBrutalCritical);
-            Barbarian.FeatureUnlocks.RemoveAll(x =>
-                x.level == 13 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
-            Barbarian.FeatureUnlocks.RemoveAll(x =>
-                x.level == 17 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
-        }
-        else
-        {
-            if (!Barbarian.FeatureUnlocks.Exists(x =>
-                    x.level == 9 && x.FeatureDefinition == FeatureSetBarbarianBrutalCritical))
-            {
-                Barbarian.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9));
-            }
+        Barbarian.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureSetBarbarianBrutalCritical ||
+            x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
 
-            if (!Barbarian.FeatureUnlocks.Exists(x =>
-                    x.level == 13 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd))
-            {
-                Barbarian.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13));
-            }
-
-            if (!Barbarian.FeatureUnlocks.Exists(x =>
-                    x.level == 17 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd))
-            {
-                Barbarian.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
-            }
+        if (!Main.Settings.DisableBarbarianBrutalCritical)
+        {
+            Barbarian.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9),
+                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13),
+                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
         }
 
         Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -1972,14 +1975,11 @@ internal static class Tabletop2024Context
 
     internal static void SwitchRogueSteadyAim()
     {
+        Rogue.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerFeatSteadyAim);
+
         if (Main.Settings.EnableRogueSteadyAim)
         {
             Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerFeatSteadyAim, 3));
-        }
-        else
-        {
-            Rogue.FeatureUnlocks.RemoveAll(x =>
-                x.level == 3 && x.FeatureDefinition == PowerFeatSteadyAim);
         }
 
         Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -1987,8 +1987,7 @@ internal static class Tabletop2024Context
 
     internal static void SwitchRogueBlindSense()
     {
-        Rogue.FeatureUnlocks.RemoveAll(x =>
-            x.level == 3 && x.FeatureDefinition == FeatureDefinitionSenses.SenseRogueBlindsense);
+        Rogue.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureDefinitionSenses.SenseRogueBlindsense);
 
         if (!Main.Settings.RemoveRogueBlindSense)
         {
@@ -2242,15 +2241,14 @@ internal static class Tabletop2024Context
 
     internal static void SwitchRogueCunningStrike()
     {
+        Rogue.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == _featureSetRogueCunningStrike ||
+            x.FeatureDefinition == _featureSetRogueDeviousStrike);
+
         if (Main.Settings.EnableRogueCunningStrike)
         {
             Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetRogueCunningStrike, 5));
             Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetRogueDeviousStrike, 14));
-        }
-        else
-        {
-            Rogue.FeatureUnlocks.RemoveAll(x => x.level == 5 && x.FeatureDefinition == _featureSetRogueCunningStrike);
-            Rogue.FeatureUnlocks.RemoveAll(x => x.level == 14 && x.FeatureDefinition == _featureSetRogueDeviousStrike);
         }
 
         Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);

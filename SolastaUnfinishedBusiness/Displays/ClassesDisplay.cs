@@ -163,10 +163,10 @@ internal static class ClassesDisplay
             ClassesContext.SwitchFighterWeaponSpecialization();
         }
 
-        toggle = Main.Settings.SwapSecondWindToUseOneDndUsagesProgression;
-        if (UI.Toggle(Gui.Localize("ModUi/&SwapSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSecondWindToUseOneDndUsagesProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.SwapSecondWindToUseOneDndUsagesProgression = toggle;
+            Main.Settings.EnableSecondWindToUseOneDndUsagesProgression = toggle;
         }
 
         UI.Label();
@@ -353,10 +353,10 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableSorcererInnateSorcery;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorcery"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSorcererInnateSorceryAt1;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorceryAt1"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableSorcererInnateSorcery = toggle;
+            Main.Settings.EnableSorcererInnateSorceryAt1 = toggle;
             Tabletop2024Context.SwitchSorcererInnateSorcery();
         }
 
@@ -386,10 +386,17 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.SwapWarlockToUseOneDndInvocationProgression;
+        toggle = Main.Settings.EnableWarlockToLearnPatronAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockToLearnPatronAtLevel3"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockToLearnPatronAtLevel3 = toggle;
+            Tabletop2024Context.SwitchOneDndWarlockSchoolOfMagicLearningLevel();
+        }
+
+        toggle = Main.Settings.EnableWarlockToUseOneDndInvocationProgression;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.SwapWarlockToUseOneDndInvocationProgression = toggle;
+            Main.Settings.EnableWarlockToUseOneDndInvocationProgression = toggle;
             Tabletop2024Context.SwitchOneDndWarlockInvocationsProgression();
         }
 

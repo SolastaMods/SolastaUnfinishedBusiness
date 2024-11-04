@@ -164,6 +164,7 @@ ModUi/&EnableRogueCunningStrike=在 5 级和 14 级启用<color=#D89555>狡猾�
 ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
 ModUi/&EnableRogueSteadyAim=在 3 级时启用<color=#D89555>稳定瞄准</color> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>
 ModUi/&EnableRogueStrSaving=在<color=#D89555>狡猾/卑鄙的打击</color>上启用<b>Hoodlum</b> DEX 或 STR 修正
+ModUi/&EnableSecondWindToUseOneDndUsagesProgression=启用 <color=#D89555>Second Wind</color> 以使用 5e 2024 使用进度
 ModUi/&EnableSignatureSpellsRelearn=每次长时间休息时都可准备<color=#D89555>招牌法术</color><i><color=#F0DAA0>[而不是在 20 级时准备一次]</color></i>
 ModUi/&EnableSorcererInnateSorceryAt1=在第 1 级启用<color=#D89555>天生巫术</color>
 ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
@@ -241,7 +242,7 @@ ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敌人回合时镜头永不移动</i>
 ModUi/&NoExperienceOnLevelUp=无需经验即可升级
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 取消<color=#D89555>优势/劣势</color>盲注、隐形和感知对<color=#F0DAA0>[与官方<color=#D89555>优势/劣势</color>规则结合使用时有用]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ 将<color=#D89555>严重遮挡</color>的区域更改为投射物阻挡者<color=#F0DAA0>[<color=#D89555>云雾杀戮</color>、<color=#D89555>浓雾云</color>、<color=#D89555>燃烧云</color>、<color=#D89555>花瓣风暴</color>、<color=#D89555>雨夹雪风暴</color>、<color=#D89555>臭云</color>]</color></i>
-ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 隐形生物被严重遮挡，可成为目标，对该生物的攻击掷骰具有劣势，而该生物的攻击掷骰具有优势</i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ <color=#D89555>隐形</color>生物被严重遮挡，可能成为目标，对其的攻击检定具有劣势，而该生物的攻击检定具有优势</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ 将<color=#D89555>魔法遮蔽</color>区域更改为投射物阻挡者<color=#F0DAA0>[任何<color=#D89555>黑暗</color>法术效果来源]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 在适当的情况下为怪物和 NPC 添加 <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color> 和 <color=#D89555>TrueSight</color></i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[设置的集合<b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
@@ -315,7 +316,6 @@ ModUi/&SwapDruidToUseOneDndWeaponProficiency=启用<color=#D89555>简单武器</
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=在进度中交换<b>召唤师</b> <color=#D89555>塑形法术</color>和<color=#D89555>强效戏法</color>
 ModUi/&SwapEvocationSavant=将<b>Evoker</b> <color=#D89555>Evocation Savant</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[获得时学习 2 个学校法术，每次获得一个插槽等级时再学习 1 个]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=启用<color=#D89555>徒手攻击</color>以使用 5e 2024 骰子类型进程
-ModUi/&SwapSecondWindToUseOneDndUsagesProgression=启用 <color=#D89555>Second Wind</color> 以使用 5e 2024 使用进度
 ModUi/&SwapWarlockToUseOneDndInvocationProgression=启用 <color=#D89555>Invocations</color> 以使用 5e 2024 进程
 ModUi/&TableTopButton=<b><color=#D89555>选择桌面内容</color></b>
 ModUi/&TableTopHelp1=• 以下部分重新分组并复制了分散在模块中的 <color=#D89555>5e 2014 和 2024</color> 设置，以方便您使用
