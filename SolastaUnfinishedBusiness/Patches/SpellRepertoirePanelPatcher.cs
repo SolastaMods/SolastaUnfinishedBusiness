@@ -6,6 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using TMPro;
 using UnityEngine;
@@ -25,7 +26,7 @@ public static class SpellRepertoirePanelPatcher
         public static void Postfix(SpellRepertoirePanel __instance)
         {
             //PATCH: filters how spells and slots are displayed on inspection (MULTICLASS)
-            MulticlassGameUiContext.RebuildSlotsTable(__instance);
+            MulticlassGameUi.RebuildSlotsTable(__instance);
 
             //PATCH: displays sorcery point box for sorcerers only
             if (!Main.Settings.EnableDisplaySorceryPointBoxSorcererOnly)

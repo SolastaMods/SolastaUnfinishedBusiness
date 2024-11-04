@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,7 +43,7 @@ public static class CharacterStageSpellSelectionPanelPatcher
                 RectTransform, // tooltipAnchor,
                 TooltipDefinitions.AnchorMode, // anchorMode,
                 CharacterStageSpellSelectionPanel // panel
-            >(MulticlassGameUiContext.SpellsByLevelGroupBindLearning).Method;
+            >(MulticlassGameUi.SpellsByLevelGroupBindLearning).Method;
 
             return instructions.ReplaceCalls(bindMethod, "CharacterStageSpellSelectionPanel.Refresh",
                 new CodeInstruction(OpCodes.Ldarg_0),

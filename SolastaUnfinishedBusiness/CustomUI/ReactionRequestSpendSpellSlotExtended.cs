@@ -24,12 +24,12 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
         {
             var minLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
-            selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
+            selected = MulticlassGameUi.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
                 minLevel, minLevel);
         }
         else
         {
-            selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
+            selected = MulticlassGameUi.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
                 actionParams.IntParameter);
         }
 

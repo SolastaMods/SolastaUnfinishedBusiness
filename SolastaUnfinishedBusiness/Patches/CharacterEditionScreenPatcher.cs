@@ -23,7 +23,7 @@ public static class CharacterEditionScreenPatcher
             CustomInvocationSelectionPanel.InsertPanel(__instance);
 
             //PATCH: adds the Multiclass class selection panel to the level up screen (MULTICLASS)
-            MulticlassGameUiContext.SetupLevelUpClassSelectionStep(__instance);
+            MulticlassGameUi.SetupLevelUpClassSelectionStep(__instance);
         }
     }
 

@@ -5,13 +5,14 @@ using System.Text;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal static class MulticlassGameUiContext
+internal static class MulticlassGameUi
 {
     private static readonly float[] FontSizes = [17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f];
 
