@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -22,14 +23,14 @@ public static class WorldLocationPatcher
         [UsedImplicitly]
         public static void Prefix(WorldLocation __instance, UserLocation userLocation)
         {
-            DmProRendererContext.GetTemplateVegetationMaskArea(__instance);
-            DmProRendererContext.SetupLocationTerrain(__instance, userLocation);
+            DungeonMakerCustomRooms.GetTemplateVegetationMaskArea(__instance);
+            DungeonMakerCustomRooms.SetupLocationTerrain(__instance, userLocation);
         }
 
         [UsedImplicitly]
         public static void Postfix(WorldLocation __instance)
         {
-            DmProRendererContext.FixFlatRoomReflectionProbe(__instance);
+            DungeonMakerCustomRooms.FixFlatRoomReflectionProbe(__instance);
         }
 
         [NotNull]
@@ -37,9 +38,9 @@ public static class WorldLocationPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var setLocalPositionMethod = typeof(Transform).GetMethod("set_localPosition");
-            var setupFlatRoomsMethod = new Action<Transform, UserRoom>(DmProRendererContext.SetupFlatRooms).Method;
+            var setupFlatRoomsMethod = new Action<Transform, UserRoom>(DungeonMakerCustomRooms.SetupFlatRooms).Method;
             var addVegetationMaskAreaMethod =
-                new Action<Transform, UserRoom>(DmProRendererContext.AddVegetationMaskArea).Method;
+                new Action<Transform, UserRoom>(DungeonMakerCustomRooms.AddVegetationMaskArea).Method;
 
             return instructions.ReplaceCall(setLocalPositionMethod,
                 1,

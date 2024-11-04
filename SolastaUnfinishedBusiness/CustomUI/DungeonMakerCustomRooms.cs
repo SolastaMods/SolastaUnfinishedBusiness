@@ -4,13 +4,14 @@ using AwesomeTechnologies;
 using AwesomeTechnologies.VegetationSystem;
 using AwesomeTechnologies.VegetationSystem.Biomes;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = System.Random;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal static class DmProRendererContext
+internal static class DungeonMakerCustomRooms
 {
     private const int Margin = 25;
     private const int FlatRoomSize = 12;
