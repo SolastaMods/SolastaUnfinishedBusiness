@@ -128,7 +128,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
-            Tabletop2024Context.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
+            Tabletop2024Context.SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
         }
 
         toggle = Main.Settings.SwapDruidToUseOneDndWeaponProficiency;
@@ -385,13 +385,6 @@ internal static class ClassesDisplay
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
         UI.Label();
-
-        toggle = Main.Settings.EnableWarlockMagicalCunningAtLevel2;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableWarlockMagicalCunningAtLevel2 = toggle;
-            Tabletop2024Context.SwitchOneDndWarlockMagicalCunningAtLevel2();
-        }
 
         toggle = Main.Settings.SwapWarlockToUseOneDndInvocationProgression;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))

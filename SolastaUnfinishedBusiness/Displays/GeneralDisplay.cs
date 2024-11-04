@@ -348,7 +348,7 @@ internal static class ToolsDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
-            Tabletop2024Context.SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
+            Tabletop2024Context.SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
         }
 
         toggle = Main.Settings.SwapDruidToUseOneDndWeaponProficiency;
@@ -514,13 +514,6 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableWarlockMagicalCunningAtLevel2;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableWarlockMagicalCunningAtLevel2 = toggle;
-            Tabletop2024Context.SwitchOneDndWarlockMagicalCunningAtLevel2();
-        }
-
         toggle = Main.Settings.SwapWarlockToUseOneDndInvocationProgression;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))
         {
@@ -568,6 +561,22 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchOneDndPreparedSpellsTables();
         }
 
+        toggle = Main.Settings.EnableRitualOnAllCasters;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRitualOnAllCasters = toggle;
+            Tabletop2024Context.SwitchSpellRitualOnAllCasters();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableOneDndBarkskinSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndBarkskinSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellBarkskin();
+        }
+
         toggle = Main.Settings.EnableOneDndHealingSpellsUpgrade;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsUpgrade"), ref toggle, UI.AutoWidth()))
         {
@@ -575,25 +584,11 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchOneDndHealingSpellsBuf();
         }
 
-        toggle = Main.Settings.EnableRitualOnAllCasters;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRitualOnAllCasters = toggle;
-            Tabletop2024Context.SwitchEnableRitualOnAllCasters();
-        }
-
-        toggle = Main.Settings.EnableOneDndBarkskinSpell;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableOneDndBarkskinSpell = toggle;
-            Tabletop2024Context.EnableOneDndBarkskinSpell();
-        }
-
         toggle = Main.Settings.EnableOneDndGuidanceSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableOneDndGuidanceSpell = toggle;
-            Tabletop2024Context.EnableOneDndGuidanceSpell();
+            Tabletop2024Context.SwitchOneDndSpellGuidance();
         }
 
         UI.Label();
@@ -788,7 +783,7 @@ internal static class ToolsDisplay
             if (!toggle)
             {
                 Main.Settings.ModifyGravitySlam = false;
-                Tabletop2014Context.ToggleGravitySlamModification();
+                Tabletop2014Context.SwitchGravitySlam();
             }
         }
 

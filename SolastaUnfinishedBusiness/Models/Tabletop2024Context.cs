@@ -58,23 +58,6 @@ internal static class Tabletop2024Context
             SkillDefinitions.Religion)
         .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerWarlockMagicalCunning = FeatureDefinitionPowerBuilder
-        .Create("PowerWarlockMagicalCunning")
-        .SetGuiPresentation(Category.Feature, PowerWizardArcaneRecovery)
-        .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetSpellForm(5)
-                        .Build())
-                .SetParticleEffectParameters(PowerWizardArcaneRecovery)
-                .Build())
-        .AddToDB();
-
     private static readonly FeatureDefinitionPointPool PointPoolWarlockInvocation1 = FeatureDefinitionPointPoolBuilder
         .Create(PointPoolWarlockInvocation2, "PointPoolWarlockInvocation1")
         .SetGuiPresentation("PointPoolWarlockInvocationInitial", Category.Feature)
@@ -160,7 +143,7 @@ internal static class Tabletop2024Context
                 .SetEffectForms(EffectFormBuilder.ConditionForm(
                     ConditionDefinitionBuilder
                         .Create("ConditionSorcererInnateSorcery")
-                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
+                        .SetGuiPresentation(Category.Condition, ConditionSpiritGuardians)
                         .SetFeatures(
                             FeatureDefinitionMagicAffinityBuilder
                                 .Create("MagicAffinitySorcererInnateSorcery")
@@ -169,7 +152,7 @@ internal static class Tabletop2024Context
                                 .AddToDB())
                         .AddCustomSubFeatures(new ModifyAttackActionModifierInnateSorcery())
                         .AddToDB()))
-                .SetParticleEffectParameters(Shield)
+                .SetCasterEffectParameters(PowerSorcererDraconicElementalResistance)
                 .Build())
         .AddToDB();
 
@@ -198,50 +181,49 @@ internal static class Tabletop2024Context
     internal static void LateLoad()
     {
         BuildBarbarianBrutalStrike();
-        BuildRogueCunningStrike();
         BuildOneDndGuidanceSubspells();
+        BuildRogueCunningStrike();
         LoadMonkHeightenedMetabolism();
         LoadSecondWindToUseOneDndUsagesProgression();
-        EnableOneDndBarkskinSpell();
-        EnableOneDndGuidanceSpell();
-        SwitchOneDnDEnableDruidUseMetalArmor();
-        SwitchDruidWeaponProficiencyToUseOneDnd();
-        SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency();
-        SwitchEnableRitualOnAllCasters();
-        SwitchOneDndPreparedSpellsTables();
-        SwitchOneDndPaladinLayOnHandAsBonusAction();
-        SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
-        SwitchOneDndEnableBardWordsOfCreationAtLevel20();
-        SwitchOneDndRemoveBardSongOfRestAt2();
-        SwitchOneDndRemoveBardMagicalSecretAt14And18();
-        SwitchOneDndChangeBardicInspirationDurationToOneHour();
-        SwitchOneDndEnableBardExpertiseOneLevelBefore();
-        SwitchOneDndWarlockInvocationsProgression();
-        SwitchOneDndWarlockMagicalCunningAtLevel2();
-        SwitchOneDndHealingPotionBonusAction();
-        SwitchOneDndHealingSpellsBuf();
-        SwitchOneDndWizardScholar();
-        SwitchOneDndWizardSchoolOfMagicLearningLevel();
-        SwitchOneDndPaladinLearnSpellCastingAtOne();
-        SwitchOneDndRangerLearnSpellCastingAtOne();
-        SwitchOneDndSurprisedEnforceDisadvantage();
-        SwitchRangerNatureShroud();
-        SwitchBarbarianBrutalStrike();
         SwitchBarbarianBrutalCritical();
+        SwitchBarbarianBrutalStrike();
         SwitchBarbarianRecklessSameBuffDebuffDuration();
         SwitchBarbarianRegainOneRageAtShortRest();
+        SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
+        SwitchDruidWeaponProficiencyToUseOneDnd();
+        SwitchSpellRitualOnAllCasters();
+        SwitchFighterLevelToIndomitableSavingReroll();
+        SwitchMonkBodyAndMindToReplacePerfectSelf();
+        SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
+        SwitchMonkDoNotRequireAttackActionForFlurry();
+        SwitchMonkHeightenedMetabolism();
+        SwitchMonkSuperiorDefenseToReplaceEmptyBody();
+        SwitchOneDndChangeBardicInspirationDurationToOneHour();
+        SwitchOneDndEnableBardExpertiseOneLevelBefore();
+        SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
+        SwitchOneDndEnableBardWordsOfCreationAtLevel20();
+        SwitchOneDnDEnableDruidUseMetalArmor();
+        SwitchOneDndHealingPotionBonusAction();
+        SwitchOneDndHealingSpellsBuf();
+        SwitchOneDndMonkUnarmedDieTypeProgression();
+        SwitchOneDndPaladinLayOnHandAsBonusAction();
+        SwitchOneDndPaladinLearnSpellCastingAtOne();
+        SwitchOneDndPreparedSpellsTables();
+        SwitchOneDndRangerLearnSpellCastingAtOne();
+        SwitchOneDndRemoveBardMagicalSecretAt14And18();
+        SwitchOneDndRemoveBardSongOfRestAt2();
+        SwitchOneDndSpellBarkskin();
+        SwitchOneDndSpellGuidance();
+        SwitchOneDndSurprisedEnforceDisadvantage();
+        SwitchOneDndWarlockInvocationsProgression();
+        SwitchOneDndWizardScholar();
+        SwitchOneDndWizardSchoolOfMagicLearningLevel();
+        SwitchPersuasionToFighterSkillOptions();
+        SwitchRangerNatureShroud();
         SwitchRogueBlindSense();
         SwitchRogueCunningStrike();
         SwitchRogueSteadyAim();
-        SwitchPersuasionToFighterSkillOptions();
-        SwitchFighterLevelToIndomitableSavingReroll();
         SwitchSorcererInnateSorcery();
-        SwitchMonkHeightenedMetabolism();
-        SwitchMonkSuperiorDefenseToReplaceEmptyBody();
-        SwitchMonkBodyAndMindToReplacePerfectSelf();
-        SwitchOneDndMonkUnarmedDieTypeProgression();
-        SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
-        SwitchMonkDoNotRequireAttackActionForFlurry();
     }
 
     private static void LoadSecondWindToUseOneDndUsagesProgression()
@@ -301,7 +283,7 @@ internal static class Tabletop2024Context
         }
     }
 
-    internal static void SwitchEnableDruidPrimalOrderAndRemoveMediumArmorProficiency()
+    internal static void SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency()
     {
         if (Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency)
         {
@@ -329,7 +311,7 @@ internal static class Tabletop2024Context
                 : DruidWeaponsCategories;
     }
 
-    internal static void SwitchEnableRitualOnAllCasters()
+    internal static void SwitchSpellRitualOnAllCasters()
     {
         var subclasses = SharedSpellsContext.SubclassCasterType.Keys.Select(GetDefinition<CharacterSubclassDefinition>);
 
@@ -367,7 +349,7 @@ internal static class Tabletop2024Context
         }
     }
 
-    internal static void EnableOneDndBarkskinSpell()
+    internal static void SwitchOneDndSpellBarkskin()
     {
         if (Main.Settings.EnableOneDndBarkskinSpell)
         {
@@ -431,7 +413,7 @@ internal static class Tabletop2024Context
         }
     }
 
-    internal static void EnableOneDndGuidanceSpell()
+    internal static void SwitchOneDndSpellGuidance()
     {
         foreach (var spell in GuidanceSubSpells)
         {
@@ -776,18 +758,6 @@ internal static class Tabletop2024Context
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndWarlockMagicalCunningAtLevel2()
-    {
-        Warlock.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerWarlockMagicalCunning);
-
-        if (Main.Settings.EnableWarlockMagicalCunningAtLevel2)
-        {
-            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerWarlockMagicalCunning, 2));
-        }
-
-        Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
     internal static void SwitchOneDndWarlockInvocationsProgression()
     {
         if (Main.Settings.SwapWarlockToUseOneDndInvocationProgression)
@@ -1095,6 +1065,11 @@ internal static class Tabletop2024Context
             Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression
                 ? MonkUnarmedDieTypeByRank2024
                 : MonkUnarmedDieTypeByRank;
+
+        AttackModifierMonkMartialArtsImprovedDamage.GuiPresentation.Description =
+            Main.Settings.SwapMonkToUseOneDndUnarmedDieTypeProgression
+                ? "Feature/&AttackModifierMonkMartialArtsExtendedDescription"
+                : "Feature/&AttackModifierMonkMartialArtsDescription";
     }
 
     internal static void SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack()

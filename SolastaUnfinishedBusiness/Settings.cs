@@ -304,7 +304,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
-    public bool EnableWarlockMagicalCunningAtLevel2 { get; set; }
     public bool SwapWarlockToUseOneDndInvocationProgression { get; set; }
     public bool EnableWizardToLearnScholarAtLevel2 { get; set; }
     public bool EnableWizardToLearnSchoolAtLevel3 { get; set; }
@@ -374,8 +373,8 @@ public class Settings : UnityModManager.ModSettings
     public bool UseHeightOneCylinderEffect { get; set; }
     public bool FixEldritchBlastRange { get; set; }
     public bool ModifyGravitySlam { get; set; }
-    public bool EnableOneDndHealingSpellsUpgrade { get; set; }
     public bool EnableOneDndBarkskinSpell { get; set; }
+    public bool EnableOneDndHealingSpellsUpgrade { get; set; }
     public bool EnableOneDndGuidanceSpell { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }

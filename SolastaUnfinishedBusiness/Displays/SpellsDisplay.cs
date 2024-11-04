@@ -33,20 +33,6 @@ internal static class SpellsDisplay
             SpellsContext.SwitchAllowBladeCantripsToUseReach();
         }
 
-        toggle = Main.Settings.EnableOneDnDPreparedSpellsTables;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDnDPreparedSpellsTables"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableOneDnDPreparedSpellsTables = toggle;
-            Tabletop2024Context.SwitchOneDndPreparedSpellsTables();
-        }
-
-        toggle = Main.Settings.EnableRitualOnAllCasters;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRitualOnAllCasters = toggle;
-            Tabletop2024Context.SwitchEnableRitualOnAllCasters();
-        }
-
         toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
         if (UI.Toggle(Gui.Localize("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
         {
@@ -55,11 +41,11 @@ internal static class SpellsDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange;
-        if (UI.Toggle(Gui.Localize("ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange"), ref toggle,
-                UI.AutoWidth()))
+        toggle = Main.Settings.AddBleedingToLesserRestoration;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange = toggle;
+            Main.Settings.AddBleedingToLesserRestoration = toggle;
+            SpellsContext.SwitchAddBleedingToLesserRestoration();
         }
 
         toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
@@ -70,32 +56,11 @@ internal static class SpellsDisplay
             SpellsContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         }
 
-        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
-            SpellsContext.SwitchFilterOnHideousLaughter();
-        }
-
-        toggle = Main.Settings.AddBleedingToLesserRestoration;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddBleedingToLesserRestoration = toggle;
-            SpellsContext.SwitchAddBleedingToLesserRestoration();
-        }
-
         toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
         if (UI.Toggle(Gui.Localize("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
-        }
-
-        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
-            SpellsContext.SwitchRecurringEffectOnEntangle();
         }
 
         toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
@@ -114,6 +79,27 @@ internal static class SpellsDisplay
             {
                 Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
             }
+        }
+
+        toggle = Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange = toggle;
+        }
+
+        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
+            SpellsContext.SwitchRecurringEffectOnEntangle();
+        }
+
+        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
+            SpellsContext.SwitchFilterOnHideousLaughter();
         }
 
         UI.Label();
@@ -143,10 +129,34 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ModifyGravitySlam"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ModifyGravitySlam = toggle && Main.Settings.EnablePullPushOnVerticalDirection;
-            Tabletop2014Context.ToggleGravitySlamModification();
+            Tabletop2014Context.SwitchGravitySlam();
         }
 
         UI.Label();
+        UI.Label();
+
+        toggle = Main.Settings.EnableOneDnDPreparedSpellsTables;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDnDPreparedSpellsTables"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDnDPreparedSpellsTables = toggle;
+            Tabletop2024Context.SwitchOneDndPreparedSpellsTables();
+        }
+
+        toggle = Main.Settings.EnableRitualOnAllCasters;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRitualOnAllCasters = toggle;
+            Tabletop2024Context.SwitchSpellRitualOnAllCasters();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableOneDndBarkskinSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndBarkskinSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellBarkskin();
+        }
 
         toggle = Main.Settings.EnableOneDndHealingSpellsUpgrade;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsUpgrade"), ref toggle, UI.AutoWidth()))
@@ -155,18 +165,11 @@ internal static class SpellsDisplay
             Tabletop2024Context.SwitchOneDndHealingSpellsBuf();
         }
 
-        toggle = Main.Settings.EnableOneDndBarkskinSpell;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableOneDndBarkskinSpell = toggle;
-            Tabletop2024Context.EnableOneDndBarkskinSpell();
-        }
-
         toggle = Main.Settings.EnableOneDndGuidanceSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableOneDndGuidanceSpell = toggle;
-            Tabletop2024Context.EnableOneDndGuidanceSpell();
+            Tabletop2024Context.SwitchOneDndSpellGuidance();
         }
 
         UI.Label();
