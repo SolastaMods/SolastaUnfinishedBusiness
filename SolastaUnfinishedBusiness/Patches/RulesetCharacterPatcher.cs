@@ -1763,7 +1763,7 @@ public static class RulesetCharacterPatcher
 
             if (!spellcastingClass && spellRepertoire.SpellCastingSubclass)
             {
-                spellcastingClass = LevelUpContext.GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
+                spellcastingClass = LevelUpHelper.GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
             }
             //END PATCH
 

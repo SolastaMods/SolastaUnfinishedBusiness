@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -539,7 +540,7 @@ internal static class MulticlassGameUiContext
                          .OfType<FeatureDefinitionAutoPreparedSpells>())
             {
                 var maxLevel =
-                    LevelUpContext.GetMaxAutoPrepSpellsLevel(localHeroCharacter, featureDefinitionAutoPreparedSpells);
+                    LevelUpHelper.GetMaxAutoPrepSpellsLevel(localHeroCharacter, featureDefinitionAutoPreparedSpells);
 
                 foreach (var spells in featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups
                              .SelectMany(preparedSpellsGroup => preparedSpellsGroup.SpellsList
@@ -578,7 +579,7 @@ internal static class MulticlassGameUiContext
         }
 
         //Properly tag and not allow to pick spells that are auto-prepared from various features
-        LevelUpContext.EnumerateExtraSpells(group.extraSpellsMap, localHeroCharacter);
+        LevelUpHelper.EnumerateExtraSpells(group.extraSpellsMap, localHeroCharacter);
 
         // this is required to support when other caster is whole list
         var keys = group.extraSpellsMap.Keys.Where(x => !allSpells.Contains(x));
@@ -659,7 +660,7 @@ internal static class MulticlassGameUiContext
         var spellLevel = __instance.SpellLevel;
 
         // avoids auto prepared spells from other classes to bleed in
-        var allowedAutoPreparedSpells = LevelUpContext.GetAllowedAutoPreparedSpells(caster)
+        var allowedAutoPreparedSpells = LevelUpHelper.GetAllowedAutoPreparedSpells(caster)
             .Where(x => x.SpellLevel == spellLevel);
 
         autoPreparedSpells.SetRange(allowedAutoPreparedSpells);
@@ -667,9 +668,9 @@ internal static class MulticlassGameUiContext
         //Select allowed spells - all spells if list is overriden by the pool, or all allowed spells of current level
         var allowedSpells = spellsOverriden
             ? [..allSpells]
-            : LevelUpContext.GetAllowedSpells(caster).Where(x => x.SpellLevel == spellLevel).ToArray();
+            : LevelUpHelper.GetAllowedSpells(caster).Where(x => x.SpellLevel == spellLevel).ToArray();
 
-        var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(caster)
+        var otherClassesKnownSpells = LevelUpHelper.GetOtherClassesKnownSpells(caster)
             .Where(x => x.Key.SpellLevel == spellLevel).ToArray();
 
         allSpells.RemoveAll(x => !allowedSpells.Contains(x) && otherClassesKnownSpells.All(p => p.Key != x));
@@ -721,7 +722,7 @@ internal static class MulticlassGameUiContext
         foreach (var featureDefinitionAutoPreparedSpells in hero.FeaturesToBrowse
                      .OfType<FeatureDefinitionAutoPreparedSpells>())
         {
-            var maxLevel = LevelUpContext.GetMaxAutoPrepSpellsLevel(hero, featureDefinitionAutoPreparedSpells);
+            var maxLevel = LevelUpHelper.GetMaxAutoPrepSpellsLevel(hero, featureDefinitionAutoPreparedSpells);
 
             foreach (var spell in from preparedSpellsGroup in featureDefinitionAutoPreparedSpells
                          .AutoPreparedSpellsGroups

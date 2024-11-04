@@ -1084,7 +1084,7 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero __instance, CharacterClassDefinition classDefinition)
         {
-            var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(__instance);
 
             if (!isLevelingUp)
             {

@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -24,9 +24,9 @@ public static class HigherLevelFeaturesModalPatcher
             }
 
             //PATCH: filters out features already taken on class display (MULTICLASS)
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
 
             if (selectedClass
                 && isLevelingUp

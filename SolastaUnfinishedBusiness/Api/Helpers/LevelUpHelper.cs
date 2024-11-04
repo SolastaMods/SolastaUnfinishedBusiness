@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.Api.Helpers;
 
-internal static class LevelUpContext
+internal static class LevelUpHelper
 {
     internal const string ExtraClassTag = ""; //""@Class";
     internal const string ExtraSubclassTag = ""; //""@Subclass";
@@ -284,7 +284,7 @@ internal static class LevelUpContext
             }
         }
 
-        return allowedAutoPreparedSpells.ToHashSet();
+        return [.. allowedAutoPreparedSpells];
     }
 
     [NotNull]

@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -19,7 +19,7 @@ public static class SpellsByLevelGroupPatcher
         {
             //PATCH: add all auto prepared spells to extra spells map, so that different sources of auto spells won't bleed their tag
             //Don't use GetOriginalHero() here
-            LevelUpContext.EnumerateExtraSpells(extraSpellsMap, caster as RulesetCharacterHero);
+            LevelUpHelper.EnumerateExtraSpells(extraSpellsMap, caster as RulesetCharacterHero);
         }
     }
 }

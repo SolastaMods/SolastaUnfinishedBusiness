@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 
@@ -35,7 +36,7 @@ public static class CharacterEditionScreenPatcher
         public static void Prefix([NotNull] CharacterEditionScreen __instance)
         {
             //PATCH: Unregisters hero from level up context (MULTICLASS)
-            LevelUpContext.UnregisterHero(__instance.currentHero);
+            LevelUpHelper.UnregisterHero(__instance.currentHero);
         }
     }
 }

@@ -30,7 +30,7 @@ public static class CharacterBuildingManagerPatcher
         public static void Postfix([NotNull] CharacterBuildingManager __instance)
         {
             //PATCH: registers the hero getting created
-            LevelUpContext.RegisterHero(__instance.CurrentLocalHeroCharacter, false);
+            LevelUpHelper.RegisterHero(__instance.CurrentLocalHeroCharacter, false);
         }
     }
 
@@ -137,7 +137,7 @@ public static class CharacterBuildingManagerPatcher
             }
 
             //PATCH: registers the hero leveling up
-            LevelUpContext.RegisterHero(hero, true);
+            LevelUpHelper.RegisterHero(hero, true);
         }
     }
 
@@ -150,7 +150,7 @@ public static class CharacterBuildingManagerPatcher
         public static void Prefix([NotNull] CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
             //PATCH: grants race features
-            LevelUpContext.GrantRaceFeatures(__instance, hero);
+            LevelUpHelper.GrantRaceFeatures(__instance, hero);
 
             //PATCH: grants repertoires and cantrips from backgrounds
             if (hero.ClassesHistory.Count == 1)
@@ -171,8 +171,8 @@ public static class CharacterBuildingManagerPatcher
             }
 
             //PATCH: grants custom features
-            LevelUpContext.GrantCustomFeaturesFromFeats(hero);
-            LevelUpContext.GrantCustomFeatures(hero);
+            LevelUpHelper.GrantCustomFeaturesFromFeats(hero);
+            LevelUpHelper.GrantCustomFeatures(hero);
         }
 
         [UsedImplicitly]
@@ -186,16 +186,16 @@ public static class CharacterBuildingManagerPatcher
             hero.GrantAcquiredSpellWithTagFromSubclassPool(WizardEvocation.Name, WizardEvocation.SpellTag);
 
             //PATCH: grants spell repertoires and respective selected spells from feats
-            LevelUpContext.GrantSpellsOrCantripsFromFeatCastSpell(__instance, hero);
+            LevelUpHelper.GrantSpellsOrCantripsFromFeatCastSpell(__instance, hero);
 
             //PATCH: keeps spell repertoires sorted by class title but ancestry one is always kept first
-            LevelUpContext.SortHeroRepertoires(hero);
+            LevelUpHelper.SortHeroRepertoires(hero);
 
             //PATCH: adds whole list caster spells to KnownSpells collection to improve the MC spell selection UI
             // LevelUpContext.UpdateKnownSpellsForWholeCasters(hero);
 
             //PATCH: unregisters the hero leveling up
-            LevelUpContext.UnregisterHero(hero);
+            LevelUpHelper.UnregisterHero(hero);
         }
     }
 
@@ -208,17 +208,17 @@ public static class CharacterBuildingManagerPatcher
         public static bool Prefix([NotNull] RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
             //PATCH: captures the desired class
-            LevelUpContext.SetSelectedClass(hero, classDefinition);
+            LevelUpHelper.SetSelectedClass(hero, classDefinition);
 
             //PATCH: ensures this doesn't get executed in the class panel level up screen
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
             var result = isLevelingUp && isClassSelectionStage;
 
             if (result)
             {
                 //PATCH: grants items for new class if required
-                LevelUpContext.GrantItemsIfRequired(hero);
+                LevelUpHelper.GrantItemsIfRequired(hero);
             }
 
             return !result;
@@ -234,7 +234,7 @@ public static class CharacterBuildingManagerPatcher
         public static void Prefix([NotNull] RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
         {
             //PATCH: captures the desired sub class
-            LevelUpContext.SetSelectedSubclass(hero, subclassDefinition);
+            LevelUpHelper.SetSelectedSubclass(hero, subclassDefinition);
         }
     }
 
@@ -247,8 +247,8 @@ public static class CharacterBuildingManagerPatcher
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: ensures this doesn't get executed in the class panel level up screen
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
 
             return !(isLevelingUp && isClassSelectionStage);
         }
@@ -353,17 +353,17 @@ public static class CharacterBuildingManagerPatcher
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: un-captures the desired class
-            LevelUpContext.SetSelectedClass(hero, null);
+            LevelUpHelper.SetSelectedClass(hero, null);
 
             //PATCH: ensures this doesn't get executed in the class panel level up screen
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
             var result = isLevelingUp && isClassSelectionStage;
 
             if (result)
             {
                 //PATCH: removes items from new class if required
-                LevelUpContext.RemoveItemsIfRequired(hero);
+                LevelUpHelper.RemoveItemsIfRequired(hero);
             }
 
             return !result;
@@ -382,11 +382,11 @@ public static class CharacterBuildingManagerPatcher
             DomainNature.ResetCantripSubclassPool(hero);
 
             //PATCH: un-captures the desired subclass
-            LevelUpContext.SetSelectedSubclass(hero, null);
+            LevelUpHelper.SetSelectedSubclass(hero, null);
 
             //PATCH: ensures this doesn't get executed in the class panel level up screen
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
             var result = isLevelingUp && isClassSelectionStage;
 
             return !result;
@@ -402,8 +402,8 @@ public static class CharacterBuildingManagerPatcher
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: ensures this doesn't get executed in the class panel level up screen
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
             var result = isLevelingUp && isClassSelectionStage;
 
             return !result;
@@ -421,7 +421,7 @@ public static class CharacterBuildingManagerPatcher
             List<SpellDefinition> __result)
         {
             //PATCH: ensures the level up process only presents / offers spells from current class
-            LevelUpContext.EnumerateKnownAndAcquiredSpells(heroBuildingData, __result);
+            LevelUpHelper.EnumerateKnownAndAcquiredSpells(heroBuildingData, __result);
         }
     }
 
@@ -455,13 +455,13 @@ public static class CharacterBuildingManagerPatcher
                 return false;
             }
 
-            var isMulticlass = LevelUpContext.IsMulticlass(hero);
+            var isMulticlass = LevelUpHelper.IsMulticlass(hero);
             if (!isMulticlass)
             {
                 return true;
             }
 
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
 
             if (!selectedClass)
             {
@@ -571,9 +571,9 @@ public static class CharacterBuildingManagerPatcher
             [NotNull] CharacterHeroBuildingData heroBuildingData)
         {
             var hero = heroBuildingData.HeroCharacter;
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
-            var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
-            var selectedClassLevel = LevelUpContext.GetSelectedClassLevel(hero);
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
+            var selectedSubclass = LevelUpHelper.GetSelectedSubclass(hero);
+            var selectedClassLevel = LevelUpHelper.GetSelectedClassLevel(hero);
 
             // we filter out any repertoire that was granted from feats
             foreach (var spellRepertoire in hero.SpellRepertoires
@@ -755,7 +755,7 @@ public static class CharacterBuildingManagerPatcher
                 }
             }
 
-            LevelUpContext.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
+            LevelUpHelper.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
         }
     }
 
@@ -799,7 +799,7 @@ public static class CharacterBuildingManagerPatcher
                 }
             }
 
-            LevelUpContext.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
+            LevelUpHelper.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
         }
     }
 
@@ -845,7 +845,7 @@ public static class CharacterBuildingManagerPatcher
                 }
             }
 
-            LevelUpContext.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
+            LevelUpHelper.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
         }
     }
 }

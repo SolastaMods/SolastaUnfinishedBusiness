@@ -31,13 +31,13 @@ public static class CharacterStageClassSelectionPanelPatcher
 
             __instance.compatibleClasses.SetRange(visibleClasses);
 
-            if (!LevelUpContext.IsLevelingUp(__instance.currentHero))
+            if (!LevelUpHelper.IsLevelingUp(__instance.currentHero))
             {
                 return;
             }
 
             //PATCH: mark we started selecting classes (MULTICLASS)
-            LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, true);
+            LevelUpHelper.SetIsClassSelectionStage(__instance.currentHero, true);
 
             //PATCH: apply in/out logic (MULTICLASS)
             MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(
@@ -73,8 +73,8 @@ public static class CharacterStageClassSelectionPanelPatcher
             [NotNull] FeatureUnlockByLevel featureUnlockByLevel,
             [NotNull] RulesetCharacterHero hero)
         {
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
 
             if (!isLevelingUp)
             {
@@ -123,7 +123,7 @@ public static class CharacterStageClassSelectionPanelPatcher
     {
         private static bool SetActive([NotNull] RulesetCharacterHero currentHero)
         {
-            return !LevelUpContext.IsLevelingUp(currentHero);
+            return !LevelUpHelper.IsLevelingUp(currentHero);
         }
 
         [NotNull]
