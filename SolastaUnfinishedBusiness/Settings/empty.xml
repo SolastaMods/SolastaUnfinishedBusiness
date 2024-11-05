@@ -561,7 +561,7 @@
     <SwapDruidToUseOneDndWeaponProficiency>false</SwapDruidToUseOneDndWeaponProficiency>
     <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
     <AddPersuasionToFighterSkillOptions>false</AddPersuasionToFighterSkillOptions>
-    <SwapSecondWindToUseOneDndUsagesProgression>false</SwapSecondWindToUseOneDndUsagesProgression>
+    <EnableSecondWindToUseOneDndUsagesProgression>false</EnableSecondWindToUseOneDndUsagesProgression>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt14>false</EnableRangerNatureShroudAt14>
@@ -1046,4 +1046,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

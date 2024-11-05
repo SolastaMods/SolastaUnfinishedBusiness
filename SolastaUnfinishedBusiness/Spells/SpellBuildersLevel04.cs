@@ -712,6 +712,16 @@ internal static partial class SpellBuilders
                 conditionName = conditionsExhausted[0].Name;
             }
 
+            if (rulesetTarget is RulesetCharacterMonster rulesetMonster &&
+                (rulesetMonster.MonsterDefinition == MonsterDefinitions.ShamblingMound_MonsterDefinition ||
+                 rulesetMonster.MonsterDefinition == MonsterDefinitions.ShamblingMound_MonsterDefinition_POI_ONLY ||
+                 rulesetMonster.MonsterDefinition.CharacterFamily == CharacterFamilyDefinitions.Construct.Name ||
+                 rulesetMonster.MonsterDefinition.CharacterFamily == CharacterFamilyDefinitions.Elemental.Name ||
+                 rulesetMonster.MonsterDefinition.CharacterFamily == CharacterFamilyDefinitions.Undead.Name))
+            {
+                return;
+            }
+
             if (conditionName != string.Empty)
             {
                 rulesetTarget.InflictCondition(
