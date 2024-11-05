@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=在 9、13 和 17 级启用<color=#D89555>残
 ModUi/&EnableBarbarianFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 7 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=在 7 级启用 <color=#D89555>Countercharm</color> 作为反应，而不是在 6 级启用作为动作
 ModUi/&EnableBardExpertiseOneLevelBefore=在 2 级和 9 级（而不是 3 级和 10 级）启用<color=#D89555>专业知识</color>
 ModUi/&EnableBardHealingBalladOnLongRest=长时间休息时启用<b>希望学院</b> <color=#D89555>治愈之歌</color>
 ModUi/&EnableBardSuperiorInspirationAtLevel18=在 18 级（而非 20 级）启用<color=#D89555>卓越灵感</color>，并且授予 2 次充能（而非 1 次）

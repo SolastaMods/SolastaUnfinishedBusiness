@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Brutal Strike</color> a
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 7
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Enable <color=#D89555>Countercharm</color> at level 7 as a reaction instead of level 6 as an action
 ModUi/&EnableBardExpertiseOneLevelBefore=Enable <color=#D89555>Expertise</color> at levels 2 and 9 instead of 3 and 10
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <b>College of Hope</b> <color=#D89555>Healing Ballad</color> on long rest
 ModUi/&EnableBardSuperiorInspirationAtLevel18=Enable <color=#D89555>Superior Inspiration</color> at level 18 instead of 20 and also grant two recharges instead of 1

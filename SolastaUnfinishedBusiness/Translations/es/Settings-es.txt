@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=Habilita <color=#D89555>Golpe brutal</color> 
 ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 7
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Habilitar <color=#D89555>Contraencantamiento</color> en el nivel 7 como reacción en lugar del nivel 6 como acción
 ModUi/&EnableBardExpertiseOneLevelBefore=Habilitar <color=#D89555>Experiencia</color> en los niveles 2 y 9 en lugar de 3 y 10
 ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <b>College of Hope</b> <color=#D89555>Healing Ballad</color> en descanso largo
 ModUi/&EnableBardSuperiorInspirationAtLevel18=Habilita <color=#D89555>Inspiración superior</color> en el nivel 18 en lugar de 20 y también otorga dos recargas en lugar de 1.

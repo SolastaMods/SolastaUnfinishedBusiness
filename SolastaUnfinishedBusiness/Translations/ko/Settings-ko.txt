@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=레벨 9, 13, 17에서 <color=#D89555>잔혹�
 ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=다음 턴 시작 시 <color=#D89555>무모한 공격</color> 버프와 디버프가 완료되도록 활성화합니다.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=7레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=레벨 6의 액션 대신 레벨 7의 반응으로 <color=#D89555>카운터챠밍</color>을 활성화합니다.
 ModUi/&EnableBardExpertiseOneLevelBefore=레벨 3과 10 대신 레벨 2와 9에서 <color=#D89555>전문성</color>을 활성화합니다.
 ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <b>College of Hope</b> <color=#D89555>힐링 발라드</color> 활성화
 ModUi/&EnableBardSuperiorInspirationAtLevel18=레벨 20 대신 레벨 18에서 <color=#D89555>우수한 영감</color>을 활성화하고 1회 대신 2회 충전을 허용합니다.

@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=レベル9、13、17で<color=#D89555>残忍�
 ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 7 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=<color=#D89555>カウンターチャーム</color>をレベル6のアクションではなく、レベル7のリアクションとして有効にします
 ModUi/&EnableBardExpertiseOneLevelBefore=<color=#D89555>エキスパート</color>をレベル3と10ではなくレベル2と9で有効にする
 ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<b>希望の大学</b> <color=#D89555>癒しのバラード</color>を有効にする
 ModUi/&EnableBardSuperiorInspirationAtLevel18=<color=#D89555>優れたインスピレーション</color>をレベル20ではなくレベル18で有効化し、リチャージ回数を1回ではなく2回付与する

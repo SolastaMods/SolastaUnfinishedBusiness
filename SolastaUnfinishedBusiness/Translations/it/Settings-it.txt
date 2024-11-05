@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=Abilita <color=#D89555>Colpo Brutale</color> 
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Stile di combattimento</color> al livello 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 7
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Abilita <color=#D89555>Contrafascino</color> al livello 7 come reazione invece che al livello 6 come azione
 ModUi/&EnableBardExpertiseOneLevelBefore=Abilita <color=#D89555>Competenza</color> ai livelli 2 e 9 invece che 3 e 10
 ModUi/&EnableBardHealingBalladOnLongRest=Abilita <b>College of Hope</b> <color=#D89555>Ballata curativa</color> durante il riposo lungo
 ModUi/&EnableBardSuperiorInspirationAtLevel18=Abilita <color=#D89555>Ispirazione superiore</color> al livello 18 invece che 20 e concedi anche due ricariche invece di 1

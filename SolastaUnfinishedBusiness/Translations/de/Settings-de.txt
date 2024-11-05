@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Brutal Strike</color
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie den Buff und Debuff von <color=#D89555>Reckless Attack</color>, um ihn zu Beginn der nächsten Runde zu beenden.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Aktiviere die Wiedererlangung einer <color=#D89555>Wut</color>-Anwendung während einer kurzen Pause auf Level 7
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Aktiviere <color=#D89555>Gegenzauber</color> auf Stufe 7 als Reaktion statt auf Stufe 6 als Aktion
 ModUi/&EnableBardExpertiseOneLevelBefore=Aktivieren Sie <color=#D89555>Expertise</color> auf den Stufen 2 und 9 statt auf 3 und 10.
 ModUi/&EnableBardHealingBalladOnLongRest=Aktivieren Sie <b>College of Hope</b> <color=#D89555>Healing Ballad</color> bei langer Pause
 ModUi/&EnableBardSuperiorInspirationAtLevel18=Aktiviere <color=#D89555>Überlegene Inspiration</color> auf Level 18 statt 20 und gewähre außerdem zwei Aufladungen statt einer
