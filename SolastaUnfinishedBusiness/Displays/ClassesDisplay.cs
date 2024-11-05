@@ -167,6 +167,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSecondWindToUseOneDndUsagesProgression = toggle;
+            Tabletop2024Context.SwitchSecondWindToUseOneDndUsagesProgression();
         }
 
         UI.Label();
@@ -390,7 +391,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockToLearnPatronAtLevel3"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableWarlockToLearnPatronAtLevel3 = toggle;
-            Tabletop2024Context.SwitchOneDndWarlockSchoolOfMagicLearningLevel();
+            Tabletop2024Context.SwitchOneDndWarlockPatronLearningLevel();
         }
 
         toggle = Main.Settings.EnableWarlockToUseOneDndInvocationProgression;

@@ -1,7 +1,6 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AbilityCheckDruidPrimalOrderMagician:17719c44-7926-5cef-893f-8ab66f8fc85b",
     "Definition:PointPoolDruidPrimalOrderMagician:2ceebfa6-8df1-54bc-845b-dc9160b99df6"
   ],
   "mode": "Union",

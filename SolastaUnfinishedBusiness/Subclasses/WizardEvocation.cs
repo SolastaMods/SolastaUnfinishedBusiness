@@ -21,9 +21,9 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class WizardEvocation : AbstractSubclass
 {
-    internal const string Name = "WizardEvocation";
-
+    private const string Name = "WizardEvocation";
     internal const string SpellTag = "Evoker";
+
     //
     // these lists contain all evocation spells that do damage in a non-vanilla way so they also get bonus
     //

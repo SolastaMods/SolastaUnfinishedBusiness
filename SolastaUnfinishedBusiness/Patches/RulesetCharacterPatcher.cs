@@ -1664,13 +1664,15 @@ public static class RulesetCharacterPatcher
                 }
             }
 
-            // ReSharper disable once InvertIf
+            //TODO: time to make this an interface to support scenarios like below
+
             //PATCH: support for Barbarians to regain one rage point at short rests from level 7
             if (Main.Settings.EnableBarbarianRegainOneRageAtShortRest &&
                 restType == RestType.ShortRest &&
-                __instance.GetClassLevel(Barbarian) >= 7)
+                __instance.GetClassLevel(Barbarian) >= 7 &&
+                __instance.UsedRagePoints > 0)
             {
-                if (__instance.UsedRagePoints > 0 && !simulate)
+                if (!simulate)
                 {
                     __instance.UsedRagePoints--;
                 }
@@ -1678,6 +1680,31 @@ public static class RulesetCharacterPatcher
                 __instance.recoveredFeatures.Add(__instance.GetFeaturesByType<FeatureDefinitionAttributeModifier>()
                     .FirstOrDefault(attributeModifier =>
                         attributeModifier.ModifiedAttribute == AttributeDefinitions.RagePoints));
+            }
+
+            //PATCH: support for Fighters to regain one second wind usage at short rests
+            // ReSharper disable once InvertIf
+            var fighterClassLevel = __instance.GetClassLevel(Fighter);
+
+            if (Main.Settings.EnableSecondWindToUseOneDndUsagesProgression &&
+                restType == RestType.ShortRest &&
+                fighterClassLevel >= 1)
+            {
+                var usablePower = PowerProvider.Get(PowerFighterSecondWind, __instance);
+                var maxUses = __instance.GetMaxUsesOfPower(usablePower);
+                var remainingUses = __instance.GetRemainingUsesOfPower(usablePower);
+
+                // ReSharper disable once InvertIf
+                if (remainingUses != maxUses)
+                {
+                    if (!simulate)
+                    {
+                        // cannot call RepayUse() here as a dynamic pool
+                        usablePower.remainingUses++;
+                    }
+
+                    __instance.recoveredFeatures.Add(PowerFighterSecondWind);
+                }
             }
         }
 

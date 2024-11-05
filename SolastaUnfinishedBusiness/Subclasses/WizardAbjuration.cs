@@ -25,7 +25,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class WizardAbjuration : AbstractSubclass
 {
-    internal const string Name = "WizardAbjuration";
+    private const string Name = "WizardAbjuration";
     internal const string SpellTag = "Abjurer";
     private const string ArcaneWardConditionName = $"Condition{Name}ArcaneWard";
     private const string ProjectedWardConditionName = $"Condition{Name}ProjectedWard";

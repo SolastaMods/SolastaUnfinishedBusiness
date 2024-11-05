@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -13,6 +14,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Subclasses.Builders;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine.AddressableAssets;
@@ -73,18 +75,11 @@ internal static class Tabletop2024Context
                 .Create("FeatureSetDruidPrimalOrderMagician")
                 .SetGuiPresentation(Category.Feature)
                 .SetFeatureSet(
-                    FeatureDefinitionAbilityCheckAffinityBuilder
-                        .Create("AbilityCheckDruidPrimalOrderMagician")
-                        .SetGuiPresentation("FeatureSetDruidPrimalOrderMagician", Category.Feature)
-                        .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.None, DieType.D6, 1,
-                            AbilityCheckGroupOperation.AddDie,
-                            (AttributeDefinitions.Intelligence, SkillDefinitions.Arcana),
-                            (AttributeDefinitions.Intelligence, SkillDefinitions.Nature))
-                        .AddToDB(),
                     FeatureDefinitionPointPoolBuilder
                         .Create("PointPoolDruidPrimalOrderMagician")
                         .SetGuiPresentationNoContent(true)
-                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1)
+                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, extraSpellsTag: "PrimalOrder")
+                        .AddCustomSubFeatures(new ModifyAbilityCheckDruidPrimalOrder())
                         .AddToDB())
                 .AddToDB(),
             FeatureDefinitionFeatureSetBuilder
@@ -143,7 +138,7 @@ internal static class Tabletop2024Context
                 .SetEffectForms(EffectFormBuilder.ConditionForm(
                     ConditionDefinitionBuilder
                         .Create("ConditionSorcererInnateSorcery")
-                        .SetGuiPresentation(Category.Condition, ConditionSpiritGuardians)
+                        .SetGuiPresentation(Category.Condition, ConditionAuraOfCourage)
                         .SetFeatures(
                             FeatureDefinitionMagicAffinityBuilder
                                 .Create("MagicAffinitySorcererInnateSorcery")
@@ -176,6 +171,25 @@ internal static class Tabletop2024Context
         .SetSilent(Silent.WhenAddedOrRemoved)
         .AddCustomSubFeatures(new RollSavingThrowInitiatedIndomitableSaving())
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+        .AddToDB();
+
+    private static readonly InvocationDefinition InvocationPactBlade = InvocationDefinitionBuilder
+        .Create("InvocationPactBlade")
+        .SetGuiPresentation(FeatureSetPactBlade.GuiPresentation)
+        .SetGrantedFeature(FeatureSetPactBlade)
+        .AddToDB();
+
+    private static readonly InvocationDefinition InvocationPactChain = InvocationDefinitionBuilder
+        .Create("InvocationPactChain")
+        .SetGuiPresentation(FeatureSetPactChain.GuiPresentation)
+        .SetGrantedFeature(FeatureSetPactChain)
+        .AddToDB();
+
+    private static readonly InvocationDefinition InvocationPactTome = InvocationDefinitionBuilder
+        .Create("InvocationPactTome")
+        // need to build a new gui presentation to be able to hide this and don't affect the set itself
+        .SetGuiPresentation(FeatureSetPactTome.GuiPresentation.Title, FeatureSetPactTome.GuiPresentation.Description)
+        .SetGrantedFeature(FeatureSetPactTome.FeatureSet[0]) // grant pool directly instead of feature set
         .AddToDB();
 
     internal static void LateLoad()
@@ -215,7 +229,7 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellBarkskin();
         SwitchOneDndSpellGuidance();
         SwitchOneDndSurprisedEnforceDisadvantage();
-        SwitchOneDndWarlockSchoolOfMagicLearningLevel();
+        SwitchOneDndWarlockPatronLearningLevel();
         SwitchOneDndWarlockInvocationsProgression();
         SwitchOneDndWizardScholar();
         SwitchOneDndWizardSchoolOfMagicLearningLevel();
@@ -224,6 +238,7 @@ internal static class Tabletop2024Context
         SwitchRogueBlindSense();
         SwitchRogueCunningStrike();
         SwitchRogueSteadyAim();
+        SwitchSecondWindToUseOneDndUsagesProgression();
         SwitchSorcererInnateSorcery();
     }
 
@@ -246,6 +261,13 @@ internal static class Tabletop2024Context
             Main.Settings.AddFighterLevelToIndomitableSavingReroll
                 ? "Feature/&EnhancedIndomitableResistanceDescription"
                 : "Feature/&IndomitableResistanceDescription";
+    }
+
+    internal static void SwitchSecondWindToUseOneDndUsagesProgression()
+    {
+        PowerFighterSecondWind.rechargeRate = Main.Settings.EnableSecondWindToUseOneDndUsagesProgression
+            ? RechargeRate.LongRest
+            : RechargeRate.ShortRest;
     }
 
     internal static void SwitchPersuasionToFighterSkillOptions()
@@ -457,10 +479,12 @@ internal static class Tabletop2024Context
             featureUnlock.level = toLevel;
         }
 
-        foreach (var featureUnlock in Wizard.FeatureUnlocks.Where(featureUnlock => featureUnlock.level == fromLevel))
-        {
-            featureUnlock.level = toLevel;
-        }
+        // change spell casting level on Wizard itself
+        Wizard.FeatureUnlocks
+                .FirstOrDefault(x =>
+                    x.FeatureDefinition == FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions)!
+                .level =
+            toLevel;
 
         foreach (var school in schools)
         {
@@ -470,7 +494,7 @@ internal static class Tabletop2024Context
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndWarlockSchoolOfMagicLearningLevel()
+    internal static void SwitchOneDndWarlockPatronLearningLevel()
     {
         var patrons = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
             .Where(x => x.Name.StartsWith("Patron"))
@@ -478,6 +502,12 @@ internal static class Tabletop2024Context
 
         var fromLevel = 3;
         var toLevel = 1;
+
+        // handle this exception that adds features at levels 2 and 3 on sub
+        var patronEldritchSurge = GetDefinition<CharacterSubclassDefinition>(PatronEldritchSurge.Name);
+
+        patronEldritchSurge.FeatureUnlocks.RemoveAll(x =>
+            x.Level <= 3 && x.FeatureDefinition == EldritchVersatilityBuilders.UnLearn1Versatility);
 
         if (Main.Settings.EnableWarlockToLearnPatronAtLevel3)
         {
@@ -487,17 +517,24 @@ internal static class Tabletop2024Context
 
         foreach (var featureUnlock in patrons
                      .SelectMany(patron => patron.FeatureUnlocks
-                         .Where(featureUnlock =>
-                             featureUnlock.level == fromLevel &&
-                             featureUnlock.FeatureDefinition.Name != "FeatureEldritchVersatilityUnLearn1")))
+                         .Where(featureUnlock => featureUnlock.level == fromLevel)))
         {
             featureUnlock.level = toLevel;
         }
 
-        foreach (var featureUnlock in Warlock.FeatureUnlocks.Where(featureUnlock => featureUnlock.level == fromLevel))
+        // put things back if it should not be changed
+        if (!Main.Settings.EnableWarlockToLearnPatronAtLevel3)
         {
-            featureUnlock.level = toLevel;
+            patronEldritchSurge.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(EldritchVersatilityBuilders.UnLearn1Versatility, 2),
+                new FeatureUnlockByLevel(EldritchVersatilityBuilders.UnLearn1Versatility, 3));
         }
+
+        // change spell casting level on Warlock itself
+        Warlock.FeatureUnlocks
+            .FirstOrDefault(x =>
+                x.FeatureDefinition == FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons)!
+            .level = toLevel;
 
         foreach (var patron in patrons)
         {
@@ -804,6 +841,9 @@ internal static class Tabletop2024Context
 
     internal static void SwitchOneDndWarlockInvocationsProgression()
     {
+        Warlock.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureSetPactSelection);
+
         if (Main.Settings.EnableWarlockToUseOneDndInvocationProgression)
         {
             Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(PointPoolWarlockInvocation1, 1));
@@ -812,6 +852,21 @@ internal static class Tabletop2024Context
             PointPoolWarlockInvocation2.GuiPresentation.Description =
                 "Feature/&PointPoolWarlockInvocationAdditionalDescription";
             PointPoolWarlockInvocation5.poolAmount = 2;
+
+            foreach (var invocation in DatabaseRepository.GetDatabase<InvocationDefinition>()
+                         .Where(x =>
+                             x.requiredLevel == 1 &&
+                             x != InvocationDefinitions.ArmorOfShadows &&
+                             x != InvocationsBuilders.EldritchMind &&
+                             (InvocationsContext.Invocations.Contains(x) ||
+                              x.ContentPack != CeContentPackContext.CeContentPack)))
+            {
+                invocation.requiredLevel = 2;
+            }
+
+            InvocationPactBlade.GuiPresentation.hidden = false;
+            InvocationPactChain.GuiPresentation.hidden = false;
+            InvocationPactTome.GuiPresentation.hidden = false;
         }
         else
         {
@@ -821,9 +876,57 @@ internal static class Tabletop2024Context
             PointPoolWarlockInvocation2.GuiPresentation.Description =
                 "Feature/&PointPoolWarlockInvocationInitialDescription";
             PointPoolWarlockInvocation5.poolAmount = 1;
+
+            foreach (var invocation in DatabaseRepository.GetDatabase<InvocationDefinition>()
+                         .Where(x =>
+                             x.requiredLevel == 2 &&
+                             x != InvocationDefinitions.ArmorOfShadows &&
+                             x != InvocationsBuilders.EldritchMind &&
+                             (InvocationsContext.Invocations.Contains(x) ||
+                              x.ContentPack != CeContentPackContext.CeContentPack)))
+            {
+                invocation.requiredLevel = 1;
+            }
+
+            InvocationPactBlade.GuiPresentation.hidden = true;
+            InvocationPactChain.GuiPresentation.hidden = true;
+            InvocationPactTome.GuiPresentation.hidden = true;
+
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetPactSelection, 3));
         }
 
+        GuiWrapperContext.RecacheInvocations();
+
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class ModifyAbilityCheckDruidPrimalOrder : IModifyAbilityCheck
+    {
+        public void MinRoll(
+            RulesetCharacter character,
+            int baseBonus,
+            string abilityScoreName,
+            string proficiencyName,
+            List<TrendInfo> advantageTrends,
+            List<TrendInfo> modifierTrends,
+            ref int rollModifier,
+            ref int minRoll)
+        {
+            if (abilityScoreName is not AttributeDefinitions.Intelligence ||
+                proficiencyName is not (SkillDefinitions.Arcana or SkillDefinitions.Nature))
+            {
+                return;
+            }
+
+            var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var intMod = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
+            var modifier = Math.Max(intMod, 1);
+
+            rollModifier += modifier;
+
+            modifierTrends.Add(new TrendInfo(modifier, FeatureSourceType.CharacterFeature,
+                "FeatureSetDruidPrimalOrderMagician", null));
+        }
     }
 
     private sealed class RollSavingThrowInitiatedIndomitableSaving : IRollSavingThrowInitiated

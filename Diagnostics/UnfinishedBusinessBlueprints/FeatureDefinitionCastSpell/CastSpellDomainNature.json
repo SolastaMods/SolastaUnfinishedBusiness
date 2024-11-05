@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:SpellListDomainNature:7f7e1d16-393f-547d-af30-33ae65d39912",
+  "spellListDefinition": "Definition:SpellListDruid:f192117ea9cbe334cba0849993779ae8",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "fixedSpellTag": "",

@@ -784,7 +784,7 @@ Paralyze a humanoid you can see for a limited time.
 
 Make an ally invisible for a limited time.
 
-# 131. - *Kinetic Jaunt* © (S) level 2 Evocation [Concentration] [UB]
+# 131. - *Kinetic Jaunt* © (S) level 2 Transmutation [Concentration] [UB]
 
 **[Artificer, Bard, Sorcerer, Wizard]**
 

@@ -1554,6 +1554,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetPactSelection { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactSelection");
+
         internal static FeatureDefinitionFeatureSet FeatureSetClericRitualCasting { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetClericRitualCasting");
 
@@ -2640,6 +2643,9 @@ internal static partial class DatabaseHelper
 
     internal static class InvocationDefinitions
     {
+        internal static InvocationDefinition ArmorOfShadows { get; } =
+            GetDefinition<InvocationDefinition>("ArmorOfShadows");
+
         internal static InvocationDefinition DevilsSight { get; } =
             GetDefinition<InvocationDefinition>("DevilsSight");
 
@@ -3343,6 +3349,12 @@ internal static partial class DatabaseHelper
 
     internal static class MonsterDefinitions
     {
+        internal static MonsterDefinition ShamblingMound_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("ShamblingMound_MonsterDefinition");
+
+        internal static MonsterDefinition ShamblingMound_MonsterDefinition_POI_ONLY { get; } =
+            GetDefinition<MonsterDefinition>("ShamblingMound_MonsterDefinition_POI_ONLY");
+
         internal static MonsterDefinition Wraith { get; } =
             GetDefinition<MonsterDefinition>("Wraith");
 

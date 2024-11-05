@@ -610,23 +610,8 @@ internal static class Level20Context
         ExperienceThresholds = experience;
     }
 
-    private sealed class CustomBehaviorBardWordOfCreation : IModifyEffectDescription, IFilterTargetingCharacter
+    private sealed class CustomBehaviorBardWordOfCreation : IModifyEffectDescription
     {
-        public bool EnforceFullSelection => false;
-
-        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
-        {
-            if (__instance.SelectionService.SelectedTargets.Count == 0 ||
-                __instance.SelectionService.SelectedTargets[0].IsWithinRange(target, 2))
-            {
-                return true;
-            }
-
-            __instance.actionModifier.FailureFlags.Add("Failure/&SecondTargetNotWithinRange");
-
-            return false;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == SpellsContext.PowerWordHeal || definition == SpellsContext.PowerWordKill;

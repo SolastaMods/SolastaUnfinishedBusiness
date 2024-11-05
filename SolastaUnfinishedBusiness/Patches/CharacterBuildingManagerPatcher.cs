@@ -41,6 +41,8 @@ public static class CharacterBuildingManagerPatcher
     {
         [UsedImplicitly]
         public static void Prefix(
+            CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData,
             InvocationDefinition invocation,
             ref bool checkPool)
         {
@@ -48,6 +50,34 @@ public static class CharacterBuildingManagerPatcher
             if (invocation is InvocationDefinitionCustom)
             {
                 checkPool = false;
+            }
+
+            if (invocation.GrantedFeature is not FeatureDefinitionPointPool featureDefinitionPointPool)
+            {
+                return;
+            }
+
+            if (!heroBuildingData.PointPoolStacks.TryGetValue(
+                    featureDefinitionPointPool.PoolType, out var pointPoolStack))
+            {
+                return;
+            }
+
+            var hero = __instance.CurrentLocalHeroCharacter;
+
+            __instance.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+            var finaTag = AttributeDefinitions.GetClassTag(classDefinition, level) +
+                          featureDefinitionPointPool.ExtraSpellsTag;
+
+            if (pointPoolStack.ActivePools
+                .TryGetValue(finaTag + featureDefinitionPointPool.ExtraSpellsTag, out var pool))
+            {
+                pool.maxPoints += featureDefinitionPointPool.poolAmount;
+            }
+            else
+            {
+                __instance.ApplyFeatureDefinitionPointPool(heroBuildingData, featureDefinitionPointPool, finaTag);
             }
         }
     }
@@ -75,8 +105,45 @@ public static class CharacterBuildingManagerPatcher
     [UsedImplicitly]
     public static class UntrainInvocation_Patch
     {
+        private static void UndoGrantPool(
+            CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData,
+            InvocationDefinition invocation)
+        {
+            if (invocation.GrantedFeature is not FeatureDefinitionPointPool featureDefinitionPointPool)
+            {
+                return;
+            }
+
+            if (!heroBuildingData.PointPoolStacks.TryGetValue(featureDefinitionPointPool.PoolType,
+                    out var pointPoolStack))
+            {
+                return;
+            }
+
+            var hero = __instance.CurrentLocalHeroCharacter;
+
+            __instance.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+            var finaTag = AttributeDefinitions.GetClassTag(classDefinition, level) +
+                          featureDefinitionPointPool.ExtraSpellsTag + featureDefinitionPointPool.ExtraSpellsTag;
+
+            if (!pointPoolStack.ActivePools.TryGetValue(finaTag, out var pool))
+            {
+                return;
+            }
+
+            pool.maxPoints -= featureDefinitionPointPool.poolAmount;
+
+            if (pool.maxPoints == 0)
+            {
+                pointPoolStack.ActivePools.Remove(finaTag);
+            }
+        }
+
         [UsedImplicitly]
         public static bool Prefix(
+            CharacterBuildingManager __instance,
             CharacterHeroBuildingData heroBuildingData,
             InvocationDefinition invocation,
             string tag)
@@ -84,6 +151,8 @@ public static class CharacterBuildingManagerPatcher
             //PATCH: do not check or modify point pools when dealing with custom invocations
             if (invocation is not InvocationDefinitionCustom)
             {
+                UndoGrantPool(__instance, heroBuildingData, invocation);
+
                 return true;
             }
 
@@ -178,8 +247,10 @@ public static class CharacterBuildingManagerPatcher
         [UsedImplicitly]
         public static void Postfix(CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
-            //PATCH: grants cantrip selected by a Domain Nature on level 1
-            DomainNature.GrantCantripFromSubclassPool(hero);
+            //PATCH: grants cantrip that for whatever reason vanilla has a hard time granting ;-)
+            GrantCantripFromCustomAcquiredPool(hero, "DomainNature");
+            GrantCantripFromCustomAcquiredPool(hero, "PactTome");
+            GrantCantripFromCustomAcquiredPool(hero, "PrimalOrder");
 
             //PATCH: grant spells for these 2 subs as pools with tags aren't granted from subs if not at sub 1st level
             var selectedClass = LevelUpHelper.GetSelectedClass(hero);
@@ -187,7 +258,7 @@ public static class CharacterBuildingManagerPatcher
             if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Wizard)
             {
                 hero.GrantAcquiredSpellWithTagFromSubclassPool(WizardAbjuration.SpellTag);
-                hero.GrantAcquiredSpellWithTagFromSubclassPool(WizardEvocation.SpellTag);   
+                hero.GrantAcquiredSpellWithTagFromSubclassPool(WizardEvocation.SpellTag);
             }
 
             //PATCH: grants spell repertoires and respective selected spells from feats
@@ -201,6 +272,65 @@ public static class CharacterBuildingManagerPatcher
 
             //PATCH: unregisters the hero leveling up
             LevelUpHelper.UnregisterHero(hero);
+        }
+
+        private static void GrantCantripFromCustomAcquiredPool(RulesetCharacterHero hero, string name)
+        {
+            var repertoire = hero.SpellRepertoires
+                .FirstOrDefault(x => LevelUpHelper.IsRepertoireFromSelectedClassSubclass(hero, x));
+
+            if (repertoire == null)
+            {
+                return;
+            }
+
+            var heroBuildingData = hero.GetHeroBuildingData();
+            var selectedClassLevel = LevelUpHelper.GetSelectedClassLevel(hero);
+
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
+            var classTag = AttributeDefinitions.GetClassTag(selectedClass, selectedClassLevel);
+            var classPoolName = $"{classTag}{name}";
+
+            // consider cantrips from classes
+            if (heroBuildingData.AcquiredCantrips.TryGetValue(classPoolName, out var cantrips1))
+            {
+                foreach (var cantrip in cantrips1)
+                {
+                    hero.GrantCantrip(cantrip, repertoire.SpellCastingFeature, name);
+                }
+            }
+
+            // consider cantrips from feats / invocations / etc.
+            classPoolName = $"{classTag}{name}{name}";
+
+            if (heroBuildingData.AcquiredCantrips.TryGetValue(classPoolName, out var cantrips2))
+            {
+                foreach (var cantrip in cantrips2)
+                {
+                    hero.GrantCantrip(cantrip, repertoire.SpellCastingFeature, name);
+                }
+            }
+
+            var selectedSubclass = LevelUpHelper.GetSelectedSubclass(hero);
+
+            if (!selectedSubclass)
+            {
+                return;
+            }
+
+            // consider cantrips from subclasses
+            var subclassTag = AttributeDefinitions.GetSubclassTag(selectedClass, 1, selectedSubclass);
+            var subclassPoolName = $"{subclassTag}{name}";
+
+            if (!heroBuildingData.AcquiredCantrips.TryGetValue(subclassPoolName, out var cantrips3))
+            {
+                return;
+            }
+
+            foreach (var cantrip in cantrips3)
+            {
+                hero.GrantCantrip(cantrip, repertoire.SpellCastingFeature, name);
+            }
         }
     }
 

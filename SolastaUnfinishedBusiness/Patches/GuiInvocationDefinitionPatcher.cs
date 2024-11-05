@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Reflection.Emit;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -21,68 +18,113 @@ public static class GuiInvocationDefinitionPatcher
     // ReSharper disable once IdentifierTypo
     public static class IsInvocationMacthingPrerequisites_Patch
     {
-        //PATCH: return class level instead of char level on invocations selection (MULTICLASS)
-        private static int TryGetAttributeValue(
-            RulesetCharacterHero hero,
-            string attributeName)
-        {
-            return hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Warlock);
-        }
-
-        //PATCH: allow warlocks to bypass spell knowledge on level 1 if using new warlock 2024 invocations progression
-        private static bool HasKnowledgeOfSpell(RulesetSpellRepertoire spellRepertoire, SpellDefinition spellDefinition)
-        {
-            if (!Main.Settings.EnableWarlockToUseOneDndInvocationProgression)
-            {
-                return spellRepertoire.HasKnowledgeOfSpell(spellDefinition);
-            }
-
-            var screen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-
-            if (!screen)
-            {
-                return spellRepertoire.HasKnowledgeOfSpell(spellDefinition);
-            }
-
-            return screen.Visible || spellRepertoire.HasKnowledgeOfSpell(spellDefinition);
-        }
-
-        [NotNull]
         [UsedImplicitly]
-        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
-        {
-            return instructions
-                .ReplaceCalls(typeof(RulesetEntity).GetMethod("TryGetAttributeValue"),
-                    // ReSharper disable once StringLiteralTypo
-                    "GuiInvocationDefinition.IsInvocationMacthingPrerequisites1",
-                    new CodeInstruction(OpCodes.Call,
-                        new Func<RulesetCharacterHero, string, int>(TryGetAttributeValue).Method))
-                .ReplaceCalls(typeof(RulesetSpellRepertoire).GetMethod("HasKnowledgeOfSpell"),
-                    // ReSharper disable once StringLiteralTypo
-                    "GuiInvocationDefinition.IsInvocationMacthingPrerequisites2",
-                    new CodeInstruction(OpCodes.Call,
-                        new Func<RulesetSpellRepertoire, SpellDefinition, bool>(HasKnowledgeOfSpell).Method));
-        }
-
-        [UsedImplicitly]
-        public static void Postfix(
+        public static bool Prefix(
             ref bool __result,
             InvocationDefinition invocation,
             RulesetCharacterHero hero,
-            ref string prerequisiteOutput)
+            out string prerequisiteOutput)
         {
+            __result = IsInvocationMatchingPrerequisites(invocation, hero, out prerequisiteOutput);
+
+            return false;
+        }
+
+        private static bool IsInvocationMatchingPrerequisites(
+            InvocationDefinition invocation,
+            RulesetCharacterHero hero,
+            out string prerequisiteOutput)
+        {
+            var isValid = true;
+
+            prerequisiteOutput = string.Empty;
+
+            if (invocation.RequiredLevel > 1)
+            {
+                var text = invocation.RequiredLevel.ToString();
+
+                if (hero != null && invocation.RequiredLevel >
+                    hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Warlock))
+                {
+                    isValid = false;
+                    text = Gui.Colorize(text, "EA7171");
+                }
+
+                prerequisiteOutput += Gui.Format("Tooltip/&InvocationPrerequisiteLevelFormat", text);
+            }
+
+            if (invocation.RequiredKnownSpell)
+            {
+                if (!string.IsNullOrEmpty(prerequisiteOutput))
+                {
+                    prerequisiteOutput += "\n";
+                }
+
+                var text = Gui.Localize(invocation.RequiredKnownSpell.GuiPresentation.Title);
+
+                if (hero != null)
+                {
+                    var hasSpell = hero.SpellRepertoires.Any(spellRepertoire =>
+                        spellRepertoire.HasKnowledgeOfSpell(invocation.RequiredKnownSpell));
+
+                    if (!hasSpell)
+                    {
+                        isValid = false;
+                        text = Gui.Colorize(text, "EA7171");
+                    }
+                }
+
+                prerequisiteOutput += Gui.Format("Tooltip/&InvocationPrerequisiteKnownSpellFormat", text);
+            }
+
+            // ReSharper disable once InvertIf
+            if (invocation.RequiredPact)
+            {
+                if (!string.IsNullOrEmpty(prerequisiteOutput))
+                {
+                    prerequisiteOutput += "\n";
+                }
+
+                var text = Gui.Localize(invocation.RequiredPact.GuiPresentation.Title);
+
+                if (hero != null)
+                {
+                    var hasPact = hero.ActiveFeatures.Any(activeFeature =>
+                        activeFeature.Value.Contains(invocation.RequiredPact));
+
+                    //PATCH: supports pacts as invocations as in tabletop 2024
+                    if (!hasPact &&
+                        Main.Settings.EnableWarlockToUseOneDndInvocationProgression)
+                    {
+                        var invocationPactName = invocation.RequiredPact.Name.Replace("FeatureSet", "Invocation");
+
+                        hasPact = hero.TrainedInvocations.Any(x => x.Name == invocationPactName);
+                    }
+
+                    if (!hasPact)
+                    {
+                        isValid = false;
+                        text = Gui.Colorize(text, "EA7171");
+                    }
+                }
+
+                prerequisiteOutput += Gui.Format("Tooltip/&InvocationPrerequisitePactTitle", text);
+            }
+
             //PATCH: Enforces Invocations With PreRequisites
             if (invocation is not InvocationDefinitionWithPrerequisites invocationDefinitionWithPrerequisites
                 || invocationDefinitionWithPrerequisites.Validators.Count == 0)
             {
-                return;
+                return isValid;
             }
 
             var (result, output) =
                 invocationDefinitionWithPrerequisites.Validate(invocationDefinitionWithPrerequisites, hero);
 
-            __result = __result && result;
+            isValid = isValid && result;
             prerequisiteOutput += '\n' + output;
+
+            return isValid;
         }
     }
 
