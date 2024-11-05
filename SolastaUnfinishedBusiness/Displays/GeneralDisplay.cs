@@ -260,6 +260,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchOneDndChangeBardicInspirationDurationToOneHour();
         }
 
+        toggle = Main.Settings.EnableBardCounterCharmAsReactionAtLevel7;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardCounterCharmAsReactionAtLevel7"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardCounterCharmAsReactionAtLevel7 = toggle;
+            Tabletop2024Context.SwitchOneDndEnableBardCounterCharmAsReactionAtLevel7();
+        }
+
         toggle = Main.Settings.EnableBardExpertiseOneLevelBefore;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore"), ref toggle, UI.AutoWidth()))
         {

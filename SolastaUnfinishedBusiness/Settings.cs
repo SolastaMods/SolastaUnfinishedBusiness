@@ -260,6 +260,7 @@ public class Settings : UnityModManager.ModSettings
 
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool ChangeBardicInspirationDurationToOneHour { get; set; }
+    public bool EnableBardCounterCharmAsReactionAtLevel7 { get; set; }
     public bool EnableBardExpertiseOneLevelBefore { get; set; }
     public bool EnableBardSuperiorInspirationAtLevel18 { get; set; }
     public bool EnableBardWordsOfCreationAtLevel20 { get; set; }
