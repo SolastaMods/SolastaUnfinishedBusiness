@@ -1815,6 +1815,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerBardCountercharm { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardCountercharm");
+
         internal static FeatureDefinitionPower PowerTraditionShockArcanistGreaterArcaneShock { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistGreaterArcaneShock");
 
@@ -2454,6 +2457,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionSavingThrowAffinitys
     {
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityAdvantageToAll { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityAdvantageToAll");
+
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinitySpellResistance { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinitySpellResistance");
 
