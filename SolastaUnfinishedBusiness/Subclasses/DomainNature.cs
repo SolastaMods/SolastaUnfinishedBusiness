@@ -260,16 +260,6 @@ public sealed class DomainNature : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
 
-    internal static void ResetCantripSubclassPool(RulesetCharacterHero hero)
-    {
-        var buildingData = hero.GetHeroBuildingData();
-
-        if (buildingData.PointPoolStacks.TryGetValue(HeroDefinitions.PointsPoolType.Cantrip, out var pointPool))
-        {
-            pointPool.ActivePools.Remove(AcquiredCantripsPoolName);
-        }
-    }
-
     private sealed class CustomBehaviorDampenElements(ConditionDefinition conditionDampenElements)
         : IMagicEffectBeforeHitConfirmedOnMe, ITryAlterOutcomeAttack
     {

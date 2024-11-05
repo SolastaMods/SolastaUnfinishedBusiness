@@ -9,7 +9,7 @@ internal delegate bool IsPowerVisibleHandler(
     FeatureDefinitionPower power,
     ActionType actionType);
 
-internal class ModifyPowerVisibility
+internal class ModifyPowerVisibility(IsPowerVisibleHandler handler)
 {
     internal static readonly ModifyPowerVisibility Default = new((_, power, actionType) =>
     {
@@ -33,16 +33,9 @@ internal class ModifyPowerVisibility
     internal static readonly ModifyPowerVisibility Visible = new((_, _, _) => true);
     internal static readonly ModifyPowerVisibility NotInCombat = new((_, _, _) => Gui.Battle == null);
 
-    private readonly IsPowerVisibleHandler _handler;
-
-    protected ModifyPowerVisibility(IsPowerVisibleHandler handler)
-    {
-        _handler = handler;
-    }
-
     internal bool IsVisible(RulesetCharacter character, FeatureDefinitionPower power, ActionType actionType)
     {
-        return _handler(character, power, actionType);
+        return handler(character, power, actionType);
     }
 
     internal static bool IsPowerHidden(RulesetCharacter character, RulesetUsablePower power, ActionType actionType)
