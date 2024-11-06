@@ -523,9 +523,6 @@ public static class CharacterBuildingManagerPatcher
         [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
-            //PATCH: avoid Druid Primal Order to break level up with the cantrip pool it gets
-            ResetCantripsPool(hero, $"{AttributeDefinitions.TagClass}PrimalOrder");
-
             //PATCH: avoid Domain Nature to break level up with the cantrip pool it gets
             ResetCantripsPool(hero, $"{AttributeDefinitions.TagSubclass}Cleric1DomainNatureDomainNature");
 

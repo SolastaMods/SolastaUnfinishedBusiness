@@ -204,6 +204,11 @@ internal static class Tabletop2024Context
         .Create("PowerWarlockMagicalCunning")
         .SetGuiPresentation(Category.Feature, PowerWizardArcaneRecovery)
         .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetCasterEffectParameters(PowerSorcererManaPainterDrain)
+                .Build())
         .AddCustomSubFeatures(new PowerOrSpellFinishedByMeMagicalCunning())
         .AddToDB();
 
@@ -215,8 +220,6 @@ internal static class Tabletop2024Context
     private static readonly FeatureDefinitionPower PowerSorcerousRestoration = FeatureDefinitionPowerBuilder
         .Create(PowerSorcererManaPainterTap, "PowerSorcerousRestoration")
         .SetOrUpdateGuiPresentation(Category.Feature)
-        .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
-        .AddCustomSubFeatures(new PowerOrSpellFinishedByMeMagicalCunning())
         .AddToDB();
 
     internal static void LateLoad()
@@ -720,7 +723,7 @@ internal static class Tabletop2024Context
         var level = Main.Settings.EnableBardCounterCharmAsReactionAtLevel7 ? 7 : 6;
 
         Bard.FeatureUnlocks.FirstOrDefault(x => x.FeatureDefinition == PowerBardCountercharm)!.level = level;
-        if (Main.Settings.EnableBardExpertiseOneLevelBefore)
+        if (Main.Settings.EnableBardCounterCharmAsReactionAtLevel7)
         {
             PowerBardCountercharm.GuiPresentation.description = "Feature/&PowerBardCountercharmExtendedDescription";
             PowerBardCountercharm.activationTime = ActivationTime.NoCost;
@@ -1055,8 +1058,8 @@ internal static class Tabletop2024Context
                     x.FormType == EffectForm.EffectFormType.Condition &&
                     (x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name) ||
                      x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionFrightened.Name))) &&
-                helper.CanReact() &&
-                helper.CanPerceiveTarget(defender))
+                !helper.IsOppositeSide(defender.Side) &&
+                helper.CanReact())
             {
                 yield return helper.MyReactToDoNothing(
                     ExtraActionId.DoNothingReaction,
@@ -1098,9 +1101,8 @@ internal static class Tabletop2024Context
         {
             var text = defender == helper ? "Self" : "Ally";
 
-            return $"CustomReactionBardCounterCharmDescription{text}"
-                .Formatted(Category.Reaction, defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle,
-                    sourceTitle);
+            return $"CustomReactionBardCounterCharmDescription{text}".Formatted(
+                Category.Reaction, defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle, sourceTitle);
         }
     }
 
@@ -1122,9 +1124,9 @@ internal static class Tabletop2024Context
                 return;
             }
 
-            var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-            var intMod = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
-            var modifier = Math.Max(intMod, 1);
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+            var modifier = Math.Max(wisMod, 1);
 
             rollModifier += modifier;
 

@@ -601,11 +601,8 @@ internal static class FixesContext
     private static void FixMeleeRetaliationWithReach()
     {
         // max possible reach in game is 15 ft
-        DamageAffinityFireImmunityRemorhaz.retaliateRangeCells = 3;
-        DamageAffinityFireImmunityYoungRemorhaz.retaliateRangeCells = 3;
         DamageAffinityPatronTreePiercingBranch.retaliateRangeCells = 3;
         DamageAffinityPatronTreePiercingBranchOneWithTheTree.retaliateRangeCells = 3;
-        DamageAffinityWightLord_NecroticImmunity.retaliateRangeCells = 3;
     }
 
     private static void FixMountaineerBonusShoveRestrictions()
