@@ -200,6 +200,7 @@ Feature/&PowerTeleportSummonDescription=Puoi teletrasportarti in qualsiasi luogo
 Feature/&PowerTeleportSummonTitle=Teletrasporto
 Feature/&PowerVanishSummonDescription=Puoi far svanire la tua evocazione.
 Feature/&PowerVanishSummonTitle=Svanire
+Feature/&RogueSlipperyMindExtendedDescription=Hai acquisito una maggiore forza mentale. Ottieni competenza nei tiri salvezza su Saggezza e Carisma.
 Feature/&ToolGainChoicesPluralDescription=Scegli {0} di questi strumenti: {1}
 Feature/&ToolGainChoicesSingleDescription=Scegli uno di questi strumenti: {1}
 Feature/&VisionBlindsightDescription=Hai la vista cieca.

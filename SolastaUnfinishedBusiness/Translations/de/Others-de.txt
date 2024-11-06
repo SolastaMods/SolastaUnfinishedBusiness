@@ -200,6 +200,7 @@ Feature/&PowerTeleportSummonDescription=Sie können sich an jeden Ort im Umkreis
 Feature/&PowerTeleportSummonTitle=Teleport
 Feature/&PowerVanishSummonDescription=Sie können Ihre Beschwörung verschwinden lassen.
 Feature/&PowerVanishSummonTitle=Verschwinden
+Feature/&RogueSlipperyMindExtendedDescription=Sie haben größere mentale Stärke erlangt. Sie erlangen Kompetenz bei Weisheits- und Charismarettungswürfen.
 Feature/&ToolGainChoicesPluralDescription=Wählen Sie {0} dieser Tools: {1}
 Feature/&ToolGainChoicesSingleDescription=Wählen Sie eines dieser Tools: {1}
 Feature/&VisionBlindsightDescription=Sie leiden an Blindsicht.

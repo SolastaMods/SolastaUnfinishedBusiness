@@ -2193,6 +2193,21 @@ internal static class Tabletop2024Context
             .AddToDB();
     }
 
+    internal static void SwitchRogueSlipperyMind()
+    {
+        ProficiencyRogueSlipperyMind.Proficiencies.Remove(AttributeDefinitions.Charisma);
+
+        if (Main.Settings.EnableRogueSlipperyMind)
+        {
+            ProficiencyRogueSlipperyMind.Proficiencies.Add(AttributeDefinitions.Charisma);
+            ProficiencyRogueSlipperyMind.GuiPresentation.description = "Feature/&RogueSlipperyMindExtendedDescription";
+        }
+        else
+        {
+            ProficiencyRogueSlipperyMind.GuiPresentation.description = "Feature/&RogueSlipperyMindDescription";
+        }
+    }
+
     internal static void SwitchRogueSteadyAim()
     {
         Rogue.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerFeatSteadyAim);

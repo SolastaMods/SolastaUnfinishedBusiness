@@ -200,6 +200,7 @@ Feature/&PowerTeleportSummonDescription=キャスターから 5 フィート以�
 Feature/&PowerTeleportSummonTitle=テレポート
 Feature/&PowerVanishSummonDescription=召喚を消滅させることができます。
 Feature/&PowerVanishSummonTitle=消え去る
+Feature/&RogueSlipperyMindExtendedDescription=あなたはより大きな精神力を獲得しました。あなたは知恵と魅力のセーヴィング スローに習熟しました。
 Feature/&ToolGainChoicesPluralDescription=次のツールから {0} 個を選択してください: {1}
 Feature/&ToolGainChoicesSingleDescription=次のツールのいずれかを選択します: {1}
 Feature/&VisionBlindsightDescription=あなたは盲目です。

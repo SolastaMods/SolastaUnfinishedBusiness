@@ -165,6 +165,7 @@ ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Cunning Strike</color> and
 ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
+ModUi/&EnableRogueSlipperyMind=Swap <color=#D89555>Slippery Mind</color> with 5e 2024 version <i><color=#F0DAA0>[you also gain proficiency in charisma saving throws in addition to wisdom]</color></i>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
 ModUi/&EnableSorcererInnateSorceryAt1=Enable <color=#D89555>Innate Sorcery</color> at level 1

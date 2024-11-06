@@ -200,6 +200,7 @@ Feature/&PowerTeleportSummonDescription=你可以传送到施法者 5 尺以内�
 Feature/&PowerTeleportSummonTitle=传送
 Feature/&PowerVanishSummonDescription=你可以让你的召唤物消失。
 Feature/&PowerVanishSummonTitle=消失
+Feature/&RogueSlipperyMindExtendedDescription=你获得了更强大的精神力量。你获得了智慧和魅力豁免熟练度。
 Feature/&ToolGainChoicesPluralDescription=从这些工具中选择 {0}：{1}
 Feature/&ToolGainChoicesSingleDescription=选择以下工具之一：{1}
 Feature/&VisionBlindsightDescription=你有盲视。

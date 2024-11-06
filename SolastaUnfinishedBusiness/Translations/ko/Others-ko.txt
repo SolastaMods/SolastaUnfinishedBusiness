@@ -200,6 +200,7 @@ Feature/&PowerTeleportSummonDescription=시전자로부터 5피트 이내의 어
 Feature/&PowerTeleportSummonTitle=텔레포트
 Feature/&PowerVanishSummonDescription=소환을 사라지게 할 수 있습니다.
 Feature/&PowerVanishSummonTitle=사라지다
+Feature/&RogueSlipperyMindExtendedDescription=당신은 더 큰 정신력을 얻었습니다. 당신은 지혜와 카리스마 세이빙 스로우에 능숙해집니다.
 Feature/&ToolGainChoicesPluralDescription=다음 도구 중 {0}개를 선택하세요: {1}
 Feature/&ToolGainChoicesSingleDescription=다음 도구 중 하나를 선택하십시오: {1}
 Feature/&VisionBlindsightDescription=당신은 시력이 없습니다.

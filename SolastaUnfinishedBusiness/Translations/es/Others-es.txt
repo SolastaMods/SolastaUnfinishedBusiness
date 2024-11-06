@@ -200,6 +200,7 @@ Feature/&PowerTeleportSummonDescription=Puedes teletransportarte a cualquier ubi
 Feature/&PowerTeleportSummonTitle=Teletransportarse
 Feature/&PowerVanishSummonDescription=Puedes hacer que tu invocación desaparezca.
 Feature/&PowerVanishSummonTitle=Desaparecer
+Feature/&RogueSlipperyMindExtendedDescription=Has adquirido mayor fuerza mental. Ganas competencia en tiradas de salvación de Sabiduría y Carisma.
 Feature/&ToolGainChoicesPluralDescription=Elija {0} de estas herramientas: {1}
 Feature/&ToolGainChoicesSingleDescription=Elija una de estas herramientas: {1}
 Feature/&VisionBlindsightDescription=Tienes visión ciega.

@@ -163,6 +163,7 @@ ModUi/&EnableRespecAction=Включить возможность <color=#D89555
 ModUi/&EnableRitualOnAllCasters=Включить <color=#D89555>Ритуальное колдовство</color> для всех заклинателей
 ModUi/&EnableRogueCunningStrike=Включить умения <color=#D89555>Хитрого удара</color> и <color=#D89555>Коварного удара</color> на уровнях 5 и 14 соответственно <i><color=#F0DAA0>[вы отказываетесь от 1 кости скрытой атаки для применения дополнительных эффектов]</color></i>
 ModUi/&EnableRogueFightingStyle=Включить выбор <color=#D89555>Боевого стиля</color> на уровне 2
+ModUi/&EnableRogueSlipperyMind=Поменяйте <color=#D89555>Slippery Mind</color> на версию 5e 2024 <i><color=#F0DAA0>[вы также получаете мастерство в спасбросках харизмы в дополнение к мудрости]</color></i>
 ModUi/&EnableRogueSteadyAim=Включить <color=#D89555>Точное прицеливание</color> на уровне 3 <i><color=#F0DAA0>[бонусным действием даёт преимущество на следующий бросок атаки в текущем ходу, если вы ещё не перемещались]</color></i>
 ModUi/&EnableRogueStrSaving=Включить <b>Головорезу</b> использование модификаторов ЛОВ или СИЛ для <color=#D89555>Хитрого/Коварного удара</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Включить прогрессию использований <color=#D89555>Второго дыхания</color> из 5e 2024

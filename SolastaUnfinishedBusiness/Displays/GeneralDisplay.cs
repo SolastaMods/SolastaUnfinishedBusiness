@@ -507,6 +507,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchRogueBlindSense();
         }
 
+        toggle = Main.Settings.EnableRogueSlipperyMind;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueSlipperyMind"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueSlipperyMind = toggle;
+            Tabletop2024Context.SwitchRogueSlipperyMind();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
         UI.Label();

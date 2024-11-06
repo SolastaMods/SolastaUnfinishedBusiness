@@ -200,6 +200,7 @@ Feature/&PowerTeleportSummonDescription=Вы можете телепортиро
 Feature/&PowerTeleportSummonTitle=Телепортироваться
 Feature/&PowerVanishSummonDescription=Вы можете заставить призванное существо исчезнуть.
 Feature/&PowerVanishSummonTitle=Исчезновение
+Feature/&RogueSlipperyMindExtendedDescription=Вы приобрели большую ментальную силу. Вы получаете мастерство в спасбросках Мудрости и Харизмы.
 Feature/&ToolGainChoicesPluralDescription=Выберите {0} из этих инструментов: {1}
 Feature/&ToolGainChoicesSingleDescription=Выберите один из этих инструментов: {1}
 Feature/&VisionBlindsightDescription=Вы обладаете слепым зрением.

@@ -1089,13 +1089,9 @@ internal static class Level20Context
 
             void ReactionValidated()
             {
-                var delta = -action.AttackSuccessDelta;
-
-                action.AttackRollOutcome = RollOutcome.Success;
-                action.AttackSuccessDelta += delta;
-                action.AttackRoll += delta;
-                attackModifier.AttackRollModifier += delta;
-                attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
+                action.AttackRoll = 20;
+                action.AttackRollOutcome = RollOutcome.CriticalSuccess;
+                action.AttackSuccessDelta = 0;
             }
         }
     }

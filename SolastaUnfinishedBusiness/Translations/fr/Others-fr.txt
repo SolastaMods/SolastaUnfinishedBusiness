@@ -200,6 +200,7 @@ Feature/&PowerTeleportSummonDescription=Vous pouvez vous téléporter à n'impor
 Feature/&PowerTeleportSummonTitle=Téléportation
 Feature/&PowerVanishSummonDescription=Vous pouvez faire disparaître votre invocation.
 Feature/&PowerVanishSummonTitle=Disparaître
+Feature/&RogueSlipperyMindExtendedDescription=Vous avez acquis une plus grande force mentale. Vous maîtrisez les jets de sauvegarde de Sagesse et de Charisme.
 Feature/&ToolGainChoicesPluralDescription=Choisissez {0} de ces outils : {1}
 Feature/&ToolGainChoicesSingleDescription=Choisissez l'un de ces outils : {1}
 Feature/&VisionBlindsightDescription=Vous avez la vision aveugle.

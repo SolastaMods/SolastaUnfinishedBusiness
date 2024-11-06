@@ -200,6 +200,7 @@ Feature/&PowerTeleportSummonDescription=Você pode se teletransportar para qualq
 Feature/&PowerTeleportSummonTitle=Teleporte
 Feature/&PowerVanishSummonDescription=Você pode fazer sua invocação desaparecer.
 Feature/&PowerVanishSummonTitle=Desaparecer
+Feature/&RogueSlipperyMindExtendedDescription=Você adquiriu maior força mental. Você ganha proficiência em testes de resistência de Sabedoria e Carisma.
 Feature/&ToolGainChoicesPluralDescription=Escolha {0} destas ferramentas: {1}
 Feature/&ToolGainChoicesSingleDescription=Escolha uma destas ferramentas: {1}
 Feature/&VisionBlindsightDescription=Você tem visão cega.
