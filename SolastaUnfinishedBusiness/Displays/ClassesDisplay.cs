@@ -409,9 +409,11 @@ internal static class ClassesDisplay
         }
 
         toggle = Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20"),
+                ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20 = toggle;
+            Tabletop2024Context.SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20();
         }
 
         toggle = Main.Settings.EnableWarlockToLearnPatronAtLevel3;

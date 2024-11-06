@@ -1535,7 +1535,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Stroke of Luck
 
-You have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit.
+You have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a critical hit. You can use this feature once per short or long rest.
 
 
 

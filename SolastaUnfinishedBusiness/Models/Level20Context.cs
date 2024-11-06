@@ -113,6 +113,12 @@ internal static class Level20Context
             .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
             .AddToDB();
 
+    internal static readonly FeatureDefinitionPower PowerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
+        .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
+        .AddToDB();
+
     internal static void Load()
     {
         BarbarianLoad();
@@ -525,17 +531,11 @@ internal static class Level20Context
             .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
             .AddToDB();
 
-        var powerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
-            .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
-            .AddToDB();
-
         Warlock.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(pointPoolWarlockMysticArcanum9, 17),
             new FeatureUnlockByLevel(pointPoolWarlockInvocation18, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-            new FeatureUnlockByLevel(powerWarlockEldritchMaster, 20)
+            new FeatureUnlockByLevel(PowerWarlockEldritchMaster, 20)
         );
 
         CastSpellWarlock.KnownSpells.SetRange(SharedSpellsContext.WarlockKnownSpells);

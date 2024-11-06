@@ -200,6 +200,25 @@ internal static class Tabletop2024Context
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerWarlockMagicalCunning = FeatureDefinitionPowerBuilder
+        .Create("PowerWarlockMagicalCunning")
+        .SetGuiPresentation(Category.Feature, PowerWizardArcaneRecovery)
+        .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
+        .AddCustomSubFeatures(new PowerOrSpellFinishedByMeMagicalCunning())
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureEldritchMaster = FeatureDefinitionBuilder
+        .Create("FeatureEldritchMaster")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerSorcerousRestoration = FeatureDefinitionPowerBuilder
+        .Create(PowerSorcererManaPainterTap, "PowerSorcerousRestoration")
+        .SetOrUpdateGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
+        .AddCustomSubFeatures(new PowerOrSpellFinishedByMeMagicalCunning())
+        .AddToDB();
+
     internal static void LateLoad()
     {
         BuildBarbarianBrutalStrike();
@@ -502,6 +521,27 @@ internal static class Tabletop2024Context
         }
 
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20()
+    {
+        Warlock.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == PowerWarlockMagicalCunning ||
+            x.FeatureDefinition == FeatureEldritchMaster ||
+            x.FeatureDefinition == Level20Context.PowerWarlockEldritchMaster);
+
+        if (!Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20)
+        {
+            Warlock.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(PowerWarlockMagicalCunning, 2),
+                new FeatureUnlockByLevel(FeatureEldritchMaster, 20));
+        }
+        else
+        {
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(Level20Context.PowerWarlockEldritchMaster, 20));
+        }
+
+        Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchOneDndWarlockPatronLearningLevel()
@@ -934,6 +974,46 @@ internal static class Tabletop2024Context
         GuiWrapperContext.RecacheInvocations();
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class PowerOrSpellFinishedByMeMagicalCunning : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var hero = action.ActingCharacter.RulesetCharacter.GetOriginalHero();
+
+            if (hero == null)
+            {
+                yield break;
+            }
+
+            var repertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
+
+            if (repertoire == null)
+            {
+                yield break;
+            }
+
+            hero.ClassesAndLevels.TryGetValue(Warlock, out var warlockClassLevel);
+
+            var slotLevel = SharedSpellsContext.IsMulticaster(hero)
+                ? SharedSpellsContext.PactMagicSlotsTab
+                : SharedSpellsContext.GetWarlockSpellLevel(hero);
+            var maxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            var halfSlotsRoundUp = (maxSlots + 1) / (warlockClassLevel == 20 ? 1 : 2);
+
+            if (!repertoire.usedSpellsSlots.TryGetValue(slotLevel, out var value))
+            {
+                yield break;
+            }
+
+            repertoire.usedSpellsSlots[slotLevel] -= Math.Min(value, halfSlotsRoundUp);
+
+            if (value > 0)
+            {
+                repertoire.RepertoireRefreshed?.Invoke(repertoire);
+            }
+        }
     }
 
     private sealed class TryAlterOutcomeSavingThrowBardCounterCharm : ITryAlterOutcomeSavingThrow
