@@ -529,18 +529,24 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableWarlockToLearnPatronAtLevel3;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockToLearnPatronAtLevel3"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableWarlockToLearnPatronAtLevel3 = toggle;
-            Tabletop2024Context.SwitchOneDndWarlockPatronLearningLevel();
-        }
-
         toggle = Main.Settings.EnableWarlockToUseOneDndInvocationProgression;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableWarlockToUseOneDndInvocationProgression = toggle;
             Tabletop2024Context.SwitchOneDndWarlockInvocationsProgression();
+        }
+        
+        toggle = Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20 = toggle;
+        }
+
+        toggle = Main.Settings.EnableWarlockToLearnPatronAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockToLearnPatronAtLevel3"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockToLearnPatronAtLevel3 = toggle;
+            Tabletop2024Context.SwitchOneDndWarlockPatronLearningLevel();
         }
 
         UI.Label();
@@ -570,6 +576,12 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableAlternateHuman = toggle;
             FeatsContext.SwitchFirstLevelTotalFeats();
+        }
+
+        toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
+        if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RaceLightSensitivityApplyOutdoorsOnly = toggle;
         }
 
         UI.Label();

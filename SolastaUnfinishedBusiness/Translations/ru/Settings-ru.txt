@@ -181,6 +181,7 @@ ModUi/&EnableUnarmedMainAttackAction=Включить действие <color=#D
 ModUi/&EnableUpcastConjureElementalAndFey=Включить возможность накладывать на высоких уровнях <color=#D89555>Призыв элементаля</color> и <color=#D89555>Призыв феи</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Включить заглушки для переменных описаний <i><color=#F0DAA0>[использовать {VARIABLE_NAME} в качесте заглушки]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Включить <color=#D89555>Магическую хитрость</color> на уровне 2
+ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Включите <color=#D89555>Магическую хитрость</color> на уровне 2 и улучшите <color=#D89555>Мастера потусторонних сил</color> на 20-м уровне.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Включить выбор <color=#D89555>Покровителя</color> на 3-м уровне вместо 1-го
 ModUi/&EnableWizardToLearnScholarAtLevel2=Включить <color=#D89555>Учёного</color> на уровне 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Включить изучение <color=#D89555>Магических традиций</color> на 3-м уровне вместо 2-го

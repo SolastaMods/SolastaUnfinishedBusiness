@@ -181,6 +181,7 @@ ModUi/&EnableUnarmedMainAttackAction=Abilita l'azione <color=#D89555>Attacco dis
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555>Evoca Elementale</color> e <color=#D89555>Evoca Fata</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Abilita segnaposto variabili nelle descrizioni <i><color=#F0DAA0>[usa {VARIABLE_NAME} come segnaposto]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Abilita <color=#D89555>Astuzia magica</color> al livello 2
+ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Abilita <color=#D89555>Astuzia magica</color> al livello 2 e migliora <color=#D89555>Maestro eldritch</color> al livello 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Abilita <color=#D89555>Patron</color> al livello 3 invece che 1
 ModUi/&EnableWizardToLearnScholarAtLevel2=Abilita <color=#D89555>Studioso</color> al livello 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Abilita <color=#D89555>Scuola di Magia</color> al livello 3 invece che 2
