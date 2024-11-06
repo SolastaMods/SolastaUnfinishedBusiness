@@ -171,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=Permite que los <color=#D89555>hechizos excl
 ModUi/&EnableSorcererInnateSorceryAt1=Habilitar <color=#D89555>Hechicería innata</color> en el nivel 1
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Guía mágica</color> en el nivel 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar la acción <color=#D89555>Hechizo acelerado</color> para permitir lanzar un hechizo de acción principal con metamagia acelerada aplicada
+ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauración hechicera</color> en el nivel 5
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir: golpes críticos, fallos críticos, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe suma un D20 en la tirada para darle un poco de aleatoriedad. <color=#F0DAA0>[peso de la elección = votos * modificador de Carisma del héroe + tirada del D20]</color></i>

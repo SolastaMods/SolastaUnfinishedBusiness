@@ -901,6 +901,18 @@ internal static class Tabletop2024Context
         Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static void SwitchSorcerousRestorationAtLevel5()
+    {
+        Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerSorcerousRestoration);
+
+        if (Main.Settings.EnableSorcerousRestorationAtLevel5)
+        {
+            Sorcerer.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerSorcerousRestoration, 5));
+        }
+
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchRangerNatureShroud()
     {
         Ranger.FeatureUnlocks

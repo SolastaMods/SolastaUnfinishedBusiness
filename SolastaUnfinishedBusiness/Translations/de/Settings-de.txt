@@ -171,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=Aktiviere, dass <color=#D89555>Signaturzaube
 ModUi/&EnableSorcererInnateSorceryAt1=Aktiviere <color=#D89555>Angeborene Zauberei</color> auf Stufe 1.
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung</color> auf Stufe 5.
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
+ModUi/&EnableSorcerousRestorationAtLevel5=Aktiviere <color=#D89555>Zauberhafte Wiederherstellung</color> auf Stufe 5.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Sortierung von Assets im Dungeon Maker-Editor.
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Außerdem fügt jeder Held einen D20-Wurf zur Gewichtung hinzu, um ein wenig Zufälligkeit zu erzeugen <color=#F0DAA0>[Wahlgewicht = Stimmen * Charisma-Modifikator des Helden + D20-Wurf]</color></i>

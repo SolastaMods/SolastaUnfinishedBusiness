@@ -171,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=Abilita la preparazione degli <color=#D89555
 ModUi/&EnableSorcererInnateSorceryAt1=Abilita <color=#D89555>Stregoneria Innata</color> al livello 1
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Guida magica</color> al livello 5
 ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo accelerato</color> per consentire il lancio dell'incantesimo di azione principale con metamagia accelerata applicata
+ModUi/&EnableSorcerousRestorationAtLevel5=Abilita <color=#D89555>Restauro Stregonesco</color> al livello 5
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Visualizza le statistiche nel tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità <color=#F0DAA0>[peso della scelta = voti * modificatore del Carisma dell'eroe + tiro di D20]</color></i>

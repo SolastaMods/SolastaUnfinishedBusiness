@@ -171,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=Habilitar <color=#D89555>Feitiços de Assina
 ModUi/&EnableSorcererInnateSorceryAt1=Habilitar <color=#D89555>Feitiçaria Inata</color> no nível 1
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> no nível 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada
+ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauração Feiticeira</color> no nível 5
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar classificação de ativos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[por exemplo: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Além disso, cada herói adiciona um teste de D20 ao peso para um pouco de aleatoriedade <color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói + teste de D20]</color></i>

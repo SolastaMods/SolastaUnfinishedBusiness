@@ -171,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=Включить подготовку <color
 ModUi/&EnableSorcererInnateSorceryAt1=Включить <color=#D89555>Врождённое чародейство</color> на уровне 1
 ModUi/&EnableSorcererMagicalGuidance=Включить <color=#D89555>Волшебное указание</color> на уровне 5
 ModUi/&EnableSorcererQuickenedAction=Включить действие <color=#D89555>Ускоренное заклинание</color>, позволяющее накладывать заклинание основного действия с применением метамагии Ускоренного заклинания.
+ModUi/&EnableSorcerousRestorationAtLevel5=Включить <color=#D89555>Волшебное восстановление</color> на уровне 5
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ассетов в редакторе Создателя Подземелий
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику на всплывающей подсказке о герое <i><color=#F0DAA0>[например: критические удары, критические промахи и т.д.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Также каждый герой добавляет к весомости результат броска D20 для привнесения элемента случайности <color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя + бросок D20]</color></i>

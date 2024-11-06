@@ -397,6 +397,13 @@ internal static class ClassesDisplay
             }
         }
 
+        toggle = Main.Settings.EnableSorcerousRestorationAtLevel5;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcerousRestorationAtLevel5"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcerousRestorationAtLevel5 = toggle;
+            Tabletop2024Context.SwitchSorcerousRestorationAtLevel5();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
         UI.Label();

@@ -171,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</colo
 ModUi/&EnableSorcererInnateSorceryAt1=Enable <color=#D89555>Innate Sorcery</color> at level 1
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
+ModUi/&EnableSorcerousRestorationAtLevel5=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>

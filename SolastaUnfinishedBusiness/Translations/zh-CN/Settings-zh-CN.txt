@@ -171,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=每次长时间休息时都可准备<color=#
 ModUi/&EnableSorcererInnateSorceryAt1=在第 1 级启用<color=#D89555>天生巫术</color>
 ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术
+ModUi/&EnableSorcerousRestorationAtLevel5=在第 5 级启用<color=#D89555>魔法恢复</color>
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[例如：暴击、暴击失败等]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 此外，每个英雄都会增加一个 D20 掷骰来增加权重，以增加一点随机性 <color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值 + D20 掷骰]</color></i>
