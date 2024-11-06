@@ -261,6 +261,9 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellBarkskin();
         SwitchOneDndSpellGuidance();
         SwitchOneDndSurprisedEnforceDisadvantage();
+        SwitchSorcererInnateSorcery();
+        SwitchSorcerousRestorationAtLevel5();
+        SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20();
         SwitchOneDndWarlockPatronLearningLevel();
         SwitchOneDndWarlockInvocationsProgression();
         SwitchOneDndWizardScholar();
@@ -269,9 +272,9 @@ internal static class Tabletop2024Context
         SwitchRangerNatureShroud();
         SwitchRogueBlindSense();
         SwitchRogueCunningStrike();
+        SwitchRogueSlipperyMind();
         SwitchRogueSteadyAim();
         SwitchSecondWindToUseOneDndUsagesProgression();
-        SwitchSorcererInnateSorcery();
     }
 
     private static void LoadSecondWindToUseOneDndUsagesProgression()
@@ -533,7 +536,7 @@ internal static class Tabletop2024Context
             x.FeatureDefinition == FeatureEldritchMaster ||
             x.FeatureDefinition == Level20Context.PowerWarlockEldritchMaster);
 
-        if (!Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20)
+        if (Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20)
         {
             Warlock.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(PowerWarlockMagicalCunning, 2),

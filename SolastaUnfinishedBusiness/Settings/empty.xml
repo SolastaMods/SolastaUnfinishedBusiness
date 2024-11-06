@@ -546,6 +546,7 @@
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <ChangeBardicInspirationDurationToOneHour>false</ChangeBardicInspirationDurationToOneHour>
+    <EnableBardCounterCharmAsReactionAtLevel7>false</EnableBardCounterCharmAsReactionAtLevel7>
     <EnableBardExpertiseOneLevelBefore>false</EnableBardExpertiseOneLevelBefore>
     <EnableBardSuperiorInspirationAtLevel18>false</EnableBardSuperiorInspirationAtLevel18>
     <EnableBardWordsOfCreationAtLevel20>false</EnableBardWordsOfCreationAtLevel20>
@@ -585,14 +586,18 @@
     <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
+    <EnableRogueSlipperyMind>false</EnableRogueSlipperyMind>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>false</RemoveRogueBlindSense>
     <EnableSorcererInnateSorceryAt1>false</EnableSorcererInnateSorceryAt1>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <EnableWarlockToLearnPatronAtLevel3>false</EnableWarlockToLearnPatronAtLevel3>
+    <EnableSorcerousRestorationAtLevel5>false</EnableSorcerousRestorationAtLevel5>
     <EnableWarlockToUseOneDndInvocationProgression>false</EnableWarlockToUseOneDndInvocationProgression>
+    <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>false
+    </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
+    <EnableWarlockToLearnPatronAtLevel3>false</EnableWarlockToLearnPatronAtLevel3>
     <EnableWizardToLearnScholarAtLevel2>false</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
@@ -1046,8 +1051,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
