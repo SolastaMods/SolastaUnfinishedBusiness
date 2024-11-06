@@ -314,6 +314,7 @@ Rules/&SituationalContext9015Format=Ne portant aucune armure ou une armure lég�
 Rules/&SituationalContext9016Format=N'est pas la source de l'effet avec l'arme de mêlée dans la main principale ou secondaire :
 Rules/&SituationalContext9017Format=Se concentre sur le sort :
 Rules/&SituationalContext9018Format=La source de l'effet est :
+Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=Récupérez des points de sorcellerie jusqu'à la moitié de votre niveau de sorcier, arrondi à l'inférieur
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Source de fin de tour
 Screen/&ClassExtraSpellDescriptionFormat=Vous connaissez ce sort de la classe {0}.
 Screen/&EditorLocationSize3Title=Énorme [MODIFIÉ]

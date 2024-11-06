@@ -166,6 +166,11 @@ internal enum ExtraMotionType
     PushDown = 9001
 }
 
+internal enum ExtraEffectType
+{
+    RecoverSorceryHalfLevelDown = 9000
+}
+
 internal enum ExtraPowerAttackHitComputation
 {
     // Fixed = PowerAttackHitComputation.Fixed,

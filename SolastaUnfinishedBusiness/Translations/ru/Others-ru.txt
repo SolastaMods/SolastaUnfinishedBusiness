@@ -314,6 +314,7 @@ Rules/&SituationalContext9015Format=Не носит брони, либо тол�
 Rules/&SituationalContext9016Format=Не является источником эффекта с рукопашным оружием в одной из рук:
 Rules/&SituationalContext9017Format=Концентрируется на заклинании:
 Rules/&SituationalContext9018Format=Источник эффекта:
+Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=Восстановите очки колдовства до половины вашего уровня колдуна, округленного в меньшую сторону.
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Конец источника хода
 Screen/&ClassExtraSpellDescriptionFormat=Вам известно это заклинание от класса {0}.
 Screen/&EditorLocationSize3Title=Огромный [Модифицировано]

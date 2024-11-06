@@ -78,7 +78,7 @@
         "saveOccurence": "StartOfTurn",
         "spellSlotsForm": {
           "$type": "SpellSlotsForm, Assembly-CSharp",
-          "type": "RecovererSorceryHalfLevelUp",
+          "type": 9000,
           "maxSlotLevel": 5,
           "sorceryPointsGain": 1,
           "powerDefinition": null

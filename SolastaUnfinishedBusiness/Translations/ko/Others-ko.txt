@@ -314,6 +314,7 @@ Rules/&SituationalContext9015Format=갑옷을 입지 않거나 양손 육척봉�
 Rules/&SituationalContext9016Format=주손 또는 보조 손에 근접 무기가 있는 효과 소스가 아닙니다.
 Rules/&SituationalContext9017Format=주문에 집중하고 있습니다:
 Rules/&SituationalContext9018Format=효과의 원천은 다음과 같습니다:
+Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=마법사 레벨의 절반까지 마법 포인트를 회복합니다(반올림).
 Rules/&TurnOccurenceEndOfSourceTurnFormat=턴의 최종 소스
 Screen/&ClassExtraSpellDescriptionFormat=당신은 {0} 클래스에서 이 주문을 알고 있습니다.
 Screen/&EditorLocationSize3Title=거대한 [MODDED]

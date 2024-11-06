@@ -745,6 +745,14 @@ public static class RulesetImplementationManagerPatcher
                     formsParams.sourceCharacter.GainSorceryPoints(sorceryPointsGain);
                     break;
                 }
+                case (SpellSlotsForm.EffectType)ExtraEffectType.RecoverSorceryHalfLevelDown:
+                {
+                    var currentValue = originalHero.ClassesAndLevels[Sorcerer];
+                    var sorceryPointsGain = currentValue / 2;
+
+                    formsParams.sourceCharacter.GainSorceryPoints(sorceryPointsGain);
+                    break;
+                }
                 case SpellSlotsForm.EffectType.RechargePower when formsParams.targetCharacter is RulesetCharacter:
                 {
                     foreach (var usablePower in originalHero.UsablePowers.Where(usablePower =>

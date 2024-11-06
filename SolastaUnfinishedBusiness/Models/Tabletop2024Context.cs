@@ -221,6 +221,9 @@ internal static class Tabletop2024Context
 
     internal static void LateLoad()
     {
+        PowerSorcerousRestoration.EffectDescription.EffectForms[0].SpellSlotsForm.type =
+            (SpellSlotsForm.EffectType)ExtraEffectType.RecoverSorceryHalfLevelDown;
+
         BuildBarbarianBrutalStrike();
         BuildOneDndGuidanceSubspells();
         BuildRogueCunningStrike();

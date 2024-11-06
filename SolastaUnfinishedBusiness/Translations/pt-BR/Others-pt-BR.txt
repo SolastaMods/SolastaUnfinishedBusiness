@@ -314,6 +314,7 @@ Rules/&SituationalContext9015Format=Sem armadura ou com armadura leve e com caja
 Rules/&SituationalContext9016Format=Não é fonte de efeito com arma corpo a corpo na mão principal ou secundária:
 Rules/&SituationalContext9017Format=Está se concentrando no feitiço:
 Rules/&SituationalContext9018Format=É fonte de efeito:
+Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=Recupere pontos de feitiçaria até a metade do seu nível de feiticeiro, arredondado para baixo
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Fim da fonte de giro
 Screen/&ClassExtraSpellDescriptionFormat=Você conhece esse feitiço da classe {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODIFICADO]

@@ -314,6 +314,7 @@ Rules/&SituationalContext9015Format=Wearing no armor or light armor with two han
 Rules/&SituationalContext9016Format=Is not effect source with melee weapon in main or off hand:
 Rules/&SituationalContext9017Format=Is concentrating on spell:
 Rules/&SituationalContext9018Format=Is effect source:
+Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=Recover sorcery points up to half your sorcerer level, rounded down
 Rules/&TurnOccurenceEndOfSourceTurnFormat=End Source of Turn
 Screen/&ClassExtraSpellDescriptionFormat=You know this spell from {0} class.
 Screen/&EditorLocationSize3Title=Huge [MODDED]

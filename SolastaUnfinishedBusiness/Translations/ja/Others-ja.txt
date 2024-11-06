@@ -314,6 +314,7 @@ Rules/&SituationalContext9015Format=鎧を着ていないか、両手のクォ�
 Rules/&SituationalContext9016Format=メインまたはオフハンドの近接武器の効果ソースではありません:
 Rules/&SituationalContext9017Format=呪文に集中しています:
 Rules/&SituationalContext9018Format=効果源:
+Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=ソーサリーポイントをソーサラーレベルの半分まで回復します（切り捨て）。
 Rules/&TurnOccurenceEndOfSourceTurnFormat=ターンの終了元
 Screen/&ClassExtraSpellDescriptionFormat=この呪文は {0} クラスで知っていますね。
 Screen/&EditorLocationSize3Title=巨大な[MODD]

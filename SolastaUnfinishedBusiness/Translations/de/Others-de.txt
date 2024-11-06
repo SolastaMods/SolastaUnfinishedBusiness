@@ -314,6 +314,7 @@ Rules/&SituationalContext9015Format=Ohne Rüstung oder mit leichter Rüstung und
 Rules/&SituationalContext9016Format=Ist keine Effektquelle mit Nahkampfwaffe in der Haupt- oder Nebenhand:
 Rules/&SituationalContext9017Format=Konzentriert sich auf den Zauber:
 Rules/&SituationalContext9018Format=Ist Effektquelle:
+Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=Zauberpunkte bis zur Hälfte deiner Zaubererstufe wiederherstellen, abgerundet
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Endquelle der Wende
 Screen/&ClassExtraSpellDescriptionFormat=Du kennst diesen Zauber aus dem {0}-Unterricht.
 Screen/&EditorLocationSize3Title=Riesig [MODIFIZIERT]

@@ -314,6 +314,7 @@ Rules/&SituationalContext9015Format=Sin armadura o con armadura ligera y con un 
 Rules/&SituationalContext9016Format=No hay fuente de efecto con arma cuerpo a cuerpo en la mano principal o secundaria:
 Rules/&SituationalContext9017Format=Se concentra en el hechizo:
 Rules/&SituationalContext9018Format=¿Es la fuente del efecto?:
+Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=Recupera puntos de hechicería hasta la mitad de tu nivel de hechicero, redondeado hacia abajo.
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Fuente final del turno
 Screen/&ClassExtraSpellDescriptionFormat=Conoces este hechizo de la clase {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODIFICADO]
