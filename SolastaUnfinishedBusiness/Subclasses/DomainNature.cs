@@ -24,7 +24,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class DomainNature : AbstractSubclass
 {
     private const string Name = "DomainNature";
-    private const string AcquiredCantripsPoolName = $"{AttributeDefinitions.TagSubclass}Cleric1{Name}{Name}";
 
     private static readonly string[] DampenElementsDamageTypes =
     [

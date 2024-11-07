@@ -1703,9 +1703,9 @@ public static class RulesetCharacterPatcher
             }
 
             //PATCH: support for Fighters to regain one second wind usage at short rests
-            // ReSharper disable once InvertIf
             var fighterClassLevel = __instance.GetClassLevel(Fighter);
 
+            // ReSharper disable once InvertIf
             if (Main.Settings.EnableSecondWindToUseOneDndUsagesProgression &&
                 restType == RestType.ShortRest &&
                 fighterClassLevel >= 1)
