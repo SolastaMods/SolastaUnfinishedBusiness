@@ -1,3 +1,7 @@
+1.5.97.38:
+
+- fixed 'Enable all Casters to use new prepared spells tables' on Rangers
+
 1.5.97.37:
 
 - added 25+ new settings under tabletop 5e 2024 section
