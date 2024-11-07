@@ -72,6 +72,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 ConditionDefinitions.ConditionLightSensitive)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
+            // for whatever reason required here
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}LunarRadianceEnemy")
@@ -150,7 +152,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetSharedPool(ActivationTime.BonusAction, powerLunarCloak)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(FaerieFire)
+                    .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
@@ -174,6 +176,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetOrUpdateGuiPresentation($"Power{Name}LunarChill", Category.Feature)
             .SetParentCondition(ConditionDefinitions.ConditionHindered)
             .SetPossessive()
+            // for whatever reason required here
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures()
             .CopyParticleReferences(FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
