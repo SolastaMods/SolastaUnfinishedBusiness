@@ -1,6 +1,8 @@
 1.5.97.38:
 
 - fixed 'Enable all Casters to use new prepared spells tables' on Rangers
+- fixed 'Enable Paladin spellcasting at level 1' integration with variant spell rules
+- fixed 'Enable Ranger spellcasting at level 1' integration with variant spell rules
 
 1.5.97.37:
 
