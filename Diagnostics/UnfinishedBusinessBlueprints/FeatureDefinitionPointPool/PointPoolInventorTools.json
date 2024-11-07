@@ -9,7 +9,7 @@
     "PoisonersKitType",
     "ScrollKitType"
   ],
-  "uniqueChoices": true,
+  "uniqueChoices": false,
   "spellListOverride": null,
   "ritualOnly": false,
   "minSpellLevel": 0,

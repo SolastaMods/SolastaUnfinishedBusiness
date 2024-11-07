@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -14,6 +15,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
@@ -24,23 +26,48 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class WizardAbjuration : AbstractSubclass
 {
     private const string Name = "WizardAbjuration";
+    internal const string SpellTag = "Abjurer";
     private const string ArcaneWardConditionName = $"Condition{Name}ArcaneWard";
     private const string ProjectedWardConditionName = $"Condition{Name}ProjectedWard";
+    private const int WardRechargeMultiplier = 2;
 
     private static FeatureDefinitionPower _powerArcaneWard;
 
     private static ConditionDefinition _conditionArcaneWard;
 
+    private static readonly SpellListDefinition SpellListAbjurer = SpellListDefinitionBuilder
+        .Create(SpellListDefinitions.SpellListWizard, $"SpellList{Name}")
+        .AddToDB();
+
+    private static readonly FeatureDefinitionMagicAffinity MagicAffinitySavant = FeatureDefinitionMagicAffinityBuilder
+        .Create($"MagicAffinity{Name}Scriber")
+        .SetGuiPresentation($"MagicAffinity{Name}Scriber", Category.Feature)
+        .SetSpellLearnAndPrepModifiers(
+            0.5f, 0.5f, 0, AdvantageType.None, PreparedSpellsModifier.None)
+        .AddCustomSubFeatures(new ModifyScribeCostAndDurationAbjurationSavant())
+        .AddToDB();
+
+    // no spell tag here as this work correctly with vanilla
+    private static readonly FeatureDefinitionPointPool MagicAffinitySavant2024 = FeatureDefinitionPointPoolBuilder
+        .Create($"MagicAffinity{Name}Savant2024")
+        .SetGuiPresentation(Category.Feature)
+        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 2, SpellListAbjurer)
+        .AddToDB();
+
+    // need spell tag here to get this offered on level up and
+    // let custom behavior at CharacterBuildingManager.FinalizeCharacter grant the spell
+    private static readonly FeatureDefinitionPointPool MagicAffinitySavant2024Progression =
+        FeatureDefinitionPointPoolBuilder
+            .Create($"MagicAffinity{Name}Savant2024Progression")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 1, SpellListAbjurer, SpellTag)
+            .AddToDB();
+
+    private static CharacterSubclassDefinition _subclass;
+
     public WizardAbjuration()
     {
         // Lv.2 Abjuration Savant
-        var magicAffinityAbjurationScriber = FeatureDefinitionMagicAffinityBuilder
-            .Create($"MagicAffinity{Name}Scriber")
-            .SetGuiPresentation($"MagicAffinity{Name}Scriber", Category.Feature)
-            .SetSpellLearnAndPrepModifiers(
-                0.5f, 0.5f, 0, AdvantageType.None, PreparedSpellsModifier.None)
-            .AddCustomSubFeatures(new ModifyScribeCostAndDurationAbjurationSavant())
-            .AddToDB();
 
         // LV.2 Arcane Ward
         // initialize power points pool with INT mod points
@@ -95,49 +122,24 @@ public sealed class WizardAbjuration : AbstractSubclass
 
         ////////
         // Lv.10 Improved Abjuration
-        var powerCounterSpell = FeatureDefinitionPowerBuilder
+        var powerCounterSpellAffinity = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CounterSpell")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Instantaneous, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                .SetParticleEffectParameters(Counterspell)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetCounterForm(CounterForm.CounterType.InterruptSpellcasting, 3, 10, true, true)
-                    .Build())
-                .Build())
+            .AddCustomSubFeatures(new ModifyCounterspellAddProficiency())
             .AddToDB();
 
-        var powerCounterDispel = FeatureDefinitionPowerBuilder
+        var powerCounterDispelAffinity = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CounterDispel")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Instantaneous, 1)
-                .SetTargetingData(
-                    Side.All,
-                    RangeType.Distance, 24,
-                    TargetType.IndividualsUnique, 1, 2,
-                    ActionDefinitions.ItemSelectionType.Equiped)
-                .SetParticleEffectParameters(DispelMagic)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetCounterForm(CounterForm.CounterType.DissipateSpells, 3, 10, true, true)
-                    .Build())
-                .Build())
+            .AddCustomSubFeatures(new ModifyDispelMagicAddProficiency())
             .AddToDB();
 
         var featureSetImprovedAbjuration = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ImprovedAbjuration")
             .SetGuiPresentation($"Power{Name}ImprovedAbjuration", Category.Feature)
-            .SetFeatureSet(powerCounterSpell, powerCounterDispel)
+            .SetFeatureSet(powerCounterSpellAffinity, powerCounterDispelAffinity)
             .AddToDB();
 
-        powerCounterDispel.EffectDescription.targetFilteringMethod =
-            TargetFilteringMethod.CharacterGadgetEffectProxyItems;
-        powerCounterDispel.EffectDescription.targetFilteringTag = TargetFilteringTag.No;
 
         //////// 
         // Lv.14 Spell Resistance
@@ -183,13 +185,13 @@ public sealed class WizardAbjuration : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardAbjuration, 256))
-            .AddFeaturesAtLevel(2, magicAffinityAbjurationScriber, PowerArcaneWard)
+            .AddFeaturesAtLevel(2, MagicAffinitySavant, PowerArcaneWard, BuildRechargeArcaneWard())
             .AddFeaturesAtLevel(6, powerProjectedWard)
             .AddFeaturesAtLevel(10, featureSetImprovedAbjuration)
             .AddFeaturesAtLevel(14, featureSetSpellResistance)
             .AddToDB();
 
-        UpdateBg3ModeStatus();
+        _subclass = Subclass;
     }
 
     private static FeatureDefinitionPower PowerArcaneWard => _powerArcaneWard ??= BuildArcaneWard();
@@ -206,6 +208,46 @@ public sealed class WizardAbjuration : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    internal static void LateLoad()
+    {
+        SwapSavantAndSavant2024();
+        SwapAbjurationBaldurGate3Mode();
+
+        SpellListAbjurer.SpellsByLevel.SetRange(
+            SpellListDefinitions.SpellListWizard.SpellsByLevel
+                .Select(spellByLevel => new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellByLevel.Level,
+                    spells = spellByLevel.Spells.Where(x => x.SchoolOfMagic == SchoolAbjuration).ToList()
+                }));
+    }
+
+    internal static void SwapSavantAndSavant2024()
+    {
+        var level = Main.Settings.EnableWizardToLearnSchoolAtLevel3 ? 3 : 2;
+
+        _subclass.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == MagicAffinitySavant ||
+            x.FeatureDefinition == MagicAffinitySavant2024 ||
+            x.FeatureDefinition == MagicAffinitySavant2024Progression);
+
+        if (Main.Settings.SwapAbjurationSavant)
+        {
+            _subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(MagicAffinitySavant2024, level));
+
+            for (var i = 5; i <= 20; i += 2)
+            {
+                _subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(MagicAffinitySavant2024Progression, i));
+            }
+        }
+        else
+        {
+            _subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(MagicAffinitySavant, level));
+        }
+
+        _subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     private static FeatureDefinitionPower BuildArcaneWard()
     {
         return FeatureDefinitionPowerBuilder
@@ -221,11 +263,29 @@ public sealed class WizardAbjuration : AbstractSubclass
         // marks Arcane Ward as active
         return ConditionDefinitionBuilder
             .Create(ArcaneWardConditionName)
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation(
+                Category.Condition,
+                Gui.NoLocalization,
+                ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Beneficial)
             .SetSilent(Silent.WhenRefreshedOrRemoved)
             .SetPossessive()
             .AddToDB();
+    }
+
+    private static FeatureDefinitionPower BuildRechargeArcaneWard()
+    {
+        var powerRechargeArcaneWard = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}RechargeArcaneWard")
+            .SetGuiPresentation(Category.Feature,
+                $"Feature/&Power{Name}RechargeArcaneWardDescription", PowerTraditionCourtMageSpellShield)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetShowCasting(false)
+            .AddToDB();
+
+        powerRechargeArcaneWard.AddCustomSubFeatures(new CustomBehaviorRechargeArcaneWard(powerRechargeArcaneWard));
+
+        return powerRechargeArcaneWard;
     }
 
     private static int LimitArcaneWardRecharge(RulesetCharacter character, RulesetUsablePower _, int maxUses)
@@ -243,19 +303,18 @@ public sealed class WizardAbjuration : AbstractSubclass
 
     private static ModifySustainedDamageHandler ArcaneWardModifyDamage()
     {
-        return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
+        return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo _) =>
         {
-            ArcaneWardModifyDamage(character, ref damage, roll);
+            ArcaneWardModifyDamage(character, ref damage);
         };
     }
 
     private static void ArcaneWardModifyDamage(
-        RulesetCharacter character, ref int damage, RollInfo roll, RulesetCharacter affected = null)
+        RulesetCharacter character, ref int damage, RulesetCharacter affected = null)
     {
         if (!HasActiveArcaneWard(character)) { return; }
 
         var ward = character.GetRemainingPowerCharges(PowerArcaneWard);
-
         var prevented = ward <= damage ? ward : damage;
         var spent = IsBg3Mode ? 1 : prevented;
 
@@ -263,13 +322,13 @@ public sealed class WizardAbjuration : AbstractSubclass
             (ConsoleStyleDuplet.ParameterType.Positive, prevented.ToString()));
 
         character.UpdateUsageForPower(PowerArcaneWard, spent);
-        roll.modifier -= prevented;
+
         damage -= prevented;
     }
 
     private static ModifySustainedDamageHandler ProjectedWardModifyDamage()
     {
-        return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo roll) =>
+        return (RulesetCharacter character, ref int damage, string _, bool _, ulong _, RollInfo _) =>
         {
             if (!character.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ProjectedWardConditionName,
                     out var condition)) { return; }
@@ -277,11 +336,11 @@ public sealed class WizardAbjuration : AbstractSubclass
             var protector = EffectHelpers.GetCharacterByGuid(condition.sourceGuid);
             if (!HasActiveArcaneWard(protector)) { return; }
 
-            ArcaneWardModifyDamage(protector, ref damage, roll, character);
+            ArcaneWardModifyDamage(protector, ref damage, character);
         };
     }
 
-    public static void UpdateBg3ModeStatus()
+    internal static void SwapAbjurationBaldurGate3Mode()
     {
         if (IsBg3Mode)
         {
@@ -351,8 +410,12 @@ public sealed class WizardAbjuration : AbstractSubclass
             {
                 // if ward already exists, update pool
                 var usablePowerArcaneWard = PowerProvider.Get(PowerArcaneWard, rulesetCharacter);
+                var amount = WardRechargeMultiplier * spellCast.EffectLevel;
 
-                rulesetCharacter.UpdateUsageForPowerPool(-2 * spellCast.EffectLevel, usablePowerArcaneWard);
+                rulesetCharacter.UpdateUsageForPowerPool(-amount, usablePowerArcaneWard);
+
+                rulesetCharacter.LogCharacterUsedFeature(PowerArcaneWard, "Feedback/&ArcaneWardRecharge", true,
+                    (ConsoleStyleDuplet.ParameterType.Positive, amount.ToString()));
             }
 
             if (!hasActiveWardCondition)
@@ -375,6 +438,61 @@ public sealed class WizardAbjuration : AbstractSubclass
         }
     }
 
+    private sealed class CustomBehaviorRechargeArcaneWard(FeatureDefinition feature)
+        : IValidatePowerUse, IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+            var glc = action.ActingCharacter;
+
+            var actionParams = new CharacterActionParams(glc, ActionDefinitions.Id.SpendSpellSlot)
+            {
+                IntParameter = 1,
+                StringParameter = feature.Name,
+                SpellRepertoire = glc.RulesetCharacter.GetClassSpellRepertoire(WizardClass)
+            };
+
+            actionService.ReactToSpendSpellSlot(actionParams);
+
+            yield return battleManager.WaitForReactions(glc, actionService, count);
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            EffectHelpers.StartVisualEffect(glc, glc, Shield, EffectHelpers.EffectType.QuickCaster);
+
+            // recharge ward
+            var amount = WardRechargeMultiplier * actionParams.IntParameter;
+
+            glc.RulesetCharacter.UpdateUsageForPower(PowerArcaneWard, -amount);
+
+            glc.RulesetCharacter.LogCharacterUsedFeature(
+                PowerArcaneWard, "Feedback/&ArcaneWardRecharge", true,
+                (ConsoleStyleDuplet.ParameterType.Positive, amount.ToString()));
+        }
+
+        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower _)
+        {
+            var usablePower = PowerProvider.Get(PowerArcaneWard, rulesetCharacter);
+            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(WizardClass);
+
+            return rulesetRepertoire.AtLeastOneSpellSlotAvailable() &&
+                   rulesetCharacter.GetRemainingUsesOfPower(usablePower) <
+                   rulesetCharacter.GetMaxUsesOfPower(usablePower);
+        }
+    }
+
     private sealed class CustomBehaviorProjectedWard(
         FeatureDefinitionPower projectedWard,
         ConditionDefinition conditionProjectedWard) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
@@ -391,7 +509,7 @@ public sealed class WizardAbjuration : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            if (action.AttackRollOutcome == RollOutcome.Failure)
+            if (action.AttackRollOutcome == RollOutcome.Failure || defender.RulesetCharacter == null)
             {
                 yield break;
             }
@@ -408,6 +526,8 @@ public sealed class WizardAbjuration : AbstractSubclass
             SavingThrowData savingThrowData,
             bool hasHitVisual)
         {
+            if (defender.RulesetCharacter == null) { yield break; }
+
             var effectDescription = savingThrowData.EffectDescription;
             var canForceHalfDamage = attacker != null
                                      && savingThrowData.SourceDefinition is SpellDefinition spell
@@ -463,6 +583,10 @@ public sealed class WizardAbjuration : AbstractSubclass
 
                 activeCondition.sourceGuid = helper.RulesetCharacter.Guid;
 
+                EffectHelpers.StartVisualEffect(helper, helper,
+                    Counterspell, EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(defender, defender,
+                    PowerTraditionCourtMageSpellShield, EffectHelpers.EffectType.Caster);
                 defender.RulesetCharacter.AddConditionOfCategory(
                     AttributeDefinitions.TagEffect,
                     activeCondition, false);
@@ -475,6 +599,66 @@ public sealed class WizardAbjuration : AbstractSubclass
                         (ConsoleStyleDuplet.ParameterType.Player, defender.Name)
                     ]);
             }
+        }
+    }
+
+    private sealed class ModifyCounterspellAddProficiency : IModifyEffectDescription
+    {
+        private static readonly EffectForm EffectForm = EffectFormBuilder.Create()
+            .SetCounterForm(CounterForm.CounterType.InterruptSpellcasting, 3, 10, true, true)
+            .Build();
+
+        EffectDescription IModifyEffectDescription.GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.EffectForms.SetRange(EffectForm);
+
+            return effectDescription;
+        }
+
+        bool IModifyEffectDescription.IsValid(
+            BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return character.GetSubclassLevel(CharacterClassDefinitions.Wizard, Name) >= 10 &&
+                   definition == Counterspell;
+        }
+    }
+
+    private sealed class ModifyDispelMagicAddProficiency : IModifyEffectDescription
+    {
+        private static readonly List<EffectForm> EffectForms =
+        [
+            EffectFormBuilder.Create()
+                .SetCounterForm(CounterForm.CounterType.DissipateSpells, 3, 10, true, true)
+                .SetCreatedBy(true)
+                .SetBonusMode(AddBonusMode.None)
+                .Build(),
+            EffectFormBuilder.Create()
+                .SetAlterationForm(AlterationForm.Type.DissipateSpell)
+                .SetCreatedBy(true)
+                .SetBonusMode(AddBonusMode.None)
+                .Build()
+        ];
+
+        EffectDescription IModifyEffectDescription.GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.EffectForms.SetRange(EffectForms);
+
+            return effectDescription;
+        }
+
+        bool IModifyEffectDescription.IsValid(
+            BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return character.GetSubclassLevel(CharacterClassDefinitions.Wizard, Name) >= 10 &&
+                   definition == DispelMagic;
         }
     }
 

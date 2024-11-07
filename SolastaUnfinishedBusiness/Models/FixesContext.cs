@@ -53,6 +53,9 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
+        // fix condition UI
+        FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
+
         // fix demonic influence duration and combat log (conditions with ForcedBehavior should have special duration)
         ConditionDefinitions.ConditionUnderDemonicInfluence.specialDuration = true;
         ConditionDefinitions.ConditionUnderDemonicInfluence.durationType = DurationType.Hour;
@@ -94,6 +97,7 @@ internal static class FixesContext
         FixPaladinAurasDisplayOnActionBar();
         ReportDashing();
         FixSpikeGrowthAffectingAir();
+        NoTwinnedBladeCantrips();
 
         // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
@@ -101,6 +105,11 @@ internal static class FixesContext
 
         // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void NoTwinnedBladeCantrips()
+    {
+        MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
     }
 
     private static void InitMagicAffinitiesAndCastSpells()
@@ -592,11 +601,8 @@ internal static class FixesContext
     private static void FixMeleeRetaliationWithReach()
     {
         // max possible reach in game is 15 ft
-        DamageAffinityFireImmunityRemorhaz.retaliateRangeCells = 3;
-        DamageAffinityFireImmunityYoungRemorhaz.retaliateRangeCells = 3;
         DamageAffinityPatronTreePiercingBranch.retaliateRangeCells = 3;
         DamageAffinityPatronTreePiercingBranchOneWithTheTree.retaliateRangeCells = 3;
-        DamageAffinityWightLord_NecroticImmunity.retaliateRangeCells = 3;
     }
 
     private static void FixMountaineerBonusShoveRestrictions()
@@ -763,6 +769,24 @@ internal static class FixesContext
         AdditionalActionHasted.GuiPresentation.Title = Haste.GuiPresentation.Title;
         AdditionalActionSurgedMain.GuiPresentation.Title =
             DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
+    }
+
+    internal sealed class NoTwinned
+    {
+        public static readonly ValidateMetamagicApplication Validator =
+            (RulesetCharacter _, RulesetEffectSpell spell, MetamagicOptionDefinition _, ref bool result,
+                ref string failure) =>
+            {
+                if (!spell.SpellDefinition.HasSubFeatureOfType<NoTwinned>())
+                {
+                    return;
+                }
+
+                result = false;
+                failure = "Failure/&FailureFlagInvalidSingleTarget";
+            };
+
+        public static NoTwinned Mark { get; } = new();
     }
 
     private sealed class AllowRerollDiceGreatWeapon : IAllowRerollDice
@@ -945,7 +969,7 @@ internal static class FixesContext
 
             // handle rogue cunning strike feature
             if (rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    TagEffect, CharacterContext.ConditionReduceSneakDice.Name,
+                    TagEffect, Tabletop2024Context.ConditionReduceSneakDice.Name,
                     out var activeCondition))
             {
                 var newDiceNumber = Math.Max(damageForm.diceNumber - activeCondition.amount, 0);

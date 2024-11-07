@@ -25,7 +25,7 @@ public static class MovementHelperPatcher
 
             // BEGIN PATCH
             // var color = new Color(1f, 1f, 1f, isHighlighted ? 1f : 0.2f);
-            var color = GameUiContext.GetGridColor(isHighlighted);
+            var color = CampaignsContext.GetGridColor(isHighlighted);
             // END PATCH
 
             var height = new Vector3(0.0f, __instance.movementGridShadowHeightOffset, 0.0f);
@@ -143,7 +143,7 @@ public static class MovementHelperPatcher
 
             // BEGIN PATCH
             // var color = new Color(1f, 1f, 1f, isHighlighted ? 1f : 0.2f);
-            var color = GameUiContext.GetGridColor(isHighlighted);
+            var color = CampaignsContext.GetGridColor(isHighlighted);
             // END PATCH
 
             for (var index = 0; index < __instance.movementOutlines.Count; ++index)

@@ -319,10 +319,49 @@ public static class RulesetImplementationManagerPatcher
                     RulesetImplementationDefinitions.ApplyFormsParams, int>(
                     RollDamage).Method;
 
-            return instructions.ReplaceCalls(rollDamageMethod,
-                "RulesetImplementationManager.ApplyDamageForm",
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Call, myRollDamageMethod));
+            var getDiceOfRankMethod = typeof(DiceByRank).GetMethod("GetDiceOfRank");
+            var myGetDiceOfRankMethod =
+                new Func<int, List<DiceByRank>, bool, EffectForm, RulesetImplementationDefinitions.ApplyFormsParams,
+                    int>(GetDiceOfRank).Method;
+
+            return instructions
+                .ReplaceCalls(rollDamageMethod,
+                    "RulesetImplementationManager.RollDamage",
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Call, myRollDamageMethod))
+                .ReplaceCalls(getDiceOfRankMethod,
+                    "RulesetImplementationManager.GetDiceOfRank",
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Call, myGetDiceOfRankMethod));
+        }
+
+        //PATCH: allows dice advancement to play nicely with MULTICLASS
+        private static int GetDiceOfRank(
+            int rank,
+            List<DiceByRank> table,
+            bool allowEmptyEntries,
+            EffectForm effectForm,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        {
+            if (formsParams.activeEffect.SourceDefinition is not FeatureDefinitionPower featureDefinitionPower)
+            {
+                return DiceByRank.GetDiceOfRank(rank, table, allowEmptyEntries);
+            }
+
+            var character = formsParams.sourceCharacter;
+            var klass = character.FindClassHoldingFeature(featureDefinitionPower);
+            var klassLevel = character.GetClassLevel(klass);
+
+            rank = effectForm.LevelType switch
+            {
+                LevelSourceType.ClassLevel => klassLevel,
+                LevelSourceType.ClassLevelHalfUp => Mathf.CeilToInt(0.5f * klassLevel),
+                LevelSourceType.EffectLevel => formsParams.activeEffect.EffectLevel,
+                _ => rank
+            };
+
+            return DiceByRank.GetDiceOfRank(rank, table, allowEmptyEntries);
         }
     }
 
@@ -702,6 +741,14 @@ public static class RulesetImplementationManagerPatcher
                 {
                     var currentValue = originalHero.ClassesAndLevels[Sorcerer];
                     var sorceryPointsGain = (currentValue % 2) + (currentValue / 2);
+
+                    formsParams.sourceCharacter.GainSorceryPoints(sorceryPointsGain);
+                    break;
+                }
+                case (SpellSlotsForm.EffectType)ExtraEffectType.RecoverSorceryHalfLevelDown:
+                {
+                    var currentValue = originalHero.ClassesAndLevels[Sorcerer];
+                    var sorceryPointsGain = currentValue / 2;
 
                     formsParams.sourceCharacter.GainSorceryPoints(sorceryPointsGain);
                     break;

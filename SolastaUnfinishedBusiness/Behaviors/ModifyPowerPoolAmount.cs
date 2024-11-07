@@ -28,8 +28,24 @@ public class ModifyPowerPoolAmount : IModifyPowerPoolAmount
                     AttributeDefinitions.TagEffect, Attribute, out var activeCondition)
                     ? activeCondition.Amount
                     : 0),
+            PowerPoolBonusCalculationType.SecondWind2024 => GetSecondWindUsages(),
             _ => Value
         };
+
+        int GetSecondWindUsages()
+        {
+            if (!Main.Settings.EnableSecondWindToUseOneDndUsagesProgression)
+            {
+                return 1;
+            }
+
+            return character.GetClassLevel(Attribute) switch
+            {
+                >= 10 => 4,
+                >= 4 => 3,
+                _ => 2
+            };
+        }
     }
 }
 
@@ -50,5 +66,6 @@ public enum PowerPoolBonusCalculationType
     ClassLevel,
     Attribute,
     AttributeModifier,
-    ConditionAmount
+    ConditionAmount,
+    SecondWind2024
 }

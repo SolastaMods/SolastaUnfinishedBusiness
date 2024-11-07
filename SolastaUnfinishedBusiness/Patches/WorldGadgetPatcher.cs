@@ -22,7 +22,7 @@ public static class WorldGadgetPatcher
                 return;
             }
 
-            GameUiContext.SetHighlightVisibilityExtended(__instance, ref visible);
+            CampaignsContext.SetHighlightVisibilityExtended(__instance, ref visible);
         }
     }
 }

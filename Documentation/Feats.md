@@ -353,7 +353,7 @@ You've manifested some of the power of chromatic dragons, granting you the follo
 • Chromatic Infusion: As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage of the chosen type when it hits. After you use this bonus action, you can't do so again until you finish a long rest.
 • Reactive Resistance: When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage until the end of its turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
 
-# 71. - Gift of the Gem Dragon [UB]
+# 71. - *Gift of the Gem Dragon* © [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 • When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature takes 2d8 force damage, is pushed up to 10 feet away from you, and is forced prone. On a successful save, the creature takes half as much damage and isn't pushed nor forced prone. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.

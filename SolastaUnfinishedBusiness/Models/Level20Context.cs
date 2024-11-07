@@ -26,6 +26,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPoint
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
+using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
@@ -85,6 +86,37 @@ internal static class Level20Context
         .Create("BattleStartedListenerMonkPerfectSelf")
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(new BattleStartedListenerMonkPerfectSelf())
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsBardWordOfCreation =
+        FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsBardWordOfCreation")
+            .SetGuiPresentation(Category.Feature)
+            .SetAutoTag("College")
+            .SetSpellcastingClass(Bard)
+            .SetPreparedSpellGroups(BuildSpellGroup(9, SpellsContext.PowerWordHeal, SpellsContext.PowerWordKill))
+            .AddCustomSubFeatures(new CustomBehaviorBardWordOfCreation())
+            .AddToDB();
+
+    internal static readonly FeatureDefinition FeatureBardSuperiorInspiration = FeatureDefinitionBuilder
+        .Create("FeatureBardSuperiorInspiration")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    internal static readonly FeatureDefinition FeatureBardSuperiorInspiration2024 = FeatureDefinitionBuilder
+        .Create("FeatureBardSuperiorInspiration2024")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionPointPool PointPoolBardMagicalSecrets18 =
+        FeatureDefinitionPointPoolBuilder
+            .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
+        .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
         .AddToDB();
 
     internal static void Load()
@@ -197,22 +229,16 @@ internal static class Level20Context
 
     private static void BardLoad()
     {
-        var pointPoolBardMagicalSecrets18 = FeatureDefinitionPointPoolBuilder
-            .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
-            .AddToDB();
+        FeatureBardSuperiorInspiration.AddCustomSubFeatures(
+            new BattleStartedListenerBardSuperiorInspiration(FeatureBardSuperiorInspiration));
 
-        var featureBardSuperiorInspiration = FeatureDefinitionBuilder
-            .Create("FeatureBardSuperiorInspiration")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        featureBardSuperiorInspiration.AddCustomSubFeatures(
-            new BattleStartedListenerBardSuperiorInspiration(featureBardSuperiorInspiration));
+        FeatureBardSuperiorInspiration2024.AddCustomSubFeatures(
+            new BattleStartedListenerBardSuperiorInspiration(FeatureBardSuperiorInspiration2024));
 
         Bard.FeatureUnlocks.AddRange(
-            new FeatureUnlockByLevel(pointPoolBardMagicalSecrets18, 18),
+            new FeatureUnlockByLevel(PointPoolBardMagicalSecrets18, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-            new FeatureUnlockByLevel(featureBardSuperiorInspiration, 20)
+            new FeatureUnlockByLevel(FeatureBardSuperiorInspiration, 20)
         );
 
         EnumerateSlotsPerLevel(
@@ -505,17 +531,11 @@ internal static class Level20Context
             .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
             .AddToDB();
 
-        var powerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
-            .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
-            .AddToDB();
-
         Warlock.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(pointPoolWarlockMysticArcanum9, 17),
             new FeatureUnlockByLevel(pointPoolWarlockInvocation18, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-            new FeatureUnlockByLevel(powerWarlockEldritchMaster, 20)
+            new FeatureUnlockByLevel(PowerWarlockEldritchMaster, 20)
         );
 
         CastSpellWarlock.KnownSpells.SetRange(SharedSpellsContext.WarlockKnownSpells);
@@ -588,6 +608,25 @@ internal static class Level20Context
         experience[len] = experience[len - 1];
 
         ExperienceThresholds = experience;
+    }
+
+    private sealed class CustomBehaviorBardWordOfCreation : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == SpellsContext.PowerWordHeal || definition == SpellsContext.PowerWordKill;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.targetParameter = 2;
+
+            return effectDescription;
+        }
     }
 
     //
@@ -977,9 +1016,9 @@ internal static class Level20Context
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            var rulesetDefender = defender.RulesetActor;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated))
+            if (rulesetDefender.IsIncapacitated)
             {
                 yield break;
             }
@@ -1015,7 +1054,8 @@ internal static class Level20Context
         }
     }
 
-    private class TryAlterOutcomeAttackRogueStrokeOfLuck(FeatureDefinitionPower power) : ITryAlterOutcomeAttack
+    private class TryAlterOutcomeAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {
         public int HandlerPriority => -10;
 
@@ -1039,7 +1079,7 @@ internal static class Level20Context
                 yield break;
             }
 
-            yield return attacker.MyReactToSpendPower(
+            yield return helper.MyReactToSpendPower(
                 usablePower,
                 attacker,
                 "RogueStrokeOfLuck",
@@ -1050,13 +1090,76 @@ internal static class Level20Context
 
             void ReactionValidated()
             {
-                var delta = -action.AttackSuccessDelta;
+                action.AttackRoll = 20;
+                action.AttackRollOutcome = RollOutcome.CriticalSuccess;
+                action.AttackSuccessDelta = 0;
+            }
+        }
 
-                action.AttackRollOutcome = RollOutcome.Success;
-                action.AttackSuccessDelta += delta;
-                action.AttackRoll += delta;
-                attackModifier.AttackRollModifier += delta;
-                attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            AbilityCheckData abilityCheckData,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(power, rulesetHelper);
+
+            if (abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                helper != defender ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            yield return helper.MyReactToSpendPower(
+                usablePower,
+                defender,
+                "RogueStrokeOfLuck",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                abilityCheckData.AbilityCheckRoll = 20;
+                abilityCheckData.AbilityCheckSuccessDelta = 0;
+                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.CriticalSuccess;
+            }
+        }
+
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(power, rulesetHelper);
+
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
+                helper != defender ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            yield return helper.MyReactToSpendPower(
+                usablePower,
+                defender,
+                "RogueStrokeOfLuck",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                savingThrowData.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
             }
         }
     }
@@ -1067,13 +1170,18 @@ internal static class Level20Context
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var character = locationCharacter.RulesetCharacter;
+            var limit = Main.Settings.EnableBardSuperiorInspirationAtLevel18 ? 2 : 1;
 
-            if (character is not { RemainingBardicInspirations: 0 })
+            if (character.RemainingBardicInspirations >= limit)
             {
                 return;
             }
 
-            character.usedBardicInspiration--;
+            while (character.RemainingBardicInspirations < limit)
+            {
+                character.usedBardicInspiration--;
+            }
+
             character.BardicInspirationAltered?.Invoke(character, character.RemainingBardicInspirations);
             character.LogCharacterUsedFeature(featureDefinition);
         }

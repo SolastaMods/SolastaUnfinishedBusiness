@@ -144,12 +144,6 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
         const string POWER_SPIRITED_SURGE = $"Power{Name}SpiritedSurge";
 
-        var savingThrowAffinitySpiritedSurge = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create($"SavingThrowAffinity{Name}SpiritedSurge")
-            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature, Gui.NoLocalization)
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.AbilityScoreNames)
-            .AddToDB();
-
         var combatAffinitySpiritedSurge = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}SpiritedSurge")
             .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature, Gui.NoLocalization)
@@ -169,7 +163,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain,
                 abilityCheckAffinitySpiritedSurge,
                 combatAffinitySpiritedSurge,
-                savingThrowAffinitySpiritedSurge)
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll)
             .AddToDB();
 
         var powerSpiritedSurge = FeatureDefinitionPowerBuilder

@@ -135,7 +135,7 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetActor __instance, RulesetCondition newCondition)
         {
-            SrdAndHouseRulesContext.AddLightSourceIfNeeded(__instance, newCondition);
+            RulesContext.AddLightSourceIfNeeded(__instance, newCondition);
 
             var definition = newCondition.ConditionDefinition;
 

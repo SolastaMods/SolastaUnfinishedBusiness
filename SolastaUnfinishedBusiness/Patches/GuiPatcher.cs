@@ -68,6 +68,24 @@ public static class GuiPatcher
         }
     }
 
+    [HarmonyPatch(typeof(Gui), nameof(Gui.FormatSpellSlotsForm))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class FormatSpellSlotsForm_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(ref string __result, SpellSlotsForm spellSlotsForm)
+        {
+            //PATCH: format extra motion types
+            __result = (ExtraEffectType)spellSlotsForm.Type switch
+            {
+                ExtraEffectType.RecoverSorceryHalfLevelDown => Gui.Localize(
+                    "Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat"),
+                _ => __result
+            };
+        }
+    }
+
     //PATCH: always displays a sign on attribute modifiers
     [HarmonyPatch(typeof(Gui), nameof(Gui.FormatTrendsList))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

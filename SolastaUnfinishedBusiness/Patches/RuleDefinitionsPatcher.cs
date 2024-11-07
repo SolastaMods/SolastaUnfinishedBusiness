@@ -47,6 +47,19 @@ public static class RuleDefinitionsPatcher
         }
     }
 
+    //BUGFIX: immunity from positions was incorrectly using < instead of <= to calculate the final result
+    [HarmonyPatch(typeof(RuleDefinitions), nameof(IsPositionImmuneToSpell))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsPositionImmuneToSpell_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(out bool __result, int spellLevel, int totalSpellLevel)
+        {
+            __result = spellLevel <= totalSpellLevel;
+        }
+    }
+
     [HarmonyPatch(typeof(RuleDefinitions), nameof(TryGetAncestryDamageTypeFromCharacter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

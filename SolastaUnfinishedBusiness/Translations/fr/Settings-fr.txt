@@ -5,29 +5,31 @@ ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saigne
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux éléments de jeu officiels <i><color=#F0DAA0>[munitions, recettes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Activez la <color=#D89555>Perception des Ténèbres</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[accorde un avantage aux tests de perception lorsqu'il n'est pas éclairé ou sous l'obscurité magique]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Ajoutez un modificateur DEX aux ennemis <color=#D89555>Initiative Roll</color>
+ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Activez <color=#D89555>Ordre primordial</color> au niveau 1 et supprimez la <color=#D89555>Maîtrise de l'armure moyenne</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Ajoutez le niveau de classe comme bonus à la relance du jet de sauvegarde de <color=#D89555>Résistance indomptable</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Activer les ennemis préférés des <color=#D89555>humanoïdes</color>
 ModUi/&AddNewWeaponsAndRecipesToShops=Ajoutez de nouvelles armes et recettes aux magasins <i><color=#F0DAA0>[bandages de main, hallebardes, piques, longues masses, arbalètes à main]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&AddPaladinSmiteToggle=Ajoutez une option permettant aux <color=#D89555>paladins</color> d'activer uniquement les coups critiques <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
+ModUi/&AddPaladinSmiteToggle=Ajoutez une option pour permettre aux <color=#D89555>paladins</color> d'activer uniquement les coups critiques <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
+ModUi/&AddPersuasionToFighterSkillOptions=Ajoutez <color=#D89555>Persuasion</color> aux options de compétence au niveau 1
 ModUi/&AddPickPocketableLoot=Ajouter un butin pouvant être volé à la tire <i><color=#F0DAA0>[suggéré si l'exploit <color=#D89555>Pickpocket</color> est activé]</color></i>
 ModUi/&AddToStore=Ajouter {0}
 ModUi/&Advanced=<color=#F0DAA0>Avancé :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENTION :</color></b> Ces paramètres nécessiteront que le joueur ait installé ce mod
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur les séquences narratives</i>
-ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Permettre aux alliés de percevoir <color=#D89555>GloomStalker</color> lorsqu'ils sont dans l'obscurité naturelle
+ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Permettre aux alliés de percevoir <b>GloomStalker</b> lorsqu'ils sont dans l'obscurité naturelle
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser n'importe quelle classe à porter une <color=#D89555>armure sylvestre</color> ou des <color=#D89555>vêtements de porteur de lumière</color>
-ModUi/&AllowBladeCantripsToUseReach=Autoriser les <color=#D89555>sorties de lame</color> à utiliser la portée au lieu de 5 pieds
+ModUi/&AllowBladeCantripsToUseReach=Autoriser les <color=#D89555>sorties de lame</color> à utiliser la portée au lieu de 1,50 m
 ModUi/&AllowClubsToBeThrown=Autoriser les <color=#D89555>matraques</color> à être lancées comme des <color=#D89555>dagues</color> ou des <color=#D89555>haches à main</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Autoriser les sorts non suggérés par le mod sur chaque liste
 ModUi/&AllowDisplayingOfficialSpells=Autoriser les sorts officiels du jeu sur chaque liste
-ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal
+ModUi/&AllowDruidToWearMetalArmor=Supprimer les restrictions de <color=#D89555>Armure métallique</color>
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 20
 ModUi/&AllowFlightSuspend=Autoriser la suspension temporaire du vol des objets et des sorts <i><color=#F0DAA0>[n'affecte pas les races de forme sauvage ou volantes]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Activez le clic <color=#1E81B0>CTRL</color> pour contourner toute vérification lors du placement de gadgets ou d'accessoires
 ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec une action supplémentaire en étant accéléré <i><color=#F0DAA0>[vous êtes toujours limité à 1 sort d'action principale par tour]</color></i>
 ModUi/&AllowHornsOnAllRaces=Autoriser les cornes sur toutes les races <i><color=#F0DAA0>[les résultats peuvent être terribles selon la race, la tête et la corne]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser plus d'état réel sur le panneau de repos <i><color=#F0DAA0>[masquer les actions après le repos sur le panneau avant et les fonctions de récupération sur le panneau après]</color></i>
-ModUi/&AllowStackedMaterialComponent=Autoriser les composants de matériaux empilés <i><color=#F0DAA0>[par exemple, 2x500gp de diamant équivalent à 1000gp de diamant]</color></i>
+ModUi/&AllowStackedMaterialComponent=Autoriser les composants de matériaux empilés <i><color=#F0DAA0>[par exemple, 2x500gp diamant équivaut à 1000gp diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection de la cible lors du lancement du sort <color=#D89555>Chaîne d'éclairs</color>
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> met en surbrillance uniquement les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Autoriser l'harmonisation de <color=#D89555>Arcane Shieldstaff</color> avec n'importe quelle classe
@@ -40,6 +42,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=N'activez aucune attaque d'o
 ModUi/&Blueprints=Plans
 ModUi/&Campaigns=Campagnes
 ModUi/&Category=Catégorie
+ModUi/&ChangeBardicInspirationDurationToOneHour=Changez la durée de <color=#D89555>Inspiration bardique</color> à 1 h au lieu de 10 minutes
 ModUi/&ChangeDragonbornElementalBreathUsages=Changez les utilisations du souffle élémentaire de <color=#D89555>Dragonborn</color> en modificateur de CON par repos court
 ModUi/&ChangeSleetStormToCube=Changez <color=#D89555>Sleet Storm</color> pour utiliser un cube au lieu d'un cylindre
 ModUi/&Changelog=<b><color=#D89555>Journal des modifications</color></b>
@@ -59,7 +62,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color> : additionnez le résult
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color> : continuez à relancer tous les dés de dégâts qui obtiennent le résultat le plus élevé possible et ajoutez-le au total des dégâts
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color> : doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Désactivez également les <b>critiques brutaux</b> aux niveaux 9, 13 et 17</i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Désactivez également <color=#D89555>Brutal Critical</color> aux niveaux 9, 13 et 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Désactiver les prérequis de lancement de sorts sur le mod <color=#D89555>feats</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les prérequis de niveau sur les <color=#D89555>exploits</color>
 ModUi/&DisableMultilineSpellOffering=Désactiver l'offre de sorts multilignes sur la barre d'action <i><color=#F0DAA0>[principalement pour les utilisateurs de contrôleur utilisant des héros non multicasters]</color></i>
@@ -90,22 +93,25 @@ ModUi/&DungeonMaker=Créateur de donjons
 ModUi/&DungeonMakerBasicHelp=• Ces paramètres ne nécessiteront pas que le joueur ait installé ce mod
 ModUi/&Effects=Effets
 ModUi/&EnableActionSwitching=Activer la barre de changement d'action <i><color=#F0DAA0>[utile pour avoir un contrôle total sur votre séquence d'actions]</color></i>
-ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage d'une histoire supplémentaire lors de l'inspection en arrière-plan
+ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage d'une trame de fond supplémentaire lors de l'inspection en arrière-plan
 ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte des niveaux
 ModUi/&EnableAdditionalItemsInDungeonMaker=Ajouter des éléments modifiés à l'éditeur
 ModUi/&EnableAlternateHuman=Activer l'<color=#D89555>Humain</color> alternatif <i><color=#F0DAA0>[+1 don / +2 choix d'attributs / +1 compétence]</color></i>
 ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[poids du choix = votes * modificateur de charisme du héros]</color></i>
-ModUi/&EnableBG3AbjurationArcaneWard=Activer l'implémentation de <b>Arcane Ward</b> d'Abjurer pour qu'elle se comporte comme BG3
+ModUi/&EnableBG3AbjurationArcaneWard=Activer l'implémentation d'Abjurer <color=#D89555>Arcane Ward</color> pour qu'elle se comporte comme BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Diminue de 1 à chaque fois qu'il prévient les dégâts, au lieu de diminuer en fonction des dégâts prévenus. Pas besoin de lancer le sort d'abjuration pour être actif\nmais la valeur maximale est 2x niveau de sorcier au lieu de 2x niveau de sorcier + mod INT et ne se recharge qu'à moitié lors d'un repos long]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Frappe brutale</color> et <color=#D89555>Amélioration de la frappe brutale</color> aux niveaux 9, 13 et 17
 ModUi/&EnableBarbarianFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Activez le buff et le debuff <color=#D89555>Attaque imprudente</color> pour qu'ils se terminent au début du prochain tour
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permet de récupérer une utilisation de <color=#D89555>Rage</color> sur un repos court au niveau 7
-ModUi/&EnableBardHealingBalladOnLongRest=Activer la Ballade de guérison de <color=#D89555>College of Hope</color> lors d'un repos prolongé
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Activez <color=#D89555>Contre-charme</color> au niveau 7 en tant que réaction au lieu du niveau 6 en tant qu'action
+ModUi/&EnableBardExpertiseOneLevelBefore=Activer l'<color=#D89555>Expertise</color> aux niveaux 2 et 9 au lieu de 3 et 10
+ModUi/&EnableBardHealingBalladOnLongRest=Activez <b>College of Hope</b> <color=#D89555>Healing Ballad</color> en mode repos prolongé
+ModUi/&EnableBardSuperiorInspirationAtLevel18=Activez <color=#D89555>Inspiration supérieure</color> au niveau 18 au lieu de 20 et accordez également deux recharges au lieu d'une
+ModUi/&EnableBardWordsOfCreationAtLevel20=Activer les <color=#D89555>Paroles de création</color> au niveau 20
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCantripsTriggeringOnWarMagic=Autoriser les tours de passe-passe à déclencher une attaque bonus supplémentaire de <color=#D89555>Magie de guerre</color>
-ModUi/&EnableCastersToCountMaxPreparedFromTable=Activez tous les <color=#D89555>rouleaux préparés</color> pour déterminer le nombre maximal de rouleaux préparés à partir d'un tableau au lieu d'une formule
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</color> doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Bouffon de feu, Balbuzard pêcheur de feu, Araignée de feu et famille de conditions en feu]</color></i>
 ModUi/&EnableCustomPortraits=Activer les <color=#D89555>portraits personnalisés</color>
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personal</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color></b></i>, nommés d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utilisez des images PNG, de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
@@ -134,30 +140,38 @@ ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Activez <color=#D89555>Corps et
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Activez <color=#D89555>Arts martiaux - Bonus de frappes à mains nues</color> pour ne pas nécessiter d'action d'attaque avant utilisation
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Activez <color=#D89555>Flurry of Blows</color> pour ne pas nécessiter d'action d'attaque avant utilisation
 ModUi/&EnableMonkFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=Activez les <color=#D89555>bandages</color> et les <color=#D89555>gantelets</color> pour qu'ils fonctionnent dans l'emplacement des gantelets
+ModUi/&EnableMonkHandwrapsUseGauntletSlot=Activer les <color=#D89555>bandages</color> et les <color=#D89555>gantelets</color> pour fonctionner dans l'emplacement du gantelet
 ModUi/&EnableMonkHeightenedMetabolism=Activez le <color=#D89555>Métabolisme renforcé</color> au niveau 10 <i><color=#F0DAA0>[<b>Rafale de coups</b>, <b>Défense patiente</b> et <b>Pas du vent</b> gagnent des avantages supplémentaires]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Activez <color=#D89555>Mouvement sans armure amélioré</color> pour vous déplacer le long des surfaces verticales sans tomber
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Activez la <color=#D89555>Défense supérieure</color> pour remplacer le <color=#D89555>Corps vide</color> au niveau 18
 ModUi/&EnableMonkWeaponSpecialization=Activez la <color=#D89555>spécialisation des armes</color> aux niveaux 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&EnableOneDndHealingSpellsBuf=Activer le buff des dés de soin sur <color=#D89555>Soin des blessures</color>, <color=#D89555>Mot de soin</color>, <color=#D89555>Soin de masse des blessures</color> et <color=#D89555>Mot de soin de masse</color>
+ModUi/&EnableOneDnDPreparedSpellsTables=Permettre à tous les <color=#D89555>lanceurs de sorts</color> d'utiliser les nouvelles tables de sorts préparés <i><color=#F0DAA0>[Barde, Clerc, Druide, Paladin, Rôdeur, Sorcier, Magicien]</color></i>
+ModUi/&EnableOneDndBarkskinSpell=Activer <color=#D89555>Écorce</color> 5e 2024 version du sort <i><color=#F0DAA0>[action bonus, pas de concentration, CA fixée à 17]</color></i>
+ModUi/&EnableOneDndGuidanceSpell=Activer <color=#D89555>Guidage</color> 5e version du sort 2024 <i><color=#F0DAA0>[Choisissez une compétence au lancement et obtenez un bonus jusqu'à 1 minute.]</color></i>
+ModUi/&EnableOneDndHealingSpellsUpgrade=Activer les sorts <color=#D89555>Soin des blessures</color>, <color=#D89555>Mot de guérison</color>, <color=#D89555>Soin de masse des blessures</color> et <color=#D89555>Mot de guérison de masse</color> version 5e 2024
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Activer <color=#D89555>Imposition des mains</color> comme action bonus
 ModUi/&EnablePaladinSmiteAsBonusAction=Activer <color=#D89555>Smite</color> comme action bonus
-ModUi/&EnablePaladinSpellCastingAtLevel1=Permettre au <b>Paladin</b> d'acquérir le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2 <i><color=#F0DAA0>[OneDnd]</color></i>
+ModUi/&EnablePaladinSpellCastingAtLevel1=Activer le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableProneAction=Activer l'action <color=#D89555>Tomber à plat ventre</color> <i><color=#F0DAA0>[vous pouvez tomber à plat ventre sans frais]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Activez les effets de mouvement de poussée et de traction pour qu'ils fonctionnent également sur l'axe haut/bas
-ModUi/&EnableRangerNatureShroudAt10=Activez la fonction <color=#D89555>Voile de la nature</color> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour]</color></i>
-ModUi/&EnableRangerSpellCastingAtLevel1=Permettre au Ranger d'acquérir le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
+ModUi/&EnableRangerNatureShroudAt14=Activez la fonction <color=#D89555>Voile de la nature</color> au niveau 14 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour]</color></i>
+ModUi/&EnableRangerSpellCastingAtLevel1=Activer le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
 ModUi/&EnableRelearnSpells=Activer la sélection de sorts ou de sorts déjà appris à partir d'autres sources
 ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après le repos <i><color=#F0DAA0>[ne pas utiliser RESPEC pendant une session multijoueur]</color></i>
+ModUi/&EnableRitualOnAllCasters=Activer le lancement de <color=#D89555>rituel</color> sur tous les lanceurs de sorts
 ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color> et <color=#D89555>Devious Strike</color> aux niveaux 5 et 14 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
+ModUi/&EnableRogueSlipperyMind=Échangez <color=#D89555>Slippery Mind</color> avec la version 5e 2024 <i><color=#F0DAA0>[vous obtenez également la maîtrise des jets de sauvegarde de charisme en plus de la sagesse]</color></i>
 ModUi/&EnableRogueSteadyAim=Activez la <color=#D89555>Visée constante</color> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage sur votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
-ModUi/&EnableRogueStrSaving=Activez les modificateurs DEX ou STR de <color=#D89555>Hoodlum</color> sur <b>Cunning/Durious Strike</b>, <b>Délicieuse/Améliorée Strike</b> et <b>Hail of Blades</b>
-ModUi/&EnableSignatureSpellsRelearn=Permettre aux sorts de signature du <color=#D89555>Sorcier</color> d'être préparés à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
+ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR de <b>Hoodlum</b> sur <color=#D89555>Cunning/Devious Strike</color>
+ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Activez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
+ModUi/&EnableSignatureSpellsRelearn=Activer les <color=#D89555>sorts signatures</color> pour qu'ils soient préparés à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
+ModUi/&EnableSorcererInnateSorceryAt1=Activer la <color=#D89555>Sorcellerie innée</color> au niveau 1
 ModUi/&EnableSorcererMagicalGuidance=Activer la <color=#D89555>guidance magique</color> au niveau 5
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
+ModUi/&EnableSorcerousRestorationAtLevel5=Activer la <color=#D89555>Restauration magique</color> au niveau 5
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ De plus, chaque héros ajoute un jet de D20 pour pondérer un peu le caractère aléatoire <color=#F0DAA0>[poids du choix = votes * modificateur de Charisme du héros + jet de D20]</color></i>
@@ -167,7 +181,11 @@ ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bu
 ModUi/&EnableUnarmedMainAttackAction=Activer l'action <color=#D89555>Attaque à mains nues</color> <i><color=#F0DAA0>[si l'acteur a une arme dans l'arme principale, est un <b>moine</b> ou a des <b>bandages</b> ou un <b>gantelet</b> équipés]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la conversion ascendante de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Activer les espaces réservés aux variables dans les descriptions <i><color=#F0DAA0>[utiliser {VARIABLE_NAME} comme espace réservé]</color></i>
-ModUi/&EnableWizardToLearnSchoolAtLevel3=Activer le <b>magicien</b> pour acquérir l'école de magie au niveau 3 au lieu de 2
+ModUi/&EnableWarlockMagicalCunningAtLevel2=Activer la <color=#D89555>ruse magique</color> au niveau 2
+ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Activez la <color=#D89555>ruse magique</color> au niveau 2 et améliorez le <color=#D89555>maître eldritch</color> à 20
+ModUi/&EnableWarlockToLearnPatronAtLevel3=Activer <color=#D89555>Patron</color> au niveau 3 au lieu de 1
+ModUi/&EnableWizardToLearnScholarAtLevel2=Activer <color=#D89555>Scholar</color> au niveau 2
+ModUi/&EnableWizardToLearnSchoolAtLevel3=Activer l'<color=#D89555>École de magie</color> au niveau 3 au lieu de 2
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attributs et la sélection des <color=#D89555>exploits</color> <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Définir des pourcentages de chances de rencontres aléatoires</color>
 ModUi/&Encounters=Rencontres
@@ -192,11 +210,11 @@ ModUi/&FormationHelp3=• Cliquez sur 2 boutons pour échanger leurs positions
 ModUi/&FormationResetAllSets=Réinitialiser tout
 ModUi/&FormationResetThisSet=Réinitialiser ceci
 ModUi/&FormationSelected=Ensemble de formation {0} sélectionné
-ModUi/&FullyControlConjurations=Contrôlez entièrement les invocations <i><color=#F0DAA0>[animaux, élémentaux, etc.]</color></i>
+ModUi/&FullyControlConjurations=Contrôlez entièrement les conjurations <i><color=#F0DAA0>[animaux, élémentaires, etc.]</color></i>
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>Général :</color>
 ModUi/&GeneralMenu=Général
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Accorder la <b>spécialisation en arme Cimeterre</b> aux <color=#D89555>bardes</color> et aux <color=#D89555>voleurs</color>
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Accorder la <color=#D89555>spécialisation en arme Cimeterre</color> aux <b>bardes</b> et aux <b>voleurs</b>
 ModUi/&GridSelectedColor=Changer la <b><color=$$$$$$>couleur de la grille de mouvement</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts
 ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts
@@ -207,7 +225,7 @@ ModUi/&IdentifyAfterRest=Ajoutez un pouvoir pour <color=#D89555>identifier les o
 ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour utiliser les <color=#D89555>arbalètes à main</color>
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Les sorts d'illusion échouent automatiquement contre les cibles ayant <color=#D89555>TrueSight</color> à portée
 ModUi/&IncreaseGameTimeBy=Augmenter le temps de jeu de
-ModUi/&IncreaseMaxAttunedItems=Augmentez le nombre maximum d'<color=#D89555>objets harmonisés</color> à 4 au niveau 10 et à 5 au niveau 18
+ModUi/&IncreaseMaxAttunedItems=Augmentez le nombre maximum d'<color=#D89555>objets accordés</color> à 4 au niveau 10 et à 5 au niveau 18
 ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&Items=<color=#F0DAA0>Articles :</color>
 ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages pour ajouter des objets aux héros...</color>
@@ -219,7 +237,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement 
 ModUi/&MaxAllowedClasses=<color=white>Nombre maximal de cours autorisés</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
-ModUi/&ModifyGravitySlam=Modifier le sort <color=#D89555>Gravity Slam</color> pour tirer les cibles affectées vers le bas et être un cylindre au lieu d'une sphère\n<i><color=#F0DAA0>[nécessite l'activation des <color=#D89555>effets de mouvement de poussée et de traction pour fonctionner sur l'axe haut/bas</color>]</color></i>
+ModUi/&ModifyGravitySlam=Modifier le sort <color=#D89555>Gravity Slam</color> pour attirer les cibles affectées vers le bas et être un cylindre au lieu d'une sphère\n<i><color=#F0DAA0>[nécessite l'activation des <color=#D89555>effets de mouvement de poussée et de traction pour fonctionner sur l'axe haut/bas</color>]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et les autres dépensent des emplacements de sorts verts de pacte]</color></i>
 ModUi/&Multiplayer=<color=#F0DAA0>Multijoueur :</color>
@@ -228,11 +246,11 @@ ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La caméra ne bouge jamais pendant les to
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour passer au niveau supérieur
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Annuler les paires <color=#D89555>avantage / inconvénient</color> aveuglées, invisibles et perçues <color=#F0DAA0>[utile en conjonction avec les règles officielles <color=#D89555>avantage / inconvénient</color>]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Changez les zones <color=#D89555>fortement obscurcies</color> en bloqueurs de projectiles <color=#F0DAA0>[<color=#D89555>Nuage tueur</color>, <color=#D89555>Nuage de brouillard</color>, <color=#D89555>Nuage incendiaire</color>, <color=#D89555>Tempête de pétales</color>, <color=#D89555>Tempête de grésil</color>, <color=#D89555>Nuage puant</color>]</color></i>
-ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Les créatures invisibles sont fortement masquées et peuvent être ciblées, les jets d'attaque contre la créature ont un désavantage et les jets d'attaque de la créature ont un avantage</i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Les créatures <color=#D89555>invisibles</color> sont fortement masquées, peuvent être ciblées, les jets d'attaque contre ont un désavantage et les jets d'attaque de la créature ont un avantage</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Changez les zones <color=#D89555>obscurcies par magie</color> en bloqueurs de projectiles <color=#F0DAA0>[toute source de l'effet du sort <color=#D89555>Ténèbres</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Ajoutez <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> et <color=#D89555>TrueSight</color> aux monstres et aux PNJ lorsque cela est approprié</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[collections de paramètres <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
-ModUi/&OneDnd=<color=#F0DAA0>Jeux de société <i>[One DnD, 2024]</i> :</color>
+ModUi/&OneDnd=<color=#F0DAA0>Jeux de société <i>[5e 2024]</i> :</color>
 ModUi/&OneDndHealingPotionBonusAction=Activer l'action bonus sur les utilisations de <color=#D89555>potions de soins</color> et d'<color=#D89555>antitoxines</color>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Afficher uniquement les créatures les plus puissantes dans la liste de conjuration</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multipliez la largeur de la grille de contour par</color> <color=#C04040E0>[%]</color>
@@ -248,14 +266,17 @@ ModUi/&Races=<color=#F0DAA0>Les courses</color>
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>
 ModUi/&RelicForgeries=Contrefaçons de reliques
 ModUi/&RemoveAttunementRequirements=Supprimer les exigences d'harmonisation <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&RemoveBardMagicalSecretAt14And18=Supprimez le <color=#D89555>secret magique</color> aux niveaux 14 et 18
+ModUi/&RemoveBardSongOfRestAt2=Supprimez <color=#D89555>Chant de repos</color> au niveau 2
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des araignées par des modèles ressemblant à des ours dans le jeu <i><color=#F0DAA0>[arachnophobie]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Supprimer le filtre humanoïde sur <color=#D89555>Hideous Laugher</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Appliquez uniquement l'effet <color=#D89555>Enchevêtrement</color> au moment de l'incantation et forcez également un test de force pour vous libérer des vignes
-ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Supprimer les restrictions scolaires de <color=#D89555>Shadowcaster</color>
-ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Supprimer les restrictions scolaires de <color=#D89555>Spellblade</color>
+ModUi/&RemoveRogueBlindSense=Supprimez <color=#D89555>Blind Sense</color> au niveau 14
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Supprimer les restrictions scolaires de <b>Shadowcaster</b>
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Supprimer les restrictions scolaires de <b>Spellblade</b>
 ModUi/&RestockAntiquarians=Réapprovisionner les antiquaires <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Réapprovisionner Arcaneum <i><color=#F0DAA0>[Sort de sûreté Heddlon]</color></i>
-ModUi/&RestockCircleOfDanantar=Réapprovisionner le Cercle de Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
+ModUi/&RestockCircleOfDanantar=Cercle de réapprovisionnement de Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=• Remplacer les valeurs par défaut pour forcer le réapprovisionnement de tous les stocks des marchands au fil du temps <i><color=#F0DAA0>[à l'exception des manuels et des tomes]</color></i>\n• Notez que certains objets peuvent prendre jusqu'à 7 jours de jeu pour être réapprovisionnés
 ModUi/&RestockTowerOfKnowledge=Réapprovisionner la Tour de la Connaissance <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>Retour en arrière</color></b>
@@ -293,12 +314,17 @@ ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Remplissez le magasin de Gori
 ModUi/&StockHugoStoreWithAdditionalFoci=Remplissez la boutique Hugo avec le <color=#D89555>bâton arcanique</color>, le <color=#D89555>cou de druide</color>, le <color=#D89555>bâton</color> et le <color=#D89555>club</color> définis comme objets prioritaires
 ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
 ModUi/&Subraces=<color=#F0DAA0>Sous-races</color>
+ModUi/&SwapAbjurationSavant=Échangez <b>Abjurer</b> <color=#D89555>Abjuration Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
-ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les fonctionnalités <color=#D89555>Évocateur</color> <b>Sculpture des sorts</b> et <b>Puissant tour de passe-passe</b>
+ModUi/&SwapDruidToUseOneDndWeaponProficiency=Activer la maîtrise des <color=#D89555>armes simples</color> <i><color=#F0DAA0>[au lieu des types d'armes individuels, mais vous perdez la maîtrise du cimeterre]</color></i>
+ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les sorts de sculpture de l'évocateur et le sort de cantrip puissant au fil de la progression
+ModUi/&SwapEvocationSavant=Échangez <b>Evoker</b> <color=#D89555>Evocation Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
+ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Activez <color=#D89555>Attaque non armée</color> pour utiliser la progression du type de dé 5e 2024
+ModUi/&SwapWarlockToUseOneDndInvocationProgression=Activez les <color=#D89555>invocations</color> pour utiliser la progression 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>
-ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>Classic et One DnD</color> dispersés dans le mod pour votre commodité
+ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>5e 2014 et 2024</color> dispersés dans le mod pour votre commodité
 ModUi/&TableTopHelp2=• Appuyez sur le bouton pour sélectionner uniquement le contenu de table sous l'onglet Personnage et sélectionnez toutes les options ci-dessous pour une véritable expérience TT
-ModUi/&Tabletop=<color=#F0DAA0>Jeux de société <i>[DnD classique, 2014]</i> :</color>
+ModUi/&Tabletop=<color=#F0DAA0>Jeux de société <i>[5e 2014]</i> :</color>
 ModUi/&TargetLanguage=Langue cible
 ModUi/&TotalCraftingTimeModifier=<color=white>Réduisez le temps de fabrication de</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total des <color=#D89555>exploits</color> accordés au premier niveau</color>
@@ -314,7 +340,7 @@ ModUi/&UseElfFaceModelsOnTieflings=Utilisez les modèles de visage <color=#D8955
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lorsque vous lancez <color=#D89555>Tentacules noirs, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Croissance en pointes</color> <i><color=#F0DAA0>[rond]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Utilisez des mathématiques précises pour déterminer le flanquement <color=#F0DAA0>[peut avoir un impact sur les performances sur les machines lentes]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Activer les règles <color=#D89555>avantage / désavantage</color> <i><color=#F0DAA0>[si les circonstances font qu'un jet a les deux, vous êtes considéré comme n'ayant aucun des deux]</color></i>
-ModUi/&UseOfficialFlankingRules=Activer les règles de <color=#D89555>flanking</color> <i><color=#F0DAA0>[un attaquant a l'avantage si un allié est du côté opposé à la cible]</color></i>
+ModUi/&UseOfficialFlankingRules=Activer les règles de <color=#D89555>flanquement</color> <i><color=#F0DAA0>[un attaquant a l'avantage si un allié est du côté opposé à la cible]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également pour les attaques à distance <color=#F0DAA0>[désactiver les calculs précis]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également les attaques de portée <color=#F0DAA0>[désactiver les calculs précis]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu d'un avantage, accordez +1 au jet d'attaque</i>

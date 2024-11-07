@@ -1535,7 +1535,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Stroke of Luck
 
-You have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit.
+You have an uncanny knack for succeeding when you need to. If you fail a D20 test, you can turn the roll into a 20. Once you use this feature, you can't use it again until you finish a Short Rest or a Long Rest.
 
 
 

@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -24,8 +24,8 @@ public static class CharacterStatsPanelPatcher
             }
 
             __instance.hitDiceBox.ValueLabel.Text =
-                MulticlassGameUiContext.GetAllClassesHitDiceLabel(__instance.guiCharacter, out var dieTypeCount);
-            __instance.hitDiceBox.ValueLabel.TMP_Text.fontSize = MulticlassGameUiContext.GetFontSize(dieTypeCount);
+                MulticlassGameUi.GetAllClassesHitDiceLabel(__instance.guiCharacter, out var dieTypeCount);
+            __instance.hitDiceBox.ValueLabel.TMP_Text.fontSize = MulticlassGameUi.GetFontSize(dieTypeCount);
         }
     }
 }

@@ -228,7 +228,7 @@ internal static class MulticlassContext
         [NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
-        var getClassLevelMethod = new Func<RulesetCharacterHero, int>(LevelUpContext.GetSelectedClassLevel).Method;
+        var getClassLevelMethod = new Func<RulesetCharacterHero, int>(LevelUpHelper.GetSelectedClassLevel).Method;
 
         return instructions.ReplaceCall(classesAndLevelsMethod,
             -1,
@@ -241,7 +241,7 @@ internal static class MulticlassContext
         [NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var classesHistoryMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesHistory");
-        var getClassLevelMethod = new Func<RulesetCharacterHero, int>(LevelUpContext.GetSelectedClassLevel).Method;
+        var getClassLevelMethod = new Func<RulesetCharacterHero, int>(LevelUpHelper.GetSelectedClassLevel).Method;
 
         return instructions.ReplaceCall(classesHistoryMethod,
             -1,
@@ -305,7 +305,7 @@ internal static class MulticlassContext
     private static bool ShouldEquipmentBeAssigned([NotNull] CharacterHeroBuildingData heroBuildingData)
     {
         var hero = heroBuildingData.HeroCharacter;
-        var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+        var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
 
         return !isLevelingUp;
     }
@@ -450,22 +450,22 @@ internal static class MulticlassContext
         CharacterClassDefinition characterClassDefinition, [NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         var firstClass = rulesetCharacterHero.ClassesHistory[0];
-        var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero) ?? characterClassDefinition;
-        var selectedSubClass = LevelUpContext.GetSelectedSubclass(rulesetCharacterHero);
+        var selectedClass = LevelUpHelper.GetSelectedClass(rulesetCharacterHero) ?? characterClassDefinition;
+        var selectedSubClass = LevelUpHelper.GetSelectedSubclass(rulesetCharacterHero);
         var filteredFeatureUnlockByLevels = selectedClass.FeatureUnlocks.ToList();
 
         //
         // supports a better MC UI offering
         //
-        if (LevelUpContext.IsLevelingUp(rulesetCharacterHero)
-            && LevelUpContext.IsClassSelectionStage(rulesetCharacterHero)
+        if (LevelUpHelper.IsLevelingUp(rulesetCharacterHero)
+            && LevelUpHelper.IsClassSelectionStage(rulesetCharacterHero)
             && selectedSubClass)
         {
             filteredFeatureUnlockByLevels.AddRange(selectedSubClass.FeatureUnlocks);
         }
 
         // don't mess up with very first class taken
-        if (!LevelUpContext.IsMulticlass(rulesetCharacterHero) || firstClass == selectedClass)
+        if (!LevelUpHelper.IsMulticlass(rulesetCharacterHero) || firstClass == selectedClass)
         {
             return characterClassDefinition.FeatureUnlocks;
         }

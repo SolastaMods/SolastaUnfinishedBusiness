@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Models;
+using TA;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -16,13 +17,37 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetEffectSpellPatcher
 {
-    //PATCH: supports CasterLevelTable with recurrent effects
     [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.ApplyEffectOnCharacter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     // ReSharper disable once InconsistentNaming
     public static class ApplyEffectOnCharacter_Patch
     {
+        //BUGFIX: prevent recurrent effects from applying on positions with spell immunity
+        [UsedImplicitly]
+        public static bool Prefix(
+            RulesetEffectSpell __instance,
+            RulesetActor targetCharacter,
+            bool hasValidPosition,
+            int3 targetPosition)
+        {
+            var spellDefinition = __instance.SpellDefinition;
+            var rulesetSource = EffectHelpers.GetCharacterByGuid(__instance.SourceGuid);
+            var source = GameLocationCharacter.GetFromActor(rulesetSource);
+
+            if (!hasValidPosition ||
+                !IsPositionImmuneToSpell(targetPosition, source.LocationPosition, spellDefinition.SpellLevel,
+                    out var spellLevel))
+            {
+                return true;
+            }
+
+            targetCharacter.ImmuneToSpellLevel?.Invoke(targetCharacter, spellDefinition, spellLevel);
+
+            return false;
+        }
+
+        //PATCH: supports CasterLevelTable with recurrent effects
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {

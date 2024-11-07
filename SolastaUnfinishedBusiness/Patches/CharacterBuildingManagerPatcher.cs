@@ -30,7 +30,7 @@ public static class CharacterBuildingManagerPatcher
         public static void Postfix([NotNull] CharacterBuildingManager __instance)
         {
             //PATCH: registers the hero getting created
-            LevelUpContext.RegisterHero(__instance.CurrentLocalHeroCharacter, false);
+            LevelUpHelper.RegisterHero(__instance.CurrentLocalHeroCharacter, false);
         }
     }
 
@@ -41,6 +41,8 @@ public static class CharacterBuildingManagerPatcher
     {
         [UsedImplicitly]
         public static void Prefix(
+            CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData,
             InvocationDefinition invocation,
             ref bool checkPool)
         {
@@ -48,6 +50,34 @@ public static class CharacterBuildingManagerPatcher
             if (invocation is InvocationDefinitionCustom)
             {
                 checkPool = false;
+            }
+
+            if (invocation.GrantedFeature is not FeatureDefinitionPointPool featureDefinitionPointPool)
+            {
+                return;
+            }
+
+            if (!heroBuildingData.PointPoolStacks.TryGetValue(
+                    featureDefinitionPointPool.PoolType, out var pointPoolStack))
+            {
+                return;
+            }
+
+            var hero = __instance.CurrentLocalHeroCharacter;
+
+            __instance.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+            var finaTag = AttributeDefinitions.GetClassTag(classDefinition, level) +
+                          featureDefinitionPointPool.ExtraSpellsTag;
+
+            if (pointPoolStack.ActivePools
+                .TryGetValue(finaTag + featureDefinitionPointPool.ExtraSpellsTag, out var pool))
+            {
+                pool.maxPoints += featureDefinitionPointPool.poolAmount;
+            }
+            else
+            {
+                __instance.ApplyFeatureDefinitionPointPool(heroBuildingData, featureDefinitionPointPool, finaTag);
             }
         }
     }
@@ -75,8 +105,45 @@ public static class CharacterBuildingManagerPatcher
     [UsedImplicitly]
     public static class UntrainInvocation_Patch
     {
+        private static void UndoGrantPool(
+            CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData,
+            InvocationDefinition invocation)
+        {
+            if (invocation.GrantedFeature is not FeatureDefinitionPointPool featureDefinitionPointPool)
+            {
+                return;
+            }
+
+            if (!heroBuildingData.PointPoolStacks.TryGetValue(featureDefinitionPointPool.PoolType,
+                    out var pointPoolStack))
+            {
+                return;
+            }
+
+            var hero = __instance.CurrentLocalHeroCharacter;
+
+            __instance.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+            var finaTag = AttributeDefinitions.GetClassTag(classDefinition, level) +
+                          featureDefinitionPointPool.ExtraSpellsTag + featureDefinitionPointPool.ExtraSpellsTag;
+
+            if (!pointPoolStack.ActivePools.TryGetValue(finaTag, out var pool))
+            {
+                return;
+            }
+
+            pool.maxPoints -= featureDefinitionPointPool.poolAmount;
+
+            if (pool.maxPoints == 0)
+            {
+                pointPoolStack.ActivePools.Remove(finaTag);
+            }
+        }
+
         [UsedImplicitly]
         public static bool Prefix(
+            CharacterBuildingManager __instance,
             CharacterHeroBuildingData heroBuildingData,
             InvocationDefinition invocation,
             string tag)
@@ -84,6 +151,8 @@ public static class CharacterBuildingManagerPatcher
             //PATCH: do not check or modify point pools when dealing with custom invocations
             if (invocation is not InvocationDefinitionCustom)
             {
+                UndoGrantPool(__instance, heroBuildingData, invocation);
+
                 return true;
             }
 
@@ -137,7 +206,7 @@ public static class CharacterBuildingManagerPatcher
             }
 
             //PATCH: registers the hero leveling up
-            LevelUpContext.RegisterHero(hero, true);
+            LevelUpHelper.RegisterHero(hero, true);
         }
     }
 
@@ -150,7 +219,7 @@ public static class CharacterBuildingManagerPatcher
         public static void Prefix([NotNull] CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
             //PATCH: grants race features
-            LevelUpContext.GrantRaceFeatures(__instance, hero);
+            LevelUpHelper.GrantRaceFeatures(__instance, hero);
 
             //PATCH: grants repertoires and cantrips from backgrounds
             if (hero.ClassesHistory.Count == 1)
@@ -171,27 +240,97 @@ public static class CharacterBuildingManagerPatcher
             }
 
             //PATCH: grants custom features
-            LevelUpContext.GrantCustomFeaturesFromFeats(hero);
-            LevelUpContext.GrantCustomFeatures(hero);
+            LevelUpHelper.GrantCustomFeaturesFromFeats(hero);
+            LevelUpHelper.GrantCustomFeatures(hero);
         }
 
         [UsedImplicitly]
         public static void Postfix(CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
-            //PATCH: grants cantrip selected by a Domain Nature on level 1
-            DomainNature.GrantCantripFromSubclassPool(hero);
+            //PATCH: grants cantrip that for whatever reason vanilla has a hard time granting ;-)
+            GrantCantripFromCustomAcquiredPool(hero, "DomainNature");
+            GrantCantripFromCustomAcquiredPool(hero, "PactTome");
+            GrantCantripFromCustomAcquiredPool(hero, "PrimalOrder");
+
+            //PATCH: grant spells for these 2 subs as pools with tags aren't granted from subs if not at sub 1st level
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
+
+            if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Wizard)
+            {
+                hero.GrantAcquiredSpellWithTagFromSubclassPool(WizardAbjuration.SpellTag);
+                hero.GrantAcquiredSpellWithTagFromSubclassPool(WizardEvocation.SpellTag);
+            }
 
             //PATCH: grants spell repertoires and respective selected spells from feats
-            LevelUpContext.GrantSpellsOrCantripsFromFeatCastSpell(__instance, hero);
+            LevelUpHelper.GrantSpellsOrCantripsFromFeatCastSpell(__instance, hero);
 
             //PATCH: keeps spell repertoires sorted by class title but ancestry one is always kept first
-            LevelUpContext.SortHeroRepertoires(hero);
+            LevelUpHelper.SortHeroRepertoires(hero);
 
             //PATCH: adds whole list caster spells to KnownSpells collection to improve the MC spell selection UI
             // LevelUpContext.UpdateKnownSpellsForWholeCasters(hero);
 
             //PATCH: unregisters the hero leveling up
-            LevelUpContext.UnregisterHero(hero);
+            LevelUpHelper.UnregisterHero(hero);
+        }
+
+        private static void GrantCantripFromCustomAcquiredPool(RulesetCharacterHero hero, string name)
+        {
+            var repertoire = hero.SpellRepertoires
+                .FirstOrDefault(x => LevelUpHelper.IsRepertoireFromSelectedClassSubclass(hero, x));
+
+            if (repertoire == null)
+            {
+                return;
+            }
+
+            var heroBuildingData = hero.GetHeroBuildingData();
+            var selectedClassLevel = LevelUpHelper.GetSelectedClassLevel(hero);
+
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
+            var classTag = AttributeDefinitions.GetClassTag(selectedClass, selectedClassLevel);
+            var classPoolName = $"{classTag}{name}";
+
+            // consider cantrips from classes
+            if (heroBuildingData.AcquiredCantrips.TryGetValue(classPoolName, out var cantrips1))
+            {
+                foreach (var cantrip in cantrips1)
+                {
+                    hero.GrantCantrip(cantrip, repertoire.SpellCastingFeature, name);
+                }
+            }
+
+            // consider cantrips from feats / invocations / etc.
+            classPoolName = $"{classTag}{name}{name}";
+
+            if (heroBuildingData.AcquiredCantrips.TryGetValue(classPoolName, out var cantrips2))
+            {
+                foreach (var cantrip in cantrips2)
+                {
+                    hero.GrantCantrip(cantrip, repertoire.SpellCastingFeature, name);
+                }
+            }
+
+            var selectedSubclass = LevelUpHelper.GetSelectedSubclass(hero);
+
+            if (!selectedSubclass)
+            {
+                return;
+            }
+
+            // consider cantrips from subclasses
+            var subclassTag = AttributeDefinitions.GetSubclassTag(selectedClass, 1, selectedSubclass);
+            var subclassPoolName = $"{subclassTag}{name}";
+
+            if (!heroBuildingData.AcquiredCantrips.TryGetValue(subclassPoolName, out var cantrips3))
+            {
+                return;
+            }
+
+            foreach (var cantrip in cantrips3)
+            {
+                hero.GrantCantrip(cantrip, repertoire.SpellCastingFeature, name);
+            }
         }
     }
 
@@ -204,17 +343,17 @@ public static class CharacterBuildingManagerPatcher
         public static bool Prefix([NotNull] RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
             //PATCH: captures the desired class
-            LevelUpContext.SetSelectedClass(hero, classDefinition);
+            LevelUpHelper.SetSelectedClass(hero, classDefinition);
 
             //PATCH: ensures this doesn't get executed in the class panel level up screen
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
             var result = isLevelingUp && isClassSelectionStage;
 
             if (result)
             {
                 //PATCH: grants items for new class if required
-                LevelUpContext.GrantItemsIfRequired(hero);
+                LevelUpHelper.GrantItemsIfRequired(hero);
             }
 
             return !result;
@@ -230,7 +369,7 @@ public static class CharacterBuildingManagerPatcher
         public static void Prefix([NotNull] RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
         {
             //PATCH: captures the desired sub class
-            LevelUpContext.SetSelectedSubclass(hero, subclassDefinition);
+            LevelUpHelper.SetSelectedSubclass(hero, subclassDefinition);
         }
     }
 
@@ -243,8 +382,8 @@ public static class CharacterBuildingManagerPatcher
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: ensures this doesn't get executed in the class panel level up screen
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
 
             return !(isLevelingUp && isClassSelectionStage);
         }
@@ -349,17 +488,17 @@ public static class CharacterBuildingManagerPatcher
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: un-captures the desired class
-            LevelUpContext.SetSelectedClass(hero, null);
+            LevelUpHelper.SetSelectedClass(hero, null);
 
             //PATCH: ensures this doesn't get executed in the class panel level up screen
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
             var result = isLevelingUp && isClassSelectionStage;
 
             if (result)
             {
                 //PATCH: removes items from new class if required
-                LevelUpContext.RemoveItemsIfRequired(hero);
+                LevelUpHelper.RemoveItemsIfRequired(hero);
             }
 
             return !result;
@@ -371,18 +510,28 @@ public static class CharacterBuildingManagerPatcher
     [UsedImplicitly]
     public static class UnassignLastSubclass_Patch
     {
+        private static void ResetCantripsPool(RulesetCharacterHero hero, string poolName)
+        {
+            var buildingData = hero.GetHeroBuildingData();
+
+            if (buildingData.PointPoolStacks.TryGetValue(HeroDefinitions.PointsPoolType.Cantrip, out var pointPool))
+            {
+                pointPool.ActivePools.Remove(poolName);
+            }
+        }
+
         [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
-            //PATCH: avoid Domain Nature to break level up with the cantrip it gets
-            DomainNature.ResetCantripSubclassPool(hero);
+            //PATCH: avoid Domain Nature to break level up with the cantrip pool it gets
+            ResetCantripsPool(hero, $"{AttributeDefinitions.TagSubclass}Cleric1DomainNatureDomainNature");
 
             //PATCH: un-captures the desired subclass
-            LevelUpContext.SetSelectedSubclass(hero, null);
+            LevelUpHelper.SetSelectedSubclass(hero, null);
 
             //PATCH: ensures this doesn't get executed in the class panel level up screen
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
             var result = isLevelingUp && isClassSelectionStage;
 
             return !result;
@@ -398,8 +547,8 @@ public static class CharacterBuildingManagerPatcher
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: ensures this doesn't get executed in the class panel level up screen
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
             var result = isLevelingUp && isClassSelectionStage;
 
             return !result;
@@ -417,7 +566,7 @@ public static class CharacterBuildingManagerPatcher
             List<SpellDefinition> __result)
         {
             //PATCH: ensures the level up process only presents / offers spells from current class
-            LevelUpContext.EnumerateKnownAndAcquiredSpells(heroBuildingData, __result);
+            LevelUpHelper.EnumerateKnownAndAcquiredSpells(heroBuildingData, __result);
         }
     }
 
@@ -451,13 +600,13 @@ public static class CharacterBuildingManagerPatcher
                 return false;
             }
 
-            var isMulticlass = LevelUpContext.IsMulticlass(hero);
+            var isMulticlass = LevelUpHelper.IsMulticlass(hero);
             if (!isMulticlass)
             {
                 return true;
             }
 
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
 
             if (!selectedClass)
             {
@@ -567,9 +716,9 @@ public static class CharacterBuildingManagerPatcher
             [NotNull] CharacterHeroBuildingData heroBuildingData)
         {
             var hero = heroBuildingData.HeroCharacter;
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
-            var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
-            var selectedClassLevel = LevelUpContext.GetSelectedClassLevel(hero);
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
+            var selectedSubclass = LevelUpHelper.GetSelectedSubclass(hero);
+            var selectedClassLevel = LevelUpHelper.GetSelectedClassLevel(hero);
 
             // we filter out any repertoire that was granted from feats
             foreach (var spellRepertoire in hero.SpellRepertoires
@@ -751,7 +900,7 @@ public static class CharacterBuildingManagerPatcher
                 }
             }
 
-            LevelUpContext.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
+            LevelUpHelper.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
         }
     }
 
@@ -795,7 +944,7 @@ public static class CharacterBuildingManagerPatcher
                 }
             }
 
-            LevelUpContext.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
+            LevelUpHelper.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
         }
     }
 
@@ -841,7 +990,7 @@ public static class CharacterBuildingManagerPatcher
                 }
             }
 
-            LevelUpContext.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
+            LevelUpHelper.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
         }
     }
 }

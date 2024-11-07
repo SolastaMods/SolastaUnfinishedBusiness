@@ -31,7 +31,19 @@ internal static class InvocationsBuilders
     internal const string EldritchSmiteTag = "EldritchSmite";
 
     private static InvocationDefinition _graspingBlast;
-    public static InvocationDefinition GraspingBlast => _graspingBlast ??= BuildGraspingBlast();
+
+    internal static readonly InvocationDefinition EldritchMind = InvocationDefinitionBuilder
+        .Create("InvocationEldritchMind")
+        .SetGuiPresentation(Category.Invocation, InvocationDefinitions.EldritchSpear)
+        .SetGrantedFeature(
+            FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinityInvocationEldritchMind")
+                .SetGuiPresentation("InvocationEldritchMind", Category.Invocation)
+                .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
+                .AddToDB())
+        .AddToDB();
+
+    internal static InvocationDefinition GraspingBlast => _graspingBlast ??= BuildGraspingBlast();
 
     internal static InvocationDefinition BuildEldritchSmite()
     {
@@ -175,22 +187,6 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(Category.Invocation, spellTrickstersEscape)
             .SetRequirements(7)
             .SetGrantedSpell(spellTrickstersEscape, false, true)
-            .AddToDB();
-    }
-
-    internal static InvocationDefinition BuildEldritchMind()
-    {
-        const string NAME = "InvocationEldritchMind";
-
-        return InvocationDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.EldritchSpear)
-            .SetGrantedFeature(
-                FeatureDefinitionMagicAffinityBuilder
-                    .Create("MagicAffinityInvocationEldritchMind")
-                    .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
-                    .AddToDB())
             .AddToDB();
     }
 

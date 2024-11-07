@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
@@ -21,14 +21,14 @@ internal static class BootContext
         ItemDefinitionVerification.Load();
         EffectFormVerification.Load();
 #endif
-        GameUiContext.ModifyActionMaps();
+        CampaignsContext.ModifyActionMaps();
 
         // STEP 0: Cache TA definitions for diagnostics and export
         DiagnosticsContext.CacheTaDefinitions();
 
         // Load Portraits, Translations and Resources Locator after
         TranslatorContext.Load();
-        ResourceLocatorContext.Load();
+        ResourceLocatorHelper.Load();
 
         // Fixes spell slots and progressions early on
         FixesContext.Load();
@@ -51,16 +51,14 @@ internal static class BootContext
         CustomWeaponsContext.Load();
         CustomItemsContext.Load();
         PowerBundleContext.Load();
-
-        //
-        // other stuff that can be loaded in any order
-        //
-
         ToolsContext.Load();
         CharacterExportContext.Load();
-        DmProEditorContext.Load();
-        GameUiContext.Load();
+        DungeonMakerContext.Load();
+        CampaignsContext.Load();
         InputContext.Load();
+
+        // only bootstrap for now
+        FeatsContext.Load();
 
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();
@@ -92,7 +90,7 @@ internal static class BootContext
             FeatsContext.LateLoad();
 
             // Late initialized to allow feats and races from other mods
-            CharacterContext.LateLoad();
+            RulesContext.LateLoad();
 
             // Custom invocations
             InvocationsContext.LateLoad();
@@ -119,17 +117,19 @@ internal static class BootContext
             SharedSpellsContext.LateLoad();
 
             // Set anything on subs that depends on spells and others
-            SrdAndHouseRulesContext.LateLoad();
+            Tabletop2014Context.LateLoad();
+            Tabletop2024Context.LateLoad();
+
             SubclassesContext.LateLoad();
             InventorClass.LateLoadSpellStoringItem();
             LightingAndObscurementContext.LateLoad();
             GrappleContext.LateLoad();
 
-            // Save by location initialization depends on services to be ready
-            SaveByLocationContext.LateLoad();
-
             // Spell Points should load closer to the bottom after all other blueprints initiated
             SpellPointsContext.LateLoad();
+
+            // Save by location initialization depends on services to be ready
+            SaveByLocationContext.LateLoad();
 
             // Recache all gui collections
             GuiWrapperContext.Recache();
@@ -141,17 +141,12 @@ internal static class BootContext
             DocumentationContext.DumpDocumentation();
             ModUi.LoadTabletopDefinitions();
 
-            AddExtraTooltipDefinitions();
-
             // Manages update or welcome messages
             UpdateContext.Load();
 
-            // Log invalid user campaign
+            //TODO: find a better place to implement these
+            AddExtraTooltipDefinitions();
             LogMissingReferencesInUserCampaigns();
-
-            // Fix condition UI
-            DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description =
-                Gui.NoLocalization;
 
             // Enable mod
             Main.Enable();

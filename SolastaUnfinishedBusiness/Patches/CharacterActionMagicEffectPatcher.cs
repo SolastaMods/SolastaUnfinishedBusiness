@@ -1005,16 +1005,6 @@ public static class CharacterActionMagicEffectPatcher
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
-            // BEGIN PATCH
-
-            //BUGFIX: avoid effect proxies interacting with each other
-            if (target.RulesetCharacter is RulesetCharacterEffectProxy)
-            {
-                yield break;
-            }
-
-            // END PATCH
-
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 

@@ -30,18 +30,26 @@ internal static class SubclassesDisplay
             Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness = toggle;
         }
 
+        UI.Label();
+
         toggle = Main.Settings.EnableBg3AbjurationArcaneWard;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWard"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBg3AbjurationArcaneWard = toggle;
-            WizardAbjuration.UpdateBg3ModeStatus();
+            WizardAbjuration.SwapAbjurationBaldurGate3Mode();
+        }
+
+        if (Main.Settings.EnableBg3AbjurationArcaneWard)
+        {
+            UI.Label(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWardHelp"));
+            UI.Label();
         }
 
         toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
-            CharacterContext.SwitchBardHealingBalladOnLongRest();
+            Tabletop2014Context.SwitchBardHealingBalladOnLongRest();
         }
 
         toggle = Main.Settings.EnableRogueStrSaving;
@@ -50,10 +58,20 @@ internal static class SubclassesDisplay
             Main.Settings.EnableRogueStrSaving = toggle;
         }
 
-        if (Main.Settings.EnableBg3AbjurationArcaneWard)
+        UI.Label();
+
+        toggle = Main.Settings.SwapAbjurationSavant;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapAbjurationSavant"), ref toggle, UI.AutoWidth()))
         {
-            UI.Label(Gui.Localize("ModUi/&EnableBG3AbjurationArcaneWardHelp"));
-            UI.Label();
+            Main.Settings.SwapAbjurationSavant = toggle;
+            WizardAbjuration.SwapSavantAndSavant2024();
+        }
+
+        toggle = Main.Settings.SwapEvocationSavant;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapEvocationSavant"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.SwapEvocationSavant = toggle;
+            WizardEvocation.SwapSavantAndSavant2024();
         }
 
         toggle = Main.Settings.SwapEvocationPotentCantripAndSculptSpell;
@@ -69,14 +87,14 @@ internal static class SubclassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromShadowCaster"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveSchoolRestrictionsFromShadowCaster = toggle;
-            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromShadowCaster();
+            SubclassesContext.SwitchSchoolRestrictionsFromShadowCaster();
         }
 
         toggle = Main.Settings.RemoveSchoolRestrictionsFromSpellBlade;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromSpellBlade"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveSchoolRestrictionsFromSpellBlade = toggle;
-            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromSpellBlade();
+            SubclassesContext.SwitchSchoolRestrictionsFromSpellBlade();
         }
 
         UI.Label();

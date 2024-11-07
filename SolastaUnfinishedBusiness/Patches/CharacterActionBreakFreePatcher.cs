@@ -5,7 +5,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -31,7 +30,7 @@ public static class CharacterActionBreakFreePatcher
         {
             var character = __instance.ActingCharacter;
             var rulesetCharacter = character.RulesetCharacter;
-            var restrainingCondition = AiContext.GetRestrainingCondition(rulesetCharacter);
+            var restrainingCondition = AiHelpers.GetRestrainingCondition(rulesetCharacter);
 
             if (restrainingCondition == null)
             {
@@ -39,7 +38,7 @@ public static class CharacterActionBreakFreePatcher
             }
 
             var sourceGuid = restrainingCondition.SourceGuid;
-            var action = (AiContext.BreakFreeType)restrainingCondition.Amount;
+            var action = (AiHelpers.BreakFreeType)restrainingCondition.Amount;
             var actionModifier = new ActionModifier();
             var checkDC = 10;
             var success = false;
@@ -48,23 +47,23 @@ public static class CharacterActionBreakFreePatcher
 
             switch (action)
             {
-                case AiContext.BreakFreeType.DoNoCheckAndRemoveCondition:
+                case AiHelpers.BreakFreeType.DoNoCheckAndRemoveCondition:
                     rulesetCharacter.RemoveCondition(restrainingCondition);
                     yield break;
 
-                case AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC:
+                case AiHelpers.BreakFreeType.DoStrengthCheckAgainstCasterDC:
                 {
                     CalculateDC(AttributeDefinitions.Strength);
                     yield return RollAbilityCheck();
                     break;
                 }
-                case AiContext.BreakFreeType.DoWisdomCheckAgainstCasterDC:
+                case AiHelpers.BreakFreeType.DoWisdomCheckAgainstCasterDC:
                 {
                     CalculateDC(AttributeDefinitions.Wisdom);
                     yield return RollAbilityCheck();
                     break;
                 }
-                case AiContext.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics:
+                case AiHelpers.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics:
                 {
                     var rulesetSource = EffectHelpers.GetCharacterByGuid(sourceGuid);
                     var source = GameLocationCharacter.GetFromActor(rulesetSource);

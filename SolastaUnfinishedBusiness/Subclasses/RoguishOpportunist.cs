@@ -235,7 +235,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (!CharacterContext.IsSneakAttackValid(actionModifier, attacker, defender))
+            if (!Tabletop2024Context.IsSneakAttackValid(actionModifier, attacker, defender))
             {
                 yield break;
             }

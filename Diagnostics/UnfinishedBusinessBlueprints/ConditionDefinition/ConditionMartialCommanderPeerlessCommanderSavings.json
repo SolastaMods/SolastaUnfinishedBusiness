@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SavingThrowAffinityMartialCommanderPeerlessCommander:dcd49c7c-bc39-57df-a8e9-fcce11317373"
+    "Definition:SavingThrowAffinityAdvantageToAll:43ef34e25f37fc64bbc7af455a107f8f"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

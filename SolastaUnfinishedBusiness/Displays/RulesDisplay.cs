@@ -92,21 +92,21 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableProneAction"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableProneAction = toggle;
-            CharacterContext.SwitchProneAction();
+            Tabletop2014Context.SwitchProneAction();
         }
 
         toggle = Main.Settings.EnableGrappleAction;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableGrappleAction"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableGrappleAction = toggle;
-            GrappleContext.SwitchGrappleAction();
+            Tabletop2014Context.SwitchGrappleAction();
         }
 
         toggle = Main.Settings.EnableHelpAction;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHelpAction"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableHelpAction = toggle;
-            CharacterContext.SwitchHelpPower();
+            Tabletop2014Context.SwitchHelpPower();
         }
 
         toggle = Main.Settings.EnableRespecAction;
@@ -201,7 +201,7 @@ internal static class RulesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
-            SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
+            Tabletop2014Context.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
         }
 
         toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
@@ -360,7 +360,7 @@ internal static class RulesDisplay
             if (!toggle)
             {
                 Main.Settings.ModifyGravitySlam = false;
-                SrdAndHouseRulesContext.ToggleGravitySlamModification();
+                Tabletop2014Context.SwitchGravitySlam();
             }
         }
 
@@ -368,7 +368,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.FullyControlConjurations = toggle;
-            SrdAndHouseRulesContext.SwitchFullyControlConjurations();
+            Tabletop2014Context.SwitchFullyControlConjurations();
         }
 
         UI.Label();
@@ -383,7 +383,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSurprisedToEnforceDisadvantage"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSurprisedToEnforceDisadvantage = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndSurprisedEnforceDisadvantage();
+            Tabletop2024Context.SwitchOneDndSurprisedEnforceDisadvantage();
         }
 
         toggle = Main.Settings.EnableTeleportToRemoveRestrained;
@@ -405,7 +405,7 @@ internal static class RulesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition = toggle;
-            SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
+            Tabletop2014Context.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
         }
 
         toggle = Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition;
@@ -413,7 +413,7 @@ internal static class RulesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition = toggle;
-            SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
+            Tabletop2014Context.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
         }
 
         UI.Label();

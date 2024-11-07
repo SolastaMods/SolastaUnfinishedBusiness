@@ -177,10 +177,10 @@ public sealed class RoguishDuelist : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!ValidatorsWeapon.IsMeleeOrUnarmed(attackMode) ||
+                rulesetDefender.IsIncapacitated ||
                 rulesetDefender.HasAnyConditionOfTypeOrSubType(
                     conditionReflexiveParty.Name,
                     ConditionDefinitions.ConditionDazzled.Name,
-                    ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,
                     ConditionDefinitions.ConditionSlowed.Name))
             {
@@ -327,7 +327,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            var isSneakAttackValid = CharacterContext.IsSneakAttackValid(attackModifier, attacker, defender);
+            var isSneakAttackValid = Tabletop2024Context.IsSneakAttackValid(attackModifier, attacker, defender);
 
             if (isSneakAttackValid)
             {

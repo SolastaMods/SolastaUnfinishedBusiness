@@ -1,19 +1,29 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Displays;
+using SolastaUnfinishedBusiness.Interfaces;
+using TA.AI;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
+using static ActionDefinitions;
+using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellsContext
 {
+    private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker";
+
     internal static readonly Dictionary<SpellDefinition, SpellDefinition> SpellsChildMaster = [];
     internal static readonly Dictionary<SpellListDefinition, SpellListContext> SpellListContextTab = [];
 
@@ -23,6 +33,9 @@ internal static class SpellsContext
         .ClearSpells()
         .FinalizeSpells(false)
         .AddToDB();
+
+    private static readonly DecisionPackageDefinition DecisionPackageRestrained =
+        AiHelpers.BuildDecisionPackageBreakFree(ConditionRestrainedByEntangle.Name);
 
     // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = [];
@@ -50,6 +63,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition MantleOfThorns = BuildMantleOfThorns();
     internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition PetalStorm = BuildPetalStorm();
+    internal static readonly SpellDefinition PowerWordHeal = BuildPowerWordHeal();
+    internal static readonly SpellDefinition PowerWordKill = BuildPowerWordKill();
     internal static readonly SpellDefinition PsychicWhip = BuildPsychicWhip();
     internal static readonly SpellDefinition PulseWave = BuildPulseWave();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
@@ -63,6 +78,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition Web = BuildWeb();
     internal static readonly SpellDefinition Wrack = BuildWrack();
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
+
+    private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
     internal static HashSet<SpellDefinition> Spells { get; private set; } = [];
 
     [NotNull]
@@ -76,7 +93,7 @@ internal static class SpellsContext
             }
 
             // only this sub matters for spell selection. this might change if we add additional subs to mod
-            var characterSubclass = DatabaseHelper.CharacterSubclassDefinitions.TraditionLight;
+            var characterSubclass = CharacterSubclassDefinitions.TraditionLight;
 
             var title = characterSubclass.FormatTitle();
 
@@ -234,8 +251,10 @@ internal static class SpellsContext
             RegisterSpell(kvp.Key, kvp.Value.Count, kvp.Value.ToArray());
         }
 
+        // kept for backward compatibility
+        _ = BuildAcidClaw();
+
         // cantrips
-        RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
         RegisterSpell(AirBlast, 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildBladeWard(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildBoomingBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
@@ -297,8 +316,8 @@ internal static class SpellsContext
         RegisterSpell(BuildBorrowedKnowledge(), 0, SpellListBard, SpellListCleric, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildCloudOfDaggers(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
-        DatabaseHelper.SpellDefinitions.ConjureGoblinoids.contentPack = CeContentPackContext.CeContentPack;
-        RegisterSpell(DatabaseHelper.SpellDefinitions.ConjureGoblinoids, 0, SpellListDruid, SpellListRanger);
+        ConjureGoblinoids.contentPack = CeContentPackContext.CeContentPack;
+        RegisterSpell(ConjureGoblinoids, 0, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildKineticJaunt(), 0, SpellListBard, SpellListSorcerer, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildNoxiousSpray(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
@@ -396,8 +415,8 @@ internal static class SpellsContext
         RegisterSpell(BuildInvulnerability(), 0, SpellListWizard);
         RegisterSpell(BuildMassHeal(), 0, SpellListCleric);
         RegisterSpell(BuildMeteorSwarmSingleTarget(), 0, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(BuildPowerWordHeal(), 0, SpellListBard, SpellListCleric);
-        RegisterSpell(BuildPowerWordKill(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(PowerWordHeal, 0, SpellListBard, SpellListCleric);
+        RegisterSpell(PowerWordKill, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPsychicScream(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildTimeStop(), 0, SpellListWizard, SpellListSorcerer);
         RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
@@ -434,6 +453,23 @@ internal static class SpellsContext
                 SpellsChildMaster.TryAdd(child, parent);
             }
         }
+
+        // bootstrap
+
+        BuildConjureElementalInvisibleStalker();
+
+        LoadAllowTargetingSelectionWhenCastingChainLightningSpell();
+
+
+        SwitchAddBleedingToLesserRestoration();
+        SwitchChangeSleetStormToCube();
+        SwitchEnableUpcastConjureElementalAndFey();
+        SwitchFilterOnHideousLaughter();
+        SwitchAllowBladeCantripsToUseReach();
+        SwitchHastedCasing();
+        SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
+        SwitchRecurringEffectOnEntangle();
+        SwitchUseHeightOneCylinderEffect();
     }
 
     private static void RegisterSpell(
@@ -506,11 +542,269 @@ internal static class SpellsContext
         foreach (var spellSniperClass in spellSniperClasses)
         {
             if (spellDefinition.SpellLevel == 0 &&
-                DatabaseHelper.TryGetDefinition<SpellListDefinition>(
+                TryGetDefinition<SpellListDefinition>(
                     $"SpellListFeatSpellSniper{spellSniperClass.Name}", out var spellListSniper))
             {
                 spellListSniper.AddSpell(spellDefinition);
             }
+        }
+    }
+
+    private static void LoadAllowTargetingSelectionWhenCastingChainLightningSpell()
+    {
+        ChainLightning.AddCustomSubFeatures(new FilterTargetingCharacterChainLightning());
+    }
+
+    internal static void SwitchAllowTargetingSelectionWhenCastingChainLightningSpell()
+    {
+        var spell = ChainLightning.EffectDescription;
+
+        if (Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell)
+        {
+            spell.targetType = TargetType.IndividualsUnique;
+            spell.targetParameter = 4;
+            spell.effectAdvancement.additionalTargetsPerIncrement = 1;
+        }
+        else
+        {
+            spell.targetType = TargetType.ArcFromIndividual;
+            spell.targetParameter = 3;
+            spell.effectAdvancement.additionalTargetsPerIncrement = 0;
+        }
+    }
+
+    internal static void SwitchFilterOnHideousLaughter()
+    {
+        HideousLaughter.effectDescription.restrictedCreatureFamilies.Clear();
+
+        if (!Main.Settings.RemoveHumanoidFilterOnHideousLaughter)
+        {
+            HideousLaughter.effectDescription.restrictedCreatureFamilies.Add(CharacterFamilyDefinitions.Humanoid.Name);
+        }
+    }
+
+    internal static void SwitchRecurringEffectOnEntangle()
+    {
+        // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
+        if (Main.Settings.RemoveRecurringEffectOnEntangle)
+        {
+            Entangle.effectDescription.recurrentEffect = RecurrentEffect.OnActivation;
+            Entangle.effectDescription.EffectForms[2].canSaveToCancel = false;
+            ConditionRestrainedByEntangle.Features.Add(FeatureDefinitionActionAffinitys.ActionAffinityGrappled);
+            ConditionRestrainedByEntangle.amountOrigin = ConditionDefinition.OriginOfAmount.Fixed;
+            ConditionRestrainedByEntangle.baseAmount = (int)AiHelpers.BreakFreeType.DoStrengthCheckAgainstCasterDC;
+            ConditionRestrainedByEntangle.addBehavior = true;
+            ConditionRestrainedByEntangle.battlePackage = DecisionPackageRestrained;
+        }
+        else
+        {
+            Entangle.effectDescription.recurrentEffect =
+                RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd | RecurrentEffect.OnEnter;
+            Entangle.effectDescription.EffectForms[2].canSaveToCancel = true;
+            ConditionRestrainedByEntangle.Features.Remove(FeatureDefinitionActionAffinitys.ActionAffinityGrappled);
+            ConditionRestrainedByEntangle.amountOrigin = ConditionDefinition.OriginOfAmount.None;
+            ConditionRestrainedByEntangle.baseAmount = 0;
+            ConditionRestrainedByEntangle.addBehavior = false;
+            ConditionRestrainedByEntangle.battlePackage = null;
+        }
+    }
+
+    internal static void SwitchChangeSleetStormToCube()
+    {
+        var sleetStormEffect = SleetStorm.EffectDescription;
+
+        if (Main.Settings.ChangeSleetStormToCube)
+        {
+            // Set to Cube side 8, default height
+            sleetStormEffect.targetType = TargetType.Cube;
+            sleetStormEffect.targetParameter = 8;
+            sleetStormEffect.targetParameter2 = 0;
+        }
+        else
+        {
+            // Restore to cylinder radius 4, height 3
+            sleetStormEffect.targetType = TargetType.Cylinder;
+            sleetStormEffect.targetParameter = 4;
+            sleetStormEffect.targetParameter2 = 3;
+        }
+    }
+
+    internal static void SwitchUseHeightOneCylinderEffect()
+    {
+        // always applicable
+        ClearTargetParameter2ForTargetTypeCube();
+
+        // Change SpikeGrowth to be height 1 round cylinder/sphere
+        var spikeGrowthEffect = SpikeGrowth.EffectDescription;
+
+        spikeGrowthEffect.targetParameter = 4;
+
+        if (Main.Settings.UseHeightOneCylinderEffect)
+        {
+            // Set to Cylinder radius 4, height 1
+            spikeGrowthEffect.targetType = TargetType.Cylinder;
+            spikeGrowthEffect.targetParameter2 = 1;
+        }
+        else
+        {
+            // Restore default of Sphere radius 4
+            spikeGrowthEffect.targetType = TargetType.Sphere;
+            spikeGrowthEffect.targetParameter2 = 0;
+        }
+
+        // Spells with TargetType.Cube and defaults values of (tp, tp2)
+        // Note that tp2 should be 0 for Cube and is ignored in game.
+        // BlackTentacles: (4, 2)
+        // Entangle: (4, 1)
+        // FaerieFire: (4, 2)
+        // FlamingSphere: (3, 2) <- a flaming sphere is a cube?
+        // Grease: (2, 2)
+        // HypnoticPattern: (6, 2)
+        // Slow: (8, 2)
+        // Thunderwave: (3, 2)
+
+        // Change Black Tentacles, Entangle, Grease to be height 1 square cylinder/cube
+        if (Main.Settings.UseHeightOneCylinderEffect)
+        {
+            // Setting height switches to square cylinder (if originally cube)
+            SetHeight(BlackTentacles, 1);
+            SetHeight(Entangle, 1);
+            SetHeight(Grease, 1);
+        }
+        else
+        {
+            // Setting height to 0 restores original behaviour
+            SetHeight(BlackTentacles, 0);
+            SetHeight(Entangle, 0);
+            SetHeight(Grease, 0);
+        }
+
+        return;
+
+        static void SetHeight([NotNull] IMagicEffect spellDefinition, int height)
+        {
+            spellDefinition.EffectDescription.targetParameter2 = height;
+        }
+
+        static void ClearTargetParameter2ForTargetTypeCube()
+        {
+            foreach (var sd in DatabaseRepository
+                         .GetDatabase<SpellDefinition>()
+                         .Where(sd =>
+                             sd.EffectDescription.TargetType is TargetType.Cube
+                                 or TargetType.CubeWithOffset))
+            {
+                // TargetParameter2 is not used by TargetType.Cube but has random values assigned.
+                // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.
+                sd.EffectDescription.targetParameter2 = 0;
+            }
+        }
+    }
+
+    internal static void SwitchAllowBladeCantripsToUseReach()
+    {
+        var db = DatabaseRepository.GetDatabase<SpellDefinition>();
+        var cantrips = new List<string> { "BoomingBlade", "ResonatingStrike", "SunlightBlade" };
+
+        foreach (var bladeCantrip in db.Where(x => cantrips.Contains(x.Name)))
+        {
+            var text = Main.Settings.AllowBladeCantripsToUseReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
+
+            bladeCantrip.GuiPresentation.Description = Gui.Format($"Spell/&{bladeCantrip.Name}Description", text);
+        }
+    }
+
+    internal static void SwitchHastedCasing()
+    {
+        var restrictedActions = FeatureDefinitionAdditionalActions.AdditionalActionHasted.RestrictedActions;
+        if (Main.Settings.AllowHasteCasting)
+        {
+            restrictedActions.TryAdd(Id.CastMain);
+        }
+        else
+        {
+            restrictedActions.RemoveAll(id => id == Id.CastMain);
+        }
+    }
+
+    internal static void SwitchAddBleedingToLesserRestoration()
+    {
+        var cf = LesserRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
+
+        if (cf != null)
+        {
+            if (Main.Settings.AddBleedingToLesserRestoration)
+            {
+                cf.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
+            }
+            else
+            {
+                cf.ConditionForm.ConditionsList.Remove(ConditionBleeding);
+            }
+        }
+
+        var cfg = GreaterRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
+
+        if (cfg == null)
+        {
+            return;
+        }
+
+        // NOTE: using the same setting as for Lesser Restoration for compatibility
+        if (Main.Settings.AddBleedingToLesserRestoration)
+        {
+            cfg.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
+        }
+        else
+        {
+            cfg.ConditionForm.ConditionsList.Remove(ConditionBleeding);
+        }
+    }
+
+    /// <summary>
+    ///     Allow conjurations to fully controlled party members instead of AI controlled.
+    /// </summary>
+    private static void BuildConjureElementalInvisibleStalker()
+    {
+        ConjureElementalInvisibleStalker = SpellDefinitionBuilder
+            .Create(ConjureElementalFire, InvisibleStalkerSubspellName)
+            .SetOrUpdateGuiPresentation("Spell/&ConjureElementalInvisibleStalkerTitle",
+                "Spell/&ConjureElementalDescription")
+            .AddToDB();
+
+        var summonForm = ConjureElementalInvisibleStalker
+            .EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Summon)?.SummonForm;
+
+        if (summonForm != null)
+        {
+            summonForm.monsterDefinitionName = InvisibleStalker.Name;
+        }
+    }
+
+
+    internal static void SwitchEnableUpcastConjureElementalAndFey()
+    {
+        if (!Main.Settings.EnableUpcastConjureElementalAndFey)
+        {
+            ConjureElemental.SubspellsList.Remove(ConjureElementalInvisibleStalker);
+
+            return;
+        }
+
+        ConfigureAdvancement(ConjureFey);
+        ConfigureAdvancement(ConjureElemental);
+        ConfigureAdvancement(ConjureMinorElementals);
+        ConjureElemental.SubspellsList.Add(ConjureElementalInvisibleStalker);
+
+        return;
+
+        // Set advancement at spell level, not sub-spell
+        static void ConfigureAdvancement([NotNull] IMagicEffect spell)
+        {
+            var advancement = spell.EffectDescription.EffectAdvancement;
+
+            advancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
+            advancement.additionalSpellLevelPerIncrement = 1;
         }
     }
 
@@ -685,7 +979,7 @@ internal static class SpellsContext
                 SpellList.AddSpell(spellDefinition);
 
                 // sync shock arcanist list with wizard
-                if (SpellList == SpellListWizard && spellDefinition.SchoolOfMagic == RuleDefinitions.SchoolEvocation)
+                if (SpellList == SpellListWizard && spellDefinition.SchoolOfMagic == SchoolEvocation)
                 {
                     SpellListShockArcanist.AddSpell(spellDefinition);
                 }
@@ -700,7 +994,7 @@ internal static class SpellsContext
                 }
 
                 // sync shock arcanist list with wizard
-                if (SpellList == SpellListWizard && spellDefinition.SchoolOfMagic == RuleDefinitions.SchoolEvocation)
+                if (SpellList == SpellListWizard && spellDefinition.SchoolOfMagic == SchoolEvocation)
                 {
                     foreach (var spellsByLevel in SpellListShockArcanist.SpellsByLevel)
                     {
@@ -710,6 +1004,32 @@ internal static class SpellsContext
 
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(spellName);
             }
+        }
+    }
+
+    private sealed class FilterTargetingCharacterChainLightning : IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            var selectedTargets = __instance.SelectionService.SelectedTargets;
+
+            if (selectedTargets.Count == 0)
+            {
+                return true;
+            }
+
+            var firstTarget = selectedTargets[0];
+
+            var isValid = firstTarget.IsWithinRange(target, 6);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Failure/&SecondTargetNotWithinRange");
+            }
+
+            return isValid;
         }
     }
 }

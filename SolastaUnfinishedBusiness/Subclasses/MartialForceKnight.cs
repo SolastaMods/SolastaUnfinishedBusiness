@@ -375,6 +375,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
                     x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+            .AddCancellingConditions(ConditionDefinitions.ConditionCharmedByHypnoticPattern)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedForceBulwark(conditionForceBulwark))
             .AddToDB();
 

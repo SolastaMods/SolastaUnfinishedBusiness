@@ -39,7 +39,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AcidClaws, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AcidClaws, 128), hidden: true)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
@@ -753,7 +753,7 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(DivineFavor)
                     .Build())
-            .AddCustomSubFeatures(SrdAndHouseRulesContext.NoTwinned.Mark, new AttackAfterMagicEffect())
+            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, new AttackAfterMagicEffect())
             .AddToDB();
 
         return spell;
@@ -1019,7 +1019,7 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(Shatter)
                     .Build())
-            .AddCustomSubFeatures(SrdAndHouseRulesContext.NoTwinned.Mark, new AttackAfterMagicEffect())
+            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, new AttackAfterMagicEffect())
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
@@ -1131,7 +1131,7 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
             .AddCustomSubFeatures(
-                SrdAndHouseRulesContext.NoTwinned.Mark,
+                FixesContext.NoTwinned.Mark,
                 // order matters here as CustomBehaviorResonatingStrike.IFilterTargetingCharacter
                 // should trigger before AttackAfterMagicEffect.IFilterTargetingCharacter
                 new CustomBehaviorResonatingStrike(),

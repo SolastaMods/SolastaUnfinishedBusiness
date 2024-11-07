@@ -8,6 +8,8 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Subclasses;
+using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -52,12 +54,12 @@ internal static class SubclassesContext
             kvp.Value.RemoveAll(x => subclasses.Contains(x));
         }
 
-        // sorting
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-                .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
-        }
+        DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
+
+        // bootstrap
+        SwitchSchoolRestrictionsFromShadowCaster();
+        SwitchSchoolRestrictionsFromSpellBlade();
     }
 
     internal static void LateLoad()
@@ -66,8 +68,9 @@ internal static class SubclassesContext
         CollegeOfLife.LateLoad();
         RangerSurvivalist.LateLoad();
         SorcerousFieldManipulator.LateLoad();
+        WizardAbjuration.LateLoad();
         WizardDeadMaster.LateLoad();
-        WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
+        WizardEvocation.LateLoad();
     }
 
     private static void RegisterClassesContext()
@@ -125,6 +128,39 @@ internal static class SubclassesContext
         foreach (var subclassListContext in KlassListContextTab.Values)
         {
             subclassListContext.SelectTabletopSetInternal(toggle);
+        }
+    }
+
+
+    internal static void SwitchSchoolRestrictionsFromShadowCaster()
+    {
+        if (Main.Settings.RemoveSchoolRestrictionsFromShadowCaster)
+        {
+            FeatureDefinitionCastSpells.CastSpellShadowcaster.RestrictedSchools.Clear();
+        }
+        else
+        {
+            FeatureDefinitionCastSpells.CastSpellShadowcaster.RestrictedSchools.SetRange(
+                SchoolAbjuration,
+                SchoolDivination,
+                SchoolIllusion,
+                SchoolNecromancy);
+        }
+    }
+
+    internal static void SwitchSchoolRestrictionsFromSpellBlade()
+    {
+        if (Main.Settings.RemoveSchoolRestrictionsFromSpellBlade)
+        {
+            FeatureDefinitionCastSpells.CastSpellMartialSpellBlade.RestrictedSchools.Clear();
+        }
+        else
+        {
+            FeatureDefinitionCastSpells.CastSpellMartialSpellBlade.RestrictedSchools.SetRange(
+                SchoolConjuration,
+                SchoolEnchantement,
+                SchoolEvocation,
+                SchoolTransmutation);
         }
     }
 

@@ -30,13 +30,7 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowBladeCantripsToUseReach"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowBladeCantripsToUseReach = toggle;
-            SrdAndHouseRulesContext.SwitchAllowBladeCantripsToUseReach();
-        }
-
-        toggle = Main.Settings.EnableCastersToCountMaxPreparedFromTable;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCastersToCountMaxPreparedFromTable"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableCastersToCountMaxPreparedFromTable = toggle;
+            SpellsContext.SwitchAllowBladeCantripsToUseReach();
         }
 
         toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
@@ -47,11 +41,11 @@ internal static class SpellsDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange;
-        if (UI.Toggle(Gui.Localize("ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange"), ref toggle,
-                UI.AutoWidth()))
+        toggle = Main.Settings.AddBleedingToLesserRestoration;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange = toggle;
+            Main.Settings.AddBleedingToLesserRestoration = toggle;
+            SpellsContext.SwitchAddBleedingToLesserRestoration();
         }
 
         toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
@@ -59,21 +53,7 @@ internal static class SpellsDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
-            SrdAndHouseRulesContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
-        }
-
-        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
-            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
-        }
-
-        toggle = Main.Settings.AddBleedingToLesserRestoration;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddBleedingToLesserRestoration = toggle;
-            SrdAndHouseRulesContext.SwitchAddBleedingToLesserRestoration();
+            SpellsContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         }
 
         toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
@@ -83,19 +63,12 @@ internal static class SpellsDisplay
             Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
         }
 
-        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
-            SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
-        }
-
         toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableUpcastConjureElementalAndFey"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
             Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = false;
-            SrdAndHouseRulesContext.SwitchEnableUpcastConjureElementalAndFey();
+            SpellsContext.SwitchEnableUpcastConjureElementalAndFey();
         }
 
         if (Main.Settings.EnableUpcastConjureElementalAndFey)
@@ -108,43 +81,95 @@ internal static class SpellsDisplay
             }
         }
 
+        toggle = Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange = toggle;
+        }
+
+        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
+            SpellsContext.SwitchRecurringEffectOnEntangle();
+        }
+
+        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
+            SpellsContext.SwitchFilterOnHideousLaughter();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.ChangeSleetStormToCube;
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeSleetStormToCube = toggle;
-            SrdAndHouseRulesContext.SwitchChangeSleetStormToCube();
+            SpellsContext.SwitchChangeSleetStormToCube();
         }
 
         toggle = Main.Settings.UseHeightOneCylinderEffect;
         if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseHeightOneCylinderEffect = toggle;
-            SrdAndHouseRulesContext.SwitchUseHeightOneCylinderEffect();
+            SpellsContext.SwitchUseHeightOneCylinderEffect();
         }
 
         toggle = Main.Settings.FixEldritchBlastRange;
         if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.FixEldritchBlastRange = toggle;
-            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
+            Tabletop2014Context.SwitchEldritchBlastRange();
         }
 
         toggle = Main.Settings.ModifyGravitySlam;
         if (UI.Toggle(Gui.Localize("ModUi/&ModifyGravitySlam"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ModifyGravitySlam = toggle && Main.Settings.EnablePullPushOnVerticalDirection;
-            SrdAndHouseRulesContext.ToggleGravitySlamModification();
+            Tabletop2014Context.SwitchGravitySlam();
+        }
+
+        UI.Label();
+        UI.Label();
+
+        toggle = Main.Settings.EnableOneDnDPreparedSpellsTables;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDnDPreparedSpellsTables"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDnDPreparedSpellsTables = toggle;
+            Tabletop2024Context.SwitchOneDndPreparedSpellsTables();
+        }
+
+        toggle = Main.Settings.EnableRitualOnAllCasters;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRitualOnAllCasters = toggle;
+            Tabletop2024Context.SwitchSpellRitualOnAllCasters();
         }
 
         UI.Label();
 
-        toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableOneDndBarkskinSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndBarkskinSpell"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
-            SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
+            Main.Settings.EnableOneDndBarkskinSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellBarkskin();
+        }
+
+        toggle = Main.Settings.EnableOneDndHealingSpellsUpgrade;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsUpgrade"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndHealingSpellsUpgrade = toggle;
+            Tabletop2024Context.SwitchOneDndHealingSpellsBuf();
+        }
+
+        toggle = Main.Settings.EnableOneDndGuidanceSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndGuidanceSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellGuidance();
         }
 
         UI.Label();
@@ -153,7 +178,7 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowHasteCasting = toggle;
-            SrdAndHouseRulesContext.SwitchHastedCasing();
+            SpellsContext.SwitchHastedCasing();
         }
 
         toggle = Main.Settings.AllowStackedMaterialComponent;

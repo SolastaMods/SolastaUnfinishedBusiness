@@ -119,7 +119,7 @@ public static class GuiCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(GuiCharacter __instance, ref string __result)
         {
-            __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, ' ') ?? __result;
+            __result = MulticlassGameUi.GetAllClassesLabel(__instance, ' ') ?? __result;
         }
     }
 
@@ -132,7 +132,7 @@ public static class GuiCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(GuiCharacter __instance, ref string __result)
         {
-            __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, ' ') ?? __result;
+            __result = MulticlassGameUi.GetAllClassesLabel(__instance, ' ') ?? __result;
         }
     }
 
@@ -145,7 +145,7 @@ public static class GuiCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(GuiCharacter __instance, ref string __result)
         {
-            __result = MulticlassGameUiContext.GetLevelAndExperienceTooltip(__instance) ?? __result;
+            __result = MulticlassGameUi.GetLevelAndExperienceTooltip(__instance) ?? __result;
         }
     }
 
@@ -234,7 +234,7 @@ public static class GuiCharacterPatcher
 
             var ratio = Mathf.Clamp(__instance.CurrentHitPoints / (float)__instance.HitPoints, 0.0f, 1f);
 
-            ratio = GameUiContext.GetSteppedHealthRatio(ratio);
+            ratio = CampaignsContext.GetSteppedHealthRatio(ratio);
 
             healthGauge.rectTransform.offsetMax = new Vector2(healthGauge.rectTransform.offsetMax.x,
                 (float)(-parentHeight * (1.0 - ratio)));

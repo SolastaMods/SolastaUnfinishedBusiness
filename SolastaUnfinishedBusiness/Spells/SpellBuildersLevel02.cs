@@ -76,15 +76,15 @@ internal static partial class SpellBuilders
         const string NAME = "BindingIce";
 
         var spriteReference = Sprites.GetSprite("WinterBreath", Resources.WinterBreath, 128);
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
-            "ConditionGrappledRestrainedIceBound", AiContext.RandomType.RandomMedium);
+        var battlePackage = AiHelpers.BuildDecisionPackageBreakFree(
+            "ConditionGrappledRestrainedIceBound", AiHelpers.RandomType.RandomMedium);
 
         var conditionGrappledRestrainedIceBound = ConditionDefinitionBuilder
             .Create("ConditionGrappledRestrainedIceBound")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrained)
             .SetConditionType(ConditionType.Detrimental)
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoNoCheckAndRemoveCondition)
+            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoNoCheckAndRemoveCondition)
             .SetBrain(battlePackage, true)
             .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
@@ -235,6 +235,7 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.KineticJaunt, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(2)
             .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.None)
@@ -270,14 +271,14 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var battlePackage =
-            AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}", AiContext.RandomType.NoRandom);
+            AiHelpers.BuildDecisionPackageBreakFree($"Condition{NAME}", AiHelpers.RandomType.NoRandom);
 
         var conditionNoxiousSpray = ConditionDefinitionBuilder
             .Create(ConditionPheromoned, $"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiseased)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoNoCheckAndRemoveCondition)
+            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoNoCheckAndRemoveCondition)
             .SetBrain(battlePackage, true)
             .SetFeatures(actionAffinityNoxiousSpray, ActionAffinityGrappled)
             .AddToDB();
@@ -420,14 +421,14 @@ internal static partial class SpellBuilders
     {
         const string NAME = "SpellWeb";
 
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"ConditionGrappledRestrained{NAME}");
+        var battlePackage = AiHelpers.BuildDecisionPackageBreakFree($"ConditionGrappledRestrained{NAME}");
 
         var conditionRestrainedBySpellWeb = ConditionDefinitionBuilder
             .Create($"ConditionGrappledRestrained{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrained)
             .SetConditionType(ConditionType.Detrimental)
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
+            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .SetBrain(battlePackage, true)
             .SetFeatures(ActionAffinityGrappled)
             .AddFeatures([.. LightingAndObscurementContext.ConditionLightlyObscured.Features])

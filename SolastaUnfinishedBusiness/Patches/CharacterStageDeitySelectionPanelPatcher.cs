@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -17,9 +17,9 @@ public static class CharacterStageDeitySelectionPanelPatcher
         public static void Postfix([NotNull] CharacterStageDeitySelectionPanel __instance)
         {
             //PATCH: updates this panel relevance (MULTICLASS)
-            if (LevelUpContext.IsLevelingUp(__instance.currentHero))
+            if (LevelUpHelper.IsLevelingUp(__instance.currentHero))
             {
-                __instance.isRelevant = LevelUpContext.RequiresDeity(__instance.currentHero);
+                __instance.isRelevant = LevelUpHelper.RequiresDeity(__instance.currentHero);
             }
         }
     }

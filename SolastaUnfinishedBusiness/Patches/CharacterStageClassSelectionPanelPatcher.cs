@@ -8,7 +8,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -31,16 +30,16 @@ public static class CharacterStageClassSelectionPanelPatcher
 
             __instance.compatibleClasses.SetRange(visibleClasses);
 
-            if (!LevelUpContext.IsLevelingUp(__instance.currentHero))
+            if (!LevelUpHelper.IsLevelingUp(__instance.currentHero))
             {
                 return;
             }
 
             //PATCH: mark we started selecting classes (MULTICLASS)
-            LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, true);
+            LevelUpHelper.SetIsClassSelectionStage(__instance.currentHero, true);
 
             //PATCH: apply in/out logic (MULTICLASS)
-            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(
+            MulticlassInOutRulesHelper.EnumerateHeroAllowedClassDefinitions(
                 __instance.currentHero,
                 __instance.compatibleClasses,
                 out __instance.selectedClass);
@@ -63,6 +62,32 @@ public static class CharacterStageClassSelectionPanelPatcher
     }
 
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel),
+        nameof(CharacterStageClassSelectionPanel.RefreshCharacter))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshCharacter_Patch
+    {
+        private static void ResetCantripsPool(RulesetCharacterHero hero, string poolName)
+        {
+            var buildingData = hero.GetHeroBuildingData();
+
+            if (buildingData.PointPoolStacks.TryGetValue(HeroDefinitions.PointsPoolType.Cantrip, out var pointPool))
+            {
+                pointPool.ActivePools.Remove(poolName);
+            }
+        }
+
+        [UsedImplicitly]
+        public static void Prefix(CharacterStageClassSelectionPanel __instance)
+        {
+            var hero = __instance.currentHero;
+
+            //PATCH: avoid Druid Primal Order to break level up with the cantrip pool it gets
+            ResetCantripsPool(hero, $"{AttributeDefinitions.TagClass}Druid1PrimalOrder");
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel),
         nameof(CharacterStageClassSelectionPanel.FillClassFeatures))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -73,8 +98,8 @@ public static class CharacterStageClassSelectionPanelPatcher
             [NotNull] FeatureUnlockByLevel featureUnlockByLevel,
             [NotNull] RulesetCharacterHero hero)
         {
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
 
             if (!isLevelingUp)
             {
@@ -123,7 +148,7 @@ public static class CharacterStageClassSelectionPanelPatcher
     {
         private static bool SetActive([NotNull] RulesetCharacterHero currentHero)
         {
-            return !LevelUpContext.IsLevelingUp(currentHero);
+            return !LevelUpHelper.IsLevelingUp(currentHero);
         }
 
         [NotNull]

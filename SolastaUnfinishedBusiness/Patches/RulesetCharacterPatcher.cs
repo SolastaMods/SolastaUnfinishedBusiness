@@ -1,6 +1,4 @@
-﻿// using SolastaUnfinishedBusiness.Classes;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -24,7 +22,6 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-// using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -260,7 +257,7 @@ public static class RulesetCharacterPatcher
             }
 
             __instance.InflictCondition(
-                CharacterContext.ConditionIndomitableSaving.Name,
+                Tabletop2024Context.ConditionIndomitableSaving.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -268,10 +265,30 @@ public static class RulesetCharacterPatcher
                 __instance.Guid,
                 __instance.CurrentFaction.Name,
                 1,
-                CharacterContext.ConditionIndomitableSaving.Name,
+                Tabletop2024Context.ConditionIndomitableSaving.Name,
                 0,
                 0,
                 0);
+        }
+    }
+
+    //PATCH: can only cast counter spell if self can perceive caster when lighting rules are enabled
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastCounterSpell))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CanCastCounterSpell_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ref bool __result)
+        {
+            if (!__result || !Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+            {
+                return;
+            }
+
+            var glc = GameLocationCharacter.GetFromActor(__instance);
+
+            __result = glc.CanPerceiveTarget(GameLocationBattleManagerPatcher.HandleSpellCast_Patch.Caster);
         }
     }
 
@@ -291,6 +308,24 @@ public static class RulesetCharacterPatcher
             }
 
             __result = hero.GetClassLevel(Monk) > 0;
+        }
+    }
+
+    //BUGFIX: Charmed by Hypnotic Pattern isn't marking isIncapacitated as true as it parent is charmed
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshConditionFlags))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshConditionFlags_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance)
+        {
+            if (!__instance.IsIncapacitated && __instance.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    DatabaseHelper.ConditionDefinitions.ConditionCharmedByHypnoticPattern.Name))
+            {
+                __instance.isIncapacitated = true;
+            }
         }
     }
 
@@ -430,7 +465,7 @@ public static class RulesetCharacterPatcher
             ProcessConditionsMatchingInterruptionSourceRageStop(__instance, activeCondition);
 
             //PATCH: support 'EnableCharactersOnFireToEmitLight'
-            SrdAndHouseRulesContext.RemoveLightSourceIfNeeded(__instance, activeCondition);
+            RulesContext.RemoveLightSourceIfNeeded(__instance, activeCondition);
 
             //PATCH: notifies custom condition features that condition is removed 
             var definition = activeCondition.ConditionDefinition;
@@ -1649,13 +1684,15 @@ public static class RulesetCharacterPatcher
                 }
             }
 
-            // ReSharper disable once InvertIf
+            //TODO: time to make this an interface to support scenarios like below
+
             //PATCH: support for Barbarians to regain one rage point at short rests from level 7
             if (Main.Settings.EnableBarbarianRegainOneRageAtShortRest &&
                 restType == RestType.ShortRest &&
-                __instance.GetClassLevel(Barbarian) >= 7)
+                __instance.GetClassLevel(Barbarian) >= 7 &&
+                __instance.UsedRagePoints > 0)
             {
-                if (__instance.UsedRagePoints > 0 && !simulate)
+                if (!simulate)
                 {
                     __instance.UsedRagePoints--;
                 }
@@ -1663,6 +1700,31 @@ public static class RulesetCharacterPatcher
                 __instance.recoveredFeatures.Add(__instance.GetFeaturesByType<FeatureDefinitionAttributeModifier>()
                     .FirstOrDefault(attributeModifier =>
                         attributeModifier.ModifiedAttribute == AttributeDefinitions.RagePoints));
+            }
+
+            //PATCH: support for Fighters to regain one second wind usage at short rests
+            var fighterClassLevel = __instance.GetClassLevel(Fighter);
+
+            // ReSharper disable once InvertIf
+            if (Main.Settings.EnableSecondWindToUseOneDndUsagesProgression &&
+                restType == RestType.ShortRest &&
+                fighterClassLevel >= 1)
+            {
+                var usablePower = PowerProvider.Get(PowerFighterSecondWind, __instance);
+                var maxUses = __instance.GetMaxUsesOfPower(usablePower);
+                var remainingUses = __instance.GetRemainingUsesOfPower(usablePower);
+
+                // ReSharper disable once InvertIf
+                if (remainingUses != maxUses)
+                {
+                    if (!simulate)
+                    {
+                        // cannot call RepayUse() here as a dynamic pool
+                        usablePower.remainingUses++;
+                    }
+
+                    __instance.recoveredFeatures.Add(PowerFighterSecondWind);
+                }
             }
         }
 
@@ -1748,7 +1810,7 @@ public static class RulesetCharacterPatcher
 
             if (!spellcastingClass && spellRepertoire.SpellCastingSubclass)
             {
-                spellcastingClass = LevelUpContext.GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
+                spellcastingClass = LevelUpHelper.GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
             }
             //END PATCH
 
@@ -2121,17 +2183,17 @@ public static class RulesetCharacterPatcher
                 switch (Main.Settings.AddPaladinSmiteToggle)
                 {
                     case true:
-                        if (!hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle))
+                        if (!hero.HasAnyFeature(CampaignsContext.ActionAffinityPaladinSmiteToggle))
                         {
-                            hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                            hero.ActiveFeatures[tag].Add(CampaignsContext.ActionAffinityPaladinSmiteToggle);
                             hero.EnableToggle((Id)ExtraActionId.PaladinSmiteToggle);
                         }
 
                         break;
                     case false:
-                        if (hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle))
+                        if (hero.HasAnyFeature(CampaignsContext.ActionAffinityPaladinSmiteToggle))
                         {
-                            hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                            hero.ActiveFeatures[tag].Remove(CampaignsContext.ActionAffinityPaladinSmiteToggle);
                         }
 
                         hero.EnableToggle((Id)ExtraActionId.PaladinSmiteToggle);

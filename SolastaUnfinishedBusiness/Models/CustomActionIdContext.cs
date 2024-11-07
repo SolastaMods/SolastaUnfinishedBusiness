@@ -50,7 +50,8 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.CleavingAttackToggle,
         (Id)ExtraActionId.PowerAttackToggle,
         (Id)ExtraActionId.DeadEyeToggle,
-        (Id)ExtraActionId.OverChannelToggle
+        (Id)ExtraActionId.OverChannelToggle,
+        (Id)ExtraActionId.GravityWellToggle
     ];
 
     private static readonly List<Id> ExtraActionIdPowers =
@@ -403,6 +404,14 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.OverChannelToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "GravityWellToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.GravityWellToggle)
             .OverrideClassName("Toggle")
             .AddToDB();
     }

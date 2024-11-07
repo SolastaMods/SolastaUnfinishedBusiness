@@ -210,14 +210,14 @@ internal static partial class SpellBuilders
     {
         const string NAME = "EnsnaringStrike";
 
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree("ConditionGrappledRestrainedEnsnared");
+        var battlePackage = AiHelpers.BuildDecisionPackageBreakFree("ConditionGrappledRestrainedEnsnared");
 
         var conditionEnsnared = ConditionDefinitionBuilder
             .Create("ConditionGrappledRestrainedEnsnared")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrained)
             .SetConditionType(ConditionType.Detrimental)
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
+            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .SetBrain(battlePackage, true)
             .SetFeatures(ActionAffinityGrappled)
             .CopyParticleReferences(Entangle)
@@ -449,12 +449,12 @@ internal static partial class SpellBuilders
     {
         const string NAME = "WrathfulSmite";
 
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}Enemy");
+        var battlePackage = AiHelpers.BuildDecisionPackageBreakFree($"Condition{NAME}Enemy");
 
         var conditionEnemy = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
             .SetParentCondition(ConditionDefinitions.ConditionFrightened)
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoWisdomCheckAgainstCasterDC)
+            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoWisdomCheckAgainstCasterDC)
             .SetBrain(battlePackage, true)
             .SetFeatures(ActionAffinityGrappled)
             .AddToDB();
@@ -645,14 +645,14 @@ internal static partial class SpellBuilders
     {
         const string NAME = "VileBrew";
 
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree(
-            $"Condition{NAME}", AiContext.RandomType.RandomMedium);
+        var battlePackage = AiHelpers.BuildDecisionPackageBreakFree(
+            $"Condition{NAME}", AiHelpers.RandomType.RandomMedium);
 
         var conditionVileBrew = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionAcidArrowed)
             .SetConditionType(ConditionType.Detrimental)
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoNoCheckAndRemoveCondition)
+            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoNoCheckAndRemoveCondition)
             .SetBrain(battlePackage, true)
             .SetFeatures(ActionAffinityGrappled)
             // need special duration here to enforce the recurrent damage at start of turn
@@ -1252,7 +1252,7 @@ internal static partial class SpellBuilders
 
         const string ConditionApproachName = $"Condition{NAME}Approach";
 
-        var scorerApproach = AiContext.CreateActivityScorer(FixesContext.DecisionMoveAfraid, "MoveScorer_Approach");
+        var scorerApproach = AiHelpers.CreateActivityScorer(FixesContext.DecisionMoveAfraid, "MoveScorer_Approach");
 
         // invert PenalizeFearSourceProximityAtPosition if brain character has condition approach and enemy is condition source
         scorerApproach.scorer.WeightedConsiderations[2].Consideration.stringParameter = ConditionApproachName;
@@ -2589,9 +2589,9 @@ internal static partial class SpellBuilders
                 MovementAffinityNoClimb,
                 MovementAffinityNoSpecialMoves,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
-                CharacterContext.FeatureDefinitionPowerHelpAction,
-                CharacterContext.PowerTeleportSummon,
-                CharacterContext.PowerVanishSummon)
+                Tabletop2014Context.FeatureDefinitionPowerHelpAction,
+                RulesContext.PowerTeleportSummon,
+                RulesContext.PowerVanishSummon)
             .SetMonsterPresentation(
                 MonsterPresentationBuilder
                     .Create()
@@ -2861,6 +2861,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionShocked)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
+            .SetConditionParticleReference(PowerTraditionShockArcanistArcaneFury)
             .AddToDB();
 
         var powerWitchBolt = FeatureDefinitionPowerBuilder

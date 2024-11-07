@@ -1006,6 +1006,9 @@ public static class GameLocationBattleManagerPatcher
     [UsedImplicitly]
     public static class HandleSpellCast_Patch
     {
+        //PATCH: can only cast counter spell if self can perceive caster when lighting rules are enabled
+        public static GameLocationCharacter Caster { get; private set; }
+
         [UsedImplicitly]
         public static IEnumerator Postfix(
             IEnumerator values,
@@ -1015,10 +1018,14 @@ public static class GameLocationBattleManagerPatcher
             RulesetSpellRepertoire selectedRepertoire,
             SpellDefinition selectedSpellDefinition)
         {
+            Caster = caster;
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            Caster = null;
 
             // This also allows utilities out of battle
             var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();

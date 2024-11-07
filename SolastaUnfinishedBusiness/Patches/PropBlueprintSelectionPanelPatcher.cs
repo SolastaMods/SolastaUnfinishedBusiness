@@ -22,7 +22,7 @@ public static class PropBlueprintSelectionPanelPatcher
                 return true;
             }
 
-            __result = DmProEditorContext.Compare(left, right);
+            __result = DungeonMakerContext.Compare(left, right);
 
             return false;
         }

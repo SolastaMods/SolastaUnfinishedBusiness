@@ -236,6 +236,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(Regenerate)
                     .Build())
+            .AddCustomSubFeatures(new CustomBehaviorPowerWordKillOrHeal())
             .AddToDB();
     }
 
@@ -266,6 +267,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(FingerOfDeath)
                     .Build())
+            .AddCustomSubFeatures(new CustomBehaviorPowerWordKillOrHeal())
             .AddToDB();
     }
 
@@ -359,6 +361,25 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+    // required to support Bard level 20 feature Words of Creations (only scenario where these spells have a 2nd target)
+    private sealed class CustomBehaviorPowerWordKillOrHeal : IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.SelectionService.SelectedTargets.Count == 0 ||
+                __instance.SelectionService.SelectedTargets[0].IsWithinRange(target, 2))
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add("Failure/&SecondTargetNotWithinRange");
+
+            return false;
+        }
+    }
 
     #region Time Stop
 

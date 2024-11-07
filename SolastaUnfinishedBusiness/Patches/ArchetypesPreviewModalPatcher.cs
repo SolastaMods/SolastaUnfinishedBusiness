@@ -6,7 +6,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,8 +29,8 @@ public static class ArchetypesPreviewModalPatcher
                 return featureUnlockByLevel.Level;
             }
 
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
+            var selectedClass = LevelUpHelper.GetSelectedClass(hero);
 
             if (selectedClass
                 && isLevelingUp
@@ -69,7 +68,7 @@ public static class ArchetypesPreviewModalPatcher
 
             if (hero != null)
             {
-                var selectedClass = LevelUpContext.GetSelectedClass(hero);
+                var selectedClass = LevelUpHelper.GetSelectedClass(hero);
 
                 if (selectedClass
                     && hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))

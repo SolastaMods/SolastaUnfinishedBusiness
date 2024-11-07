@@ -24,7 +24,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class DomainNature : AbstractSubclass
 {
     private const string Name = "DomainNature";
-    private const string AcquiredCantripsPoolName = $"{AttributeDefinitions.TagSubclass}Cleric1{Name}{Name}";
 
     private static readonly string[] DampenElementsDamageTypes =
     [
@@ -34,9 +33,6 @@ public sealed class DomainNature : AbstractSubclass
         DamageTypeLightning,
         DamageTypeThunder
     ];
-
-    private static FeatureDefinitionCastSpell _castSpellDomainNature;
-    private static CharacterSubclassDefinition _domainNature;
 
     public DomainNature()
     {
@@ -57,34 +53,24 @@ public sealed class DomainNature : AbstractSubclass
 
         // LEVEL 01 - Acolyte of Nature
 
-        var spellListDomainNature = SpellListDefinitionBuilder
-            .Create($"SpellList{Name}")
-            .SetGuiPresentationNoContent(true)
-            .FinalizeSpells()
-            .AddToDB();
-
-        //explicitly re-use druid spell list, so custom cantrips selected for druid will show here 
-        spellListDomainNature.SpellsByLevel[0].Spells = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
-
-        _castSpellDomainNature = FeatureDefinitionCastSpellBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, $"CastSpell{Name}")
             .SetGuiPresentationNoContent(true)
             .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
-            .SetSpellList(spellListDomainNature)
+            .SetSpellList(SpellListDefinitions.SpellListDruid)
             .AddToDB();
 
         var pointPoolCantrip = FeatureDefinitionPointPoolBuilder
             .Create($"PointPool{Name}Cantrip")
             .SetGuiPresentationNoContent(true)
-            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, SpellListDefinitions.SpellListDruid,
-                "DomainNature")
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, SpellListDefinitions.SpellListDruid, Name)
             .AddToDB();
 
         var pointPoolSkills = FeatureDefinitionPointPoolBuilder
             .Create($"PointPool{Name}Skills")
             .SetGuiPresentationNoContent(true)
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
-            .OnlyUniqueChoices()
             .RestrictChoices(
                 SkillDefinitions.AnimalHandling,
                 SkillDefinitions.Nature,
@@ -250,7 +236,7 @@ public sealed class DomainNature : AbstractSubclass
 
         // MAIN
 
-        _domainNature = CharacterSubclassDefinitionBuilder
+        Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.DomainNature, 256))
             .AddFeaturesAtLevel(1,
@@ -262,8 +248,6 @@ public sealed class DomainNature : AbstractSubclass
             .AddFeaturesAtLevel(17, featureSetMasterOfNature)
             .AddFeaturesAtLevel(20, Level20SubclassesContext.PowerClericDivineInterventionImprovementCleric)
             .AddToDB();
-
-        Subclass = _domainNature;
     }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Cleric;
@@ -274,38 +258,6 @@ public sealed class DomainNature : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
-
-    internal static void ResetCantripSubclassPool(RulesetCharacterHero hero)
-    {
-        var buildingData = hero.GetHeroBuildingData();
-
-        if (buildingData.PointPoolStacks.TryGetValue(HeroDefinitions.PointsPoolType.Cantrip, out var pointPool))
-        {
-            pointPool.ActivePools.Remove(AcquiredCantripsPoolName);
-        }
-    }
-
-    internal static void GrantCantripFromSubclassPool(RulesetCharacterHero hero)
-    {
-        var heroBuildingData = hero.GetHeroBuildingData();
-
-        if (!heroBuildingData.AcquiredCantrips.TryGetValue(AcquiredCantripsPoolName, out var cantrips))
-        {
-            return;
-        }
-
-        var selectedClass = LevelUpContext.GetSelectedClass(hero);
-        var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
-        var subclassTag = AttributeDefinitions.GetSubclassTag(selectedClass, 1, selectedSubclass);
-
-        hero.ActiveFeatures[subclassTag].Add(_castSpellDomainNature);
-        hero.GrantSpellRepertoire(_castSpellDomainNature, null, _domainNature, null);
-
-        foreach (var cantrip in cantrips)
-        {
-            hero.GrantCantrip(cantrip, _castSpellDomainNature);
-        }
-    }
 
     private sealed class CustomBehaviorDampenElements(ConditionDefinition conditionDampenElements)
         : IMagicEffectBeforeHitConfirmedOnMe, ITryAlterOutcomeAttack

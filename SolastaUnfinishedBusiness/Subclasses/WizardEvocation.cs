@@ -5,6 +5,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -21,6 +22,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class WizardEvocation : AbstractSubclass
 {
     private const string Name = "WizardEvocation";
+    internal const string SpellTag = "Evoker";
 
     //
     // these lists contain all evocation spells that do damage in a non-vanilla way so they also get bonus
@@ -63,6 +65,34 @@ public sealed class WizardEvocation : AbstractSubclass
             .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemyPotentCantrips())
             .AddToDB();
 
+    private static readonly FeatureDefinitionMagicAffinity MagicAffinitySavant = FeatureDefinitionMagicAffinityBuilder
+        .Create($"MagicAffinity{Name}Savant")
+        .SetGuiPresentation(Category.Feature)
+        .SetSpellLearnAndPrepModifiers(
+            0.5f, 0.5f, 0, AdvantageType.None, PreparedSpellsModifier.None)
+        .AddCustomSubFeatures(new ModifyScribeCostAndDurationEvocationSavant())
+        .AddToDB();
+
+    private static readonly SpellListDefinition SpellListEvoker = SpellListDefinitionBuilder
+        .Create(SpellListDefinitions.SpellListWizard, $"SpellList{Name}")
+        .AddToDB();
+
+    // no spell tag here as this work correctly with vanilla
+    private static readonly FeatureDefinitionPointPool MagicAffinitySavant2024 = FeatureDefinitionPointPoolBuilder
+        .Create($"MagicAffinity{Name}Savant2024")
+        .SetGuiPresentation(Category.Feature)
+        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 2, SpellListEvoker)
+        .AddToDB();
+
+    // need spell tag here to get this offered on level up and
+    // let custom behavior at CharacterBuildingManager.FinalizeCharacter grant the spell
+    private static readonly FeatureDefinitionPointPool MagicAffinitySavant2024Progression =
+        FeatureDefinitionPointPoolBuilder
+            .Create($"MagicAffinity{Name}Savant2024Progression")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 1, SpellListEvoker, SpellTag)
+            .AddToDB();
+
     private static CharacterSubclassDefinition _subclass;
 
     public WizardEvocation()
@@ -70,14 +100,6 @@ public sealed class WizardEvocation : AbstractSubclass
         // LEVEL 02
 
         // Evocation Savant
-
-        var magicAffinitySavant = FeatureDefinitionMagicAffinityBuilder
-            .Create($"MagicAffinity{Name}Savant")
-            .SetGuiPresentation(Category.Feature)
-            .SetSpellLearnAndPrepModifiers(
-                0.5f, 0.5f, 0, AdvantageType.None, PreparedSpellsModifier.None)
-            .AddCustomSubFeatures(new ModifyScribeCostAndDurationEvocationSavant())
-            .AddToDB();
 
         // Sculpt Spells
 
@@ -137,7 +159,7 @@ public sealed class WizardEvocation : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardEvocation, 256))
-            .AddFeaturesAtLevel(2, magicAffinitySavant, FeatureSculptSpells)
+            .AddFeaturesAtLevel(2, MagicAffinitySavant, FeatureSculptSpells)
             .AddFeaturesAtLevel(6, MagicAffinityPotentCantrip)
             .AddFeaturesAtLevel(10, featureEmpoweredEvocation)
             .AddFeaturesAtLevel(14, featureSetOverChannel)
@@ -156,6 +178,19 @@ public sealed class WizardEvocation : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    internal static void LateLoad()
+    {
+        SwapSavantAndSavant2024();
+
+        SpellListEvoker.SpellsByLevel.SetRange(
+            SpellListDefinitions.SpellListWizard.SpellsByLevel
+                .Select(spellByLevel => new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellByLevel.Level,
+                    spells = spellByLevel.Spells.Where(x => x.SchoolOfMagic == SchoolEvocation).ToList()
+                }));
+    }
+
     internal static void SwapEvocationPotentCantripAndSculptSpell()
     {
         var level = Main.Settings.EnableWizardToLearnSchoolAtLevel3 ? 3 : 2;
@@ -173,6 +208,32 @@ public sealed class WizardEvocation : AbstractSubclass
         {
             featureUnlockSculptSpell!.level = level;
             featureUnlockMagicAffinityPotentCantrip!.level = 6;
+        }
+
+        _subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwapSavantAndSavant2024()
+    {
+        var level = Main.Settings.EnableWizardToLearnSchoolAtLevel3 ? 3 : 2;
+
+        _subclass.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == MagicAffinitySavant ||
+            x.FeatureDefinition == MagicAffinitySavant2024 ||
+            x.FeatureDefinition == MagicAffinitySavant2024Progression);
+
+        if (Main.Settings.SwapEvocationSavant)
+        {
+            _subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(MagicAffinitySavant2024, level));
+
+            for (var i = 5; i <= 20; i += 2)
+            {
+                _subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(MagicAffinitySavant2024Progression, i));
+            }
+        }
+        else
+        {
+            _subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(MagicAffinitySavant, level));
         }
 
         _subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);

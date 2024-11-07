@@ -216,7 +216,6 @@
     <EnableSameWidthInvocationSelection>true</EnableSameWidthInvocationSelection>
     <EnableSortingFightingStyles>true</EnableSortingFightingStyles>
     <EnableSortingSubclasses>true</EnableSortingSubclasses>
-    <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <FixAsianLanguagesTextWrap>true</FixAsianLanguagesTextWrap>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
@@ -545,17 +544,28 @@
     <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
-    <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <ChangeBardicInspirationDurationToOneHour>false</ChangeBardicInspirationDurationToOneHour>
+    <EnableBardCounterCharmAsReactionAtLevel7>false</EnableBardCounterCharmAsReactionAtLevel7>
+    <EnableBardExpertiseOneLevelBefore>false</EnableBardExpertiseOneLevelBefore>
+    <EnableBardSuperiorInspirationAtLevel18>false</EnableBardSuperiorInspirationAtLevel18>
+    <EnableBardWordsOfCreationAtLevel20>false</EnableBardWordsOfCreationAtLevel20>
+    <RemoveBardMagicalSecretAt14And18>false</RemoveBardMagicalSecretAt14And18>
+    <RemoveBardSongOfRestAt2>false</RemoveBardSongOfRestAt2>
     <EnableBarbarianBrutalStrike>false</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>false</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
     <EnableBarbarianRecklessSameBuffDebuffDuration>false</EnableBarbarianRecklessSameBuffDebuffDuration>
     <EnableBarbarianRegainOneRageAtShortRest>false</EnableBarbarianRegainOneRageAtShortRest>
+    <EnableDruidUseMetalArmor>false</EnableDruidUseMetalArmor>
+    <EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>false</EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>
+    <SwapDruidToUseOneDndWeaponProficiency>false</SwapDruidToUseOneDndWeaponProficiency>
     <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
+    <AddPersuasionToFighterSkillOptions>false</AddPersuasionToFighterSkillOptions>
+    <EnableSecondWindToUseOneDndUsagesProgression>false</EnableSecondWindToUseOneDndUsagesProgression>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
-    <EnableRangerNatureShroudAt10>false</EnableRangerNatureShroudAt10>
+    <EnableRangerNatureShroudAt14>false</EnableRangerNatureShroudAt14>
     <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
     <EnableMonkAbundantKi>false</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>false
@@ -568,6 +578,7 @@
     <EnableMonkSuperiorDefenseToReplaceEmptyBody>false</EnableMonkSuperiorDefenseToReplaceEmptyBody>
     <EnableMonkBodyAndMindToReplacePerfectSelf>false</EnableMonkBodyAndMindToReplacePerfectSelf>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
+    <SwapMonkToUseOneDndUnarmedDieTypeProgression>false</SwapMonkToUseOneDndUnarmedDieTypeProgression>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
     <EnablePaladinLayOnHandsAsBonusAction>false</EnablePaladinLayOnHandsAsBonusAction>
     <EnablePaladinSmiteAsBonusAction>false</EnablePaladinSmiteAsBonusAction>
@@ -575,10 +586,19 @@
     <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
+    <EnableRogueSlipperyMind>false</EnableRogueSlipperyMind>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
+    <RemoveRogueBlindSense>false</RemoveRogueBlindSense>
+    <EnableSorcererInnateSorceryAt1>false</EnableSorcererInnateSorceryAt1>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
+    <EnableSorcerousRestorationAtLevel5>false</EnableSorcerousRestorationAtLevel5>
+    <EnableWarlockToUseOneDndInvocationProgression>false</EnableWarlockToUseOneDndInvocationProgression>
+    <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>false
+    </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
+    <EnableWarlockToLearnPatronAtLevel3>false</EnableWarlockToLearnPatronAtLevel3>
+    <EnableWizardToLearnScholarAtLevel2>false</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
@@ -616,7 +636,8 @@
     <MetamagicSliderPosition>4</MetamagicSliderPosition>
     <MetamagicEnabled/>
     <AllowBladeCantripsToUseReach>false</AllowBladeCantripsToUseReach>
-    <EnableCastersToCountMaxPreparedFromTable>false</EnableCastersToCountMaxPreparedFromTable>
+    <EnableOneDnDPreparedSpellsTables>false</EnableOneDnDPreparedSpellsTables>
+    <EnableRitualOnAllCasters>false</EnableRitualOnAllCasters>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
@@ -632,7 +653,9 @@
     <UseHeightOneCylinderEffect>false</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>false</FixEldritchBlastRange>
     <ModifyGravitySlam>false</ModifyGravitySlam>
-    <EnableOneDndHealingSpellsBuf>false</EnableOneDndHealingSpellsBuf>
+    <EnableOneDndBarkskinSpell>false</EnableOneDndBarkskinSpell>
+    <EnableOneDndHealingSpellsUpgrade>false</EnableOneDndHealingSpellsUpgrade>
+    <EnableOneDndGuidanceSpell>false</EnableOneDndGuidanceSpell>
     <AllowHasteCasting>false</AllowHasteCasting>
     <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
     <EnableRelearnSpells>false</EnableRelearnSpells>
@@ -810,6 +833,8 @@
     <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
     <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
     <WildSurgeDieRollThreshold>2</WildSurgeDieRollThreshold>
+    <SwapAbjurationSavant>false</SwapAbjurationSavant>
+    <SwapEvocationSavant>false</SwapEvocationSavant>
     <SwapEvocationPotentCantripAndSculptSpell>false</SwapEvocationPotentCantripAndSculptSpell>
     <KlassListSliderPosition>
         <item>

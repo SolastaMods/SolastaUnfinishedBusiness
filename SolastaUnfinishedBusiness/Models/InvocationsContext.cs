@@ -37,7 +37,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildBreakerAndBanisher());
         LoadInvocation(BuildCallOfTheBeast());
         LoadInvocation(BuildDiscerningGaze());
-        LoadInvocation(BuildEldritchMind());
+        LoadInvocation(EldritchMind);
         LoadInvocation(BuildEldritchSmite());
         LoadInvocation(BuildGiftOfTheEverLivingOnes());
         LoadInvocation(BuildGiftOfTheHunter());

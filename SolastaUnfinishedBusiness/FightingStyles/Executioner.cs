@@ -37,9 +37,9 @@ internal sealed class Executioner : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
     [
-        CharacterContext.FightingStyleChoiceBarbarian,
-        CharacterContext.FightingStyleChoiceMonk,
-        CharacterContext.FightingStyleChoiceRogue,
+        ClassesContext.FightingStyleChoiceBarbarian,
+        ClassesContext.FightingStyleChoiceMonk,
+        ClassesContext.FightingStyleChoiceRogue,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,
@@ -77,27 +77,29 @@ internal sealed class Executioner : AbstractFightingStyle
 
             if (survivalistLevel >= 11)
             {
-                return rulesetDefender.HasAnyConditionOfTypeOrSubType(
+                return
+                    defender.RulesetCharacter?.IsIncapacitated == true ||
+                    rulesetDefender.HasAnyConditionOfTypeOrSubType(
+                        ConditionBlinded,
+                        ConditionFrightened,
+                        ConditionRestrained,
+                        ConditionGrappled,
+                        ConditionParalyzed,
+                        ConditionProne,
+                        ConditionStunned,
+                        ConditionDefinitions.ConditionHindered.Name);
+            }
+
+            return
+                defender.RulesetCharacter?.IsIncapacitated == true ||
+                rulesetDefender.HasAnyConditionOfTypeOrSubType(
                     ConditionBlinded,
                     ConditionFrightened,
                     ConditionRestrained,
                     ConditionGrappled,
-                    ConditionIncapacitated,
                     ConditionParalyzed,
                     ConditionProne,
-                    ConditionStunned,
-                    ConditionDefinitions.ConditionHindered.Name);
-            }
-
-            return rulesetDefender.HasAnyConditionOfTypeOrSubType(
-                ConditionBlinded,
-                ConditionFrightened,
-                ConditionRestrained,
-                ConditionGrappled,
-                ConditionIncapacitated,
-                ConditionParalyzed,
-                ConditionProne,
-                ConditionStunned);
+                    ConditionStunned);
         }
     }
 }

@@ -220,8 +220,8 @@ internal static class ClassFeats
             .SetFeatures(
                 AttributeModifierCreed_Of_Maraike,
                 FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_one,
-                CharacterContext.InvocationPoolRangerPreferredEnemy,
-                CharacterContext.InvocationPoolRangerTerrainType)
+                RulesContext.InvocationPoolRangerPreferredEnemy,
+                RulesContext.InvocationPoolRangerTerrainType)
             .SetValidators(ValidatorsFeat.IsRangerLevel4)
             .AddToDB();
     }

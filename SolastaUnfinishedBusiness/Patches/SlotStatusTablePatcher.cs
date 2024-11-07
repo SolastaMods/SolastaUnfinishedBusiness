@@ -6,6 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
@@ -87,7 +88,7 @@ public static class SlotStatusTablePatcher
 
             spellRepertoire.GetSlotsNumber(spellLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
-            MulticlassGameUiContext.PaintPactSlots(
+            MulticlassGameUi.PaintPactSlots(
                 hero,
                 totalSlotsCount,
                 totalSlotsRemainingCount,
@@ -110,7 +111,7 @@ public static class SlotStatusTablePatcher
         [UsedImplicitly]
         public static void Prefix(SlotStatusTable __instance)
         {
-            MulticlassGameUiContext.PaintSlotsWhite(__instance.table);
+            MulticlassGameUi.PaintSlotsWhite(__instance.table);
         }
     }
 }

@@ -353,7 +353,7 @@
   "vocalSpellSemeType": "Attack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Spell/&AcidClawsTitle",
     "description": "Spell/&AcidClawsDescription",
     "spriteReference": {

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -92,6 +93,27 @@ internal static class RulesetCharacterHeroExtensions
         return false;
     }
 #endif
+
+    internal static void GrantAcquiredSpellWithTagFromSubclassPool(this RulesetCharacterHero hero,  string tag)
+    {
+        var heroBuildingData = hero.GetHeroBuildingData();
+        var selectedClass = LevelUpHelper.GetSelectedClass(hero);
+        var classLevel = LevelUpHelper.GetSelectedClassLevel(hero);
+        // it's indeed TagClass as this is how spell pools are offered in vanilla when from subclass
+        var poolName = $"{AttributeDefinitions.TagClass}{selectedClass!.Name}{classLevel}{tag}";
+
+        if (!heroBuildingData.AcquiredSpells.TryGetValue(poolName, out var spells))
+        {
+            return;
+        }
+
+        var spellRepertoire = hero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == selectedClass);
+
+        foreach (var spell in spells)
+        {
+            hero.GrantSpell(spell, spellRepertoire!.SpellCastingFeature);
+        }
+    }
 
     internal static bool HasEmptyMainHand([NotNull] this RulesetCharacterHero hero)
     {

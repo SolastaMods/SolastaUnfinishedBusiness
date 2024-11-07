@@ -705,7 +705,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 usablePower,
                 [defender],
                 attacker,
-                "InfectiousFury",
+                "PowerInfectiousFury",
                 battleManager: battleManager);
         }
     }
@@ -838,7 +838,7 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
             usablePower,
             targets,
             character,
-            "CallTheHunt",
+            "PowerCallTheHunt",
             reactionValidated: ReactionValidated);
 
         yield break;

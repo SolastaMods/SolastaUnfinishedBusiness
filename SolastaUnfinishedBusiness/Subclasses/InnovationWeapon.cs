@@ -396,8 +396,8 @@ public sealed class InnovationWeapon : AbstractSubclass
                 FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                CharacterContext.PowerTeleportSummon,
-                CharacterContext.PowerVanishSummon)
+                RulesContext.PowerTeleportSummon,
+                RulesContext.PowerVanishSummon)
             .SetCreatureTags(SteelDefenderTag)
             .SetDefaultFaction(FactionDefinitions.Party)
             .SetFullyControlledWhenAllied(true)

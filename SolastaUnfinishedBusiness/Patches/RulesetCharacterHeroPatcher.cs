@@ -677,7 +677,7 @@ public static class RulesetCharacterHeroPatcher
             CustomWeaponsContext.TryAddMainActionUnarmedAttacks(__instance);
 
             //PATCH: remove invalid attacks to prevent hand crossbows use with no free hand
-            __instance.AttackModes.RemoveAll(mode => SrdAndHouseRulesContext.IsAttackModeInvalid(__instance, mode));
+            __instance.AttackModes.RemoveAll(mode => CustomItemsContext.IsAttackModeInvalid(__instance, mode));
 
             //refresh character if needed after postfix
             if (_callRefresh && __instance.CharacterRefreshed != null)
@@ -1084,7 +1084,7 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero __instance, CharacterClassDefinition classDefinition)
         {
-            var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
+            var isLevelingUp = LevelUpHelper.IsLevelingUp(__instance);
 
             if (!isLevelingUp)
             {
@@ -1285,7 +1285,7 @@ public static class RulesetCharacterHeroPatcher
                 return true;
             }
 
-            if (!Main.Settings.EnableCastersToCountMaxPreparedFromTable ||
+            if (!Main.Settings.EnableOneDnDPreparedSpellsTables ||
                 !PreparedSpells.TryGetValue(spellRepertoire.SpellCastingClass, out var preparedSpells))
             {
                 return true;

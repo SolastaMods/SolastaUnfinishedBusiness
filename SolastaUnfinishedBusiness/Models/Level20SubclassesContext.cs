@@ -463,14 +463,7 @@ internal static class Level20SubclassesContext
             .Create("ConditionMartialCommanderPeerlessCommanderSavings")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
-            .AddFeatures(
-                FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create("SavingThrowAffinityMartialCommanderPeerlessCommander")
-                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderSavings", Category.Condition,
-                        Gui.NoLocalization)
-                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
-                        AttributeDefinitions.AbilityScoreNames)
-                    .AddToDB())
+            .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll)
             .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();
 
@@ -2123,16 +2116,17 @@ internal static class Level20SubclassesContext
                 return false;
             }
 
-            return rulesetDefender.HasAnyConditionOfTypeOrSubType(
-                ConditionBlinded,
-                ConditionFrightened,
-                ConditionRestrained,
-                ConditionGrappled,
-                ConditionIncapacitated,
-                ConditionParalyzed,
-                ConditionPoisoned,
-                ConditionProne,
-                ConditionStunned);
+            return
+                defender.RulesetCharacter?.IsIncapacitated == true ||
+                rulesetDefender.HasAnyConditionOfTypeOrSubType(
+                    ConditionBlinded,
+                    ConditionFrightened,
+                    ConditionRestrained,
+                    ConditionGrappled,
+                    ConditionParalyzed,
+                    ConditionPoisoned,
+                    ConditionProne,
+                    ConditionStunned);
         }
     }
 

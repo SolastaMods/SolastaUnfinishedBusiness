@@ -190,7 +190,7 @@ internal static class PowerBundle
 
         // refresh character control panel after power pool usage is updated
         // needed for custom point pools on portrait to update properly in some cases
-        GameUiContext.GameHud.RefreshCharacterControlPanel();
+        CampaignsContext.GameHud.RefreshCharacterControlPanel();
     }
 
     internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] FeatureDefinitionPower power)

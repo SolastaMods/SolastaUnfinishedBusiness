@@ -24,11 +24,10 @@ using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-// ReSharper disable once ClassNeverInstantiated.Global
 internal static class ModUi
 {
     internal const int DontDisplayDescription = 4;
-    internal const float PixelsPerColumn = 230;
+    internal const float PixelsPerColumn = 220;
 
     internal static readonly HashSet<string> TabletopDefinitionNames =
     [
@@ -97,7 +96,7 @@ internal static class ModUi
         "FeatEldritchAdept",
         "FeatFellHanded",
         "FeatGiftOfTheChromaticDragon",
-        "FeatGiftOfTheGemDragon",
+        "FeatGroupGiftOfTheGemDragon",
         "FeatGroupAthlete",
         "FeatGroupBalefulScion",
         "FeatGroupChef",

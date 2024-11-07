@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -32,9 +32,9 @@ public static class CharacterPlateDetailedPatcher
                 classesCount = guiCharacter.Snapshot.Classes.Length;
             }
 
-            __instance.classLabel.Text = MulticlassGameUiContext.GetAllClassesLabel(guiCharacter, separator) ??
+            __instance.classLabel.Text = MulticlassGameUi.GetAllClassesLabel(guiCharacter, separator) ??
                                          __instance.classLabel.Text;
-            __instance.classLabel.TMP_Text.fontSize = MulticlassGameUiContext.GetFontSize(classesCount);
+            __instance.classLabel.TMP_Text.fontSize = MulticlassGameUi.GetFontSize(classesCount);
         }
     }
 }

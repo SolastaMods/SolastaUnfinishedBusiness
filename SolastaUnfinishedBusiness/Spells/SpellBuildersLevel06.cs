@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -10,7 +11,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
@@ -732,7 +732,7 @@ internal static partial class SpellBuilders
     {
         const string NAME = "FlashFreeze";
 
-        var battlePackage = AiContext.BuildDecisionPackageBreakFree($"Condition{NAME}");
+        var battlePackage = AiHelpers.BuildDecisionPackageBreakFree($"Condition{NAME}");
 
         var conditionFlashFreeze = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -741,7 +741,7 @@ internal static partial class SpellBuilders
             .SetConditionType(ConditionType.Detrimental)
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .SetPossessive()
-            .SetFixedAmount((int)AiContext.BreakFreeType.DoStrengthCheckAgainstCasterDC)
+            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoStrengthCheckAgainstCasterDC)
             .SetBrain(battlePackage, true)
             .SetFeatures(ActionAffinityGrappled)
             .AddToDB();

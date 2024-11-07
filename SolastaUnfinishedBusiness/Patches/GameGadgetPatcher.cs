@@ -25,7 +25,7 @@ public static class GameGadgetPatcher
                 return;
             }
 
-            GameUiContext.ComputeIsRevealedExtended(__instance, ref __result);
+            CampaignsContext.ComputeIsRevealedExtended(__instance, ref __result);
         }
     }
 
@@ -64,7 +64,7 @@ public static class GameGadgetPatcher
                 return;
             }
 
-            GameUiContext.HideExitsAndTeleportersGizmosIfNotDiscovered(__instance, conditionIndex, state);
+            CampaignsContext.HideExitsAndTeleportersGizmosIfNotDiscovered(__instance, conditionIndex, state);
         }
     }
 }

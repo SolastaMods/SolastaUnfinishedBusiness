@@ -63,7 +63,6 @@ internal static class CustomWeaponsContext
         BuildThunderGauntlet();
         BuildLightningLauncher();
         BuildUnarmedStrikeClaws();
-        UpdateHandWrapsUseGauntletSlot();
     }
 
     [NotNull]
@@ -781,30 +780,6 @@ internal static class CustomWeaponsContext
             .FirstOrDefault(item =>
                 item.ItemTags.Contains(TagsDefinitions.ItemTagStandard) && item.IsWeapon &&
                 item.WeaponDescription.WeaponTypeDefinition.Name == type);
-    }
-
-    internal static void UpdateHandWrapsUseGauntletSlot()
-    {
-        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
-        {
-            if (item is not { WeaponDescription.weaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
-            {
-                continue;
-            }
-
-            if (item == ItemDefinitions.UnarmedStrikeBase) { continue; }
-
-            if (Main.Settings.EnableMonkHandwrapsUseGauntletSlot)
-            {
-                item.SlotTypes.Add(EquipmentDefinitions.SlotTypeGloves);
-                item.SlotsWhereActive.Add(EquipmentDefinitions.SlotTypeGloves);
-            }
-            else
-            {
-                item.SlotTypes.Remove(EquipmentDefinitions.SlotTypeGloves);
-                item.SlotsWhereActive.Remove(EquipmentDefinitions.SlotTypeGloves);
-            }
-        }
     }
 
     internal static void ModifyUnarmedAttackWithGauntlet(RulesetCharacterHero hero, ref ItemDefinition itemDefinition,

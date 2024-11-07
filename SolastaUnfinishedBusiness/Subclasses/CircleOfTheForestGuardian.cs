@@ -72,6 +72,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
                     x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+            .AddCancellingConditions(ConditionDefinitions.ConditionCharmedByHypnoticPattern)
             .AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard))
             .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();
@@ -83,6 +84,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
                     x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
+            .AddCancellingConditions(ConditionDefinitions.ConditionCharmedByHypnoticPattern)
             .SetParentCondition(conditionBarkWard)
             .SetFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity)
             .AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard))

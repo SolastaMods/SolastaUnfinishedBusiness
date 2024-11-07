@@ -42,7 +42,7 @@ internal static class SharedSpellsContext
         { InventorClass.ClassName, CasterProgression.HalfRoundUp }
     };
 
-    private static readonly Dictionary<string, CasterProgression> SubclassCasterType = new()
+    internal static readonly Dictionary<string, CasterProgression> SubclassCasterType = new()
     {
         { MartialSpellblade.Name, CasterProgression.OneThird },
         { RoguishArcaneScoundrel.Name, CasterProgression.OneThird },
