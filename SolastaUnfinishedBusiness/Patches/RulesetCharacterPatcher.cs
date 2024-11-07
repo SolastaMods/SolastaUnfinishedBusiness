@@ -272,6 +272,26 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    //PATCH: can only cast counter spell if self can perceive caster when lighting rules are enabled
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastCounterSpell))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CanCastCounterSpell_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ref bool __result)
+        {
+            if (!__result || !Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+            {
+                return;
+            }
+
+            var glc = GameLocationCharacter.GetFromActor(__instance);
+
+            __result = glc.CanPerceiveTarget(GameLocationBattleManagerPatcher.HandleSpellCast_Patch.Caster);
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.IsWieldingMonkWeapon))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
