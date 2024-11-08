@@ -72,7 +72,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 ConditionDefinitions.ConditionLightSensitive)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
-            // for whatever reason required here
+            // need special duration because of SetUseSpellAttack
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
@@ -176,7 +176,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetOrUpdateGuiPresentation($"Power{Name}LunarChill", Category.Feature)
             .SetParentCondition(ConditionDefinitions.ConditionHindered)
             .SetPossessive()
-            // for whatever reason required here
+            // need special duration because of SetUseSpellAttack
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures()
             .CopyParticleReferences(FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold)
