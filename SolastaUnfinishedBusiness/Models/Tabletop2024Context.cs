@@ -192,11 +192,15 @@ internal static class Tabletop2024Context
         .SetGrantedFeature(FeatureSetPactTome.FeatureSet[0]) // grant pool directly instead of feature set
         .AddToDB();
 
-    private static readonly ConditionDefinition ConditionSavingThrowAdvantage = ConditionDefinitionBuilder
-        .Create("ConditionSavingThrowAdvantage")
-        .SetGuiPresentationNoContent(true)
+    private static readonly ConditionDefinition ConditionBardCounterCharmSavingThrowAdvantage = ConditionDefinitionBuilder
+        .Create("ConditionBardCounterCharmSavingThrowAdvantage")
+        .SetGuiPresentation(PowerBardCountercharm.GuiPresentation)
         .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll)
+        .SetFeatures(
+            FeatureDefinitionSavingThrowAffinityBuilder
+                .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll, "SavingThrowAffinityBardCounterCharmAdvantage")
+                .SetGuiPresentation(PowerBardCountercharm.GuiPresentation)
+                .AddToDB())
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .AddToDB();
 
@@ -220,6 +224,7 @@ internal static class Tabletop2024Context
     private static readonly FeatureDefinitionPower PowerSorcerousRestoration = FeatureDefinitionPowerBuilder
         .Create(PowerSorcererManaPainterTap, "PowerSorcerousRestoration")
         .SetOrUpdateGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
     internal static void LateLoad()
@@ -895,7 +900,7 @@ internal static class Tabletop2024Context
         // Cure Wounds, Healing Word got buf on base damage and add dice
         CureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
         CureWounds.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
-        FalseLife.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        FalseLife.effectDescription.EffectForms[0].temporaryHitPointsForm.diceNumber = dice;
         HealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
         HealingWord.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
 
@@ -1089,6 +1094,7 @@ internal static class Tabletop2024Context
             if (savingThrowData.SaveOutcome != RollOutcome.Success &&
                 !helper.IsOppositeSide(defender.Side) &&
                 helper.CanReact() &&
+                helper.IsWithinRange(defender, 6) &&
                 HasCharmedOrFrightened(savingThrowData.EffectDescription.EffectForms))
             {
                 yield return helper.MyReactToDoNothing(
@@ -1114,7 +1120,7 @@ internal static class Tabletop2024Context
                 var rulesetDefender = defender.RulesetCharacter;
 
                 rulesetDefender.InflictCondition(
-                    ConditionSavingThrowAdvantage.Name,
+                    ConditionBardCounterCharmSavingThrowAdvantage.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.StartOfTurn,
@@ -1122,13 +1128,15 @@ internal static class Tabletop2024Context
                     rulesetDefender.guid,
                     rulesetDefender.CurrentFaction.Name,
                     1,
-                    ConditionSavingThrowAdvantage.Name,
+                    ConditionBardCounterCharmSavingThrowAdvantage.Name,
                     0,
                     0,
                     0);
 
                 // we need to manually spend the reaction here as rolling the saving again below
-                defender.SpendActionType(ActionType.Reaction);
+                helper.SpendActionType(ActionType.Reaction);
+                helper.RulesetCharacter.LogCharacterUsedPower(PowerBardCountercharm);
+                EffectHelpers.StartVisualEffect(helper, defender, PowerBardCountercharm, EffectHelpers.EffectType.Caster);
                 TryAlterOutcomeSavingThrow.TryRerollSavingThrow(attacker, defender, savingThrowData, hasHitVisual);
             }
         }

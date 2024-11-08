@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SavingThrowAffinityAdvantageToAll:43ef34e25f37fc64bbc7af455a107f8f"
+    "Definition:SavingThrowAffinityBardCounterCharmAdvantage:d28e2736-5e76-5e38-83fa-3e6ebd37c69c"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -131,14 +131,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&PowerBardCountercharmTitle",
+    "description": "Feature/&PowerBardCountercharmDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "24356fafbbd392a4e80c8b62cfd27f78",
+      "m_SubObjectName": "Countercharm",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -153,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7265d2c9-c101-53f9-8270-e3bc2ed7cfa8",
+  "guid": "946d4b95-7615-5185-ae84-3719caa96758",
   "contentPack": 9999,
-  "name": "ConditionSavingThrowAdvantage"
+  "name": "ConditionBardCounterCharmSavingThrowAdvantage"
 }

@@ -2,13 +2,19 @@
 
 - added False Life to 'Enable healing spells 5e 2024 spells version'
 - fixed 'Enable all Casters to use new prepared spells tables' on Rangers
+- fixed 'Enable Countercharm at level 7 as a reaction instead of level 6 as an action'
 - fixed 'Enable Paladin spellcasting at level 1' integration with variant spell rules
 - fixed 'Enable Ranger spellcasting at level 1' integration with variant spell rules
-- fixed 'Enable Sorcerous Restoration at level 5' missing short rest activity
+- fixed 'Enable Sorcerous Restoration at level 5' missing short rest activity blueprint
 - fixed infusions termination rest activity under multiplayer session
 - fixed Patron Moonlit lunar chill, and lunar radiance detrimental conditions duration
 - fixed Rogue stroke of luck missing foreign translations introduced on v37
 - improved Armor of Agathys, and Power Word Heal to 5e 2024 versions
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.37:
 
@@ -26,11 +32,6 @@
 - fixed Sickening Radiance exhaustion immunity on constructs, elementals, undead, and constructs
 - fixed Wizard Abjuration projected ward crash on gadgets
 - fixed Wizard Graviturgist descriptions, SFX, and behaviors
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.36:
 

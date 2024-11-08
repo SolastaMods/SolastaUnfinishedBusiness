@@ -1,0 +1,117 @@
+{
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    }
+  ],
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerBardCountercharmTitle",
+    "description": "Feature/&PowerBardCountercharmDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "24356fafbbd392a4e80c8b62cfd27f78",
+      "m_SubObjectName": "Countercharm",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d28e2736-5e76-5e38-83fa-3e6ebd37c69c",
+  "contentPack": 9999,
+  "name": "SavingThrowAffinityBardCounterCharmAdvantage"
+}
