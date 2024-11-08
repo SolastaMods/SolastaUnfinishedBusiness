@@ -895,6 +895,7 @@ internal static class Tabletop2024Context
         // Cure Wounds, Healing Word got buf on base damage and add dice
         CureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
         CureWounds.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
+        FalseLife.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
         HealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
         HealingWord.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
 

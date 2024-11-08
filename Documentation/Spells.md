@@ -1948,7 +1948,7 @@ A flood of healing energy flows from you into injured creatures around you. You 
 
 Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 
-# 322. - *Power Word Heal* © (V,S) level 9 Enchantment [UB]
+# 322. - *Power Word Heal* © (V) level 9 Enchantment [UB]
 
 **[Bard, Cleric]**
 

@@ -149,7 +149,7 @@ ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclasse</color> <b><i><colo
 ModUi/&EnableOneDnDPreparedSpellsTables=Permitir que todos os <color=#D89555>Conjuradores</color> usem novas tabelas de magias preparadas <i><color=#F0DAA0>[Bardo, Clérigo, Druida, Paladino, Patrulheiro, Feiticeiro, Mago]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Habilitar <color=#D89555>Barkskin</color> versão de magia 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, CA definida como 17]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Habilitar <color=#D89555>Orientação</color> versão de magia 5e 2024 <i><color=#F0DAA0>[Escolha uma habilidade na conjuração e ganhe bônus por até 1 minuto.]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=Habilitar <color=#D89555>Curar Ferimentos</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Ferimentos em Massa</color> e <color=#D89555>Palavra de Cura em Massa</color> versão de feitiços 5e 2024
+ModUi/&EnableOneDndHealingSpellsUpgrade=Habilitar <color=#D89555>Curar Ferimentos</color>, <color=#D89555>Vida Falsa</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Ferimentos em Massa</color> e <color=#D89555>Palavra de Cura em Massa</color> versão de feitiços 5e 2024
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Habilitar <color=#D89555>Impor as Mãos</color> como ação bônus
 ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Smite</color> como ação bônus
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração de feitiços</color> no nível 1 em vez de 2

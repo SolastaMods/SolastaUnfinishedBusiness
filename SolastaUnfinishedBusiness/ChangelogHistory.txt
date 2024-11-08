@@ -1,5 +1,6 @@
 1.5.97.38:
 
+- added False Life to 'Enable healing spells 5e 2024 spells version'
 - fixed 'Enable all Casters to use new prepared spells tables' on Rangers
 - fixed 'Enable Paladin spellcasting at level 1' integration with variant spell rules
 - fixed 'Enable Ranger spellcasting at level 1' integration with variant spell rules
@@ -7,6 +8,7 @@
 - fixed infusions termination rest activity under multiplayer session
 - fixed Patron Moonlit lunar chill, and lunar radiance detrimental conditions duration
 - fixed Rogue stroke of luck missing foreign translations introduced on v37
+- improved Armor of Agathys, and Power Word Heal to 5e 2024 versions
 
 1.5.97.37:
 
