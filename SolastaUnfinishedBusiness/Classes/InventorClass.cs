@@ -84,11 +84,13 @@ internal static class InventorClass
             .SetFixedValue(InfusionPool, 2)
             .AddToDB();
 
+        var powerAfterRestStopInfusions = BuildCancelAllInfusionsRestActivity();
         var learn2Infusion = BuildLearn(2);
         var featureSetInventorInfusions = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
             .SetGuiPresentation(InfusionsName, Category.Feature)
-            .AddFeatureSet(InfusionPool, BuildLearn(4), powerUseModifierInventorInfusionPool2)
+            .AddFeatureSet(
+                InfusionPool, powerAfterRestStopInfusions, BuildLearn(4), powerUseModifierInventorInfusionPool2)
             .AddToDB();
 
         var unlearn = BuildUnlearn();
@@ -399,8 +401,6 @@ internal static class InventorClass
 
         builder.AddFeaturesAtLevel(3, SubclassChoice);
 
-        BuildCancelAllInfusionsRestActivity();
-
         RegisterPoILoot();
 
         builder.SetVocalSpellSemeClass(VocalSpellSemeClass.Arcana);
@@ -620,7 +620,7 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    private static void BuildCancelAllInfusionsRestActivity()
+    private static FeatureDefinitionPower BuildCancelAllInfusionsRestActivity()
     {
         const string POWER_NAME = "PowerAfterRestStopInfusions";
 
@@ -648,7 +648,7 @@ internal static class InventorClass
                 POWER_NAME)
             .AddToDB();
 
-        FeatureDefinitionPowerBuilder
+        return FeatureDefinitionPowerBuilder
             .Create(POWER_NAME)
             .SetGuiPresentation(Category.Feature, hidden: true)
             .AddCustomSubFeatures(

@@ -10,7 +10,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSorcerousRestorationTitle",
+    "title": "Feature/&PowerSorcerousRestorationShortTitle",
     "description": "Feature/&PowerSorcerousRestorationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

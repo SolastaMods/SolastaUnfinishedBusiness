@@ -4,7 +4,9 @@
 - fixed 'Enable Paladin spellcasting at level 1' integration with variant spell rules
 - fixed 'Enable Ranger spellcasting at level 1' integration with variant spell rules
 - fixed 'Enable Sorcerous Restoration at level 5' missing short rest activity
+- fixed infusions termination rest activity under multiplayer session
 - fixed Patron Moonlit lunar chill, and lunar radiance detrimental conditions duration
+- fixed Rogue stroke of luck missing foreign translations introduced on v37
 
 1.5.97.37:
 
