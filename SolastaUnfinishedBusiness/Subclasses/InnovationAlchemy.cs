@@ -643,6 +643,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
+            .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -660,7 +661,6 @@ public sealed class InnovationAlchemy : AbstractSubclass
                     .AddEffectForms(effects)
                     .SetSpeedAndImpactOffset(SpeedType.CellsPerSeconds, 12, offsetImpactTimePerTarget: 0.3f)
                     .Build())
-            .SetUseSpellAttack()
             .AddToDB();
 
         power.AddCustomSubFeatures(

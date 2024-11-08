@@ -199,6 +199,7 @@ Feature/&PowerRogueDeviousStrikeTitle=Devious Strike
 Feature/&PowerSorcererInnateSorceryDescription=As a Bonus Action, you can unleash that magic for 1 minute, during which you gain the following benefits:\n•The spell save DC of your Sorcerer spells increases by 1.\n•You have Advantage on the attack rolls of Sorcerer spells you cast.\n•You can use this feature twice, and you regain all expended uses of it when you finish a Long Rest.
 Feature/&PowerSorcererInnateSorceryTitle=Innate Sorcery
 Feature/&PowerSorcerousRestorationDescription=When you finish a Short Rest, you can regain expended Sorcery Points, but no more than a number equal to half your Sorcerer level (round down). Once you use this feature, you can't do so again until you finish a Long Rest.
+Feature/&PowerSorcerousRestorationShortTitle=Restoration
 Feature/&PowerSorcerousRestorationTitle=Sorcerous Restoration
 Feature/&PowerTeleportSummonDescription=You can teleport to any location within 5 ft from the caster.
 Feature/&PowerTeleportSummonTitle=Teleport

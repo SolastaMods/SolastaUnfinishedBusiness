@@ -659,7 +659,7 @@ Druids are part of an ancient order dedicated to nature. Their powers and spells
 
 * Druid Armor Proficiencies
 
-Light Armor,Medium Armor,Shield
+Light Armor,Shield,Medium Armor
 You cannot wear any armor made of: Metal
 
 * Druid Skills

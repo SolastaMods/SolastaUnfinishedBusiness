@@ -149,7 +149,7 @@ ModUi/&EnableMulticlass=Abilita <color=#D89555>multiclasse</color> <b><i><color=
 ModUi/&EnableOneDnDPreparedSpellsTables=Abilita tutti i <color=#D89555>incantatori</color> a usare le nuove tabelle degli incantesimi preparati <i><color=#F0DAA0>[Bardo, Chierico, Druido, Paladino, Ranger, Stregone, Mago]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Abilita la versione dell'incantesimo <color=#D89555>Barkskin</color> 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Abilita la versione dell'incantesimo <color=#D89555>Guida</color> 5e 2024 <i><color=#F0DAA0>[Scegli un'abilità al momento del lancio e ottieni un bonus fino a 1 minuto.]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=Abilita <color=#D89555>Cura Ferite</color>, <color=#D89555>Parola Guaritrice</color>, <color=#D89555>Cura Ferite di Massa</color> e <color=#D89555>Parola Guaritrice di Massa</color> versione incantesimi 5e 2024
+ModUi/&EnableOneDndHealingSpellsUpgrade=Abilita <color=#D89555>Cura Ferite</color>, <color=#D89555>Falsa Vita</color>, <color=#D89555>Parola Guaritrice</color>, <color=#D89555>Cura Ferite di Massa</color> e <color=#D89555>Parola Guaritrice di Massa</color> versione incantesimi 5e 2024
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Abilita <color=#D89555>Imposizione delle mani</color> come azione bonus
 ModUi/&EnablePaladinSmiteAsBonusAction=Abilita <color=#D89555>Colpisci</color> come azione bonus
 ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2

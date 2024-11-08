@@ -199,6 +199,7 @@ Feature/&PowerRogueDeviousStrikeTitle=狡诈打击
 Feature/&PowerSorcererInnateSorceryDescription=作为奖励行动，您可以释放魔法 1 分钟，在此期间您将获得以下好处：\n• 您的巫师法术的法术豁免 DC 增加 1。\n• 您在施放的巫师法术的攻击掷骰上具有优势。\n• 您可以使用此功能两次，并且在完成长时间休息后，您可以恢复所有已用完的使用次数。
 Feature/&PowerSorcererInnateSorceryTitle=天生魔法
 Feature/&PowerSorcerousRestorationDescription=完成短暂休息后，您可以恢复消耗的魔法点数，但最多只能恢复魔法师等级的一半（向下取整）。一旦使用此功能，您就无法再次这样做，直到完成长时间休息为止。
+Feature/&PowerSorcerousRestorationShortTitle=恢复
 Feature/&PowerSorcerousRestorationTitle=魔法恢复
 Feature/&PowerTeleportSummonDescription=你可以传送到施法者 5 尺以内的任何位置。
 Feature/&PowerTeleportSummonTitle=传送
