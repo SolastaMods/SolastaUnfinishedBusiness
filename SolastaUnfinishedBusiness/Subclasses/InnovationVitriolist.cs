@@ -81,6 +81,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .Create($"Condition{Name}Corroded")
             .SetGuiPresentation(Category.Condition, Gui.EmptyContent, ConditionDefinitions.ConditionHeatMetal)
             .SetConditionType(ConditionType.Detrimental)
+            // need special duration because of SetUseSpellAttack
+            .SetSpecialDuration(DurationType.Round, 1)
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}Corroded")
@@ -120,6 +122,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .Create($"Condition{Name}Miserable")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAcidArrowed)
             .SetConditionType(ConditionType.Detrimental)
+            // need special duration because of SetUseSpellAttack
+            .SetSpecialDuration(DurationType.Round, 1)
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()

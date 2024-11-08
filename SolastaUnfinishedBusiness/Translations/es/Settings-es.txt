@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=Habilita <color=#D89555>Golpe brutal</color> 
 ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 7
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Habilitar <color=#D89555>Contraencantamiento</color> en el nivel 7 como reacción en lugar del nivel 6 como acción
 ModUi/&EnableBardExpertiseOneLevelBefore=Habilitar <color=#D89555>Experiencia</color> en los niveles 2 y 9 en lugar de 3 y 10
 ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <b>College of Hope</b> <color=#D89555>Healing Ballad</color> en descanso largo
 ModUi/&EnableBardSuperiorInspirationAtLevel18=Habilita <color=#D89555>Inspiración superior</color> en el nivel 18 en lugar de 20 y también otorga dos recargas en lugar de 1.
@@ -148,7 +149,7 @@ ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclase</color> <b><i><color
 ModUi/&EnableOneDnDPreparedSpellsTables=Permitir que todos los <color=#D89555>lanzadores de conjuros</color> utilicen las nuevas tablas de conjuros preparadas <i><color=#F0DAA0>[Bardo, Clérigo, Druida, Paladín, Explorador, Hechicero, Mago]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Habilitar la versión del hechizo <color=#D89555>Corteza</color> 5e 2024 <i><color=#F0DAA0>[acción adicional, sin concentración, CA establecida en 17]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Habilitar <color=#D89555>Orientación</color> versión del hechizo 5e 2024 <i><color=#F0DAA0>[Elige una habilidad al lanzar y obtén una bonificación por hasta 1 minuto.]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=Habilitar los hechizos <color=#D89555>Curar heridas</color>, <color=#D89555>Palabra de sanación</color>, <color=#D89555>Curar heridas en masa</color> y <color=#D89555>Palabra de sanación en masa</color> de la versión 5e 2024
+ModUi/&EnableOneDndHealingSpellsUpgrade=Habilitar <color=#D89555>Curar heridas</color>, <color=#D89555>Falsa vida</color>, <color=#D89555>Palabra de sanación</color>, <color=#D89555>Curar heridas en masa</color> y <color=#D89555>Palabra de sanación en masa</color> versión 5e 2024
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Habilitar <color=#D89555>Imposición de manos</color> como acción adicional
 ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Castigar</color> como acción adicional
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar el <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar del 2
@@ -162,6 +163,7 @@ ModUi/&EnableRespecAction=Habilitar la acción <color=#D89555>RESPECT</color> de
 ModUi/&EnableRitualOnAllCasters=Habilitar el lanzamiento de <color=#D89555>Ritual</color> para todos los lanzadores
 ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Golpe astuto</color> y <color=#D89555>Golpe tortuoso</color> en los niveles 5 y 14 <i><color=#F0DAA0>[dejas de usar 1 dado de ataque furtivo para obtener efectos de golpe adicionales]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
+ModUi/&EnableRogueSlipperyMind=Intercambia <color=#D89555>Mente resbaladiza</color> con la versión 5e 2024 <i><color=#F0DAA0>[además de sabiduría, también obtienes competencia en tiradas de salvación de carisma]</color></i>
 ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Apunta firme</color> en el nivel 3 <i><color=#F0DAA0>[la acción adicional otorga ventaja en tu próxima tirada de ataque en el turno actual si aún no te has movido]</color></i>
 ModUi/&EnableRogueStrSaving=Habilitar los modificadores DEX o STR de <b>Hoodlum</b> en <color=#D89555>Golpe astuto/desviado</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Habilitar <color=#D89555>Second Wind</color> para usar la progresión de usos de 5e 2024
@@ -169,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=Permite que los <color=#D89555>hechizos excl
 ModUi/&EnableSorcererInnateSorceryAt1=Habilitar <color=#D89555>Hechicería innata</color> en el nivel 1
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Guía mágica</color> en el nivel 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar la acción <color=#D89555>Hechizo acelerado</color> para permitir lanzar un hechizo de acción principal con metamagia acelerada aplicada
+ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauración hechicera</color> en el nivel 5
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir: golpes críticos, fallos críticos, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe suma un D20 en la tirada para darle un poco de aleatoriedad. <color=#F0DAA0>[peso de la elección = votos * modificador de Carisma del héroe + tirada del D20]</color></i>
@@ -179,6 +182,7 @@ ModUi/&EnableUnarmedMainAttackAction=Habilitar la acción <color=#D89555>Ataque 
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar la conversión ascendente de <color=#D89555>Conjurar elemental</color> y <color=#D89555>Conjurar feérico</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2
+ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2 y mejora <color=#D89555>Maestro sobrenatural</color> en el nivel 20.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Habilitar <color=#D89555>Patron</color> en el nivel 3 en lugar del 1
 ModUi/&EnableWizardToLearnScholarAtLevel2=Habilitar <color=#D89555>Scholar</color> en el nivel 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Habilitar <color=#D89555>Escuela de Magia</color> en el nivel 3 en lugar de 2

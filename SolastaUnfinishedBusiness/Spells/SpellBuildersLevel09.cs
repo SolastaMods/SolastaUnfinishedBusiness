@@ -204,7 +204,7 @@ internal static partial class SpellBuilders
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(true)
+            .SetSomaticComponent(false)
             .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Healing)
             .SetEffectDescription(
@@ -232,6 +232,7 @@ internal static partial class SpellBuilders
                                 ConditionDefinitions.ConditionCharmed,
                                 ConditionDefinitions.ConditionFrightened,
                                 ConditionDefinitions.ConditionParalyzed,
+                                ConditionDefinitions.ConditionPoisoned,
                                 ConditionDefinitions.ConditionProne)
                             .Build())
                     .SetParticleEffectParameters(Regenerate)

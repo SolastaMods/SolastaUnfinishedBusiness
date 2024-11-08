@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Brutal Strike</color
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie den Buff und Debuff von <color=#D89555>Reckless Attack</color>, um ihn zu Beginn der nächsten Runde zu beenden.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Aktiviere die Wiedererlangung einer <color=#D89555>Wut</color>-Anwendung während einer kurzen Pause auf Level 7
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Aktiviere <color=#D89555>Gegenzauber</color> auf Stufe 7 als Reaktion statt auf Stufe 6 als Aktion
 ModUi/&EnableBardExpertiseOneLevelBefore=Aktivieren Sie <color=#D89555>Expertise</color> auf den Stufen 2 und 9 statt auf 3 und 10.
 ModUi/&EnableBardHealingBalladOnLongRest=Aktivieren Sie <b>College of Hope</b> <color=#D89555>Healing Ballad</color> bei langer Pause
 ModUi/&EnableBardSuperiorInspirationAtLevel18=Aktiviere <color=#D89555>Überlegene Inspiration</color> auf Level 18 statt 20 und gewähre außerdem zwei Aufladungen statt einer
@@ -148,7 +149,7 @@ ModUi/&EnableMulticlass=Aktivieren Sie <color=#D89555>Multiclass</color> <b><i><
 ModUi/&EnableOneDnDPreparedSpellsTables=Ermöglichen Sie allen <color=#D89555>Zauberern</color> die Verwendung neuer vorbereiteter Zaubertabellen <i><color=#F0DAA0>[Barde, Kleriker, Druide, Paladin, Waldläufer, Zauberer, Magier]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Aktiviere <color=#D89555>Barkskin</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 gesetzt]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Aktivieren Sie die Zauberversion <color=#D89555>Anleitung</color> 5e 2024 <i><color=#F0DAA0>[Wählen Sie beim Zaubern eine Fertigkeit aus und erhalten Sie bis zu 1 Minute lang einen Bonus.]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=Aktiviere die Zauberversionen <color=#D89555>Wunden heilen</color>, <color=#D89555>Heilendes Wort</color>, <color=#D89555>Massenheilung von Wunden</color> und <color=#D89555>Massenheilendes Wort</color> 5e 2024
+ModUi/&EnableOneDndHealingSpellsUpgrade=Aktiviere <color=#D89555>Wunden heilen</color>, <color=#D89555>Falsches Leben</color>, <color=#D89555>Heilendes Wort</color>, <color=#D89555>Massenheilung von Wunden</color> und <color=#D89555>Massenheilendes Wort</color> 5e 2024 Zauberversion
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Aktiviere <color=#D89555>Handauflegen</color> als Bonusaktion
 ModUi/&EnablePaladinSmiteAsBonusAction=Aktiviere <color=#D89555>Smite</color> als Bonusaktion
 ModUi/&EnablePaladinSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
@@ -162,6 +163,7 @@ ModUi/&EnableRespecAction=Aktivieren Sie <color=#D89555>RESPEC</color> nach der 
 ModUi/&EnableRitualOnAllCasters=Aktivieren Sie das Wirken von <color=#D89555>Ritualen</color> für alle Zauberer.
 ModUi/&EnableRogueCunningStrike=Aktiviere <color=#D89555>Cunning Strike</color> und <color=#D89555>Devious Strike</color> auf den Leveln 5 und 14 <i><color=#F0DAA0>[du lässt 1 Schleichangriffswürfel für zusätzliche Treffereffekte weg]</color></i>
 ModUi/&EnableRogueFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
+ModUi/&EnableRogueSlipperyMind=Tauschen Sie <color=#D89555>Slippery Mind</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Sie erhalten neben Weisheit auch Kenntnisse in Charismarettungswürfen]</color></i>
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrechung</color> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sich noch nicht bewegt haben]</color></i>
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <b>Hoodlum</b> DEX- oder STR-Modifikatoren bei <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Aktivieren Sie <color=#D89555>Second Wind</color>, um den Nutzungsfortschritt von 5e 2024 zu nutzen
@@ -169,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=Aktiviere, dass <color=#D89555>Signaturzaube
 ModUi/&EnableSorcererInnateSorceryAt1=Aktiviere <color=#D89555>Angeborene Zauberei</color> auf Stufe 1.
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung</color> auf Stufe 5.
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
+ModUi/&EnableSorcerousRestorationAtLevel5=Aktiviere <color=#D89555>Zauberhafte Wiederherstellung</color> auf Stufe 5.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Sortierung von Assets im Dungeon Maker-Editor.
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Außerdem fügt jeder Held einen D20-Wurf zur Gewichtung hinzu, um ein wenig Zufälligkeit zu erzeugen <color=#F0DAA0>[Wahlgewicht = Stimmen * Charisma-Modifikator des Helden + D20-Wurf]</color></i>
@@ -179,6 +182,7 @@ ModUi/&EnableUnarmedMainAttackAction=Aktiviere die Aktion <color=#D89555>Unbewaf
 ModUi/&EnableUpcastConjureElementalAndFey=Aktiviere Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feenbeschwören</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Aktivieren Sie variable Platzhalter in Beschreibungen <i><color=#F0DAA0>[verwenden Sie {VARIABLE_NAME} als Platzhalter]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Aktiviere <color=#D89555>Magische List</color> auf Stufe 2.
+ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Aktiviere <color=#D89555>Magische List</color> auf Level 2 und verbessere <color=#D89555>Eldritch Master</color> auf 20.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Aktivieren Sie <color=#D89555>Patron</color> auf Stufe 3 statt auf Stufe 1.
 ModUi/&EnableWizardToLearnScholarAtLevel2=Aktiviere <color=#D89555>Gelehrter</color> auf Stufe 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Aktiviere die <color=#D89555>Schule der Magie</color> auf Level 3 statt auf Level 2.

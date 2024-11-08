@@ -463,14 +463,7 @@ internal static class Level20SubclassesContext
             .Create("ConditionMartialCommanderPeerlessCommanderSavings")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
-            .AddFeatures(
-                FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create("SavingThrowAffinityMartialCommanderPeerlessCommander")
-                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderSavings", Category.Condition,
-                        Gui.NoLocalization)
-                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
-                        AttributeDefinitions.AbilityScoreNames)
-                    .AddToDB())
+            .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll)
             .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();
 

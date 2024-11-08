@@ -192,6 +192,36 @@ internal static class Tabletop2024Context
         .SetGrantedFeature(FeatureSetPactTome.FeatureSet[0]) // grant pool directly instead of feature set
         .AddToDB();
 
+    private static readonly ConditionDefinition ConditionSavingThrowAdvantage = ConditionDefinitionBuilder
+        .Create("ConditionSavingThrowAdvantage")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll)
+        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerWarlockMagicalCunning = FeatureDefinitionPowerBuilder
+        .Create("PowerWarlockMagicalCunning")
+        .SetGuiPresentation(Category.Feature, PowerWizardArcaneRecovery)
+        .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetCasterEffectParameters(Banishment)
+                .Build())
+        .AddCustomSubFeatures(new PowerOrSpellFinishedByMeMagicalCunning())
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureEldritchMaster = FeatureDefinitionBuilder
+        .Create("FeatureEldritchMaster")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerSorcerousRestoration = FeatureDefinitionPowerBuilder
+        .Create(PowerSorcererManaPainterTap, "PowerSorcerousRestoration")
+        .SetOrUpdateGuiPresentation(Category.Feature)
+        .AddToDB();
+
     internal static void LateLoad()
     {
         BuildBarbarianBrutalStrike();
@@ -199,6 +229,8 @@ internal static class Tabletop2024Context
         BuildRogueCunningStrike();
         LoadMonkHeightenedMetabolism();
         LoadSecondWindToUseOneDndUsagesProgression();
+        LoadOneDndEnableBardCounterCharmAsReactionAtLevel7();
+        LoadSorcerousRestorationAtLevel5();
         SwitchBarbarianBrutalCritical();
         SwitchBarbarianBrutalStrike();
         SwitchBarbarianRecklessSameBuffDebuffDuration();
@@ -213,6 +245,7 @@ internal static class Tabletop2024Context
         SwitchMonkHeightenedMetabolism();
         SwitchMonkSuperiorDefenseToReplaceEmptyBody();
         SwitchOneDndChangeBardicInspirationDurationToOneHour();
+        SwitchOneDndEnableBardCounterCharmAsReactionAtLevel7();
         SwitchOneDndEnableBardExpertiseOneLevelBefore();
         SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
         SwitchOneDndEnableBardWordsOfCreationAtLevel20();
@@ -229,6 +262,9 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellBarkskin();
         SwitchOneDndSpellGuidance();
         SwitchOneDndSurprisedEnforceDisadvantage();
+        SwitchSorcererInnateSorcery();
+        SwitchSorcerousRestorationAtLevel5();
+        SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20();
         SwitchOneDndWarlockPatronLearningLevel();
         SwitchOneDndWarlockInvocationsProgression();
         SwitchOneDndWizardScholar();
@@ -237,9 +273,9 @@ internal static class Tabletop2024Context
         SwitchRangerNatureShroud();
         SwitchRogueBlindSense();
         SwitchRogueCunningStrike();
+        SwitchRogueSlipperyMind();
         SwitchRogueSteadyAim();
         SwitchSecondWindToUseOneDndUsagesProgression();
-        SwitchSorcererInnateSorcery();
     }
 
     private static void LoadSecondWindToUseOneDndUsagesProgression()
@@ -274,7 +310,7 @@ internal static class Tabletop2024Context
     {
         if (Main.Settings.AddPersuasionToFighterSkillOptions)
         {
-            PointPoolFighterSkillPoints.restrictedChoices.TryAdd(SkillDefinitions.Persuasion);
+            PointPoolFighterSkillPoints.restrictedChoices.Add(SkillDefinitions.Persuasion);
         }
         else
         {
@@ -303,19 +339,16 @@ internal static class Tabletop2024Context
 
     internal static void SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency()
     {
+        Druid.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetDruidPrimalOrder);
+        ProficiencyDruidArmor.Proficiencies.Remove(EquipmentDefinitions.MediumArmorCategory);
+
         if (Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency)
         {
-            ProficiencyDruidArmor.Proficiencies.Remove(
-                EquipmentDefinitions.MediumArmorCategory);
-
             Druid.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetDruidPrimalOrder, 1));
         }
         else
         {
-            ProficiencyDruidArmor.Proficiencies.TryAdd(
-                EquipmentDefinitions.MediumArmorCategory);
-
-            Druid.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetDruidPrimalOrder);
+            ProficiencyDruidArmor.Proficiencies.Add(EquipmentDefinitions.MediumArmorCategory);
         }
 
         Druid.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -352,7 +385,8 @@ internal static class Tabletop2024Context
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
 
-        foreach (var subclass in subclasses)
+        foreach (var subclass in subclasses
+                     .Where(x => x.HasSubFeatureOfType<FeatureDefinitionCastSpell>()))
         {
             if (Main.Settings.EnableRitualOnAllCasters)
             {
@@ -494,6 +528,27 @@ internal static class Tabletop2024Context
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static void SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20()
+    {
+        Warlock.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == PowerWarlockMagicalCunning ||
+            x.FeatureDefinition == FeatureEldritchMaster ||
+            x.FeatureDefinition == Level20Context.PowerWarlockEldritchMaster);
+
+        if (Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20)
+        {
+            Warlock.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(PowerWarlockMagicalCunning, 2),
+                new FeatureUnlockByLevel(FeatureEldritchMaster, 20));
+        }
+        else
+        {
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(Level20Context.PowerWarlockEldritchMaster, 20));
+        }
+
+        Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchOneDndWarlockPatronLearningLevel()
     {
         var patrons = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
@@ -633,6 +688,18 @@ internal static class Tabletop2024Context
         {
             FeatureDefinitionCastSpells.CastSpellBard.knownSpells =
                 [4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22];
+
+            if (Main.Settings.EnableRangerSpellCastingAtLevel1)
+            {
+                FeatureDefinitionCastSpells.CastSpellRanger.knownSpells =
+                    [2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15];
+            }
+            else
+            {
+                FeatureDefinitionCastSpells.CastSpellRanger.knownSpells =
+                    [0, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15];
+            }
+
             FeatureDefinitionCastSpells.CastSpellSorcerer.knownSpells =
                 [2, 4, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22];
         }
@@ -640,6 +707,18 @@ internal static class Tabletop2024Context
         {
             FeatureDefinitionCastSpells.CastSpellBard.knownSpells =
                 [4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 15, 16, 18, 19, 19, 20, 22, 22, 22];
+
+            if (Main.Settings.EnableRangerSpellCastingAtLevel1)
+            {
+                FeatureDefinitionCastSpells.CastSpellRanger.knownSpells =
+                    [2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11];
+            }
+            else
+            {
+                FeatureDefinitionCastSpells.CastSpellRanger.knownSpells =
+                    [0, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11];
+            }
+
             FeatureDefinitionCastSpells.CastSpellSorcerer.knownSpells =
                 [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15];
         }
@@ -650,6 +729,32 @@ internal static class Tabletop2024Context
         PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHandsAsBonusAction
             ? ActivationTime.BonusAction
             : ActivationTime.Action;
+    }
+
+    private static void LoadOneDndEnableBardCounterCharmAsReactionAtLevel7()
+    {
+        PowerBardCountercharm.AddCustomSubFeatures(
+            new ModifyPowerVisibility((_, _, _) => !Main.Settings.EnableBardCounterCharmAsReactionAtLevel7),
+            new TryAlterOutcomeSavingThrowBardCounterCharm());
+    }
+
+    internal static void SwitchOneDndEnableBardCounterCharmAsReactionAtLevel7()
+    {
+        var level = Main.Settings.EnableBardCounterCharmAsReactionAtLevel7 ? 7 : 6;
+
+        Bard.FeatureUnlocks.FirstOrDefault(x => x.FeatureDefinition == PowerBardCountercharm)!.level = level;
+        if (Main.Settings.EnableBardCounterCharmAsReactionAtLevel7)
+        {
+            PowerBardCountercharm.GuiPresentation.description = "Feature/&PowerBardCountercharmExtendedDescription";
+            PowerBardCountercharm.activationTime = ActivationTime.NoCost;
+        }
+        else
+        {
+            PowerBardCountercharm.GuiPresentation.description = "Feature/&PowerBardCountercharmDescription";
+            PowerBardCountercharm.activationTime = ActivationTime.Action;
+        }
+
+        Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchOneDndEnableBardExpertiseOneLevelBefore()
@@ -790,6 +895,7 @@ internal static class Tabletop2024Context
         // Cure Wounds, Healing Word got buf on base damage and add dice
         CureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
         CureWounds.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
+        FalseLife.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
         HealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
         HealingWord.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
 
@@ -819,7 +925,33 @@ internal static class Tabletop2024Context
 
         if (Main.Settings.EnableSorcererInnateSorceryAt1)
         {
-            Sorcerer.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1));
+            Sorcerer.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1));
+        }
+
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private static void LoadSorcerousRestorationAtLevel5()
+    {
+        RestActivityDefinitionBuilder
+            .Create("RestActivitySorcerousRestoration")
+            .SetGuiPresentation(
+                "Feature/&PowerSorcerousRestorationShortTitle", "Feature/&PowerSorcerousRestorationDescription")
+            .SetRestData(RestDefinitions.RestStage.AfterRest, RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", PowerSorcerousRestoration.Name)
+            .AddToDB();
+
+        PowerSorcerousRestoration.EffectDescription.EffectForms[0].SpellSlotsForm.type =
+            (SpellSlotsForm.EffectType)ExtraEffectType.RecoverSorceryHalfLevelDown;
+    }
+
+    internal static void SwitchSorcerousRestorationAtLevel5()
+    {
+        Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerSorcerousRestoration);
+
+        if (Main.Settings.EnableSorcerousRestorationAtLevel5)
+        {
+            Sorcerer.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerSorcerousRestoration, 5));
         }
 
         Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -832,8 +964,7 @@ internal static class Tabletop2024Context
 
         if (Main.Settings.EnableRangerNatureShroudAt14)
         {
-            Ranger.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 14));
+            Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 14));
         }
 
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -900,6 +1031,121 @@ internal static class Tabletop2024Context
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    private sealed class PowerOrSpellFinishedByMeMagicalCunning : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var hero = action.ActingCharacter.RulesetCharacter.GetOriginalHero();
+
+            if (hero == null)
+            {
+                yield break;
+            }
+
+            var repertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
+
+            if (repertoire == null)
+            {
+                yield break;
+            }
+
+            hero.ClassesAndLevels.TryGetValue(Warlock, out var warlockClassLevel);
+
+            var slotLevel = SharedSpellsContext.IsMulticaster(hero)
+                ? SharedSpellsContext.PactMagicSlotsTab
+                : SharedSpellsContext.GetWarlockSpellLevel(hero);
+            var maxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            var halfSlotsRoundUp = (maxSlots + 1) / (warlockClassLevel == 20 ? 1 : 2);
+
+            if (!repertoire.usedSpellsSlots.TryGetValue(slotLevel, out var value))
+            {
+                yield break;
+            }
+
+            repertoire.usedSpellsSlots[slotLevel] -= Math.Min(value, halfSlotsRoundUp);
+
+            if (value > 0)
+            {
+                repertoire.RepertoireRefreshed?.Invoke(repertoire);
+            }
+        }
+    }
+
+    private sealed class TryAlterOutcomeSavingThrowBardCounterCharm : ITryAlterOutcomeSavingThrow
+    {
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
+        {
+            if (!Main.Settings.EnableBardCounterCharmAsReactionAtLevel7)
+            {
+                yield break;
+            }
+
+            if (savingThrowData.SaveOutcome != RollOutcome.Success &&
+                !helper.IsOppositeSide(defender.Side) &&
+                helper.CanReact() &&
+                HasCharmedOrFrightened(savingThrowData.EffectDescription.EffectForms))
+            {
+                yield return helper.MyReactToDoNothing(
+                    ExtraActionId.DoNothingFree, // cannot use DoNothingReaction here as we reroll in validate
+                    defender,
+                    "BardCounterCharm",
+                    FormatReactionDescription(savingThrowData.Title, attacker, defender, helper),
+                    ReactionValidated);
+            }
+
+            yield break;
+
+            static bool HasCharmedOrFrightened(List<EffectForm> effectForms)
+            {
+                return effectForms.Any(x =>
+                    x.FormType == EffectForm.EffectFormType.Condition &&
+                    (x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name) ||
+                     x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionFrightened.Name)));
+            }
+
+            void ReactionValidated()
+            {
+                var rulesetDefender = defender.RulesetCharacter;
+
+                rulesetDefender.InflictCondition(
+                    ConditionSavingThrowAdvantage.Name,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetDefender.guid,
+                    rulesetDefender.CurrentFaction.Name,
+                    1,
+                    ConditionSavingThrowAdvantage.Name,
+                    0,
+                    0,
+                    0);
+
+                // we need to manually spend the reaction here as rolling the saving again below
+                defender.SpendActionType(ActionType.Reaction);
+                TryAlterOutcomeSavingThrow.TryRerollSavingThrow(attacker, defender, savingThrowData, hasHitVisual);
+            }
+        }
+
+        private static string FormatReactionDescription(
+            string sourceTitle,
+            [CanBeNull] GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var text = defender == helper ? "Self" : "Ally";
+
+            return $"CustomReactionBardCounterCharmDescription{text}".Formatted(
+                Category.Reaction, defender.Name, attacker?.Name ?? ReactionRequestCustom.EnvTitle, sourceTitle);
+        }
+    }
+
     private sealed class ModifyAbilityCheckDruidPrimalOrder : IModifyAbilityCheck
     {
         public void MinRoll(
@@ -918,9 +1164,9 @@ internal static class Tabletop2024Context
                 return;
             }
 
-            var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-            var intMod = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
-            var modifier = Math.Max(intMod, 1);
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+            var modifier = Math.Max(wisMod, 1);
 
             rollModifier += modifier;
 
@@ -1252,9 +1498,8 @@ internal static class Tabletop2024Context
 
         if (Main.Settings.EnableMonkHeightenedMetabolism)
         {
-            Monk.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(FeatureMonkHeightenedMetabolism, 10));
-            Monk.FeatureUnlocks.TryAdd(
+            Monk.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(FeatureMonkHeightenedMetabolism, 10),
                 new FeatureUnlockByLevel(PowerMonkStepOfTheWindHeightenedMetabolism, 10));
         }
 
@@ -1267,7 +1512,7 @@ internal static class Tabletop2024Context
             x.FeatureDefinition == Level20Context.PowerMonkEmptyBody ||
             x.FeatureDefinition == PowerMonkSuperiorDefense);
 
-        Monk.FeatureUnlocks.TryAdd(
+        Monk.FeatureUnlocks.Add(
             Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody
                 ? new FeatureUnlockByLevel(PowerMonkSuperiorDefense, 18)
                 : new FeatureUnlockByLevel(Level20Context.PowerMonkEmptyBody, 18));
@@ -1281,7 +1526,7 @@ internal static class Tabletop2024Context
             x.FeatureDefinition == Level20Context.FeatureMonkPerfectSelf ||
             x.FeatureDefinition == FeatureMonkBodyAndMind);
 
-        Monk.FeatureUnlocks.TryAdd(
+        Monk.FeatureUnlocks.Add(
             Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf
                 ? new FeatureUnlockByLevel(FeatureMonkBodyAndMind, 20)
                 : new FeatureUnlockByLevel(Level20Context.FeatureMonkPerfectSelf, 20));
@@ -1575,9 +1820,14 @@ internal static class Tabletop2024Context
             }
         }
 
-        public IEnumerator OnPhysicalAttackFinishedByMe(GameLocationBattleManager battleManager, CharacterAction action,
-            GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackMode,
-            RollOutcome rollOutcome, int damageAmount)
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -1588,7 +1838,7 @@ internal static class Tabletop2024Context
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(BrutalStrike, 0);
+            attacker.SetSpecialFeatureUses(BrutalStrike, 0);
         }
 
         private static void InflictCondition(
@@ -1709,11 +1959,9 @@ internal static class Tabletop2024Context
 
         if (Main.Settings.EnableBarbarianBrutalStrike)
         {
-            Barbarian.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike, 9));
-            Barbarian.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13, 13));
-            Barbarian.FeatureUnlocks.TryAdd(
+            Barbarian.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike, 9),
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13, 13),
                 new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17, 17));
         }
 
@@ -2087,13 +2335,28 @@ internal static class Tabletop2024Context
             .AddToDB();
     }
 
+    internal static void SwitchRogueSlipperyMind()
+    {
+        ProficiencyRogueSlipperyMind.Proficiencies.Remove(AttributeDefinitions.Charisma);
+
+        if (Main.Settings.EnableRogueSlipperyMind)
+        {
+            ProficiencyRogueSlipperyMind.Proficiencies.Add(AttributeDefinitions.Charisma);
+            ProficiencyRogueSlipperyMind.GuiPresentation.description = "Feature/&RogueSlipperyMindExtendedDescription";
+        }
+        else
+        {
+            ProficiencyRogueSlipperyMind.GuiPresentation.description = "Feature/&RogueSlipperyMindDescription";
+        }
+    }
+
     internal static void SwitchRogueSteadyAim()
     {
         Rogue.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerFeatSteadyAim);
 
         if (Main.Settings.EnableRogueSteadyAim)
         {
-            Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerFeatSteadyAim, 3));
+            Rogue.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerFeatSteadyAim, 3));
         }
 
         Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -2105,7 +2368,7 @@ internal static class Tabletop2024Context
 
         if (!Main.Settings.RemoveRogueBlindSense)
         {
-            Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(FeatureDefinitionSenses.SenseRogueBlindsense, 14));
+            Rogue.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionSenses.SenseRogueBlindsense, 14));
         }
 
         Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -2361,8 +2624,9 @@ internal static class Tabletop2024Context
 
         if (Main.Settings.EnableRogueCunningStrike)
         {
-            Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetRogueCunningStrike, 5));
-            Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetRogueDeviousStrike, 14));
+            Rogue.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(_featureSetRogueCunningStrike, 5),
+                new FeatureUnlockByLevel(_featureSetRogueDeviousStrike, 14));
         }
 
         Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);

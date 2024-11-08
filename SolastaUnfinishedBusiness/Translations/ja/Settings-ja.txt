@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=レベル9、13、17で<color=#D89555>残忍�
 ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 7 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=<color=#D89555>カウンターチャーム</color>をレベル6のアクションではなく、レベル7のリアクションとして有効にします
 ModUi/&EnableBardExpertiseOneLevelBefore=<color=#D89555>エキスパート</color>をレベル3と10ではなくレベル2と9で有効にする
 ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<b>希望の大学</b> <color=#D89555>癒しのバラード</color>を有効にする
 ModUi/&EnableBardSuperiorInspirationAtLevel18=<color=#D89555>優れたインスピレーション</color>をレベル20ではなくレベル18で有効化し、リチャージ回数を1回ではなく2回付与する
@@ -148,7 +149,7 @@ ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にす
 ModUi/&EnableOneDnDPreparedSpellsTables=すべての <color=#D89555>キャスター</color> が新しい準備済み呪文テーブル <i><color=#F0DAA0>[吟遊詩人、聖職者、ドルイド、パラディン、レンジャー、ソーサラー、ウィザード]</color></i> を使用できるようにします。
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>樹皮の皮</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[ボーナスアクション、集中力なし、AC を 17 に設定]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=<color=#D89555>ガイダンス</color> 5e 2024 呪文バージョンを有効にします <i><color=#F0DAA0>[発動時にスキルを 1 つ選択し、最大 1 分間ボーナスを獲得します。]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>Cure Wounds</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> 5e 2024 呪文バージョンを有効にする
+ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>治癒術</color>、<color=#D89555>偽りの生命</color>、<color=#D89555>治癒の言葉</color>、<color=#D89555>大量治癒術</color>、<color=#D89555>大量治癒の言葉</color> 5e 2024 呪文バージョンを有効にする
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=ボーナスアクションとして<color=#D89555>手を置く</color>を有効にする
 ModUi/&EnablePaladinSmiteAsBonusAction=ボーナスアクションとして<color=#D89555>スマイト</color>を有効にする
 ModUi/&EnablePaladinSpellCastingAtLevel1=<color=#D89555>呪文発動</color>をレベル2ではなくレベル1で有効にする
@@ -162,6 +163,7 @@ ModUi/&EnableRespecAction=休憩アクション後に <color=#D89555>RESPEC</col
 ModUi/&EnableRitualOnAllCasters=すべてのキャスターに<color=#D89555>儀式</color>の詠唱を有効にする
 ModUi/&EnableRogueCunningStrike=レベル 5 と 14 で <color=#D89555>狡猾な一撃</color> と <color=#D89555>邪悪な一撃</color> を有効にします <i><color=#F0DAA0>[追加のヒット効果を得るために、スニーク アタック ダイスを 1 つ放棄します]</color></i>
 ModUi/&EnableRogueFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
+ModUi/&EnableRogueSlipperyMind=<color=#D89555>Slippery Mind</color> を 5e 2024 版と入れ替えます <i><color=#F0DAA0>[知恵に加えて、カリスマ セーヴィング スローの熟練度も得られます]</color></i>
 ModUi/&EnableRogueSteadyAim=レベル 3 で <color=#D89555>Steady Aim</color> を有効にします <i><color=#F0DAA0>[ボーナス アクションにより、まだ移動していない場合、現在のターンの次の攻撃ロールにアドバンテージが与えられます]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃/悪巧みの一撃</color>に<b>悪党</b>のDEXまたはSTR修飾子を有効にする
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=<color=#D89555>セカンドウィンド</color>を有効にして、5e 2024の使用状況の進行を使用します
@@ -169,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>シグネチャー スペル<
 ModUi/&EnableSorcererInnateSorceryAt1=レベル 1 で <color=#D89555>生来の魔術</color> を有効にする
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
+ModUi/&EnableSorcerousRestorationAtLevel5=レベル5で<color=#D89555>魔法による回復</color>を有効にする
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカルヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローはランダム性を高めるために D20 ロールを重みに追加します <color=#F0DAA0>[選択重み = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
@@ -179,6 +182,7 @@ ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>素手攻撃</color>アク�
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>エレメンタル召喚</color>と<color=#D89555>フェイ召喚</color>のアップキャストを有効にする
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にする
+ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にし、レベル20で<color=#D89555>エルドリッチマスター</color>を向上させる
 ModUi/&EnableWarlockToLearnPatronAtLevel3=<color=#D89555>パトロン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableWizardToLearnScholarAtLevel2=レベル2で<color=#D89555>学者</color>を有効にする
 ModUi/&EnableWizardToLearnSchoolAtLevel3=<color=#D89555>魔法学校</color>をレベル2ではなくレベル3で有効にする

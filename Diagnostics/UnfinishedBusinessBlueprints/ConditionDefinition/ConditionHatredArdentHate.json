@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SavingThrowAffinityHatredArdentHate:2df3fa04-f4e9-52cf-8526-864b45c274ec"
+    "Definition:SavingThrowAffinityAdvantageToAll:43ef34e25f37fc64bbc7af455a107f8f"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

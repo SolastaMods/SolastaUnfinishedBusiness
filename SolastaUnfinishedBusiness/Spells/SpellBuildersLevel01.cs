@@ -2264,7 +2264,7 @@ internal static partial class SpellBuilders
                 Sprites.GetSprite(SkinOfRetributionName, Resources.SkinOfRetribution, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(1)
-            .SetCastingTime(ActivationTime.Action)
+            .SetCastingTime(ActivationTime.BonusAction)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)

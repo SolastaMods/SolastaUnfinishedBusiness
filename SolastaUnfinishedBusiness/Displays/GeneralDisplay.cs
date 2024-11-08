@@ -260,6 +260,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchOneDndChangeBardicInspirationDurationToOneHour();
         }
 
+        toggle = Main.Settings.EnableBardCounterCharmAsReactionAtLevel7;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardCounterCharmAsReactionAtLevel7"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardCounterCharmAsReactionAtLevel7 = toggle;
+            Tabletop2024Context.SwitchOneDndEnableBardCounterCharmAsReactionAtLevel7();
+        }
+
         toggle = Main.Settings.EnableBardExpertiseOneLevelBefore;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore"), ref toggle, UI.AutoWidth()))
         {
@@ -500,6 +507,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchRogueBlindSense();
         }
 
+        toggle = Main.Settings.EnableRogueSlipperyMind;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueSlipperyMind"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueSlipperyMind = toggle;
+            Tabletop2024Context.SwitchRogueSlipperyMind();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
         UI.Label();
@@ -511,22 +525,37 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchSorcererInnateSorcery();
         }
 
+        toggle = Main.Settings.EnableSorcerousRestorationAtLevel5;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcerousRestorationAtLevel5"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcerousRestorationAtLevel5 = toggle;
+            Tabletop2024Context.SwitchSorcerousRestorationAtLevel5();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
         UI.Label();
-
-        toggle = Main.Settings.EnableWarlockToLearnPatronAtLevel3;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockToLearnPatronAtLevel3"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableWarlockToLearnPatronAtLevel3 = toggle;
-            Tabletop2024Context.SwitchOneDndWarlockPatronLearningLevel();
-        }
 
         toggle = Main.Settings.EnableWarlockToUseOneDndInvocationProgression;
         if (UI.Toggle(Gui.Localize("ModUi/&SwapWarlockToUseOneDndInvocationProgression"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableWarlockToUseOneDndInvocationProgression = toggle;
             Tabletop2024Context.SwitchOneDndWarlockInvocationsProgression();
+        }
+
+        toggle = Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20"),
+                ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20 = toggle;
+            Tabletop2024Context.SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20();
+        }
+
+        toggle = Main.Settings.EnableWarlockToLearnPatronAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockToLearnPatronAtLevel3"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockToLearnPatronAtLevel3 = toggle;
+            Tabletop2024Context.SwitchOneDndWarlockPatronLearningLevel();
         }
 
         UI.Label();
@@ -556,6 +585,12 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableAlternateHuman = toggle;
             FeatsContext.SwitchFirstLevelTotalFeats();
+        }
+
+        toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
+        if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RaceLightSensitivityApplyOutdoorsOnly = toggle;
         }
 
         UI.Label();

@@ -113,6 +113,12 @@ internal static class Level20Context
             .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
             .AddToDB();
 
+    internal static readonly FeatureDefinitionPower PowerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
+        .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
+        .AddToDB();
+
     internal static void Load()
     {
         BarbarianLoad();
@@ -525,17 +531,11 @@ internal static class Level20Context
             .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
             .AddToDB();
 
-        var powerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
-            .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
-            .AddToDB();
-
         Warlock.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(pointPoolWarlockMysticArcanum9, 17),
             new FeatureUnlockByLevel(pointPoolWarlockInvocation18, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-            new FeatureUnlockByLevel(powerWarlockEldritchMaster, 20)
+            new FeatureUnlockByLevel(PowerWarlockEldritchMaster, 20)
         );
 
         CastSpellWarlock.KnownSpells.SetRange(SharedSpellsContext.WarlockKnownSpells);
@@ -1054,7 +1054,8 @@ internal static class Level20Context
         }
     }
 
-    private class TryAlterOutcomeAttackRogueStrokeOfLuck(FeatureDefinitionPower power) : ITryAlterOutcomeAttack
+    private class TryAlterOutcomeAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {
         public int HandlerPriority => -10;
 
@@ -1078,7 +1079,7 @@ internal static class Level20Context
                 yield break;
             }
 
-            yield return attacker.MyReactToSpendPower(
+            yield return helper.MyReactToSpendPower(
                 usablePower,
                 attacker,
                 "RogueStrokeOfLuck",
@@ -1089,17 +1090,79 @@ internal static class Level20Context
 
             void ReactionValidated()
             {
-                var delta = -action.AttackSuccessDelta;
+                action.AttackRoll = 20;
+                action.AttackRollOutcome = RollOutcome.CriticalSuccess;
+                action.AttackSuccessDelta = 0;
+            }
+        }
 
-                action.AttackRollOutcome = RollOutcome.Success;
-                action.AttackSuccessDelta += delta;
-                action.AttackRoll += delta;
-                attackModifier.AttackRollModifier += delta;
-                attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            AbilityCheckData abilityCheckData,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(power, rulesetHelper);
+
+            if (abilityCheckData.AbilityCheckRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                helper != defender ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            yield return helper.MyReactToSpendPower(
+                usablePower,
+                defender,
+                "RogueStrokeOfLuck",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                abilityCheckData.AbilityCheckRoll = 20;
+                abilityCheckData.AbilityCheckSuccessDelta = 0;
+                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.CriticalSuccess;
+            }
+        }
+
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            SavingThrowData savingThrowData,
+            bool hasHitVisual)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(power, rulesetHelper);
+
+            if (savingThrowData.SaveOutcome != RollOutcome.Failure ||
+                helper != defender ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            yield return helper.MyReactToSpendPower(
+                usablePower,
+                defender,
+                "RogueStrokeOfLuck",
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                savingThrowData.SaveOutcomeDelta = 0;
+                savingThrowData.SaveOutcome = RollOutcome.Success;
             }
         }
     }
-
 
     private sealed class BattleStartedListenerBardSuperiorInspiration(FeatureDefinition featureDefinition)
         : ICharacterBattleStartedListener

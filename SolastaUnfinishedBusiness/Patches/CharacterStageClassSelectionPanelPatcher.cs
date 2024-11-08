@@ -62,6 +62,32 @@ public static class CharacterStageClassSelectionPanelPatcher
     }
 
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel),
+        nameof(CharacterStageClassSelectionPanel.RefreshCharacter))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshCharacter_Patch
+    {
+        private static void ResetCantripsPool(RulesetCharacterHero hero, string poolName)
+        {
+            var buildingData = hero.GetHeroBuildingData();
+
+            if (buildingData.PointPoolStacks.TryGetValue(HeroDefinitions.PointsPoolType.Cantrip, out var pointPool))
+            {
+                pointPool.ActivePools.Remove(poolName);
+            }
+        }
+
+        [UsedImplicitly]
+        public static void Prefix(CharacterStageClassSelectionPanel __instance)
+        {
+            var hero = __instance.currentHero;
+
+            //PATCH: avoid Druid Primal Order to break level up with the cantrip pool it gets
+            ResetCantripsPool(hero, $"{AttributeDefinitions.TagClass}Druid1PrimalOrder");
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel),
         nameof(CharacterStageClassSelectionPanel.FillClassFeatures))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

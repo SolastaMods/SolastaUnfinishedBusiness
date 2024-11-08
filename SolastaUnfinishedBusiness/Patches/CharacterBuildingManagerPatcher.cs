@@ -510,11 +510,21 @@ public static class CharacterBuildingManagerPatcher
     [UsedImplicitly]
     public static class UnassignLastSubclass_Patch
     {
+        private static void ResetCantripsPool(RulesetCharacterHero hero, string poolName)
+        {
+            var buildingData = hero.GetHeroBuildingData();
+
+            if (buildingData.PointPoolStacks.TryGetValue(HeroDefinitions.PointsPoolType.Cantrip, out var pointPool))
+            {
+                pointPool.ActivePools.Remove(poolName);
+            }
+        }
+
         [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
-            //PATCH: avoid Domain Nature to break level up with the cantrip it gets
-            DomainNature.ResetCantripSubclassPool(hero);
+            //PATCH: avoid Domain Nature to break level up with the cantrip pool it gets
+            ResetCantripsPool(hero, $"{AttributeDefinitions.TagSubclass}Cleric1DomainNatureDomainNature");
 
             //PATCH: un-captures the desired subclass
             LevelUpHelper.SetSelectedSubclass(hero, null);

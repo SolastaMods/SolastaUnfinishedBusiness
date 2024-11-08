@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Frappe brutale</color>
 ModUi/&EnableBarbarianFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Activez le buff et le debuff <color=#D89555>Attaque imprudente</color> pour qu'ils se terminent au début du prochain tour
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permet de récupérer une utilisation de <color=#D89555>Rage</color> sur un repos court au niveau 7
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Activez <color=#D89555>Contre-charme</color> au niveau 7 en tant que réaction au lieu du niveau 6 en tant qu'action
 ModUi/&EnableBardExpertiseOneLevelBefore=Activer l'<color=#D89555>Expertise</color> aux niveaux 2 et 9 au lieu de 3 et 10
 ModUi/&EnableBardHealingBalladOnLongRest=Activez <b>College of Hope</b> <color=#D89555>Healing Ballad</color> en mode repos prolongé
 ModUi/&EnableBardSuperiorInspirationAtLevel18=Activez <color=#D89555>Inspiration supérieure</color> au niveau 18 au lieu de 20 et accordez également deux recharges au lieu d'une
@@ -148,7 +149,7 @@ ModUi/&EnableMulticlass=Activer <color=#D89555>multiclasse</color> <b><i><color=
 ModUi/&EnableOneDnDPreparedSpellsTables=Permettre à tous les <color=#D89555>lanceurs de sorts</color> d'utiliser les nouvelles tables de sorts préparés <i><color=#F0DAA0>[Barde, Clerc, Druide, Paladin, Rôdeur, Sorcier, Magicien]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Activer <color=#D89555>Écorce</color> 5e 2024 version du sort <i><color=#F0DAA0>[action bonus, pas de concentration, CA fixée à 17]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Activer <color=#D89555>Guidage</color> 5e version du sort 2024 <i><color=#F0DAA0>[Choisissez une compétence au lancement et obtenez un bonus jusqu'à 1 minute.]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=Activer les sorts <color=#D89555>Soin des blessures</color>, <color=#D89555>Mot de guérison</color>, <color=#D89555>Soin de masse des blessures</color> et <color=#D89555>Mot de guérison de masse</color> version 5e 2024
+ModUi/&EnableOneDndHealingSpellsUpgrade=Activer les sorts <color=#D89555>Soin des blessures</color>, <color=#D89555>Fausse vie</color>, <color=#D89555>Mot de guérison</color>, <color=#D89555>Soin de masse des blessures</color> et <color=#D89555>Mot de guérison de masse</color> version 5e 2024
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Activer <color=#D89555>Imposition des mains</color> comme action bonus
 ModUi/&EnablePaladinSmiteAsBonusAction=Activer <color=#D89555>Smite</color> comme action bonus
 ModUi/&EnablePaladinSpellCastingAtLevel1=Activer le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
@@ -162,6 +163,7 @@ ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après 
 ModUi/&EnableRitualOnAllCasters=Activer le lancement de <color=#D89555>rituel</color> sur tous les lanceurs de sorts
 ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color> et <color=#D89555>Devious Strike</color> aux niveaux 5 et 14 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
+ModUi/&EnableRogueSlipperyMind=Échangez <color=#D89555>Slippery Mind</color> avec la version 5e 2024 <i><color=#F0DAA0>[vous obtenez également la maîtrise des jets de sauvegarde de charisme en plus de la sagesse]</color></i>
 ModUi/&EnableRogueSteadyAim=Activez la <color=#D89555>Visée constante</color> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage sur votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
 ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR de <b>Hoodlum</b> sur <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Activez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
@@ -169,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=Activer les <color=#D89555>sorts signatures<
 ModUi/&EnableSorcererInnateSorceryAt1=Activer la <color=#D89555>Sorcellerie innée</color> au niveau 1
 ModUi/&EnableSorcererMagicalGuidance=Activer la <color=#D89555>guidance magique</color> au niveau 5
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
+ModUi/&EnableSorcerousRestorationAtLevel5=Activer la <color=#D89555>Restauration magique</color> au niveau 5
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ De plus, chaque héros ajoute un jet de D20 pour pondérer un peu le caractère aléatoire <color=#F0DAA0>[poids du choix = votes * modificateur de Charisme du héros + jet de D20]</color></i>
@@ -179,6 +182,7 @@ ModUi/&EnableUnarmedMainAttackAction=Activer l'action <color=#D89555>Attaque à 
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la conversion ascendante de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Activer les espaces réservés aux variables dans les descriptions <i><color=#F0DAA0>[utiliser {VARIABLE_NAME} comme espace réservé]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Activer la <color=#D89555>ruse magique</color> au niveau 2
+ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Activez la <color=#D89555>ruse magique</color> au niveau 2 et améliorez le <color=#D89555>maître eldritch</color> à 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Activer <color=#D89555>Patron</color> au niveau 3 au lieu de 1
 ModUi/&EnableWizardToLearnScholarAtLevel2=Activer <color=#D89555>Scholar</color> au niveau 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Activer l'<color=#D89555>École de magie</color> au niveau 3 au lieu de 2

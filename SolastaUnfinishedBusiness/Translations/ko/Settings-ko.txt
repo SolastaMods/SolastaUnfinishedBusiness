@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=레벨 9, 13, 17에서 <color=#D89555>잔혹�
 ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=다음 턴 시작 시 <color=#D89555>무모한 공격</color> 버프와 디버프가 완료되도록 활성화합니다.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=7레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=레벨 6의 액션 대신 레벨 7의 반응으로 <color=#D89555>카운터챠밍</color>을 활성화합니다.
 ModUi/&EnableBardExpertiseOneLevelBefore=레벨 3과 10 대신 레벨 2와 9에서 <color=#D89555>전문성</color>을 활성화합니다.
 ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <b>College of Hope</b> <color=#D89555>힐링 발라드</color> 활성화
 ModUi/&EnableBardSuperiorInspirationAtLevel18=레벨 20 대신 레벨 18에서 <color=#D89555>우수한 영감</color>을 활성화하고 1회 대신 2회 충전을 허용합니다.
@@ -148,7 +149,7 @@ ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><
 ModUi/&EnableOneDnDPreparedSpellsTables=모든 <color=#D89555>주문자</color>가 새로 준비된 주문표 <i><color=#F0DAA0>[바드, 성직자, 드루이드, 성기사, 레인저, 마법사, 마법사]</color></i>를 사용할 수 있도록 합니다.
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>Barkskin</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=<color=#D89555>지침</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[시전 시 스킬 하나를 선택하고 최대 1분 동안 보너스를 받습니다.]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 말씀</color> 5e 2024 주문 버전을 활성화합니다.
+ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>상처 치료</color>, <color=#D89555>거짓 생명</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 말씀</color> 5e 2024 주문 버전을 활성화합니다.
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=<color=#D89555>안수</color>를 보너스 액션으로 활성화합니다.
 ModUi/&EnablePaladinSmiteAsBonusAction=<color=#D89555>Smite</color>를 보너스 액션으로 활성화합니다.
 ModUi/&EnablePaladinSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
@@ -162,6 +163,7 @@ ModUi/&EnableRespecAction=휴식 동작 후 <color=#D89555>RESPEC</color> 활성
 ModUi/&EnableRitualOnAllCasters=모든 시전자에 <color=#D89555>의식</color> 시전 활성화
 ModUi/&EnableRogueCunningStrike=레벨 5와 14에서 <color=#D89555>교활한 일격</color>과 <color=#D89555>사악한 일격</color>을 활성화합니다. <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기합니다]</color></i>
 ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
+ModUi/&EnableRogueSlipperyMind=<color=#D89555>Slippery Mind</color>를 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[지혜 외에도 카리스마 세이빙 스로우에 능숙해짐]</color></i>
 ModUi/&EnableRogueSteadyAim=레벨 3에서 <color=#D89555>안정적인 조준</color>을 활성화합니다. <i><color=#F0DAA0>[현재 턴에서 아직 이동하지 않았다면 다음 공격 굴림에 보너스 액션이 유리해집니다.]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>교활한/사악한 일격</color>에 <b>후드럼</b> DEX 또는 STR 수정치를 활성화합니다.
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=<color=#D89555>Second Wind</color>를 활성화하여 5e 2024 사용 진행을 사용하세요.
@@ -169,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 <color=#D89555>특징 주�
 ModUi/&EnableSorcererInnateSorceryAt1=1레벨에서 <color=#D89555>선천적 마법</color>을 활성화합니다.
 ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 ​​<color=#D89555>마법의 안내</color>를 활성화합니다.
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작을 활성화하여 빠른 메타매직이 적용된 주요 동작 주문을 시전할 수 있습니다.
+ModUi/&EnableSorcerousRestorationAtLevel5=레벨 5에서 <color=#D89555>마법 회복</color>을 활성화합니다.
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다 <color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정치 + D20 롤]</color></i>
@@ -179,6 +182,7 @@ ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>비무장 공격</color> 동
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>원소 소환</color>과 <color=#D89555>요정 소환</color>의 업캐스트를 활성화합니다.
 ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화합니다.
+ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화하고 레벨 20에서 <color=#D89555>엘드리치 마스터</color>를 향상시킵니다.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=레벨 1 대신 레벨 3에서 <color=#D89555>후원자</color> 활성화
 ModUi/&EnableWizardToLearnScholarAtLevel2=레벨 2에서 <color=#D89555>학자</color> 활성화
 ModUi/&EnableWizardToLearnSchoolAtLevel3=<color=#D89555>마법 학교</color>를 2레벨 대신 3레벨로 활성화합니다.

@@ -146,17 +146,11 @@ public sealed class OathOfHatred : AbstractSubclass
         // Level 20
         //
 
-        var savingThrowAffinityHatredArdentHate = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create("SavingThrowAffinityHatredArdentHate")
-            .SetGuiPresentation("PowerHatredArdentHate", Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.AbilityScoreNames)
-            .AddToDB();
-
         var conditionHatredArdentHate = ConditionDefinitionBuilder
             .Create("ConditionHatredArdentHate")
             .SetGuiPresentation(Category.Condition, ConditionDispellingEvilAndGood)
             .SetPossessive()
-            .AddFeatures(savingThrowAffinityHatredArdentHate)
+            .AddFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll)
             .AddToDB();
 
         var powerHatredArdentHate = FeatureDefinitionPowerBuilder

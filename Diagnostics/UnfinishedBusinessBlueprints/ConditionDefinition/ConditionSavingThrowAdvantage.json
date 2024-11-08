@@ -4,14 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AbilityCheckAffinityRoyalKnightSpiritedSurge:9ea3e9f5-b9c3-582b-a259-14941c002fe6",
-    "Definition:AdditionalActionSurgedMain:13b583b9acea2c74ebf7f540c8f5d43d",
-    "Definition:CombatAffinityRoyalKnightSpiritedSurge:d42e798e-d827-549d-a6dc-d07844fec664",
     "Definition:SavingThrowAffinityAdvantageToAll:43ef34e25f37fc64bbc7af455a107f8f"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -20,7 +17,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "SavingThrow"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -132,14 +131,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerRoyalKnightSpiritedSurgeTitle",
-    "description": "Feature/&PowerRoyalKnightSpiritedSurgeDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1d5ef59481fc8a044b86dc432a7d1afa",
-      "m_SubObjectName": "ConditionSunbeam",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -154,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1385a45e-ff65-5ede-819f-4f212183fee5",
+  "guid": "7265d2c9-c101-53f9-8270-e3bc2ed7cfa8",
   "contentPack": 9999,
-  "name": "ConditionRoyalKnightSpiritedSurge"
+  "name": "ConditionSavingThrowAdvantage"
 }

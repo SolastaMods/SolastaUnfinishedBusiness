@@ -72,9 +72,22 @@ internal static class SpellPointsContext
         foreach (var (name, slotsVanilla, slotsSpellPoints) in FeatureDefinitionCastSpellTab)
         {
             var featureCastSpell = db.GetElement(name);
+            var finalSlotsVanilla = slotsVanilla;
+            var finalSlotsSpellsPoints = slotsSpellPoints;
+
+            if (Main.Settings.EnablePaladinSpellCastingAtLevel1 && name == CastSpellPaladin.Name)
+            {
+                finalSlotsVanilla = SharedSpellsContext.HalfRoundUpCastingSlots;
+                finalSlotsSpellsPoints = SharedSpellsContext.HalfRoundUpCastingSlots;
+            }
+            else if (Main.Settings.EnableRangerSpellCastingAtLevel1 && name == CastSpellRanger.Name)
+            {
+                finalSlotsVanilla = SharedSpellsContext.HalfRoundUpCastingSlots;
+                finalSlotsSpellsPoints = SharedSpellsContext.HalfRoundUpCastingSlots;
+            }
 
             featureCastSpell.slotsPerLevels =
-                Main.Settings.UseAlternateSpellPointsSystem ? slotsSpellPoints : slotsVanilla;
+                Main.Settings.UseAlternateSpellPointsSystem ? finalSlotsSpellsPoints : finalSlotsVanilla;
         }
     }
 

@@ -588,6 +588,7 @@
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <ChangeBardicInspirationDurationToOneHour>true</ChangeBardicInspirationDurationToOneHour>
+    <EnableBardCounterCharmAsReactionAtLevel7>true</EnableBardCounterCharmAsReactionAtLevel7>
     <EnableBardExpertiseOneLevelBefore>true</EnableBardExpertiseOneLevelBefore>
     <EnableBardSuperiorInspirationAtLevel18>true</EnableBardSuperiorInspirationAtLevel18>
     <EnableBardWordsOfCreationAtLevel20>true</EnableBardWordsOfCreationAtLevel20>
@@ -627,14 +628,18 @@
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
+    <EnableRogueSlipperyMind>true</EnableRogueSlipperyMind>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>true</RemoveRogueBlindSense>
     <EnableSorcererInnateSorceryAt1>true</EnableSorcererInnateSorceryAt1>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
-    <EnableWarlockToLearnPatronAtLevel3>true</EnableWarlockToLearnPatronAtLevel3>
+    <EnableSorcerousRestorationAtLevel5>true</EnableSorcerousRestorationAtLevel5>
     <EnableWarlockToUseOneDndInvocationProgression>true</EnableWarlockToUseOneDndInvocationProgression>
+    <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>true
+    </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
+    <EnableWarlockToLearnPatronAtLevel3>true</EnableWarlockToLearnPatronAtLevel3>
     <EnableWizardToLearnScholarAtLevel2>true</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>true</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>

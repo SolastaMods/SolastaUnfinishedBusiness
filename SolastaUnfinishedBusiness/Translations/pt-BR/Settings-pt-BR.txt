@@ -104,6 +104,7 @@ ModUi/&EnableBarbarianBrutalStrike=Habilitar <color=#D89555>Golpe Brutal</color>
 ModUi/&EnableBarbarianFightingStyle=Habilitar a escolha <color=#D89555>Estilo de luta</color> no nível 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar o bônus e o debuff <color=#D89555>Ataque Reckless</color> para terminar no início do próximo turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Habilitar recuperar um uso de <color=#D89555>Fúria</color> durante um descanso curto no nível 7
+ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Habilitar <color=#D89555>Contrafeitiço</color> no nível 7 como uma reação em vez do nível 6 como uma ação
 ModUi/&EnableBardExpertiseOneLevelBefore=Habilitar <color=#D89555>Expertise</color> nos níveis 2 e 9 em vez de 3 e 10
 ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <b>College of Hope</b> <color=#D89555>Healing Ballad</color> em descanso longo
 ModUi/&EnableBardSuperiorInspirationAtLevel18=Habilita <color=#D89555>Inspiração Superior</color> no nível 18 em vez de 20 e também concede duas recargas em vez de 1
@@ -148,7 +149,7 @@ ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclasse</color> <b><i><colo
 ModUi/&EnableOneDnDPreparedSpellsTables=Permitir que todos os <color=#D89555>Conjuradores</color> usem novas tabelas de magias preparadas <i><color=#F0DAA0>[Bardo, Clérigo, Druida, Paladino, Patrulheiro, Feiticeiro, Mago]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Habilitar <color=#D89555>Barkskin</color> versão de magia 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, CA definida como 17]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Habilitar <color=#D89555>Orientação</color> versão de magia 5e 2024 <i><color=#F0DAA0>[Escolha uma habilidade na conjuração e ganhe bônus por até 1 minuto.]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=Habilitar <color=#D89555>Curar Ferimentos</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Ferimentos em Massa</color> e <color=#D89555>Palavra de Cura em Massa</color> versão de feitiços 5e 2024
+ModUi/&EnableOneDndHealingSpellsUpgrade=Habilitar <color=#D89555>Curar Ferimentos</color>, <color=#D89555>Vida Falsa</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Ferimentos em Massa</color> e <color=#D89555>Palavra de Cura em Massa</color> versão de feitiços 5e 2024
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Habilitar <color=#D89555>Impor as Mãos</color> como ação bônus
 ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Smite</color> como ação bônus
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração de feitiços</color> no nível 1 em vez de 2
@@ -162,6 +163,7 @@ ModUi/&EnableRespecAction=Habilitar <color=#D89555>RESPEC</color> após a ação
 ModUi/&EnableRitualOnAllCasters=Habilitar a conjuração de <color=#D89555>Ritual</color> em todos os conjuradores
 ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Golpe Astuto</color> e <color=#D89555>Golpe Desonesto</color> nos níveis 5 e 14 <i><color=#F0DAA0>[você deixa de lado 1 dado de ataque furtivo para efeitos de acerto adicionais]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilitar a escolha <color=#D89555>Estilo de luta</color> no nível 2
+ModUi/&EnableRogueSlipperyMind=Troque <color=#D89555>Mente Escorregadia</color> pela versão 5e 2024 <i><color=#F0DAA0>[você também ganha proficiência em testes de resistência de carisma, além de sabedoria]</color></i>
 ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Miração Firme</color> no nível 3 <i><color=#F0DAA0>[ação bônus dá vantagem na sua próxima jogada de ataque no turno atual se você ainda não se moveu]</color></i>
 ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR de <b>Hoodlum</b> em <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Habilitar <color=#D89555>Second Wind</color> para usar a progressão de usos do 5e 2024
@@ -169,6 +171,7 @@ ModUi/&EnableSignatureSpellsRelearn=Habilitar <color=#D89555>Feitiços de Assina
 ModUi/&EnableSorcererInnateSorceryAt1=Habilitar <color=#D89555>Feitiçaria Inata</color> no nível 1
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> no nível 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada
+ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauração Feiticeira</color> no nível 5
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar classificação de ativos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[por exemplo: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Além disso, cada herói adiciona um teste de D20 ao peso para um pouco de aleatoriedade <color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói + teste de D20]</color></i>
@@ -179,6 +182,7 @@ ModUi/&EnableUnarmedMainAttackAction=Habilitar a ação <color=#D89555>Ataque De
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posição variáveis ​​em descrições <i><color=#F0DAA0>[usar {VARIABLE_NAME} como marcador de posição]</color></i>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Habilitar <color=#D89555>Astúcia Mágica</color> no nível 2
+ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Habilite <color=#D89555>Astúcia Mágica</color> no nível 2 e melhore <color=#D89555>Mestre Eldritch</color> no nível 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Habilitar <color=#D89555>Patrono</color> no nível 3 em vez de 1
 ModUi/&EnableWizardToLearnScholarAtLevel2=Habilitar <color=#D89555>Scholar</color> no nível 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Habilitar <color=#D89555>Escola de Magia</color> no nível 3 em vez de 2

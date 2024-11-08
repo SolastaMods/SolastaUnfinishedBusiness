@@ -124,6 +124,7 @@
             "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
             "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
             "Definition:ConditionParalyzed:a775cb208dcfe8244bc724c2af40b4fa",
+            "Definition:ConditionPoisoned:185ea6cfd1e758448bf574c4055af482",
             "Definition:ConditionProne:c792a1e7b09cf9d4897b31e663a9ebfb"
           ],
           "applyToSelf": false,
@@ -340,7 +341,7 @@
   },
   "concentrationAction": "None",
   "verboseComponent": true,
-  "somaticComponent": true,
+  "somaticComponent": false,
   "materialComponentType": "None",
   "specificMaterialComponentTag": "Diamond",
   "specificMaterialComponentCostGp": 100,

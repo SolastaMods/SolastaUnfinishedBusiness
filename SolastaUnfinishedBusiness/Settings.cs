@@ -260,6 +260,7 @@ public class Settings : UnityModManager.ModSettings
 
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool ChangeBardicInspirationDurationToOneHour { get; set; }
+    public bool EnableBardCounterCharmAsReactionAtLevel7 { get; set; }
     public bool EnableBardExpertiseOneLevelBefore { get; set; }
     public bool EnableBardSuperiorInspirationAtLevel18 { get; set; }
     public bool EnableBardWordsOfCreationAtLevel20 { get; set; }
@@ -298,14 +299,17 @@ public class Settings : UnityModManager.ModSettings
     public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
+    public bool EnableRogueSlipperyMind { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
     public bool RemoveRogueBlindSense { get; set; }
     public bool EnableSorcererInnateSorceryAt1 { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
-    public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }
+    public bool EnableSorcerousRestorationAtLevel5 { get; set; }
     public bool EnableWarlockToUseOneDndInvocationProgression { get; set; }
+    public bool EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20 { get; set; }
+    public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }
     public bool EnableWizardToLearnScholarAtLevel2 { get; set; }
     public bool EnableWizardToLearnSchoolAtLevel3 { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }

@@ -24,7 +24,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class DomainNature : AbstractSubclass
 {
     private const string Name = "DomainNature";
-    private const string AcquiredCantripsPoolName = $"{AttributeDefinitions.TagSubclass}Cleric1{Name}{Name}";
 
     private static readonly string[] DampenElementsDamageTypes =
     [
@@ -259,16 +258,6 @@ public sealed class DomainNature : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
-
-    internal static void ResetCantripSubclassPool(RulesetCharacterHero hero)
-    {
-        var buildingData = hero.GetHeroBuildingData();
-
-        if (buildingData.PointPoolStacks.TryGetValue(HeroDefinitions.PointsPoolType.Cantrip, out var pointPool))
-        {
-            pointPool.ActivePools.Remove(AcquiredCantripsPoolName);
-        }
-    }
 
     private sealed class CustomBehaviorDampenElements(ConditionDefinition conditionDampenElements)
         : IMagicEffectBeforeHitConfirmedOnMe, ITryAlterOutcomeAttack

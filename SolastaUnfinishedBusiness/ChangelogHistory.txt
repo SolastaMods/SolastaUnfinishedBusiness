@@ -1,13 +1,27 @@
+1.5.97.38:
+
+- added False Life to 'Enable healing spells 5e 2024 spells version'
+- fixed 'Enable all Casters to use new prepared spells tables' on Rangers
+- fixed 'Enable Paladin spellcasting at level 1' integration with variant spell rules
+- fixed 'Enable Ranger spellcasting at level 1' integration with variant spell rules
+- fixed 'Enable Sorcerous Restoration at level 5' missing short rest activity
+- fixed infusions termination rest activity under multiplayer session
+- fixed Patron Moonlit lunar chill, and lunar radiance detrimental conditions duration
+- fixed Rogue stroke of luck missing foreign translations introduced on v37
+- improved Armor of Agathys, and Power Word Heal to 5e 2024 versions
+
 1.5.97.37:
 
-- added 20+ new settings under tabletop 5e 2024 section
+- added 25+ new settings under tabletop 5e 2024 section
 - added Wizard Abjuration arcane ward recharge bonus action
 - added Wizard Graviturgist gravity well power toggle
 - fixed bardic inspiration on attack rolls not stacking with similar behaviors [VANILLA]
 - fixed campaigns translator to avoid location titles and break campaigns
 - fixed Charmed by Hypnotic Pattern not getting considered on incapacitated checks [VANILLA]
 - fixed Circle of Wildfire spirit allowed actions when summoner is incapacitated
-- fixed Dispel Magic and similar not considering proxy effects
+- fixed Counterspell integration with lighting and obscurement rules
+- fixed Dispel Magic and similar not considering proxies
+- fixed melee and range hit powers damage form dice advancement under multiclass scenarios
 - fixed recurrent effects interaction with immunity from proxies [VANILLA]
 - fixed Sickening Radiance exhaustion immunity on constructs, elementals, undead, and constructs
 - fixed Wizard Abjuration projected ward crash on gadgets
