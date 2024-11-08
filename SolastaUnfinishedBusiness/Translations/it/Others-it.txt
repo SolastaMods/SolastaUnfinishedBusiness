@@ -199,6 +199,7 @@ Feature/&PowerRogueDeviousStrikeTitle=Colpo subdolo
 Feature/&PowerSorcererInnateSorceryDescription=Come azione bonus, puoi scatenare quella magia per 1 minuto, durante il quale ottieni i seguenti benefici:\n• La CD del tiro salvezza degli incantesimi dei tuoi incantesimi da stregone aumenta di 1.\n• Hai vantaggio sui tiri per colpire degli incantesimi da stregone che lanci.\n• Puoi usare questa caratteristica due volte e recuperi tutti gli usi spesi quando completi un riposo lungo.
 Feature/&PowerSorcererInnateSorceryTitle=Stregoneria innata
 Feature/&PowerSorcerousRestorationDescription=Quando finisci un Riposo Breve, puoi recuperare i Punti Stregoneria spesi, ma non più di un numero pari alla metà del tuo livello da Stregone (arrotondato per difetto). Una volta che usi questa caratteristica, non puoi più farlo finché non finisci un Riposo Lungo.
+Feature/&PowerSorcerousRestorationShortTitle=Ripristino del mana
 Feature/&PowerSorcerousRestorationTitle=Restauro stregonesco
 Feature/&PowerTeleportSummonDescription=Puoi teletrasportarti in qualsiasi luogo entro 1,5 metri dall'incantatore.
 Feature/&PowerTeleportSummonTitle=Teletrasporto

@@ -934,7 +934,8 @@ internal static class Tabletop2024Context
     {
         RestActivityDefinitionBuilder
             .Create("RestActivitySorcerousRestoration")
-            .SetGuiPresentation("PowerSorcerousRestoration", Category.Feature)
+            .SetGuiPresentation(
+                "Feature/&PowerSorcerousRestorationShortTitle", "Feature/&PowerSorcerousRestorationDescription")
             .SetRestData(RestDefinitions.RestStage.AfterRest, RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", PowerSorcerousRestoration.Name)
             .AddToDB();

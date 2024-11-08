@@ -199,6 +199,7 @@ Feature/&PowerRogueDeviousStrikeTitle=デビアス・ストライク
 Feature/&PowerSorcererInnateSorceryDescription=ボーナス アクションとして、その魔法を 1 分間発揮できます。その間、次の利点が得られます:\n•ソーサラー呪文の呪文セーヴ DC が 1 増加します。\n•ソーサラー呪文の攻撃ロールにアドバンテージを得ます。\n•この特徴は 2 回使用でき、大休憩を終了すると消費した使用回数をすべて回復します。
 Feature/&PowerSorcererInnateSorceryTitle=生来の魔術
 Feature/&PowerSorcerousRestorationDescription=小休憩を終えると、消費したソーサリー ポイントを回復できますが、ソーサラー レベルの半分 (切り捨て) を超えることはできません。この機能を一度使用すると、大休憩を終えるまで再度使用することはできません。
+Feature/&PowerSorcerousRestorationShortTitle=マナ回復
 Feature/&PowerSorcerousRestorationTitle=魔法の回復
 Feature/&PowerTeleportSummonDescription=キャスターから 5 フィート以内の任意の場所にテレポートできます。
 Feature/&PowerTeleportSummonTitle=テレポート
