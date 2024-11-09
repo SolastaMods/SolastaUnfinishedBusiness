@@ -35,11 +35,35 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPoint
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class Tabletop2024Context
 {
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityPotionBonusAction =
+        FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinityPotionBonusAction")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(
+                new ValidateDeviceFunctionUse((_, device, _) =>
+                    device.UsableDeviceDescription.UsableDeviceTags.Contains("Potion") &&
+                    (device.Name.Contains("Healing") || 
+                    device.Name.Contains("Remedy") ||
+                    device.Name.Contains("Antitoxin"))))
+            .SetAuthorizedActions(Id.UseItemBonus)
+            .AddToDB();
+
+    //private static ItemPropertyDescription ItemPropertyPotionBonusAction =
+    //new ItemPropertyDescription(RingFeatherFalling.StaticProperties[0])
+    //{
+    //    appliesOnItemOnly = false,
+    //    type = ItemPropertyDescription.PropertyType.Feature,
+    //    featureDefinition = ActionAffinityPotionBonusAction,
+    //    conditionDefinition = null,
+    //    knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
+    //};
+
     private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
         FeatureDefinitionCombatAffinityBuilder
             .Create("CombatAffinityConditionSurprised")
@@ -125,6 +149,15 @@ internal static class Tabletop2024Context
     ];
 
     private static readonly List<SpellDefinition> GuidanceSubSpells = [];
+
+    //private static readonly List<ItemDefinition> HealingPotions =
+    //    [
+    //        PotionOfHealing,
+    //        PotionOfGreaterHealing,
+    //        PotionOfSuperiorHealing,
+    //        Potion_Antitoxin,
+    //        PotionRemedy
+    //    ];
 
     private static readonly FeatureDefinitionPower PowerSorcererInnateSorcery = FeatureDefinitionPowerBuilder
         .Create("PowerSorcererInnateSorcery")
@@ -863,33 +896,36 @@ internal static class Tabletop2024Context
         }
 
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
+    }        
+    
 
     internal static void SwitchOneDndHealingPotionBonusAction()
     {
+        var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
+        var subRaces = dbCharacterRaceDefinition
+            .SelectMany(x => x.SubRaces);
+        var races = dbCharacterRaceDefinition
+            .Where(x => !subRaces.Contains(x));
+
         if (Main.Settings.OneDndHealingPotionBonusAction)
         {
-            PowerFunctionPotionOfHealing.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfHealingOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfGreaterHealing.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfGreaterHealingOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfSuperiorHealing.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfSuperiorHealingOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionRemedy.activationTime = ActivationTime.BonusAction;
-            PowerFunctionRemedyOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionAntitoxin.activationTime = ActivationTime.BonusAction;
+            foreach (var characterRaceDefinition in races
+                         .Where(a => !a.FeatureUnlocks.Exists(x =>
+                             x.Level == 1 && x.FeatureDefinition == ActionAffinityPotionBonusAction)))
+            {
+                characterRaceDefinition.FeatureUnlocks.Add(
+                    new FeatureUnlockByLevel(ActionAffinityPotionBonusAction, 1));
+            }
         }
         else
         {
-            PowerFunctionPotionOfHealing.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfHealingOther.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfGreaterHealing.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfGreaterHealingOther.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfSuperiorHealing.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfSuperiorHealingOther.activationTime = ActivationTime.Action;
-            PowerFunctionPotionRemedy.activationTime = ActivationTime.Action;
-            PowerFunctionRemedyOther.activationTime = ActivationTime.Action;
-            PowerFunctionAntitoxin.activationTime = ActivationTime.Action;
+            foreach (var characterRaceDefinition in races
+                         .Where(a => a.FeatureUnlocks.Exists(x =>
+                             x.Level == 1 && x.FeatureDefinition == ActionAffinityPotionBonusAction)))
+            {
+                characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
+                    x.Level == 1 && x.FeatureDefinition == ActionAffinityPotionBonusAction);
+            }
         }
     }
 
