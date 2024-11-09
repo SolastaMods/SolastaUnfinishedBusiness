@@ -54,15 +54,15 @@ internal static class Tabletop2024Context
             .SetAuthorizedActions(Id.UseItemBonus)
             .AddToDB();
 
-    //private static ItemPropertyDescription ItemPropertyPotionBonusAction =
-    //new ItemPropertyDescription(RingFeatherFalling.StaticProperties[0])
-    //{
-    //    appliesOnItemOnly = false,
-    //    type = ItemPropertyDescription.PropertyType.Feature,
-    //    featureDefinition = ActionAffinityPotionBonusAction,
-    //    conditionDefinition = null,
-    //    knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
-    //};
+    private static ItemPropertyDescription ItemPropertyPotionBonusAction =
+    new ItemPropertyDescription(RingFeatherFalling.StaticProperties[0])
+    {
+        appliesOnItemOnly = false,
+        type = ItemPropertyDescription.PropertyType.Feature,
+        featureDefinition = ActionAffinityPotionBonusAction,
+        conditionDefinition = null,
+        knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
+    };
 
     private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
         FeatureDefinitionCombatAffinityBuilder
@@ -149,15 +149,6 @@ internal static class Tabletop2024Context
     ];
 
     private static readonly List<SpellDefinition> GuidanceSubSpells = [];
-
-    //private static readonly List<ItemDefinition> HealingPotions =
-    //    [
-    //        PotionOfHealing,
-    //        PotionOfGreaterHealing,
-    //        PotionOfSuperiorHealing,
-    //        Potion_Antitoxin,
-    //        PotionRemedy
-    //    ];
 
     private static readonly FeatureDefinitionPower PowerSorcererInnateSorcery = FeatureDefinitionPowerBuilder
         .Create("PowerSorcererInnateSorcery")
@@ -901,30 +892,23 @@ internal static class Tabletop2024Context
 
     internal static void SwitchOneDndHealingPotionBonusAction()
     {
-        var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
-        var subRaces = dbCharacterRaceDefinition
-            .SelectMany(x => x.SubRaces);
-        var races = dbCharacterRaceDefinition
-            .Where(x => !subRaces.Contains(x));
-
+        //By adding the feature to all backpacks(all characters should have one) instead of to all races, we avoid the need for a new character or respec
         if (Main.Settings.OneDndHealingPotionBonusAction)
         {
-            foreach (var characterRaceDefinition in races
-                         .Where(a => !a.FeatureUnlocks.Exists(x =>
-                             x.Level == 1 && x.FeatureDefinition == ActionAffinityPotionBonusAction)))
+            foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
+                         .Where(a => a.SlotsWhereActive.Contains("Backslot") &&
+                         !a.StaticProperties.Contains(ItemPropertyPotionBonusAction)))
             {
-                characterRaceDefinition.FeatureUnlocks.Add(
-                    new FeatureUnlockByLevel(ActionAffinityPotionBonusAction, 1));
+                item.StaticProperties.Add(ItemPropertyPotionBonusAction);
             }
         }
         else
         {
-            foreach (var characterRaceDefinition in races
-                         .Where(a => a.FeatureUnlocks.Exists(x =>
-                             x.Level == 1 && x.FeatureDefinition == ActionAffinityPotionBonusAction)))
+            foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
+                         .Where(a => a.SlotsWhereActive.Contains("Backslot") &&
+                         a.StaticProperties.Contains(ItemPropertyPotionBonusAction)))
             {
-                characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
-                    x.Level == 1 && x.FeatureDefinition == ActionAffinityPotionBonusAction);
+                item.StaticProperties.Clear();
             }
         }
     }
