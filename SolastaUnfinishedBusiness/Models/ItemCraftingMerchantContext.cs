@@ -34,6 +34,7 @@ internal static class ItemCraftingMerchantContext
         SwitchRestockArcaneum();
         SwitchRestockCircleOfDanantar();
         SwitchRestockTowerOfKnowledge();
+        SwitchVersatileInventorySlots();
         LoadDontDisplayHelmets();
     }
 
@@ -275,6 +276,50 @@ internal static class ItemCraftingMerchantContext
         foreach (var stock in Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
         {
             stock.reassortAmount = 1;
+        }
+    }
+
+    internal static void SwitchVersatileInventorySlots()
+    {        
+       foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
+            .Where(a => a.UsableDeviceDescription != null && (a.UsableDeviceDescription.UsableDeviceTags.Contains("Potion") ||
+            a.UsableDeviceDescription.UsableDeviceTags.Contains("Scroll"))))
+       {
+           if (Main.Settings.EnableVersatileAmmunitionSlots && Main.Settings.EnableVersatileOffHandSlot)
+           {
+                item.SlotTypes.SetRange("UtilitySlot",
+                    "ContainerSlot",
+                    "AmmunitionSlot",
+                    "OffHandSlot");
+                item.SlotsWhereActive.SetRange("UtilitySlot",
+                    "AmmunitionSlot",
+                    "OffHandSlot");
+           }
+
+           if (Main.Settings.EnableVersatileAmmunitionSlots && !Main.Settings.EnableVersatileOffHandSlot)
+            {
+                item.SlotTypes.SetRange("UtilitySlot",
+                    "ContainerSlot",
+                    "AmmunitionSlot");
+                item.SlotsWhereActive.SetRange("UtilitySlot",
+                    "AmmunitionSlot");
+            }
+            
+            if (!Main.Settings.EnableVersatileAmmunitionSlots && Main.Settings.EnableVersatileOffHandSlot)
+            {
+                item.SlotTypes.SetRange("UtilitySlot",
+                    "ContainerSlot",
+                    "OffHandSlot");
+                item.SlotsWhereActive.SetRange("UtilitySlot",
+                    "OffHandSlot");
+            }
+
+            if (!Main.Settings.EnableVersatileAmmunitionSlots && !Main.Settings.EnableVersatileOffHandSlot)
+            {
+                item.SlotTypes.SetRange("UtilitySlot",
+                    "ContainerSlot");
+                item.SlotsWhereActive.SetRange("UtilitySlot");
+            }
         }
     }
 
