@@ -282,7 +282,9 @@ internal static class ItemCraftingMerchantContext
     internal static void SwitchVersatileInventorySlots()
     {        
        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
-            .Where(a => a.UsableDeviceDescription != null && (a.UsableDeviceDescription.UsableDeviceTags.Contains("Potion") ||
+            .Where(a => a.UsableDeviceDescription != null &&
+            a.UsableDeviceDescription.UsableDeviceTags != null &&
+            (a.UsableDeviceDescription.UsableDeviceTags.Contains("Potion") ||
             a.UsableDeviceDescription.UsableDeviceTags.Contains("Scroll"))))
        {
            if (Main.Settings.EnableVersatileAmmunitionSlots && Main.Settings.EnableVersatileOffHandSlot)
