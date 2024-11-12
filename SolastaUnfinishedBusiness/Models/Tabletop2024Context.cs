@@ -35,11 +35,35 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPoint
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class Tabletop2024Context
 {
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityPotionBonusAction =
+        FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinityPotionBonusAction")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(
+                new ValidateDeviceFunctionUse((_, device, _) =>
+                    device.UsableDeviceDescription.UsableDeviceTags.Contains("Potion") &&
+                    (device.Name.Contains("Healing") || 
+                    device.Name.Contains("Remedy") ||
+                    device.Name.Contains("Antitoxin"))))
+            .SetAuthorizedActions(Id.UseItemBonus)
+            .AddToDB();
+
+    private static ItemPropertyDescription ItemPropertyPotionBonusAction =
+    new ItemPropertyDescription(RingFeatherFalling.StaticProperties[0])
+    {
+        appliesOnItemOnly = false,
+        type = ItemPropertyDescription.PropertyType.Feature,
+        featureDefinition = ActionAffinityPotionBonusAction,
+        conditionDefinition = null,
+        knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
+    };
+
     private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
         FeatureDefinitionCombatAffinityBuilder
             .Create("CombatAffinityConditionSurprised")
@@ -863,33 +887,29 @@ internal static class Tabletop2024Context
         }
 
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
+    }        
+    
 
     internal static void SwitchOneDndHealingPotionBonusAction()
     {
+        //By adding the feature to all backpacks(all characters should have one) instead of to all races, we avoid the need for a new character or respec
         if (Main.Settings.OneDndHealingPotionBonusAction)
         {
-            PowerFunctionPotionOfHealing.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfHealingOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfGreaterHealing.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfGreaterHealingOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfSuperiorHealing.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfSuperiorHealingOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionRemedy.activationTime = ActivationTime.BonusAction;
-            PowerFunctionRemedyOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionAntitoxin.activationTime = ActivationTime.BonusAction;
+            foreach (var pack in DatabaseRepository.GetDatabase<ItemDefinition>()
+                         .Where(a => a.SlotsWhereActive.Contains("BackSlot") &&
+                         !a.StaticProperties.Contains(ItemPropertyPotionBonusAction)))
+            {
+                pack.StaticProperties.Add(ItemPropertyPotionBonusAction);
+            }
         }
         else
         {
-            PowerFunctionPotionOfHealing.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfHealingOther.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfGreaterHealing.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfGreaterHealingOther.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfSuperiorHealing.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfSuperiorHealingOther.activationTime = ActivationTime.Action;
-            PowerFunctionPotionRemedy.activationTime = ActivationTime.Action;
-            PowerFunctionRemedyOther.activationTime = ActivationTime.Action;
-            PowerFunctionAntitoxin.activationTime = ActivationTime.Action;
+            foreach (var pack in DatabaseRepository.GetDatabase<ItemDefinition>()
+                         .Where(a => a.SlotsWhereActive.Contains("BackSlot") &&
+                         a.StaticProperties.Contains(ItemPropertyPotionBonusAction)))
+            {
+                pack.StaticProperties.Clear();
+            }
         }
     }
 
