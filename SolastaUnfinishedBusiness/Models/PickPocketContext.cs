@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.LootPackDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.TreasureTableDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -19,89 +20,137 @@ internal static class PickPocketContext
 
         _initialized = true;
 
-        var pickpocketTableLow = TreasureTableDefinitionBuilder
-            .Create(RandomTreasureTableE2_Mundane_Ingredients, "PickPocketTableLow")
+        var pickPocketableLootTrivial = LootPackDefinitionBuilder
+            .Create("CE_PickpocketableLoot_Trivial")
             .SetGuiPresentationNoContent()
-            .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
+            .AddExplicitItem(_1D6_Silver_Coins)
+            .AddExplicitItem(_1D6_Copper_Coins)
             .AddToDB();
-
-        var pickpocketTableMed = TreasureTableDefinitionBuilder
-            .Create(RandomTreasureTableE_Ingredients, "PickPocketTableMed")
-            .SetGuiPresentationNoContent()
-            .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
-            .AddTreasureOptions(RandomTreasureTableA_Gem.TreasureOptions)
-            .SetGuiPresentationNoContent()
-            .AddToDB();
-
-        var pickpocketTableUndead = TreasureTableDefinitionBuilder
-            .Create("PickPocketTableUndead")
-            .SetGuiPresentationNoContent()
-            .AddTreasureOptions(new List<TreasureOption>
-            {
-                RandomTreasureTableE_Ingredients.TreasureOptions[3],
-                RandomTreasureTableE_Ingredients.TreasureOptions[9],
-                RandomTreasureTableE_Ingredients.TreasureOptions[16]
-            })
-            .AddToDB();
-
-        var lootPickpocketTableLow = new ItemOccurence
-        {
-            itemMode = ItemOccurence.SelectionMode.TreasureTable,
-            treasureTableDefinition = pickpocketTableLow,
-            diceNumber = 1,
-            diceType = DieType.D1,
-            additiveModifier = 0
-        };
-
-        var lootPickpocketTableMed = new ItemOccurence
-        {
-            itemMode = ItemOccurence.SelectionMode.TreasureTable,
-            treasureTableDefinition = pickpocketTableMed,
-            diceNumber = 1,
-            diceType = DieType.D1,
-            additiveModifier = 0
-        };
-
-        var lootPickpocketTableUndead = new ItemOccurence
-        {
-            itemMode = ItemOccurence.SelectionMode.TreasureTable,
-            treasureTableDefinition = pickpocketTableUndead,
-            diceNumber = 1,
-            diceType = DieType.D1,
-            additiveModifier = 0
-        };
-
-        var pickpocketGenericLootLowMoney = DatabaseHelper.LootPackDefinitions.Pickpocket_generic_loot_LowMoney;
-        var pickpocketGenericLootMedMoney = DatabaseHelper.LootPackDefinitions.Pickpocket_generic_loot_MedMoney;
 
         var pickPocketableLootA = LootPackDefinitionBuilder
-            .Create(pickpocketGenericLootLowMoney, "CE_PickpocketableLoot_A")
+            .Create("CE_PickpocketableLoot_A")
             .SetGuiPresentationNoContent()
-            .SetItemOccurrencesList(lootPickpocketTableLow)
+            .SetItemOccurrencesList(new
+                ItemOccurence
+                {
+                    itemMode = ItemOccurence.SelectionMode.TreasureTable,
+                    treasureTableDefinition = RandomTreasureTableE2_Mundane_Ingredients,
+                    diceNumber = 1,
+                    diceType = DieType.D1,
+                    additiveModifier = 0
+                })
+            .AddExplicitItem(_1D6_Silver_Coins)
+            .AddExplicitItem(_1D6_Silver_Coins)
+            .AddExplicitItem(_6D6_Copper_Coins)
             .AddToDB();
 
         var pickPocketableLootB = LootPackDefinitionBuilder
-            .Create(pickpocketGenericLootMedMoney, "CE_PickpocketableLoot_B")
+            .Create("CE_PickpocketableLoot_B")
             .SetGuiPresentationNoContent()
-            .SetItemOccurrencesList(lootPickpocketTableLow)
+            .SetItemOccurrencesList(new
+                ItemOccurence
+                {
+                    itemMode = ItemOccurence.SelectionMode.TreasureTable,
+                    treasureTableDefinition = TreasureTableDefinitionBuilder
+                        .Create(RandomTreasureTableE2_Mundane_Ingredients, "PickPocketTableB")
+                        .SetGuiPresentationNoContent()
+                        .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
+                        .AddTreasureOptions(RandomTreasureTableE_Ingredients.TreasureOptions)
+                        .AddToDB(),
+                    diceNumber = 1,
+                    diceType = DieType.D1,
+                    additiveModifier = 0
+                })
+            .AddExplicitItem(_1D6_Gold_Coins)
+            .AddExplicitItem(_10D6_Copper_Coins)
             .AddToDB();
 
         var pickPocketableLootC = LootPackDefinitionBuilder
-            .Create(pickpocketGenericLootMedMoney, "CE_PickpocketableLoot_C")
+            .Create("CE_PickpocketableLoot_C")
             .SetGuiPresentationNoContent()
-            .SetItemOccurrencesList(lootPickpocketTableMed)
+            .SetItemOccurrencesList(new
+                ItemOccurence
+                {
+                    itemMode = ItemOccurence.SelectionMode.TreasureTable,
+                    treasureTableDefinition = TreasureTableDefinitionBuilder
+                        .Create(RandomTreasureTableE_Ingredients, "PickPocketTableC")
+                        .SetGuiPresentationNoContent()
+                        .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
+                        .AddTreasureOptions(RandomTreasureTableA_Gem.TreasureOptions)
+                        .AddToDB(),
+                    diceNumber = 1,
+                    diceType = DieType.D1,
+                    additiveModifier = 0
+                })
+            .AddExplicitItem(_5D6_Silver_Coins)
+            .AddExplicitItem(_1D6_Gold_Coins)
             .AddToDB();
 
         var pickPocketableLootD = LootPackDefinitionBuilder
-            .Create(pickpocketGenericLootMedMoney, "CE_PickpocketableLoot_D")
+            .Create("CE_PickpocketableLoot_D")
             .SetGuiPresentationNoContent()
-            .SetItemOccurrencesList(lootPickpocketTableLow, lootPickpocketTableMed)
+            .SetItemOccurrencesList(new
+                ItemOccurence
+                {
+                    itemMode = ItemOccurence.SelectionMode.TreasureTable,
+                    treasureTableDefinition = TreasureTableDefinitionBuilder
+                        .Create(RandomTreasureTableE_Ingredients, "PickPocketTableD")
+                        .SetGuiPresentationNoContent()
+                        .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
+                        .AddTreasureOptions(RandomTreasureTableA_Gem.TreasureOptions)
+                        .AddToDB(),
+                    diceNumber = 1,
+                    diceType = DieType.D1,
+                    additiveModifier = 0
+                })
+            .AddExplicitItem(_5D6_Gold_Coins)
+            .AddExplicitItem(_20D6_Silver_Coins)
+            .AddToDB();
+
+        var pickPocketableLootE = LootPackDefinitionBuilder
+            .Create("CE_PickpocketableLoot_E")
+            .SetGuiPresentationNoContent()
+            .SetItemOccurrencesList(new
+                ItemOccurence
+                {
+                    itemMode = ItemOccurence.SelectionMode.TreasureTable,
+                    treasureTableDefinition = TreasureTableDefinitionBuilder
+                        .Create(RandomTreasureTableA_Gem, "PickPocketTableE")
+                        .SetGuiPresentationNoContent()
+                        .AddTreasureOptions(RandomTreasureTableB_Consumables.TreasureOptions)
+                        .AddTreasureOptions(DLC3_RandomTreasureTableJ_IngredientsEnchanted.TreasureOptions)
+                        .AddToDB(),
+                    diceNumber = 1,
+                    diceType = DieType.D1,
+                    additiveModifier = 0
+                })
+            .AddExplicitItem(_5D6_Gold_Coins)
+            .AddExplicitItem(_20D6_Silver_Coins)
             .AddToDB();
 
         var pickPocketableLootUndead = LootPackDefinitionBuilder
-            .Create(pickpocketGenericLootLowMoney, "CE_PickpocketableLoot_Undead")
+            .Create("CE_PickpocketableLoot_Undead")
             .SetGuiPresentationNoContent()
-            .SetItemOccurrencesList(lootPickpocketTableUndead)
+            .SetItemOccurrencesList(new
+                ItemOccurence
+                {
+                    itemMode = ItemOccurence.SelectionMode.TreasureTable,
+                    treasureTableDefinition = TreasureTableDefinitionBuilder
+                        .Create("PickPocketTableUndead")
+                        .SetGuiPresentationNoContent()
+                        .AddTreasureOptions(new
+                            List<TreasureOption>
+                            {
+                            RandomTreasureTableE_Ingredients.TreasureOptions[3],
+                            RandomTreasureTableE_Ingredients.TreasureOptions[9],
+                            RandomTreasureTableE_Ingredients.TreasureOptions[16]
+                            })
+                        .AddToDB(),
+                    diceNumber = 1,
+                    diceType = DieType.D1,
+                    additiveModifier = 0
+                })
+            .AddExplicitItem(_1D6_Copper_Coins)
             .AddToDB();
 
         foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
@@ -113,7 +162,7 @@ internal static class PickPocketContext
                 {
                     if (monster.ChallengeRating < 1.0)
                     {
-                        monster.stealableLootDefinition = pickpocketGenericLootLowMoney;
+                        monster.stealableLootDefinition = pickPocketableLootTrivial;
                     }
 
                     if (monster.ChallengeRating > 0.9 &&
@@ -134,9 +183,15 @@ internal static class PickPocketContext
                         monster.stealableLootDefinition = pickPocketableLootC;
                     }
 
-                    if (monster.ChallengeRating > 4.9)
+                    if (monster.ChallengeRating > 4.9 &&
+                            monster.ChallengeRating <7.0)
                     {
                         monster.stealableLootDefinition = pickPocketableLootD;
+                    }
+
+                    if (monster.ChallengeRating >6.9)
+                    {
+                        monster.stealableLootDefinition = pickPocketableLootE;
                     }
 
                     break;
