@@ -56,7 +56,7 @@ public static class RuleDefinitionsPatcher
         [UsedImplicitly]
         public static void Postfix(out bool __result, int spellLevel, int totalSpellLevel)
         {
-            __result = spellLevel <= totalSpellLevel;
+            __result = totalSpellLevel != 0 && spellLevel <= totalSpellLevel;
         }
     }
 
