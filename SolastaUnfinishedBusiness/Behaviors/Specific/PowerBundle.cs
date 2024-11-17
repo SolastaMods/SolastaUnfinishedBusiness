@@ -216,8 +216,7 @@ internal static class PowerBundle
                         character.UsedChannelDivinity) /
                        power.CostPerUse;
             case RechargeRate.HealingPool:
-                return (character.TryGetAttributeValue(AttributeDefinitions.HealingPool) - character.UsedHealingPool) /
-                       power.CostPerUse;
+                return character.TryGetAttributeValue(AttributeDefinitions.HealingPool) - character.UsedHealingPool;
             case RechargeRate.MaxHitPoints:
                 return character.TryGetAttributeValue(AttributeDefinitions.HitPoints) / power.CostPerUse;
             case RechargeRate.RagePoints:
