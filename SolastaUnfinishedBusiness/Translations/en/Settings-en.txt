@@ -181,7 +181,7 @@ ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering o
 ModUi/&EnableUnarmedMainAttackAction=Enable the <color=#D89555>Unarmed Attack</color> action <i><color=#F0DAA0>[if actor has weapon in main, is a <b>Monk</b> or has <b>handwraps</b> or <b>gauntlet</b> equipped]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descriptions <i><color=#F0DAA0>[use {VARIABLE_NAME} as placeholder]</color></i>
-ModUi/&EnableVersatileAmmunitionSlots=Allow <color=#D89555>Potions</color> and <color=#D89555>Scrolls</color> to be carried and used in the Ammuntion slots
+ModUi/&EnableVersatileAmmunitionSlots=Allow <color=#D89555>Potions</color> and <color=#D89555>Scrolls</color> to be carried and used in the Ammunition slots
 ModUi/&EnableVersatileOffHandSlot=Allow <color=#D89555>Potions</color> and <color=#D89555>Scrolls</color> to be carried and used in the Off-hand Weapon slot
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Enable <color=#D89555>Magical Cunning</color> at level 2
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Enable <color=#D89555>Magical Cunning</color> at level 2 and improve <color=#D89555>Eldritch Master</color> at 20

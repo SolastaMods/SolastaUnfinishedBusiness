@@ -1,5 +1,7 @@
 1.5.97.39:
 
+- added 'Allow Potions and Scrolls to be carried and used in the ammunition slots' setting [by SilverGriffon]
+- added 'Allow Potions and Scrolls to be carried and used in the off-hand weapon slot' setting [by SilverGriffon]
 - fixed 'Enable all Casters to use new prepared spells tables' not considering bonuses
 - fixed 'Enable Lay on Hands as bonus action' not getting offered in combat
 - fixed 'Enable Second Wind to use 5e 2024 usages progression' adding +1 usage
@@ -7,6 +9,7 @@
 - fixed Bonfire and Word of Radiance cantrips getting auto immunity from positions
 - fixed dice damage progression on powers and additional damage blueprints defined in mod subclasses [i.e: Hail of Blades]
 - fixed SpendPower action passing a null battle manager instance to mod custom behaviors leading to desyncs and soft locks
+- fixed Stealthy action from key bind not broadcasting status on multiplayer sessions
 
 KNOWN ISSUES:
 
