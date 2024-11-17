@@ -35,10 +35,6 @@ internal static class FeatsContext
     internal static void Load()
     {
         LoadFeatsPointPools();
-        SwitchAsiAndFeat();
-        SwitchFirstLevelTotalFeats();
-        SwitchEveryFourLevelsFeats();
-        SwitchEveryFourLevelsFeats(true);
     }
 
     internal static void LateLoad()
@@ -119,6 +115,11 @@ internal static class FeatsContext
 
         // avoids restart on level up UI
         GuiWrapperContext.RecacheFeats();
+        
+        SwitchAsiAndFeat();
+        SwitchFirstLevelTotalFeats();
+        SwitchEveryFourLevelsFeats();
+        SwitchEveryFourLevelsFeats(true);
     }
 
     private static void LoadFeat([NotNull] FeatDefinition featDefinition)
