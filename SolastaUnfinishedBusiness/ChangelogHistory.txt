@@ -1,3 +1,18 @@
+1.5.97.39:
+
+- fixed 'Enable all Casters to use new prepared spells tables' not considering bonuses
+- fixed 'Enable Lay on Hands as bonus action' not getting offered in combat
+- fixed 'Enable Second Wind to use 5e 2024 usages progression' adding +1 usage
+- fixed Aimed Attack maneuver not consuming bonus action, and not adding die damage to attack
+- fixed Bonfire and Word of Radiance cantrips getting auto immunity from positions
+- fixed Roguish Blade Caller hail of blades doing zero damage
+- fixed SpendPower action passing a null battle manager instance to mod custom behaviors [desyncs and soft locks]
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.38:
 
 - added False Life to 'Enable healing spells 5e 2024 spells version'
@@ -10,11 +25,6 @@
 - fixed Patron Moonlit lunar chill, and lunar radiance detrimental conditions duration
 - fixed Rogue stroke of luck missing foreign translations introduced on v37
 - improved Armor of Agathys, and Power Word Heal to 5e 2024 versions
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.37:
 
