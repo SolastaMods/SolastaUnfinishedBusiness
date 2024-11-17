@@ -43,26 +43,26 @@ internal static class Tabletop2024Context
 {
     private static readonly FeatureDefinitionActionAffinity ActionAffinityPotionBonusAction =
         FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinityPotionBonusAction")
+            .Create("ActionAffinityPotionBonusAction")
             .SetGuiPresentationNoContent(true)
             .AddCustomSubFeatures(
                 new ValidateDeviceFunctionUse((_, device, _) =>
                     device.UsableDeviceDescription.UsableDeviceTags.Contains("Potion") &&
-                    (device.Name.Contains("Healing") || 
-                    device.Name.Contains("Remedy") ||
-                    device.Name.Contains("Antitoxin"))))
+                    (device.Name.Contains("Healing") ||
+                     device.Name.Contains("Remedy") ||
+                     device.Name.Contains("Antitoxin"))))
             .SetAuthorizedActions(Id.UseItemBonus)
             .AddToDB();
 
-    private static ItemPropertyDescription ItemPropertyPotionBonusAction =
-    new ItemPropertyDescription(RingFeatherFalling.StaticProperties[0])
-    {
-        appliesOnItemOnly = false,
-        type = ItemPropertyDescription.PropertyType.Feature,
-        featureDefinition = ActionAffinityPotionBonusAction,
-        conditionDefinition = null,
-        knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
-    };
+    private static readonly ItemPropertyDescription ItemPropertyPotionBonusAction =
+        new(RingFeatherFalling.StaticProperties[0])
+        {
+            appliesOnItemOnly = false,
+            type = ItemPropertyDescription.PropertyType.Feature,
+            featureDefinition = ActionAffinityPotionBonusAction,
+            conditionDefinition = null,
+            knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
+        };
 
     private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
         FeatureDefinitionCombatAffinityBuilder
@@ -216,17 +216,19 @@ internal static class Tabletop2024Context
         .SetGrantedFeature(FeatureSetPactTome.FeatureSet[0]) // grant pool directly instead of feature set
         .AddToDB();
 
-    private static readonly ConditionDefinition ConditionBardCounterCharmSavingThrowAdvantage = ConditionDefinitionBuilder
-        .Create("ConditionBardCounterCharmSavingThrowAdvantage")
-        .SetGuiPresentation(PowerBardCountercharm.GuiPresentation)
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetFeatures(
-            FeatureDefinitionSavingThrowAffinityBuilder
-                .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll, "SavingThrowAffinityBardCounterCharmAdvantage")
-                .SetGuiPresentation(PowerBardCountercharm.GuiPresentation)
-                .AddToDB())
-        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-        .AddToDB();
+    private static readonly ConditionDefinition ConditionBardCounterCharmSavingThrowAdvantage =
+        ConditionDefinitionBuilder
+            .Create("ConditionBardCounterCharmSavingThrowAdvantage")
+            .SetGuiPresentation(PowerBardCountercharm.GuiPresentation)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll,
+                        "SavingThrowAffinityBardCounterCharmAdvantage")
+                    .SetGuiPresentation(PowerBardCountercharm.GuiPresentation)
+                    .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+            .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerWarlockMagicalCunning = FeatureDefinitionPowerBuilder
         .Create("PowerWarlockMagicalCunning")
@@ -887,8 +889,7 @@ internal static class Tabletop2024Context
         }
 
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }        
-    
+    }
 
     internal static void SwitchOneDndHealingPotionBonusAction()
     {
@@ -897,7 +898,7 @@ internal static class Tabletop2024Context
         {
             foreach (var pack in DatabaseRepository.GetDatabase<ItemDefinition>()
                          .Where(a => a.SlotsWhereActive.Contains("BackSlot") &&
-                         !a.StaticProperties.Contains(ItemPropertyPotionBonusAction)))
+                                     !a.StaticProperties.Contains(ItemPropertyPotionBonusAction)))
             {
                 pack.StaticProperties.Add(ItemPropertyPotionBonusAction);
             }
@@ -906,7 +907,7 @@ internal static class Tabletop2024Context
         {
             foreach (var pack in DatabaseRepository.GetDatabase<ItemDefinition>()
                          .Where(a => a.SlotsWhereActive.Contains("BackSlot") &&
-                         a.StaticProperties.Contains(ItemPropertyPotionBonusAction)))
+                                     a.StaticProperties.Contains(ItemPropertyPotionBonusAction)))
             {
                 pack.StaticProperties.Clear();
             }
@@ -1156,7 +1157,8 @@ internal static class Tabletop2024Context
                 // we need to manually spend the reaction here as rolling the saving again below
                 helper.SpendActionType(ActionType.Reaction);
                 helper.RulesetCharacter.LogCharacterUsedPower(PowerBardCountercharm);
-                EffectHelpers.StartVisualEffect(helper, defender, PowerBardCountercharm, EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(helper, defender, PowerBardCountercharm,
+                    EffectHelpers.EffectType.Caster);
                 TryAlterOutcomeSavingThrow.TryRerollSavingThrow(attacker, defender, savingThrowData, hasHitVisual);
             }
         }
