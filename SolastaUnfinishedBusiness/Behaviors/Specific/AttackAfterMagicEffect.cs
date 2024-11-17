@@ -9,6 +9,7 @@ namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
 internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 {
+    internal static readonly AttackAfterMagicEffect Marker = new();
     internal const string AttackAfterMagicEffectTag = "AttackAfterMagicEffectTag";
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;

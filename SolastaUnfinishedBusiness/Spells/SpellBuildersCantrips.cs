@@ -753,7 +753,7 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(DivineFavor)
                     .Build())
-            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, new AttackAfterMagicEffect())
+            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker)
             .AddToDB();
 
         return spell;
@@ -1019,7 +1019,7 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(Shatter)
                     .Build())
-            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, new AttackAfterMagicEffect())
+            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker)
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
@@ -1131,11 +1131,11 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
             .AddCustomSubFeatures(
-                FixesContext.NoTwinned.Mark,
                 // order matters here as CustomBehaviorResonatingStrike.IFilterTargetingCharacter
                 // should trigger before AttackAfterMagicEffect.IFilterTargetingCharacter
                 new CustomBehaviorResonatingStrike(),
-                new AttackAfterMagicEffect())
+                FixesContext.NoTwinned.Mark,
+                AttackAfterMagicEffect.Marker)
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
