@@ -17,6 +17,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
@@ -1293,6 +1294,26 @@ public static class RulesetCharacterHeroPatcher
             var levels = __instance.ClassesAndLevels[spellRepertoire.SpellCastingClass];
 
             __result = preparedSpells[levels - 1];
+
+            foreach (var affinityProvider in __instance.FeaturesToBrowse.OfType<ISpellCastingAffinityProvider>())
+            {
+                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                switch (affinityProvider.PreparedSpellModifier)
+                {
+                    case PreparedSpellsModifier.ProficiencyBonus:
+                    {
+                        __result += __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                        break;
+                    }
+                    case PreparedSpellsModifier.SpellcastingAbilityBonus:
+                    {
+                        var attribute = __instance.GetAttribute(spellRepertoire.SpellCastingAbility);
+
+                        __result += AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
+                        break;
+                    }
+                }
+            }
 
             return false;
         }
