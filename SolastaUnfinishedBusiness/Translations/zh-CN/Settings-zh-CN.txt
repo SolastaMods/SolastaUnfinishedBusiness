@@ -181,6 +181,8 @@ ModUi/&EnableTooltipDistance=在战斗中将鼠标悬停在角色上时启用在
 ModUi/&EnableUnarmedMainAttackAction=启用<color=#D89555>徒手攻击</color>动作<i><color=#F0DAA0>[如果演员主武器为武器、是<b>僧侣</b>或装备有<b>手套</b>或<b>铁手套</b>]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=启用 <color=#D89555>Conjure Elemental</color> 和 <color=#D89555>Conjure Fey</color> 的向上转换
 ModUi/&EnableVariablePlaceholdersOnTexts=在描述中启用变量占位符<i><color=#F0DAA0>[使用 {VARIABLE_NAME} 作为占位符]</color></i>
+ModUi/&EnableVersatileAmmunitionSlots=允许携带<color=#D89555>药水</color>和<color=#D89555>卷轴</color>并将其放入弹药槽中使用
+ModUi/&EnableVersatileOffHandSlot=允许携带<color=#D89555>药水</color>和<color=#D89555>卷轴</color>并在副手武器槽中使用
 ModUi/&EnableWarlockMagicalCunningAtLevel2=在第 2 级启用<color=#D89555>魔法狡猾</color>
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=在 2 级启用<color=#D89555>魔法狡猾</color>并在 20 级提升<color=#D89555>神秘大师</color>
 ModUi/&EnableWarlockToLearnPatronAtLevel3=在 3 级（而非 1 级）启用 <color=#D89555>Patron</color>

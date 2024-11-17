@@ -181,6 +181,8 @@ ModUi/&EnableTooltipDistance=Habilitar la visualización de la distancia en las 
 ModUi/&EnableUnarmedMainAttackAction=Habilitar la acción <color=#D89555>Ataque desarmado</color> <i><color=#F0DAA0>[si el actor tiene un arma en el personaje principal, es un <b>Monje</b> o tiene <b>vendas</b> o <b>guanteletes</b> equipados]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar la conversión ascendente de <color=#D89555>Conjurar elemental</color> y <color=#D89555>Conjurar feérico</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
+ModUi/&EnableVersatileAmmunitionSlots=Permitir que <color=#D89555>Pociones</color> y <color=#D89555>Pergaminos</color> se lleven y utilicen en las ranuras de munición.
+ModUi/&EnableVersatileOffHandSlot=Permitir que <color=#D89555>Pociones</color> y <color=#D89555>Pergaminos</color> se lleven y usen en la ranura de Arma Secundaria
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2 y mejora <color=#D89555>Maestro sobrenatural</color> en el nivel 20.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Habilitar <color=#D89555>Patron</color> en el nivel 3 en lugar del 1

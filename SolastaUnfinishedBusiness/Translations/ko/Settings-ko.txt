@@ -181,6 +181,8 @@ ModUi/&EnableTooltipDistance=전투 중 캐릭터 위에 마우스를 올려 놓
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>비무장 공격</color> 동작 활성화 <i><color=#F0DAA0>[액터가 기본 무기를 장착하고 있거나, <b>수도사</b>이거나, <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>원소 소환</color>과 <color=#D89555>요정 소환</color>의 업캐스트를 활성화합니다.
 ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
+ModUi/&EnableVersatileAmmunitionSlots=<color=#D89555>물약</color>과 <color=#D89555>두루마리</color>를 탄약 슬롯에 넣고 운반하고 사용할 수 있습니다.
+ModUi/&EnableVersatileOffHandSlot=<color=#D89555>물약</color>과 <color=#D89555>두루마리</color>를 보조 무기 슬롯에 휴대하고 사용할 수 있습니다.
 ModUi/&EnableWarlockMagicalCunningAtLevel2=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화합니다.
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화하고 레벨 20에서 <color=#D89555>엘드리치 마스터</color>를 향상시킵니다.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=레벨 1 대신 레벨 3에서 <color=#D89555>후원자</color> 활성화

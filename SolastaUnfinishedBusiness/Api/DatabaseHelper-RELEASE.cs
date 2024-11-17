@@ -2676,6 +2676,18 @@ internal static partial class DatabaseHelper
 
     internal static class ItemDefinitions
     {
+        internal static ItemDefinition RingFeatherFalling { get; } =
+            GetDefinition<ItemDefinition>("RingFeatherFalling");
+
+        internal static ItemDefinition _1D6_Silver_Coins { get; } = GetDefinition<ItemDefinition>("1D6_Silver_Coins");
+        internal static ItemDefinition _1D6_Copper_Coins { get; } = GetDefinition<ItemDefinition>("1D6_Copper_Coins");
+        internal static ItemDefinition _1D6_Gold_Coins { get; } = GetDefinition<ItemDefinition>("1D6_Gold_Coins");
+        internal static ItemDefinition _5D6_Silver_Coins { get; } = GetDefinition<ItemDefinition>("5D6_Silver_Coins");
+        internal static ItemDefinition _5D6_Gold_Coins { get; } = GetDefinition<ItemDefinition>("5D6_Gold_Coins");
+        internal static ItemDefinition _20D6_Silver_Coins { get; } = GetDefinition<ItemDefinition>("20D6_Silver_Coins");
+        internal static ItemDefinition _6D6_Copper_Coins { get; } = GetDefinition<ItemDefinition>("6D6_Copper_Coins");
+        internal static ItemDefinition _10D6_Copper_Coins { get; } = GetDefinition<ItemDefinition>("10D6_Copper_Coins");
+
         internal static ItemDefinition StartingWealth_10GP { get; } =
             GetDefinition<ItemDefinition>("StartingWealth_10GP");
 
@@ -4168,6 +4180,9 @@ internal static partial class DatabaseHelper
 
     internal static class TreasureTableDefinitions
     {
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableJ_IngredientsEnchanted { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableJ_IngredientsEnchanted");
+
         internal static TreasureTableDefinition RandomTreasureTableA_Gem { get; } =
             GetDefinition<TreasureTableDefinition>("RandomTreasureTableA_Gem");
 
