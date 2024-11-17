@@ -186,7 +186,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique, 8)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -240,7 +240,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create(WallOfFireLine)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position, onlyGround: true)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -263,6 +263,8 @@ internal static partial class SpellBuilders
                     .SetCasterEffectParameters(ProduceFlameHold)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.canBePlacedOnCharacter = true;
 
         return spell;
     }
