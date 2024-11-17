@@ -893,23 +893,24 @@ internal static class Tabletop2024Context
 
     internal static void SwitchOneDndHealingPotionBonusAction()
     {
-        //By adding the feature to all backpacks(all characters should have one) instead of to all races, we avoid the need for a new character or respec
         if (Main.Settings.OneDndHealingPotionBonusAction)
         {
-            foreach (var pack in DatabaseRepository.GetDatabase<ItemDefinition>()
-                         .Where(a => a.SlotsWhereActive.Contains("BackSlot") &&
-                                     !a.StaticProperties.Contains(ItemPropertyPotionBonusAction)))
+            foreach (var potion in DatabaseRepository.GetDatabase<ItemDefinition>()
+                         .Where(a =>
+                             a.UsableDeviceDescription != null &&
+                             a.UsableDeviceDescription.usableDeviceTags.Contains("Potion")))
             {
-                pack.StaticProperties.Add(ItemPropertyPotionBonusAction);
+                potion.StaticProperties.TryAdd(ItemPropertyPotionBonusAction);
             }
         }
         else
         {
-            foreach (var pack in DatabaseRepository.GetDatabase<ItemDefinition>()
-                         .Where(a => a.SlotsWhereActive.Contains("BackSlot") &&
-                                     a.StaticProperties.Contains(ItemPropertyPotionBonusAction)))
+            foreach (var potion in DatabaseRepository.GetDatabase<ItemDefinition>()
+                         .Where(a =>
+                             a.UsableDeviceDescription != null &&
+                             a.UsableDeviceDescription.usableDeviceTags.Contains("Potion")))
             {
-                pack.StaticProperties.Clear();
+                potion.StaticProperties.Clear();
             }
         }
     }
