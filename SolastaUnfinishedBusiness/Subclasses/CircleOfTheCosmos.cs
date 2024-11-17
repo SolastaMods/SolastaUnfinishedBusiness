@@ -346,6 +346,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                     .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
                     .SetImpactEffectParameters(Sunbeam)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Druid)
             .AddToDB();
 
         var powerArcherNoCost = FeatureDefinitionPowerBuilder
@@ -445,6 +446,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(CureWounds)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Druid)
             .AddToDB();
 
         var conditionChaliceHealing = ConditionDefinitionBuilder

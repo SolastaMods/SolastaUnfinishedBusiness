@@ -108,6 +108,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Build())
                     .Build())
             .DelegatedToAction()
+            .AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 
         powerFlamethrower.AddCustomSubFeatures(new CustomBehaviorForceCasterSpellDC(powerFlamethrower));
@@ -134,6 +135,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Build())
                     .Build())
             .DelegatedToAction()
+            .AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 
         var powerProtector = FeatureDefinitionPowerBuilder

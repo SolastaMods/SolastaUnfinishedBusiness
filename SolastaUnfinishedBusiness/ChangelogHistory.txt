@@ -5,8 +5,8 @@
 - fixed 'Enable Second Wind to use 5e 2024 usages progression' adding +1 usage
 - fixed Aimed Attack maneuver not consuming bonus action, and not adding die damage to attack
 - fixed Bonfire and Word of Radiance cantrips getting auto immunity from positions
-- fixed Roguish Blade Caller hail of blades doing zero damage
-- fixed SpendPower action passing a null battle manager instance to mod custom behaviors [desyncs and soft locks]
+- fixed dice damage progression on powers and additional damage blueprints defined in mod subclasses [i.e: Hail of Blades]
+- fixed SpendPower action passing a null battle manager instance to mod custom behaviors leading to desyncs and soft locks
 
 KNOWN ISSUES:
 

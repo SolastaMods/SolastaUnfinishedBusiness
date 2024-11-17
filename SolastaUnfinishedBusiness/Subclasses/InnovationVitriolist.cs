@@ -155,7 +155,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionMiserable))
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ClassHolder.Inventor, ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Affliction
@@ -187,7 +187,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionPoisoned))
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ClassHolder.Inventor, ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Viscosity
@@ -214,7 +214,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionHindered))
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ClassHolder.Inventor, ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Mixture

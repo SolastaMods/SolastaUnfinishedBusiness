@@ -265,6 +265,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetImpactEffectParameters(
                         SpellDefinitions.Banishment.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Fighter)
             .AddToDB();
 
         powers.Add(powerBanishingArrow);
@@ -300,6 +301,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetImpactEffectParameters(
                         SpellDefinitions.CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Fighter)
             .AddToDB();
 
         powers.Add(powerBeguilingArrow);
@@ -336,6 +338,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .Build())
                     .SetImpactEffectParameters(SpellDefinitions.BurningHands_B)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Fighter)
             .AddToDB();
 
         powers.Add(powerBurstingArrow);
@@ -399,6 +402,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                         SpellDefinitions.RayOfEnfeeblement.EffectDescription.EffectParticleParameters
                             .effectParticleReference)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Fighter)
             .AddToDB();
 
         powers.Add(powerEnfeeblingArrow);
@@ -441,6 +445,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetImpactEffectParameters(
                         SpellDefinitions.Entangle.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Fighter)
             .AddToDB();
 
         powers.Add(powerGraspingArrow);
@@ -492,6 +497,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetImpactEffectParameters(
                         SpellDefinitions.Shine.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Fighter)
             .AddToDB();
 
         powers.Add(powerInsightArrow);
@@ -527,6 +533,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetImpactEffectParameters(
                         SpellDefinitions.Blindness.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Fighter)
             .AddToDB();
 
         powers.Add(powerShadowArrow);
@@ -562,6 +569,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetImpactEffectParameters(
                         SpellDefinitions.Slow.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Fighter)
             .AddToDB();
 
         powers.Add(powerSlowingArrow);

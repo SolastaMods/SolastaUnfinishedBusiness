@@ -261,6 +261,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .Build())
             .AddCustomSubFeatures(
+                ClassHolder.Barbarian,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -297,6 +298,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .SetEffectEffectParameters(PowerDomainElementalIceLance)
                     .Build())
             .AddCustomSubFeatures(
+                ClassHolder.Barbarian,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -335,6 +337,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .SetEffectEffectParameters(PowerDomainElementalFireBurst)
                     .Build())
             .AddCustomSubFeatures(
+                ClassHolder.Barbarian,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 

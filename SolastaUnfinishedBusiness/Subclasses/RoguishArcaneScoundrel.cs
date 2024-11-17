@@ -136,6 +136,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddToDB();
 
         powerArcaneBacklashSneakDamage.AddCustomSubFeatures(
+            ClassHolder.Rogue,
             ModifyPowerVisibility.Hidden,
             new MagicEffectFinishedByMeArcaneBackslash(
                 powerArcaneBacklashSneakDamage, powerArcaneBackslashCounterSpell));

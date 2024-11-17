@@ -187,10 +187,10 @@ public sealed class InnovationArmor : AbstractSubclass
                             .Create()
                             .SetTempHpForm(1)
                             .SetLevelAdvancement(
-                                EffectForm.LevelApplianceType.MultiplyBonus,
-                                LevelSourceType.ClassLevel)
+                                EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
