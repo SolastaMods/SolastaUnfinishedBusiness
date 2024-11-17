@@ -99,7 +99,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                         EffectFormBuilder.ConditionForm(conditionBladeMark))
                     .SetParticleEffectParameters(SpellDefinitions.ShadowDagger)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ClassHolder.Rogue)
             .AddToDB();
 
         var actionAffinityHailOfBladesToggle = FeatureDefinitionActionAffinityBuilder
