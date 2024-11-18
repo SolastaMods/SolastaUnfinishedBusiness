@@ -57,7 +57,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetAttackModeOnly()
-            .AddCustomSubFeatures(ClassHolder.Inventor)
+            //.AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 
         // Emergency Surgery
@@ -84,7 +84,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
                     .SetImpactEffectParameters(PowerTraditionOpenHandWholenessOfBody
                         .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(ClassHolder.Inventor)
+            //.AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 
         // LEVEL 05

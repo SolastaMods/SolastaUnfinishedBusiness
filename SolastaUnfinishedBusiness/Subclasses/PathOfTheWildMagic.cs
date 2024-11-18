@@ -402,6 +402,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.DelayedBlastFireball)
                 .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
                 .SetEffectDescription(effectDescriptionBlast)
+                // required as added through condition
                 .AddCustomSubFeatures(ClassHolder.Barbarian)
                 .DelegatedToAction()
                 .AddToDB();

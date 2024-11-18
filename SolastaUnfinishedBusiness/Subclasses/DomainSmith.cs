@@ -277,7 +277,7 @@ public sealed class DomainSmith : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
             .SetImpactParticleReference(FireBolt)
-            .AddCustomSubFeatures(ClassHolder.Cleric)
+            //.AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
 
         // LEVEL 17

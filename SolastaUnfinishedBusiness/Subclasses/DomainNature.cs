@@ -193,7 +193,7 @@ public sealed class DomainNature : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
             .SetImpactParticleReference(ConeOfCold)
-            .AddCustomSubFeatures(ClassHolder.Cleric)
+            //.AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
 
         // LEVEL 17 - Master of Nature

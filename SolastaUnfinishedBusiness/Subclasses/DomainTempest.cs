@@ -103,6 +103,7 @@ public sealed class DomainTempest : AbstractSubclass
                             .Build())
                     .SetImpactEffectParameters(LightningBolt)
                     .Build())
+            // required as in a feature set
             .AddCustomSubFeatures(ClassHolder.Cleric, ModifyPowerVisibility.Hidden)
             .AddToDB();
 
@@ -199,7 +200,7 @@ public sealed class DomainTempest : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
             .SetImpactParticleReference(Shatter)
-            .AddCustomSubFeatures(ClassHolder.Cleric)
+            //.AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
 
         // LEVEL 17 - Stormborn

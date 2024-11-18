@@ -135,7 +135,7 @@ public sealed class DomainDefiler : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionInsidiousDeathMagic)
-            .AddCustomSubFeatures(ClassHolder.Cleric)
+            //.AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
 
         // LEVEL 14

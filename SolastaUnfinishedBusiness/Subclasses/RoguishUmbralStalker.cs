@@ -50,6 +50,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceOrTargetAreNotBright)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            // required as in a feature set
             .AddCustomSubFeatures(ClassHolder.Rogue)
             .AddToDB();
 

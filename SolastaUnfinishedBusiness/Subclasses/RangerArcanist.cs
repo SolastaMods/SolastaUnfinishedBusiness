@@ -1,5 +1,4 @@
 ﻿using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -71,7 +70,7 @@ public sealed class RangerArcanist : AbstractSubclass
                 AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Remove, conditionMarkedByArcanist)
             .SetImpactParticleReference(MagicMissile.EffectDescription.EffectParticleParameters.impactParticleReference)
-            .AddCustomSubFeatures(ClassHolder.Ranger)
+            //.AddCustomSubFeatures(ClassHolder.Ranger)
             .AddToDB();
 
         //

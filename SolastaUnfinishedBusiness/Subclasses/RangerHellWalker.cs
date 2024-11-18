@@ -67,6 +67,7 @@ public sealed class RangerHellWalker : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(SpellsContext.EnduringSting)
                     .Build())
+            // required as in a feature set
             .AddCustomSubFeatures(ClassHolder.Ranger)
             .AddToDB();
 

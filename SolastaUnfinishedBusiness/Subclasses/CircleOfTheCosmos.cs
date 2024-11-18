@@ -346,6 +346,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                     .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
                     .SetImpactEffectParameters(Sunbeam)
                     .Build())
+            // required as added through a condition
             .AddCustomSubFeatures(ClassHolder.Druid)
             .AddToDB();
 
@@ -446,6 +447,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(CureWounds)
                     .Build())
+            // required as added through a condition
             .AddCustomSubFeatures(ClassHolder.Druid)
             .AddToDB();
 
