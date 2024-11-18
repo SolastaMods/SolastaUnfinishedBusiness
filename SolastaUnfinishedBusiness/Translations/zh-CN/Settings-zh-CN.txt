@@ -7,7 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>暗精灵</color>、<c
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=为敌人添加 DEX 修正值<color=#D89555>主动掷骰</color>
 ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=在 1 级启用<color=#D89555>原始秩序</color>并移除<color=#D89555>中等护甲熟练度</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=将职业等级作为奖励添加到<color=#D89555>不屈抵抗</color>豁免检定重掷中
-ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>人形</color>首选敌人
+ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>人形</color>首选敌人<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=在商店中添加新武器和配方<i><color=#F0DAA0>[手套、戟、长矛、长锤、手弩]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣骑士</color>仅在暴击时启用惩击<i><color=#F0DAA0>[有助于最大限度地减少反应提示]</color></i>
 ModUi/&AddPersuasionToFighterSkillOptions=将<color=#D89555>说服</color>添加到 1 级技能选项中
@@ -150,6 +150,7 @@ ModUi/&EnableOneDnDPreparedSpellsTables=允许所有<color=#D89555>施法者</co
 ModUi/&EnableOneDndBarkskinSpell=启用 <color=#D89555>Barkskin</color> 5e 2024 法术版本 <i><color=#F0DAA0>[奖励行动，无专注，AC 设置为 17]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=启用<color=#D89555>Guidance</color> 5e 2024 法术版本<i><color=#F0DAA0>[施法时选择一项技能并获得最多 1 分钟的奖励。]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=启用<color=#D89555>治愈伤口</color>、<color=#D89555>虚假生命</color>、<color=#D89555>治疗之语</color>、<color=#D89555>群体治愈伤口</color>和<color=#D89555>群体治疗之语</color> 5e 2024 法术版本
+ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5e 2024 法术版本 <b><i><color=#C04040E0>[需要重启]</color></i></b>{99><i><color=#F0DAA0>[攻击使用你的施法能力进行攻击掷骰和伤害加成，并从 5 级开始造成额外的辐射伤害]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=启用<color=#D89555>圣疗术</color>作为奖励行动
 ModUi/&EnablePaladinSmiteAsBonusAction=启用 <color=#D89555>Smite</color> 作为奖励行动
 ModUi/&EnablePaladinSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>

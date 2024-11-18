@@ -253,6 +253,29 @@ internal static class Tabletop2024Context
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
+    private static readonly ConditionDefinition ConditionTrueStrike2024 = ConditionDefinitionBuilder
+        .Create("ConditionTrueStrike2024")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFeatures(
+            FeatureDefinitionAdditionalDamageBuilder
+                .Create("AdditionalDamageTrueStrike")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("TrueStrike")
+                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                .SetDamageDice(DieType.D6, 0)
+                .SetSpecificDamageType(DamageTypeRadiant)
+                .SetAdvancement(
+                    ExtraAdditionalDamageAdvancement.CharacterLevel,
+                    DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
+                .SetImpactParticleReference(SacredFlame
+                    .EffectDescription.EffectParticleParameters.effectParticleReference)
+                .SetAttackModeOnly()
+                .AddToDB())
+        .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
+        .AddCustomSubFeatures(new ModifyAttackActionModifierTrueStrike())
+        .AddToDB();
+
     internal static void LateLoad()
     {
         BuildBarbarianBrutalStrike();
@@ -261,6 +284,7 @@ internal static class Tabletop2024Context
         LoadMonkHeightenedMetabolism();
         LoadSecondWindToUseOneDndUsagesProgression();
         LoadOneDndEnableBardCounterCharmAsReactionAtLevel7();
+        LoadOneDndTrueStrike();
         LoadSorcerousRestorationAtLevel5();
         SwitchBarbarianBrutalCritical();
         SwitchBarbarianBrutalStrike();
@@ -915,6 +939,28 @@ internal static class Tabletop2024Context
         }
     }
 
+    private static void LoadOneDndTrueStrike()
+    {
+        if (!Main.Settings.EnableOneDndTrueStrikeCantrip)
+        {
+            return;
+        }
+
+        TrueStrike.AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker);
+        TrueStrike.GuiPresentation.description = "Spell/&TrueStrike2024Description";
+        TrueStrike.effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Round)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+            .SetIgnoreCover()
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+            .SetEffectForms(
+                EffectFormBuilder.ConditionForm(ConditionTrueStrike2024, ConditionForm.ConditionOperation.Add, true))
+            .SetParticleEffectParameters(SacredFlame)
+            .SetImpactEffectParameters(new AssetReference())
+            .Build();
+    }
+
     internal static void SwitchOneDndHealingSpellsBuf()
     {
         var dice = Main.Settings.EnableOneDndHealingSpellsUpgrade ? 2 : 1;
@@ -1056,6 +1102,71 @@ internal static class Tabletop2024Context
         GuiWrapperContext.RecacheInvocations();
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class ModifyAttackActionModifierTrueStrike : IModifyAttackActionModifier
+    {
+        public void OnAttackComputeModifier(
+            RulesetCharacter attacker,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            string effectName,
+            ref ActionModifier attackModifier)
+        {
+            if (attackMode == null)
+            {
+                return;
+            }
+
+            var oldAttribute = attackMode.AbilityScore;
+            var newAttribute = attacker.SpellsCastByMe[attacker.SpellsCastByMe.Count - 1].SourceAbility;
+            var oldValue = attacker.TryGetAttributeValue(oldAttribute);
+            var newValue = attacker.TryGetAttributeValue(newAttribute);
+
+            oldValue = AttributeDefinitions.ComputeAbilityScoreModifier(oldValue);
+            newValue = AttributeDefinitions.ComputeAbilityScoreModifier(newValue);
+            attackMode.AbilityScore = newAttribute;
+            attackMode.toHitBonus -= oldValue;
+            attackMode.toHitBonus += newValue;
+
+            var info = new TrendInfo(newValue, FeatureSourceType.AbilityScore,
+                attackMode.AbilityScore, null);
+
+            var i = attackMode.toHitBonusTrends
+                .FindIndex(x => x.value == oldValue
+                                && x.sourceType == FeatureSourceType.AbilityScore
+                                && x.sourceName == oldAttribute);
+
+            if (i >= 0)
+            {
+                attackMode.toHitBonusTrends.RemoveAt(i);
+                attackMode.toHitBonusTrends.Insert(i, info);
+            }
+
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            damage.damageType = DamageTypeRadiant;
+            damage.BonusDamage -= oldValue;
+            damage.BonusDamage += newValue;
+
+            i = damage.DamageBonusTrends
+                .FindIndex(x => x.value == oldValue
+                                && x.sourceType == FeatureSourceType.AbilityScore
+                                && x.sourceName == oldAttribute);
+            if (i < 0)
+            {
+                return;
+            }
+
+            damage.DamageBonusTrends.RemoveAt(i);
+            damage.DamageBonusTrends.Insert(i, info);
+        }
     }
 
     private sealed class PowerOrSpellFinishedByMeMagicalCunning : IPowerOrSpellFinishedByMe

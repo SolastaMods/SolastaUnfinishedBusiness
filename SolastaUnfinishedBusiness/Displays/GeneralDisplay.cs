@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -189,7 +188,7 @@ internal static class ToolsDisplay
 
             var text = ExportFileName;
 
-            UI.ActionTextField(ref text, String.Empty, s => { ExportFileName = s; }, null, UI.Width(144f));
+            UI.ActionTextField(ref text, string.Empty, s => { ExportFileName = s; }, null, UI.Width(144f));
         }
 
         using (UI.HorizontalScope())
@@ -632,6 +631,12 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableOneDndGuidanceSpell = toggle;
             Tabletop2024Context.SwitchOneDndSpellGuidance();
+        }
+
+        toggle = Main.Settings.EnableOneDndTrueStrikeCantrip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndTrueStrikeCantrip"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndTrueStrikeCantrip = toggle;
         }
 
         UI.Label();

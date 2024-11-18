@@ -2,6 +2,7 @@
 
 - added 'Allow Potions and Scrolls to be carried and used in the ammunition slots' setting [by SilverGriffon]
 - added 'Allow Potions and Scrolls to be carried and used in the off-hand weapon slot' setting [by SilverGriffon]
+- added 'Enable True Strike 5e 2024 cantrip version'
 - fixed 'Enable all Casters to use new prepared spells tables' not considering bonuses
 - fixed 'Enable bonus action on Healing Potions and Antitoxin usages' bleeding into scrolls
 - fixed 'Enable Lay on Hands as bonus action' not getting offered in combat

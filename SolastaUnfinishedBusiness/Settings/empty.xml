@@ -527,6 +527,8 @@
     <EnableInventoryFilteringAndSorting>false</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>false</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>false</EnableInventoryTintKnownRecipesRed>
+    <EnableVersatileAmmunitionSlots>false</EnableVersatileAmmunitionSlots>
+    <EnableVersatileOffHandSlot>false</EnableVersatileOffHandSlot>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
     <ShowCraftingRecipeInDetailedTooltips>false</ShowCraftingRecipeInDetailedTooltips>
     <ShowCraftedItemOnRecipeIcon>false</ShowCraftedItemOnRecipeIcon>
@@ -656,6 +658,7 @@
     <EnableOneDndBarkskinSpell>false</EnableOneDndBarkskinSpell>
     <EnableOneDndHealingSpellsUpgrade>false</EnableOneDndHealingSpellsUpgrade>
     <EnableOneDndGuidanceSpell>false</EnableOneDndGuidanceSpell>
+    <EnableOneDndTrueStrikeCantrip>false</EnableOneDndTrueStrikeCantrip>
     <AllowHasteCasting>false</AllowHasteCasting>
     <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
     <EnableRelearnSpells>false</EnableRelearnSpells>

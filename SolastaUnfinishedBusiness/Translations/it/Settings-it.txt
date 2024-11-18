@@ -7,7 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percezione dell'o
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Aggiungi modificatore DEX al tiro di iniziativa dei nemici <color=#D89555>
 ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Abilita <color=#D89555>Ordine Primordiale</color> al livello 1 e rimuovi <color=#D89555>Competenza in Armatura Media</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Aggiungere il livello di classe come bonus al tiro salvezza ripetuto di <color=#D89555>Resistenza indomabile</color>.
-ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti <color=#D89555>Umanoidi</color>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti <color=#D89555>Umanoidi</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce per le mani, alabarde, picche, mazze lunghe, balestre a mano]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Aggiungi un'opzione per consentire ai <color=#D89555>Paladini</color> di abilitare le punizioni solo sui colpi critici <i><color=#F0DAA0>[utile per ridurre al minimo le richieste di reazione]</color></i>
 ModUi/&AddPersuasionToFighterSkillOptions=Aggiungi <color=#D89555>Persuasione</color> alle opzioni delle abilità al livello 1
@@ -150,6 +150,7 @@ ModUi/&EnableOneDnDPreparedSpellsTables=Abilita tutti i <color=#D89555>incantato
 ModUi/&EnableOneDndBarkskinSpell=Abilita la versione dell'incantesimo <color=#D89555>Barkskin</color> 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Abilita la versione dell'incantesimo <color=#D89555>Guida</color> 5e 2024 <i><color=#F0DAA0>[Scegli un'abilità al momento del lancio e ottieni un bonus fino a 1 minuto.]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=Abilita <color=#D89555>Cura Ferite</color>, <color=#D89555>Falsa Vita</color>, <color=#D89555>Parola Guaritrice</color>, <color=#D89555>Cura Ferite di Massa</color> e <color=#D89555>Parola Guaritrice di Massa</color> versione incantesimi 5e 2024
+ModUi/&EnableOneDndTrueStrikeCantrip=Abilita <color=#D89555>True Strike</color> versione trucchetto 5e 2024 <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>\n<i><color=#F0DAA0>[l'attacco usa la tua capacità di lanciare incantesimi per il tiro di attacco e il bonus al danno, e danni radianti aggiuntivi dal livello 5]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Abilita <color=#D89555>Imposizione delle mani</color> come azione bonus
 ModUi/&EnablePaladinSmiteAsBonusAction=Abilita <color=#D89555>Colpisci</color> come azione bonus
 ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2

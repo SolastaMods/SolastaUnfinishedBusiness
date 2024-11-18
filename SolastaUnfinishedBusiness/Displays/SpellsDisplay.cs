@@ -172,6 +172,12 @@ internal static class SpellsDisplay
             Tabletop2024Context.SwitchOneDndSpellGuidance();
         }
 
+        toggle = Main.Settings.EnableOneDndTrueStrikeCantrip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndTrueStrikeCantrip"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndTrueStrikeCantrip = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.AllowHasteCasting;

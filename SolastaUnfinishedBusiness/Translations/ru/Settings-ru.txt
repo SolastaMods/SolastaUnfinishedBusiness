@@ -7,7 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Включить <color=#D89555>Восп
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Добавлять модификатор Ловкости к <color=#D89555>броскам Инициативы</color> противников
 ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Включить <color=#D89555>Первобытный порядок</color> на уровне 1 и убрать <color=#D89555>Владение средней бронёй</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Добавлять уровень класса к повторным спасброскам умения <color=#D89555>Упорный</color>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Включить <color=#D89555>Гуманоидов</color> в список предпочтительных противников
+ModUi/&AddHumanoidFavoredEnemyToRanger=Включить <color=#D89555>Гуманоидов</color> предпочитаемых врагов <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Добавить новые оружия и рецепты в магазины <i><color=#F0DAA0>[обмотки, алебарды, пики, длинные булавы, ручные арбалеты]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Добавить переключатель, чтобы позволить <color=#D89555>Паладинам</color> использовать кару только при критах <i><color=#F0DAA0>[полезно для уменьшения количества запросов на реакции]</color></i>
 ModUi/&AddPersuasionToFighterSkillOptions=Добавить <color=#D89555>Убеждение</color> к выбору навыков на уровне 1
@@ -150,6 +150,7 @@ ModUi/&EnableOneDnDPreparedSpellsTables=Включить всем <color=#D89555
 ModUi/&EnableOneDndBarkskinSpell=Включить версию заклинания <color=#D89555>Дубовая кора</color> из 5e 2024 <i><color=#F0DAA0>[бонусное действие, не требует концентрации, КД на 17]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Включить версию заклинания <color=#D89555>Указание</color> из 5e 2024 <i><color=#F0DAA0>[Выберите один навык при наложении и получите бонус на срок до 1 минуты.]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=Включить версии заклинаний <color=#D89555>Лечение ран</color>, <color=#D89555>Псевдожизнь</color>, <color=#D89555>Лечащее слово</color>, <color=#D89555>Множественное лечение ран</color> и <color=#D89555>Множественное лечащее слово</color> из 5e 2024
+ModUi/&EnableOneDndTrueStrikeCantrip=Включить версию колдовства <color=#D89555>True Strike</color> 5e 2024 <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>\n<i><color=#F0DAA0>[атака использует вашу способность к заклинаниям для броска атаки и бонуса к урону, а также дополнительный урон от излучения с 5-го уровня]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Включить <color=#D89555>Наложение рук</color> бонусным действием
 ModUi/&EnablePaladinSmiteAsBonusAction=Включить <color=#D89555>Кару</color> бонусным действием
 ModUi/&EnablePaladinSpellCastingAtLevel1=Включить возможность <color=#D89555>наложения заклинаний</color> на 1-м уровне вместо 2-го
