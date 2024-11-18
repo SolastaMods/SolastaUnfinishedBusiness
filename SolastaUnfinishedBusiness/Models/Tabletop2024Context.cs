@@ -319,6 +319,7 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellDivineFavor();
         SwitchOneDndSpellLesserRestoration();
         SwitchOneDndSpellGuidance();
+        SwitchOneDndSpellMagicWeapon();
         SwitchOneDndSpellStoneSkin();
         SwitchOneDndSurprisedEnforceDisadvantage();
         SwitchSorcererInnateSorcery();
@@ -538,6 +539,8 @@ internal static class Tabletop2024Context
 
     internal static void SwitchOneDndSpellStoneSkin()
     {
+        Stoneskin.GuiPresentation.description = "Spell/&StoneskinExtendedDescription";
+        ConditionStoneskin.GuiPresentation.description = "Rules/&ConditionStoneskinExtendedDescription";
         DamageAffinityStoneskinBludgeoning.TagsIgnoringAffinity.Clear();
         DamageAffinityStoneskinPiercing.TagsIgnoringAffinity.Clear();
         DamageAffinityStoneskinSlashing.TagsIgnoringAffinity.Clear();
@@ -547,6 +550,8 @@ internal static class Tabletop2024Context
             return;
         }
 
+        Stoneskin.GuiPresentation.description = "Spell/&StoneskinDescription";
+        ConditionStoneskin.GuiPresentation.description = "Rules/&ConditionStoneskinDescription";
         DamageAffinityStoneskinBludgeoning.TagsIgnoringAffinity.AddRange(
             TagsDefinitions.MagicalWeapon, TagsDefinitions.MagicalEffect);
         DamageAffinityStoneskinPiercing.TagsIgnoringAffinity.AddRange(
@@ -581,21 +586,17 @@ internal static class Tabletop2024Context
 
     internal static void SwitchOneDndSpellMagicWeapon()
     {
-        var featureBySlotLevel = MagicWeapon.EffectDescription.EffectForms[0].ItemPropertyForm.FeatureBySlotLevel;
-
         if (Main.Settings.EnableOneDndMagicWeaponSpell)
         {
             MagicWeapon.requiresConcentration = false;
             MagicWeapon.castingTime = ActivationTime.BonusAction;
-            featureBySlotLevel[1].level = 3;
-            featureBySlotLevel[2].level = 5;
+            MagicWeapon.EffectDescription.EffectForms[0].ItemPropertyForm.FeatureBySlotLevel[1].level = 3;
         }
         else
         {
             MagicWeapon.requiresConcentration = true;
             MagicWeapon.castingTime = ActivationTime.Action;
-            featureBySlotLevel[1].level = 4;
-            featureBySlotLevel[2].level = 6;
+            MagicWeapon.EffectDescription.EffectForms[0].ItemPropertyForm.FeatureBySlotLevel[1].level = 4;
         }
     }
 
@@ -1043,9 +1044,10 @@ internal static class Tabletop2024Context
         {
             EffectProxyDefinitions.ProxyArcaneSword.damageDie = DieType.D12;
             EffectProxyDefinitions.ProxyArcaneSword.damageDieNum = 4;
+            EffectProxyDefinitions.ProxyArcaneSword.addAbilityToDamage = true;
             EffectProxyDefinitions.ProxyArcaneSword.AdditionalFeatures.AddRange(
-                FeatureDefinitionMoveModes.MoveModeFly2,
-                FeatureDefinitionMoveModes.MoveModeMove4);
+                FeatureDefinitionMoveModes.MoveModeFly6,
+                FeatureDefinitionMoveModes.MoveModeMove6);
             CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
             FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 5;
             FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 5;
@@ -1056,9 +1058,10 @@ internal static class Tabletop2024Context
         {
             EffectProxyDefinitions.ProxyArcaneSword.damageDie = DieType.D10;
             EffectProxyDefinitions.ProxyArcaneSword.damageDieNum = 3;
+            EffectProxyDefinitions.ProxyArcaneSword.addAbilityToDamage = false;
             EffectProxyDefinitions.ProxyArcaneSword.AdditionalFeatures.AddRange(
-                FeatureDefinitionMoveModes.MoveModeFly2,
-                FeatureDefinitionMoveModes.MoveModeMove2);
+                FeatureDefinitionMoveModes.MoveModeFly4,
+                FeatureDefinitionMoveModes.MoveModeMove4);
             CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
             FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
             FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
@@ -1201,58 +1204,17 @@ internal static class Tabletop2024Context
             string effectName,
             ref ActionModifier attackModifier)
         {
-            if (attackMode == null)
+            if (attackMode == null ||
+                attacker.SpellsCastByMe.Count == 0)
             {
                 return;
             }
 
             var oldAttribute = attackMode.AbilityScore;
             var newAttribute = attacker.SpellsCastByMe[attacker.SpellsCastByMe.Count - 1].SourceAbility;
-            var oldValue = attacker.TryGetAttributeValue(oldAttribute);
-            var newValue = attacker.TryGetAttributeValue(newAttribute);
 
-            oldValue = AttributeDefinitions.ComputeAbilityScoreModifier(oldValue);
-            newValue = AttributeDefinitions.ComputeAbilityScoreModifier(newValue);
-            attackMode.AbilityScore = newAttribute;
-            attackMode.toHitBonus -= oldValue;
-            attackMode.toHitBonus += newValue;
-
-            var info = new TrendInfo(newValue, FeatureSourceType.AbilityScore,
-                attackMode.AbilityScore, null);
-
-            var i = attackMode.toHitBonusTrends
-                .FindIndex(x => x.value == oldValue
-                                && x.sourceType == FeatureSourceType.AbilityScore
-                                && x.sourceName == oldAttribute);
-
-            if (i >= 0)
-            {
-                attackMode.toHitBonusTrends.RemoveAt(i);
-                attackMode.toHitBonusTrends.Insert(i, info);
-            }
-
-            var damage = attackMode.EffectDescription.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return;
-            }
-
-            damage.damageType = DamageTypeRadiant;
-            damage.BonusDamage -= oldValue;
-            damage.BonusDamage += newValue;
-
-            i = damage.DamageBonusTrends
-                .FindIndex(x => x.value == oldValue
-                                && x.sourceType == FeatureSourceType.AbilityScore
-                                && x.sourceName == oldAttribute);
-            if (i < 0)
-            {
-                return;
-            }
-
-            damage.DamageBonusTrends.RemoveAt(i);
-            damage.DamageBonusTrends.Insert(i, info);
+            CanUseAttribute.ChangeAttackModeAttributeIfBetter(
+                attacker, attackMode, oldAttribute, newAttribute, true);
         }
     }
 
