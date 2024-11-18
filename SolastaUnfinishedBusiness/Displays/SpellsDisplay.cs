@@ -172,11 +172,32 @@ internal static class SpellsDisplay
             Tabletop2024Context.SwitchOneDndHealingSpellsUpgrade();
         }
 
+        toggle = Main.Settings.EnableOneDndDivineFavorSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndDivineFavorSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndDivineFavorSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellDivineFavor();
+        }
+
         toggle = Main.Settings.EnableOneDndGuidanceSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndGuidanceSpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableOneDndGuidanceSpell = toggle;
             Tabletop2024Context.SwitchOneDndSpellGuidance();
+        }
+
+        toggle = Main.Settings.EnableOneDndLesserRestorationSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndLesserRestorationSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndLesserRestorationSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellLesserRestoration();
+        }
+
+        toggle = Main.Settings.EnableOneDndStoneSkinSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndStoneSkinSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndStoneSkinSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellStoneSkin();
         }
 
         toggle = Main.Settings.EnableOneDndTrueStrikeCantrip;

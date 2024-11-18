@@ -149,8 +149,11 @@ ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にす
 ModUi/&EnableOneDnDPreparedSpellsTables=すべての <color=#D89555>キャスター</color> が新しい準備済み呪文テーブル <i><color=#F0DAA0>[吟遊詩人、聖職者、ドルイド、パラディン、レンジャー、ソーサラー、ウィザード]</color></i> を使用できるようにします。
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>樹皮の皮</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[ボーナスアクション、集中力なし、AC を 17 に設定]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>Arcane Sword</color>、<color=#D89555>Circle of Death</color>、<color=#D89555>Flame Strike</color>、<color=#D89555>Ice Storm</color>、<color=#D89555>Vicious Mockery</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[ダメージ増加]</color></i> を有効にします
+ModUi/&EnableOneDndDivineFavorSpell=<color=#D89555>神の恩寵</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[集中なし]</color></i> を有効にする
 ModUi/&EnableOneDndGuidanceSpell=<color=#D89555>ガイダンス</color> 5e 2024 呪文バージョンを有効にします <i><color=#F0DAA0>[発動時にスキルを 1 つ選択し、最大 1 分間ボーナスを獲得します。]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>Cure Wounds</color>、<color=#D89555>False Life</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[better healing]</color></i> を有効にします
+ModUi/&EnableOneDndLesserRestorationSpell=<color=#D89555>Lesser Restoration</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[ボーナスアクション]</color></i> を有効にする
+ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>ストーンスキン</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[魔法の B/P/S に対する耐性も付与します]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>トゥルーストライク</color> 5e 2024 キャントリップ バージョンを有効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>{99><i><color=#F0DAA0>[攻撃は、攻撃ロールとダメージ ボーナスに呪文発動能力を使用し、レベル 5 から追加の光ダメージを与えます]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=ボーナスアクションとして<color=#D89555>手を置く</color>を有効にする
 ModUi/&EnablePaladinSmiteAsBonusAction=ボーナスアクションとして<color=#D89555>スマイト</color>を有効にする

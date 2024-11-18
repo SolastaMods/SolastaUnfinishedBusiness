@@ -3,9 +3,12 @@
 - added 'Allow Potions and Scrolls to be carried and used in the ammunition slots' setting [by SilverGriffon]
 - added 'Allow Potions and Scrolls to be carried and used in the off-hand weapon slot' setting [by SilverGriffon]
 - added 'Enable Arcane Sword, Circle of Death, Flame Strike, Ice Storm, and Vicious Mockery 5e 2024 spells version'
+- added 'Enable Divine Favor 5e 2024 spell version'
+- added 'Enable Lesser Restoration 5e 2024 spell version'
+- added 'Enable Stone Skin 5e 2024 spell version'
 - added 'Enable True Strike 5e 2024 cantrip version'
-- fixed 'Enable all Casters to use new prepared spells tables' not considering bonuses
-- fixed 'Enable bonus action on Healing Potions and Antitoxin usages' bleeding into scrolls
+- fixed 'Enable all Casters to use new prepared spells tables' not considering subclass bonuses
+- fixed 'Enable bonus action on Healing Potions and Antitoxin usages' allowing other usable item types
 - fixed 'Enable Lay on Hands as bonus action' not getting offered in combat
 - fixed 'Enable Second Wind to use 5e 2024 usages progression' adding +1 usage
 - fixed Aimed Attack maneuver not consuming bonus action, and not adding die damage to attack

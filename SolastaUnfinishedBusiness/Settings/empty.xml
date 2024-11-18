@@ -658,7 +658,10 @@
     <EnableOneDndBarkskinSpell>false</EnableOneDndBarkskinSpell>
     <EnableOneDndDamagingSpellsUpgrade>false</EnableOneDndDamagingSpellsUpgrade>
     <EnableOneDndHealingSpellsUpgrade>false</EnableOneDndHealingSpellsUpgrade>
+    <EnableOneDndDivineFavorSpell>false</EnableOneDndDivineFavorSpell>
+    <EnableOneDndLesserRestorationSpell>false</EnableOneDndLesserRestorationSpell>
     <EnableOneDndGuidanceSpell>false</EnableOneDndGuidanceSpell>
+    <EnableOneDndStoneSkinSpell>false</EnableOneDndStoneSkinSpell>
     <EnableOneDndTrueStrikeCantrip>false</EnableOneDndTrueStrikeCantrip>
     <AllowHasteCasting>false</AllowHasteCasting>
     <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>

@@ -1446,6 +1446,15 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionDamageAffinitys
     {
+        internal static FeatureDefinitionDamageAffinity DamageAffinityStoneskinBludgeoning { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityStoneskinBludgeoning");
+
+        internal static FeatureDefinitionDamageAffinity DamageAffinityStoneskinPiercing { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityStoneskinPiercing");
+
+        internal static FeatureDefinitionDamageAffinity DamageAffinityStoneskinSlashing { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityStoneskinSlashing");
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityPatronTreePiercingBranch { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPatronTreePiercingBranch");
 

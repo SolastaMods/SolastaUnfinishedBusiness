@@ -316,7 +316,10 @@ internal static class Tabletop2024Context
         SwitchOneDndRemoveBardMagicalSecretAt14And18();
         SwitchOneDndRemoveBardSongOfRestAt2();
         SwitchOneDndSpellBarkskin();
+        SwitchOneDndSpellDivineFavor();
+        SwitchOneDndSpellLesserRestoration();
         SwitchOneDndSpellGuidance();
+        SwitchOneDndSpellStoneSkin();
         SwitchOneDndSurprisedEnforceDisadvantage();
         SwitchSorcererInnateSorcery();
         SwitchSorcerousRestorationAtLevel5();
@@ -519,6 +522,37 @@ internal static class Tabletop2024Context
                             .Build())
                     .AddToDB());
         }
+    }
+
+    internal static void SwitchOneDndSpellDivineFavor()
+    {
+        DivineFavor.requiresConcentration = !Main.Settings.EnableOneDndDivineFavorSpell;
+    }
+
+    internal static void SwitchOneDndSpellLesserRestoration()
+    {
+        LesserRestoration.castingTime = Main.Settings.EnableOneDndLesserRestorationSpell
+            ? ActivationTime.BonusAction
+            : ActivationTime.Action;
+    }
+
+    internal static void SwitchOneDndSpellStoneSkin()
+    {
+        DamageAffinityStoneskinBludgeoning.TagsIgnoringAffinity.Clear();
+        DamageAffinityStoneskinPiercing.TagsIgnoringAffinity.Clear();
+        DamageAffinityStoneskinSlashing.TagsIgnoringAffinity.Clear();
+
+        if (Main.Settings.EnableOneDndStoneSkinSpell)
+        {
+            return;
+        }
+
+        DamageAffinityStoneskinBludgeoning.TagsIgnoringAffinity.AddRange(
+            TagsDefinitions.MagicalWeapon, TagsDefinitions.MagicalEffect);
+        DamageAffinityStoneskinPiercing.TagsIgnoringAffinity.AddRange(
+            TagsDefinitions.MagicalWeapon, TagsDefinitions.MagicalEffect);
+        DamageAffinityStoneskinSlashing.TagsIgnoringAffinity.AddRange(
+            TagsDefinitions.MagicalWeapon, TagsDefinitions.MagicalEffect);
     }
 
     internal static void SwitchOneDndSpellGuidance()

@@ -923,7 +923,10 @@
     <EnableOneDndBarkskinSpell>true</EnableOneDndBarkskinSpell>
     <EnableOneDndDamagingSpellsUpgrade>true</EnableOneDndDamagingSpellsUpgrade>
     <EnableOneDndHealingSpellsUpgrade>true</EnableOneDndHealingSpellsUpgrade>
+    <EnableOneDndDivineFavorSpell>true</EnableOneDndDivineFavorSpell>
+    <EnableOneDndLesserRestorationSpell>true</EnableOneDndLesserRestorationSpell>
     <EnableOneDndGuidanceSpell>true</EnableOneDndGuidanceSpell>
+    <EnableOneDndStoneSkinSpell>true</EnableOneDndStoneSkinSpell>
     <EnableOneDndTrueStrikeCantrip>true</EnableOneDndTrueStrikeCantrip>
     <AllowHasteCasting>true</AllowHasteCasting>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
