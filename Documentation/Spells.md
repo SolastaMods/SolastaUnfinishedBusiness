@@ -1952,7 +1952,7 @@ Blazing orbs of fire plummet to the ground at a single point you can see within 
 
 **[Bard, Cleric]**
 
-A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
+A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, poisoned, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 
 # 323. - *Power Word Kill* © (V,S) level 9 Transmutation [UB]
 

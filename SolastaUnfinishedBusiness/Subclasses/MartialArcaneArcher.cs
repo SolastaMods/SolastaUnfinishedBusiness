@@ -329,7 +329,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Cube, 7)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -677,13 +677,14 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBurstingArrowDamage, rulesetAttacker);
             var targets = Gui.Battle.AllContenders
-                .Where(x => x.IsWithinRange(defender, 3) && x != defender)
+                .Where(x => x.IsWithinRange(defender, 3))
                 .ToArray();
 
             EffectHelpers
                 .StartVisualEffect(attacker, defender, SpellDefinitions.Shatter, EffectHelpers.EffectType.Zone);
 
             // burst arrow damage is a use at will power
+            rulesetAttacker.LogCharacterUsedPower(powerBurstingArrow);
             attacker.MyExecuteActionSpendPower(usablePower, targets);
         }
     }
