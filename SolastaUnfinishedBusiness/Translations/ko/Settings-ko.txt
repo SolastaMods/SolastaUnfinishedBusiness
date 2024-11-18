@@ -153,7 +153,7 @@ ModUi/&EnableOneDndDivineFavorSpell=<color=#D89555>신성한 호의</color> 5e 2
 ModUi/&EnableOneDndGuidanceSpell=<color=#D89555>지침</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[시전 시 스킬 하나를 선택하고 최대 1분 동안 보너스를 받습니다.]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>상처 치료</color>, <color=#D89555>거짓 생명</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 말씀</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[치유력 향상]</color></i>을 활성화합니다.
 ModUi/&EnableOneDndLesserRestorationSpell=<color=#D89555>하위 회복</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[보너스 액션]</color></i>을 활성화합니다.
-ModUi/&EnableOneDndMagicWeaponSpell=<color=#D89555>마법 무기</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[보너스 액션, 집중 없음, 3과 5에서 데미지 업그레이드]</color></i>
+ModUi/&EnableOneDndMagicWeaponSpell=<color=#D89555>마법 무기</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[보너스 액션, 집중 없음, 3, 6번째 주문 레벨에서 강화 업그레이드]</color></i>
 ModUi/&EnableOneDndPowerWordKillSpell=<color=#D89555>힘의 말씀: 살해</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[체력이 100 미만일 경우 12d12의 사이킥 데미지]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>스톤 스킨</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[마법 B/P/S에 대한 저항력도 제공]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>True Strike</color> 5e 2024 캔트립 버전 사용 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>\n<i><color=#F0DAA0>[공격 시 공격 굴림과 피해 보너스에 주문 시전 능력을 사용하고, 레벨 5부터 추가 방사형 피해]</color></i>

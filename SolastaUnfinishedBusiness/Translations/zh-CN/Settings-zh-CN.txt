@@ -153,7 +153,7 @@ ModUi/&EnableOneDndDivineFavorSpell=启用<color=#D89555>神恩</color> 5e 2024 
 ModUi/&EnableOneDndGuidanceSpell=启用<color=#D89555>Guidance</color> 5e 2024 法术版本<i><color=#F0DAA0>[施法时选择一项技能并获得最多 1 分钟的奖励。]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=启用<color=#D89555>治疗伤口</color>、<color=#D89555>虚假生命</color>、<color=#D89555>治疗之语</color>、<color=#D89555>群体治疗伤口</color>和<color=#D89555>群体治疗之语</color> 5e 2024 法术版本 <i><color=#F0DAA0>[更好的治疗]</color></i>
 ModUi/&EnableOneDndLesserRestorationSpell=启用<color=#D89555>次级修复</color> 5e 2024 法术版本<i><color=#F0DAA0>[奖励行动]</color></i>
-ModUi/&EnableOneDndMagicWeaponSpell=启用<color=#D89555>魔法武器</color> 5e 2024 法术版本<i><color=#F0DAA0>[奖励行动，无需集中，伤害在 3 和 5 时升级]</color></i>
+ModUi/&EnableOneDndMagicWeaponSpell=启用<color=#D89555>魔法武器</color> 5e 2024 法术版本<i><color=#F0DAA0>[奖励行动，无需集中注意力，在第 3 级和第 6 级法术增强升级]</color></i>
 ModUi/&EnableOneDndPowerWordKillSpell=启用<color=#D89555>Power Word: Kill</color> 5e 2024 法术版本<i><color=#F0DAA0>[如果生命值低于 100，则造成 12d12 精神伤害]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=启用<color=#D89555>石肤</color> 5e 2024 法术版本<i><color=#F0DAA0>[同时提供对魔法 B/P/S 的抵抗力]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5e 2024 法术版本 <b><i><color=#C04040E0>[需要重启]</color></i></b>{99><i><color=#F0DAA0>[攻击使用你的施法能力进行攻击掷骰和伤害加成，并从 5 级开始造成额外的辐射伤害]</color></i>
