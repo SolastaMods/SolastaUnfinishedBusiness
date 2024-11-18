@@ -1280,7 +1280,7 @@ internal static class GambitsBuilders
             string effectName,
             ref ActionModifier attackModifier)
         {
-            if (attackProximity 
+            if (attackProximity
                 is BattleDefinitions.AttackProximity.PhysicalReach or BattleDefinitions.AttackProximity.PhysicalRange)
             {
                 attackModifier.AttackAdvantageTrends.Add(_trendInfo);

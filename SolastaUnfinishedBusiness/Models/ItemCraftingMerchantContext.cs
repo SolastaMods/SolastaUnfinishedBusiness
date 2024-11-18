@@ -280,15 +280,14 @@ internal static class ItemCraftingMerchantContext
     }
 
     internal static void SwitchVersatileInventorySlots()
-    {        
-       foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
-            .Where(a => a.UsableDeviceDescription != null &&
-            a.UsableDeviceDescription.UsableDeviceTags != null &&
-            (a.UsableDeviceDescription.UsableDeviceTags.Contains("Potion") ||
-            a.UsableDeviceDescription.UsableDeviceTags.Contains("Scroll"))))
-       {
-           if (Main.Settings.EnableVersatileAmmunitionSlots && Main.Settings.EnableVersatileOffHandSlot)
-           {
+    {
+        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
+                     .Where(a => a.UsableDeviceDescription is { UsableDeviceTags: not null } &&
+                                 (a.UsableDeviceDescription.UsableDeviceTags.Contains("Potion") ||
+                                  a.UsableDeviceDescription.UsableDeviceTags.Contains("Scroll"))))
+        {
+            if (Main.Settings.EnableVersatileAmmunitionSlots && Main.Settings.EnableVersatileOffHandSlot)
+            {
                 item.SlotTypes.SetRange("UtilitySlot",
                     "ContainerSlot",
                     "AmmunitionSlot",
@@ -296,9 +295,9 @@ internal static class ItemCraftingMerchantContext
                 item.SlotsWhereActive.SetRange("UtilitySlot",
                     "AmmunitionSlot",
                     "OffHandSlot");
-           }
+            }
 
-           if (Main.Settings.EnableVersatileAmmunitionSlots && !Main.Settings.EnableVersatileOffHandSlot)
+            if (Main.Settings.EnableVersatileAmmunitionSlots && !Main.Settings.EnableVersatileOffHandSlot)
             {
                 item.SlotTypes.SetRange("UtilitySlot",
                     "ContainerSlot",
@@ -306,7 +305,7 @@ internal static class ItemCraftingMerchantContext
                 item.SlotsWhereActive.SetRange("UtilitySlot",
                     "AmmunitionSlot");
             }
-            
+
             if (!Main.Settings.EnableVersatileAmmunitionSlots && Main.Settings.EnableVersatileOffHandSlot)
             {
                 item.SlotTypes.SetRange("UtilitySlot",
@@ -316,6 +315,7 @@ internal static class ItemCraftingMerchantContext
                     "OffHandSlot");
             }
 
+            // ReSharper disable once InvertIf
             if (!Main.Settings.EnableVersatileAmmunitionSlots && !Main.Settings.EnableVersatileOffHandSlot)
             {
                 item.SlotTypes.SetRange("UtilitySlot",

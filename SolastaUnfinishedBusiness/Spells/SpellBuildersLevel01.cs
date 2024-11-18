@@ -2992,7 +2992,6 @@ internal static partial class SpellBuilders
             {
                 case CharacterActionUsePower when
                     action.ActionParams.RulesetEffect.SourceDefinition == powerWitchBolt:
-                    yield break;
                 case CharacterActionSpendPower actionSpendPower when
                     actionSpendPower.activePower.PowerDefinition.ActivationTime
                         is ActivationTime.OnSpellNoCantripDamageAuto

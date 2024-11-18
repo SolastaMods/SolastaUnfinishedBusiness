@@ -349,7 +349,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
             {
-                if (target.RulesetActor.TryGetConditionOfCategoryAndType(TagEffect, conditionSeizeTheChance.Name, out var activeCondition))
+                if (target.RulesetActor.TryGetConditionOfCategoryAndType(TagEffect, conditionSeizeTheChance.Name,
+                        out var activeCondition))
                 {
                     yield return HandleReaction(battleManager, attacker, target, helper, activeCondition);
                 }
@@ -366,7 +367,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (defender.RulesetActor.TryGetConditionOfCategoryAndType(TagEffect, conditionSeizeTheChance.Name, out var activeCondition))
+            if (defender.RulesetActor.TryGetConditionOfCategoryAndType(TagEffect, conditionSeizeTheChance.Name,
+                    out var activeCondition))
             {
                 yield return HandleReaction(battleManager, attacker, defender, helper, activeCondition);
             }

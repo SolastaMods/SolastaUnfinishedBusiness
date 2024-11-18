@@ -16,6 +16,7 @@ public static class UnityModManagerUIPatcher
     {
         //PATCH: prevents game from receiving input if Mod UI is open
         [UsedImplicitly]
+        // ReSharper disable once AsyncVoidMethod
         public static async void Postfix(bool open)
         {
             await ModManagerUI.Set(open);

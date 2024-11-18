@@ -106,14 +106,11 @@ internal static class EffectHelpers
                 return effectDescription.FixedSavingThrowDifficultyClass;
             //TODO: implement missing computation methods (like Ki and Breath Weapon)
             case RuleDefinitions.EffectDifficultyClassComputation.Ki:
-                break;
             case RuleDefinitions.EffectDifficultyClassComputation.BreathWeapon:
-                break;
             case RuleDefinitions.EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency:
-                break;
-            // ReSharper disable once RedundantEmptySwitchSection
             default:
                 break;
+            // ReSharper disable once RedundantEmptySwitchSection
         }
 
         return def;

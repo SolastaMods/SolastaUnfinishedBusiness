@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Builders;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.LootPackDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.TreasureTableDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -141,9 +140,9 @@ internal static class PickPocketContext
                         .AddTreasureOptions(new
                             List<TreasureOption>
                             {
-                            RandomTreasureTableE_Ingredients.TreasureOptions[3],
-                            RandomTreasureTableE_Ingredients.TreasureOptions[9],
-                            RandomTreasureTableE_Ingredients.TreasureOptions[16]
+                                RandomTreasureTableE_Ingredients.TreasureOptions[3],
+                                RandomTreasureTableE_Ingredients.TreasureOptions[9],
+                                RandomTreasureTableE_Ingredients.TreasureOptions[16]
                             })
                         .AddToDB(),
                     diceNumber = 1,
@@ -184,12 +183,12 @@ internal static class PickPocketContext
                     }
 
                     if (monster.ChallengeRating > 4.9 &&
-                            monster.ChallengeRating <7.0)
+                        monster.ChallengeRating < 7.0)
                     {
                         monster.stealableLootDefinition = pickPocketableLootD;
                     }
 
-                    if (monster.ChallengeRating >6.9)
+                    if (monster.ChallengeRating > 6.9)
                     {
                         monster.stealableLootDefinition = pickPocketableLootE;
                     }
