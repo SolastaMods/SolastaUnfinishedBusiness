@@ -656,6 +656,7 @@
     <FixEldritchBlastRange>false</FixEldritchBlastRange>
     <ModifyGravitySlam>false</ModifyGravitySlam>
     <EnableOneDndBarkskinSpell>false</EnableOneDndBarkskinSpell>
+    <EnableOneDndDamagingSpellsUpgrade>false</EnableOneDndDamagingSpellsUpgrade>
     <EnableOneDndHealingSpellsUpgrade>false</EnableOneDndHealingSpellsUpgrade>
     <EnableOneDndGuidanceSpell>false</EnableOneDndGuidanceSpell>
     <EnableOneDndTrueStrikeCantrip>false</EnableOneDndTrueStrikeCantrip>

@@ -527,6 +527,8 @@
     <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
+    <EnableVersatileAmmunitionSlots>false</EnableVersatileAmmunitionSlots>
+    <EnableVersatileOffHandSlot>false</EnableVersatileOffHandSlot>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
     <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
     <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
@@ -919,8 +921,10 @@
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
     <ModifyGravitySlam>true</ModifyGravitySlam>
     <EnableOneDndBarkskinSpell>true</EnableOneDndBarkskinSpell>
+    <EnableOneDndDamagingSpellsUpgrade>true</EnableOneDndDamagingSpellsUpgrade>
     <EnableOneDndHealingSpellsUpgrade>true</EnableOneDndHealingSpellsUpgrade>
     <EnableOneDndGuidanceSpell>true</EnableOneDndGuidanceSpell>
+    <EnableOneDndTrueStrikeCantrip>true</EnableOneDndTrueStrikeCantrip>
     <AllowHasteCasting>true</AllowHasteCasting>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
     <EnableRelearnSpells>false</EnableRelearnSpells>
@@ -1084,7 +1088,6 @@
             </key>
             <value>
                 <ArrayOfString>
-                    <string>AcidClaws</string>
                     <string>CreateBonfire</string>
                     <string>AirBlast</string>
                     <string>Infestation</string>

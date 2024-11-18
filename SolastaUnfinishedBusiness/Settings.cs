@@ -381,6 +381,7 @@ public class Settings : UnityModManager.ModSettings
     public bool FixEldritchBlastRange { get; set; }
     public bool ModifyGravitySlam { get; set; }
     public bool EnableOneDndBarkskinSpell { get; set; }
+    public bool EnableOneDndDamagingSpellsUpgrade { get; set; }
     public bool EnableOneDndHealingSpellsUpgrade { get; set; }
     public bool EnableOneDndGuidanceSpell { get; set; }
     public bool EnableOneDndTrueStrikeCantrip { get; set; }

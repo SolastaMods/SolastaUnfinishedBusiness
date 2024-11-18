@@ -306,7 +306,8 @@ internal static class Tabletop2024Context
         SwitchOneDndEnableBardWordsOfCreationAtLevel20();
         SwitchOneDnDEnableDruidUseMetalArmor();
         SwitchOneDndHealingPotionBonusAction();
-        SwitchOneDndHealingSpellsBuf();
+        SwitchOneDndDamagingSpellsUpgrade();
+        SwitchOneDndHealingSpellsUpgrade();
         SwitchOneDndMonkUnarmedDieTypeProgression();
         SwitchOneDndPaladinLayOnHandAsBonusAction();
         SwitchOneDndPaladinLearnSpellCastingAtOne();
@@ -961,23 +962,55 @@ internal static class Tabletop2024Context
             .Build();
     }
 
-    internal static void SwitchOneDndHealingSpellsBuf()
+    internal static void SwitchOneDndHealingSpellsUpgrade()
     {
         var dice = Main.Settings.EnableOneDndHealingSpellsUpgrade ? 2 : 1;
 
         // Cure Wounds, Healing Word got buf on base damage and add dice
-        CureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
-        CureWounds.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
-        FalseLife.effectDescription.EffectForms[0].temporaryHitPointsForm.diceNumber = dice;
-        HealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
-        HealingWord.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
+        CureWounds.EffectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        CureWounds.EffectDescription.effectAdvancement.additionalDicePerIncrement = dice;
+        FalseLife.EffectDescription.EffectForms[0].temporaryHitPointsForm.diceNumber = dice;
+        HealingWord.EffectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        HealingWord.EffectDescription.effectAdvancement.additionalDicePerIncrement = dice;
 
         // Mass Cure Wounds and Mass Healing Word only got buf on base damage
-        MassHealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        MassHealingWord.EffectDescription.EffectForms[0].healingForm.diceNumber = dice;
 
         dice = Main.Settings.EnableOneDndHealingSpellsUpgrade ? 5 : 3;
 
-        MassCureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        MassCureWounds.EffectDescription.EffectForms[0].healingForm.diceNumber = dice;
+    }
+
+    internal static void SwitchOneDndDamagingSpellsUpgrade()
+    {
+        EffectProxyDefinitions.ProxyArcaneSword.AdditionalFeatures.Clear();
+
+        if (Main.Settings.EnableOneDndDamagingSpellsUpgrade)
+        {
+            EffectProxyDefinitions.ProxyArcaneSword.damageDie = DieType.D12;
+            EffectProxyDefinitions.ProxyArcaneSword.damageDieNum = 4;
+            EffectProxyDefinitions.ProxyArcaneSword.AdditionalFeatures.AddRange(
+                FeatureDefinitionMoveModes.MoveModeFly2,
+                FeatureDefinitionMoveModes.MoveModeMove4);
+            CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
+            FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 5;
+            FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 5;
+            IceStorm.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D10;
+            ViciousMockery.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
+        }
+        else
+        {
+            EffectProxyDefinitions.ProxyArcaneSword.damageDie = DieType.D10;
+            EffectProxyDefinitions.ProxyArcaneSword.damageDieNum = 3;
+            EffectProxyDefinitions.ProxyArcaneSword.AdditionalFeatures.AddRange(
+                FeatureDefinitionMoveModes.MoveModeFly2,
+                FeatureDefinitionMoveModes.MoveModeMove2);
+            CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
+            FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+            FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
+            IceStorm.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
+            ViciousMockery.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
+        }
     }
 
     internal static void SwitchOneDndWizardScholar()

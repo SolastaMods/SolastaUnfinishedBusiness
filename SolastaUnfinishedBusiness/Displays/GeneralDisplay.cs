@@ -619,11 +619,18 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchOneDndSpellBarkskin();
         }
 
+        toggle = Main.Settings.EnableOneDndDamagingSpellsUpgrade;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndDamagingSpellsUpgrade"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndDamagingSpellsUpgrade = toggle;
+            Tabletop2024Context.SwitchOneDndDamagingSpellsUpgrade();
+        }
+
         toggle = Main.Settings.EnableOneDndHealingSpellsUpgrade;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsUpgrade"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableOneDndHealingSpellsUpgrade = toggle;
-            Tabletop2024Context.SwitchOneDndHealingSpellsBuf();
+            Tabletop2024Context.SwitchOneDndHealingSpellsUpgrade();
         }
 
         toggle = Main.Settings.EnableOneDndGuidanceSpell;

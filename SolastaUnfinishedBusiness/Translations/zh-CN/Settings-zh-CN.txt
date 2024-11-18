@@ -148,8 +148,9 @@ ModUi/&EnableMonkWeaponSpecialization=在 2 级和 11 级时启用<color=#D89555
 ModUi/&EnableMulticlass=启用<color=#D89555>多类</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=允许所有<color=#D89555>施法者</color>使用新的准备好的法术表<i><color=#F0DAA0>[吟游诗人、牧师、德鲁伊、圣骑士、游侠、术士、魔法师]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=启用 <color=#D89555>Barkskin</color> 5e 2024 法术版本 <i><color=#F0DAA0>[奖励行动，无专注，AC 设置为 17]</color></i>
+ModUi/&EnableOneDndDamagingSpellsUpgrade=启用<color=#D89555>奥术之剑</color>、<color=#D89555>死亡之环</color>、<color=#D89555>烈焰打击</color>、<color=#D89555>冰风暴</color>和<color=#D89555>恶毒嘲讽</color> 5e 2024 法术版本<i><color=#F0DAA0>[更好的伤害]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=启用<color=#D89555>Guidance</color> 5e 2024 法术版本<i><color=#F0DAA0>[施法时选择一项技能并获得最多 1 分钟的奖励。]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=启用<color=#D89555>治愈伤口</color>、<color=#D89555>虚假生命</color>、<color=#D89555>治疗之语</color>、<color=#D89555>群体治愈伤口</color>和<color=#D89555>群体治疗之语</color> 5e 2024 法术版本
+ModUi/&EnableOneDndHealingSpellsUpgrade=启用<color=#D89555>治疗伤口</color>、<color=#D89555>虚假生命</color>、<color=#D89555>治疗之语</color>、<color=#D89555>群体治疗伤口</color>和<color=#D89555>群体治疗之语</color> 5e 2024 法术版本 <i><color=#F0DAA0>[更好的治疗]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5e 2024 法术版本 <b><i><color=#C04040E0>[需要重启]</color></i></b>{99><i><color=#F0DAA0>[攻击使用你的施法能力进行攻击掷骰和伤害加成，并从 5 级开始造成额外的辐射伤害]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=启用<color=#D89555>圣疗术</color>作为奖励行动
 ModUi/&EnablePaladinSmiteAsBonusAction=启用 <color=#D89555>Smite</color> 作为奖励行动
