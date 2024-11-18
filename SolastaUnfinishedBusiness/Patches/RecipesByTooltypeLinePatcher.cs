@@ -20,7 +20,7 @@ public static class RecipesByTooltypeLinePatcher
         {
             //PATCH: sort the recipes by crafted item title
             recipes.Sort((a, b) =>
-                String.Compare(a.CraftedItem.FormatTitle(), b.CraftedItem.FormatTitle(),
+                string.Compare(a.CraftedItem.FormatTitle(), b.CraftedItem.FormatTitle(),
                     StringComparison.CurrentCultureIgnoreCase));
         }
     }

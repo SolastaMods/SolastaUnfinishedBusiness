@@ -4,8 +4,8 @@ using SolastaUnfinishedBusiness.ItemCrafting;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Object = System.Object;
-
+using Object = object;
+ 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class CraftingContext

@@ -62,7 +62,7 @@ internal static class EncountersContext
         Monsters.AddRange(monsterDefinitionDatabase.Where(x =>
             x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster));
         Monsters.Sort((a, b) => Math.Abs(a.ChallengeRating - b.ChallengeRating) < 0.001f
-            ? String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase)
+            ? string.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase)
             : a.ChallengeRating.CompareTo(b.ChallengeRating));
 
         return Monsters;
@@ -92,11 +92,11 @@ internal static class EncountersContext
 
         Heroes.Sort((a, b) =>
         {
-            var compareName = String.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase);
+            var compareName = string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase);
 
             if (compareName == 0)
             {
-                compareName = String.Compare(a.SurName, b.SurName, StringComparison.CurrentCultureIgnoreCase);
+                compareName = string.Compare(a.SurName, b.SurName, StringComparison.CurrentCultureIgnoreCase);
             }
 
             return compareName;

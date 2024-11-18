@@ -23,23 +23,23 @@ public static class UserCampaignEditorScreenPatcher
             }
 
             campaign.userLocations.Sort((a, b) =>
-                String.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
+                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
             campaign.userDialogs.Sort((a, b) =>
-                String.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
+                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
             campaign.userItems.Sort((a, b) =>
-                String.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
+                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
             campaign.userMonsters.Sort((a, b) =>
-                String.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
+                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
             campaign.userNpcs.Sort((a, b) =>
-                String.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
+                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
             campaign.userQuests.Sort((a, b) =>
-                String.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
+                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
             campaign.userVariables.Sort((a, b) =>
-                String.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
+                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
             campaign.userLootPacks.Sort((a, b) =>
-                String.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
+                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
             campaign.userMerchantInventories.Sort((a, b) =>
-                String.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
+                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }

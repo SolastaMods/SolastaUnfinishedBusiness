@@ -57,7 +57,7 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
 
             __instance.compatibleFightingStyles
                 .Sort((a, b) =>
-                    String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
+                    string.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
         }
     }
 

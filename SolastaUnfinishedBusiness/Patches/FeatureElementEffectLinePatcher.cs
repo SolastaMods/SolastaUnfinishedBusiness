@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -29,7 +28,7 @@ public class FeatureElementEffectLinePatcher
 
             if (tooltip)
             {
-                tooltip.Content = String.Empty;
+                tooltip.Content = string.Empty;
             }
         }
     }

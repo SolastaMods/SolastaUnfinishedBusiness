@@ -91,7 +91,7 @@ internal static class FeatsContext
         foreach (var groupedFeat in GroupFeats.Groups
                      .Select(groupDefinition => groupDefinition.GetFirstSubFeatureOfType<GroupedFeat>()))
         {
-            groupedFeat?.Feats.Sort((a, b) => String.CompareOrdinal(a.FormatTitle(), b.FormatTitle()));
+            groupedFeat?.Feats.Sort((a, b) => string.CompareOrdinal(a.FormatTitle(), b.FormatTitle()));
         }
 
         // settings paring feats
@@ -115,7 +115,7 @@ internal static class FeatsContext
 
         // avoids restart on level up UI
         GuiWrapperContext.RecacheFeats();
-        
+
         SwitchAsiAndFeat();
         SwitchFirstLevelTotalFeats();
         SwitchEveryFourLevelsFeats();

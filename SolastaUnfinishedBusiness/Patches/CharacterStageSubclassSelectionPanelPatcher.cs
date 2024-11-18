@@ -41,7 +41,7 @@ public static class CharacterStageSubclassSelectionPanelPatcher
 
             __instance.compatibleSubclasses
                 .Sort((a, b) =>
-                    String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
+                    string.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
         }
     }
 

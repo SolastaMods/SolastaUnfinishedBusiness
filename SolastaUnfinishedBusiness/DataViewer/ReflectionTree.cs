@@ -484,7 +484,7 @@ internal abstract class GenericNode<TNode> : Node
                     child.Name))
             .ToList();
 
-        _fieldNodes.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
+        _fieldNodes.Sort((x, y) => string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     private void UpdatePropertyNodes()
@@ -514,7 +514,7 @@ internal abstract class GenericNode<TNode> : Node
             FindOrCreateChildForValue(nodeType.MakeGenericType(Type, InstType, child.PropertyType), this,
                 child.Name)).ToList();
 
-        _propertyNodes.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
+        _propertyNodes.Sort((x, y) => string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     internal void UpdateValue()

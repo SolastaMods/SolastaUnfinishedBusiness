@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -180,7 +179,7 @@ public class MirrorImage
         }
 
         outcome = RuleDefinitions.RollOutcome.Failure;
-        successDelta = Int32.MaxValue;
+        successDelta = int.MaxValue;
     }
 
     private static void ReportAttackerIsBlind(RulesetActor attacker)
