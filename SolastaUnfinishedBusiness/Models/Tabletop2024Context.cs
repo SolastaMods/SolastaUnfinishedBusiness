@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using SolastaUnfinishedBusiness.Validators;
@@ -320,6 +321,7 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellLesserRestoration();
         SwitchOneDndSpellGuidance();
         SwitchOneDndSpellMagicWeapon();
+        SwitchOneDndSpellPowerWordKill();
         SwitchOneDndSpellStoneSkin();
         SwitchOneDndSurprisedEnforceDisadvantage();
         SwitchSorcererInnateSorcery();
@@ -598,6 +600,14 @@ internal static class Tabletop2024Context
             MagicWeapon.castingTime = ActivationTime.Action;
             MagicWeapon.EffectDescription.EffectForms[0].ItemPropertyForm.FeatureBySlotLevel[1].level = 4;
         }
+    }
+
+    internal static void SwitchOneDndSpellPowerWordKill()
+    {
+        SpellsContext.PowerWordKill.EffectDescription.EffectForms.SetRange(
+            Main.Settings.EnableOneDndMagicWeaponSpell
+                ? SpellBuilders.PowerWordKill2024
+                : SpellBuilders.PowerWordKill2014);
     }
 
     internal static void SwitchOneDndWizardSchoolOfMagicLearningLevel()
@@ -1210,6 +1220,13 @@ internal static class Tabletop2024Context
                 return;
             }
 
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damageForm != null)
+            {
+                damageForm.damageType = DamageTypeRadiant;
+            }
+            
             var oldAttribute = attackMode.AbilityScore;
             var newAttribute = attacker.SpellsCastByMe[attacker.SpellsCastByMe.Count - 1].SourceAbility;
 

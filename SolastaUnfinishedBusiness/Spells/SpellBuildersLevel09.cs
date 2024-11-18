@@ -355,6 +355,14 @@ internal static partial class SpellBuilders
 
     #region Power Word Kill
 
+    internal static readonly EffectForm PowerWordKill2014 = EffectFormBuilder
+        .Create()
+        .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
+        .Build();
+
+    internal static readonly EffectForm PowerWordKill2024 =
+        EffectFormBuilder.DamageForm(DamageTypePsychic, 12, DieType.D12);
+
     internal static SpellDefinition BuildPowerWordKill()
     {
         return SpellDefinitionBuilder
@@ -371,11 +379,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
-                            .Build())
+                    .SetEffectForms(PowerWordKill2014)
                     .SetParticleEffectParameters(FingerOfDeath)
                     .Build())
             .AddCustomSubFeatures(
@@ -386,9 +390,6 @@ internal static partial class SpellBuilders
 
     private sealed class MagicEffectBeforeHitConfirmedOnEnemyPowerWordKill : IMagicEffectBeforeHitConfirmedOnEnemy
     {
-        private static readonly EffectForm PsychicDamage =
-            EffectFormBuilder.DamageForm(DamageTypePsychic, 12, DieType.D12);
-
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -400,9 +401,9 @@ internal static partial class SpellBuilders
             bool criticalHit)
         {
             if (Main.Settings.EnableOneDndPowerWordKillSpell &&
-                defender.RulesetActor.CurrentHitPoints < 100)
+                defender.RulesetActor.CurrentHitPoints <= 100)
             {
-                actualEffectForms.SetRange(PsychicDamage);
+                actualEffectForms.SetRange(PowerWordKill2014);
             }
 
             yield break;

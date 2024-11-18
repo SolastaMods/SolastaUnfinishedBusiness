@@ -204,6 +204,7 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndPowerWordKillSpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableOneDndPowerWordKillSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellPowerWordKill();
         }
 
         toggle = Main.Settings.EnableOneDndStoneSkinSpell;
