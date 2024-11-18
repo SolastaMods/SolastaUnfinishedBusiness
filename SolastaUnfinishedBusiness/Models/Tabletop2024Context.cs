@@ -579,6 +579,26 @@ internal static class Tabletop2024Context
         }
     }
 
+    internal static void SwitchOneDndSpellMagicWeapon()
+    {
+        var featureBySlotLevel = MagicWeapon.EffectDescription.EffectForms[0].ItemPropertyForm.FeatureBySlotLevel;
+
+        if (Main.Settings.EnableOneDndMagicWeaponSpell)
+        {
+            MagicWeapon.requiresConcentration = false;
+            MagicWeapon.castingTime = ActivationTime.BonusAction;
+            featureBySlotLevel[1].level = 3;
+            featureBySlotLevel[2].level = 5;
+        }
+        else
+        {
+            MagicWeapon.requiresConcentration = true;
+            MagicWeapon.castingTime = ActivationTime.Action;
+            featureBySlotLevel[1].level = 4;
+            featureBySlotLevel[2].level = 6;
+        }
+    }
+
     internal static void SwitchOneDndWizardSchoolOfMagicLearningLevel()
     {
         var schools = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()

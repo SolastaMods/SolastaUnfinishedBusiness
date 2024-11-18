@@ -193,6 +193,19 @@ internal static class SpellsDisplay
             Tabletop2024Context.SwitchOneDndSpellLesserRestoration();
         }
 
+        toggle = Main.Settings.EnableOneDndMagicWeaponSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndMagicWeaponSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndMagicWeaponSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellMagicWeapon();
+        }
+
+        toggle = Main.Settings.EnableOneDndPowerWordKillSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndPowerWordKillSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndPowerWordKillSpell = toggle;
+        }
+
         toggle = Main.Settings.EnableOneDndStoneSkinSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndStoneSkinSpell"), ref toggle, UI.AutoWidth()))
         {

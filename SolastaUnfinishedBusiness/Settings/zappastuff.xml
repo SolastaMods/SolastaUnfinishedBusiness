@@ -926,6 +926,8 @@
     <EnableOneDndDivineFavorSpell>true</EnableOneDndDivineFavorSpell>
     <EnableOneDndLesserRestorationSpell>true</EnableOneDndLesserRestorationSpell>
     <EnableOneDndGuidanceSpell>true</EnableOneDndGuidanceSpell>
+    <EnableOneDndMagicWeaponSpell>true</EnableOneDndMagicWeaponSpell>
+    <EnableOneDndPowerWordKillSpell>true</EnableOneDndPowerWordKillSpell>
     <EnableOneDndStoneSkinSpell>true</EnableOneDndStoneSkinSpell>
     <EnableOneDndTrueStrikeCantrip>true</EnableOneDndTrueStrikeCantrip>
     <AllowHasteCasting>true</AllowHasteCasting>

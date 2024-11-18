@@ -659,8 +659,10 @@
     <EnableOneDndDamagingSpellsUpgrade>false</EnableOneDndDamagingSpellsUpgrade>
     <EnableOneDndHealingSpellsUpgrade>false</EnableOneDndHealingSpellsUpgrade>
     <EnableOneDndDivineFavorSpell>false</EnableOneDndDivineFavorSpell>
-    <EnableOneDndLesserRestorationSpell>false</EnableOneDndLesserRestorationSpell>
     <EnableOneDndGuidanceSpell>false</EnableOneDndGuidanceSpell>
+    <EnableOneDndLesserRestorationSpell>false</EnableOneDndLesserRestorationSpell>
+    <EnableOneDndMagicWeaponSpell>false</EnableOneDndMagicWeaponSpell>
+    <EnableOneDndPowerWordKillSpell>false</EnableOneDndPowerWordKillSpell>
     <EnableOneDndStoneSkinSpell>false</EnableOneDndStoneSkinSpell>
     <EnableOneDndTrueStrikeCantrip>false</EnableOneDndTrueStrikeCantrip>
     <AllowHasteCasting>false</AllowHasteCasting>

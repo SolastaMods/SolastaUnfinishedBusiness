@@ -5,6 +5,8 @@
 - added 'Enable Arcane Sword, Circle of Death, Flame Strike, Ice Storm, and Vicious Mockery 5e 2024 spells version'
 - added 'Enable Divine Favor 5e 2024 spell version'
 - added 'Enable Lesser Restoration 5e 2024 spell version'
+- added 'Enable Magic Weapon 5e 2024 spell version'
+- added 'Enable Power Word: Kill 5e 2024 spell version'
 - added 'Enable Stone Skin 5e 2024 spell version'
 - added 'Enable True Strike 5e 2024 cantrip version'
 - fixed 'Enable all Casters to use new prepared spells tables' not considering subclass bonuses
