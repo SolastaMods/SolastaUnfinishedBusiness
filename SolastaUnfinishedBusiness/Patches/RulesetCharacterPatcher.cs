@@ -2527,7 +2527,7 @@ public static class RulesetCharacterPatcher
         public static bool Prefix(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
         {
             FeatureDefinition preserveSlotThresholdFeature = null;
-            var preserveSlotThreshold = Int32.MaxValue;
+            var preserveSlotThreshold = int.MaxValue;
 
             var effectLevel = activeSpell.EffectLevel;
 
@@ -2546,7 +2546,7 @@ public static class RulesetCharacterPatcher
 
                 var rolledValue = 0;
 
-                if (preserveSlotThreshold != Int32.MaxValue)
+                if (preserveSlotThreshold != int.MaxValue)
                 {
                     rolledValue = RollDie(DieType.D20, AdvantageType.None, out _, out _);
                 }

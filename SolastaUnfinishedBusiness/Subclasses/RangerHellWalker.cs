@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -66,6 +67,8 @@ public sealed class RangerHellWalker : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(SpellsContext.EnduringSting)
                     .Build())
+            // required as in a feature set
+            .AddCustomSubFeatures(ClassHolder.Ranger)
             .AddToDB();
 
         var featureSetFirebolt = FeatureDefinitionFeatureSetBuilder

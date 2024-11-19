@@ -7,7 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Habilitar <color=#D89555>Percepção da 
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicione modificador de DEX aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
 ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Habilite <color=#D89555>Ordem Primordial</color> no nível 1 e remova <color=#D89555>Proficiência em Armadura Média</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Adicione o nível de classe como um bônus para a nova jogada de resistência de <color=#D89555>Resistência Indomável</color>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar inimigos preferenciais <color=#D89555>Humanoides</color>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar inimigos preferenciais <color=#D89555>Humanoides</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicionar novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicione uma alternância para permitir que <color=#D89555>Paladinos</color> habilitem golpes somente em acertos críticos <i><color=#F0DAA0>[útil para minimizar prompts de reação]</color></i>
 ModUi/&AddPersuasionToFighterSkillOptions=Adicione <color=#D89555>Persuasão</color> às opções de habilidade no nível 1
@@ -67,8 +67,8 @@ ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desabilitar pré-requisitos de co
 ModUi/&DisableClassPrerequisitesOnModFeats=Desabilitar pré-requisitos de nível em <color=#D89555>talentos</color>
 ModUi/&DisableMultilineSpellOffering=Desabilitar oferta de magia multi-linha na barra de ação <i><color=#F0DAA0>[principalmente para usuários de controle que usam heróis não multicaster]</color></i>
 ModUi/&DisableRacePrerequisitesOnModFeats=Desabilitar pré-requisitos de corrida em <color=#D89555>talentos</color>
-ModUi/&DisableSenseDarkVisionFromAllRaces=Desabilitar <color=#D89555>Sense Dark Vision</color> de todas as raças jogáveis ​​<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desabilitar <color=#D89555>Sentido Superior de Visão no Escuro</color> de todas as raças jogáveis ​​<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Desabilitar <color=#D89555>Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desabilitar <color=#D89555>Sentido Superior de Visão no Escuro</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableUnofficialTranslations=Desabilite o suporte a traduções não oficiais para acelerar o mod <i><color=#F0DAA0>[a menos que eu fale chinês, italiano, japonês, coreano ou espanhol]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todas as magias conhecidas de outras classes durante o aumento de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto <color=#D89555>Warlock</color> na seleção de magia em vez do painel de personagem</i>
@@ -148,8 +148,15 @@ ModUi/&EnableMonkWeaponSpecialization=Habilite <color=#D89555>Especialização e
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Permitir que todos os <color=#D89555>Conjuradores</color> usem novas tabelas de magias preparadas <i><color=#F0DAA0>[Bardo, Clérigo, Druida, Paladino, Patrulheiro, Feiticeiro, Mago]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Habilitar <color=#D89555>Barkskin</color> versão de magia 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, CA definida como 17]</color></i>
+ModUi/&EnableOneDndDamagingSpellsUpgrade=Habilitar <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color> e <color=#D89555>Vicious Mockery</color> versão 5e 2024 dos feitiços <i><color=#F0DAA0>[melhor dano]</color></i>
+ModUi/&EnableOneDndDivineFavorSpell=Habilitar <color=#D89555>Favor Divino</color> versão de magia 5e 2024 <i><color=#F0DAA0>[sem concentração]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Habilitar <color=#D89555>Orientação</color> versão de magia 5e 2024 <i><color=#F0DAA0>[Escolha uma habilidade na conjuração e ganhe bônus por até 1 minuto.]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=Habilitar <color=#D89555>Curar Ferimentos</color>, <color=#D89555>Vida Falsa</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Ferimentos em Massa</color> e <color=#D89555>Palavra de Cura em Massa</color> versão de feitiços 5e 2024
+ModUi/&EnableOneDndHealingSpellsUpgrade=Habilitar <color=#D89555>Curar Ferimentos</color>, <color=#D89555>Vida Falsa</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Ferimentos em Massa</color> e <color=#D89555>Palavra de Cura em Massa</color> versão de feitiços 5e 2024 <i><color=#F0DAA0>[melhor cura]</color></i>
+ModUi/&EnableOneDndLesserRestorationSpell=Habilitar <color=#D89555>Restauração Menor</color> versão de magia 5e 2024 <i><color=#F0DAA0>[ação bônus]</color></i>
+ModUi/&EnableOneDndMagicWeaponSpell=Habilitar <color=#D89555>Arma Mágica</color> versão de magia 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, atualização de aprimoramento no 3º e 6º nível da magia]</color></i>
+ModUi/&EnableOneDndPowerWordKillSpell=Habilitar <color=#D89555>Palavra de Poder: Matar</color> versão de magia 5e 2024 <i><color=#F0DAA0>[12d12 de dano psíquico se acima de 100 hp]</color></i>
+ModUi/&EnableOneDndStoneSkinSpell=Habilitar <color=#D89555>Stone Skin</color> versão de magia 5e 2024 <i><color=#F0DAA0>[fornece resistência a B/P/S mágicos também]</color></i>
+ModUi/&EnableOneDndTrueStrikeCantrip=Habilitar <color=#D89555>True Strike</color> versão 5e 2024 do truque <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[o ataque usa sua habilidade de conjuração para a jogada de ataque e bônus de dano, além de dano radiante adicional do nível 5]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Habilitar <color=#D89555>Impor as Mãos</color> como ação bônus
 ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Smite</color> como ação bônus
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração de feitiços</color> no nível 1 em vez de 2
@@ -180,7 +187,9 @@ ModUi/&EnableTeleportToRemoveRestrained=Habilitar <color=#D89555>Teletransporte<
 ModUi/&EnableTooltipDistance=Habilitar a exibição da distância nas dicas de ferramentas ao passar o mouse sobre um personagem em combate
 ModUi/&EnableUnarmedMainAttackAction=Habilitar a ação <color=#D89555>Ataque Desarmado</color> <i><color=#F0DAA0>[se o ator tiver uma arma principal, for um <b>Monge</b> ou tiver <b>bandanas</b> ou <b>manoplas</b> equipadas]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
-ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posição variáveis ​​em descrições <i><color=#F0DAA0>[usar {VARIABLE_NAME} como marcador de posição]</color></i>
+ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posição variáveis em descrições <i><color=#F0DAA0>[usar {VARIABLE_NAME} como marcador de posição]</color></i>
+ModUi/&EnableVersatileAmmunitionSlots=Permitir que <color=#D89555>Poções</color> e <color=#D89555>Pergaminhos</color> sejam carregados e usados nos slots de munição
+ModUi/&EnableVersatileOffHandSlot=Permitir que <color=#D89555>Poções</color> e <color=#D89555>Pergaminhos</color> sejam carregados e usados no slot de Arma Secundária
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Habilitar <color=#D89555>Astúcia Mágica</color> no nível 2
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Habilite <color=#D89555>Astúcia Mágica</color> no nível 2 e melhore <color=#D89555>Mestre Eldritch</color> no nível 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Habilitar <color=#D89555>Patrono</color> no nível 3 em vez de 1
@@ -260,7 +269,7 @@ ModUi/&OverridePartySize=<color=white>Substituir o tamanho do grupo</color>
 ModUi/&Patches=<color=#F0DAA0>Correções:</color>
 ModUi/&PortraitsOpenFolder=Abrir pasta de retratos
 ModUi/&PrimedItems=Itens preparados
-ModUi/&QuickCastLightCantripOnWornItemsFirst=Habilite o lançamento rápido <color=#D89555>Light Cantrip</color> para usar itens usados ​​na cabeça, pescoço ou tronco primeiro
+ModUi/&QuickCastLightCantripOnWornItemsFirst=Habilite o lançamento rápido <color=#D89555>Light Cantrip</color> para usar itens usados na cabeça, pescoço ou tronco primeiro
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Habilite <color=#D89555>Sensibilidade à Luz</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</color> para serem acionados somente em ambientes externos\n<i><color=#F0DAA0>[áreas internas em locais externos acessíveis sem uma tela de carregamento são consideradas externas pelo mecanismo do jogo]</color></i>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
 ModUi/&RecipeCost=<color=white>Custo da receita</color>

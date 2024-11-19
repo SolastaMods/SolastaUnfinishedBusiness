@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -19,9 +19,7 @@ public static class RecipesByTooltypeLinePatcher
         public static void Prefix(List<RecipeDefinition> recipes)
         {
             //PATCH: sort the recipes by crafted item title
-            recipes.Sort((a, b) =>
-                String.Compare(a.CraftedItem.FormatTitle(), b.CraftedItem.FormatTitle(),
-                    StringComparison.CurrentCultureIgnoreCase));
+            recipes.Sort(Sorting.CompareTitle);
         }
     }
 

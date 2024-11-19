@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -77,7 +76,7 @@ internal class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvid
     {
         _prerequisites = missingRequirements == null || missingRequirements.Count == 0
             ? string.Empty
-            : String.Join("\n", missingRequirements.Select(e => Gui.Localize(e)));
+            : string.Join("\n", missingRequirements.Select(e => Gui.Localize(e)));
     }
 
     internal void SetSubtitle(string subtitle)

@@ -186,7 +186,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique, 8)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -240,7 +240,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create(WallOfFireLine)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube, onlyGround: true)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -753,7 +753,7 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(DivineFavor)
                     .Build())
-            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, new AttackAfterMagicEffect())
+            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker)
             .AddToDB();
 
         return spell;
@@ -1019,7 +1019,7 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(Shatter)
                     .Build())
-            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, new AttackAfterMagicEffect())
+            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker)
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
@@ -1131,11 +1131,11 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
             .AddCustomSubFeatures(
-                FixesContext.NoTwinned.Mark,
                 // order matters here as CustomBehaviorResonatingStrike.IFilterTargetingCharacter
                 // should trigger before AttackAfterMagicEffect.IFilterTargetingCharacter
                 new CustomBehaviorResonatingStrike(),
-                new AttackAfterMagicEffect())
+                FixesContext.NoTwinned.Mark,
+                AttackAfterMagicEffect.Marker)
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting

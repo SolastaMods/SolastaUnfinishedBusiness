@@ -14,7 +14,10 @@ public record ClassHolder(CharacterClassDefinition Class)
     public static readonly ClassHolder Bard = new(clazz.Bard);
     public static readonly ClassHolder Cleric = new(clazz.Cleric);
     public static readonly ClassHolder Druid = new(clazz.Druid);
+    public static readonly ClassHolder Fighter = new(clazz.Fighter);
     public static readonly ClassHolder Inventor = new(InventorClass.Class);
+    public static readonly ClassHolder Paladin = new(clazz.Paladin);
+    public static readonly ClassHolder Ranger = new(clazz.Ranger);
     public static readonly ClassHolder Rogue = new(clazz.Rogue);
     public static readonly ClassHolder Sorcerer = new(clazz.Sorcerer);
     public static readonly ClassHolder Warlock = new(clazz.Warlock);

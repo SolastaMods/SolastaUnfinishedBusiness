@@ -89,6 +89,7 @@ public sealed class PathOfTheLight : AbstractSubclass
                 ConditionOperationDescription.ConditionOperation.Add, conditionPathOfTheLightIlluminated)
             .SetAddLightSource(true)
             .SetLightSourceForm(lightSourceForm)
+            // required as added through condition
             .AddCustomSubFeatures(ClassHolder.Barbarian)
             .AddToDB();
 

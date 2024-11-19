@@ -103,7 +103,8 @@ public sealed class DomainTempest : AbstractSubclass
                             .Build())
                     .SetImpactEffectParameters(LightningBolt)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            // required as in a feature set
+            .AddCustomSubFeatures(ClassHolder.Cleric, ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerWrathOfTheStormThunder = FeatureDefinitionPowerSharedPoolBuilder
@@ -199,6 +200,7 @@ public sealed class DomainTempest : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
             .SetImpactParticleReference(Shatter)
+            //.AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
 
         // LEVEL 17 - Stormborn

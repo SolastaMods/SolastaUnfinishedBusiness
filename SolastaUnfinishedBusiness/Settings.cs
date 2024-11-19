@@ -229,6 +229,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
+    public bool EnableVersatileAmmunitionSlots { get; set; }
+    public bool EnableVersatileOffHandSlot { get; set; }
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
 
     // Crafting
@@ -379,8 +381,15 @@ public class Settings : UnityModManager.ModSettings
     public bool FixEldritchBlastRange { get; set; }
     public bool ModifyGravitySlam { get; set; }
     public bool EnableOneDndBarkskinSpell { get; set; }
+    public bool EnableOneDndDamagingSpellsUpgrade { get; set; }
     public bool EnableOneDndHealingSpellsUpgrade { get; set; }
+    public bool EnableOneDndDivineFavorSpell { get; set; }
     public bool EnableOneDndGuidanceSpell { get; set; }
+    public bool EnableOneDndLesserRestorationSpell { get; set; }
+    public bool EnableOneDndMagicWeaponSpell { get; set; }
+    public bool EnableOneDndPowerWordKillSpell { get; set; }
+    public bool EnableOneDndStoneSkinSpell { get; set; }
+    public bool EnableOneDndTrueStrikeCantrip { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool EnableRelearnSpells { get; set; }

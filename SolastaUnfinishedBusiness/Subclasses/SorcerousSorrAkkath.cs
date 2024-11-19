@@ -76,6 +76,7 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
+            //.AddCustomSubFeatures(ClassHolder.Sorcerer)
             .AddToDB();
 
         // LEVEL 06

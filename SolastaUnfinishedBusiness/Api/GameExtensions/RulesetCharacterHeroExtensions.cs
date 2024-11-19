@@ -94,7 +94,7 @@ internal static class RulesetCharacterHeroExtensions
     }
 #endif
 
-    internal static void GrantAcquiredSpellWithTagFromSubclassPool(this RulesetCharacterHero hero,  string tag)
+    internal static void GrantAcquiredSpellWithTagFromSubclassPool(this RulesetCharacterHero hero, string tag)
     {
         var heroBuildingData = hero.GetHeroBuildingData();
         var selectedClass = LevelUpHelper.GetSelectedClass(hero);

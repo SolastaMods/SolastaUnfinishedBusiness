@@ -42,6 +42,8 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .SetNotificationTag("Rage")
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
+            // required as added through condition
+            .AddCustomSubFeatures(ClassHolder.Barbarian)
             .AddToDB();
 
         var featureStrongBow = FeatureDefinitionBuilder

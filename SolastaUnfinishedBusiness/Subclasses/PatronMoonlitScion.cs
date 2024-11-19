@@ -107,6 +107,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionLightBlindingFlash)
                     .SetEffectEffectParameters(new AssetReference())
                     .Build())
+            // required as added through condition
+            .AddCustomSubFeatures(ClassHolder.Warlock)
             .AddToDB();
 
         var conditionFullMoon = ConditionDefinitionBuilder
@@ -205,6 +207,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                         EffectFormBuilder.ConditionForm(conditionLunarChillEnemy))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDomainElementalIceLance)
                     .Build())
+            // required as added through condition
+            .AddCustomSubFeatures(ClassHolder.Warlock)
             .AddToDB();
 
         var conditionNewMoon = ConditionDefinitionBuilder

@@ -78,7 +78,7 @@ internal static class DungeonMakerContext
     {
         var leftCategory = DatabaseHelper.GetDefinition<BlueprintCategory>(left.Category);
         var rightCategory = DatabaseHelper.GetDefinition<BlueprintCategory>(right.Category);
-        var result = String.Compare(leftCategory.FormatTitle(), rightCategory.FormatTitle(),
+        var result = string.Compare(leftCategory.FormatTitle(), rightCategory.FormatTitle(),
             StringComparison.CurrentCultureIgnoreCase);
 
         if (result != 0)
@@ -86,7 +86,7 @@ internal static class DungeonMakerContext
             return result;
         }
 
-        result = String.Compare(left.name, right.name, StringComparison.CurrentCultureIgnoreCase);
+        result = string.Compare(left.name, right.name, StringComparison.CurrentCultureIgnoreCase);
 
         if (result == 0)
         {

@@ -64,6 +64,8 @@ public static class CharacterActionSpendPowerPatcher
 
         private static IEnumerator ExecuteImpl(CharacterActionSpendPower __instance)
         {
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var actingCharacter = __instance.ActingCharacter;
             var actionParams = __instance.ActionParams;
             var rulesetEffect = actionParams.RulesetEffect;
@@ -146,9 +148,6 @@ public static class CharacterActionSpendPowerPatcher
 
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
-
-                    var battleManager =
-                        ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
                     if (__instance.RolledSaveThrow)
                     {
@@ -371,7 +370,7 @@ public static class CharacterActionSpendPowerPatcher
                 {
                     yield return magicEffectFinishedByMeOrAlly
                         .OnMagicEffectFinishedByMeOrAlly(
-                            null, __instance, actingCharacter, ally, targets);
+                            battleManager, __instance, actingCharacter, ally, targets);
                 }
             }
 

@@ -527,6 +527,8 @@
     <EnableInventoryFilteringAndSorting>false</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>false</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>false</EnableInventoryTintKnownRecipesRed>
+    <EnableVersatileAmmunitionSlots>false</EnableVersatileAmmunitionSlots>
+    <EnableVersatileOffHandSlot>false</EnableVersatileOffHandSlot>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
     <ShowCraftingRecipeInDetailedTooltips>false</ShowCraftingRecipeInDetailedTooltips>
     <ShowCraftedItemOnRecipeIcon>false</ShowCraftedItemOnRecipeIcon>
@@ -654,8 +656,15 @@
     <FixEldritchBlastRange>false</FixEldritchBlastRange>
     <ModifyGravitySlam>false</ModifyGravitySlam>
     <EnableOneDndBarkskinSpell>false</EnableOneDndBarkskinSpell>
+    <EnableOneDndDamagingSpellsUpgrade>false</EnableOneDndDamagingSpellsUpgrade>
     <EnableOneDndHealingSpellsUpgrade>false</EnableOneDndHealingSpellsUpgrade>
+    <EnableOneDndDivineFavorSpell>false</EnableOneDndDivineFavorSpell>
     <EnableOneDndGuidanceSpell>false</EnableOneDndGuidanceSpell>
+    <EnableOneDndLesserRestorationSpell>false</EnableOneDndLesserRestorationSpell>
+    <EnableOneDndMagicWeaponSpell>false</EnableOneDndMagicWeaponSpell>
+    <EnableOneDndPowerWordKillSpell>false</EnableOneDndPowerWordKillSpell>
+    <EnableOneDndStoneSkinSpell>false</EnableOneDndStoneSkinSpell>
+    <EnableOneDndTrueStrikeCantrip>false</EnableOneDndTrueStrikeCantrip>
     <AllowHasteCasting>false</AllowHasteCasting>
     <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
     <EnableRelearnSpells>false</EnableRelearnSpells>

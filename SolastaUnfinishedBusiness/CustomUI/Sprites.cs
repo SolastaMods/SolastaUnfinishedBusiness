@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -88,7 +87,7 @@ public static class Sprites
     [NotNull]
     internal static Sprite GetOrCreateSprite(
         string name,
-        Byte[] bitmap,
+        byte[] bitmap,
         int size)
     {
         return GetOrCreateSprite(name, bitmap, size, size);
@@ -97,7 +96,7 @@ public static class Sprites
     [NotNull]
     private static Sprite GetOrCreateSprite(
         string name,
-        Byte[] bitmap,
+        byte[] bitmap,
         int sizeX,
         int sizeY)
     {
@@ -148,7 +147,7 @@ public static class Sprites
     [NotNull]
     internal static AssetReferenceSprite GetSprite(
         string name,
-        Byte[] bitmap,
+        byte[] bitmap,
         int size)
     {
         return GetSprite(name, bitmap, size, size);
@@ -157,7 +156,7 @@ public static class Sprites
     [NotNull]
     internal static AssetReferenceSprite GetSprite(
         string name,
-        Byte[] bitmap,
+        byte[] bitmap,
         int sizeX,
         int sizeY)
     {

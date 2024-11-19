@@ -48,7 +48,7 @@ internal static class UpdateContext
     private static string GetPreviousVersion()
     {
         var a1 = InstalledVersion.Split('.');
-        var minor = Int32.Parse(a1[3]);
+        var minor = int.Parse(a1[3]);
 
         a1[3] = (--minor).ToString();
 
@@ -76,10 +76,10 @@ internal static class UpdateContext
 
             var a1 = InstalledVersion.Split('.');
             var a2 = version.Split('.');
-            var v1 = a1[0] + a1[1] + a1[2] + Int32.Parse(a1[3]).ToString("D3");
-            var v2 = a2[0] + a2[1] + a2[2] + Int32.Parse(a2[3]).ToString("D3");
+            var v1 = a1[0] + a1[1] + a1[2] + int.Parse(a1[3]).ToString("D3");
+            var v2 = a2[0] + a2[1] + a2[2] + int.Parse(a2[3]).ToString("D3");
 
-            shouldUpdate = String.Compare(v2, v1, StringComparison.Ordinal) > 0;
+            shouldUpdate = string.Compare(v2, v1, StringComparison.Ordinal) > 0;
         }
         catch
         {

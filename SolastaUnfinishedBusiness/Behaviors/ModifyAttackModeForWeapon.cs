@@ -52,27 +52,33 @@ internal class CanUseAttribute : IModifyWeaponAttackMode
         }
 
         var oldAttribute = attackMode.AbilityScore;
-        var oldValue = character.TryGetAttributeValue(oldAttribute);
+        var newAttribute = _attribute;
 
-        oldValue = AttributeDefinitions.ComputeAbilityScoreModifier(oldValue);
-
-        var attribute = _attribute;
-
-        if (attribute == SpellCastingAbilityTag && GetBestSpellCastingAbility(character, out var ability))
+        if (newAttribute == SpellCastingAbilityTag && GetBestSpellCastingAbility(character, out var ability))
         {
-            attribute = ability;
+            newAttribute = ability;
         }
 
-        var newValue = character.TryGetAttributeValue(attribute);
+        ChangeAttackModeAttributeIfBetter(
+            character, attackMode, newAttribute, oldAttribute, canAddAbilityDamageBonus);
+    }
 
-        newValue = AttributeDefinitions.ComputeAbilityScoreModifier(newValue);
+    internal static void ChangeAttackModeAttributeIfBetter(
+        RulesetCharacter character,
+        RulesetAttackMode attackMode,
+        string oldAttribute,
+        string newAttribute,
+        bool canAddAbilityDamageBonus)
+    {
+        var oldValue = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(oldAttribute));
+        var newValue = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(newAttribute));
 
         if (newValue <= oldValue)
         {
             return;
         }
 
-        attackMode.AbilityScore = attribute;
+        attackMode.AbilityScore = newAttribute;
         attackMode.toHitBonus -= oldValue;
         attackMode.toHitBonus += newValue;
 

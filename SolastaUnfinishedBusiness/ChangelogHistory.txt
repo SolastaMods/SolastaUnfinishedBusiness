@@ -1,3 +1,30 @@
+1.5.97.39:
+
+- added 'Allow Potions and Scrolls to be carried and used in the ammunition slots' setting [by SilverGriffon]
+- added 'Allow Potions and Scrolls to be carried and used in the off-hand weapon slot' setting [by SilverGriffon]
+- added 'Enable Arcane Sword, Circle of Death, Flame Strike, Ice Storm, and Vicious Mockery 5e 2024 spells version' setting
+- added 'Enable Divine Favor 5e 2024 spell version' setting [no concentration]
+- added 'Enable Lesser Restoration 5e 2024 spell version' setting [bonus action]
+- added 'Enable Magic Weapon 5e 2024 spell version' setting [bonus action, no concentration, enhancement at 3rd and 6th]
+- added 'Enable Power Word: Kill 5e 2024 spell version' setting [12d12 psychic damage if above 100 hp]
+- added 'Enable Stone Skin 5e 2024 spell version' setting [provides resistance to magical B/P/S as well]
+- added 'Enable True Strike 5e 2024 cantrip version' setting [blade cantrip like]
+- fixed 'Enable all Casters to use new prepared spells tables' not considering subclass bonuses
+- fixed 'Enable bonus action on Healing Potions and Antitoxin usages' allowing other usable item types
+- fixed 'Enable Lay on Hands as bonus action' not getting offered in combat
+- fixed 'Enable Second Wind to use 5e 2024 usages progression' adding +1 usage
+- fixed Aimed Attack maneuver not consuming bonus action, and not adding die damage to attack
+- fixed Bonfire and Word of Radiance cantrips getting auto immunity from positions
+- fixed dice damage progression on powers and additional damage blueprints defined in subclasses [i.e: Hail of Blades]
+- fixed Martial Arcane Archer bursting arrow not damaging original target nor applying same dice rolls to all targets
+- fixed spend power action passing a null instance to mod custom behaviors leading to desyncs and soft locks
+- fixed Stealthy action from key bind not broadcasting status on multiplayer sessions
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.38:
 
 - added False Life to 'Enable healing spells 5e 2024 spells version'
@@ -10,11 +37,6 @@
 - fixed Patron Moonlit lunar chill, and lunar radiance detrimental conditions duration
 - fixed Rogue stroke of luck missing foreign translations introduced on v37
 - improved Armor of Agathys, and Power Word Heal to 5e 2024 versions
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.37:
 

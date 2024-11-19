@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -237,38 +239,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(Regenerate)
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorPowerWordKillOrHeal())
-            .AddToDB();
-    }
-
-    #endregion
-
-    #region Power Word Kill
-
-    internal static SpellDefinition BuildPowerWordKill()
-    {
-        return SpellDefinitionBuilder
-            .Create("PowerWordKill")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordKill", Resources.PowerWordKill, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(9)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
-                            .Build())
-                    .SetParticleEffectParameters(FingerOfDeath)
-                    .Build())
-            .AddCustomSubFeatures(new CustomBehaviorPowerWordKillOrHeal())
+            .AddCustomSubFeatures(new FilterTargetingCharacterPowerWordKillOrHeal())
             .AddToDB();
     }
 
@@ -364,7 +335,7 @@ internal static partial class SpellBuilders
     #endregion
 
     // required to support Bard level 20 feature Words of Creations (only scenario where these spells have a 2nd target)
-    private sealed class CustomBehaviorPowerWordKillOrHeal : IFilterTargetingCharacter
+    private sealed class FilterTargetingCharacterPowerWordKillOrHeal : IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
 
@@ -381,6 +352,65 @@ internal static partial class SpellBuilders
             return false;
         }
     }
+
+    #region Power Word Kill
+
+    internal static readonly EffectForm PowerWordKill2014 = EffectFormBuilder
+        .Create()
+        .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
+        .Build();
+
+    internal static readonly EffectForm PowerWordKill2024 =
+        EffectFormBuilder.DamageForm(DamageTypePsychic, 12, DieType.D12);
+
+    internal static SpellDefinition BuildPowerWordKill()
+    {
+        return SpellDefinitionBuilder
+            .Create("PowerWordKill")
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordKill", Resources.PowerWordKill, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(9)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(PowerWordKill2014)
+                    .SetParticleEffectParameters(FingerOfDeath)
+                    .Build())
+            .AddCustomSubFeatures(
+                new FilterTargetingCharacterPowerWordKillOrHeal(),
+                new MagicEffectBeforeHitConfirmedOnEnemyPowerWordKill())
+            .AddToDB();
+    }
+
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyPowerWordKill : IMagicEffectBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (Main.Settings.EnableOneDndPowerWordKillSpell &&
+                defender.RulesetActor.CurrentHitPoints <= 100)
+            {
+                actualEffectForms.SetRange(PowerWordKill2014);
+            }
+
+            yield break;
+        }
+    }
+
+    #endregion
 
     #region Time Stop
 

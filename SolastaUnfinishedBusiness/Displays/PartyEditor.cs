@@ -1,6 +1,5 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -83,7 +82,7 @@ public static class PartyEditor
                             {
                                 case > 1:
                                     hero.Name = parts[0];
-                                    hero.SurName = String.Join(" ", parts.Skip(1).ToArray()).Trim();
+                                    hero.SurName = string.Join(" ", parts.Skip(1).ToArray()).Trim();
                                     break;
                                 case 1:
                                     hero.Name = parts[0];
@@ -113,9 +112,9 @@ public static class PartyEditor
                             var attribute = attr.Value;
                             var baseValue = attribute.baseValue;
                             var modifiers = attribute.ActiveModifiers.Where(m => m.Value != 0).Select(m =>
-                                    $"{m.Value:+0;-#} {String.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}")
+                                    $"{m.Value:+0;-#} {string.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}")
                                 .ToArray();
-                            var modifiersString = String.Join(" ", modifiers);
+                            var modifiersString = string.Join(" ", modifiers);
 
                             using (HorizontalScope())
                             {

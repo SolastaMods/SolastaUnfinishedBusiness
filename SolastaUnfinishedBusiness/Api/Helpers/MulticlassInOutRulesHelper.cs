@@ -47,7 +47,7 @@ internal static class MulticlassInOutRulesHelper
             hero.ClassesAndLevels.TryGetValue(b, out var bLevels);
 
             return aLevels == bLevels
-                ? String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase)
+                ? string.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase)
                 : bLevels.CompareTo(aLevels);
         });
 

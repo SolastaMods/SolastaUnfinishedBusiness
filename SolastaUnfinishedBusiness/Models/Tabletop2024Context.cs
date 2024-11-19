@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using SolastaUnfinishedBusiness.Validators;
@@ -35,11 +36,35 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPoint
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class Tabletop2024Context
 {
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityPotionBonusAction =
+        FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityPotionBonusAction")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(
+                new ValidateDeviceFunctionUse((_, device, _) =>
+                    device.UsableDeviceDescription.UsableDeviceTags.Contains("Potion") &&
+                    (device.Name.Contains("Healing") ||
+                     device.Name.Contains("Remedy") ||
+                     device.Name.Contains("Antitoxin"))))
+            .SetAuthorizedActions(Id.UseItemBonus)
+            .AddToDB();
+
+    private static readonly ItemPropertyDescription ItemPropertyPotionBonusAction =
+        new(RingFeatherFalling.StaticProperties[0])
+        {
+            appliesOnItemOnly = false,
+            type = ItemPropertyDescription.PropertyType.Feature,
+            featureDefinition = ActionAffinityPotionBonusAction,
+            conditionDefinition = null,
+            knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
+        };
+
     private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
         FeatureDefinitionCombatAffinityBuilder
             .Create("CombatAffinityConditionSurprised")
@@ -192,17 +217,19 @@ internal static class Tabletop2024Context
         .SetGrantedFeature(FeatureSetPactTome.FeatureSet[0]) // grant pool directly instead of feature set
         .AddToDB();
 
-    private static readonly ConditionDefinition ConditionBardCounterCharmSavingThrowAdvantage = ConditionDefinitionBuilder
-        .Create("ConditionBardCounterCharmSavingThrowAdvantage")
-        .SetGuiPresentation(PowerBardCountercharm.GuiPresentation)
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetFeatures(
-            FeatureDefinitionSavingThrowAffinityBuilder
-                .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll, "SavingThrowAffinityBardCounterCharmAdvantage")
-                .SetGuiPresentation(PowerBardCountercharm.GuiPresentation)
-                .AddToDB())
-        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-        .AddToDB();
+    private static readonly ConditionDefinition ConditionBardCounterCharmSavingThrowAdvantage =
+        ConditionDefinitionBuilder
+            .Create("ConditionBardCounterCharmSavingThrowAdvantage")
+            .SetGuiPresentation(PowerBardCountercharm.GuiPresentation)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAdvantageToAll,
+                        "SavingThrowAffinityBardCounterCharmAdvantage")
+                    .SetGuiPresentation(PowerBardCountercharm.GuiPresentation)
+                    .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+            .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerWarlockMagicalCunning = FeatureDefinitionPowerBuilder
         .Create("PowerWarlockMagicalCunning")
@@ -227,6 +254,29 @@ internal static class Tabletop2024Context
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
+    private static readonly ConditionDefinition ConditionTrueStrike2024 = ConditionDefinitionBuilder
+        .Create("ConditionTrueStrike2024")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFeatures(
+            FeatureDefinitionAdditionalDamageBuilder
+                .Create("AdditionalDamageTrueStrike")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("TrueStrike")
+                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                .SetDamageDice(DieType.D6, 0)
+                .SetSpecificDamageType(DamageTypeRadiant)
+                .SetAdvancement(
+                    ExtraAdditionalDamageAdvancement.CharacterLevel,
+                    DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
+                .SetImpactParticleReference(SacredFlame
+                    .EffectDescription.EffectParticleParameters.effectParticleReference)
+                .SetAttackModeOnly()
+                .AddToDB())
+        .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
+        .AddCustomSubFeatures(new ModifyAttackActionModifierTrueStrike())
+        .AddToDB();
+
     internal static void LateLoad()
     {
         BuildBarbarianBrutalStrike();
@@ -235,6 +285,7 @@ internal static class Tabletop2024Context
         LoadMonkHeightenedMetabolism();
         LoadSecondWindToUseOneDndUsagesProgression();
         LoadOneDndEnableBardCounterCharmAsReactionAtLevel7();
+        LoadOneDndTrueStrike();
         LoadSorcerousRestorationAtLevel5();
         SwitchBarbarianBrutalCritical();
         SwitchBarbarianBrutalStrike();
@@ -256,7 +307,8 @@ internal static class Tabletop2024Context
         SwitchOneDndEnableBardWordsOfCreationAtLevel20();
         SwitchOneDnDEnableDruidUseMetalArmor();
         SwitchOneDndHealingPotionBonusAction();
-        SwitchOneDndHealingSpellsBuf();
+        SwitchOneDndDamagingSpellsUpgrade();
+        SwitchOneDndHealingSpellsUpgrade();
         SwitchOneDndMonkUnarmedDieTypeProgression();
         SwitchOneDndPaladinLayOnHandAsBonusAction();
         SwitchOneDndPaladinLearnSpellCastingAtOne();
@@ -265,7 +317,12 @@ internal static class Tabletop2024Context
         SwitchOneDndRemoveBardMagicalSecretAt14And18();
         SwitchOneDndRemoveBardSongOfRestAt2();
         SwitchOneDndSpellBarkskin();
+        SwitchOneDndSpellDivineFavor();
+        SwitchOneDndSpellLesserRestoration();
         SwitchOneDndSpellGuidance();
+        SwitchOneDndSpellMagicWeapon();
+        SwitchOneDndSpellPowerWordKill();
+        SwitchOneDndSpellStoneSkin();
         SwitchOneDndSurprisedEnforceDisadvantage();
         SwitchSorcererInnateSorcery();
         SwitchSorcerousRestorationAtLevel5();
@@ -470,6 +527,41 @@ internal static class Tabletop2024Context
         }
     }
 
+    internal static void SwitchOneDndSpellDivineFavor()
+    {
+        DivineFavor.requiresConcentration = !Main.Settings.EnableOneDndDivineFavorSpell;
+    }
+
+    internal static void SwitchOneDndSpellLesserRestoration()
+    {
+        LesserRestoration.castingTime = Main.Settings.EnableOneDndLesserRestorationSpell
+            ? ActivationTime.BonusAction
+            : ActivationTime.Action;
+    }
+
+    internal static void SwitchOneDndSpellStoneSkin()
+    {
+        Stoneskin.GuiPresentation.description = "Spell/&StoneskinExtendedDescription";
+        ConditionStoneskin.GuiPresentation.description = "Rules/&ConditionStoneskinExtendedDescription";
+        DamageAffinityStoneskinBludgeoning.TagsIgnoringAffinity.Clear();
+        DamageAffinityStoneskinPiercing.TagsIgnoringAffinity.Clear();
+        DamageAffinityStoneskinSlashing.TagsIgnoringAffinity.Clear();
+
+        if (Main.Settings.EnableOneDndStoneSkinSpell)
+        {
+            return;
+        }
+
+        Stoneskin.GuiPresentation.description = "Spell/&StoneskinDescription";
+        ConditionStoneskin.GuiPresentation.description = "Rules/&ConditionStoneskinDescription";
+        DamageAffinityStoneskinBludgeoning.TagsIgnoringAffinity.AddRange(
+            TagsDefinitions.MagicalWeapon, TagsDefinitions.MagicalEffect);
+        DamageAffinityStoneskinPiercing.TagsIgnoringAffinity.AddRange(
+            TagsDefinitions.MagicalWeapon, TagsDefinitions.MagicalEffect);
+        DamageAffinityStoneskinSlashing.TagsIgnoringAffinity.AddRange(
+            TagsDefinitions.MagicalWeapon, TagsDefinitions.MagicalEffect);
+    }
+
     internal static void SwitchOneDndSpellGuidance()
     {
         foreach (var spell in GuidanceSubSpells)
@@ -492,6 +584,30 @@ internal static class Tabletop2024Context
             Guidance.EffectDescription.EffectForms.SetRange(EffectFormBuilder.ConditionForm(ConditionGuided));
             Guidance.GuiPresentation.description = "Spell/&GuidanceDescription";
         }
+    }
+
+    internal static void SwitchOneDndSpellMagicWeapon()
+    {
+        if (Main.Settings.EnableOneDndMagicWeaponSpell)
+        {
+            MagicWeapon.requiresConcentration = false;
+            MagicWeapon.castingTime = ActivationTime.BonusAction;
+            MagicWeapon.EffectDescription.EffectForms[0].ItemPropertyForm.FeatureBySlotLevel[1].level = 3;
+        }
+        else
+        {
+            MagicWeapon.requiresConcentration = true;
+            MagicWeapon.castingTime = ActivationTime.Action;
+            MagicWeapon.EffectDescription.EffectForms[0].ItemPropertyForm.FeatureBySlotLevel[1].level = 4;
+        }
+    }
+
+    internal static void SwitchOneDndSpellPowerWordKill()
+    {
+        SpellsContext.PowerWordKill.EffectDescription.EffectForms.SetRange(
+            Main.Settings.EnableOneDndMagicWeaponSpell
+                ? SpellBuilders.PowerWordKill2024
+                : SpellBuilders.PowerWordKill2014);
     }
 
     internal static void SwitchOneDndWizardSchoolOfMagicLearningLevel()
@@ -869,47 +985,99 @@ internal static class Tabletop2024Context
     {
         if (Main.Settings.OneDndHealingPotionBonusAction)
         {
-            PowerFunctionPotionOfHealing.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfHealingOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfGreaterHealing.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfGreaterHealingOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfSuperiorHealing.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionOfSuperiorHealingOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionPotionRemedy.activationTime = ActivationTime.BonusAction;
-            PowerFunctionRemedyOther.activationTime = ActivationTime.BonusAction;
-            PowerFunctionAntitoxin.activationTime = ActivationTime.BonusAction;
+            foreach (var potion in DatabaseRepository.GetDatabase<ItemDefinition>()
+                         .Where(a =>
+                             a.UsableDeviceDescription != null &&
+                             a.UsableDeviceDescription.usableDeviceTags.Contains("Potion")))
+            {
+                potion.StaticProperties.TryAdd(ItemPropertyPotionBonusAction);
+            }
         }
         else
         {
-            PowerFunctionPotionOfHealing.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfHealingOther.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfGreaterHealing.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfGreaterHealingOther.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfSuperiorHealing.activationTime = ActivationTime.Action;
-            PowerFunctionPotionOfSuperiorHealingOther.activationTime = ActivationTime.Action;
-            PowerFunctionPotionRemedy.activationTime = ActivationTime.Action;
-            PowerFunctionRemedyOther.activationTime = ActivationTime.Action;
-            PowerFunctionAntitoxin.activationTime = ActivationTime.Action;
+            foreach (var potion in DatabaseRepository.GetDatabase<ItemDefinition>()
+                         .Where(a =>
+                             a.UsableDeviceDescription != null &&
+                             a.UsableDeviceDescription.usableDeviceTags.Contains("Potion")))
+            {
+                potion.StaticProperties.Clear();
+            }
         }
     }
 
-    internal static void SwitchOneDndHealingSpellsBuf()
+    private static void LoadOneDndTrueStrike()
+    {
+        if (!Main.Settings.EnableOneDndTrueStrikeCantrip)
+        {
+            return;
+        }
+
+        TrueStrike.AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker);
+        TrueStrike.GuiPresentation.description = "Spell/&TrueStrike2024Description";
+        TrueStrike.effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Round)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+            .SetIgnoreCover()
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+            .SetEffectForms(
+                EffectFormBuilder.ConditionForm(ConditionTrueStrike2024, ConditionForm.ConditionOperation.Add, true))
+            .SetParticleEffectParameters(SacredFlame)
+            .SetImpactEffectParameters(new AssetReference())
+            .Build();
+    }
+
+    internal static void SwitchOneDndHealingSpellsUpgrade()
     {
         var dice = Main.Settings.EnableOneDndHealingSpellsUpgrade ? 2 : 1;
 
         // Cure Wounds, Healing Word got buf on base damage and add dice
-        CureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
-        CureWounds.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
-        FalseLife.effectDescription.EffectForms[0].temporaryHitPointsForm.diceNumber = dice;
-        HealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
-        HealingWord.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
+        CureWounds.EffectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        CureWounds.EffectDescription.effectAdvancement.additionalDicePerIncrement = dice;
+        FalseLife.EffectDescription.EffectForms[0].temporaryHitPointsForm.diceNumber = dice;
+        HealingWord.EffectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        HealingWord.EffectDescription.effectAdvancement.additionalDicePerIncrement = dice;
 
         // Mass Cure Wounds and Mass Healing Word only got buf on base damage
-        MassHealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        MassHealingWord.EffectDescription.EffectForms[0].healingForm.diceNumber = dice;
 
         dice = Main.Settings.EnableOneDndHealingSpellsUpgrade ? 5 : 3;
 
-        MassCureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        MassCureWounds.EffectDescription.EffectForms[0].healingForm.diceNumber = dice;
+    }
+
+    internal static void SwitchOneDndDamagingSpellsUpgrade()
+    {
+        EffectProxyDefinitions.ProxyArcaneSword.AdditionalFeatures.Clear();
+
+        if (Main.Settings.EnableOneDndDamagingSpellsUpgrade)
+        {
+            EffectProxyDefinitions.ProxyArcaneSword.damageDie = DieType.D12;
+            EffectProxyDefinitions.ProxyArcaneSword.damageDieNum = 4;
+            EffectProxyDefinitions.ProxyArcaneSword.addAbilityToDamage = true;
+            EffectProxyDefinitions.ProxyArcaneSword.AdditionalFeatures.AddRange(
+                FeatureDefinitionMoveModes.MoveModeFly2,
+                FeatureDefinitionMoveModes.MoveModeMove6);
+            CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
+            FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 5;
+            FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 5;
+            IceStorm.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D10;
+            ViciousMockery.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
+        }
+        else
+        {
+            EffectProxyDefinitions.ProxyArcaneSword.damageDie = DieType.D10;
+            EffectProxyDefinitions.ProxyArcaneSword.damageDieNum = 3;
+            EffectProxyDefinitions.ProxyArcaneSword.addAbilityToDamage = false;
+            EffectProxyDefinitions.ProxyArcaneSword.AdditionalFeatures.AddRange(
+                FeatureDefinitionMoveModes.MoveModeFly2,
+                FeatureDefinitionMoveModes.MoveModeMove4);
+            CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
+            FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+            FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
+            IceStorm.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
+            ViciousMockery.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
+        }
     }
 
     internal static void SwitchOneDndWizardScholar()
@@ -1036,6 +1204,37 @@ internal static class Tabletop2024Context
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    private sealed class ModifyAttackActionModifierTrueStrike : IModifyAttackActionModifier
+    {
+        public void OnAttackComputeModifier(
+            RulesetCharacter attacker,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            string effectName,
+            ref ActionModifier attackModifier)
+        {
+            if (attackMode == null ||
+                attacker.SpellsCastByMe.Count == 0)
+            {
+                return;
+            }
+
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damageForm != null)
+            {
+                damageForm.damageType = DamageTypeRadiant;
+            }
+            
+            var oldAttribute = attackMode.AbilityScore;
+            var newAttribute = attacker.SpellsCastByMe[attacker.SpellsCastByMe.Count - 1].SourceAbility;
+
+            CanUseAttribute.ChangeAttackModeAttributeIfBetter(
+                attacker, attackMode, oldAttribute, newAttribute, true);
+        }
+    }
+
     private sealed class PowerOrSpellFinishedByMeMagicalCunning : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1136,7 +1335,8 @@ internal static class Tabletop2024Context
                 // we need to manually spend the reaction here as rolling the saving again below
                 helper.SpendActionType(ActionType.Reaction);
                 helper.RulesetCharacter.LogCharacterUsedPower(PowerBardCountercharm);
-                EffectHelpers.StartVisualEffect(helper, defender, PowerBardCountercharm, EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(helper, defender, PowerBardCountercharm,
+                    EffectHelpers.EffectType.Caster);
                 TryAlterOutcomeSavingThrow.TryRerollSavingThrow(attacker, defender, savingThrowData, hasHitVisual);
             }
         }

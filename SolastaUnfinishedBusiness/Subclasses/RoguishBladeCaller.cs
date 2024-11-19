@@ -56,6 +56,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
+                // required as in a feature set
                 ClassHolder.Rogue,
                 new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, character, _, _, mode, _) =>
@@ -99,7 +100,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                         EffectFormBuilder.ConditionForm(conditionBladeMark))
                     .SetParticleEffectParameters(SpellDefinitions.ShadowDagger)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            // required as in a feature set
+            .AddCustomSubFeatures(ClassHolder.Rogue)
             .AddToDB();
 
         var actionAffinityHailOfBladesToggle = FeatureDefinitionActionAffinityBuilder

@@ -74,32 +74,32 @@ internal static class Sorting
 
     internal static int CompareTitle(BaseDefinition x, BaseDefinition y)
     {
-        return String.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
+        return string.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
     }
 
     internal static int Compare(BaseDefinition x, BaseDefinition y)
     {
-        return String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase);
+        return string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase);
     }
 
     internal static int Compare(SavingThrowAffinityGroup x, SavingThrowAffinityGroup y)
     {
-        var result = String.Compare(x.abilityScoreName, y.abilityScoreName, StringComparison.CurrentCultureIgnoreCase);
+        var result = string.Compare(x.abilityScoreName, y.abilityScoreName, StringComparison.CurrentCultureIgnoreCase);
 
         return result == 0 ? x.affinity.CompareTo(y.affinity) : result;
     }
 
     internal static int Compare(AbilityCheckAffinityGroup x, AbilityCheckAffinityGroup y)
     {
-        var result = String.Compare(x.abilityScoreName, y.abilityScoreName, StringComparison.CurrentCultureIgnoreCase);
+        var result = string.Compare(x.abilityScoreName, y.abilityScoreName, StringComparison.CurrentCultureIgnoreCase);
 
         return result == 0
-            ? String.Compare(x.proficiencyName, y.proficiencyName, StringComparison.CurrentCultureIgnoreCase)
+            ? string.Compare(x.proficiencyName, y.proficiencyName, StringComparison.CurrentCultureIgnoreCase)
             : result;
     }
 
     internal static int Compare(MonsterSkillProficiency x, MonsterSkillProficiency y)
     {
-        return String.Compare(x.SkillName, y.SkillName, StringComparison.CurrentCultureIgnoreCase); // then by bonus?
+        return string.Compare(x.SkillName, y.SkillName, StringComparison.CurrentCultureIgnoreCase); // then by bonus?
     }
 }

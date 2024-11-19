@@ -70,6 +70,7 @@ public sealed class RangerArcanist : AbstractSubclass
                 AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Remove, conditionMarkedByArcanist)
             .SetImpactParticleReference(MagicMissile.EffectDescription.EffectParticleParameters.impactParticleReference)
+            //.AddCustomSubFeatures(ClassHolder.Ranger)
             .AddToDB();
 
         //

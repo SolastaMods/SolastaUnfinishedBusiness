@@ -7,7 +7,7 @@ ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percezione dell'o
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Aggiungi modificatore DEX al tiro di iniziativa dei nemici <color=#D89555>
 ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Abilita <color=#D89555>Ordine Primordiale</color> al livello 1 e rimuovi <color=#D89555>Competenza in Armatura Media</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Aggiungere il livello di classe come bonus al tiro salvezza ripetuto di <color=#D89555>Resistenza indomabile</color>.
-ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti <color=#D89555>Umanoidi</color>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti <color=#D89555>Umanoidi</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce per le mani, alabarde, picche, mazze lunghe, balestre a mano]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Aggiungi un'opzione per consentire ai <color=#D89555>Paladini</color> di abilitare le punizioni solo sui colpi critici <i><color=#F0DAA0>[utile per ridurre al minimo le richieste di reazione]</color></i>
 ModUi/&AddPersuasionToFighterSkillOptions=Aggiungi <color=#D89555>Persuasione</color> alle opzioni delle abilità al livello 1
@@ -148,8 +148,15 @@ ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Specializzazione ne
 ModUi/&EnableMulticlass=Abilita <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Abilita tutti i <color=#D89555>incantatori</color> a usare le nuove tabelle degli incantesimi preparati <i><color=#F0DAA0>[Bardo, Chierico, Druido, Paladino, Ranger, Stregone, Mago]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Abilita la versione dell'incantesimo <color=#D89555>Barkskin</color> 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
+ModUi/&EnableOneDndDamagingSpellsUpgrade=Abilita <color=#D89555>Spada Arcana</color>, <color=#D89555>Cerchio della Morte</color>, <color=#D89555>Colpo di Fiamma</color>, <color=#D89555>Tempesta di Ghiaccio</color> e <color=#D89555>Scherno Vizioso</color> versione incantesimi 5e 2024 <i><color=#F0DAA0>[danni migliori]</color></i>
+ModUi/&EnableOneDndDivineFavorSpell=Abilita <color=#D89555>Favore divino</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[nessuna concentrazione]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Abilita la versione dell'incantesimo <color=#D89555>Guida</color> 5e 2024 <i><color=#F0DAA0>[Scegli un'abilità al momento del lancio e ottieni un bonus fino a 1 minuto.]</color></i>
-ModUi/&EnableOneDndHealingSpellsUpgrade=Abilita <color=#D89555>Cura Ferite</color>, <color=#D89555>Falsa Vita</color>, <color=#D89555>Parola Guaritrice</color>, <color=#D89555>Cura Ferite di Massa</color> e <color=#D89555>Parola Guaritrice di Massa</color> versione incantesimi 5e 2024
+ModUi/&EnableOneDndHealingSpellsUpgrade=Abilita <color=#D89555>Cura Ferite</color>, <color=#D89555>Falsa Vita</color>, <color=#D89555>Parola Guaritrice</color>, <color=#D89555>Cura Ferite di Massa</color> e <color=#D89555>Parola Guaritrice di Massa</color> versione incantesimi 5e 2024 <i><color=#F0DAA0>[migliore guarigione]</color></i>
+ModUi/&EnableOneDndLesserRestorationSpell=Abilita <color=#D89555>Restauro Minore</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
+ModUi/&EnableOneDndMagicWeaponSpell=Abilita <color=#D89555>Arma magica</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, potenziamento potenziamento al 3° e 6° livello incantesimo]</color></i>
+ModUi/&EnableOneDndPowerWordKillSpell=Abilita <color=#D89555>Parola di potere: Uccidi</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[12d12 danni psichici se sopra i 100 hp]</color></i>
+ModUi/&EnableOneDndStoneSkinSpell=Abilita <color=#D89555>Pelle di pietra</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[fornisce anche resistenza a B/P/S magici]</color></i>
+ModUi/&EnableOneDndTrueStrikeCantrip=Abilita <color=#D89555>True Strike</color> versione trucchetto 5e 2024 <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>\n<i><color=#F0DAA0>[l'attacco usa la tua capacità di lanciare incantesimi per il tiro di attacco e il bonus al danno, e danni radianti aggiuntivi dal livello 5]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Abilita <color=#D89555>Imposizione delle mani</color> come azione bonus
 ModUi/&EnablePaladinSmiteAsBonusAction=Abilita <color=#D89555>Colpisci</color> come azione bonus
 ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
@@ -181,6 +188,8 @@ ModUi/&EnableTooltipDistance=Abilita la visualizzazione della distanza nei sugge
 ModUi/&EnableUnarmedMainAttackAction=Abilita l'azione <color=#D89555>Attacco disarmato</color> <i><color=#F0DAA0>[se l'attore ha un'arma nel personaggio principale, è un <b>monaco</b> o ha <b>fasce</b> o <b>guanto</b> equipaggiati]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555>Evoca Elementale</color> e <color=#D89555>Evoca Fata</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Abilita segnaposto variabili nelle descrizioni <i><color=#F0DAA0>[usa {VARIABLE_NAME} come segnaposto]</color></i>
+ModUi/&EnableVersatileAmmunitionSlots=Consenti il trasporto e l'utilizzo di <color=#D89555>Pozioni</color> e <color=#D89555>Pergamene</color> negli slot Munizioni
+ModUi/&EnableVersatileOffHandSlot=Consenti il trasporto e l'uso di <color=#D89555>Pozioni</color> e <color=#D89555>Pergamene</color> nello slot dell'arma secondaria
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Abilita <color=#D89555>Astuzia magica</color> al livello 2
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Abilita <color=#D89555>Astuzia magica</color> al livello 2 e migliora <color=#D89555>Maestro eldritch</color> al livello 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Abilita <color=#D89555>Patron</color> al livello 3 invece che 1

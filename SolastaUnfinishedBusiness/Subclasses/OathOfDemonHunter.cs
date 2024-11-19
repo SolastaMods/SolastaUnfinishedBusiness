@@ -72,6 +72,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetImpactParticleReference(
                 FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
+            //.AddCustomSubFeatures(ClassHolder.Paladin)
             .AddToDB();
 
         var powerTrialMark = FeatureDefinitionPowerBuilder
