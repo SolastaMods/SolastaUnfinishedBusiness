@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -355,14 +355,6 @@ internal static partial class SpellBuilders
 
     #region Power Word Kill
 
-    internal static readonly EffectForm PowerWordKill2014 = EffectFormBuilder
-        .Create()
-        .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
-        .Build();
-
-    internal static readonly EffectForm PowerWordKill2024 =
-        EffectFormBuilder.DamageForm(DamageTypePsychic, 12, DieType.D12);
-
     internal static SpellDefinition BuildPowerWordKill()
     {
         return SpellDefinitionBuilder
@@ -379,7 +371,12 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(PowerWordKill2014)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypePsychic, 12, DieType.D12),
+                        EffectFormBuilder
+                            .Create()
+                            .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
+                            .Build())
                     .SetParticleEffectParameters(FingerOfDeath)
                     .Build())
             .AddCustomSubFeatures(
@@ -400,10 +397,9 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (Main.Settings.EnableOneDndPowerWordKillSpell &&
-                defender.RulesetActor.CurrentHitPoints <= 100)
+            if (rulesetEffect.SourceDefinition == SpellsContext.PowerWordKill)
             {
-                actualEffectForms.SetRange(PowerWordKill2014);
+                actualEffectForms.RemoveAt(defender.RulesetActor.CurrentHitPoints <= 100 ? 0 : 1);
             }
 
             yield break;

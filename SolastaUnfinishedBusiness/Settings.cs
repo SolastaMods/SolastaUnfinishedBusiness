@@ -387,7 +387,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableOneDndGuidanceSpell { get; set; }
     public bool EnableOneDndLesserRestorationSpell { get; set; }
     public bool EnableOneDndMagicWeaponSpell { get; set; }
-    public bool EnableOneDndPowerWordKillSpell { get; set; }
     public bool EnableOneDndStoneSkinSpell { get; set; }
     public bool EnableOneDndTrueStrikeCantrip { get; set; }
     public bool AllowHasteCasting { get; set; }
