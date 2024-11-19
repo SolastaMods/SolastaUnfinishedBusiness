@@ -1056,7 +1056,7 @@ internal static class Tabletop2024Context
             EffectProxyDefinitions.ProxyArcaneSword.damageDieNum = 4;
             EffectProxyDefinitions.ProxyArcaneSword.addAbilityToDamage = true;
             EffectProxyDefinitions.ProxyArcaneSword.AdditionalFeatures.AddRange(
-                FeatureDefinitionMoveModes.MoveModeFly6,
+                FeatureDefinitionMoveModes.MoveModeFly2,
                 FeatureDefinitionMoveModes.MoveModeMove6);
             CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
             FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 5;
@@ -1070,7 +1070,7 @@ internal static class Tabletop2024Context
             EffectProxyDefinitions.ProxyArcaneSword.damageDieNum = 3;
             EffectProxyDefinitions.ProxyArcaneSword.addAbilityToDamage = false;
             EffectProxyDefinitions.ProxyArcaneSword.AdditionalFeatures.AddRange(
-                FeatureDefinitionMoveModes.MoveModeFly4,
+                FeatureDefinitionMoveModes.MoveModeFly2,
                 FeatureDefinitionMoveModes.MoveModeMove4);
             CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
             FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;

@@ -310,7 +310,7 @@ internal static partial class DatabaseHelper
     {
         internal static ConditionDefinition ConditionStoneskin { get; } =
             GetDefinition<ConditionDefinition>("ConditionStoneskin");
-        
+
         internal static ConditionDefinition ConditionBardicInspiration { get; } =
             GetDefinition<ConditionDefinition>("ConditionBardicInspiration");
 
