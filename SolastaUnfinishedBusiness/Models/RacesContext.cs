@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -82,9 +81,6 @@ internal static class RacesContext
         {
             Main.Settings.SubraceEnabled.Remove(name);
         }
-
-        DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-            .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
 
         // final bootstrap
         LoadVision();
