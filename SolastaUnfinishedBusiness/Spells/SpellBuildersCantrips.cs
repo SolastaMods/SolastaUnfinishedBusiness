@@ -753,7 +753,7 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(DivineFavor)
                     .Build())
-            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker)
+            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerMeleeWeapon)
             .AddToDB();
 
         return spell;
@@ -1019,7 +1019,7 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(Shatter)
                     .Build())
-            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker)
+            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerMeleeWeapon)
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
@@ -1135,7 +1135,7 @@ internal static partial class SpellBuilders
                 // should trigger before AttackAfterMagicEffect.IFilterTargetingCharacter
                 new CustomBehaviorResonatingStrike(),
                 FixesContext.NoTwinned.Mark,
-                AttackAfterMagicEffect.Marker)
+                AttackAfterMagicEffect.MarkerMeleeWeapon)
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
@@ -1156,7 +1156,8 @@ internal static partial class SpellBuilders
             // handle first target like AttackAfterMagicEffect
             if (__instance.SelectionService.SelectedTargets.Count == 0)
             {
-                if (AttackAfterMagicEffect.CanAttack(__instance.ActionParams.ActingCharacter, target, out var isReach))
+                if (AttackAfterMagicEffect.CanAttack(
+                        __instance.ActionParams.ActingCharacter, target, false, out var isReach))
                 {
                     return true;
                 }

@@ -262,7 +262,7 @@ internal static class Tabletop2024Context
                 .Create("AdditionalDamageTrueStrike")
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag("TrueStrike")
-                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                 .SetDamageDice(DieType.D6, 0)
                 .SetSpecificDamageType(DamageTypeRadiant)
                 .SetAdvancement(
@@ -1002,12 +1002,13 @@ internal static class Tabletop2024Context
             return;
         }
 
-        TrueStrike.AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker);
+        TrueStrike.AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerAnyWeapon);
         TrueStrike.GuiPresentation.description = "Spell/&TrueStrike2024Description";
         TrueStrike.effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Round)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+            // 24 seems to be the max range on Solasta ranged weapons
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
             .SetIgnoreCover()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
             .SetEffectForms(

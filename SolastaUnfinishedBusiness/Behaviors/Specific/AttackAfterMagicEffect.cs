@@ -7,13 +7,14 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
-internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
+internal sealed class AttackAfterMagicEffect(bool forceMelee) : IFilterTargetingCharacter
 {
     internal const string AttackAfterMagicEffectTag = "AttackAfterMagicEffectTag";
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
-    internal static readonly AttackAfterMagicEffect Marker = new();
-
+    internal static readonly AttackAfterMagicEffect MarkerMeleeWeapon = new(true);
+    internal static readonly AttackAfterMagicEffect MarkerAnyWeapon = new(false);
+    public bool ForceMelee => forceMelee;
     public bool EnforceFullSelection => false;
 
     public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -24,7 +25,7 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
             return true;
         }
 
-        if (CanAttack(__instance.ActionParams.ActingCharacter, target, out var isReach))
+        if (CanAttack(__instance.ActionParams.ActingCharacter, target, !forceMelee, out var isReach))
         {
             return true;
         }
@@ -37,7 +38,7 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
     }
 
     internal static bool CanAttack(
-        [NotNull] GameLocationCharacter caster, GameLocationCharacter target, out bool isReach)
+        [NotNull] GameLocationCharacter caster, GameLocationCharacter target, bool allowRanged, out bool isReach)
     {
         isReach = Main.Settings.AllowBladeCantripsToUseReach;
 
@@ -64,8 +65,16 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         var attackModifier = new ActionModifier();
         var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
-        evalParams.FillForPhysicalReachAttack(
-            caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
+        if (allowRanged && attackMode.Ranged)
+        {
+            evalParams.FillForPhysicalRangeAttack(
+                caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
+        }
+        else
+        {
+            evalParams.FillForPhysicalReachAttack(
+                caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
+        }
 
         return battleService.CanAttack(evalParams) && (isReach || caster.IsWithinRange(target, 1));
     }
@@ -99,8 +108,10 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         }
 
         var caster = actionParams.ActingCharacter;
+        //At this point it really doesn't matter anymore allowRanged true or false as checks were made previously
+        //pass true to allow ranged scenarios to work as they should
         var targets = actionParams.TargetCharacters
-            .Where(t => CanAttack(caster, t, out _))
+            .Where(t => CanAttack(caster, t, true, out _))
             .ToArray();
 
         if (targets.Length == 0)
