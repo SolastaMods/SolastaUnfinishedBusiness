@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -51,6 +53,9 @@ internal static class SubclassesContext
         {
             kvp.Value.RemoveAll(x => subclasses.Contains(x));
         }
+
+        DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
 
         // bootstrap
         SwitchSchoolRestrictionsFromShadowCaster();
