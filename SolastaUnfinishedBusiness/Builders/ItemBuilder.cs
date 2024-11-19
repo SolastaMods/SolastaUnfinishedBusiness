@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -89,7 +88,7 @@ internal static class ItemBuilder
 
         var newItem = builder.AddToDB();
 
-        if (newItem.ItemPresentation.armorAddressableName != String.Empty)
+        if (newItem.ItemPresentation.armorAddressableName != string.Empty)
         {
             return newItem;
         }

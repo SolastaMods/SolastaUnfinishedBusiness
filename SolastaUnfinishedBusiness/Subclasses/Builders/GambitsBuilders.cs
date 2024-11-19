@@ -569,13 +569,13 @@ internal static class GambitsBuilders
         name = "GambitFeint";
         sprite = Sprites.GetSprite(name, Resources.GambitFeint, 128);
 
-        power = FeatureDefinitionPowerBuilder
+        power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
             .AddCustomSubFeatures(ModifyPowerFromInvocation.Marker, hasGambitDice)
             .SetUniqueInstance()
-            .SetUsesFixed(ActivationTime.NoCost)
+            .SetSharedPool(ActivationTime.BonusAction, GambitPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -587,16 +587,12 @@ internal static class GambitsBuilders
                                 .Create($"Condition{name}")
                                 .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                                 .SetPossessive()
-                                .SetSpecialInterruptions(
-                                    ExtraConditionInterruption.UsesBonusAction,
-                                    ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
+                                .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage)
-                                .AddCustomSubFeatures(new Feint(GambitPool))
+                                .AddCustomSubFeatures(new Feint())
                                 .AddToDB()))
                     .Build())
             .AddToDB();
-
-        power.AddCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAvailableBonusAction));
 
         BuildFeatureInvocation(name, sprite, power);
 
@@ -1269,67 +1265,26 @@ internal static class GambitsBuilders
     // Feint
     //
 
-    private sealed class Feint(FeatureDefinitionPower pool)
-        : IModifyAttackActionModifier, IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
+    private sealed class Feint : IModifyAttackActionModifier
     {
         private const string ConditionGambitFeint = "ConditionGambitFeint";
 
         private readonly TrendInfo _trendInfo =
             new(1, FeatureSourceType.Condition, ConditionGambitFeint, null);
 
-        public void OnAttackComputeModifier(RulesetCharacter myself,
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
             string effectName,
             ref ActionModifier attackModifier)
         {
-            if (attackMode?.SourceDefinition is not ItemDefinition ||
-                attackMode.ActionType == ActionDefinitions.ActionType.Bonus ||
-                !ValidatorsCharacter.HasAvailableBonusAction(myself))
+            if (attackProximity
+                is BattleDefinitions.AttackProximity.PhysicalReach or BattleDefinitions.AttackProximity.PhysicalRange)
             {
-                return;
+                attackModifier.AttackAdvantageTrends.Add(_trendInfo);
             }
-
-            attackModifier.AttackAdvantageTrends.Add(_trendInfo);
-        }
-
-        public IEnumerator OnPhysicalAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
-        {
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (attackMode?.SourceDefinition is not ItemDefinition ||
-                !ValidatorsCharacter.HasAvailableBonusAction(rulesetCharacter))
-            {
-                yield break;
-            }
-
-            attacker.SpendActionType(ActionDefinitions.ActionType.Bonus);
-            rulesetCharacter.UpdateUsageForPower(pool, 1);
-        }
-
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
-        {
-            if (action.ActionType != ActionDefinitions.ActionType.Bonus)
-            {
-                yield break;
-            }
-
-            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
-                AttributeDefinitions.TagEffect, ConditionGambitFeint);
         }
     }
 

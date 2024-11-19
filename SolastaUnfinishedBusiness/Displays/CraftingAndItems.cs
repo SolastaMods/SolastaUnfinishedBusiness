@@ -160,6 +160,20 @@ internal static class CraftingAndItems
             Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
         }
 
+        toggle = Main.Settings.EnableVersatileAmmunitionSlots;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableVersatileAmmunitionSlots"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableVersatileAmmunitionSlots = toggle;
+            ItemCraftingMerchantContext.SwitchVersatileInventorySlots();
+        }
+
+        toggle = Main.Settings.EnableVersatileOffHandSlot;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableVersatileOffHandSlot"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableVersatileOffHandSlot = toggle;
+            ItemCraftingMerchantContext.SwitchVersatileInventorySlots();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.AddCustomIconsToOfficialItems;

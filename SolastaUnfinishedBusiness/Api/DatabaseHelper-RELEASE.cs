@@ -308,6 +308,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionStoneskin { get; } =
+            GetDefinition<ConditionDefinition>("ConditionStoneskin");
+
         internal static ConditionDefinition ConditionBardicInspiration { get; } =
             GetDefinition<ConditionDefinition>("ConditionBardicInspiration");
 
@@ -1446,20 +1449,20 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionDamageAffinitys
     {
-        internal static FeatureDefinitionDamageAffinity DamageAffinityFireImmunityRemorhaz { get; } =
-            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunityRemorhaz");
+        internal static FeatureDefinitionDamageAffinity DamageAffinityStoneskinBludgeoning { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityStoneskinBludgeoning");
 
-        internal static FeatureDefinitionDamageAffinity DamageAffinityFireImmunityYoungRemorhaz { get; } =
-            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunityYoungRemorhaz");
+        internal static FeatureDefinitionDamageAffinity DamageAffinityStoneskinPiercing { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityStoneskinPiercing");
+
+        internal static FeatureDefinitionDamageAffinity DamageAffinityStoneskinSlashing { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityStoneskinSlashing");
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityPatronTreePiercingBranch { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPatronTreePiercingBranch");
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityPatronTreePiercingBranchOneWithTheTree { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPatronTreePiercingBranchOneWithTheTree");
-
-        internal static FeatureDefinitionDamageAffinity DamageAffinityWightLord_NecroticImmunity { get; } =
-            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityWightLord_NecroticImmunity");
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityConditionRagingBludgeoning { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityConditionRagingBludgeoning");
@@ -1710,6 +1713,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionMoveModes
     {
+        internal static FeatureDefinitionMoveMode MoveModeFly2 { get; } =
+            GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly2");
+
         internal static FeatureDefinitionMoveMode MoveModeFly4 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly4");
 
@@ -1724,6 +1730,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionMoveMode MoveModeMove2 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove2");
+
+        internal static FeatureDefinitionMoveMode MoveModeMove4 { get; } =
+            GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove4");
 
         internal static FeatureDefinitionMoveMode MoveModeMove6 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove6");
@@ -1823,33 +1832,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerBerserkerFrenzy { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBerserkerFrenzy");
-
-        internal static FeatureDefinitionPower PowerFunctionAntitoxin { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionAntitoxin");
-
-        internal static FeatureDefinitionPower PowerFunctionPotionOfGreaterHealing { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfGreaterHealing");
-
-        internal static FeatureDefinitionPower PowerFunctionPotionOfGreaterHealingOther { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfGreaterHealingOther");
-
-        internal static FeatureDefinitionPower PowerFunctionPotionOfHealing { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfHealing");
-
-        internal static FeatureDefinitionPower PowerFunctionPotionOfHealingOther { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfHealingOther");
-
-        internal static FeatureDefinitionPower PowerFunctionPotionOfSuperiorHealing { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfSuperiorHealing");
-
-        internal static FeatureDefinitionPower PowerFunctionPotionOfSuperiorHealingOther { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfSuperiorHealingOther");
-
-        internal static FeatureDefinitionPower PowerFunctionPotionRemedy { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionRemedy");
-
-        internal static FeatureDefinitionPower PowerFunctionRemedyOther { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionRemedyOther");
 
         internal static FeatureDefinitionPower PowerWindGuidingWinds { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerWindGuidingWinds");
@@ -2676,6 +2658,18 @@ internal static partial class DatabaseHelper
 
     internal static class ItemDefinitions
     {
+        internal static ItemDefinition RingFeatherFalling { get; } =
+            GetDefinition<ItemDefinition>("RingFeatherFalling");
+
+        internal static ItemDefinition _1D6_Silver_Coins { get; } = GetDefinition<ItemDefinition>("1D6_Silver_Coins");
+        internal static ItemDefinition _1D6_Copper_Coins { get; } = GetDefinition<ItemDefinition>("1D6_Copper_Coins");
+        internal static ItemDefinition _1D6_Gold_Coins { get; } = GetDefinition<ItemDefinition>("1D6_Gold_Coins");
+        internal static ItemDefinition _5D6_Silver_Coins { get; } = GetDefinition<ItemDefinition>("5D6_Silver_Coins");
+        internal static ItemDefinition _5D6_Gold_Coins { get; } = GetDefinition<ItemDefinition>("5D6_Gold_Coins");
+        internal static ItemDefinition _20D6_Silver_Coins { get; } = GetDefinition<ItemDefinition>("20D6_Silver_Coins");
+        internal static ItemDefinition _6D6_Copper_Coins { get; } = GetDefinition<ItemDefinition>("6D6_Copper_Coins");
+        internal static ItemDefinition _10D6_Copper_Coins { get; } = GetDefinition<ItemDefinition>("10D6_Copper_Coins");
+
         internal static ItemDefinition StartingWealth_10GP { get; } =
             GetDefinition<ItemDefinition>("StartingWealth_10GP");
 
@@ -3268,15 +3262,6 @@ internal static partial class DatabaseHelper
     {
         internal static ItemFlagDefinition ItemFlagPrimed { get; } =
             GetDefinition<ItemFlagDefinition>("ItemFlagPrimed");
-    }
-
-    internal static class LootPackDefinitions
-    {
-        internal static LootPackDefinition Pickpocket_generic_loot_LowMoney { get; } =
-            GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_LowMoney");
-
-        internal static LootPackDefinition Pickpocket_generic_loot_MedMoney { get; } =
-            GetDefinition<LootPackDefinition>("Pickpocket_generic_loot_MedMoney");
     }
 
     internal static class MerchantCategoryDefinitions
@@ -4168,6 +4153,9 @@ internal static partial class DatabaseHelper
 
     internal static class TreasureTableDefinitions
     {
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableJ_IngredientsEnchanted { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableJ_IngredientsEnchanted");
+
         internal static TreasureTableDefinition RandomTreasureTableA_Gem { get; } =
             GetDefinition<TreasureTableDefinition>("RandomTreasureTableA_Gem");
 

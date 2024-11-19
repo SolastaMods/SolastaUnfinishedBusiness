@@ -23,7 +23,7 @@ internal static class Main
 
     internal static string SettingsFolder => Path.Combine(ModFolder, "Settings");
     internal static string[] SettingsFiles { get; private set; }
-    internal static string SettingsFilename { get; private set; } = String.Empty;
+    internal static string SettingsFilename { get; private set; } = string.Empty;
     internal static Settings Settings => Mod.Settings;
 
     [Conditional("DEBUG")]
@@ -163,7 +163,7 @@ internal static class Main
 
         SettingsFilename = Path.Combine(SettingsFolder, filename);
         UnityModManager.ModSettings.Save(Settings, ModEntry);
-        SettingsFilename = String.Empty;
+        SettingsFilename = string.Empty;
 
         LoadSettingFilenames();
     }
@@ -172,7 +172,7 @@ internal static class Main
     {
         SettingsFilename = Path.Combine(SettingsFolder, $"{filename}.xml");
         Mod.Settings = UnityModManager.ModSettings.Load<Settings>(ModEntry);
-        SettingsFilename = String.Empty;
+        SettingsFilename = string.Empty;
     }
 
     internal static void RemoveSettings(string filename)

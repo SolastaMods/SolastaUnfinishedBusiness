@@ -1,9 +1,9 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Builders;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -55,9 +55,7 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
                 return;
             }
 
-            __instance.compatibleFightingStyles
-                .Sort((a, b) =>
-                    String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
+            __instance.compatibleFightingStyles.Sort(Sorting.CompareTitle);
         }
     }
 

@@ -12,6 +12,7 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
     internal const string AttackAfterMagicEffectTag = "AttackAfterMagicEffectTag";
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
+    internal static readonly AttackAfterMagicEffect Marker = new();
 
     public bool EnforceFullSelection => false;
 

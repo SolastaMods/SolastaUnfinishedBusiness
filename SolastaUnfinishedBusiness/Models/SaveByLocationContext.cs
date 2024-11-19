@@ -230,7 +230,6 @@ internal static class SaveByLocationContext
             switch (locationType)
             {
                 case LocationType.Default:
-                    return title;
                 case LocationType.StandardCampaign:
                     return title;
                 case LocationType.CustomCampaign:
@@ -322,7 +321,7 @@ internal static class SaveByLocationContext
             var type = Type.CompareTo(other.Type);
             return type != 0
                 ? type
-                : String.Compare(Name, other.Name, StringComparison.Ordinal);
+                : string.Compare(Name, other.Name, StringComparison.Ordinal);
         }
 
         public static SavePlace Default()

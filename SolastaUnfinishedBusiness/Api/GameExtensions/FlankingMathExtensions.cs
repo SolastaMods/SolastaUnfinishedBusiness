@@ -98,7 +98,7 @@ internal static class FlankingMathExtensions
         public double Y { get; } = y;
         public double Z { get; } = z;
 
-        public override String ToString()
+        public override string ToString()
         {
             return "(" + X + "," + Y + "," + Z + ")";
         }
@@ -158,7 +158,7 @@ internal static class FlankingMathExtensions
         public Plane BottomFace { get; } = new(minPoint.X, maxPoint.X, minPoint.Y, minPoint.Y, minPoint.Z, maxPoint.Z,
             new Vector3D(0, -1, 0), -minPoint.Y);
 
-        public override String ToString()
+        public override string ToString()
         {
             return "(" + minPoint + ":" + maxPoint + ")";
         }

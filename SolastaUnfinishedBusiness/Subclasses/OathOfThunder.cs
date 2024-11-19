@@ -93,6 +93,7 @@ public sealed class OathOfThunder : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 6)
                             .Build())
                     .Build())
+            //.AddCustomSubFeatures(ClassHolder.Paladin)
             .AddToDB();
 
         powerThunderousRebuke.AddCustomSubFeatures(
@@ -139,6 +140,7 @@ public sealed class OathOfThunder : AbstractSubclass
                             .SetConditionForm(conditionDivineBolt, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            //.AddCustomSubFeatures(ClassHolder.Paladin)
             .AddToDB();
 
         // LEVEL 07
@@ -159,6 +161,8 @@ public sealed class OathOfThunder : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 7)
             .SetImpactParticleReference(Shatter)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            // required as in a feature set
+            .AddCustomSubFeatures(ClassHolder.Paladin)
             .AddToDB();
 
         var featureGodOfThunder = FeatureDefinitionBuilder

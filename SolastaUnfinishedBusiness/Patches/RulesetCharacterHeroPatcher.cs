@@ -1294,6 +1294,26 @@ public static class RulesetCharacterHeroPatcher
 
             __result = preparedSpells[levels - 1];
 
+            foreach (var affinityProvider in __instance.FeaturesToBrowse.OfType<ISpellCastingAffinityProvider>())
+            {
+                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                switch (affinityProvider.PreparedSpellModifier)
+                {
+                    case PreparedSpellsModifier.ProficiencyBonus:
+                    {
+                        __result += __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                        break;
+                    }
+                    case PreparedSpellsModifier.SpellcastingAbilityBonus:
+                    {
+                        var attribute = __instance.GetAttribute(spellRepertoire.SpellCastingAbility);
+
+                        __result += AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
+                        break;
+                    }
+                }
+            }
+
             return false;
         }
     }

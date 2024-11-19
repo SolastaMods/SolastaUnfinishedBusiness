@@ -658,7 +658,7 @@ internal static class LevelUpHelper
                     : b.SpellCastingRace.FormatTitle();
 
             return a.SaveDC == b.SaveDC
-                ? String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase)
+                ? string.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase)
                 : a.SaveDC.CompareTo(b.SaveDC);
         });
     }

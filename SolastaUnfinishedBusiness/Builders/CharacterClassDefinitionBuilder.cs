@@ -44,7 +44,7 @@ internal class CharacterClassDefinitionBuilder
             });
 
         Definition.PersonalityFlagOccurences.Sort((x, y) =>
-            String.Compare(x.PersonalityFlag, y.PersonalityFlag, StringComparison.CurrentCultureIgnoreCase));
+            string.Compare(x.PersonalityFlag, y.PersonalityFlag, StringComparison.CurrentCultureIgnoreCase));
 
         return this;
     }

@@ -187,7 +187,7 @@ internal static class InventoryManagementContext
             new() { text = TagsDefinitions.WeaponTagAmmunition }, new() { text = CeContentPackContext.CeTag }
         });
 
-        taggedOptions.Sort((x, y) => String.Compare(x.text, y.text, StringComparison.Ordinal));
+        taggedOptions.Sort((x, y) => string.Compare(x.text, y.text, StringComparison.Ordinal));
         taggedOptions.Insert(0, new OptionDataAdvanced { text = Gui.Localize("UI/&InventoryFilterAnyTags") });
 
         TaggedGuiDropdown.onValueChanged.AddListener(delegate { Refresh(containerPanel); });

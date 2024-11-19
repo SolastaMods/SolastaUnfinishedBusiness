@@ -157,31 +157,38 @@ public static class InputContext
                 CampaignsContext.SetFormationGrid(4);
                 return;
             case InputCommandsExtra.Hide:
+                var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
                 foreach (var selectedCharacter in ServiceRepository
                              .GetService<IGameLocationSelectionService>().SelectedCharacters)
                 {
                     if (Gui.Battle == null)
                     {
-                        selectedCharacter.SetStealthy(!selectedCharacter.Stealthy);
+                        var actionParams = new CharacterActionParams(selectedCharacter, ActionDefinitions.Id.HideMain);
+
+                        actionService.ExecuteAction(actionParams, null, false);
                     }
-                    else if (!selectedCharacter.Stealthy)
+                    else if (selectedCharacter.Stealthy)
                     {
-                        if (selectedCharacter.GetActionStatus(ActionDefinitions.Id.HideBonus,
-                                ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available)
-                        {
-                            selectedCharacter.SetStealthy(true);
-                            selectedCharacter.SpendActionType(ActionDefinitions.ActionType.Bonus);
-                        }
-                        else if (selectedCharacter.GetActionStatus(ActionDefinitions.Id.HideBonus,
-                                     ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available)
-                        {
-                            selectedCharacter.SetStealthy(true);
-                            selectedCharacter.SpendActionType(ActionDefinitions.ActionType.Main);
-                        }
+                        var actionParams = new CharacterActionParams(selectedCharacter, ActionDefinitions.Id.Unhide);
+
+                        actionService.ExecuteAction(actionParams, null, false);
                     }
-                    else
+                    else if (selectedCharacter.GetActionStatus(ActionDefinitions.Id.HideBonus,
+                                 ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available)
                     {
-                        selectedCharacter.SetStealthy(false);
+                        var actionParams =
+                            new CharacterActionParams(selectedCharacter, ActionDefinitions.Id.HideBonus);
+
+                        actionService.ExecuteAction(actionParams, null, false);
+                    }
+                    else if (selectedCharacter.GetActionStatus(ActionDefinitions.Id.HideMain,
+                                 ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available)
+                    {
+                        var actionParams =
+                            new CharacterActionParams(selectedCharacter, ActionDefinitions.Id.HideMain);
+
+                        actionService.ExecuteAction(actionParams, null, false);
                     }
                 }
 

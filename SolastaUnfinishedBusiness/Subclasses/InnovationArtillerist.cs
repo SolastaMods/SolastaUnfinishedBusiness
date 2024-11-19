@@ -108,6 +108,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Build())
                     .Build())
             .DelegatedToAction()
+            // required as added through condition
+            .AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 
         powerFlamethrower.AddCustomSubFeatures(new CustomBehaviorForceCasterSpellDC(powerFlamethrower));
@@ -134,6 +136,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Build())
                     .Build())
             .DelegatedToAction()
+            // required as added through condition
+            .AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 
         var powerProtector = FeatureDefinitionPowerBuilder
@@ -508,6 +512,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetDamageDice(DieType.D8, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10, 5)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
+            // required as in a feature set
             .AddCustomSubFeatures(ClassHolder.Inventor)
             .AddToDB();
 

@@ -25,7 +25,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private readonly Comparison<FeaturePool> _poolCompare = (a, b) =>
     {
-        var r = String.CompareOrdinal(a.Id.Tag, b.Id.Tag);
+        var r = string.CompareOrdinal(a.Id.Tag, b.Id.Tag);
 
         if (r != 0)
         {
@@ -34,7 +34,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         if (a.IsUnlearn == b.IsUnlearn)
         {
-            return String.CompareOrdinal(a.Id.Name, b.Id.Name);
+            return string.CompareOrdinal(a.Id.Name, b.Id.Name);
         }
 
         if (a.IsUnlearn)
@@ -1139,7 +1139,7 @@ internal static class SpellsByLevelGroupExtensions
 
         var allFeatures = pool.GetLevelFeatures(featureLevel);
 
-        allFeatures.Sort((a, b) => string.CompareOrdinal(a.FormatTitle(), b.FormatTitle()));
+        allFeatures.Sort(Sorting.CompareTitle);
 
         var spellsTable = instance.spellsTable;
         var spellPrefab = instance.spellPrefab;
@@ -1229,7 +1229,6 @@ internal static class SpellsByLevelGroupExtensions
         }
     }
 
-    // ReSharper disable once SuggestBaseTypeForParameter
     private static void RefreshUnlearning(
         this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
@@ -1279,6 +1278,8 @@ internal static class SpellsByLevelGroupExtensions
         Gui.ReleaseChildrenToPool(spellsTable);
         instance.slotStatusTable.Unbind();
     }
+
+    // ReSharper disable once SuggestBaseTypeForParameter
 }
 
 internal static class SpellBoxExtensions
