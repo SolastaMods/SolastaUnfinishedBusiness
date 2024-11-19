@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -31,11 +29,7 @@ internal static class ClassesContext
     {
         InventorClass.Build();
 
-        DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-            .Do(x => x.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock));
-
         LoadMonkWeaponSpecialization();
-
         SwitchScimitarWeaponSpecialization();
         SwitchBarbarianFightingStyle();
         SwitchFighterWeaponSpecialization();
@@ -115,8 +109,7 @@ internal static class ClassesContext
                 .AdditionalDamageMarshalFavoredEnemyHumanoid);
         }
 
-        AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort((x, y) =>
-            string.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCulture));
+        AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort(Sorting.CompareTitle);
     }
 
     #endregion

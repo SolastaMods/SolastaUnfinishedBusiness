@@ -1139,7 +1139,7 @@ internal static class SpellsByLevelGroupExtensions
 
         var allFeatures = pool.GetLevelFeatures(featureLevel);
 
-        allFeatures.Sort((a, b) => string.CompareOrdinal(a.FormatTitle(), b.FormatTitle()));
+        allFeatures.Sort(Sorting.CompareTitle);
 
         var spellsTable = instance.spellsTable;
         var spellPrefab = instance.spellPrefab;

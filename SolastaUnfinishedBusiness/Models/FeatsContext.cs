@@ -91,7 +91,7 @@ internal static class FeatsContext
         foreach (var groupedFeat in GroupFeats.Groups
                      .Select(groupDefinition => groupDefinition.GetFirstSubFeatureOfType<GroupedFeat>()))
         {
-            groupedFeat?.Feats.Sort((a, b) => string.CompareOrdinal(a.FormatTitle(), b.FormatTitle()));
+            groupedFeat?.Feats.Sort(Sorting.CompareTitle);
         }
 
         // settings paring feats

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Builders;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,9 +39,7 @@ public static class CharacterStageSubclassSelectionPanelPatcher
                 return;
             }
 
-            __instance.compatibleSubclasses
-                .Sort((a, b) =>
-                    string.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
+            __instance.compatibleSubclasses.Sort(Sorting.CompareTitle);
         }
     }
 
