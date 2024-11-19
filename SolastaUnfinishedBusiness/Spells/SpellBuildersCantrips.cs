@@ -1337,7 +1337,7 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect == null || rulesetEffect.SourceDefinition != spellTollTheDead)
+            if (rulesetEffect.SourceDefinition != spellTollTheDead)
             {
                 yield break;
             }

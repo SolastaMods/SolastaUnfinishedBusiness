@@ -77,7 +77,8 @@ internal static partial class SpellBuilders
             .SetFeatures(
                 DatabaseRepository.GetDatabase<DamageDefinition>()
                     .Select(damageType =>
-                        FeatureDefinitionDamageAffinityBuilder.Create($"DamageAffinity{NAME}{damageType.Name}")
+                        FeatureDefinitionDamageAffinityBuilder
+                            .Create($"DamageAffinity{NAME}{damageType.Name}")
                             .SetGuiPresentationNoContent(true)
                             .SetDamageType(damageType.Name)
                             .SetDamageAffinityType(DamageAffinityType.Immunity)
@@ -195,56 +196,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Power Word Heal
-
-    internal static SpellDefinition BuildPowerWordHeal()
-    {
-        return SpellDefinitionBuilder
-            .Create("PowerWordHeal")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordHeal", Resources.PowerWordHeal, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
-            .SetSpellLevel(9)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(false)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Healing)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetHealingForm(
-                                HealingComputation.Dice,
-                                700,
-                                DieType.D1,
-                                0,
-                                false,
-                                HealingCap.MaximumHitPoints)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionParalyzed,
-                                ConditionForm.ConditionOperation.RemoveDetrimentalAll,
-                                false,
-                                false,
-                                ConditionDefinitions.ConditionCharmed,
-                                ConditionDefinitions.ConditionFrightened,
-                                ConditionDefinitions.ConditionParalyzed,
-                                ConditionDefinitions.ConditionPoisoned,
-                                ConditionDefinitions.ConditionProne)
-                            .Build())
-                    .SetParticleEffectParameters(Regenerate)
-                    .Build())
-            .AddCustomSubFeatures(new FilterTargetingCharacterPowerWordKillOrHeal())
-            .AddToDB();
-    }
-
-    #endregion
-
     #region Weird
 
     internal static SpellDefinition BuildWeird()
@@ -334,6 +285,54 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Power Word Heal
+
+    internal static SpellDefinition BuildPowerWordHeal()
+    {
+        return SpellDefinitionBuilder
+            .Create("PowerWordHeal")
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordHeal", Resources.PowerWordHeal, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(9)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Healing)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(
+                                HealingComputation.Dice,
+                                700,
+                                DieType.D1,
+                                0,
+                                false,
+                                HealingCap.MaximumHitPoints)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionParalyzed,
+                                ConditionForm.ConditionOperation.RemoveDetrimentalAll,
+                                false,
+                                false,
+                                ConditionDefinitions.ConditionCharmed,
+                                ConditionDefinitions.ConditionFrightened,
+                                ConditionDefinitions.ConditionParalyzed,
+                                ConditionDefinitions.ConditionPoisoned,
+                                ConditionDefinitions.ConditionProne)
+                            .Build())
+                    .SetParticleEffectParameters(Regenerate)
+                    .Build())
+            .AddCustomSubFeatures(new FilterTargetingCharacterPowerWordKillOrHeal())
+            .AddToDB();
+    }
+
     // required to support Bard level 20 feature Words of Creations (only scenario where these spells have a 2nd target)
     private sealed class FilterTargetingCharacterPowerWordKillOrHeal : IFilterTargetingCharacter
     {
@@ -352,6 +351,8 @@ internal static partial class SpellBuilders
             return false;
         }
     }
+
+    #endregion
 
     #region Power Word Kill
 
@@ -404,6 +405,74 @@ internal static partial class SpellBuilders
 
             yield break;
         }
+    }
+
+    #endregion
+
+    #region Shapechange
+
+    internal const string ShapechangeName = "Shapechange";
+
+    internal static SpellDefinition BuildShapechange()
+    {
+        return SpellDefinitionBuilder
+            .Create(ShapechangeName)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(ShapechangeName, Resources.ShapeChange, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(9)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent("Diamond", 1500, false)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(PowerDruidWildShape)
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetShapeChangeForm(
+                                ShapeChangeForm.Type.FreeListSelection,
+                                true,
+                                ConditionDefinitions.ConditionWildShapeSubstituteForm,
+                                [
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy
+                                    },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Divine_Avatar },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = Emperor_Laethar
+                                    },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Giant_Ape },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = GoldDragon_AerElai
+                                    },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
+                                    },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Remorhaz },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Spider_Queen },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath
+                                    },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss
+                                    }
+                                ])
+                            .Build())
+                    .Build())
+            .SetRequiresConcentration(true)
+            .AddToDB();
     }
 
     #endregion
@@ -585,74 +654,6 @@ internal static partial class SpellBuilders
             Gui.Battle.ContenderModified(
                 locationCharacter, GameLocationBattle.ContenderModificationMode.Add, false, false);
         }
-    }
-
-    #endregion
-
-    #region Shapechange
-
-    internal const string ShapechangeName = "Shapechange";
-
-    internal static SpellDefinition BuildShapechange()
-    {
-        return SpellDefinitionBuilder
-            .Create(ShapechangeName)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(ShapechangeName, Resources.ShapeChange, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(9)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSpecificMaterialComponent("Diamond", 1500, false)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetParticleEffectParameters(PowerDruidWildShape)
-                    .SetDurationData(DurationType.Hour, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetShapeChangeForm(
-                                ShapeChangeForm.Type.FreeListSelection,
-                                true,
-                                ConditionDefinitions.ConditionWildShapeSubstituteForm,
-                                [
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy
-                                    },
-                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Divine_Avatar },
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = Emperor_Laethar
-                                    },
-                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Giant_Ape },
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = GoldDragon_AerElai
-                                    },
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
-                                    },
-                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Remorhaz },
-                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Spider_Queen },
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath
-                                    },
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss
-                                    }
-                                ])
-                            .Build())
-                    .Build())
-            .SetRequiresConcentration(true)
-            .AddToDB();
     }
 
     #endregion
