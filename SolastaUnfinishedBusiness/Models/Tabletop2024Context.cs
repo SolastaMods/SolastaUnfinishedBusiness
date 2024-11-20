@@ -1099,6 +1099,15 @@ internal static class Tabletop2024Context
         dice = Main.Settings.EnableOneDndHealingSpellsUpgrade ? 5 : 3;
 
         MassCureWounds.EffectDescription.EffectForms[0].healingForm.diceNumber = dice;
+
+        var school = Main.Settings.EnableOneDndHealingSpellsUpgrade ? SchoolAbjuration : SchoolEvocation;
+        SpellsContext.AuraOfVitality.schoolOfMagic = school;
+        CureWounds.schoolOfMagic = school;
+        Heal.schoolOfMagic = school;
+        HealingWord.schoolOfMagic = school;
+        MassCureWounds.schoolOfMagic = school;
+        MassHealingWord.schoolOfMagic = school;
+        PrayerOfHealing.schoolOfMagic = school;
     }
 
     internal static void SwitchOneDndDamagingSpellsUpgrade()
