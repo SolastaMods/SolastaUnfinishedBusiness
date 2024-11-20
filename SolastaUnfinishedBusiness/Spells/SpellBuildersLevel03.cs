@@ -584,7 +584,7 @@ internal static partial class SpellBuilders
         var powerAuraOfLife = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, sprite)
-            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
