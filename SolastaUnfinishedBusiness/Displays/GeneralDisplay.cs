@@ -647,6 +647,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchOneDndSpellGuidance();
         }
 
+        toggle = Main.Settings.EnableOneDndHideousLaughterSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHideousLaughterSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndHideousLaughterSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellHideousLaughter();
+        }
+
         toggle = Main.Settings.EnableOneDndLesserRestorationSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndLesserRestorationSpell"), ref toggle, UI.AutoWidth()))
         {

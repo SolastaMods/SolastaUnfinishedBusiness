@@ -319,6 +319,7 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellDivineFavor();
         SwitchOneDndSpellLesserRestoration();
         SwitchOneDndSpellGuidance();
+        SwitchOneDndSpellHideousLaughter();
         SwitchOneDndSpellMagicWeapon();
         SwitchOneDndSpellStoneSkin();
         SwitchOneDndSurprisedEnforceDisadvantage();
@@ -582,6 +583,14 @@ internal static class Tabletop2024Context
             Guidance.EffectDescription.EffectForms.SetRange(EffectFormBuilder.ConditionForm(ConditionGuided));
             Guidance.GuiPresentation.description = "Spell/&GuidanceDescription";
         }
+    }
+
+    internal static void SwitchOneDndSpellHideousLaughter()
+    {
+        HideousLaughter.EffectDescription.EffectAdvancement.effectIncrementMethod =
+            Main.Settings.EnableOneDndHideousLaughterSpell
+                ? EffectIncrementMethod.PerAdditionalSlotLevel
+                : EffectIncrementMethod.None;
     }
 
     internal static void SwitchOneDndSpellMagicWeapon()

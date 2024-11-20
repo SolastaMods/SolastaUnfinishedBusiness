@@ -385,6 +385,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableOneDndHealingSpellsUpgrade { get; set; }
     public bool EnableOneDndDivineFavorSpell { get; set; }
     public bool EnableOneDndGuidanceSpell { get; set; }
+    public bool EnableOneDndHideousLaughterSpell { get; set; }
     public bool EnableOneDndLesserRestorationSpell { get; set; }
     public bool EnableOneDndMagicWeaponSpell { get; set; }
     public bool EnableOneDndStoneSkinSpell { get; set; }

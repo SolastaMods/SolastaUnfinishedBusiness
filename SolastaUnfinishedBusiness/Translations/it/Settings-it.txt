@@ -152,6 +152,7 @@ ModUi/&EnableOneDndDamagingSpellsUpgrade=Abilita <color=#D89555>Spada Arcana</co
 ModUi/&EnableOneDndDivineFavorSpell=Abilita <color=#D89555>Favore divino</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[nessuna concentrazione]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Abilita la versione dell'incantesimo <color=#D89555>Guida</color> 5e 2024 <i><color=#F0DAA0>[Scegli un'abilità al momento del lancio e ottieni un bonus fino a 1 minuto.]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=Abilita <color=#D89555>Cura Ferite</color>, <color=#D89555>Falsa Vita</color>, <color=#D89555>Parola Guaritrice</color>, <color=#D89555>Cura Ferite di Massa</color> e <color=#D89555>Parola Guaritrice di Massa</color> versione incantesimi 5e 2024 <i><color=#F0DAA0>[migliore guarigione]</color></i>
+ModUi/&EnableOneDndHideousLaughterSpell=Abilita la versione dell'incantesimo <color=#D89555>Risata orribile</color> 5e 2024 <i><color=#F0DAA0>[+1 bersaglio per upcast]</color></i>
 ModUi/&EnableOneDndLesserRestorationSpell=Abilita <color=#D89555>Restauro Minore</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=Abilita <color=#D89555>Arma magica</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, potenziamento potenziamento al 3° e 6° livello incantesimo]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Abilita <color=#D89555>Pelle di pietra</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[fornisce anche resistenza a B/P/S magici]</color></i>

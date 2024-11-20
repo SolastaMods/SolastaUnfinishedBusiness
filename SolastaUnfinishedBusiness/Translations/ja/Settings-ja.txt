@@ -152,6 +152,7 @@ ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>Arcane Sword</color>、<
 ModUi/&EnableOneDndDivineFavorSpell=<color=#D89555>神の恩寵</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[集中なし]</color></i> を有効にする
 ModUi/&EnableOneDndGuidanceSpell=<color=#D89555>ガイダンス</color> 5e 2024 呪文バージョンを有効にします <i><color=#F0DAA0>[発動時にスキルを 1 つ選択し、最大 1 分間ボーナスを獲得します。]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>Cure Wounds</color>、<color=#D89555>False Life</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[better healing]</color></i> を有効にします
+ModUi/&EnableOneDndHideousLaughterSpell=<color=#D89555>Hideous Laughter</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[+1 ターゲット/アップキャスト]</color></i>
 ModUi/&EnableOneDndLesserRestorationSpell=<color=#D89555>Lesser Restoration</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[ボーナスアクション]</color></i> を有効にする
 ModUi/&EnableOneDndMagicWeaponSpell=<color=#D89555>魔法の武器</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[ボーナス アクション、集中力なし、呪文レベル 3 および 6 で強化アップグレード]</color></i> を有効にします
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>ストーンスキン</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[魔法の B/P/S に対する耐性も付与します]</color></i>

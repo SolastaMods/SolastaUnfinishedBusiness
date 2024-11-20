@@ -150,7 +150,8 @@ ModUi/&EnableOneDnDPreparedSpellsTables=Enable all <color=#D89555>Casters</color
 ModUi/&EnableOneDndBarkskinSpell=Enable <color=#D89555>Barkskin</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Enable <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, and <color=#D89555>Vicious Mockery</color> 5e 2024 spells version <i><color=#F0DAA0>[better damage]</color></i>
 ModUi/&EnableOneDndDivineFavorSpell=Enable <color=#D89555>Divine Favor</color> 5e 2024 spell version <i><color=#F0DAA0>[no concentration]</color></i>
-ModUi/&EnableOneDndGuidanceSpell=Enable <color=#D89555>Guidance</color> 5e 2024 spell version <i><color=#F0DAA0>[Choose one skill at casting and get bonus for up to 1 minute]</color></i>
+ModUi/&EnableOneDndGuidanceSpell=Enable <color=#D89555>Guidance</color> 5e 2024 spell version <i><color=#F0DAA0>[choose one skill at casting and get bonus for up to 1 minute]</color></i>
+ModUi/&EnableOneDndHideousLaughterSpell=Enable <color=#D89555>Hideous Laughter</color> 5e 2024 spell version <i><color=#F0DAA0>[+1 target per upcast]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=Enable <color=#D89555>Cure Wounds</color>, <color=#D89555>False Life</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color> 5e 2024 spells version <i><color=#F0DAA0>[better healing]</color></i>
 ModUi/&EnableOneDndLesserRestorationSpell=Enable <color=#D89555>Lesser Restoration</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=Enable <color=#D89555>Magic Weapon</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, enhancement upgrade at 3rd and 6th spell level]</color></i>

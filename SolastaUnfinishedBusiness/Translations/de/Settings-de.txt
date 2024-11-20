@@ -152,6 +152,7 @@ ModUi/&EnableOneDndDamagingSpellsUpgrade=Aktiviere <color=#D89555>Arkanes Schwer
 ModUi/&EnableOneDndDivineFavorSpell=Aktivieren Sie die Zauberversion <color=#D89555>Göttliche Gunst</color> 5e 2024 <i><color=#F0DAA0>[keine Konzentration]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Aktivieren Sie die Zauberversion <color=#D89555>Anleitung</color> 5e 2024 <i><color=#F0DAA0>[Wählen Sie beim Zaubern eine Fertigkeit aus und erhalten Sie bis zu 1 Minute lang einen Bonus.]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=Aktiviere <color=#D89555>Wunden heilen</color>, <color=#D89555>Falsches Leben</color>, <color=#D89555>Heilendes Wort</color>, <color=#D89555>Massenheilung von Wunden</color> und <color=#D89555>Massenheilungswort</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[bessere Heilung]</color></i>
+ModUi/&EnableOneDndHideousLaughterSpell=Aktiviere <color=#D89555>Hideous Laughter</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[+1 Ziel pro Upcast]</color></i>
 ModUi/&EnableOneDndLesserRestorationSpell=Aktiviere die Zauberversion <color=#D89555>Geringere Wiederherstellung</color> 5e 2024 <i><color=#F0DAA0>[Bonusaktion]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=Aktiviere <color=#D89555>Magische Waffe</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, Verstärkungs-Upgrade auf der 3. und 6. Zauberstufe]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Aktiviere <color=#D89555>Steinhaut</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[bietet auch Widerstand gegen magisches B/P/S]</color></i>
