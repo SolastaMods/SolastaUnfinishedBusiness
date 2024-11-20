@@ -197,10 +197,12 @@ internal static class Tabletop2024Context
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .AddToDB();
 
-    private static readonly InvocationDefinition InvocationPactBlade = InvocationDefinitionBuilder
+    internal static readonly InvocationDefinition InvocationPactBlade = InvocationDefinitionBuilder
         .Create("InvocationPactBlade")
         .SetGuiPresentation(FeatureSetPactBlade.GuiPresentation)
         .SetGrantedFeature(FeatureSetPactBlade)
+        .AddCustomSubFeatures(
+            new CanUseAttribute(AttributeDefinitions.Charisma, PatronSoulBlade.CanWeaponBeEmpowered))
         .AddToDB();
 
     private static readonly InvocationDefinition InvocationPactChain = InvocationDefinitionBuilder
