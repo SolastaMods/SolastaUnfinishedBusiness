@@ -225,10 +225,17 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 10, DieType.D10)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create(ConditionDefinitions.ConditionFrightenedPhantasmalKiller, "ConditionWeird")
                                     .SetOrUpdateGuiPresentation(Category.Condition)
+                                    .SetRecurrentEffectForms(
+                                        EffectFormBuilder.DamageForm(DamageTypePsychic, 5, DieType.D10))
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
