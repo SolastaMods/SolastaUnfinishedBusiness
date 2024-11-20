@@ -654,6 +654,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchOneDndSpellHideousLaughter();
         }
 
+        toggle = Main.Settings.EnableOneDndHuntersMarkSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHuntersMarkSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndHuntersMarkSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellHuntersMark();
+        }
+
         toggle = Main.Settings.EnableOneDndLesserRestorationSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndLesserRestorationSpell"), ref toggle, UI.AutoWidth()))
         {
@@ -666,6 +673,20 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableOneDndMagicWeaponSpell = toggle;
             Tabletop2024Context.SwitchOneDndSpellMagicWeapon();
+        }
+
+        toggle = Main.Settings.EnableOneDndPowerWordStunSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndPowerWordStunSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndPowerWordStunSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellPowerWordStun();
+        }
+
+        toggle = Main.Settings.EnableOneDndSpiderClimbSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndSpiderClimbSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndSpiderClimbSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellSpiderClimb();
         }
 
         toggle = Main.Settings.EnableOneDndStoneSkinSpell;

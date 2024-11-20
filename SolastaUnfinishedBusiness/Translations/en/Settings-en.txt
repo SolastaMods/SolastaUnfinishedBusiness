@@ -151,10 +151,13 @@ ModUi/&EnableOneDndBarkskinSpell=Enable <color=#D89555>Barkskin</color> 5e 2024 
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Enable <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, and <color=#D89555>Vicious Mockery</color> 5e 2024 spells version <i><color=#F0DAA0>[better damage]</color></i>
 ModUi/&EnableOneDndDivineFavorSpell=Enable <color=#D89555>Divine Favor</color> 5e 2024 spell version <i><color=#F0DAA0>[no concentration]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Enable <color=#D89555>Guidance</color> 5e 2024 spell version <i><color=#F0DAA0>[choose one skill at casting and get bonus for up to 1 minute]</color></i>
-ModUi/&EnableOneDndHideousLaughterSpell=Enable <color=#D89555>Hideous Laughter</color> 5e 2024 spell version <i><color=#F0DAA0>[+1 target per upcast]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=Enable <color=#D89555>Cure Wounds</color>, <color=#D89555>False Life</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color> 5e 2024 spells version <i><color=#F0DAA0>[better healing]</color></i>
+ModUi/&EnableOneDndHideousLaughterSpell=Enable <color=#D89555>Hideous Laughter</color> 5e 2024 spell version <i><color=#F0DAA0>[+1 target per upcast]</color></i>
+ModUi/&EnableOneDndHuntersMarkSpell=Enable <color=#D89555>Hunter's Mark</color> 5e 2024 spell version <i><color=#F0DAA0>[force damage]</color></i>
 ModUi/&EnableOneDndLesserRestorationSpell=Enable <color=#D89555>Lesser Restoration</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=Enable <color=#D89555>Magic Weapon</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, enhancement upgrade at 3rd and 6th spell level]</color></i>
+ModUi/&EnableOneDndPowerWordStunSpell=Enable <color=#D89555>Power Word Stun</color> 5e 2024 spell version <i><color=#F0DAA0>[target stopped for one turn if has more than 150 hp]</color></i>
+ModUi/&EnableOneDndSpiderClimbSpell=Enable <color=#D89555>Spider Climb</color> 5e 2024 spell version <i><color=#F0DAA0>[+1 target per upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Enable <color=#D89555>Stone Skin</color> 5e 2024 spell version <i><color=#F0DAA0>[provides resistance to magical B/P/S as well]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Enable <color=#D89555>True Strike</color> 5e 2024 cantrip version <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[attack uses your spellcasting ability for the attack roll and damage bonus, and additional radiant damage from level 5]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Enable <color=#D89555>Lay on Hands</color> as bonus action

@@ -386,8 +386,11 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableOneDndDivineFavorSpell { get; set; }
     public bool EnableOneDndGuidanceSpell { get; set; }
     public bool EnableOneDndHideousLaughterSpell { get; set; }
+    public bool EnableOneDndHuntersMarkSpell { get; set; }
     public bool EnableOneDndLesserRestorationSpell { get; set; }
     public bool EnableOneDndMagicWeaponSpell { get; set; }
+    public bool EnableOneDndPowerWordStunSpell { get; set; }
+    public bool EnableOneDndSpiderClimbSpell { get; set; }
     public bool EnableOneDndStoneSkinSpell { get; set; }
     public bool EnableOneDndTrueStrikeCantrip { get; set; }
     public bool AllowHasteCasting { get; set; }
