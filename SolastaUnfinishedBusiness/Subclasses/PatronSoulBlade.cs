@@ -223,7 +223,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static bool CanWeaponBeEmpowered(RulesetAttackMode mode, RulesetItem item, RulesetCharacter character)
+    internal static bool CanWeaponBeEmpowered(RulesetAttackMode mode, RulesetItem item, RulesetCharacter character)
     {
         if (character is not RulesetCharacterHero hero)
         {
@@ -237,7 +237,8 @@ public sealed class PatronSoulBlade : AbstractSubclass
         {
             canWeaponBeEmpowered =
                 ValidatorsWeapon.IsTwoHanded(mode) &&
-                hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade));
+                (hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)) ||
+                hero.HasActiveInvocation(Tabletop2024Context.InvocationPactBlade));
         }
 
         return canWeaponBeEmpowered;
