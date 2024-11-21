@@ -1057,10 +1057,15 @@ internal static partial class SpellBuilders
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionReckless)
+            .SetSpecialDuration(DurationType.Minute, 1)
             .AddCustomSubFeatures(new AddExtraSwiftQuiverAttack(
                 ActionDefinitions.ActionType.Bonus,
                 ValidatorsCharacter.HasNoneOfConditions(ConditionMonkFlurryOfBlowsUnarmedStrikeBonus.Name)))
+            .CopyParticleReferences(Haste)
             .AddToDB();
+
+        condition.conditionParticleReference =
+            SpiderClimb.EffectDescription.EffectParticleParameters.conditionParticleReference;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -1077,15 +1082,12 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
+                    // 24 seems to be the max range on Solasta ranged weapons
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique, 2)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(condition, applyToSelf: true))
                     .SetCasterEffectParameters(WindWall)
-                    .SetConditionEffectParameters(
-                        Haste.EffectDescription.EffectParticleParameters.conditionStartParticleReference,
-                        SpiderClimb.EffectDescription.EffectParticleParameters.conditionParticleReference,
-                        Haste.EffectDescription.EffectParticleParameters.conditionEndParticleReference)
                     .Build())
+            .AddCustomSubFeatures(AttackAfterMagicEffect.MarkerRangedWeapon)
             .AddToDB();
 
         return spell;

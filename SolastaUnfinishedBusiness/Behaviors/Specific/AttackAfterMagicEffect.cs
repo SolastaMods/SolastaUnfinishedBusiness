@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -7,14 +8,20 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
-internal sealed class AttackAfterMagicEffect(bool forceMelee) : IFilterTargetingCharacter
+internal sealed class AttackAfterMagicEffect(AttackAfterMagicEffect.AttackType attackType) : IFilterTargetingCharacter
 {
     internal const string AttackAfterMagicEffectTag = "AttackAfterMagicEffectTag";
+
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
-    internal static readonly AttackAfterMagicEffect MarkerMeleeWeapon = new(true);
-    internal static readonly AttackAfterMagicEffect MarkerAnyWeapon = new(false);
-    public bool ForceMelee => forceMelee;
+
+    internal static readonly AttackAfterMagicEffect MarkerAnyWeapon = new(AttackType.Melee | AttackType.Ranged);
+    internal static readonly AttackAfterMagicEffect MarkerMeleeWeapon = new(AttackType.Melee);
+    internal static readonly AttackAfterMagicEffect MarkerRangedWeapon = new(AttackType.Ranged);
+
+    internal readonly bool AllowMelee = attackType.HasFlag(AttackType.Melee);
+    internal readonly bool AllowRanged = attackType.HasFlag(AttackType.Ranged);
+
     public bool EnforceFullSelection => false;
 
     public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -25,12 +32,12 @@ internal sealed class AttackAfterMagicEffect(bool forceMelee) : IFilterTargeting
             return true;
         }
 
-        if (CanAttack(__instance.ActionParams.ActingCharacter, target, !forceMelee, out var isReach))
+        if (CanAttack(__instance.ActionParams.ActingCharacter, target, AllowRanged, AllowMelee, out var allowReach))
         {
             return true;
         }
 
-        var text = isReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
+        var text = allowReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
 
         __instance.actionModifier.FailureFlags.Add(Gui.Format("Failure/&TargetMeleeWeaponError", text));
 
@@ -38,23 +45,15 @@ internal sealed class AttackAfterMagicEffect(bool forceMelee) : IFilterTargeting
     }
 
     internal static bool CanAttack(
-        [NotNull] GameLocationCharacter caster, GameLocationCharacter target, bool allowRanged, out bool isReach)
+        [NotNull] GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        bool allowMelee,
+        bool allowRanged,
+        out bool allowReach)
     {
-        isReach = Main.Settings.AllowBladeCantripsToUseReach;
+        allowReach = Main.Settings.AllowBladeCantripsToUseReach;
 
-        // still debatable
-#if false
-        // Spell Sniper should allow reach
-        if (!isReach)
-        {
-            var rulesetCaster = caster.RulesetCharacter;
-
-            isReach = rulesetCaster.GetOriginalHero()?.TrainedFeats.Any(x => x.Name.StartsWith("FeatSpellSniper")) ??
-                      false;
-        }
-#endif
-
-        var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+        var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
         if (attackMode == null)
         {
@@ -64,19 +63,25 @@ internal sealed class AttackAfterMagicEffect(bool forceMelee) : IFilterTargeting
         var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
         var attackModifier = new ActionModifier();
         var evalParams = new BattleDefinitions.AttackEvaluationParams();
+        var ranged = attackMode.Ranged;
+        var canAttack = false;
 
-        if (allowRanged && attackMode.Ranged)
+        if (allowRanged && ranged)
         {
             evalParams.FillForPhysicalRangeAttack(
-                caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
+                attacker, attacker.LocationPosition, attackMode, defender, defender.LocationPosition, attackModifier);
+
+            canAttack = battleService.CanAttack(evalParams);
         }
-        else
+        else if (allowMelee && !ranged)
         {
             evalParams.FillForPhysicalReachAttack(
-                caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
+                attacker, attacker.LocationPosition, attackMode, defender, defender.LocationPosition, attackModifier);
+
+            canAttack = battleService.CanAttack(evalParams) && (allowReach || attacker.IsWithinRange(defender, 1));
         }
 
-        return battleService.CanAttack(evalParams) && (isReach || caster.IsWithinRange(target, 1));
+        return canAttack;
     }
 
     internal static List<CharacterActionParams> PerformAttackAfterUse(CharacterActionMagicEffect actionMagicEffect)
@@ -108,10 +113,9 @@ internal sealed class AttackAfterMagicEffect(bool forceMelee) : IFilterTargeting
         }
 
         var caster = actionParams.ActingCharacter;
-        //At this point it really doesn't matter anymore allowRanged true or false as checks were made previously
-        //pass true to allow ranged scenarios to work as they should
+        //At this point it's safe to pass true to allowMelee and allowRanged as validations already happened
         var targets = actionParams.TargetCharacters
-            .Where(t => CanAttack(caster, t, true, out _))
+            .Where(t => CanAttack(caster, t, true, true, out _))
             .ToArray();
 
         if (targets.Length == 0)
@@ -150,5 +154,12 @@ internal sealed class AttackAfterMagicEffect(bool forceMelee) : IFilterTargeting
         attacks.Add(attackActionParams);
 
         return attacks;
+    }
+
+    [Flags]
+    internal enum AttackType
+    {
+        Melee = 1,
+        Ranged = 2
     }
 }

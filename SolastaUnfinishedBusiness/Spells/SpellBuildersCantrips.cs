@@ -1157,7 +1157,7 @@ internal static partial class SpellBuilders
             if (__instance.SelectionService.SelectedTargets.Count == 0)
             {
                 if (AttackAfterMagicEffect.CanAttack(
-                        __instance.ActionParams.ActingCharacter, target, false, out var isReach))
+                        __instance.ActionParams.ActingCharacter, target, true, false, out var isReach))
                 {
                     return true;
                 }
