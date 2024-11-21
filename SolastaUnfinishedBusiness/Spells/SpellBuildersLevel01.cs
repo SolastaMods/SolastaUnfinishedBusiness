@@ -449,16 +449,6 @@ internal static partial class SpellBuilders
     {
         const string NAME = "WrathfulSmite";
 
-        var battlePackage = AiHelpers.BuildDecisionPackageBreakFree($"Condition{NAME}Enemy");
-
-        var conditionEnemy = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
-            .SetParentCondition(ConditionDefinitions.ConditionFrightened)
-            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoWisdomCheckAgainstCasterDC)
-            .SetBrain(battlePackage, true)
-            .SetFeatures(ActionAffinityGrappled)
-            .AddToDB();
-
         var additionalDamageWrathfulSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
@@ -466,7 +456,7 @@ internal static partial class SpellBuilders
             .SetAttackModeOnly()
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetDamageDice(DieType.D6, 1)
-            .SetSpecificDamageType(DamageTypePsychic)
+            .SetSpecificDamageType(DamageTypeNecrotic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
@@ -476,11 +466,11 @@ internal static partial class SpellBuilders
                 new ConditionOperationDescription
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = conditionEnemy,
+                    conditionDefinition = ConditionDefinitions.ConditionFrightened,
                     hasSavingThrow = true,
                     canSaveToCancel = false,
                     saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn
+                    saveOccurence = TurnOccurenceType.EndOfTurn
                 })
             .SetImpactParticleReference(Fear.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
@@ -496,7 +486,7 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(BrandingSmite, NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.WrathfulSmite, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetMaterialComponent(MaterialComponentType.None)
