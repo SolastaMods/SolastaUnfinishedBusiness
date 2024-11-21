@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -7,7 +6,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -292,6 +290,43 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Power Word Kill
+
+    internal static SpellDefinition BuildPowerWordKill()
+    {
+        return SpellDefinitionBuilder
+            .Create("PowerWordKill")
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordKill", Resources.PowerWordKill, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(9)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetHitPointsFilter(0, 100, 10000)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetFilterId(0)
+                            .SetDamageForm(DamageTypePsychic, 12, DieType.D12)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
+                            .Build())
+                    .SetParticleEffectParameters(FingerOfDeath)
+                    .Build())
+            .AddCustomSubFeatures(new FilterTargetingCharacterPowerWordKillOrHeal())
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Power Word Heal
 
     internal static SpellDefinition BuildPowerWordHeal()
@@ -356,61 +391,6 @@ internal static partial class SpellBuilders
             __instance.actionModifier.FailureFlags.Add("Failure/&SecondTargetNotWithinRange");
 
             return false;
-        }
-    }
-
-    #endregion
-
-    #region Power Word Kill
-
-    internal static SpellDefinition BuildPowerWordKill()
-    {
-        return SpellDefinitionBuilder
-            .Create("PowerWordKill")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordKill", Resources.PowerWordKill, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(9)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypePsychic, 12, DieType.D12),
-                        EffectFormBuilder
-                            .Create()
-                            .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
-                            .Build())
-                    .SetParticleEffectParameters(FingerOfDeath)
-                    .Build())
-            .AddCustomSubFeatures(
-                new FilterTargetingCharacterPowerWordKillOrHeal(),
-                new MagicEffectBeforeHitConfirmedOnEnemyPowerWordKill())
-            .AddToDB();
-    }
-
-    private sealed class MagicEffectBeforeHitConfirmedOnEnemyPowerWordKill : IMagicEffectBeforeHitConfirmedOnEnemy
-    {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (rulesetEffect.SourceDefinition == SpellsContext.PowerWordKill)
-            {
-                actualEffectForms.RemoveAt(defender.RulesetActor.CurrentHitPoints <= 100 ? 0 : 1);
-            }
-
-            yield break;
         }
     }
 
