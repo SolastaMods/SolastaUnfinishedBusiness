@@ -378,6 +378,41 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Ray of Sickness
+
+    internal static SpellDefinition BuildRayOfSickness()
+    {
+        const string NAME = "RayOfSickness";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RayOfSickness, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypePoison, 2, DieType.D8),
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionPoisoned))
+                    .SetParticleEffectParameters(PoisonSpray)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Searing Smite
 
     internal static SpellDefinition BuildSearingSmite()

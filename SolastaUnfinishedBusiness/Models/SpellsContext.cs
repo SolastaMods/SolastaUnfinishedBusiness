@@ -301,6 +301,7 @@ internal static class SpellsContext
         RegisterSpell(BuildMagnifyGravity(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
+        RegisterSpell(BuildRayOfSickness(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildSanctuary(), 0, SpellListCleric, spellListInventorClass);
         RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);
         RegisterSpell(BuildSkinOfRetribution(), 0, SpellListWarlock);
