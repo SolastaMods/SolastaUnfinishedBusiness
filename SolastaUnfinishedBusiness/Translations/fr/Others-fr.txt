@@ -342,6 +342,7 @@ Screen/&SpellSlotsUsedShortLongDescription=Vous avez dépensé {0} emplacement(s
 Screen/&SubclassClassExtraSpellDescriptionFormat=Vous connaissez ce sort de la sous-classe {0}.
 Screen/&SwitchConfigurationDescription=Changez vos objets équipés selon cette configuration : {0}.\nMaintenez la touche CTRL enfoncée pour garder la main secondaire si possible.
 Spell/&ConjureElementalInvisibleStalkerTitle=Invocation d'élémentaire [Invisible Stalker]
+Spell/&HuntersMarkExtendedDescription=Un ennemi subit des dégâts de force supplémentaires de votre part et vous pouvez facilement le détecter pendant une durée limitée.
 Spell/&PowerWordStunExtendedDescription=Vous submergez l'esprit d'une créature que vous pouvez voir à portée. Si la cible a 150 points de vie ou moins, elle est étourdie. Sinon, sa vitesse est de 0 jusqu'au début de votre prochain tour. La cible étourdie effectue un jet de sauvegarde de Constitution à la fin de chacun de ses tours, mettant fin à son état en cas de réussite.
 Spell/&SpareTheDyingExtendedDescription=Choisissez une créature à portée qui a 0 point de vie et qui n'est pas morte. La créature devient stable. La portée double lorsque vous atteignez les niveaux 5 (30 pieds), 11 (60 pieds) et 17 (120 pieds).
 Spell/&StoneskinExtendedDescription=Accorde une résistance aux dégâts contondants, tranchants et perforants.

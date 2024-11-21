@@ -342,6 +342,7 @@ Screen/&SpellSlotsUsedShortLongDescription=You have expended {0} pact magic slot
 Screen/&SubclassClassExtraSpellDescriptionFormat=You know this spell from {0} subclass.
 Screen/&SwitchConfigurationDescription=Switch your equipped items to this configuration: {0}.\nHold CTRL to keep off-hand if possible.
 Spell/&ConjureElementalInvisibleStalkerTitle=Conjure Elemental [Invisible Stalker]
+Spell/&HuntersMarkExtendedDescription=An enemy gets additional force damage from you, and you can easily detect it for a limited time.
 Spell/&PowerWordStunExtendedDescription=You overwhelm the mind of one creature you can see within range. If the target has 150 Hit Points or fewer, it has the Stunned condition. Otherwise, its Speed is 0 until the start of your next turn. The Stunned target makes a Constitution saving throw at the end of each of its turns, ending the condition on itself on a success.
 Spell/&SpareTheDyingExtendedDescription=Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft).
 Spell/&StoneskinExtendedDescription=Grants resistance to bludgeoning, slashing, and piercing damage.

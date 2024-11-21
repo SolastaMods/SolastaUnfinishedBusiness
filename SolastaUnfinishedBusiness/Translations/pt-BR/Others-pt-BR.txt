@@ -342,6 +342,7 @@ Screen/&SpellSlotsUsedShortLongDescription=Você gastou {0} espaço(s) de magia 
 Screen/&SubclassClassExtraSpellDescriptionFormat=Você conhece essa magia da subclasse {0}.
 Screen/&SwitchConfigurationDescription=Troque seus itens equipados para esta configuração: {0}.\nSegure CTRL para manter a mão secundária, se possível.
 Spell/&ConjureElementalInvisibleStalkerTitle=Conjurar Elemental [Perseguidor Invisível]
+Spell/&HuntersMarkExtendedDescription=Um inimigo recebe dano de força adicional de você, e você pode detectá-lo facilmente por um tempo limitado.
 Spell/&PowerWordStunExtendedDescription=Você sobrepuja a mente de uma criatura que você pode ver dentro do alcance. Se o alvo tiver 150 Pontos de Vida ou menos, ele tem a condição Atordoado. Caso contrário, sua Velocidade é 0 até o início do seu próximo turno. O alvo Atordoado faz um teste de resistência de Constituição no final de cada um dos seus turnos, encerrando a condição em si mesmo em um sucesso.
 Spell/&SpareTheDyingExtendedDescription=Escolha uma criatura dentro do alcance que tenha 0 Pontos de Vida e não esteja morta. A criatura se torna Estável. O alcance dobra quando você alcança os níveis 5 (30 pés), 11 (60 pés) e 17 (120 pés).
 Spell/&StoneskinExtendedDescription=Concede resistência a danos contundentes, cortantes e perfurantes.

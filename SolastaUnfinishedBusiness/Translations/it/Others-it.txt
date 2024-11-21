@@ -342,6 +342,7 @@ Screen/&SpellSlotsUsedShortLongDescription=Hai speso {0} slot magia patto e {1} 
 Screen/&SubclassClassExtraSpellDescriptionFormat=Conosci questo incantesimo della sottoclasse {0}.
 Screen/&SwitchConfigurationDescription=Sostituisci gli oggetti equipaggiati con questa configurazione: {0}.\nSe possibile, tieni premuto CTRL per tenerli nella mano secondaria.
 Spell/&ConjureElementalInvisibleStalkerTitle=Evoca Elementale [Invisibile Stalker]
+Spell/&HuntersMarkExtendedDescription=Un nemico subisce danni da forza aggiuntivi da parte tua e puoi individuarlo facilmente per un periodo di tempo limitato.
 Spell/&PowerWordStunExtendedDescription=Sommergi la mente di una creatura che puoi vedere entro il raggio d'azione. Se il bersaglio ha 150 Punti Ferita o meno, ha la condizione Stordito. Altrimenti, la sua Velocità è 0 fino all'inizio del tuo turno successivo. Il bersaglio Stordito effettua un tiro salvezza su Costituzione alla fine di ogni suo turno, terminando la condizione su se stesso in caso di successo.
 Spell/&SpareTheDyingExtendedDescription=Scegli una creatura entro il raggio d'azione che abbia 0 Punti Ferita e non sia morta. La creatura diventa Stabile. Il raggio d'azione raddoppia quando raggiungi i livelli 5 (30 piedi), 11 (60 piedi) e 17 (120 piedi).
 Spell/&StoneskinExtendedDescription=Conferisce resistenza ai danni contundenti, taglienti e perforanti.
