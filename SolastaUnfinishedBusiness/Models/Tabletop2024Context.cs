@@ -643,6 +643,10 @@ internal static class Tabletop2024Context
             Main.Settings.EnableOneDndHuntersMarkSpell
                 ? AdditionalDamageType.Specific
                 : AdditionalDamageType.SameAsBaseDamage;
+        HuntersMark.GuiPresentation.description = 
+            Main.Settings.EnableOneDndHuntersMarkSpell
+                ?"Spell/&OneDndHuntersMarkExtendedDescription"
+                : "Spell/&OneDndHuntersMarkDescription";
     }
 
     internal static void SwitchOneDndSpellMagicWeapon()
@@ -1086,7 +1090,7 @@ internal static class Tabletop2024Context
             return;
         }
 
-        TrueStrike.AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerAnyWeapon);
+        TrueStrike.AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerAnyWeaponAttack);
         TrueStrike.GuiPresentation.description = "Spell/&TrueStrike2024Description";
         TrueStrike.effectDescription = EffectDescriptionBuilder
             .Create()

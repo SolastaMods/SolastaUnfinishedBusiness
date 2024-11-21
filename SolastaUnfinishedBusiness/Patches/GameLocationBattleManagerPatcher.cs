@@ -150,7 +150,8 @@ public static class GameLocationBattleManagerPatcher
             {
                 __result = AttackAfterMagicEffect.CanAttack(
                     attackParams.attacker, attackParams.defender,
-                    attackAfterMagicEffect.AllowMelee, attackAfterMagicEffect.AllowRanged, out _);
+                    attackAfterMagicEffect.AllowMelee, attackAfterMagicEffect.AllowRanged,
+                    attackAfterMagicEffect.AllowThrown, out _);
             }
         }
     }

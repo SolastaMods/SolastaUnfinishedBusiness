@@ -15,12 +15,15 @@ internal sealed class AttackAfterMagicEffect(AttackAfterMagicEffect.AttackType a
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
 
-    internal static readonly AttackAfterMagicEffect MarkerAnyWeapon = new(AttackType.Melee | AttackType.Ranged);
-    internal static readonly AttackAfterMagicEffect MarkerMeleeWeapon = new(AttackType.Melee);
-    internal static readonly AttackAfterMagicEffect MarkerRangedWeapon = new(AttackType.Ranged);
+    internal static readonly AttackAfterMagicEffect MarkerAnyWeaponAttack =
+        new(AttackType.Melee | AttackType.Ranged | AttackType.Thrown);
+
+    internal static readonly AttackAfterMagicEffect MarkerMeleeWeaponAttack = new(AttackType.Melee);
+    internal static readonly AttackAfterMagicEffect MarkerRangedWeaponAttack = new(AttackType.Ranged);
 
     internal readonly bool AllowMelee = attackType.HasFlag(AttackType.Melee);
     internal readonly bool AllowRanged = attackType.HasFlag(AttackType.Ranged);
+    internal readonly bool AllowThrown = attackType.HasFlag(AttackType.Thrown);
 
     public bool EnforceFullSelection => false;
 
@@ -32,7 +35,9 @@ internal sealed class AttackAfterMagicEffect(AttackAfterMagicEffect.AttackType a
             return true;
         }
 
-        if (CanAttack(__instance.ActionParams.ActingCharacter, target, AllowRanged, AllowMelee, out var allowReach))
+        if (CanAttack(
+                __instance.ActionParams.ActingCharacter, target,
+                AllowRanged, AllowMelee, AllowThrown, out var allowReach))
         {
             return true;
         }
@@ -49,6 +54,7 @@ internal sealed class AttackAfterMagicEffect(AttackAfterMagicEffect.AttackType a
         GameLocationCharacter defender,
         bool allowMelee,
         bool allowRanged,
+        bool allowThrown,
         out bool allowReach)
     {
         allowReach = Main.Settings.AllowBladeCantripsToUseReach;
@@ -64,9 +70,10 @@ internal sealed class AttackAfterMagicEffect(AttackAfterMagicEffect.AttackType a
         var attackModifier = new ActionModifier();
         var evalParams = new BattleDefinitions.AttackEvaluationParams();
         var ranged = attackMode.Ranged;
+        var thrown = attackMode.Thrown;
         var canAttack = false;
 
-        if (allowRanged && ranged)
+        if (allowRanged && ranged || allowThrown && thrown)
         {
             evalParams.FillForPhysicalRangeAttack(
                 attacker, attacker.LocationPosition, attackMode, defender, defender.LocationPosition, attackModifier);
@@ -115,7 +122,7 @@ internal sealed class AttackAfterMagicEffect(AttackAfterMagicEffect.AttackType a
         var caster = actionParams.ActingCharacter;
         //At this point it's safe to pass true to allowMelee and allowRanged as validations already happened
         var targets = actionParams.TargetCharacters
-            .Where(t => CanAttack(caster, t, true, true, out _))
+            .Where(t => CanAttack(caster, t, true, true, true, out _))
             .ToArray();
 
         if (targets.Length == 0)
@@ -160,6 +167,7 @@ internal sealed class AttackAfterMagicEffect(AttackAfterMagicEffect.AttackType a
     internal enum AttackType
     {
         Melee = 1,
-        Ranged = 2
+        Ranged = 2,
+        Thrown = 4
     }
 }

@@ -1087,7 +1087,7 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.ConditionForm(condition, applyToSelf: true))
                     .SetCasterEffectParameters(WindWall)
                     .Build())
-            .AddCustomSubFeatures(AttackAfterMagicEffect.MarkerRangedWeapon)
+            .AddCustomSubFeatures(AttackAfterMagicEffect.MarkerRangedWeaponAttack)
             .AddToDB();
 
         return spell;
