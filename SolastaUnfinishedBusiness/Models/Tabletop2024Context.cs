@@ -297,6 +297,7 @@ internal static class Tabletop2024Context
         LoadMonkHeightenedMetabolism();
         LoadSecondWindToUseOneDndUsagesProgression();
         LoadOneDndEnableBardCounterCharmAsReactionAtLevel7();
+        LoadOneDndSpellSpareTheDying();
         LoadOneDndTrueStrike();
         LoadSorcerousRestorationAtLevel5();
         SwitchBarbarianBrutalCritical();
@@ -336,6 +337,7 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellHuntersMark();
         SwitchOneDndSpellMagicWeapon();
         SwitchOneDndSpellPowerWordStun();
+        SwitchOneDndSpellSpareTheDying();
         SwitchOneDndSpellSpiderClimb();
         SwitchOneDndSpellStoneSkin();
         SwitchOneDndSurprisedEnforceDisadvantage();
@@ -552,6 +554,19 @@ internal static class Tabletop2024Context
         LesserRestoration.castingTime = Main.Settings.EnableOneDndLesserRestorationSpell
             ? ActivationTime.BonusAction
             : ActivationTime.Action;
+    }
+
+    internal static void LoadOneDndSpellSpareTheDying()
+    {
+        SpareTheDying.AddCustomSubFeatures(new ModifyEffectDescriptionSpareTheDying());
+    }
+
+    internal static void SwitchOneDndSpellSpareTheDying()
+    {
+        SpareTheDying.GuiPresentation.description =
+            Main.Settings.EnableOneDndSpareTheDyingSpell
+                ? "Spell/&SpareTheDyingDescription"
+                : "Spell/&SpareTheDyingExtendedDescription";
     }
 
     internal static void SwitchOneDndSpellSpiderClimb()
@@ -1271,6 +1286,34 @@ internal static class Tabletop2024Context
         GuiWrapperContext.RecacheInvocations();
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class ModifyEffectDescriptionSpareTheDying : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return Main.Settings.EnableOneDndSpareTheDyingSpell && definition == SpareTheDying;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var level = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var power = level switch
+            {
+                >= 17 => 3,
+                >= 11 => 2,
+                >= 5 => 1,
+                _ => 0
+            };
+
+            effectDescription.rangeParameter = 3 * (2 ^ power);
+
+            return effectDescription;
+        }
     }
 
     private sealed class ModifyAttackActionModifierTrueStrike : IModifyAttackActionModifier

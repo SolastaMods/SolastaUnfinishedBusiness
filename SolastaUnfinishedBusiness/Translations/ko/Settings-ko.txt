@@ -157,6 +157,7 @@ ModUi/&EnableOneDndHuntersMarkSpell=<color=#D89555>사냥꾼의 표식</color> 5
 ModUi/&EnableOneDndLesserRestorationSpell=<color=#D89555>하위 회복</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[보너스 액션]</color></i>을 활성화합니다.
 ModUi/&EnableOneDndMagicWeaponSpell=<color=#D89555>마법 무기</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[보너스 액션, 집중 없음, 3, 6번째 주문 레벨에서 강화 업그레이드]</color></i>
 ModUi/&EnableOneDndPowerWordStunSpell=<color=#D89555>파워워드 스턴</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[대상의 체력이 150을 넘으면 1턴 동안 멈춤]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=<color=#D89555>죽음을 막아라</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[5, 11, 17레벨에서 범위가 두 배가 됨]</color></i>
 ModUi/&EnableOneDndSpiderClimbSpell=<color=#D89555>거미 등반</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[업캐스트당 대상 +1개]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>스톤 스킨</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[마법 B/P/S에 대한 저항력도 제공]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>True Strike</color> 5e 2024 캔트립 버전 사용 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>\n<i><color=#F0DAA0>[공격 시 공격 굴림과 피해 보너스에 주문 시전 능력을 사용하고, 레벨 5부터 추가 방사형 피해]</color></i>

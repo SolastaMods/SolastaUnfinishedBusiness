@@ -157,6 +157,7 @@ ModUi/&EnableOneDndHuntersMarkSpell=启用<color=#D89555>猎人印记</color> 5e
 ModUi/&EnableOneDndLesserRestorationSpell=启用<color=#D89555>次级修复</color> 5e 2024 法术版本<i><color=#F0DAA0>[奖励行动]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=启用<color=#D89555>魔法武器</color> 5e 2024 法术版本<i><color=#F0DAA0>[奖励行动，无需集中注意力，在第 3 级和第 6 级法术增强升级]</color></i>
 ModUi/&EnableOneDndPowerWordStunSpell=启用<color=#D89555>Power Word Stun</color> 5e 2024 法术版本<i><color=#F0DAA0>[如果目标的生命值超过 150，则停止一回合]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=启用<color=#D89555>Spare the Dying</color> 5e 2024 法术版本<i><color=#F0DAA0>[范围在 5、11 和 17 级加倍]</color></i>
 ModUi/&EnableOneDndSpiderClimbSpell=启用<color=#D89555>蜘蛛攀爬</color> 5e 2024 法术版本<i><color=#F0DAA0>[每次施法 +1 个目标]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=启用<color=#D89555>石肤</color> 5e 2024 法术版本<i><color=#F0DAA0>[同时提供对魔法 B/P/S 的抵抗力]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5e 2024 法术版本 <b><i><color=#C04040E0>[需要重启]</color></i></b>{99><i><color=#F0DAA0>[攻击使用你的施法能力进行攻击掷骰和伤害加成，并从 5 级开始造成额外的辐射伤害]</color></i>

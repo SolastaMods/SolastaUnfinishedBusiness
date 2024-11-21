@@ -221,6 +221,13 @@ internal static class SpellsDisplay
             Tabletop2024Context.SwitchOneDndSpellPowerWordStun();
         }
 
+        toggle = Main.Settings.EnableOneDndSpareTheDyingSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndSpareTheDyingSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndSpareTheDyingSpell = toggle;
+            Tabletop2024Context.SwitchOneDndSpellSpareTheDying();
+        }
+
         toggle = Main.Settings.EnableOneDndSpiderClimbSpell;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndSpiderClimbSpell"), ref toggle, UI.AutoWidth()))
         {

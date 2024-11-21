@@ -343,6 +343,7 @@ Screen/&SubclassClassExtraSpellDescriptionFormat=당신은 {0} 하위 클래스�
 Screen/&SwitchConfigurationDescription=장착된 항목을 다음 구성으로 전환하세요: {0}.\n가능하면 손을 떼지 않으려면 Ctrl 키를 누르세요.
 Spell/&ConjureElementalInvisibleStalkerTitle=정령 소환 [투명 추적자]
 Spell/&PowerWordStunExtendedDescription=범위 내에서 볼 수 있는 한 생명체의 정신을 압도합니다. 대상의 생명력이 150 이하이면 기절 상태가 됩니다. 그렇지 않으면 다음 턴이 시작될 때까지 속도가 0입니다. 기절 상태인 대상은 각 턴이 끝날 때마다 체력 구원 굴림을 하여 성공 시 해당 상태가 끝납니다.
+Spell/&SpareTheDyingExtendedDescription=범위 내에 있는 0의 생명력을 가지고 있고 죽지 않은 생물을 선택하세요. 생물은 안정 상태가 됩니다. 레벨 5(30피트), 11(60피트), 17(120피트)에 도달하면 범위가 두 배가 됩니다.
 Spell/&StoneskinExtendedDescription=타격, 베기, 찌르기 피해에 대한 저항력을 부여합니다.
 Spell/&TrueStrike2024Description=마법적 통찰력의 섬광에 이끌려 주문을 시전하는 데 사용된 무기로 한 번의 공격을 합니다. 공격은 공격과 피해 굴림에 주문 시전 능력을 사용하거나 힘이나 민첩성 중 더 높은 것을 사용합니다. 공격이 적중하면 무기의 일반적인 피해 유형 대신 Radiant 피해를 입힙니다. 공격은 레벨 5(1d6), 11(2d6), 17(3d6)에 도달하면 추가 Radiant 피해를 입힙니다.
 Stage/&IdentityMorphotypeEyeHeader=아이 스타일

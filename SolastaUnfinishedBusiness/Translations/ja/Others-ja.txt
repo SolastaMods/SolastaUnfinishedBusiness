@@ -343,6 +343,7 @@ Screen/&SubclassClassExtraSpellDescriptionFormat=あなたはこの呪文を{0}�
 Screen/&SwitchConfigurationDescription=装備しているアイテムを次の構成に切り替えます: {0}。\nCTRL キーを押したままにして、可能であれば手を離してください。
 Spell/&ConjureElementalInvisibleStalkerTitle=コンジュア・エレメンタル [インビジブル・ストーカー]
 Spell/&PowerWordStunExtendedDescription=範囲内にいる、あなたが見ることができる 1 体のクリーチャーの精神を圧倒します。ターゲットのヒット ポイントが 150 以下である場合、そのクリーチャーは気絶状態になります。それ以外の場合、そのスピードは、次のターンの開始時まで 0 になります。気絶したターゲットは、各ターンの終了時に耐久力セーヴィング スローを実行し、成功すると自身の状態を終了します。
+Spell/&SpareTheDyingExtendedDescription=範囲内のヒット ポイントが 0 で、死んでいないクリーチャーを 1 体選択します。クリーチャーは安定状態になります。レベル 5 (30 フィート)、11 (60 フィート)、17 (120 フィート) に達すると、範囲は 2 倍になります。
 Spell/&StoneskinExtendedDescription=殴打、斬撃、刺突ダメージに対する耐性を付与します。
 Spell/&TrueStrike2024Description=魔法の洞察力のひらめきに導かれて、呪文を唱える際に使用した武器で 1 回の攻撃を行います。攻撃では、攻撃とダメージ ロールに呪文発動能力を使用するか、または [筋力] と [敏捷性] のうち、いずれか高い方を使用します。攻撃が命中した場合、武器の通常のダメージ タイプではなく、光輝ダメージを与えます。レベル 5 (1d6)、11 (2d6)、および 17 (3d6) に達すると、攻撃は追加の光輝ダメージを与えます。
 Stage/&IdentityMorphotypeEyeHeader=アイスタイル

@@ -390,6 +390,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableOneDndLesserRestorationSpell { get; set; }
     public bool EnableOneDndMagicWeaponSpell { get; set; }
     public bool EnableOneDndPowerWordStunSpell { get; set; }
+    public bool EnableOneDndSpareTheDyingSpell { get; set; }
     public bool EnableOneDndSpiderClimbSpell { get; set; }
     public bool EnableOneDndStoneSkinSpell { get; set; }
     public bool EnableOneDndTrueStrikeCantrip { get; set; }

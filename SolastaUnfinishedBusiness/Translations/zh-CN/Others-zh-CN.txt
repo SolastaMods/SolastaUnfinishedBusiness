@@ -343,6 +343,7 @@ Screen/&SubclassClassExtraSpellDescriptionFormat=你从 {0} 子职知道这个�
 Screen/&SwitchConfigurationDescription=将你装备的物品切换到此配置：{0}。\n如果可能，按住 CTRL 以保持副手状态。
 Spell/&ConjureElementalInvisibleStalkerTitle=元素咒唤【隐形潜伏怪】
 Spell/&PowerWordStunExtendedDescription=你压制了范围内一个你能看见的生物的思想。如果目标的生命值不超过 150，则它处于眩晕状态。否则，它的速度为 0，直到你的下一回合开始。眩晕目标在每一回合结束时进行体质豁免检定，成功则结束自身状态。
+Spell/&SpareTheDyingExtendedDescription=选择范围内生命值为 0 且未死亡的生物。该生物将变得稳定。当您达到等级 5（30 英尺）、11（60 英尺）和 17（120 英尺）时，范围将加倍。
 Spell/&StoneskinExtendedDescription=抵抗钝击、砍击和穿刺伤害。
 Spell/&TrueStrike2024Description=在魔法洞察力的指引下，你使用施法武器发动一次攻击。攻击使用你的施法能力进行攻击和伤害掷骰，或使用力量或敏捷（取较高者）。如果攻击命中，则造成辐射伤害，而不是武器的正常伤害类型。当你达到 5 级（1d6）、11 级（2d6）和 17 级（3d6）时，攻击会造成额外的辐射伤害。
 Stage/&IdentityMorphotypeEyeHeader=眼型
