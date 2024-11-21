@@ -342,6 +342,7 @@ Screen/&SpellSlotsUsedShortLongDescription=Você gastou {0} espaço(s) de magia 
 Screen/&SubclassClassExtraSpellDescriptionFormat=Você conhece essa magia da subclasse {0}.
 Screen/&SwitchConfigurationDescription=Troque seus itens equipados para esta configuração: {0}.\nSegure CTRL para manter a mão secundária, se possível.
 Spell/&ConjureElementalInvisibleStalkerTitle=Conjurar Elemental [Perseguidor Invisível]
+Spell/&PowerWordStunExtendedDescription=Você sobrepuja a mente de uma criatura que você pode ver dentro do alcance. Se o alvo tiver 150 Pontos de Vida ou menos, ele tem a condição Atordoado. Caso contrário, sua Velocidade é 0 até o início do seu próximo turno. O alvo Atordoado faz um teste de resistência de Constituição no final de cada um dos seus turnos, encerrando a condição em si mesmo em um sucesso.
 Spell/&StoneskinExtendedDescription=Concede resistência a danos contundentes, cortantes e perfurantes.
 Spell/&TrueStrike2024Description=Guiado por um lampejo de percepção mágica, você faz um ataque com a arma usada na conjuração da magia. O ataque usa sua habilidade de conjuração para as jogadas de ataque e dano ou Força ou Destreza, o que for maior. Se o ataque acertar, ele causa dano Radiante em vez do tipo de dano normal da arma. O ataque causa dano Radiante extra quando você atinge os níveis 5 (1d6), 11 (2d6) e 17 (3d6).
 Stage/&IdentityMorphotypeEyeHeader=Estilo dos olhos

@@ -342,6 +342,7 @@ Screen/&SpellSlotsUsedShortLongDescription=Has gastado {0} espacio(s) de magia d
 Screen/&SubclassClassExtraSpellDescriptionFormat=Conoces este hechizo de la subclase {0}.
 Screen/&SwitchConfigurationDescription=Cambia los objetos equipados a esta configuración: {0}.\nMantén presionada la tecla CTRL para mantener la mano izquierda si es posible.
 Spell/&ConjureElementalInvisibleStalkerTitle=Conjurar elemental [Acosador invisible]
+Spell/&PowerWordStunExtendedDescription=Abruma la mente de una criatura que pueda ver dentro del alcance. Si el objetivo tiene 150 puntos de golpe o menos, tiene la condición Aturdido. De lo contrario, su Velocidad es 0 hasta el comienzo de su siguiente turno. El objetivo Aturdido realiza una tirada de salvación de Constitución al final de cada uno de sus turnos, y termina la condición en sí mismo si tiene éxito.
 Spell/&StoneskinExtendedDescription=Otorga resistencia al daño contundente, cortante y perforante.
 Spell/&TrueStrike2024Description=Guiado por un destello de perspicacia mágica, realizas un ataque con el arma utilizada en el lanzamiento del conjuro. El ataque utiliza tu capacidad de lanzamiento de conjuros para las tiradas de ataque y daño o Fuerza o Destreza, la que sea mayor. Si el ataque impacta, inflige daño radiante en lugar del tipo de daño normal del arma. El ataque inflige daño radiante adicional cuando alcanzas los niveles 5 (1d6), 11 (2d6) y 17 (3d6).
 Stage/&IdentityMorphotypeEyeHeader=Estilo de ojos

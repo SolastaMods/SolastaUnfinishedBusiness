@@ -342,6 +342,7 @@ Screen/&SpellSlotsUsedShortLongDescription=Vous avez dépensé {0} emplacement(s
 Screen/&SubclassClassExtraSpellDescriptionFormat=Vous connaissez ce sort de la sous-classe {0}.
 Screen/&SwitchConfigurationDescription=Changez vos objets équipés selon cette configuration : {0}.\nMaintenez la touche CTRL enfoncée pour garder la main secondaire si possible.
 Spell/&ConjureElementalInvisibleStalkerTitle=Invocation d'élémentaire [Invisible Stalker]
+Spell/&PowerWordStunExtendedDescription=Vous submergez l'esprit d'une créature que vous pouvez voir à portée. Si la cible a 150 points de vie ou moins, elle est étourdie. Sinon, sa vitesse est de 0 jusqu'au début de votre prochain tour. La cible étourdie effectue un jet de sauvegarde de Constitution à la fin de chacun de ses tours, mettant fin à son état en cas de réussite.
 Spell/&StoneskinExtendedDescription=Accorde une résistance aux dégâts contondants, tranchants et perforants.
 Spell/&TrueStrike2024Description=Guidé par un éclair de perspicacité magique, vous effectuez une attaque avec l'arme utilisée pour lancer le sort. L'attaque utilise soit votre capacité de lancer de sorts pour les jets d'attaque et de dégâts, soit votre Force ou votre Dextérité, selon la valeur la plus élevée. Si l'attaque touche, elle inflige des dégâts radiants au lieu du type de dégâts normal de l'arme. L'attaque inflige des dégâts radiants supplémentaires lorsque vous atteignez les niveaux 5 (1d6), 11 (2d6) et 17 (3d6).
 Stage/&IdentityMorphotypeEyeHeader=Style des yeux

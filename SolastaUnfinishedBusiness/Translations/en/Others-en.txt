@@ -342,6 +342,7 @@ Screen/&SpellSlotsUsedShortLongDescription=You have expended {0} pact magic slot
 Screen/&SubclassClassExtraSpellDescriptionFormat=You know this spell from {0} subclass.
 Screen/&SwitchConfigurationDescription=Switch your equipped items to this configuration: {0}.\nHold CTRL to keep off-hand if possible.
 Spell/&ConjureElementalInvisibleStalkerTitle=Conjure Elemental [Invisible Stalker]
+Spell/&PowerWordStunExtendedDescription=You overwhelm the mind of one creature you can see within range. If the target has 150 Hit Points or fewer, it has the Stunned condition. Otherwise, its Speed is 0 until the start of your next turn. The Stunned target makes a Constitution saving throw at the end of each of its turns, ending the condition on itself on a success.
 Spell/&StoneskinExtendedDescription=Grants resistance to bludgeoning, slashing, and piercing damage.
 Spell/&TrueStrike2024Description=Guided by a flash of magical insight, you make one attack with the weapon used in the spell's casting. The attack uses either your spellcasting ability for the attack and damage rolls or Strength or Dexterity, whichever is higher. If the attack hits, it deals Radiant damage instead of the weapon's normal damage type. The attack deals extra Radiant damage when you reach levels 5 (1d6), 11 (2d6), and 17 (3d6).
 Stage/&IdentityMorphotypeEyeHeader=Eye Style

@@ -342,6 +342,7 @@ Screen/&SpellSlotsUsedShortLongDescription=Sie haben auf dieser Ebene {0} Paktma
 Screen/&SubclassClassExtraSpellDescriptionFormat=Du kennst diesen Zauber aus der Unterklasse {0}.
 Screen/&SwitchConfigurationDescription=Wechseln Sie bei Ihren ausgerüsteten Gegenständen zu dieser Konfiguration: {0}.\nHalten Sie die STRG-Taste gedrückt, um die andere Hand möglichst beizubehalten.
 Spell/&ConjureElementalInvisibleStalkerTitle=Elementar beschwören [Unsichtbarer Pirscher]
+Spell/&PowerWordStunExtendedDescription=Du überwältigst den Geist einer Kreatur, die du in Reichweite sehen kannst. Wenn das Ziel 150 Trefferpunkte oder weniger hat, ist es betäubt. Andernfalls ist seine Geschwindigkeit bis zum Beginn deines nächsten Zuges 0. Das betäubte Ziel macht am Ende jedes Zuges einen Konstitutionsrettungswurf und beendet den Zustand bei Erfolg.
 Spell/&StoneskinExtendedDescription=Verleiht Widerstand gegen Schlag-, Schnitt- und Stichschäden.
 Spell/&TrueStrike2024Description=Geleitet von einem Geistesblitz führst du einen Angriff mit der Waffe aus, die du beim Wirken des Zaubers benutzt hast. Der Angriff nutzt entweder deine Zauberfähigkeit für die Angriffs- und Schadenswürfe oder Stärke oder Geschicklichkeit, je nachdem, was höher ist. Wenn der Angriff trifft, verursacht er Strahlungsschaden statt des normalen Schadenstyps der Waffe. Der Angriff verursacht zusätzlichen Strahlungsschaden, wenn du die Stufen 5 (1W6), 11 (2W6) und 17 (3W6) erreichst.
 Stage/&IdentityMorphotypeEyeHeader=Augenstil

@@ -342,6 +342,7 @@ Screen/&SpellSlotsUsedShortLongDescription=Hai speso {0} slot magia patto e {1} 
 Screen/&SubclassClassExtraSpellDescriptionFormat=Conosci questo incantesimo della sottoclasse {0}.
 Screen/&SwitchConfigurationDescription=Sostituisci gli oggetti equipaggiati con questa configurazione: {0}.\nSe possibile, tieni premuto CTRL per tenerli nella mano secondaria.
 Spell/&ConjureElementalInvisibleStalkerTitle=Evoca Elementale [Invisibile Stalker]
+Spell/&PowerWordStunExtendedDescription=Sommergi la mente di una creatura che puoi vedere entro il raggio d'azione. Se il bersaglio ha 150 Punti Ferita o meno, ha la condizione Stordito. Altrimenti, la sua Velocità è 0 fino all'inizio del tuo turno successivo. Il bersaglio Stordito effettua un tiro salvezza su Costituzione alla fine di ogni suo turno, terminando la condizione su se stesso in caso di successo.
 Spell/&StoneskinExtendedDescription=Conferisce resistenza ai danni contundenti, taglienti e perforanti.
 Spell/&TrueStrike2024Description=Guidato da un lampo di intuizione magica, esegui un attacco con l'arma usata per lanciare l'incantesimo. L'attacco usa la tua capacità di lanciare incantesimi per i tiri di attacco e danno o Forza o Destrezza, a seconda di quale sia più alto. Se l'attacco colpisce, infligge danni Radianti invece del normale tipo di danno dell'arma. L'attacco infligge danni Radianti extra quando raggiungi i livelli 5 (1d6), 11 (2d6) e 17 (3d6).
 Stage/&IdentityMorphotypeEyeHeader=Stile degli occhi
