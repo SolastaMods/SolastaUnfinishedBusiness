@@ -284,7 +284,7 @@ internal static class Tabletop2024Context
         .SetConditionForm(
             ConditionDefinitionBuilder
                 .Create(CustomConditionsContext.StopMovement, "ConditionPowerWordStunStopped")
-                .SetSpecialDuration(DurationType.Round, 1)
+                .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                 .AddToDB(),
             ConditionForm.ConditionOperation.Add)
         .Build();
@@ -656,11 +656,14 @@ internal static class Tabletop2024Context
             PowerWordStun.EffectDescription.EffectFormFilters.RemoveAt(1);
         }
 
+        PowerWordStun.GuiPresentation.description = "Spell/&PowerWordStunDescription";
+
         if (!Main.Settings.EnableOneDndPowerWordStunSpell)
         {
             return;
         }
 
+        PowerWordStun.GuiPresentation.description = "Spell/&PowerWordStunExtendedDescription";
         PowerWordStun.EffectDescription.EffectFormFilters.Add(
             new EffectFormFilter { effectFormId = 1, minHitPoints = 151, maxHitPoints = 10000 });
         effectForms.Add(EffectFormPowerWordStunStopped);
