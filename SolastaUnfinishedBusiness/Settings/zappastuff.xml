@@ -924,10 +924,14 @@
     <EnableOneDndDamagingSpellsUpgrade>true</EnableOneDndDamagingSpellsUpgrade>
     <EnableOneDndHealingSpellsUpgrade>true</EnableOneDndHealingSpellsUpgrade>
     <EnableOneDndDivineFavorSpell>true</EnableOneDndDivineFavorSpell>
-    <EnableOneDndLesserRestorationSpell>true</EnableOneDndLesserRestorationSpell>
     <EnableOneDndGuidanceSpell>true</EnableOneDndGuidanceSpell>
+    <EnableOneDndHideousLaughterSpell>true</EnableOneDndHideousLaughterSpell>
+    <EnableOneDndHuntersMarkSpell>true</EnableOneDndHuntersMarkSpell>
+    <EnableOneDndLesserRestorationSpell>true</EnableOneDndLesserRestorationSpell>
     <EnableOneDndMagicWeaponSpell>true</EnableOneDndMagicWeaponSpell>
-    <EnableOneDndPowerWordKillSpell>true</EnableOneDndPowerWordKillSpell>
+    <EnableOneDndPowerWordStunSpell>true</EnableOneDndPowerWordStunSpell>
+    <EnableOneDndSpareTheDyingSpell>true</EnableOneDndSpareTheDyingSpell>
+    <EnableOneDndSpiderClimbSpell>true</EnableOneDndSpiderClimbSpell>
     <EnableOneDndStoneSkinSpell>true</EnableOneDndStoneSkinSpell>
     <EnableOneDndTrueStrikeCantrip>true</EnableOneDndTrueStrikeCantrip>
     <AllowHasteCasting>true</AllowHasteCasting>

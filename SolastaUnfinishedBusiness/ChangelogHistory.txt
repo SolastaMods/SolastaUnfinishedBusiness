@@ -1,3 +1,21 @@
+1.5.97.40:
+
+- added Ray of Sickness spell
+- added 'Enable Hideous Laughter 5e 2024 spell version' setting [+1 target per upcast]
+- added 'Enable Hunter's Mark 5e 2024 spell version' setting [force damage]
+- added 'Enable Spare the Dying 5e 2024 spell version' setting [range double every cantrip level upgrade]
+- added 'Enable Spider Climb 5e 2024 spell version' setting [+1 target per upcast]
+- added 'Enable Power Word Stun 5e 2024 spell version' setting [target stopped for one turn if has more than 150 hp]
+- changed Aura of Vitality, Banishing Smite, Mirror Image, Swift Quiver, Weird, and Wrathful Smite to 2024 version
+- fixed Patron Hexblade interaction with 5e 2024 pact of blades invocation
+- fixed True Strike 2024 version to also allow ranged weapon attacks
+- fixed weapon attribute determination logic [i.e.: Hexblade, precision feats, etc.]
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.39:
 
 - added 'Allow Potions and Scrolls to be carried and used in the ammunition slots' setting [by SilverGriffon]
@@ -19,11 +37,6 @@
 - fixed Martial Arcane Archer bursting arrow not damaging original target nor applying same dice rolls to all targets
 - fixed spend power action passing a null instance to mod custom behaviors leading to desyncs and soft locks
 - fixed Stealthy action from key bind not broadcasting status on multiplayer sessions
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.38:
 
