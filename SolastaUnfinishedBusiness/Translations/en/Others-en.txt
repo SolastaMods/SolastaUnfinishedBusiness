@@ -296,6 +296,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Auto Power
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Auto Rage Start
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Auto Creature Reduced to Zero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Auto Sneak Attack
+Rules/&ConditionMarkedByHunterExtendedDescription=Receives +1d6 force damage when hit by the caster with a weapon attack.
 Rules/&ConditionOneDndBarkskinDescription=The creature's Armor Class becomes at least 17.
 Rules/&ConditionStoneskinExtendedDescription=Resistance to bludgeoning, slashing, and piercing damage.
 Rules/&CounterFormDismissCreatureFormat=Dismisses a target conjured creature

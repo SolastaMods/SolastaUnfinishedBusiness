@@ -296,6 +296,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=自动启用能力
 Rules/&ActivationTypeOnRageStartAutomaticTitle=自动开始狂暴
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=自动生物生命值降至零
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=自动偷袭
+Rules/&ConditionMarkedByHunterExtendedDescription=当施法者使用武器攻击时，会受到+1d6 力量伤害。
 Rules/&ConditionOneDndBarkskinDescription=该生物的防御等级至少变为 17。
 Rules/&ConditionStoneskinExtendedDescription=抵抗钝击、砍杀和穿刺伤害。
 Rules/&CounterFormDismissCreatureFormat=解散一个目标召唤生物

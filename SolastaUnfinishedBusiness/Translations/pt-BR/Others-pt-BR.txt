@@ -296,6 +296,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Alimentação automática
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Início de raiva automática
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Criatura Automática Reduzida a Zero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Ataque furtivo automático
+Rules/&ConditionMarkedByHunterExtendedDescription=Recebe +1d6 de dano de força quando atingido pelo conjurador com um ataque de arma.
 Rules/&ConditionOneDndBarkskinDescription=A Classe de Armadura da criatura se torna pelo menos 17.
 Rules/&ConditionStoneskinExtendedDescription=Resistência a danos contundentes, cortantes e perfurantes.
 Rules/&CounterFormDismissCreatureFormat=Dispensa uma criatura alvo conjurada

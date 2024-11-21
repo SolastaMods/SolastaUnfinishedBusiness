@@ -296,6 +296,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=オートパワー
 Rules/&ActivationTypeOnRageStartAutomaticTitle=オートレイジスタート
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=自動クリーチャーのHPがゼロに減少
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=オートスニークアタック
+Rules/&ConditionMarkedByHunterExtendedDescription=術者が武器攻撃で攻撃すると、+1d6 のフォース ダメージを受けます。
 Rules/&ConditionOneDndBarkskinDescription=クリーチャーのアーマー クラスは少なくとも 17 になります。
 Rules/&ConditionStoneskinExtendedDescription=殴打、斬撃、刺突によるダメージに対する耐性。
 Rules/&CounterFormDismissCreatureFormat=対象の召喚されたクリーチャーを退ける

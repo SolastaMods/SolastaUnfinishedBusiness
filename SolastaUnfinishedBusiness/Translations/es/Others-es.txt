@@ -296,6 +296,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Apagado automático
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Inicio de furia automática
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Criatura automática reducida a cero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Ataque furtivo automático
+Rules/&ConditionMarkedByHunterExtendedDescription=Recibe +1d6 de daño de fuerza cuando el lanzador lo golpea con un ataque de arma.
 Rules/&ConditionOneDndBarkskinDescription=La clase de armadura de la criatura pasa a ser al menos 17.
 Rules/&ConditionStoneskinExtendedDescription=Resistencia a daños contundentes, cortantes y perforantes.
 Rules/&CounterFormDismissCreatureFormat=Despierta a una criatura conjurada objetivo.

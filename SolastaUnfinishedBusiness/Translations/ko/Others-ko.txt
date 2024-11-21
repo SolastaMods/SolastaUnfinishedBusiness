@@ -296,6 +296,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=자동 전원
 Rules/&ActivationTypeOnRageStartAutomaticTitle=자동 분노 시작
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=자동 생명체의 HP가 0으로 감소했습니다.
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=자동 몰래 공격
+Rules/&ConditionMarkedByHunterExtendedDescription=시전자의 무기 공격에 맞으면 +1d6의 힘 피해를 입습니다.
 Rules/&ConditionOneDndBarkskinDescription=해당 생물의 방어력이 최소 17이 됩니다.
 Rules/&ConditionStoneskinExtendedDescription=둔기, 베기, 찌르기 피해에 대한 저항력.
 Rules/&CounterFormDismissCreatureFormat=소환된 대상 생물을 해제합니다.

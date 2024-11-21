@@ -296,6 +296,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Автоматическое ум
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Автоматическое начало ярости
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Автоматическое уменьшение хитов существа до нуля
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Автоматическая скрытая атака
+Rules/&ConditionMarkedByHunterExtendedDescription=Получает +1d6 урона от силы, когда заклинатель поражает его атакой оружием.
 Rules/&ConditionOneDndBarkskinDescription=КД существа становится не ниже 17.
 Rules/&ConditionStoneskinExtendedDescription=Сопротивление дробящему, рубящему и колющему урону.
 Rules/&CounterFormDismissCreatureFormat=Отпускает призванное существо

@@ -296,6 +296,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Puissance automatique
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Démarrage automatique de la rage
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Créature automatique réduite à zéro PV
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Attaque furtive automatique
+Rules/&ConditionMarkedByHunterExtendedDescription=Reçoit +1d6 de dégâts de force lorsqu'il est touché par le lanceur de sorts avec une attaque d'arme.
 Rules/&ConditionOneDndBarkskinDescription=La classe d'armure de la créature devient au moins 17.
 Rules/&ConditionStoneskinExtendedDescription=Résistance aux dégâts contondants, tranchants et perforants.
 Rules/&CounterFormDismissCreatureFormat=Renvoie une créature invoquée ciblée
