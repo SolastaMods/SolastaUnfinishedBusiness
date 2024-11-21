@@ -157,6 +157,7 @@ ModUi/&EnableOneDndHuntersMarkSpell=Abilita <color=#D89555>Marchio del cacciator
 ModUi/&EnableOneDndLesserRestorationSpell=Abilita <color=#D89555>Restauro Minore</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=Abilita <color=#D89555>Arma magica</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, potenziamento potenziamento al 3° e 6° livello incantesimo]</color></i>
 ModUi/&EnableOneDndPowerWordStunSpell=Abilita <color=#D89555>Stordimento parola di potere</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[bersaglio fermato per un turno se ha più di 150 hp]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=Abilita <color=#D89555>Risparmia i morenti</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[il raggio raddoppia ai livelli 5, 11 e 17]</color></i>
 ModUi/&EnableOneDndSpiderClimbSpell=Abilita <color=#D89555>Spider Climb</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[+1 bersaglio per upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Abilita <color=#D89555>Pelle di pietra</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[fornisce anche resistenza a B/P/S magici]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Abilita <color=#D89555>True Strike</color> versione trucchetto 5e 2024 <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>\n<i><color=#F0DAA0>[l'attacco usa la tua capacità di lanciare incantesimi per il tiro di attacco e il bonus al danno, e danni radianti aggiuntivi dal livello 5]</color></i>

@@ -157,6 +157,7 @@ ModUi/&EnableOneDndHuntersMarkSpell=<color=#D89555>ハンターズマーク</col
 ModUi/&EnableOneDndLesserRestorationSpell=<color=#D89555>Lesser Restoration</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[ボーナスアクション]</color></i> を有効にする
 ModUi/&EnableOneDndMagicWeaponSpell=<color=#D89555>魔法の武器</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[ボーナス アクション、集中力なし、呪文レベル 3 および 6 で強化アップグレード]</color></i> を有効にします
 ModUi/&EnableOneDndPowerWordStunSpell=<color=#D89555>パワーワードスタン</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[ターゲットの HP が 150 を超える場合、1 ターン停止します]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=<color=#D89555>Spare the Dying</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[レベル 5、11、17 で範囲が 2 倍になります]</color></i>
 ModUi/&EnableOneDndSpiderClimbSpell=<color=#D89555>スパイダークライム</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[アップキャストごとにターゲット +1]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>ストーンスキン</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[魔法の B/P/S に対する耐性も付与します]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>トゥルーストライク</color> 5e 2024 キャントリップ バージョンを有効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>{99><i><color=#F0DAA0>[攻撃は、攻撃ロールとダメージ ボーナスに呪文発動能力を使用し、レベル 5 から追加の光ダメージを与えます]</color></i>

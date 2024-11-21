@@ -157,6 +157,7 @@ ModUi/&EnableOneDndHuntersMarkSpell=Habilitar <color=#D89555>Marca do Caçador</
 ModUi/&EnableOneDndLesserRestorationSpell=Habilitar <color=#D89555>Restauração Menor</color> versão de magia 5e 2024 <i><color=#F0DAA0>[ação bônus]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=Habilitar <color=#D89555>Arma Mágica</color> versão de magia 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, atualização de aprimoramento no 3º e 6º nível da magia]</color></i>
 ModUi/&EnableOneDndPowerWordStunSpell=Habilitar <color=#D89555>Palavra de Poder Atordoante</color> versão de magia 5e 2024 <i><color=#F0DAA0>[alvo parado por um turno se tiver mais de 150 hp]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=Habilitar <color=#D89555>Poupar os Moribundos</color> versão de magia 5e 2024 <i><color=#F0DAA0>[alcance dobra nos níveis 5, 11 e 17]</color></i>
 ModUi/&EnableOneDndSpiderClimbSpell=Habilitar <color=#D89555>Escalada de Aranha</color> versão de magia 5e 2024 <i><color=#F0DAA0>[+1 alvo por upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Habilitar <color=#D89555>Stone Skin</color> versão de magia 5e 2024 <i><color=#F0DAA0>[fornece resistência a B/P/S mágicos também]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Habilitar <color=#D89555>True Strike</color> versão 5e 2024 do truque <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[o ataque usa sua habilidade de conjuração para a jogada de ataque e bônus de dano, além de dano radiante adicional do nível 5]</color></i>
