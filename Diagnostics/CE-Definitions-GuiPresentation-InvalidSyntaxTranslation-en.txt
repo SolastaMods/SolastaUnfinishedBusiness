@@ -264,6 +264,7 @@ ConditionMoonlitScionNewMoon	Description='-'.
 ConditionMoonlitScionNewMoonLunarEmbrace	Description='-'.
 ConditionMoonlitScionNewMoonMidnightBlessing	Description='-'.
 ConditionPatronMountainClingingStrength	Description='-'.
+ConditionPowerWordStunStopped	Description='-'.
 ConditionPsionicBlast	Description='-'.
 ConditionRangerGloomStalkerDreadAmbusher	Description='-'.
 ConditionRangerSkyWarriorGiftOfTheWind	Description='-'.

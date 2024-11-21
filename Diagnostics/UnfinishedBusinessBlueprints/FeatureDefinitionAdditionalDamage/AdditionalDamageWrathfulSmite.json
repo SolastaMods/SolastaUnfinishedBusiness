@@ -20,7 +20,7 @@
   "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamagePsychic",
+  "specificDamageType": "DamageNecrotic",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "SlotLevel",
   "diceByRankTable": [
@@ -140,10 +140,10 @@
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionWrathfulSmiteEnemy:08ab37a6-23bc-59c3-ac2b-09f02170a996",
+      "conditionDefinition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
       "saveAffinity": "Negates",
       "canSaveToCancel": false,
-      "saveOccurence": "StartOfTurn"
+      "saveOccurence": "EndOfTurn"
     }
   ],
   "addLightSource": false,
