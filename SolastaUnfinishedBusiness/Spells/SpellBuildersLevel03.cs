@@ -169,7 +169,7 @@ internal static partial class SpellBuilders
             .SetAttackOnly()
             .SetDamageDice(DieType.D4, 1)
             .AddToDB();
-        
+
         var conditionCrusadersMantle = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
@@ -197,7 +197,7 @@ internal static partial class SpellBuilders
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCrusadersMantle))
-                    .SetCasterEffectParameters(GuardianOfFaith)
+                    .SetCasterEffectParameters(HolyAura)
                     .Build())
             .AddToDB();
 

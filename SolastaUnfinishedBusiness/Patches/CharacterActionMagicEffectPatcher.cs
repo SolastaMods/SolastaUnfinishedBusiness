@@ -951,7 +951,7 @@ public static class CharacterActionMagicEffectPatcher
 
             if (attackAfterMagicEffect != null)
             {
-                foreach (var actionParam in AttackAfterMagicEffect.PerformAttackAfterUse(__instance))
+                foreach (var actionParam in attackAfterMagicEffect.PerformAttackAfterUse(__instance))
                 {
                     // don't use ExecuteAction here to ensure compatibility with War Caster feat
                     if (__instance.ActionType == ActionDefinitions.ActionType.Reaction)

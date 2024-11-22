@@ -1057,10 +1057,11 @@ internal static partial class SpellBuilders
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionReckless)
-            .SetSpecialDuration(DurationType.Minute, 1)
-            .AddCustomSubFeatures(new AddExtraSwiftQuiverAttack(
-                ActionDefinitions.ActionType.Bonus,
-                ValidatorsCharacter.HasNoneOfConditions(ConditionMonkFlurryOfBlowsUnarmedStrikeBonus.Name)))
+            .SetPossessive()
+            .AddCustomSubFeatures(
+                new AddExtraSwiftQuiverAttack(
+                    ActionDefinitions.ActionType.Bonus,
+                    ValidatorsCharacter.HasNoneOfConditions(ConditionMonkFlurryOfBlowsUnarmedStrikeBonus.Name)))
             .CopyParticleReferences(Haste)
             .AddToDB();
 
@@ -1082,8 +1083,9 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Minute, 1)
                     // 24 seems to be the max range on Solasta ranged weapons
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique, 2)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Individuals, 2)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(condition, applyToSelf: true))
                     .SetCasterEffectParameters(WindWall)
                     .Build())

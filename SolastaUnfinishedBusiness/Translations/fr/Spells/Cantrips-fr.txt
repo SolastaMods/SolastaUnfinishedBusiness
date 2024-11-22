@@ -52,7 +52,6 @@ Feedback/&AdditionalDamageResonatingStrikeFormat=Lame de Flamme Verte !
 Feedback/&AdditionalDamageResonatingStrikeLine={0} brûle {1} avec la Lame de Flamme Verte ! (+{2})
 Feedback/&AdditionalDamageSunlightBladeFormat=Lame ensoleillée !
 Feedback/&AdditionalDamageSunlightBladeLine={0} illumine {1} avec Sunlit Blade ! (+{2})
-Feedback/&WithinRange=Gamme
 Proxy/&ProxyCreateBonfireTitle=Feu
 Spell/&AcidClawsDescription=Vos ongles s'aiguisent, prêts à délivrer une attaque corrosive. Lancez une attaque de sort au corps à corps contre une créature à 1,50 m de vous. En cas de succès, la cible subit 1d8 dégâts d'acide et voit sa CA diminuée de 1 pendant 1 round (non cumulable).
 Spell/&AcidClawsTitle=Griffes acides
