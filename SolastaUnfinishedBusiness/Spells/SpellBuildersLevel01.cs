@@ -495,7 +495,7 @@ internal static partial class SpellBuilders
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.None,
+                EffectSavingThrowType.Negates,
                 AttributeDefinitions.Wisdom)
             .AddConditionOperation(
                 new ConditionOperationDescription
@@ -503,7 +503,7 @@ internal static partial class SpellBuilders
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = ConditionDefinitions.ConditionFrightened,
                     hasSavingThrow = true,
-                    canSaveToCancel = false,
+                    canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.EndOfTurn
                 })

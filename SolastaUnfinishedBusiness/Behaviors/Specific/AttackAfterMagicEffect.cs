@@ -37,7 +37,7 @@ internal sealed class AttackAfterMagicEffect(AttackAfterMagicEffect.AttackType a
 
         if (CanAttack(
                 __instance.ActionParams.ActingCharacter, target,
-                AllowRanged, AllowMelee, AllowThrown, out var allowReach))
+                 AllowMelee, AllowRanged, AllowThrown, out var allowReach))
         {
             return true;
         }
