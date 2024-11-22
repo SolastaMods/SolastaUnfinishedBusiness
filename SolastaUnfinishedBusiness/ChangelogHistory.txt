@@ -6,7 +6,7 @@
 - added 'Enable Spare the Dying 5e 2024 spell version' setting [range double every cantrip level upgrade]
 - added 'Enable Spider Climb 5e 2024 spell version' setting [+1 target per upcast]
 - added 'Enable Power Word Stun 5e 2024 spell version' setting [target stopped for one turn if has more than 150 hp]
-- changed Aura of Vitality, Banishing Smite, Mirror Image, Swift Quiver, Weird, and Wrathful Smite to 2024 version
+- changed Aura of Vitality, Banishing Smite, Crusader's Mantle, Mirror Image, Swift Quiver, Weird, and Wrathful Smite to 2024 version
 - fixed Patron Hexblade interaction with 5e 2024 pact of blades invocation
 - fixed True Strike 2024 version to also allow ranged weapon attacks
 - fixed weapon attribute determination logic [i.e.: Hexblade, precision feats, etc.]

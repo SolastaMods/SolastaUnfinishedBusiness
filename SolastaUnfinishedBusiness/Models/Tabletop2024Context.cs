@@ -645,8 +645,12 @@ internal static class Tabletop2024Context
                 : AdditionalDamageType.SameAsBaseDamage;
         HuntersMark.GuiPresentation.description = 
             Main.Settings.EnableOneDndHuntersMarkSpell
-                ?"Spell/&OneDndHuntersMarkExtendedDescription"
-                : "Spell/&OneDndHuntersMarkDescription";
+                ? "Spell/&HuntersMarkExtendedDescription"
+                : "Spell/&HuntersMarkDescription";
+        ConditionMarkedByHunter.GuiPresentation.description = 
+            Main.Settings.EnableOneDndHuntersMarkSpell
+                ? "Rules/&ConditionMarkedByHunterExtendedDescription"
+                : "Rules/&ConditionMarkedByHunterDescription";
     }
 
     internal static void SwitchOneDndSpellMagicWeapon()
@@ -1305,6 +1309,13 @@ internal static class Tabletop2024Context
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
+            if (!Main.Settings.EnableOneDndSpareTheDyingSpell)
+            {
+                return effectDescription;
+            }
+
+            effectDescription.RangeType = RangeType.Distance;
+            
             var level = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             var power = level switch
             {
@@ -1314,7 +1325,7 @@ internal static class Tabletop2024Context
                 _ => 0
             };
 
-            effectDescription.rangeParameter = 3 * (2 ^ power);
+            effectDescription.rangeParameter = 3 * (int)Math.Pow(2, power);
 
             return effectDescription;
         }
