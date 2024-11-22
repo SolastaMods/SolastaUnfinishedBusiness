@@ -52,7 +52,6 @@ Feedback/&AdditionalDamageResonatingStrikeFormat=Lama Fiamma Verde!
 Feedback/&AdditionalDamageResonatingStrikeLine={0} brucia {1} con la Lama Fiamma Verde! (+{2})
 Feedback/&AdditionalDamageSunlightBladeFormat=Lama illuminata dal sole!
 Feedback/&AdditionalDamageSunlightBladeLine={0} illumina {1} con la Lama Illuminata dal Sole! (+{2})
-Feedback/&WithinRange=Allineare
 Proxy/&ProxyCreateBonfireTitle=Falò
 Spell/&AcidClawsDescription=Le tue unghie si affilano, pronte a sferrare un attacco corrosivo. Effettua un attacco con incantesimo in mischia contro una creatura entro 1,5 metri da te. In caso di colpo, il bersaglio subisce 1d8 danni da acido e ha la CA ridotta di 1 per 1 round (non cumulabile).
 Spell/&AcidClawsTitle=Artigli acidi
