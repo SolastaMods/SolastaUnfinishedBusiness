@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -95,6 +96,40 @@ public static class InventoryPanelPatcher
             {
                 __instance.DraggedItem.ItemDefinition.ItemTags.Add(TagsDefinitions.ItemTagQuest);
             }
+        }
+    }
+
+    //PATCH: enable unlimited inventory actions
+    [HarmonyPatch(typeof(InventoryPanel), nameof(InventoryPanel.SpendInventoryActionAsNeeded))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SpendInventoryActionAsNeeded_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(InventoryPanel __instance,
+            RulesetInventorySlot newSlot,
+            bool allowDifferentSlot,
+            ref bool __result)
+        {
+            if ((newSlot == null || __instance.PreviousSlot == null || (newSlot != __instance.PreviousSlot && !allowDifferentSlot)) &&
+                __instance.GuiCharacter.GameLocationCharacter != null &&
+                Gui.Battle != null &&
+                __instance.InventoryManagementMode == InventoryManagementMode.Battle &&
+                !Main.Settings.EnableUnlimitedInventoryActions &&
+                __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) == ActionStatus.Available)
+            {
+                ServiceRepository.GetService<ICommandService>()?.SpendCharacterAction(
+                        __instance.GuiCharacter.GameLocationCharacter,
+                        ActionType.FreeOnce);
+
+                __result = true;
+
+                return false;
+            }
+
+            __result = false;
+
+            return false;
         }
     }
 }

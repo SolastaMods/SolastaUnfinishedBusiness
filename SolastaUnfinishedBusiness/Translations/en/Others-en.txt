@@ -321,6 +321,7 @@ Rules/&SituationalContext9017Format=Is concentrating on spell:
 Rules/&SituationalContext9018Format=Is effect source:
 Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=Recover sorcery points up to half your sorcerer level, rounded down
 Rules/&TurnOccurenceEndOfSourceTurnFormat=End Source of Turn
+Screen/&CharacterInspectionModeBattleAvailableTitle=You may perform 1 free/inventory action per round \n(unless unlimited inventory actions is enabled)
 Screen/&ClassExtraSpellDescriptionFormat=You know this spell from {0} class.
 Screen/&EditorLocationSize3Title=Huge [MODDED]
 Screen/&EditorLocationSize4Title=Gargantuan [MODDED]
