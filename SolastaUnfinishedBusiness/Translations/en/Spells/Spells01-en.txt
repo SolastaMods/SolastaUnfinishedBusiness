@@ -105,6 +105,7 @@ Spell/&MagnifyGravityDescription=Sharply increase gravity in a 10-foot-radius sp
 Spell/&MagnifyGravityTitle=Magnify Gravity
 Spell/&MuleDescription=The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 Spell/&MuleTitle=Mule
+Spell/&ProtectionFromEvilGoodTitle=Protect vs Evil and Good
 Spell/&RadiantMotesDescription=Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.\nWhen you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
 Spell/&RadiantMotesTitle=Radiant Motes
 Spell/&RayOfSicknessDescription=You shoot a greenish ray at a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 Poison damage and has the Poisoned condition until the end of your next turn. The damage increases by 1d8 for each spell slot level above 1.
