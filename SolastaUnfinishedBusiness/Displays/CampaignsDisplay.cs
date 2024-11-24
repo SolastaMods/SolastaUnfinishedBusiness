@@ -125,6 +125,21 @@ internal static class CampaignsDisplay
             Main.Settings.EnableLogDialoguesToConsole = toggle;
         }
 
+        toggle = Main.Settings.EnableSpeech;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSpeech"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSpeech = toggle;
+        }
+
+        if (Main.Settings.EnableSpeech)
+        {
+            toggle = Main.Settings.EnableSpeechFemaleVoice;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableSpeechFemaleVoice"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSpeechFemaleVoice = toggle;
+            }
+        }
+
         toggle = Main.Settings.EnableHeroWithBestProficiencyToRollChoice;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHeroWithBestProficiencyToRollChoice"), ref toggle, UI.AutoWidth()))
         {

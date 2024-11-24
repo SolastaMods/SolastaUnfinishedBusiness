@@ -143,6 +143,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
+    public bool EnableSpeech { get; set; }
+    public bool EnableSpeechFemaleVoice { get; set; }
     public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }
