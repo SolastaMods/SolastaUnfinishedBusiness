@@ -105,6 +105,7 @@ Spell/&MagnifyGravityDescription=Aumente drasticamente a gravidade em uma esfera
 Spell/&MagnifyGravityTitle=Ampliar a gravidade
 Spell/&MuleDescription=O recipiente desta magia é capaz de ignorar os efeitos de cargas pesadas ou armaduras na velocidade de movimento. Eles também podem carregar um pouco mais de peso.
 Spell/&MuleTitle=Mula
+Spell/&ProtectionFromEvilGoodTitle=Proteja-se contra o mal e o bem
 Spell/&RadiantMotesDescription=Libera um enxame de 4 projéteis radiantes que causam 1d4 de dano radiante cada.\nQuando você lança este feitiço usando um espaço de feitiço de 2º nível ou superior, o feitiço cria mais 1 projétil para cada espaço acima do 1º.
 Spell/&RadiantMotesTitle=Partículas Radiantes
 Spell/&RayOfSicknessDescription=Você atira um raio esverdeado em uma criatura dentro do alcance. Faça um ataque de magia à distância contra o alvo. Em um acerto, o alvo recebe 2d8 de dano de Veneno e tem a condição Envenenado até o final do seu próximo turno. O dano aumenta em 1d8 para cada nível de slot de magia acima de 1.

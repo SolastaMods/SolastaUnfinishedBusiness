@@ -105,6 +105,7 @@ Spell/&MagnifyGravityDescription=Augmente considérablement la gravité dans une
 Spell/&MagnifyGravityTitle=Magnifier la gravité
 Spell/&MuleDescription=Le destinataire de ce sort peut ignorer les effets des charges lourdes ou de l'armure sur la vitesse de déplacement. Il peut également porter un poids légèrement supérieur.
 Spell/&MuleTitle=Mule
+Spell/&ProtectionFromEvilGoodTitle=Protéger contre le mal et le bien
 Spell/&RadiantMotesDescription=Libère un essaim de 4 projectiles radiants qui infligent chacun 1d4 dégâts radiants.\nLorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 2 ou supérieur, le sort crée 1 projectile supplémentaire pour chaque emplacement au-dessus du 1er.
 Spell/&RadiantMotesTitle=Poussières rayonnantes
 Spell/&RayOfSicknessDescription=Vous tirez un rayon verdâtre sur une créature à portée. Lancez une attaque de sort à distance contre la cible. En cas de succès, la cible subit 2d8 dégâts de poison et est empoisonnée jusqu'à la fin de votre prochain tour. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort au-dessus de 1.

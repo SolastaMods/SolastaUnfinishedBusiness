@@ -105,6 +105,7 @@ Spell/&MagnifyGravityDescription=Aumenta drásticamente la gravedad en una esfer
 Spell/&MagnifyGravityTitle=Aumentar la gravedad
 Spell/&MuleDescription=El receptor de este hechizo puede ignorar los efectos de cargas pesadas o armaduras en la velocidad de movimiento. También puede llevar un poco más de peso.
 Spell/&MuleTitle=Mula
+Spell/&ProtectionFromEvilGoodTitle=Proteger contra el mal y el bien
 Spell/&RadiantMotesDescription=Desata un enjambre de 4 proyectiles radiantes que infligen 1d4 de daño radiante cada uno.\nCuando lanzas este hechizo usando un espacio de hechizo de nivel 2 o superior, el hechizo crea 1 proyectil más por cada espacio por encima del 1.º.
 Spell/&RadiantMotesTitle=Motas radiantes
 Spell/&RayOfSicknessDescription=Disparas un rayo verdoso a una criatura que esté dentro del alcance. Realizas un ataque de hechizo a distancia contra el objetivo. Si impactas, el objetivo recibe 2d8 puntos de daño por veneno y queda envenenado hasta el final de tu siguiente turno. El daño aumenta en 1d8 por cada nivel de espacio de hechizo por encima de 1.

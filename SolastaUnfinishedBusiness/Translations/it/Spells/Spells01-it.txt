@@ -105,6 +105,7 @@ Spell/&MagnifyGravityDescription=Aumenta drasticamente la gravità in una sfera 
 Spell/&MagnifyGravityTitle=Ingrandisci la gravità
 Spell/&MuleDescription=Il destinatario di questo incantesimo è in grado di ignorare gli effetti di carichi pesanti o armature sulla velocità di movimento. Può anche trasportare un peso leggermente maggiore.
 Spell/&MuleTitle=Mulo
+Spell/&ProtectionFromEvilGoodTitle=Proteggere contro il male e il bene
 Spell/&RadiantMotesDescription=Scatena uno sciame di 4 proiettili radianti che infliggono 1d4 danni radianti ciascuno.\nQuando lanci questo incantesimo usando uno slot incantesimo di 2° livello o superiore, l'incantesimo crea 1 proiettile in più per ogni slot sopra il 1°.
 Spell/&RadiantMotesTitle=Granelli radianti
 Spell/&RayOfSicknessDescription=Spari un raggio verdastro a una creatura entro il raggio. Fai un attacco magico a distanza contro il bersaglio. Se colpisce, il bersaglio subisce 2d8 danni da Veleno e ha la condizione Avvelenato fino alla fine del tuo prossimo turno. Il danno aumenta di 1d8 per ogni livello di slot incantesimo superiore a 1.

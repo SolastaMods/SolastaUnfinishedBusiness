@@ -105,6 +105,7 @@ Spell/&MagnifyGravityDescription=Erhöhen Sie die Schwerkraft in einer Kugel mit
 Spell/&MagnifyGravityTitle=Schwerkraft vergrößern
 Spell/&MuleDescription=Der Empfänger dieses Zaubers kann die Auswirkungen schwerer Lasten oder Rüstungen auf die Bewegungsgeschwindigkeit ignorieren. Er kann auch etwas mehr Gewicht tragen.
 Spell/&MuleTitle=Maultier
+Spell/&ProtectionFromEvilGoodTitle=Beschützen gegen Böse und Gut
 Spell/&RadiantMotesDescription=Löst einen Schwarm aus 4 Strahlungsprojektilen aus, die jeweils 1W4 Strahlungsschaden verursachen.\nWenn du diesen Zauber mit einem Zauberplatz der 2. Stufe oder höher aussprichst, erzeugt der Zauber für jeden Platz über dem 1. 1 weiteres Projektil.
 Spell/&RadiantMotesTitle=Strahlende Partikel
 Spell/&RayOfSicknessDescription=Du schießt einen grünlichen Strahl auf eine Kreatur in Reichweite. Führe einen Fernangriff mit Zauber gegen das Ziel aus. Bei einem Treffer erleidet das Ziel 2W8 Giftschaden und ist bis zum Ende deines nächsten Zuges vergiftet. Der Schaden erhöht sich um 1W8 für jede Zauberstufe über 1.

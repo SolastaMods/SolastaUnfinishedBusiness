@@ -502,7 +502,7 @@ internal static partial class SpellBuilders
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}")
+                        .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Frightened")
                         .SetParentCondition(ConditionDefinitions.ConditionFrightened)
                         .SetSpecialDuration(DurationType.Minute, 1)
                         .SetFeatures()
