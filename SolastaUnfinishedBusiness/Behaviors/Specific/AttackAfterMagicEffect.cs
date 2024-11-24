@@ -167,7 +167,7 @@ internal sealed class AttackAfterMagicEffect(AttackAfterMagicEffect.AttackType a
             var attackActionParams =
                 new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
 
-            attackActionParams.TargetCharacters.Add(targets[0]);
+            attackActionParams.TargetCharacters.Add(targets[i]);
             attackActionParams.ActionModifiers.Add(new ActionModifier());
             attacks.Add(attackActionParams);
         }

@@ -501,7 +501,12 @@ internal static partial class SpellBuilders
                 new ConditionOperationDescription
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = ConditionDefinitions.ConditionFrightened,
+                    conditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}")
+                        .SetParentCondition(ConditionDefinitions.ConditionFrightened)
+                        .SetSpecialDuration(DurationType.Minute, 1)
+                        .SetFeatures()
+                        .AddToDB(),
                     hasSavingThrow = true,
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
