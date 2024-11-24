@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <LangVersion>12</LangVersion>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net481</TargetFramework>
     <AssemblyVersion>1.5.97.39</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
