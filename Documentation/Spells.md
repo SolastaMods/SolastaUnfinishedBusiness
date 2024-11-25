@@ -568,7 +568,7 @@ Until the spell ends, whenever you hit a target with an attack you deal an extra
 
 The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 
-# 95. - Protect vs Evil & Good (V,S) level 1 Abjuration [Concentration] [SOL]
+# 95. - Protect vs Evil and Good (V,S) level 1 Abjuration [Concentration] [SOL]
 
 **[Cleric, Paladin, Warlock, Wizard]**
 
@@ -650,7 +650,7 @@ A beam of crackling, blue energy lances out toward a creature within range, form
 
 **[Paladin]**
 
-The next time you hit with a melee weapon attack during this spell's duration, your attack deals an extra 1d6 psychic damage. Additionally, if the target is a creature, it must make a Wisdom saving throw or be frightened of you until the spell ends. As an action, the creature can make a Wisdom check against your spell save DC to steel its resolve and end this spell.
+The target takes an extra 1d6 Necrotic damage from the attack, and it must succeed on a Wisdom saving throw or have the Frightened condition until the spell ends. At the end of each of its turns, the Frightened target repeats the save, ending the spell on itself on a success. The damage increases by 1d6 for each spell slot level above 1.
 
 # 109. - *Zephyr Strike* © (V) level 1 Transmutation [Concentration] [UB]
 
@@ -1035,7 +1035,7 @@ Conjure 15 units of food.
 
 **[Paladin]**
 
-Surround yourself with a magical aura. Allies within the aura gain a bonus 1d4 radiant damage on their attacks.
+Holy power radiates from you in an aura with a 30-foot radius, awakening boldness in friendly creatures. Until the spell ends, the aura moves with you, centered on you. While in the aura, each non-hostile creature in the aura (including you) deals an extra 1d4 radiant damage when it hits with an attack.
 
 # 173. - Daylight (V,S) level 3 Evocation [SOL]
 

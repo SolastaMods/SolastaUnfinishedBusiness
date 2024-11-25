@@ -4057,7 +4057,7 @@ Starting at 3rd level, You can apply your Divine Smite ability when you hit an e
 
 In your list and always prepared: 
  
-	I	Hunter's Mark, Protect vs Evil & Good
+	I	Hunter's Mark, Protect vs Evil and Good
 
 	II	Magic Weapon, Misty Step
 
@@ -4117,7 +4117,7 @@ Channel Divinity to force fiends and undead within 6 cells who can see you to fl
 
 In your list and always prepared: 
  
-	I	Shield, Protect vs Evil & Good
+	I	Shield, Protect vs Evil and Good
 
 	II	Lesser Restoration, Aid
 
@@ -4299,7 +4299,7 @@ As a bonus action, you can use Channel Divinity to pour your determination into 
 
 In your list and always prepared: 
  
-	I	Guiding Bolt, Protect vs Evil & Good
+	I	Guiding Bolt, Protect vs Evil and Good
 
 	II	Enhance Ability, Hold Person
 
