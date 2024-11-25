@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
+using UnityExplorer;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -9,6 +10,8 @@ internal static class ToolsDisplay
 {
     private static string ExportFileName { get; set; } =
         ServiceRepository.GetService<INetworkingService>().GetUserName();
+
+    private static bool IsUnityExplorerEnabled { get; set; }
 
     internal static void DisplayGameplay()
     {
@@ -74,18 +77,32 @@ internal static class ToolsDisplay
         SubclassesContext.SelectTabletopSet(true);
     }
 
+    private static void EnableUnityExplorerUi()
+    {
+        IsUnityExplorerEnabled = true;
+
+        try
+        {
+            ExplorerStandalone.CreateInstance();
+        }
+        catch
+        {
+            // ignored
+        }
+    }
+
     private static void DisplayGeneral()
     {
         UI.Label();
 
+        var width = UI.Width(IsUnityExplorerEnabled ? 195f : 145f);
+
         using (UI.HorizontalScope())
         {
-            UI.ActionButton(Gui.Localize("ModUi/&Update"), () => UpdateContext.UpdateMod(),
-                UI.Width(195f));
-            UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage,
-                UI.Width(195f));
-            UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog,
-                UI.Width(195f));
+            UI.ActionButton(Gui.Localize("ModUi/&Update"), () => UpdateContext.UpdateMod(), width);
+            UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage, width);
+            UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog, width);
+            UI.ActionButton(Gui.Localize("ModUi/&UnityExplorer"), EnableUnityExplorerUi, UI.Width(145f));
         }
 
         UI.Label();

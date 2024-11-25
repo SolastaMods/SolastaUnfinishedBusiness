@@ -13,7 +13,9 @@ internal static class StringExtensions
     internal static string LazyManStripXml(this string str)
     {
         return str
-            .Replace("<color=#add8e6ff>", string.Empty)
+            .Replace("<color=#D89555>", string.Empty)
+            .Replace("<color=#F0DAA0>", string.Empty)
+            .Replace("<color=#ADD8E6>", string.Empty)
             .Replace("<#57BCF4>", "\r\n\t")
             .Replace("<#B5D3DE>", string.Empty)
             .Replace("</color>", string.Empty)
