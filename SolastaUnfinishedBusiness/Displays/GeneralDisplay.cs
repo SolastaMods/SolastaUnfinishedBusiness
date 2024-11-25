@@ -102,7 +102,11 @@ internal static class ToolsDisplay
             UI.ActionButton(Gui.Localize("ModUi/&Update"), () => UpdateContext.UpdateMod(), width);
             UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage, width);
             UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog, width);
-            UI.ActionButton(Gui.Localize("ModUi/&UnityExplorer"), EnableUnityExplorerUi, UI.Width(145f));
+
+            if (!IsUnityExplorerEnabled)
+            {
+                UI.ActionButton(Gui.Localize("ModUi/&UnityExplorer"), EnableUnityExplorerUi, UI.Width(145f));
+            }
         }
 
         UI.Label();

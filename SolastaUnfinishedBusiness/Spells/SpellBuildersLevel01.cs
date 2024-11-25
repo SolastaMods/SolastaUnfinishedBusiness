@@ -405,6 +405,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.DamageForm(DamageTypePoison, 2, DieType.D8),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionPoisoned))
                     .SetParticleEffectParameters(PoisonSpray)
+                    .SetEffectEffectParameters(Disintegrate)
                     .Build())
             .AddToDB();
 

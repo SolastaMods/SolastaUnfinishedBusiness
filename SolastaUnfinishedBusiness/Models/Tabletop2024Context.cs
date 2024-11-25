@@ -360,7 +360,6 @@ internal static class Tabletop2024Context
 
     private static void LoadSecondWindToUseOneDndUsagesProgression()
     {
-        PowerFighterSecondWind.fixedUsesPerRecharge = 0;
         PowerFighterSecondWind.AddCustomSubFeatures(
             HasModifiedUses.Marker,
             new ModifyPowerPoolAmount
@@ -1154,6 +1153,7 @@ internal static class Tabletop2024Context
             CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
             FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 5;
             FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 5;
+            PrismaticSpray.EffectDescription.EffectForms[0].DamageForm.diceNumber = 12;
             IceStorm.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D10;
             ViciousMockery.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
         }
@@ -1168,6 +1168,7 @@ internal static class Tabletop2024Context
             CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
             FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
             FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
+            PrismaticSpray.EffectDescription.EffectForms[0].DamageForm.diceNumber = 10;
             IceStorm.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
             ViciousMockery.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
         }
