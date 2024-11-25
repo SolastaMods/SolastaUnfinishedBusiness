@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -7,7 +8,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
@@ -30,7 +30,7 @@ internal class BlessedWarrior : AbstractFightingStyle
                 .SetSlotsRecharge(RechargeRate.LongRest)
                 .SetSlotsPerLevel(SharedSpellsContext.RaceEmptyCastingSlots)
                 .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-                .AddCustomSubFeatures(new FeatHelpers.SpellTag(Name), CharacterClassDefinitions.Paladin)
+                .AddCustomSubFeatures(new FeatHelpers.SpellTag(Name), ClassHolder.Paladin)
                 .AddToDB(),
             FeatureDefinitionPointPoolBuilder
                 .Create($"PointPool{Name}")
