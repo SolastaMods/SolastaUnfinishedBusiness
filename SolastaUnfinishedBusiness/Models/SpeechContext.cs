@@ -4,6 +4,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using NAudio.Wave;
 using Random = System.Random;
@@ -158,6 +159,12 @@ internal static class SpeechContext
     {
         try
         {
+            // only windows for now
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return;
+            }
+
             // only custom campaigns
             if (Gui.GameCampaign)
             {

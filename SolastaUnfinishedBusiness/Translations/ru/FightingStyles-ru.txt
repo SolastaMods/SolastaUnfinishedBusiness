@@ -54,3 +54,5 @@ Reaction/&ReactionAttackSentinelDescription={0} атаковал одного и
 Reaction/&ReactionAttackSentinelReactDescription=Используйте реакцию для атаки.
 Reaction/&ReactionAttackSentinelReactTitle=Атака
 Reaction/&ReactionAttackSentinelTitle=Страж
+Tag/&BlessedWarriorCantripSpecialTagTitle=Благословенные заговоры воина
+Tag/&DruidicWarriorCantripSpecialTagTitle=Заклинания воина-друида

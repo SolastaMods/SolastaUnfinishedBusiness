@@ -237,6 +237,7 @@
     <EnableHelpAction>false</EnableHelpAction>
     <EnableRespecAction>false</EnableRespecAction>
     <EnableUnarmedMainAttackAction>false</EnableUnarmedMainAttackAction>
+    <EnableUnlimitedInventoryActions>false</EnableUnlimitedInventoryActions>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
@@ -289,6 +290,9 @@
     <EnableAdditionalIconsOnLevelMap>false</EnableAdditionalIconsOnLevelMap>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
+    <EnableSpeech>false</EnableSpeech>
+    <SpeechVoice>0</SpeechVoice>
+    <SpeechScale>0.8</SpeechScale>
     <EnableHeroWithBestProficiencyToRollChoice>false</EnableHeroWithBestProficiencyToRollChoice>
     <MarkInvisibleTeleportersOnLevelMap>false</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>false</EnableAlternateVotingSystem>

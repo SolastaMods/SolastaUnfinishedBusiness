@@ -54,3 +54,5 @@ Reaction/&ReactionAttackSentinelDescription={0} 攻击了你的一个盟友，�
 Reaction/&ReactionAttackSentinelReactDescription=使用反应来攻击。
 Reaction/&ReactionAttackSentinelReactTitle=攻击
 Reaction/&ReactionAttackSentinelTitle=哨兵
+Tag/&BlessedWarriorCantripSpecialTagTitle=受祝福的战士咒语
+Tag/&DruidicWarriorCantripSpecialTagTitle=德鲁伊战士法术

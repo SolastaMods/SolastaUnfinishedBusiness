@@ -54,3 +54,5 @@ Reaction/&ReactionAttackSentinelDescription={0} atacó a uno de tus aliados, en 
 Reaction/&ReactionAttackSentinelReactDescription=Utilice la reacción para atacar.
 Reaction/&ReactionAttackSentinelReactTitle=Ataque
 Reaction/&ReactionAttackSentinelTitle=Centinela
+Tag/&BlessedWarriorCantripSpecialTagTitle=Trucos del guerrero bendecido
+Tag/&DruidicWarriorCantripSpecialTagTitle=Trucos del guerrero druídico

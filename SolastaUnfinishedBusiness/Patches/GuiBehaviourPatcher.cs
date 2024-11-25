@@ -6,9 +6,9 @@ using SolastaUnfinishedBusiness.Models;
 namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly]
-public static class GamePartyStatusScreenPatcher
+public static class GuiBehaviourPatcher
 {
-    [HarmonyPatch(typeof(GamePartyStatusScreen), nameof(GamePartyStatusScreen.StartAllModifiers))]
+    [HarmonyPatch(typeof(GuiBehaviour), nameof(GuiBehaviour.StartAllModifiers))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class StartAllModifiers_Patch

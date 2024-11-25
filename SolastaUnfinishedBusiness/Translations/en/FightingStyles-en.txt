@@ -54,3 +54,5 @@ Reaction/&ReactionAttackSentinelDescription={0} attacked one of your allies, in 
 Reaction/&ReactionAttackSentinelReactDescription=Use reaction to attack.
 Reaction/&ReactionAttackSentinelReactTitle=Attack
 Reaction/&ReactionAttackSentinelTitle=Sentinel
+Tag/&BlessedWarriorCantripSpecialTagTitle=Blessed Warrior Cantrips
+Tag/&DruidicWarriorCantripSpecialTagTitle=Druidic Warrior Cantrips

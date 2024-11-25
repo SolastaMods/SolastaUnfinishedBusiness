@@ -54,3 +54,5 @@ Reaction/&ReactionAttackSentinelDescription={0} が味方の 1 人を攻撃し�
 Reaction/&ReactionAttackSentinelReactDescription=反応を利用して攻撃します。
 Reaction/&ReactionAttackSentinelReactTitle=攻撃
 Reaction/&ReactionAttackSentinelTitle=センチネル
+Tag/&BlessedWarriorCantripSpecialTagTitle=祝福された戦士のキャントリップ
+Tag/&DruidicWarriorCantripSpecialTagTitle=ドルイド戦士の呪文

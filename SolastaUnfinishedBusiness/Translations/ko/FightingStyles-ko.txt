@@ -54,3 +54,5 @@ Reaction/&ReactionAttackSentinelDescription={0}이(가) 동맹국 중 하나를 
 Reaction/&ReactionAttackSentinelReactDescription=반응을 이용해 공격하세요.
 Reaction/&ReactionAttackSentinelReactTitle=공격
 Reaction/&ReactionAttackSentinelTitle=보초
+Tag/&BlessedWarriorCantripSpecialTagTitle=축복받은 전사의 주문
+Tag/&DruidicWarriorCantripSpecialTagTitle=드루이드 전사 주문

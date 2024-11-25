@@ -237,6 +237,7 @@
     <EnableHelpAction>true</EnableHelpAction>
     <EnableRespecAction>true</EnableRespecAction>
     <EnableUnarmedMainAttackAction>true</EnableUnarmedMainAttackAction>
+    <EnableUnlimitedInventoryActions>false</EnableUnlimitedInventoryActions>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
@@ -289,6 +290,9 @@
     <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
+    <EnableSpeech>true</EnableSpeech>
+    <SpeechVoice>8</SpeechVoice>
+    <SpeechScale>0.8</SpeechScale>
     <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
     <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
@@ -841,9 +845,11 @@
     <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
     <FightingStyleEnabled>
         <string>AstralReach</string>
+        <string>BlessedWarrior</string>
         <string>BlindFighting</string>
         <string>HandAndAHalf</string>
         <string>Crippling</string>
+        <string>DruidicWarrior</string>
         <string>Executioner</string>
         <string>Interception</string>
         <string>Lunger</string>
@@ -1778,4 +1784,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

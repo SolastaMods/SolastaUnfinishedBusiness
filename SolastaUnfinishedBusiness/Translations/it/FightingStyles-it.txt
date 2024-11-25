@@ -54,3 +54,5 @@ Reaction/&ReactionAttackSentinelDescription={0} ha attaccato uno dei tuoi alleat
 Reaction/&ReactionAttackSentinelReactDescription=Utilizzare la reazione per attaccare.
 Reaction/&ReactionAttackSentinelReactTitle=Attacco
 Reaction/&ReactionAttackSentinelTitle=Sentinella
+Tag/&BlessedWarriorCantripSpecialTagTitle=Trucchetti del Guerriero Benedetto
+Tag/&DruidicWarriorCantripSpecialTagTitle=Trucchetti del Guerriero Druidico

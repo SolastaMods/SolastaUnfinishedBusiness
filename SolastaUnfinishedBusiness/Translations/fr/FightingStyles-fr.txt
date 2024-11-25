@@ -54,3 +54,5 @@ Reaction/&ReactionAttackSentinelDescription={0} a attaqué l'un de vos alliés, 
 Reaction/&ReactionAttackSentinelReactDescription=Utilisez la réaction pour attaquer.
 Reaction/&ReactionAttackSentinelReactTitle=Attaque
 Reaction/&ReactionAttackSentinelTitle=Sentinelle
+Tag/&BlessedWarriorCantripSpecialTagTitle=Les tours de passe-passe du Guerrier Béni
+Tag/&DruidicWarriorCantripSpecialTagTitle=Les sorts du Guerrier Druidique

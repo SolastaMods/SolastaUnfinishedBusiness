@@ -54,3 +54,5 @@ Reaction/&ReactionAttackSentinelDescription={0} hat einen deiner Verbündeten an
 Reaction/&ReactionAttackSentinelReactDescription=Nutzen Sie die Reaktion zum Angriff.
 Reaction/&ReactionAttackSentinelReactTitle=Attacke
 Reaction/&ReactionAttackSentinelTitle=Wächter
+Tag/&BlessedWarriorCantripSpecialTagTitle=Zaubertricks des gesegneten Kriegers
+Tag/&DruidicWarriorCantripSpecialTagTitle=Zaubertricks des Druidenkriegers
