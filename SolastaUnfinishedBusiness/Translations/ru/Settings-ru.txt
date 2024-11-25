@@ -191,6 +191,7 @@ ModUi/&EnableSurprisedToEnforceDisadvantage=Включить изменения 
 ModUi/&EnableTeleportToRemoveRestrained=Включить возможность <color=#D89555>Телепортации</color> снимать все состояния <color=#D89555>задержки</color> с цели
 ModUi/&EnableTooltipDistance=Включить отображение расстояния во всплывающей подсказке панели при наведении курсора на персонажа в бою
 ModUi/&EnableUnarmedMainAttackAction=Включить действие <color=#D89555>Безоружная атака</color> <i><color=#F0DAA0>[если персонаж держит оружие в основной руке и он <color=#D89555>Монах</color>, или если он использует <b>Обмотки</b> или <b>Перчатки</b>]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=Включить неограниченное количество <color=#D89555>действий с инвентарем</color> за ход.
 ModUi/&EnableUpcastConjureElementalAndFey=Включить возможность накладывать на высоких уровнях <color=#D89555>Призыв элементаля</color> и <color=#D89555>Призыв феи</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Включить заглушки для переменных описаний <i><color=#F0DAA0>[использовать {VARIABLE_NAME} в качесте заглушки]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Разрешить переносить и использовать <color=#D89555>Зелья</color> и <color=#D89555>Свитки</color> в слотах боеприпасов

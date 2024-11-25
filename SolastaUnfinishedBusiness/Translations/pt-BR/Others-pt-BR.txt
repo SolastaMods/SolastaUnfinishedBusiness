@@ -323,6 +323,7 @@ Rules/&SituationalContext9017Format=Está se concentrando no feitiço:
 Rules/&SituationalContext9018Format=É fonte de efeito:
 Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=Recupere pontos de feitiçaria até a metade do seu nível de feiticeiro, arredondado para baixo
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Fim da fonte de giro
+Screen/&CharacterInspectionModeBattleUnlimitedTitle=Você pode realizar ações de inventário ilimitadas por rodada.
 Screen/&ClassExtraSpellDescriptionFormat=Você conhece esse feitiço da classe {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODIFICADO]
 Screen/&EditorLocationSize4Title=Gigantesco [MODIFICADO]

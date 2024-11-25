@@ -323,6 +323,7 @@ Rules/&SituationalContext9017Format=呪文に集中しています:
 Rules/&SituationalContext9018Format=効果源:
 Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=ソーサリーポイントをソーサラーレベルの半分まで回復します（切り捨て）。
 Rules/&TurnOccurenceEndOfSourceTurnFormat=ターンの終了元
+Screen/&CharacterInspectionModeBattleUnlimitedTitle=1 ラウンドあたり無制限のインベントリ アクションを実行できます。
 Screen/&ClassExtraSpellDescriptionFormat=この呪文は {0} クラスで知っていますね。
 Screen/&EditorLocationSize3Title=巨大な[MODD]
 Screen/&EditorLocationSize4Title=ガルガンチュアン [MODD]

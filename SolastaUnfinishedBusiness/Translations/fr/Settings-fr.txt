@@ -191,6 +191,7 @@ ModUi/&EnableSurprisedToEnforceDisadvantage=Activez la condition <color=#D89555>
 ModUi/&EnableTeleportToRemoveRestrained=Activez la <color=#D89555>téléportation</color> pour supprimer toutes les conditions de <color=#D89555>restriction</color> de la cible
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bulles lors du survol d'un personnage en combat
 ModUi/&EnableUnarmedMainAttackAction=Activer l'action <color=#D89555>Attaque à mains nues</color> <i><color=#F0DAA0>[si l'acteur a une arme dans l'arme principale, est un <b>moine</b> ou a des <b>bandages</b> ou un <b>gantelet</b> équipés]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=Activez un nombre illimité d'<color=#D89555>actions d'inventaire</color> par tour.
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la conversion ascendante de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Activer les espaces réservés aux variables dans les descriptions <i><color=#F0DAA0>[utiliser {VARIABLE_NAME} comme espace réservé]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Autoriser le transport et l'utilisation de <color=#D89555>potions</color> et de <color=#D89555>parchemins</color> dans les emplacements de munitions

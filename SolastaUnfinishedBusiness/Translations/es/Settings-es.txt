@@ -191,6 +191,7 @@ ModUi/&EnableSurprisedToEnforceDisadvantage=Habilite la condición <color=#D8955
 ModUi/&EnableTeleportToRemoveRestrained=Habilite <color=#D89555>Teletransporte</color> para eliminar todas las condiciones <color=#D89555>restringidas</color> del objetivo
 ModUi/&EnableTooltipDistance=Habilitar la visualización de la distancia en las descripciones emergentes al pasar el cursor sobre un personaje en combate
 ModUi/&EnableUnarmedMainAttackAction=Habilitar la acción <color=#D89555>Ataque desarmado</color> <i><color=#F0DAA0>[si el actor tiene un arma en el personaje principal, es un <b>Monje</b> o tiene <b>vendas</b> o <b>guanteletes</b> equipados]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=Habilita una cantidad ilimitada de <color=#D89555>acciones de inventario</color> por turno.
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar la conversión ascendente de <color=#D89555>Conjurar elemental</color> y <color=#D89555>Conjurar feérico</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Permitir que <color=#D89555>Pociones</color> y <color=#D89555>Pergaminos</color> se lleven y utilicen en las ranuras de munición.

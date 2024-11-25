@@ -323,6 +323,7 @@ Rules/&SituationalContext9017Format=专注于法术：
 Rules/&SituationalContext9018Format=是效果来源：
 Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=恢复魔法点数，最多可恢复至魔法师等级的一半（四舍五入）
 Rules/&TurnOccurenceEndOfSourceTurnFormat=来源回合结束
+Screen/&CharacterInspectionModeBattleUnlimitedTitle=每轮您可以执行无限制的库存操作。
 Screen/&ClassExtraSpellDescriptionFormat=你从 {0} 职业知道这个法术。
 Screen/&EditorLocationSize3Title=巨型【已修改】
 Screen/&EditorLocationSize4Title=超巨型【已修改】

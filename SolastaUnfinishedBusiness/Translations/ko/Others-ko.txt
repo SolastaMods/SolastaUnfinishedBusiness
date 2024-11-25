@@ -323,6 +323,7 @@ Rules/&SituationalContext9017Format=주문에 집중하고 있습니다:
 Rules/&SituationalContext9018Format=효과의 원천은 다음과 같습니다:
 Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=마법사 레벨의 절반까지 마법 포인트를 회복합니다(반올림).
 Rules/&TurnOccurenceEndOfSourceTurnFormat=턴의 최종 소스
+Screen/&CharacterInspectionModeBattleUnlimitedTitle=라운드당 무제한으로 인벤토리 작업을 수행할 수 있습니다.
 Screen/&ClassExtraSpellDescriptionFormat=당신은 {0} 클래스에서 이 주문을 알고 있습니다.
 Screen/&EditorLocationSize3Title=거대한 [MODDED]
 Screen/&EditorLocationSize4Title=거대한 [MODDED]

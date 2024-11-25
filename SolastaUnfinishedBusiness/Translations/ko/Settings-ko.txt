@@ -191,6 +191,7 @@ ModUi/&EnableSurprisedToEnforceDisadvantage=라운드를 건너뛰는 대신 이
 ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>순간이동</color>을 활성화하여 대상의 모든 <color=#D89555>제한된</color> 조건을 제거합니다.
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위에 마우스를 올려 놓으면 툴팁에 거리 표시가 활성화됩니다.
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>비무장 공격</color> 동작 활성화 <i><color=#F0DAA0>[액터가 기본 무기를 장착하고 있거나, <b>수도사</b>이거나, <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=턴당 <color=#D89555>인벤토리 액션</color>을 무제한으로 활성화합니다.
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>원소 소환</color>과 <color=#D89555>요정 소환</color>의 업캐스트를 활성화합니다.
 ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=<color=#D89555>물약</color>과 <color=#D89555>두루마리</color>를 탄약 슬롯에 넣고 운반하고 사용할 수 있습니다.

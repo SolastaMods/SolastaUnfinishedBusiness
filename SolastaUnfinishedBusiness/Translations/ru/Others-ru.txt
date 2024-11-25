@@ -323,6 +323,7 @@ Rules/&SituationalContext9017Format=Концентрируется на закл
 Rules/&SituationalContext9018Format=Источник эффекта:
 Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=Восстановить единицы чародейства до половины вашего уровня Чародея с округлением вниз
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Конец источника хода
+Screen/&CharacterInspectionModeBattleUnlimitedTitle=Вы можете выполнять неограниченное количество действий с инвентарем за раунд.
 Screen/&ClassExtraSpellDescriptionFormat=Вам известно это заклинание от класса {0}.
 Screen/&EditorLocationSize3Title=Огромный [Модифицировано]
 Screen/&EditorLocationSize4Title=Гигантский [Модифицировано]

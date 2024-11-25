@@ -323,6 +323,7 @@ Rules/&SituationalContext9017Format=Se concentra en el hechizo:
 Rules/&SituationalContext9018Format=¿Es la fuente del efecto?:
 Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=Recupera puntos de hechicería hasta la mitad de tu nivel de hechicero, redondeado hacia abajo.
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Fuente final del turno
+Screen/&CharacterInspectionModeBattleUnlimitedTitle=Puedes realizar acciones de inventario ilimitadas por ronda.
 Screen/&ClassExtraSpellDescriptionFormat=Conoces este hechizo de la clase {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODIFICADO]
 Screen/&EditorLocationSize4Title=Gigantesco [MODIFICADO]

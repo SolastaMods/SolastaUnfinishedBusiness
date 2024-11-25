@@ -191,6 +191,7 @@ ModUi/&EnableSurprisedToEnforceDisadvantage=<color=#D89555>驚き</color>状態�
 ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>テレポート</color>を有効にすると、ターゲットからすべての<color=#D89555>拘束</color>状態が解除されます。
 ModUi/&EnableTooltipDistance=戦闘中のキャラクターにマウスを移動したときにツールチップに距離が表示されるようにする
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>素手攻撃</color>アクションを有効にする <i><color=#F0DAA0>[アクターがメインに武器を持っているか、<b>モンク</b>を持っているか、<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=ターンごとに無制限の<color=#D89555>インベントリアクション</color>を有効にします。
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>エレメンタル召喚</color>と<color=#D89555>フェイ召喚</color>のアップキャストを有効にする
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=<color=#D89555>ポーション</color>と<color=#D89555>巻物</color>を持ち運んで弾薬スロットで使用できるようにします

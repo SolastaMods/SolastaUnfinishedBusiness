@@ -191,6 +191,7 @@ ModUi/&EnableSurprisedToEnforceDisadvantage=Aktivieren Sie die Bedingung <color=
 ModUi/&EnableTeleportToRemoveRestrained=Aktivieren Sie <color=#D89555>Teleportieren</color>, um alle <color=#D89555>eingeschränkten</color> Bedingungen vom Ziel zu entfernen
 ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Entfernung in den Tooltips, wenn Sie mit der Maus über einen Charakter im Kampf fahren.
 ModUi/&EnableUnarmedMainAttackAction=Aktiviere die Aktion <color=#D89555>Unbewaffneter Angriff</color> <i><color=#F0DAA0>[wenn der Akteur eine Waffe im Hauptkampf hat, ein <b>Mönch</b> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet hat]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=Aktivieren Sie eine unbegrenzte Anzahl von <color=#D89555>Inventaraktionen</color> pro Runde.
 ModUi/&EnableUpcastConjureElementalAndFey=Aktiviere Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feenbeschwören</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Aktivieren Sie variable Platzhalter in Beschreibungen <i><color=#F0DAA0>[verwenden Sie {VARIABLE_NAME} als Platzhalter]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Erlaubt das Tragen und Verwenden von <color=#D89555>Tränken</color> und <color=#D89555>Schriftrollen</color> in den Munitionsfächern
