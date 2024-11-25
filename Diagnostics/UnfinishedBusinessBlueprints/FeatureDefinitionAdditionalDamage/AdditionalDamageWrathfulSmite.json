@@ -133,16 +133,16 @@
   "dcComputation": "SpellCastingFeature",
   "savingThrowDC": 12,
   "savingThrowDCAbilityModifier": "Wisdom",
-  "damageSaveAffinity": "None",
+  "damageSaveAffinity": "Negates",
   "conditionOperations": [
     {
       "$type": "ConditionOperationDescription, Assembly-CSharp",
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
+      "conditionDefinition": "Definition:ConditionWrathfulSmiteFrightened:576fd1b9-eb34-5985-951d-eaa3de3c72f0",
       "saveAffinity": "Negates",
-      "canSaveToCancel": false,
+      "canSaveToCancel": true,
       "saveOccurence": "EndOfTurn"
     }
   ],
