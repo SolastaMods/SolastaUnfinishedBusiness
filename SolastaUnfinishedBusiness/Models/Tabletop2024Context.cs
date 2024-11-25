@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -1153,7 +1154,9 @@ internal static class Tabletop2024Context
             CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
             FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 5;
             FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 5;
-            PrismaticSpray.EffectDescription.EffectForms[0].DamageForm.diceNumber = 12;
+            PrismaticSpray.EffectDescription.EffectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Do(y => y.DamageForm.DiceNumber = 12);
             IceStorm.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D10;
             ViciousMockery.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
         }
@@ -1168,7 +1171,9 @@ internal static class Tabletop2024Context
             CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
             FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
             FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
-            PrismaticSpray.EffectDescription.EffectForms[0].DamageForm.diceNumber = 10;
+            PrismaticSpray.EffectDescription.EffectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Do(y => y.DamageForm.DiceNumber = 10);
             IceStorm.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
             ViciousMockery.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
         }
