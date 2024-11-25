@@ -752,6 +752,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] BlessedWarrior {
+            get {
+                object obj = ResourceManager.GetObject("BlessedWarrior", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] BlessingOfRime {
             get {
                 object obj = ResourceManager.GetObject("BlessingOfRime", resourceCulture);
@@ -1265,6 +1275,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] DraconicTransformation {
             get {
                 object obj = ResourceManager.GetObject("DraconicTransformation", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] DruidicWarrior {
+            get {
+                object obj = ResourceManager.GetObject("DruidicWarrior", resourceCulture);
                 return ((byte[])(obj));
             }
         }

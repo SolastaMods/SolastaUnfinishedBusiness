@@ -1,0 +1,35 @@
+{
+  "$type": "FightingStyleDefinition, Assembly-CSharp",
+  "features": [
+    "Definition:CastSpellBlessedWarrior:c41913c6-5796-5584-8dde-4693d4639760",
+    "Definition:PointPoolBlessedWarrior:d21b1e64-da60-5bc8-b90b-8de6874d11d2"
+  ],
+  "condition": "RangedWeaponAttack",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FightingStyle/&BlessedWarriorTitle",
+    "description": "FightingStyle/&BlessedWarriorDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f04ed1f1-2190-5ea3-9ec1-4f1ee1ab9a87",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a0528e84-b635-5bde-8242-273eb05c2f28",
+  "contentPack": 9999,
+  "name": "BlessedWarrior"
+}

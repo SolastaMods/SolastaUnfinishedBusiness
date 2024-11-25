@@ -44,8 +44,10 @@ internal static class FightingStyleContext
         KeepDemotedFightingStylesBackwardCompatibility();
 
         LoadStyle(new AstralReach());
+        LoadStyle(new BlessedWarrior());
         LoadStyle(new BlindFighting());
         LoadStyle(new Crippling());
+        LoadStyle(new DruidicWarrior());
         LoadStyle(new Executioner());
         LoadStyle(new HandAndAHalf());
         LoadStyle(new Interception());

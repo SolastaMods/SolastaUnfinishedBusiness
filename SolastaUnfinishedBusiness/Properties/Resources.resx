@@ -1310,6 +1310,16 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="BlessedWarrior" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/FightingStyles/BlessedWarrior.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="DruidicWarrior" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/FightingStyles/DruidicWarrior.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="Crippling" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/Crippling.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a

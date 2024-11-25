@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,15 +11,17 @@
   "hasFamilyTag": true,
   "familyTag": "FightingStyle",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:ProficiencyFeatBlessedWarrior:957b3781-21f7-5689-a4bd-d9c9d2548b4b"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupFightingStyleTitle",
-    "description": "Archery, Astral Reach, Blessed Warrior, Blind Fighting, Classical Swordplay, Crippling, Defense, Druidic Warrior, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Protection, Superior Technique, Torchbearer, Two Weapon Fighting",
+    "title": "FightingStyle/&BlessedWarriorTitle",
+    "description": "FightingStyle/&BlessedWarriorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "f04ed1f1-2190-5ea3-9ec1-4f1ee1ab9a87",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a9395b1c-83fc-5649-9eb2-508ed6e87571",
+  "guid": "0a70ff3e-e39d-5818-b565-1008df3620f2",
   "contentPack": 9999,
-  "name": "FeatGroupFightingStyle"
+  "name": "FeatBlessedWarrior"
 }

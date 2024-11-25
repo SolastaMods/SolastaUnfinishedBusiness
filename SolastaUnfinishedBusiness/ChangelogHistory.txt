@@ -1,7 +1,8 @@
 1.5.97.40:
 
+- added Blessed Warrior, Druidic Warrior fighting styles, and Ray of Sickness spell
 - added General > Campaigns > 'Enable Speech on custom campaigns' setting
-- added General > Rules > 'Enable an unlimited number of Inventory Actions per turn' setting
+- added General > Rules > 'Enable an unlimited number of Inventory Actions per turn' setting [by SilverGriffon]
 - added 'Enable Hideous Laughter 5e 2024 spell version' setting [+1 target per upcast]
 - added 'Enable Hunter's Mark 5e 2024 spell version' setting [force damage]
 - added 'Enable Power Word Stun 5e 2024 spell version' setting [target stopped for one turn if has more than 150 hp]

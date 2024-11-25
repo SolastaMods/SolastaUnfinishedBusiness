@@ -309,7 +309,7 @@ You gain proficiency in Tirmarian.
 
 # 62. - *Fighting Initiate* © [UB]
 
-Archery, Astral Reach, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Protection, Superior Technique, Torchbearer, Two Weapon Fighting
+Archery, Astral Reach, Blessed Warrior, Blind Fighting, Classical Swordplay, Crippling, Defense, Druidic Warrior, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Protection, Superior Technique, Torchbearer, Two Weapon Fighting
 
 # 63. - *Flames of Phlegethos* © [UB]
 
