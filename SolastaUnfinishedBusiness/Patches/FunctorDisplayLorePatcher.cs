@@ -50,6 +50,7 @@ public static class FunctorDisplayLorePatcher
                     __instance.validCharacters.Clear();
                     break;
                 case GadgetBlueprintDefinitions.LoreFormat.GadgetFeedback:
+                    SpeechContext.Speak(stringParameter);
                     Gui.Game.GameCampaign.AdventureLog.RecordLoreTextEntry(stringParameter);
 
                     Gui.GuiService.ShowTextFeedbackVector3(functorParameters.SourceGadget.TextFeedbackPosition,
@@ -63,8 +64,6 @@ public static class FunctorDisplayLorePatcher
                         break;
                     }
 
-                    // before to allow time to create the speech as this could be timed
-                    SpeechContext.Speak(stringParameter);
                     gamePartyStatusScreen.ShowHeaderPopup(stringParameter, boolParameter ? floatParameter : 0.0f);
                     break;
                 case GadgetBlueprintDefinitions.LoreFormat.TimedPanel:

@@ -1,6 +1,7 @@
 1.5.97.40:
 
-- added General > Campaigns > 'Enable Speech on custom campaigns' setting with 6 EN voices to choose from
+- added General > Campaigns > 'Enable Speech on custom campaigns' setting
+- added General > Rules > 'Enable an unlimited number of Inventory Actions per turn' setting
 - added 'Enable Hideous Laughter 5e 2024 spell version' setting [+1 target per upcast]
 - added 'Enable Hunter's Mark 5e 2024 spell version' setting [force damage]
 - added 'Enable Power Word Stun 5e 2024 spell version' setting [target stopped for one turn if has more than 150 hp]
@@ -9,6 +10,7 @@
 - changed Aura of Vitality, Banishing Smite, Crusader's Mantle, Mirror Image, Swift Quiver, Weird, and Wrathful Smite spells to 2024 version
 - fixed 'Enable Second Wind to use 5e 2024 usages progression' on new heroes
 - fixed Patron Hexblade interaction with 5e 2024 pact of blades invocation
+- fixed Staff of Fire to grant fire damage resistance to wielder [VANILLA]
 - fixed True Strike 2024 version to also allow ranged weapon attacks
 - fixed weapon attribute determination logic [i.e.: Hexblade, precision feats, etc.]
 

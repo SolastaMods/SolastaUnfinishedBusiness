@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using NAudio.Wave;
+using Random = System.Random;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -22,9 +23,12 @@ internal static class SpeechContext
         "en/en_GB/alan/medium/en_GB-alan-medium",
         "en/en_GB/alba/medium/en_GB-alba-medium",
         "en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium",
+        "en/en_US/hfc_female/medium/en_US-hfc_female-medium",
+        "en/en_US/hfc_male/medium/en_US-hfc_male-medium",
+        "en/en_US/joe/medium/en_US-joe-medium",
+        "en/en_US/kristin/medium/en_US-kristin-medium",
         "en/en_US/lessac/medium/en_US-lessac-medium",
-        "en/en_US/ryan/medium/en_US-ryan-medium",
-        "en/en_US/hfc_female/medium/en_US-hfc_female-medium"
+        "en/en_US/ryan/medium/en_US-ryan-medium"
     ];
 
     internal static readonly WaveOutEvent WaveOutEvent = new();
@@ -149,13 +153,25 @@ internal static class SpeechContext
         Speak(Quotes[quoteNumber]);
     }
 
+    //TODO: how to integrate an unity Mono Behavior with async / await?
     internal static async void Speak(string inputText)
     {
         try
         {
+            // only custom campaigns
+            if (Gui.GameCampaign)
+            {
+                if (Gui.GameCampaign.campaignDefinition.IsUserCampaign)
+                {
+                    return;
+                }
+            }
+
+            // only if audio and feature enabled
             var audioSettingsService = ServiceRepository.GetService<IAudioSettingsService>();
 
-            if (!Main.Settings.EnableSpeech || !audioSettingsService.MasterEnabled)
+            if (!Main.Settings.EnableSpeech ||
+                !audioSettingsService.MasterEnabled)
             {
                 return;
             }
