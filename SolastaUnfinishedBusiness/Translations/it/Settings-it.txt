@@ -347,6 +347,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Totale <color=#D89555>talenti</c
 ModUi/&Translate=Tradurre
 ModUi/&TranslateCancel=Annulla {0} alle {1}
 ModUi/&Translations=<color=#F0DAA0>Traduzioni:</color>
+ModUi/&UnityExplorer=<b><color=#D89555>Interfaccia utente di Unity Explorer</color></b>
 ModUi/&UnleashEnemyAsNpc=Consenti la selezione dei mostri sui gadget NPC
 ModUi/&UnleashNpcAsEnemy=Sblocca la selezione dei mostri
 ModUi/&Update=<b><color=#D89555>Aggiorna</color></b>

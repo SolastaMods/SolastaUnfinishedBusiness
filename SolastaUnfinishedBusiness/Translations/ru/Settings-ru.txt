@@ -347,6 +347,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Общее количество 
 ModUi/&Translate=Перевести
 ModUi/&TranslateCancel=Отменить {0} перевод на {1}
 ModUi/&Translations=<color=#F0DAA0>Переводы:</color>
+ModUi/&UnityExplorer=<b><color=#D89555>Пользовательский интерфейс Unity Explorer</color></b>
 ModUi/&UnleashEnemyAsNpc=Позволить выбирать монстров в качестве НИП-предметов
 ModUi/&UnleashNpcAsEnemy=Разблокировать выбор монстров
 ModUi/&Update=<b><color=#D89555>Обновить</color></b>

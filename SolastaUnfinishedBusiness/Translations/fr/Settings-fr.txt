@@ -347,6 +347,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total des <color=#D89555>exploit
 ModUi/&Translate=Traduire
 ModUi/&TranslateCancel=Annuler {0} à {1}
 ModUi/&Translations=<color=#F0DAA0>Traductions :</color>
+ModUi/&UnityExplorer=<b><color=#D89555>Interface utilisateur d'Unity Explorer</color></b>
 ModUi/&UnleashEnemyAsNpc=Autoriser la sélection des monstres sur les gadgets PNJ
 ModUi/&UnleashNpcAsEnemy=Débloquer la sélection de monstres
 ModUi/&Update=<b><color=#D89555>Mise à jour</color></b>

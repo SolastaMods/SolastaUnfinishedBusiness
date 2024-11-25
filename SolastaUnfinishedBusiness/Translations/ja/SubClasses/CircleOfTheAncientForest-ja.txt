@@ -28,7 +28,7 @@ Feature/&PowerAncientForestRegrowthDescription=あなたには治癒力が蓄え
 Feature/&PowerAncientForestRegrowthTitle=再成長
 Feature/&PowerAncientForestRootedDescription=樹上性の蔓が足元から伸びて地面に食い込みます。スピードが 0 になり、押したり、引いたり、伏せたりするセーヴィング スローで有利になります。エンタングルを自在にキャストできます。
 Feature/&PowerAncientForestRootedTitle=根付いた
-Feature/&PowerPoolAncientForestHerbalBrewDescription=次の長い休憩まで持続するハーブ醸造を作成できます。熟練度ボーナスと同じ数のビールを作成します。醸造ごとに、次の効果のいずれかを選択します:\n<color=#add8e6ff>強化醸造</color>: 1 時間、さまざまな種類のダメージに対する耐性を与えます。\n<color=#add8e6ff>急速な醸造</color> color>: 2d4 ヒット ポイントを提供します。\n<color=#add8e6ff>有毒な醸造</color>: 1 分間効果が持続する武器に適用できる毒として機能します。ヒットが命中した場合、ターゲットはヒットごとに 1d4 の毒ダメージを受けます。
+Feature/&PowerPoolAncientForestHerbalBrewDescription=次の長い休憩まで持続するハーブ醸造を作成できます。熟練度ボーナスと同じ数のビールを作成します。醸造ごとに、次の効果のいずれかを選択します:\n<color=#ADD8E6>強化醸造</color>: 1 時間、さまざまな種類のダメージに対する耐性を与えます。\n<color=#ADD8E6>急速な醸造</color> color>: 2d4 ヒット ポイントを提供します。\n<color=#ADD8E6>有毒な醸造</color>: 1 分間効果が持続する武器に適用できる毒として機能します。ヒットが命中した場合、ターゲットはヒットごとに 1d4 の毒ダメージを受けます。
 Feature/&PowerPoolAncientForestHerbalBrewTitle=ハーブ醸造
 Feature/&PowerPoolAncientForestWallOfThornsDescription=あなたは「知恵」修正値に等しい回数だけ「いばらの壁」を唱えることができます。長い休憩で充電されます。
 Feature/&PowerPoolAncientForestWallOfThornsTitle=いばらの壁

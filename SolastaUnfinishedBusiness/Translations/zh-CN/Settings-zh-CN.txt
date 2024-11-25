@@ -347,6 +347,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>第一级授予的<color=#D89555
 ModUi/&Translate=翻译
 ModUi/&TranslateCancel=于 {1} 取消 {0}
 ModUi/&Translations=<color=#F0DAA0>翻译：</color>
+ModUi/&UnityExplorer=<b><color=#D89555>Unity 资源管理器用户界面</color></b>
 ModUi/&UnleashEnemyAsNpc=允许在 NPC 小工具上选择怪物
 ModUi/&UnleashNpcAsEnemy=解锁怪物选择
 ModUi/&Update=<b><color=#D89555>更新</color></b>

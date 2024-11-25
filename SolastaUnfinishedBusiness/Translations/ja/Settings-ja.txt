@@ -347,6 +347,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>第 1 レベルで付与され�
 ModUi/&Translate=翻訳する
 ModUi/&TranslateCancel={1} で {0} をキャンセル
 ModUi/&Translations=<color=#F0DAA0>翻訳:</color>
+ModUi/&UnityExplorer=<b><color=#D89555>Unity エクスプローラー UI</color></b>
 ModUi/&UnleashEnemyAsNpc=NPCガジェットでモンスターを選択できるようにする
 ModUi/&UnleashNpcAsEnemy=モンスター選択のロックを解除
 ModUi/&Update=<b><color=#D89555>更新</color></b>

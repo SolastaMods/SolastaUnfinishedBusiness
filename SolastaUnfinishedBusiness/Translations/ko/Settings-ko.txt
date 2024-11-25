@@ -347,6 +347,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>1레벨에서 부여된 총 <col
 ModUi/&Translate=번역하다
 ModUi/&TranslateCancel={1}에 {0} 취소
 ModUi/&Translations=<color=#F0DAA0>번역:</color>
+ModUi/&UnityExplorer=<b><color=#D89555>유니티 익스플로러 UI</color></b>
 ModUi/&UnleashEnemyAsNpc=NPC 가젯에서 몬스터 선택 허용
 ModUi/&UnleashNpcAsEnemy=몬스터 선택 잠금 해제
 ModUi/&Update=<b><color=#D89555>업데이트</color></b>
