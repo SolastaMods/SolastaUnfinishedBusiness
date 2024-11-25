@@ -504,7 +504,8 @@ public static class CharacterActionMagicEffectPatcher
                 var slot = actingCharacter.RulesetCharacter.CharacterInventory
                     .FindSlotHoldingItem(actionParams.RulesetEffect.OriginItem);
 
-                if (slot != null && !slot.SlotTypeDefinition.BodySlot && !Main.Settings.EnableUnlimitedInventoryActions) //don't spend if unlimited enabled
+                if (slot != null && !slot.SlotTypeDefinition.BodySlot &&
+                    !Main.Settings.EnableUnlimitedInventoryActions) //don't spend if unlimited enabled
                 {
                     actingCharacter.SpendActionType(ActionDefinitions.ActionType.FreeOnce);
                 }

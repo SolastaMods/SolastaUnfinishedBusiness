@@ -238,7 +238,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
             canWeaponBeEmpowered =
                 ValidatorsWeapon.IsTwoHanded(mode) &&
                 (hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)) ||
-                hero.HasActiveInvocation(Tabletop2024Context.InvocationPactBlade));
+                 hero.HasActiveInvocation(Tabletop2024Context.InvocationPactBlade));
         }
 
         return canWeaponBeEmpowered;

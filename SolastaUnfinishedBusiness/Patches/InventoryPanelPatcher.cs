@@ -111,16 +111,18 @@ public static class InventoryPanelPatcher
             bool allowDifferentSlot,
             ref bool __result)
         {
-            if ((newSlot == null || __instance.PreviousSlot == null || (newSlot != __instance.PreviousSlot && !allowDifferentSlot)) &&
+            if ((newSlot == null || __instance.PreviousSlot == null ||
+                 (newSlot != __instance.PreviousSlot && !allowDifferentSlot)) &&
                 __instance.GuiCharacter.GameLocationCharacter != null &&
                 Gui.Battle != null &&
                 __instance.InventoryManagementMode == InventoryManagementMode.Battle &&
                 !Main.Settings.EnableUnlimitedInventoryActions &&
-                __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) == ActionStatus.Available)
+                __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) ==
+                ActionStatus.Available)
             {
                 ServiceRepository.GetService<ICommandService>()?.SpendCharacterAction(
-                        __instance.GuiCharacter.GameLocationCharacter,
-                        ActionType.FreeOnce);
+                    __instance.GuiCharacter.GameLocationCharacter,
+                    ActionType.FreeOnce);
 
                 __result = true;
 

@@ -97,76 +97,90 @@ public static class InventoryShortcutsPanelPatcher
                 return false;
             }
 
-            List<RulesetWieldedConfiguration> wieldedItemsConfigurations = __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory.WieldedItemsConfigurations;
+            var wieldedItemsConfigurations = __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory
+                .WieldedItemsConfigurations;
             while (__instance.configurationsTable.childCount < wieldedItemsConfigurations.Count)
             {
                 Gui.GetPrefabFromPool(__instance.wieldedConfigurationButtonPrefab, __instance.configurationsTable);
             }
-            for (int i = 0; i < wieldedItemsConfigurations.Count; i++)
+
+            for (var i = 0; i < wieldedItemsConfigurations.Count; i++)
             {
-                Transform child = __instance.configurationsTable.GetChild(i);
+                var child = __instance.configurationsTable.GetChild(i);
                 child.gameObject.SetActive(true);
-                WieldedConfigurationSelector component = child.GetComponent<WieldedConfigurationSelector>();
-                component.Bind(__instance.GuiCharacter, i, wieldedItemsConfigurations[i], new
-                    WieldedConfigurationSelector.OnConfigurationSwitchedHandler(__instance.OnConfigurationSwitched),
+                var component = child.GetComponent<WieldedConfigurationSelector>();
+                component.Bind(__instance.GuiCharacter, i, wieldedItemsConfigurations[i],
+                    __instance.OnConfigurationSwitched,
                     i == __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory.CurrentConfiguration,
                     __instance.inMainHud,
                     __instance.forceRefresh,
                     __instance.tooltipAnchor);
-                bool flag = false;
+                var flag = false;
                 if (__instance.GuiCharacter.GameLocationCharacter != null)
                 {
-                    IPlayerControllerService service = ServiceRepository.GetService<IPlayerControllerService>();
-                    bool? flag2 = service?.ActivePlayerController?.IsCharacterControlled(__instance.GuiCharacter.GameLocationCharacter);
-                    flag = (flag2 ?? true);
+                    var service = ServiceRepository.GetService<IPlayerControllerService>();
+                    var flag2 = service?.ActivePlayerController?.IsCharacterControlled(__instance.GuiCharacter
+                        .GameLocationCharacter);
+                    flag = flag2 ?? true;
                 }
                 else if (__instance.GuiCharacter.GameCampaignCharacter != null)
                 {
-                    IPlayerControllerService service2 = ServiceRepository.GetService<IPlayerControllerService>();
-                    bool? flag3 = service2?.ActivePlayerController?.IsCharacterControlled(__instance.GuiCharacter.RulesetCharacter);
-                    flag = (flag3 ?? true);
+                    var service2 = ServiceRepository.GetService<IPlayerControllerService>();
+                    var flag3 = service2?.ActivePlayerController?.IsCharacterControlled(__instance.GuiCharacter
+                        .RulesetCharacter);
+                    flag = flag3 ?? true;
                 }
+
                 if (!flag)
                 {
                     component.Interactable = false;
                     component.Tooltip.Content = component.TooltipContent;
                 }
-                else if (__instance.GuiCharacter.GameLocationCharacter != null && __instance.GuiCharacter.GameLocationCharacter.HasForcedActionOrManipulation())
+                else if (__instance.GuiCharacter.GameLocationCharacter != null &&
+                         __instance.GuiCharacter.GameLocationCharacter.HasForcedActionOrManipulation())
                 {
                     component.Interactable = false;
                     component.Tooltip.Content = component.TooltipContent;
                 }
-                else if (!Main.Settings.EnableUnlimitedInventoryActions && Gui.Battle != null &&
-                    __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce, ActionScope.Battle, false) ==
-                    ActionStatus.Spent && !__instance.ItemSelectionInProgress)
+                else switch (Main.Settings.EnableUnlimitedInventoryActions)
                 {
-                    component.Tooltip.Content = Gui.FormatFailure(component.TooltipContent, "Failure/&FailureFlagFreeOnceActionSpent", true);
-                    component.Interactable = false;
-                }
-                else if (!Main.Settings.EnableUnlimitedInventoryActions && Gui.Battle != null &&
-                    __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce, ActionScope.Battle, false) ==
-                    ActionStatus.Unavailable && !__instance.ItemSelectionInProgress)
-                {
-                    component.Tooltip.Content = Gui.FormatFailure(component.TooltipContent, "Failure/&FailureFlagFreeOnceActionUnavailable", true);
-                    component.Interactable = false;
-                }
-                else if (Main.Settings.EnableUnlimitedInventoryActions)
-                {
-                    var gameLocationCharacter = __instance.GuiCharacter.GameLocationCharacter;
-                    gameLocationCharacter.RefundActionUse(ActionType.FreeOnce);
-                    component.Interactable = true;
-                    component.Tooltip.Content = component.TooltipContent;
-                }
-                else
-                {
-                    component.Interactable = true;
-                    component.Tooltip.Content = component.TooltipContent;
+                    case false when
+                        Gui.Battle != null &&
+                        __instance.GuiCharacter.GameLocationCharacter != null &&
+                        __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) ==
+                        ActionStatus.Spent && !__instance.ItemSelectionInProgress:
+                        component.Tooltip.Content = Gui.FormatFailure(component.TooltipContent,
+                            "Failure/&FailureFlagFreeOnceActionSpent");
+                        component.Interactable = false;
+                        break;
+                    case false when
+                        Gui.Battle != null &&
+                        __instance.GuiCharacter.GameLocationCharacter != null &&
+                        __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) ==
+                        ActionStatus.Unavailable && !__instance.ItemSelectionInProgress:
+                        component.Tooltip.Content = Gui.FormatFailure(component.TooltipContent,
+                            "Failure/&FailureFlagFreeOnceActionUnavailable");
+                        component.Interactable = false;
+                        break;
+                    case true when
+                        __instance.GuiCharacter.GameLocationCharacter != null:
+                        __instance.GuiCharacter.GameLocationCharacter.RefundActionUse(ActionType.FreeOnce);
+                    
+                        component.Interactable = true;
+                        component.Tooltip.Content = component.TooltipContent;
+                        break;
+                    default:
+                        component.Interactable = true;
+                        component.Tooltip.Content = component.TooltipContent;
+                        break;
                 }
             }
-            for (int j = wieldedItemsConfigurations.Count; j < __instance.configurationsTable.childCount; j++)
+
+            for (var j = wieldedItemsConfigurations.Count; j < __instance.configurationsTable.childCount; j++)
             {
                 __instance.configurationsTable.GetChild(j).gameObject.SetActive(false);
             }
+
             return false;
         }
     }
