@@ -99,19 +99,6 @@ internal static class DocumentationContext
         return definition.ContentPack == CeContentPackContext.CeContentPack ? "[UB]" : "[SOL]";
     }
 
-    private static string LazyManStripXml(string input)
-    {
-        return input
-            .Replace("<color=#add8e6ff>", string.Empty)
-            .Replace("<#57BCF4>", "\r\n\t")
-            .Replace("<#B5D3DE>", string.Empty)
-            .Replace("</color>", string.Empty)
-            .Replace("<b>", string.Empty)
-            .Replace("<i>", string.Empty)
-            .Replace("</b>", string.Empty)
-            .Replace("</i>", string.Empty);
-    }
-
     private static void DumpFeatureUnlockByLevel(StringBuilder outString, List<FeatureUnlockByLevel> featureUnlocks)
     {
         var level = 0;
@@ -129,7 +116,7 @@ internal static class DocumentationContext
             }
 
             var featureDefinition = featureUnlockByLevel.FeatureDefinition;
-            var description = LazyManStripXml(featureDefinition.FormatDescription());
+            var description = featureDefinition.FormatDescription().LazyManStripXml();
 
             outString.AppendLine($"* {featureDefinition.FormatTitle()}");
             outString.AppendLine();
@@ -149,7 +136,7 @@ internal static class DocumentationContext
         {
             outString.AppendLine($"# {counter++}. - {klass.FormatTitle()} {GetTag(klass)}");
             outString.AppendLine();
-            outString.AppendLine(LazyManStripXml(klass.FormatDescription()));
+            outString.AppendLine(klass.FormatDescription().LazyManStripXml());
             outString.AppendLine();
 
             DumpFeatureUnlockByLevel(outString, klass.FeatureUnlocks);
@@ -238,7 +225,7 @@ internal static class DocumentationContext
 
             outString.AppendLine($"## {counter++}. {title} {GetTag(subclass)}");
             outString.AppendLine();
-            outString.AppendLine(LazyManStripXml(subclass.FormatDescription()));
+            outString.AppendLine(subclass.FormatDescription().LazyManStripXml());
             outString.AppendLine();
 
             DumpFeatureUnlockByLevel(outString, subclass.FeatureUnlocks);
@@ -269,7 +256,7 @@ internal static class DocumentationContext
 
             outString.AppendLine($"# {counter++}. - {title} {GetTag(race)}");
             outString.AppendLine();
-            outString.AppendLine(LazyManStripXml(race.FormatDescription()));
+            outString.AppendLine(race.FormatDescription().LazyManStripXml());
             outString.AppendLine();
 
             DumpFeatureUnlockByLevel(outString, race.FeatureUnlocks);
@@ -332,7 +319,7 @@ internal static class DocumentationContext
                 title = $"*{title}* \u00a9";
             }
 
-            var description = LazyManStripXml(definition.FormatDescription());
+            var description = definition.FormatDescription().LazyManStripXml();
 
             //TODO: refactor this out with a proper optional change description action
             if (definition is SpellDefinition spellDefinition)
@@ -402,7 +389,7 @@ internal static class DocumentationContext
 
             finalDetails = finalDetails.Substring(0, finalDetails.Length - 2);
 
-            outString.AppendLine(LazyManStripXml(finalDetails));
+            outString.AppendLine(finalDetails.LazyManStripXml());
             outString.AppendLine();
         }
 
@@ -433,7 +420,7 @@ internal static class DocumentationContext
         outString.AppendLine($"# {counter++}. - {monsterDefinition.FormatTitle()}");
         outString.AppendLine();
 
-        var description = LazyManStripXml(monsterDefinition.FormatDescription());
+        var description = monsterDefinition.FormatDescription().LazyManStripXml();
 
         if (!string.IsNullOrEmpty(description))
         {

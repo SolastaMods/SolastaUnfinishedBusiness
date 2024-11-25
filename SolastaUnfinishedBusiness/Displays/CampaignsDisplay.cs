@@ -138,6 +138,15 @@ internal static class CampaignsDisplay
             {
                 Main.Settings.EnableSpeechFemaleVoice = toggle;
             }
+
+            floatValue = Main.Settings.SpeechScale;
+            if (UI.Slider(Gui.Localize("ModUi/&SpeechScale"), ref floatValue,
+                    0.5f, 2f, 1f, 1, string.Empty, UI.AutoWidth()))
+            {
+                Main.Settings.SpeechScale = floatValue;
+            }
+
+            UI.Label();
         }
 
         toggle = Main.Settings.EnableHeroWithBestProficiencyToRollChoice;

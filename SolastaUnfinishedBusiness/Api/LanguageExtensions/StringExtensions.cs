@@ -10,6 +10,19 @@ internal static class StringExtensions
         return Regex.Replace(Regex.Replace(str, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
     }
 
+    internal static string LazyManStripXml(this string str)
+    {
+        return str
+            .Replace("<color=#add8e6ff>", string.Empty)
+            .Replace("<#57BCF4>", "\r\n\t")
+            .Replace("<#B5D3DE>", string.Empty)
+            .Replace("</color>", string.Empty)
+            .Replace("<b>", string.Empty)
+            .Replace("<i>", string.Empty)
+            .Replace("</b>", string.Empty)
+            .Replace("</i>", string.Empty);
+    }
+
     internal static bool Matches(this string source, string other)
     {
         if (source == null || other == null)

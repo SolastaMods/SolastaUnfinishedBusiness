@@ -127,6 +127,10 @@
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityEngine.AssetBundleModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityEngine.AudioModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
@@ -186,6 +190,12 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/Unity.TextMeshPro.dll</HintPath>
       <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>D:\SteamLibrary\steamapps\common\Slasta_COTM\Solasta_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>D:\SteamLibrary\steamapps\common\Slasta_COTM\Solasta_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
     </Reference>
     <Reference Include="Ak.Wwise.Api.WAAPI.dll">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/Ak.Wwise.Api.WAAPI.dll</HintPath>

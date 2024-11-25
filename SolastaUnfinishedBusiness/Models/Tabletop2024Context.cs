@@ -259,6 +259,7 @@ internal static class Tabletop2024Context
         .Create("ConditionTrueStrike2024")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialDuration()
         .SetFeatures(
             FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageTrueStrike")
@@ -556,7 +557,7 @@ internal static class Tabletop2024Context
             : ActivationTime.Action;
     }
 
-    internal static void LoadOneDndSpellSpareTheDying()
+    private static void LoadOneDndSpellSpareTheDying()
     {
         SpareTheDying.AddCustomSubFeatures(new ModifyEffectDescriptionSpareTheDying());
     }
@@ -643,11 +644,11 @@ internal static class Tabletop2024Context
             Main.Settings.EnableOneDndHuntersMarkSpell
                 ? AdditionalDamageType.Specific
                 : AdditionalDamageType.SameAsBaseDamage;
-        HuntersMark.GuiPresentation.description = 
+        HuntersMark.GuiPresentation.description =
             Main.Settings.EnableOneDndHuntersMarkSpell
                 ? "Spell/&HuntersMarkExtendedDescription"
                 : "Spell/&HuntersMarkDescription";
-        ConditionMarkedByHunter.GuiPresentation.description = 
+        ConditionMarkedByHunter.GuiPresentation.description =
             Main.Settings.EnableOneDndHuntersMarkSpell
                 ? "Rules/&ConditionMarkedByHunterExtendedDescription"
                 : "Rules/&ConditionMarkedByHunterDescription";
@@ -1096,12 +1097,12 @@ internal static class Tabletop2024Context
 
         TrueStrike.AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerAnyWeaponAttack);
         TrueStrike.GuiPresentation.description = "Spell/&TrueStrike2024Description";
+        TrueStrike.requiresConcentration = false;
         TrueStrike.effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Round)
             // 24 seems to be the max range on Solasta ranged weapons
             .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
-            .SetIgnoreCover()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
             .SetEffectForms(
                 EffectFormBuilder.ConditionForm(ConditionTrueStrike2024, ConditionForm.ConditionOperation.Add, true))
@@ -1315,7 +1316,7 @@ internal static class Tabletop2024Context
             }
 
             effectDescription.RangeType = RangeType.Distance;
-            
+
             var level = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             var power = level switch
             {

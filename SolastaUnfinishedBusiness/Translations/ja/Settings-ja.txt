@@ -316,6 +316,7 @@ ModUi/&ShowCraftedItemOnRecipeIcon=ショップとインベントリのレシピ
 ModUi/&ShowCraftingRecipeInDetailedTooltips=詳細なツールチップにクラフトレシピを表示する
 ModUi/&ShowDescriptions=説明を表示
 ModUi/&ShowMotionFormPreview=<b>プッシュ</b>と<b>プル</b>効果のプレビューを表示
+ModUi/&SpeechScale=<color=white>ナレーション速度修飾子</color> <i><color=#F0DAA0>[低いほど速くなります]</color></i>
 ModUi/&SpellLevelFilter=<b><i><color=white>スペルレベルフィルター</color> <color=#F0DAA0>[-1 はすべて表示]</color></i></b>
 ModUi/&SpellsMenu=呪文
 ModUi/&StealthBreaksWhenAttackHits=武器や呪文攻撃がヒットしたときにステルス解除を有効にする
