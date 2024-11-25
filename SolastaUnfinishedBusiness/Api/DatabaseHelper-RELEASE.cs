@@ -2658,6 +2658,9 @@ internal static partial class DatabaseHelper
 
     internal static class ItemDefinitions
     {
+        internal static ItemDefinition StaffOfFire { get; } =
+            GetDefinition<ItemDefinition>("StaffOfFire");
+
         internal static ItemDefinition RingFeatherFalling { get; } =
             GetDefinition<ItemDefinition>("RingFeatherFalling");
 
