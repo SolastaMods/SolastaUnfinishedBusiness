@@ -89,6 +89,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableHelpAction { get; set; }
     public bool EnableRespecAction { get; set; }
     public bool EnableUnarmedMainAttackAction { get; set; }
+    public bool EnableUnlimitedInventoryActions { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseAlternateSpellPointsSystem { get; set; }
     public bool UseOfficialFlankingRules { get; set; }

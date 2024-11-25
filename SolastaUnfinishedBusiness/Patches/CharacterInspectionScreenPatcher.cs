@@ -81,4 +81,73 @@ public static class CharacterInspectionScreenPatcher
             Global.InspectedHero = null;
         }
     }
+
+    //PATCH: modify caption if unlimited inventory actions is enabled
+    [HarmonyPatch(typeof(CharacterInspectionScreen), nameof(CharacterInspectionScreen.RefreshCaption))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshCaption_Patch
+    {
+        public static bool Prefix(CharacterInspectionScreen __instance)
+        {
+            if (__instance.inventoryManagementMode == ActionDefinitions.InventoryManagementMode.Battle)
+            {
+                __instance.screenCaption.gameObject.SetActive(true);
+                if (!Main.Settings.EnableUnlimitedInventoryActions && __instance.InspectedCharacter.GameLocationCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.FreeOnce, ActionDefinitions.ActionScope.Battle, false) == ActionDefinitions.ActionStatus.Available)
+                {
+                    __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeBattleAvailableTitle", false, null, null);
+                    __instance.screenCaption.TMP_Text.color = __instance.inventoryActionAvailableColor;
+                    return false; // Skip the original method
+                }
+                else if (Main.Settings.EnableUnlimitedInventoryActions && __instance.InspectedCharacter.GameLocationCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.FreeOnce, ActionDefinitions.ActionScope.Battle, false) == ActionDefinitions.ActionStatus.Available)
+                {
+                    __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeBattleUnlimitedTitle", false, null, null);
+                    __instance.screenCaption.TMP_Text.color = __instance.inventoryActionAvailableColor;
+                    return false; // Skip the original method
+                }
+                __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeBattleSpentTitle", false, null, null);
+                __instance.screenCaption.TMP_Text.color = __instance.inventoryActionSpentColor;
+                return false; // Skip the original method
+            }
+            else
+            {
+                if (__instance.inventoryManagementMode == ActionDefinitions.InventoryManagementMode.SelectItem)
+                {
+                    __instance.screenCaption.gameObject.SetActive(true);
+                    switch (__instance.itemSelectionType)
+                    {
+                        case ActionDefinitions.ItemSelectionType.Equiped:
+                        case ActionDefinitions.ItemSelectionType.EquippedNoLightSource:
+                            __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeSelectEquipedItemTitle", false, null, null);
+                            break;
+                        case ActionDefinitions.ItemSelectionType.Carried:
+                            __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeSelectCarriedItemTitle", false, null, null);
+                            break;
+                        case ActionDefinitions.ItemSelectionType.MagicalUnidentified:
+                            __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeSelectMagicalUnidentifiedItemTitle", false, null, null);
+                            break;
+                        case ActionDefinitions.ItemSelectionType.Weapon:
+                            __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeSelectWeaponTitle", false, null, null);
+                            break;
+                        case ActionDefinitions.ItemSelectionType.WeaponNonMagical:
+                            __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeSelectWeaponNonMagicalTitle", false, null, null);
+                            break;
+                        case ActionDefinitions.ItemSelectionType.WieldedClubOrQuarterstaff:
+                            __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeSelectWieldedClubOrQuarterstaffTitle", false, null, null);
+                            break;
+                        case ActionDefinitions.ItemSelectionType.Spellbook:
+                            __instance.screenCaption.Text = Gui.Format("Screen/&CharacterInspectionModeSelectSpellbookTitle", new string[]
+                            {
+                                __instance.spellToScribe.SpellLevel.ToString()
+                            });
+                            break;
+                    }
+                    __instance.screenCaption.TMP_Text.color = __instance.inventoryActionAvailableColor;
+                    return false; // Skip the original method
+                }
+                __instance.screenCaption.gameObject.SetActive(false);
+                return false; // Skip the original method
+            }
+        }
+    }
 }
