@@ -429,7 +429,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     {
         var powerChalice = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Chalice")
-            .SetGuiPresentation(Category.Feature, PowerPaladinLayOnHands, hidden: true)
+            .SetGuiPresentation(Category.Feature, PowerPaladinLayOnHands)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetEffectDescription(
@@ -761,7 +761,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             rulesetAttacker.InflictCondition(
                 conditionChaliceHealing.Name,
-                DurationType.Permanent,
+                DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
