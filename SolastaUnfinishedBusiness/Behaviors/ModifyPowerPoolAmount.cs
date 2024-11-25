@@ -36,14 +36,14 @@ public class ModifyPowerPoolAmount : IModifyPowerPoolAmount
         {
             if (!Main.Settings.EnableSecondWindToUseOneDndUsagesProgression)
             {
-                return 1;
+                return 0;
             }
 
             return character.GetClassLevel(Attribute) switch
             {
-                >= 10 => 4,
-                >= 4 => 3,
-                _ => 2
+                >= 10 => 3,
+                >= 4 => 2,
+                _ => 1
             };
         }
     }

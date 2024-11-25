@@ -144,8 +144,8 @@ public class Settings : UnityModManager.ModSettings
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool EnableSpeech { get; set; }
-    public bool EnableSpeechFemaleVoice { get; set; }
-    public float SpeechScale { get; set; } = 1f;
+    public int SpeechVoice { get; set; }
+    public float SpeechScale { get; set; } = 0.8f;
     public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }

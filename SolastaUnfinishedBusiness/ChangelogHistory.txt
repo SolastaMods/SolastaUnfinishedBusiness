@@ -1,6 +1,6 @@
 1.5.97.40:
 
-- added Ray of Sickness spell
+- added General > Campaigns > 'Enable Speech on custom campaigns' setting with 6 EN voices to choose from
 - added 'Enable Hideous Laughter 5e 2024 spell version' setting [+1 target per upcast]
 - added 'Enable Hunter's Mark 5e 2024 spell version' setting [force damage]
 - added 'Enable Power Word Stun 5e 2024 spell version' setting [target stopped for one turn if has more than 150 hp]

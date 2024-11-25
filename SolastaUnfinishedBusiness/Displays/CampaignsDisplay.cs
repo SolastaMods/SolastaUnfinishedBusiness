@@ -133,17 +133,21 @@ internal static class CampaignsDisplay
 
         if (Main.Settings.EnableSpeech)
         {
-            toggle = Main.Settings.EnableSpeechFemaleVoice;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnableSpeechFemaleVoice"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableSpeechFemaleVoice = toggle;
-            }
-
             floatValue = Main.Settings.SpeechScale;
             if (UI.Slider(Gui.Localize("ModUi/&SpeechScale"), ref floatValue,
                     0.5f, 2f, 1f, 1, string.Empty, UI.AutoWidth()))
             {
                 Main.Settings.SpeechScale = floatValue;
+            }
+
+            UI.Label();
+
+            intValue = Main.Settings.SpeechVoice;
+            if (UI.SelectionGrid(
+                    ref intValue, SpeechContext.VoiceNames, SpeechContext.VoiceNames.Length, 3, UI.Width(600f)))
+            {
+                Main.Settings.SpeechVoice = intValue;
+                SpeechContext.SpeakQuote();
             }
 
             UI.Label();
