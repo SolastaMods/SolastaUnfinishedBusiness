@@ -57,6 +57,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Fody" Version="6.9.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <!-- <PackageReference Include="System.Memory" Version="4.5.5" /> -->
     <Reference Include="System.Collections"/>
     <Reference Include="System.IO.Compression"/>
@@ -100,6 +107,8 @@
     <Reference Include="Tomlet">
       <HintPath>../lib/Tomlet.dll</HintPath>
     </Reference>
+    <PackageReference Include="NAudio" Version="2.2.1"/>
+    <PackageReference Include="NAudio.Core" Version="2.2.1"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -190,12 +199,6 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/Unity.TextMeshPro.dll</HintPath>
       <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\Slasta_COTM\Solasta_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>D:\SteamLibrary\steamapps\common\Slasta_COTM\Solasta_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
     </Reference>
     <Reference Include="Ak.Wwise.Api.WAAPI.dll">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/Ak.Wwise.Api.WAAPI.dll</HintPath>
