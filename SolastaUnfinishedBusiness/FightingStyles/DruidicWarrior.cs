@@ -18,7 +18,7 @@ internal class DruidicWarrior : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(Name)
-        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(Name, Resources.DruidicWarrior, 256))
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(Name, Resources.DruidicWarrior, 256), hidden: true)
         .SetFeatures(
             FeatureDefinitionCastSpellBuilder
                 .Create(CastSpellCleric, $"CastSpell{Name}")

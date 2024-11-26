@@ -1,19 +1,18 @@
 1.5.97.40:
 
-- added Blessed Warrior, Druidic Warrior fighting styles, and Ray of Sickness spell
+- added Aura of Vitality, Banishing Smite, Crusader's Mantle, Mirror Image, Swift Quiver, Weird, and Wrathful Smite 5e 2024 spells version
 - added General > Campaigns > 'Enable Speech on custom campaigns' setting
-- added General > Rules > 'Enable an unlimited number of Inventory Actions per turn' setting [by SilverGriffon]
+- added General > Rules > 'Enable an unlimited number of inventory actions per turn' setting [by SilverGriffon]
 - added 'Enable Hideous Laughter 5e 2024 spell version' setting [+1 target per upcast]
 - added 'Enable Hunter's Mark 5e 2024 spell version' setting [force damage]
 - added 'Enable Power Word Stun 5e 2024 spell version' setting [target stopped for one turn if has more than 150 hp]
 - added 'Enable Spare the Dying 5e 2024 spell version' setting [range double every cantrip level upgrade]
 - added 'Enable Spider Climb 5e 2024 spell version' setting [+1 target per upcast]
-- changed Aura of Vitality, Banishing Smite, Crusader's Mantle, Mirror Image, Swift Quiver, Weird, and Wrathful Smite spells to 2024 version
-- fixed 'Enable Second Wind to use 5e 2024 usages progression' on new heroes
+- fixed 'Enable Second Wind to use 5e 2024 usages progression' forcing max usage to zero when off
 - fixed Patron Hexblade interaction with 5e 2024 pact of blades invocation
-- fixed Staff of Fire to grant fire damage resistance to wielder [VANILLA]
-- fixed True Strike 2024 version to also allow ranged weapon attacks
-- fixed weapon attribute determination logic [i.e.: Hexblade, precision feats, etc.]
+- fixed Staff of Fire not granting fire damage resistance to wielder [VANILLA]
+- fixed True Strike 2024 version not allowing ranged or thrown, and enforcing concentration
+- fixed weapon attribute determination not enforcing the higher scored modifier [i.e.: Hexblade, precision feats, etc.]
 
 KNOWN ISSUES:
 

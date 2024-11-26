@@ -18,7 +18,7 @@ internal class BlessedWarrior : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(Name)
-        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(Name, Resources.BlessedWarrior, 256))
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(Name, Resources.BlessedWarrior, 256), hidden: true)
         .SetFeatures(
             FeatureDefinitionCastSpellBuilder
                 .Create(CastSpellCleric, $"CastSpell{Name}")

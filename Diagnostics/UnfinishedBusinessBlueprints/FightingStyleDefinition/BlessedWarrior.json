@@ -7,7 +7,7 @@
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&BlessedWarriorTitle",
     "description": "FightingStyle/&BlessedWarriorDescription",
     "spriteReference": {
