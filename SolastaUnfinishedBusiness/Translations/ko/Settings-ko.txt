@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=다재다능함
 ModUi/&DontEndTurnAfterReady=<color=#D89555>준비</color> 액션 후에 턴을 끝내지 마세요 <i><color=#F0DAA0>[다른 출처에서 보너스 액션이나 다른 주요 액션을 허용합니다]</color></i>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있는 경우 전투 카메라가 따라가지 않습니다.
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 화면 가장자리 밖에 있거나 % 이내에 있지 않는 한</color></i>
+ModUi/&DownloadVoice=추천된 음성 다운로드
+ModUi/&DownloadVoiceOngoing={0}에서 다운로드 중
 ModUi/&DungeonMaker=던전메이커
 ModUi/&DungeonMakerBasicHelp=• 이러한 설정은 플레이어가 이 모드를 설치하도록 요구하지 않습니다.
 ModUi/&Effects=효과
@@ -281,6 +283,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=머리, 목 또는 몸통에 착용
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>다크엘프</color>, <color=#D89555>다크 코볼드</color>, <color=#D89555>그레이 드워프</color>에 <color=#D89555>조명 감도</color>를 활성화하면 야외에서만 작동합니다.\n<i><color=#F0DAA0>[로드 화면 없이 접근할 수 있는 야외 위치의 실내 공간은 게임 엔진에서 야외로 간주됨]</color></i>
 ModUi/&Races=<color=#F0DAA0>종족</color>
 ModUi/&RecipeCost=<color=white>레시피 비용</color>
+ModUi/&RefreshVoice=음성 목록 새로 고침
 ModUi/&RelicForgeries=유물 위조
 ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=레벨 14와 18에서 <color=#D89555>마법의 비밀</color>을 제거하세요

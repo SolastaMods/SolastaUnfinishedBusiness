@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=汎用性
 ModUi/&DontEndTurnAfterReady=<color=#D89555>準備完了</color>アクションの後にターンを終了しない <i><color=#F0DAA0>[ボーナスアクションまたは他のソースからのその他のメインアクションを許可]</color></i>
 ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にいる場合、戦闘カメラは追従しません
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローが画面外にいるか、画面端の % 以内にいる場合を除く</color></i>
+ModUi/&DownloadVoice=提案された音声をダウンロード
+ModUi/&DownloadVoiceOngoing={0} でダウンロード中
 ModUi/&DungeonMaker=ダンジョンメーカー
 ModUi/&DungeonMakerBasicHelp=• これらの設定では、プレイヤーがこのMODをインストールする必要はありません
 ModUi/&Effects=効果
@@ -281,6 +283,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=クイックキャスト<color=#D89
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>、<color=#D89555>Gray Dwarf</color> の <color=#D89555>Light Sensitivity</color> を有効にすると、屋外でのみトリガーされます\n<i><color=#F0DAA0>[ロード画面なしでアクセス可能な屋外の場所の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
 ModUi/&RecipeCost=<color=white>レシピのコスト</color>
+ModUi/&RefreshVoice=ボイスリストを更新
 ModUi/&RelicForgeries=遺物の偽造
 ModUi/&RemoveAttunementRequirements=調整要件を削除します <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=レベル14と18で<color=#D89555>魔法の秘密</color>を削除します

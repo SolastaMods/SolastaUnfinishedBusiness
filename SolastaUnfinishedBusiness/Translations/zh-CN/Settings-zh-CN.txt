@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=多功能性
 ModUi/&DontEndTurnAfterReady=在<color=#D89555>准备</color>操作后不结束回合<i><color=#F0DAA0>[允许奖励操作或来自其他来源的任何其他主要操作]</color></i>
 ModUi/&DontFollowCharacterInBattle=当角色已出现在屏幕上时，战斗摄像机不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+ 除非英雄不在屏幕边缘或在屏幕边缘的 % 范围内</color></i>
+ModUi/&DownloadVoice=下载推荐的声音
+ModUi/&DownloadVoiceOngoing=正在下载（{0}）
 ModUi/&DungeonMaker=地下城制造者
 ModUi/&DungeonMakerBasicHelp=• 这些设置不需要玩家安装此模组
 ModUi/&Effects=效果
@@ -281,6 +283,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=启用快速施放<color=#D89555>Li
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=启用 <color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color> 和 <color=#D89555>Gray Dwarf</color> 上的 <color=#D89555>光敏感度</color>，以便仅在户外触发\n<i><color=#F0DAA0>[无需加载屏幕即可进入的户外位置的室内区域被游戏引擎视为户外区域]</color></i>
 ModUi/&Races=<color=#F0DAA0>种族</color>
 ModUi/&RecipeCost=<color=white>食谱成本</color>
+ModUi/&RefreshVoice=刷新语音列表
 ModUi/&RelicForgeries=文物伪造
 ModUi/&RemoveAttunementRequirements=删除调谐要求<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=删除 14 级和 18 级的<color=#D89555>魔法秘密</color>

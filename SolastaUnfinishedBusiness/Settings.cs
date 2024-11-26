@@ -146,7 +146,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool EnableSpeech { get; set; }
     public int SpeechChoice { get; set; }
-    public Dictionary<int, (int, float)> SpeechVoices { get; set; } = [];
+    public SerializableDictionary<int, (int, float)> SpeechVoices { get; set; } = [];
     public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }

@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=Versatilità
 ModUi/&DontEndTurnAfterReady=Non terminare il turno dopo l'azione <color=#D89555>Pronto</color> <i><color=#F0DAA0>[consente un'azione bonus o qualsiasi altra azione principale da altre fonti]</color></i>
 ModUi/&DontFollowCharacterInBattle=La telecamera di battaglia non segue quando il personaggio è già sullo schermo
 ModUi/&DontFollowMargin=<i><color=white>+ A meno che l'eroe non sia spento o entro % dal bordo dello schermo</color></i>
+ModUi/&DownloadVoice=Scarica le voci suggerite
+ModUi/&DownloadVoiceOngoing=Scaricamento a {0}
 ModUi/&DungeonMaker=Creatore di Dungeon
 ModUi/&DungeonMakerBasicHelp=• Queste impostazioni non richiederanno che il giocatore abbia installato questa mod
 ModUi/&Effects=Effetti
@@ -281,6 +283,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=Abilita il lancio rapido <color=#D8
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Abilita <color=#D89555>Sensibilità alla luce</color> su <color=#D89555>Elfo oscuro</color>, <color=#D89555>Kobold oscuro</color> e <color=#D89555>Nano grigio</color> per attivarli solo all'aperto\n<i><color=#F0DAA0>[le aree interne in luoghi all'aperto accessibili senza una schermata di caricamento sono considerate all'aperto dal motore di gioco]</color></i>
 ModUi/&Races=<color=#F0DAA0>Razze</color>
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
+ModUi/&RefreshVoice=Aggiorna elenco voci
 ModUi/&RelicForgeries=Falsificazioni di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di sintonizzazione <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Rimuovi <color=#D89555>Segreto magico</color> ai livelli 14 e 18

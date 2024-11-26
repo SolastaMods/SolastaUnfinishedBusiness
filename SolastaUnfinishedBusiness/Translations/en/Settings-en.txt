@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=Versatilities
 ModUi/&DontEndTurnAfterReady=Don't end turn after <color=#D89555>Ready</color> action <i><color=#F0DAA0>[allows bonus action or any other main action from other sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
+ModUi/&DownloadVoice=Download Suggested Voices
+ModUi/&DownloadVoiceOngoing=Downloading at {0}
 ModUi/&DungeonMaker=Dungeon Maker
 ModUi/&DungeonMakerBasicHelp=• These settings won't require the player to have this mod installed
 ModUi/&Effects=Effects
@@ -281,6 +283,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=Enable quick cast <color=#D89555>Li
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Enable <color=#D89555>Light Sensitivity</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> to only trigger outdoors\n<i><color=#F0DAA0>[indoor areas in outdoor locations accessible without a load screen are considered outdoor by the game engine]</color></i>
 ModUi/&Races=<color=#F0DAA0>Races</color>
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
+ModUi/&RefreshVoice=Refresh Voices List
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Remove <color=#D89555>Magical Secret</color> at levels 14 and 18

@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=Polyvalence
 ModUi/&DontEndTurnAfterReady=Ne pas terminer le tour après l'action <color=#D89555>Prêt</color> <i><color=#F0DAA0>[permet une action bonus ou toute autre action principale provenant d'autres sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à % du bord de l'écran</color></i>
+ModUi/&DownloadVoice=Télécharger les voix suggérées
+ModUi/&DownloadVoiceOngoing=Téléchargement à {0}
 ModUi/&DungeonMaker=Créateur de donjons
 ModUi/&DungeonMakerBasicHelp=• Ces paramètres ne nécessiteront pas que le joueur ait installé ce mod
 ModUi/&Effects=Effets
@@ -281,6 +283,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=Activez l'incantation rapide <color
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Activez la <color=#D89555>sensibilité à la lumière</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Gray Dwarf</color> pour qu'elle ne se déclenche qu'à l'extérieur\n<i><color=#F0DAA0>[les zones intérieures dans les emplacements extérieurs accessibles sans écran de chargement sont considérées comme extérieures par le moteur de jeu]</color></i>
 ModUi/&Races=<color=#F0DAA0>Les courses</color>
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>
+ModUi/&RefreshVoice=Actualiser la liste des voix
 ModUi/&RelicForgeries=Contrefaçons de reliques
 ModUi/&RemoveAttunementRequirements=Supprimer les exigences d'harmonisation <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Supprimez le <color=#D89555>secret magique</color> aux niveaux 14 et 18

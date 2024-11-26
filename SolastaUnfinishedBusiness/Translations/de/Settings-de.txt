@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=Vielseitigkeit
 ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht nach der Aktion <color=#D89555>Bereit</color> <i><color=#F0DAA0>[erlaubt Bonusaktionen oder andere Hauptaktionen aus anderen Quellen]</color></i>
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn die Figur bereits auf dem Bildschirm ist
 ModUi/&DontFollowMargin=<i><color=white>+ Sofern der Held nicht ausgeschaltet ist oder sich innerhalb von % des Bildschirmrands befindet</color></i>
+ModUi/&DownloadVoice=Vorgeschlagene Stimmen herunterladen
+ModUi/&DownloadVoiceOngoing=Wird heruntergeladen unter {0}
 ModUi/&DungeonMaker=Dungeon-Ersteller
 ModUi/&DungeonMakerBasicHelp=• Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat
 ModUi/&Effects=Auswirkungen
@@ -281,6 +283,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=Aktivieren Sie den Schnellzauber <c
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Aktivieren Sie <color=#D89555>Lichtempfindlichkeit</color> bei <color=#D89555>Dunkelelf</color>, <color=#D89555>Dunkelkobold</color> und <color=#D89555>Grauer Zwerg</color>, damit diese nur im Freien ausgelöst wird\n<i><color=#F0DAA0>[Innenbereiche an Außenbereichen, die ohne Ladebildschirm zugänglich sind, werden von der Spiel-Engine als Außenbereiche betrachtet]</color></i>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
 ModUi/&RecipeCost=<color=white>Kosten des Rezepts</color>
+ModUi/&RefreshVoice=Stimmenliste aktualisieren
 ModUi/&RelicForgeries=Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements=Abstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Entferne <color=#D89555>Magisches Geheimnis</color> auf den Ebenen 14 und 18

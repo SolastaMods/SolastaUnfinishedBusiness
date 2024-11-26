@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -7,13 +8,21 @@ using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using HarmonyLib;
+using JetBrains.Annotations;
 using NAudio.Wave;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using UnityEngine;
 using Random = System.Random;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpeechContext
 {
+    internal const int MaxHeroes = 4;
+
+    private const string OfficialVoicesURLPrefix = "https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/";
+
     private const string PiperLinuxDownloadURL =
         "https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_linux_x86_64.tar.gz";
 
@@ -37,20 +46,20 @@ internal static class SpeechContext
 
     private static readonly string VoicesFolder = Path.Combine(Main.ModFolder, "Voices");
 
-    private static readonly string[] Voices =
+    private static readonly string[] SuggestedVoicesUrls =
     [
-        "en/en_GB/alan/medium/en_GB-alan-medium",
-        "en/en_GB/alba/medium/en_GB-alba-medium",
-        "en/en_GB/aru/medium/en_GB-aru-medium",
-        "en/en_GB/cori/medium/en_GB-cori-medium",
-        "en/en_GB/jenny_dioco/medium/en_GB-jenny_dioco-medium",
-        "en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium",
-        "en/en_US/hfc_female/medium/en_US-hfc_female-medium",
-        "en/en_US/hfc_male/medium/en_US-hfc_male-medium",
-        "en/en_US/joe/medium/en_US-joe-medium",
-        "en/en_US/kristin/medium/en_US-kristin-medium",
-        "en/en_US/lessac/medium/en_US-lessac-medium",
-        "en/en_US/ryan/medium/en_US-ryan-medium"
+        $"{OfficialVoicesURLPrefix}en/en_GB/alan/medium/en_GB-alan-medium",
+        $"{OfficialVoicesURLPrefix}en/en_GB/alba/medium/en_GB-alba-medium",
+        $"{OfficialVoicesURLPrefix}en/en_GB/aru/medium/en_GB-aru-medium",
+        $"{OfficialVoicesURLPrefix}en/en_GB/cori/medium/en_GB-cori-medium",
+        $"{OfficialVoicesURLPrefix}en/en_GB/jenny_dioco/medium/en_GB-jenny_dioco-medium",
+        $"{OfficialVoicesURLPrefix}en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium",
+        $"{OfficialVoicesURLPrefix}en/en_US/hfc_female/medium/en_US-hfc_female-medium",
+        $"{OfficialVoicesURLPrefix}en/en_US/hfc_male/medium/en_US-hfc_male-medium",
+        $"{OfficialVoicesURLPrefix}en/en_US/joe/medium/en_US-joe-medium",
+        $"{OfficialVoicesURLPrefix}en/en_US/kristin/medium/en_US-kristin-medium",
+        $"{OfficialVoicesURLPrefix}en/en_US/lessac/medium/en_US-lessac-medium",
+        $"{OfficialVoicesURLPrefix}en/en_US/ryan/medium/en_US-ryan-medium"
     ];
 
     internal static readonly string[] Choices =
@@ -59,9 +68,7 @@ internal static class SpeechContext
         "Hero 1",
         "Hero 2",
         "Hero 3",
-        "Hero 4",
-        "Hero 5",
-        "Hero 6"
+        "Hero 4"
     ];
 
     internal static readonly WaveOutEvent WaveOutEvent = new();
@@ -170,27 +177,49 @@ internal static class SpeechContext
         "Chuck Norris doesn't need to wear a watch, he simply decides what time it is."
     ];
 
-    internal static readonly string[] VoiceNames = new List<string> { "None" }
-        .Union(Voices.Select(x => x.Split('/')[2].Replace("_", " "))).ToArray();
-
     private static readonly Random Quoteziner = new();
+
+    internal static string[] VoiceNames { get; private set; }
 
     internal static void Load()
     {
-        // init voices
-        for (var i = 0; i <= 6; i++)
+        InitPiper();
+        RefreshAvailableVoices();
+        InitVoiceAssignments();
+    }
+
+    private static void InitVoiceAssignments()
+    {
+        // remove any invalid key
+        Main.Settings.SpeechVoices.Keys
+            .Where(x => x is <= 0 or >= MaxHeroes)
+            .ToList()
+            .Do(x => Main.Settings.SpeechVoices.Remove(x));
+
+        for (var i = 0; i <= MaxHeroes; i++)
         {
             Main.Settings.SpeechVoices.TryAdd(i, (0, 1f));
-        }
 
-        DownloadPiper();
-        DownloadVoices();
+            if (Main.Settings.SpeechVoices[i].Item1 < VoiceNames.Length)
+            {
+                Main.Settings.SpeechVoices[i] = (0, 1f);
+            }
+        }
+    }
+
+    internal static void RefreshAvailableVoices()
+    {
+        var directoryInfo = new DirectoryInfo(VoicesFolder);
+        var voices = directoryInfo.GetFiles("*.onnx").Select(x => x.Name.Replace(".onnx", string.Empty)).ToList();
+
+        VoiceNames = new List<string> { "None" }.Union(voices).ToArray();
     }
 
     internal static void SpeakQuote()
     {
         var quoteNumber = Quoteziner.Next(0, Quotes.Length);
 
+        WaveOutEvent.Stop();
         Speak(Quotes[quoteNumber], Main.Settings.SpeechChoice, false);
     }
 
@@ -199,7 +228,7 @@ internal static class SpeechContext
     {
         try
         {
-            if (!Main.Settings.EnableSpeech || heroId < 0)
+            if (!Main.Settings.EnableSpeech || heroId < 0 || heroId > MaxHeroes)
             {
                 return;
             }
@@ -236,10 +265,9 @@ internal static class SpeechContext
             {
                 var audioStream = new MemoryStream();
                 var buffer = new byte[16384];
-                var narratorVoice = Voices[voiceId - 1];
+                var voiceName = VoiceNames[voiceId];
                 var executable = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "piper.exe" : "piper";
-                var modelName = Path.GetFileName(narratorVoice);
-                var modelFileName = Path.Combine(VoicesFolder, modelName + ".onnx");
+                var modelFileName = Path.Combine(VoicesFolder, voiceName + ".onnx");
                 var piper = new Process();
 
                 int bytesRead;
@@ -285,8 +313,13 @@ internal static class SpeechContext
         }
     }
 
-    private static void DownloadPiper()
+    private static void InitPiper()
     {
+        if (!Directory.Exists(VoicesFolder))
+        {
+            Directory.CreateDirectory(VoicesFolder);
+        }
+
         string url;
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
@@ -328,52 +361,125 @@ internal static class SpeechContext
         Main.Info(message);
     }
 
-    private static void DownloadVoices()
+
+    internal sealed class VoicesDownloader : MonoBehaviour
     {
-        const string URL_PREFIX = "https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/";
+        private static VoicesDownloader _shared;
+        private IEnumerator _coroutine;
 
-        var wc = new WebClient();
+        private float _progress;
 
-        if (!Directory.Exists(VoicesFolder))
+        [NotNull]
+        internal static VoicesDownloader Shared
         {
-            Directory.CreateDirectory(VoicesFolder);
+            get
+            {
+                if (_shared)
+                {
+                    return _shared;
+                }
+
+                _shared = new GameObject().AddComponent<VoicesDownloader>();
+                DontDestroyOnLoad(_shared.gameObject);
+
+                _shared._coroutine = null;
+
+                return _shared;
+            }
         }
 
-        foreach (var voice in Voices)
+        internal string GetButtonLabel()
         {
-            var message = $"Voice {voice} successfully downloaded";
-            var model = $"{voice}.onnx";
-            var modelFilename = Path.GetFileName(model);
-            var fullModelFilename = Path.Combine(VoicesFolder, modelFilename);
-            var modelUrl = $"{URL_PREFIX}{model}?download=true";
+            return _coroutine != null
+                ? Gui.Format("ModUi/&DownloadVoiceOngoing", $"{_progress:00.0%}").Bold().Khaki()
+                : Gui.Localize("ModUi/&DownloadVoice");
+        }
 
-            try
+        private void UpdateProgress(ref int loaded, int total)
+        {
+            if (total <= 0)
             {
-                if (!File.Exists(fullModelFilename))
+                _progress = 0.0f;
+                return;
+            }
+
+            _progress = loaded++ / (float)total;
+        }
+
+        private IEnumerator DownloadVoicesImpl()
+        {
+            var wc = new WebClient();
+
+            if (!Directory.Exists(VoicesFolder))
+            {
+                Directory.CreateDirectory(VoicesFolder);
+            }
+
+            var current = 0;
+            var total = SuggestedVoicesUrls.Length;
+
+            foreach (var voice in SuggestedVoicesUrls)
+            {
+                var message = $"Voice {voice} successfully downloaded";
+
+                yield return null;
+
+                UpdateProgress(ref current, total);
+
+                var model = $"{voice}.onnx";
+                var modelFilename = Path.GetFileName(model);
+                var fullModelFilename = Path.Combine(VoicesFolder, modelFilename);
+                var modelUrl = $"{model}?download=true";
+
+                try
                 {
-                    wc.DownloadFile(modelUrl, fullModelFilename);
-
-                    var json = $"{voice}.onnx.json";
-                    var jsonFilename = Path.GetFileName(json);
-                    var fullJsonFilename = Path.Combine(VoicesFolder, jsonFilename);
-                    var jsonUrl = $"{URL_PREFIX}{json}?download=true";
-
-                    if (!File.Exists(fullJsonFilename))
+                    if (!File.Exists(fullModelFilename))
                     {
-                        wc.DownloadFile(jsonUrl, fullJsonFilename);
+                        wc.DownloadFile(modelUrl, fullModelFilename);
+
+                        var json = $"{voice}.onnx.json";
+                        var jsonFilename = Path.GetFileName(json);
+                        var fullJsonFilename = Path.Combine(VoicesFolder, jsonFilename);
+                        var jsonUrl = $"{json}?download=true";
+
+                        if (!File.Exists(fullJsonFilename))
+                        {
+                            wc.DownloadFile(jsonUrl, fullJsonFilename);
+                        }
+                        else
+                        {
+                            message = $"Voice settings {voice} already exists.";
+                        }
+                    }
+                    else
+                    {
+                        message = $"Voice {voice} already exists.";
                     }
                 }
-                else
+                catch
                 {
-                    message = $"Voice {voice} already exists.";
+                    message = $"Cannot download voice {voice}.";
                 }
-            }
-            catch
-            {
-                message = $"Cannot download voice {voice}.";
+
+                Main.Info(message);
             }
 
-            Main.Info(message);
+            RefreshAvailableVoices();
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+            _progress = 0f;
+        }
+
+        internal void DownloadVoices()
+        {
+            if (_coroutine != null)
+            {
+                return;
+            }
+
+            _progress = 0f;
+            _coroutine = DownloadVoicesImpl();
+            StartCoroutine(_coroutine);
         }
     }
 }

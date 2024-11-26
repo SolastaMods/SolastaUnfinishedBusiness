@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=Versatilidades
 ModUi/&DontEndTurnAfterReady=No finalices el turno después de la acción <color=#D89555>Listo</color> <i><color=#F0DAA0>[permite una acción adicional o cualquier otra acción principal de otras fuentes]</color></i>
 ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el personaje ya está en la pantalla
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que el héroe esté fuera o dentro del % del borde de la pantalla</color></i>
+ModUi/&DownloadVoice=Descargar voces sugeridas
+ModUi/&DownloadVoiceOngoing=Descargando en {0}
 ModUi/&DungeonMaker=Creador de mazmorras
 ModUi/&DungeonMakerBasicHelp=• Estas configuraciones no requerirán que el jugador tenga este mod instalado
 ModUi/&Effects=Efectos
@@ -281,6 +283,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=Habilita el lanzamiento rápido de 
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Habilita la <color=#D89555>Sensibilidad a la luz</color> en <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> y <color=#D89555>Gray Dwarf</color> para que solo se activen en exteriores\n<i><color=#F0DAA0>[las áreas interiores en ubicaciones exteriores accesibles sin una pantalla de carga se consideran exteriores por el motor del juego]</color></i>
 ModUi/&Races=<color=#F0DAA0>Razas</color>
 ModUi/&RecipeCost=<color=white>Costo de la receta</color>
+ModUi/&RefreshVoice=Actualizar lista de voces
 ModUi/&RelicForgeries=Falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements=Eliminar requisitos de sintonización <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Elimina <color=#D89555>Secreto mágico</color> en los niveles 14 y 18

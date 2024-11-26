@@ -134,12 +134,22 @@ internal static class CampaignsDisplay
         if (Main.Settings.EnableSpeech)
         {
             UI.Label();
+
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton(Gui.Localize("ModUi/&RefreshVoice"), SpeechContext.RefreshAvailableVoices,
+                    UI.Width(300f));
+                UI.ActionButton(SpeechContext.VoicesDownloader.Shared.GetButtonLabel(),
+                    SpeechContext.VoicesDownloader.Shared.DownloadVoices, UI.Width(300f));
+            }
+
+            UI.Label();
             UI.Label(Gui.Localize("ModUi/&EnableSpeechActorHelp"));
             UI.Label();
 
             intValue = Main.Settings.SpeechChoice;
             if (UI.SelectionGrid(
-                    ref intValue, SpeechContext.Choices, SpeechContext.Choices.Length, 4, UI.Width(600f)))
+                    ref intValue, SpeechContext.Choices, SpeechContext.Choices.Length, 5, UI.Width(600f)))
             {
                 Main.Settings.SpeechChoice = intValue;
             }
