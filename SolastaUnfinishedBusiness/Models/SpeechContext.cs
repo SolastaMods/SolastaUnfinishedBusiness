@@ -13,7 +13,13 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpeechContext
 {
-    private const string PiperDownloadURL =
+    private const string PiperLinuxDownloadURL =
+        "https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_linux_x86_64.tar.gz";
+
+    private const string PiperOSXDownloadURL =
+        "https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_macos_x64.tar.gz";
+
+    private const string PiperWindowsDownloadURL =
         "https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_windows_amd64.zip";
 
     private static readonly string PiperFolder = Path.Combine(Main.ModFolder, "piper");
@@ -142,7 +148,19 @@ internal static class SpeechContext
 
     internal static void Load()
     {
-        DownloadPiper();
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            DownloadPiper(PiperLinuxDownloadURL);
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            DownloadPiper(PiperOSXDownloadURL);
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            DownloadPiper(PiperWindowsDownloadURL);
+        }
+
         DownloadVoices();
     }
 
@@ -159,12 +177,6 @@ internal static class SpeechContext
     {
         try
         {
-            // only windows for now
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return;
-            }
-
             // only custom campaigns
             if (Gui.GameCampaign)
             {
@@ -187,13 +199,14 @@ internal static class SpeechContext
             {
                 var audioStream = new MemoryStream();
                 var buffer = new byte[16384];
+                var executable = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "piper.exe" : "piper";
                 var modelName = Path.GetFileName(Voices[Main.Settings.SpeechVoice]);
                 var modelFileName = Path.Combine(VoicesFolder, modelName + ".onnx");
                 var piper = new Process();
                 var scale = Main.Settings.SpeechScale;
                 int bytesRead;
 
-                piper.StartInfo.FileName = Path.Combine(PiperFolder, "piper.exe");
+                piper.StartInfo.FileName = Path.Combine(PiperFolder, executable);
                 piper.StartInfo.Arguments = $"--model \"{modelFileName}\" --length_scale {scale:F} --output-raw";
                 piper.StartInfo.UseShellExecute = false;
                 piper.StartInfo.CreateNoWindow = true;
@@ -234,7 +247,7 @@ internal static class SpeechContext
         }
     }
 
-    private static void DownloadPiper()
+    private static void DownloadPiper(string url)
     {
         var message = "Piper successfully downloaded.";
         var fullZipFile = Path.Combine(Main.ModFolder, "piper_windows_amd64.zip");
@@ -248,7 +261,7 @@ internal static class SpeechContext
             }
             else
             {
-                wc.DownloadFile(PiperDownloadURL, fullZipFile);
+                wc.DownloadFile(url, fullZipFile);
                 ZipFile.ExtractToDirectory(fullZipFile, Main.ModFolder);
                 File.Delete(fullZipFile);
             }
