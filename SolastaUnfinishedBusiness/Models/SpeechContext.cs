@@ -22,7 +22,18 @@ internal static class SpeechContext
     private const string PiperWindowsDownloadURL =
         "https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_windows_amd64.zip";
 
-    private static readonly string PiperFolder = Path.Combine(Main.ModFolder, "piper");
+    private static readonly string PiperFolder =
+        Path.Combine(
+            Main.ModFolder,
+            Path.Combine(
+                RuntimeInformation.IsOSPlatform(OSPlatform.Linux)
+                    ? "piper_linux_x86_64" // linux unzips to piper_linux_x86_64/piper folder
+                    : Path.Combine(
+                        RuntimeInformation.IsOSPlatform(OSPlatform.OSX)
+                            ? "piper_macos_x64" // macos unzips to piper_macos_x64/piper folder
+                            : "."), // windows unzips to ./piper folder
+                "piper"));
+
     private static readonly string VoicesFolder = Path.Combine(Main.ModFolder, "Voices");
 
     private static readonly string[] Voices =
@@ -148,19 +159,7 @@ internal static class SpeechContext
 
     internal static void Load()
     {
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-        {
-            DownloadPiper(PiperLinuxDownloadURL);
-        }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-        {
-            DownloadPiper(PiperOSXDownloadURL);
-        }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        {
-            DownloadPiper(PiperWindowsDownloadURL);
-        }
-
+        DownloadPiper();
         DownloadVoices();
     }
 
@@ -247,10 +246,26 @@ internal static class SpeechContext
         }
     }
 
-    private static void DownloadPiper(string url)
+    private static void DownloadPiper()
     {
+        string url;
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            url = PiperLinuxDownloadURL;
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            url = PiperOSXDownloadURL;
+        }
+        else
+        {
+            url = PiperWindowsDownloadURL;
+        }
+
         var message = "Piper successfully downloaded.";
-        var fullZipFile = Path.Combine(Main.ModFolder, "piper_windows_amd64.zip");
+        var filename = Path.GetFileName(url);
+        var fullZipFile = Path.Combine(Main.ModFolder, filename);
         var wc = new WebClient();
 
         try
