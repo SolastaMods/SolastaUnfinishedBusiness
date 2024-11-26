@@ -89,8 +89,8 @@ ModUi/&DocsVersatilities=Универсалии
 ModUi/&DontEndTurnAfterReady=Не заканчивать ход после действия <color=#D89555>Подготовка</color> <i><color=#F0DAA0>[позволяет использовать Бонусное действие или любое другое Основное действие из других источников]</color></i>
 ModUi/&DontFollowCharacterInBattle=Боевая камера не следует за персонажем, если он уже на экране
 ModUi/&DontFollowMargin=<i><color=white>+ Только если герой вне или в рамках % от границы экрана</color></i>
-ModUi/&DownloadVoice=Загрузить предлагаемые голоса
-ModUi/&DownloadVoiceOngoing=Загрузка в {0}
+ModUi/&DownloadVoice=Скачать предлагаемые голоса
+ModUi/&DownloadVoiceOngoing=Скачивание на {0}
 ModUi/&DungeonMaker=Создатель Подземелий
 ModUi/&DungeonMakerBasicHelp=• Эти настройки не потребуют от игрока установленного мода
 ModUi/&Effects=Эффекты
@@ -150,17 +150,17 @@ ModUi/&EnableMonkWeaponSpecialization=Включить <color=#D89555>Специ
 ModUi/&EnableMulticlass=Включить <color=#D89555>мультиклассирование</color> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Включить всем <color=#D89555>Заклинателям</color> использовать новые таблицы подготовленных заклинаний <i><color=#F0DAA0>[Бард, Жрец, Друид, Паладин, Следопыт, Чародей, Волшебник]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Включить версию заклинания <color=#D89555>Дубовая кора</color> из 5e 2024 <i><color=#F0DAA0>[бонусное действие, не требует концентрации, КД на 17]</color></i>
-ModUi/&EnableOneDndDamagingSpellsUpgrade=Включить <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, <color=#D89555>Prismatic Spray</color> и <color=#D89555>Vicious Mockery</color> версии заклинаний 5e 2024 <i><color=#F0DAA0>[лучший урон]</color></i>
+ModUi/&EnableOneDndDamagingSpellsUpgrade=Включить версии заклинаний <color=#D89555>Магический меч</color>, <color=#D89555>Круг смерти</color>, <color=#D89555>Огненный удар</color>, <color=#D89555>Град</color>, <color=#D89555>Радужные брызги</color>  и <color=#D89555>Злая насмешка</color> из 5e 2024 <i><color=#F0DAA0>[больше урона]</color></i>
 ModUi/&EnableOneDndDivineFavorSpell=Включить версию заклинания <color=#D89555>Божественное благоволение</color> из 5e 2024 <i><color=#F0DAA0>[не требует концентрации]</color></i>
-ModUi/&EnableOneDndGuidanceSpell=Включить версию заклинания <color=#D89555>Указание</color> из 5e 2024 <i><color=#F0DAA0>[Выберите один навык при наложении и получите бонус на срок до 1 минуты]</color></i>
+ModUi/&EnableOneDndGuidanceSpell=Включить версию заклинания <color=#D89555>Указание</color> из 5e 2024 <i><color=#F0DAA0>[выберите один навык при наложении и получите бонус на срок до 1 минуты]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=Включить версии заклинаний <color=#D89555>Лечение ран</color>, <color=#D89555>Псевдожизнь</color>, <color=#D89555>Лечащее слово</color>, <color=#D89555>Множественное лечение ран</color> и <color=#D89555>Множественное лечащее слово</color> из 5e 2024 <i><color=#F0DAA0>[больше исцеления]</color></i>
-ModUi/&EnableOneDndHideousLaughterSpell=Включить версию заклинания <color=#D89555>Ужасный смех</color> 5e 2024 <i><color=#F0DAA0>[+1 цель на каждое заклинание]</color></i>
-ModUi/&EnableOneDndHuntersMarkSpell=Включить <color=#D89555>Метка охотника</color> 5e 2024 версия заклинания <i><color=#F0DAA0>[силовой урон]</color></i>
+ModUi/&EnableOneDndHideousLaughterSpell=Включить версию заклинания <color=#D89555>Жуткий смех Таши</color> из 5e 2024 <i><color=#F0DAA0>[+1 цель за каждый дополнительный уровень ячейки заклинания]</color></i>
+ModUi/&EnableOneDndHuntersMarkSpell=Включить версию заклинания <color=#D89555>Метка охотника</color> из 5e 2024 <i><color=#F0DAA0>[урон силовым полем]</color></i>
 ModUi/&EnableOneDndLesserRestorationSpell=Включить версию заклинания <color=#D89555>Малое восстановление</color> из 5e 2024 <i><color=#F0DAA0>[бонусным действием]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=Включить версию заклинания <color=#D89555>Магическое оружие</color> из 5e 2024 <i><color=#F0DAA0>[бонусным действием, не требует концентрации, улучшение на 3-м и 6-м уровнях ячейки заклинания]</color></i>
-ModUi/&EnableOneDndPowerWordStunSpell=Включить <color=#D89555>Оглушение слова силы</color> 5e 2024 версия заклинания <i><color=#F0DAA0>[цель останавливается на один ход, если имеет более 150 хп]</color></i>
-ModUi/&EnableOneDndSpareTheDyingSpell=Включить версию заклинания <color=#D89555>Sare the Dying</color> 5e 2024 <i><color=#F0DAA0>[диапазон удваивается на уровнях 5, 11 и 17]</color></i>
-ModUi/&EnableOneDndSpiderClimbSpell=Включить версию заклинания <color=#D89555>Spider Climb</color> 5e 2024 <i><color=#F0DAA0>[+1 цель за каждое применение]</color></i>
+ModUi/&EnableOneDndPowerWordStunSpell=Включить версию заклинания <color=#D89555>Слово силы: оглушение</color> из 5e 2024 <i><color=#F0DAA0>[скорость цели обнуляется на один ход, если у него больше 150 хитов]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=Включить версию заклинания <color=#D89555>Уход за умирающим</color> из 5e 2024 <i><color=#F0DAA0>[диапазон удваивается на уровнях 5, 11 и 17]</color></i>
+ModUi/&EnableOneDndSpiderClimbSpell=Включить версию заклинания <color=#D89555>Паук</color> из 5e 2024 <i><color=#F0DAA0>[+1 цель за каждый дополнительный уровень ячейки заклинания]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Включить версию заклинания <color=#D89555>Каменная кожа</color> из 5e 2024 <i><color=#F0DAA0>[также даёт сопротивление магическому дробящему, рубящему и колющему урону]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Включить версию заговора <color=#D89555>Меткий удар</color> из 5e 2024 <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>\n<i><color=#F0DAA0>[для бросков атаки и урона используется ваша заклинательная характеристика, а также дополнительный урон излучением с 5-го уровня]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Включить <color=#D89555>Наложение рук</color> бонусным действием
@@ -195,7 +195,7 @@ ModUi/&EnableSurprisedToEnforceDisadvantage=Включить изменения 
 ModUi/&EnableTeleportToRemoveRestrained=Включить возможность <color=#D89555>Телепортации</color> снимать все состояния <color=#D89555>задержки</color> с цели
 ModUi/&EnableTooltipDistance=Включить отображение расстояния во всплывающей подсказке панели при наведении курсора на персонажа в бою
 ModUi/&EnableUnarmedMainAttackAction=Включить действие <color=#D89555>Безоружная атака</color> <i><color=#F0DAA0>[если персонаж держит оружие в основной руке и он <color=#D89555>Монах</color>, или если он использует <b>Обмотки</b> или <b>Перчатки</b>]</color></i>
-ModUi/&EnableUnlimitedInventoryActions=Включить неограниченное количество <color=#D89555>действий с инвентарем</color> за ход.
+ModUi/&EnableUnlimitedInventoryActions=Включить неограниченное количество <color=#D89555>действий с инвентарём</color> в свой ход.
 ModUi/&EnableUpcastConjureElementalAndFey=Включить возможность накладывать на высоких уровнях <color=#D89555>Призыв элементаля</color> и <color=#D89555>Призыв феи</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Включить заглушки для переменных описаний <i><color=#F0DAA0>[использовать {VARIABLE_NAME} в качесте заглушки]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Разрешить переносить и использовать <color=#D89555>Зелья</color> и <color=#D89555>Свитки</color> в слотах боеприпасов
@@ -352,7 +352,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Общее количество 
 ModUi/&Translate=Перевести
 ModUi/&TranslateCancel=Отменить {0} перевод на {1}
 ModUi/&Translations=<color=#F0DAA0>Переводы:</color>
-ModUi/&UnityExplorer=<b><color=#D89555>Пользовательский интерфейс Unity Explorer</color></b>
+ModUi/&UnityExplorer=<b><color=#D89555>Интерфейс Unity Explorer</color></b>
 ModUi/&UnleashEnemyAsNpc=Позволить выбирать монстров в качестве НИП-предметов
 ModUi/&UnleashNpcAsEnemy=Разблокировать выбор монстров
 ModUi/&Update=<b><color=#D89555>Обновить</color></b>
