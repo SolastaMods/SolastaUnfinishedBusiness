@@ -348,7 +348,7 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": "Definition:PowerTraditionSurvivalUnbreakableBody:415f76f9e52d92d41b28541a077dd365",
   "includeBaseDescription": false,
