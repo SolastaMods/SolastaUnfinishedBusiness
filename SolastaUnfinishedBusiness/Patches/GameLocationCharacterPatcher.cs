@@ -67,6 +67,38 @@ public static class GameLocationCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.StartTeleportTo))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class StartTeleportTo_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(GameLocationCharacter __instance)
+        {
+            if (Main.Settings.EnableTeleportToRemoveRestrained)
+            {
+                var rulesetCharacter = __instance.RulesetCharacter;
+                var conditionsToRemove = rulesetCharacter.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .Where(x =>
+                        x.ConditionDefinition.IsSubtypeOf(ConditionRestrained) &&
+                        (__instance.Side == Side.Ally ||
+                         x.ConditionDefinition.Name != SpellBuilders.ConditionTelekinesisRestrainedName))
+                    .ToArray();
+
+                foreach (var activeCondition in conditionsToRemove)
+                {
+                    rulesetCharacter.RemoveCondition(activeCondition);
+                }
+            }
+
+            if (__instance.IsGrappled())
+            {
+                __instance.BreakGrapple();
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CheckMotionValidity))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
