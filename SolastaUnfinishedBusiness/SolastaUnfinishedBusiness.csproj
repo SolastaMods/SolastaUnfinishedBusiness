@@ -107,7 +107,9 @@
     <Reference Include="Tomlet">
       <HintPath>../lib/Tomlet.dll</HintPath>
     </Reference>
-    <PackageReference Include="NAudio" Version="2.2.1"/>
+    <Reference Include="NAudio">
+      <HintPath>../lib/NAudio.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
