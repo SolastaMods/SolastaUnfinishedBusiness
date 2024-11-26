@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
-using UnityExplorer;
 #if DEBUG
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
 #endif
@@ -101,26 +99,6 @@ internal static class CreditsDisplay
         ("Ermite_Crabe", "french translations")
     ];
 
-    private static readonly bool IsUnityExplorerInstalled =
-        File.Exists(Path.Combine(Main.ModFolder, "UnityExplorer.STANDALONE.Mono.dll")) &&
-        File.Exists(Path.Combine(Main.ModFolder, "UniverseLib.Mono.dll"));
-
-    private static bool IsUnityExplorerEnabled { get; set; }
-
-    private static void EnableUnityExplorerUi()
-    {
-        IsUnityExplorerEnabled = true;
-
-        try
-        {
-            ExplorerStandalone.CreateInstance();
-        }
-        catch
-        {
-            // ignored
-        }
-    }
-
     internal static void DisplayCredits()
     {
 #if DEBUG
@@ -134,12 +112,6 @@ internal static class CreditsDisplay
 #endif
 
         UI.Label();
-
-        if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
-        {
-            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width(189f));
-            UI.Label();
-        }
 
 #if DEBUG
         DiagnosticsDisplay.DisplayDiagnostics();

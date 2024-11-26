@@ -60,7 +60,7 @@ internal class CanUseAttribute : IModifyWeaponAttackMode
         }
 
         ChangeAttackModeAttributeIfBetter(
-            character, attackMode, newAttribute, oldAttribute, canAddAbilityDamageBonus);
+            character, attackMode, oldAttribute, newAttribute, canAddAbilityDamageBonus);
     }
 
     internal static void ChangeAttackModeAttributeIfBetter(

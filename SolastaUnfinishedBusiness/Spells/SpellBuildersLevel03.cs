@@ -162,11 +162,19 @@ internal static partial class SpellBuilders
     {
         const string NAME = "CrusadersMantle";
 
+        var additionalDamageCrusadersMantle = FeatureDefinitionAdditionalDamageBuilder
+            .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageDivineFavor, $"AdditionalDamage{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag(NAME)
+            .SetAttackOnly()
+            .SetDamageDice(DieType.D4, 1)
+            .AddToDB();
+
         var conditionCrusadersMantle = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(FeatureDefinitionAdditionalDamages.AdditionalDamageDivineFavor)
+            .AddFeatures(additionalDamageCrusadersMantle)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -189,6 +197,7 @@ internal static partial class SpellBuilders
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCrusadersMantle))
+                    .SetCasterEffectParameters(HolyAura)
                     .Build())
             .AddToDB();
 
@@ -584,7 +593,7 @@ internal static partial class SpellBuilders
         var powerAuraOfLife = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, sprite)
-            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

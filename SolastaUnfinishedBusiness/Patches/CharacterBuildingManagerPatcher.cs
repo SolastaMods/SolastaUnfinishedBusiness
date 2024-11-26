@@ -544,14 +544,52 @@ public static class CharacterBuildingManagerPatcher
     public static class UntrainLastFightingStyle_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix([NotNull] RulesetCharacterHero hero)
+        public static bool Prefix(CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
             //PATCH: ensures this doesn't get executed in the class panel level up screen
             var isLevelingUp = LevelUpHelper.IsLevelingUp(hero);
             var isClassSelectionStage = LevelUpHelper.IsClassSelectionStage(hero);
             var result = isLevelingUp && isClassSelectionStage;
 
-            return !result;
+            if (result ||
+                hero.TrainedFightingStyles.Count <= 0)
+            {
+                return !result;
+            }
+
+            //PATCH: remove point pools assigned from fighting styles
+            var heroBuildingData = hero.GetHeroBuildingData();
+            var fightingStyle = hero.TrainedFightingStyles[hero.TrainedFightingStyles.Count - 1];
+
+            foreach (var featureDefinitionPointPool in fightingStyle.Features.OfType<FeatureDefinitionPointPool>())
+            {
+                if (!heroBuildingData.PointPoolStacks.TryGetValue(featureDefinitionPointPool.PoolType,
+                        out var pointPoolStack))
+                {
+                    continue;
+                }
+
+                __instance.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+                var finaTag = AttributeDefinitions.GetClassTag(classDefinition, level) +
+                              featureDefinitionPointPool.ExtraSpellsTag + featureDefinitionPointPool.ExtraSpellsTag;
+
+                if (!pointPoolStack.ActivePools.TryGetValue(finaTag, out var pool))
+                {
+                    continue;
+                }
+
+                pool.maxPoints -= featureDefinitionPointPool.poolAmount;
+
+                if (pool.maxPoints == 0)
+                {
+                    pointPoolStack.ActivePools.Remove(finaTag);
+                }
+            }
+
+            LevelUpHelper.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
+
+            return true;
         }
     }
 
@@ -859,6 +897,48 @@ public static class CharacterBuildingManagerPatcher
                     "CharacterBuildingManager.AssignDefaultMorphotypes.PreferedHairColors",
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, myPreferedHairColorsColorsMethod));
+        }
+    }
+
+    //PATCH: apply point pools assigned from fighting styles
+    [HarmonyPatch(typeof(CharacterBuildingManager), nameof(CharacterBuildingManager.TrainFightingStyle))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TrainFightingStyle_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(
+            CharacterBuildingManager __instance,
+            RulesetCharacterHero hero,
+            FightingStyleDefinition fightingStyle)
+        {
+            var heroBuildingData = hero.GetHeroBuildingData();
+
+            foreach (var featureDefinitionPointPool in fightingStyle.Features.OfType<FeatureDefinitionPointPool>())
+            {
+                if (!heroBuildingData.PointPoolStacks.TryGetValue(featureDefinitionPointPool.PoolType,
+                        out var pointPoolStack))
+                {
+                    continue;
+                }
+
+                __instance.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+                var finaTag = AttributeDefinitions.GetClassTag(classDefinition, level) +
+                              featureDefinitionPointPool.ExtraSpellsTag;
+
+                if (pointPoolStack.ActivePools
+                    .TryGetValue(finaTag + featureDefinitionPointPool.ExtraSpellsTag, out var pool))
+                {
+                    pool.maxPoints += featureDefinitionPointPool.poolAmount;
+                }
+                else
+                {
+                    __instance.ApplyFeatureDefinitionPointPool(heroBuildingData, featureDefinitionPointPool, finaTag);
+                }
+            }
+
+            LevelUpHelper.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
         }
     }
 

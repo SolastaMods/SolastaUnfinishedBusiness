@@ -368,7 +368,14 @@ internal static class GrappleContext
 
     public static void BreakGrapple(this GameLocationCharacter source)
     {
-        source.RulesetCharacter.RemoveAllConditionsOfType(AllSourceGrappleConditionNames);
+        if (source.RulesetCharacter.Side == Side.Ally)
+        {
+            source.RulesetCharacter.RemoveAllConditionsOfType(AllSourceGrappleConditionNames);   
+        }
+        else
+        {
+            source.RulesetCharacter.RemoveAllConditionsOfType(ConditionGrappleTargetName);
+        }
     }
 
     internal enum SpellValidationType

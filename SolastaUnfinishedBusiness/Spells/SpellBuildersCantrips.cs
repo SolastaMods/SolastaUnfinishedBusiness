@@ -753,7 +753,7 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(DivineFavor)
                     .Build())
-            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker)
+            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerMeleeWeaponAttack)
             .AddToDB();
 
         return spell;
@@ -1019,7 +1019,7 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(Shatter)
                     .Build())
-            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker)
+            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerMeleeWeaponAttack)
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
@@ -1135,7 +1135,7 @@ internal static partial class SpellBuilders
                 // should trigger before AttackAfterMagicEffect.IFilterTargetingCharacter
                 new CustomBehaviorResonatingStrike(),
                 FixesContext.NoTwinned.Mark,
-                AttackAfterMagicEffect.Marker)
+                AttackAfterMagicEffect.MarkerMeleeWeaponAttack)
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
@@ -1156,14 +1156,14 @@ internal static partial class SpellBuilders
             // handle first target like AttackAfterMagicEffect
             if (__instance.SelectionService.SelectedTargets.Count == 0)
             {
-                if (AttackAfterMagicEffect.CanAttack(__instance.ActionParams.ActingCharacter, target, out var isReach))
+                var attacker = __instance.ActionParams.ActingCharacter;
+
+                if (AttackAfterMagicEffect.CanAttack(attacker, target, true, false, false))
                 {
                     return true;
                 }
 
-                var text = isReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
-
-                __instance.actionModifier.FailureFlags.Add(Gui.Format("Failure/&TargetMeleeWeaponError", text));
+                __instance.actionModifier.FailureFlags.Add(Gui.Localize("Failure/&CannotAttackTarget"));
 
                 return false;
             }
@@ -1337,7 +1337,7 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect == null || rulesetEffect.SourceDefinition != spellTollTheDead)
+            if (rulesetEffect.SourceDefinition != spellTollTheDead)
             {
                 yield break;
             }

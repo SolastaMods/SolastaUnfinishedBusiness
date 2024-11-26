@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -7,53 +8,51 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
-internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
+internal sealed class AttackAfterMagicEffect(AttackAfterMagicEffect.AttackType attackType, bool firstTargetOnly)
+    : IFilterTargetingCharacter
 {
     internal const string AttackAfterMagicEffectTag = "AttackAfterMagicEffectTag";
+
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
-    internal static readonly AttackAfterMagicEffect Marker = new();
+
+    internal static readonly AttackAfterMagicEffect MarkerAnyWeaponAttack =
+        new(AttackType.Melee | AttackType.Ranged | AttackType.Thrown, true);
+
+    internal static readonly AttackAfterMagicEffect MarkerMeleeWeaponAttack = new(AttackType.Melee, true);
+    internal static readonly AttackAfterMagicEffect MarkerRangedWeaponAttack = new(AttackType.Ranged, false);
+
+    internal readonly bool AllowMelee = attackType.HasFlag(AttackType.Melee);
+    internal readonly bool AllowRanged = attackType.HasFlag(AttackType.Ranged);
+    internal readonly bool AllowThrown = attackType.HasFlag(AttackType.Thrown);
 
     public bool EnforceFullSelection => false;
 
     public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
     {
-        // only enforce weapon reach or 5 ft on first target
-        if (__instance.SelectionService.SelectedTargets.Count != 0)
+        if (!firstTargetOnly && __instance.SelectionService.SelectedTargets.Count != 0)
         {
             return true;
         }
 
-        if (CanAttack(__instance.ActionParams.ActingCharacter, target, out var isReach))
+        if (CanAttack(__instance.ActionParams.ActingCharacter, target, AllowMelee, AllowRanged, AllowThrown))
         {
             return true;
         }
 
-        var text = isReach ? "Feedback/&WithinReach" : "Feedback/&Within5Ft";
-
-        __instance.actionModifier.FailureFlags.Add(Gui.Format("Failure/&TargetMeleeWeaponError", text));
+        __instance.actionModifier.FailureFlags.Add(Gui.Localize("Failure/&CannotAttackTarget"));
 
         return false;
     }
 
     internal static bool CanAttack(
-        [NotNull] GameLocationCharacter caster, GameLocationCharacter target, out bool isReach)
+        [NotNull] GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        bool allowMelee,
+        bool allowRanged,
+        bool allowThrown)
     {
-        isReach = Main.Settings.AllowBladeCantripsToUseReach;
-
-        // still debatable
-#if false
-        // Spell Sniper should allow reach
-        if (!isReach)
-        {
-            var rulesetCaster = caster.RulesetCharacter;
-
-            isReach = rulesetCaster.GetOriginalHero()?.TrainedFeats.Any(x => x.Name.StartsWith("FeatSpellSniper")) ??
-                      false;
-        }
-#endif
-
-        var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+        var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
         if (attackMode == null)
         {
@@ -63,14 +62,44 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
         var attackModifier = new ActionModifier();
         var evalParams = new BattleDefinitions.AttackEvaluationParams();
+        var attackerPosition = attacker.LocationPosition;
+        var defenderPosition = defender.LocationPosition;
+        var canAttack = false;
 
-        evalParams.FillForPhysicalReachAttack(
-            caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
+        switch (attackMode.Ranged)
+        {
+            case false when allowMelee:
+            {
+                evalParams.FillForPhysicalReachAttack(
+                    attacker, attackerPosition, attackMode, defender, defenderPosition, attackModifier);
 
-        return battleService.CanAttack(evalParams) && (isReach || caster.IsWithinRange(target, 1));
+                var reach = Main.Settings.AllowBladeCantripsToUseReach ? attackMode.ReachRange : 1;
+
+                canAttack = battleService.CanAttack(evalParams) && attacker.IsWithinRange(defender, reach);
+
+                if (!canAttack && allowThrown)
+                {
+                    attackMode.ranged = true;
+                    evalParams.FillForPhysicalRangeAttack(
+                        attacker, attackerPosition, attackMode, defender, defenderPosition, attackModifier);
+
+                    canAttack = battleService.CanAttack(evalParams);
+                }
+
+                break;
+            }
+            case true when allowRanged:
+                evalParams.FillForPhysicalRangeAttack(
+                    attacker, attackerPosition, attackMode, defender, defenderPosition, attackModifier);
+
+                canAttack = battleService.CanAttack(evalParams);
+                break;
+        }
+
+        return canAttack;
     }
 
-    internal static List<CharacterActionParams> PerformAttackAfterUse(CharacterActionMagicEffect actionMagicEffect)
+    internal List<CharacterActionParams> PerformAttackAfterUse(CharacterActionMagicEffect actionMagicEffect)
     {
         var attacks = new List<CharacterActionParams>();
         var actionParams = actionMagicEffect?.ActionParams;
@@ -100,7 +129,7 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 
         var caster = actionParams.ActingCharacter;
         var targets = actionParams.TargetCharacters
-            .Where(t => CanAttack(caster, t, out _))
+            .Where(t => CanAttack(caster, t, AllowMelee, AllowRanged, AllowThrown))
             .ToArray();
 
         if (targets.Length == 0)
@@ -115,29 +144,42 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
             return attacks;
         }
 
-        //get copy to be sure we don't break existing mode
-        var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+        var maxTargets = firstTargetOnly ? 1 : targets.Length;
 
-        rulesetAttackModeCopy.Copy(attackMode);
-        attackMode = rulesetAttackModeCopy;
-
-        //set action type to be same as the one used for the magic effect
-        attackMode.ActionType = actionMagicEffect.ActionType;
-
-        //mark this attack for proper integration with polearm, and follow-up strike
-        if (!actionParams.ActingCharacter.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
+        for (var i = 0; i < maxTargets; i++)
         {
-            attackMode.AddAttackTagAsNeeded(AttackAfterMagicEffectTag);
+            //get copy to be sure we don't break existing mode
+            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            rulesetAttackModeCopy.Copy(attackMode);
+            attackMode = rulesetAttackModeCopy;
+
+            //set action type to be same as the one used for the magic effect
+            attackMode.ActionType = actionMagicEffect.ActionType;
+
+            //mark this attack for proper integration with polearm, and follow-up strike
+            if (!actionParams.ActingCharacter.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
+            {
+                attackMode.AddAttackTagAsNeeded(AttackAfterMagicEffectTag);
+            }
+
+            // always use free attack
+            var attackActionParams =
+                new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
+
+            attackActionParams.TargetCharacters.Add(targets[i]);
+            attackActionParams.ActionModifiers.Add(new ActionModifier());
+            attacks.Add(attackActionParams);
         }
 
-        // always use free attack
-        var attackActionParams =
-            new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
-
-        attackActionParams.TargetCharacters.Add(targets[0]);
-        attackActionParams.ActionModifiers.Add(new ActionModifier());
-        attacks.Add(attackActionParams);
-
         return attacks;
+    }
+
+    [Flags]
+    internal enum AttackType
+    {
+        Melee = 1,
+        Ranged = 2,
+        Thrown = 4
     }
 }

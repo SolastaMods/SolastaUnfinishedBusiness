@@ -811,7 +811,7 @@ Size: *Medium*
 | ----- | ----- | ----------- |
 | 0 | Light | An object you can touch emits a powerful light for a limited time. |
 | 0 | Sacred Flame | Strike an enemy with radiant damage. |
-| 0 | Spare the Dying | Touch a dying ally to stabilize them. |
+| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft). |
 | 1 | Cure Wounds | Heal an ally by touch. |
 | 1 | Guiding Bolt | Launch a radiant attack against an enemy and make them easy to hit. |
 | 1 | Bless | Increase your allies' saving throws and attack rolls for a limited time. |
@@ -853,7 +853,7 @@ Size: *Medium*
 | ----- | ----- | ----------- |
 | 0 | Light | An object you can touch emits a powerful light for a limited time. |
 | 0 | Sacred Flame | Strike an enemy with radiant damage. |
-| 0 | Spare the Dying | Touch a dying ally to stabilize them. |
+| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft). |
 | 1 | Cure Wounds | Heal an ally by touch. |
 | 1 | Guiding Bolt | Launch a radiant attack against an enemy and make them easy to hit. |
 | 1 | Bless | Increase your allies' saving throws and attack rolls for a limited time. |
@@ -1454,7 +1454,7 @@ Size: *Medium*
 | ----- | ----- | ----------- |
 | 0 | Light | An object you can touch emits a powerful light for a limited time. |
 | 0 | Sacred Flame | Strike an enemy with radiant damage. |
-| 0 | Spare the Dying | Touch a dying ally to stabilize them. |
+| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft). |
 | 1 | Cure Wounds | Heal an ally by touch. |
 | 1 | Guiding Bolt | Launch a radiant attack against an enemy and make them easy to hit. |
 | 1 | Bless | Increase your allies' saving throws and attack rolls for a limited time. |
@@ -1708,10 +1708,7 @@ Size: *Medium*
 | 1 | Mage Armor | Provide magical armor to an ally who doesn't wear armor. |
 | 1 | Magic Missile | Strike one or more enemies with projectiles that can't miss. |
 | 2 | Misty Step | Teleports you to a free cell you can see, no more than 6 cells away. |
-| 2 | Mirror Image | Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
-If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
-A duplicate's AC is equal to 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
-A creature is unaffected by this spell if it is Blinded, or has Blindsight, Truesight or Tremorsense (doesn't apply if you don't touch ground). |
+| 2 | Mirror Image | Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it's impossible to track which image is real. Each time a creature hits you with an attack roll during the spell's duration, roll a d6 for each of your remaining duplicates. If any of the d6s rolls a 3 or higher, one of the duplicates is hit instead of you, and the duplicate is destroyed. The duplicates otherwise ignore all other damage and effects. The spell ends when all three duplicates are destroyed. A creature is unaffected by this spell if it has the Blinded condition, Blindsight, or Truesight. |
 | 2 | Scorching Ray | Fling rays of fire at one or more enemies. |
 | 3 | Counterspell | Interrupt an enemy's spellcasting. |
 | 3 | Fly | An ally you touch gains the ability to fly for a limited time. |
@@ -2470,7 +2467,7 @@ Size: *Medium*
 | ----- | ----- | ----------- |
 | 0 | Light | An object you can touch emits a powerful light for a limited time. |
 | 0 | Sacred Flame | Strike an enemy with radiant damage. |
-| 0 | Spare the Dying | Touch a dying ally to stabilize them. |
+| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft). |
 | 1 | Cure Wounds | Heal an ally by touch. |
 | 1 | Guiding Bolt | Launch a radiant attack against an enemy and make them easy to hit. |
 | 1 | Bless | Increase your allies' saving throws and attack rolls for a limited time. |
@@ -2600,7 +2597,7 @@ Size: *Medium*
 | ----- | ----- | ----------- |
 | 0 | Light | An object you can touch emits a powerful light for a limited time. |
 | 0 | Sacred Flame | Strike an enemy with radiant damage. |
-| 0 | Spare the Dying | Touch a dying ally to stabilize them. |
+| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft). |
 | 1 | Cure Wounds | Heal an ally by touch. |
 | 1 | Guiding Bolt | Launch a radiant attack against an enemy and make them easy to hit. |
 | 1 | Bless | Increase your allies' saving throws and attack rolls for a limited time. |

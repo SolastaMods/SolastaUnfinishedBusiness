@@ -89,6 +89,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableHelpAction { get; set; }
     public bool EnableRespecAction { get; set; }
     public bool EnableUnarmedMainAttackAction { get; set; }
+    public bool EnableUnlimitedInventoryActions { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseAlternateSpellPointsSystem { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
@@ -143,6 +144,9 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
+    public bool EnableSpeech { get; set; }
+    public int SpeechChoice { get; set; }
+    public SerializableDictionary<int, (int, float)> SpeechVoices { get; set; } = [];
     public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }
@@ -385,8 +389,13 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableOneDndHealingSpellsUpgrade { get; set; }
     public bool EnableOneDndDivineFavorSpell { get; set; }
     public bool EnableOneDndGuidanceSpell { get; set; }
+    public bool EnableOneDndHideousLaughterSpell { get; set; }
+    public bool EnableOneDndHuntersMarkSpell { get; set; }
     public bool EnableOneDndLesserRestorationSpell { get; set; }
     public bool EnableOneDndMagicWeaponSpell { get; set; }
+    public bool EnableOneDndPowerWordStunSpell { get; set; }
+    public bool EnableOneDndSpareTheDyingSpell { get; set; }
+    public bool EnableOneDndSpiderClimbSpell { get; set; }
     public bool EnableOneDndStoneSkinSpell { get; set; }
     public bool EnableOneDndTrueStrikeCantrip { get; set; }
     public bool AllowHasteCasting { get; set; }

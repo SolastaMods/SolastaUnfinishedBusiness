@@ -504,7 +504,8 @@ public static class CharacterActionMagicEffectPatcher
                 var slot = actingCharacter.RulesetCharacter.CharacterInventory
                     .FindSlotHoldingItem(actionParams.RulesetEffect.OriginItem);
 
-                if (slot != null && !slot.SlotTypeDefinition.BodySlot)
+                if (slot != null && !slot.SlotTypeDefinition.BodySlot &&
+                    !Main.Settings.EnableUnlimitedInventoryActions) //don't spend if unlimited enabled
                 {
                     actingCharacter.SpendActionType(ActionDefinitions.ActionType.FreeOnce);
                 }
@@ -951,7 +952,7 @@ public static class CharacterActionMagicEffectPatcher
 
             if (attackAfterMagicEffect != null)
             {
-                foreach (var actionParam in AttackAfterMagicEffect.PerformAttackAfterUse(__instance))
+                foreach (var actionParam in attackAfterMagicEffect.PerformAttackAfterUse(__instance))
                 {
                     // don't use ExecuteAction here to ensure compatibility with War Caster feat
                     if (__instance.ActionType == ActionDefinitions.ActionType.Reaction)

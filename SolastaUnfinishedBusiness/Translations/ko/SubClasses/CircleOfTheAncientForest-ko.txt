@@ -28,7 +28,7 @@ Feature/&PowerAncientForestRegrowthDescription=당신은 오랫동안 쉬면 재
 Feature/&PowerAncientForestRegrowthTitle=재성장
 Feature/&PowerAncientForestRootedDescription=수목의 덩굴손이 발에서 자라 땅을 파헤칩니다. 당신의 속도는 0이 되고 당신을 밀거나 당기거나 넘어뜨리는 내성 굴림에서 이점을 얻습니다. 당신은 마음대로 얽힘을 시전할 수 있습니다.
 Feature/&PowerAncientForestRootedTitle=루팅됨
-Feature/&PowerPoolAncientForestHerbalBrewDescription=다음 번 긴 휴식까지 지속되는 허브 맥주를 만들 수 있습니다. 당신은 숙련도 보너스만큼 총 양조주를 만듭니다. 각 맥주에 대해 다음 효과 중 하나를 선택하세요.\n<color=#add8e6ff>강화 맥주</color>: 1시간 동안 다양한 피해 유형에 대한 저항력을 부여합니다.\n<color=#add8e6ff>강화 맥주</color> color>: 2d4 체력을 제공합니다.\n<color=#add8e6ff>독성 맥주</color>: 1분 동안 지속되는 무기에 적용할 수 있는 독 역할을 합니다. 명중이 적중하면 대상은 명중할 때마다 1d4의 독 피해를 입습니다.
+Feature/&PowerPoolAncientForestHerbalBrewDescription=다음 번 긴 휴식까지 지속되는 허브 맥주를 만들 수 있습니다. 당신은 숙련도 보너스만큼 총 양조주를 만듭니다. 각 맥주에 대해 다음 효과 중 하나를 선택하세요.\n<color=#ADD8E6>강화 맥주</color>: 1시간 동안 다양한 피해 유형에 대한 저항력을 부여합니다.\n<color=#ADD8E6>강화 맥주</color> color>: 2d4 체력을 제공합니다.\n<color=#ADD8E6>독성 맥주</color>: 1분 동안 지속되는 무기에 적용할 수 있는 독 역할을 합니다. 명중이 적중하면 대상은 명중할 때마다 1d4의 독 피해를 입습니다.
 Feature/&PowerPoolAncientForestHerbalBrewTitle=허브 양조
 Feature/&PowerPoolAncientForestWallOfThornsDescription=당신은 지혜 수정치만큼 가시의 벽을 시전할 수 있습니다. 오랫동안 쉬면 재충전됩니다.
 Feature/&PowerPoolAncientForestWallOfThornsTitle=가시의 벽

@@ -148,7 +148,12 @@ public static class GameLocationBattleManagerPatcher
 
             if (attackAfterMagicEffect != null)
             {
-                __result = AttackAfterMagicEffect.CanAttack(attackParams.attacker, attackParams.defender, out _);
+                __result = AttackAfterMagicEffect.CanAttack(
+                    attackParams.attacker,
+                    attackParams.defender,
+                    attackAfterMagicEffect.AllowMelee,
+                    attackAfterMagicEffect.AllowRanged,
+                    attackAfterMagicEffect.AllowThrown);
             }
         }
     }

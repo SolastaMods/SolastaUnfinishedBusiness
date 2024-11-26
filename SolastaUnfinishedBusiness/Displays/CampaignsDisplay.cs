@@ -125,6 +125,59 @@ internal static class CampaignsDisplay
             Main.Settings.EnableLogDialoguesToConsole = toggle;
         }
 
+        toggle = Main.Settings.EnableSpeech;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSpeech"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSpeech = toggle;
+        }
+
+        if (Main.Settings.EnableSpeech)
+        {
+            UI.Label();
+
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton(Gui.Localize("ModUi/&RefreshVoice"), SpeechContext.RefreshAvailableVoices,
+                    UI.Width(300f));
+                UI.ActionButton(SpeechContext.VoicesDownloader.Shared.GetButtonLabel(),
+                    SpeechContext.VoicesDownloader.Shared.DownloadVoices, UI.Width(300f));
+            }
+
+            UI.Label();
+            UI.Label(Gui.Localize("ModUi/&EnableSpeechActorHelp"));
+            UI.Label();
+
+            intValue = Main.Settings.SpeechChoice;
+            if (UI.SelectionGrid(
+                    ref intValue, SpeechContext.Choices, SpeechContext.Choices.Length, 5, UI.Width(600f)))
+            {
+                Main.Settings.SpeechChoice = intValue;
+            }
+
+            UI.Label();
+            UI.Label(Gui.Localize("ModUi/&EnableSpeechVoiceHelp"));
+            UI.Label();
+
+            (intValue, floatValue) = Main.Settings.SpeechVoices[Main.Settings.SpeechChoice];
+
+            if (UI.Slider(Gui.Localize("ModUi/&SpeechScale"), ref floatValue,
+                    0.5f, 2f, 1f, 1, string.Empty, UI.AutoWidth()))
+            {
+                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (intValue, floatValue);
+            }
+
+            UI.Label();
+
+            if (UI.SelectionGrid(
+                    ref intValue, SpeechContext.VoiceNames, SpeechContext.VoiceNames.Length, 3, UI.Width(600f)))
+            {
+                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (intValue, floatValue);
+                SpeechContext.SpeakQuote();
+            }
+
+            UI.Label();
+        }
+
         toggle = Main.Settings.EnableHeroWithBestProficiencyToRollChoice;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHeroWithBestProficiencyToRollChoice"), ref toggle, UI.AutoWidth()))
         {

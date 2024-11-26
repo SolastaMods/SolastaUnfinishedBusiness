@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -197,10 +198,12 @@ internal static class Tabletop2024Context
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .AddToDB();
 
-    private static readonly InvocationDefinition InvocationPactBlade = InvocationDefinitionBuilder
+    internal static readonly InvocationDefinition InvocationPactBlade = InvocationDefinitionBuilder
         .Create("InvocationPactBlade")
         .SetGuiPresentation(FeatureSetPactBlade.GuiPresentation)
         .SetGrantedFeature(FeatureSetPactBlade)
+        .AddCustomSubFeatures(
+            new CanUseAttribute(AttributeDefinitions.Charisma, PatronSoulBlade.CanWeaponBeEmpowered))
         .AddToDB();
 
     private static readonly InvocationDefinition InvocationPactChain = InvocationDefinitionBuilder
@@ -257,12 +260,13 @@ internal static class Tabletop2024Context
         .Create("ConditionTrueStrike2024")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialDuration()
         .SetFeatures(
             FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageTrueStrike")
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag("TrueStrike")
-                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                 .SetDamageDice(DieType.D6, 0)
                 .SetSpecificDamageType(DamageTypeRadiant)
                 .SetAdvancement(
@@ -276,6 +280,17 @@ internal static class Tabletop2024Context
         .AddCustomSubFeatures(new ModifyAttackActionModifierTrueStrike())
         .AddToDB();
 
+    private static readonly EffectForm EffectFormPowerWordStunStopped = EffectFormBuilder
+        .Create()
+        .SetFilterId(1)
+        .SetConditionForm(
+            ConditionDefinitionBuilder
+                .Create(CustomConditionsContext.StopMovement, "ConditionPowerWordStunStopped")
+                .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                .AddToDB(),
+            ConditionForm.ConditionOperation.Add)
+        .Build();
+
     internal static void LateLoad()
     {
         BuildBarbarianBrutalStrike();
@@ -284,6 +299,7 @@ internal static class Tabletop2024Context
         LoadMonkHeightenedMetabolism();
         LoadSecondWindToUseOneDndUsagesProgression();
         LoadOneDndEnableBardCounterCharmAsReactionAtLevel7();
+        LoadOneDndSpellSpareTheDying();
         LoadOneDndTrueStrike();
         LoadSorcerousRestorationAtLevel5();
         SwitchBarbarianBrutalCritical();
@@ -319,7 +335,12 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellDivineFavor();
         SwitchOneDndSpellLesserRestoration();
         SwitchOneDndSpellGuidance();
+        SwitchOneDndSpellHideousLaughter();
+        SwitchOneDndSpellHuntersMark();
         SwitchOneDndSpellMagicWeapon();
+        SwitchOneDndSpellPowerWordStun();
+        SwitchOneDndSpellSpareTheDying();
+        SwitchOneDndSpellSpiderClimb();
         SwitchOneDndSpellStoneSkin();
         SwitchOneDndSurprisedEnforceDisadvantage();
         SwitchSorcererInnateSorcery();
@@ -340,7 +361,6 @@ internal static class Tabletop2024Context
 
     private static void LoadSecondWindToUseOneDndUsagesProgression()
     {
-        PowerFighterSecondWind.fixedUsesPerRecharge = 0;
         PowerFighterSecondWind.AddCustomSubFeatures(
             HasModifiedUses.Marker,
             new ModifyPowerPoolAmount
@@ -537,6 +557,31 @@ internal static class Tabletop2024Context
             : ActivationTime.Action;
     }
 
+    private static void LoadOneDndSpellSpareTheDying()
+    {
+        SpareTheDying.AddCustomSubFeatures(new ModifyEffectDescriptionSpareTheDying());
+    }
+
+    internal static void SwitchOneDndSpellSpareTheDying()
+    {
+        SpareTheDying.GuiPresentation.description =
+            Main.Settings.EnableOneDndSpareTheDyingSpell
+                ? "Spell/&SpareTheDyingDescription"
+                : "Spell/&SpareTheDyingExtendedDescription";
+    }
+
+    internal static void SwitchOneDndSpellSpiderClimb()
+    {
+        SpiderClimb.EffectDescription.EffectAdvancement.additionalTargetsPerIncrement =
+            Main.Settings.EnableOneDndSpiderClimbSpell
+                ? 1
+                : 0;
+        SpiderClimb.EffectDescription.EffectAdvancement.effectIncrementMethod =
+            Main.Settings.EnableOneDndSpiderClimbSpell
+                ? EffectIncrementMethod.PerAdditionalSlotLevel
+                : EffectIncrementMethod.None;
+    }
+
     internal static void SwitchOneDndSpellStoneSkin()
     {
         Stoneskin.GuiPresentation.description = "Spell/&StoneskinExtendedDescription";
@@ -584,6 +629,31 @@ internal static class Tabletop2024Context
         }
     }
 
+    internal static void SwitchOneDndSpellHideousLaughter()
+    {
+        HideousLaughter.EffectDescription.EffectAdvancement.effectIncrementMethod =
+            Main.Settings.EnableOneDndHideousLaughterSpell
+                ? EffectIncrementMethod.PerAdditionalSlotLevel
+                : EffectIncrementMethod.None;
+    }
+
+    internal static void SwitchOneDndSpellHuntersMark()
+    {
+        FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark.specificDamageType = DamageTypeForce;
+        FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark.additionalDamageType =
+            Main.Settings.EnableOneDndHuntersMarkSpell
+                ? AdditionalDamageType.Specific
+                : AdditionalDamageType.SameAsBaseDamage;
+        HuntersMark.GuiPresentation.description =
+            Main.Settings.EnableOneDndHuntersMarkSpell
+                ? "Spell/&HuntersMarkExtendedDescription"
+                : "Spell/&HuntersMarkDescription";
+        ConditionMarkedByHunter.GuiPresentation.description =
+            Main.Settings.EnableOneDndHuntersMarkSpell
+                ? "Rules/&ConditionMarkedByHunterExtendedDescription"
+                : "Rules/&ConditionMarkedByHunterDescription";
+    }
+
     internal static void SwitchOneDndSpellMagicWeapon()
     {
         if (Main.Settings.EnableOneDndMagicWeaponSpell)
@@ -598,6 +668,29 @@ internal static class Tabletop2024Context
             MagicWeapon.castingTime = ActivationTime.Action;
             MagicWeapon.EffectDescription.EffectForms[0].ItemPropertyForm.FeatureBySlotLevel[1].level = 4;
         }
+    }
+
+    internal static void SwitchOneDndSpellPowerWordStun()
+    {
+        var effectForms = PowerWordStun.EffectDescription.EffectForms;
+
+        if (effectForms.Count > 1)
+        {
+            effectForms.RemoveAt(1);
+            PowerWordStun.EffectDescription.EffectFormFilters.RemoveAt(1);
+        }
+
+        PowerWordStun.GuiPresentation.description = "Spell/&PowerWordStunDescription";
+
+        if (!Main.Settings.EnableOneDndPowerWordStunSpell)
+        {
+            return;
+        }
+
+        PowerWordStun.GuiPresentation.description = "Spell/&PowerWordStunExtendedDescription";
+        PowerWordStun.EffectDescription.EffectFormFilters.Add(
+            new EffectFormFilter { effectFormId = 1, minHitPoints = 151, maxHitPoints = 10000 });
+        effectForms.Add(EffectFormPowerWordStunStopped);
     }
 
     internal static void SwitchOneDndWizardSchoolOfMagicLearningLevel()
@@ -1002,13 +1095,14 @@ internal static class Tabletop2024Context
             return;
         }
 
-        TrueStrike.AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.Marker);
+        TrueStrike.AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerAnyWeaponAttack);
         TrueStrike.GuiPresentation.description = "Spell/&TrueStrike2024Description";
+        TrueStrike.requiresConcentration = false;
         TrueStrike.effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Round)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-            .SetIgnoreCover()
+            // 24 seems to be the max range on Solasta ranged weapons
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
             .SetEffectForms(
                 EffectFormBuilder.ConditionForm(ConditionTrueStrike2024, ConditionForm.ConditionOperation.Add, true))
@@ -1034,6 +1128,15 @@ internal static class Tabletop2024Context
         dice = Main.Settings.EnableOneDndHealingSpellsUpgrade ? 5 : 3;
 
         MassCureWounds.EffectDescription.EffectForms[0].healingForm.diceNumber = dice;
+
+        var school = Main.Settings.EnableOneDndHealingSpellsUpgrade ? SchoolAbjuration : SchoolEvocation;
+        SpellsContext.AuraOfVitality.schoolOfMagic = school;
+        CureWounds.schoolOfMagic = school;
+        Heal.schoolOfMagic = school;
+        HealingWord.schoolOfMagic = school;
+        MassCureWounds.schoolOfMagic = school;
+        MassHealingWord.schoolOfMagic = school;
+        PrayerOfHealing.schoolOfMagic = school;
     }
 
     internal static void SwitchOneDndDamagingSpellsUpgrade()
@@ -1051,6 +1154,9 @@ internal static class Tabletop2024Context
             CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
             FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 5;
             FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 5;
+            PrismaticSpray.EffectDescription.EffectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Do(y => y.DamageForm.DiceNumber = 12);
             IceStorm.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D10;
             ViciousMockery.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
         }
@@ -1065,6 +1171,9 @@ internal static class Tabletop2024Context
             CircleOfDeath.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D6;
             FlameStrike.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
             FlameStrike.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
+            PrismaticSpray.EffectDescription.EffectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Do(y => y.DamageForm.DiceNumber = 10);
             IceStorm.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D8;
             ViciousMockery.EffectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
         }
@@ -1192,6 +1301,41 @@ internal static class Tabletop2024Context
         GuiWrapperContext.RecacheInvocations();
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class ModifyEffectDescriptionSpareTheDying : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return Main.Settings.EnableOneDndSpareTheDyingSpell && definition == SpareTheDying;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (!Main.Settings.EnableOneDndSpareTheDyingSpell)
+            {
+                return effectDescription;
+            }
+
+            effectDescription.RangeType = RangeType.Distance;
+
+            var level = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var power = level switch
+            {
+                >= 17 => 3,
+                >= 11 => 2,
+                >= 5 => 1,
+                _ => 0
+            };
+
+            effectDescription.rangeParameter = 3 * (int)Math.Pow(2, power);
+
+            return effectDescription;
+        }
     }
 
     private sealed class ModifyAttackActionModifierTrueStrike : IModifyAttackActionModifier

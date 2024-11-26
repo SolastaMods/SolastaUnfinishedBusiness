@@ -5,6 +5,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using UnityEngine;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -80,6 +81,107 @@ public static class InventoryShortcutsPanelPatcher
                          ?? slots[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
 
             return targetItem != null || hero.TryFindTargetWieldedItem(out targetItem);
+        }
+    }
+
+    //PATCH: enable unlimited inventory actions
+    [HarmonyPatch(typeof(InventoryShortcutsPanel), nameof(InventoryShortcutsPanel.BindConfigurations))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class BindConfigurationsPatch
+    {
+        public static bool Prefix(InventoryShortcutsPanel __instance)
+        {
+            if (__instance.GuiCharacter == null || __instance.GuiCharacter.RulesetCharacterHero == null)
+            {
+                return false;
+            }
+
+            var wieldedItemsConfigurations = __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory
+                .WieldedItemsConfigurations;
+            while (__instance.configurationsTable.childCount < wieldedItemsConfigurations.Count)
+            {
+                Gui.GetPrefabFromPool(__instance.wieldedConfigurationButtonPrefab, __instance.configurationsTable);
+            }
+
+            for (var i = 0; i < wieldedItemsConfigurations.Count; i++)
+            {
+                var child = __instance.configurationsTable.GetChild(i);
+                child.gameObject.SetActive(true);
+                var component = child.GetComponent<WieldedConfigurationSelector>();
+                component.Bind(__instance.GuiCharacter, i, wieldedItemsConfigurations[i],
+                    __instance.OnConfigurationSwitched,
+                    i == __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory.CurrentConfiguration,
+                    __instance.inMainHud,
+                    __instance.forceRefresh,
+                    __instance.tooltipAnchor);
+                var flag = false;
+                if (__instance.GuiCharacter.GameLocationCharacter != null)
+                {
+                    var service = ServiceRepository.GetService<IPlayerControllerService>();
+                    var flag2 = service?.ActivePlayerController?.IsCharacterControlled(__instance.GuiCharacter
+                        .GameLocationCharacter);
+                    flag = flag2 ?? true;
+                }
+                else if (__instance.GuiCharacter.GameCampaignCharacter != null)
+                {
+                    var service2 = ServiceRepository.GetService<IPlayerControllerService>();
+                    var flag3 = service2?.ActivePlayerController?.IsCharacterControlled(__instance.GuiCharacter
+                        .RulesetCharacter);
+                    flag = flag3 ?? true;
+                }
+
+                if (!flag)
+                {
+                    component.Interactable = false;
+                    component.Tooltip.Content = component.TooltipContent;
+                }
+                else if (__instance.GuiCharacter.GameLocationCharacter != null &&
+                         __instance.GuiCharacter.GameLocationCharacter.HasForcedActionOrManipulation())
+                {
+                    component.Interactable = false;
+                    component.Tooltip.Content = component.TooltipContent;
+                }
+                else switch (Main.Settings.EnableUnlimitedInventoryActions)
+                {
+                    case false when
+                        Gui.Battle != null &&
+                        __instance.GuiCharacter.GameLocationCharacter != null &&
+                        __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) ==
+                        ActionStatus.Spent && !__instance.ItemSelectionInProgress:
+                        component.Tooltip.Content = Gui.FormatFailure(component.TooltipContent,
+                            "Failure/&FailureFlagFreeOnceActionSpent");
+                        component.Interactable = false;
+                        break;
+                    case false when
+                        Gui.Battle != null &&
+                        __instance.GuiCharacter.GameLocationCharacter != null &&
+                        __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) ==
+                        ActionStatus.Unavailable && !__instance.ItemSelectionInProgress:
+                        component.Tooltip.Content = Gui.FormatFailure(component.TooltipContent,
+                            "Failure/&FailureFlagFreeOnceActionUnavailable");
+                        component.Interactable = false;
+                        break;
+                    case true when
+                        __instance.GuiCharacter.GameLocationCharacter != null:
+                        __instance.GuiCharacter.GameLocationCharacter.RefundActionUse(ActionType.FreeOnce);
+                    
+                        component.Interactable = true;
+                        component.Tooltip.Content = component.TooltipContent;
+                        break;
+                    default:
+                        component.Interactable = true;
+                        component.Tooltip.Content = component.TooltipContent;
+                        break;
+                }
+            }
+
+            for (var j = wieldedItemsConfigurations.Count; j < __instance.configurationsTable.childCount; j++)
+            {
+                __instance.configurationsTable.GetChild(j).gameObject.SetActive(false);
+            }
+
+            return false;
         }
     }
 }

@@ -86,6 +86,12 @@ internal static class RulesDisplay
             Main.Settings.DontEndTurnAfterReady = toggle;
         }
 
+        toggle = Main.Settings.EnableUnlimitedInventoryActions;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableUnlimitedInventoryActions"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableUnlimitedInventoryActions = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.EnableProneAction;

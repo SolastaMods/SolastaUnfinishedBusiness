@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=Versatilidades
 ModUi/&DontEndTurnAfterReady=Não termine o turno após a ação <color=#D89555>Pronto</color> <i><color=#F0DAA0>[permite ação bônus ou qualquer outra ação principal de outras fontes]</color></i>
 ModUi/&DontFollowCharacterInBattle=A câmera de batalha não segue quando o personagem já está na tela
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que o herói esteja desligado ou dentro de % da borda da tela</color></i>
+ModUi/&DownloadVoice=Baixar Vozes Sugeridas
+ModUi/&DownloadVoiceOngoing=Baixando em {0}
 ModUi/&DungeonMaker=Criador de Masmorras
 ModUi/&DungeonMakerBasicHelp=• Essas configurações não exigirão que o jogador tenha esse mod instalado
 ModUi/&Effects=Efeitos
@@ -148,12 +150,17 @@ ModUi/&EnableMonkWeaponSpecialization=Habilite <color=#D89555>Especialização e
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Permitir que todos os <color=#D89555>Conjuradores</color> usem novas tabelas de magias preparadas <i><color=#F0DAA0>[Bardo, Clérigo, Druida, Paladino, Patrulheiro, Feiticeiro, Mago]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Habilitar <color=#D89555>Barkskin</color> versão de magia 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, CA definida como 17]</color></i>
-ModUi/&EnableOneDndDamagingSpellsUpgrade=Habilitar <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color> e <color=#D89555>Vicious Mockery</color> versão 5e 2024 dos feitiços <i><color=#F0DAA0>[melhor dano]</color></i>
+ModUi/&EnableOneDndDamagingSpellsUpgrade=Habilitar <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, <color=#D89555>Prismatic Spray</color> e <color=#D89555>Vicious Mockery</color> versão de magias 5e 2024 <i><color=#F0DAA0>[melhor dano]</color></i>
 ModUi/&EnableOneDndDivineFavorSpell=Habilitar <color=#D89555>Favor Divino</color> versão de magia 5e 2024 <i><color=#F0DAA0>[sem concentração]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Habilitar <color=#D89555>Orientação</color> versão de magia 5e 2024 <i><color=#F0DAA0>[Escolha uma habilidade na conjuração e ganhe bônus por até 1 minuto.]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=Habilitar <color=#D89555>Curar Ferimentos</color>, <color=#D89555>Vida Falsa</color>, <color=#D89555>Palavra de Cura</color>, <color=#D89555>Curar Ferimentos em Massa</color> e <color=#D89555>Palavra de Cura em Massa</color> versão de feitiços 5e 2024 <i><color=#F0DAA0>[melhor cura]</color></i>
+ModUi/&EnableOneDndHideousLaughterSpell=Habilitar <color=#D89555>Risada Hedionda</color> versão de magia 5e 2024 <i><color=#F0DAA0>[+1 alvo por upcast]</color></i>
+ModUi/&EnableOneDndHuntersMarkSpell=Habilitar <color=#D89555>Marca do Caçador</color> versão de magia 5e 2024 <i><color=#F0DAA0>[dano de força]</color></i>
 ModUi/&EnableOneDndLesserRestorationSpell=Habilitar <color=#D89555>Restauração Menor</color> versão de magia 5e 2024 <i><color=#F0DAA0>[ação bônus]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=Habilitar <color=#D89555>Arma Mágica</color> versão de magia 5e 2024 <i><color=#F0DAA0>[ação bônus, sem concentração, atualização de aprimoramento no 3º e 6º nível da magia]</color></i>
+ModUi/&EnableOneDndPowerWordStunSpell=Habilitar <color=#D89555>Palavra de Poder Atordoante</color> versão de magia 5e 2024 <i><color=#F0DAA0>[alvo parado por um turno se tiver mais de 150 hp]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=Habilitar <color=#D89555>Poupar os Moribundos</color> versão de magia 5e 2024 <i><color=#F0DAA0>[alcance dobra nos níveis 5, 11 e 17]</color></i>
+ModUi/&EnableOneDndSpiderClimbSpell=Habilitar <color=#D89555>Escalada de Aranha</color> versão de magia 5e 2024 <i><color=#F0DAA0>[+1 alvo por upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Habilitar <color=#D89555>Stone Skin</color> versão de magia 5e 2024 <i><color=#F0DAA0>[fornece resistência a B/P/S mágicos também]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Habilitar <color=#D89555>True Strike</color> versão 5e 2024 do truque <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[o ataque usa sua habilidade de conjuração para a jogada de ataque e bônus de dano, além de dano radiante adicional do nível 5]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Habilitar <color=#D89555>Impor as Mãos</color> como ação bônus
@@ -179,12 +186,16 @@ ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mági
 ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada
 ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauração Feiticeira</color> no nível 5
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar classificação de ativos no editor do Dungeon Maker
+ModUi/&EnableSpeech=Habilitar fala em campanhas personalizadas <i><color=#F0DAA0>[somente narração]</color></i>
+ModUi/&EnableSpeechActorHelp=• Selecione um ator
+ModUi/&EnableSpeechVoiceHelp=• Selecione uma voz e velocidade de narração
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[por exemplo: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Além disso, cada herói adiciona um teste de D20 ao peso para um pouco de aleatoriedade <color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói + teste de D20]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Habilitar a condição <color=#D89555>Surpreso</color> para impor desvantagem de iniciativa em vez de pular uma rodada
 ModUi/&EnableTeleportToRemoveRestrained=Habilitar <color=#D89555>Teletransporte</color> para remover todas as condições <color=#D89555>restritas</color> do alvo
 ModUi/&EnableTooltipDistance=Habilitar a exibição da distância nas dicas de ferramentas ao passar o mouse sobre um personagem em combate
 ModUi/&EnableUnarmedMainAttackAction=Habilitar a ação <color=#D89555>Ataque Desarmado</color> <i><color=#F0DAA0>[se o ator tiver uma arma principal, for um <b>Monge</b> ou tiver <b>bandanas</b> ou <b>manoplas</b> equipadas]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=Habilite um número ilimitado de <color=#D89555>ações de inventário</color> por turno.
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posição variáveis em descrições <i><color=#F0DAA0>[usar {VARIABLE_NAME} como marcador de posição]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Permitir que <color=#D89555>Poções</color> e <color=#D89555>Pergaminhos</color> sejam carregados e usados nos slots de munição
@@ -272,6 +283,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=Habilite o lançamento rápido <col
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Habilite <color=#D89555>Sensibilidade à Luz</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</color> para serem acionados somente em ambientes externos\n<i><color=#F0DAA0>[áreas internas em locais externos acessíveis sem uma tela de carregamento são consideradas externas pelo mecanismo do jogo]</color></i>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
 ModUi/&RecipeCost=<color=white>Custo da receita</color>
+ModUi/&RefreshVoice=Atualizar lista de vozes
 ModUi/&RelicForgeries=Falsificações de relíquias
 ModUi/&RemoveAttunementRequirements=Remover requisitos de sintonização <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Remova <color=#D89555>Segredo Mágico</color> nos níveis 14 e 18
@@ -309,6 +321,7 @@ ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar ícone de item criado próximo ao ite
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dicas de ferramentas detalhadas
 ModUi/&ShowDescriptions=Mostrar descrições
 ModUi/&ShowMotionFormPreview=Mostrar pré-visualização dos efeitos <b>Push</b> e <b>Pull</b>
+ModUi/&SpeechScale=<color=white>Modificador de velocidade de narração</color> <i><color=#F0DAA0>[menor é mais rápido]</color></i>
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de magia</color> <color=#F0DAA0>[-1 exibe tudo]</color></i></b>
 ModUi/&SpellsMenu=Feitiços
 ModUi/&StealthBreaksWhenAttackHits=Habilitar perda de furtividade quando ataque de arma ou magia acerta
@@ -339,6 +352,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total de <color=#D89555>talentos
 ModUi/&Translate=Traduzir
 ModUi/&TranslateCancel=Cancelar {0} em {1}
 ModUi/&Translations=<color=#F0DAA0>Traduções:</color>
+ModUi/&UnityExplorer=<b><color=#D89555>IU do Unity Explorer</color></b>
 ModUi/&UnleashEnemyAsNpc=Permitir que monstros sejam selecionados em gadgets de NPC
 ModUi/&UnleashNpcAsEnemy=Desbloquear seleção de monstros
 ModUi/&Update=<b><color=#D89555>Atualizar</color></b>

@@ -55,6 +55,13 @@ internal class EffectFormBuilder
         return this;
     }
 
+    internal EffectFormBuilder SetFilterId(int filterId)
+    {
+        _effectForm.filterId = filterId;
+        _effectForm.hasFilterId = true;
+        return this;
+    }
+
     internal EffectFormBuilder SetBonusMode(AddBonusMode bonusMode)
     {
         _effectForm.AddBonusMode = bonusMode;
