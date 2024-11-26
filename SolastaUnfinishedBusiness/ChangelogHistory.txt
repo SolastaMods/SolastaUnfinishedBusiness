@@ -1,5 +1,6 @@
 1.5.97.40:
 
+- added Ray of Sickening spell
 - added Aura of Vitality, Banishing Smite, Crusader's Mantle, Mirror Image, Swift Quiver, Weird, and Wrathful Smite 5e 2024 spells version
 - added General > Campaigns > 'Enable Speech on custom campaigns' setting
 - added General > Rules > 'Enable an unlimited number of inventory actions per turn' setting [by SilverGriffon]
@@ -9,6 +10,7 @@
 - added 'Enable Spare the Dying 5e 2024 spell version' setting [range double every cantrip level upgrade]
 - added 'Enable Spider Climb 5e 2024 spell version' setting [+1 target per upcast]
 - fixed 'Enable Second Wind to use 5e 2024 usages progression' forcing max usage to zero when off
+- fixed Grapple interaction with teleporting enemies
 - fixed Patron Hexblade interaction with 5e 2024 pact of blades invocation
 - fixed Staff of Fire not granting fire damage resistance to wielder [VANILLA]
 - fixed True Strike 2024 version not allowing ranged or thrown, and enforcing concentration

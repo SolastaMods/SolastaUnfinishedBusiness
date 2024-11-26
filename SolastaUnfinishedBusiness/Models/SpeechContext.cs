@@ -168,20 +168,24 @@ internal static class SpeechContext
         var random = new Random();
         var quoteNumber = random.Next(0, Quotes.Length);
 
-        Speak(Quotes[quoteNumber]);
+        Speak(Quotes[quoteNumber], false);
     }
 
     //TODO: how to integrate an unity Mono Behavior with async / await?
-    internal static async void Speak(string inputText)
+    internal static async void Speak(string inputText, bool forceUseCampaign = true)
     {
         try
         {
             // only custom campaigns
-            if (Gui.GameCampaign)
+            if (forceUseCampaign)
             {
-                if (Gui.GameCampaign.campaignDefinition.IsUserCampaign)
+                // unity life check...
+                if (Gui.GameCampaign)
                 {
-                    return;
+                    if (!Gui.GameCampaign.campaignDefinition.IsUserCampaign)
+                    {
+                        return;
+                    }
                 }
             }
 
