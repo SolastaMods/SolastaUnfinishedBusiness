@@ -134,7 +134,7 @@ internal static class CampaignsDisplay
         if (Main.Settings.EnableSpeech)
         {
             UI.Label();
-            UI.Label("ModUi/&EnableSpeechActorHelp");
+            UI.Label(Gui.Localize("ModUi/&EnableSpeechActorHelp"));
             UI.Label();
 
             intValue = Main.Settings.SpeechChoice;
@@ -145,7 +145,7 @@ internal static class CampaignsDisplay
             }
 
             UI.Label();
-            UI.Label("ModUi/&EnableSpeechVoiceHelp");
+            UI.Label(Gui.Localize("ModUi/&EnableSpeechVoiceHelp"));
             UI.Label();
 
             (intValue, floatValue) = Main.Settings.SpeechVoices[Main.Settings.SpeechChoice];
@@ -154,7 +154,6 @@ internal static class CampaignsDisplay
                     0.5f, 2f, 1f, 1, string.Empty, UI.AutoWidth()))
             {
                 Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (intValue, floatValue);
-                SpeechContext.SpeakQuote();
             }
 
             UI.Label();
