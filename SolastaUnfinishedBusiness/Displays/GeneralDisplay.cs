@@ -2,6 +2,9 @@
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
+#if DEBUG
+using UnityExplorer;
+#endif
 
 namespace SolastaUnfinishedBusiness.Displays;
 
