@@ -185,6 +185,8 @@ ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</colo
 ModUi/&EnableSorcerousRestorationAtLevel5=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableSpeech=Enable speech on custom campaigns <i><color=#F0DAA0>[narration only]</color></i>
+ModUi/&EnableSpeechActorHelp=• Select an actor
+ModUi/&EnableSpeechVoiceHelp=• Select a voice and narration speed
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Enable <color=#D89555>Surprised</color> condition to enforce initiative disadvantage instead of skipping a round

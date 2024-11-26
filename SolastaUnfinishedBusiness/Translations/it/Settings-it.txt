@@ -185,6 +185,8 @@ ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo
 ModUi/&EnableSorcerousRestorationAtLevel5=Abilita <color=#D89555>Restauro Stregonesco</color> al livello 5
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableSpeech=Abilita la voce nelle campagne personalizzate <i><color=#F0DAA0>[solo narrazione]</color></i>
+ModUi/&EnableSpeechActorHelp=• Seleziona un attore
+ModUi/&EnableSpeechVoiceHelp=• Seleziona una voce e una velocità di narrazione
 ModUi/&EnableStatsOnHeroTooltip=Visualizza le statistiche nel tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità <color=#F0DAA0>[peso della scelta = voti * modificatore del Carisma dell'eroe + tiro di D20]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Abilita la condizione <color=#D89555>Sorpreso</color> per imporre lo svantaggio dell'iniziativa invece di saltare un round

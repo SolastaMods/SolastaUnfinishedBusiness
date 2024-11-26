@@ -45,12 +45,18 @@ public static class FunctorDisplayLorePatcher
                     var speaker = intParameter == GadgetBlueprintDefinitions.LoreFormat.MainCharacter
                         ? __instance.validCharacters[0]
                         : __instance.validCharacters[DeterministicRandom.Range(0, __instance.validCharacters.Count)];
+
+                    var heroId =
+                        Gui.Game.GameCampaign.Party.CharactersList.FindIndex(x =>
+                            x.RulesetCharacter == speaker.RulesetCharacter) + 1;
+                    SpeechContext.Speak(stringParameter, heroId);
+
                     ServiceRepository.GetService<IGameLocationBanterService>()
                         .ForceBanterLine(stringParameter, speaker);
                     __instance.validCharacters.Clear();
                     break;
                 case GadgetBlueprintDefinitions.LoreFormat.GadgetFeedback:
-                    SpeechContext.Speak(stringParameter);
+                    SpeechContext.Speak(stringParameter, 0);
                     Gui.Game.GameCampaign.AdventureLog.RecordLoreTextEntry(stringParameter);
 
                     Gui.GuiService.ShowTextFeedbackVector3(functorParameters.SourceGadget.TextFeedbackPosition,
@@ -75,7 +81,7 @@ public static class FunctorDisplayLorePatcher
                     }
 
                     // before to allow time to create the speech as this could be timed
-                    SpeechContext.Speak(stringParameter);
+                    SpeechContext.Speak(stringParameter, 0);
                     gamePartyStatusScreen.ShowBottomPopup(stringParameter, boolParameter ? floatParameter : 0.0f);
                     break;
                 case GadgetBlueprintDefinitions.LoreFormat.ModalPanel:
@@ -86,7 +92,7 @@ public static class FunctorDisplayLorePatcher
                     GuiDefinitions.ExtractCaptionsParagraphs(Gui.Localize(stringParameter), __instance.textParagraphs);
 
                     posterScreen.Show(__instance.textParagraphs);
-                    SpeechContext.Speak(stringParameter);
+                    SpeechContext.Speak(stringParameter, 0);
 
                     __instance.textParagraphs.Clear();
                     break;

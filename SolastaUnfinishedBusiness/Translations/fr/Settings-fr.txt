@@ -185,6 +185,8 @@ ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accél
 ModUi/&EnableSorcerousRestorationAtLevel5=Activer la <color=#D89555>Restauration magique</color> au niveau 5
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableSpeech=Activer la parole dans les campagnes personnalisées <i><color=#F0DAA0>[narration uniquement]</color></i>
+ModUi/&EnableSpeechActorHelp=• Sélectionnez un acteur
+ModUi/&EnableSpeechVoiceHelp=• Sélectionnez une voix et une vitesse de narration
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ De plus, chaque héros ajoute un jet de D20 pour pondérer un peu le caractère aléatoire <color=#F0DAA0>[poids du choix = votes * modificateur de Charisme du héros + jet de D20]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Activez la condition <color=#D89555>Surprise</color> pour appliquer un désavantage d'initiative au lieu de sauter un tour

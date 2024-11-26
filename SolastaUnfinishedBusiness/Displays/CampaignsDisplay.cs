@@ -133,21 +133,36 @@ internal static class CampaignsDisplay
 
         if (Main.Settings.EnableSpeech)
         {
-            floatValue = Main.Settings.SpeechScale;
+            UI.Label();
+            UI.Label("ModUi/&EnableSpeechActorHelp");
+            UI.Label();
+
+            intValue = Main.Settings.SpeechChoice;
+            if (UI.SelectionGrid(
+                    ref intValue, SpeechContext.Choices, SpeechContext.Choices.Length, 4, UI.Width(600f)))
+            {
+                Main.Settings.SpeechChoice = intValue;
+            }
+
+            UI.Label();
+            UI.Label("ModUi/&EnableSpeechVoiceHelp");
+            UI.Label();
+
+            (intValue, floatValue) = Main.Settings.SpeechVoices[Main.Settings.SpeechChoice];
+
             if (UI.Slider(Gui.Localize("ModUi/&SpeechScale"), ref floatValue,
                     0.5f, 2f, 1f, 1, string.Empty, UI.AutoWidth()))
             {
-                Main.Settings.SpeechScale = floatValue;
+                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (intValue, floatValue);
                 SpeechContext.SpeakQuote();
             }
 
             UI.Label();
 
-            intValue = Main.Settings.SpeechVoice;
             if (UI.SelectionGrid(
                     ref intValue, SpeechContext.VoiceNames, SpeechContext.VoiceNames.Length, 3, UI.Width(600f)))
             {
-                Main.Settings.SpeechVoice = intValue;
+                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (intValue, floatValue);
                 SpeechContext.SpeakQuote();
             }
 

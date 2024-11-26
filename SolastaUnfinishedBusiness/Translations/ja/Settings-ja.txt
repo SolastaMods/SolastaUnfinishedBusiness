@@ -185,6 +185,8 @@ ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>�
 ModUi/&EnableSorcerousRestorationAtLevel5=レベル5で<color=#D89555>魔法による回復</color>を有効にする
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableSpeech=カスタム キャンペーンで音声を有効にする <i><color=#F0DAA0>[ナレーションのみ]</color></i>
+ModUi/&EnableSpeechActorHelp=• 俳優を選択
+ModUi/&EnableSpeechVoiceHelp=• 音声とナレーションの速度を選択します
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカルヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローはランダム性を高めるために D20 ロールを重みに追加します <color=#F0DAA0>[選択重み = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=<color=#D89555>驚き</color>状態を有効にして、ラウンドをスキップする代わりにイニシアチブの不利を強制します。

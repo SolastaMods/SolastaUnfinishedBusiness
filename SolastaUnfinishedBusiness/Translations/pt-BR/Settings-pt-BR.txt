@@ -185,6 +185,8 @@ ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Ac
 ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauração Feiticeira</color> no nível 5
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar classificação de ativos no editor do Dungeon Maker
 ModUi/&EnableSpeech=Habilitar fala em campanhas personalizadas <i><color=#F0DAA0>[somente narração]</color></i>
+ModUi/&EnableSpeechActorHelp=• Selecione um ator
+ModUi/&EnableSpeechVoiceHelp=• Selecione uma voz e velocidade de narração
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[por exemplo: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Além disso, cada herói adiciona um teste de D20 ao peso para um pouco de aleatoriedade <color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói + teste de D20]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Habilitar a condição <color=#D89555>Surpreso</color> para impor desvantagem de iniciativa em vez de pular uma rodada

@@ -185,6 +185,8 @@ ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Be
 ModUi/&EnableSorcerousRestorationAtLevel5=Aktiviere <color=#D89555>Zauberhafte Wiederherstellung</color> auf Stufe 5.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Sortierung von Assets im Dungeon Maker-Editor.
 ModUi/&EnableSpeech=Sprache in benutzerdefinierten Kampagnen aktivieren <i><color=#F0DAA0>[Nur Erzählung]</color></i>
+ModUi/&EnableSpeechActorHelp=• Wählen Sie einen Schauspieler
+ModUi/&EnableSpeechVoiceHelp=• Wählen Sie eine Stimme und Erzählgeschwindigkeit
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Außerdem fügt jeder Held einen D20-Wurf zur Gewichtung hinzu, um ein wenig Zufälligkeit zu erzeugen <color=#F0DAA0>[Wahlgewicht = Stimmen * Charisma-Modifikator des Helden + D20-Wurf]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Aktivieren Sie die Bedingung <color=#D89555>Überrascht</color>, um einen Initiativenachteil durchzusetzen, anstatt eine Runde zu überspringen.

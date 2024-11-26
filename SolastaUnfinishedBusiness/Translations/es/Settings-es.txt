@@ -185,6 +185,8 @@ ModUi/&EnableSorcererQuickenedAction=Habilitar la acción <color=#D89555>Hechizo
 ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauración hechicera</color> en el nivel 5
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableSpeech=Habilitar la voz en campañas personalizadas <i><color=#F0DAA0>[solo narración]</color></i>
+ModUi/&EnableSpeechActorHelp=• Seleccione un actor
+ModUi/&EnableSpeechVoiceHelp=• Seleccione una voz y velocidad de narración
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir: golpes críticos, fallos críticos, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe suma un D20 en la tirada para darle un poco de aleatoriedad. <color=#F0DAA0>[peso de la elección = votos * modificador de Carisma del héroe + tirada del D20]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Habilite la condición <color=#D89555>Sorprendido</color> para imponer una desventaja de iniciativa en lugar de omitir una ronda
