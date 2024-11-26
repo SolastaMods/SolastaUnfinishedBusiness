@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -137,10 +138,12 @@ internal static class CampaignsDisplay
 
             using (UI.HorizontalScope())
             {
-                UI.ActionButton(Gui.Localize("ModUi/&RefreshVoice"), SpeechContext.RefreshAvailableVoices,
-                    UI.Width(300f));
-                UI.ActionButton(SpeechContext.VoicesDownloader.Shared.GetButtonLabel(),
-                    SpeechContext.VoicesDownloader.Shared.DownloadVoices, UI.Width(300f));
+                UI.ActionButton(
+                    Gui.Localize("ModUi/&RefreshVoice"),
+                    SpeechContext.RefreshAvailableVoices, UI.Width(225f));
+                UI.ActionButton(
+                    SpeechContext.VoicesDownloader.Shared.GetButtonLabel(),
+                    SpeechContext.VoicesDownloader.Shared.DownloadVoices, UI.Width(225f));
             }
 
             UI.Label();
@@ -150,7 +153,7 @@ internal static class CampaignsDisplay
             intValue = Main.Settings.SpeechChoice;
             if (UI.SelectionGrid(
                     ref intValue, SpeechContext.Choices, SpeechContext.Choices.Length, SpeechContext.MaxHeroes + 1,
-                    UI.Width(600f)))
+                    UI.Width(800f)))
             {
                 Main.Settings.SpeechChoice = intValue;
             }
@@ -159,20 +162,24 @@ internal static class CampaignsDisplay
             UI.Label(Gui.Localize("ModUi/&EnableSpeechVoiceHelp"));
             UI.Label();
 
-            (intValue, floatValue) = Main.Settings.SpeechVoices[Main.Settings.SpeechChoice];
+            (var voice, floatValue) = Main.Settings.SpeechVoices[Main.Settings.SpeechChoice];
+
+            intValue = Array.IndexOf(SpeechContext.VoiceNames, voice);
 
             if (UI.Slider(Gui.Localize("ModUi/&SpeechScale"), ref floatValue,
                     0.5f, 2f, 1f, 1, string.Empty, UI.AutoWidth()))
             {
-                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (intValue, floatValue);
+                voice = SpeechContext.VoiceNames[intValue];
+                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, floatValue);
             }
 
             UI.Label();
 
             if (UI.SelectionGrid(
-                    ref intValue, SpeechContext.VoiceNames, SpeechContext.VoiceNames.Length, 3, UI.Width(600f)))
+                    ref intValue, SpeechContext.VoiceNames, SpeechContext.VoiceNames.Length, 3, UI.Width(800f)))
             {
-                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (intValue, floatValue);
+                voice = SpeechContext.VoiceNames[intValue];
+                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, floatValue);
                 SpeechContext.SpeakQuote();
             }
 
