@@ -138,6 +138,7 @@ internal static class CampaignsDisplay
                     0.5f, 2f, 1f, 1, string.Empty, UI.AutoWidth()))
             {
                 Main.Settings.SpeechScale = floatValue;
+                SpeechContext.SpeakQuote();
             }
 
             UI.Label();
