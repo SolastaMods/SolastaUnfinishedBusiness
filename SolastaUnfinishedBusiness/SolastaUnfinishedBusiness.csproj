@@ -108,7 +108,6 @@
       <HintPath>../lib/Tomlet.dll</HintPath>
     </Reference>
     <PackageReference Include="NAudio" Version="2.2.1"/>
-    <PackageReference Include="NAudio.Core" Version="2.2.1"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -287,6 +286,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="UnofficialTranslations\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Voices\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

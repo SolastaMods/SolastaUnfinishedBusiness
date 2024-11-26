@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
-using UnityExplorer;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -11,7 +10,9 @@ internal static class ToolsDisplay
     private static string ExportFileName { get; set; } =
         ServiceRepository.GetService<INetworkingService>().GetUserName();
 
+#if DEBUG
     private static bool IsUnityExplorerEnabled { get; set; }
+#endif
 
     internal static void DisplayGameplay()
     {
@@ -77,6 +78,7 @@ internal static class ToolsDisplay
         SubclassesContext.SelectTabletopSet(true);
     }
 
+#if DEBUG
     private static void EnableUnityExplorerUi()
     {
         IsUnityExplorerEnabled = true;
@@ -90,12 +92,20 @@ internal static class ToolsDisplay
             // ignored
         }
     }
+#endif
 
     private static void DisplayGeneral()
     {
         UI.Label();
 
-        var width = UI.Width(IsUnityExplorerEnabled ? 195f : 145f);
+#if DEBUG
+         var size = IsUnityExplorerEnabled ? 195f : 145f;
+#else
+        // ReSharper disable once ConvertToConstant.Local
+        var size = 195f;
+#endif
+
+        var width = UI.Width(size);
 
         using (UI.HorizontalScope())
         {
@@ -103,10 +113,12 @@ internal static class ToolsDisplay
             UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage, width);
             UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog, width);
 
+#if DEBUG
             if (!IsUnityExplorerEnabled)
             {
                 UI.ActionButton(Gui.Localize("ModUi/&UnityExplorer"), EnableUnityExplorerUi, UI.Width(145f));
             }
+#endif
         }
 
         UI.Label();
