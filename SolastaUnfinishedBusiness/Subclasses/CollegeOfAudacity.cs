@@ -91,6 +91,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .Create($"Power{Name}DefensiveWhirl")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -105,6 +106,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .Create($"Power{Name}MobileWhirl")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -132,6 +134,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             .Create($"Power{Name}SlashingWhirl")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

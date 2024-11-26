@@ -115,6 +115,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             .Create("PowerRoyalKnightInspiringProtectionAura")
             .SetGuiPresentation(TEXT, Category.Feature)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

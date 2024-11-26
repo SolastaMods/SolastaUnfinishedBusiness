@@ -198,6 +198,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .Create($"Power{Name}FormOfTheBeast{suffixes[i]}")
                 .SetGuiPresentation(Category.Feature)
                 .SetSharedPool(ActivationTime.OnPowerActivatedAuto, powerFormOfTheBeast)
+                .SetShowCasting(false)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()

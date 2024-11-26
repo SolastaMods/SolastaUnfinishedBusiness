@@ -308,8 +308,7 @@ public static class GameLocationCharacterExtensions
             StringParameter2 = stringParameter2,
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
-            UsablePower = usablePower,
-            SkipAnimationsAndVFX = true
+            UsablePower = usablePower
         };
         var count = actionService.PendingReactionRequestGroups.Count;
 
@@ -352,8 +351,7 @@ public static class GameLocationCharacterExtensions
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets,
-            SkipAnimationsAndVFX = true
+            targetCharacters = targets
         };
         var reactionRequest =
             new ReactionRequestSpendBundlePower(reactionParams, reactionValidated, reactionNotValidated);

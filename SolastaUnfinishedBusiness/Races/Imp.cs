@@ -131,6 +131,7 @@ internal static class RaceImpBuilder
             .Create($"Power{NAME}DrawInspiration")
             .SetGuiPresentation(Category.Feature)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerImpBadlandDrawInspiration.AddCustomSubFeatures(
