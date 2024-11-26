@@ -321,7 +321,7 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,

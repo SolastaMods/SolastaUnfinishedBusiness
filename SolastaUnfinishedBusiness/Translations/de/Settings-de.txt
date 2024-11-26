@@ -186,7 +186,7 @@ ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung<
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
 ModUi/&EnableSorcerousRestorationAtLevel5=Aktiviere <color=#D89555>Zauberhafte Wiederherstellung</color> auf Stufe 5.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Sortierung von Assets im Dungeon Maker-Editor.
-ModUi/&EnableSpeech=Sprache in benutzerdefinierten Kampagnen aktivieren <i><color=#F0DAA0>[Nur Erzählung]</color></i>
+ModUi/&EnableSpeech=Aktivieren Sie die Sprachausgabe in benutzerdefinierten Kampagnen <i><color=#F0DAA0>[nur Erzählung und Helden]</color></i>
 ModUi/&EnableSpeechActorHelp=• Wählen Sie einen Schauspieler
 ModUi/&EnableSpeechVoiceHelp=• Wählen Sie eine Stimme und Erzählgeschwindigkeit
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>

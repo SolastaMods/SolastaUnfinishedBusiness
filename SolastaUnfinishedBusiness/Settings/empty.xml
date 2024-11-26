@@ -291,8 +291,86 @@
     <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
     <EnableSpeech>false</EnableSpeech>
-    <SpeechVoice>0</SpeechVoice>
-    <SpeechScale>0.8</SpeechScale>
+    <SpeechChoice>0</SpeechChoice>
+    <SpeechVoices>
+        <item>
+            <key>
+                <int>0</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>1</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>2</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>3</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>4</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>5</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>6</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+    </SpeechVoices>
     <EnableHeroWithBestProficiencyToRollChoice>false</EnableHeroWithBestProficiencyToRollChoice>
     <MarkInvisibleTeleportersOnLevelMap>false</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>false</EnableAlternateVotingSystem>
@@ -1068,4 +1146,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

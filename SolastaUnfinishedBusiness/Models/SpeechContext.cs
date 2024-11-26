@@ -32,6 +32,8 @@ internal static class SpeechContext
     private const string PiperWindowsDownloadURL =
         "https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_windows_amd64.zip";
 
+    private const string NoVoice = "No Voice";
+
     internal static readonly string[] Choices = new List<string> { "Narrator" }
         .Union(Enumerable.Range(1, MaxHeroes).Select(n => $"Hero {n}")).ToArray();
 
@@ -194,12 +196,13 @@ internal static class SpeechContext
 
         for (var i = 0; i <= MaxHeroes; i++)
         {
-            Main.Settings.SpeechVoices.TryAdd(i, (0, 1f));
+            Main.Settings.SpeechVoices.TryAdd(i, (NoVoice, 1f));
+        }
 
-            if (Main.Settings.SpeechVoices[i].Item1 < VoiceNames.Length)
-            {
-                Main.Settings.SpeechVoices[i] = (0, 1f);
-            }
+        foreach (var kvp in Main.Settings.SpeechVoices.Where(kvp => !VoiceNames.Contains(kvp.Value.Item1))
+                     .ToDictionary(kvp => kvp.Key))
+        {
+            Main.Settings.SpeechVoices[kvp.Key] = (NoVoice, 1f);
         }
     }
 
@@ -208,7 +211,7 @@ internal static class SpeechContext
         var directoryInfo = new DirectoryInfo(VoicesFolder);
         var voices = directoryInfo.GetFiles("*.onnx").Select(x => x.Name.Replace(".onnx", string.Empty)).ToList();
 
-        VoiceNames = new List<string> { "None" }.Union(voices).ToArray();
+        VoiceNames = new List<string> { NoVoice }.Union(voices).ToArray();
     }
 
     internal static void SpeakQuote()
@@ -232,9 +235,10 @@ internal static class SpeechContext
                 return;
             }
 
-            var (voiceId, scale) = Main.Settings.SpeechVoices[heroId];
+            var (voice, scale) = Main.Settings.SpeechVoices[heroId];
+            var voiceId = Array.IndexOf(VoiceNames, voice);
 
-            if (voiceId == 0)
+            if (voiceId <= 0)
             {
                 return;
             }
