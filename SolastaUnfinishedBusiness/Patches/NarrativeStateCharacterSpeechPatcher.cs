@@ -17,19 +17,18 @@ public static class NarrativeStateCharacterSpeechPatcher
         [UsedImplicitly]
         public static void Postfix(NarrativeStateCharacterSpeech __instance, string speakerName, string textLine)
         {
-            //PATCH: EnableLogDialoguesToConsole
-            if (!Main.Settings.EnableLogDialoguesToConsole)
-            {
-                return;
-            }
-
+            //PATCH: EnableSpeech
             if (Main.Settings.EnableSpeech)
             {
                 var heroId = Gui.Game.GameCampaign.Party.CharactersList.FindIndex(x => x.Name == speakerName) + 1;
                 SpeechContext.Speak(textLine, heroId);
             }
 
-            GameConsoleHelper.LogCharacterConversationLine(speakerName, textLine, false);
+            //PATCH: EnableLogDialoguesToConsole
+            if (Main.Settings.EnableLogDialoguesToConsole)
+            {
+                GameConsoleHelper.LogCharacterConversationLine(speakerName, textLine, false);
+            }
         }
     }
 }

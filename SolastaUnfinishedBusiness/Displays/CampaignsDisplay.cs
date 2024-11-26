@@ -149,7 +149,8 @@ internal static class CampaignsDisplay
 
             intValue = Main.Settings.SpeechChoice;
             if (UI.SelectionGrid(
-                    ref intValue, SpeechContext.Choices, SpeechContext.Choices.Length, 5, UI.Width(600f)))
+                    ref intValue, SpeechContext.Choices, SpeechContext.Choices.Length, SpeechContext.MaxHeroes + 1,
+                    UI.Width(600f)))
             {
                 Main.Settings.SpeechChoice = intValue;
             }

@@ -19,7 +19,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpeechContext
 {
-    internal const int MaxHeroes = 4;
+    internal const int MaxHeroes = 6;
 
     private const string OfficialVoicesURLPrefix = "https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/";
 
@@ -31,6 +31,9 @@ internal static class SpeechContext
 
     private const string PiperWindowsDownloadURL =
         "https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_windows_amd64.zip";
+
+    internal static readonly string[] Choices = new List<string> { "Narrator" }
+        .Union(Enumerable.Range(1, MaxHeroes).Select(n => $"Hero {n}")).ToArray();
 
     private static readonly string PiperFolder =
         Path.Combine(
@@ -54,127 +57,120 @@ internal static class SpeechContext
         $"{OfficialVoicesURLPrefix}en/en_GB/cori/medium/en_GB-cori-medium",
         $"{OfficialVoicesURLPrefix}en/en_GB/jenny_dioco/medium/en_GB-jenny_dioco-medium",
         $"{OfficialVoicesURLPrefix}en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium",
+        $"{OfficialVoicesURLPrefix}en/en_GB/semaine/medium/en_GB-semaine-medium",
         $"{OfficialVoicesURLPrefix}en/en_US/hfc_female/medium/en_US-hfc_female-medium",
         $"{OfficialVoicesURLPrefix}en/en_US/hfc_male/medium/en_US-hfc_male-medium",
         $"{OfficialVoicesURLPrefix}en/en_US/joe/medium/en_US-joe-medium",
         $"{OfficialVoicesURLPrefix}en/en_US/kristin/medium/en_US-kristin-medium",
         $"{OfficialVoicesURLPrefix}en/en_US/lessac/medium/en_US-lessac-medium",
+        $"{OfficialVoicesURLPrefix}en/en_US/norman/medium/en_US-norman-medium",
         $"{OfficialVoicesURLPrefix}en/en_US/ryan/medium/en_US-ryan-medium"
-    ];
-
-    internal static readonly string[] Choices =
-    [
-        "Narrator",
-        "Hero 1",
-        "Hero 2",
-        "Hero 3",
-        "Hero 4"
     ];
 
     internal static readonly WaveOutEvent WaveOutEvent = new();
 
     private static readonly string[] Quotes =
     [
-        "Chuck Norris does in fact use a stunt double, but only for crying scenes.",
-        "Chuck Norris doesn't flush the toilet, he scares the crap out of it.",
-        "Chuck Norris went skydiving and his parachute didn't open, he took it back for a refund.",
-        "Chuck Norris was awarded the Nobel Peace Prize, for letting so many people live.",
-        "Chuck Norris's computer doesn't have a backspace key.",
-        "Chuck Norris once had a fight with Superman. The loser had to wear his underpants on the outside.",
-        "Chuck Norris once won a game of Connect Four in three moves.",
-        "Chuck Norris can make sticks by rubbing two fires together.",
-        "Chuck Norris once took a lie detector test. The machine confessed everything.",
-        "Chuck Norris can fold airplanes into paper.",
-        "Chuck Norris has no chin, under his beard is just another fist with an equally powerful beard.",
-        "Chuck Norris can gargle peanut butter.",
-        "Chuck Norris picked an apple from an orange tree and made lemonade.",
-        "Chuck Norris is so fast he can run around the world and punch himself in the back of the head.",
-        "Chuck Norris can put a plane in reverse.",
-        "Chuck Norris is able to build a snowman out of water.",
-        "Chuck Norris didn't call the wrong number, you answered the wrong phone.",
-        "Chuck Norris didn't cheat death, he won fairly and squarely.",
-        "Chuck Norris walked into chemistry class and ripped the Periodic Table of Elements off of the wall. Why? Because the only element Chuck Norris needs is the element of surprise.",
-        "Chuck Norris once wrestled a bear, an alligator, and a tiger all at once. He won by tying them together with an anaconda.",
-        "Chuck Norris was once bitten by a poisonous snake. And after a week of excruciating pain, the snake died.",
-        "There are no streets named after Chuck Norris because no one would ever cross Chuck Norris",
-        "Chuck Norris's mother tried to have an abortion. The procedure resulted in the doctor being knocked unconscious by Chuck Norris.",
-        "When alexander graham bell first invented the telephone he had three missed calls from Chuck Norris",
-        "Chuck Norris doesn't worry about gas prices, his vehicles run on fear.",
-        "Chuck Norris doesn't pay taxes, taxes pay Chuck Norris.",
-        "Chuck Norris once had an arm wrestling contest with superman. I'm not going to say who won, but the loser had to wear his underwear on the outside for the rest of his life.",
-        "When Chuck Norris was born the doctor asked him to name his parents.",
-        "The laws of physics always bend the rules for Chuck Norris.",
-        "Chuck Norris didn't get a Covid-19 vaccine. Covid-19 got a Chuck Norris vaccine.",
-        "Chuck Norris eats his meat so rare that he only eats unicorns and dragons.",
-        "Chuck Norris once played Russian Roulette with a fully loaded gun and won.",
-        "Whenever Chuck Norris peels onions, the onions always cry.",
-        "Chuck Norris can pull a wheelie when riding a unicycle.",
-        "Chuck Norris was born with two umbilical cords, one red and one blue. The bomb squad cut the wrong cord.",
-        "Chuck Norris makes a lot of money selling his urine, it is called Red Bull.",
-        "Chuck Norris is able to slam a revolving door.",
-        "The day after Chuck Norris was born he drove his mother home, he wanted her to get some rest.",
-        "Chuck Norris built the hospital that he was born in.",
-        "Chuck Norris knows exactly what to do with the drunken sailors early in the morning.",
-        "Chuck Norris played a game of rock, paper scissors against his reflection, and won.",
-        "When Chuck Norris went to Burger King and ordered a big mac, they made it for him, perfectly.",
-        "The Swiss Army uses Chuck Norris Knives.",
-        "A condom puts on protection to avoid becoming impregnated by Chuck Norris on date night.",
-        "Chuck Norris is able to start a fire using an extinguisher.",
-        "Chuck Norris doesn't need to throw out the trash, it always throws itself out.",
-        "Chuck Norris has to carry a concealed weapons permit when he wears his regular clothes.",
-        "When Chuck Norris once roundhouse kicked a coal mine and turned it into a diamond mine.",
-        "Chuck Norris doesn't strike gold, gold is the byproduct of Chuck Norris roundhouse kicking rocks.",
-        "When Chuck Norris lifts weights, the weights get in shape.",
-        "Chuck Norris is able to strangle people using a cordless phone.",
-        "Chuck Norris is the reason that Wally is always hiding.",
-        "When Chuck Norris falls from a great height, the ground has it's life flash before it's eyes.",
-        "When Chuck Norris enters a building that is on fire, the Chuck Norris alarm rings.",
-        "When Thanos snapped his fingers he disappeared. Chuck Norris doesn't like snapping.",
-        "The sun has to wear sunglasses when Chuck Norris glances at it.",
-        "When Chuck Norris looked into the abyss, the abyss looked the other way.",
-        "The Grand Canyon was formed when Chuck Norris was doing a triathlon.",
-        "Bigfoot is still hiding because he once saw Chuck Norris walking in the mountains.",
-        "When Chuck Norris drops the soap in prison, he picks it up successfully.",
-        "The Loch Ness Monster claims to have seen Chuck Norris.",
-        "Chuck Norris can drink a whole glass of beer. Yep, even the glass.",
-        "When Chuck Norris uses the internet he can skip ads whenever he wants, ads are not able to skip Chuck Norris.",
-        "Chuck Norris doesn't negotiate with terrorists.",
-        "The terrorists negotiate with Chuck Norris.",
-        "Chuck Norris won an arm wrestling tournament, with both arms tied behind his back.",
-        "Chuck Norris got a divorce and was asked to give half his assets and property away. Chuck Norris proceeded to chop the entire universe in half with his bare hands.",
-        "The Flash discovered how to run at the speed of light when he discovered Chuck Norris was looking for him.",
-        "When Chuck Norris goes bowling he doesn't get every pin with a single bowl he gets every pin in the bowling alley.",
-        "The reason why people say it's pointless for Trump to build a wall is because Chuck Norris walks to Mexico and back once a month.",
-        "Ghosts tell Chuck Norris stories at the campfire.",
-        "Chuck Norris mines bitcoin with a pen and paper.",
-        "When Chuck Norris goes to a restaurant, the waiter tips him.",
-        "Tornadoes don't exist, Chuck Norris just really doesn't like trailer parks.",
-        "Chuck Norris was born May 6th 1945. The Nazis surrendered May 7th 1945, this is not a coincidence.",
-        "Chuck Norris has counted to infinity more than once. Then he counted backward from infinity.",
-        "Chuck Norris has a bear rug on his lounge floor. The bear is still alive, it is just afraid to move.",
-        "Chuck Norris doesn't go to the gym, instead he goes shop lifting.",
-        "If Chuck Norris was on The Titanic the iceberg would have dodged the ship.",
-        "Chuck Norris is able to make other people walk in his sleep.",
-        "Chuck Norris once raced the earth around the sun and won by three years.",
-        "Chuck Norris was asked to fire someone once, that is how hell was invented.",
-        "When Chuck Norris jumps on the Tempur-Pedic mattress, the wine glass falls over.",
-        "When Chuck Norris was a child at school, his teachers would raise their hands in order to talk to him.",
-        "When Chuck Norris's parents had nightmares, they would come to his bedroom.",
-        "When Chuck Norris crosses the road, vehicles look both ways.",
-        "Chuck Norris once missed two days of school. Those two days are now called the weekend.",
-        "Chuck Norris doesn't pop his collar, his shirts are stimulated from touching his shoulders.",
-        "Chuck Norris once threw a grenade and killed 100 men, after that the grenade exploded.",
-        "Chuck Norris was able to smell a gas leak before they added the scent to gas.",
-        "Chuck Norris has a diary, it is called the Guinness Book Of World Records.",
-        "Hi there, I heard that you are a huge fan of when Chuck Norris does push ups the earth moves, we call this phenomenon an earthquakes.",
-        "Chuck Norris uses pepper spray to season his meat.",
-        "Chuck Norris is able to sketch your portrait using an eraser.",
-        "The dinosaurs once looked at Chuck Norris the wrong way, that is why we no longer have dinosaurs.",
-        "Chuck Norris had a staring competition with the sun and won.",
-        "Chuck Norris once spun a ball on his finger, to this day planet earth continues to turn.",
-        "Chuck Norris doesn't climb trees, he just pushed them over and walks over them.",
-        "Chuck Norris can kill 2 stones with one bird.",
-        "Chuck Norris doesn't need to wear a watch, he simply decides what time it is."
+        "{Subject} does in fact use a stunt double, but only for crying scenes.",
+        "{Subject} doesn't flush the toilet, he scares the crap out of it.",
+        "{Subject} went skydiving and his parachute didn't open, he took it back for a refund.",
+        "{Subject} was awarded the Nobel Peace Prize, for letting so many people live.",
+        "{Subject}'s computer doesn't have a backspace key.",
+        "{Subject} once had a fight with Superman. The loser had to wear his underpants on the outside.",
+        "{Subject} once won a game of Connect Four in three moves.",
+        "{Subject} can make sticks by rubbing two fires together.",
+        "{Subject} once took a lie detector test. The machine confessed everything.",
+        "{Subject} can fold airplanes into paper.",
+        "{Subject} has no chin, under his beard is just another fist with an equally powerful beard.",
+        "{Subject} can gargle peanut butter.",
+        "{Subject} picked an apple from an orange tree and made lemonade.",
+        "{Subject} is so fast he can run around the world and punch himself in the back of the head.",
+        "{Subject} can put a plane in reverse.",
+        "{Subject} is able to build a snowman out of water.",
+        "{Subject} didn't call the wrong number, you answered the wrong phone.",
+        "{Subject} didn't cheat death, he won fairly and squarely.",
+        "{Subject} walked into chemistry class and ripped the Periodic Table of Elements off of the wall. Why? Because the only element {Subject} needs is the element of surprise.",
+        "{Subject} once wrestled a bear, an alligator, and a tiger all at once. He won by tying them together with an anaconda.",
+        "{Subject} was once bitten by a poisonous snake. And after a week of excruciating pain, the snake died.",
+        "There are no streets named after {Subject} because no one would ever cross {Subject}",
+        "{Subject}'s mother tried to have an abortion. The procedure resulted in the doctor being knocked unconscious by {Subject}.",
+        "When alexander graham bell first invented the telephone he had three missed calls from {Subject}",
+        "{Subject} doesn't worry about gas prices, his vehicles run on fear.",
+        "{Subject} doesn't pay taxes, taxes pay {Subject}.",
+        "{Subject} once had an arm wrestling contest with superman. I'm not going to say who won, but the loser had to wear his underwear on the outside for the rest of his life.",
+        "When {Subject} was born the doctor asked him to name his parents.",
+        "The laws of physics always bend the rules for {Subject}.",
+        "{Subject} didn't get a Covid-19 vaccine. Covid-19 got a {Subject} vaccine.",
+        "{Subject} eats his meat so rare that he only eats unicorns and dragons.",
+        "{Subject} once played Russian Roulette with a fully loaded gun and won.",
+        "Whenever {Subject} peels onions, the onions always cry.",
+        "{Subject} can pull a wheelie when riding a unicycle.",
+        "{Subject} was born with two umbilical cords, one red and one blue. The bomb squad cut the wrong cord.",
+        "{Subject} makes a lot of money selling his urine, it is called Red Bull.",
+        "{Subject} is able to slam a revolving door.",
+        "The day after {Subject} was born he drove his mother home, he wanted her to get some rest.",
+        "{Subject} built the hospital that he was born in.",
+        "{Subject} knows exactly what to do with the drunken sailors early in the morning.",
+        "{Subject} played a game of rock, paper scissors against his reflection, and won.",
+        "When {Subject} went to Burger King and ordered a big mac, they made it for him, perfectly.",
+        "The Swiss Army uses {Subject} Knives.",
+        "A condom puts on protection to avoid becoming impregnated by {Subject} on date night.",
+        "{Subject} is able to start a fire using an extinguisher.",
+        "{Subject} doesn't need to throw out the trash, it always throws itself out.",
+        "{Subject} has to carry a concealed weapons permit when he wears his regular clothes.",
+        "When {Subject} once roundhouse kicked a coal mine and turned it into a diamond mine.",
+        "{Subject} doesn't strike gold, gold is the byproduct of {Subject} roundhouse kicking rocks.",
+        "When {Subject} lifts weights, the weights get in shape.",
+        "{Subject} is able to strangle people using a cordless phone.",
+        "{Subject} is the reason that Wally is always hiding.",
+        "When {Subject} falls from a great height, the ground has it's life flash before it's eyes.",
+        "When {Subject} enters a building that is on fire, the {Subject} alarm rings.",
+        "When Thanos snapped his fingers he disappeared. {Subject} doesn't like snapping.",
+        "The sun has to wear sunglasses when {Subject} glances at it.",
+        "When {Subject} looked into the abyss, the abyss looked the other way.",
+        "The Grand Canyon was formed when {Subject} was doing a triathlon.",
+        "Bigfoot is still hiding because he once saw {Subject} walking in the mountains.",
+        "When {Subject} drops the soap in prison, he picks it up successfully.",
+        "The Loch Ness Monster claims to have seen {Subject}.",
+        "{Subject} can drink a whole glass of beer. Yep, even the glass.",
+        "When {Subject} uses the internet he can skip ads whenever he wants, ads are not able to skip {Subject}.",
+        "{Subject} doesn't negotiate with terrorists.",
+        "The terrorists negotiate with {Subject}.",
+        "{Subject} won an arm wrestling tournament, with both arms tied behind his back.",
+        "{Subject} got a divorce and was asked to give half his assets and property away. {Subject} proceeded to chop the entire universe in half with his bare hands.",
+        "The Flash discovered how to run at the speed of light when he discovered {Subject} was looking for him.",
+        "When {Subject} goes bowling he doesn't get every pin with a single bowl he gets every pin in the bowling alley.",
+        "The reason why people say it's pointless for Trump to build a wall is because {Subject} walks to Mexico and back once a month.",
+        "Ghosts tell {Subject} stories at the campfire.",
+        "{Subject} mines bitcoin with a pen and paper.",
+        "When {Subject} goes to a restaurant, the waiter tips him.",
+        "Tornadoes don't exist, {Subject} just really doesn't like trailer parks.",
+        "{Subject} was born May 6th 1945. The Nazis surrendered May 7th 1945, this is not a coincidence.",
+        "{Subject} has counted to infinity more than once. Then he counted backward from infinity.",
+        "{Subject} has a bear rug on his lounge floor. The bear is still alive, it is just afraid to move.",
+        "{Subject} doesn't go to the gym, instead he goes shop lifting.",
+        "If {Subject} was on The Titanic the iceberg would have dodged the ship.",
+        "{Subject} is able to make other people walk in his sleep.",
+        "{Subject} once raced the earth around the sun and won by three years.",
+        "{Subject} was asked to fire someone once, that is how hell was invented.",
+        "When {Subject} jumps on the Tempur-Pedic mattress, the wine glass falls over.",
+        "When {Subject} was a child at school, his teachers would raise their hands in order to talk to him.",
+        "When {Subject}'s parents had nightmares, they would come to his bedroom.",
+        "When {Subject} crosses the road, vehicles look both ways.",
+        "{Subject} once missed two days of school. Those two days are now called the weekend.",
+        "{Subject} doesn't pop his collar, his shirts are stimulated from touching his shoulders.",
+        "{Subject} once threw a grenade and killed 100 men, after that the grenade exploded.",
+        "{Subject} was able to smell a gas leak before they added the scent to gas.",
+        "{Subject} has a diary, it is called the Guinness Book Of World Records.",
+        "Hi there, I heard that you are a huge fan of when {Subject} does push ups the earth moves, we call this phenomenon an earthquakes.",
+        "{Subject} uses pepper spray to season his meat.",
+        "{Subject} is able to sketch your portrait using an eraser.",
+        "The dinosaurs once looked at {Subject} the wrong way, that is why we no longer have dinosaurs.",
+        "{Subject} had a staring competition with the sun and won.",
+        "{Subject} once spun a ball on his finger, to this day planet earth continues to turn.",
+        "{Subject} doesn't climb trees, he just pushed them over and walks over them.",
+        "{Subject} can kill 2 stones with one bird.",
+        "{Subject} doesn't need to wear a watch, he simply decides what time it is."
     ];
 
     private static readonly Random Quoteziner = new();
@@ -192,7 +188,7 @@ internal static class SpeechContext
     {
         // remove any invalid key
         Main.Settings.SpeechVoices.Keys
-            .Where(x => x is <= 0 or >= MaxHeroes)
+            .Where(x => x is <= 0 or > MaxHeroes)
             .ToList()
             .Do(x => Main.Settings.SpeechVoices.Remove(x));
 
@@ -218,9 +214,12 @@ internal static class SpeechContext
     internal static void SpeakQuote()
     {
         var quoteNumber = Quoteziner.Next(0, Quotes.Length);
+        var subjects = new[] { "Chuck Norris", "Zappa" };
+        var subject = subjects[Quoteziner.Next(0, subjects.Length)];
+        var quote = Quotes[quoteNumber].Replace("{Subject}", subject);
 
         WaveOutEvent.Stop();
-        Speak(Quotes[quoteNumber], Main.Settings.SpeechChoice, false);
+        Speak(quote, Main.Settings.SpeechChoice, false);
     }
 
     // heroId zero is the Narrator and 1-6 map to possible heroes in party
