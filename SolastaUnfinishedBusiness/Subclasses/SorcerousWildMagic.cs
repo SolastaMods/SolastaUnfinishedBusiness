@@ -43,6 +43,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Power{Name}TidesOfChaos")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .SetShowCasting(false)
         .AddCustomSubFeatures(new CustomBehaviorTidesOfChaos(), ModifyPowerVisibility.Hidden)
         .AddToDB();
 
@@ -285,6 +286,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     .Create($"Power{Name}D{i:D02}")
                     .SetGuiPresentation(Category.Feature, hidden: true)
                     .SetSharedPool(ActivationTime.NoCost, PowerControlledChaos)
+                    .SetShowCasting(false)
                     .AddToDB());
         }
 

@@ -146,6 +146,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}WealCosmosOmen")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerCosmosOmenPool)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerWealCosmosOmen.AddCustomSubFeatures(
@@ -156,6 +157,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}WoeCosmosOmen")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerCosmosOmenPool)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerWoeCosmosOmen.AddCustomSubFeatures(

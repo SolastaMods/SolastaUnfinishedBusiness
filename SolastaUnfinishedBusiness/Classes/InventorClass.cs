@@ -860,6 +860,7 @@ internal static class InventorClass
             .Create("PowerInventorFlashOfGeniusBonus")
             .SetGuiPresentation("PowerInventorFlashOfGenius", Category.Feature, sprite)
             .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
+            .SetShowCasting(false)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 

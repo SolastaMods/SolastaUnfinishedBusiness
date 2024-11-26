@@ -764,6 +764,7 @@ internal static class Level20SubclassesContext
             .Create(PowerTraditionSurvivalUnbreakableBody, "PowerTraditionSurvivalPhysicalPerfection")
             .SetGuiPresentation(Category.Feature, PowerTraditionSurvivalUnbreakableBody)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerTraditionSurvivalUnbreakableBody)

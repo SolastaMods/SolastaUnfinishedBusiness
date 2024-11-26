@@ -438,6 +438,7 @@ internal static class Level20Context
             .Create("PowerRogueStrokeOfLuck")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerRogueStrokeOfLuck.AddCustomSubFeatures(

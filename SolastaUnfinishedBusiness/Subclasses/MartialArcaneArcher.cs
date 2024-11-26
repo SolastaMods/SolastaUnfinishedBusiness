@@ -240,6 +240,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create($"Power{Name}BanishingArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Banishment, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -276,6 +277,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create($"Power{Name}BeguilingArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.CharmPerson, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -376,6 +378,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create($"Power{Name}EnfeeblingArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.RayOfEnfeeblement, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -420,6 +423,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create($"Power{Name}GraspingArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Entangle, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -465,6 +469,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create($"Power{Name}InsightArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.TrueStrike, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.FaerieFire)
@@ -508,6 +513,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create($"Power{Name}ShadowArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Blindness, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -544,6 +550,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create($"Power{Name}SlowingArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Slow, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

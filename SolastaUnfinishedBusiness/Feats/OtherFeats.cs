@@ -2669,6 +2669,7 @@ internal static class OtherFeats
         .Create($"Power{FeatMageSlayerName}Saving")
         .SetGuiPresentation(FeatMageSlayerName, Category.Feat, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .SetShowCasting(false)
         .AddToDB();
 
     internal static readonly FeatDefinition FeatMageSlayer = FeatDefinitionBuilder
