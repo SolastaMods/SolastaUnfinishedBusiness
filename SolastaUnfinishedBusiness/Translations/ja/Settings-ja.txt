@@ -186,7 +186,7 @@ ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイ
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
 ModUi/&EnableSorcerousRestorationAtLevel5=レベル5で<color=#D89555>魔法による回復</color>を有効にする
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
-ModUi/&EnableSpeech=カスタム キャンペーンで音声を有効にする <i><color=#F0DAA0>[ナレーションのみ]</color></i>
+ModUi/&EnableSpeech=カスタム キャンペーンでスピーチを有効にする <i><color=#F0DAA0>[ナレーションとヒーローのみ]</color></i>
 ModUi/&EnableSpeechActorHelp=• 俳優を選択
 ModUi/&EnableSpeechVoiceHelp=• 音声とナレーションの速度を選択します
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカルヒット、クリティカル失敗など]</color></i>

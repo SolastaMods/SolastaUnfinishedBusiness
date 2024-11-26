@@ -186,7 +186,7 @@ ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</col
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
 ModUi/&EnableSorcerousRestorationAtLevel5=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
-ModUi/&EnableSpeech=Enable speech on custom campaigns <i><color=#F0DAA0>[narration only]</color></i>
+ModUi/&EnableSpeech=Enable speech on custom campaigns <i><color=#F0DAA0>[narration and heroes only]</color></i>
 ModUi/&EnableSpeechActorHelp=• Select an actor
 ModUi/&EnableSpeechVoiceHelp=• Select a voice and narration speed
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>

@@ -140,10 +140,10 @@ internal static class CampaignsDisplay
             {
                 UI.ActionButton(
                     Gui.Localize("ModUi/&RefreshVoice"),
-                    SpeechContext.RefreshAvailableVoices, UI.Width(225f));
+                    SpeechContext.RefreshAvailableVoices, UI.Width(228f));
                 UI.ActionButton(
                     SpeechContext.VoicesDownloader.Shared.GetButtonLabel(),
-                    SpeechContext.VoicesDownloader.Shared.DownloadVoices, UI.Width(225f));
+                    SpeechContext.VoicesDownloader.Shared.DownloadVoices, UI.Width(228f));
             }
 
             UI.Label();

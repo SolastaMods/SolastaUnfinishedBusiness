@@ -291,8 +291,86 @@
     <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
     <EnableSpeech>true</EnableSpeech>
-    <SpeechVoice>8</SpeechVoice>
-    <SpeechScale>0.8</SpeechScale>
+    <SpeechChoice>0</SpeechChoice>
+    <SpeechVoices>
+        <item>
+            <key>
+                <int>0</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>en_GB-alan-medium</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>1</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>2</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>3</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>4</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>5</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>6</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+    </SpeechVoices>
     <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
     <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
@@ -845,11 +923,9 @@
     <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
     <FightingStyleEnabled>
         <string>AstralReach</string>
-        <string>BlessedWarrior</string>
         <string>BlindFighting</string>
         <string>HandAndAHalf</string>
         <string>Crippling</string>
-        <string>DruidicWarrior</string>
         <string>Executioner</string>
         <string>Interception</string>
         <string>Lunger</string>
@@ -1784,8 +1860,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

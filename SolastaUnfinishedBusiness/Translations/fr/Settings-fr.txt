@@ -186,7 +186,7 @@ ModUi/&EnableSorcererMagicalGuidance=Activer la <color=#D89555>guidance magique<
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
 ModUi/&EnableSorcerousRestorationAtLevel5=Activer la <color=#D89555>Restauration magique</color> au niveau 5
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
-ModUi/&EnableSpeech=Activer la parole dans les campagnes personnalisées <i><color=#F0DAA0>[narration uniquement]</color></i>
+ModUi/&EnableSpeech=Activer la parole dans les campagnes personnalisées <i><color=#F0DAA0>[narration et héros uniquement]</color></i>
 ModUi/&EnableSpeechActorHelp=• Sélectionnez un acteur
 ModUi/&EnableSpeechVoiceHelp=• Sélectionnez une voix et une vitesse de narration
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
