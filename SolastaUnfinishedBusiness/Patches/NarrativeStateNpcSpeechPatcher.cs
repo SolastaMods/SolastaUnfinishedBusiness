@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -16,13 +17,19 @@ public static class NarrativeStateNpcSpeechPatcher
         [UsedImplicitly]
         public static void Postfix(string speakerName, string textLine)
         {
-            //PATCH: EnableLogDialoguesToConsole
-            if (!Main.Settings.EnableLogDialoguesToConsole)
+            //PATCH: EnableSpeech
+            if (Main.Settings.EnableSpeech)
             {
-                return;
+                var npcId = Gui.Session.UserCampaign?.UserNpcs?.FindIndex(x => x.DisplayTitle == speakerName) ?? -1;
+
+                SpeechContext.SpeakNpc(textLine, npcId);
             }
 
-            GameConsoleHelper.LogCharacterConversationLine(speakerName, textLine, true);
+            //PATCH: EnableLogDialoguesToConsole
+            if (Main.Settings.EnableLogDialoguesToConsole)
+            {
+                GameConsoleHelper.LogCharacterConversationLine(speakerName, textLine, true);
+            }
         }
     }
 }

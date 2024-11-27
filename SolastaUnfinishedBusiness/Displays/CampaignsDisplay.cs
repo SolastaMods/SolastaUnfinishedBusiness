@@ -147,6 +147,14 @@ internal static class CampaignsDisplay
             }
 
             UI.Label();
+
+            toggle = Main.Settings.EnableSpeechOnNpcs;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableSpeechOnNpcs"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSpeechOnNpcs = toggle;
+            }
+
+            UI.Label();
             UI.Label(Gui.Localize("ModUi/&EnableSpeechActorHelp"));
             UI.Label();
 
@@ -181,6 +189,7 @@ internal static class CampaignsDisplay
                 voice = SpeechContext.VoiceNames[intValue];
                 Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, floatValue);
                 SpeechContext.SpeakQuote();
+                SpeechContext.UpdateAvailableVoices();
             }
 
             UI.Label();

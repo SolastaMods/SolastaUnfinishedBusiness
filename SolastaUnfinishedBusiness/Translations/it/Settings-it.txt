@@ -188,6 +188,7 @@ ModUi/&EnableSorcerousRestorationAtLevel5=Abilita <color=#D89555>Restauro Strego
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableSpeech=Abilita la voce nelle campagne personalizzate <i><color=#F0DAA0>[solo narrazione ed eroi]</color></i>
 ModUi/&EnableSpeechActorHelp=• Seleziona un attore
+ModUi/&EnableSpeechOnNpcs=<i>+ Abilita anche le voci sui PNG che sfruttano le voci non assegnate di seguito</i>
 ModUi/&EnableSpeechVoiceHelp=• Seleziona una voce e una velocità di narrazione
 ModUi/&EnableStatsOnHeroTooltip=Visualizza le statistiche nel tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità <color=#F0DAA0>[peso della scelta = voti * modificatore del Carisma dell'eroe + tiro di D20]</color></i>

@@ -145,6 +145,7 @@ public class Settings : UnityModManager.ModSettings
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool EnableSpeech { get; set; }
+    public bool EnableSpeechOnNpcs { get; set; }
     public int SpeechChoice { get; set; }
     public SerializableDictionary<int, (string, float)> SpeechVoices { get; set; } = [];
     public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }

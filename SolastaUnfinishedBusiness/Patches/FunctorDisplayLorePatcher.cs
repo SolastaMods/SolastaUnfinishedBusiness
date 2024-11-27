@@ -49,6 +49,7 @@ public static class FunctorDisplayLorePatcher
                     var heroId =
                         Gui.Game.GameCampaign.Party.CharactersList.FindIndex(x =>
                             x.RulesetCharacter == speaker.RulesetCharacter) + 1;
+
                     SpeechContext.Speak(stringParameter, heroId);
 
                     ServiceRepository.GetService<IGameLocationBanterService>()

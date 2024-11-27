@@ -49,24 +49,33 @@ internal static class SpeechContext
                             : "."), // windows unzips to ./piper folder
                 "piper"));
 
-    private static readonly string VoicesFolder = Path.Combine(Main.ModFolder, "Voices");
+    private static readonly string VoicesFolder = Path.Combine(Main.ModFolder, Path.Combine("..", "Voices"));
 
-    private static readonly string[] SuggestedVoicesUrls =
+    private static readonly (string, Gender)[] SuggestedVoicesUrls =
     [
-        $"{OfficialVoicesURLPrefix}en/en_GB/alan/medium/en_GB-alan-medium",
-        $"{OfficialVoicesURLPrefix}en/en_GB/alba/medium/en_GB-alba-medium",
-        $"{OfficialVoicesURLPrefix}en/en_GB/aru/medium/en_GB-aru-medium",
-        $"{OfficialVoicesURLPrefix}en/en_GB/cori/medium/en_GB-cori-medium",
-        $"{OfficialVoicesURLPrefix}en/en_GB/jenny_dioco/medium/en_GB-jenny_dioco-medium",
-        $"{OfficialVoicesURLPrefix}en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium",
-        $"{OfficialVoicesURLPrefix}en/en_GB/semaine/medium/en_GB-semaine-medium",
-        $"{OfficialVoicesURLPrefix}en/en_US/hfc_female/medium/en_US-hfc_female-medium",
-        $"{OfficialVoicesURLPrefix}en/en_US/hfc_male/medium/en_US-hfc_male-medium",
-        $"{OfficialVoicesURLPrefix}en/en_US/joe/medium/en_US-joe-medium",
-        $"{OfficialVoicesURLPrefix}en/en_US/kristin/medium/en_US-kristin-medium",
-        $"{OfficialVoicesURLPrefix}en/en_US/lessac/medium/en_US-lessac-medium",
-        $"{OfficialVoicesURLPrefix}en/en_US/norman/medium/en_US-norman-medium",
-        $"{OfficialVoicesURLPrefix}en/en_US/ryan/medium/en_US-ryan-medium"
+        ($"{OfficialVoicesURLPrefix}en/en_GB/alan/medium/en_GB-alan-medium", Gender.Male),
+        ($"{OfficialVoicesURLPrefix}en/en_GB/alba/medium/en_GB-alba-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_GB/aru/medium/en_GB-aru-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_GB/cori/medium/en_GB-cori-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_GB/jenny_dioco/medium/en_GB-jenny_dioco-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_GB/northern_english_male/medium/en_GB-northern_english_male-medium",
+            Gender.Male),
+        ($"{OfficialVoicesURLPrefix}en/en_GB/semaine/medium/en_GB-semaine-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_GB/vctk/medium/en_GB-vctk-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_US/amy/medium/en_US-amy-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_US/arctic/medium/en_US-arctic-medium", Gender.Male),
+        ($"{OfficialVoicesURLPrefix}en/en_US/bryce/medium/en_US-bryce-medium", Gender.Male),
+        ($"{OfficialVoicesURLPrefix}en/en_US/hfc_female/medium/en_US-hfc_female-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_US/hfc_male/medium/en_US-hfc_male-medium", Gender.Male),
+        ($"{OfficialVoicesURLPrefix}en/en_US/joe/medium/en_US-joe-medium", Gender.Male),
+        ($"{OfficialVoicesURLPrefix}en/en_US/john/medium/en_US-john-medium", Gender.Male),
+        ($"{OfficialVoicesURLPrefix}en/en_US/kristin/medium/en_US-kristin-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_US/kusal/medium/en_US-kusal-medium", Gender.Male),
+        ($"{OfficialVoicesURLPrefix}en/en_US/lessac/medium/en_US-lessac-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_US/libritts_r/medium/en_US-libritts_r-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_US/ljspeech/medium/en_US-ljspeech-medium", Gender.Female),
+        ($"{OfficialVoicesURLPrefix}en/en_US/norman/medium/en_US-norman-medium", Gender.Male),
+        ($"{OfficialVoicesURLPrefix}en/en_US/ryan/medium/en_US-ryan-medium", Gender.Male)
     ];
 
     internal static readonly WaveOutEvent WaveOutEvent = new();
@@ -177,6 +186,8 @@ internal static class SpeechContext
 
     private static readonly Random Quoteziner = new();
 
+    private static readonly List<string> AvailableVoices = [];
+
     internal static string[] VoiceNames { get; private set; }
 
     internal static void Load()
@@ -184,6 +195,7 @@ internal static class SpeechContext
         InitPiper();
         RefreshAvailableVoices();
         InitVoiceAssignments();
+        UpdateAvailableVoices();
     }
 
     private static void InitVoiceAssignments()
@@ -205,6 +217,13 @@ internal static class SpeechContext
         }
     }
 
+    internal static void UpdateAvailableVoices()
+    {
+        var assignedVoices = Main.Settings.SpeechVoices.Values.Select(x => x.Item1).Distinct().ToArray();
+
+        AvailableVoices.SetRange(VoiceNames.Where(x => !assignedVoices.Contains(x) && x != NoVoice));
+    }
+
     internal static void RefreshAvailableVoices()
     {
         var directoryInfo = new DirectoryInfo(VoicesFolder);
@@ -220,7 +239,6 @@ internal static class SpeechContext
         var subject = subjects[Quoteziner.Next(0, subjects.Length)];
         var quote = Quotes[quoteNumber].Replace("{Subject}", subject);
 
-        WaveOutEvent.Stop();
         Speak(quote, Main.Settings.SpeechChoice, false);
     }
 
@@ -305,6 +323,78 @@ internal static class SpeechContext
                 await Task.Delay(100);
             }
 
+            WaveOutEvent.Stop();
+            WaveOutEvent.Init(waveStream);
+            WaveOutEvent.Volume = audioSettingsService.MasterVolume * audioSettingsService.VoicesVolume;
+            WaveOutEvent.Play();
+        }
+        catch (Exception e)
+        {
+            Main.Error(e);
+        }
+    }
+
+    internal static async void SpeakNpc(string inputText, int npcId)
+    {
+        try
+        {
+            if (!Main.Settings.EnableSpeechOnNpcs || npcId < 0)
+            {
+                return;
+            }
+
+            // only if audio enabled
+            var audioSettingsService = ServiceRepository.GetService<IAudioSettingsService>();
+
+            if (!audioSettingsService.MasterEnabled)
+            {
+                return;
+            }
+
+            var task = Task.Run(async () =>
+            {
+                var voiceId = npcId % AvailableVoices.Count;
+                var audioStream = new MemoryStream();
+                var buffer = new byte[16384];
+                var voiceName = AvailableVoices[voiceId];
+                var executable = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "piper.exe" : "piper";
+                var modelFileName = Path.Combine(VoicesFolder, voiceName + ".onnx");
+                var piper = new Process();
+
+                int bytesRead;
+
+                piper.StartInfo.FileName = Path.Combine(PiperFolder, executable);
+                piper.StartInfo.Arguments = $"--model \"{modelFileName}\" --output-raw";
+                piper.StartInfo.UseShellExecute = false;
+                piper.StartInfo.CreateNoWindow = true;
+                piper.StartInfo.RedirectStandardInput = true;
+                piper.StartInfo.RedirectStandardOutput = true;
+                piper.Start();
+
+                using var writer = piper.StandardInput;
+
+                await writer.WriteAsync(inputText);
+                writer.Close();
+
+                while ((bytesRead = await piper.StandardOutput.BaseStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                {
+                    audioStream.Write(buffer, 0, bytesRead);
+                }
+
+                return audioStream;
+            });
+            var audioStream = await task;
+
+            audioStream.Position = 0;
+
+            using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
+
+            while (WaveOutEvent.PlaybackState == PlaybackState.Playing)
+            {
+                await Task.Delay(100);
+            }
+
+            WaveOutEvent.Stop();
             WaveOutEvent.Init(waveStream);
             WaveOutEvent.Volume = audioSettingsService.MasterVolume * audioSettingsService.VoicesVolume;
             WaveOutEvent.Play();
@@ -363,6 +453,7 @@ internal static class SpeechContext
         Main.Info(message);
     }
 
+    private enum Gender { Male, Female }
 
     internal sealed class VoicesDownloader : MonoBehaviour
     {
@@ -420,7 +511,7 @@ internal static class SpeechContext
             var current = 0;
             var total = SuggestedVoicesUrls.Length;
 
-            foreach (var voice in SuggestedVoicesUrls)
+            foreach (var (voice, _) in SuggestedVoicesUrls)
             {
                 var message = $"Voice {voice} successfully downloaded";
 
@@ -443,6 +534,12 @@ internal static class SpeechContext
                         var jsonFilename = Path.GetFileName(json);
                         var fullJsonFilename = Path.Combine(VoicesFolder, jsonFilename);
                         var jsonUrl = $"{json}?download=true";
+
+                        var voiceNames = VoiceNames;
+
+                        Array.Resize(ref voiceNames, VoiceNames.Length + 1);
+                        VoiceNames = voiceNames;
+                        VoiceNames[VoiceNames.Length - 1] = Path.GetFileName(voice);
 
                         if (!File.Exists(fullJsonFilename))
                         {
