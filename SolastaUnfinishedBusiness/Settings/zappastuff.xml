@@ -291,6 +291,7 @@
     <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
     <EnableSpeech>true</EnableSpeech>
+    <EnableSpeechOnNpcs>false</EnableSpeechOnNpcs>
     <SpeechChoice>0</SpeechChoice>
     <SpeechVoices>
         <item>
@@ -300,7 +301,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>en_GB-alan-medium</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>

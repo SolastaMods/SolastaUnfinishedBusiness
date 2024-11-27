@@ -291,6 +291,7 @@
     <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
     <EnableSpeech>false</EnableSpeech>
+    <EnableSpeechOnNpcs>false</EnableSpeechOnNpcs>
     <SpeechChoice>0</SpeechChoice>
     <SpeechVoices>
         <item>
@@ -300,7 +301,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -311,7 +312,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -322,7 +323,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -333,7 +334,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -344,7 +345,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -355,7 +356,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -366,7 +367,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -1146,8 +1147,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
