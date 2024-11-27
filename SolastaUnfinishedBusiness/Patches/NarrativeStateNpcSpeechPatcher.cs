@@ -20,9 +20,7 @@ public static class NarrativeStateNpcSpeechPatcher
             //PATCH: EnableSpeech
             if (Main.Settings.EnableSpeech)
             {
-                var npcId = Gui.Session.UserCampaign?.UserNpcs?.FindIndex(x => x.DisplayTitle == speakerName) ?? -1;
-
-                SpeechContext.SpeakNpc(textLine, npcId);
+                SpeechContext.SpeakNpc(textLine, speakerName);
             }
 
             //PATCH: EnableLogDialoguesToConsole

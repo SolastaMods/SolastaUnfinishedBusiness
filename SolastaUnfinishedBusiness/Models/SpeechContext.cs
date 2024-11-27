@@ -34,6 +34,9 @@ internal static class SpeechContext
 
     private const string NoVoice = "No Voice";
 
+    private const string CampaignVoiceLootpackPrefix = "VOICE";
+
+    // should consider translating these
     internal static readonly string[] Choices = new List<string> { "Narrator" }
         .Union(Enumerable.Range(1, MaxHeroes).Select(n => $"Hero {n}")).ToArray();
 
@@ -188,6 +191,8 @@ internal static class SpeechContext
 
     private static readonly List<string> AvailableVoices = [];
 
+    private static readonly Dictionary<string, string> CampaignVoices = [];
+
     internal static string[] VoiceNames { get; private set; }
 
     internal static void Load()
@@ -196,208 +201,6 @@ internal static class SpeechContext
         RefreshAvailableVoices();
         InitVoiceAssignments();
         UpdateAvailableVoices();
-    }
-
-    private static void InitVoiceAssignments()
-    {
-        // remove any invalid key
-        Main.Settings.SpeechVoices.Keys
-            .Where(x => x is <= 0 or > MaxHeroes)
-            .ToList()
-            .Do(x => Main.Settings.SpeechVoices.Remove(x));
-
-        for (var i = 0; i <= MaxHeroes; i++)
-        {
-            Main.Settings.SpeechVoices.TryAdd(i, (NoVoice, 0.8f));
-
-            if (!VoiceNames.Contains(Main.Settings.SpeechVoices[i].Item1))
-            {
-                Main.Settings.SpeechVoices[i] = (NoVoice, 0.8f);
-            }
-        }
-    }
-
-    internal static void UpdateAvailableVoices()
-    {
-        var assignedVoices = Main.Settings.SpeechVoices.Values.Select(x => x.Item1).Distinct().ToArray();
-
-        AvailableVoices.SetRange(VoiceNames.Where(x => !assignedVoices.Contains(x) && x != NoVoice));
-    }
-
-    internal static void RefreshAvailableVoices()
-    {
-        var directoryInfo = new DirectoryInfo(VoicesFolder);
-        var voices = directoryInfo.GetFiles("*.onnx").Select(x => x.Name.Replace(".onnx", string.Empty)).ToList();
-
-        VoiceNames = new List<string> { NoVoice }.Union(voices).ToArray();
-    }
-
-    internal static void SpeakQuote()
-    {
-        var quoteNumber = Quoteziner.Next(0, Quotes.Length);
-        var subjects = new[] { "Chuck Norris", "Zappa" };
-        var subject = subjects[Quoteziner.Next(0, subjects.Length)];
-        var quote = Quotes[quoteNumber].Replace("{Subject}", subject);
-
-        Speak(quote, Main.Settings.SpeechChoice, false);
-    }
-
-    // heroId zero is the Narrator and 1-6 map to possible heroes in party
-    internal static async void Speak(string inputText, int heroId, bool forceUseCampaign = true)
-    {
-        try
-        {
-            if (!Main.Settings.EnableSpeech || heroId < 0 || heroId > MaxHeroes)
-            {
-                return;
-            }
-
-            var (voice, scale) = Main.Settings.SpeechVoices[heroId];
-            var voiceId = Array.IndexOf(VoiceNames, voice);
-
-            if (voiceId <= 0)
-            {
-                return;
-            }
-
-            // only custom campaigns
-            if (forceUseCampaign)
-            {
-                // unity life check...
-                if (Gui.GameCampaign)
-                {
-                    if (!Gui.GameCampaign.campaignDefinition.IsUserCampaign)
-                    {
-                        return;
-                    }
-                }
-            }
-
-            // only if audio enabled
-            var audioSettingsService = ServiceRepository.GetService<IAudioSettingsService>();
-
-            if (!audioSettingsService.MasterEnabled)
-            {
-                return;
-            }
-
-            var task = Task.Run(async () =>
-            {
-                var audioStream = new MemoryStream();
-                var buffer = new byte[16384];
-                var voiceName = VoiceNames[voiceId];
-                var executable = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "piper.exe" : "piper";
-                var modelFileName = Path.Combine(VoicesFolder, voiceName + ".onnx");
-                var piper = new Process();
-
-                int bytesRead;
-
-                piper.StartInfo.FileName = Path.Combine(PiperFolder, executable);
-                piper.StartInfo.Arguments = $"--model \"{modelFileName}\" --length_scale {scale:F} --output-raw";
-                piper.StartInfo.UseShellExecute = false;
-                piper.StartInfo.CreateNoWindow = true;
-                piper.StartInfo.RedirectStandardInput = true;
-                piper.StartInfo.RedirectStandardOutput = true;
-                piper.Start();
-
-                using var writer = piper.StandardInput;
-
-                await writer.WriteAsync(inputText);
-                writer.Close();
-
-                while ((bytesRead = await piper.StandardOutput.BaseStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
-                {
-                    audioStream.Write(buffer, 0, bytesRead);
-                }
-
-                return audioStream;
-            });
-            var audioStream = await task;
-
-            audioStream.Position = 0;
-
-            using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
-
-            WaveOutEvent.Stop();
-            WaveOutEvent.Init(waveStream);
-            WaveOutEvent.Volume = audioSettingsService.MasterVolume * audioSettingsService.VoicesVolume;
-            WaveOutEvent.Play();
-        }
-        catch (Exception e)
-        {
-            Main.Error(e);
-        }
-    }
-
-    internal static async void SpeakNpc(string inputText, int npcId)
-    {
-        try
-        {
-            if (!Main.Settings.EnableSpeechOnNpcs || npcId < 0)
-            {
-                return;
-            }
-
-            // only if audio enabled
-            var audioSettingsService = ServiceRepository.GetService<IAudioSettingsService>();
-
-            if (!audioSettingsService.MasterEnabled)
-            {
-                return;
-            }
-
-            var task = Task.Run(async () =>
-            {
-                var voiceId = npcId % AvailableVoices.Count;
-                var audioStream = new MemoryStream();
-                var buffer = new byte[16384];
-                var voiceName = AvailableVoices[voiceId];
-                var executable = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "piper.exe" : "piper";
-                var modelFileName = Path.Combine(VoicesFolder, voiceName + ".onnx");
-                var piper = new Process();
-
-                int bytesRead;
-
-                piper.StartInfo.FileName = Path.Combine(PiperFolder, executable);
-                piper.StartInfo.Arguments = $"--model \"{modelFileName}\" --output-raw";
-                piper.StartInfo.UseShellExecute = false;
-                piper.StartInfo.CreateNoWindow = true;
-                piper.StartInfo.RedirectStandardInput = true;
-                piper.StartInfo.RedirectStandardOutput = true;
-                piper.Start();
-
-                using var writer = piper.StandardInput;
-
-                await writer.WriteAsync(inputText);
-                writer.Close();
-
-                while ((bytesRead = await piper.StandardOutput.BaseStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
-                {
-                    audioStream.Write(buffer, 0, bytesRead);
-                }
-
-                return audioStream;
-            });
-            var audioStream = await task;
-
-            audioStream.Position = 0;
-
-            using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
-
-            while (WaveOutEvent.PlaybackState == PlaybackState.Playing)
-            {
-                await Task.Delay(100);
-            }
-
-            WaveOutEvent.Stop();
-            WaveOutEvent.Init(waveStream);
-            WaveOutEvent.Volume = audioSettingsService.MasterVolume * audioSettingsService.VoicesVolume;
-            WaveOutEvent.Play();
-        }
-        catch (Exception e)
-        {
-            Main.Error(e);
-        }
     }
 
     private static void InitPiper()
@@ -446,6 +249,233 @@ internal static class SpeechContext
         }
 
         Main.Info(message);
+    }
+
+    internal static void RefreshAvailableVoices()
+    {
+        var directoryInfo = new DirectoryInfo(VoicesFolder);
+        var voices = directoryInfo.GetFiles("*.onnx").Select(x => x.Name.Replace(".onnx", string.Empty)).ToList();
+
+        VoiceNames = new List<string> { NoVoice }.Union(voices).ToArray();
+    }
+
+    private static void InitVoiceAssignments()
+    {
+        // remove any invalid key
+        Main.Settings.SpeechVoices.Keys
+            .Where(x => x is <= 0 or > MaxHeroes)
+            .ToList()
+            .Do(x => Main.Settings.SpeechVoices.Remove(x));
+
+        for (var i = 0; i <= MaxHeroes; i++)
+        {
+            Main.Settings.SpeechVoices.TryAdd(i, (NoVoice, 0.8f));
+
+            if (!VoiceNames.Contains(Main.Settings.SpeechVoices[i].Item1))
+            {
+                Main.Settings.SpeechVoices[i] = (NoVoice, 0.8f);
+            }
+        }
+    }
+
+    internal static void UpdateAvailableVoices()
+    {
+        var assignedVoices = Main.Settings.SpeechVoices.Values.Select(x => x.Item1).Distinct().ToArray();
+
+        AvailableVoices.SetRange(VoiceNames.Where(x => !assignedVoices.Contains(x) && x != NoVoice));
+    }
+
+    internal static void CollectCurrentCampaignNpcsVoiceTips()
+    {
+        CampaignVoices.Clear();
+
+        var userCampaign = Gui.Session.UserCampaign;
+
+        if (userCampaign == null)
+        {
+            return;
+        }
+
+        var lootPacks = userCampaign.UserLootPacks
+            .Where(x =>
+                x.InternalName.StartsWith(CampaignVoiceLootpackPrefix, StringComparison.OrdinalIgnoreCase))
+            .ToDictionary(x => x.InternalName.Replace(CampaignVoiceLootpackPrefix + "_", string.Empty),
+                x => x.DisplayTitle);
+
+        foreach (var kvp in lootPacks)
+        {
+            CampaignVoices.Add(kvp.Key, kvp.Value);
+        }
+    }
+
+    internal static void SpeakQuote()
+    {
+        var quoteNumber = Quoteziner.Next(0, Quotes.Length);
+        var subjects = new[] { "Chuck Norris", "Zappa" };
+        var subject = subjects[Quoteziner.Next(0, subjects.Length)];
+        var quote = Quotes[quoteNumber].Replace("{Subject}", subject);
+
+        Speak(quote, Main.Settings.SpeechChoice, false);
+    }
+
+    // heroId zero is the Narrator and 1-6 map to possible heroes in party
+    internal static async void Speak(string inputText, int heroId, bool forceUseCampaign = true)
+    {
+        try
+        {
+            // only if audio enabled
+            var audioSettingsService = ServiceRepository.GetService<IAudioSettingsService>();
+
+            if (!audioSettingsService.MasterEnabled)
+            {
+                return;
+            }
+
+            if (!Main.Settings.EnableSpeech || heroId < 0 || heroId > MaxHeroes)
+            {
+                return;
+            }
+
+            var executable = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "piper.exe" : "piper";
+            var executablePath = Path.Combine(PiperFolder, executable);
+
+            if (!File.Exists(executablePath))
+            {
+                return;
+            }
+
+            var (voice, scale) = Main.Settings.SpeechVoices[heroId];
+            var voiceId = Array.IndexOf(VoiceNames, voice);
+
+            if (voiceId <= 0)
+            {
+                return;
+            }
+
+            // only custom campaigns
+            if (forceUseCampaign)
+            {
+                // unity life check...
+                if (Gui.GameCampaign)
+                {
+                    if (!Gui.GameCampaign.campaignDefinition.IsUserCampaign)
+                    {
+                        return;
+                    }
+                }
+            }
+
+            var voiceName = VoiceNames[voiceId];
+            var task = Task.Run(async () => await GetPiperTask(executablePath, voiceName, scale, inputText));
+            var audioStream = await task;
+
+            using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
+
+            PlaySpeech(audioSettingsService, waveStream);
+        }
+        catch (Exception e)
+        {
+            Main.Error(e);
+        }
+    }
+
+    internal static async void SpeakNpc(string inputText, string npcName)
+    {
+        try
+        {
+            // only if audio enabled
+            var audioSettingsService = ServiceRepository.GetService<IAudioSettingsService>();
+
+            if (!audioSettingsService.MasterEnabled)
+            {
+                return;
+            }
+
+            if (!Main.Settings.EnableSpeechOnNpcs)
+            {
+                return;
+            }
+
+            var executable = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "piper.exe" : "piper";
+            var executablePath = Path.Combine(PiperFolder, executable);
+
+            if (!File.Exists(executablePath))
+            {
+                return;
+            }
+
+            if (!CampaignVoices.TryGetValue(npcName, out var voiceName))
+            {
+                // don't auto assign voices on campaigns that have dub data
+                if (CampaignVoices.Count > 0)
+                {
+                    return;
+                }
+
+                // assign dub data on a round-robin basis for campaigns without it
+                var npcId = Gui.Session.UserCampaign?.UserNpcs?.FindIndex(x => x.DisplayTitle == npcName) ?? -1;
+
+                if (npcId < 0)
+                {
+                    return;
+                }
+
+                var voiceId = npcId % AvailableVoices.Count;
+
+                voiceName = AvailableVoices[voiceId];
+            }
+
+            var scale = Main.Settings.SpeechVoices[0].Item2;
+            var task = Task.Run(async () => await GetPiperTask(executablePath, voiceName, scale, inputText));
+            var audioStream = await task;
+
+            using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
+
+            PlaySpeech(audioSettingsService, waveStream);
+        }
+        catch (Exception e)
+        {
+            Main.Error(e);
+        }
+    }
+
+    private static void PlaySpeech(IAudioSettingsService audioSettingsService, WaveStream waveStream)
+    {
+        WaveOutEvent.Stop();
+        WaveOutEvent.Init(waveStream);
+        WaveOutEvent.Volume = audioSettingsService.MasterVolume * audioSettingsService.VoicesVolume;
+        WaveOutEvent.Play();
+    }
+
+    private static async Task<MemoryStream> GetPiperTask(
+        string executablePath, string voiceName, float scale, string inputText)
+    {
+        var audioStream = new MemoryStream();
+        var buffer = new byte[16384];
+        var modelFileName = Path.Combine(VoicesFolder, voiceName + ".onnx");
+        var piper = new Process();
+
+        int bytesRead;
+
+        piper.StartInfo.FileName = executablePath;
+        piper.StartInfo.Arguments = $"--model \"{modelFileName}\" --length_scale {scale:F} --output-raw";
+        piper.StartInfo.UseShellExecute = false;
+        piper.StartInfo.CreateNoWindow = true;
+        piper.StartInfo.RedirectStandardInput = true;
+        piper.StartInfo.RedirectStandardOutput = true;
+        piper.Start();
+
+        using var writer = piper.StandardInput;
+
+        await writer.WriteAsync(inputText);
+        writer.Close();
+
+        while ((bytesRead = await piper.StandardOutput.BaseStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+        {
+            audioStream.Write(buffer, 0, bytesRead);
+        }
+
+        return audioStream;
     }
 
     private enum Gender { Male, Female }

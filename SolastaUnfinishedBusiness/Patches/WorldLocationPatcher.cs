@@ -6,6 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -30,6 +31,7 @@ public static class WorldLocationPatcher
         public static void Postfix(WorldLocation __instance)
         {
             DungeonMakerCustomRooms.FixFlatRoomReflectionProbe(__instance);
+            SpeechContext.CollectCurrentCampaignNpcsVoiceTips();
         }
 
         [NotNull]
