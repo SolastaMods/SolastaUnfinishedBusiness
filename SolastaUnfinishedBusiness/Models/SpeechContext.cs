@@ -441,6 +441,7 @@ internal static class SpeechContext
 
     private static void PlaySpeech(IAudioSettingsService audioSettingsService, WaveStream waveStream)
     {
+        waveStream.Position = 0;
         WaveOutEvent.Stop();
         WaveOutEvent.Init(waveStream);
         WaveOutEvent.Volume = audioSettingsService.MasterVolume * audioSettingsService.VoicesVolume;

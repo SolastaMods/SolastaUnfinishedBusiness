@@ -91,64 +91,63 @@ public static class CharacterInspectionScreenPatcher
         [UsedImplicitly]
         public static bool Prefix(CharacterInspectionScreen __instance)
         {
-            if (__instance.inventoryManagementMode == ActionDefinitions.InventoryManagementMode.Battle)
+            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+            switch (__instance.inventoryManagementMode)
             {
-                __instance.screenCaption.gameObject.SetActive(true);
-                switch (Main.Settings.EnableUnlimitedInventoryActions)
-                {
-                    case false when
-                        __instance.InspectedCharacter.GameLocationCharacter.GetActionTypeStatus(ActionDefinitions
-                            .ActionType
-                            .FreeOnce) == ActionDefinitions.ActionStatus.Available:
-                        __instance.screenCaption.Text =
-                            Gui.Localize("Screen/&CharacterInspectionModeBattleAvailableTitle");
-                        __instance.screenCaption.TMP_Text.color = __instance.inventoryActionAvailableColor;
-                        return false; // Skip the original method
-                    case true when
-                        __instance.InspectedCharacter.GameLocationCharacter.GetActionTypeStatus(ActionDefinitions
-                            .ActionType
-                            .FreeOnce) == ActionDefinitions.ActionStatus.Available:
-                        __instance.screenCaption.Text =
-                            Gui.Localize("Screen/&CharacterInspectionModeBattleUnlimitedTitle");
-                        __instance.screenCaption.TMP_Text.color = __instance.inventoryActionAvailableColor;
-                        return false; // Skip the original method
-                }
+                case ActionDefinitions.InventoryManagementMode.Battle:
+                    __instance.screenCaption.gameObject.SetActive(true);
+                    switch (Main.Settings.EnableUnlimitedInventoryActions)
+                    {
+                        case false when
+                            __instance.InspectedCharacter.GameLocationCharacter.GetActionTypeStatus(ActionDefinitions
+                                .ActionType
+                                .FreeOnce) == ActionDefinitions.ActionStatus.Available:
+                            __instance.screenCaption.Text =
+                                Gui.Localize("Screen/&CharacterInspectionModeBattleAvailableTitle");
+                            __instance.screenCaption.TMP_Text.color = __instance.inventoryActionAvailableColor;
+                            return false; // Skip the original method
+                        case true when
+                            __instance.InspectedCharacter.GameLocationCharacter.GetActionTypeStatus(ActionDefinitions
+                                .ActionType
+                                .FreeOnce) == ActionDefinitions.ActionStatus.Available:
+                            __instance.screenCaption.Text =
+                                Gui.Localize("Screen/&CharacterInspectionModeBattleUnlimitedTitle");
+                            __instance.screenCaption.TMP_Text.color = __instance.inventoryActionAvailableColor;
+                            return false; // Skip the original method
+                    }
 
-                __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeBattleSpentTitle");
-                __instance.screenCaption.TMP_Text.color = __instance.inventoryActionSpentColor;
-                return false; // Skip the original method
+                    __instance.screenCaption.Text = Gui.Localize("Screen/&CharacterInspectionModeBattleSpentTitle");
+                    __instance.screenCaption.TMP_Text.color = __instance.inventoryActionSpentColor;
+                    return false; // Skip the original method
+                case ActionDefinitions.InventoryManagementMode.SelectItem:
+                    __instance.screenCaption.gameObject.SetActive(true);
+                    __instance.screenCaption.Text = __instance.itemSelectionType switch
+                    {
+                        ActionDefinitions.ItemSelectionType.Equiped
+                            or ActionDefinitions.ItemSelectionType.EquippedNoLightSource => Gui.Localize(
+                                "Screen/&CharacterInspectionModeSelectEquipedItemTitle"),
+                        ActionDefinitions.ItemSelectionType.Carried => Gui.Localize(
+                            "Screen/&CharacterInspectionModeSelectCarriedItemTitle"),
+                        ActionDefinitions.ItemSelectionType.MagicalUnidentified => Gui.Localize(
+                            "Screen/&CharacterInspectionModeSelectMagicalUnidentifiedItemTitle"),
+                        ActionDefinitions.ItemSelectionType.Weapon => Gui.Localize(
+                            "Screen/&CharacterInspectionModeSelectWeaponTitle"),
+                        ActionDefinitions.ItemSelectionType.WeaponNonMagical => Gui.Localize(
+                            "Screen/&CharacterInspectionModeSelectWeaponNonMagicalTitle"),
+                        ActionDefinitions.ItemSelectionType.WieldedClubOrQuarterstaff => Gui.Localize(
+                            "Screen/&CharacterInspectionModeSelectWieldedClubOrQuarterstaffTitle"),
+                        ActionDefinitions.ItemSelectionType.Spellbook => Gui.Format(
+                            "Screen/&CharacterInspectionModeSelectSpellbookTitle",
+                            __instance.spellToScribe.SpellLevel.ToString()),
+                        _ => __instance.screenCaption.Text
+                    };
+
+                    __instance.screenCaption.TMP_Text.color = __instance.inventoryActionAvailableColor;
+                    return false; // Skip the original method
+                default:
+                    __instance.screenCaption.gameObject.SetActive(false);
+                    return false; // Skip the original method
             }
-
-            if (__instance.inventoryManagementMode == ActionDefinitions.InventoryManagementMode.SelectItem)
-            {
-                __instance.screenCaption.gameObject.SetActive(true);
-                __instance.screenCaption.Text = __instance.itemSelectionType switch
-                {
-                    ActionDefinitions.ItemSelectionType.Equiped
-                        or ActionDefinitions.ItemSelectionType.EquippedNoLightSource => Gui.Localize(
-                            "Screen/&CharacterInspectionModeSelectEquipedItemTitle"),
-                    ActionDefinitions.ItemSelectionType.Carried => Gui.Localize(
-                        "Screen/&CharacterInspectionModeSelectCarriedItemTitle"),
-                    ActionDefinitions.ItemSelectionType.MagicalUnidentified => Gui.Localize(
-                        "Screen/&CharacterInspectionModeSelectMagicalUnidentifiedItemTitle"),
-                    ActionDefinitions.ItemSelectionType.Weapon => Gui.Localize(
-                        "Screen/&CharacterInspectionModeSelectWeaponTitle"),
-                    ActionDefinitions.ItemSelectionType.WeaponNonMagical => Gui.Localize(
-                        "Screen/&CharacterInspectionModeSelectWeaponNonMagicalTitle"),
-                    ActionDefinitions.ItemSelectionType.WieldedClubOrQuarterstaff => Gui.Localize(
-                        "Screen/&CharacterInspectionModeSelectWieldedClubOrQuarterstaffTitle"),
-                    ActionDefinitions.ItemSelectionType.Spellbook => Gui.Format(
-                        "Screen/&CharacterInspectionModeSelectSpellbookTitle",
-                        __instance.spellToScribe.SpellLevel.ToString()),
-                    _ => __instance.screenCaption.Text
-                };
-
-                __instance.screenCaption.TMP_Text.color = __instance.inventoryActionAvailableColor;
-                return false; // Skip the original method
-            }
-
-            __instance.screenCaption.gameObject.SetActive(false);
-            return false; // Skip the original method
         }
     }
 }

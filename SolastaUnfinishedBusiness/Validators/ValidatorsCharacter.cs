@@ -195,8 +195,10 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);
 
+#if false    
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainOrOffhand = character =>
         HasMeleeWeaponInMainHand(character) || HasMeleeWeaponInOffHand(character);
+#endif
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainHandAndFreeOffhand = character =>
         HasFreeHandWithoutTwoHandedInMain(character) &&
