@@ -910,7 +910,7 @@ FeatGroupFadeAway	Description='You have learned a magical trick for fading away 
 FeatGroupFeyTeleport	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.'.
-FeatGroupFightingStyle	Description='Archery, Astral Reach, Blessed Warrior, Blind Fighting, Classical Swordplay, Crippling, Defense, Druidic Warrior, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Protection, Superior Technique, Torchbearer, Two Weapon Fighting'.
+FeatGroupFightingStyle	Description='Archery, Astral Reach, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Protection, Superior Technique, Torchbearer, Two Weapon Fighting'.
 FeatGroupFlamesOfPhlegethos	Description='You learn to call on hellfire to serve your commands. You gain the following benefits:
 • Increase your Intelligence or Charisma by 1, to a maximum of 20.
 • When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupFightingStyleTitle",
-    "description": "Archery, Astral Reach, Blessed Warrior, Blind Fighting, Classical Swordplay, Crippling, Defense, Druidic Warrior, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Protection, Superior Technique, Torchbearer, Two Weapon Fighting",
+    "description": "Archery, Astral Reach, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Protection, Superior Technique, Torchbearer, Two Weapon Fighting",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
