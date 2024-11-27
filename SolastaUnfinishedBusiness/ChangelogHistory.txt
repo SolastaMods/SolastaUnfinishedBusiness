@@ -10,6 +10,7 @@
 - added 'Enable Spare the Dying 5e 2024 spell version' setting [range double every cantrip level upgrade]
 - added 'Enable Spider Climb 5e 2024 spell version' setting [+1 target per upcast]
 - fixed 'Enable Second Wind to use 5e 2024 usages progression' forcing max usage to zero when off
+- fixed Defensive Duelist triggering on any attack roll instead of melee attacks only
 - fixed Grapple interaction with teleporting enemies
 - fixed Patron Hexblade interaction with 5e 2024 pact of blades invocation
 - fixed Staff of Fire not granting fire damage resistance to wielder [VANILLA]

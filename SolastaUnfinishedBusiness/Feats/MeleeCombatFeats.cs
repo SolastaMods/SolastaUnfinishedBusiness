@@ -746,7 +746,7 @@ internal static class MeleeCombatFeats
                 helper != defender ||
                 !helper.CanReact() ||
                 (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
-                !ValidatorsCharacter.HasMeleeWeaponInMainOrOffhand(rulesetHelper))
+                (attackMode != null && !ValidatorsWeapon.IsMelee(attackMode)))
             {
                 yield break;
             }
