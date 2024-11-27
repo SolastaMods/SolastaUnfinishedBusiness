@@ -142,37 +142,40 @@ public static class InventoryShortcutsPanelPatcher
                     component.Interactable = false;
                     component.Tooltip.Content = component.TooltipContent;
                 }
-                else switch (Main.Settings.EnableUnlimitedInventoryActions)
+                else
                 {
-                    case false when
-                        Gui.Battle != null &&
-                        __instance.GuiCharacter.GameLocationCharacter != null &&
-                        __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) ==
-                        ActionStatus.Spent && !__instance.ItemSelectionInProgress:
-                        component.Tooltip.Content = Gui.FormatFailure(component.TooltipContent,
-                            "Failure/&FailureFlagFreeOnceActionSpent");
-                        component.Interactable = false;
-                        break;
-                    case false when
-                        Gui.Battle != null &&
-                        __instance.GuiCharacter.GameLocationCharacter != null &&
-                        __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) ==
-                        ActionStatus.Unavailable && !__instance.ItemSelectionInProgress:
-                        component.Tooltip.Content = Gui.FormatFailure(component.TooltipContent,
-                            "Failure/&FailureFlagFreeOnceActionUnavailable");
-                        component.Interactable = false;
-                        break;
-                    case true when
-                        __instance.GuiCharacter.GameLocationCharacter != null:
-                        __instance.GuiCharacter.GameLocationCharacter.RefundActionUse(ActionType.FreeOnce);
-                    
-                        component.Interactable = true;
-                        component.Tooltip.Content = component.TooltipContent;
-                        break;
-                    default:
-                        component.Interactable = true;
-                        component.Tooltip.Content = component.TooltipContent;
-                        break;
+                    switch (Main.Settings.EnableUnlimitedInventoryActions)
+                    {
+                        case false when
+                            Gui.Battle != null &&
+                            __instance.GuiCharacter.GameLocationCharacter != null &&
+                            __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) ==
+                            ActionStatus.Spent && !__instance.ItemSelectionInProgress:
+                            component.Tooltip.Content = Gui.FormatFailure(component.TooltipContent,
+                                "Failure/&FailureFlagFreeOnceActionSpent");
+                            component.Interactable = false;
+                            break;
+                        case false when
+                            Gui.Battle != null &&
+                            __instance.GuiCharacter.GameLocationCharacter != null &&
+                            __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) ==
+                            ActionStatus.Unavailable && !__instance.ItemSelectionInProgress:
+                            component.Tooltip.Content = Gui.FormatFailure(component.TooltipContent,
+                                "Failure/&FailureFlagFreeOnceActionUnavailable");
+                            component.Interactable = false;
+                            break;
+                        case true when
+                            __instance.GuiCharacter.GameLocationCharacter != null:
+                            __instance.GuiCharacter.GameLocationCharacter.RefundActionUse(ActionType.FreeOnce);
+
+                            component.Interactable = true;
+                            component.Tooltip.Content = component.TooltipContent;
+                            break;
+                        default:
+                            component.Interactable = true;
+                            component.Tooltip.Content = component.TooltipContent;
+                            break;
+                    }
                 }
             }
 

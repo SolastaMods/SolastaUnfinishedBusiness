@@ -188,6 +188,7 @@ ModUi/&EnableSorcerousRestorationAtLevel5=在第 5 级启用<color=#D89555>魔�
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
 ModUi/&EnableSpeech=在自定义战役中启用语音<i><color=#F0DAA0>[仅限旁白和英雄]</color></i>
 ModUi/&EnableSpeechActorHelp=• 选择演员
+ModUi/&EnableSpeechOnNpcs=<i>+ 还可以利用下方未指定的声音为 NPC 启用声音</i>
 ModUi/&EnableSpeechVoiceHelp=• 选择语音和叙述速度
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[例如：暴击、暴击失败等]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 此外，每个英雄都会增加一个 D20 掷骰来增加权重，以增加一点随机性 <color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值 + D20 掷骰]</color></i>

@@ -208,7 +208,7 @@ public static class CharacterActionPatcher
                 {
                     yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(actingCharacter);
 
-                    GrappleContext.ValidateGrappleAfterForcedMove(actingCharacter);
+                    GrappleContext.ValidateGrappleAfterMotion(actingCharacter);
 
                     break;
                 }

@@ -188,6 +188,7 @@ ModUi/&EnableSorcerousRestorationAtLevel5=레벨 5에서 <color=#D89555>마법 �
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableSpeech=사용자 정의 캠페인에서 음성 활성화 <i><color=#F0DAA0>[내레이션 및 영웅만]</color></i>
 ModUi/&EnableSpeechActorHelp=• 배우를 선택하세요
+ModUi/&EnableSpeechOnNpcs=<i>+ 아래 할당되지 않은 음성을 활용하여 NPC의 음성도 활성화합니다.</i>
 ModUi/&EnableSpeechVoiceHelp=• 음성 및 내레이션 속도를 선택하세요
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다 <color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정치 + D20 롤]</color></i>

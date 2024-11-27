@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
@@ -159,6 +160,13 @@ public static class RulesetImplementationManagerLocationPatcher
             }
 
             return useDefaultLogic;
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        {
+            GrappleContext.ValidateGrappleAfterMotion(GameLocationCharacter.GetFromActor(formsParams.sourceCharacter));
+            GrappleContext.ValidateGrappleAfterMotion(GameLocationCharacter.GetFromActor(formsParams.targetCharacter));
         }
 
         private static bool CustomSwap(

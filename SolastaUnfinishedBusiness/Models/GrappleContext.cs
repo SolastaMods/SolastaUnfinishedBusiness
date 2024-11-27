@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -227,9 +228,9 @@ internal static class GrappleContext
     }
 
 
-    internal static void ValidateGrappleAfterForcedMove(GameLocationCharacter target)
+    internal static void ValidateGrappleAfterMotion([CanBeNull] GameLocationCharacter target)
     {
-        var rulesetTarget = target.RulesetCharacter;
+        var rulesetTarget = target?.RulesetCharacter;
 
         if (rulesetTarget is not { IsDeadOrDying: false })
         {

@@ -140,10 +140,18 @@ internal static class CampaignsDisplay
             {
                 UI.ActionButton(
                     Gui.Localize("ModUi/&RefreshVoice"),
-                    SpeechContext.RefreshAvailableVoices, UI.Width(228f));
+                    SpeechContext.RefreshAvailableVoices, UI.Width(227f));
                 UI.ActionButton(
                     SpeechContext.VoicesDownloader.Shared.GetButtonLabel(),
-                    SpeechContext.VoicesDownloader.Shared.DownloadVoices, UI.Width(228f));
+                    SpeechContext.VoicesDownloader.Shared.DownloadVoices, UI.Width(227f));
+            }
+
+            UI.Label();
+
+            toggle = Main.Settings.EnableSpeechOnNpcs;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableSpeechOnNpcs"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSpeechOnNpcs = toggle;
             }
 
             UI.Label();
@@ -167,7 +175,7 @@ internal static class CampaignsDisplay
             intValue = Array.IndexOf(SpeechContext.VoiceNames, voice);
 
             if (UI.Slider(Gui.Localize("ModUi/&SpeechScale"), ref floatValue,
-                    0.5f, 2f, 1f, 1, string.Empty, UI.AutoWidth()))
+                    0.5f, 2f, 0.8f, 1, string.Empty, UI.AutoWidth()))
             {
                 voice = SpeechContext.VoiceNames[intValue];
                 Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, floatValue);
@@ -181,6 +189,7 @@ internal static class CampaignsDisplay
                 voice = SpeechContext.VoiceNames[intValue];
                 Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, floatValue);
                 SpeechContext.SpeakQuote();
+                SpeechContext.UpdateAvailableVoices();
             }
 
             UI.Label();

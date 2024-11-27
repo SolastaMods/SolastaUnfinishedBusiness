@@ -21,6 +21,7 @@ public static class NarrativeStateCharacterSpeechPatcher
             if (Main.Settings.EnableSpeech)
             {
                 var heroId = Gui.Game.GameCampaign.Party.CharactersList.FindIndex(x => x.Name == speakerName) + 1;
+
                 SpeechContext.Speak(textLine, heroId);
             }
 

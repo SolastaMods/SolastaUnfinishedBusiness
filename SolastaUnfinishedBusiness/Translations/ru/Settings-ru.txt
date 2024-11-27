@@ -188,6 +188,7 @@ ModUi/&EnableSorcerousRestorationAtLevel5=Включить <color=#D89555>Чар
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ассетов в редакторе Создателя Подземелий
 ModUi/&EnableSpeech=Включить речь в пользовательских кампаниях <i><color=#F0DAA0>[только повествование и герои]</color></i>
 ModUi/&EnableSpeechActorHelp=• Выберите актера
+ModUi/&EnableSpeechOnNpcs=<i>+ Также включить голоса для NPC, используя не назначенные голоса ниже</i>
 ModUi/&EnableSpeechVoiceHelp=• Выберите голос и скорость повествования
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику на всплывающей подсказке о герое <i><color=#F0DAA0>[например: критические удары, критические промахи и т.д.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Также каждый герой добавляет к весомости результат броска D20 для привнесения элемента случайности <color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя + бросок D20]</color></i>
