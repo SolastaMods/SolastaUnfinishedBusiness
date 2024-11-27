@@ -216,9 +216,42 @@ public static class CharacterBuildingManagerPatcher
     [UsedImplicitly]
     public static class FinalizeCharacter_Patch
     {
+        private static void GrantCantripFromFightingStyle(
+            CharacterBuildingManager characterBuildingManager,
+            RulesetCharacterHero hero,
+            FeatureDefinitionCastSpell featureDefinitionCastSpell)
+        {
+            var spellTag = featureDefinitionCastSpell.GetFirstSubFeatureOfType<FeatHelpers.SpellTag>();
+
+            if (spellTag == null)
+            {
+                return;
+            }
+
+            characterBuildingManager.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+            var classTag = AttributeDefinitions.GetClassTag(classDefinition, level);
+            var tag = spellTag.Name;
+            var finalTag = classTag + tag + tag;
+            var heroBuildingData = hero.GetHeroBuildingData();
+
+            // grant cantrips from selection or fixed list
+            if (!heroBuildingData.AcquiredCantrips.TryGetValue(finalTag, out var cantrips))
+            {
+                return;
+            }
+
+            foreach (var cantrip in cantrips)
+            {
+                hero.GrantCantrip(cantrip, featureDefinitionCastSpell);
+            }
+        }
+
         [UsedImplicitly]
         public static void Prefix([NotNull] CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
+            var buildingData = hero.GetHeroBuildingData();
+
             //PATCH: grants race features
             LevelUpHelper.GrantRaceFeatures(__instance, hero);
 
@@ -230,10 +263,8 @@ public static class CharacterBuildingManagerPatcher
                 {
                     hero.GrantSpellRepertoire(featureDefinitionCastSpell, null, null, hero.RaceDefinition);
 
-                    var buildingData = hero.GetHeroBuildingData();
-
-                    __instance.GrantCantripsAndSpellsByTag(buildingData, AttributeDefinitions.TagBackground,
-                        featureDefinitionCastSpell);
+                    __instance.GrantCantripsAndSpellsByTag(
+                        buildingData, AttributeDefinitions.TagBackground, featureDefinitionCastSpell);
                 }
 
                 //PATCH: grants the power spell points to any created hero including pre-gen ones (SPELL_POINTS)
@@ -245,6 +276,7 @@ public static class CharacterBuildingManagerPatcher
                 hero.SpellRepertoires.All(x => x.spellCastingFeature != BlessedWarrior.CastSpellBlessedWarrior))
             {
                 hero.GrantSpellRepertoire(BlessedWarrior.CastSpellBlessedWarrior, null, null, null);
+                GrantCantripFromFightingStyle(__instance, hero, BlessedWarrior.CastSpellBlessedWarrior);
             }
 
             //PATCH: grants repertoire and selected cantrips from Blessed Warrior if not there yet
@@ -252,6 +284,7 @@ public static class CharacterBuildingManagerPatcher
                 hero.SpellRepertoires.All(x => x.spellCastingFeature != DruidicWarrior.CastSpellDruidicWarrior))
             {
                 hero.GrantSpellRepertoire(DruidicWarrior.CastSpellDruidicWarrior, null, null, null);
+                GrantCantripFromFightingStyle(__instance, hero, DruidicWarrior.CastSpellDruidicWarrior);
             }
 
             //PATCH: grants custom features

@@ -17,7 +17,7 @@ internal class DruidicWarrior : AbstractFightingStyle
 
     internal static readonly FeatureDefinitionCastSpell CastSpellDruidicWarrior = FeatureDefinitionCastSpellBuilder
         .Create($"CastSpell{Name}")
-        .SetGuiPresentationNoContent(true)
+        .SetGuiPresentation(Name, Category.FightingStyle)
         .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
         .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
         .SetSpellKnowledge(SpellKnowledge.Selection)
@@ -34,7 +34,7 @@ internal class DruidicWarrior : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(Name)
-        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(Name, Resources.DruidicWarrior, 256), hidden: true)
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(Name, Resources.DruidicWarrior, 256))
         .SetFeatures(
             CastSpellDruidicWarrior,
             FeatureDefinitionPointPoolBuilder

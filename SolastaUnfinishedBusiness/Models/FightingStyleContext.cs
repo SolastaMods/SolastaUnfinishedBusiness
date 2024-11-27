@@ -44,12 +44,10 @@ internal static class FightingStyleContext
         KeepDemotedFightingStylesBackwardCompatibility();
 
         LoadStyle(new AstralReach());
-        // for an unknown reason it's getting an empty spell list on level up
-        _ = new BlessedWarrior();
+        LoadStyle(new BlessedWarrior());
         LoadStyle(new BlindFighting());
         LoadStyle(new Crippling());
-        // for an unknown reason it's getting an empty spell list on level up
-        _ = new DruidicWarrior();
+        LoadStyle(new DruidicWarrior());
         LoadStyle(new Executioner());
         LoadStyle(new HandAndAHalf());
         LoadStyle(new Interception());
